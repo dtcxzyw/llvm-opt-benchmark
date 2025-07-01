@@ -19026,7 +19026,8 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
   %.sroa.0100.0.copyload = load i64, ptr %20, align 8
   %.sroa.4101.0.copyload = load ptr, ptr %126, align 8, !nonnull !5, !noundef !5
   %.sroa.5102.0.copyload = load i64, ptr %127, align 8
-  %293 = getelementptr inbounds { i64, i64 }, ptr %.sroa.4101.0.copyload, i64 %.sroa.5102.0.copyload
+  %.idx = shl nsw i64 %.sroa.5102.0.copyload, 4
+  %293 = getelementptr inbounds i8, ptr %.sroa.4101.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
   store ptr %.sroa.4101.0.copyload, ptr %18, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8

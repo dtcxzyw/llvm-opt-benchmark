@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.25" = type { %"struct.std::_Tuple_impl.26", %"struct.std::_Head_base" }
 %"struct.std::_Tuple_impl.26" = type { %"struct.std::_Head_base.27" }
 %"struct.std::_Head_base.27" = type { i64 }
-%"struct.llvm::DWARFGdbIndex::CompUnitEntry" = type { i64, i64 }
 %"class.llvm::formatv_object" = type { %"class.llvm::formatv_object_base.base", %"class.std::tuple.30", %"struct.std::array" }
 %"class.llvm::formatv_object_base.base" = type <{ %"class.llvm::StringRef", %"class.llvm::ArrayRef", i8 }>
 %"class.llvm::StringRef" = type { ptr, i64 }
@@ -43,7 +42,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.46" = type { %"class.llvm::support::detail::provider_format_adapter.47" }
 %"class.llvm::support::detail::provider_format_adapter.47" = type <{ %"class.llvm::support::detail::format_adapter", i32, [4 x i8] }>
 %"struct.std::array.48" = type { [4 x ptr] }
-%"struct.llvm::DWARFGdbIndex::TypeUnitEntry" = type { i64, i64, i64 }
 %"class.llvm::format_object.49" = type { %"class.llvm::format_object_base", %"class.std::tuple.50" }
 %"class.std::tuple.50" = type { %"struct.std::_Tuple_impl.51" }
 %"struct.std::_Tuple_impl.51" = type { %"struct.std::_Tuple_impl.52", %"struct.std::_Head_base.56" }
@@ -52,7 +50,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.54" = type { %"struct.std::_Head_base.55" }
 %"struct.std::_Head_base.55" = type { i32 }
 %"struct.std::_Head_base.56" = type { i64 }
-%"struct.llvm::DWARFGdbIndex::AddressEntry" = type { i64, i64, i32 }
 %"class.llvm::format_object.57" = type <{ %"class.llvm::format_object_base", %"class.std::tuple.58", [4 x i8] }>
 %"class.std::tuple.58" = type { %"struct.std::_Tuple_impl.59" }
 %"struct.std::_Tuple_impl.59" = type { %"struct.std::_Tuple_impl.60", %"struct.std::_Head_base.1" }
@@ -65,25 +62,28 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.66" = type { %"struct.std::_Tuple_impl.67", %"struct.std::_Head_base.68" }
 %"struct.std::_Tuple_impl.67" = type { %"struct.std::_Head_base.63" }
 %"struct.std::_Head_base.68" = type { ptr }
-%"struct.llvm::DWARFGdbIndex::SymTableEntry" = type { i32, i32 }
 %"class.llvm::format_object.74" = type { %"class.llvm::format_object_base", %"class.std::tuple.75" }
 %"class.std::tuple.75" = type { %"struct.std::_Tuple_impl.76" }
 %"struct.std::_Tuple_impl.76" = type { %"struct.std::_Tuple_impl.67", %"struct.std::_Head_base.1" }
 %"class.llvm::format_object.77" = type <{ %"class.llvm::format_object_base", %"class.std::tuple.78", [4 x i8] }>
 %"class.std::tuple.78" = type { %"struct.std::_Tuple_impl.79" }
 %"struct.std::_Tuple_impl.79" = type { %"struct.std::_Head_base.1" }
-%"struct.std::pair" = type { i32, %"class.llvm::SmallVector.69" }
-%"class.llvm::SmallVector.69" = type { %"class.llvm::SmallVectorImpl.70" }
-%"class.llvm::SmallVectorImpl.70" = type { %"class.llvm::SmallVectorTemplateBase.71" }
-%"class.llvm::SmallVectorTemplateBase.71" = type { %"class.llvm::SmallVectorTemplateCommon.72" }
-%"class.llvm::SmallVectorTemplateCommon.72" = type { %"class.llvm::SmallVectorBase" }
-%"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"class.llvm::DataExtractor" = type <{ %"class.llvm::StringRef", i8, i8, [6 x i8] }>
+%"struct.llvm::DWARFGdbIndex::AddressEntry" = type { i64, i64, i32 }
 %"class.std::set" = type { %"class.std::_Rb_tree" }
 %"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
+%"class.llvm::SmallVector.69" = type { %"class.llvm::SmallVectorImpl.70" }
+%"class.llvm::SmallVectorImpl.70" = type { %"class.llvm::SmallVectorTemplateBase.71" }
+%"class.llvm::SmallVectorTemplateBase.71" = type { %"class.llvm::SmallVectorTemplateCommon.72" }
+%"class.llvm::SmallVectorTemplateCommon.72" = type { %"class.llvm::SmallVectorBase" }
+%"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
+%"struct.llvm::DWARFGdbIndex::TypeUnitEntry" = type { i64, i64, i64 }
+%"struct.llvm::DWARFGdbIndex::CompUnitEntry" = type { i64, i64 }
+%"struct.llvm::DWARFGdbIndex::SymTableEntry" = type { i32, i32 }
+%"struct.std::pair" = type { i32, %"class.llvm::SmallVector.69" }
 
 $_ZN4llvm7support6detail23provider_format_adapterImED0Ev = comdat any
 
@@ -229,7 +229,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %19, %21
   %23 = load ptr, ptr %6, align 8, !tbaa !30
   %24 = load i32, ptr %7, align 8, !tbaa !3
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::DWARFGdbIndex::CompUnitEntry", ptr %23, i64 %25
+  %.idx = shl nuw nsw i64 %25, 4
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   %.not13 = icmp eq i32 %24, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -308,7 +309,8 @@ define dso_local void @_ZNK4llvm13DWARFGdbIndex10dumpTUListERNS_11raw_ostreamE(p
   %18 = load ptr, ptr %6, align 8, !tbaa !30
   %19 = load i32, ptr %7, align 8, !tbaa !3
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %"struct.llvm::DWARFGdbIndex::TypeUnitEntry", ptr %18, i64 %20
+  %.idx = mul nuw nsw i64 %20, 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %.not17 = icmp eq i32 %19, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -409,7 +411,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %19, %21
   %23 = load ptr, ptr %6, align 8, !tbaa !30
   %24 = load i32, ptr %7, align 8, !tbaa !3
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::DWARFGdbIndex::AddressEntry", ptr %23, i64 %25
+  %.idx = mul nuw nsw i64 %25, 24
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   %.not15 = icmp eq i32 %24, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -490,7 +493,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %20, %22
   %24 = load ptr, ptr %7, align 8, !tbaa !30
   %25 = load i32, ptr %8, align 8, !tbaa !3
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::DWARFGdbIndex::SymTableEntry", ptr %24, i64 %26
+  %.idx = shl nuw nsw i64 %26, 3
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx
   %.not33 = icmp eq i32 %25, 0
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
@@ -703,7 +707,8 @@ define dso_local void @_ZNK4llvm13DWARFGdbIndex16dumpConstantPoolERNS_11raw_ostr
   %16 = load ptr, ptr %7, align 8, !tbaa !30
   %17 = load i32, ptr %8, align 8, !tbaa !3
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.std::pair", ptr %16, i64 %18
+  %.idx = mul nuw nsw i64 %18, 24
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   %.not26 = icmp eq i32 %17, 0
   br i1 %.not26, label %._crit_edge31, label %.lr.ph30
 
@@ -754,7 +759,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %29, %31
   %39 = getelementptr inbounds nuw i8, ptr %.02027, i64 16
   %40 = load i32, ptr %39, align 8, !tbaa !3
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %38, i64 %41
+  %.idx32 = shl nuw nsw i64 %41, 2
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx32
   %.not2124 = icmp eq i32 %40, 0
   br i1 %.not2124, label %._crit_edge, label %.lr.ph
 
@@ -901,7 +907,8 @@ _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %71, %69
   %73 = load ptr, ptr %56, align 8, !tbaa !30
   %74 = load i32, ptr %57, align 8, !tbaa !3
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %"struct.llvm::DWARFGdbIndex::CompUnitEntry", ptr %73, i64 %75
+  %.idx.i = shl nuw nsw i64 %75, 4
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx.i
   %.not13.i = icmp eq i32 %74, 0
   br i1 %.not13.i, label %_ZNK4llvm13DWARFGdbIndex10dumpCUListERNS_11raw_ostreamE.exit, label %.lr.ph.i
 
@@ -965,11 +972,12 @@ _ZNK4llvm13DWARFGdbIndex10dumpCUListERNS_11raw_ostreamE.exit: ; preds = %81, %_Z
   %101 = load ptr, ptr %89, align 8, !tbaa !30
   %102 = load i32, ptr %90, align 8, !tbaa !3
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw %"struct.llvm::DWARFGdbIndex::TypeUnitEntry", ptr %101, i64 %103
+  %.idx.i12 = mul nuw nsw i64 %103, 24
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx.i12
   %.not17.i = icmp eq i32 %102, 0
-  br i1 %.not17.i, label %_ZNK4llvm13DWARFGdbIndex10dumpTUListERNS_11raw_ostreamE.exit, label %.lr.ph.i12
+  br i1 %.not17.i, label %_ZNK4llvm13DWARFGdbIndex10dumpTUListERNS_11raw_ostreamE.exit, label %.lr.ph.i13
 
-.lr.ph.i12:                                       ; preds = %_ZNK4llvm13DWARFGdbIndex10dumpCUListERNS_11raw_ostreamE.exit
+.lr.ph.i13:                                       ; preds = %_ZNK4llvm13DWARFGdbIndex10dumpCUListERNS_11raw_ostreamE.exit
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %.sroa.22.0..sroa_idx.i.i.i.i13.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -988,9 +996,9 @@ _ZNK4llvm13DWARFGdbIndex10dumpCUListERNS_11raw_ostreamE.exit: ; preds = %81, %_Z
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 128
   br label %116
 
-116:                                              ; preds = %116, %.lr.ph.i12
-  %.019.i = phi i32 [ 0, %.lr.ph.i12 ], [ %117, %116 ]
-  %.01218.i = phi ptr [ %101, %.lr.ph.i12 ], [ %121, %116 ]
+116:                                              ; preds = %116, %.lr.ph.i13
+  %.019.i = phi i32 [ 0, %.lr.ph.i13 ], [ %117, %116 ]
+  %.01218.i = phi ptr [ %101, %.lr.ph.i13 ], [ %121, %116 ]
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %6) #15
   %117 = add nuw i32 %.019.i, 1
   %118 = getelementptr inbounds nuw i8, ptr %.01218.i, i64 8
@@ -1015,8 +1023,8 @@ _ZNK4llvm13DWARFGdbIndex10dumpCUListERNS_11raw_ostreamE.exit: ; preds = %81, %_Z
   %120 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(33) %6) #15
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %6) #15
   %121 = getelementptr inbounds nuw i8, ptr %.01218.i, i64 24
-  %.not.i13 = icmp eq ptr %121, %104
-  br i1 %.not.i13, label %_ZNK4llvm13DWARFGdbIndex10dumpTUListERNS_11raw_ostreamE.exit, label %116
+  %.not.i14 = icmp eq ptr %121, %104
+  br i1 %.not.i14, label %_ZNK4llvm13DWARFGdbIndex10dumpTUListERNS_11raw_ostreamE.exit, label %116
 
 _ZNK4llvm13DWARFGdbIndex10dumpTUListERNS_11raw_ostreamE.exit: ; preds = %116, %_ZNK4llvm13DWARFGdbIndex10dumpCUListERNS_11raw_ostreamE.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
@@ -1039,29 +1047,30 @@ _ZNK4llvm13DWARFGdbIndex10dumpTUListERNS_11raw_ostreamE.exit: ; preds = %116, %_
   %133 = load ptr, ptr %132, align 8, !tbaa !23
   %134 = getelementptr inbounds nuw i8, ptr %131, i64 24
   %135 = load ptr, ptr %134, align 8, !tbaa !28
-  %.not.i.i14 = icmp ult ptr %133, %135
-  br i1 %.not.i.i14, label %138, label %136
+  %.not.i.i15 = icmp ult ptr %133, %135
+  br i1 %.not.i.i15, label %138, label %136
 
 136:                                              ; preds = %_ZNK4llvm13DWARFGdbIndex10dumpTUListERNS_11raw_ostreamE.exit
   %137 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %131, i8 noundef zeroext 10) #15
-  br label %_ZN4llvm11raw_ostreamlsEc.exit.i15
+  br label %_ZN4llvm11raw_ostreamlsEc.exit.i16
 
 138:                                              ; preds = %_ZNK4llvm13DWARFGdbIndex10dumpTUListERNS_11raw_ostreamE.exit
   %139 = getelementptr inbounds nuw i8, ptr %133, i64 1
   store ptr %139, ptr %132, align 8, !tbaa !23
   store i8 10, ptr %133, align 1, !tbaa !29
-  br label %_ZN4llvm11raw_ostreamlsEc.exit.i15
+  br label %_ZN4llvm11raw_ostreamlsEc.exit.i16
 
-_ZN4llvm11raw_ostreamlsEc.exit.i15:               ; preds = %138, %136
+_ZN4llvm11raw_ostreamlsEc.exit.i16:               ; preds = %138, %136
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
   %140 = load ptr, ptr %123, align 8, !tbaa !30
   %141 = load i32, ptr %124, align 8, !tbaa !3
   %142 = zext i32 %141 to i64
-  %143 = getelementptr inbounds nuw %"struct.llvm::DWARFGdbIndex::AddressEntry", ptr %140, i64 %142
+  %.idx.i17 = mul nuw nsw i64 %142, 24
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 %.idx.i17
   %.not15.i = icmp eq i32 %141, 0
-  br i1 %.not15.i, label %_ZNK4llvm13DWARFGdbIndex15dumpAddressAreaERNS_11raw_ostreamE.exit, label %.lr.ph.i16
+  br i1 %.not15.i, label %_ZNK4llvm13DWARFGdbIndex15dumpAddressAreaERNS_11raw_ostreamE.exit, label %.lr.ph.i18
 
-.lr.ph.i16:                                       ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i15
+.lr.ph.i18:                                       ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i16
   %144 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %145 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %146 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1069,8 +1078,8 @@ _ZN4llvm11raw_ostreamlsEc.exit.i15:               ; preds = %138, %136
   %148 = getelementptr inbounds nuw i8, ptr %4, i64 40
   br label %149
 
-149:                                              ; preds = %149, %.lr.ph.i16
-  %.016.i = phi ptr [ %140, %.lr.ph.i16 ], [ %157, %149 ]
+149:                                              ; preds = %149, %.lr.ph.i18
+  %.016.i = phi ptr [ %140, %.lr.ph.i18 ], [ %157, %149 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #15
   %150 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
   %151 = load i64, ptr %150, align 8, !tbaa !66
@@ -1088,10 +1097,10 @@ _ZN4llvm11raw_ostreamlsEc.exit.i15:               ; preds = %138, %136
   %156 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #15
   %157 = getelementptr inbounds nuw i8, ptr %.016.i, i64 24
-  %.not.i17 = icmp eq ptr %157, %143
-  br i1 %.not.i17, label %_ZNK4llvm13DWARFGdbIndex15dumpAddressAreaERNS_11raw_ostreamE.exit, label %149
+  %.not.i19 = icmp eq ptr %157, %143
+  br i1 %.not.i19, label %_ZNK4llvm13DWARFGdbIndex15dumpAddressAreaERNS_11raw_ostreamE.exit, label %149
 
-_ZNK4llvm13DWARFGdbIndex15dumpAddressAreaERNS_11raw_ostreamE.exit: ; preds = %149, %_ZN4llvm11raw_ostreamlsEc.exit.i15
+_ZNK4llvm13DWARFGdbIndex15dumpAddressAreaERNS_11raw_ostreamE.exit: ; preds = %149, %_ZN4llvm11raw_ostreamlsEc.exit.i16
   call void @_ZNK4llvm13DWARFGdbIndex15dumpSymbolTableERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(126) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   call void @_ZNK4llvm13DWARFGdbIndex16dumpConstantPoolERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(126) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -2249,7 +2258,8 @@ _ZNSt4pairIjN4llvm11SmallVectorIjLj0EEEEC2IiS2_TnNSt9enable_ifIXaaclsr5_PCCPE22_
   %20 = load ptr, ptr %0, align 8, !tbaa !30
   %21 = load i32, ptr %7, align 8, !tbaa !3
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i64 %22
+  %.idx.i = mul nuw nsw i64 %22, 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %21, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorIjLj0EEEELb0EE19moveElementsForGrowEPS4_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -2282,13 +2292,14 @@ _ZSt10_ConstructISt4pairIjN4llvm11SmallVectorIjLj0EEEEJS4_EEvPT_DpOT0_.exit.i.i.
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorIjLj0EEEELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i: ; preds = %_ZSt10_ConstructISt4pairIjN4llvm11SmallVectorIjLj0EEEEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !30
-  %.pre2.i = load i32, ptr %7, align 8, !tbaa !3
-  %.not4.i.i = icmp eq i32 %.pre2.i, 0
+  %.pre3.i = load i32, ptr %7, align 8, !tbaa !3
+  %.not4.i.i = icmp eq i32 %.pre3.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorIjLj0EEEELb0EE19moveElementsForGrowEPS4_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorIjLj0EEEELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i
-  %35 = zext i32 %.pre2.i to i64
-  %36 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre.i, i64 %35
+  %35 = zext i32 %.pre3.i to i64
+  %.idx2.i = mul nuw nsw i64 %35, 24
+  %36 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt4pairIjN4llvm11SmallVectorIjLj0EEEED2Ev.exit.i.i, %.lr.ph.i.preheader.i

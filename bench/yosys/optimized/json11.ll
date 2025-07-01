@@ -27,7 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, json11::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, json11::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
 %"struct.json11::(anonymous namespace)::JsonParser" = type { ptr, i64, ptr, i8, i32 }
 %"class.std::allocator" = type { i8 }
-%"struct.std::pair.22" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
 %"struct.std::_Head_base" = type { ptr }
@@ -5486,7 +5485,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZN
   %92 = load ptr, ptr %1, align 8, !tbaa !153
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %94 = load i64, ptr %93, align 8, !tbaa !156
-  %95 = getelementptr inbounds nuw %"struct.std::pair.22", ptr %92, i64 %94
+  %.idx = mul nuw nsw i64 %94, 40
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx
   %.not84 = icmp eq i64 %94, 0
   br i1 %.not84, label %.loopexit, label %.lr.ph
 

@@ -4161,7 +4161,8 @@ define void @"_ZN3h3i12recordreplay4qlog123_$LT$impl$u20$core..convert..From$LT$
   %67 = load ptr, ptr %66, align 8, !nonnull !12, !noundef !12
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %69 = load i64, ptr %68, align 8, !noundef !12
-  %70 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, i64 }, ptr %67, i64 %69
+  %.idx = shl nuw nsw i64 %69, 5
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx
   %71 = icmp eq i64 %69, 0
   br i1 %71, label %._crit_edge, label %.lr.ph.preheader
 

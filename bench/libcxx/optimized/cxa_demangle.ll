@@ -2253,7 +2253,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DumpVisitor5printENS_16itanium_d
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 123, ptr %6)
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not19 = icmp eq i64 %2, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
@@ -17595,7 +17596,8 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator8allocateEm.exit.i.i.us: ; preds = %_ZN12
   store i64 %.val22.us, ptr %.sroa.2.0..sroa_idx.i.i.i.us, align 8, !tbaa !220
   %113 = or disjoint i16 %111, 2688
   store i16 %113, ptr %109, align 1
-  %114 = getelementptr inbounds nuw ptr, ptr %.val21.us, i64 %.val22.us
+  %.idx.i.i.i.us = shl nuw nsw i64 %.val22.us, 3
+  %114 = getelementptr inbounds nuw i8, ptr %.val21.us, i64 %.idx.i.i.i.us
   %.not1.i.i.i.i.i.us = icmp eq i64 %.val22.us, 0
   br i1 %.not1.i.i.i.i.i.us, label %.loopexit28.i.i.i.us, label %.lr.ph.i.i.i.i.i.us
 
@@ -35025,7 +35027,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer9printOpenEc.exit52: ; preds = 
   %.val = load ptr, ptr %109, align 8, !tbaa !476
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val19 = load i64, ptr %110, align 8, !tbaa !475
-  %111 = getelementptr inbounds nuw ptr, ptr %.val, i64 %.val19
+  %.idx = shl nuw nsw i64 %.val19, 3
+  %111 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx
   %.not73 = icmp eq i64 %.val19, 0
   br i1 %.not73, label %._crit_edge, label %.lr.ph
 
@@ -44432,7 +44435,8 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLEc.exit.i: ; preds = %._ZN12_
   %.val99.i = load ptr, ptr %2, align 8, !tbaa !476
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val101.i = load i64, ptr %29, align 8, !tbaa !475
-  %30 = getelementptr inbounds nuw ptr, ptr %.val99.i, i64 %.val101.i
+  %.idx.i = shl nuw nsw i64 %.val101.i, 3
+  %30 = getelementptr inbounds nuw i8, ptr %.val99.i, i64 %.idx.i
   %.not312.i = icmp eq i64 %.val101.i, 0
   br i1 %.not312.i, label %.critedge.i, label %.lr.ph316.i
 

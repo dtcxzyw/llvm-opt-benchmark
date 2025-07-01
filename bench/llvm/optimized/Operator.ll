@@ -769,7 +769,8 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %30, %38, %41
 42:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #11
   store i8 0, ptr %8, align 1, !tbaa !63
-  %43 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br i1 %17, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %42
@@ -2860,7 +2861,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i, i32 %11, i32 4
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %9, i64 %13
+  %.idx.i = shl nuw nsw i64 %13, 4
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
   %.not6.i = icmp eq i32 %12, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit, label %.lr.ph.i
 
@@ -2989,7 +2991,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %22 = load ptr, ptr %0, align 8, !tbaa !54
   %23 = load i32, ptr %8, align 8, !tbaa !56
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"struct.std::pair.40", ptr %22, i64 %24
+  %.idx.i = mul nuw nsw i64 %24, 24
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %23, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_5APIntEELb0EE19moveElementsForGrowEPS5_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -3014,13 +3017,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_5APIntEELb0EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !54
-  %.pre2.i = load i32, ptr %8, align 8, !tbaa !56
-  %.not4.i.i = icmp eq i32 %.pre2.i, 0
+  %.pre3.i = load i32, ptr %8, align 8, !tbaa !56
+  %.not4.i.i = icmp eq i32 %.pre3.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_5APIntEELb0EE19moveElementsForGrowEPS5_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_5APIntEELb0EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit.i
-  %35 = zext i32 %.pre2.i to i64
-  %36 = getelementptr inbounds nuw %"struct.std::pair.40", ptr %.pre.i, i64 %35
+  %35 = zext i32 %.pre3.i to i64
+  %.idx2.i = mul nuw nsw i64 %35, 24
+  %36 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt4pairIPN4llvm5ValueENS0_5APIntEED2Ev.exit.i.i, %.lr.ph.i.preheader.i

@@ -4,13 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.obj_map<expr, unsigned int>::obj_map_entry" = type { %"struct.obj_map<expr, unsigned int>::key_data" }
-%"struct.obj_map<expr, unsigned int>::key_data" = type <{ ptr, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
+%"struct.obj_map<expr, unsigned int>::key_data" = type <{ ptr, i32, [4 x i8] }>
 %"struct.q::quantifier_stat_gen::entry" = type <{ ptr, i32, [4 x i8] }>
+%"class.obj_map<expr, unsigned int>::obj_map_entry" = type { %"struct.obj_map<expr, unsigned int>::key_data" }
 
 $_ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE13expand_vectorEv = comdat any
 
@@ -112,7 +112,8 @@ define hidden void @_ZN1q19quantifier_stat_gen5resetEv(ptr noundef nonnull align
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8, !tbaa !26
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"class.obj_map<expr, unsigned int>::obj_map_entry", ptr %10, i64 %13
+  %.idx.i.i = shl nuw nsw i64 %13, 4
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
   %.not11.i.i = icmp eq i32 %12, 0
   br i1 %.not11.i.i, label %._crit_edge.thread.i.i, label %.lr.ph.i.i
 
@@ -287,7 +288,8 @@ _ZN6vectorIN1q19quantifier_stat_gen5entryELb0EjE4backEv.exit: ; preds = %_ZNK6ve
   %53 = and i32 %52, %50
   %54 = load ptr, ptr %34, align 8, !tbaa !23
   %55 = zext i32 %53 to i64
-  %56 = getelementptr inbounds nuw %"class.obj_map<expr, unsigned int>::obj_map_entry", ptr %54, i64 %55
+  %.idx.i.i.i = shl nuw nsw i64 %55, 4
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i.i.i
   %57 = zext i32 %51 to i64
   %58 = getelementptr inbounds nuw %"class.obj_map<expr, unsigned int>::obj_map_entry", ptr %54, i64 %57
   %.not35.i.i.i = icmp eq i32 %53, %51
@@ -935,7 +937,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_
   %20 = and i32 %19, %18
   %21 = load ptr, ptr %0, align 8, !tbaa !23
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw %"class.obj_map<expr, unsigned int>::obj_map_entry", ptr %21, i64 %22
+  %.idx = shl nuw nsw i64 %22, 4
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %24 = zext i32 %15 to i64
   %25 = getelementptr inbounds nuw %"class.obj_map<expr, unsigned int>::obj_map_entry", ptr %21, i64 %24
   %.not63 = icmp eq i32 %20, %15
@@ -1074,7 +1077,8 @@ _ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10
   %12 = load i32, ptr %2, align 8, !tbaa !26
   %13 = add i32 %4, -1
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %"class.obj_map<expr, unsigned int>::obj_map_entry", ptr %11, i64 %14
+  %.idx.i = shl nuw nsw i64 %14, 4
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   %16 = getelementptr inbounds nuw %"class.obj_map<expr, unsigned int>::obj_map_entry", ptr %7, i64 %5
   %.not38.i = icmp eq i32 %12, 0
   br i1 %.not38.i, label %_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE10move_tableEPS3_jSA_j.exit, label %.lr.ph41.i
@@ -1090,7 +1094,8 @@ _ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10
   %20 = load i32, ptr %19, align 4, !tbaa !55
   %21 = and i32 %20, %13
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"class.obj_map<expr, unsigned int>::obj_map_entry", ptr %7, i64 %22
+  %.idx43.i = shl nuw nsw i64 %22, 4
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx43.i
   %.not2933.i = icmp eq i32 %21, %4
   br i1 %.not2933.i, label %.preheader.i, label %.lr.ph.i
 

@@ -667,7 +667,8 @@ define hidden noundef align 8 ptr @"_ZN5wasmi6engine8executor44_$LT$impl$u20$was
   %81 = add nuw nsw i64 %78, %66
   store i64 %81, ptr %69, align 8, !alias.scope !51, !noalias !54
   %82 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %3, i64 %4
-  %83 = getelementptr inbounds nuw { [2 x i64] }, ptr %79, i64 %66
+  %.idx.i = shl nuw nsw i64 %66, 4
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx.i
   %.sroa.517.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 32
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23), !noalias !45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.517.0..sroa_idx.i, i8 0, i64 24, i1 false), !noalias !45

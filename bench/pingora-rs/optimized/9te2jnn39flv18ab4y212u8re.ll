@@ -6576,7 +6576,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
 140:                                              ; preds = %133
   %141 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %142 = load ptr, ptr %141, align 8, !nonnull !3, !align !260, !noundef !3
-  %143 = getelementptr inbounds nuw i32, ptr %142, i64 %135
+  %.idx = shl nuw nsw i64 %135, 2
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 %.idx
   %144 = icmp eq i64 %135, 0
   br i1 %144, label %.loopexit60, label %.lr.ph.preheader
 
@@ -6587,7 +6588,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
 145:                                              ; preds = %.loopexit60
   %146 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %147 = load ptr, ptr %146, align 8, !nonnull !3, !align !260, !noundef !3
-  %148 = getelementptr inbounds nuw i32, ptr %147, i64 %138
+  %.idx100 = shl nuw nsw i64 %138, 2
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 %.idx100
   %149 = icmp eq i64 %138, 0
   br i1 %149, label %.loopexit, label %.lr.ph98.preheader
 
@@ -7067,17 +7069,17 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
 352:                                              ; preds = %350
   %353 = load i64, ptr %8, align 8, !noundef !3
   invoke fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_queue17h17088d9a0519e406E(ptr noalias noundef align 8 dereferenceable(920) %47, ptr noalias noundef align 8 captures(none) dereferenceable(48) %50, ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2, ptr noalias noundef readonly align 4 dereferenceable(16) %7, i64 noundef %353, ptr noalias noundef readonly align 8 dereferenceable(152) %9, ptr noalias noundef readonly align 8 dereferenceable(112) %10, i8 noundef %11)
-          to label %357 unwind label %.thread134
+          to label %357 unwind label %.thread135
 
 354:                                              ; preds = %"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$33set_combined_stride_context_speed17hc0d2b8523a7bbd1bE.exit253", %350
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %42)
   %355 = invoke i64 @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$23stride_last_level_range17hb6d4147af8c05fe4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(376) %55)
-          to label %503 unwind label %.thread134
+          to label %503 unwind label %.thread135
 
 356:                                              ; preds = %.body
   br i1 %.sroa.085.7, label %591, label %.thread33.thread51
 
-.thread134:                                       ; preds = %352, %.invoke, %503, %354, %370, %368, %366, %364, %362, %360, %359, %358, %357
+.thread135:                                       ; preds = %352, %.invoke, %503, %354, %370, %368, %366, %364, %362, %360, %359, %358, %357
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %591
@@ -7085,44 +7087,44 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
 357:                                              ; preds = %352
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
   invoke void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Alloc$GT$21best_singleton_speeds17h98ed8ff2852197f5E"(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(920) %47, i1 noundef zeroext true, i1 noundef zeroext false)
-          to label %358 unwind label %.thread134
+          to label %358 unwind label %.thread135
 
 358:                                              ; preds = %357
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44)
   invoke void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Alloc$GT$21best_singleton_speeds17h98ed8ff2852197f5E"(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(920) %47, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %359 unwind label %.thread134
+          to label %359 unwind label %.thread135
 
 359:                                              ; preds = %358
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43)
   invoke void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Alloc$GT$21best_singleton_speeds17h98ed8ff2852197f5E"(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(920) %47, i1 noundef zeroext false, i1 noundef zeroext true)
-          to label %360 unwind label %.thread134
+          to label %360 unwind label %.thread135
 
 360:                                              ; preds = %359
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43)
   %361 = invoke i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Alloc$GT$11best_speeds17h76ca6838a4ddc323E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %47, i1 noundef zeroext true, i1 noundef zeroext false)
-          to label %362 unwind label %.thread134
+          to label %362 unwind label %.thread135
 
 362:                                              ; preds = %360
   %363 = invoke i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Alloc$GT$11best_speeds17h76ca6838a4ddc323E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %47, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %364 unwind label %.thread134
+          to label %364 unwind label %.thread135
 
 364:                                              ; preds = %362
   %365 = invoke i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Alloc$GT$11best_speeds17h76ca6838a4ddc323E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %47, i1 noundef zeroext false, i1 noundef zeroext true)
-          to label %366 unwind label %.thread134
+          to label %366 unwind label %.thread135
 
 366:                                              ; preds = %364
   %367 = invoke i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Alloc$GT$17best_speeds_costs17h81a8f1b4caf09f98E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %47, i1 noundef zeroext true, i1 noundef zeroext false)
-          to label %368 unwind label %.thread134
+          to label %368 unwind label %.thread135
 
 368:                                              ; preds = %366
   %369 = invoke i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Alloc$GT$17best_speeds_costs17h81a8f1b4caf09f98E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %47, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %370 unwind label %.thread134
+          to label %370 unwind label %.thread135
 
 370:                                              ; preds = %368
   %371 = invoke i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Alloc$GT$17best_speeds_costs17h81a8f1b4caf09f98E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %47, i1 noundef zeroext false, i1 noundef zeroext true)
-          to label %372 unwind label %.thread134
+          to label %372 unwind label %.thread135
 
 372:                                              ; preds = %370
   %373 = getelementptr inbounds nuw i8, ptr %47, i64 72
@@ -7179,7 +7181,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
   %403 = phi i64 [ %.val188, %477 ], [ %.val188, %496 ], [ %.val184, %435 ], [ %.val184, %454 ], [ %.val180, %390 ], [ %.val180, %412 ]
   %404 = phi ptr [ @anon.cc180569dbfb30d6841720704a8a24b8.221, %477 ], [ @anon.cc180569dbfb30d6841720704a8a24b8.223, %496 ], [ @anon.cc180569dbfb30d6841720704a8a24b8.213, %435 ], [ @anon.cc180569dbfb30d6841720704a8a24b8.215, %454 ], [ @anon.cc180569dbfb30d6841720704a8a24b8.217, %390 ], [ @anon.cc180569dbfb30d6841720704a8a24b8.219, %412 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %402, i64 noundef %403, ptr noalias noundef readonly align 8 dereferenceable(24) %404) #21
-          to label %.cont unwind label %.thread134
+          to label %.cont unwind label %.thread135
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -7372,7 +7374,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %31)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %50, i64 48, i1 false)
   invoke void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$3new17h7be4f1eeb2245befE"(ptr noalias noundef nonnull sret([296 x i8]) align 8 captures(none) dereferenceable(296) %42, ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %31, i64 %355, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %10)
-          to label %505 unwind label %.thread134
+          to label %505 unwind label %.thread135
 
 505:                                              ; preds = %503
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %31)
@@ -7640,13 +7642,13 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #20
   unreachable
 
-591:                                              ; preds = %.thread134, %356
-  %.pn172132 = phi { ptr, i32 } [ %.pn170, %356 ], [ %lpad.thr_comm, %.thread134 ]
+591:                                              ; preds = %.thread135, %356
+  %.pn172133 = phi { ptr, i32 } [ %.pn170, %356 ], [ %lpad.thr_comm, %.thread135 ]
   invoke void @"_ZN4core3ptr118drop_in_place$LT$brotli..enc..context_map_entropy..ContextMapEntropy$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17hc7b1dea27e41fb0fE"(ptr noalias noundef nonnull align 8 dereferenceable(920) %47) #19
           to label %592 unwind label %589
 
 592:                                              ; preds = %591, %326, %330
-  %.pn172.pn.ph = phi { ptr, i32 } [ %.pn, %330 ], [ %327, %326 ], [ %.pn172132, %591 ]
+  %.pn172.pn.ph = phi { ptr, i32 } [ %.pn, %330 ], [ %327, %326 ], [ %.pn172133, %591 ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u8$GT$$GT$17hb6c382cbc1d625feE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %49) #19
           to label %.thread unwind label %589
 
@@ -7949,7 +7951,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
 140:                                              ; preds = %133
   %141 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %142 = load ptr, ptr %141, align 8, !nonnull !3, !align !260, !noundef !3
-  %143 = getelementptr inbounds nuw i32, ptr %142, i64 %135
+  %.idx = shl nuw nsw i64 %135, 2
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 %.idx
   %144 = icmp eq i64 %135, 0
   br i1 %144, label %.loopexit60, label %.lr.ph.preheader
 
@@ -7960,7 +7963,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
 145:                                              ; preds = %.loopexit60
   %146 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %147 = load ptr, ptr %146, align 8, !nonnull !3, !align !260, !noundef !3
-  %148 = getelementptr inbounds nuw i32, ptr %147, i64 %138
+  %.idx100 = shl nuw nsw i64 %138, 2
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 %.idx100
   %149 = icmp eq i64 %138, 0
   br i1 %149, label %.loopexit, label %.lr.ph98.preheader
 
@@ -8440,17 +8444,17 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
 352:                                              ; preds = %350
   %353 = load i64, ptr %8, align 8, !noundef !3
   invoke fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_queue17h17088d9a0519e406E(ptr noalias noundef align 8 dereferenceable(920) %47, ptr noalias noundef align 8 captures(none) dereferenceable(48) %50, ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2, ptr noalias noundef readonly align 4 dereferenceable(16) %7, i64 noundef %353, ptr noalias noundef readonly align 8 dereferenceable(152) %9, ptr noalias noundef readonly align 8 dereferenceable(112) %10, i8 noundef %11)
-          to label %357 unwind label %.thread134
+          to label %357 unwind label %.thread135
 
 354:                                              ; preds = %"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$33set_combined_stride_context_speed17hc0d2b8523a7bbd1bE.exit253", %350
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %42)
   %355 = invoke i64 @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$AllocU32$GT$23stride_last_level_range17hb6d4147af8c05fe4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(376) %55)
-          to label %503 unwind label %.thread134
+          to label %503 unwind label %.thread135
 
 356:                                              ; preds = %.body
   br i1 %.sroa.085.7, label %591, label %.thread33.thread51
 
-.thread134:                                       ; preds = %352, %.invoke, %503, %354, %370, %368, %366, %364, %362, %360, %359, %358, %357
+.thread135:                                       ; preds = %352, %.invoke, %503, %354, %370, %368, %366, %364, %362, %360, %359, %358, %357
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %591
@@ -8458,44 +8462,44 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
 357:                                              ; preds = %352
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
   invoke void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Alloc$GT$21best_singleton_speeds17h98ed8ff2852197f5E"(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(920) %47, i1 noundef zeroext true, i1 noundef zeroext false)
-          to label %358 unwind label %.thread134
+          to label %358 unwind label %.thread135
 
 358:                                              ; preds = %357
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44)
   invoke void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Alloc$GT$21best_singleton_speeds17h98ed8ff2852197f5E"(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(920) %47, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %359 unwind label %.thread134
+          to label %359 unwind label %.thread135
 
 359:                                              ; preds = %358
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43)
   invoke void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Alloc$GT$21best_singleton_speeds17h98ed8ff2852197f5E"(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(920) %47, i1 noundef zeroext false, i1 noundef zeroext true)
-          to label %360 unwind label %.thread134
+          to label %360 unwind label %.thread135
 
 360:                                              ; preds = %359
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43)
   %361 = invoke i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Alloc$GT$11best_speeds17h76ca6838a4ddc323E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %47, i1 noundef zeroext true, i1 noundef zeroext false)
-          to label %362 unwind label %.thread134
+          to label %362 unwind label %.thread135
 
 362:                                              ; preds = %360
   %363 = invoke i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Alloc$GT$11best_speeds17h76ca6838a4ddc323E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %47, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %364 unwind label %.thread134
+          to label %364 unwind label %.thread135
 
 364:                                              ; preds = %362
   %365 = invoke i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Alloc$GT$11best_speeds17h76ca6838a4ddc323E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %47, i1 noundef zeroext false, i1 noundef zeroext true)
-          to label %366 unwind label %.thread134
+          to label %366 unwind label %.thread135
 
 366:                                              ; preds = %364
   %367 = invoke i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Alloc$GT$17best_speeds_costs17h81a8f1b4caf09f98E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %47, i1 noundef zeroext true, i1 noundef zeroext false)
-          to label %368 unwind label %.thread134
+          to label %368 unwind label %.thread135
 
 368:                                              ; preds = %366
   %369 = invoke i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Alloc$GT$17best_speeds_costs17h81a8f1b4caf09f98E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %47, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %370 unwind label %.thread134
+          to label %370 unwind label %.thread135
 
 370:                                              ; preds = %368
   %371 = invoke i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Alloc$GT$17best_speeds_costs17h81a8f1b4caf09f98E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %47, i1 noundef zeroext false, i1 noundef zeroext true)
-          to label %372 unwind label %.thread134
+          to label %372 unwind label %.thread135
 
 372:                                              ; preds = %370
   %373 = getelementptr inbounds nuw i8, ptr %47, i64 72
@@ -8552,7 +8556,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
   %403 = phi i64 [ %.val188, %477 ], [ %.val188, %496 ], [ %.val184, %435 ], [ %.val184, %454 ], [ %.val180, %390 ], [ %.val180, %412 ]
   %404 = phi ptr [ @anon.cc180569dbfb30d6841720704a8a24b8.221, %477 ], [ @anon.cc180569dbfb30d6841720704a8a24b8.223, %496 ], [ @anon.cc180569dbfb30d6841720704a8a24b8.213, %435 ], [ @anon.cc180569dbfb30d6841720704a8a24b8.215, %454 ], [ @anon.cc180569dbfb30d6841720704a8a24b8.217, %390 ], [ @anon.cc180569dbfb30d6841720704a8a24b8.219, %412 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %402, i64 noundef %403, ptr noalias noundef readonly align 8 dereferenceable(24) %404) #21
-          to label %.cont unwind label %.thread134
+          to label %.cont unwind label %.thread135
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -8745,7 +8749,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %31)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %50, i64 48, i1 false)
   invoke void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$3new17h7be4f1eeb2245befE"(ptr noalias noundef nonnull sret([296 x i8]) align 8 captures(none) dereferenceable(296) %42, ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %31, i64 %355, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %10)
-          to label %505 unwind label %.thread134
+          to label %505 unwind label %.thread135
 
 505:                                              ; preds = %503
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %31)
@@ -9013,13 +9017,13 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf1db7a102e30278bE.exit204: ; pre
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #20
   unreachable
 
-591:                                              ; preds = %.thread134, %356
-  %.pn172132 = phi { ptr, i32 } [ %.pn170, %356 ], [ %lpad.thr_comm, %.thread134 ]
+591:                                              ; preds = %.thread135, %356
+  %.pn172133 = phi { ptr, i32 } [ %.pn170, %356 ], [ %lpad.thr_comm, %.thread135 ]
   invoke void @"_ZN4core3ptr118drop_in_place$LT$brotli..enc..context_map_entropy..ContextMapEntropy$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17hc7b1dea27e41fb0fE"(ptr noalias noundef nonnull align 8 dereferenceable(920) %47) #19
           to label %592 unwind label %589
 
 592:                                              ; preds = %591, %326, %330
-  %.pn172.pn.ph = phi { ptr, i32 } [ %.pn, %330 ], [ %327, %326 ], [ %.pn172132, %591 ]
+  %.pn172.pn.ph = phi { ptr, i32 } [ %.pn, %330 ], [ %327, %326 ], [ %.pn172133, %591 ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u8$GT$$GT$17hb6c382cbc1d625feE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %49) #19
           to label %.thread unwind label %589
 
@@ -11876,7 +11880,8 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
 64:                                               ; preds = %51, %118
   %.sroa.069.0 = phi i32 [ %121, %118 ], [ -2147483648, %51 ]
   tail call void @_ZN6brotli3enc9interface16CommandProcessor25push_block_switch_literal17h4ff08952b07f960aE(ptr noalias noundef nonnull align 8 dereferenceable(920) %0, i8 noundef 0)
-  %65 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 4
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %66 = icmp eq i64 %3, 0
   br i1 %66, label %._crit_edge180, label %.lr.ph179
 
@@ -12602,7 +12607,8 @@ define internal fastcc noundef i64 @_ZN6brotli3enc17brotli_bit_stream21process_c
   store i8 4, ptr %40, align 8, !noalias !755
   call fastcc void @"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17hc8787b6d3dc4258bE"(ptr noalias noundef nonnull align 8 dereferenceable(1656) %0, ptr noalias noundef align 8 captures(none) dereferenceable(56) %40)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %40), !noalias !755
-  %97 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 4
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %98 = icmp eq i64 %3, 0
   br i1 %98, label %._crit_edge331, label %.lr.ph330
 
@@ -13920,7 +13926,8 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
 64:                                               ; preds = %51, %118
   %.sroa.069.0 = phi i32 [ %121, %118 ], [ -2147483648, %51 ]
   tail call void @_ZN6brotli3enc9interface16CommandProcessor25push_block_switch_literal17haef445f2c0c566ddE(ptr noalias noundef nonnull align 8 dereferenceable(240) %0, i8 noundef 0)
-  %65 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 4
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %66 = icmp eq i64 %3, 0
   br i1 %66, label %._crit_edge180, label %.lr.ph179
 
@@ -14609,7 +14616,8 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
 64:                                               ; preds = %51, %118
   %.sroa.069.0 = phi i32 [ %121, %118 ], [ -2147483648, %51 ]
   tail call void @_ZN6brotli3enc9interface16CommandProcessor25push_block_switch_literal17h05244fe365c14d77E(ptr noalias noundef nonnull align 8 dereferenceable(296) %0, i8 noundef 0)
-  %65 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 4
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %66 = icmp eq i64 %3, 0
   br i1 %66, label %._crit_edge180, label %.lr.ph179
 

@@ -1229,7 +1229,8 @@ define hidden noundef i64 @_ZNK6google8protobuf17FileDescriptorSet12ByteSizeLong
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not11 = icmp eq i32 %3, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -4619,7 +4620,8 @@ define hidden noundef i64 @_ZNK6google8protobuf19FileDescriptorProto12ByteSizeLo
   %.not.i.i = icmp eq ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %15
-  %16 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %11
+  %.idx = shl nsw i64 %11, 3
+  %16 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not8086 = icmp eq i32 %10, 0
   br i1 %.not8086, label %._crit_edge91, label %.lr.ph90
 
@@ -4655,7 +4657,8 @@ define hidden noundef i64 @_ZNK6google8protobuf19FileDescriptorProto12ByteSizeLo
   %.not.i.i52 = icmp eq ptr %37, null
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %spec.select.i.i53 = select i1 %.not.i.i52, ptr null, ptr %38
-  %39 = getelementptr inbounds ptr, ptr %spec.select.i.i53, i64 %34
+  %.idx114 = shl nsw i64 %34, 3
+  %39 = getelementptr inbounds i8, ptr %spec.select.i.i53, i64 %.idx114
   %.not8193 = icmp eq i32 %33, 0
   br i1 %.not8193, label %._crit_edge98, label %.lr.ph97
 
@@ -4689,7 +4692,8 @@ define hidden noundef i64 @_ZNK6google8protobuf19FileDescriptorProto12ByteSizeLo
   %.not.i.i56 = icmp eq ptr %58, null
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %spec.select.i.i57 = select i1 %.not.i.i56, ptr null, ptr %59
-  %60 = getelementptr inbounds ptr, ptr %spec.select.i.i57, i64 %55
+  %.idx115 = shl nsw i64 %55, 3
+  %60 = getelementptr inbounds i8, ptr %spec.select.i.i57, i64 %.idx115
   %.not82100 = icmp eq i32 %54, 0
   br i1 %.not82100, label %._crit_edge105, label %.lr.ph104
 
@@ -4723,7 +4727,8 @@ define hidden noundef i64 @_ZNK6google8protobuf19FileDescriptorProto12ByteSizeLo
   %.not.i.i60 = icmp eq ptr %79, null
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %spec.select.i.i61 = select i1 %.not.i.i60, ptr null, ptr %80
-  %81 = getelementptr inbounds ptr, ptr %spec.select.i.i61, i64 %76
+  %.idx116 = shl nsw i64 %76, 3
+  %81 = getelementptr inbounds i8, ptr %spec.select.i.i61, i64 %.idx116
   %.not83107 = icmp eq i32 %75, 0
   br i1 %.not83107, label %._crit_edge112, label %.lr.ph111
 
@@ -4905,7 +4910,8 @@ define hidden noundef i64 @_ZNK6google8protobuf19FileDescriptorProto12ByteSizeLo
   %.not.i.i.i.i = icmp eq ptr %212, null
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %213
-  %214 = getelementptr inbounds ptr, ptr %spec.select.i.i.i.i, i64 %210
+  %.idx.i.i = shl nsw i64 %210, 3
+  %214 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i, i64 %.idx.i.i
   %.not11.i.i = icmp eq i32 %209, 0
   br i1 %.not11.i.i, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeINS0_14SourceCodeInfoEEEmRKT_.exit, label %.lr.ph.i.i
 
@@ -7279,7 +7285,8 @@ define hidden noundef i64 @_ZNK6google8protobuf30DescriptorProto_ExtensionRange1
   %.not.i.i.i.i = icmp eq ptr %18, null
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %19
-  %20 = getelementptr inbounds ptr, ptr %spec.select.i.i.i.i, i64 %14
+  %.idx.i.i = shl nsw i64 %14, 3
+  %20 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i, i64 %.idx.i.i
   %.not12.i.i = icmp eq i32 %13, 0
   br i1 %.not12.i.i, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeINS0_21ExtensionRangeOptionsEEEmRKT_.exit, label %.lr.ph.i.i
 
@@ -11121,7 +11128,8 @@ define hidden noundef i64 @_ZNK6google8protobuf15DescriptorProto12ByteSizeLongEv
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not104111 = icmp eq i32 %3, 0
   br i1 %.not104111, label %._crit_edge, label %.lr.ph
 
@@ -11136,7 +11144,8 @@ define hidden noundef i64 @_ZNK6google8protobuf15DescriptorProto12ByteSizeLongEv
   %.not.i.i52 = icmp eq ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %spec.select.i.i53 = select i1 %.not.i.i52, ptr null, ptr %15
-  %16 = getelementptr inbounds ptr, ptr %spec.select.i.i53, i64 %11
+  %.idx162 = shl nsw i64 %11, 3
+  %16 = getelementptr inbounds i8, ptr %spec.select.i.i53, i64 %.idx162
   %.not105114 = icmp eq i32 %10, 0
   br i1 %.not105114, label %._crit_edge119, label %.lr.ph118
 
@@ -11170,7 +11179,8 @@ define hidden noundef i64 @_ZNK6google8protobuf15DescriptorProto12ByteSizeLongEv
   %.not.i.i56 = icmp eq ptr %35, null
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %spec.select.i.i57 = select i1 %.not.i.i56, ptr null, ptr %36
-  %37 = getelementptr inbounds ptr, ptr %spec.select.i.i57, i64 %32
+  %.idx163 = shl nsw i64 %32, 3
+  %37 = getelementptr inbounds i8, ptr %spec.select.i.i57, i64 %.idx163
   %.not106121 = icmp eq i32 %31, 0
   br i1 %.not106121, label %._crit_edge126, label %.lr.ph125
 
@@ -11204,7 +11214,8 @@ define hidden noundef i64 @_ZNK6google8protobuf15DescriptorProto12ByteSizeLongEv
   %.not.i.i60 = icmp eq ptr %56, null
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %spec.select.i.i61 = select i1 %.not.i.i60, ptr null, ptr %57
-  %58 = getelementptr inbounds ptr, ptr %spec.select.i.i61, i64 %53
+  %.idx164 = shl nsw i64 %53, 3
+  %58 = getelementptr inbounds i8, ptr %spec.select.i.i61, i64 %.idx164
   %.not107128 = icmp eq i32 %52, 0
   br i1 %.not107128, label %._crit_edge133, label %.lr.ph132
 
@@ -11238,7 +11249,8 @@ define hidden noundef i64 @_ZNK6google8protobuf15DescriptorProto12ByteSizeLongEv
   %.not.i.i64 = icmp eq ptr %77, null
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %spec.select.i.i65 = select i1 %.not.i.i64, ptr null, ptr %78
-  %79 = getelementptr inbounds ptr, ptr %spec.select.i.i65, i64 %74
+  %.idx165 = shl nsw i64 %74, 3
+  %79 = getelementptr inbounds i8, ptr %spec.select.i.i65, i64 %.idx165
   %.not108135 = icmp eq i32 %73, 0
   br i1 %.not108135, label %._crit_edge140, label %.lr.ph139
 
@@ -11272,7 +11284,8 @@ define hidden noundef i64 @_ZNK6google8protobuf15DescriptorProto12ByteSizeLongEv
   %.not.i.i68 = icmp eq ptr %98, null
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %spec.select.i.i69 = select i1 %.not.i.i68, ptr null, ptr %99
-  %100 = getelementptr inbounds ptr, ptr %spec.select.i.i69, i64 %95
+  %.idx166 = shl nsw i64 %95, 3
+  %100 = getelementptr inbounds i8, ptr %spec.select.i.i69, i64 %.idx166
   %.not109142 = icmp eq i32 %94, 0
   br i1 %.not109142, label %._crit_edge147, label %.lr.ph146
 
@@ -11306,7 +11319,8 @@ define hidden noundef i64 @_ZNK6google8protobuf15DescriptorProto12ByteSizeLongEv
   %.not.i.i72 = icmp eq ptr %119, null
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %spec.select.i.i73 = select i1 %.not.i.i72, ptr null, ptr %120
-  %121 = getelementptr inbounds ptr, ptr %spec.select.i.i73, i64 %116
+  %.idx167 = shl nsw i64 %116, 3
+  %121 = getelementptr inbounds i8, ptr %spec.select.i.i73, i64 %.idx167
   %.not110149 = icmp eq i32 %115, 0
   br i1 %.not110149, label %._crit_edge154, label %.lr.ph153
 
@@ -13215,7 +13229,8 @@ define hidden noundef i64 @_ZNK6google8protobuf21ExtensionRangeOptions12ByteSize
   %.not.i.i = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %11
-  %12 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %6
+  %.idx = shl nsw i64 %6, 3
+  %12 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not12 = icmp eq i32 %5, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -16937,7 +16952,8 @@ define hidden noundef i64 @_ZNK6google8protobuf20OneofDescriptorProto12ByteSizeL
   %.not.i.i.i.i = icmp eq ptr %38, null
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %39
-  %40 = getelementptr inbounds ptr, ptr %spec.select.i.i.i.i, i64 %34
+  %.idx.i.i = shl nsw i64 %34, 3
+  %40 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i, i64 %.idx.i.i
   %.not12.i.i = icmp eq i32 %33, 0
   br i1 %.not12.i.i, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeINS0_12OneofOptionsEEEmRKT_.exit, label %.lr.ph.i.i
 
@@ -19637,7 +19653,8 @@ define hidden noundef i64 @_ZNK6google8protobuf19EnumDescriptorProto12ByteSizeLo
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not4244 = icmp eq i32 %3, 0
   br i1 %.not4244, label %._crit_edge, label %.lr.ph
 
@@ -19652,7 +19669,8 @@ define hidden noundef i64 @_ZNK6google8protobuf19EnumDescriptorProto12ByteSizeLo
   %.not.i.i27 = icmp eq ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %spec.select.i.i28 = select i1 %.not.i.i27, ptr null, ptr %15
-  %16 = getelementptr inbounds ptr, ptr %spec.select.i.i28, i64 %11
+  %.idx60 = shl nsw i64 %11, 3
+  %16 = getelementptr inbounds i8, ptr %spec.select.i.i28, i64 %.idx60
   %.not4347 = icmp eq i32 %10, 0
   br i1 %.not4347, label %._crit_edge52, label %.lr.ph51
 
@@ -19830,7 +19848,8 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeINS0_37EnumDescriptorPr
   %.not.i.i.i.i = icmp eq ptr %132, null
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %133
-  %134 = getelementptr inbounds ptr, ptr %spec.select.i.i.i.i, i64 %128
+  %.idx.i.i = shl nsw i64 %128, 3
+  %134 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i, i64 %.idx.i.i
   %.not2021.i.i = icmp eq i32 %127, 0
   br i1 %.not2021.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -21381,7 +21400,8 @@ define hidden noundef i64 @_ZNK6google8protobuf24EnumValueDescriptorProto12ByteS
   %.not.i.i.i.i = icmp eq ptr %38, null
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %39
-  %40 = getelementptr inbounds ptr, ptr %spec.select.i.i.i.i, i64 %34
+  %.idx.i.i = shl nsw i64 %34, 3
+  %40 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i, i64 %.idx.i.i
   %.not1415.i.i = icmp eq i32 %33, 0
   br i1 %.not1415.i.i, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeINS0_16EnumValueOptionsEEEmRKT_.exit, label %.lr.ph.i.i
 
@@ -22758,7 +22778,8 @@ define hidden noundef i64 @_ZNK6google8protobuf22ServiceDescriptorProto12ByteSiz
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not2021 = icmp eq i32 %3, 0
   br i1 %.not2021, label %._crit_edge, label %.lr.ph
 
@@ -22836,7 +22857,8 @@ define hidden noundef i64 @_ZNK6google8protobuf22ServiceDescriptorProto12ByteSiz
   %.not.i.i.i.i = icmp eq ptr %59, null
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %60
-  %61 = getelementptr inbounds ptr, ptr %spec.select.i.i.i.i, i64 %55
+  %.idx.i.i = shl nsw i64 %55, 3
+  %61 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i, i64 %.idx.i.i
   %.not1415.i.i = icmp eq i32 %54, 0
   br i1 %.not1415.i.i, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeINS0_14ServiceOptionsEEEmRKT_.exit, label %.lr.ph.i.i
 
@@ -27704,7 +27726,8 @@ define hidden noundef i64 @_ZNK6google8protobuf11FileOptions12ByteSizeLongEv(ptr
   %.not.i.i = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %11
-  %12 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %6
+  %.idx = shl nsw i64 %6, 3
+  %12 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not8081 = icmp eq i32 %5, 0
   br i1 %.not8081, label %._crit_edge, label %.lr.ph
 
@@ -29074,7 +29097,8 @@ define hidden noundef i64 @_ZNK6google8protobuf14MessageOptions12ByteSizeLongEv(
   %.not.i.i = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %11
-  %12 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %6
+  %.idx = shl nsw i64 %6, 3
+  %12 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not2627 = icmp eq i32 %5, 0
   br i1 %.not2627, label %._crit_edge, label %.lr.ph
 
@@ -30357,7 +30381,8 @@ define hidden noundef i64 @_ZNK6google8protobuf12FieldOptions12ByteSizeLongEv(pt
   %.not.i.i = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %11
-  %12 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %6
+  %.idx = shl nsw i64 %6, 3
+  %12 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not3132 = icmp eq i32 %5, 0
   br i1 %.not3132, label %._crit_edge, label %.lr.ph
 
@@ -31088,7 +31113,8 @@ define hidden noundef i64 @_ZNK6google8protobuf12OneofOptions12ByteSizeLongEv(pt
   %.not.i.i = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %11
-  %12 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %6
+  %.idx = shl nsw i64 %6, 3
+  %12 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not12 = icmp eq i32 %5, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -32006,7 +32032,8 @@ define hidden noundef i64 @_ZNK6google8protobuf11EnumOptions12ByteSizeLongEv(ptr
   %.not.i.i = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %11
-  %12 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %6
+  %.idx = shl nsw i64 %6, 3
+  %12 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not2021 = icmp eq i32 %5, 0
   br i1 %.not2021, label %._crit_edge, label %.lr.ph
 
@@ -32790,7 +32817,8 @@ define hidden noundef i64 @_ZNK6google8protobuf16EnumValueOptions12ByteSizeLongE
   %.not.i.i = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %11
-  %12 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %6
+  %.idx = shl nsw i64 %6, 3
+  %12 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not1415 = icmp eq i32 %5, 0
   br i1 %.not1415, label %._crit_edge, label %.lr.ph
 
@@ -33564,7 +33592,8 @@ define hidden noundef i64 @_ZNK6google8protobuf14ServiceOptions12ByteSizeLongEv(
   %.not.i.i = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %11
-  %12 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %6
+  %.idx = shl nsw i64 %6, 3
+  %12 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not1415 = icmp eq i32 %5, 0
   br i1 %.not1415, label %._crit_edge, label %.lr.ph
 
@@ -34475,7 +34504,8 @@ define hidden noundef i64 @_ZNK6google8protobuf13MethodOptions12ByteSizeLongEv(p
   %.not.i.i = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %11
-  %12 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %6
+  %.idx = shl nsw i64 %6, 3
+  %12 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not1920 = icmp eq i32 %5, 0
   br i1 %.not1920, label %._crit_edge, label %.lr.ph
 
@@ -36880,7 +36910,8 @@ define hidden noundef i64 @_ZNK6google8protobuf19UninterpretedOption12ByteSizeLo
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not3031 = icmp eq i32 %3, 0
   br i1 %.not3031, label %._crit_edge, label %.lr.ph
 
@@ -39640,7 +39671,8 @@ define hidden noundef i64 @_ZNK6google8protobuf14SourceCodeInfo12ByteSizeLongEv(
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not11 = icmp eq i32 %3, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -41600,7 +41632,8 @@ define hidden noundef i64 @_ZNK6google8protobuf17GeneratedCodeInfo12ByteSizeLong
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not11 = icmp eq i32 %3, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 

@@ -2222,7 +2222,8 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12836552674783018658.exit.t
   %.sroa.4223.0.copyload = load i64, ptr %.sroa.4223.0..sroa_idx, align 8
   %.sroa.5224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.5224.0.copyload = load i64, ptr %.sroa.5224.0..sroa_idx, align 8
-  %308 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %.sroa.0222.0.copyload, i64 %.sroa.5224.0.copyload
+  %.idx = shl nsw i64 %.sroa.5224.0.copyload, 5
+  %308 = getelementptr inbounds i8, ptr %.sroa.0222.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29)
   store ptr %.sroa.0222.0.copyload, ptr %29, align 8
   %.sroa.4219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8

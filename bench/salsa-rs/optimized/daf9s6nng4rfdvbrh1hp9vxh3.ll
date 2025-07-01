@@ -699,7 +699,8 @@ define void @_ZN5salsa12active_query11ActiveQuery8add_read17h54809651489e759aE(p
   %36 = call noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h8cd3886604df0158E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %26)
   %37 = load ptr, ptr %26, align 8, !alias.scope !59, !noalias !62, !nonnull !3, !noundef !3
   %38 = load i64, ptr %37, align 8, !noundef !3
-  %39 = getelementptr inbounds nuw { { i32, i32 }, i32 }, ptr %36, i64 %38
+  %.idx.i = mul nuw nsw i64 %38, 12
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %40 = icmp ne ptr %36, null
   call void @llvm.assume(i1 %40)
@@ -1345,7 +1346,8 @@ define noundef zeroext i1 @"_ZN67_$LT$salsa..active_query..Backtrace$u20$as$u20$
   %10 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw { { i32, i32 }, i64, { { ptr, {} } }, i32, i8, [3 x i8] }, ptr %10, i64 %12
+  %.idx = shl nuw nsw i64 %12, 5
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %._crit_edge, label %.lr.ph
 
@@ -1404,7 +1406,8 @@ define noundef zeroext i1 @"_ZN69_$LT$salsa..active_query..Backtrace$u20$as$u20$
   %25 = load ptr, ptr %0, align 8, !nonnull !3, !align !10, !noundef !3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8, !noundef !3
-  %28 = getelementptr inbounds nuw { { i32, i32 }, i64, { { ptr, {} } }, i32, i8, [3 x i8] }, ptr %25, i64 %27
+  %.idx = shl nuw nsw i64 %27, 5
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx
   %29 = icmp eq i64 %27, 0
   br i1 %29, label %.sink.split, label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit60.lr.ph
 

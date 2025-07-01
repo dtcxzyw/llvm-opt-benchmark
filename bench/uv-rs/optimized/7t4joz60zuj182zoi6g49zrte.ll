@@ -6324,7 +6324,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hb52e020ba072cadeE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds i64, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 3
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h6b864f04b7f500feE.exit, label %.lr.ph.i
 
@@ -6350,7 +6351,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hb52e020ba072cadeE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, [3 x i8] }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 144
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17he32c19e53b69bf4aE.exit, label %.lr.ph.i
 
@@ -13396,7 +13398,8 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @"_ZN4core4iter8ad
   %.val8.us.i.i = load ptr, ptr %33, align 8, !alias.scope !4121, !noalias !4124, !nonnull !3, !noundef !3
   %34 = getelementptr i8, ptr %.promoted.i.i17, i64 16
   %.val9.us.i.i = load i64, ptr %34, align 8, !alias.scope !4121, !noalias !4124, !noundef !3
-  %35 = getelementptr inbounds { { i64, [1 x i64] }, { { { { { { ptr, i64 } }, {} }, {} } }, { { [9 x i8], i8, [6 x i8] } } }, { i64, i64 } }, ptr %.val8.us.i.i, i64 %.val9.us.i.i
+  %.idx.i.us.i.i = shl nsw i64 %.val9.us.i.i, 6
+  %35 = getelementptr inbounds i8, ptr %.val8.us.i.i, i64 %.idx.i.us.i.i
   store ptr %35, ptr %32, align 8, !alias.scope !4125, !noalias !4128
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4129)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4132)
@@ -14785,7 +14788,8 @@ define hidden noundef zeroext i1 @"_ZN4rkyv5impls4core97_$LT$impl$u20$rkyv..trai
   %8 = alloca [48 x i8], align 8
   %.sroa.29 = alloca [144 x i8], align 8
   %.sroa.7 = alloca [144 x i8], align 8
-  %9 = getelementptr inbounds { { { { { [2 x i32] } } }, { { i8, [31 x i8] } }, { i8, [27 x i8] }, [1 x i32] }, { i8, [3 x i8], { { [2 x i32] } }, { { { { { i32 }, {} }, { i32 }, {} } } }, { i8, [11 x i8] }, { i8, [15 x i8] }, { i8, [15 x i8] }, { i8, [19 x i8] }, { i8, [7 x i8] }, [1 x i32] } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 168
+  %9 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -14882,7 +14886,8 @@ define hidden noundef zeroext i1 @"_ZN4rkyv5impls4core97_$LT$impl$u20$rkyv..trai
   %8 = alloca [32 x i8], align 8
   %.sroa.29 = alloca [128 x i8], align 8
   %.sroa.7 = alloca [128 x i8], align 8
-  %9 = getelementptr inbounds { { { { { [2 x i32] } } }, { { i8, [31 x i8] } }, i8, [7 x i8] }, { i8, [3 x i8], { { [2 x i32] } }, { { { { { i32 }, {} }, { i32 }, {} } } }, { i8, [11 x i8] }, { i8, [15 x i8] }, { i8, [15 x i8] }, { i8, [19 x i8] }, { i8, [7 x i8] }, [1 x i32] } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 144
+  %9 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -22284,7 +22289,8 @@ define hidden void @_ZN8petgraph4algo16feedback_arc_set18good_node_sequence17h6d
 ._crit_edge:                                      ; preds = %243, %25
   %30 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !3, !noundef !3
   %31 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !noundef !3
-  %32 = getelementptr inbounds { { i64, [3 x i64] }, { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i64, i64, i64 } }, ptr %30, i64 %31
+  %.idx = mul nsw i64 %31, 104
+  %32 = getelementptr inbounds i8, ptr %30, i64 %.idx
   %33 = icmp eq i64 %31, 0
   br i1 %33, label %._crit_edge139, label %.lr.ph134
 

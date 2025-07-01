@@ -1914,7 +1914,8 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hdbdf3c68b7c5414
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17h1fe7ab736ec2e69aE(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(8) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { { i8, [23 x i8] } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 24
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph.preheader
 
@@ -7873,7 +7874,8 @@ define hidden void @_ZN7ide_ssr7parsing10ParsedRule3new17hb195050937d55b3eE(ptr 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18), !noalias !1942
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) @anon.83ab4039ebc9e0c9554173cd0bc185c9.512, i64 32, i1 false), !noalias !1942
-  %38 = getelementptr inbounds { i64, [8 x i64] }, ptr %.val, i64 %.val85
+  %.idx.i = mul nsw i64 %.val85, 72
+  %38 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i
   %39 = icmp eq i64 %.val85, 0
   br i1 %39, label %.loopexit, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h83a488c28d96832bE.exit.lr.ph.i"
 
@@ -8987,7 +8989,8 @@ define internal fastcc void @_ZN7ide_ssr7parsing10RawPattern12as_rust_code17hd7d
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %3 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds { i64, [8 x i64] }, ptr %.8.val, i64 %.16.val
+  %.idx = mul nsw i64 %.16.val, 72
+  %4 = getelementptr inbounds i8, ptr %.8.val, i64 %.idx
   %5 = icmp eq i64 %.16.val, 0
   br i1 %5, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h83a488c28d96832bE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h83a488c28d96832bE.exit"
 
@@ -9380,7 +9383,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %69
 106:                                              ; preds = %103
   %107 = icmp ne ptr %.sroa.595.sroa.6.0, null
   call void @llvm.assume(i1 %107)
-  %108 = getelementptr inbounds { { { i8, [23 x i8] } }, i16, [3 x i16] }, ptr %.sroa.595.sroa.6.0, i64 %.sroa.595.sroa.7.0
+  %.idx = shl nsw i64 %.sroa.595.sroa.7.0, 5
+  %108 = getelementptr inbounds i8, ptr %.sroa.595.sroa.6.0, i64 %.idx
   store ptr %.sroa.595.sroa.6.0, ptr %49, align 8, !alias.scope !2228, !noalias !2231
   %109 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i64 %.sroa.595.sroa.0.0, ptr %109, align 8, !alias.scope !2228, !noalias !2231
@@ -10669,7 +10673,8 @@ define hidden void @_ZN7ide_ssr7parsing13validate_rule17h708da8816b8375fcE(ptr n
   %.val18 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val19 = load i64, ptr %18, align 8, !noundef !4
-  %19 = getelementptr inbounds { i64, [8 x i64] }, ptr %.val18, i64 %.val19
+  %.idx = mul nsw i64 %.val19, 72
+  %19 = getelementptr inbounds i8, ptr %.val18, i64 %.idx
   %20 = icmp eq i64 %.val19, 0
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -10721,7 +10726,8 @@ define hidden void @_ZN7ide_ssr7parsing13validate_rule17h708da8816b8375fcE(ptr n
   %.val = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val17 = load i64, ptr %27, align 8, !noundef !4
-  %28 = getelementptr inbounds { i64, [8 x i64] }, ptr %.val, i64 %.val17
+  %.idx70 = mul nsw i64 %.val17, 72
+  %28 = getelementptr inbounds i8, ptr %.val, i64 %.idx70
   %29 = icmp eq i64 %.val17, 0
   br i1 %29, label %._crit_edge69.thread, label %.lr.ph68
 

@@ -95,14 +95,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.130" = type { %"struct.std::_Head_base.131" }
 %"struct.std::_Head_base.131" = type { ptr }
 %"struct.std::_Head_base.132" = type { ptr }
-%"class.llvm::RecordVal" = type { ptr, %"class.llvm::SMLoc", %"class.llvm::PointerIntPair", ptr, i8, %"class.llvm::SmallVector.83" }
-%"class.llvm::SMLoc" = type { ptr }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
-%"class.llvm::SmallVector.83" = type { %"class.llvm::SmallVectorImpl.84" }
-%"class.llvm::SmallVectorImpl.84" = type { %"class.llvm::SmallVectorTemplateBase.85" }
-%"class.llvm::SmallVectorTemplateBase.85" = type { %"class.llvm::SmallVectorTemplateCommon.86" }
-%"class.llvm::SmallVectorTemplateCommon.86" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::HwMode" = type { %"class.llvm::StringRef", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.llvm::APInt" = type <{ %union.anon.146, i32, [4 x i8] }>
 %union.anon.146 = type { i64 }
@@ -473,7 +465,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread317:      ; preds = %81, %_ZN4llvmeqENS_
   %95 = getelementptr inbounds nuw i8, ptr %83, i64 112
   %96 = load i32, ptr %95, align 8, !tbaa !135
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw %"class.llvm::RecordVal", ptr %94, i64 %97
+  %.idx.i.i = mul nuw nsw i64 %97, 56
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx.i.i
   %.not16.i.i = icmp eq i32 %96, 0
   br i1 %.not16.i.i, label %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.thread, label %.lr.ph.i.i
 
@@ -981,7 +974,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit122:              ; preds = %325, %323, %_ZN4llv
   %345 = call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %344, ptr nonnull @.str.16, i64 11) #17
   %346 = extractvalue { ptr, i64 } %345, 0
   %347 = extractvalue { ptr, i64 } %345, 1
-  %348 = getelementptr inbounds nuw ptr, ptr %346, i64 %347
+  %.idx = shl nuw nsw i64 %347, 3
+  %348 = getelementptr inbounds nuw i8, ptr %346, i64 %.idx
   %.not82349 = icmp eq i64 %347, 0
   br i1 %.not82349, label %._crit_edge352, label %.lr.ph351
 
@@ -1142,7 +1136,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmeqENS_9Stri
   %447 = getelementptr inbounds nuw i8, ptr %431, i64 112
   %448 = load i32, ptr %447, align 8, !tbaa !135, !noalias !180
   %449 = zext i32 %448 to i64
-  %450 = getelementptr inbounds nuw %"class.llvm::RecordVal", ptr %446, i64 %449
+  %.idx.i.i.i = mul nuw nsw i64 %449, 56
+  %450 = getelementptr inbounds nuw i8, ptr %446, i64 %.idx.i.i.i
   %.not16.i.i.i = icmp eq i32 %448, 0
   br i1 %.not16.i.i.i, label %.critedge35.i, label %.lr.ph.i.i.i130
 
@@ -4163,7 +4158,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %47, %49, %50
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %62, %60, %24, %22
-  %66 = getelementptr inbounds nuw ptr, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not178 = icmp eq i64 %3, 0
   br i1 %.not178, label %._crit_edge181, label %.lr.ph180
 
@@ -4302,7 +4298,8 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2Ejm
   %134 = getelementptr inbounds nuw i8, ptr %90, i64 112
   %135 = load i32, ptr %134, align 8, !tbaa !135
   %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw %"class.llvm::RecordVal", ptr %133, i64 %136
+  %.idx.i.i = mul nuw nsw i64 %136, 56
+  %137 = getelementptr inbounds nuw i8, ptr %133, i64 %.idx.i.i
   %.not16.i.i = icmp eq i32 %135, 0
   br i1 %.not16.i.i, label %.thread, label %.lr.ph.i.i
 
@@ -5817,7 +5814,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %6
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %23 = load i32, ptr %22, align 8, !tbaa !135
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"class.llvm::RecordVal", ptr %21, i64 %24
+  %.idx = mul nuw nsw i64 %24, 56
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %.not52 = icmp eq i32 %23, 0
   br i1 %.not52, label %.thread, label %.lr.ph
 

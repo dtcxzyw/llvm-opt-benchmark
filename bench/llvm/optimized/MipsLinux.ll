@@ -84,16 +84,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.193" = type { %"struct.std::_Optional_payload_base.base.195", [7 x i8] }
 %"struct.std::_Optional_payload_base.base.195" = type <{ %"union.std::_Optional_payload_base<unsigned long>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<unsigned long>::_Storage" = type { i64 }
-%"struct.clang::driver::custom_flag::ValueDetail" = type { %"class.std::__cxx11::basic_string", %"class.std::optional.198", ptr }
-%"class.std::optional.198" = type { %"struct.std::_Optional_base.199" }
-%"struct.std::_Optional_base.199" = type { %"struct.std::_Optional_payload.201" }
-%"struct.std::_Optional_payload.201" = type { %"struct.std::_Optional_payload.base.205", [7 x i8] }
-%"struct.std::_Optional_payload.base.205" = type { %"struct.std::_Optional_payload_base.base.204" }
-%"struct.std::_Optional_payload_base.base.204" = type <{ %"union.std::_Optional_payload_base<llvm::SmallVector<std::__cxx11::basic_string<char>>>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<llvm::SmallVector<std::__cxx11::basic_string<char>>>::_Storage" = type { %"class.llvm::SmallVector.180" }
-%"class.clang::FixItHint" = type <{ %"class.clang::CharSourceRange", %"class.clang::CharSourceRange", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
-%"class.clang::CharSourceRange" = type <{ %"class.clang::SourceRange", i8, [3 x i8] }>
-%"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
 
 $_ZN5clang6driver11MultilibSetaSERKS1_ = comdat any
 
@@ -402,7 +392,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %74, i64 %77
+  %.idx.i = shl nuw nsw i64 %77, 5
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -672,7 +663,8 @@ _ZNSt14_Optional_baseIN5clang6driver8MultilibELb0ELb0EED2Ev.exit.i: ; preds = %1
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZNSt14_Optional_baseIN5clang6driver8MultilibELb0ELb0EED2Ev.exit.i
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw %"class.clang::driver::Multilib", ptr %188, i64 %190
+  %.idx.i.i = mul nuw nsw i64 %190, 192
+  %191 = getelementptr inbounds nuw i8, ptr %188, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.preheader.i.i
@@ -4280,7 +4272,8 @@ _ZN5clang6driver11MultilibSet11FlagMatcherD2Ev.exit.i: ; preds = %_ZNKSt7__cxx11
   br i1 %.not4.i.i, label %_ZN4llvm15SmallVectorImplIN5clang6driver11MultilibSet11FlagMatcherEE5clearEv.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %58
-  %60 = getelementptr inbounds nuw %"struct.clang::driver::MultilibSet::FlagMatcher", ptr %59, i64 %12
+  %.idx.i = mul nuw nsw i64 %12, 56
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang6driver11MultilibSet11FlagMatcherD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -4489,7 +4482,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver11Mult
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !18
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.clang::driver::MultilibSet::FlagMatcher", ptr %3, i64 %6
+  %.idx = mul nuw nsw i64 %6, 56
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not7.i.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver11MultilibSet11FlagMatcherELb0EE13destroy_rangeEPS4_S6_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -4546,13 +4540,14 @@ _ZSt10_ConstructIN5clang6driver11MultilibSet11FlagMatcherEJS3_EEvPT_DpOT0_.exit.
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang6driver11MultilibSet11FlagMatcherELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit: ; preds = %_ZSt10_ConstructIN5clang6driver11MultilibSet11FlagMatcherEJS3_EEvPT_DpOT0_.exit.i.i.i.i.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !15
-  %.pre3 = load i32, ptr %4, align 8, !tbaa !18
-  %.not4.i = icmp eq i32 %.pre3, 0
+  %.pre4 = load i32, ptr %4, align 8, !tbaa !18
+  %.not4.i = icmp eq i32 %.pre4, 0
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver11MultilibSet11FlagMatcherELb0EE13destroy_rangeEPS4_S6_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver11MultilibSet11FlagMatcherELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit
-  %32 = zext i32 %.pre3 to i64
-  %33 = getelementptr inbounds nuw %"struct.clang::driver::MultilibSet::FlagMatcher", ptr %.pre, i64 %32
+  %32 = zext i32 %.pre4 to i64
+  %.idx3 = mul nuw nsw i64 %32, 56
+  %33 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx3
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN5clang6driver11MultilibSet11FlagMatcherD2Ev.exit.i
@@ -4728,7 +4723,8 @@ _ZN5clang6driver11custom_flag11DeclarationD2Ev.exit.i: ; preds = %_ZNKSt7__cxx11
   br i1 %.not4.i.i, label %_ZN4llvm15SmallVectorImplIN5clang6driver11custom_flag11DeclarationEE5clearEv.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %35
-  %37 = getelementptr inbounds nuw %"struct.clang::driver::custom_flag::Declaration", ptr %36, i64 %10
+  %.idx.i = mul nuw nsw i64 %10, 160
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang6driver11custom_flag11DeclarationD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -4825,7 +4821,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver11cust
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !18
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.clang::driver::custom_flag::Declaration", ptr %6, i64 %9
+  %.idx.i = mul nuw nsw i64 %9, 160
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver11custom_flag11DeclarationELb0EE19moveElementsForGrowEPS4_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -4840,13 +4837,14 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver11cust
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang6driver11custom_flag11DeclarationELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !15
-  %.pre2.i = load i32, ptr %7, align 8, !tbaa !18
-  %.not4.i.i = icmp eq i32 %.pre2.i, 0
+  %.pre3.i = load i32, ptr %7, align 8, !tbaa !18
+  %.not4.i.i = icmp eq i32 %.pre3.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver11custom_flag11DeclarationELb0EE19moveElementsForGrowEPS4_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver11custom_flag11DeclarationELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i
-  %13 = zext i32 %.pre2.i to i64
-  %14 = getelementptr inbounds nuw %"struct.clang::driver::custom_flag::Declaration", ptr %.pre.i, i64 %13
+  %13 = zext i32 %.pre3.i to i64
+  %.idx2.i = mul nuw nsw i64 %13, 160
+  %14 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang6driver11custom_flag11DeclarationD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -4911,7 +4909,8 @@ define linkonce_odr hidden void @_ZN4llvm11SmallVectorIN5clang6driver11custom_fl
 
 .lr.ph.i.preheader:                               ; preds = %1
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %"struct.clang::driver::custom_flag::ValueDetail", ptr %2, i64 %5
+  %.idx = mul nuw nsw i64 %5, 96
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN5clang6driver11custom_flag11ValueDetailD2Ev.exit.i
@@ -4933,7 +4932,8 @@ define linkonce_odr hidden void @_ZN4llvm11SmallVectorIN5clang6driver11custom_fl
 
 .lr.ph.i.preheader.i.i.i.i.i.i.i:                 ; preds = %12
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %13, i64 %16
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %16, 5
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i.i
@@ -5053,7 +5053,8 @@ _ZNSt14_Function_baseD2Ev.exit2:                  ; preds = %_ZNSt14_Function_ba
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZNSt14_Function_baseD2Ev.exit2
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"struct.clang::driver::custom_flag::Declaration", ptr %13, i64 %16
+  %.idx.i = mul nuw nsw i64 %16, 160
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang6driver11custom_flag11DeclarationD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -5145,7 +5146,8 @@ define linkonce_odr hidden void @_ZN4llvm11SmallVectorIN5clang6driver11MultilibS
 
 .lr.ph.i.preheader:                               ; preds = %1
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %"struct.clang::driver::MultilibSet::FlagMatcher", ptr %2, i64 %5
+  %.idx = mul nuw nsw i64 %5, 56
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN5clang6driver11MultilibSet11FlagMatcherD2Ev.exit.i
@@ -5282,7 +5284,8 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
 
 .lr.ph.i.preheader.i.i:                           ; preds = %14
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %16, i64 %19
+  %.idx.i.i = shl nuw nsw i64 %19, 6
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -5472,7 +5475,8 @@ _ZSt4copyIPKN5clang6driver8MultilibEPS2_ET0_T_S7_S6_.exit: ; preds = %12, %_ZSt4
   br i1 %.not4.i.i, label %_ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE5clearEv.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %37
-  %39 = getelementptr inbounds nuw %"class.clang::driver::Multilib", ptr %38, i64 %11
+  %.idx.i = mul nuw nsw i64 %11, 192
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
@@ -5490,7 +5494,8 @@ _ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE5clearEv.exit: ; preds = %.lr
   %43 = load ptr, ptr %0, align 8, !tbaa !15
   %44 = load i32, ptr %9, align 8, !tbaa !18
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw %"class.clang::driver::Multilib", ptr %43, i64 %45
+  %.idx.i.i = mul nuw nsw i64 %45, 192
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %44, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver8MultilibELb0EE19moveElementsForGrowEPS3_.exit.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -5505,13 +5510,14 @@ _ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE5clearEv.exit: ; preds = %.lr
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang6driver8MultilibELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %0, align 8, !tbaa !15
-  %.pre2.i.i = load i32, ptr %9, align 8, !tbaa !18
-  %.not4.i.i.i = icmp eq i32 %.pre2.i.i, 0
+  %.pre3.i.i = load i32, ptr %9, align 8, !tbaa !18
+  %.not4.i.i.i = icmp eq i32 %.pre3.i.i, 0
   br i1 %.not4.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver8MultilibELb0EE19moveElementsForGrowEPS3_.exit.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver8MultilibELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i
-  %49 = zext i32 %.pre2.i.i to i64
-  %50 = getelementptr inbounds nuw %"class.clang::driver::Multilib", ptr %.pre.i.i, i64 %49
+  %49 = zext i32 %.pre3.i.i to i64
+  %.idx2.i.i = mul nuw nsw i64 %49, 192
+  %50 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 %.idx2.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.preheader.i.i
@@ -5811,7 +5817,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_s
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !18
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %9
+  %.idx.i = shl nuw nsw i64 %9, 5
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE19moveElementsForGrowEPS6_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -5855,13 +5862,14 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
 
 _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.i: ; preds = %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !15
-  %.pre2.i = load i32, ptr %7, align 8, !tbaa !18
-  %.not4.i.i = icmp eq i32 %.pre2.i, 0
+  %.pre3.i = load i32, ptr %7, align 8, !tbaa !18
+  %.not4.i.i = icmp eq i32 %.pre3.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE19moveElementsForGrowEPS6_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.i
-  %26 = zext i32 %.pre2.i to i64
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre.i, i64 %26
+  %26 = zext i32 %.pre3.i to i64
+  %.idx2.i = shl nuw nsw i64 %26, 5
+  %27 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -5987,7 +5995,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %15
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %27
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %35, i64 %38
+  %.idx.i7.i.i = shl nuw nsw i64 %38, 6
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i7.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i

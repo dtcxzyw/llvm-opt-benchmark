@@ -7974,7 +7974,7 @@ define void @_ZN12pingora_core9protocols4http11compression22ResponseCompressionC
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h29afa10205bb3afdE.exit.i": ; preds = %.preheader.i, %17
   %.idx6.i = phi i64 [ %.add7.i, %17 ], [ 44, %.preheader.i ]
   %.not.not.not.i.not.not.i = icmp eq i64 %.idx6.i, 49
-  br i1 %.not.not.not.i.not.not.i, label %_ZN12pingora_core9protocols4http11compression22ResponseCompressionCtx10is_enabled17h0cdc2d5ebe70a9d9E.exit.thread2, label %17
+  br i1 %.not.not.not.i.not.not.i, label %_ZN12pingora_core9protocols4http11compression22ResponseCompressionCtx10is_enabled17h0cdc2d5ebe70a9d9E.exit.thread3, label %17
 
 17:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h29afa10205bb3afdE.exit.i"
   %.ptr8.i = getelementptr inbounds nuw i8, ptr %0, i64 %.idx6.i
@@ -7987,9 +7987,9 @@ _ZN12pingora_core9protocols4http11compression22ResponseCompressionCtx10is_enable
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !670, !align !227, !noundef !16
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %_ZN12pingora_core9protocols4http11compression22ResponseCompressionCtx10is_enabled17h0cdc2d5ebe70a9d9E.exit.thread2, label %.thread
+  br i1 %.not, label %_ZN12pingora_core9protocols4http11compression22ResponseCompressionCtx10is_enabled17h0cdc2d5ebe70a9d9E.exit.thread3, label %.thread
 
-_ZN12pingora_core9protocols4http11compression22ResponseCompressionCtx10is_enabled17h0cdc2d5ebe70a9d9E.exit.thread2: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h29afa10205bb3afdE.exit.i", %_ZN12pingora_core9protocols4http11compression22ResponseCompressionCtx10is_enabled17h0cdc2d5ebe70a9d9E.exit, %_ZN12pingora_core9protocols4http11compression21parse_accept_encoding17hc856e1a06e4ce9cbE.exit
+_ZN12pingora_core9protocols4http11compression22ResponseCompressionCtx10is_enabled17h0cdc2d5ebe70a9d9E.exit.thread3: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h29afa10205bb3afdE.exit.i", %_ZN12pingora_core9protocols4http11compression22ResponseCompressionCtx10is_enabled17h0cdc2d5ebe70a9d9E.exit, %_ZN12pingora_core9protocols4http11compression21parse_accept_encoding17hc856e1a06e4ce9cbE.exit
   ret void
 
 .thread:                                          ; preds = %_ZN12pingora_core9protocols4http11compression22ResponseCompressionCtx10is_enabled17h0cdc2d5ebe70a9d9E.exit
@@ -8080,7 +8080,8 @@ _ZN12pingora_core9protocols4http11compression22ResponseCompressionCtx10is_enable
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !679
   %58 = icmp ult i64 %.sroa.3.0.copyload.i, 88686269585142076
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw { i64, [12 x i64] }, ptr %.sroa.2.0.copyload.i, i64 %.sroa.3.0.copyload.i
+  %.idx.i1 = mul nuw nsw i64 %.sroa.3.0.copyload.i, 104
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i, i64 %.idx.i1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !679
   store ptr %.sroa.2.0.copyload.i, ptr %9, align 8, !noalias !679
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -8274,7 +8275,7 @@ _ZN12pingora_core9protocols4http11compression22ResponseCompressionCtx10is_enable
 
 _ZN12pingora_core9protocols4http11compression21parse_accept_encoding17hc856e1a06e4ce9cbE.exit: ; preds = %.loopexit, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1cfca108acc694b6E.exit.i", %73
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  br label %_ZN12pingora_core9protocols4http11compression22ResponseCompressionCtx10is_enabled17h0cdc2d5ebe70a9d9E.exit.thread2
+  br label %_ZN12pingora_core9protocols4http11compression22ResponseCompressionCtx10is_enabled17h0cdc2d5ebe70a9d9E.exit.thread3
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -465,7 +465,8 @@ breakline.exit:                                   ; preds = %.backedge.i
   %24 = load ptr, ptr @cmdtab, align 8
   %25 = load i32, ptr @ncmds, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.cmdinfo, ptr %24, i64 %26
+  %.idx.i = mul nsw i64 %26, 72
+  %27 = getelementptr inbounds i8, ptr %24, i64 %.idx.i
   %28 = icmp sgt i32 %25, 0
   br i1 %28, label %.lr.ph.i12, label %.loopexit
 
@@ -1113,7 +1114,8 @@ help_all.exit:                                    ; preds = %help_oneline.exit.i
   %28 = load ptr, ptr @cmdtab, align 8
   %29 = load i32, ptr @ncmds, align 4
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds %struct.cmdinfo, ptr %28, i64 %30
+  %.idx.i = mul nsw i64 %30, 72
+  %31 = getelementptr inbounds i8, ptr %28, i64 %.idx.i
   %32 = icmp sgt i32 %29, 0
   br i1 %32, label %.lr.ph.i7, label %.loopexit
 

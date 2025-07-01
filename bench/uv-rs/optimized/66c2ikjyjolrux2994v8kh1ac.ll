@@ -2471,7 +2471,8 @@ default.unreachable1089:                          ; preds = %249
   br i1 %303, label %.loopexit, label %.lr.ph.i473.preheader
 
 .lr.ph.i473.preheader:                            ; preds = %302
-  %304 = getelementptr inbounds i32, ptr %296, i64 %295
+  %.idx540 = shl nsw i64 %295, 2
+  %304 = getelementptr inbounds i8, ptr %296, i64 %.idx540
   br label %.lr.ph.i473
 
 .lr.ph.i473:                                      ; preds = %.lr.ph.i473.preheader, %"_ZN10uv_console5input28_$u7b$$u7b$closure$u7d$$u7d$17h888ed42b1c48ae84E.exit.backedge.i"

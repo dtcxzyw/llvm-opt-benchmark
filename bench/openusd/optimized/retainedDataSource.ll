@@ -16873,7 +16873,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIS
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"class.std::shared_ptr.51", ptr %spec.select.i.i.i, i64 %8
+  %.idx.i = shl nuw nsw i64 %8, 4
+  %9 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 %.idx.i
   %.not7.i = icmp eq i32 %7, 0
   br i1 %.not7.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt10shared_ptrINS_16HdDataSourceBaseEELj32EE9_DestructEv.exit, label %.lr.ph.i
 
@@ -66624,7 +66625,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfP
   fence acquire
   %12 = load ptr, ptr %2, align 8
   %13 = load i64, ptr %0, align 8
-  %14 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %12, i64 %13
+  %.idx = shl nsw i64 %13, 3
+  %14 = getelementptr inbounds i8, ptr %12, i64 %.idx
   %.not2829 = icmp eq i64 %13, 0
   br i1 %.not2829, label %._crit_edge, label %.lr.ph
 
@@ -67161,7 +67163,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathES3_EbT_S4_T0_.exit, label %81
 
 81:                                               ; preds = %73, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %82 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %4, i64 %.pre
+  %.idx = shl nsw i64 %.pre, 3
+  %82 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
@@ -67787,7 +67790,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12Sdf
   fence acquire
   %12 = load ptr, ptr %2, align 8
   %13 = load i64, ptr %0, align 8
-  %14 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %12, i64 %13
+  %.idx.i = shl nsw i64 %13, 6
+  %14 = getelementptr inbounds i8, ptr %12, i64 %.idx.i
   %.not2829.i = icmp eq i64 %13, 0
   br i1 %.not2829.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -68296,7 +68300,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathES3_EbT_S4_T0_.exit, label %81
 
 81:                                               ; preds = %73, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %82 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %4, i64 %.pre
+  %.idx = shl nsw i64 %.pre, 6
+  %82 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 

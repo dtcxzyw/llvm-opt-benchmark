@@ -365,7 +365,8 @@ define void @rgb24to32(ptr noundef readonly captures(none) %0, ptr noundef write
 define void @rgb16tobgr32(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sdiv i32 %2, 2
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i16, ptr %0, i64 %5
+  %.idx = shl nsw i64 %5, 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp sgt i32 %2, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -408,7 +409,8 @@ define void @rgb16tobgr32(ptr noundef readonly captures(address) %0, ptr noundef
 define void @rgb12to15(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sdiv i32 %2, 2
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i16, ptr %0, i64 %5
+  %.idx = shl nsw i64 %5, 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp sgt i32 %2, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -446,7 +448,8 @@ define void @rgb12to15(ptr noundef readonly captures(address) %0, ptr noundef wr
 define void @rgb16to24(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sdiv i32 %2, 2
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i16, ptr %0, i64 %5
+  %.idx = shl nsw i64 %5, 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp sgt i32 %2, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -547,7 +550,8 @@ define void @rgb16tobgr15(ptr noundef readonly captures(none) %0, ptr noundef wr
 define void @rgb15tobgr32(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sdiv i32 %2, 2
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i16, ptr %0, i64 %5
+  %.idx = shl nsw i64 %5, 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp sgt i32 %2, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -590,7 +594,8 @@ define void @rgb15tobgr32(ptr noundef readonly captures(address) %0, ptr noundef
 define void @rgb15to24(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sdiv i32 %2, 2
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i16, ptr %0, i64 %5
+  %.idx = shl nsw i64 %5, 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp sgt i32 %2, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -1504,7 +1509,8 @@ define internal void @rgb15to16_c(ptr noundef readonly captures(address) %0, ptr
 define internal void @rgb15tobgr24_c(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #3 {
   %4 = sdiv i32 %2, 2
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i16, ptr %0, i64 %5
+  %.idx = shl nsw i64 %5, 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp sgt i32 %2, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -1545,7 +1551,8 @@ define internal void @rgb15tobgr24_c(ptr noundef readonly captures(address) %0, 
 define internal void @rgb15to32_c(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #3 {
   %4 = sdiv i32 %2, 2
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i16, ptr %0, i64 %5
+  %.idx = shl nsw i64 %5, 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp sgt i32 %2, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -1588,7 +1595,8 @@ define internal void @rgb15to32_c(ptr noundef readonly captures(address) %0, ptr
 define internal void @rgb16tobgr24_c(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #3 {
   %4 = sdiv i32 %2, 2
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i16, ptr %0, i64 %5
+  %.idx = shl nsw i64 %5, 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp sgt i32 %2, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -1629,7 +1637,8 @@ define internal void @rgb16tobgr24_c(ptr noundef readonly captures(address) %0, 
 define internal void @rgb16to32_c(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #3 {
   %4 = sdiv i32 %2, 2
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i16, ptr %0, i64 %5
+  %.idx = shl nsw i64 %5, 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp sgt i32 %2, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
 

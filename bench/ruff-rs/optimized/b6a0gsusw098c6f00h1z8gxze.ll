@@ -2021,7 +2021,8 @@ define hidden void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$9init_with17hc52
   %6 = load ptr, ptr %5, align 8, !nonnull !9, !align !133, !noundef !9
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8, !noundef !9
-  %9 = getelementptr inbounds nuw { { { { ptr, [1 x i64] } } }, { { i64 }, {} }, i64, i64 }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 40
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 

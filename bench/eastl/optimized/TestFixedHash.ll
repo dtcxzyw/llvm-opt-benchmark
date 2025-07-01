@@ -25,11 +25,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.eastl::pair" = type <{ %"struct.eastl::hashtable_iterator.6", i8, [7 x i8] }>
 %"struct.eastl::hashtable_iterator.6" = type { %"struct.eastl::hashtable_iterator_base.5" }
 %"struct.eastl::hashtable_iterator_base.5" = type { ptr, ptr }
-%"struct.eastl::pair.150" = type { i32, i32 }
 %"struct.eastl::pair.253" = type <{ %"struct.eastl::hashtable_iterator.21", i8, [7 x i8] }>
 %"struct.eastl::hashtable_iterator.21" = type { %"struct.eastl::hashtable_iterator_base.22" }
 %"struct.eastl::hashtable_iterator_base.22" = type { ptr, ptr }
-%struct.A = type { i32 }
 %"class.eastl::fixed_hash_set.12" = type <{ %"class.eastl::hash_set.13", [3 x ptr], [31 x i8], i8 }>
 %"class.eastl::hash_set.13" = type { %"class.eastl::hashtable.14" }
 %"class.eastl::hashtable.14" = type { %"struct.eastl::hash_code_base.16", ptr, i64, i64, %"struct.eastl::prime_rehash_policy", %"class.eastl::fixed_hashtable_allocator" }
@@ -40,7 +38,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.eastl::pair.353" = type <{ %"struct.eastl::hashtable_iterator.33", i8, [7 x i8] }>
 %"struct.eastl::hashtable_iterator.33" = type { %"struct.eastl::hashtable_iterator_base.32" }
 %"struct.eastl::hashtable_iterator_base.32" = type { ptr, ptr }
-%"struct.eastl::pair.337" = type { %struct.A, %struct.A }
 %"class.eastl::fixed_hashtable_allocator.50" = type { %"class.eastl::fixed_pool_with_overflow", ptr }
 %"struct.eastl::pair.356" = type <{ %"struct.eastl::hashtable_iterator.52", i8, [7 x i8] }>
 %"struct.eastl::hashtable_iterator.52" = type { %"struct.eastl::hashtable_iterator_base.53" }
@@ -116,6 +113,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::hash_map.152" = type { %"class.eastl::hashtable.153" }
 %"class.eastl::hashtable.153" = type { %"struct.eastl::hash_code_base.2", ptr, i64, i64, %"struct.eastl::prime_rehash_policy", %"class.eastl::fixed_hashtable_allocator.155" }
 %"class.eastl::fixed_hashtable_allocator.155" = type { %"class.eastl::fixed_pool_with_overflow", ptr }
+%"struct.eastl::pair.150" = type { i32, i32 }
 %"class.eastl::fixed_hash_map.157" = type <{ %"class.eastl::hash_map.158", [514 x ptr], [8207 x i8], i8 }>
 %"class.eastl::hash_map.158" = type { %"class.eastl::hashtable.159" }
 %"class.eastl::hashtable.159" = type { %"struct.eastl::hash_code_base.161", ptr, i64, i64, %"struct.eastl::prime_rehash_policy", %"class.eastl::fixed_hashtable_allocator.165" }
@@ -160,6 +158,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.eastl::hash_code_base.214" = type { %"struct.eastl::use_first.215", %"struct.eastl::equal_to", %"struct.eastl::hash", %"struct.eastl::mod_range_hashing" }
 %"struct.eastl::use_first.215" = type { i8 }
 %"struct.eastl::pair.221" = type { i32, %struct.A }
+%struct.A = type { i32 }
 %"class.eastl::fixed_hash_map.222" = type <{ %"class.eastl::hash_map.223", [101 x ptr], [1615 x i8], i8 }>
 %"class.eastl::hash_map.223" = type { %"class.eastl::hashtable.224" }
 %"class.eastl::hashtable.224" = type { %"struct.eastl::hash_code_base.226", ptr, i64, i64, %"struct.eastl::prime_rehash_policy", %"class.eastl::fixed_hashtable_allocator.155" }
@@ -3090,7 +3089,8 @@ _ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorIL
 
 invoke.cont:                                      ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %3 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -3223,7 +3223,8 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS
   %conv2.i = phi i32 [ %8, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -4323,7 +4324,8 @@ _ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorI
 
 invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.150", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %3 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -4456,7 +4458,8 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1EL
   %conv2.i = phi i32 [ %8, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.150", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -5560,7 +5563,8 @@ _ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_alloc
 
 invoke.cont:                                      ; preds = %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %3 = load i64, ptr %mnBucketCount.i.i, align 8
   %conv2.i = trunc i64 %3 to i32
@@ -5690,7 +5694,8 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS
   %conv2.i = phi i32 [ %8, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call4.i = tail call i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i, i32 noundef %conv2.i, i32 noundef 0, i32 noundef %conv.i)
@@ -6671,7 +6676,8 @@ _ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allo
 
 invoke.cont:                                      ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.150", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %3 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -6804,7 +6810,8 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1EL
   %conv2.i = phi i32 [ %8, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.150", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -7916,7 +7923,8 @@ _ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_alloca
 
 invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.A, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %3 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -8049,7 +8057,8 @@ _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1
   %conv2.i = phi i32 [ %8, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.A, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -9137,7 +9146,8 @@ _ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_all
 
 invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.337", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %3 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -9270,7 +9280,8 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16E
   %conv2.i = phi i32 [ %8, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.337", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -10372,7 +10383,8 @@ _ZN5eastl13hash_multisetI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_
 
 invoke.cont:                                      ; preds = %_ZN5eastl13hash_multisetI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.A, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %3 = load i64, ptr %mnBucketCount.i.i, align 8
   %conv2.i = trunc i64 %3 to i32
@@ -10502,7 +10514,8 @@ _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1
   %conv2.i = phi i32 [ %8, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.A, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call4.i = tail call i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i, i32 noundef %conv2.i, i32 noundef 0, i32 noundef %conv.i)
@@ -11483,7 +11496,8 @@ _ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtab
 
 invoke.cont:                                      ; preds = %_ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.337", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %3 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -11616,7 +11630,8 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16E
   %conv2.i = phi i32 [ %8, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.337", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -12725,7 +12740,8 @@ _ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorIL
 
 invoke.cont:                                      ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %3 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -12857,7 +12873,8 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS
   %conv2.i = phi i32 [ %8, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -13943,7 +13960,8 @@ _ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorI
 
 invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.150", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %3 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -14075,7 +14093,8 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1EL
   %conv2.i = phi i32 [ %8, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.150", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -15173,7 +15192,8 @@ _ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_alloc
 
 invoke.cont:                                      ; preds = %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %3 = load i64, ptr %mnBucketCount.i.i, align 8
   %conv2.i = trunc i64 %3 to i32
@@ -15302,7 +15322,8 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS
   %conv2.i = phi i32 [ %8, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call4.i = tail call i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i, i32 noundef %conv2.i, i32 noundef 0, i32 noundef %conv.i)
@@ -16281,7 +16302,8 @@ _ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allo
 
 invoke.cont:                                      ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.150", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %3 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -16413,7 +16435,8 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1EL
   %conv2.i = phi i32 [ %8, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.150", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -17521,7 +17544,8 @@ _ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_alloca
 
 invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS3_RKS5_RKS8_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.A, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %3 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -17653,7 +17677,8 @@ _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1
   %conv2.i = phi i32 [ %8, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.A, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -18739,7 +18764,8 @@ _ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_all
 
 invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS3_RKS5_RKS8_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.337", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %3 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -18871,7 +18897,8 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24E
   %conv2.i = phi i32 [ %8, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.337", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -19969,7 +19996,8 @@ _ZN5eastl13hash_multisetI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_
 
 invoke.cont:                                      ; preds = %_ZN5eastl13hash_multisetI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS3_RKS5_RKS8_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.A, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %3 = load i64, ptr %mnBucketCount.i.i, align 8
   %conv2.i = trunc i64 %3 to i32
@@ -20098,7 +20126,8 @@ _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1
   %conv2.i = phi i32 [ %8, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb0EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.A, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call4.i = tail call i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i, i32 noundef %conv2.i, i32 noundef 0, i32 noundef %conv.i)
@@ -21077,7 +21106,8 @@ _ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtab
 
 invoke.cont:                                      ; preds = %_ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEELb1EEC2EmRKS3_RKS5_RKS8_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.337", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %3 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -21209,7 +21239,8 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24E
   %conv2.i = phi i32 [ %8, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb0EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.337", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -22463,7 +22494,8 @@ _ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorIL
 
 invoke.cont:                                      ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %9 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -22599,7 +22631,8 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15
   %conv2.i = phi i32 [ %9, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -23752,7 +23785,8 @@ _ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorI
 
 invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.150", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %9 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -23888,7 +23922,8 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1EL
   %conv2.i = phi i32 [ %9, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.150", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -25164,7 +25199,8 @@ _ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_alloc
 
 invoke.cont:                                      ; preds = %_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %9 = load i64, ptr %mnBucketCount.i.i, align 8
   %conv2.i = trunc i64 %9 to i32
@@ -25297,7 +25333,8 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15
   %conv2.i = phi i32 [ %9, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call4.i = tail call i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i, i32 noundef %conv2.i, i32 noundef 0, i32 noundef %conv.i)
@@ -26450,7 +26487,8 @@ _ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allo
 
 invoke.cont:                                      ; preds = %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.150", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %9 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -26586,7 +26624,8 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1EL
   %conv2.i = phi i32 [ %9, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.150", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -27872,7 +27911,8 @@ _ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_alloca
 
 invoke.cont:                                      ; preds = %_ZN5eastl8hash_setI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.A, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %9 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -28008,7 +28048,8 @@ _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1
   %conv2.i = phi i32 [ %9, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.A, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -29161,7 +29202,8 @@ _ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_all
 
 invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.337", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %9 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -29297,7 +29339,8 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16E
   %conv2.i = phi i32 [ %9, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.337", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -30573,7 +30616,8 @@ _ZN5eastl13hash_multisetI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_
 
 invoke.cont:                                      ; preds = %_ZN5eastl13hash_multisetI1ANS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.A, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %9 = load i64, ptr %mnBucketCount.i.i, align 8
   %conv2.i = trunc i64 %9 to i32
@@ -30706,7 +30750,8 @@ _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1
   %conv2.i = phi i32 [ %9, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb0EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.A, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call4.i = tail call i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i, i32 noundef %conv2.i, i32 noundef 0, i32 noundef %conv.i)
@@ -31859,7 +31904,8 @@ _ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtab
 
 invoke.cont:                                      ; preds = %_ZN5eastl13hash_multimapI1AS1_NS_4hashIS1_EENS_8equal_toIS1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEELb0EEC2EmRKS3_RKS5_RKS8_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.337", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %9 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -31995,7 +32041,8 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16E
   %conv2.i = phi i32 [ %9, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.337", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -76669,7 +76716,8 @@ _ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorIL
 
 invoke.cont:                                      ; preds = %_ZN5eastl8hash_setIiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %3 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -76795,7 +76843,8 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1E
   %conv2.i = phi i32 [ %8, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -76901,7 +76950,8 @@ _ZN5eastl8hash_mapIidNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorI
 
 invoke.cont:                                      ; preds = %_ZN5eastl8hash_mapIidNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEELb0EEC2EmRKS2_RKS4_RKS7_.exit
   store ptr %mNodeBuffer, ptr %mpPoolBegin.i.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.328", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 4
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %3 = load i64, ptr %mnBucketCount.i.i, align 8
@@ -77027,7 +77077,8 @@ _ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11
   %conv2.i = phi i32 [ %8, %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.328", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 4
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32

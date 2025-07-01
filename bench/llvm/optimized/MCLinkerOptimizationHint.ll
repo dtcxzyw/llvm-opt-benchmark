@@ -87,7 +87,8 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit19: ; preds = %_ZN4llvm11raw_os
   %33 = load ptr, ptr %32, align 8, !tbaa !27
   %34 = load i32, ptr %19, align 8, !tbaa !26
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %35
+  %.idx = shl nuw nsw i64 %35, 3
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx
   %.not27 = icmp eq i32 %34, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 

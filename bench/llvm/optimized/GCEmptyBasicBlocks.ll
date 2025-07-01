@@ -203,7 +203,8 @@ _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj8EEC2IPS2_EERKNS_14iterator_rang
   %60 = add i32 %59, %52
   store i32 %60, ptr %16, align 8, !tbaa !195
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %58, i64 %61
+  %.idx54 = shl nuw nsw i64 %61, 3
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx54
   %.not44 = icmp eq i32 %60, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph
 

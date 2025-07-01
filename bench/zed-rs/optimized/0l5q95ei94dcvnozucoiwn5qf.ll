@@ -1830,7 +1830,8 @@ _ZN10serde_json3ser9Formatter9write_f6417h9023e5a6ef007570E.exit.i.i: ; preds = 
   %204 = load ptr, ptr %203, align 8, !alias.scope !442, !noalias !445, !nonnull !5, !noundef !5
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %206 = load i64, ptr %205, align 8, !alias.scope !442, !noalias !445, !noundef !5
-  %207 = getelementptr inbounds { i64, [8 x i64] }, ptr %204, i64 %206
+  %.idx126 = mul nsw i64 %206, 72
+  %207 = getelementptr inbounds i8, ptr %204, i64 %.idx126
   tail call void @llvm.experimental.noalias.scope.decl(metadata !448)
   %.val.i24 = load ptr, ptr %1, align 8, !alias.scope !448, !noalias !451, !nonnull !5, !align !330, !noundef !5
   %208 = getelementptr inbounds nuw i8, ptr %.val.i24, i64 16
@@ -2004,7 +2005,8 @@ _ZN10serde_json3ser9Formatter10end_object17h07f190d446e05a74E.exit.i: ; preds = 
   %284 = load ptr, ptr %283, align 8, !nonnull !5, !noundef !5
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %286 = load i64, ptr %285, align 8, !noundef !5
-  %287 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %284, i64 %286
+  %.idx = mul nsw i64 %286, 104
+  %287 = getelementptr inbounds i8, ptr %284, i64 %.idx
   %288 = icmp eq i64 %286, 0
   br i1 %288, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hb26b596c23f00d4cE.exit._crit_edge", label %.lr.ph
 

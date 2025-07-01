@@ -236,7 +236,8 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h139fe40277550836E.llvm.26601
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17hba3943aeed84b1eeE(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(72) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { { i32, [4 x i32] }, [1 x i32], double }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 5
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 

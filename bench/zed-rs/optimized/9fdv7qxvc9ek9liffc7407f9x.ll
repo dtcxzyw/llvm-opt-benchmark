@@ -94671,7 +94671,8 @@ define hidden { ptr, ptr } @_ZN9workspace4pane4Pane9open_item17h1f92c68ba367861c
   %23 = load ptr, ptr %22, align 8, !nonnull !10, !noundef !10
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i64, ptr %24, align 8, !noundef !10
-  %26 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %23, i64 %25
+  %.idx = shl nsw i64 %25, 4
+  %26 = getelementptr inbounds i8, ptr %23, i64 %.idx
   %27 = icmp eq i64 %25, 0
   br i1 %27, label %.thread100, label %.lr.ph
 
@@ -95494,7 +95495,8 @@ define hidden void @_ZN9workspace4pane4Pane11close_items17h0816889f33032f24E(ptr
   %20 = load ptr, ptr %19, align 8, !nonnull !10, !noundef !10
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8, !noundef !10
-  %23 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %20, i64 %22
+  %.idx = shl nsw i64 %22, 4
+  %23 = getelementptr inbounds i8, ptr %20, i64 %.idx
   %24 = icmp eq i64 %22, 0
   br i1 %24, label %._crit_edge, label %.lr.ph
 
@@ -95883,7 +95885,8 @@ define hidden void @_ZN9workspace4pane4Pane11close_items17h189928b7893ef2ccE(ptr
   %21 = load ptr, ptr %20, align 8, !nonnull !10, !noundef !10
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load i64, ptr %22, align 8, !noundef !10
-  %24 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %21, i64 %23
+  %.idx = shl nsw i64 %23, 4
+  %24 = getelementptr inbounds i8, ptr %21, i64 %.idx
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
 
@@ -96332,7 +96335,8 @@ define hidden void @_ZN9workspace4pane4Pane11close_items17h4ae73174d67bcdb0E(ptr
   %22 = load ptr, ptr %21, align 8, !nonnull !10, !noundef !10
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load i64, ptr %23, align 8, !noundef !10
-  %25 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %22, i64 %24
+  %.idx = shl nsw i64 %24, 4
+  %25 = getelementptr inbounds i8, ptr %22, i64 %.idx
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %._crit_edge, label %.lr.ph
 
@@ -96729,7 +96733,8 @@ define hidden void @_ZN9workspace4pane4Pane11close_items17h6a4b6d73432b5938E(ptr
   %22 = load ptr, ptr %21, align 8, !nonnull !10, !noundef !10
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load i64, ptr %23, align 8, !noundef !10
-  %25 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %22, i64 %24
+  %.idx = shl nsw i64 %24, 4
+  %25 = getelementptr inbounds i8, ptr %22, i64 %.idx
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %._crit_edge, label %.lr.ph
 
@@ -97126,7 +97131,8 @@ define hidden void @_ZN9workspace4pane4Pane11close_items17hb60169e12e7b42d4E(ptr
   %21 = load ptr, ptr %20, align 8, !nonnull !10, !noundef !10
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load i64, ptr %22, align 8, !noundef !10
-  %24 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %21, i64 %23
+  %.idx = shl nsw i64 %23, 4
+  %24 = getelementptr inbounds i8, ptr %21, i64 %.idx
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
 
@@ -97533,7 +97539,8 @@ define hidden void @_ZN9workspace4pane4Pane11close_items17hef100922c8183483E(ptr
   %21 = load ptr, ptr %20, align 8, !nonnull !10, !noundef !10
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load i64, ptr %22, align 8, !noundef !10
-  %24 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %21, i64 %23
+  %.idx = shl nsw i64 %23, 4
+  %24 = getelementptr inbounds i8, ptr %21, i64 %.idx
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
 
@@ -97982,7 +97989,8 @@ define hidden void @_ZN9workspace4pane4Pane11close_items17hfcefea83acc2532fE(ptr
   %21 = load ptr, ptr %20, align 8, !nonnull !10, !noundef !10
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load i64, ptr %22, align 8, !noundef !10
-  %24 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %21, i64 %23
+  %.idx = shl nsw i64 %23, 4
+  %24 = getelementptr inbounds i8, ptr %21, i64 %.idx
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
 

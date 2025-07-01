@@ -6470,7 +6470,8 @@ terminate.lpad.i.i.i12:                           ; preds = %if.then.i.i.i10
   unreachable
 
 _ZN5eastl8functionIFiiEED2Ev.exit:                ; preds = %_ZN5eastl8functionIFvRKiEED2Ev.exit, %if.then.i.i.i10
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.28", ptr %il.coerce0, i64 %il.coerce1
+  %add.ptr.i.idx = shl nsw i64 %il.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %il.coerce0, i64 %add.ptr.i.idx
   %cmp.not27 = icmp eq i64 %il.coerce1, 0
   br i1 %cmp.not27, label %for.end, label %for.body
 

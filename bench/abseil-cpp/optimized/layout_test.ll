@@ -189,7 +189,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.testing::Matcher.415" = type { %"class.testing::internal::MatcherBase.416" }
 %"class.testing::internal::MatcherBase.416" = type { %"class.testing::MatcherDescriberInterface", ptr, %"union.testing::internal::MatcherBase<const absl::Span<const absl::container_internal::(anonymous namespace)::Int128> &>::Buffer" }
 %"union.testing::internal::MatcherBase<const absl::Span<const absl::container_internal::(anonymous namespace)::Int128> &>::Buffer" = type { ptr }
-%"struct.absl::container_internal::(anonymous namespace)::Int128" = type { i64, i64 }
 %"class.testing::Matcher.492" = type { %"class.testing::internal::MatcherBase.493" }
 %"class.testing::internal::MatcherBase.493" = type { %"class.testing::MatcherDescriberInterface", ptr, %"union.testing::internal::MatcherBase<const std::tuple<absl::Span<signed char>> &>::Buffer" }
 %"union.testing::internal::MatcherBase<const std::tuple<absl::Span<signed char>> &>::Buffer" = type { ptr }
@@ -281,7 +280,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.698" = type { %"struct.std::_Tuple_impl.699", %"struct.std::_Head_base.693" }
 %"struct.std::_Tuple_impl.699" = type { %"struct.std::_Head_base.700" }
 %"struct.std::_Head_base.700" = type { %"class.absl::Span.272" }
-%"struct.absl::container_internal::(anonymous namespace)::Int64" = type { i64 }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.absl::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.std::tuple.730" = type { %"struct.std::_Tuple_impl.731" }
@@ -90819,7 +90817,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i.i: ; preds = %16,
   %.val.i.i.i = load ptr, ptr %0, align 8, !tbaa !1092
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val24.i.i.i = load i64, ptr %18, align 8, !tbaa !1078
-  %19 = getelementptr inbounds nuw %"struct.absl::container_internal::(anonymous namespace)::Int128", ptr %.val.i.i.i, i64 %.val24.i.i.i
+  %.idx.i.i.i = shl i64 %.val24.i.i.i, 4
+  %19 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.idx.i.i.i
   %invariant.gep.i.i.i = getelementptr i8, ptr %1, i64 16
   %.not46.i.i.i = icmp eq i64 %.val24.i.i.i, 0
   br i1 %.not46.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
@@ -98088,7 +98087,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i.i: ; preds = %16,
   %.val.i.i.i = load ptr, ptr %0, align 8, !tbaa !1412
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val24.i.i.i = load i64, ptr %18, align 8, !tbaa !1399
-  %19 = getelementptr inbounds nuw %"struct.absl::container_internal::(anonymous namespace)::Int128", ptr %.val.i.i.i, i64 %.val24.i.i.i
+  %.idx.i.i.i = shl i64 %.val24.i.i.i, 4
+  %19 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.idx.i.i.i
   %invariant.gep.i.i.i = getelementptr i8, ptr %1, i64 16
   %.not46.i.i.i = icmp eq i64 %.val24.i.i.i, 0
   br i1 %.not46.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
@@ -104799,7 +104799,8 @@ _ZN4absleqIKaEEbNS_4SpanIT_EES4_.exit.thread.i.i.i: ; preds = %_ZN4absleqIKaEEbN
   %.val6.i.i.i = load i64, ptr %9, align 8, !tbaa !71, !noalias !1645
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val8.i.i.i = load i64, ptr %10, align 8, !tbaa !71, !noalias !1645
-  %11 = getelementptr inbounds nuw %"struct.absl::container_internal::(anonymous namespace)::Int64", ptr %.val.i.i.i, i64 %.val6.i.i.i
+  %.idx.i.i.i.i.i.i = shl nuw nsw i64 %.val6.i.i.i, 3
+  %11 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.idx.i.i.i.i.i.i
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.val6.i.i.i, %.val8.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %12, label %.loopexit.i
 
@@ -104969,7 +104970,8 @@ _ZN4absleqIKaEEbNS_4SpanIT_EES4_.exit.thread.i.i.i: ; preds = %_ZN4absleqIKaEEbN
   %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !71, !noalias !1652
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !71, !noalias !1652
-  %10 = getelementptr inbounds nuw %"struct.absl::container_internal::(anonymous namespace)::Int64", ptr %.sroa.01.0.copyload.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i
+  %.idx.i.i.i.i.i.i = shl nuw nsw i64 %.sroa.22.0.copyload.i.i.i.i, 3
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload.i.i.i.i, i64 %.idx.i.i.i.i.i.i
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %11, label %_ZSteqIJN4absl4SpanIKaEENS1_IKNS0_18container_internal12_GLOBAL__N_15Int64EEENS1_IKiEEEJS3_S8_SA_EEbRKSt5tupleIJDpT_EERKSB_IJDpT0_EE.exit.thread.i
 
@@ -105160,7 +105162,8 @@ _ZN4absleqIKaEEbNS_4SpanIT_EES4_.exit.thread.i.i.i: ; preds = %_ZN4absleqIKaEEbN
   %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !71, !noalias !1658
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !71, !noalias !1658
-  %10 = getelementptr inbounds nuw %"struct.absl::container_internal::(anonymous namespace)::Int64", ptr %.sroa.01.0.copyload.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i
+  %.idx.i.i.i.i.i.i = shl nuw nsw i64 %.sroa.22.0.copyload.i.i.i.i, 3
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload.i.i.i.i, i64 %.idx.i.i.i.i.i.i
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %11, label %.loopexit.i
 
@@ -105215,7 +105218,8 @@ _ZN4absleqIKiEEbNS_4SpanIT_EES4_.exit.thread.i.i.i.i.i: ; preds = %_ZN4absleqIKi
   %.val6.i.i.i.i.i = load i64, ptr %20, align 8, !tbaa !71, !noalias !1658
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val8.i.i.i.i.i = load i64, ptr %21, align 8, !tbaa !71, !noalias !1658
-  %22 = getelementptr inbounds nuw %"struct.absl::container_internal::(anonymous namespace)::Int128", ptr %.val.i.i.i.i.i, i64 %.val6.i.i.i.i.i
+  %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.val6.i.i.i.i.i, 4
+  %22 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 %.idx.i.i.i.i.i.i.i.i
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.val6.i.i.i.i.i, %.val8.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %23, label %.loopexit.i
 
@@ -105532,7 +105536,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i.i: ; preds = %16,
   %.val.i.i.i = load ptr, ptr %0, align 8, !tbaa !1679
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val24.i.i.i = load i64, ptr %18, align 8, !tbaa !1681
-  %19 = getelementptr inbounds nuw %"struct.absl::container_internal::(anonymous namespace)::Int64", ptr %.val.i.i.i, i64 %.val24.i.i.i
+  %.idx.i.i.i = shl i64 %.val24.i.i.i, 3
+  %19 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.idx.i.i.i
   %invariant.gep.i.i.i = getelementptr i8, ptr %1, i64 16
   %.not46.i.i.i = icmp eq i64 %.val24.i.i.i, 0
   br i1 %.not46.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
@@ -105828,7 +105833,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %14, %16
   %18 = load ptr, ptr %0, align 8, !tbaa !1696
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !1698
-  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %20
+  %.idx = shl i64 %20, 2
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %invariant.gep = getelementptr i8, ptr %1, i64 16
   %.not44 = icmp eq i64 %20, 0
   br i1 %.not44, label %._crit_edge.thread, label %.lr.ph

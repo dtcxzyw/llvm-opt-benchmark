@@ -10656,7 +10656,8 @@ define hidden void @"_ZN12polars_arrow2io3ipc5write6writer19FileWriter$LT$W$GT$5
   br i1 %.not.i, label %42, label %52, !prof !34
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %38, i64 %40
+  %.idx.i = mul nuw nsw i64 %40, 48
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i
   %44 = icmp eq i64 %40, 0
   br i1 %44, label %._crit_edge.i, label %.lr.ph.i
 
@@ -19206,7 +19207,8 @@ define hidden void @"_ZN14polars_parquet7parquet5write4file19FileWriter$LT$W$GT$
   %53 = load ptr, ptr %52, align 8, !nonnull !4, !noundef !4
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %55 = load i64, ptr %54, align 8, !noundef !4
-  %56 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, i64, i64, { i16, [1 x i16] }, [2 x i16] }, ptr %53, i64 %55
+  %.idx = mul nuw nsw i64 %55, 104
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   %57 = icmp eq i64 %55, 0
   br i1 %57, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6af9d0b20d4fbf42E.exit", label %.preheader
 
@@ -58107,7 +58109,8 @@ _ZN3std4sync6poison4once4Once9call_once17h8c2124998ca56c96E.exit.us: ; preds = %
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   %96 = load ptr, ptr %85, align 8, !nonnull !4, !noundef !4
   %97 = load i64, ptr %84, align 8, !noundef !4
-  %98 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %96, i64 %97
+  %.idx90 = mul nuw nsw i64 %97, 48
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx90
   %99 = icmp eq i64 %97, 0
   br i1 %99, label %_ZN4core4iter6traits8iterator8Iterator7collect17h85ae354a05859659E.exit.us, label %.lr.ph.us.preheader
 
@@ -58266,7 +58269,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h85ae354a05859659E.exit._crit_ed
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   %135 = load ptr, ptr %85, align 8, !nonnull !4, !noundef !4
   %136 = load i64, ptr %84, align 8, !noundef !4
-  %137 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %135, i64 %136
+  %.idx = mul nuw nsw i64 %136, 48
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 %.idx
   %138 = icmp eq i64 %136, 0
   br i1 %138, label %_ZN4core4iter6traits8iterator8Iterator7collect17h85ae354a05859659E.exit, label %.lr.ph.preheader
 

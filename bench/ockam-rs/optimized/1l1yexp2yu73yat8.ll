@@ -2413,7 +2413,8 @@ define hidden void @"_ZN10ockam_node14worker_builder39WorkerBuilderMultipleAddre
   %9 = load ptr, ptr %8, align 8, !nonnull !10, !noundef !10
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 656
   %11 = load i64, ptr %10, align 8, !noundef !10
-  %12 = getelementptr inbounds { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] } }, ptr %9, i64 %11
+  %.idx = shl nsw i64 %11, 6
+  %12 = getelementptr inbounds i8, ptr %9, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !339)
   %13 = icmp eq i64 %11, 0
   br i1 %13, label %.loopexit, label %.lr.ph.i
@@ -25961,7 +25962,8 @@ define void @_ZN14ockam_identity14secure_channel10local_info30IdentitySecureChan
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3641)
-  %7 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, ptr %5, i64 %6
+  %.idx.i = mul nsw i64 %6, 48
+  %7 = getelementptr inbounds i8, ptr %5, i64 %.idx.i
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -26006,7 +26008,8 @@ _ZN14ockam_identity14secure_channel10local_info30IdentitySecureChannelLocalInfo1
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN14ockam_identity14secure_channel10local_info30IdentitySecureChannelLocalInfo19find_info_from_list17h77c77f25085bee8fE(ptr noalias noundef writeonly sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [31 x i8] }, align 8
-  %5 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 48
+  %5 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %.loopexit, label %.lr.ph.i
 

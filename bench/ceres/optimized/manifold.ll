@@ -1988,7 +1988,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %_ZN5Eigen8internal20generic_product_implINS_3MapIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEES4_NS_10DenseShapeES9_Li8EE6evalToINS3_IdLin1ELin1ELi0ELin1ELin1EEEEEvRT_RKS8_RS5_.exit
 
 38:                                               ; preds = %26
-  %39 = mul i64 %27, %28
+  %39 = mul nsw i64 %27, %28
   %40 = icmp slt i64 %39, 1
   br i1 %40, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.i
 

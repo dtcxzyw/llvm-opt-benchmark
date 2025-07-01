@@ -760,7 +760,8 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE26translate
 
 .lr.ph.preheader:                                 ; preds = %1
   %4 = load ptr, ptr %0, align 8, !tbaa !28
-  %5 = getelementptr inbounds nuw i32, ptr %4, i64 %3
+  %.idx360 = shl nuw nsw i64 %3, 2
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx360
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %290

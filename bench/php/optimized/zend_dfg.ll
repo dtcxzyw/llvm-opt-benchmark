@@ -764,7 +764,8 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %38 = load i32, ptr %37, align 8, !tbaa !48
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %struct._zend_op, ptr %36, i64 %39
+  %.idx = shl nuw nsw i64 %39, 5
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx
   %41 = mul nsw i64 %indvars.iv, %25
   %42 = getelementptr inbounds i64, ptr %15, i64 %41
   %43 = getelementptr inbounds i64, ptr %13, i64 %41

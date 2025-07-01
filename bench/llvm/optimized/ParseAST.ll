@@ -281,7 +281,8 @@ _ZN4llvm14TimeTraceScopeD2Ev.exit55:              ; preds = %73, %_ZN5clang32Ent
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 3200
   %77 = load i32, ptr %76, align 8, !tbaa !902
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr %75, i64 %78
+  %.idx = shl nuw nsw i64 %78, 3
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 %.idx
   %.not4979 = icmp eq i32 %77, 0
   br i1 %.not4979, label %._crit_edge, label %.lr.ph81
 

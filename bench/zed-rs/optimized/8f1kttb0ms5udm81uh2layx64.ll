@@ -5189,7 +5189,8 @@ define hidden noundef ptr @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$
   %.sroa.42.0.copyload.i.i.i = load ptr, ptr %.sroa.42.0..sroa_idx.i.i.i, align 8, !alias.scope !1104, !noalias !1109, !nonnull !4, !noundef !4
   %.sroa.53.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.53.0.copyload.i.i.i = load i64, ptr %.sroa.53.0..sroa_idx.i.i.i, align 8, !alias.scope !1104, !noalias !1109
-  %73 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { [11 x i8], i8, [4 x i8] }, i128, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, ptr, [1 x i64] }, ptr %.sroa.42.0.copyload.i.i.i, i64 %.sroa.53.0.copyload.i.i.i
+  %.idx.i.i.i = mul nsw i64 %.sroa.53.0.copyload.i.i.i, 144
+  %73 = getelementptr inbounds i8, ptr %.sroa.42.0.copyload.i.i.i, i64 %.idx.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !1111
   store ptr %.sroa.42.0.copyload.i.i.i, ptr %7, align 8, !noalias !1111
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8

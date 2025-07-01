@@ -1400,7 +1400,8 @@ define noundef zeroext i1 @_ZN4ring4hkdf8fill_okm17hadb4f6f109bf9d24E(ptr noalia
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull readonly align 8 dereferenceable(64) %23, i64 64, i1 false), !alias.scope !215
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 288
   store i64 %25, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !205, !noalias !208
-  %28 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %28 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %29 = icmp eq i64 %2, 0
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %31

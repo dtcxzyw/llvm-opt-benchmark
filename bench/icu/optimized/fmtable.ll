@@ -1336,7 +1336,8 @@ define void @_ZN6icu_7711Formattable7disposeEv(ptr noundef nonnull align 8 captu
   br i1 %19, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %16
-  %20 = getelementptr inbounds %"class.icu_77::Formattable", ptr %14, i64 %18
+  %.idx = mul nsw i64 %18, 112
+  %20 = getelementptr inbounds i8, ptr %14, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader

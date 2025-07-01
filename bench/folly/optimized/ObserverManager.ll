@@ -8789,7 +8789,8 @@ _ZN5folly18threadlocal_detail14StaticMetaBase25getThreadEntrySetsPtrSpanEv.exit:
   %27 = load atomic i32, ptr %10 monotonic, align 4
   %28 = zext i32 %27 to i64
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.sroa.3.0.i.i, i64 %28)
-  %29 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i.i, i64 %.sroa.speculated.i
+  %.idx = shl nuw nsw i64 %.sroa.speculated.i, 3
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %.idx
   %.not42 = icmp eq i64 %.sroa.speculated.i, 0
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 
@@ -13005,7 +13006,8 @@ _ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_8Fu
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_8FunctionIFvvEEELb0ELb0ELb1ELm8ELm6ESt6atomicE7SegmentES6_St14default_deleteIS8_EEESaISC_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_8FunctionIFvvEEELb0ELb0ELb1ELm8ELm6ESt6atomicE7SegmentES6_St14default_deleteIS8_EEESaISC_EE16_M_allocate_nodeEv.exit.i
@@ -17432,7 +17434,8 @@ _ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_8Fu
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_8FunctionIFSt10shared_ptrINS0_15observer_detail4CoreEEvEEELb0ELb1ELb1ELm8ELm6ESt6atomicE7SegmentESA_St14default_deleteISC_EEESaISG_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_8FunctionIFSt10shared_ptrINS0_15observer_detail4CoreEEvEEELb0ELb1ELb1ELm8ELm6ESt6atomicE7SegmentESA_St14default_deleteISC_EEESaISG_EE16_M_allocate_nodeEv.exit.i
@@ -26023,7 +26026,8 @@ _ZN5folly18threadlocal_detail14StaticMetaBase25getThreadEntrySetsPtrSpanEv.exit:
   %27 = load atomic i32, ptr %10 monotonic, align 4
   %28 = zext i32 %27 to i64
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.sroa.3.0.i.i, i64 %28)
-  %29 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i.i, i64 %.sroa.speculated.i
+  %.idx = shl nuw nsw i64 %.sroa.speculated.i, 3
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %.idx
   %.not42 = icmp eq i64 %.sroa.speculated.i, 0
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 
@@ -29249,7 +29253,8 @@ common.resume:                                    ; preds = %75, %15
 
 _ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEv.exit: ; preds = %2, %6, %10
   %17 = load atomic i64, ptr @_ZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE4num_E monotonic, align 8
-  %18 = getelementptr inbounds nuw %"class.std::shared_ptr.388", ptr %0, i64 %17
+  %.idx = shl nuw nsw i64 %17, 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.not21 = icmp eq i64 %17, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 

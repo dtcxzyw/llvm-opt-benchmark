@@ -427,7 +427,7 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 104
   %23 = load i8, ptr %22, align 8, !range !13, !noundef !3
   %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %_ZN17crossbeam_channel5waker5Waker10disconnect17h67b68444d5fb63c5E.exit14, label %25
+  br i1 %24, label %_ZN17crossbeam_channel5waker5Waker10disconnect17h67b68444d5fb63c5E.exit15, label %25
 
 25:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2056283573b9d267E.exit"
   store i8 1, ptr %22, align 8
@@ -437,7 +437,8 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
   %28 = load ptr, ptr %27, align 8, !alias.scope !14, !nonnull !3, !noundef !3
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %30 = load i64, ptr %29, align 8, !alias.scope !14, !noundef !3
-  %31 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %28, i64 %30
+  %.idx.i = mul nuw nsw i64 %30, 24
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %._crit_edge.i, label %.lr.ph.i
 
@@ -477,17 +478,17 @@ _ZN3std6thread6Thread6unpark17h7cfe9663759349a1E.exit.i: ; preds = %42, %36, %.l
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %42
-  %lpad.loopexit17 = landingpad { ptr, i32 }
+  %lpad.loopexit18 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %._crit_edge.i11, %._crit_edge.i
-  %lpad.loopexit.split-lp18 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %._crit_edge.i12, %._crit_edge.i
+  %lpad.loopexit.split-lp19 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit17, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp18, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit18, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp19, %.loopexit.split-lp.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17h9c2448b15cd82155E"(ptr nonnull %18, i8 %20) #28
           to label %common.resume unwind label %75
 
@@ -498,45 +499,46 @@ _ZN17crossbeam_channel5waker5Waker10disconnect17h67b68444d5fb63c5E.exit: ; preds
   %47 = load ptr, ptr %46, align 8, !alias.scope !17, !nonnull !3, !noundef !3
   %48 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %49 = load i64, ptr %48, align 8, !alias.scope !17, !noundef !3
-  %50 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %47, i64 %49
+  %.idx.i6 = mul nuw nsw i64 %49, 24
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i6
   %51 = icmp eq i64 %49, 0
-  br i1 %51, label %._crit_edge.i11, label %.lr.ph.i6
+  br i1 %51, label %._crit_edge.i12, label %.lr.ph.i7
 
-.lr.ph.i6:                                        ; preds = %_ZN17crossbeam_channel5waker5Waker10disconnect17h67b68444d5fb63c5E.exit, %_ZN3std6thread6Thread6unpark17h7cfe9663759349a1E.exit.i10
-  %.sroa.01.04.i7 = phi ptr [ %52, %_ZN3std6thread6Thread6unpark17h7cfe9663759349a1E.exit.i10 ], [ %47, %_ZN17crossbeam_channel5waker5Waker10disconnect17h67b68444d5fb63c5E.exit ]
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i7, i64 24
-  %.sroa.01.0.val.i8 = load ptr, ptr %.sroa.01.04.i7, align 8, !noalias !17, !nonnull !3, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.val.i8, i64 32
+.lr.ph.i7:                                        ; preds = %_ZN17crossbeam_channel5waker5Waker10disconnect17h67b68444d5fb63c5E.exit, %_ZN3std6thread6Thread6unpark17h7cfe9663759349a1E.exit.i11
+  %.sroa.01.04.i8 = phi ptr [ %52, %_ZN3std6thread6Thread6unpark17h7cfe9663759349a1E.exit.i11 ], [ %47, %_ZN17crossbeam_channel5waker5Waker10disconnect17h67b68444d5fb63c5E.exit ]
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i8, i64 24
+  %.sroa.01.0.val.i9 = load ptr, ptr %.sroa.01.04.i8, align 8, !noalias !17, !nonnull !3, !noundef !3
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.val.i9, i64 32
   %54 = cmpxchg ptr %53, i64 0, i64 2 acq_rel acquire, align 8, !noalias !17
-  %.sroa.18.0.in.i.i.i9 = extractvalue { i64, i1 } %54, 1
-  br i1 %.sroa.18.0.in.i.i.i9, label %55, label %_ZN3std6thread6Thread6unpark17h7cfe9663759349a1E.exit.i10
+  %.sroa.18.0.in.i.i.i10 = extractvalue { i64, i1 } %54, 1
+  br i1 %.sroa.18.0.in.i.i.i10, label %55, label %_ZN3std6thread6Thread6unpark17h7cfe9663759349a1E.exit.i11
 
-._crit_edge.i11:                                  ; preds = %_ZN3std6thread6Thread6unpark17h7cfe9663759349a1E.exit.i10, %_ZN17crossbeam_channel5waker5Waker10disconnect17h67b68444d5fb63c5E.exit
+._crit_edge.i12:                                  ; preds = %_ZN3std6thread6Thread6unpark17h7cfe9663759349a1E.exit.i11, %_ZN17crossbeam_channel5waker5Waker10disconnect17h67b68444d5fb63c5E.exit
   invoke fastcc void @_ZN17crossbeam_channel5waker5Waker6notify17hc45ac5328623ec7cE(ptr noalias noundef nonnull align 8 dereferenceable(48) %45)
-          to label %_ZN17crossbeam_channel5waker5Waker10disconnect17h67b68444d5fb63c5E.exit14 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN17crossbeam_channel5waker5Waker10disconnect17h67b68444d5fb63c5E.exit15 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-55:                                               ; preds = %.lr.ph.i6
-  %56 = load ptr, ptr %.sroa.01.04.i7, align 8, !noalias !17, !nonnull !3, !noundef !3
+55:                                               ; preds = %.lr.ph.i7
+  %56 = load ptr, ptr %.sroa.01.04.i8, align 8, !noalias !17, !nonnull !3, !noundef !3
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %.val.i12 = load ptr, ptr %57, align 8, !noalias !17, !nonnull !3, !noundef !3
-  %58 = getelementptr inbounds nuw i8, ptr %.val.i12, i64 40
+  %.val.i13 = load ptr, ptr %57, align 8, !noalias !17, !nonnull !3, !noundef !3
+  %58 = getelementptr inbounds nuw i8, ptr %.val.i13, i64 40
   %59 = atomicrmw xchg ptr %58, i32 1 release, align 4, !noalias !17
   %60 = icmp eq i32 %59, -1
-  br i1 %60, label %61, label %_ZN3std6thread6Thread6unpark17h7cfe9663759349a1E.exit.i10
+  br i1 %60, label %61, label %_ZN3std6thread6Thread6unpark17h7cfe9663759349a1E.exit.i11
 
 61:                                               ; preds = %55
   %62 = invoke noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wake17h9dbed4a564ca84dbE(ptr noundef nonnull align 4 %58)
-          to label %_ZN3std6thread6Thread6unpark17h7cfe9663759349a1E.exit.i10 unwind label %.loopexit
+          to label %_ZN3std6thread6Thread6unpark17h7cfe9663759349a1E.exit.i11 unwind label %.loopexit
 
-_ZN3std6thread6Thread6unpark17h7cfe9663759349a1E.exit.i10: ; preds = %61, %55, %.lr.ph.i6
+_ZN3std6thread6Thread6unpark17h7cfe9663759349a1E.exit.i11: ; preds = %61, %55, %.lr.ph.i7
   %63 = icmp eq ptr %52, %50
-  br i1 %63, label %._crit_edge.i11, label %.lr.ph.i6
+  br i1 %63, label %._crit_edge.i12, label %.lr.ph.i7
 
-_ZN17crossbeam_channel5waker5Waker10disconnect17h67b68444d5fb63c5E.exit14: ; preds = %._crit_edge.i11, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2056283573b9d267E.exit"
+_ZN17crossbeam_channel5waker5Waker10disconnect17h67b68444d5fb63c5E.exit15: ; preds = %._crit_edge.i12, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2056283573b9d267E.exit"
   %64 = getelementptr inbounds nuw i8, ptr %18, i64 4
   br i1 %21, label %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i, label %65
 
-65:                                               ; preds = %_ZN17crossbeam_channel5waker5Waker10disconnect17h67b68444d5fb63c5E.exit14
+65:                                               ; preds = %_ZN17crossbeam_channel5waker5Waker10disconnect17h67b68444d5fb63c5E.exit15
   %66 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h9539389daf418384E monotonic, align 8
   %67 = and i64 %66, 9223372036854775807
   %68 = icmp eq i64 %67, 0
@@ -550,7 +552,7 @@ _ZN17crossbeam_channel5waker5Waker10disconnect17h67b68444d5fb63c5E.exit14: ; pre
   store atomic i8 1, ptr %64 monotonic, align 4
   br label %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i
 
-_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %71, %69, %65, %_ZN17crossbeam_channel5waker5Waker10disconnect17h67b68444d5fb63c5E.exit14
+_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %71, %69, %65, %_ZN17crossbeam_channel5waker5Waker10disconnect17h67b68444d5fb63c5E.exit15
   %72 = atomicrmw xchg ptr %18, i32 0 release, align 4
   %73 = icmp eq i32 %72, 2
   br i1 %73, label %74, label %"_ZN4core3ptr104drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$crossbeam_channel..flavors..zero..Inner$GT$$GT$17h9c2448b15cd82155E.exit", !prof !4
@@ -678,7 +680,8 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4send1
   %.val.i.i = phi i64 [ %52, %51 ], [ %.val.pre.i.i, %.noexc ]
   %56 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %57 = load ptr, ptr %56, align 8, !alias.scope !27, !noalias !30, !nonnull !3, !noundef !3
-  %58 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %57, i64 %48
+  %.idx.i = mul nuw nsw i64 %48, 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZN17crossbeam_channel5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h6856f0474df53290E.exit.i.i", %.lr.ph.i.preheader.i

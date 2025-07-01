@@ -1810,8 +1810,8 @@ _.exit93:                                         ; preds = %575, %577
 629:                                              ; preds = %628, %626
   %630 = load i32, ptr @pack_compression_level, align 4, !tbaa !30
   %631 = add i32 %630, -10
-  %or.cond511 = icmp ult i32 %631, -11
-  br i1 %or.cond511, label %632, label %635
+  %or.cond513 = icmp ult i32 %631, -11
+  br i1 %or.cond513, label %632, label %635
 
 632:                                              ; preds = %629
   %633 = call fastcc ptr @_(ptr noundef nonnull @.str.117)
@@ -2293,8 +2293,8 @@ _.exit101:                                        ; preds = %778, %781
 .lr.ph62.i:                                       ; preds = %._crit_edge58.i
   %830 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %831 = load i64, ptr %830, align 8, !tbaa !65
-  %.not422 = icmp eq i64 %831, 0
-  br i1 %.not422, label %.critedge.i, label %.lr.ph325
+  %.not423 = icmp eq i64 %831, 0
+  br i1 %.not423, label %.critedge.i, label %.lr.ph325
 
 .lr.ph325:                                        ; preds = %.lr.ph62.i, %842
   %.060.i324 = phi ptr [ %843, %842 ], [ %829, %.lr.ph62.i ]
@@ -2337,7 +2337,8 @@ _.exit101:                                        ; preds = %778, %781
 .lr.ph66.i:                                       ; preds = %.critedge.i
   %849 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %850 = load i64, ptr %849, align 8, !tbaa !65
-  %851 = getelementptr inbounds nuw %struct.string_list_item, ptr %848, i64 %850
+  %.idx = shl nuw nsw i64 %850, 4
+  %851 = getelementptr inbounds nuw i8, ptr %848, i64 %.idx
   %.not331 = icmp eq i64 %850, 0
   br i1 %.not331, label %.critedge2.i, label %.lr.ph327
 
@@ -2378,9 +2379,9 @@ sane_qsort.exit.i:                                ; preds = %866, %.critedge2.i
   %867 = phi ptr [ %.pre76.i, %.critedge2.i ], [ %.pre.i, %866 ]
   %.not4168.i = icmp eq ptr %867, null
   %868 = load i64, ptr %863, align 8
-  %.not423 = icmp eq i64 %868, 0
-  %or.cond513 = select i1 %.not4168.i, i1 true, i1 %.not423
-  br i1 %or.cond513, label %.critedge4.i, label %.lr.ph70.i
+  %.not425 = icmp eq i64 %868, 0
+  %or.cond515 = select i1 %.not4168.i, i1 true, i1 %.not425
+  br i1 %or.cond515, label %.critedge4.i, label %.lr.ph70.i
 
 .lr.ph70.i:                                       ; preds = %sane_qsort.exit.i, %.lr.ph70.i
   %.269.i328 = phi ptr [ %872, %.lr.ph70.i ], [ %867, %sane_qsort.exit.i ]
@@ -2531,7 +2532,8 @@ read_packs_list_from_stdin.exit:                  ; preds = %.critedge4.i
 .lr.ph.i.i:                                       ; preds = %._crit_edge41.i
   %928 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %929 = load i64, ptr %928, align 8, !tbaa !65
-  %930 = getelementptr inbounds nuw %struct.string_list_item, ptr %927, i64 %929
+  %.idx.i = shl nuw nsw i64 %929, 4
+  %930 = getelementptr inbounds nuw i8, ptr %927, i64 %.idx.i
   %.not46.i110 = icmp eq i64 %929, 0
   br i1 %.not46.i110, label %mark_pack_kept_in_core.exit.i, label %.lr.ph43.i
 
@@ -2565,9 +2567,10 @@ mark_pack_kept_in_core.exit.i:                    ; preds = %936, %.lr.ph.i.i, %
 .lr.ph.i18.i:                                     ; preds = %mark_pack_kept_in_core.exit.i
   %943 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %944 = load i64, ptr %943, align 8, !tbaa !65
-  %945 = getelementptr inbounds nuw %struct.string_list_item, ptr %942, i64 %944
-  %.not47.i111 = icmp eq i64 %944, 0
-  br i1 %.not47.i111, label %mark_pack_kept_in_core.exit21.i, label %.lr.ph45.i
+  %.idx47.i = shl nuw nsw i64 %944, 4
+  %945 = getelementptr inbounds nuw i8, ptr %942, i64 %.idx47.i
+  %.not48.i111 = icmp eq i64 %944, 0
+  br i1 %.not48.i111, label %mark_pack_kept_in_core.exit21.i, label %.lr.ph45.i
 
 .lr.ph45.i:                                       ; preds = %.lr.ph.i18.i, %951
   %.014.i1944.i = phi ptr [ %955, %951 ], [ %942, %.lr.ph.i18.i ]

@@ -2929,7 +2929,8 @@ _ZN4llvm14DIInliningInfo8addFrameERKNS_10DILineInfoE.exit:
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN4llvm14DIInliningInfo8addFrameERKNS_10DILineInfoE.exit
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.llvm::DILineInfo", ptr %12, i64 %14
+  %.idx.i.i = mul nuw nsw i64 %14, 184
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm10DILineInfoD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -8771,7 +8772,8 @@ _ZN4llvm8DenseMapINS_4json9ObjectKeyENS1_5ValueENS_12DenseMapInfoINS_9StringRefE
   %26 = load ptr, ptr %0, align 8, !tbaa !148
   %27 = load i32, ptr %3, align 8, !tbaa !150
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %26, i64 %28
+  %.idx.i = shl nuw nsw i64 %28, 6
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i
   %.not5.i = icmp eq i32 %27, 0
   br i1 %.not5.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -8843,7 +8845,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9Ob
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !150
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %13
+  %.idx.i = shl nuw nsw i64 %13, 6
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
   %.not5.i = icmp eq i32 %12, 0
   br i1 %.not5.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -9330,7 +9333,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9Ob
   %8 = load ptr, ptr %0, align 8, !tbaa !148
   %9 = load i32, ptr %4, align 8, !tbaa !150
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %10
+  %.idx = shl nuw nsw i64 %10, 6
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not51 = icmp eq i32 %9, 0
   br i1 %.not51, label %._crit_edge, label %.lr.ph
 

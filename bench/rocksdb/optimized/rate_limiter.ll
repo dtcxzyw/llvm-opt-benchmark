@@ -1999,7 +1999,8 @@ _ZNSt11_Deque_baseIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE15_M_allocate_mapE
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIPN7rocksdb18GenericRateLimiter3ReqESaIS3_EE16_M_allocate_nodeEv.exit.i
@@ -2298,13 +2299,13 @@ define linkonce_odr void @_ZSt15__copy_move_ditILb0EPN7rocksdb18GenericRateLimit
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 3
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %28, i64 %storemerge13.i)
-  %29 = getelementptr inbounds ptr, ptr %.014.i, i64 %.sroa.speculated.i
+  %.idx12.i = shl nsw i64 %.sroa.speculated.i, 3
+  %29 = getelementptr inbounds i8, ptr %.014.i, i64 %.idx12.i
   %.not.i.i.i.i = icmp eq ptr %.sroa.872.0, %.sroa.070.0
   br i1 %.not.i.i.i.i, label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i, label %30
 
 30:                                               ; preds = %.lr.ph.i
-  %.idx.i = shl nsw i64 %.sroa.speculated.i, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.070.0, ptr align 8 %.014.i, i64 %.idx.i, i1 false), !noalias !167
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.070.0, ptr align 8 %.014.i, i64 %.idx12.i, i1 false), !noalias !167
   br label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i
 
 _ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i: ; preds = %30, %.lr.ph.i
@@ -2392,13 +2393,13 @@ _ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__
   %72 = sub i64 %70, %71
   %73 = ashr exact i64 %72, 3
   %.sroa.speculated.i12 = tail call i64 @llvm.smin.i64(i64 %73, i64 %storemerge13.i11)
-  %74 = getelementptr inbounds ptr, ptr %.014.i10, i64 %.sroa.speculated.i12
-  %.not.i.i.i.i13 = icmp eq ptr %.sroa.860.0, %.sroa.058.0
-  br i1 %.not.i.i.i.i13, label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i17, label %75
+  %.idx12.i13 = shl nsw i64 %.sroa.speculated.i12, 3
+  %74 = getelementptr inbounds i8, ptr %.014.i10, i64 %.idx12.i13
+  %.not.i.i.i.i14 = icmp eq ptr %.sroa.860.0, %.sroa.058.0
+  br i1 %.not.i.i.i.i14, label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i17, label %75
 
 75:                                               ; preds = %.lr.ph.i9
-  %.idx.i14 = shl nsw i64 %.sroa.speculated.i12, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.058.0, ptr align 8 %.014.i10, i64 %.idx.i14, i1 false), !noalias !172
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.058.0, ptr align 8 %.014.i10, i64 %.idx12.i13, i1 false), !noalias !172
   br label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i17
 
 _ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i17: ; preds = %75, %.lr.ph.i9
@@ -2465,13 +2466,13 @@ _ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i19
   %107 = sub i64 %105, %106
   %108 = ashr exact i64 %107, 3
   %.sroa.speculated.i29 = tail call i64 @llvm.smin.i64(i64 %108, i64 %storemerge13.i28)
-  %109 = getelementptr inbounds ptr, ptr %.014.i27, i64 %.sroa.speculated.i29
-  %.not.i.i.i.i30 = icmp eq ptr %.sroa.7.0, %.sroa.064.0
-  br i1 %.not.i.i.i.i30, label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i34, label %110
+  %.idx12.i30 = shl nsw i64 %.sroa.speculated.i29, 3
+  %109 = getelementptr inbounds i8, ptr %.014.i27, i64 %.idx12.i30
+  %.not.i.i.i.i31 = icmp eq ptr %.sroa.7.0, %.sroa.064.0
+  br i1 %.not.i.i.i.i31, label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i34, label %110
 
 110:                                              ; preds = %104
-  %.idx.i31 = shl nsw i64 %.sroa.speculated.i29, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.064.0, ptr align 8 %.014.i27, i64 %.idx.i31, i1 false), !noalias !175
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.064.0, ptr align 8 %.014.i27, i64 %.idx12.i30, i1 false), !noalias !175
   br label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i34
 
 _ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i34: ; preds = %110, %104
@@ -2554,13 +2555,13 @@ _ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__
   %150 = sub i64 %148, %149
   %151 = ashr exact i64 %150, 3
   %.sroa.speculated.i46 = tail call i64 @llvm.smin.i64(i64 %151, i64 %storemerge13.i45)
-  %152 = getelementptr inbounds ptr, ptr %.014.i44, i64 %.sroa.speculated.i46
-  %.not.i.i.i.i47 = icmp eq ptr %.sroa.8.0, %.sroa.0.0
-  br i1 %.not.i.i.i.i47, label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i51, label %153
+  %.idx12.i47 = shl nsw i64 %.sroa.speculated.i46, 3
+  %152 = getelementptr inbounds i8, ptr %.014.i44, i64 %.idx12.i47
+  %.not.i.i.i.i48 = icmp eq ptr %.sroa.8.0, %.sroa.0.0
+  br i1 %.not.i.i.i.i48, label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i51, label %153
 
 153:                                              ; preds = %.lr.ph.i43
-  %.idx.i48 = shl nsw i64 %.sroa.speculated.i46, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.0.0, ptr align 8 %.014.i44, i64 %.idx.i48, i1 false), !noalias !179
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.0.0, ptr align 8 %.014.i44, i64 %.idx12.i47, i1 false), !noalias !179
   br label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i51
 
 _ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i51: ; preds = %153, %.lr.ph.i43

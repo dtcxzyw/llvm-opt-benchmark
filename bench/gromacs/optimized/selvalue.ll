@@ -30,27 +30,28 @@ define void @_Z18_gmx_selvalue_freeP18gmx_ana_selvalue_t(ptr noundef captures(no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %5, label %23
+  br i1 %4, label %5, label %22
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %0, align 8, !tbaa !10
   %7 = icmp eq i32 %6, 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !11
-  br i1 %7, label %10, label %22
+  br i1 %7, label %10, label %21
 
 10:                                               ; preds = %5
   %11 = icmp eq ptr %9, null
-  br i1 %11, label %23, label %12
+  br i1 %11, label %22, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %9, i64 -8
   %14 = load i64, ptr %13, align 8
+  %.idx = mul i64 %14, 152
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %12
-  %16 = getelementptr inbounds %struct.gmx_ana_pos_t, ptr %9, i64 %14
+  %16 = getelementptr inbounds i8, ptr %9, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -61,18 +62,17 @@ define void @_Z18_gmx_selvalue_freeP18gmx_ana_selvalue_t(ptr noundef captures(no
   br i1 %19, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %12
-  %20 = mul i64 %14, 152
-  %21 = add i64 %20, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %13, i64 noundef %21) #11
-  br label %23
+  %20 = add i64 %.idx, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %13, i64 noundef %20) #11
+  br label %22
 
-22:                                               ; preds = %5
+21:                                               ; preds = %5
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 67, ptr noundef %9)
-  br label %23
+  br label %22
 
-23:                                               ; preds = %22, %.loopexit, %10, %1
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %24, align 8, !tbaa !11
+22:                                               ; preds = %21, %.loopexit, %10, %1
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %23, align 8, !tbaa !11
   store i32 0, ptr %2, align 8, !tbaa !4
   ret void
 }

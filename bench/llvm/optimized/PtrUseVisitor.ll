@@ -51,7 +51,8 @@ define dso_local void @_ZN4llvm6detail17PtrUseVisitorBase12enqueueUsersERNS_5Val
   %22 = load ptr, ptr %5, align 8, !tbaa !17, !noalias !13
   %23 = load i32, ptr %7, align 4, !tbaa !18, !noalias !13
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %.idx.i.i = shl nuw nsw i64 %24, 3
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i
   %.not36.i.i = icmp eq i32 %23, 0
   br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -293,7 +294,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVi
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !39
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::detail::PtrUseVisitorBase::UseToVisit", ptr %6, i64 %9
+  %.idx.i = mul nuw nsw i64 %9, 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE19moveElementsForGrowEPS3_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -318,13 +320,14 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVi
 
 _ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !41
-  %.pre2.i = load i32, ptr %7, align 8, !tbaa !39
-  %.not4.i.i = icmp eq i32 %.pre2.i, 0
+  %.pre3.i = load i32, ptr %7, align 8, !tbaa !39
+  %.not4.i.i = icmp eq i32 %.pre3.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE19moveElementsForGrowEPS3_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
-  %20 = zext i32 %.pre2.i to i64
-  %21 = getelementptr inbounds nuw %"struct.llvm::detail::PtrUseVisitorBase::UseToVisit", ptr %.pre.i, i64 %20
+  %20 = zext i32 %.pre3.i to i64
+  %.idx2.i = mul nuw nsw i64 %20, 24
+  %21 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm6detail17PtrUseVisitorBase10UseToVisitD2Ev.exit.i.i, %.lr.ph.i.preheader.i

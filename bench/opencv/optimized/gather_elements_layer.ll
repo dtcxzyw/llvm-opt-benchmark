@@ -1459,8 +1459,8 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %4, %_ZNSt12_Vector
   %32 = sext i32 %.val20 to i64
   %.idx78 = shl nsw i64 %32, 2
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.not81 = icmp ne i32 %.val20, 0
-  tail call void @llvm.assume(i1 %.not81)
+  %.not79 = icmp ne i32 %.val20, 0
+  tail call void @llvm.assume(i1 %.not79)
   %34 = icmp slt i32 %.val20, 0
   br i1 %34, label %35, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i56
 
@@ -1757,8 +1757,8 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %4, %_ZNSt12_Vector
   %32 = sext i32 %.val20 to i64
   %.idx78 = shl nsw i64 %32, 2
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.not81 = icmp ne i32 %.val20, 0
-  tail call void @llvm.assume(i1 %.not81)
+  %.not79 = icmp ne i32 %.val20, 0
+  tail call void @llvm.assume(i1 %.not79)
   %34 = icmp slt i32 %.val20, 0
   br i1 %34, label %35, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i56
 
@@ -2056,8 +2056,8 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %4, %_ZNSt12_Vector
   %32 = sext i32 %.val20 to i64
   %.idx78 = shl nsw i64 %32, 2
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.not81 = icmp ne i32 %.val20, 0
-  tail call void @llvm.assume(i1 %.not81)
+  %.not79 = icmp ne i32 %.val20, 0
+  tail call void @llvm.assume(i1 %.not79)
   %34 = icmp slt i32 %.val20, 0
   br i1 %34, label %35, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i56
 
@@ -3481,7 +3481,8 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPSt6vectorIiSaIiEES2_IS4_SaIS4_EEEES4_E
   br i1 %42, label %_ZSt6fill_nIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RKT1_.exit, label %43
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw %"class.std::vector.21", ptr %6, i64 %1
+  %.idx.i.i = mul nuw nsw i64 %1, 24
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
   br label %.lr.ph.i.i.i.i16
 
 .lr.ph.i.i.i.i16:                                 ; preds = %.lr.ph.i.i.i.i16, %43

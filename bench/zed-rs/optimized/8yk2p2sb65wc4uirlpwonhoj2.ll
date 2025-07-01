@@ -31027,7 +31027,8 @@ _ZN10serde_json5value8to_value17h1ad1b048e679965dE.exit.i: ; preds = %203
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %294 = icmp ne ptr %.sroa.2.0.copyload, null
   call void @llvm.assume(i1 %294)
-  %295 = getelementptr inbounds { { i64, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %.idx = mul nsw i64 %.sroa.3.0.copyload, 40
+  %295 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37)
   store ptr %.sroa.2.0.copyload, ptr %37, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8

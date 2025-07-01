@@ -1442,7 +1442,8 @@ define void @_ZN5sqlez9statement9Statement5reset17hdfc92460a5f2913cE(ptr noalias
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
-  %6 = getelementptr inbounds ptr, ptr %3, i64 %5
+  %.idx = shl nsw i64 %5, 3
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -1468,9 +1469,10 @@ define noundef i32 @_ZN5sqlez9statement9Statement15parameter_count17hb6e4ab86634
   br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h980871de6c99c2c4E.exit, label %5
 
 5:                                                ; preds = %1
+  %.idx = shl nsw i64 %3, 3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %3
+  %8 = getelementptr inbounds i8, ptr %7, i64 %.idx
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
@@ -2493,7 +2495,8 @@ _ZN5sqlez9statement9Statement4exec5logic17hbca7dc19ebc55687E.llvm.16744547508767
   %13 = load ptr, ptr %12, align 8, !alias.scope !292, !nonnull !5, !noundef !5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !292, !noundef !5
-  %16 = getelementptr inbounds ptr, ptr %13, i64 %15
+  %.idx.i = shl nsw i64 %15, 3
+  %16 = getelementptr inbounds i8, ptr %13, i64 %.idx.i
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %.loopexit, label %.lr.ph.i
 

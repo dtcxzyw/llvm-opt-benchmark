@@ -14303,7 +14303,8 @@ for.body.lr.ph:                                   ; preds = %do.end
   %n_.i47 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %26, ptr %n_.i47, align 8, !tbaa !216
   %30 = load ptr, ptr %v, align 8, !tbaa !3
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %30, i64 %0
+  %add.ptr.i.idx = shl nuw nsw i64 %0, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %30, i64 %add.ptr.i.idx
   %31 = load ptr, ptr %m, align 8, !tbaa !3
   %cmp.not5.i = icmp eq i64 %0, 0
   br i1 %cmp.not5.i, label %for.body.us.preheader, label %for.body

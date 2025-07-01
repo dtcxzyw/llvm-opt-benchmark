@@ -313,7 +313,7 @@ define dso_local void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 captures(none)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.sroa.0.0.copyload = load i32, ptr %2, align 4
   invoke void @b2DestroyWorld(i32 %.sroa.0.0.copyload)
-          to label %3 unwind label %28
+          to label %3 unwind label %27
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -330,16 +330,17 @@ define dso_local void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 captures(none)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !39
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %27, label %12
+  br i1 %11, label %26, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %10, i64 -8
   %14 = load i64, ptr %13, align 8
+  %.idx = mul i64 %14, 72
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %12
-  %16 = getelementptr inbounds %class.SampleTask, ptr %10, i64 %14
+  %16 = getelementptr inbounds i8, ptr %10, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN4enki12ICompletableD2Ev.exit
@@ -365,19 +366,18 @@ _ZN4enki12ICompletableD2Ev.exit:                  ; preds = %.lr.ph.i, %.prehead
   br i1 %24, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %_ZN4enki12ICompletableD2Ev.exit, %12
-  %25 = mul i64 %14, 72
-  %26 = add i64 %25, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %13, i64 noundef %26) #21
-  br label %27
+  %25 = add i64 %.idx, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %13, i64 noundef %25) #21
+  br label %26
 
-27:                                               ; preds = %.loopexit, %8
+26:                                               ; preds = %.loopexit, %8
   ret void
 
-28:                                               ; preds = %1
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %1
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #24
+  %29 = extractvalue { ptr, i32 } %28, 0
+  tail call void @__clang_call_terminate(ptr %29) #24
   unreachable
 }
 

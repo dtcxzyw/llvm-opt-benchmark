@@ -2116,7 +2116,8 @@ define { ptr, ptr } @_ZN6uu_cat9cat_files17haf5123c846a83d69E(ptr noalias nounde
   store ptr inttoptr (i64 8 to ptr), ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i64 0, ptr %51, align 8
-  %52 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 24
+  %52 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %53 = icmp eq i64 %1, 0
   br i1 %53, label %.thread128, label %.lr.ph
 

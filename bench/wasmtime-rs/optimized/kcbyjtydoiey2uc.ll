@@ -197,7 +197,8 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
 70:                                               ; preds = %61
   %71 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %72 = load ptr, ptr %71, align 8, !nonnull !4, !noundef !4
-  %73 = getelementptr inbounds { i8, [3 x i8] }, ptr %72, i64 %65
+  %.idx = shl nsw i64 %65, 2
+  %73 = getelementptr inbounds i8, ptr %72, i64 %.idx
   %74 = icmp eq i64 %65, 0
   br i1 %74, label %._crit_edge, label %.lr.ph
 

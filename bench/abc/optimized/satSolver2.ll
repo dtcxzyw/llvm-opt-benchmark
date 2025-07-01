@@ -112,7 +112,8 @@ define ptr @solver2_propagate(ptr noundef captures(none) %0) local_unnamed_addr 
   %34 = getelementptr i8, ptr %32, i64 4
   %.val118 = load i32, ptr %34, align 4, !tbaa !30
   %35 = sext i32 %.val118 to i64
-  %36 = getelementptr inbounds i32, ptr %.val115, i64 %35
+  %.idx = shl nsw i64 %35, 2
+  %36 = getelementptr inbounds i8, ptr %.val115, i64 %.idx
   %37 = load i64, ptr %7, align 8, !tbaa !31
   %38 = add nsw i64 %37, 1
   store i64 %38, ptr %7, align 8, !tbaa !31

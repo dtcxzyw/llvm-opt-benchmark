@@ -3105,7 +3105,8 @@ define hidden void @_ZN4core9core_arch4simd5i8x163new17h589cb57807ee0d00E.llvm.1
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h086b425ee0c34314E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #20 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !710)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h901020c4a3a2cd24E.llvm.12621995378417537101.exit", label %.lr.ph.i

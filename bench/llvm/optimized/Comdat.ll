@@ -73,7 +73,8 @@ define dso_local void @_ZN4llvm6Comdat7addUserEPNS_12GlobalObjectE(ptr noundef n
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4, !tbaa !18, !noalias !25
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
+  %.idx.i.i = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i
   %.not36.i.i = icmp eq i32 %10, 0
   br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -121,7 +122,8 @@ define dso_local void @_ZN4llvm6Comdat10removeUserEPNS_12GlobalObjectE(ptr nound
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4, !tbaa !18
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
+  %.idx.i.i = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i
   %.not1316.not.i.i = icmp eq i32 %10, 0
   br i1 %.not1316.not.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE5eraseES2_.exit, label %.lr.ph.i.i
 

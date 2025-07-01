@@ -6208,7 +6208,8 @@ define hidden void @"_ZN6client34PendingEntitySubscription$LT$T$GT$9set_model17h
   %.sroa.454.0.copyload = load ptr, ptr %.sroa.454.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.555.0.copyload = load i64, ptr %.sroa.555.0..sroa_idx, align 8
-  %72 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %.sroa.454.0.copyload, i64 %.sroa.555.0.copyload
+  %.idx = shl nsw i64 %.sroa.555.0.copyload, 4
+  %72 = getelementptr inbounds i8, ptr %.sroa.454.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   store ptr %.sroa.454.0.copyload, ptr %14, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -6652,7 +6653,8 @@ define hidden void @"_ZN6client34PendingEntitySubscription$LT$T$GT$9set_model17h
   %.sroa.454.0.copyload = load ptr, ptr %.sroa.454.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.555.0.copyload = load i64, ptr %.sroa.555.0..sroa_idx, align 8
-  %72 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %.sroa.454.0.copyload, i64 %.sroa.555.0.copyload
+  %.idx = shl nsw i64 %.sroa.555.0.copyload, 4
+  %72 = getelementptr inbounds i8, ptr %.sroa.454.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   store ptr %.sroa.454.0.copyload, ptr %14, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8

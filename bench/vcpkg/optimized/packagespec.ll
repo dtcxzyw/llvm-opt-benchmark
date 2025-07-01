@@ -506,7 +506,8 @@ define dso_local void @_ZN5vcpkg24internalize_feature_listENS_4SpanIKNSt7__cxx11
   %5 = alloca i64, align 8
   %6 = alloca %"struct.vcpkg::StringView", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 5
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not28 = icmp eq i64 %2, 0
   br i1 %.not28, label %.critedge.thread, label %.lr.ph
 

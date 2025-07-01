@@ -16442,7 +16442,8 @@ default.unreachable118:                           ; preds = %1
   %.sroa.584.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.sroa.584.0.copyload = load i64, ptr %.sroa.584.0..sroa_idx, align 8
   %.sroa.685.0.copyload = load i64, ptr %57, align 8
-  %357 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %.sroa.083.0.copyload, i64 %.sroa.685.0.copyload
+  %.idx = shl nsw i64 %.sroa.685.0.copyload, 5
+  %357 = getelementptr inbounds i8, ptr %.sroa.083.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
   store ptr %.sroa.083.0.copyload, ptr %23, align 8
   %.sroa.580.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8

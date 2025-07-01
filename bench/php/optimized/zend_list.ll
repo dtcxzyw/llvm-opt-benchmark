@@ -679,7 +679,8 @@ define dso_local i32 @zend_fetch_list_dtor_id(ptr noundef readonly captures(none
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @list_destructors, i64 16), align 8, !tbaa !13
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @list_destructors, i64 24), align 8, !tbaa !58
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw %struct._zval_struct, ptr %2, i64 %4
+  %.idx = shl nuw nsw i64 %4, 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @list_destructors, i64 8), align 8, !tbaa !13
   %7 = and i32 %6, 4
   %8 = icmp ne i32 %7, 0

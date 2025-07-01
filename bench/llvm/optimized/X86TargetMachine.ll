@@ -68,20 +68,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Expected" = type { %union.anon.353, i8, [7 x i8] }
 %union.anon.353 = type { %"struct.llvm::AlignedCharArrayUnion" }
 %"struct.llvm::AlignedCharArrayUnion" = type { [8 x i8] }
-%"class.llvm::APFloat" = type { %"union.llvm::APFloat::Storage" }
-%"union.llvm::APFloat::Storage" = type { %"class.llvm::detail::DoubleAPFloat", [8 x i8] }
-%"class.llvm::detail::DoubleAPFloat" = type { ptr, %"class.std::unique_ptr.472" }
-%"class.std::unique_ptr.472" = type { %"struct.std::__uniq_ptr_data.473" }
-%"struct.std::__uniq_ptr_data.473" = type { %"class.std::__uniq_ptr_impl.474" }
-%"class.std::__uniq_ptr_impl.474" = type { %"class.std::tuple.475" }
-%"class.std::tuple.475" = type { %"struct.std::_Tuple_impl.476" }
-%"struct.std::_Tuple_impl.476" = type { %"struct.std::_Head_base.479" }
-%"struct.std::_Head_base.479" = type { ptr }
-%"class.std::vector.548" = type { %"struct.std::_Vector_base.549" }
-%"struct.std::_Vector_base.549" = type { %"struct.std::_Vector_base<llvm::DomainValue *, std::allocator<llvm::DomainValue *>>::_Vector_impl" }
-%"struct.std::_Vector_base<llvm::DomainValue *, std::allocator<llvm::DomainValue *>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::DomainValue *, std::allocator<llvm::DomainValue *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<llvm::DomainValue *, std::allocator<llvm::DomainValue *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair.563" = type { ptr, i64 }
 %"class.std::unique_ptr.826" = type { %"struct.std::__uniq_ptr_data.827" }
 %"struct.std::__uniq_ptr_data.827" = type { %"class.std::__uniq_ptr_impl.828" }
 %"class.std::__uniq_ptr_impl.828" = type { %"class.std::tuple.829" }
@@ -166,15 +152,16 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.1136" = type { %"class.llvm::SmallVectorTemplateCommon.1137" }
 %"class.llvm::SmallVectorTemplateCommon.1137" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.1138" = type { [320 x i8] }
-%"struct.llvm::DiagnosticInfoOptimizationBase::Argument" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.llvm::DiagnosticLocation" }
 %"class.llvm::DebugLoc" = type { %"class.llvm::TypedTrackingMDRef" }
 %"class.llvm::TypedTrackingMDRef" = type { %"class.llvm::TrackingMDRef" }
 %"class.llvm::TrackingMDRef" = type { ptr }
+%"struct.llvm::DiagnosticInfoOptimizationBase::Argument" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.llvm::DiagnosticLocation" }
 %"struct.llvm::EVT" = type { %"class.llvm::MVT", ptr }
 %"class.llvm::MVT" = type { i16 }
 %"class.llvm::SmallPtrSet.1148" = type { %"class.llvm::SmallPtrSetImpl.base.1045", [4 x ptr] }
 %"class.llvm::SmallPtrSetImpl.base.1045" = type { %"class.llvm::SmallPtrSetImplBase.base" }
 %"struct.std::pair.1167" = type { i8, %"struct.llvm::EVT" }
+%"struct.std::pair.563" = type { ptr, i64 }
 %"struct.llvm::cl::desc" = type { %"class.llvm::StringRef" }
 %"struct.llvm::cl::initializer" = type { ptr }
 
@@ -2915,11 +2902,12 @@ define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 -8
   %6 = load i64, ptr %5, align 8
+  %.idx.i = mul i64 %6, 24
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %8 = getelementptr inbounds %"class.llvm::APFloat", ptr %3, i64 %6
+  %8 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %9 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #28
   br label %10
 
@@ -2943,9 +2931,8 @@ _ZN4llvm7APFloatD2Ev.exit.i:                      ; preds = %15, %14
   br i1 %16, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %10
 
 _ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit: ; preds = %_ZN4llvm7APFloatD2Ev.exit.i, %4
-  %17 = mul i64 %6, 24
-  %18 = add i64 %17, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %18) #26
+  %17 = add i64 %.idx.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %17) #26
   br label %_ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit
@@ -3062,7 +3049,8 @@ define linkonce_odr hidden void @_ZN4llvm18ExecutionDomainFixD2Ev(ptr noundef no
 
 .lr.ph.i.preheader.i:                             ; preds = %1
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"class.std::vector.548", ptr %3, i64 %6
+  %.idx.i = mul nuw nsw i64 %6, 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt6vectorIPN4llvm11DomainValueESaIS2_EED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -3275,7 +3263,8 @@ define linkonce_odr hidden void @_ZN4llvm24SpecificBumpPtrAllocatorINS_11DomainV
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !26
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not30 = icmp eq i32 %5, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
@@ -3285,7 +3274,8 @@ define linkonce_odr hidden void @_ZN4llvm24SpecificBumpPtrAllocatorINS_11DomainV
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i32, ptr %10, align 8, !tbaa !26
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %"struct.std::pair.563", ptr %9, i64 %12
+  %.idx37 = shl nuw nsw i64 %12, 4
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx37
   %.not2332 = icmp eq i32 %11, 0
   br i1 %.not2332, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.i, label %.lr.ph35
 
@@ -3344,10 +3334,11 @@ _ZZN4llvm24SpecificBumpPtrAllocatorINS_11DomainValueEE10DestroyAllEvENKUlPcS3_E_
 
 ._crit_edge36:                                    ; preds = %_ZZN4llvm24SpecificBumpPtrAllocatorINS_11DomainValueEE10DestroyAllEvENKUlPcS3_E_clES3_S3_.exit29
   %.pre = load ptr, ptr %8, align 8, !tbaa !25
-  %.pre37 = load i32, ptr %10, align 8, !tbaa !26
-  %45 = zext i32 %.pre37 to i64
-  %46 = getelementptr inbounds nuw %"struct.std::pair.563", ptr %.pre, i64 %45
-  %.not10.i.i = icmp eq i32 %.pre37, 0
+  %.pre38 = load i32, ptr %10, align 8, !tbaa !26
+  %45 = zext i32 %.pre38 to i64
+  %.idx.i.i = shl nuw nsw i64 %45, 4
+  %46 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i.i
+  %.not10.i.i = icmp eq i32 %.pre38, 0
   br i1 %.not10.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge36, %.lr.ph.i.i
@@ -3455,7 +3446,8 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !26
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not6.i = icmp eq i32 %5, 0
   br i1 %.not6.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, label %.lr.ph.i
 
@@ -3483,7 +3475,8 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load i32, ptr %20, align 8, !tbaa !26
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.std::pair.563", ptr %19, i64 %22
+  %.idx.i = shl nuw nsw i64 %22, 4
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
   %.not10.i = icmp eq i32 %21, 0
   br i1 %.not10.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit, label %.lr.ph.i1
 
@@ -6692,7 +6685,8 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %23, %24
   %26 = ptrtoint ptr %1 to i64
   %27 = and i64 %26, -7
   %28 = or disjoint i64 %27, 4
-  %29 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 3
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -7438,7 +7432,8 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZNK4llvm18TargetLo
 
 131:                                              ; preds = %.lr.ph109
   %132 = zext i32 %119 to i64
-  %133 = getelementptr inbounds nuw ptr, ptr %121, i64 %132
+  %.idx.i.i = shl nuw nsw i64 %132, 3
+  %133 = getelementptr inbounds nuw i8, ptr %121, i64 %.idx.i.i
   %.not36.i.i = icmp eq i32 %119, 0
   br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -8211,8 +8206,8 @@ _ZN4llvm11SmallVectorIPKNS_5ValueELj2EED2Ev.exit: ; preds = %198, %217
   br label %491
 
 249:                                              ; preds = %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit
-  %.not572 = icmp eq i8 %36, 91
-  br i1 %.not572, label %250, label %491
+  %.not575 = icmp eq i8 %36, 91
+  br i1 %.not575, label %250, label %491
 
 250:                                              ; preds = %249
   %251 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -8265,8 +8260,8 @@ _ZN4llvm16BasicTTIImplBaseINS_10X86TTIImplEE18getVectorInstrCostERKNS_11Instruct
   br label %491
 
 276:                                              ; preds = %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit
-  %.not571 = icmp eq i8 %36, 92
-  br i1 %.not571, label %277, label %491
+  %.not574 = icmp eq i8 %36, 92
+  br i1 %.not574, label %277, label %491
 
 277:                                              ; preds = %276
   %278 = load ptr, ptr %2, align 8, !tbaa !733
@@ -8352,7 +8347,8 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %303, %309
   %319 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %284, ptr %319, align 8, !tbaa !698, !alias.scope !802
   %320 = icmp ult i32 %284, 65
-  %321 = getelementptr inbounds nuw i32, ptr %282, i64 %285
+  %.idx566 = shl nuw nsw i64 %285, 2
+  %321 = getelementptr inbounds nuw i8, ptr %282, i64 %.idx566
   br i1 %320, label %_ZN4llvm5APInt7getZeroEj.exit, label %_ZN4llvm5APInt7getZeroEj.exit.thread
 
 _ZN4llvm5APInt7getZeroEj.exit.thread:             ; preds = %318
@@ -8366,8 +8362,8 @@ _ZN4llvm5APInt7getZeroEj.exit:                    ; preds = %318
 
 .lr.ph563:                                        ; preds = %_ZN4llvm5APInt7getZeroEj.exit.thread, %_ZN4llvm5APInt7getZeroEj.exit
   %322 = load i32, ptr %319, align 8
-  %.fr565 = freeze i32 %322
-  %323 = icmp ult i32 %.fr565, 65
+  %.fr567 = freeze i32 %322
+  %323 = icmp ult i32 %.fr567, 65
   br i1 %323, label %.lr.ph563.split.us, label %.lr.ph563.split
 
 .lr.ph563.split.us:                               ; preds = %.lr.ph563
@@ -8471,13 +8467,14 @@ _ZN4llvm5APInt6setBitEj.exit:                     ; preds = %346, %.lr.ph563.spl
   %373 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %374 = load i32, ptr %373, align 8, !tbaa !26
   %375 = zext i32 %374 to i64
-  %376 = getelementptr inbounds nuw i32, ptr %372, i64 %375
+  %.idx565 = shl nuw nsw i64 %375, 2
+  %376 = getelementptr inbounds nuw i8, ptr %372, i64 %.idx565
   %.not367558 = icmp eq i32 %374, 0
   br i1 %.not367558, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre567 = load i32, ptr %373, align 8, !tbaa !26
-  %377 = zext i32 %.pre567 to i64
+  %.pre569 = load i32, ptr %373, align 8, !tbaa !26
+  %377 = zext i32 %.pre569 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %371
@@ -8526,7 +8523,8 @@ _ZN4llvm5APInt6setBitEj.exit:                     ; preds = %346, %.lr.ph563.spl
   %398 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %399 = load i32, ptr %398, align 8, !tbaa !26
   %400 = zext i32 %399 to i64
-  %401 = getelementptr inbounds nuw i32, ptr %397, i64 %400
+  %.idx = shl nuw nsw i64 %400, 2
+  %401 = getelementptr inbounds nuw i8, ptr %397, i64 %.idx
   %.not6.i = icmp eq i32 %399, 0
   br i1 %.not6.i, label %_ZSt4iotaIPiiEvT_S1_T0_.exit, label %.lr.ph.i
 
@@ -8720,8 +8718,8 @@ _ZNK4llvm4Type13getScalarTypeEv.exit402:          ; preds = %442, %448
   br label %491
 
 463:                                              ; preds = %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit
-  %.not570 = icmp eq i8 %36, 90
-  br i1 %.not570, label %464, label %491
+  %.not573 = icmp eq i8 %36, 90
+  br i1 %.not573, label %464, label %491
 
 464:                                              ; preds = %463
   %465 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -9391,7 +9389,8 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit:
   %15 = load ptr, ptr %0, align 8, !tbaa !25
   %16 = zext i32 %.pre4 to i64
   %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %1
+  %.idx.i.i.i.i = shl nuw nsw i64 %1, 2
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %14
@@ -10091,7 +10090,8 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i: ; preds = %_ZNK4ll
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %57, i64 %60
+  %.idx.i.i.i = mul nuw nsw i64 %60, 80
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -10303,7 +10303,8 @@ _ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit: ; preds = %_ZNKSt7__
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %56, i64 %59
+  %.idx.i.i = mul nuw nsw i64 %59, 80
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -10644,7 +10645,8 @@ _ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit.i: ; preds = %_ZNKSt7
   br i1 %.not4.i.i, label %_ZN4llvm15SmallVectorImplINS_30DiagnosticInfoOptimizationBase8ArgumentEE5clearEv.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %47
-  %49 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %48, i64 %11
+  %.idx.i = mul nuw nsw i64 %11, 80
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -10772,7 +10774,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoO
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !26
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %3, i64 %6
+  %.idx = mul nuw nsw i64 %6, 80
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not7.i.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -10851,13 +10854,14 @@ _ZSt10_ConstructIN4llvm30DiagnosticInfoOptimizationBase8ArgumentEJS2_EEvPT_DpOT0
 
 _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit: ; preds = %_ZSt10_ConstructIN4llvm30DiagnosticInfoOptimizationBase8ArgumentEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !25
-  %.pre2 = load i32, ptr %4, align 8, !tbaa !26
-  %.not4.i = icmp eq i32 %.pre2, 0
+  %.pre3 = load i32, ptr %4, align 8, !tbaa !26
+  %.not4.i = icmp eq i32 %.pre3, 0
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit
-  %40 = zext i32 %.pre2 to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %.pre, i64 %40
+  %40 = zext i32 %.pre3 to i64
+  %.idx2 = mul nuw nsw i64 %40, 80
+  %41 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx2
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit.i
@@ -12049,7 +12053,8 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread:   ; preds = %_ZNK4llvm4Type13get
   %49 = load ptr, ptr %9, align 8, !tbaa !28, !noalias !884
   %50 = load i32, ptr %12, align 4, !tbaa !30, !noalias !884
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %51
+  %.idx.i.i = shl nuw nsw i64 %51, 3
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i.i
   %.not36.i.i = icmp eq i32 %50, 0
   br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 

@@ -10559,7 +10559,8 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.
   %.sroa.088.0.copyload.i.i = load ptr, ptr %122, align 8, !alias.scope !1611, !noalias !1627, !nonnull !12, !noundef !12
   %.sroa.489.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %122, i64 8
   %.sroa.489.0.copyload.i.i = load i64, ptr %.sroa.489.0..sroa_idx.i.i, align 8, !alias.scope !1611, !noalias !1627
-  %303 = getelementptr inbounds { { { i64, [49 x i64] }, { ptr, i64 }, { ptr, [2 x i64] } }, { i64, i64 }, { { [28 x i64] }, i64 } }, ptr %.sroa.088.0.copyload.i.i, i64 %302
+  %.idx.i.i = mul nsw i64 %302, 688
+  %303 = getelementptr inbounds i8, ptr %.sroa.088.0.copyload.i.i, i64 %.idx.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %117), !noalias !1614
   store ptr %.sroa.088.0.copyload.i.i, ptr %117, align 8, !noalias !1614
   %.sroa.286.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %117, i64 8
@@ -10907,7 +10908,8 @@ select.unfold.i.i.i:                              ; preds = %.noexc.i.i.i, %437
   %458 = load i64, ptr %311, align 8, !alias.scope !1656, !noalias !1661
   %.sink5.i.i.i.i.i = select i1 %456, ptr %457, ptr %309
   %.sink4.i.i.i.i.i = select i1 %456, i64 %458, i64 %455
-  %459 = getelementptr inbounds { { ptr, [2 x i64] }, { ptr, [2 x i64] } }, ptr %.sink5.i.i.i.i.i, i64 %.sink4.i.i.i.i.i
+  %.idx544.i.i.i = mul nsw i64 %.sink4.i.i.i.i.i, 48
+  %459 = getelementptr inbounds i8, ptr %.sink5.i.i.i.i.i, i64 %.idx544.i.i.i
   %460 = icmp eq i64 %.sink4.i.i.i.i.i, 0
   br i1 %460, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha65c57f6f4bfbf70E.exit.thread.i.i.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha65c57f6f4bfbf70E.exit.i.i.i"
 
@@ -11080,7 +11082,8 @@ select.unfold.i.i.i:                              ; preds = %.noexc.i.i.i, %437
   %501 = load i64, ptr %321, align 8, !alias.scope !1686, !noalias !1691
   %.sink5.i.i109.i.i.i = select i1 %499, ptr %500, ptr %319
   %.sink4.i.i110.i.i.i = select i1 %499, i64 %501, i64 %498
-  %502 = getelementptr inbounds { { ptr, [2 x i64] }, { i8, [31 x i8] } }, ptr %.sink5.i.i109.i.i.i, i64 %.sink4.i.i110.i.i.i
+  %.idx545.i.i.i = mul nsw i64 %.sink4.i.i110.i.i.i, 56
+  %502 = getelementptr inbounds i8, ptr %.sink5.i.i109.i.i.i, i64 %.idx545.i.i.i
   %503 = icmp eq i64 %.sink4.i.i110.i.i.i, 0
   br i1 %503, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbac6c5d8a914fc58E.exit.thread.i.i.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbac6c5d8a914fc58E.exit.i.i.i"
 
@@ -11528,7 +11531,8 @@ switch.lookup:                                    ; preds = %508
   %605 = load i64, ptr %311, align 8, !alias.scope !1751, !noalias !1756
   %.sink5.i.i155.i.i.i = select i1 %603, ptr %604, ptr %309
   %.sink4.i.i156.i.i.i = select i1 %603, i64 %605, i64 %602
-  %606 = getelementptr inbounds { { ptr, [2 x i64] }, { ptr, [2 x i64] } }, ptr %.sink5.i.i155.i.i.i, i64 %.sink4.i.i156.i.i.i
+  %.idx.i.i.i = mul nsw i64 %.sink4.i.i156.i.i.i, 48
+  %606 = getelementptr inbounds i8, ptr %.sink5.i.i155.i.i.i, i64 %.idx.i.i.i
   %607 = icmp eq i64 %.sink4.i.i156.i.i.i, 0
   br i1 %607, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha65c57f6f4bfbf70E.exit160.thread.i.i.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha65c57f6f4bfbf70E.exit160.lr.ph.i.i.i"
 
@@ -11664,7 +11668,8 @@ _ZN15influxdb3_write7catalog15TableDefinition13column_exists17h1f0f9785ff3504e7E
   %645 = load i64, ptr %321, align 8, !alias.scope !1780, !noalias !1785
   %.sink5.i.i157.i.i.i = select i1 %643, ptr %644, ptr %319
   %.sink4.i.i158.i.i.i = select i1 %643, i64 %645, i64 %642
-  %646 = getelementptr inbounds { { ptr, [2 x i64] }, { i8, [31 x i8] } }, ptr %.sink5.i.i157.i.i.i, i64 %.sink4.i.i158.i.i.i
+  %.idx543.i.i.i = mul nsw i64 %.sink4.i.i158.i.i.i, 56
+  %646 = getelementptr inbounds i8, ptr %.sink5.i.i157.i.i.i, i64 %.idx543.i.i.i
   %647 = icmp eq i64 %.sink4.i.i158.i.i.i, 0
   br i1 %647, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbac6c5d8a914fc58E.exit171.thread.i.i.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbac6c5d8a914fc58E.exit171.lr.ph.i.i.i"
 

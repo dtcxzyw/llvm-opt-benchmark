@@ -18,14 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::FoldingSet.566" = type { %"class.llvm::FoldingSetImpl.567" }
 %"class.llvm::FoldingSetImpl.567" = type { %"class.llvm::FoldingSetBase" }
 %"class.llvm::FoldingSetBase" = type { ptr, i32, i32 }
-%"struct.llvm::detail::DenseMapPair.578" = type { %"struct.std::pair.579" }
-%"struct.std::pair.579" = type { ptr, %"class.std::unique_ptr.581" }
-%"class.std::unique_ptr.581" = type { %"struct.std::__uniq_ptr_data.582" }
-%"struct.std::__uniq_ptr_data.582" = type { %"class.std::__uniq_ptr_impl.583" }
-%"class.std::__uniq_ptr_impl.583" = type { %"class.std::tuple.584" }
-%"class.std::tuple.584" = type { %"struct.std::_Tuple_impl.585" }
-%"struct.std::_Tuple_impl.585" = type { %"struct.std::_Head_base.588" }
-%"struct.std::_Head_base.588" = type { ptr }
 
 $_ZN5clang4ento15AnalysisManager26getPathDiagnosticConsumersEv = comdat any
 
@@ -262,7 +254,8 @@ _ZNSt10unique_ptrIN5clang12CodeInjectorESt14default_deleteIS1_EED2Ev.exit.i: ; p
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZNSt10unique_ptrIN5clang12CodeInjectorESt14default_deleteIS1_EED2Ev.exit.i
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.578", ptr %.pre1.i.i, i64 %43
+  %.idx.i.i.i = shl nuw nsw i64 %43, 4
+  %44 = getelementptr inbounds nuw i8, ptr %.pre1.i.i, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %49, %.lr.ph.preheader.i.i.i

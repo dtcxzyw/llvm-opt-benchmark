@@ -13869,7 +13869,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17hd8b3a11442d6ea47E(p
   %.20 = select i1 %.not, ptr %13, ptr %0
   %15 = shl i64 %.sroa.0.0.sroa.speculated.i, 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20, i64 %15, i1 false)
-  %16 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %16 = getelementptr inbounds i8, ptr %2, i64 %15
   %.val = load ptr, ptr %5, align 8, !nonnull !5, !noundef !5
   br i1 %.not, label %.preheader, label %.lr.ph.i
 

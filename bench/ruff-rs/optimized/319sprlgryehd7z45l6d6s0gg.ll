@@ -3479,7 +3479,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf28da004b52f7d5fE.exit.i.i.i: 
   %.sroa.5147.0.copyload = load i64, ptr %.sroa.5147.0..sroa_idx, align 8
   %990 = icmp ult i64 %.sroa.5147.0.copyload, 128102389400760776
   call void @llvm.assume(i1 %990)
-  %991 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.sroa.4146.0.copyload, i64 %.sroa.5147.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.5147.0.copyload, 72
+  %991 = getelementptr inbounds nuw i8, ptr %.sroa.4146.0.copyload, i64 %.idx
   %992 = icmp sgt i64 %.sroa.0145.0.copyload, -1
   call void @llvm.assume(i1 %992)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %113)

@@ -8307,8 +8307,8 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i: ; preds
   br i1 %20, label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit, label %21
 
 21:                                               ; preds = %_ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i
-  %22 = load ptr, ptr %5, align 8, !tbaa !45
   %.idx.i.i.i = shl nsw i64 %19, 3
+  %22 = load ptr, ptr %5, align 8, !tbaa !45
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0.i.i.i.i, ptr align 8 %22, i64 %.idx.i.i.i, i1 false)
   br label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit
 
@@ -8352,8 +8352,8 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i8: ; pred
   br i1 %38, label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit12, label %39
 
 39:                                               ; preds = %_ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i8
-  %40 = load ptr, ptr %26, align 8, !tbaa !45
   %.idx.i.i.i10 = shl nsw i64 %37, 3
+  %40 = load ptr, ptr %26, align 8, !tbaa !45
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0.i.i.i.i9, ptr align 8 %40, i64 %.idx.i.i.i10, i1 false)
   br label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit12
 

@@ -11213,7 +11213,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17he258006c4f533459E.l
   %8 = load ptr, ptr %7, align 8, !alias.scope !2868, !nonnull !5, !noundef !5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !2868, !noundef !5
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %8, i64 %10
+  %.idx = mul nsw i64 %10, 24
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h429df3125d9cee22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef 1, i64 %10)

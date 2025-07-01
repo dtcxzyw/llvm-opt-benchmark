@@ -923,7 +923,8 @@ select.unfold.cont:                               ; preds = %select.unfold.invok
   %74 = load ptr, ptr %73, align 8, !nonnull !30, !noundef !30
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i64, ptr %75, align 8, !noundef !30
-  %77 = getelementptr inbounds { ptr, i64 }, ptr %74, i64 %76
+  %.idx = shl nsw i64 %76, 4
+  %77 = getelementptr inbounds i8, ptr %74, i64 %.idx
   %78 = icmp eq i64 %76, 0
   br i1 %78, label %._crit_edge, label %.lr.ph
 

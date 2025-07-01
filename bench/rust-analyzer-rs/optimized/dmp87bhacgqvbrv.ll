@@ -5958,7 +5958,8 @@ define hidden void @_ZN7ide_ssr9replacing25matches_to_edit_at_offset17h048f849a4
   %.val = load ptr, ptr %21, align 8, !nonnull !10, !noundef !10
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val2 = load i64, ptr %22, align 8, !noundef !10
-  %23 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, i64, i64, { { i32, i32 }, i32 }, [1 x i32] }, ptr %.val, i64 %.val2
+  %.idx = shl nsw i64 %.val2, 7
+  %23 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %24 = icmp eq i64 %.val2, 0
   br i1 %24, label %._crit_edge98, label %.lr.ph97
 
@@ -6231,7 +6232,8 @@ _ZN7ide_ssr9replacing13parse_as_kind17h365f4912f5ba4edbE.exit.i.thread61: ; pred
   %.val.i = load ptr, ptr %110, align 8, !alias.scope !828, !noalias !833, !nonnull !10, !noundef !10
   %111 = getelementptr i8, ptr %.sroa.0.095, i64 16
   %.val20.i = load i64, ptr %111, align 8, !alias.scope !828, !noalias !833, !noundef !10
-  %112 = getelementptr inbounds ptr, ptr %.val.i, i64 %.val20.i
+  %.idx99 = shl nsw i64 %.val20.i, 3
+  %112 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx99
   %113 = icmp eq i64 %.val20.i, 0
   br i1 %113, label %._crit_edge, label %.lr.ph
 

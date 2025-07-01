@@ -4340,13 +4340,13 @@ _ZNK17QArrayDataPointerI20InterfaceTreeColumnsE14freeSpaceAtEndEv.exit.i: ; pred
 
 37:                                               ; preds = %33
   %38 = sub nsw i64 0, %28
-  %39 = getelementptr i32, ptr %22, i64 %38
+  %.idx.i.i = shl i64 %38, 2
+  %39 = getelementptr i8, ptr %22, i64 %.idx.i.i
   %40 = icmp eq i64 %30, 0
   br i1 %40, label %_ZN9QtPrivate20q_relocate_overlap_nI20InterfaceTreeColumnsxEEvPT_T0_S3_.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  %.idx.mask.i.i = and i64 %38, 4611686018427387903
-  %42 = icmp eq i64 %.idx.mask.i.i, 0
+  %42 = icmp eq i64 %.idx.i.i, 0
   %43 = icmp eq ptr %22, null
   %or.cond.i.i.i = or i1 %42, %43
   %44 = icmp eq ptr %39, null
@@ -4460,14 +4460,14 @@ _ZNK17QArrayDataPointerI20InterfaceTreeColumnsE14freeSpaceAtEndEv.exit: ; preds 
   %43 = sub i64 %.0, %.0.i24
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr i32, ptr %45, i64 %43
+  %.idx.i = shl i64 %43, 2
+  %46 = getelementptr i8, ptr %45, i64 %.idx.i
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = icmp eq i64 %42, 0
   br i1 %48, label %_ZN9QtPrivate20q_relocate_overlap_nI20InterfaceTreeColumnsxEEvPT_T0_S3_.exit.i, label %49
 
 49:                                               ; preds = %41
-  %.idx.mask.i = and i64 %43, 4611686018427387903
-  %50 = icmp eq i64 %.idx.mask.i, 0
+  %50 = icmp eq i64 %.idx.i, 0
   %51 = icmp eq ptr %45, null
   %or.cond.i.i = or i1 %51, %50
   %52 = icmp eq ptr %46, null
@@ -4613,24 +4613,24 @@ _ZNK17QArrayDataPointerI20InterfaceTreeColumnsE11needsDetachEv.exit31: ; preds =
   br i1 %or.cond5, label %_ZNK17QArrayDataPointerI20InterfaceTreeColumnsE11needsDetachEv.exit31.thread, label %49
 
 _ZNK17QArrayDataPointerI20InterfaceTreeColumnsE11needsDetachEv.exit31.thread: ; preds = %43, %_ZNK17QArrayDataPointerI20InterfaceTreeColumnsE11needsDetachEv.exit31
-  %.idx40.mask = and i64 %spec.select, 4611686018427387903
-  %48 = icmp eq i64 %.idx40.mask, 0
+  %.idx40 = shl i64 %spec.select, 2
+  %48 = icmp eq i64 %.idx40, 0
   br i1 %48, label %_ZN9QtPrivate12QPodArrayOpsI20InterfaceTreeColumnsE10copyAppendEPKS1_S4_.exit, label %_ZN9QtPrivate12QPodArrayOpsI20InterfaceTreeColumnsE10copyAppendEPKS1_S4_.exit.sink.split
 
 49:                                               ; preds = %_ZNK17QArrayDataPointerI20InterfaceTreeColumnsE11needsDetachEv.exit31
-  %.idx.mask = and i64 %spec.select, 4611686018427387903
-  %50 = icmp eq i64 %.idx.mask, 0
+  %.idx = shl i64 %spec.select, 2
+  %50 = icmp eq i64 %.idx, 0
   br i1 %50, label %_ZN9QtPrivate12QPodArrayOpsI20InterfaceTreeColumnsE10copyAppendEPKS1_S4_.exit, label %_ZN9QtPrivate12QPodArrayOpsI20InterfaceTreeColumnsE10copyAppendEPKS1_S4_.exit.sink.split
 
 _ZN9QtPrivate12QPodArrayOpsI20InterfaceTreeColumnsE10copyAppendEPKS1_S4_.exit.sink.split: ; preds = %49, %_ZNK17QArrayDataPointerI20InterfaceTreeColumnsE11needsDetachEv.exit31.thread
+  %.idx.sink48 = phi i64 [ %.idx40, %_ZNK17QArrayDataPointerI20InterfaceTreeColumnsE11needsDetachEv.exit31.thread ], [ %.idx, %49 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i64, ptr %53, align 8
   %55 = getelementptr i32, ptr %31, i64 %54
-  %.idx = shl i64 %spec.select, 2
-  %56 = ashr exact i64 %.idx, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %55, ptr noundef align 1 %52, i64 noundef %.idx, i1 noundef false) #17
+  %56 = ashr exact i64 %.idx.sink48, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %55, ptr noundef align 1 %52, i64 noundef %.idx.sink48, i1 noundef false) #17
   %57 = load i64, ptr %53, align 8
   %58 = add i64 %57, %56
   store i64 %58, ptr %53, align 8

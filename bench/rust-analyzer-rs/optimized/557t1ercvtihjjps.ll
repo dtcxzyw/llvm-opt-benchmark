@@ -1110,7 +1110,8 @@ define hidden noundef i64 @"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$9new_inner17h2
   %.sroa.438.0.copyload = load ptr, ptr %.sroa.438.0..sroa_idx, align 8, !nonnull !10, !noundef !10
   %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.539.0.copyload = load i64, ptr %.sroa.539.0..sroa_idx, align 8
-  %50 = getelementptr inbounds { i64, { ptr, ptr } }, ptr %.sroa.438.0.copyload, i64 %.sroa.539.0.copyload
+  %.idx = mul nsw i64 %.sroa.539.0.copyload, 24
+  %50 = getelementptr inbounds i8, ptr %.sroa.438.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   store ptr %.sroa.438.0.copyload, ptr %8, align 8
   %.sroa.434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1379,7 +1380,8 @@ define hidden noundef i64 @"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$9new_inner17h5
   %.sroa.438.0.copyload = load ptr, ptr %.sroa.438.0..sroa_idx, align 8, !nonnull !10, !noundef !10
   %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.539.0.copyload = load i64, ptr %.sroa.539.0..sroa_idx, align 8
-  %48 = getelementptr inbounds { i64, { ptr, ptr } }, ptr %.sroa.438.0.copyload, i64 %.sroa.539.0.copyload
+  %.idx = mul nsw i64 %.sroa.539.0.copyload, 24
+  %48 = getelementptr inbounds i8, ptr %.sroa.438.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   store ptr %.sroa.438.0.copyload, ptr %7, align 8
   %.sroa.434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8

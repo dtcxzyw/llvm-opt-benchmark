@@ -1108,9 +1108,9 @@ define hidden void @_ZN10grep_regex12non_matching21remove_matching_bytes17h9d607
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %9 = alloca { { { ptr, ptr, {} } } }, align 8
   %.sroa.5.0.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.sroa.5.0.i.sroa.gep91 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %.sroa.5.0.i.sroa.gep92 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.5.0.i.sroa.gep93 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %.sroa.5.0.i.sroa.gep93 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %.sroa.5.0.i.sroa.gep94 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.5.0.i.sroa.gep95 = getelementptr inbounds nuw i8, ptr %5, i64 2
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
@@ -1130,7 +1130,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i64 7, label %35
   ]
 
-default.unreachable94:                            ; preds = %87, %24
+default.unreachable96:                            ; preds = %87, %24
   unreachable
 
 14:                                               ; preds = %tailrecurse
@@ -1157,7 +1157,7 @@ default.unreachable94:                            ; preds = %87, %24
   %25 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %26 = load i32, ptr %25, align 8, !range !186, !noundef !7
   %27 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %26, i1 true)
-  switch i32 %27, label %default.unreachable94 [
+  switch i32 %27, label %default.unreachable96 [
     i32 0, label %128
     i32 1, label %128
     i32 2, label %131
@@ -1192,7 +1192,8 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %28
   %.val18 = load ptr, ptr %31, align 8, !nonnull !7, !noundef !7
   %32 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %.val19 = load i64, ptr %32, align 8, !noundef !7
-  %33 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %.val18, i64 %.val19
+  %.idx76 = mul nsw i64 %.val19, 48
+  %33 = getelementptr inbounds i8, ptr %.val18, i64 %.idx76
   %34 = icmp eq i64 %.val19, 0
   br i1 %34, label %.loopexit, label %.lr.ph64
 
@@ -1201,7 +1202,8 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %28
   %.val = load ptr, ptr %36, align 8, !nonnull !7, !noundef !7
   %37 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %.val17 = load i64, ptr %37, align 8, !noundef !7
-  %38 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %.val, i64 %.val17
+  %.idx = mul nsw i64 %.val17, 48
+  %38 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %39 = icmp eq i64 %.val17, 0
   br i1 %39, label %.loopexit, label %.lr.ph
 
@@ -1308,7 +1310,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %28
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, ptr noundef nonnull align 1 dereferenceable(9) %6, i64 9, i1 false)
   %88 = load i8, ptr %5, align 1, !range !197, !alias.scope !198, !noundef !7
-  switch i8 %88, label %default.unreachable94 [
+  switch i8 %88, label %default.unreachable96 [
     i8 0, label %.lr.ph68.preheader
     i8 1, label %89
     i8 2, label %90
@@ -1325,7 +1327,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %28
   br label %.lr.ph68.preheader
 
 .lr.ph68.preheader:                               ; preds = %87, %89, %90, %91
-  %.sroa.5.0.i.sroa.phi = phi ptr [ %.sroa.5.0.i.sroa.gep, %89 ], [ %.sroa.5.0.i.sroa.gep91, %90 ], [ %.sroa.5.0.i.sroa.gep92, %91 ], [ %.sroa.5.0.i.sroa.gep93, %87 ]
+  %.sroa.5.0.i.sroa.phi = phi ptr [ %.sroa.5.0.i.sroa.gep, %89 ], [ %.sroa.5.0.i.sroa.gep93, %90 ], [ %.sroa.5.0.i.sroa.gep94, %91 ], [ %.sroa.5.0.i.sroa.gep95, %87 ]
   %.ptr = getelementptr inbounds nuw i8, ptr %.sroa.5.0.i.sroa.phi, i64 1
   br label %.lr.ph68
 

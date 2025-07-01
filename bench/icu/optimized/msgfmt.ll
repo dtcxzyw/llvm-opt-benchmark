@@ -6549,7 +6549,8 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit.thread: ; preds = %.sink.split.i.
   br i1 %305, label %.loopexit.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %302
-  %306 = getelementptr inbounds %"class.icu_77::Formattable", ptr %45, i64 %304
+  %.idx.i = mul nsw i64 %304, 112
+  %306 = getelementptr inbounds i8, ptr %45, i64 %.idx.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
@@ -6616,7 +6617,8 @@ define linkonce_odr void @_ZN6icu_7710LocalArrayINS_11FormattableEED2Ev(ptr noun
   br i1 %7, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %4
-  %8 = getelementptr inbounds %"class.icu_77::Formattable", ptr %2, i64 %6
+  %.idx = mul nsw i64 %6, 112
+  %8 = getelementptr inbounds i8, ptr %2, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -6686,7 +6688,8 @@ define noundef ptr @_ZNK6icu_7713MessageFormat5parseERKNS_13UnicodeStringERiR10U
   br i1 %24, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %21
-  %25 = getelementptr inbounds %"class.icu_77::Formattable", ptr %15, i64 %23
+  %.idx = mul nsw i64 %23, 112
+  %25 = getelementptr inbounds i8, ptr %15, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader

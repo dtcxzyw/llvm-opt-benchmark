@@ -5099,7 +5099,8 @@ define void @"_ZN145_$LT$polars_arrow..array..fixed_size_binary..builder..FixedS
   %10 = load i64, ptr %9, align 8, !noundef !13
   %11 = mul i64 %10, %3
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdf22dc3c3b65886bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.12fdc07856d7ebb6d546cb5a5802aed3.149)
-  %12 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %13 = icmp eq i64 %3, 0
   br i1 %13, label %._crit_edge, label %.lr.ph
 
@@ -5141,7 +5142,8 @@ define void @"_ZN145_$LT$polars_arrow..array..fixed_size_binary..builder..FixedS
   %12 = load i64, ptr %11, align 8, !noundef !13
   %13 = mul i64 %12, %3
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdf22dc3c3b65886bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.12fdc07856d7ebb6d546cb5a5802aed3.151)
-  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %15 = icmp eq i64 %3, 0
   br i1 %15, label %._crit_edge, label %.lr.ph
 
@@ -29261,7 +29263,8 @@ define hidden void @_ZN12polars_arrow2io3ipc4read5array7struct_11skip_struct17h3
   %30 = tail call { ptr, i64 } @_ZN12polars_arrow5array7struct_11StructArray10get_fields17hebedb0a07e719bebE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
   %31 = extractvalue { ptr, i64 } %30, 0
   %32 = extractvalue { ptr, i64 } %30, 1
-  %33 = getelementptr inbounds nuw { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] }, ptr %31, i64 %32
+  %.idx = mul nuw nsw i64 %32, 72
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4555)
   %34 = icmp ne ptr %31, null
   tail call void @llvm.assume(i1 %34)
@@ -37268,7 +37271,8 @@ define hidden void @_ZN12polars_arrow2io3ipc5write6common11gc_bin_view17h257b2d6
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %42 = load ptr, ptr %41, align 8, !alias.scope !5412, !noalias !5409, !nonnull !13, !noundef !13
-  %43 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %42, i64 %35
+  %.idx.i = shl nuw nsw i64 %35, 4
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i
   %.not16.i = icmp eq i64 %35, 0
   br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -37602,7 +37606,8 @@ define hidden void @_ZN12polars_arrow2io3ipc5write6common11gc_bin_view17hf668974
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %53 = load ptr, ptr %52, align 8, !alias.scope !5472, !noalias !5469, !nonnull !13, !noundef !13
-  %54 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %53, i64 %46
+  %.idx.i = shl nuw nsw i64 %46, 4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i
   %.not21.i = icmp eq i64 %46, 0
   br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -42432,7 +42437,8 @@ define void @_ZN12polars_arrow6legacy5array4list16AnonymousBuilder12take_offsets
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN12polars_arrow6legacy5array4list16AnonymousBuilder13push_multiple17hb3b2b1e3f1635003E(ptr noalias noundef align 8 dereferenceable(112) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 

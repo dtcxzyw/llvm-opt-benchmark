@@ -490,9 +490,11 @@ Vec_IntDup.exit:                                  ; preds = %182
   %204 = getelementptr i8, ptr %202, i64 8
   %.val157 = load ptr, ptr %204, align 8, !tbaa !37
   %205 = sext i32 %.val154 to i64
-  %206 = getelementptr inbounds i32, ptr %.val155, i64 %205
+  %.idx.i = shl nsw i64 %205, 2
+  %206 = getelementptr inbounds i8, ptr %.val155, i64 %.idx.i
   %207 = sext i32 %.val156 to i64
-  %208 = getelementptr inbounds i32, ptr %.val157, i64 %207
+  %.idx8.i = shl nsw i64 %207, 2
+  %208 = getelementptr inbounds i8, ptr %.val157, i64 %.idx8.i
   %209 = icmp sgt i32 %.val154, 0
   %210 = icmp sgt i32 %.val156, 0
   %211 = select i1 %209, i1 %210, i1 false
@@ -570,8 +572,9 @@ Vec_IntAlloc.exit.i:                              ; preds = %239, %232
   %.val6.i = load ptr, ptr %245, align 8, !tbaa !37
   %.val8.i = load ptr, ptr %204, align 8, !tbaa !37
   %246 = sext i32 %234 to i64
-  %247 = getelementptr inbounds i32, ptr %.val6.i, i64 %246
-  %248 = getelementptr inbounds nuw i32, ptr %.val8.i, i64 %207
+  %.idx.i.i = shl nsw i64 %246, 2
+  %247 = getelementptr inbounds i8, ptr %.val6.i, i64 %.idx.i.i
+  %248 = getelementptr inbounds nuw i8, ptr %.val8.i, i64 %.idx8.i
   %249 = icmp sgt i32 %234, 0
   br i1 %249, label %.lr.ph.i.i, label %.preheader5.i.i
 

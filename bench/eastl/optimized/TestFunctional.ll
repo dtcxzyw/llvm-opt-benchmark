@@ -1140,7 +1140,8 @@ _ZN5eastl9hashtableINS_12basic_stringIc15MallocAllocatorEES3_NS_9allocatorENS_8u
   %conv2.i = phi i32 [ %9, %_ZN5eastl9hashtableINS_12basic_stringIc15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %"class.eastl::basic_string", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 40
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -1881,7 +1882,8 @@ _ZN5eastl9hashtableINS_12basic_stringIDs15MallocAllocatorEES3_NS_9allocatorENS_8
   %conv2.i = phi i32 [ %9, %_ZN5eastl9hashtableINS_12basic_stringIDs15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5clearEv.exit.loopexit ], [ 0, %entry ]
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
-  %add.ptr.i = getelementptr inbounds %"class.eastl::basic_string.0", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 40
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32

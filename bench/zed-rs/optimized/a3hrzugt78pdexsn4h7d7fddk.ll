@@ -24400,7 +24400,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17ha0acfb200b035e09E(p
   %.val = load ptr, ptr %7, align 8, !nonnull !11, !noundef !11
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val9 = load i64, ptr %8, align 8, !noundef !11
-  %9 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i16, [1 x i16] }, [2 x i16] }, ptr %.val, i64 %.val9
+  %.idx = mul nsw i64 %.val9, 80
+  %9 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h429df3125d9cee22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef 1, i64 %.val9)
@@ -24560,7 +24561,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hcda71258e02d0d9bE(p
   %.val10 = load ptr, ptr %7, align 8, !nonnull !11, !noundef !11
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val11 = load i64, ptr %8, align 8, !noundef !11
-  %9 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val10, i64 %.val11
+  %.idx = mul nsw i64 %.val11, 24
+  %9 = getelementptr inbounds i8, ptr %.val10, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h429df3125d9cee22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef 1, i64 %.val11)
@@ -24706,7 +24708,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hcf75ea8af62ebbd4E(p
   %.val = load ptr, ptr %7, align 8, !nonnull !11, !noundef !11
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val9 = load i64, ptr %8, align 8, !noundef !11
-  %9 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.val9
+  %.idx = mul nsw i64 %.val9, 24
+  %9 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h429df3125d9cee22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef 1, i64 %.val9)

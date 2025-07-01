@@ -1760,7 +1760,8 @@ _ZN4core5slice4sort6shared17find_existing_run17h48e35453c3d26934E.exit.thread: ;
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h37ad54b17d8c1875E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #12 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 3
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !470)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h42291dcbd1043264E.llvm.2116552810132859885.exit", label %.lr.ph.i
@@ -4557,7 +4558,8 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17h3219d8b
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %37 = load ptr, ptr %36, align 8, !nonnull !3, !noundef !3
   %38 = load i64, ptr %23, align 8, !noundef !3
-  %39 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, [3 x i8] }, ptr %37, i64 %38
+  %.idx = mul nsw i64 %38, 144
+  %39 = getelementptr inbounds i8, ptr %37, i64 %.idx
   %40 = icmp eq i64 %38, 0
   br i1 %40, label %._crit_edge, label %.lr.ph
 
@@ -4834,7 +4836,8 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17h7482483
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %39 = load ptr, ptr %38, align 8, !nonnull !3, !noundef !3
   %40 = load i64, ptr %25, align 8, !noundef !3
-  %41 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, [3 x i8] }, ptr %39, i64 %40
+  %.idx = mul nsw i64 %40, 144
+  %41 = getelementptr inbounds i8, ptr %39, i64 %.idx
   %42 = icmp eq i64 %40, 0
   br i1 %42, label %._crit_edge, label %.lr.ph
 
@@ -5107,7 +5110,8 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17he382914
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !3, !noundef !3
   %39 = load i64, ptr %24, align 8, !noundef !3
-  %40 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, [3 x i8] }, ptr %38, i64 %39
+  %.idx = mul nsw i64 %39, 144
+  %40 = getelementptr inbounds i8, ptr %38, i64 %.idx
   %41 = icmp eq i64 %39, 0
   br i1 %41, label %._crit_edge, label %.lr.ph
 

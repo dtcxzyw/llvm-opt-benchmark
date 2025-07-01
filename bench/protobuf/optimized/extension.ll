@@ -8533,8 +8533,9 @@ invoke.cont2:                                     ; preds = %entry
   br i1 %cmp.not112, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont2.thread, %invoke.cont2
-  %slots_.i.i.i.i.i.i.i13124 = phi ptr [ %slots_.i.i.i.i.i.i.i13121, %invoke.cont2.thread ], [ %slots_.i.i.i.i.i.i.i13, %invoke.cont2 ]
-  %add.ptr.i126 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %vars.coerce0, i64 %vars.coerce1
+  %slots_.i.i.i.i.i.i.i13125 = phi ptr [ %slots_.i.i.i.i.i.i.i13121, %invoke.cont2.thread ], [ %slots_.i.i.i.i.i.i.i13, %invoke.cont2 ]
+  %add.ptr.i.idx122.pn = mul nsw i64 %vars.coerce1, 184
+  %add.ptr.i127 = getelementptr inbounds i8, ptr %vars.coerce0, i64 %add.ptr.i.idx122.pn
   %second.i = getelementptr inbounds nuw i8, ptr %ref.tmp18, i64 32
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp18, i64 64
   %_M_invoker2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp18, i64 56
@@ -8744,7 +8745,7 @@ call.i.i.i.i.i.i.i.noexc:                         ; preds = %invoke.cont53
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %call.i.i.i.i.i.i.i.noexc
   %23 = extractvalue { i64, i8 } %call.i.i.i.i.i.i.i24, 0
-  %24 = load ptr, ptr %slots_.i.i.i.i.i.i.i13124, align 8, !noalias !216
+  %24 = load ptr, ptr %slots_.i.i.i.i.i.i.i13125, align 8, !noalias !216
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.171", ptr %24, i64 %23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp49) #25, !noalias !216
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 32
@@ -8786,11 +8787,11 @@ lpad54:                                           ; preds = %invoke.cont53
 
 for.inc:                                          ; preds = %cleanup.done44, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf2io7Printer16AnnotationRecordEED2Ev.exit
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.0113, i64 184
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i126
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i127
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %invoke.cont2
-  %slots_.i.i.i.i.i.i.i13125 = phi ptr [ %slots_.i.i.i.i.i.i.i13, %invoke.cont2 ], [ %slots_.i.i.i.i.i.i.i13124, %for.inc ]
+  %slots_.i.i.i.i.i.i.i13126 = phi ptr [ %slots_.i.i.i.i.i.i.i13, %invoke.cont2 ], [ %slots_.i.i.i.i.i.i.i13125, %for.inc ]
   %31 = load ptr, ptr %var_map, align 8, !noalias !231
   %32 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !231
   %capacity_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %var_map, i64 16
@@ -8919,11 +8920,11 @@ invoke.cont60:                                    ; preds = %invoke.cont13.i, %i
 
 if.then65:                                        ; preds = %invoke.cont60
   %52 = load ptr, ptr %annotation_map, align 8, !noalias !238
-  %53 = load ptr, ptr %slots_.i.i.i.i.i.i.i13125, align 8, !noalias !238
+  %53 = load ptr, ptr %slots_.i.i.i.i.i.i.i13126, align 8, !noalias !238
   %capacity_.i.i.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %annotation_map, i64 16
   %54 = load i64, ptr %capacity_.i.i.i.i.i.i32, align 8, !noalias !238
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %annotation_map, align 8, !noalias !238
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i13125, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i13126, i8 0, i64 24, i1 false)
   store ptr %52, ptr %ref.tmp66, align 8
   %slots_.i.i.i.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %ref.tmp66, i64 8
   store ptr %53, ptr %slots_.i.i.i.i.i.i.i34, align 8
@@ -9042,7 +9043,7 @@ invoke.cont74:                                    ; preds = %invoke.cont60, %inv
 
 if.end.i.i.i:                                     ; preds = %invoke.cont74
   %71 = load ptr, ptr %annotation_map, align 8
-  %72 = load ptr, ptr %slots_.i.i.i.i.i.i.i13125, align 8
+  %72 = load ptr, ptr %slots_.i.i.i.i.i.i.i13126, align 8
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %if.end.i.i.i

@@ -3734,7 +3734,8 @@ if.end:                                           ; preds = %_ZNK6google8protobu
   %cond.i.i.i = select i1 %cmp.i.i.i.i, ptr %cond-lvalue.i, ptr %elements.i.i.i
   %16 = load i32, ptr %current_size_.i.i, align 8
   %idx.ext.i = sext i32 %16 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i.i.i, i64 %idx.ext.i
+  %add.ptr.i.idx = shl nsw i64 %idx.ext.i, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %add.ptr.i.idx
   %cmp.i.not133 = icmp eq i32 %16, 0
   br i1 %cmp.i.not133, label %for.end, label %for.body.lr.ph
 

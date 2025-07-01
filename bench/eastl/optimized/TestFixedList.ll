@@ -1540,7 +1540,8 @@ for.end.i.i:
   store ptr %this, ptr %this, align 8
   %mpPrev.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp5.i.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp5.i.i, label %invoke.cont, label %for.body.lr.ph.i.i.i
 
@@ -1710,7 +1711,8 @@ for.end.i.i:                                      ; preds = %while.body.i.i, %en
   store ptr %this, ptr %mpPrev.i.i, align 8
   %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 0, ptr %mSize.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp5.i.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp5.i.i, label %_ZN5eastl4listIiNS_20fixed_node_allocatorILm24ELm1ELm8ELm0ELb0ENS_9allocatorEEEE6assignIPKiEEvT_S8_.exit, label %for.body.lr.ph.i.i.i
 

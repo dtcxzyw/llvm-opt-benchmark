@@ -469,7 +469,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i:     ; preds = %_ZN4llvmeqENS_9Stri
 29:                                               ; preds = %24
   %30 = zext i32 %26 to i64
   %31 = load ptr, ptr %15, align 8, !tbaa !12
-  %32 = getelementptr inbounds nuw %"class.llvm::MachO::Target", ptr %31, i64 %30
+  %.idx.i.i.i.i.i = mul nuw nsw i64 %30, 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i.i
   %.not9.i.i.i.i.i.i.i.i.i = icmp eq i32 %26, 0
   br i1 %.not9.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i.i.i
 

@@ -18815,9 +18815,10 @@ _ZSt7advanceISt15_Deque_iteratorImRmPmEmEvRT_T0_.exit: ; preds = %86, %88
   %.idx = shl nsw i64 %90, 3
   %.ptr = getelementptr inbounds i8, ptr %9, i64 %.idx
   %91 = load ptr, ptr %.ptr, align 8, !tbaa !413
-  %92 = shl nsw i64 %90, 6
-  %93 = sub nsw i64 %82, %92
-  %94 = getelementptr inbounds i64, ptr %91, i64 %93
+  %92 = shl i64 %90, 9
+  %93 = shl i64 %82, 3
+  %.idx118 = sub i64 %93, %92
+  %94 = getelementptr inbounds i8, ptr %91, i64 %.idx118
   %.sroa.16.293 = getelementptr inbounds nuw i8, ptr %91, i64 512
   %.sroa.23.294.ptr = getelementptr inbounds i8, ptr %9, i64 %.idx
   %.not.i.i.i.i.i.i.i9 = icmp eq ptr %7, %4
@@ -18838,12 +18839,11 @@ _ZSt14__copy_move_a1ILb0EPmS0_ET1_T0_S2_S1_.exit.i.i.i.i10: ; preds = %95, %_ZSt
 
 ._crit_edge.i.i.i.i18:                            ; preds = %.lr.ph.i.i.i.i13, %_ZSt14__copy_move_a1ILb0EPmS0_ET1_T0_S2_S1_.exit.i.i.i.i10
   %.09.lcssa.i.i.i.i19 = phi ptr [ %96, %_ZSt14__copy_move_a1ILb0EPmS0_ET1_T0_S2_S1_.exit.i.i.i.i10 ], [ %99, %.lr.ph.i.i.i.i13 ]
-  %.not.i.i.i12.i.i.i.i20 = icmp eq i64 %82, %92
+  %.not.i.i.i12.i.i.i.i20 = icmp eq i64 %93, %92
   br i1 %.not.i.i.i12.i.i.i.i20, label %_ZSt4copyISt15_Deque_iteratorImRmPmES2_ET0_T_S5_S4_.exit25, label %97
 
 97:                                               ; preds = %._crit_edge.i.i.i.i18
-  %.idx119 = shl nsw i64 %93, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.09.lcssa.i.i.i.i19, ptr align 8 %91, i64 %.idx119, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.09.lcssa.i.i.i.i19, ptr align 8 %91, i64 %.idx118, i1 false)
   br label %_ZSt4copyISt15_Deque_iteratorImRmPmES2_ET0_T_S5_S4_.exit25
 
 .lr.ph.i.i.i.i13:                                 ; preds = %.lr.ph.i.i.i.i13.preheader, %.lr.ph.i.i.i.i13

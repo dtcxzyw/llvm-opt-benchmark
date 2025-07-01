@@ -216,7 +216,8 @@ _ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNS
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 64
   %69 = load i32, ptr %68, align 8, !tbaa !20
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %"class.llvm::SMLoc", ptr %67, i64 %70
+  %.idx.i = shl nuw nsw i64 %70, 3
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i
   %.sroa.14.393.i = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.pn.i, i64 40
   %.not94.i = icmp eq i32 %69, 0
   br i1 %.not94.i, label %._crit_edge.i, label %.lr.ph.i

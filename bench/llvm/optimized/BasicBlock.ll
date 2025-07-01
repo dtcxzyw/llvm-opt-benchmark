@@ -214,7 +214,8 @@ define dso_local void @_ZN4llvm9sandboxir10BasicBlock25buildBasicBlockFromLLVMIR
 _ZN4llvm4User8operandsEv.exit:                    ; preds = %12, %15
   %20 = phi ptr [ %14, %12 ], [ %19, %15 ]
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %12 ], [ %17, %15 ]
-  %21 = getelementptr inbounds nuw %"class.llvm::Use", ptr %20, i64 %.pre-phi2.i.i
+  %.idx = shl nuw nsw i64 %.pre-phi2.i.i, 5
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %.not4243 = icmp eq i64 %.pre-phi2.i.i, 0
   br i1 %.not4243, label %.loopexit, label %.lr.ph
 

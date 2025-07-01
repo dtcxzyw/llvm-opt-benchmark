@@ -151,19 +151,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.120" = type { %"struct.std::_Head_base.123" }
 %"struct.std::_Head_base.123" = type { ptr }
 %"class.llvm::raw_string_ostream" = type { %"class.llvm::raw_ostream", ptr }
-%"struct.llvm::LetRecord" = type { ptr, %"class.std::vector.9", ptr, %"class.llvm::SMLoc" }
-%"class.llvm::SmallVector.265" = type { %"class.llvm::SmallVectorImpl.266", %"struct.llvm::SmallVectorStorage.269" }
-%"class.llvm::SmallVectorImpl.266" = type { %"class.llvm::SmallVectorTemplateBase.267" }
-%"class.llvm::SmallVectorTemplateBase.267" = type { %"class.llvm::SmallVectorTemplateCommon.268" }
-%"class.llvm::SmallVectorTemplateCommon.268" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.269" = type { [48 x i8] }
-%"class.llvm::RecordVal" = type { ptr, %"class.llvm::SMLoc", %"class.llvm::PointerIntPair", ptr, i8, %"class.llvm::SmallVector.210" }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
-%"class.llvm::SmallVector.210" = type { %"class.llvm::SmallVectorImpl.211" }
-%"class.llvm::SmallVectorImpl.211" = type { %"class.llvm::SmallVectorTemplateBase.212" }
-%"class.llvm::SmallVectorTemplateBase.212" = type { %"class.llvm::SmallVectorTemplateCommon.213" }
-%"class.llvm::SmallVectorTemplateCommon.213" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::cl::desc" = type { %"class.llvm::StringRef" }
 %"struct.llvm::cl::value_desc" = type { %"class.llvm::StringRef" }
 %"struct.llvm::cl::initializer" = type { ptr }
@@ -3136,7 +3123,8 @@ _ZNSt6vectorISt10unique_ptrIN4llvm11ForeachLoopESt14default_deleteIS2_EESaIS5_EE
 
 .lr.ph.i.preheader.i.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i2
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"struct.llvm::LetRecord", ptr %44, i64 %47
+  %.idx.i.i.i.i.i.i = mul nuw nsw i64 %47, 48
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN4llvm9LetRecordD2Ev.exit.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i
@@ -4518,7 +4506,8 @@ define linkonce_odr hidden void @_ZN4llvm7TGLexerD2Ev(ptr noundef nonnull align 
 
 .lr.ph.i.preheader.i:                             ; preds = %1
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"class.llvm::SmallVector.265", ptr %3, i64 %6
+  %.idx.i = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm11SmallVectorINS_7TGLexer23PreprocessorControlDescELj3EED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -4801,7 +4790,8 @@ _ZN4llvm11SmallVectorINS_6Record13AssertionInfoELj0EED2Ev.exit: ; preds = %_ZN4l
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm11SmallVectorINS_6Record13AssertionInfoELj0EED2Ev.exit
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"class.llvm::RecordVal", ptr %16, i64 %19
+  %.idx.i = mul nuw nsw i64 %19, 56
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm9RecordValD2Ev.exit.i.i, %.lr.ph.i.preheader.i

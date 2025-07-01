@@ -8429,7 +8429,8 @@ define internal void @"_ZN13project_model13build_scripts21WorkspaceBuildScripts1
   %.val56 = load ptr, ptr %41, align 8, !nonnull !4, !noundef !4
   %42 = getelementptr i8, ptr %40, i64 16
   %.val57 = load i64, ptr %42, align 8, !noundef !4
-  %43 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val56, i64 %.val57
+  %.idx = mul nsw i64 %.val57, 24
+  %43 = getelementptr inbounds i8, ptr %.val56, i64 %.idx
   %44 = icmp eq i64 %.val57, 0
   br i1 %44, label %._crit_edge, label %.lr.ph
 
@@ -9018,7 +9019,8 @@ define internal void @"_ZN13project_model13build_scripts21WorkspaceBuildScripts1
   %.val = load ptr, ptr %41, align 8, !nonnull !4, !noundef !4
   %42 = getelementptr i8, ptr %40, i64 16
   %.val56 = load i64, ptr %42, align 8, !noundef !4
-  %43 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.val56
+  %.idx = mul nsw i64 %.val56, 24
+  %43 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %44 = icmp eq i64 %.val56, 0
   br i1 %44, label %._crit_edge, label %.lr.ph
 
@@ -9582,7 +9584,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %22 = load i64, ptr %21, align 8, !noundef !4
-  %23 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %20, i64 %22
+  %.idx = mul nsw i64 %22, 24
+  %23 = getelementptr inbounds i8, ptr %20, i64 %.idx
   %.not.i = icmp eq i64 %22, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hbe0fdce1d524aa36E.exit.thread", label %.lr.ph.i
 
@@ -9729,7 +9732,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %22 = load i64, ptr %21, align 8, !noundef !4
-  %23 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %20, i64 %22
+  %.idx = mul nsw i64 %22, 24
+  %23 = getelementptr inbounds i8, ptr %20, i64 %.idx
   %.not.i = icmp eq i64 %22, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h20b4f09824a4b07bE.exit.thread", label %.lr.ph.i
 
@@ -10747,7 +10751,8 @@ define hidden void @"_ZN13project_model3cfg116_$LT$impl$u20$core..iter..traits..
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2043, !noalias !2046, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2043, !noalias !2046
-  %14 = getelementptr inbounds { [3 x i64], i64, [2 x i64] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nsw i64 %.sroa.5.0.copyload.i, 48
+  %14 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   store ptr %.sroa.4.0.copyload.i, ptr %13, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8

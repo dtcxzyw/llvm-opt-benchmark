@@ -1017,7 +1017,8 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit14:              ; preds = %_ZNSt13unordered_se
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8WasmEdge9Validator11FormChecker8validateEN5cxx204spanIKNS_3AST11InstructionELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr %2, i64 %3, ptr readonly captures(address) %4, i64 %5) local_unnamed_addr #1 align 2 {
-  %7 = getelementptr inbounds %"class.WasmEdge::ValType", ptr %4, i64 %5
+  %.idx = shl nsw i64 %5, 3
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not13 = icmp eq i64 %5, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -2148,7 +2149,8 @@ define void @_ZN8WasmEdge9Validator11FormChecker11checkInstrsEN5cxx204spanIKNS_3
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"class.cxx20::expected", align 4
   %7 = alloca %"struct.WasmEdge::ErrInfo::InfoInstruction", align 8
-  %8 = getelementptr inbounds %"class.WasmEdge::AST::Instruction", ptr %2, i64 %3
+  %.idx = shl nsw i64 %3, 5
+  %8 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %.not40 = icmp eq i64 %3, 0
   br i1 %.not40, label %._crit_edge, label %.lr.ph
 
@@ -13710,7 +13712,8 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(360) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds %"class.WasmEdge::ValType", ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 3
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not10 = icmp eq i64 %2, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -14575,7 +14578,8 @@ _ZNSt12_Vector_baseISt8optionalIN8WasmEdge7ValTypeEESaIS3_EEC2EmRKS4_.exit: ; pr
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKSt8optionalINS_7ValTypeEELm18446744073709551615EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(360) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds %"class.std::optional.66", ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 12
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not14 = icmp eq i64 %2, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -15207,20 +15211,21 @@ _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EEC2EmRKS2_.exit.thread: ; preds = 
   %12 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %10, i64 %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8
-  %14 = load i64, ptr %2, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %9
+  %15 = load i64, ptr %2, align 4
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %8
-  %.06.i.i.i.i.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i.i.i.i.i ], [ %10, %8 ]
-  store i64 %14, ptr %.06.i.i.i.i.i.i.i.i, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %15, %12
+  %.06.i.i.i.i.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i.i.i.i.i.i ], [ %10, %8 ]
+  store i64 %15, ptr %.06.i.i.i.i.i.i.i.i, align 4
+  %16 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %16, %14
   br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !353
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EEC2EmRKS2_.exit.thread
-  %16 = phi ptr [ %7, %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EEC2EmRKS2_.exit.thread ], [ %11, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EEC2EmRKS2_.exit.thread ], [ %12, %.lr.ph.i.i.i.i.i.i.i.i ]
-  store ptr %.0.i.i.i.i.i.i, ptr %16, align 8
+  %17 = phi ptr [ %7, %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EEC2EmRKS2_.exit.thread ], [ %11, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EEC2EmRKS2_.exit.thread ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i ]
+  store ptr %.0.i.i.i.i.i.i, ptr %17, align 8
   ret void
 }
 

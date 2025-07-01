@@ -2445,7 +2445,8 @@ define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17hd7fb3
 
 "_ZN95_$LT$actix_http..requests..request..Request$u20$as$u20$actix_http..h1..decoder..MessageType$GT$11headers_mut17h870d31810318e357E.exit": ; preds = %"_ZN5alloc2rc15Rc$LT$T$C$A$GT$9is_unique17h19524d62fe415e60E.llvm.10804153884081904121.exit.i.i"
   %117 = getelementptr inbounds nuw i8, ptr %111, i64 160
-  %118 = getelementptr inbounds { { i64, i64 }, { i64, i64 } }, ptr %3, i64 %4
+  %.idx = shl nsw i64 %4, 5
+  %118 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %119 = icmp eq i64 %4, 0
   br i1 %119, label %.thread1208, label %.lr.ph
 

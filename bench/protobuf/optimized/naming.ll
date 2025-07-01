@@ -2443,8 +2443,8 @@ if.then4:                                         ; preds = %if.then
   br i1 %cmp10, label %if.then11, label %_ZSt7advanceIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_6ByCharENS1_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewmEvRT_T0_.exit
 
 if.then11:                                        ; preds = %if.then4
-  %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i
-  %add.ptr = getelementptr inbounds %"class.std::basic_string_view", ptr %1, i64 %idx.neg
+  %add.ptr.idx = sub i64 0, %sub.ptr.sub.i.i
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.then11, %for.body.i.i.i.i.i
@@ -2785,8 +2785,8 @@ if.then9:                                         ; preds = %if.then
   br i1 %cmp15, label %if.then16, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit
 
 if.then16:                                        ; preds = %if.then9
-  %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1, i64 %idx.neg
+  %add.ptr.idx = sub i64 0, %sub.ptr.sub.i.i.i
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.then16, %for.body.i.i.i.i.i
@@ -3225,8 +3225,8 @@ if.then5:                                         ; preds = %if.then
   br i1 %cmp11, label %for.body.i.i.i.i.i.preheader, label %if.else5.i.i
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then5
-  %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i.i
-  %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %3, i64 %idx.neg
+  %add.ptr.idx = sub i64 0, %sub.ptr.sub.i.i.i.i
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %add.ptr.idx
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i

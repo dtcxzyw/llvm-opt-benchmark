@@ -12,7 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::reverse_iterator.10" = type { %"struct.eastl::ring_buffer_iterator.8" }
 %"class.eastl::reverse_iterator.11" = type { %"struct.eastl::ring_buffer_iterator.9" }
 %"struct.eastl::ring_buffer_iterator.9" = type { ptr, ptr }
-%struct.TestObject = type <{ i32, i8, [3 x i8], i64, i32, [4 x i8] }>
 %"struct.eastl::ring_buffer_iterator.19" = type { ptr, ptr }
 %"class.eastl::reverse_iterator.21" = type { %"struct.eastl::ring_buffer_iterator.19" }
 %"class.eastl::reverse_iterator.22" = type { %"struct.eastl::ring_buffer_iterator.20" }
@@ -22,6 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.eastl::VectorBase.15" = type { ptr, ptr, %"class.eastl::compressed_pair.16" }
 %"class.eastl::compressed_pair.16" = type { %"class.eastl::compressed_pair_imp.17" }
 %"class.eastl::compressed_pair_imp.17" = type { ptr }
+%struct.TestObject = type <{ i32, i8, [3 x i8], i64, i32, [4 x i8] }>
 %"struct.eastl::DequeIterator.224" = type { ptr, ptr, ptr, ptr }
 %"class.eastl::deque" = type { %"struct.eastl::DequeBase.base", [7 x i8] }
 %"struct.eastl::DequeBase.base" = type <{ ptr, i64, %"struct.eastl::DequeIterator", %"struct.eastl::DequeIterator", %"class.eastl::allocator" }>
@@ -83,6 +83,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::compressed_pair.81" = type { %"class.eastl::compressed_pair_imp.82" }
 %"class.eastl::compressed_pair_imp.82" = type { ptr }
 %"struct.eastl::aligned_buffer" = type { [28000 x i8] }
+%"struct.eastl::ring_buffer_iterator.84" = type { ptr, ptr }
+%"class.eastl::reverse_iterator.86" = type { %"struct.eastl::ring_buffer_iterator.84" }
+%"class.eastl::reverse_iterator.87" = type { %"struct.eastl::ring_buffer_iterator.85" }
+%"struct.eastl::ring_buffer_iterator.85" = type { ptr, ptr }
 %"class.eastl::fixed_string" = type { %"class.eastl::basic_string", %union.anon.93 }
 %"class.eastl::basic_string" = type { %"class.eastl::compressed_pair.89" }
 %"class.eastl::compressed_pair.89" = type { %"class.eastl::compressed_pair_imp.90" }
@@ -92,10 +96,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.eastl::basic_string<char, eastl::fixed_vector_allocator<1, 256, 1, 0, false>>::HeapLayout" = type { ptr, i64, i64 }
 %union.anon.93 = type { %"struct.eastl::aligned_buffer.94" }
 %"struct.eastl::aligned_buffer.94" = type { [256 x i8] }
-%"struct.eastl::ring_buffer_iterator.84" = type { ptr, ptr }
-%"class.eastl::reverse_iterator.86" = type { %"struct.eastl::ring_buffer_iterator.84" }
-%"class.eastl::reverse_iterator.87" = type { %"struct.eastl::ring_buffer_iterator.85" }
-%"struct.eastl::ring_buffer_iterator.85" = type { ptr, ptr }
 %"class.eastl::fixed_vector.96" = type { %"class.eastl::vector.97", %"struct.eastl::aligned_buffer.103" }
 %"class.eastl::vector.97" = type { %"struct.eastl::VectorBase.98" }
 %"struct.eastl::VectorBase.98" = type { ptr, ptr, %"class.eastl::compressed_pair.99" }
@@ -2920,7 +2920,8 @@ invoke.cont:                                      ; preds = %if.else.i, %_ZN5eas
   %mBegin = getelementptr inbounds nuw i8, ptr %this, i64 24
   %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 32
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   store ptr %3, ptr %mBegin, align 8
   store ptr %3, ptr %mEnd, align 8
   store i64 0, ptr %mSize, align 8
@@ -2993,7 +2994,8 @@ _ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit:       ; preds = %lpad, %_ZN5eastl9al
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_EaSESt16initializer_listIiE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %0 = load ptr, ptr %this, align 8
   %mBegin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %0, ptr %mBegin.i.i, align 8
@@ -4272,7 +4274,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E6insertENS_20ring_buffer_iteratorIiPKiRS6_S3_EESt16initializer_listIiE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %position.coerce0, ptr %position.coerce1, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not6.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not6.i, label %_ZN5eastl11ring_bufferIiNS_6vectorIiNS_9allocatorEEES2_E6insertIPKiEEvNS_20ring_buffer_iteratorIiS7_RS6_S3_EET_SB_.exit, label %for.body.lr.ph.i
 
@@ -5660,7 +5663,8 @@ invoke.cont:                                      ; preds = %if.then.i.invoke.co
   %mBegin = getelementptr inbounds nuw i8, ptr %this, i64 24
   %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 32
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 6
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   store ptr %0, ptr %mBegin, align 8
   store ptr %0, ptr %mEnd, align 8
   store i64 0, ptr %mSize, align 8
@@ -5733,7 +5737,8 @@ _ZN5eastl6vectorI7Align64NS_9allocatorEED2Ev.exit: ; preds = %lpad, %_ZN5eastl9a
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl11ring_bufferI7Align64NS_6vectorIS1_NS_9allocatorEEES3_EaSESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 6
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %0 = load ptr, ptr %this, align 8
   %mBegin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %0, ptr %mBegin.i.i, align 8
@@ -7030,7 +7035,8 @@ while.end:                                        ; preds = %_ZN5eastl11ring_buf
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl11ring_bufferI7Align64NS_6vectorIS1_NS_9allocatorEEES3_E6insertENS_20ring_buffer_iteratorIS1_PKS1_RS7_S4_EESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %position.coerce0, ptr %position.coerce1, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 6
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not6.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not6.i, label %_ZN5eastl11ring_bufferI7Align64NS_6vectorIS1_NS_9allocatorEEES3_E6insertIPKS1_EEvNS_20ring_buffer_iteratorIS1_S8_RS7_S4_EET_SC_.exit, label %for.body.lr.ph.i
 
@@ -7793,7 +7799,8 @@ if.then.i.invoke.cont_crit_edge:                  ; preds = %if.then.i
 
 _ZN5eastl8destructIP10TestObjectEEvT_S3_.exit.i:  ; preds = %entry
   %mpEnd.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %add.ptr.i = getelementptr inbounds nuw %struct.TestObject, ptr null, i64 %add
+  %add.ptr.i.idx = mul nuw nsw i64 %add, 24
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.i.idx
   store ptr %add.ptr.i, ptr %mpEnd.i, align 8
   br label %invoke.cont
 
@@ -7890,7 +7897,8 @@ if.then.i.invoke.cont_crit_edge:                  ; preds = %if.then.i
 
 _ZN5eastl8destructIP10TestObjectEEvT_S3_.exit.i:  ; preds = %entry
   %mpEnd.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %add.ptr.i = getelementptr inbounds nuw %struct.TestObject, ptr null, i64 %add
+  %add.ptr.i.idx = mul nuw nsw i64 %add, 24
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.i.idx
   store ptr %add.ptr.i, ptr %mpEnd.i, align 8
   br label %invoke.cont
 
@@ -8382,7 +8390,8 @@ if.then.i.invoke.cont_crit_edge:                  ; preds = %if.then.i
   br label %invoke.cont
 
 _ZN5eastl8destructIP10TestObjectEEvT_S3_.exit.i:  ; preds = %entry
-  %add.ptr.i = getelementptr inbounds nuw %struct.TestObject, ptr null, i64 %add
+  %add.ptr.i.idx = mul nuw nsw i64 %add, 24
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.i.idx
   store ptr %add.ptr.i, ptr %mpEnd.i, align 8
   br label %invoke.cont
 
@@ -8391,7 +8400,8 @@ invoke.cont:                                      ; preds = %if.then.i.invoke.co
   %mBegin = getelementptr inbounds nuw i8, ptr %this, i64 24
   %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 32
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %add.ptr.i1 = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i1.idx = mul nsw i64 %ilist.coerce1, 24
+  %add.ptr.i1 = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i1.idx
   store ptr %0, ptr %mBegin, align 8
   store ptr %0, ptr %mEnd, align 8
   store i64 0, ptr %mSize, align 8
@@ -8482,7 +8492,8 @@ lpad:                                             ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl11ring_bufferI10TestObjectNS_6vectorIS1_NS_9allocatorEEES3_EaSESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %0 = load ptr, ptr %this, align 8
   %mBegin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %0, ptr %mBegin.i.i, align 8
@@ -8845,7 +8856,8 @@ if.then.i.invoke.cont4_crit_edge:                 ; preds = %if.then.i
   br label %invoke.cont4
 
 _ZN5eastl8destructIP10TestObjectEEvT_S3_.exit.i:  ; preds = %if.then
-  %add.ptr.i = getelementptr inbounds nuw %struct.TestObject, ptr null, i64 %add
+  %add.ptr.i.idx = mul nuw nsw i64 %add, 24
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.i.idx
   store ptr %add.ptr.i, ptr %mpEnd.i5, align 8
   br label %invoke.cont4
 
@@ -9098,7 +9110,8 @@ if.then.i:                                        ; preds = %if.then
           to label %invoke.cont4 unwind label %lpad
 
 _ZN5eastl8destructIP10TestObjectEEvT_S3_.exit.i:  ; preds = %if.then
-  %add.ptr.i = getelementptr inbounds nuw %struct.TestObject, ptr null, i64 %add
+  %add.ptr.i.idx = mul nuw nsw i64 %add, 24
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.i.idx
   store ptr %add.ptr.i, ptr %mpEnd.i5, align 8
   br label %invoke.cont4
 
@@ -9334,7 +9347,8 @@ if.then.i.invoke.cont4_crit_edge:                 ; preds = %if.then.i
   br label %invoke.cont4
 
 _ZN5eastl8destructIP10TestObjectEEvT_S3_.exit.i:  ; preds = %if.then
-  %add.ptr.i = getelementptr inbounds nuw %struct.TestObject, ptr null, i64 %add
+  %add.ptr.i.idx = mul nuw nsw i64 %add, 24
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.i.idx
   store ptr %add.ptr.i, ptr %mpEnd.i2, align 8
   br label %invoke.cont4
 
@@ -10077,7 +10091,8 @@ while.end:                                        ; preds = %while.body, %entry
 define weak_odr dso_local void @_ZN5eastl11ring_bufferI10TestObjectNS_6vectorIS1_NS_9allocatorEEES3_E6insertENS_20ring_buffer_iteratorIS1_PKS1_RS7_S4_EESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %position.coerce0, ptr %position.coerce1, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
   %tmp.i = alloca %"struct.eastl::ring_buffer_iterator.19", align 8
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl11ring_bufferI10TestObjectNS_6vectorIS1_NS_9allocatorEEES3_E6insertIPKS1_EEvNS_20ring_buffer_iteratorIS1_S8_RS7_S4_EET_SC_.exit, label %for.body.lr.ph.i
@@ -11114,7 +11129,8 @@ entry:
   %sub.i.i6 = sub i64 %7, %add.i.i5
   %div79.i.i = lshr i64 %sub.i.i6, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i5
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i5, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -14699,7 +14715,8 @@ entry:
   %3 = load ptr, ptr %mpEnd4.i.i, align 8
   %mpCurrentArrayPtr5.i.i = getelementptr inbounds nuw i8, ptr %position, i64 32
   %4 = load ptr, ptr %mpCurrentArrayPtr5.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   %cmp.not7.i = icmp eq i64 %ilist.coerce1, 0
@@ -16077,7 +16094,8 @@ entry:
   %sub.i.i6 = sub i64 %7, %add.i.i5
   %div79.i.i = lshr i64 %sub.i.i6, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i6.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i5
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i5, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -19661,7 +19679,8 @@ entry:
   %3 = load ptr, ptr %mpEnd4.i.i, align 8
   %mpCurrentArrayPtr5.i.i = getelementptr inbounds nuw i8, ptr %position, i64 32
   %4 = load ptr, ptr %mpCurrentArrayPtr5.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 6
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   %cmp.not7.i = icmp eq i64 %ilist.coerce1, 0
@@ -21247,7 +21266,8 @@ entry:
   %sub.i.i = sub i64 %7, %add.i.i5
   %div79.i.i = lshr i64 %sub.i.i, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i5
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i5, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -22420,7 +22440,8 @@ invoke.cont4:                                     ; preds = %if.then.i.i, %invok
   %ref.tmp.sroa.4.0.mBegin.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 112
   store ptr %18, ptr %ref.tmp.sroa.4.0.mBegin.sroa_idx, align 8
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 152
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   store ptr %15, ptr %mBegin, align 8
   store ptr %16, ptr %ref.tmp.sroa.2.0.mBegin.sroa_idx, align 8
   store ptr %17, ptr %ref.tmp.sroa.3.0.mBegin.sroa_idx, align 8
@@ -22463,7 +22484,8 @@ lpad.body:                                        ; preds = %_ZN10TestObjectD2Ev
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(160) ptr @_ZN5eastl11ring_bufferI10TestObjectNS_5dequeIS1_NS_9allocatorELj8EEES3_EaSESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %mItBegin.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mItBegin.i.i.i, align 8, !noalias !1258
   %mpBegin3.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25643,7 +25665,8 @@ entry:
   %3 = load ptr, ptr %mpEnd4.i.i, align 8
   %mpCurrentArrayPtr5.i.i = getelementptr inbounds nuw i8, ptr %position, i64 32
   %4 = load ptr, ptr %mpCurrentArrayPtr5.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   %cmp.not7.i = icmp eq i64 %ilist.coerce1, 0
@@ -27912,7 +27935,8 @@ invoke.cont:                                      ; preds = %call.i.i.i.i.i.i.i.
   %10 = load ptr, ptr %this, align 8, !noalias !1704
   %11 = ptrtoint ptr %10 to i64
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   store i64 %11, ptr %mBegin, align 8
   store i64 %11, ptr %mEnd, align 8
   store i64 0, ptr %mSize, align 8
@@ -28075,7 +28099,8 @@ if.end9:                                          ; preds = %while.body.i.i, %fo
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl11ring_bufferIiNS_4listIiNS_9allocatorEEES2_EaSESt16initializer_listIiE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %0 = load ptr, ptr %this, align 8, !noalias !1720
   %mBegin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = ptrtoint ptr %0 to i64
@@ -29758,7 +29783,8 @@ while.end:                                        ; preds = %_ZN5eastl11ring_buf
 define weak_odr dso_local void @_ZN5eastl11ring_bufferIiNS_4listIiNS_9allocatorEEES2_E6insertENS_20ring_buffer_iteratorIiPKiRS6_S3_EESt16initializer_listIiE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %position, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %position, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not7.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not7.i, label %_ZN5eastl11ring_bufferIiNS_4listIiNS_9allocatorEEES2_E6insertIPKiEEvNS_20ring_buffer_iteratorIiS7_RS6_S3_EET_SB_.exit, label %for.body.lr.ph.i
 
@@ -31655,7 +31681,8 @@ invoke.cont:                                      ; preds = %call.i6.i.i.i.i.i.i
   %10 = load ptr, ptr %this, align 8, !noalias !2215
   %11 = ptrtoint ptr %10 to i64
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 6
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   store i64 %11, ptr %mBegin, align 8
   store i64 %11, ptr %mEnd, align 8
   store i64 0, ptr %mSize, align 8
@@ -31817,7 +31844,8 @@ if.end9:                                          ; preds = %while.body.i.i, %fo
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl11ring_bufferI7Align64NS_4listIS1_NS_9allocatorEEES3_EaSESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 6
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %0 = load ptr, ptr %this, align 8, !noalias !2231
   %mBegin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = ptrtoint ptr %0 to i64
@@ -33500,7 +33528,8 @@ while.end:                                        ; preds = %_ZN5eastl11ring_buf
 define weak_odr dso_local void @_ZN5eastl11ring_bufferI7Align64NS_4listIS1_NS_9allocatorEEES3_E6insertENS_20ring_buffer_iteratorIS1_PKS1_RS7_S4_EESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %position, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %position, align 8
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 6
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not7.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not7.i, label %_ZN5eastl11ring_bufferI7Align64NS_4listIS1_NS_9allocatorEEES3_E6insertIPKS1_EEvNS_20ring_buffer_iteratorIS1_S8_RS7_S4_EET_SC_.exit, label %for.body.lr.ph.i
 
@@ -35384,7 +35413,8 @@ invoke.cont:                                      ; preds = %if.then.i.i, %invok
   %13 = load ptr, ptr %this, align 8, !noalias !2667
   %14 = ptrtoint ptr %13 to i64
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   store i64 %14, ptr %mBegin, align 8
   store i64 %14, ptr %mEnd, align 8
   store i64 0, ptr %mSize, align 8
@@ -35469,7 +35499,8 @@ invoke.cont9:                                     ; preds = %_ZN5eastl11ring_buf
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl11ring_bufferI10TestObjectNS_4listIS1_NS_9allocatorEEES3_EaSESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %0 = load ptr, ptr %this, align 8, !noalias !2677
   %mBegin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = ptrtoint ptr %0 to i64
@@ -37330,7 +37361,8 @@ entry:
   %0 = load ptr, ptr %position, align 8
   %mContainerIterator3.i = getelementptr inbounds nuw i8, ptr %position, i64 8
   %1 = load ptr, ptr %mContainerIterator3.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %cmp.not4.i = icmp eq i64 %ilist.coerce1, 0
@@ -38472,7 +38504,8 @@ invoke.cont:                                      ; preds = %entry, %if.then.i
   %0 = phi ptr [ %.pre, %if.then.i ], [ %mBuffer.i, %entry ]
   %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 28032
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 28040
-  %add.ptr.i2 = getelementptr inbounds %"class.eastl::fixed_string", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i2.idx = mul nsw i64 %ilist.coerce1, 280
+  %add.ptr.i2 = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i2.idx
   store ptr %0, ptr %add.ptr.i, align 8
   store ptr %0, ptr %mEnd, align 8
   store i64 0, ptr %mSize, align 8
@@ -38493,7 +38526,8 @@ invoke.cont8:                                     ; preds = %for.body.i, %invoke
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(28048) ptr @_ZN5eastl11ring_bufferINS_12fixed_stringIcLi256ELb0ENS_9allocatorEEENS_12fixed_vectorIS3_Lm100ELb0ENS_15dummy_allocatorEEES5_EaSESt16initializer_listIS3_E(ptr noundef nonnull align 8 dereferenceable(28048) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %add.ptr.i = getelementptr inbounds %"class.eastl::fixed_string", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 280
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %0 = load ptr, ptr %this, align 8
   %mBegin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28024
   store ptr %0, ptr %mBegin.i.i, align 8
@@ -39569,7 +39603,8 @@ while.end:                                        ; preds = %while.body, %entry
 define weak_odr dso_local void @_ZN5eastl11ring_bufferINS_12fixed_stringIcLi256ELb0ENS_9allocatorEEENS_12fixed_vectorIS3_Lm100ELb0ENS_15dummy_allocatorEEES5_E6insertENS_20ring_buffer_iteratorIS3_PKS3_RS9_S6_EESt16initializer_listIS3_E(ptr noundef nonnull align 8 dereferenceable(28048) %this, ptr %position.coerce0, ptr %position.coerce1, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
   %tmp.i = alloca %"struct.eastl::ring_buffer_iterator.84", align 8
-  %add.ptr.i = getelementptr inbounds %"class.eastl::fixed_string", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 280
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl11ring_bufferINS_12fixed_stringIcLi256ELb0ENS_9allocatorEEENS_12fixed_vectorIS3_Lm100ELb0ENS_15dummy_allocatorEEES5_E6insertIPKS3_EEvNS_20ring_buffer_iteratorIS3_SA_RS9_S6_EET_SE_.exit, label %for.body.lr.ph.i
@@ -40586,7 +40621,8 @@ invoke.cont:                                      ; preds = %entry, %for.body.pr
   store ptr %storemerge.i, ptr %mpEnd.i, align 8
   %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 432
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 440
-  %add.ptr.i2 = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i2.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i2 = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i2.idx
   store ptr %mBuffer.i, ptr %add.ptr.i, align 8
   store ptr %mBuffer.i, ptr %mEnd, align 8
   store i64 0, ptr %mSize, align 8
@@ -40645,7 +40681,8 @@ _ZN5eastl11ring_bufferIiNS_12fixed_vectorIiLm100ELb0ENS_15dummy_allocatorEEES2_E
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(448) ptr @_ZN5eastl11ring_bufferIiNS_12fixed_vectorIiLm100ELb0ENS_15dummy_allocatorEEES2_EaSESt16initializer_listIiE(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %0 = load ptr, ptr %this, align 8
   %mBegin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 424
   store ptr %0, ptr %mBegin.i.i, align 8
@@ -42025,7 +42062,8 @@ while.end:                                        ; preds = %_ZN5eastl11ring_buf
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl11ring_bufferIiNS_12fixed_vectorIiLm100ELb0ENS_15dummy_allocatorEEES2_E6insertENS_20ring_buffer_iteratorIiPKiRS6_S3_EESt16initializer_listIiE(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr %position.coerce0, ptr %position.coerce1, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not6.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not6.i, label %_ZN5eastl11ring_bufferIiNS_12fixed_vectorIiLm100ELb0ENS_15dummy_allocatorEEES2_E6insertIPKiEEvNS_20ring_buffer_iteratorIiS7_RS6_S3_EET_SB_.exit, label %for.body.lr.ph.i
 
@@ -43392,7 +43430,8 @@ invoke.cont:                                      ; preds = %if.then.i.invoke.co
   %0 = phi ptr [ %.pre, %if.then.i.invoke.cont_crit_edge ], [ %mBuffer.i, %if.else.i ]
   %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 448
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 456
-  %add.ptr.i2 = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i2.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i2 = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i2.idx
   store ptr %0, ptr %add.ptr.i, align 8
   store ptr %0, ptr %mEnd, align 8
   store i64 0, ptr %mSize, align 8
@@ -43468,7 +43507,8 @@ _ZN5eastl12fixed_vectorIiLm100ELb1ENS_9allocatorEED2Ev.exit: ; preds = %lpad, %d
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(464) ptr @_ZN5eastl11ring_bufferIiNS_12fixed_vectorIiLm100ELb1ENS_9allocatorEEES2_EaSESt16initializer_listIiE(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %0 = load ptr, ptr %this, align 8
   %mBegin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 440
   store ptr %0, ptr %mBegin.i.i, align 8
@@ -45193,7 +45233,8 @@ while.end:                                        ; preds = %_ZN5eastl11ring_buf
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl11ring_bufferIiNS_12fixed_vectorIiLm100ELb1ENS_9allocatorEEES2_E6insertENS_20ring_buffer_iteratorIiPKiRS6_S3_EESt16initializer_listIiE(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr %position.coerce0, ptr %position.coerce1, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not6.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not6.i, label %_ZN5eastl11ring_bufferIiNS_12fixed_vectorIiLm100ELb1ENS_9allocatorEEES2_E6insertIPKiEEvNS_20ring_buffer_iteratorIiS7_RS6_S3_EET_SB_.exit, label %for.body.lr.ph.i
 
@@ -55939,7 +55980,8 @@ invoke.cont1956:                                  ; preds = %invoke.cont1941.inv
   %conv.i5684 = and i64 %shr.i.i5682, 4294967295
   %mul.i5685 = mul nuw nsw i64 %conv.i5684, 10
   %shr.i5686 = lshr i64 %mul.i5685, 32
-  %add.ptr1963 = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %stringArray1907, i64 %shr.i5686
+  %add.ptr1963.idx = mul nuw nsw i64 %shr.i5686, 24
+  %add.ptr1963 = getelementptr inbounds nuw i8, ptr %stringArray1907, i64 %add.ptr1963.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i5690)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i5691)
   %cmp.not4.i = icmp samesign ult i64 %conv.i5684, 429496730
@@ -61371,7 +61413,8 @@ if.then.i.invoke.cont4_crit_edge:                 ; preds = %if.then.i
   br label %invoke.cont4
 
 _ZN5eastl8destructIPNS_12basic_stringIcNS_9allocatorEEEEEvT_S5_.exit.i: ; preds = %if.then
-  %add.ptr.i = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr null, i64 %add
+  %add.ptr.i.idx = mul nuw nsw i64 %add, 24
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.i.idx
   store ptr %add.ptr.i, ptr %mpEnd.i5, align 8
   br label %invoke.cont4
 
@@ -61545,7 +61588,8 @@ if.then.i.invoke.cont_crit_edge:                  ; preds = %if.then.i
   br label %invoke.cont
 
 _ZN5eastl8destructIPNS_12basic_stringIcNS_9allocatorEEEEEvT_S5_.exit.i: ; preds = %if.then
-  %add.ptr.i = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr null, i64 %add
+  %add.ptr.i.idx = mul nuw nsw i64 %add, 24
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.i.idx
   store ptr %add.ptr.i, ptr %mpEnd.i2, align 8
   br label %invoke.cont
 
@@ -61695,7 +61739,8 @@ if.then.i:                                        ; preds = %if.then
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 _ZN5eastl8destructIPNS_12basic_stringIcNS_9allocatorEEEEEvT_S5_.exit.i: ; preds = %if.then
-  %add.ptr.i = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr null, i64 %add
+  %add.ptr.i.idx = mul nuw nsw i64 %add, 24
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.i.idx
   store ptr %add.ptr.i, ptr %mpEnd.i5, align 8
   br label %invoke.cont
 
@@ -62618,7 +62663,8 @@ if.then.i.invoke.cont4_crit_edge:                 ; preds = %if.then.i
   br label %invoke.cont4
 
 _ZN5eastl8destructIPNS_12fixed_vectorIfLm8ELb1ENS_9allocatorEEEEEvT_S5_.exit.i: ; preds = %if.then
-  %add.ptr.i = getelementptr inbounds nuw %"class.eastl::fixed_vector.154", ptr null, i64 %add
+  %add.ptr.i.idx = mul nuw nsw i64 %add, 72
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.i.idx
   store ptr %add.ptr.i, ptr %mpEnd.i2, align 8
   br label %invoke.cont4
 

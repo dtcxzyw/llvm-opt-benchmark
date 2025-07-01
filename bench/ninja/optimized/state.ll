@@ -3057,7 +3057,8 @@ define dso_local void @_ZN5State5ResetEv(ptr noundef nonnull readonly align 8 ca
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !65
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %"struct.std::pair.38", ptr %3, i64 %6
+  %.idx = mul nsw i64 %6, 24
+  %7 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %.not11 = icmp eq i32 %5, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 

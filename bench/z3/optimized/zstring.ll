@@ -603,7 +603,8 @@ define hidden noundef zeroext i1 @_ZNK7zstring11well_formedEv(ptr noundef nonnul
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !16
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %5
+  %.idx = shl nuw nsw i64 %5, 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not21 = icmp eq i32 %4, 0
   br i1 %.not21, label %.loopexit, label %.lr.ph
 

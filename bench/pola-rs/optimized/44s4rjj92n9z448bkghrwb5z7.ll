@@ -31815,7 +31815,7 @@ define void @_ZN11polars_lazy5frame9LazyFrame21optimize_with_scratch17h31a3e8c22
   %37 = alloca [88 x i8], align 8
   %38 = alloca [8 x i8], align 8
   %39 = alloca [64 x i8], align 8
-  %.sroa.8488.i = alloca [56 x i8], align 8
+  %.sroa.8490.i = alloca [56 x i8], align 8
   %40 = alloca [24 x i8], align 8
   %41 = alloca [24 x i8], align 8
   %42 = alloca [32 x i8], align 8
@@ -32014,18 +32014,18 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   store ptr %109, ptr %111, align 8, !noalias !3592
   %112 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i64 0, ptr %109, align 8, !noalias !3591
-  %.sroa.4.0..sroa_idx479.i = getelementptr inbounds nuw i8, ptr %109, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx479.i, align 8, !noalias !3591
-  %.sroa.5.0..sroa_idx481.i = getelementptr inbounds nuw i8, ptr %109, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx481.i, i8 0, i64 16, i1 false), !noalias !3591
-  %.sroa.6482.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %109, i64 32
-  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.6482.0..sroa_idx.i, align 8, !noalias !3591
+  %.sroa.4.0..sroa_idx481.i = getelementptr inbounds nuw i8, ptr %109, i64 8
+  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx481.i, align 8, !noalias !3591
+  %.sroa.5.0..sroa_idx483.i = getelementptr inbounds nuw i8, ptr %109, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx483.i, i8 0, i64 16, i1 false), !noalias !3591
+  %.sroa.6484.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %109, i64 32
+  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.6484.0..sroa_idx.i, align 8, !noalias !3591
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %109, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %.sroa.7.0..sroa_idx.i, i8 0, i64 17, i1 false), !noalias !3591
-  %.sroa.8483.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %109, i64 64
-  store i64 %.sroa.0.0.i.i, ptr %.sroa.8483.0..sroa_idx.i, align 8, !noalias !3591
-  %.sroa.9.0..sroa_idx484.i = getelementptr inbounds nuw i8, ptr %109, i64 72
-  store i64 0, ptr %.sroa.9.0..sroa_idx484.i, align 8, !noalias !3591
+  %.sroa.8485.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %109, i64 64
+  store i64 %.sroa.0.0.i.i, ptr %.sroa.8485.0..sroa_idx.i, align 8, !noalias !3591
+  %.sroa.9.0..sroa_idx486.i = getelementptr inbounds nuw i8, ptr %109, i64 72
+  store i64 0, ptr %.sroa.9.0..sroa_idx486.i, align 8, !noalias !3591
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %109, i64 80
   store i8 0, ptr %.sroa.10.0..sroa_idx.i, align 8, !noalias !3591
   store i64 1, ptr %112, align 8, !alias.scope !3596, !noalias !3599
@@ -32050,7 +32050,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   store ptr %114, ptr %117, align 8, !noalias !3592
   %118 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i64 1, ptr %118, align 8, !noalias !3592
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.8488.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.8490.i)
   %119 = getelementptr inbounds nuw i8, ptr %9, i64 304
   %120 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %121 = getelementptr inbounds nuw i8, ptr %39, i64 56
@@ -32132,41 +32132,41 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %188 = icmp ult i64 %183, 104811045873349727
   call void @llvm.assume(i1 %188)
   %189 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i32, i32, i8, [7 x i8] }, i64, i64, i8, [7 x i8] }, ptr %187, i64 %184
-  %.sroa.0494.0.copyload.i = load i64, ptr %189, align 8, !noalias !3591
-  %.sroa.4495.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %189, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8488.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.4495.0..sroa_idx.i, i64 56, i1 false), !noalias !3591
-  %.sroa.5496.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %189, i64 64
-  %.sroa.5496.0.copyload.i = load i64, ptr %.sroa.5496.0..sroa_idx.i, align 8, !noalias !3591
-  %.sroa.6497.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %189, i64 72
-  %.sroa.6497.0.copyload.i = load i64, ptr %.sroa.6497.0..sroa_idx.i, align 8, !noalias !3591
-  %.not.i = icmp eq i64 %.sroa.0494.0.copyload.i, -9223372036854775808
+  %.sroa.0496.0.copyload.i = load i64, ptr %189, align 8, !noalias !3591
+  %.sroa.4497.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %189, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8490.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.4497.0..sroa_idx.i, i64 56, i1 false), !noalias !3591
+  %.sroa.5498.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %189, i64 64
+  %.sroa.5498.0.copyload.i = load i64, ptr %.sroa.5498.0..sroa_idx.i, align 8, !noalias !3591
+  %.sroa.6499.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %189, i64 72
+  %.sroa.6499.0.copyload.i = load i64, ptr %.sroa.6499.0..sroa_idx.i, align 8, !noalias !3591
+  %.not.i = icmp eq i64 %.sroa.0496.0.copyload.i, -9223372036854775808
   br i1 %.not.i, label %.loopexit374.i, label %190
 
 190:                                              ; preds = %182
-  %.sroa.7498.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %189, i64 80
-  %.sroa.7498.0.copyload.i = load i8, ptr %.sroa.7498.0..sroa_idx.i, align 8, !noalias !3591
+  %.sroa.7500.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %189, i64 80
+  %.sroa.7500.0.copyload.i = load i8, ptr %.sroa.7500.0..sroa_idx.i, align 8, !noalias !3591
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %39), !noalias !3592
-  store i64 %.sroa.0494.0.copyload.i, ptr %39, align 8, !noalias !3592
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %137, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8488.i, i64 56, i1 false), !noalias !3592
+  store i64 %.sroa.0496.0.copyload.i, ptr %39, align 8, !noalias !3592
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %137, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8490.i, i64 56, i1 false), !noalias !3592
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38), !noalias !3592
-  store i64 %.sroa.6497.0.copyload.i, ptr %38, align 8, !noalias !3592
-  %191 = trunc nuw i8 %.sroa.7498.0.copyload.i to i1
+  store i64 %.sroa.6499.0.copyload.i, ptr %38, align 8, !noalias !3592
+  %191 = trunc nuw i8 %.sroa.7500.0.copyload.i to i1
   %.pre.i = load i64, ptr %73, align 8, !alias.scope !3570, !noalias !3582
   br i1 %191, label %193, label %_ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348de07a9feb6c6E.exit147.i
 
 _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348de07a9feb6c6E.exit147.i: ; preds = %195, %190
   store i32 %.sroa.01.0429.i, ptr %120, align 8, !noalias !3592
-  %192 = icmp ult i64 %.sroa.5496.0.copyload.i, %.pre.i
+  %192 = icmp ult i64 %.sroa.5498.0.copyload.i, %.pre.i
   br i1 %192, label %215, label %.invoke.i, !prof !3602
 
 193:                                              ; preds = %190
   call void @llvm.experimental.noalias.scope.decl(metadata !3603)
-  %194 = icmp ult i64 %.sroa.5496.0.copyload.i, %.pre.i
+  %194 = icmp ult i64 %.sroa.5498.0.copyload.i, %.pre.i
   br i1 %194, label %195, label %.invoke.i, !prof !18
 
 195:                                              ; preds = %193
   %196 = load ptr, ptr %78, align 8, !alias.scope !3606, !noalias !3582, !nonnull !4, !noundef !4
-  %197 = getelementptr inbounds nuw { i64, [39 x i64] }, ptr %196, i64 %.sroa.5496.0.copyload.i
+  %197 = getelementptr inbounds nuw { i64, [39 x i64] }, ptr %196, i64 %.sroa.5498.0.copyload.i
   %198 = load i64, ptr %197, align 16, !range !449, !noalias !3607, !noundef !4
   %199 = add nsw i64 %198, -4
   %200 = icmp ugt i64 %199, 20
@@ -32176,7 +32176,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
 
 202:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %9), !noalias !3608
-  store i64 %.sroa.5496.0.copyload.i, ptr %119, align 16, !noalias !3608
+  store i64 %.sroa.5498.0.copyload.i, ptr %119, align 16, !noalias !3608
   store i64 2, ptr %9, align 16, !noalias !3608
   %203 = icmp ult i64 %.pre.i, 28823037615171175
   call void @llvm.assume(i1 %203)
@@ -32241,17 +32241,17 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
           cleanup
   br label %.body145.i
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %.invoke553.i, %.invoke.i
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %.invoke555.i, %.invoke.i
   %lpad.loopexit.split-lp376.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread288.i
 
 215:                                              ; preds = %_ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348de07a9feb6c6E.exit147.thread.i, %_ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348de07a9feb6c6E.exit147.i
-  %.sroa.056.0504.i = phi i64 [ %.pre.i, %_ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348de07a9feb6c6E.exit147.thread.i ], [ %.sroa.5496.0.copyload.i, %_ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348de07a9feb6c6E.exit147.i ]
+  %.sroa.056.0506.i = phi i64 [ %.pre.i, %_ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348de07a9feb6c6E.exit147.thread.i ], [ %.sroa.5498.0.copyload.i, %_ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348de07a9feb6c6E.exit147.i ]
   %216 = phi i64 [ %213, %_ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348de07a9feb6c6E.exit147.thread.i ], [ %.pre.i, %_ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348de07a9feb6c6E.exit147.i ]
   %217 = add i32 %.sroa.01.0429.i, 1
   %218 = load ptr, ptr %78, align 8, !alias.scope !3570, !noalias !3582, !nonnull !4, !noundef !4
-  %219 = getelementptr inbounds nuw { i64, [39 x i64] }, ptr %218, i64 %.sroa.056.0504.i
+  %219 = getelementptr inbounds nuw { i64, [39 x i64] }, ptr %218, i64 %.sroa.056.0506.i
   %220 = load i64, ptr %219, align 16, !range !449, !noalias !3591, !noundef !4
   %221 = add nsw i64 %220, -4
   %222 = icmp ult i64 %221, 21
@@ -32429,7 +32429,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %310 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %309, i64 %304
   store i64 0, ptr %310, align 8, !noalias !3591
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
-  store i64 %.sroa.056.0504.i, ptr %311, align 8, !noalias !3591
+  store i64 %.sroa.056.0506.i, ptr %311, align 8, !noalias !3591
   %312 = add i64 %304, 1
   store i64 %312, ptr %123, align 8, !alias.scope !3625, !noalias !3628
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %35), !noalias !3592
@@ -32437,7 +32437,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %314 = load i64, ptr %313, align 8, !noalias !3591, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %35, ptr noundef nonnull align 8 dereferenceable(64) %39, i64 64, i1 false), !noalias !3592
   store i64 %314, ptr %179, align 8, !alias.scope !3630, !noalias !3633
-  store i64 %.sroa.6497.0.copyload.i, ptr %180, align 8, !alias.scope !3630, !noalias !3633
+  store i64 %.sroa.6499.0.copyload.i, ptr %180, align 8, !alias.scope !3630, !noalias !3633
   store i8 0, ptr %181, align 8, !alias.scope !3630, !noalias !3633
   %315 = load i64, ptr %112, align 8, !alias.scope !3635, !noalias !3638, !noundef !4
   %316 = load i64, ptr %41, align 8, !range !470, !alias.scope !3635, !noalias !3638, !noundef !4
@@ -32502,7 +32502,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %336 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %335, i64 %330
   store i64 1, ptr %336, align 8, !noalias !3591
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
-  store i64 %.sroa.056.0504.i, ptr %337, align 8, !noalias !3591
+  store i64 %.sroa.056.0506.i, ptr %337, align 8, !noalias !3591
   %338 = add i64 %330, 1
   store i64 %338, ptr %123, align 8, !alias.scope !3642, !noalias !3645
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %37), !noalias !3592
@@ -32510,7 +32510,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %340 = load i64, ptr %339, align 16, !noalias !3591, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull align 8 dereferenceable(64) %39, i64 64, i1 false), !noalias !3592
   store i64 %340, ptr %176, align 8, !alias.scope !3647, !noalias !3650
-  store i64 %.sroa.6497.0.copyload.i, ptr %177, align 8, !alias.scope !3647, !noalias !3650
+  store i64 %.sroa.6499.0.copyload.i, ptr %177, align 8, !alias.scope !3647, !noalias !3650
   store i8 0, ptr %178, align 8, !alias.scope !3647, !noalias !3650
   %341 = load i64, ptr %112, align 8, !alias.scope !3652, !noalias !3655, !noundef !4
   %342 = load i64, ptr %41, align 8, !range !470, !alias.scope !3652, !noalias !3655, !noundef !4
@@ -32572,16 +32572,16 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
 366:                                              ; preds = %365, %361
   %367 = load ptr, ptr %137, align 8, !alias.scope !3659, !noalias !3662, !nonnull !4, !noundef !4
   %368 = getelementptr inbounds nuw i64, ptr %367, i64 %362
-  store i64 %.sroa.056.0504.i, ptr %368, align 8, !noalias !3591
+  store i64 %.sroa.056.0506.i, ptr %368, align 8, !noalias !3591
   %369 = add i64 %362, 1
   store i64 %369, ptr %136, align 8, !alias.scope !3659, !noalias !3662
   %370 = load i64, ptr %118, align 8, !noalias !3592, !noundef !4
-  %371 = icmp ult i64 %.sroa.6497.0.copyload.i, %370
-  br i1 %371, label %372, label %.invoke553.i
+  %371 = icmp ult i64 %.sroa.6499.0.copyload.i, %370
+  br i1 %371, label %372, label %.invoke555.i
 
 372:                                              ; preds = %366
   %373 = load ptr, ptr %117, align 8, !noalias !3592, !nonnull !4, !noundef !4
-  %374 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %373, i64 %.sroa.6497.0.copyload.i
+  %374 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %373, i64 %.sroa.6499.0.copyload.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28), !noalias !3592
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(64) %39, i64 64, i1 false), !noalias !3592
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 16
@@ -32629,16 +32629,16 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
 394:                                              ; preds = %393, %389
   %395 = load ptr, ptr %137, align 8, !alias.scope !3671, !noalias !3674, !nonnull !4, !noundef !4
   %396 = getelementptr inbounds nuw i64, ptr %395, i64 %390
-  store i64 %.sroa.056.0504.i, ptr %396, align 8, !noalias !3591
+  store i64 %.sroa.056.0506.i, ptr %396, align 8, !noalias !3591
   %397 = add i64 %390, 1
   store i64 %397, ptr %136, align 8, !alias.scope !3671, !noalias !3674
   %398 = load i64, ptr %118, align 8, !noalias !3592, !noundef !4
-  %399 = icmp ult i64 %.sroa.6497.0.copyload.i, %398
-  br i1 %399, label %400, label %.invoke553.i
+  %399 = icmp ult i64 %.sroa.6499.0.copyload.i, %398
+  br i1 %399, label %400, label %.invoke555.i
 
 400:                                              ; preds = %394
   %401 = load ptr, ptr %117, align 8, !noalias !3592, !nonnull !4, !noundef !4
-  %402 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %401, i64 %.sroa.6497.0.copyload.i
+  %402 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %401, i64 %.sroa.6499.0.copyload.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27), !noalias !3592
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %39, i64 64, i1 false), !noalias !3592
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 16
@@ -32678,7 +32678,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %419 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %418, i64 %242
   store i64 1, ptr %419, align 8, !noalias !3591
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 8
-  store i64 %.sroa.056.0504.i, ptr %420, align 8, !noalias !3591
+  store i64 %.sroa.056.0506.i, ptr %420, align 8, !noalias !3591
   %421 = add i64 %242, 1
   store i64 %421, ptr %123, align 8, !alias.scope !3615, !noalias !3618
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %31), !noalias !3592
@@ -32686,7 +32686,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %423 = load i64, ptr %422, align 16, !noalias !3591, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(64) %39, i64 64, i1 false), !noalias !3592
   store i64 %423, ptr %173, align 8, !alias.scope !3683, !noalias !3686
-  store i64 %.sroa.6497.0.copyload.i, ptr %174, align 8, !alias.scope !3683, !noalias !3686
+  store i64 %.sroa.6499.0.copyload.i, ptr %174, align 8, !alias.scope !3683, !noalias !3686
   store i8 0, ptr %175, align 8, !alias.scope !3683, !noalias !3686
   %424 = load i64, ptr %112, align 8, !alias.scope !3688, !noalias !3691, !noundef !4
   %425 = load i64, ptr %41, align 8, !range !470, !alias.scope !3688, !noalias !3691, !noundef !4
@@ -32734,7 +32734,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %443 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %442, i64 %437
   store i64 1, ptr %443, align 8, !noalias !3591
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 8
-  store i64 %.sroa.056.0504.i, ptr %444, align 8, !noalias !3591
+  store i64 %.sroa.056.0506.i, ptr %444, align 8, !noalias !3591
   %445 = add i64 %437, 1
   store i64 %445, ptr %123, align 8, !alias.scope !3695, !noalias !3698
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %32), !noalias !3592
@@ -32742,7 +32742,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %447 = load i64, ptr %446, align 8, !noalias !3591, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull align 8 dereferenceable(64) %39, i64 64, i1 false), !noalias !3592
   store i64 %447, ptr %170, align 8, !alias.scope !3700, !noalias !3703
-  store i64 %.sroa.6497.0.copyload.i, ptr %171, align 8, !alias.scope !3700, !noalias !3703
+  store i64 %.sroa.6499.0.copyload.i, ptr %171, align 8, !alias.scope !3700, !noalias !3703
   store i8 0, ptr %172, align 8, !alias.scope !3700, !noalias !3703
   %448 = load i64, ptr %112, align 8, !alias.scope !3705, !noalias !3708, !noundef !4
   %449 = load i64, ptr %41, align 8, !range !470, !alias.scope !3705, !noalias !3708, !noundef !4
@@ -32804,7 +32804,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %475 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %474, i64 %469
   store i64 0, ptr %475, align 8, !noalias !3591
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 8
-  store i64 %.sroa.056.0504.i, ptr %476, align 8, !noalias !3591
+  store i64 %.sroa.056.0506.i, ptr %476, align 8, !noalias !3591
   %477 = add i64 %469, 1
   store i64 %477, ptr %123, align 8, !alias.scope !3712, !noalias !3715
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %33), !noalias !3592
@@ -32812,7 +32812,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %479 = load i64, ptr %478, align 8, !noalias !3591, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %33, ptr noundef nonnull align 8 dereferenceable(64) %39, i64 64, i1 false), !noalias !3592
   store i64 %479, ptr %167, align 8, !alias.scope !3717, !noalias !3720
-  store i64 %.sroa.6497.0.copyload.i, ptr %168, align 8, !alias.scope !3717, !noalias !3720
+  store i64 %.sroa.6499.0.copyload.i, ptr %168, align 8, !alias.scope !3717, !noalias !3720
   store i8 0, ptr %169, align 8, !alias.scope !3717, !noalias !3720
   %480 = load i64, ptr %112, align 8, !alias.scope !3722, !noalias !3725, !noundef !4
   %481 = load i64, ptr %41, align 8, !range !470, !alias.scope !3722, !noalias !3725, !noundef !4
@@ -33055,14 +33055,14 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %589 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %588, i64 %575
   store i64 0, ptr %589, align 8, !noalias !3591
   %590 = getelementptr inbounds nuw i8, ptr %589, i64 8
-  store i64 %.sroa.056.0504.i, ptr %590, align 8, !noalias !3591
+  store i64 %.sroa.056.0506.i, ptr %590, align 8, !noalias !3591
   %591 = add i64 %575, 1
   store i64 %591, ptr %123, align 8, !alias.scope !3758, !noalias !3761
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %16), !noalias !3592
   %592 = load i64, ptr %499, align 8, !noalias !3591, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %39, i64 64, i1 false), !noalias !3592
   store i64 %592, ptr %164, align 8, !alias.scope !3774, !noalias !3777
-  store i64 %.sroa.6497.0.copyload.i, ptr %165, align 8, !alias.scope !3774, !noalias !3777
+  store i64 %.sroa.6499.0.copyload.i, ptr %165, align 8, !alias.scope !3774, !noalias !3777
   store i8 0, ptr %166, align 8, !alias.scope !3774, !noalias !3777
   invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8da1089729f84354E"(ptr noalias noundef align 8 dereferenceable(24) %41, ptr noalias noundef align 8 captures(none) dereferenceable(88) %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3b9c530dc353242722ac1ea174d62f0a.392)
           to label %593 unwind label %.loopexit.split-lp358.loopexit.split-lp.i, !noalias !3591
@@ -33124,7 +33124,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %617 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %616, i64 %609
   store i64 2, ptr %617, align 8, !noalias !3591
   %618 = getelementptr inbounds nuw i8, ptr %617, i64 8
-  store i64 %.sroa.056.0504.i, ptr %618, align 8, !noalias !3591
+  store i64 %.sroa.056.0506.i, ptr %618, align 8, !noalias !3591
   %619 = add i64 %609, 1
   store i64 %619, ptr %152, align 8, !alias.scope !3779, !noalias !3782
   %620 = load i64, ptr %155, align 8, !alias.scope !3784, !noalias !3787, !noundef !4
@@ -33141,13 +33141,13 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %626 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %625, i64 %620
   store i64 0, ptr %626, align 8, !noalias !3591
   %627 = getelementptr inbounds nuw i8, ptr %626, i64 8
-  store i64 %.sroa.056.0504.i, ptr %627, align 8, !noalias !3591
+  store i64 %.sroa.056.0506.i, ptr %627, align 8, !noalias !3591
   %628 = add i64 %620, 1
   store i64 %628, ptr %155, align 8, !alias.scope !3784, !noalias !3787
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %24), !noalias !3592
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %26, i64 64, i1 false), !noalias !3592
   store i64 %..i, ptr %157, align 8, !alias.scope !3789, !noalias !3792
-  store i64 %.sroa.6497.0.copyload.i, ptr %158, align 8, !alias.scope !3789, !noalias !3792
+  store i64 %.sroa.6499.0.copyload.i, ptr %158, align 8, !alias.scope !3789, !noalias !3792
   store i8 0, ptr %159, align 8, !alias.scope !3789, !noalias !3792
   %629 = load i64, ptr %112, align 8, !alias.scope !3794, !noalias !3797, !noundef !4
   %630 = load i64, ptr %41, align 8, !range !470, !alias.scope !3794, !noalias !3797, !noundef !4
@@ -33159,7 +33159,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
           to label %._crit_edge.i unwind label %633, !noalias !3800
 
 ._crit_edge.i:                                    ; preds = %632
-  %.pre500.i = load i64, ptr %41, align 8, !range !470, !alias.scope !3801, !noalias !3804
+  %.pre502.i = load i64, ptr %41, align 8, !range !470, !alias.scope !3801, !noalias !3804
   br label %637
 
 633:                                              ; preds = %632
@@ -33175,7 +33175,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   unreachable
 
 637:                                              ; preds = %._crit_edge.i, %624
-  %638 = phi i64 [ %.pre500.i, %._crit_edge.i ], [ %630, %624 ]
+  %638 = phi i64 [ %.pre502.i, %._crit_edge.i ], [ %630, %624 ]
   %639 = load ptr, ptr %111, align 8, !alias.scope !3794, !noalias !3797, !nonnull !4, !noundef !4
   %640 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i32, i32, i8, [7 x i8] }, i64, i64, i8, [7 x i8] }, ptr %639, i64 %629
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %640, ptr noundef nonnull align 8 dereferenceable(88) %24, i64 88, i1 false), !noalias !3591
@@ -33185,17 +33185,17 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %23), !noalias !3592
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %25, i64 64, i1 false), !noalias !3592
   store i64 %.138.i, ptr %160, align 8, !alias.scope !3807, !noalias !3810
-  store i64 %.sroa.6497.0.copyload.i, ptr %161, align 8, !alias.scope !3807, !noalias !3810
+  store i64 %.sroa.6499.0.copyload.i, ptr %161, align 8, !alias.scope !3807, !noalias !3810
   store i8 0, ptr %162, align 8, !alias.scope !3807, !noalias !3810
   %642 = icmp eq i64 %641, %638
   br i1 %642, label %643, label %648
 
 643:                                              ; preds = %637
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h41c100281bb66891E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3b9c530dc353242722ac1ea174d62f0a.396)
-          to label %._crit_edge501.i unwind label %644, !noalias !3812
+          to label %._crit_edge503.i unwind label %644, !noalias !3812
 
-._crit_edge501.i:                                 ; preds = %643
-  %.pre502.i = load ptr, ptr %111, align 8, !alias.scope !3801, !noalias !3804
+._crit_edge503.i:                                 ; preds = %643
+  %.pre504.i = load ptr, ptr %111, align 8, !alias.scope !3801, !noalias !3804
   br label %648
 
 644:                                              ; preds = %643
@@ -33210,8 +33210,8 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31, !noalias !3591
   unreachable
 
-648:                                              ; preds = %._crit_edge501.i, %637
-  %649 = phi ptr [ %.pre502.i, %._crit_edge501.i ], [ %639, %637 ]
+648:                                              ; preds = %._crit_edge503.i, %637
+  %649 = phi ptr [ %.pre504.i, %._crit_edge503.i ], [ %639, %637 ]
   %650 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i32, i32, i8, [7 x i8] }, i64, i64, i8, [7 x i8] }, ptr %649, i64 %641
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %650, ptr noundef nonnull align 8 dereferenceable(88) %23, i64 88, i1 false), !noalias !3591
   %651 = add i64 %629, 2
@@ -33250,7 +33250,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %661 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %660, i64 %655
   store i64 1, ptr %661, align 8, !noalias !3591
   %662 = getelementptr inbounds nuw i8, ptr %661, i64 8
-  store i64 %.sroa.056.0504.i, ptr %662, align 8, !noalias !3591
+  store i64 %.sroa.056.0506.i, ptr %662, align 8, !noalias !3591
   %663 = add i64 %655, 1
   store i64 %663, ptr %123, align 8, !alias.scope !3813, !noalias !3816
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %36), !noalias !3592
@@ -33258,7 +33258,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %665 = load i64, ptr %664, align 8, !noalias !3591, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull align 8 dereferenceable(64) %39, i64 64, i1 false), !noalias !3592
   store i64 %665, ptr %147, align 8, !alias.scope !3818, !noalias !3821
-  store i64 %.sroa.6497.0.copyload.i, ptr %148, align 8, !alias.scope !3818, !noalias !3821
+  store i64 %.sroa.6499.0.copyload.i, ptr %148, align 8, !alias.scope !3818, !noalias !3821
   store i8 0, ptr %149, align 8, !alias.scope !3818, !noalias !3821
   %666 = load i64, ptr %112, align 8, !alias.scope !3823, !noalias !3826, !noundef !4
   %667 = load i64, ptr %41, align 8, !range !470, !alias.scope !3823, !noalias !3826, !noundef !4
@@ -33312,7 +33312,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %689 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %688, i64 %683
   store i64 0, ptr %689, align 8, !noalias !3591
   %690 = getelementptr inbounds nuw i8, ptr %689, i64 8
-  store i64 %.sroa.056.0504.i, ptr %690, align 8, !noalias !3591
+  store i64 %.sroa.056.0506.i, ptr %690, align 8, !noalias !3591
   %691 = add i64 %683, 1
   store i64 %691, ptr %123, align 8, !alias.scope !3830, !noalias !3833
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %18), !noalias !3592
@@ -33320,7 +33320,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %693 = load i64, ptr %692, align 8, !noalias !3591, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %39, i64 64, i1 false), !noalias !3592
   store i64 %693, ptr %144, align 8, !alias.scope !3835, !noalias !3838
-  store i64 %.sroa.6497.0.copyload.i, ptr %145, align 8, !alias.scope !3835, !noalias !3838
+  store i64 %.sroa.6499.0.copyload.i, ptr %145, align 8, !alias.scope !3835, !noalias !3838
   store i8 0, ptr %146, align 8, !alias.scope !3835, !noalias !3838
   %694 = load i64, ptr %112, align 8, !alias.scope !3840, !noalias !3843, !noundef !4
   %695 = load i64, ptr %41, align 8, !range !470, !alias.scope !3840, !noalias !3843, !noundef !4
@@ -33363,7 +33363,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %710 = load i64, ptr %709, align 8, !noalias !3591, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull align 8 dereferenceable(64) %39, i64 64, i1 false), !noalias !3592
   store i64 %710, ptr %141, align 8, !alias.scope !3847, !noalias !3850
-  store i64 %.sroa.6497.0.copyload.i, ptr %142, align 8, !alias.scope !3847, !noalias !3850
+  store i64 %.sroa.6499.0.copyload.i, ptr %142, align 8, !alias.scope !3847, !noalias !3850
   store i8 0, ptr %143, align 8, !alias.scope !3847, !noalias !3850
   %711 = load i64, ptr %112, align 8, !alias.scope !3852, !noalias !3855, !noundef !4
   %712 = load i64, ptr %41, align 8, !range !470, !alias.scope !3852, !noalias !3855, !noundef !4
@@ -33414,7 +33414,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %731 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %730, i64 %725
   store i64 1, ptr %731, align 8, !noalias !3591
   %732 = getelementptr inbounds nuw i8, ptr %731, i64 8
-  store i64 %.sroa.056.0504.i, ptr %732, align 8, !noalias !3591
+  store i64 %.sroa.056.0506.i, ptr %732, align 8, !noalias !3591
   %733 = add i64 %725, 1
   store i64 %733, ptr %123, align 8, !alias.scope !3859, !noalias !3862
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %29), !noalias !3592
@@ -33422,7 +33422,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %735 = load i64, ptr %734, align 8, !noalias !3591, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 8 dereferenceable(64) %39, i64 64, i1 false), !noalias !3592
   store i64 %735, ptr %138, align 8, !alias.scope !3864, !noalias !3867
-  store i64 %.sroa.6497.0.copyload.i, ptr %139, align 8, !alias.scope !3864, !noalias !3867
+  store i64 %.sroa.6499.0.copyload.i, ptr %139, align 8, !alias.scope !3864, !noalias !3867
   store i8 0, ptr %140, align 8, !alias.scope !3864, !noalias !3867
   %736 = load i64, ptr %112, align 8, !alias.scope !3869, !noalias !3872, !noundef !4
   %737 = load i64, ptr %41, align 8, !range !470, !alias.scope !3869, !noalias !3872, !noundef !4
@@ -33459,7 +33459,8 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %750 = load ptr, ptr %749, align 8, !noalias !3591, !nonnull !4, !noundef !4
   %751 = getelementptr inbounds nuw i8, ptr %219, i64 80
   %752 = load i64, ptr %751, align 16, !noalias !3591, !noundef !4
-  %753 = getelementptr inbounds nuw i64, ptr %750, i64 %752
+  %.idx.i = shl nuw nsw i64 %752, 3
+  %753 = getelementptr inbounds nuw i8, ptr %750, i64 %.idx.i
   %754 = icmp eq i64 %752, 0
   br i1 %754, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hefe49691876cf801E.exit.i", label %.lr.ph.i.i
 
@@ -33521,7 +33522,8 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %779 = load ptr, ptr %778, align 8, !noalias !3591, !nonnull !4, !noundef !4
   %780 = getelementptr inbounds nuw i8, ptr %219, i64 80
   %781 = load i64, ptr %780, align 16, !noalias !3591, !noundef !4
-  %782 = getelementptr inbounds nuw i64, ptr %779, i64 %781
+  %.idx433.i = shl nuw nsw i64 %781, 3
+  %782 = getelementptr inbounds nuw i8, ptr %779, i64 %.idx433.i
   %783 = icmp eq i64 %781, 0
   br i1 %783, label %.thread300.i, label %.lr.ph.i
 
@@ -33615,14 +33617,14 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %814 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %813, i64 %807
   store i64 3, ptr %814, align 8, !noalias !3591
   %815 = getelementptr inbounds nuw i8, ptr %814, i64 8
-  store i64 %.sroa.056.0504.i, ptr %815, align 8, !noalias !3591
+  store i64 %.sroa.056.0506.i, ptr %815, align 8, !noalias !3591
   %816 = add i64 %807, 1
   store i64 %816, ptr %131, align 8, !alias.scope !3893, !noalias !3896
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %19), !noalias !3592
   %817 = load i64, ptr %.sroa.0262.0428.i, align 8, !noalias !3591, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %21, i64 64, i1 false), !noalias !3592
   store i64 %817, ptr %133, align 8, !alias.scope !3898, !noalias !3901
-  store i64 %.sroa.6497.0.copyload.i, ptr %134, align 8, !alias.scope !3898, !noalias !3901
+  store i64 %.sroa.6499.0.copyload.i, ptr %134, align 8, !alias.scope !3898, !noalias !3901
   store i8 0, ptr %135, align 8, !alias.scope !3898, !noalias !3901
   %818 = load i64, ptr %112, align 8, !alias.scope !3903, !noalias !3906, !noundef !4
   %819 = load i64, ptr %41, align 8, !range !470, !alias.scope !3903, !noalias !3906, !noundef !4
@@ -33665,16 +33667,16 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
 833:                                              ; preds = %787, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hefe49691876cf801E.exit.i"
   %834 = load ptr, ptr %137, align 8, !alias.scope !3880, !noalias !3883, !nonnull !4, !noundef !4
   %835 = getelementptr inbounds nuw i64, ptr %834, i64 %784
-  store i64 %.sroa.056.0504.i, ptr %835, align 8, !noalias !3591
+  store i64 %.sroa.056.0506.i, ptr %835, align 8, !noalias !3591
   %836 = add i64 %784, 1
   store i64 %836, ptr %136, align 8, !alias.scope !3880, !noalias !3883
   %837 = load i64, ptr %118, align 8, !noalias !3592, !noundef !4
-  %838 = icmp ult i64 %.sroa.6497.0.copyload.i, %837
-  br i1 %838, label %839, label %.invoke553.i
+  %838 = icmp ult i64 %.sroa.6499.0.copyload.i, %837
+  br i1 %838, label %839, label %.invoke555.i
 
 839:                                              ; preds = %833
   %840 = load ptr, ptr %117, align 8, !noalias !3592, !nonnull !4, !noundef !4
-  %841 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %840, i64 %.sroa.6497.0.copyload.i
+  %841 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %840, i64 %.sroa.6499.0.copyload.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22), !noalias !3592
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %39, i64 64, i1 false), !noalias !3592
   %842 = getelementptr inbounds nuw i8, ptr %841, i64 16
@@ -33699,13 +33701,13 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31, !noalias !3591
   unreachable
 
-.invoke553.i:                                     ; preds = %833, %394, %366
+.invoke555.i:                                     ; preds = %833, %394, %366
   %851 = phi i64 [ %370, %366 ], [ %398, %394 ], [ %837, %833 ]
   %852 = phi ptr [ @anon.3b9c530dc353242722ac1ea174d62f0a.380, %366 ], [ @anon.3b9c530dc353242722ac1ea174d62f0a.383, %394 ], [ @anon.3b9c530dc353242722ac1ea174d62f0a.407, %833 ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %.sroa.6497.0.copyload.i, i64 noundef %851, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %852) #30
-          to label %.cont554.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !3591
+  invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %.sroa.6499.0.copyload.i, i64 noundef %851, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %852) #30
+          to label %.cont556.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !3591
 
-.cont554.i:                                       ; preds = %.invoke553.i
+.cont556.i:                                       ; preds = %.invoke555.i
   unreachable
 
 853:                                              ; preds = %846, %839
@@ -33723,7 +33725,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %860 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %859, i64 %299
   store i64 0, ptr %860, align 8, !noalias !3591
   %861 = getelementptr inbounds nuw i8, ptr %860, i64 8
-  store i64 %.sroa.056.0504.i, ptr %861, align 8, !noalias !3591
+  store i64 %.sroa.056.0506.i, ptr %861, align 8, !noalias !3591
   %862 = add i64 %299, 1
   store i64 %862, ptr %123, align 8, !alias.scope !3620, !noalias !3623
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %34), !noalias !3592
@@ -33731,7 +33733,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %864 = load i64, ptr %863, align 16, !noalias !3591, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %34, ptr noundef nonnull align 8 dereferenceable(64) %39, i64 64, i1 false), !noalias !3592
   store i64 %864, ptr %125, align 8, !alias.scope !3917, !noalias !3920
-  store i64 %.sroa.6497.0.copyload.i, ptr %126, align 8, !alias.scope !3917, !noalias !3920
+  store i64 %.sroa.6499.0.copyload.i, ptr %126, align 8, !alias.scope !3917, !noalias !3920
   store i8 0, ptr %127, align 8, !alias.scope !3917, !noalias !3920
   %865 = load i64, ptr %112, align 8, !alias.scope !3922, !noalias !3925, !noundef !4
   %866 = load i64, ptr %41, align 8, !range !470, !alias.scope !3922, !noalias !3925, !noundef !4
@@ -33779,8 +33781,8 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
 
 878:                                              ; preds = %881, %.noexc203.i, %.thread297.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %39), !noalias !3592
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.8488.i)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.8488.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.8490.i)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.8490.i)
   %879 = load i64, ptr %112, align 8, !noalias !3592, !noundef !4
   %880 = icmp eq i64 %879, 0
   br i1 %880, label %.loopexit374.i, label %182
@@ -33795,13 +33797,14 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
           to label %.thread325.i unwind label %594, !noalias !3591
 
 .loopexit374.i:                                   ; preds = %878, %182
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.8488.i)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.8490.i)
   %.sroa.0272.0.copyload.i = load i64, ptr %40, align 8, !noalias !3592
   %.sroa.4.0.copyload.i = load ptr, ptr %117, align 8, !noalias !3592, !nonnull !4, !noundef !4
   %.sroa.5274.0.copyload.i = load i64, ptr %118, align 8, !noalias !3592
   %882 = icmp ult i64 %.sroa.5274.0.copyload.i, 384307168202282326
   call void @llvm.assume(i1 %882)
-  %883 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5274.0.copyload.i
+  %.idx434.i = mul nuw nsw i64 %.sroa.5274.0.copyload.i, 24
+  %883 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx434.i
   %884 = icmp sgt i64 %.sroa.0272.0.copyload.i, -1
   call void @llvm.assume(i1 %884)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !3592
@@ -39407,7 +39410,8 @@ define void @_ZN11polars_lazy5frame11JoinBuilder10join_where17h566b5ea06cad03fcE
   %.sroa.0130.0.copyload = load i64, ptr %2, align 8
   %.sroa.4131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4131.0.copyload = load ptr, ptr %.sroa.4131.0..sroa_idx, align 8, !nonnull !4, !noundef !4
-  %96 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %.sroa.4131.0.copyload, i64 %73
+  %.idx = mul nuw nsw i64 %73, 192
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.4131.0.copyload, i64 %.idx
   %97 = icmp sgt i64 %.sroa.0130.0.copyload, -1
   tail call void @llvm.assume(i1 %97)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %65)
@@ -39505,7 +39509,8 @@ define void @_ZN11polars_lazy5frame11JoinBuilder10join_where17h566b5ea06cad03fcE
   %.sroa.0141.0.copyload = load i64, ptr %63, align 8
   %.sroa.4142.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 8
   %.sroa.4142.0.copyload = load ptr, ptr %.sroa.4142.0..sroa_idx, align 8, !nonnull !4, !noundef !4
-  %124 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %.sroa.4142.0.copyload, i64 %106
+  %.idx264 = mul nuw nsw i64 %106, 192
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.4142.0.copyload, i64 %.idx264
   %125 = icmp sgt i64 %.sroa.0141.0.copyload, -1
   call void @llvm.assume(i1 %125)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %60)
@@ -39978,14 +39983,14 @@ define void @_ZN11polars_lazy5frame11JoinBuilder10join_where17h566b5ea06cad03fcE
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 192
   %269 = getelementptr inbounds nuw i8, ptr %264, i64 384
   %270 = load i8, ptr %131, align 2, !range !5, !noundef !4
-  switch i8 %270, label %default.unreachable265 [
+  switch i8 %270, label %default.unreachable266 [
     i8 0, label %271
     i8 1, label %272
     i8 2, label %273
     i8 3, label %274
   ]
 
-default.unreachable265:                           ; preds = %267
+default.unreachable266:                           ; preds = %267
   unreachable
 
 271:                                              ; preds = %267

@@ -2830,7 +2830,8 @@ define void @_ZN6ignore5types12TypesBuilder5build17h7cebe21a62da1249E(ptr noalia
   %39 = load ptr, ptr %38, align 8, !nonnull !8, !noundef !8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load i64, ptr %40, align 8, !noundef !8
-  %42 = getelementptr inbounds { i64, [3 x i64] }, ptr %39, i64 %41
+  %.idx = shl nsw i64 %41, 5
+  %42 = getelementptr inbounds i8, ptr %39, i64 %.idx
   br label %43
 
 43:                                               ; preds = %45, %2
@@ -3323,7 +3324,8 @@ define void @_ZN6ignore5types12TypesBuilder5build17h7cebe21a62da1249E(ptr noalia
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !398
   %171 = load ptr, ptr %56, align 8, !nonnull !8, !noundef !8
   %172 = load i64, ptr %57, align 8, !noundef !8
-  %173 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %171, i64 %172
+  %.idx242 = mul nsw i64 %172, 24
+  %173 = getelementptr inbounds i8, ptr %171, i64 %.idx242
   %174 = icmp eq i64 %172, 0
   br i1 %174, label %._crit_edge, label %.lr.ph
 
@@ -5031,7 +5033,8 @@ define void @_ZN6ignore5types12TypesBuilder7add_def17h806929900640a240E(ptr noal
   %.sroa.0.0.copyload.i = load i64, ptr %12, align 8, !alias.scope !691, !noalias !694
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !691, !noalias !694, !nonnull !8, !noundef !8
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !691, !noalias !694
-  %101 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nsw i64 %.sroa.5.0.copyload.i, 24
+  %101 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   store ptr %.sroa.4.0.copyload.i, ptr %11, align 8
   store ptr %.sroa.4.0.copyload.i, ptr %.sroa.5.0..sroa_idx157, align 8
@@ -5204,14 +5207,16 @@ define noundef nonnull align 8 dereferenceable(72) ptr @_ZN6ignore5types12TypesB
   %9 = load i64, ptr %8, align 8, !noundef !8
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr, i64 16
   %11 = load ptr, ptr %10, align 8, !nonnull !8, !align !722, !noundef !8
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %7, i64 %9
+  %.idx = shl nsw i64 %9, 4
+  %12 = getelementptr inbounds i8, ptr %7, i64 %.idx
   %13 = icmp eq i64 %9, 0
   br i1 %13, label %.loopexit26, label %.lr.ph29
 
 .lr.ph29:                                         ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr, i64 24
   %15 = load i64, ptr %14, align 8, !noundef !8
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %11, i64 %15
+  %.idx31 = shl nsw i64 %15, 4
+  %16 = getelementptr inbounds i8, ptr %11, i64 %.idx31
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %.loopexit26, label %.lr.ph
 

@@ -94273,7 +94273,8 @@ define void @"_ZN79_$LT$wasmtime..runtime..store..StoreOpaque$u20$as$u20$core..o
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds { { i64, [1 x i64] }, ptr }, ptr %11, i64 %13
+  %.idx = mul nsw i64 %13, 24
+  %14 = getelementptr inbounds i8, ptr %11, i64 %.idx
   %15 = icmp eq i64 %13, 0
   br i1 %15, label %._crit_edge, label %.lr.ph
 
@@ -94869,7 +94870,8 @@ common.resume:                                    ; preds = %44, %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36461)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !36464, !noalias !36467, !nonnull !4, !noundef !4
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %5
+  %.idx.i = shl nsw i64 %5, 3
+  %34 = getelementptr inbounds i8, ptr %33, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h61c701385129db04E.llvm.5456684732158232753.exit", %.noexc1

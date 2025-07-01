@@ -441,7 +441,8 @@ define internal void @"_ZN64_$LT$$RF$mut$u20$W$u20$as$u20$ruff_formatter..buffer
   store ptr @anon.3a66b9bc7ade9dbfacbccf6b544e7c65.1, ptr %9, align 8, !noalias !47
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
   call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  %10 = getelementptr inbounds nuw { { ptr, ptr } }, ptr %2, i64 %3
+  %.idx.i.i = shl nuw nsw i64 %3, 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i
   %11 = icmp eq i64 %3, 0
   br i1 %11, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -1347,7 +1348,8 @@ define noundef align 8 ptr @"_ZN100_$LT$ruff_formatter..printer..queue..PrintQue
   br i1 %6, label %"_ZN4core6option15Option$LT$T$GT$7or_else17he98a4c18ce99862fE.exit", label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %3, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %9 = getelementptr inbounds i8, ptr %8, i64 -16
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds i8, ptr %8, i64 -8
@@ -1636,7 +1638,8 @@ define noundef align 8 ptr @"_ZN99_$LT$ruff_formatter..printer..queue..FitsQueue
   br i1 %6, label %select.unfold, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %3, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   %9 = getelementptr inbounds i8, ptr %8, i64 -16
   %10 = load ptr, ptr %9, align 8, !noalias !155, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds i8, ptr %8, i64 -8
@@ -1981,7 +1984,8 @@ define hidden void @_ZN14ruff_formatter6format17heaba8ba0fe0e72daE(ptr dead_on_u
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @anon.3a66b9bc7ade9dbfacbccf6b544e7c65.1, ptr %46, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !190)
-  %47 = getelementptr inbounds nuw { { ptr, ptr } }, ptr %2, i64 %3
+  %.idx.i = shl nuw nsw i64 %3, 4
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %48 = icmp eq i64 %3, 0
   br i1 %48, label %.loopexit, label %.lr.ph.i
 

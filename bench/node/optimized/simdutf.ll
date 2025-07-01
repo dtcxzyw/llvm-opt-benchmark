@@ -954,8 +954,8 @@ init.i:                                           ; preds = %init.check.i
 _ZN7simdutf8internalL37get_available_implementation_pointersEv.exit: ; preds = %_ZN7simdutf8internalL30detect_supported_architecturesEv.exit, %init.check.i, %init.i
   %24 = load ptr, ptr @_ZZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.0, align 8
   %.b = load i1, ptr @_ZZN7simdutf8internalL37get_available_implementation_pointersEvE33available_implementation_pointers.1, align 8
-  %25 = select i1 %.b, i64 4, i64 0
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %25 = select i1 %.b, i64 32, i64 0
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %24, i64 %25
   br i1 %.b, label %for.body, label %return
 
 for.cond:                                         ; preds = %for.body

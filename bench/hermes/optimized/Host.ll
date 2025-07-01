@@ -1067,7 +1067,8 @@ if.then187:                                       ; preds = %if.end.i.i1547
   %84 = load ptr, ptr %Lines, align 8
   %85 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i480 = zext i32 %85 to i64
-  %add.ptr.i1324 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %84, i64 %conv.i480
+  %add.ptr.i1324.idx = shl nuw nsw i64 %conv.i480, 4
+  %add.ptr.i1324 = getelementptr inbounds nuw i8, ptr %84, i64 %add.ptr.i1324.idx
   %cmp191.not893 = icmp eq i32 %85, 0
   br i1 %cmp191.not893, label %for.end223, label %for.body192.lr.ph
 
@@ -1121,7 +1122,8 @@ for.end203:                                       ; preds = %for.inc202
   %.pre921 = load i32, ptr %Size.i.i.i.i.i, align 8
   %92 = shl i32 %Variant.1, 12
   %conv.i495 = zext i32 %.pre921 to i64
-  %add.ptr.i1318 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %.pre920, i64 %conv.i495
+  %add.ptr.i1318.idx = shl nuw nsw i64 %conv.i495, 4
+  %add.ptr.i1318 = getelementptr inbounds nuw i8, ptr %.pre920, i64 %add.ptr.i1318.idx
   %cmp210.not897 = icmp eq i32 %.pre921, 0
   br i1 %cmp210.not897, label %for.end223, label %for.body211.lr.ph
 
@@ -1171,9 +1173,9 @@ for.inc221:                                       ; preds = %for.body211, %if.en
   br i1 %cmp210.not, label %for.end223, label %for.body211
 
 for.end223:                                       ; preds = %for.inc221, %if.then187, %for.end203
-  %Variant.0.lcssa938 = phi i32 [ %92, %for.end203 ], [ 0, %if.then187 ], [ %92, %for.inc221 ]
+  %Variant.0.lcssa939 = phi i32 [ %92, %for.end203 ], [ 0, %if.then187 ], [ %92, %for.inc221 ]
   %Part.0.lcssa = phi i32 [ 0, %for.end203 ], [ 0, %if.then187 ], [ %Part.1, %for.inc221 ]
-  %or = or i32 %Part.0.lcssa, %Variant.0.lcssa938
+  %or = or i32 %Part.0.lcssa, %Variant.0.lcssa939
   %cond = icmp eq i32 %or, 16385
   %spec.select = select i1 %cond, ptr @.str.96, ptr @.str.95
   br label %cleanup
@@ -2099,7 +2101,8 @@ if.end:                                           ; preds = %entry, %_ZNK4llvh7E
   %15 = load ptr, ptr %strs, align 8
   %16 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i = zext i32 %16 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %15, i64 %conv.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %15, i64 %add.ptr.i.idx
   %cmp.not141 = icmp eq i32 %16, 0
   br i1 %cmp.not141, label %for.end.thread, label %_ZN4llvh9StringRefC2EPKc.exit57.lr.ph
 
@@ -3296,7 +3299,8 @@ if.end:                                           ; preds = %entry
   %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %3 to i64
-  %add.ptr.i14.i = getelementptr inbounds nuw %"struct.std::pair.22", ptr %2, i64 %conv.i.i
+  %add.ptr.i14.idx.i = shl nuw nsw i64 %conv.i.i, 3
+  %add.ptr.i14.i = getelementptr inbounds nuw i8, ptr %2, i64 %add.ptr.i14.idx.i
   %cmp.not6.i = icmp eq i32 %3, 0
   br i1 %cmp.not6.i, label %if.then13, label %for.body.lr.ph.i
 
@@ -3319,13 +3323,15 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %I.07.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i14.i
-  br i1 %cmp.not.i, label %if.end9, label %for.body.i, !llvm.loop !31
+  br i1 %cmp.not.i, label %_ZNK4llvh8SmallSetISt4pairIiiELj32ESt4lessIS2_EE5vfindERKS2_.exit, label %for.body.i, !llvm.loop !31
 
-_ZNK4llvh8SmallSetISt4pairIiiELj32ESt4lessIS2_EE5vfindERKS2_.exit: ; preds = %for.body.i
-  %cmp.not = icmp eq ptr %I.07.i, %add.ptr.i14.i
+_ZNK4llvh8SmallSetISt4pairIiiELj32ESt4lessIS2_EE5vfindERKS2_.exit: ; preds = %for.body.i, %for.inc.i
+  %retval.0.i = phi ptr [ %add.ptr.i14.i, %for.inc.i ], [ %I.07.i, %for.body.i ]
+  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair.22", ptr %2, i64 %conv.i.i
+  %cmp.not = icmp eq ptr %retval.0.i, %add.ptr.i
   br i1 %cmp.not, label %if.end9, label %return
 
-if.end9:                                          ; preds = %for.inc.i, %_ZNK4llvh8SmallSetISt4pairIiiELj32ESt4lessIS2_EE5vfindERKS2_.exit
+if.end9:                                          ; preds = %_ZNK4llvh8SmallSetISt4pairIiiELj32ESt4lessIS2_EE5vfindERKS2_.exit
   %cmp12 = icmp ult i32 %3, 32
   br i1 %cmp12, label %if.then13, label %while.body.lr.ph
 
@@ -3340,11 +3346,11 @@ if.then.i:                                        ; preds = %if.then13
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef 0, i64 noundef 8) #19
   %.pre.i = load i32, ptr %Size.i.i, align 8
   %.pre = load ptr, ptr %this, align 8
-  %.pre38 = zext i32 %.pre.i to i64
+  %.pre37 = zext i32 %.pre.i to i64
   br label %_ZN4llvh23SmallVectorTemplateBaseISt4pairIiiELb1EE9push_backERKS2_.exit
 
 _ZN4llvh23SmallVectorTemplateBaseISt4pairIiiELb1EE9push_backERKS2_.exit: ; preds = %if.then13, %if.then.i
-  %conv.i3.i.pre-phi = phi i64 [ %conv.i.i, %if.then13 ], [ %.pre38, %if.then.i ]
+  %conv.i3.i.pre-phi = phi i64 [ %conv.i.i, %if.then13 ], [ %.pre37, %if.then.i ]
   %10 = phi ptr [ %2, %if.then13 ], [ %.pre, %if.then.i ]
   %add.ptr.i.i = getelementptr inbounds nuw %"struct.std::pair.22", ptr %10, i64 %conv.i3.i.pre-phi
   %11 = load i64, ptr %V, align 4

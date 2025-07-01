@@ -51168,14 +51168,14 @@ define internal fastcc void @"_ZN9workspace11persistence11WorkspaceDb25recent_wo
   %32 = alloca [24 x i8], align 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 194
   %34 = load i8, ptr %33, align 2, !range !4, !noundef !5
-  switch i8 %34, label %default.unreachable246 [
+  switch i8 %34, label %default.unreachable247 [
     i8 0, label %44
     i8 1, label %363
     i8 2, label %364
     i8 3, label %35
   ]
 
-default.unreachable246:                           ; preds = %3
+default.unreachable247:                           ; preds = %3
   unreachable
 
 35:                                               ; preds = %3
@@ -51299,7 +51299,8 @@ default.unreachable246:                           ; preds = %3
   %.sroa.10149.0..sroa_idx150 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %.sroa.10149.0.copyload151 = load i64, ptr %.sroa.10149.0..sroa_idx150, align 8, !alias.scope !15412
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
-  %80 = getelementptr inbounds { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, ptr, i64, { i64, [1 x i64] } }, ptr %78, i64 %.sroa.10149.0.copyload151
+  %.idx244 = mul nsw i64 %.sroa.10149.0.copyload151, 72
+  %80 = getelementptr inbounds i8, ptr %78, i64 %.idx244
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29)
   store ptr %78, ptr %29, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -51918,7 +51919,8 @@ default.unreachable246:                           ; preds = %3
   %.val64 = load ptr, ptr %251, align 8, !nonnull !5, !noundef !5
   %252 = getelementptr i8, ptr %.val61, i64 32
   %.val65 = load i64, ptr %252, align 8, !noundef !5
-  %253 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %.val64, i64 %.val65
+  %.idx = mul nsw i64 %.val65, 24
+  %253 = getelementptr inbounds i8, ptr %.val64, i64 %.idx
   %254 = icmp eq i64 %.val65, 0
   br i1 %254, label %.loopexit241, label %.lr.ph.i
 

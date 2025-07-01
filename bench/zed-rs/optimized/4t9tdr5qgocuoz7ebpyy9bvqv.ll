@@ -1678,7 +1678,8 @@ define hidden void @_ZN4util13extend_sorted17h8026f10d81a542bcE(ptr noalias noun
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !298, !noalias !301, !nonnull !10, !noundef !10
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !298, !noalias !301
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nsw i64 %.sroa.5.0.copyload.i, 6
+  %11 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   store ptr %.sroa.4.0.copyload.i, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -5680,7 +5681,8 @@ define noundef zeroext i1 @"_ZN130_$LT$indexed_docs..providers..rustdoc..to_mark
   %24 = load ptr, ptr %23, align 8, !nonnull !10, !noundef !10
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %26 = load i64, ptr %25, align 8, !noundef !10
-  %27 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %24, i64 %26
+  %.idx = mul nsw i64 %26, 24
+  %27 = getelementptr inbounds i8, ptr %24, i64 %.idx
   %.not.i14 = icmp eq i64 %26, 0
   br i1 %.not.i14, label %.loopexit46.thread, label %.lr.ph.i
 

@@ -774,7 +774,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %12 = load i64, ptr %11, align 8, !tbaa !45
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !49
-  %15 = mul i64 %14, %12
+  %15 = mul nsw i64 %14, %12
   %16 = icmp slt i64 %15, 1
   br i1 %16, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE7setZeroEll.exit, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKi.exit.loopexit.i
 
@@ -794,7 +794,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE7setZeroEll.ex
   %21 = load i64, ptr %20, align 8, !tbaa !45
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !49
-  %24 = mul i64 %23, %21
+  %24 = mul nsw i64 %23, %21
   %25 = icmp slt i64 %24, 1
   br i1 %25, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE7setZeroEll.exit54, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKi.exit.loopexit.i52
 
@@ -1070,7 +1070,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %12 = load i64, ptr %11, align 8, !tbaa !45
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !49
-  %15 = mul i64 %14, %12
+  %15 = mul nsw i64 %14, %12
   %16 = icmp slt i64 %15, 1
   br i1 %16, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE7setZeroEll.exit, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKi.exit.loopexit.i
 
@@ -1090,7 +1090,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE7setZeroEll.ex
   %21 = load i64, ptr %20, align 8, !tbaa !45
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !49
-  %24 = mul i64 %23, %21
+  %24 = mul nsw i64 %23, %21
   %25 = icmp slt i64 %24, 1
   br i1 %25, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE7setZeroEll.exit54, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKi.exit.loopexit.i52
 

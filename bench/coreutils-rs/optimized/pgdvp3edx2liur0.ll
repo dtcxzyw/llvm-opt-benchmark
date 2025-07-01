@@ -544,7 +544,8 @@ define hidden noundef ptr @_ZN7uu_join5State7combine17hbe6e8602686d80c6E(ptr noa
 .lr.ph:                                           ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i", %9
   %.sroa.3.0.i.i = phi i64 [ %33, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i" ], [ undef, %9 ]
   %.sroa.0.0.i.i = phi ptr [ %34, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i" ], [ null, %9 ]
-  %36 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, ptr %11, i64 %8
+  %.idx = mul nsw i64 %8, 48
+  %36 = getelementptr inbounds i8, ptr %11, i64 %.idx
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val48 = load ptr, ptr %37, align 8, !nonnull !5, !noundef !5
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16

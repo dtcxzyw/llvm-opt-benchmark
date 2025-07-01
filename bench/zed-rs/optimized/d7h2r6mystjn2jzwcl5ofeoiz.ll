@@ -37353,6 +37353,7 @@ define hidden void @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %15
+  %.idx.i.i.i = and i64 %.val3.i.i, 144115188075855871
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !9901
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !9916
   br label %.noexc.i.i.i.i
@@ -37370,7 +37371,7 @@ define hidden void @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core
   call void @"_ZN6editor6Editor24highlighted_display_rows28_$u7b$$u7b$closure$u7d$$u7d$17h42c2545f71c0e176E.llvm.9446264695654398548"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %27), !noalias !9923
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !9901
   %28 = add nuw i64 %.sroa.06.0.i.i.i.i.i.i, 1
-  %29 = icmp eq i64 %28, %.val3.i.i
+  %29 = icmp eq i64 %28, %.idx.i.i.i
   br i1 %29, label %30, label %.noexc.i.i.i.i
 
 30:                                               ; preds = %.noexc.i.i.i.i
@@ -77509,6 +77510,7 @@ define hidden noundef i32 @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17
   br i1 %28, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hef8f5cc2dd197edbE.exit", label %29
 
 29:                                               ; preds = %19
+  %.idx.i.i.i = and i64 %.val16, 144115188075855871
   %30 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
   br label %31
 
@@ -77581,7 +77583,7 @@ define hidden noundef i32 @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h3b492dc211971ef9E.exit.i.i.i.i.i.i": ; preds = %31, %.noexc.i
   %.sroa.0.0.i.i.i.i.i.i.i.i = phi i32 [ %74, %.noexc.i ], [ %.sroa.07.0.i.i.i.i.i.i, %31 ]
   %75 = add nuw i64 %.sroa.09.0.i.i.i.i.i.i, 1
-  %76 = icmp eq i64 %75, %.val16
+  %76 = icmp eq i64 %75, %.idx.i.i.i
   br i1 %76, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hef8f5cc2dd197edbE.exit", label %31
 
 "_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hef8f5cc2dd197edbE.exit": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h3b492dc211971ef9E.exit.i.i.i.i.i.i", %19
@@ -77656,6 +77658,7 @@ define hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17h1a8c5b
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %16
+  %.idx.i.i = and i64 %.val3.i, 144115188075855871
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !20693
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   br label %.noexc.i.i.i
@@ -77673,7 +77676,7 @@ define hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17h1a8c5b
   call void @"_ZN6editor6Editor24highlighted_display_rows28_$u7b$$u7b$closure$u7d$$u7d$17h42c2545f71c0e176E.llvm.9446264695654398548"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %.val.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %28)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !20693
   %29 = add nuw i64 %.sroa.06.0.i.i.i.i.i, 1
-  %30 = icmp eq i64 %29, %.val3.i
+  %30 = icmp eq i64 %29, %.idx.i.i
   br i1 %30, label %31, label %.noexc.i.i.i
 
 31:                                               ; preds = %.noexc.i.i.i

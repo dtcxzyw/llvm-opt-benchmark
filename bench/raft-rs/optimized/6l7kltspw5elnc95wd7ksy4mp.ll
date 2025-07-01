@@ -207,7 +207,8 @@ define hidden void @_ZN14slog_envlogger3new17h12b8267a09aaaa5dE(ptr dead_on_unwi
   %.sroa.56.0.copyload.i = load i64, ptr %.sroa.56.0..sroa_idx.i, align 8, !noalias !16
   %39 = icmp ult i64 %.sroa.56.0.copyload.i, 288230376151711744
   call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds nuw { { i64, [2 x i64] }, i8, [7 x i8] }, ptr %.sroa.45.0.copyload.i, i64 %.sroa.56.0.copyload.i
+  %.idx.i = shl nuw nsw i64 %.sroa.56.0.copyload.i, 5
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.45.0.copyload.i, i64 %.idx.i
   %41 = icmp sgt i64 %.sroa.04.0.copyload.i, -1
   call void @llvm.assume(i1 %41)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !16

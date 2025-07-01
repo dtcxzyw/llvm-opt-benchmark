@@ -40,9 +40,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.147 = type { ptr, ptr }
 %class.anon.146 = type { ptr, ptr, ptr, ptr }
 %class.anon.145 = type { ptr, ptr, ptr }
-%"struct.std::pair.129" = type { ptr, %"class.llvm::SMRange" }
-%"class.llvm::SMRange" = type { %"class.llvm::SMLoc", %"class.llvm::SMLoc" }
-%"class.llvm::SMLoc" = type { ptr }
 %"struct.std::pair.136" = type { %"class.llvm::StringRef", %"class.clang::tblgen::Property" }
 %"class.std::vector.151" = type { %"struct.std::_Vector_base.152" }
 %"struct.std::_Vector_base.152" = type { %"struct.std::_Vector_base<const llvm::Record *, std::allocator<const llvm::Record *>>::_Vector_impl" }
@@ -512,7 +509,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115ASTPropsEmitterC2ERKN4llvm12Reco
   %40 = tail call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %1, ptr nonnull @.str.4, i64 8) #17
   %41 = extractvalue { ptr, i64 } %40, 0
   %42 = extractvalue { ptr, i64 } %40, 1
-  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %42
+  %.idx = shl nuw nsw i64 %42, 3
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx
   %.not231 = icmp eq i64 %42, 0
   br i1 %.not231, label %._crit_edge, label %.lr.ph
 
@@ -520,7 +518,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115ASTPropsEmitterC2ERKN4llvm12Reco
   %44 = tail call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %1, ptr nonnull @.str.5, i64 7) #17
   %45 = extractvalue { ptr, i64 } %44, 0
   %46 = extractvalue { ptr, i64 } %44, 1
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %.idx263 = shl nuw nsw i64 %46, 3
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx263
   %.not72233 = icmp eq i64 %46, 0
   br i1 %.not72233, label %._crit_edge237, label %.lr.ph236
 
@@ -614,7 +613,8 @@ _ZNSt6vectorIN5clang6tblgen8PropertyESaIS2_EE9push_backERKS2_.exit: ; preds = %5
   %82 = tail call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %1, ptr nonnull @.str.8, i64 8) #17
   %83 = extractvalue { ptr, i64 } %82, 0
   %84 = extractvalue { ptr, i64 } %82, 1
-  %85 = getelementptr inbounds nuw ptr, ptr %83, i64 %84
+  %.idx264 = shl nuw nsw i64 %84, 3
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx264
   %.not73238 = icmp eq i64 %84, 0
   br i1 %.not73238, label %._crit_edge242, label %.lr.ph241
 
@@ -672,7 +672,8 @@ _ZNSt6vectorIN5clang6tblgen8PropertyESaIS2_EE9push_backERKS2_.exit: ; preds = %5
   %109 = tail call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %1, ptr nonnull @.str.10, i64 10) #17
   %110 = extractvalue { ptr, i64 } %109, 0
   %111 = extractvalue { ptr, i64 } %109, 1
-  %112 = getelementptr inbounds nuw ptr, ptr %110, i64 %111
+  %.idx265 = shl nuw nsw i64 %111, 3
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx265
   %.not74243 = icmp eq i64 %111, 0
   br i1 %.not74243, label %._crit_edge247, label %.lr.ph246
 
@@ -730,7 +731,8 @@ _ZNSt6vectorIN5clang6tblgen8PropertyESaIS2_EE9push_backERKS2_.exit: ; preds = %5
   %136 = tail call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %1, ptr nonnull @.str.12, i64 12) #17
   %137 = extractvalue { ptr, i64 } %136, 0
   %138 = extractvalue { ptr, i64 } %136, 1
-  %139 = getelementptr inbounds nuw ptr, ptr %137, i64 %138
+  %.idx266 = shl nuw nsw i64 %138, 3
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 %.idx266
   %.not75248 = icmp eq i64 %138, 0
   br i1 %.not75248, label %._crit_edge252, label %.lr.ph251
 
@@ -793,7 +795,8 @@ _ZNSt6vectorIN5clang6tblgen8PropertyESaIS2_EE9push_backERKS2_.exit: ; preds = %5
   %165 = tail call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %1, ptr nonnull @.str.13, i64 16) #17
   %166 = extractvalue { ptr, i64 } %165, 0
   %167 = extractvalue { ptr, i64 } %165, 1
-  %168 = getelementptr inbounds nuw ptr, ptr %166, i64 %167
+  %.idx267 = shl nuw nsw i64 %167, 3
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 %.idx267
   %.not76253 = icmp eq i64 %167, 0
   br i1 %.not76253, label %._crit_edge257, label %.lr.ph256
 
@@ -886,7 +889,8 @@ _ZNSt6vectorIN5clang6tblgen12PropertyTypeESaIS2_EE9push_backERKS2_.exit: ; preds
   %204 = tail call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %1, ptr nonnull @.str.15, i64 16) #17
   %205 = extractvalue { ptr, i64 } %204, 0
   %206 = extractvalue { ptr, i64 } %204, 1
-  %207 = getelementptr inbounds nuw ptr, ptr %205, i64 %206
+  %.idx268 = shl nuw nsw i64 %206, 3
+  %207 = getelementptr inbounds nuw i8, ptr %205, i64 %.idx268
   %.not77258 = icmp eq i64 %206, 0
   br i1 %.not77258, label %._crit_edge262, label %.lr.ph261
 
@@ -4555,7 +4559,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load i32, ptr %7, align 8, !tbaa !59
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.std::pair.129", ptr %6, i64 %9
+  %.idx = mul nuw nsw i64 %9, 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %.not36.not = icmp eq i32 %8, 0
   br i1 %.not36.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph
 

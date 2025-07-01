@@ -470,7 +470,8 @@ define hidden noundef zeroext i1 @"_ZN157_$LT$brotli..enc..backward_references..
   %.val = load ptr, ptr %0, align 8, !nonnull !3, !align !17, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3 = load i64, ptr %12, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %.val, i64 %.val3
+  %.idx = shl nuw nsw i64 %.val3, 2
+  %13 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx
   %14 = icmp eq i64 %.val3, 0
   br i1 %14, label %._crit_edge, label %.lr.ph
 
@@ -2675,7 +2676,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h079bd911a94a3754E(p
   %16 = shl i64 %.sroa.0.0.sroa.speculated.i, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16, i64 %16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %17 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   store ptr %2, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %18, align 8
@@ -3777,7 +3778,8 @@ define hidden void @_ZN6brotli3enc19backward_references19hash_to_binary_tree14in
   %14 = tail call { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h6e520e4fe8e2b1fdE"(ptr noalias noundef nonnull align 1 %1, i64 noundef 131072)
   %15 = extractvalue { ptr, i64 } %14, 0
   %16 = extractvalue { ptr, i64 } %14, 1
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %.idx.i = shl nuw nsw i64 %16, 2
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %"_ZN188_$LT$brotli..enc..backward_references..hash_to_binary_tree..H10Buckets$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..hash_to_binary_tree..Allocable$LT$u32$C$AllocU32$GT$$GT$3new17h0fa2bd844bf9e68cE.exit", label %.lr.ph.i
 

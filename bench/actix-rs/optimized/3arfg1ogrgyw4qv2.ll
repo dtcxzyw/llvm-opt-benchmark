@@ -369,7 +369,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 48
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hb8cab8b9643eb81cE.exit, label %.lr.ph.i
 
@@ -5712,7 +5713,8 @@ define void @_ZN9actix_web4http6header15accept_language14AcceptLanguage10prefere
   %.val = load ptr, ptr %6, align 8, !nonnull !11, !noundef !11
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val33 = load i64, ptr %7, align 8, !noundef !11
-  %8 = getelementptr inbounds { { i64, [8 x i64] }, i16, [3 x i16] }, ptr %.val, i64 %.val33
+  %.idx = mul nsw i64 %.val33, 80
+  %8 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %9 = icmp eq i64 %.val33, 0
   br i1 %9, label %.thread44, label %.lr.ph
 

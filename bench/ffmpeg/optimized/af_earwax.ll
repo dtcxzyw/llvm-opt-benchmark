@@ -126,7 +126,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 192
   %40 = shl nsw i64 %spec.select.i, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %39, ptr align 2 %37, i64 %40, i1 false)
-  %41 = getelementptr inbounds i16, ptr %33, i64 %spec.select.i
+  %41 = getelementptr inbounds i8, ptr %33, i64 %40
   %42 = icmp sgt i32 %38, 0
   br i1 %42, label %.preheader.i.i, label %scalarproduct.exit.i
 
@@ -229,7 +229,7 @@ convolve.exit:                                    ; preds = %scalarproduct.exit4
   %92 = getelementptr inbounds nuw i8, ptr %.val31, i64 320
   %93 = shl nsw i64 %spec.select.i39, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %92, ptr align 2 %90, i64 %93, i1 false)
-  %94 = getelementptr inbounds i16, ptr %85, i64 %spec.select.i39
+  %94 = getelementptr inbounds i8, ptr %85, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %.val31, i64 64
   %96 = icmp sgt i32 %91, 0
   br i1 %96, label %.preheader.i.i51, label %scalarproduct.exit.i40
@@ -333,7 +333,7 @@ convolve.exit59:                                  ; preds = %scalarproduct.exit4
   %146 = getelementptr inbounds nuw i8, ptr %.val32, i64 448
   %147 = shl nsw i64 %spec.select.i61, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %146, ptr align 2 %144, i64 %147, i1 false)
-  %148 = getelementptr inbounds i16, ptr %139, i64 %spec.select.i61
+  %148 = getelementptr inbounds i8, ptr %139, i64 %147
   %149 = icmp sgt i32 %145, 0
   br i1 %149, label %.preheader.i.i73, label %scalarproduct.exit.i62
 
@@ -436,7 +436,7 @@ convolve.exit81:                                  ; preds = %scalarproduct.exit4
   %199 = getelementptr inbounds nuw i8, ptr %.val33, i64 576
   %200 = shl nsw i64 %spec.select.i83, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %199, ptr align 2 %197, i64 %200, i1 false)
-  %201 = getelementptr inbounds i16, ptr %192, i64 %spec.select.i83
+  %201 = getelementptr inbounds i8, ptr %192, i64 %200
   %202 = getelementptr inbounds nuw i8, ptr %.val33, i64 64
   %203 = icmp sgt i32 %198, 0
   br i1 %203, label %.preheader.i.i95, label %scalarproduct.exit.i84

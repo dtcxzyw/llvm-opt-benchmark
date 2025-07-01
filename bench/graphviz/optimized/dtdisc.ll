@@ -54,18 +54,18 @@ define ptr @dtdisc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 .lr.ph.preheader:                                 ; preds = %23
   %27 = zext nneg i32 %25 to i64
+  %.idx = shl nuw nsw i64 %27, 3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !20
   %30 = ptrtoint ptr %29 to i64
-  %31 = shl nuw nsw i64 %27, 3
-  %32 = add i64 %31, %30
-  %33 = add i64 %30, 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %32, i64 %33)
-  %34 = xor i64 %30, -1
-  %35 = add i64 %umax, %34
-  %36 = and i64 %35, -8
-  %37 = add i64 %36, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %29, i8 0, i64 %37, i1 false), !tbaa !21
+  %31 = add i64 %.idx, %30
+  %32 = add i64 %30, 8
+  %umax = tail call i64 @llvm.umax.i64(i64 %31, i64 %32)
+  %33 = xor i64 %30, -1
+  %34 = add i64 %umax, %33
+  %35 = and i64 %34, -8
+  %36 = add i64 %35, 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %29, i8 0, i64 %36, i1 false), !tbaa !21
   br label %.loopexit50
 
 .loopexit50:                                      ; preds = %.lr.ph.preheader, %23, %16
@@ -73,52 +73,52 @@ define ptr @dtdisc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not4952, label %.loopexit, label %.lr.ph54
 
 .lr.ph54:                                         ; preds = %.loopexit50
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  br label %40
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  br label %39
 
-40:                                               ; preds = %.lr.ph54, %60
-  %.04253 = phi ptr [ %17, %.lr.ph54 ], [ %41, %60 ]
-  %41 = load ptr, ptr %.04253, align 8, !tbaa !22
-  %42 = load i32, ptr %38, align 8, !tbaa !24
-  %43 = icmp slt i32 %42, 0
-  br i1 %43, label %44, label %47
+39:                                               ; preds = %.lr.ph54, %59
+  %.04253 = phi ptr [ %17, %.lr.ph54 ], [ %40, %59 ]
+  %40 = load ptr, ptr %.04253, align 8, !tbaa !22
+  %41 = load i32, ptr %37, align 8, !tbaa !24
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %43, label %46
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw i8, ptr %.04253, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !26
-  br label %51
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %.04253, i64 16
+  %45 = load ptr, ptr %44, align 8, !tbaa !26
+  br label %50
 
-47:                                               ; preds = %40
-  %48 = zext nneg i32 %42 to i64
-  %49 = sub nsw i64 0, %48
-  %50 = getelementptr inbounds i8, ptr %.04253, i64 %49
-  br label %51
+46:                                               ; preds = %39
+  %47 = zext nneg i32 %41 to i64
+  %48 = sub nsw i64 0, %47
+  %49 = getelementptr inbounds i8, ptr %.04253, i64 %48
+  br label %50
 
-51:                                               ; preds = %47, %44
-  %52 = phi ptr [ %46, %44 ], [ %50, %47 ]
-  %53 = load i32, ptr %39, align 4, !tbaa !28
-  %54 = icmp slt i32 %53, 0
-  %55 = load i32, ptr %1, align 8, !tbaa !29
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i8, ptr %52, i64 %56
-  br i1 %54, label %58, label %60
+50:                                               ; preds = %46, %43
+  %51 = phi ptr [ %45, %43 ], [ %49, %46 ]
+  %52 = load i32, ptr %38, align 4, !tbaa !28
+  %53 = icmp slt i32 %52, 0
+  %54 = load i32, ptr %1, align 8, !tbaa !29
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds i8, ptr %51, i64 %55
+  br i1 %53, label %57, label %59
 
-58:                                               ; preds = %51
-  %59 = load ptr, ptr %57, align 8, !tbaa !30
-  br label %60
+57:                                               ; preds = %50
+  %58 = load ptr, ptr %56, align 8, !tbaa !30
+  br label %59
 
-60:                                               ; preds = %51, %58
-  %61 = phi ptr [ %59, %58 ], [ %57, %51 ]
-  %62 = tail call i32 @dtstrhash(ptr noundef %61, i32 noundef %53) #4
-  %63 = getelementptr inbounds nuw i8, ptr %.04253, i64 8
-  store i32 %62, ptr %63, align 8, !tbaa !20
-  %64 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull %.04253, i32 noundef 32) #4
-  %.not49 = icmp eq ptr %41, null
-  br i1 %.not49, label %.loopexit, label %40, !llvm.loop !32
+59:                                               ; preds = %50, %57
+  %60 = phi ptr [ %58, %57 ], [ %56, %50 ]
+  %61 = tail call i32 @dtstrhash(ptr noundef %60, i32 noundef %52) #4
+  %62 = getelementptr inbounds nuw i8, ptr %.04253, i64 8
+  store i32 %61, ptr %62, align 8, !tbaa !20
+  %63 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull %.04253, i32 noundef 32) #4
+  %.not49 = icmp eq ptr %40, null
+  br i1 %.not49, label %.loopexit, label %39, !llvm.loop !32
 
-.loopexit:                                        ; preds = %60, %.loopexit50, %6, %5
-  %.0 = phi ptr [ %1, %5 ], [ %4, %6 ], [ %4, %.loopexit50 ], [ %4, %60 ]
+.loopexit:                                        ; preds = %59, %.loopexit50, %6, %5
+  %.0 = phi ptr [ %1, %5 ], [ %4, %6 ], [ %4, %.loopexit50 ], [ %4, %59 ]
   ret ptr %.0
 }
 

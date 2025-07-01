@@ -6769,7 +6769,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx119, align 8, !nonnull !13, !noundef !13
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %58 = getelementptr inbounds { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, i8, [7 x i8] }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %.idx163 = mul nsw i64 %.sroa.3.0.copyload, 72
+  %58 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload, i64 %.idx163
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17)
   store ptr %.sroa.2.0.copyload, ptr %17, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -6802,19 +6803,19 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %.sroa.4.0..sroa_idx.i93 = getelementptr inbounds nuw i8, ptr %63, i64 64
   %.sroa.4.0.copyload.i94 = load i8, ptr %.sroa.4.0..sroa_idx.i93, align 8, !noalias !1371
   %65 = icmp eq i8 %.sroa.4.0.copyload.i94, 2
-  br i1 %65, label %._crit_edge.loopexit.split.loop.exit163, label %75
+  br i1 %65, label %._crit_edge.loopexit.split.loop.exit164, label %75
 
 .body.thread:                                     ; preds = %88, %.body, %101
   %.pn = phi { ptr, i32 } [ %lpad.phi, %101 ], [ %lpad.thr_comm.split-lp, %.body ], [ %89, %88 ]
   invoke void @"_ZN4core3ptr136drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..into_iter..IntoIter$LT$base_db..input..SourceRoot$GT$$GT$$GT$17hdac997da1a949843E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %17) #33
           to label %.body82 unwind label %102
 
-._crit_edge.loopexit.split.loop.exit163:          ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h50f4123f5136515fE.exit.i"
+._crit_edge.loopexit.split.loop.exit164:          ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h50f4123f5136515fE.exit.i"
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 72
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %97, %._crit_edge.loopexit.split.loop.exit163, %57
-  %67 = phi ptr [ %.sroa.2.0.copyload, %57 ], [ %66, %._crit_edge.loopexit.split.loop.exit163 ], [ %99, %97 ]
+._crit_edge:                                      ; preds = %97, %._crit_edge.loopexit.split.loop.exit164, %57
+  %67 = phi ptr [ %.sroa.2.0.copyload, %57 ], [ %66, %._crit_edge.loopexit.split.loop.exit164 ], [ %99, %97 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.5121)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !1372
@@ -6963,7 +6964,8 @@ _ZN7base_db5input10SourceRoot4iter17hfaa05823ddc1d11fE.exit: ; preds = %75
   %.sroa.4127.0.copyload = load ptr, ptr %.sroa.4127.0..sroa_idx, align 8, !nonnull !13, !noundef !13
   %.sroa.5128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.5128.0.copyload = load i64, ptr %.sroa.5128.0..sroa_idx, align 8
-  %105 = getelementptr inbounds { i32, [1 x i32], { i64, [2 x i64] } }, ptr %.sroa.4127.0.copyload, i64 %.sroa.5128.0.copyload
+  %.idx = shl nsw i64 %.sroa.5128.0.copyload, 5
+  %105 = getelementptr inbounds i8, ptr %.sroa.4127.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   store ptr %.sroa.4127.0.copyload, ptr %13, align 8
   %.sroa.4123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8

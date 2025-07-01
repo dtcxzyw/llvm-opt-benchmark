@@ -4735,7 +4735,8 @@ define hidden void @_ZN16wasmtime_runtime8instance9allocator7pooling11memory_poo
   %.val = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
   %16 = getelementptr i8, ptr %0, i64 16
   %.val13 = load i64, ptr %16, align 8, !noundef !4
-  %17 = getelementptr inbounds { { { { { i32 } }, { { i8 } }, [3 x i8], { { { { i64, ptr, {} }, i64 }, { { i32, [1 x i32] }, { i32, [1 x i32] } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i32, i32, i32, [1 x i32] } } } }, { i32, [2 x i32] }, [1 x i32] }, ptr %.val, i64 %.val13
+  %.idx = shl nsw i64 %.val13, 7
+  %17 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %18 = icmp eq i64 %.val13, 0
   br i1 %18, label %._crit_edge, label %.lr.ph64
 

@@ -4190,7 +4190,8 @@ define hidden void @_ZN6diesel5mysql10connection4stmt12StatementUse20populate_ro
   %29 = load ptr, ptr %28, align 8, !alias.scope !643, !nonnull !4, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = load i64, ptr %30, align 8, !alias.scope !643, !noundef !4
-  %32 = getelementptr inbounds { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }, ptr %29, i64 %31
+  %.idx.i = mul nsw i64 %31, 40
+  %32 = getelementptr inbounds i8, ptr %29, i64 %.idx.i
   %33 = icmp eq i64 %31, 0
   br i1 %33, label %_ZN6diesel5mysql10connection4bind11OutputBinds21update_buffer_lengths17hbe25ce1b8ce2cf31E.exit, label %.lr.ph.i
 

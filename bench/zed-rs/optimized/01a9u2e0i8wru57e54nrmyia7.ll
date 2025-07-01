@@ -6016,7 +6016,8 @@ _ZN4core10intrinsics10typed_swap17ha476fca74d94ba4aE.exit.i.i.i.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %7), !noalias !834
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %98), !noalias !834
   %.sroa.01.0.copyload.i = load i64, ptr %113, align 8, !alias.scope !812, !noalias !814
-  %645 = getelementptr inbounds { i64, [7 x i64] }, ptr %506, i64 %495
+  %.idx.i = shl nsw i64 %495, 6
+  %645 = getelementptr inbounds i8, ptr %506, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %97), !noalias !834
   store ptr %506, ptr %97, align 8, !noalias !834
   %.sroa.4.0..sroa_idx.i156 = getelementptr inbounds nuw i8, ptr %97, i64 8

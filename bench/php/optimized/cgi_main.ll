@@ -53,7 +53,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timeval = type { i64, i64 }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct._zend_syntax_highlighter_ini = type { ptr, ptr, ptr, ptr, ptr }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @executor_globals = external local_unnamed_addr global %struct._zend_executor_globals, align 8
 @sapi_globals = external global %struct._sapi_globals_struct, align 8
@@ -2879,7 +2878,8 @@ define internal fastcc void @print_modules() unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !145
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %struct._Bucket, ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 5
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !4
   %10 = and i32 %9, 4

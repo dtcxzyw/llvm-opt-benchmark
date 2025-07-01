@@ -43,18 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.25" = type { ptr }
 %"struct.llvm::BTFParser::ParseOptions" = type { i8, i8, i8 }
 %"class.llvm::Error" = type { ptr }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { i64, %"class.llvm::SmallVector.28" }
-%"class.llvm::SmallVector.28" = type { %"class.llvm::SmallVectorImpl.29" }
-%"class.llvm::SmallVectorImpl.29" = type { %"class.llvm::SmallVectorTemplateBase.30" }
-%"class.llvm::SmallVectorTemplateBase.30" = type { %"class.llvm::SmallVectorTemplateCommon.31" }
-%"class.llvm::SmallVectorTemplateCommon.31" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::detail::DenseMapPair.33" = type { %"struct.std::pair.34" }
-%"struct.std::pair.34" = type { i64, %"class.llvm::SmallVector.36" }
-%"class.llvm::SmallVector.36" = type { %"class.llvm::SmallVectorImpl.37" }
-%"class.llvm::SmallVectorImpl.37" = type { %"class.llvm::SmallVectorTemplateBase.38" }
-%"class.llvm::SmallVectorTemplateBase.38" = type { %"class.llvm::SmallVectorTemplateCommon.39" }
-%"class.llvm::SmallVectorTemplateCommon.39" = type { %"class.llvm::SmallVectorBase" }
 
 $_ZN4llvm10BTFContextD2Ev = comdat any
 
@@ -375,7 +363,8 @@ _ZNSt6vectorIPKN4llvm3BTF10CommonTypeESaIS4_EED2Ev.exit: ; preds = %1, %4
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNSt6vectorIPKN4llvm3BTF10CommonTypeESaIS4_EED2Ev.exit
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.pre1.i, i64 %14
+  %.idx.i.i = mul nuw nsw i64 %14, 24
+  %15 = getelementptr inbounds nuw i8, ptr %.pre1.i, i64 %.idx.i.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm11SmallVectorINS_3BTF13BPFFieldRelocELj0EED2Ev.exit.i.i, %.lr.ph.preheader.i.i
@@ -420,19 +409,20 @@ _ZN4llvm8DenseMapImNS_11SmallVectorINS_3BTF13BPFFieldRelocELj0EEENS_12DenseMapIn
 
 .lr.ph.preheader.i.i2:                            ; preds = %_ZN4llvm8DenseMapImNS_11SmallVectorINS_3BTF13BPFFieldRelocELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS4_EEED2Ev.exit
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.33", ptr %.pre1.i1, i64 %32
-  br label %.lr.ph.i.i3
+  %.idx.i.i3 = mul nuw nsw i64 %32, 24
+  %33 = getelementptr inbounds nuw i8, ptr %.pre1.i1, i64 %.idx.i.i3
+  br label %.lr.ph.i.i4
 
-.lr.ph.i.i3:                                      ; preds = %_ZN4llvm11SmallVectorINS_3BTF11BPFLineInfoELj0EED2Ev.exit.i.i, %.lr.ph.preheader.i.i2
-  %.010.i.i4 = phi ptr [ %41, %_ZN4llvm11SmallVectorINS_3BTF11BPFLineInfoELj0EED2Ev.exit.i.i ], [ %.pre1.i1, %.lr.ph.preheader.i.i2 ]
-  %34 = load i64, ptr %.010.i.i4, align 8, !tbaa !70
-  %switch.i.i5 = icmp ugt i64 %34, -3
-  br i1 %switch.i.i5, label %_ZN4llvm11SmallVectorINS_3BTF11BPFLineInfoELj0EED2Ev.exit.i.i, label %35
+.lr.ph.i.i4:                                      ; preds = %_ZN4llvm11SmallVectorINS_3BTF11BPFLineInfoELj0EED2Ev.exit.i.i, %.lr.ph.preheader.i.i2
+  %.010.i.i5 = phi ptr [ %41, %_ZN4llvm11SmallVectorINS_3BTF11BPFLineInfoELj0EED2Ev.exit.i.i ], [ %.pre1.i1, %.lr.ph.preheader.i.i2 ]
+  %34 = load i64, ptr %.010.i.i5, align 8, !tbaa !70
+  %switch.i.i6 = icmp ugt i64 %34, -3
+  br i1 %switch.i.i6, label %_ZN4llvm11SmallVectorINS_3BTF11BPFLineInfoELj0EED2Ev.exit.i.i, label %35
 
-35:                                               ; preds = %.lr.ph.i.i3
-  %36 = getelementptr inbounds nuw i8, ptr %.010.i.i4, i64 8
+35:                                               ; preds = %.lr.ph.i.i4
+  %36 = getelementptr inbounds nuw i8, ptr %.010.i.i5, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !37
-  %38 = getelementptr inbounds nuw i8, ptr %.010.i.i4, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.010.i.i5, i64 24
   %39 = icmp eq ptr %37, %38
   br i1 %39, label %_ZN4llvm11SmallVectorINS_3BTF11BPFLineInfoELj0EED2Ev.exit.i.i, label %40
 
@@ -440,21 +430,21 @@ _ZN4llvm8DenseMapImNS_11SmallVectorINS_3BTF13BPFFieldRelocELj0EEENS_12DenseMapIn
   tail call void @free(ptr noundef %37) #13
   br label %_ZN4llvm11SmallVectorINS_3BTF11BPFLineInfoELj0EED2Ev.exit.i.i
 
-_ZN4llvm11SmallVectorINS_3BTF11BPFLineInfoELj0EED2Ev.exit.i.i: ; preds = %40, %35, %.lr.ph.i.i3
-  %41 = getelementptr inbounds nuw i8, ptr %.010.i.i4, i64 24
-  %.not.i.i6 = icmp eq ptr %41, %33
-  br i1 %.not.i.i6, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E10destroyAllEv.exit.loopexit.i, label %.lr.ph.i.i3, !llvm.loop !77
+_ZN4llvm11SmallVectorINS_3BTF11BPFLineInfoELj0EED2Ev.exit.i.i: ; preds = %40, %35, %.lr.ph.i.i4
+  %41 = getelementptr inbounds nuw i8, ptr %.010.i.i5, i64 24
+  %.not.i.i7 = icmp eq ptr %41, %33
+  br i1 %.not.i.i7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E10destroyAllEv.exit.loopexit.i, label %.lr.ph.i.i4, !llvm.loop !77
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E10destroyAllEv.exit.loopexit.i: ; preds = %_ZN4llvm11SmallVectorINS_3BTF11BPFLineInfoELj0EED2Ev.exit.i.i
-  %.pre.i7 = load ptr, ptr %28, align 8, !tbaa !76
-  %.pre2.i8 = load i32, ptr %29, align 8, !tbaa !73
-  %42 = zext i32 %.pre2.i8 to i64
+  %.pre.i8 = load ptr, ptr %28, align 8, !tbaa !76
+  %.pre2.i9 = load i32, ptr %29, align 8, !tbaa !73
+  %42 = zext i32 %.pre2.i9 to i64
   %43 = mul nuw nsw i64 %42, 24
   br label %_ZN4llvm8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS4_EEED2Ev.exit
 
 _ZN4llvm8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS4_EEED2Ev.exit: ; preds = %_ZN4llvm8DenseMapImNS_11SmallVectorINS_3BTF13BPFFieldRelocELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS4_EEED2Ev.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E10destroyAllEv.exit.loopexit.i
   %44 = phi i64 [ %43, %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E10destroyAllEv.exit.loopexit.i ], [ 0, %_ZN4llvm8DenseMapImNS_11SmallVectorINS_3BTF13BPFFieldRelocELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS4_EEED2Ev.exit ]
-  %45 = phi ptr [ %.pre.i7, %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E10destroyAllEv.exit.loopexit.i ], [ %.pre1.i1, %_ZN4llvm8DenseMapImNS_11SmallVectorINS_3BTF13BPFFieldRelocELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS4_EEED2Ev.exit ]
+  %45 = phi ptr [ %.pre.i8, %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E10destroyAllEv.exit.loopexit.i ], [ %.pre1.i1, %_ZN4llvm8DenseMapImNS_11SmallVectorINS_3BTF13BPFFieldRelocELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS4_EEED2Ev.exit ]
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %45, i64 noundef %44, i64 noundef 8) #13
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !78

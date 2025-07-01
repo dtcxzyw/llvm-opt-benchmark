@@ -2125,8 +2125,9 @@ _ZL30uloc_getDisplayScriptInContextPKcS0_PDsiP10UErrorCode.exit: ; preds = %192,
   br i1 %.not327, label %.loopexit358, label %.lr.ph391.preheader
 
 .lr.ph391.preheader:                              ; preds = %197
-  %200 = zext nneg i32 %195 to i64
-  %201 = getelementptr inbounds nuw i16, ptr %.6241, i64 %200
+  %200 = shl nuw i32 %195, 1
+  %.idx = zext i32 %200 to i64
+  %201 = getelementptr inbounds nuw i8, ptr %.6241, i64 %.idx
   br label %.lr.ph391
 
 .preheader:                                       ; preds = %207

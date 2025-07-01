@@ -48,7 +48,8 @@ define range(i32 -1, 1) i32 @dtrestore(ptr noundef %0, ptr noundef %1) local_unn
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load i32, ptr %24, align 8, !tbaa !19
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %23, i64 %26
+  %.idx = shl nsw i64 %26, 3
+  %27 = getelementptr inbounds i8, ptr %23, i64 %.idx
   %28 = icmp sgt i32 %25, 0
   br i1 %28, label %.lr.ph, label %.loopexit
 

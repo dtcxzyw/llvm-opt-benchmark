@@ -15467,7 +15467,8 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$
   %10 = load i64, ptr %9, align 8, !alias.scope !3944, !noalias !3947
   %.sink5.i = select i1 %7, ptr %8, ptr %0
   %.sink4.i = select i1 %7, i64 %10, i64 %6
-  %11 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %.sink5.i, i64 %.sink4.i
+  %.idx = shl nsw i64 %.sink4.i, 4
+  %11 = getelementptr inbounds i8, ptr %.sink5.i, i64 %.idx
   %12 = icmp eq i64 %.sink4.i, 0
   br i1 %12, label %_ZN4core3fmt8builders9DebugList7entries17h18d3db83fe2f9727E.exit, label %.lr.ph.i
 
@@ -15504,7 +15505,8 @@ define hidden void @"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash
   store i64 %12, ptr %1, align 8, !alias.scope !3957
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3962)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3965)
-  %13 = getelementptr inbounds { { i8, [23 x i8] } }, ptr %.sink5.i, i64 %.sink4.i
+  %.idx.i = mul nsw i64 %.sink4.i, 24
+  %13 = getelementptr inbounds i8, ptr %.sink5.i, i64 %.idx.i
   %14 = icmp eq i64 %.sink4.i, 0
   br i1 %14, label %_ZN4core4hash4Hash10hash_slice17h77d1d20f0c09bb94E.exit, label %.lr.ph.i
 
@@ -15570,7 +15572,8 @@ define hidden void @"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash
   store i64 %12, ptr %1, align 8, !alias.scope !3997
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4002)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4005)
-  %13 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %.sink5.i, i64 %.sink4.i
+  %.idx.i = shl nsw i64 %.sink4.i, 4
+  %13 = getelementptr inbounds i8, ptr %.sink5.i, i64 %.idx.i
   %14 = icmp eq i64 %.sink4.i, 0
   br i1 %14, label %_ZN4core4hash4Hash10hash_slice17h6c9d434be5cc10ceE.exit, label %.lr.ph.i
 
@@ -23359,7 +23362,8 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.2274688034147933536.ex
   %.sroa.079.0.copyload = load i64, ptr %11, align 8
   %.sroa.4.0.copyload = load ptr, ptr %21, align 8, !nonnull !9, !noundef !9
   %.sroa.5.0.copyload = load i64, ptr %22, align 8
-  %70 = getelementptr inbounds { { i64, [1 x i64] }, ptr }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %.idx = mul nsw i64 %.sroa.5.0.copyload, 24
+  %70 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload, i64 %.idx
   store ptr %.sroa.4.0.copyload, ptr %7, align 8, !alias.scope !5248, !noalias !5251
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.sroa.079.0.copyload, ptr %71, align 8, !alias.scope !5248, !noalias !5251
@@ -24000,7 +24004,8 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.2274688034147933536.ex
   %.sroa.072.0.copyload = load i64, ptr %10, align 8
   %.sroa.4.0.copyload = load ptr, ptr %20, align 8, !nonnull !9, !noundef !9
   %.sroa.5.0.copyload = load i64, ptr %21, align 8
-  %64 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %.idx = shl nsw i64 %.sroa.5.0.copyload, 4
+  %64 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload, i64 %.idx
   store ptr %.sroa.4.0.copyload, ptr %7, align 8, !alias.scope !5414, !noalias !5417
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.sroa.072.0.copyload, ptr %65, align 8, !alias.scope !5414, !noalias !5417
@@ -31387,7 +31392,8 @@ define noundef zeroext i1 @"_ZN69_$LT$ide..inlay_hints..InlayHintLabel$u20$as$u2
   %10 = load i64, ptr %9, align 8, !alias.scope !7380, !noalias !7385
   %.sink5.i.i.i = select i1 %6, ptr %8, ptr %7
   %.sink4.i.i.i = select i1 %6, i64 %10, i64 %5
-  %11 = getelementptr inbounds { { i64, [3 x i64] }, { { { i64, ptr, {} }, i64 } }, { i32, [3 x i32] } }, ptr %.sink5.i.i.i, i64 %.sink4.i.i.i
+  %.idx.i = mul nsw i64 %.sink4.i.i.i, 72
+  %11 = getelementptr inbounds i8, ptr %.sink5.i.i.i, i64 %.idx.i
   %12 = icmp eq i64 %.sink4.i.i.i, 0
   br i1 %12, label %_ZN4core3fmt8builders9DebugList7entries17h134055ac7823f4fbE.exit, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e24581c8e2a9771E.llvm.7136808221034403137.exit.i"
 

@@ -59,7 +59,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %.val1 = load i64, ptr %6, align 8, !noundef !9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !12
   call void @_ZN4core3fmt9Formatter10debug_list17h6fd145ef502d86b6E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !18
-  %7 = getelementptr inbounds { i64, i64, i64, i64 }, ptr %.val, i64 %.val1
+  %.idx.i.i = shl nsw i64 %.val1, 5
+  %7 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i.i
   %8 = icmp eq i64 %.val1, 0
   br i1 %8, label %"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe2e676908234756E.exit", label %.lr.ph.i.i.i
 

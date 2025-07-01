@@ -1452,7 +1452,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal19VprintfCoreInternalIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_S5_P13__va_list_tag(ptr noundef %pWriteFunction, ptr noalias noundef %pWriteFunctionContext, ptr noalias noundef %pFormat, ptr noundef %arguments) local_unnamed_addr #6 comdat {
 entry:
-  %helper2.i148 = alloca %"struct.EA::StdC::SprintfLocal::StringFormatHelper.6", align 1
+  %helper2.i149 = alloca %"struct.EA::StdC::SprintfLocal::StringFormatHelper.6", align 1
   %helper2.i = alloca %"struct.EA::StdC::SprintfLocal::StringFormatHelper.5", align 1
   %fd = alloca %"struct.EA::StdC::SprintfLocal::FormatData", align 4
   %pBuffer = alloca [4105 x i16], align 16
@@ -1478,8 +1478,8 @@ entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %pBuffer, i64 8208
   %call = tail call noundef i32 %pWriteFunction(ptr noundef null, i64 noundef 0, ptr noundef %pWriteFunctionContext, i32 noundef 0)
   %0 = load i16, ptr %pFormat, align 2
-  %tobool.not252256 = icmp eq i16 %0, 0
-  br i1 %tobool.not252256, label %return, label %while.cond1.preheader.lr.ph.lr.ph
+  %tobool.not254258 = icmp eq i16 %0, 0
+  br i1 %tobool.not254258, label %return, label %while.cond1.preheader.lr.ph.lr.ph
 
 while.cond1.preheader.lr.ph.lr.ph:                ; preds = %entry
   %overflow_arg_area_p446 = getelementptr inbounds nuw i8, ptr %arguments, i64 8
@@ -1490,23 +1490,23 @@ while.cond1.preheader.lr.ph.lr.ph:                ; preds = %entry
 
 while.cond1.preheader.lr.ph:                      ; preds = %while.cond1.preheader.lr.ph.lr.ph, %while.cond.outer.backedge
   %2 = phi i16 [ %0, %while.cond1.preheader.lr.ph.lr.ph ], [ %128, %while.cond.outer.backedge ]
-  %pFormatCurrent.0.ph262 = phi ptr [ %pFormat, %while.cond1.preheader.lr.ph.lr.ph ], [ %pFormatCurrent.0.ph.be, %while.cond.outer.backedge ]
-  %nWriteCountSum.0.ph261 = phi i32 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %nWriteCountSum.0.ph.be, %while.cond.outer.backedge ]
-  %lValue.0.ph260 = phi i64 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %lValue.0.ph.be, %while.cond.outer.backedge ]
-  %ulValue.0.ph259 = phi i64 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %ulValue.0.ph.be, %while.cond.outer.backedge ]
-  %llValue.0.ph258 = phi i64 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %llValue.0.ph.be, %while.cond.outer.backedge ]
-  %ullValue.0.ph257 = phi i64 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %ullValue.0.ph.be, %while.cond.outer.backedge ]
+  %pFormatCurrent.0.ph264 = phi ptr [ %pFormat, %while.cond1.preheader.lr.ph.lr.ph ], [ %pFormatCurrent.0.ph.be, %while.cond.outer.backedge ]
+  %nWriteCountSum.0.ph263 = phi i32 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %nWriteCountSum.0.ph.be, %while.cond.outer.backedge ]
+  %lValue.0.ph262 = phi i64 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %lValue.0.ph.be, %while.cond.outer.backedge ]
+  %ulValue.0.ph261 = phi i64 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %ulValue.0.ph.be, %while.cond.outer.backedge ]
+  %llValue.0.ph260 = phi i64 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %llValue.0.ph.be, %while.cond.outer.backedge ]
+  %ullValue.0.ph259 = phi i64 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %ullValue.0.ph.be, %while.cond.outer.backedge ]
   br label %while.cond1.preheader
 
 while.cond1.preheader:                            ; preds = %while.cond1.preheader.lr.ph, %while.cond.backedge
   %3 = phi i16 [ %2, %while.cond1.preheader.lr.ph ], [ %109, %while.cond.backedge ]
-  %pFormatCurrent.0254 = phi ptr [ %pFormatCurrent.0.ph262, %while.cond1.preheader.lr.ph ], [ %call13, %while.cond.backedge ]
-  %nWriteCountSum.0253 = phi i32 [ %nWriteCountSum.0.ph261, %while.cond1.preheader.lr.ph ], [ %nWriteCountSum.0.be, %while.cond.backedge ]
+  %pFormatCurrent.0256 = phi ptr [ %pFormatCurrent.0.ph264, %while.cond1.preheader.lr.ph ], [ %call13, %while.cond.backedge ]
+  %nWriteCountSum.0255 = phi i32 [ %nWriteCountSum.0.ph263, %while.cond1.preheader.lr.ph ], [ %nWriteCountSum.0.be, %while.cond.backedge ]
   br label %while.cond1
 
 while.cond1:                                      ; preds = %while.cond1.preheader, %while.body3
   %4 = phi i16 [ %.pr, %while.body3 ], [ %3, %while.cond1.preheader ]
-  %pFormatSpec.0 = phi ptr [ %incdec.ptr, %while.body3 ], [ %pFormatCurrent.0254, %while.cond1.preheader ]
+  %pFormatSpec.0 = phi ptr [ %incdec.ptr, %while.body3 ], [ %pFormatCurrent.0256, %while.cond1.preheader ]
   switch i16 %4, label %while.body3 [
     i16 0, label %while.end
     i16 37, label %while.end
@@ -1519,7 +1519,7 @@ while.body3:                                      ; preds = %while.cond1
 
 while.end:                                        ; preds = %while.cond1, %while.cond1
   %sub.ptr.lhs.cast = ptrtoint ptr %pFormatSpec.0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %pFormatCurrent.0254 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %pFormatCurrent.0256 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 1
   %conv4 = trunc i64 %sub.ptr.div to i32
@@ -1529,19 +1529,19 @@ while.end:                                        ; preds = %while.cond1, %while
 if.then:                                          ; preds = %while.end
   %sext = shl i64 %sub.ptr.sub, 31
   %conv6 = ashr i64 %sext, 32
-  %call7 = call noundef i32 %pWriteFunction(ptr noundef nonnull %pFormatCurrent.0254, i64 noundef %conv6, ptr noundef %pWriteFunctionContext, i32 noundef 1)
+  %call7 = call noundef i32 %pWriteFunction(ptr noundef nonnull %pFormatCurrent.0256, i64 noundef %conv6, ptr noundef %pWriteFunctionContext, i32 noundef 1)
   %cmp8 = icmp eq i32 %call7, -1
   br i1 %cmp8, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %add = add nsw i32 %nWriteCountSum.0253, %conv4
+  %add = add nsw i32 %nWriteCountSum.0255, %conv4
   %.pre = load i16, ptr %pFormatSpec.0, align 2
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end, %while.end
   %5 = phi i16 [ %.pre, %if.end ], [ %4, %while.end ]
-  %nWriteCountSum.1 = phi i32 [ %add, %if.end ], [ %nWriteCountSum.0253, %while.end ]
-  %pFormatCurrent.1 = phi ptr [ %pFormatSpec.0, %if.end ], [ %pFormatCurrent.0254, %while.end ]
+  %nWriteCountSum.1 = phi i32 [ %add, %if.end ], [ %nWriteCountSum.0255, %while.end ]
+  %pFormatCurrent.1 = phi ptr [ %pFormatSpec.0, %if.end ], [ %pFormatCurrent.0256, %while.end ]
   %tobool11.not = icmp eq i16 %5, 0
   br i1 %tobool11.not, label %while.cond.outer.backedge, label %if.then12
 
@@ -1596,15 +1596,15 @@ vaarg.in_reg:                                     ; preds = %if.then15
   %9 = getelementptr i8, ptr %reg_save_area, i64 %8
   %10 = add nuw nsw i32 %gp_offset, 8
   store i32 %10, ptr %arguments, align 8
-  br label %if.end156.thread180
+  br label %if.end156.thread182
 
 vaarg.in_mem:                                     ; preds = %if.then15
   %overflow_arg_area = load ptr, ptr %overflow_arg_area_p446, align 8
   %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area, i64 8
   store ptr %overflow_arg_area.next, ptr %overflow_arg_area_p446, align 8
-  br label %if.end156.thread180
+  br label %if.end156.thread182
 
-if.end156.thread180:                              ; preds = %vaarg.in_reg, %vaarg.in_mem
+if.end156.thread182:                              ; preds = %vaarg.in_reg, %vaarg.in_mem
   %vaarg.addr = phi ptr [ %9, %vaarg.in_reg ], [ %overflow_arg_area, %vaarg.in_mem ]
   %11 = load i64, ptr %vaarg.addr, align 8
   br label %if.then159
@@ -1816,23 +1816,23 @@ if.end156:                                        ; preds = %if.else139, %vaarg.
   %cmp158 = icmp eq i32 %7, 5
   br i1 %cmp158, label %if.then159, label %if.else164
 
-if.then159:                                       ; preds = %if.end156.thread180, %if.end156
-  %lValue.2185 = phi i64 [ %lValue.0.ph260, %if.end156.thread180 ], [ %lValue.2, %if.end156 ]
-  %llValue.2184 = phi i64 [ %11, %if.end156.thread180 ], [ %llValue.0.ph258, %if.end156 ]
-  %call.i = call noundef ptr @_ZN2EA4StdC12SprintfLocal15WriteLongHelperIDsxyEEPT_RKNS1_10FormatDataET0_S4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, i64 noundef %llValue.2184, ptr noundef nonnull %add.ptr)
+if.then159:                                       ; preds = %if.end156.thread182, %if.end156
+  %lValue.2187 = phi i64 [ %lValue.0.ph262, %if.end156.thread182 ], [ %lValue.2, %if.end156 ]
+  %llValue.2186 = phi i64 [ %11, %if.end156.thread182 ], [ %llValue.0.ph260, %if.end156 ]
+  %call.i = call noundef ptr @_ZN2EA4StdC12SprintfLocal15WriteLongHelperIDsxyEEPT_RKNS1_10FormatDataET0_S4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, i64 noundef %llValue.2186, ptr noundef nonnull %add.ptr)
   %tobool161.not = icmp eq ptr %call.i, null
   br i1 %tobool161.not, label %FormatError, label %if.end169
 
 if.else164:                                       ; preds = %vaarg.end45, %vaarg.end75, %vaarg.end116, %vaarg.end90, %vaarg.end60, %if.end156
-  %lValue.2179 = phi i64 [ %lValue.2, %if.end156 ], [ %lValue.0.ph260, %vaarg.end116 ], [ %31, %vaarg.end90 ], [ %27, %vaarg.end75 ], [ %23, %vaarg.end60 ], [ %19, %vaarg.end45 ]
-  %llValue.2177 = phi i64 [ %llValue.0.ph258, %if.end156 ], [ %36, %vaarg.end116 ], [ %llValue.0.ph258, %vaarg.end90 ], [ %llValue.0.ph258, %vaarg.end75 ], [ %llValue.0.ph258, %vaarg.end60 ], [ %llValue.0.ph258, %vaarg.end45 ]
-  %call.i126 = call noundef ptr @_ZN2EA4StdC12SprintfLocal15WriteLongHelperIDslmEEPT_RKNS1_10FormatDataET0_S4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, i64 noundef %lValue.2179, ptr noundef nonnull %add.ptr)
+  %lValue.2181 = phi i64 [ %lValue.2, %if.end156 ], [ %lValue.0.ph262, %vaarg.end116 ], [ %31, %vaarg.end90 ], [ %27, %vaarg.end75 ], [ %23, %vaarg.end60 ], [ %19, %vaarg.end45 ]
+  %llValue.2179 = phi i64 [ %llValue.0.ph260, %if.end156 ], [ %36, %vaarg.end116 ], [ %llValue.0.ph260, %vaarg.end90 ], [ %llValue.0.ph260, %vaarg.end75 ], [ %llValue.0.ph260, %vaarg.end60 ], [ %llValue.0.ph260, %vaarg.end45 ]
+  %call.i126 = call noundef ptr @_ZN2EA4StdC12SprintfLocal15WriteLongHelperIDslmEEPT_RKNS1_10FormatDataET0_S4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, i64 noundef %lValue.2181, ptr noundef nonnull %add.ptr)
   %tobool166.not = icmp eq ptr %call.i126, null
   br i1 %tobool166.not, label %FormatError, label %if.end169
 
 if.end169:                                        ; preds = %if.else164, %if.then159
-  %lValue.2178 = phi i64 [ %lValue.2185, %if.then159 ], [ %lValue.2179, %if.else164 ]
-  %llValue.2176 = phi i64 [ %llValue.2184, %if.then159 ], [ %llValue.2177, %if.else164 ]
+  %lValue.2180 = phi i64 [ %lValue.2187, %if.then159 ], [ %lValue.2181, %if.else164 ]
+  %llValue.2178 = phi i64 [ %llValue.2186, %if.then159 ], [ %llValue.2179, %if.else164 ]
   %pBufferData.3 = phi ptr [ %call.i, %if.then159 ], [ %call.i126, %if.else164 ]
   %sub.ptr.rhs.cast171 = ptrtoint ptr %pBufferData.3 to i64
   %sub.ptr.sub172 = sub i64 %sub.ptr.lhs.cast372, %sub.ptr.rhs.cast171
@@ -1886,15 +1886,15 @@ vaarg.in_reg197:                                  ; preds = %if.then193
   %48 = getelementptr i8, ptr %reg_save_area198, i64 %47
   %49 = add nuw nsw i32 %gp_offset293, 8
   store i32 %49, ptr %arguments, align 8
-  br label %if.end329.thread193
+  br label %if.end329.thread195
 
 vaarg.in_mem199:                                  ; preds = %if.then193
   %overflow_arg_area201 = load ptr, ptr %overflow_arg_area_p446, align 8
   %overflow_arg_area.next202 = getelementptr i8, ptr %overflow_arg_area201, i64 8
   store ptr %overflow_arg_area.next202, ptr %overflow_arg_area_p446, align 8
-  br label %if.end329.thread193
+  br label %if.end329.thread195
 
-if.end329.thread193:                              ; preds = %vaarg.in_reg197, %vaarg.in_mem199
+if.end329.thread195:                              ; preds = %vaarg.in_reg197, %vaarg.in_mem199
   %vaarg.addr204 = phi ptr [ %48, %vaarg.in_reg197 ], [ %overflow_arg_area201, %vaarg.in_mem199 ]
   %50 = load i64, ptr %vaarg.addr204, align 8
   br label %if.then332
@@ -2058,23 +2058,23 @@ if.end329:                                        ; preds = %if.else312, %if.els
   %cmp331 = icmp eq i32 %42, 5
   br i1 %cmp331, label %if.then332, label %if.else337
 
-if.then332:                                       ; preds = %if.end329.thread193, %if.end329
-  %ulValue.4198 = phi i64 [ %ulValue.0.ph259, %if.end329.thread193 ], [ %ulValue.4, %if.end329 ]
-  %ullValue.4197 = phi i64 [ %50, %if.end329.thread193 ], [ %ullValue.0.ph257, %if.end329 ]
-  %call.i127 = call noundef ptr @_ZN2EA4StdC12SprintfLocal15WriteLongHelperIDsxyEEPT_RKNS1_10FormatDataET0_S4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, i64 noundef %ullValue.4197, ptr noundef nonnull %add.ptr)
+if.then332:                                       ; preds = %if.end329.thread195, %if.end329
+  %ulValue.4200 = phi i64 [ %ulValue.0.ph261, %if.end329.thread195 ], [ %ulValue.4, %if.end329 ]
+  %ullValue.4199 = phi i64 [ %50, %if.end329.thread195 ], [ %ullValue.0.ph259, %if.end329 ]
+  %call.i127 = call noundef ptr @_ZN2EA4StdC12SprintfLocal15WriteLongHelperIDsxyEEPT_RKNS1_10FormatDataET0_S4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, i64 noundef %ullValue.4199, ptr noundef nonnull %add.ptr)
   %tobool334.not = icmp eq ptr %call.i127, null
   br i1 %tobool334.not, label %FormatError, label %if.end342
 
 if.else337:                                       ; preds = %vaarg.end188, %vaarg.end218, %vaarg.end248, %vaarg.in_mem285, %vaarg.in_reg283, %vaarg.end263, %vaarg.end233, %if.else312, %if.end329
-  %ulValue.4192 = phi i64 [ %ulValue.4, %if.end329 ], [ %conv303, %if.else312 ], [ %ulValue.0.ph259, %vaarg.in_mem285 ], [ %ulValue.0.ph259, %vaarg.in_reg283 ], [ %66, %vaarg.end263 ], [ %62, %vaarg.end248 ], [ %58, %vaarg.end233 ], [ %54, %vaarg.end218 ], [ %46, %vaarg.end188 ]
-  %ullValue.4190 = phi i64 [ %ullValue.0.ph257, %if.end329 ], [ %ullValue.0.ph257, %if.else312 ], [ %73, %vaarg.in_mem285 ], [ %71, %vaarg.in_reg283 ], [ %ullValue.0.ph257, %vaarg.end263 ], [ %ullValue.0.ph257, %vaarg.end248 ], [ %ullValue.0.ph257, %vaarg.end233 ], [ %ullValue.0.ph257, %vaarg.end218 ], [ %ullValue.0.ph257, %vaarg.end188 ]
-  %call.i128 = call noundef ptr @_ZN2EA4StdC12SprintfLocal15WriteLongHelperIDslmEEPT_RKNS1_10FormatDataET0_S4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, i64 noundef %ulValue.4192, ptr noundef nonnull %add.ptr)
+  %ulValue.4194 = phi i64 [ %ulValue.4, %if.end329 ], [ %conv303, %if.else312 ], [ %ulValue.0.ph261, %vaarg.in_mem285 ], [ %ulValue.0.ph261, %vaarg.in_reg283 ], [ %66, %vaarg.end263 ], [ %62, %vaarg.end248 ], [ %58, %vaarg.end233 ], [ %54, %vaarg.end218 ], [ %46, %vaarg.end188 ]
+  %ullValue.4192 = phi i64 [ %ullValue.0.ph259, %if.end329 ], [ %ullValue.0.ph259, %if.else312 ], [ %73, %vaarg.in_mem285 ], [ %71, %vaarg.in_reg283 ], [ %ullValue.0.ph259, %vaarg.end263 ], [ %ullValue.0.ph259, %vaarg.end248 ], [ %ullValue.0.ph259, %vaarg.end233 ], [ %ullValue.0.ph259, %vaarg.end218 ], [ %ullValue.0.ph259, %vaarg.end188 ]
+  %call.i128 = call noundef ptr @_ZN2EA4StdC12SprintfLocal15WriteLongHelperIDslmEEPT_RKNS1_10FormatDataET0_S4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, i64 noundef %ulValue.4194, ptr noundef nonnull %add.ptr)
   %tobool339.not = icmp eq ptr %call.i128, null
   br i1 %tobool339.not, label %FormatError, label %if.end342
 
 if.end342:                                        ; preds = %if.else337, %if.then332
-  %ulValue.4191 = phi i64 [ %ulValue.4198, %if.then332 ], [ %ulValue.4192, %if.else337 ]
-  %ullValue.4189 = phi i64 [ %ullValue.4197, %if.then332 ], [ %ullValue.4190, %if.else337 ]
+  %ulValue.4193 = phi i64 [ %ulValue.4200, %if.then332 ], [ %ulValue.4194, %if.else337 ]
+  %ullValue.4191 = phi i64 [ %ullValue.4199, %if.then332 ], [ %ullValue.4192, %if.else337 ]
   %pBufferData.5 = phi ptr [ %call.i127, %if.then332 ], [ %call.i128, %if.else337 ]
   %sub.ptr.rhs.cast344 = ptrtoint ptr %pBufferData.5 to i64
   %sub.ptr.sub345 = sub i64 %sub.ptr.lhs.cast372, %sub.ptr.rhs.cast344
@@ -2123,8 +2123,8 @@ vaarg.end365:                                     ; preds = %vaarg.in_mem361, %v
   br label %if.end368
 
 if.end368:                                        ; preds = %vaarg.end365, %if.then352
-  %.sink359 = phi double [ %86, %vaarg.end365 ], [ %conv356, %if.then352 ]
-  %call367 = call noundef ptr @_ZN2EA4StdC12SprintfLocal11WriteDoubleIDsEEPT_RKNS1_10FormatDataEdS4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, double noundef %.sink359, ptr noundef nonnull %add.ptr)
+  %.sink361 = phi double [ %86, %vaarg.end365 ], [ %conv356, %if.then352 ]
+  %call367 = call noundef ptr @_ZN2EA4StdC12SprintfLocal11WriteDoubleIDsEEPT_RKNS1_10FormatDataEdS4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, double noundef %.sink361, ptr noundef nonnull %add.ptr)
   %tobool369.not = icmp eq ptr %call367, null
   br i1 %tobool369.not, label %FormatError, label %if.end371
 
@@ -2179,7 +2179,8 @@ if.then.i:                                        ; preds = %vaarg.end394
 
 if.then.i.i.i:                                    ; preds = %if.then.i
   %idx.ext.i.i.i = sext i32 %93 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 %idx.ext.i.i.i
+  %add.ptr.idx.i.i.i = shl nsw i64 %idx.ext.i.i.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 %add.ptr.idx.i.i.i
   %cmp211.i.i.i = icmp sgt i32 %93, 0
   br i1 %cmp211.i.i.i, label %land.rhs.i.i.i, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i
 
@@ -2241,72 +2242,74 @@ vaarg.end412:                                     ; preds = %vaarg.in_mem408, %v
   br i1 %cmp.i129, label %if.then.i133, label %if.else.i132
 
 if.then.i133:                                     ; preds = %vaarg.end412
-  br i1 %cmp.not.i.i.i131, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i138, label %if.then.i.i.i134
+  br i1 %cmp.not.i.i.i131, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i139, label %if.then.i.i.i134
 
 if.then.i.i.i134:                                 ; preds = %if.then.i133
   %idx.ext.i.i.i135 = sext i32 %99 to i64
-  %add.ptr.i.i.i136 = getelementptr inbounds i16, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 %idx.ext.i.i.i135
-  %cmp211.i.i.i137 = icmp sgt i32 %99, 0
-  br i1 %cmp211.i.i.i137, label %land.rhs.i.i.i142, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i138
+  %add.ptr.idx.i.i.i136 = shl nsw i64 %idx.ext.i.i.i135, 1
+  %add.ptr.i.i.i137 = getelementptr inbounds i8, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 %add.ptr.idx.i.i.i136
+  %cmp211.i.i.i138 = icmp sgt i32 %99, 0
+  br i1 %cmp211.i.i.i138, label %land.rhs.i.i.i143, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i139
 
-land.rhs.i.i.i142:                                ; preds = %if.then.i.i.i134, %while.body.i.i.i145
-  %pBufferCurrent.012.i.i.i143 = phi ptr [ %incdec.ptr.i.i.i146, %while.body.i.i.i145 ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %if.then.i.i.i134 ]
-  %100 = load i16, ptr %pBufferCurrent.012.i.i.i143, align 2, !noalias !37
-  %tobool.not.i.i.i144 = icmp eq i16 %100, 0
-  br i1 %tobool.not.i.i.i144, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i138, label %while.body.i.i.i145
+land.rhs.i.i.i143:                                ; preds = %if.then.i.i.i134, %while.body.i.i.i146
+  %pBufferCurrent.012.i.i.i144 = phi ptr [ %incdec.ptr.i.i.i147, %while.body.i.i.i146 ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %if.then.i.i.i134 ]
+  %100 = load i16, ptr %pBufferCurrent.012.i.i.i144, align 2, !noalias !37
+  %tobool.not.i.i.i145 = icmp eq i16 %100, 0
+  br i1 %tobool.not.i.i.i145, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i139, label %while.body.i.i.i146
 
-while.body.i.i.i145:                              ; preds = %land.rhs.i.i.i142
-  %incdec.ptr.i.i.i146 = getelementptr inbounds nuw i8, ptr %pBufferCurrent.012.i.i.i143, i64 2
-  %cmp2.i.i.i147 = icmp ult ptr %incdec.ptr.i.i.i146, %add.ptr.i.i.i136
-  br i1 %cmp2.i.i.i147, label %land.rhs.i.i.i142, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i138, !llvm.loop !33
+while.body.i.i.i146:                              ; preds = %land.rhs.i.i.i143
+  %incdec.ptr.i.i.i147 = getelementptr inbounds nuw i8, ptr %pBufferCurrent.012.i.i.i144, i64 2
+  %cmp2.i.i.i148 = icmp ult ptr %incdec.ptr.i.i.i147, %add.ptr.i.i.i137
+  br i1 %cmp2.i.i.i148, label %land.rhs.i.i.i143, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i139, !llvm.loop !33
 
-_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i138: ; preds = %while.body.i.i.i145, %land.rhs.i.i.i142, %if.then.i.i.i134, %if.then.i133
-  %pBufferCurrent3.0.lcssa.sink.i.i.i139 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %if.then.i.i.i134 ], [ getelementptr inbounds nuw (i8, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 12), %if.then.i133 ], [ %pBufferCurrent.012.i.i.i143, %land.rhs.i.i.i142 ], [ %incdec.ptr.i.i.i146, %while.body.i.i.i145 ]
-  %sub.ptr.lhs.cast9.i.i.i140 = ptrtoint ptr %pBufferCurrent3.0.lcssa.sink.i.i.i139 to i64
-  %sub.ptr.sub11.i.i.i141 = sub i64 %sub.ptr.lhs.cast9.i.i.i140, ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E to i64)
+_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i139: ; preds = %while.body.i.i.i146, %land.rhs.i.i.i143, %if.then.i.i.i134, %if.then.i133
+  %pBufferCurrent3.0.lcssa.sink.i.i.i140 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %if.then.i.i.i134 ], [ getelementptr inbounds nuw (i8, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 12), %if.then.i133 ], [ %pBufferCurrent.012.i.i.i144, %land.rhs.i.i.i143 ], [ %incdec.ptr.i.i.i147, %while.body.i.i.i146 ]
+  %sub.ptr.lhs.cast9.i.i.i141 = ptrtoint ptr %pBufferCurrent3.0.lcssa.sink.i.i.i140 to i64
+  %sub.ptr.sub11.i.i.i142 = sub i64 %sub.ptr.lhs.cast9.i.i.i141, ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E to i64)
   br label %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit
 
 if.else.i132:                                     ; preds = %vaarg.end412
-  br i1 %cmp.not.i.i.i131, label %while.cond4.i.i24.i, label %if.then.i.i8.i
+  br i1 %cmp.not.i.i.i131, label %while.cond4.i.i25.i, label %if.then.i.i8.i
 
 if.then.i.i8.i:                                   ; preds = %if.else.i132
   %idx.ext.i.i9.i = sext i32 %99 to i64
-  %add.ptr.i.i10.i = getelementptr inbounds i16, ptr %98, i64 %idx.ext.i.i9.i
-  %cmp211.i.i11.i = icmp sgt i32 %99, 0
-  br i1 %cmp211.i.i11.i, label %land.rhs.i.i18.i, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit28.i
+  %add.ptr.idx.i.i10.i = shl nsw i64 %idx.ext.i.i9.i, 1
+  %add.ptr.i.i11.i = getelementptr inbounds i8, ptr %98, i64 %add.ptr.idx.i.i10.i
+  %cmp211.i.i12.i = icmp sgt i32 %99, 0
+  br i1 %cmp211.i.i12.i, label %land.rhs.i.i19.i, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit29.i
 
-land.rhs.i.i18.i:                                 ; preds = %if.then.i.i8.i, %while.body.i.i21.i
-  %pBufferCurrent.012.i.i19.i = phi ptr [ %incdec.ptr.i.i22.i, %while.body.i.i21.i ], [ %98, %if.then.i.i8.i ]
-  %101 = load i16, ptr %pBufferCurrent.012.i.i19.i, align 2, !noalias !40
-  %tobool.not.i.i20.i = icmp eq i16 %101, 0
-  br i1 %tobool.not.i.i20.i, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit28.i, label %while.body.i.i21.i
+land.rhs.i.i19.i:                                 ; preds = %if.then.i.i8.i, %while.body.i.i22.i
+  %pBufferCurrent.012.i.i20.i = phi ptr [ %incdec.ptr.i.i23.i, %while.body.i.i22.i ], [ %98, %if.then.i.i8.i ]
+  %101 = load i16, ptr %pBufferCurrent.012.i.i20.i, align 2, !noalias !40
+  %tobool.not.i.i21.i = icmp eq i16 %101, 0
+  br i1 %tobool.not.i.i21.i, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit29.i, label %while.body.i.i22.i
 
-while.body.i.i21.i:                               ; preds = %land.rhs.i.i18.i
-  %incdec.ptr.i.i22.i = getelementptr inbounds nuw i8, ptr %pBufferCurrent.012.i.i19.i, i64 2
-  %cmp2.i.i23.i = icmp ult ptr %incdec.ptr.i.i22.i, %add.ptr.i.i10.i
-  br i1 %cmp2.i.i23.i, label %land.rhs.i.i18.i, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit28.i, !llvm.loop !33
+while.body.i.i22.i:                               ; preds = %land.rhs.i.i19.i
+  %incdec.ptr.i.i23.i = getelementptr inbounds nuw i8, ptr %pBufferCurrent.012.i.i20.i, i64 2
+  %cmp2.i.i24.i = icmp ult ptr %incdec.ptr.i.i23.i, %add.ptr.i.i11.i
+  br i1 %cmp2.i.i24.i, label %land.rhs.i.i19.i, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit29.i, !llvm.loop !33
 
-while.cond4.i.i24.i:                              ; preds = %if.else.i132, %while.cond4.i.i24.i
-  %pBufferCurrent3.0.i.i25.i = phi ptr [ %incdec.ptr7.i.i27.i, %while.cond4.i.i24.i ], [ %98, %if.else.i132 ]
-  %102 = load i16, ptr %pBufferCurrent3.0.i.i25.i, align 2, !noalias !40
-  %tobool5.not.i.i26.i = icmp eq i16 %102, 0
-  %incdec.ptr7.i.i27.i = getelementptr inbounds nuw i8, ptr %pBufferCurrent3.0.i.i25.i, i64 2
-  br i1 %tobool5.not.i.i26.i, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit28.i, label %while.cond4.i.i24.i, !llvm.loop !43
+while.cond4.i.i25.i:                              ; preds = %if.else.i132, %while.cond4.i.i25.i
+  %pBufferCurrent3.0.i.i26.i = phi ptr [ %incdec.ptr7.i.i28.i, %while.cond4.i.i25.i ], [ %98, %if.else.i132 ]
+  %102 = load i16, ptr %pBufferCurrent3.0.i.i26.i, align 2, !noalias !40
+  %tobool5.not.i.i27.i = icmp eq i16 %102, 0
+  %incdec.ptr7.i.i28.i = getelementptr inbounds nuw i8, ptr %pBufferCurrent3.0.i.i26.i, i64 2
+  br i1 %tobool5.not.i.i27.i, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit29.i, label %while.cond4.i.i25.i, !llvm.loop !43
 
-_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit28.i: ; preds = %while.body.i.i21.i, %land.rhs.i.i18.i, %while.cond4.i.i24.i, %if.then.i.i8.i
-  %pBufferCurrent3.0.lcssa.sink.i.i12.i = phi ptr [ %98, %if.then.i.i8.i ], [ %pBufferCurrent3.0.i.i25.i, %while.cond4.i.i24.i ], [ %pBufferCurrent.012.i.i19.i, %land.rhs.i.i18.i ], [ %incdec.ptr.i.i22.i, %while.body.i.i21.i ]
-  %sub.ptr.lhs.cast9.i.i13.i = ptrtoint ptr %pBufferCurrent3.0.lcssa.sink.i.i12.i to i64
+_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit29.i: ; preds = %while.body.i.i22.i, %land.rhs.i.i19.i, %while.cond4.i.i25.i, %if.then.i.i8.i
+  %pBufferCurrent3.0.lcssa.sink.i.i13.i = phi ptr [ %98, %if.then.i.i8.i ], [ %pBufferCurrent3.0.i.i26.i, %while.cond4.i.i25.i ], [ %pBufferCurrent.012.i.i20.i, %land.rhs.i.i19.i ], [ %incdec.ptr.i.i23.i, %while.body.i.i22.i ]
+  %sub.ptr.lhs.cast9.i.i14.i = ptrtoint ptr %pBufferCurrent3.0.lcssa.sink.i.i13.i to i64
   %sub.ptr.rhs.cast10.i.i.i = ptrtoint ptr %98 to i64
-  %sub.ptr.sub11.i.i14.i = sub i64 %sub.ptr.lhs.cast9.i.i13.i, %sub.ptr.rhs.cast10.i.i.i
+  %sub.ptr.sub11.i.i15.i = sub i64 %sub.ptr.lhs.cast9.i.i14.i, %sub.ptr.rhs.cast10.i.i.i
   br label %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit
 
-_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit: ; preds = %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i138, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit28.i
-  %sub.ptr.sub11.i.i14.sink.i = phi i64 [ %sub.ptr.sub11.i.i14.i, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit28.i ], [ %sub.ptr.sub11.i.i.i141, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i138 ]
-  %pInBufferData.sink.i = phi ptr [ %98, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit28.i ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i138 ]
-  %retval.0.in.i.i15.i = lshr exact i64 %sub.ptr.sub11.i.i14.sink.i, 1
-  %retval.0.i.i16.i = trunc i64 %retval.0.in.i.i15.i to i32
-  %call2.i17.i = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr noundef %pWriteFunction, ptr noundef %pWriteFunctionContext, ptr noundef nonnull align 4 dereferenceable(40) %fd, ptr noundef nonnull %pInBufferData.sink.i, i32 noundef %retval.0.i.i16.i)
-  %cmp416 = icmp slt i32 %call2.i17.i, 0
+_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit: ; preds = %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i139, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit29.i
+  %sub.ptr.sub11.i.i15.sink.i = phi i64 [ %sub.ptr.sub11.i.i15.i, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit29.i ], [ %sub.ptr.sub11.i.i.i142, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i139 ]
+  %pInBufferData.sink.i = phi ptr [ %98, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit29.i ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i139 ]
+  %retval.0.in.i.i16.i = lshr exact i64 %sub.ptr.sub11.i.i15.sink.i, 1
+  %retval.0.i.i17.i = trunc i64 %retval.0.in.i.i16.i to i32
+  %call2.i18.i = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr noundef %pWriteFunction, ptr noundef %pWriteFunctionContext, ptr noundef nonnull align 4 dereferenceable(40) %fd, ptr noundef nonnull %pInBufferData.sink.i, i32 noundef %retval.0.i.i17.i)
+  %cmp416 = icmp slt i32 %call2.i18.i, 0
   br i1 %cmp416, label %FormatError, label %sw.epilog438
 
 sw.bb420:                                         ; preds = %sw.bb378, %sw.bb378
@@ -2331,53 +2334,54 @@ vaarg.in_mem426:                                  ; preds = %sw.bb420
 vaarg.end430:                                     ; preds = %vaarg.in_mem426, %vaarg.in_reg424
   %vaarg.addr431 = phi ptr [ %104, %vaarg.in_reg424 ], [ %overflow_arg_area428, %vaarg.in_mem426 ]
   %106 = load ptr, ptr %vaarg.addr431, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %helper2.i148)
-  %cmp.i149 = icmp eq ptr %106, null
-  br i1 %cmp.i149, label %if.then.i153, label %if.else.i150
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %helper2.i149)
+  %cmp.i150 = icmp eq ptr %106, null
+  br i1 %cmp.i150, label %if.then.i154, label %if.else.i151
 
-if.then.i153:                                     ; preds = %vaarg.end430
+if.then.i154:                                     ; preds = %vaarg.end430
   %107 = load i32, ptr %mnPrecision.i, align 4, !noalias !44
-  %cmp.not.i.i.i155 = icmp eq i32 %107, 2147483647
-  br i1 %cmp.not.i.i.i155, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i160, label %if.then.i.i.i156
+  %cmp.not.i.i.i156 = icmp eq i32 %107, 2147483647
+  br i1 %cmp.not.i.i.i156, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i162, label %if.then.i.i.i157
 
-if.then.i.i.i156:                                 ; preds = %if.then.i153
-  %idx.ext.i.i.i157 = sext i32 %107 to i64
-  %add.ptr.i.i.i158 = getelementptr inbounds i16, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 %idx.ext.i.i.i157
-  %cmp211.i.i.i159 = icmp sgt i32 %107, 0
-  br i1 %cmp211.i.i.i159, label %land.rhs.i.i.i167, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i160
+if.then.i.i.i157:                                 ; preds = %if.then.i154
+  %idx.ext.i.i.i158 = sext i32 %107 to i64
+  %add.ptr.idx.i.i.i159 = shl nsw i64 %idx.ext.i.i.i158, 1
+  %add.ptr.i.i.i160 = getelementptr inbounds i8, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 %add.ptr.idx.i.i.i159
+  %cmp211.i.i.i161 = icmp sgt i32 %107, 0
+  br i1 %cmp211.i.i.i161, label %land.rhs.i.i.i169, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i162
 
-land.rhs.i.i.i167:                                ; preds = %if.then.i.i.i156, %while.body.i.i.i170
-  %pBufferCurrent.012.i.i.i168 = phi ptr [ %incdec.ptr.i.i.i171, %while.body.i.i.i170 ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %if.then.i.i.i156 ]
-  %108 = load i16, ptr %pBufferCurrent.012.i.i.i168, align 2, !noalias !44
-  %tobool.not.i.i.i169 = icmp eq i16 %108, 0
-  br i1 %tobool.not.i.i.i169, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i160, label %while.body.i.i.i170
+land.rhs.i.i.i169:                                ; preds = %if.then.i.i.i157, %while.body.i.i.i172
+  %pBufferCurrent.012.i.i.i170 = phi ptr [ %incdec.ptr.i.i.i173, %while.body.i.i.i172 ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %if.then.i.i.i157 ]
+  %108 = load i16, ptr %pBufferCurrent.012.i.i.i170, align 2, !noalias !44
+  %tobool.not.i.i.i171 = icmp eq i16 %108, 0
+  br i1 %tobool.not.i.i.i171, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i162, label %while.body.i.i.i172
 
-while.body.i.i.i170:                              ; preds = %land.rhs.i.i.i167
-  %incdec.ptr.i.i.i171 = getelementptr inbounds nuw i8, ptr %pBufferCurrent.012.i.i.i168, i64 2
-  %cmp2.i.i.i172 = icmp ult ptr %incdec.ptr.i.i.i171, %add.ptr.i.i.i158
-  br i1 %cmp2.i.i.i172, label %land.rhs.i.i.i167, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i160, !llvm.loop !33
+while.body.i.i.i172:                              ; preds = %land.rhs.i.i.i169
+  %incdec.ptr.i.i.i173 = getelementptr inbounds nuw i8, ptr %pBufferCurrent.012.i.i.i170, i64 2
+  %cmp2.i.i.i174 = icmp ult ptr %incdec.ptr.i.i.i173, %add.ptr.i.i.i160
+  br i1 %cmp2.i.i.i174, label %land.rhs.i.i.i169, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i162, !llvm.loop !33
 
-_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i160: ; preds = %while.body.i.i.i170, %land.rhs.i.i.i167, %if.then.i.i.i156, %if.then.i153
-  %pBufferCurrent3.0.lcssa.sink.i.i.i161 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %if.then.i.i.i156 ], [ getelementptr inbounds nuw (i8, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 12), %if.then.i153 ], [ %pBufferCurrent.012.i.i.i168, %land.rhs.i.i.i167 ], [ %incdec.ptr.i.i.i171, %while.body.i.i.i170 ]
-  %sub.ptr.lhs.cast9.i.i.i162 = ptrtoint ptr %pBufferCurrent3.0.lcssa.sink.i.i.i161 to i64
-  %sub.ptr.sub11.i.i.i163 = sub i64 %sub.ptr.lhs.cast9.i.i.i162, ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E to i64)
-  %retval.0.in.i.i.i164 = lshr exact i64 %sub.ptr.sub11.i.i.i163, 1
-  %retval.0.i.i.i165 = trunc i64 %retval.0.in.i.i.i164 to i32
-  %call2.i.i166 = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr noundef %pWriteFunction, ptr noundef %pWriteFunctionContext, ptr noundef nonnull align 4 dereferenceable(40) %fd, ptr noundef nonnull @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i32 noundef %retval.0.i.i.i165)
+_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i162: ; preds = %while.body.i.i.i172, %land.rhs.i.i.i169, %if.then.i.i.i157, %if.then.i154
+  %pBufferCurrent3.0.lcssa.sink.i.i.i163 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, %if.then.i.i.i157 ], [ getelementptr inbounds nuw (i8, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i64 12), %if.then.i154 ], [ %pBufferCurrent.012.i.i.i170, %land.rhs.i.i.i169 ], [ %incdec.ptr.i.i.i173, %while.body.i.i.i172 ]
+  %sub.ptr.lhs.cast9.i.i.i164 = ptrtoint ptr %pBufferCurrent3.0.lcssa.sink.i.i.i163 to i64
+  %sub.ptr.sub11.i.i.i165 = sub i64 %sub.ptr.lhs.cast9.i.i.i164, ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull16E to i64)
+  %retval.0.in.i.i.i166 = lshr exact i64 %sub.ptr.sub11.i.i.i165, 1
+  %retval.0.i.i.i167 = trunc i64 %retval.0.in.i.i.i166 to i32
+  %call2.i.i168 = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr noundef %pWriteFunction, ptr noundef %pWriteFunctionContext, ptr noundef nonnull align 4 dereferenceable(40) %fd, ptr noundef nonnull @_ZN2EA4StdC12SprintfLocalL13kStringNull16E, i32 noundef %retval.0.i.i.i167)
   br label %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit
 
-if.else.i150:                                     ; preds = %vaarg.end430
-  %call3.i151 = call noundef i32 @_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb0EDiDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsPKDi(ptr noundef nonnull align 1 dereferenceable(1) %helper2.i148, ptr noundef %pWriteFunction, ptr noundef %pWriteFunctionContext, ptr noundef nonnull align 4 dereferenceable(40) %fd, ptr noundef nonnull %pBuffer, ptr noundef nonnull %106)
+if.else.i151:                                     ; preds = %vaarg.end430
+  %call3.i152 = call noundef i32 @_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb0EDiDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsPKDi(ptr noundef nonnull align 1 dereferenceable(1) %helper2.i149, ptr noundef %pWriteFunction, ptr noundef %pWriteFunctionContext, ptr noundef nonnull align 4 dereferenceable(40) %fd, ptr noundef nonnull %pBuffer, ptr noundef nonnull %106)
   br label %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit
 
-_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit: ; preds = %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i160, %if.else.i150
-  %retval.0.i152 = phi i32 [ %call2.i.i166, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i160 ], [ %call3.i151, %if.else.i150 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %helper2.i148)
-  %cmp434 = icmp slt i32 %retval.0.i152, 0
+_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit: ; preds = %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i162, %if.else.i151
+  %retval.0.i153 = phi i32 [ %call2.i.i168, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i162 ], [ %call3.i152, %if.else.i151 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %helper2.i149)
+  %cmp434 = icmp slt i32 %retval.0.i153, 0
   br i1 %cmp434, label %FormatError, label %sw.epilog438
 
 sw.epilog438:                                     ; preds = %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit
-  %retval.0.i.pn = phi i32 [ %retval.0.i, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %call2.i17.i, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %retval.0.i152, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ]
+  %retval.0.i.pn = phi i32 [ %retval.0.i, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %call2.i18.i, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %retval.0.i153, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ]
   %nWriteCountSum.3 = add nsw i32 %retval.0.i.pn, %nWriteCountSum.1
   br label %while.cond.backedge
 
@@ -2567,10 +2571,10 @@ sw.bb529:                                         ; preds = %if.then12
   br label %sw.epilog546
 
 FormatError:                                      ; preds = %if.then12, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %sw.bb378, %sw.bb472, %if.end368, %if.else337, %if.then332, %if.else164, %if.then159
-  %ullValue.2 = phi i64 [ %ullValue.0.ph257, %if.then159 ], [ %ullValue.0.ph257, %if.else164 ], [ %ullValue.4197, %if.then332 ], [ %ullValue.4190, %if.else337 ], [ %ullValue.0.ph257, %if.end368 ], [ %ullValue.0.ph257, %sw.bb472 ], [ %ullValue.0.ph257, %sw.bb378 ], [ %ullValue.0.ph257, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph257, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph257, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph257, %if.then12 ]
-  %llValue.3 = phi i64 [ %llValue.2184, %if.then159 ], [ %llValue.2177, %if.else164 ], [ %llValue.0.ph258, %if.then332 ], [ %llValue.0.ph258, %if.else337 ], [ %llValue.0.ph258, %if.end368 ], [ %llValue.0.ph258, %sw.bb472 ], [ %llValue.0.ph258, %sw.bb378 ], [ %llValue.0.ph258, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph258, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph258, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph258, %if.then12 ]
-  %ulValue.2 = phi i64 [ %ulValue.0.ph259, %if.then159 ], [ %ulValue.0.ph259, %if.else164 ], [ %ulValue.4198, %if.then332 ], [ %ulValue.4192, %if.else337 ], [ %ulValue.0.ph259, %if.end368 ], [ %ulValue.0.ph259, %sw.bb472 ], [ %ulValue.0.ph259, %sw.bb378 ], [ %ulValue.0.ph259, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph259, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph259, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph259, %if.then12 ]
-  %lValue.3 = phi i64 [ %lValue.2185, %if.then159 ], [ %lValue.2179, %if.else164 ], [ %lValue.0.ph260, %if.then332 ], [ %lValue.0.ph260, %if.else337 ], [ %lValue.0.ph260, %if.end368 ], [ %lValue.0.ph260, %sw.bb472 ], [ %lValue.0.ph260, %sw.bb378 ], [ %lValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph260, %if.then12 ]
+  %ullValue.2 = phi i64 [ %ullValue.0.ph259, %if.then159 ], [ %ullValue.0.ph259, %if.else164 ], [ %ullValue.4199, %if.then332 ], [ %ullValue.4192, %if.else337 ], [ %ullValue.0.ph259, %if.end368 ], [ %ullValue.0.ph259, %sw.bb472 ], [ %ullValue.0.ph259, %sw.bb378 ], [ %ullValue.0.ph259, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph259, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph259, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph259, %if.then12 ]
+  %llValue.3 = phi i64 [ %llValue.2186, %if.then159 ], [ %llValue.2179, %if.else164 ], [ %llValue.0.ph260, %if.then332 ], [ %llValue.0.ph260, %if.else337 ], [ %llValue.0.ph260, %if.end368 ], [ %llValue.0.ph260, %sw.bb472 ], [ %llValue.0.ph260, %sw.bb378 ], [ %llValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph260, %if.then12 ]
+  %ulValue.2 = phi i64 [ %ulValue.0.ph261, %if.then159 ], [ %ulValue.0.ph261, %if.else164 ], [ %ulValue.4200, %if.then332 ], [ %ulValue.4194, %if.else337 ], [ %ulValue.0.ph261, %if.end368 ], [ %ulValue.0.ph261, %sw.bb472 ], [ %ulValue.0.ph261, %sw.bb378 ], [ %ulValue.0.ph261, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph261, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph261, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph261, %if.then12 ]
+  %lValue.3 = phi i64 [ %lValue.2187, %if.then159 ], [ %lValue.2181, %if.else164 ], [ %lValue.0.ph262, %if.then332 ], [ %lValue.0.ph262, %if.else337 ], [ %lValue.0.ph262, %if.end368 ], [ %lValue.0.ph262, %sw.bb472 ], [ %lValue.0.ph262, %sw.bb378 ], [ %lValue.0.ph262, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph262, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph262, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph262, %if.then12 ]
   %sub.ptr.lhs.cast534 = ptrtoint ptr %call13 to i64
   %sub.ptr.sub536 = sub i64 %sub.ptr.lhs.cast534, %sub.ptr.lhs.cast
   %sub.ptr.div537 = lshr exact i64 %sub.ptr.sub536, 1
@@ -2587,21 +2591,21 @@ land.lhs.true:                                    ; preds = %FormatError
   br i1 %cmp543, label %return, label %while.cond.outer.backedge
 
 while.cond.outer.backedge:                        ; preds = %if.end10, %if.end550, %FormatError, %land.lhs.true
-  %ullValue.0.ph.be = phi i64 [ %ullValue.2, %land.lhs.true ], [ %ullValue.2, %FormatError ], [ %ullValue.3, %if.end550 ], [ %ullValue.0.ph257, %if.end10 ]
-  %llValue.0.ph.be = phi i64 [ %llValue.3, %land.lhs.true ], [ %llValue.3, %FormatError ], [ %llValue.4, %if.end550 ], [ %llValue.0.ph258, %if.end10 ]
-  %ulValue.0.ph.be = phi i64 [ %ulValue.2, %land.lhs.true ], [ %ulValue.2, %FormatError ], [ %ulValue.3, %if.end550 ], [ %ulValue.0.ph259, %if.end10 ]
-  %lValue.0.ph.be = phi i64 [ %lValue.3, %land.lhs.true ], [ %lValue.3, %FormatError ], [ %lValue.4, %if.end550 ], [ %lValue.0.ph260, %if.end10 ]
+  %ullValue.0.ph.be = phi i64 [ %ullValue.2, %land.lhs.true ], [ %ullValue.2, %FormatError ], [ %ullValue.3, %if.end550 ], [ %ullValue.0.ph259, %if.end10 ]
+  %llValue.0.ph.be = phi i64 [ %llValue.3, %land.lhs.true ], [ %llValue.3, %FormatError ], [ %llValue.4, %if.end550 ], [ %llValue.0.ph260, %if.end10 ]
+  %ulValue.0.ph.be = phi i64 [ %ulValue.2, %land.lhs.true ], [ %ulValue.2, %FormatError ], [ %ulValue.3, %if.end550 ], [ %ulValue.0.ph261, %if.end10 ]
+  %lValue.0.ph.be = phi i64 [ %lValue.3, %land.lhs.true ], [ %lValue.3, %FormatError ], [ %lValue.4, %if.end550 ], [ %lValue.0.ph262, %if.end10 ]
   %nWriteCountSum.0.ph.be = phi i32 [ %add539, %land.lhs.true ], [ %add539, %FormatError ], [ %add551, %if.end550 ], [ %nWriteCountSum.1, %if.end10 ]
   %pFormatCurrent.0.ph.be = phi ptr [ %call13, %land.lhs.true ], [ %call13, %FormatError ], [ %call13, %if.end550 ], [ %pFormatCurrent.1, %if.end10 ]
   %128 = load i16, ptr %pFormatCurrent.0.ph.be, align 2
-  %tobool.not252 = icmp eq i16 %128, 0
-  br i1 %tobool.not252, label %return, label %while.cond1.preheader.lr.ph, !llvm.loop !49
+  %tobool.not254 = icmp eq i16 %128, 0
+  br i1 %tobool.not254, label %return, label %while.cond1.preheader.lr.ph, !llvm.loop !49
 
 sw.epilog546:                                     ; preds = %vaarg.end490, %vaarg.end506, %vaarg.end523, %sw.bb529, %if.end371, %if.end342, %if.end169
-  %ullValue.3 = phi i64 [ %ullValue.0.ph257, %if.end169 ], [ %ullValue.4189, %if.end342 ], [ %ullValue.0.ph257, %if.end371 ], [ %ullValue.0.ph257, %vaarg.end490 ], [ %ullValue.0.ph257, %vaarg.end506 ], [ %ullValue.0.ph257, %vaarg.end523 ], [ %ullValue.0.ph257, %sw.bb529 ]
-  %llValue.4 = phi i64 [ %llValue.2176, %if.end169 ], [ %llValue.0.ph258, %if.end342 ], [ %llValue.0.ph258, %if.end371 ], [ %llValue.0.ph258, %vaarg.end490 ], [ %llValue.0.ph258, %vaarg.end506 ], [ %llValue.0.ph258, %vaarg.end523 ], [ %llValue.0.ph258, %sw.bb529 ]
-  %ulValue.3 = phi i64 [ %ulValue.0.ph259, %if.end169 ], [ %ulValue.4191, %if.end342 ], [ %ulValue.0.ph259, %if.end371 ], [ %ulValue.0.ph259, %vaarg.end490 ], [ %ulValue.0.ph259, %vaarg.end506 ], [ %ulValue.0.ph259, %vaarg.end523 ], [ %ulValue.0.ph259, %sw.bb529 ]
-  %lValue.4 = phi i64 [ %lValue.2178, %if.end169 ], [ %lValue.0.ph260, %if.end342 ], [ %lValue.0.ph260, %if.end371 ], [ %lValue.0.ph260, %vaarg.end490 ], [ %lValue.0.ph260, %vaarg.end506 ], [ %lValue.0.ph260, %vaarg.end523 ], [ %lValue.0.ph260, %sw.bb529 ]
+  %ullValue.3 = phi i64 [ %ullValue.0.ph259, %if.end169 ], [ %ullValue.4191, %if.end342 ], [ %ullValue.0.ph259, %if.end371 ], [ %ullValue.0.ph259, %vaarg.end490 ], [ %ullValue.0.ph259, %vaarg.end506 ], [ %ullValue.0.ph259, %vaarg.end523 ], [ %ullValue.0.ph259, %sw.bb529 ]
+  %llValue.4 = phi i64 [ %llValue.2178, %if.end169 ], [ %llValue.0.ph260, %if.end342 ], [ %llValue.0.ph260, %if.end371 ], [ %llValue.0.ph260, %vaarg.end490 ], [ %llValue.0.ph260, %vaarg.end506 ], [ %llValue.0.ph260, %vaarg.end523 ], [ %llValue.0.ph260, %sw.bb529 ]
+  %ulValue.3 = phi i64 [ %ulValue.0.ph261, %if.end169 ], [ %ulValue.4193, %if.end342 ], [ %ulValue.0.ph261, %if.end371 ], [ %ulValue.0.ph261, %vaarg.end490 ], [ %ulValue.0.ph261, %vaarg.end506 ], [ %ulValue.0.ph261, %vaarg.end523 ], [ %ulValue.0.ph261, %sw.bb529 ]
+  %lValue.4 = phi i64 [ %lValue.2180, %if.end169 ], [ %lValue.0.ph262, %if.end342 ], [ %lValue.0.ph262, %if.end371 ], [ %lValue.0.ph262, %vaarg.end490 ], [ %lValue.0.ph262, %vaarg.end506 ], [ %lValue.0.ph262, %vaarg.end523 ], [ %lValue.0.ph262, %sw.bb529 ]
   %pBufferData.4 = phi ptr [ %pBufferData.3, %if.end169 ], [ %pBufferData.5, %if.end342 ], [ %call367, %if.end371 ], [ %pBuffer, %vaarg.end490 ], [ %pBuffer, %vaarg.end506 ], [ %pBuffer, %vaarg.end523 ], [ %pBuffer, %sw.bb529 ]
   %nWriteCount.0 = phi i32 [ %conv174, %if.end169 ], [ %conv348, %if.end342 ], [ %conv377, %if.end371 ], [ 1, %vaarg.end490 ], [ 1, %vaarg.end506 ], [ 1, %vaarg.end523 ], [ 1, %sw.bb529 ]
   %call547 = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr noundef %pWriteFunction, ptr noundef %pWriteFunctionContext, ptr noundef nonnull align 4 dereferenceable(40) %fd, ptr noundef nonnull %pBufferData.4, i32 noundef %nWriteCount.0)
@@ -2654,8 +2658,8 @@ entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %pBuffer, i64 16416
   %call = tail call noundef i32 %pWriteFunction(ptr noundef null, i64 noundef 0, ptr noundef %pWriteFunctionContext, i32 noundef 0)
   %0 = load i32, ptr %pFormat, align 4
-  %tobool.not255259 = icmp eq i32 %0, 0
-  br i1 %tobool.not255259, label %return, label %while.cond1.preheader.lr.ph.lr.ph
+  %tobool.not257261 = icmp eq i32 %0, 0
+  br i1 %tobool.not257261, label %return, label %while.cond1.preheader.lr.ph.lr.ph
 
 while.cond1.preheader.lr.ph.lr.ph:                ; preds = %entry
   %overflow_arg_area_p445 = getelementptr inbounds nuw i8, ptr %arguments, i64 8
@@ -2666,23 +2670,23 @@ while.cond1.preheader.lr.ph.lr.ph:                ; preds = %entry
 
 while.cond1.preheader.lr.ph:                      ; preds = %while.cond1.preheader.lr.ph.lr.ph, %while.cond.outer.backedge
   %2 = phi i32 [ %0, %while.cond1.preheader.lr.ph.lr.ph ], [ %134, %while.cond.outer.backedge ]
-  %pFormatCurrent.0.ph265 = phi ptr [ %pFormat, %while.cond1.preheader.lr.ph.lr.ph ], [ %pFormatCurrent.0.ph.be, %while.cond.outer.backedge ]
-  %nWriteCountSum.0.ph264 = phi i32 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %nWriteCountSum.0.ph.be, %while.cond.outer.backedge ]
-  %lValue.0.ph263 = phi i64 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %lValue.0.ph.be, %while.cond.outer.backedge ]
-  %ulValue.0.ph262 = phi i64 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %ulValue.0.ph.be, %while.cond.outer.backedge ]
-  %llValue.0.ph261 = phi i64 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %llValue.0.ph.be, %while.cond.outer.backedge ]
-  %ullValue.0.ph260 = phi i64 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %ullValue.0.ph.be, %while.cond.outer.backedge ]
+  %pFormatCurrent.0.ph267 = phi ptr [ %pFormat, %while.cond1.preheader.lr.ph.lr.ph ], [ %pFormatCurrent.0.ph.be, %while.cond.outer.backedge ]
+  %nWriteCountSum.0.ph266 = phi i32 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %nWriteCountSum.0.ph.be, %while.cond.outer.backedge ]
+  %lValue.0.ph265 = phi i64 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %lValue.0.ph.be, %while.cond.outer.backedge ]
+  %ulValue.0.ph264 = phi i64 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %ulValue.0.ph.be, %while.cond.outer.backedge ]
+  %llValue.0.ph263 = phi i64 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %llValue.0.ph.be, %while.cond.outer.backedge ]
+  %ullValue.0.ph262 = phi i64 [ 0, %while.cond1.preheader.lr.ph.lr.ph ], [ %ullValue.0.ph.be, %while.cond.outer.backedge ]
   br label %while.cond1.preheader
 
 while.cond1.preheader:                            ; preds = %while.cond1.preheader.lr.ph, %while.cond.backedge
   %3 = phi i32 [ %2, %while.cond1.preheader.lr.ph ], [ %115, %while.cond.backedge ]
-  %pFormatCurrent.0257 = phi ptr [ %pFormatCurrent.0.ph265, %while.cond1.preheader.lr.ph ], [ %call12, %while.cond.backedge ]
-  %nWriteCountSum.0256 = phi i32 [ %nWriteCountSum.0.ph264, %while.cond1.preheader.lr.ph ], [ %nWriteCountSum.0.be, %while.cond.backedge ]
+  %pFormatCurrent.0259 = phi ptr [ %pFormatCurrent.0.ph267, %while.cond1.preheader.lr.ph ], [ %call12, %while.cond.backedge ]
+  %nWriteCountSum.0258 = phi i32 [ %nWriteCountSum.0.ph266, %while.cond1.preheader.lr.ph ], [ %nWriteCountSum.0.be, %while.cond.backedge ]
   br label %while.cond1
 
 while.cond1:                                      ; preds = %while.cond1.preheader, %while.body3
   %4 = phi i32 [ %.pr, %while.body3 ], [ %3, %while.cond1.preheader ]
-  %pFormatSpec.0 = phi ptr [ %incdec.ptr, %while.body3 ], [ %pFormatCurrent.0257, %while.cond1.preheader ]
+  %pFormatSpec.0 = phi ptr [ %incdec.ptr, %while.body3 ], [ %pFormatCurrent.0259, %while.cond1.preheader ]
   switch i32 %4, label %while.body3 [
     i32 0, label %while.end
     i32 37, label %while.end
@@ -2695,7 +2699,7 @@ while.body3:                                      ; preds = %while.cond1
 
 while.end:                                        ; preds = %while.cond1, %while.cond1
   %sub.ptr.lhs.cast = ptrtoint ptr %pFormatSpec.0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %pFormatCurrent.0257 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %pFormatCurrent.0259 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 2
   %conv = trunc i64 %sub.ptr.div to i32
@@ -2705,19 +2709,19 @@ while.end:                                        ; preds = %while.cond1, %while
 if.then:                                          ; preds = %while.end
   %sext = shl i64 %sub.ptr.sub, 30
   %conv5 = ashr i64 %sext, 32
-  %call6 = call noundef i32 %pWriteFunction(ptr noundef nonnull %pFormatCurrent.0257, i64 noundef %conv5, ptr noundef %pWriteFunctionContext, i32 noundef 1)
+  %call6 = call noundef i32 %pWriteFunction(ptr noundef nonnull %pFormatCurrent.0259, i64 noundef %conv5, ptr noundef %pWriteFunctionContext, i32 noundef 1)
   %cmp7 = icmp eq i32 %call6, -1
   br i1 %cmp7, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %add = add nsw i32 %nWriteCountSum.0256, %conv
+  %add = add nsw i32 %nWriteCountSum.0258, %conv
   %.pre = load i32, ptr %pFormatSpec.0, align 4
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end, %while.end
   %5 = phi i32 [ %.pre, %if.end ], [ %4, %while.end ]
-  %nWriteCountSum.1 = phi i32 [ %add, %if.end ], [ %nWriteCountSum.0256, %while.end ]
-  %pFormatCurrent.1 = phi ptr [ %pFormatSpec.0, %if.end ], [ %pFormatCurrent.0257, %while.end ]
+  %nWriteCountSum.1 = phi i32 [ %add, %if.end ], [ %nWriteCountSum.0258, %while.end ]
+  %pFormatCurrent.1 = phi ptr [ %pFormatSpec.0, %if.end ], [ %pFormatCurrent.0259, %while.end ]
   %tobool10.not = icmp eq i32 %5, 0
   br i1 %tobool10.not, label %while.cond.outer.backedge, label %if.then11
 
@@ -2772,15 +2776,15 @@ vaarg.in_reg:                                     ; preds = %if.then14
   %9 = getelementptr i8, ptr %reg_save_area, i64 %8
   %10 = add nuw nsw i32 %gp_offset, 8
   store i32 %10, ptr %arguments, align 8
-  br label %if.end155.thread184
+  br label %if.end155.thread186
 
 vaarg.in_mem:                                     ; preds = %if.then14
   %overflow_arg_area = load ptr, ptr %overflow_arg_area_p445, align 8
   %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area, i64 8
   store ptr %overflow_arg_area.next, ptr %overflow_arg_area_p445, align 8
-  br label %if.end155.thread184
+  br label %if.end155.thread186
 
-if.end155.thread184:                              ; preds = %vaarg.in_reg, %vaarg.in_mem
+if.end155.thread186:                              ; preds = %vaarg.in_reg, %vaarg.in_mem
   %vaarg.addr = phi ptr [ %9, %vaarg.in_reg ], [ %overflow_arg_area, %vaarg.in_mem ]
   %11 = load i64, ptr %vaarg.addr, align 8
   br label %if.then158
@@ -2992,23 +2996,23 @@ if.end155:                                        ; preds = %if.else138, %vaarg.
   %cmp157 = icmp eq i32 %7, 5
   br i1 %cmp157, label %if.then158, label %if.else163
 
-if.then158:                                       ; preds = %if.end155.thread184, %if.end155
-  %lValue.2189 = phi i64 [ %lValue.0.ph263, %if.end155.thread184 ], [ %lValue.2, %if.end155 ]
-  %llValue.2188 = phi i64 [ %11, %if.end155.thread184 ], [ %llValue.0.ph261, %if.end155 ]
-  %call.i = call noundef ptr @_ZN2EA4StdC12SprintfLocal15WriteLongHelperIDixyEEPT_RKNS1_10FormatDataET0_S4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, i64 noundef %llValue.2188, ptr noundef nonnull %add.ptr)
+if.then158:                                       ; preds = %if.end155.thread186, %if.end155
+  %lValue.2191 = phi i64 [ %lValue.0.ph265, %if.end155.thread186 ], [ %lValue.2, %if.end155 ]
+  %llValue.2190 = phi i64 [ %11, %if.end155.thread186 ], [ %llValue.0.ph263, %if.end155 ]
+  %call.i = call noundef ptr @_ZN2EA4StdC12SprintfLocal15WriteLongHelperIDixyEEPT_RKNS1_10FormatDataET0_S4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, i64 noundef %llValue.2190, ptr noundef nonnull %add.ptr)
   %tobool160.not = icmp eq ptr %call.i, null
   br i1 %tobool160.not, label %FormatError, label %if.end168
 
 if.else163:                                       ; preds = %vaarg.end44, %vaarg.end74, %vaarg.end115, %vaarg.end89, %vaarg.end59, %if.end155
-  %lValue.2183 = phi i64 [ %lValue.2, %if.end155 ], [ %lValue.0.ph263, %vaarg.end115 ], [ %31, %vaarg.end89 ], [ %27, %vaarg.end74 ], [ %23, %vaarg.end59 ], [ %19, %vaarg.end44 ]
-  %llValue.2181 = phi i64 [ %llValue.0.ph261, %if.end155 ], [ %36, %vaarg.end115 ], [ %llValue.0.ph261, %vaarg.end89 ], [ %llValue.0.ph261, %vaarg.end74 ], [ %llValue.0.ph261, %vaarg.end59 ], [ %llValue.0.ph261, %vaarg.end44 ]
-  %call.i126 = call noundef ptr @_ZN2EA4StdC12SprintfLocal15WriteLongHelperIDilmEEPT_RKNS1_10FormatDataET0_S4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, i64 noundef %lValue.2183, ptr noundef nonnull %add.ptr)
+  %lValue.2185 = phi i64 [ %lValue.2, %if.end155 ], [ %lValue.0.ph265, %vaarg.end115 ], [ %31, %vaarg.end89 ], [ %27, %vaarg.end74 ], [ %23, %vaarg.end59 ], [ %19, %vaarg.end44 ]
+  %llValue.2183 = phi i64 [ %llValue.0.ph263, %if.end155 ], [ %36, %vaarg.end115 ], [ %llValue.0.ph263, %vaarg.end89 ], [ %llValue.0.ph263, %vaarg.end74 ], [ %llValue.0.ph263, %vaarg.end59 ], [ %llValue.0.ph263, %vaarg.end44 ]
+  %call.i126 = call noundef ptr @_ZN2EA4StdC12SprintfLocal15WriteLongHelperIDilmEEPT_RKNS1_10FormatDataET0_S4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, i64 noundef %lValue.2185, ptr noundef nonnull %add.ptr)
   %tobool165.not = icmp eq ptr %call.i126, null
   br i1 %tobool165.not, label %FormatError, label %if.end168
 
 if.end168:                                        ; preds = %if.else163, %if.then158
-  %lValue.2182 = phi i64 [ %lValue.2189, %if.then158 ], [ %lValue.2183, %if.else163 ]
-  %llValue.2180 = phi i64 [ %llValue.2188, %if.then158 ], [ %llValue.2181, %if.else163 ]
+  %lValue.2184 = phi i64 [ %lValue.2191, %if.then158 ], [ %lValue.2185, %if.else163 ]
+  %llValue.2182 = phi i64 [ %llValue.2190, %if.then158 ], [ %llValue.2183, %if.else163 ]
   %pBufferData.3 = phi ptr [ %call.i, %if.then158 ], [ %call.i126, %if.else163 ]
   %sub.ptr.rhs.cast170 = ptrtoint ptr %pBufferData.3 to i64
   %sub.ptr.sub171 = sub i64 %sub.ptr.lhs.cast371, %sub.ptr.rhs.cast170
@@ -3062,15 +3066,15 @@ vaarg.in_reg196:                                  ; preds = %if.then192
   %48 = getelementptr i8, ptr %reg_save_area197, i64 %47
   %49 = add nuw nsw i32 %gp_offset292, 8
   store i32 %49, ptr %arguments, align 8
-  br label %if.end328.thread197
+  br label %if.end328.thread199
 
 vaarg.in_mem198:                                  ; preds = %if.then192
   %overflow_arg_area200 = load ptr, ptr %overflow_arg_area_p445, align 8
   %overflow_arg_area.next201 = getelementptr i8, ptr %overflow_arg_area200, i64 8
   store ptr %overflow_arg_area.next201, ptr %overflow_arg_area_p445, align 8
-  br label %if.end328.thread197
+  br label %if.end328.thread199
 
-if.end328.thread197:                              ; preds = %vaarg.in_reg196, %vaarg.in_mem198
+if.end328.thread199:                              ; preds = %vaarg.in_reg196, %vaarg.in_mem198
   %vaarg.addr203 = phi ptr [ %48, %vaarg.in_reg196 ], [ %overflow_arg_area200, %vaarg.in_mem198 ]
   %50 = load i64, ptr %vaarg.addr203, align 8
   br label %if.then331
@@ -3234,23 +3238,23 @@ if.end328:                                        ; preds = %if.else311, %if.els
   %cmp330 = icmp eq i32 %42, 5
   br i1 %cmp330, label %if.then331, label %if.else336
 
-if.then331:                                       ; preds = %if.end328.thread197, %if.end328
-  %ulValue.4202 = phi i64 [ %ulValue.0.ph262, %if.end328.thread197 ], [ %ulValue.4, %if.end328 ]
-  %ullValue.4201 = phi i64 [ %50, %if.end328.thread197 ], [ %ullValue.0.ph260, %if.end328 ]
-  %call.i127 = call noundef ptr @_ZN2EA4StdC12SprintfLocal15WriteLongHelperIDixyEEPT_RKNS1_10FormatDataET0_S4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, i64 noundef %ullValue.4201, ptr noundef nonnull %add.ptr)
+if.then331:                                       ; preds = %if.end328.thread199, %if.end328
+  %ulValue.4204 = phi i64 [ %ulValue.0.ph264, %if.end328.thread199 ], [ %ulValue.4, %if.end328 ]
+  %ullValue.4203 = phi i64 [ %50, %if.end328.thread199 ], [ %ullValue.0.ph262, %if.end328 ]
+  %call.i127 = call noundef ptr @_ZN2EA4StdC12SprintfLocal15WriteLongHelperIDixyEEPT_RKNS1_10FormatDataET0_S4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, i64 noundef %ullValue.4203, ptr noundef nonnull %add.ptr)
   %tobool333.not = icmp eq ptr %call.i127, null
   br i1 %tobool333.not, label %FormatError, label %if.end341
 
 if.else336:                                       ; preds = %vaarg.end187, %vaarg.end217, %vaarg.end247, %vaarg.in_mem284, %vaarg.in_reg282, %vaarg.end262, %vaarg.end232, %if.else311, %if.end328
-  %ulValue.4196 = phi i64 [ %ulValue.4, %if.end328 ], [ %conv302, %if.else311 ], [ %ulValue.0.ph262, %vaarg.in_mem284 ], [ %ulValue.0.ph262, %vaarg.in_reg282 ], [ %66, %vaarg.end262 ], [ %62, %vaarg.end247 ], [ %58, %vaarg.end232 ], [ %54, %vaarg.end217 ], [ %46, %vaarg.end187 ]
-  %ullValue.4194 = phi i64 [ %ullValue.0.ph260, %if.end328 ], [ %ullValue.0.ph260, %if.else311 ], [ %73, %vaarg.in_mem284 ], [ %71, %vaarg.in_reg282 ], [ %ullValue.0.ph260, %vaarg.end262 ], [ %ullValue.0.ph260, %vaarg.end247 ], [ %ullValue.0.ph260, %vaarg.end232 ], [ %ullValue.0.ph260, %vaarg.end217 ], [ %ullValue.0.ph260, %vaarg.end187 ]
-  %call.i128 = call noundef ptr @_ZN2EA4StdC12SprintfLocal15WriteLongHelperIDilmEEPT_RKNS1_10FormatDataET0_S4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, i64 noundef %ulValue.4196, ptr noundef nonnull %add.ptr)
+  %ulValue.4198 = phi i64 [ %ulValue.4, %if.end328 ], [ %conv302, %if.else311 ], [ %ulValue.0.ph264, %vaarg.in_mem284 ], [ %ulValue.0.ph264, %vaarg.in_reg282 ], [ %66, %vaarg.end262 ], [ %62, %vaarg.end247 ], [ %58, %vaarg.end232 ], [ %54, %vaarg.end217 ], [ %46, %vaarg.end187 ]
+  %ullValue.4196 = phi i64 [ %ullValue.0.ph262, %if.end328 ], [ %ullValue.0.ph262, %if.else311 ], [ %73, %vaarg.in_mem284 ], [ %71, %vaarg.in_reg282 ], [ %ullValue.0.ph262, %vaarg.end262 ], [ %ullValue.0.ph262, %vaarg.end247 ], [ %ullValue.0.ph262, %vaarg.end232 ], [ %ullValue.0.ph262, %vaarg.end217 ], [ %ullValue.0.ph262, %vaarg.end187 ]
+  %call.i128 = call noundef ptr @_ZN2EA4StdC12SprintfLocal15WriteLongHelperIDilmEEPT_RKNS1_10FormatDataET0_S4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, i64 noundef %ulValue.4198, ptr noundef nonnull %add.ptr)
   %tobool338.not = icmp eq ptr %call.i128, null
   br i1 %tobool338.not, label %FormatError, label %if.end341
 
 if.end341:                                        ; preds = %if.else336, %if.then331
-  %ulValue.4195 = phi i64 [ %ulValue.4202, %if.then331 ], [ %ulValue.4196, %if.else336 ]
-  %ullValue.4193 = phi i64 [ %ullValue.4201, %if.then331 ], [ %ullValue.4194, %if.else336 ]
+  %ulValue.4197 = phi i64 [ %ulValue.4204, %if.then331 ], [ %ulValue.4198, %if.else336 ]
+  %ullValue.4195 = phi i64 [ %ullValue.4203, %if.then331 ], [ %ullValue.4196, %if.else336 ]
   %pBufferData.5 = phi ptr [ %call.i127, %if.then331 ], [ %call.i128, %if.else336 ]
   %sub.ptr.rhs.cast343 = ptrtoint ptr %pBufferData.5 to i64
   %sub.ptr.sub344 = sub i64 %sub.ptr.lhs.cast371, %sub.ptr.rhs.cast343
@@ -3299,8 +3303,8 @@ vaarg.end364:                                     ; preds = %vaarg.in_mem360, %v
   br label %if.end367
 
 if.end367:                                        ; preds = %vaarg.end364, %if.then351
-  %.sink360 = phi double [ %86, %vaarg.end364 ], [ %conv355, %if.then351 ]
-  %call366 = call noundef ptr @_ZN2EA4StdC12SprintfLocal11WriteDoubleIDiEEPT_RKNS1_10FormatDataEdS4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, double noundef %.sink360, ptr noundef nonnull %add.ptr)
+  %.sink362 = phi double [ %86, %vaarg.end364 ], [ %conv355, %if.then351 ]
+  %call366 = call noundef ptr @_ZN2EA4StdC12SprintfLocal11WriteDoubleIDiEEPT_RKNS1_10FormatDataEdS4_(ptr noundef nonnull align 4 dereferenceable(40) %fd, double noundef %.sink362, ptr noundef nonnull %add.ptr)
   %tobool368.not = icmp eq ptr %call366, null
   br i1 %tobool368.not, label %FormatError, label %if.end370
 
@@ -3355,7 +3359,8 @@ if.then.i:                                        ; preds = %vaarg.end393
 
 if.then.i.i.i:                                    ; preds = %if.then.i
   %idx.ext.i.i.i = sext i32 %93 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i64 %idx.ext.i.i.i
+  %add.ptr.idx.i.i.i = shl nsw i64 %idx.ext.i.i.i, 2
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i64 %add.ptr.idx.i.i.i
   %cmp211.i.i.i = icmp sgt i32 %93, 0
   br i1 %cmp211.i.i.i, label %land.rhs.i.i.i, label %while.end.i.i.i
 
@@ -3422,44 +3427,45 @@ vaarg.end411:                                     ; preds = %vaarg.in_mem407, %v
 if.then.i134:                                     ; preds = %vaarg.end411
   %101 = load i32, ptr %mnPrecision.i, align 4, !noalias !57
   %cmp.not.i.i.i136 = icmp eq i32 %101, 2147483647
-  br i1 %cmp.not.i.i.i136, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i145, label %if.then.i.i.i137
+  br i1 %cmp.not.i.i.i136, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i146, label %if.then.i.i.i137
 
 if.then.i.i.i137:                                 ; preds = %if.then.i134
   %idx.ext.i.i.i138 = sext i32 %101 to i64
-  %add.ptr.i.i.i139 = getelementptr inbounds i32, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i64 %idx.ext.i.i.i138
-  %cmp211.i.i.i140 = icmp sgt i32 %101, 0
-  br i1 %cmp211.i.i.i140, label %land.rhs.i.i.i148, label %while.end.i.i.i141
+  %add.ptr.idx.i.i.i139 = shl nsw i64 %idx.ext.i.i.i138, 2
+  %add.ptr.i.i.i140 = getelementptr inbounds i8, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i64 %add.ptr.idx.i.i.i139
+  %cmp211.i.i.i141 = icmp sgt i32 %101, 0
+  br i1 %cmp211.i.i.i141, label %land.rhs.i.i.i149, label %while.end.i.i.i142
 
-land.rhs.i.i.i148:                                ; preds = %if.then.i.i.i137, %while.body.i.i.i151
-  %pBufferCurrent.012.i.i.i149 = phi ptr [ %incdec.ptr.i.i.i152, %while.body.i.i.i151 ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, %if.then.i.i.i137 ]
-  %102 = load i32, ptr %pBufferCurrent.012.i.i.i149, align 4, !noalias !57
-  %tobool.not.i.i.i150 = icmp eq i32 %102, 0
-  br i1 %tobool.not.i.i.i150, label %while.end.i.i.i141, label %while.body.i.i.i151
+land.rhs.i.i.i149:                                ; preds = %if.then.i.i.i137, %while.body.i.i.i152
+  %pBufferCurrent.012.i.i.i150 = phi ptr [ %incdec.ptr.i.i.i153, %while.body.i.i.i152 ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, %if.then.i.i.i137 ]
+  %102 = load i32, ptr %pBufferCurrent.012.i.i.i150, align 4, !noalias !57
+  %tobool.not.i.i.i151 = icmp eq i32 %102, 0
+  br i1 %tobool.not.i.i.i151, label %while.end.i.i.i142, label %while.body.i.i.i152
 
-while.body.i.i.i151:                              ; preds = %land.rhs.i.i.i148
-  %incdec.ptr.i.i.i152 = getelementptr inbounds nuw i8, ptr %pBufferCurrent.012.i.i.i149, i64 4
-  %cmp2.i.i.i153 = icmp ult ptr %incdec.ptr.i.i.i152, %add.ptr.i.i.i139
-  br i1 %cmp2.i.i.i153, label %land.rhs.i.i.i148, label %while.end.i.i.i141, !llvm.loop !56
+while.body.i.i.i152:                              ; preds = %land.rhs.i.i.i149
+  %incdec.ptr.i.i.i153 = getelementptr inbounds nuw i8, ptr %pBufferCurrent.012.i.i.i150, i64 4
+  %cmp2.i.i.i154 = icmp ult ptr %incdec.ptr.i.i.i153, %add.ptr.i.i.i140
+  br i1 %cmp2.i.i.i154, label %land.rhs.i.i.i149, label %while.end.i.i.i142, !llvm.loop !56
 
-while.end.i.i.i141:                               ; preds = %while.body.i.i.i151, %land.rhs.i.i.i148, %if.then.i.i.i137
-  %pBufferCurrent.0.lcssa.i.i.i142 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, %if.then.i.i.i137 ], [ %pBufferCurrent.012.i.i.i149, %land.rhs.i.i.i148 ], [ %incdec.ptr.i.i.i152, %while.body.i.i.i151 ]
-  %sub.ptr.lhs.cast.i.i.i143 = ptrtoint ptr %pBufferCurrent.0.lcssa.i.i.i142 to i64
-  %sub.ptr.sub.i.i.i144 = sub i64 %sub.ptr.lhs.cast.i.i.i143, ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E to i64)
-  %103 = lshr exact i64 %sub.ptr.sub.i.i.i144, 2
+while.end.i.i.i142:                               ; preds = %while.body.i.i.i152, %land.rhs.i.i.i149, %if.then.i.i.i137
+  %pBufferCurrent.0.lcssa.i.i.i143 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, %if.then.i.i.i137 ], [ %pBufferCurrent.012.i.i.i150, %land.rhs.i.i.i149 ], [ %incdec.ptr.i.i.i153, %while.body.i.i.i152 ]
+  %sub.ptr.lhs.cast.i.i.i144 = ptrtoint ptr %pBufferCurrent.0.lcssa.i.i.i143 to i64
+  %sub.ptr.sub.i.i.i145 = sub i64 %sub.ptr.lhs.cast.i.i.i144, ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E to i64)
+  %103 = lshr exact i64 %sub.ptr.sub.i.i.i145, 2
   %104 = trunc i64 %103 to i32
-  br label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i145
+  br label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i146
 
-_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i145: ; preds = %while.end.i.i.i141, %if.then.i134
-  %retval.0.in.in.i.i.i146 = phi i32 [ %104, %while.end.i.i.i141 ], [ 6, %if.then.i134 ]
-  %call2.i.i147 = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr noundef %pWriteFunction, ptr noundef %pWriteFunctionContext, ptr noundef nonnull align 4 dereferenceable(40) %fd, ptr noundef nonnull @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i32 noundef %retval.0.in.in.i.i.i146)
+_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i146: ; preds = %while.end.i.i.i142, %if.then.i134
+  %retval.0.in.in.i.i.i147 = phi i32 [ %104, %while.end.i.i.i142 ], [ 6, %if.then.i134 ]
+  %call2.i.i148 = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr noundef %pWriteFunction, ptr noundef %pWriteFunctionContext, ptr noundef nonnull align 4 dereferenceable(40) %fd, ptr noundef nonnull @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i32 noundef %retval.0.in.in.i.i.i147)
   br label %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit
 
 if.else.i131:                                     ; preds = %vaarg.end411
   %call3.i132 = call noundef i32 @_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb0EDsDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiPKDs(ptr noundef nonnull align 1 dereferenceable(1) %helper2.i129, ptr noundef %pWriteFunction, ptr noundef %pWriteFunctionContext, ptr noundef nonnull align 4 dereferenceable(40) %fd, ptr noundef nonnull %pBuffer, ptr noundef nonnull %100)
   br label %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit
 
-_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit: ; preds = %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i145, %if.else.i131
-  %retval.0.i133 = phi i32 [ %call2.i.i147, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i145 ], [ %call3.i132, %if.else.i131 ]
+_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit: ; preds = %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i146, %if.else.i131
+  %retval.0.i133 = phi i32 [ %call2.i.i148, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i146 ], [ %call3.i132, %if.else.i131 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %helper2.i129)
   %cmp415 = icmp slt i32 %retval.0.i133, 0
   br i1 %cmp415, label %FormatError, label %sw.epilog437
@@ -3486,90 +3492,92 @@ vaarg.in_mem425:                                  ; preds = %sw.bb419
 vaarg.end429:                                     ; preds = %vaarg.in_mem425, %vaarg.in_reg423
   %vaarg.addr430 = phi ptr [ %106, %vaarg.in_reg423 ], [ %overflow_arg_area427, %vaarg.in_mem425 ]
   %108 = load ptr, ptr %vaarg.addr430, align 8
-  %cmp.i154 = icmp eq ptr %108, null
+  %cmp.i155 = icmp eq ptr %108, null
   %109 = load i32, ptr %mnPrecision.i, align 4, !noalias !62
-  %cmp.not.i.i.i156 = icmp eq i32 %109, 2147483647
-  br i1 %cmp.i154, label %if.then.i159, label %if.else.i157
+  %cmp.not.i.i.i157 = icmp eq i32 %109, 2147483647
+  br i1 %cmp.i155, label %if.then.i160, label %if.else.i158
 
-if.then.i159:                                     ; preds = %vaarg.end429
-  br i1 %cmp.not.i.i.i156, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i168, label %if.then.i.i.i160
+if.then.i160:                                     ; preds = %vaarg.end429
+  br i1 %cmp.not.i.i.i157, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i170, label %if.then.i.i.i161
 
-if.then.i.i.i160:                                 ; preds = %if.then.i159
-  %idx.ext.i.i.i161 = sext i32 %109 to i64
-  %add.ptr.i.i.i162 = getelementptr inbounds i32, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i64 %idx.ext.i.i.i161
-  %cmp211.i.i.i163 = icmp sgt i32 %109, 0
-  br i1 %cmp211.i.i.i163, label %land.rhs.i.i.i171, label %while.end.i.i.i164
+if.then.i.i.i161:                                 ; preds = %if.then.i160
+  %idx.ext.i.i.i162 = sext i32 %109 to i64
+  %add.ptr.idx.i.i.i163 = shl nsw i64 %idx.ext.i.i.i162, 2
+  %add.ptr.i.i.i164 = getelementptr inbounds i8, ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i64 %add.ptr.idx.i.i.i163
+  %cmp211.i.i.i165 = icmp sgt i32 %109, 0
+  br i1 %cmp211.i.i.i165, label %land.rhs.i.i.i173, label %while.end.i.i.i166
 
-land.rhs.i.i.i171:                                ; preds = %if.then.i.i.i160, %while.body.i.i.i174
-  %pBufferCurrent.012.i.i.i172 = phi ptr [ %incdec.ptr.i.i.i175, %while.body.i.i.i174 ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, %if.then.i.i.i160 ]
-  %110 = load i32, ptr %pBufferCurrent.012.i.i.i172, align 4, !noalias !65
-  %tobool.not.i.i.i173 = icmp eq i32 %110, 0
-  br i1 %tobool.not.i.i.i173, label %while.end.i.i.i164, label %while.body.i.i.i174
+land.rhs.i.i.i173:                                ; preds = %if.then.i.i.i161, %while.body.i.i.i176
+  %pBufferCurrent.012.i.i.i174 = phi ptr [ %incdec.ptr.i.i.i177, %while.body.i.i.i176 ], [ @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, %if.then.i.i.i161 ]
+  %110 = load i32, ptr %pBufferCurrent.012.i.i.i174, align 4, !noalias !65
+  %tobool.not.i.i.i175 = icmp eq i32 %110, 0
+  br i1 %tobool.not.i.i.i175, label %while.end.i.i.i166, label %while.body.i.i.i176
 
-while.body.i.i.i174:                              ; preds = %land.rhs.i.i.i171
-  %incdec.ptr.i.i.i175 = getelementptr inbounds nuw i8, ptr %pBufferCurrent.012.i.i.i172, i64 4
-  %cmp2.i.i.i176 = icmp ult ptr %incdec.ptr.i.i.i175, %add.ptr.i.i.i162
-  br i1 %cmp2.i.i.i176, label %land.rhs.i.i.i171, label %while.end.i.i.i164, !llvm.loop !56
+while.body.i.i.i176:                              ; preds = %land.rhs.i.i.i173
+  %incdec.ptr.i.i.i177 = getelementptr inbounds nuw i8, ptr %pBufferCurrent.012.i.i.i174, i64 4
+  %cmp2.i.i.i178 = icmp ult ptr %incdec.ptr.i.i.i177, %add.ptr.i.i.i164
+  br i1 %cmp2.i.i.i178, label %land.rhs.i.i.i173, label %while.end.i.i.i166, !llvm.loop !56
 
-while.end.i.i.i164:                               ; preds = %while.body.i.i.i174, %land.rhs.i.i.i171, %if.then.i.i.i160
-  %pBufferCurrent.0.lcssa.i.i.i165 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, %if.then.i.i.i160 ], [ %pBufferCurrent.012.i.i.i172, %land.rhs.i.i.i171 ], [ %incdec.ptr.i.i.i175, %while.body.i.i.i174 ]
-  %sub.ptr.lhs.cast.i.i.i166 = ptrtoint ptr %pBufferCurrent.0.lcssa.i.i.i165 to i64
-  %sub.ptr.sub.i.i.i167 = sub i64 %sub.ptr.lhs.cast.i.i.i166, ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E to i64)
-  %111 = lshr exact i64 %sub.ptr.sub.i.i.i167, 2
+while.end.i.i.i166:                               ; preds = %while.body.i.i.i176, %land.rhs.i.i.i173, %if.then.i.i.i161
+  %pBufferCurrent.0.lcssa.i.i.i167 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, %if.then.i.i.i161 ], [ %pBufferCurrent.012.i.i.i174, %land.rhs.i.i.i173 ], [ %incdec.ptr.i.i.i177, %while.body.i.i.i176 ]
+  %sub.ptr.lhs.cast.i.i.i168 = ptrtoint ptr %pBufferCurrent.0.lcssa.i.i.i167 to i64
+  %sub.ptr.sub.i.i.i169 = sub i64 %sub.ptr.lhs.cast.i.i.i168, ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL13kStringNull32E to i64)
+  %111 = lshr exact i64 %sub.ptr.sub.i.i.i169, 2
   %112 = trunc i64 %111 to i32
-  br label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i168
+  br label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i170
 
-_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i168: ; preds = %while.end.i.i.i164, %if.then.i159
-  %retval.0.in.in.i.i.i169 = phi i32 [ %112, %while.end.i.i.i164 ], [ 6, %if.then.i159 ]
-  %call2.i.i170 = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr noundef %pWriteFunction, ptr noundef %pWriteFunctionContext, ptr noundef nonnull align 4 dereferenceable(40) %fd, ptr noundef nonnull @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i32 noundef %retval.0.in.in.i.i.i169)
+_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i170: ; preds = %while.end.i.i.i166, %if.then.i160
+  %retval.0.in.in.i.i.i171 = phi i32 [ %112, %while.end.i.i.i166 ], [ 6, %if.then.i160 ]
+  %call2.i.i172 = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr noundef %pWriteFunction, ptr noundef %pWriteFunctionContext, ptr noundef nonnull align 4 dereferenceable(40) %fd, ptr noundef nonnull @_ZN2EA4StdC12SprintfLocalL13kStringNull32E, i32 noundef %retval.0.in.in.i.i.i171)
   br label %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit
 
-if.else.i157:                                     ; preds = %vaarg.end429
-  br i1 %cmp.not.i.i.i156, label %while.cond4.preheader.i.i26.i, label %if.then.i.i8.i
+if.else.i158:                                     ; preds = %vaarg.end429
+  br i1 %cmp.not.i.i.i157, label %while.cond4.preheader.i.i27.i, label %if.then.i.i8.i
 
-while.cond4.preheader.i.i26.i:                    ; preds = %if.else.i157
-  %wcslen.i.i27.i = call i64 @wcslen(ptr nonnull %108), !noalias !68
-  %113 = shl i64 %wcslen.i.i27.i, 2
-  br label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit28.i
+while.cond4.preheader.i.i27.i:                    ; preds = %if.else.i158
+  %wcslen.i.i28.i = call i64 @wcslen(ptr nonnull %108), !noalias !68
+  %113 = shl i64 %wcslen.i.i28.i, 2
+  br label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit29.i
 
-if.then.i.i8.i:                                   ; preds = %if.else.i157
+if.then.i.i8.i:                                   ; preds = %if.else.i158
   %idx.ext.i.i9.i = sext i32 %109 to i64
-  %add.ptr.i.i10.i = getelementptr inbounds i32, ptr %108, i64 %idx.ext.i.i9.i
-  %cmp211.i.i11.i = icmp sgt i32 %109, 0
-  br i1 %cmp211.i.i11.i, label %land.rhs.i.i20.i, label %while.end.i.i12.i
+  %add.ptr.idx.i.i10.i = shl nsw i64 %idx.ext.i.i9.i, 2
+  %add.ptr.i.i11.i = getelementptr inbounds i8, ptr %108, i64 %add.ptr.idx.i.i10.i
+  %cmp211.i.i12.i = icmp sgt i32 %109, 0
+  br i1 %cmp211.i.i12.i, label %land.rhs.i.i21.i, label %while.end.i.i13.i
 
-land.rhs.i.i20.i:                                 ; preds = %if.then.i.i8.i, %while.body.i.i23.i
-  %pBufferCurrent.012.i.i21.i = phi ptr [ %incdec.ptr.i.i24.i, %while.body.i.i23.i ], [ %108, %if.then.i.i8.i ]
-  %114 = load i32, ptr %pBufferCurrent.012.i.i21.i, align 4, !noalias !68
-  %tobool.not.i.i22.i = icmp eq i32 %114, 0
-  br i1 %tobool.not.i.i22.i, label %while.end.i.i12.i, label %while.body.i.i23.i
+land.rhs.i.i21.i:                                 ; preds = %if.then.i.i8.i, %while.body.i.i24.i
+  %pBufferCurrent.012.i.i22.i = phi ptr [ %incdec.ptr.i.i25.i, %while.body.i.i24.i ], [ %108, %if.then.i.i8.i ]
+  %114 = load i32, ptr %pBufferCurrent.012.i.i22.i, align 4, !noalias !68
+  %tobool.not.i.i23.i = icmp eq i32 %114, 0
+  br i1 %tobool.not.i.i23.i, label %while.end.i.i13.i, label %while.body.i.i24.i
 
-while.body.i.i23.i:                               ; preds = %land.rhs.i.i20.i
-  %incdec.ptr.i.i24.i = getelementptr inbounds nuw i8, ptr %pBufferCurrent.012.i.i21.i, i64 4
-  %cmp2.i.i25.i = icmp ult ptr %incdec.ptr.i.i24.i, %add.ptr.i.i10.i
-  br i1 %cmp2.i.i25.i, label %land.rhs.i.i20.i, label %while.end.i.i12.i, !llvm.loop !56
+while.body.i.i24.i:                               ; preds = %land.rhs.i.i21.i
+  %incdec.ptr.i.i25.i = getelementptr inbounds nuw i8, ptr %pBufferCurrent.012.i.i22.i, i64 4
+  %cmp2.i.i26.i = icmp ult ptr %incdec.ptr.i.i25.i, %add.ptr.i.i11.i
+  br i1 %cmp2.i.i26.i, label %land.rhs.i.i21.i, label %while.end.i.i13.i, !llvm.loop !56
 
-while.end.i.i12.i:                                ; preds = %while.body.i.i23.i, %land.rhs.i.i20.i, %if.then.i.i8.i
-  %pBufferCurrent.0.lcssa.i.i13.i = phi ptr [ %108, %if.then.i.i8.i ], [ %pBufferCurrent.012.i.i21.i, %land.rhs.i.i20.i ], [ %incdec.ptr.i.i24.i, %while.body.i.i23.i ]
-  %sub.ptr.lhs.cast.i.i14.i = ptrtoint ptr %pBufferCurrent.0.lcssa.i.i13.i to i64
+while.end.i.i13.i:                                ; preds = %while.body.i.i24.i, %land.rhs.i.i21.i, %if.then.i.i8.i
+  %pBufferCurrent.0.lcssa.i.i14.i = phi ptr [ %108, %if.then.i.i8.i ], [ %pBufferCurrent.012.i.i22.i, %land.rhs.i.i21.i ], [ %incdec.ptr.i.i25.i, %while.body.i.i24.i ]
+  %sub.ptr.lhs.cast.i.i15.i = ptrtoint ptr %pBufferCurrent.0.lcssa.i.i14.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %108 to i64
-  %sub.ptr.sub.i.i15.i = sub i64 %sub.ptr.lhs.cast.i.i14.i, %sub.ptr.rhs.cast.i.i.i
-  br label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit28.i
+  %sub.ptr.sub.i.i16.i = sub i64 %sub.ptr.lhs.cast.i.i15.i, %sub.ptr.rhs.cast.i.i.i
+  br label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit29.i
 
-_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit28.i: ; preds = %while.end.i.i12.i, %while.cond4.preheader.i.i26.i
-  %retval.0.in.in.i.i16.i = phi i64 [ %sub.ptr.sub.i.i15.i, %while.end.i.i12.i ], [ %113, %while.cond4.preheader.i.i26.i ]
-  %retval.0.in.i.i17.i = lshr exact i64 %retval.0.in.in.i.i16.i, 2
-  %retval.0.i.i18.i = trunc i64 %retval.0.in.i.i17.i to i32
-  %call2.i19.i = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr noundef %pWriteFunction, ptr noundef %pWriteFunctionContext, ptr noundef nonnull align 4 dereferenceable(40) %fd, ptr noundef nonnull %108, i32 noundef %retval.0.i.i18.i)
+_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit29.i: ; preds = %while.end.i.i13.i, %while.cond4.preheader.i.i27.i
+  %retval.0.in.in.i.i17.i = phi i64 [ %sub.ptr.sub.i.i16.i, %while.end.i.i13.i ], [ %113, %while.cond4.preheader.i.i27.i ]
+  %retval.0.in.i.i18.i = lshr exact i64 %retval.0.in.in.i.i17.i, 2
+  %retval.0.i.i19.i = trunc i64 %retval.0.in.i.i18.i to i32
+  %call2.i20.i = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr noundef %pWriteFunction, ptr noundef %pWriteFunctionContext, ptr noundef nonnull align 4 dereferenceable(40) %fd, ptr noundef nonnull %108, i32 noundef %retval.0.i.i19.i)
   br label %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit
 
-_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit: ; preds = %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i168, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit28.i
-  %retval.0.i158 = phi i32 [ %call2.i.i170, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i168 ], [ %call2.i19.i, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit28.i ]
-  %cmp433 = icmp slt i32 %retval.0.i158, 0
+_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit: ; preds = %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i170, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit29.i
+  %retval.0.i159 = phi i32 [ %call2.i.i172, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i170 ], [ %call2.i20.i, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit29.i ]
+  %cmp433 = icmp slt i32 %retval.0.i159, 0
   br i1 %cmp433, label %FormatError, label %sw.epilog437
 
 sw.epilog437:                                     ; preds = %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit
-  %retval.0.i.pn = phi i32 [ %retval.0.i, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %retval.0.i133, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %retval.0.i158, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ]
+  %retval.0.i.pn = phi i32 [ %retval.0.i, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %retval.0.i133, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %retval.0.i159, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ]
   %nWriteCountSum.3 = add nsw i32 %retval.0.i.pn, %nWriteCountSum.1
   br label %while.cond.backedge
 
@@ -3757,10 +3765,10 @@ sw.bb525:                                         ; preds = %if.then11
   br label %sw.epilog542
 
 FormatError:                                      ; preds = %if.then11, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit, %sw.bb377, %sw.bb471, %if.end367, %if.else336, %if.then331, %if.else163, %if.then158
-  %ullValue.2 = phi i64 [ %ullValue.0.ph260, %if.then158 ], [ %ullValue.0.ph260, %if.else163 ], [ %ullValue.4201, %if.then331 ], [ %ullValue.4194, %if.else336 ], [ %ullValue.0.ph260, %if.end367 ], [ %ullValue.0.ph260, %sw.bb471 ], [ %ullValue.0.ph260, %sw.bb377 ], [ %ullValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph260, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph260, %if.then11 ]
-  %llValue.3 = phi i64 [ %llValue.2188, %if.then158 ], [ %llValue.2181, %if.else163 ], [ %llValue.0.ph261, %if.then331 ], [ %llValue.0.ph261, %if.else336 ], [ %llValue.0.ph261, %if.end367 ], [ %llValue.0.ph261, %sw.bb471 ], [ %llValue.0.ph261, %sw.bb377 ], [ %llValue.0.ph261, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph261, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph261, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph261, %if.then11 ]
-  %ulValue.2 = phi i64 [ %ulValue.0.ph262, %if.then158 ], [ %ulValue.0.ph262, %if.else163 ], [ %ulValue.4202, %if.then331 ], [ %ulValue.4196, %if.else336 ], [ %ulValue.0.ph262, %if.end367 ], [ %ulValue.0.ph262, %sw.bb471 ], [ %ulValue.0.ph262, %sw.bb377 ], [ %ulValue.0.ph262, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph262, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph262, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph262, %if.then11 ]
-  %lValue.3 = phi i64 [ %lValue.2189, %if.then158 ], [ %lValue.2183, %if.else163 ], [ %lValue.0.ph263, %if.then331 ], [ %lValue.0.ph263, %if.else336 ], [ %lValue.0.ph263, %if.end367 ], [ %lValue.0.ph263, %sw.bb471 ], [ %lValue.0.ph263, %sw.bb377 ], [ %lValue.0.ph263, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph263, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph263, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph263, %if.then11 ]
+  %ullValue.2 = phi i64 [ %ullValue.0.ph262, %if.then158 ], [ %ullValue.0.ph262, %if.else163 ], [ %ullValue.4203, %if.then331 ], [ %ullValue.4196, %if.else336 ], [ %ullValue.0.ph262, %if.end367 ], [ %ullValue.0.ph262, %sw.bb471 ], [ %ullValue.0.ph262, %sw.bb377 ], [ %ullValue.0.ph262, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph262, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph262, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ullValue.0.ph262, %if.then11 ]
+  %llValue.3 = phi i64 [ %llValue.2190, %if.then158 ], [ %llValue.2183, %if.else163 ], [ %llValue.0.ph263, %if.then331 ], [ %llValue.0.ph263, %if.else336 ], [ %llValue.0.ph263, %if.end367 ], [ %llValue.0.ph263, %sw.bb471 ], [ %llValue.0.ph263, %sw.bb377 ], [ %llValue.0.ph263, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph263, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph263, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %llValue.0.ph263, %if.then11 ]
+  %ulValue.2 = phi i64 [ %ulValue.0.ph264, %if.then158 ], [ %ulValue.0.ph264, %if.else163 ], [ %ulValue.4204, %if.then331 ], [ %ulValue.4198, %if.else336 ], [ %ulValue.0.ph264, %if.end367 ], [ %ulValue.0.ph264, %sw.bb471 ], [ %ulValue.0.ph264, %sw.bb377 ], [ %ulValue.0.ph264, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph264, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph264, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %ulValue.0.ph264, %if.then11 ]
+  %lValue.3 = phi i64 [ %lValue.2191, %if.then158 ], [ %lValue.2185, %if.else163 ], [ %lValue.0.ph265, %if.then331 ], [ %lValue.0.ph265, %if.else336 ], [ %lValue.0.ph265, %if.end367 ], [ %lValue.0.ph265, %sw.bb471 ], [ %lValue.0.ph265, %sw.bb377 ], [ %lValue.0.ph265, %_ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph265, %_ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph265, %_ZN2EA4StdC12SprintfLocal12StringFormatIDiDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit ], [ %lValue.0.ph265, %if.then11 ]
   %sub.ptr.lhs.cast530 = ptrtoint ptr %call12 to i64
   %sub.ptr.sub532 = sub i64 %sub.ptr.lhs.cast530, %sub.ptr.lhs.cast
   %sub.ptr.div533 = lshr exact i64 %sub.ptr.sub532, 2
@@ -3777,21 +3785,21 @@ land.lhs.true:                                    ; preds = %FormatError
   br i1 %cmp539, label %return, label %while.cond.outer.backedge
 
 while.cond.outer.backedge:                        ; preds = %if.end9, %if.end546, %FormatError, %land.lhs.true
-  %ullValue.0.ph.be = phi i64 [ %ullValue.2, %land.lhs.true ], [ %ullValue.2, %FormatError ], [ %ullValue.3, %if.end546 ], [ %ullValue.0.ph260, %if.end9 ]
-  %llValue.0.ph.be = phi i64 [ %llValue.3, %land.lhs.true ], [ %llValue.3, %FormatError ], [ %llValue.4, %if.end546 ], [ %llValue.0.ph261, %if.end9 ]
-  %ulValue.0.ph.be = phi i64 [ %ulValue.2, %land.lhs.true ], [ %ulValue.2, %FormatError ], [ %ulValue.3, %if.end546 ], [ %ulValue.0.ph262, %if.end9 ]
-  %lValue.0.ph.be = phi i64 [ %lValue.3, %land.lhs.true ], [ %lValue.3, %FormatError ], [ %lValue.4, %if.end546 ], [ %lValue.0.ph263, %if.end9 ]
+  %ullValue.0.ph.be = phi i64 [ %ullValue.2, %land.lhs.true ], [ %ullValue.2, %FormatError ], [ %ullValue.3, %if.end546 ], [ %ullValue.0.ph262, %if.end9 ]
+  %llValue.0.ph.be = phi i64 [ %llValue.3, %land.lhs.true ], [ %llValue.3, %FormatError ], [ %llValue.4, %if.end546 ], [ %llValue.0.ph263, %if.end9 ]
+  %ulValue.0.ph.be = phi i64 [ %ulValue.2, %land.lhs.true ], [ %ulValue.2, %FormatError ], [ %ulValue.3, %if.end546 ], [ %ulValue.0.ph264, %if.end9 ]
+  %lValue.0.ph.be = phi i64 [ %lValue.3, %land.lhs.true ], [ %lValue.3, %FormatError ], [ %lValue.4, %if.end546 ], [ %lValue.0.ph265, %if.end9 ]
   %nWriteCountSum.0.ph.be = phi i32 [ %add535, %land.lhs.true ], [ %add535, %FormatError ], [ %add547, %if.end546 ], [ %nWriteCountSum.1, %if.end9 ]
   %pFormatCurrent.0.ph.be = phi ptr [ %call12, %land.lhs.true ], [ %call12, %FormatError ], [ %call12, %if.end546 ], [ %pFormatCurrent.1, %if.end9 ]
   %134 = load i32, ptr %pFormatCurrent.0.ph.be, align 4
-  %tobool.not255 = icmp eq i32 %134, 0
-  br i1 %tobool.not255, label %return, label %while.cond1.preheader.lr.ph, !llvm.loop !71
+  %tobool.not257 = icmp eq i32 %134, 0
+  br i1 %tobool.not257, label %return, label %while.cond1.preheader.lr.ph, !llvm.loop !71
 
 sw.epilog542:                                     ; preds = %vaarg.end489, %vaarg.end504, %vaarg.end520, %sw.bb525, %if.end370, %if.end341, %if.end168
-  %ullValue.3 = phi i64 [ %ullValue.0.ph260, %if.end168 ], [ %ullValue.4193, %if.end341 ], [ %ullValue.0.ph260, %if.end370 ], [ %ullValue.0.ph260, %vaarg.end489 ], [ %ullValue.0.ph260, %vaarg.end504 ], [ %ullValue.0.ph260, %vaarg.end520 ], [ %ullValue.0.ph260, %sw.bb525 ]
-  %llValue.4 = phi i64 [ %llValue.2180, %if.end168 ], [ %llValue.0.ph261, %if.end341 ], [ %llValue.0.ph261, %if.end370 ], [ %llValue.0.ph261, %vaarg.end489 ], [ %llValue.0.ph261, %vaarg.end504 ], [ %llValue.0.ph261, %vaarg.end520 ], [ %llValue.0.ph261, %sw.bb525 ]
-  %ulValue.3 = phi i64 [ %ulValue.0.ph262, %if.end168 ], [ %ulValue.4195, %if.end341 ], [ %ulValue.0.ph262, %if.end370 ], [ %ulValue.0.ph262, %vaarg.end489 ], [ %ulValue.0.ph262, %vaarg.end504 ], [ %ulValue.0.ph262, %vaarg.end520 ], [ %ulValue.0.ph262, %sw.bb525 ]
-  %lValue.4 = phi i64 [ %lValue.2182, %if.end168 ], [ %lValue.0.ph263, %if.end341 ], [ %lValue.0.ph263, %if.end370 ], [ %lValue.0.ph263, %vaarg.end489 ], [ %lValue.0.ph263, %vaarg.end504 ], [ %lValue.0.ph263, %vaarg.end520 ], [ %lValue.0.ph263, %sw.bb525 ]
+  %ullValue.3 = phi i64 [ %ullValue.0.ph262, %if.end168 ], [ %ullValue.4195, %if.end341 ], [ %ullValue.0.ph262, %if.end370 ], [ %ullValue.0.ph262, %vaarg.end489 ], [ %ullValue.0.ph262, %vaarg.end504 ], [ %ullValue.0.ph262, %vaarg.end520 ], [ %ullValue.0.ph262, %sw.bb525 ]
+  %llValue.4 = phi i64 [ %llValue.2182, %if.end168 ], [ %llValue.0.ph263, %if.end341 ], [ %llValue.0.ph263, %if.end370 ], [ %llValue.0.ph263, %vaarg.end489 ], [ %llValue.0.ph263, %vaarg.end504 ], [ %llValue.0.ph263, %vaarg.end520 ], [ %llValue.0.ph263, %sw.bb525 ]
+  %ulValue.3 = phi i64 [ %ulValue.0.ph264, %if.end168 ], [ %ulValue.4197, %if.end341 ], [ %ulValue.0.ph264, %if.end370 ], [ %ulValue.0.ph264, %vaarg.end489 ], [ %ulValue.0.ph264, %vaarg.end504 ], [ %ulValue.0.ph264, %vaarg.end520 ], [ %ulValue.0.ph264, %sw.bb525 ]
+  %lValue.4 = phi i64 [ %lValue.2184, %if.end168 ], [ %lValue.0.ph265, %if.end341 ], [ %lValue.0.ph265, %if.end370 ], [ %lValue.0.ph265, %vaarg.end489 ], [ %lValue.0.ph265, %vaarg.end504 ], [ %lValue.0.ph265, %vaarg.end520 ], [ %lValue.0.ph265, %sw.bb525 ]
   %pBufferData.4 = phi ptr [ %pBufferData.3, %if.end168 ], [ %pBufferData.5, %if.end341 ], [ %call366, %if.end370 ], [ %pBuffer, %vaarg.end489 ], [ %pBuffer, %vaarg.end504 ], [ %pBuffer, %vaarg.end520 ], [ %pBuffer, %sw.bb525 ]
   %nWriteCount.0 = phi i32 [ %conv173, %if.end168 ], [ %conv347, %if.end341 ], [ %conv376, %if.end370 ], [ 1, %vaarg.end489 ], [ 1, %vaarg.end504 ], [ 1, %vaarg.end520 ], [ 1, %sw.bb525 ]
   %call543 = call fastcc noundef i32 @_ZN2EA4StdC12SprintfLocalL11WriteBufferIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataES5_i(ptr noundef %pWriteFunction, ptr noundef %pWriteFunctionContext, ptr noundef nonnull align 4 dereferenceable(40) %fd, ptr noundef nonnull %pBufferData.4, i32 noundef %nWriteCount.0)
@@ -5335,7 +5343,8 @@ while.end:                                        ; preds = %while.cond
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sext = shl i64 %sub.ptr.sub, 31
   %idx.ext = ashr i64 %sext, 32
-  %add.ptr = getelementptr inbounds i16, ptr %pInBufferData, i64 %idx.ext
+  %add.ptr.idx = shl nsw i64 %idx.ext, 1
+  %add.ptr = getelementptr inbounds i8, ptr %pInBufferData, i64 %add.ptr.idx
   %mnPrecision = getelementptr inbounds nuw i8, ptr %fd, i64 16
   %1 = load i32, ptr %mnPrecision, align 4
   %2 = and i64 %sub.ptr.sub, 8589934590
@@ -5575,7 +5584,8 @@ entry:
   %wcslen = tail call i64 @wcslen(ptr %pInBufferData)
   %sext = shl i64 %wcslen, 32
   %idx.ext = ashr exact i64 %sext, 32
-  %add.ptr = getelementptr inbounds i32, ptr %pInBufferData, i64 %idx.ext
+  %add.ptr.idx = ashr exact i64 %sext, 30
+  %add.ptr = getelementptr inbounds i8, ptr %pInBufferData, i64 %add.ptr.idx
   %mnPrecision = getelementptr inbounds nuw i8, ptr %fd, i64 16
   %0 = load i32, ptr %mnPrecision, align 4
   %1 = and i64 %wcslen, 4294967295
@@ -6592,8 +6602,9 @@ if.end185:                                        ; preds = %if.then180, %while.
   br i1 %cmp186, label %while.body194.lr.ph, label %sw.epilog.sink.split
 
 while.body194.lr.ph:                              ; preds = %if.end185
-  %idx.ext189 = zext nneg i32 %28 to i64
-  %add.ptr190 = getelementptr inbounds nuw i16, ptr %pBufferCvt, i64 %idx.ext189
+  %29 = shl nuw i32 %28, 1
+  %add.ptr190.idx = zext i32 %29 to i64
+  %add.ptr190 = getelementptr inbounds nuw i8, ptr %pBufferCvt, i64 %add.ptr190.idx
   %mbDisplayThousands = getelementptr inbounds nuw i8, ptr %fd, i64 32
   %mThousandsSeparator = getelementptr inbounds nuw i8, ptr %fd, i64 36
   br label %while.body194
@@ -6603,12 +6614,12 @@ while.body194:                                    ; preds = %while.body194.lr.ph
   %pCurrentSource.2137 = phi ptr [ %add.ptr190, %while.body194.lr.ph ], [ %incdec.ptr195, %if.end207 ]
   %pCurrent.12136 = phi ptr [ %pCurrent.11, %while.body194.lr.ph ], [ %pCurrent.13, %if.end207 ]
   %incdec.ptr195 = getelementptr inbounds i8, ptr %pCurrentSource.2137, i64 -2
-  %29 = load i16, ptr %incdec.ptr195, align 2
+  %30 = load i16, ptr %incdec.ptr195, align 2
   %incdec.ptr196 = getelementptr inbounds i8, ptr %pCurrent.12136, i64 -2
-  store i16 %29, ptr %incdec.ptr196, align 2
+  store i16 %30, ptr %incdec.ptr196, align 2
   %inc = add nuw nsw i32 %nDigitCount.0138, 1
-  %30 = load i8, ptr %mbDisplayThousands, align 4
-  %tobool197 = trunc i8 %30 to i1
+  %31 = load i8, ptr %mbDisplayThousands, align 4
+  %tobool197 = trunc i8 %31 to i1
   %cmp200 = icmp ugt ptr %incdec.ptr195, %pBufferCvt
   %or.cond5 = and i1 %cmp200, %tobool197
   %rem202 = urem i32 %inc, 3
@@ -6617,8 +6628,8 @@ while.body194:                                    ; preds = %while.body194.lr.ph
   br i1 %or.cond127, label %if.then204, label %if.end207
 
 if.then204:                                       ; preds = %while.body194
-  %31 = load i32, ptr %mThousandsSeparator, align 4
-  %conv205 = trunc i32 %31 to i16
+  %32 = load i32, ptr %mThousandsSeparator, align 4
+  %conv205 = trunc i32 %32 to i16
   %incdec.ptr206 = getelementptr inbounds i8, ptr %pCurrent.12136, i64 -4
   store i16 %conv205, ptr %incdec.ptr206, align 2
   br label %if.end207
@@ -6636,14 +6647,14 @@ sw.epilog.sink.split:                             ; preds = %if.end185, %if.end1
 
 sw.epilog:                                        ; preds = %if.end207, %sw.epilog.sink.split
   %pCurrent.7 = phi ptr [ %incdec.ptr210, %sw.epilog.sink.split ], [ %pCurrent.13, %if.end207 ]
-  %32 = load i32, ptr %nSign, align 4
-  %tobool212.not = icmp eq i32 %32, 0
+  %33 = load i32, ptr %nSign, align 4
+  %tobool212.not = icmp eq i32 %33, 0
   br i1 %tobool212.not, label %if.else215, label %if.end226.sink.split
 
 if.else215:                                       ; preds = %sw.epilog
   %mSign = getelementptr inbounds nuw i8, ptr %fd, i64 4
-  %33 = load i32, ptr %mSign, align 4
-  switch i32 %33, label %if.end226 [
+  %34 = load i32, ptr %mSign, align 4
+  switch i32 %34, label %if.end226 [
     i32 2, label %if.end226.sink.split
     i32 3, label %if.then222
   ]
@@ -6659,8 +6670,8 @@ if.end226.sink.split:                             ; preds = %if.else215, %sw.epi
 
 if.end226:                                        ; preds = %if.end226.sink.split, %if.else215
   %pCurrent.14 = phi ptr [ %pCurrent.7, %if.else215 ], [ %incdec.ptr218, %if.end226.sink.split ]
-  %34 = load i32, ptr %fd, align 4
-  %cmp227 = icmp eq i32 %34, 1
+  %35 = load i32, ptr %fd, align 4
+  %cmp227 = icmp eq i32 %35, 1
   br i1 %cmp227, label %if.then228, label %return
 
 if.then228:                                       ; preds = %if.end226
@@ -6670,8 +6681,8 @@ if.then228:                                       ; preds = %if.end226
   %sub.ptr.div232 = lshr exact i64 %sub.ptr.sub231, 1
   %conv233 = trunc i64 %sub.ptr.div232 to i32
   %mnWidth = getelementptr inbounds nuw i8, ptr %fd, i64 12
-  %35 = load i32, ptr %mnWidth, align 4
-  %cmp235149 = icmp sgt i32 %35, %conv233
+  %36 = load i32, ptr %mnWidth, align 4
+  %cmp235149 = icmp sgt i32 %36, %conv233
   br i1 %cmp235149, label %while.body236, label %return
 
 while.body236:                                    ; preds = %if.then228, %while.body236
@@ -6680,8 +6691,8 @@ while.body236:                                    ; preds = %if.then228, %while.
   %incdec.ptr237 = getelementptr inbounds i8, ptr %pCurrent.16150, i64 -2
   store i16 32, ptr %incdec.ptr237, align 2
   %inc238 = add nsw i32 %nWidth.0151, 1
-  %36 = load i32, ptr %mnWidth, align 4
-  %cmp235 = icmp slt i32 %inc238, %36
+  %37 = load i32, ptr %mnWidth, align 4
+  %cmp235 = icmp slt i32 %inc238, %37
   br i1 %cmp235, label %while.body236, label %return, !llvm.loop !112
 
 return.sink.split:                                ; preds = %if.then14, %if.then
@@ -7556,7 +7567,8 @@ entry:
   %wcslen = tail call i64 @wcslen(ptr %pInBufferData)
   %sext = shl i64 %wcslen, 32
   %idx.ext = ashr exact i64 %sext, 32
-  %add.ptr = getelementptr inbounds i32, ptr %pInBufferData, i64 %idx.ext
+  %add.ptr.idx = ashr exact i64 %sext, 30
+  %add.ptr = getelementptr inbounds i8, ptr %pInBufferData, i64 %add.ptr.idx
   %mnPrecision = getelementptr inbounds nuw i8, ptr %fd, i64 16
   %0 = load i32, ptr %mnPrecision, align 4
   %1 = and i64 %wcslen, 4294967295
@@ -8563,7 +8575,8 @@ if.end173:                                        ; preds = %if.then169, %while.
 
 while.body182.lr.ph:                              ; preds = %if.end173
   %idx.ext177 = zext nneg i32 %27 to i64
-  %add.ptr178 = getelementptr inbounds nuw i32, ptr %pBufferCvt, i64 %idx.ext177
+  %add.ptr178.idx = shl nuw nsw i64 %idx.ext177, 2
+  %add.ptr178 = getelementptr inbounds nuw i8, ptr %pBufferCvt, i64 %add.ptr178.idx
   %mbDisplayThousands = getelementptr inbounds nuw i8, ptr %fd, i64 32
   %mThousandsSeparator = getelementptr inbounds nuw i8, ptr %fd, i64 36
   br label %while.body182
@@ -9533,7 +9546,8 @@ while.end:                                        ; preds = %while.cond
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sext = shl i64 %sub.ptr.sub, 31
   %idx.ext = ashr i64 %sext, 32
-  %add.ptr = getelementptr inbounds i16, ptr %pInBufferData, i64 %idx.ext
+  %add.ptr.idx = shl nsw i64 %idx.ext, 1
+  %add.ptr = getelementptr inbounds i8, ptr %pInBufferData, i64 %add.ptr.idx
   %mnPrecision = getelementptr inbounds nuw i8, ptr %fd, i64 16
   %1 = load i32, ptr %mnPrecision, align 4
   %2 = and i64 %sub.ptr.sub, 8589934590

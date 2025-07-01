@@ -27375,8 +27375,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br i1 %or.cond, label %_ZSt4sortIPN5boost11multi_index6detail14copy_map_entryINS2_20sequenced_index_nodeINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13property_tree11basic_ptreeISE_SE_St4lessISE_EEEESaISL_EEEEEEEEEEvT_SS_.exit, label %91
 
 91:                                               ; preds = %84
+  %.idx = shl nuw nsw i64 %87, 4
   %92 = load ptr, ptr %5, align 8, !tbaa !434
-  %93 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %92, i64 %87
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx
   %94 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %87, i1 true)
   %95 = shl nuw nsw i64 %94, 1
   %96 = xor i64 %95, 126
@@ -28046,7 +28047,8 @@ _ZNK5boost11multi_index6detail8copy_mapINS1_20sequenced_index_nodeINS1_18ordered
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %106 = load ptr, ptr %105, align 8, !tbaa !434
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %108 = getelementptr inbounds nuw %"struct.boost::multi_index::detail::copy_map_entry", ptr %106, i64 %101
+  %.idx = shl nuw nsw i64 %101, 4
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx
   %.not4690 = icmp eq i64 %101, 0
   br i1 %.not4690, label %.loopexit, label %.lr.ph
 

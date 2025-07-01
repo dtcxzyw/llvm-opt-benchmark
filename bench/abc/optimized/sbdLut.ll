@@ -3,7 +3,6 @@ source_filename = "bench/abc/original/sbdLut.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Sbd_Str_t_ = type { i32, i32, [10 x i32], i64 }
 %struct.timespec = type { i64, i64 }
 
 @.str.1 = private unnamed_addr constant [8 x i8] c"%s%d : \00", align 1
@@ -18,7 +17,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i32 @Sbd_ProblemCountParams(i32 noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.Sbd_Str_t_, ptr %1, i64 %3
+  %.idx = mul nsw i64 %3, 56
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -52,7 +52,8 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
   %6 = alloca [6 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #14
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds %struct.Sbd_Str_t_, ptr %4, i64 %7
+  %.idx = mul nsw i64 %7, 56
+  %8 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %9 = icmp sgt i32 %2, 0
   br i1 %9, label %.lr.ph94, label %.loopexit
 
@@ -229,7 +230,8 @@ define void @Sbd_ProblemAddClausesInit(ptr noundef %0, i32 noundef %1, i32 nound
   %6 = alloca [10 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #14
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds %struct.Sbd_Str_t_, ptr %4, i64 %7
+  %.idx = mul nsw i64 %7, 56
+  %8 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %9 = icmp sgt i32 %2, 0
   br i1 %9, label %.lr.ph55, label %._crit_edge56
 
@@ -348,7 +350,8 @@ define void @Sbd_ProblemAddClausesInit(ptr noundef %0, i32 noundef %1, i32 nound
 define void @Sbd_ProblemPrintSolution(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.Sbd_Str_t_, ptr %1, i64 %4
+  %.idx = mul nsw i64 %4, 56
+  %5 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %6 = icmp sgt i32 %0, 0
   br i1 %6, label %.lr.ph36, label %._crit_edge37
 
@@ -436,7 +439,8 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.Sbd_Str_t_, ptr %1, i64 %4
+  %.idx = mul nsw i64 %4, 56
+  %5 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %6 = icmp sgt i32 %0, 0
   br i1 %6, label %.lr.ph46, label %._crit_edge47
 
@@ -596,7 +600,8 @@ Abc_Clock.exit:
   %21 = getelementptr i8, ptr %7, i64 4
   %.val146 = load i32, ptr %21, align 4, !tbaa !35
   %22 = sext i32 %8 to i64
-  %23 = getelementptr inbounds %struct.Sbd_Str_t_, ptr %9, i64 %22
+  %.idx.i = mul nsw i64 %22, 56
+  %23 = getelementptr inbounds i8, ptr %9, i64 %.idx.i
   %24 = icmp sgt i32 %8, 0
   br i1 %24, label %.lr.ph.i, label %Sbd_ProblemCountParams.exit
 

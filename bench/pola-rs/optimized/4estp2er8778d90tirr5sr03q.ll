@@ -128736,7 +128736,8 @@ _ZN11polars_expr11expressions6column10ColumnExpr11process_cse17hf1a45805aecfb53b
 .lr.ph.i:                                         ; preds = %110
   %119 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %120 = load ptr, ptr %119, align 8, !noalias !23239, !nonnull !4, !noundef !4
-  %121 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %120, i64 %115
+  %.idx.i = mul nuw nsw i64 %115, 48
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %.idx.i
   br label %124
 
 ._crit_edge.i:                                    ; preds = %"_ZN4core3ptr115drop_in_place$LT$core..result..Result$LT$$RF$polars_core..frame..column..Column$C$polars_error..PolarsError$GT$$GT$17hd3ccd803830506e5E.exit.i", %110
@@ -130097,7 +130098,8 @@ define void @"_ZN99_$LT$polars_expr..reduce..NullGroupedReduction$u20$as$u20$pol
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define void @"_ZN99_$LT$polars_expr..reduce..NullGroupedReduction$u20$as$u20$polars_expr..reduce..GroupedReduction$GT$28update_groups_while_evicting17ha5af5c56616970b4E"(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef align 16 captures(none) dereferenceable(64) %1, ptr nonnull readnone align 16 captures(none) %2, ptr noalias nonnull readonly align 4 captures(none) %3, i64 %4, ptr noalias noundef nonnull readonly align 4 captures(address) %5, i64 noundef %6, i64 %7) unnamed_addr #14 {
-  %9 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %.idx = shl nuw nsw i64 %6, 2
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %10 = icmp eq i64 %6, 0
   br i1 %10, label %18, label %.lr.ph
 
@@ -132990,7 +132992,8 @@ define void @_ZN11polars_expr5state15execution_state14ExecutionState12finish_tim
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN11polars_expr5state15execution_state14ExecutionState18record_raw_timings17h00c9331e7710bfe9E(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
-  %5 = getelementptr inbounds nuw { i64, i64, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %._crit_edge, label %.lr.ph
 

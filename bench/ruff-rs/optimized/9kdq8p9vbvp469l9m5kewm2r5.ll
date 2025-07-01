@@ -149,7 +149,8 @@ define internal void @"_ZN109_$LT$ruff_formatter..arguments..Arguments$LT$Contex
   %7 = load i64, ptr %6, align 8, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  %8 = getelementptr inbounds nuw { { ptr, ptr } }, ptr %5, i64 %7
+  %.idx.i = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %._crit_edge.i, label %.lr.ph.i
 
@@ -5239,7 +5240,8 @@ _ZN21ruff_python_formatter8comments9placement30handle_pattern_keyword_comment17h
   %1029 = load ptr, ptr %1028, align 8, !noalias !784, !nonnull !3, !noundef !3
   %1030 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %1031 = load i64, ptr %1030, align 8, !noalias !784, !noundef !3
-  %1032 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %1029, i64 %1031
+  %.idx.i = shl nuw nsw i64 %1031, 6
+  %1032 = getelementptr inbounds nuw i8, ptr %1029, i64 %.idx.i
   %1033 = icmp eq i64 %1031, 0
   br i1 %1033, label %._crit_edge.i, label %.lr.ph.i
 

@@ -3124,7 +3124,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hd6657c9b4ac76e70E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 96
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hf9cf28b72dda5fdcE.exit, label %.lr.ph.i
 
@@ -12756,7 +12757,8 @@ _ZN3vim6motion15end_of_document17h804b0c97d0ab0508E.exit: ; preds = %828, %831
   %912 = getelementptr inbounds [0 x ptr], ptr %911, i64 0, i64 %907
   %913 = load ptr, ptr %899, align 8, !noalias !2777, !nonnull !4, !align !90, !noundef !4
   %914 = load i64, ptr %900, align 8, !noalias !2777, !noundef !4
-  %915 = getelementptr inbounds { { { [4 x i32], ptr, ptr }, {} }, i32, [1 x i32] }, ptr %913, i64 %914
+  %.idx.i.i.i.i = mul nsw i64 %914, 40
+  %915 = getelementptr inbounds i8, ptr %913, i64 %.idx.i.i.i.i
   %916 = icmp eq i64 %914, 0
   br i1 %916, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 

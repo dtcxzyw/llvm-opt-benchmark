@@ -1735,7 +1735,8 @@ _ZSt27__uninitialized_default_n_aIP10TimerGroupmS0_ET_S2_T0_RSaIT1_E.exit51: ; p
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
   %58 = tail call ptr @__cxa_begin_catch(ptr %57) #15
-  %59 = getelementptr inbounds %class.TimerGroup, ptr %39, i64 %1
+  %.idx = mul nsw i64 %1, 56
+  %59 = getelementptr inbounds i8, ptr %39, i64 %.idx
   br label %.lr.ph.i.i.i52
 
 .lr.ph.i.i.i52:                                   ; preds = %.body, %.lr.ph.i.i.i52

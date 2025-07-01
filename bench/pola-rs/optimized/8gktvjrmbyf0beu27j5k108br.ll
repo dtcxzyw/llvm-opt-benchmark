@@ -22320,7 +22320,8 @@ define hidden noundef zeroext i1 @"_ZN75_$LT$polars_schema..schema..Schema$LT$D$
   %13 = load ptr, ptr %12, align 8, !nonnull !7, !noundef !7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !7
-  %16 = getelementptr inbounds nuw { i64, { { { ptr, i64, i32, i16, i8, i8 } } }, { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] } }, ptr %13, i64 %15
+  %.idx = mul nuw nsw i64 %15, 104
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %.loopexit, label %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit18.lr.ph
 
@@ -22395,7 +22396,8 @@ define hidden noundef zeroext i1 @"_ZN75_$LT$polars_schema..schema..Schema$LT$D$
   %13 = load ptr, ptr %12, align 8, !nonnull !7, !noundef !7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !7
-  %16 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, i64 }, ptr %13, i64 %15
+  %.idx = mul nuw nsw i64 %15, 80
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %.loopexit, label %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit18.lr.ph
 

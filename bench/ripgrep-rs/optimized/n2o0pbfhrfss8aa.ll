@@ -2366,7 +2366,8 @@ define hidden void @_ZN3std6thread6scoped5scope17hb9fb8a4c153254bbE(ptr noalias 
   %.sroa.4.0.copyload.i16.i.i.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i15.i.i.i.i.i, align 8, !alias.scope !114, !noalias !117, !nonnull !5, !noundef !5
   %.sroa.5.0..sroa_idx.i17.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.5.0.copyload.i18.i.i.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i17.i.i.i.i.i, align 8, !alias.scope !114, !noalias !117
-  %38 = getelementptr inbounds { { ptr, ptr, i64 } }, ptr %.sroa.4.0.copyload.i16.i.i.i.i.i, i64 %.sroa.5.0.copyload.i18.i.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.sroa.5.0.copyload.i18.i.i.i.i.i, 24
+  %38 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i16.i.i.i.i.i, i64 %.idx.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !109
   store ptr %.sroa.4.0.copyload.i16.i.i.i.i.i, ptr %5, align 8, !noalias !109
   %.sroa.423.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8

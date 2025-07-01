@@ -3046,7 +3046,8 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
   tail call void @_ZN4http6header3map6Danger6to_red17h46ab661c77e78aa8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   %24 = load ptr, ptr %23, align 8, !nonnull !21, !align !92, !noundef !21
   %25 = load i64, ptr %10, align 8, !noundef !21
-  %26 = getelementptr inbounds { i16, i16 }, ptr %24, i64 %25
+  %.idx = shl nsw i64 %25, 2
+  %26 = getelementptr inbounds i8, ptr %24, i64 %.idx
   %27 = icmp eq i64 %25, 0
   br i1 %27, label %._crit_edge, label %.lr.ph
 
@@ -3061,7 +3062,8 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8, !alias.scope !579, !nonnull !21, !noundef !21
   %33 = load i64, ptr %6, align 8, !alias.scope !579, !noundef !21
-  %34 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %32, i64 %33
+  %.idx.i = mul nsw i64 %33, 104
+  %34 = getelementptr inbounds i8, ptr %32, i64 %.idx.i
   %35 = icmp eq i64 %33, 0
   br i1 %35, label %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hf0dc069e9c9cdcbaE.exit", label %.lr.ph.i
 
@@ -3603,7 +3605,8 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$5drain17h71ac2092062
   %4 = load ptr, ptr %3, align 8, !nonnull !21, !align !92, !noundef !21
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load i64, ptr %5, align 8, !noundef !21
-  %7 = getelementptr inbounds { i16, i16 }, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 2
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -3649,7 +3652,8 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
   %8 = load ptr, ptr %7, align 8, !nonnull !21, !align !92, !noundef !21
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load i64, ptr %9, align 8, !noundef !21
-  %11 = getelementptr inbounds { i16, i16 }, ptr %8, i64 %10
+  %.idx = shl nsw i64 %10, 2
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc64985bd555ef4aeE.exit.thread", label %.lr.ph
 
@@ -3686,8 +3690,8 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37, !noalias !663
   unreachable
 
-common.resume:                                    ; preds = %50, %52, %21
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %51, %52 ], [ %51, %50 ]
+common.resume:                                    ; preds = %51, %53, %21
+  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %52, %53 ], [ %52, %51 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h0a016f8a9554ef1dE.exit": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc64985bd555ef4aeE.exit.thread"
@@ -3704,7 +3708,7 @@ common.resume:                                    ; preds = %50, %52, %21
   %30 = add i16 %29, -1
   store i16 %30, ptr %28, align 8
   %31 = icmp ugt i64 %.034, %10
-  br i1 %31, label %48, label %45
+  br i1 %31, label %49, label %45
 
 32:                                               ; preds = %.lr.ph, %.thread
   %.sroa.0.078 = phi ptr [ %8, %.lr.ph ], [ %33, %.thread ]
@@ -3730,26 +3734,27 @@ common.resume:                                    ; preds = %50, %52, %21
   br i1 %44, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc64985bd555ef4aeE.exit.thread", label %32
 
 45:                                               ; preds = %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h0a016f8a9554ef1dE.exit"
-  %46 = getelementptr inbounds nuw { i16, i16 }, ptr %8, i64 %.034
-  %47 = icmp eq i64 %.034, %10
-  br i1 %47, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8c3d529afe1378E.exit.thread.preheader", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8c3d529afe1378E.exit"
+  %.idx84 = shl nsw i64 %.034, 2
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx84
+  %47 = getelementptr inbounds { i16, i16 }, ptr %8, i64 %10
+  %48 = icmp eq i64 %.034, %10
+  br i1 %48, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8c3d529afe1378E.exit.thread.preheader", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8c3d529afe1378E.exit"
 
-48:                                               ; preds = %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h0a016f8a9554ef1dE.exit"
+49:                                               ; preds = %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h0a016f8a9554ef1dE.exit"
   invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.034, i64 noundef %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8f37cc3906fcce93576d9d7b4606f951.66) #35
-          to label %104 unwind label %50
+          to label %103 unwind label %51
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8c3d529afe1378E.exit.thread.preheader": ; preds = %"_ZN4http6header3map18HeaderMap$LT$T$GT$23reinsert_entry_in_order17he53092e87d4f6034E.exit", %45
-  %49 = icmp eq i64 %.034, 0
-  br i1 %49, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8c3d529afe1378E.exit.thread._crit_edge", label %.lr.ph83
+  %50 = icmp eq i64 %.034, 0
+  br i1 %50, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8c3d529afe1378E.exit.thread._crit_edge", label %.lr.ph83
 
-50:                                               ; preds = %81, %80, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8c3d529afe1378E.exit.thread._crit_edge", %48
-  %51 = landingpad { ptr, i32 }
+51:                                               ; preds = %81, %80, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8c3d529afe1378E.exit.thread._crit_edge", %49
+  %52 = landingpad { ptr, i32 }
           cleanup
-  br i1 %12, label %common.resume, label %52
+  br i1 %12, label %common.resume, label %53
 
-52:                                               ; preds = %50
-  %53 = shl nsw i64 %10, 2
-  call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef range(i64 1, 0) %53, i64 noundef 2) #34
+53:                                               ; preds = %51
+  call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef range(i64 1, 0) %.idx, i64 noundef 2) #34
   br label %common.resume
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8c3d529afe1378E.exit": ; preds = %45, %"_ZN4http6header3map18HeaderMap$LT$T$GT$23reinsert_entry_in_order17he53092e87d4f6034E.exit"
@@ -3766,10 +3771,10 @@ common.resume:                                    ; preds = %50, %52, %21
   %60 = zext i16 %59 to i64
   br label %61
 
-61:                                               ; preds = %.backedge85, %58
-  %.0.i40 = phi i64 [ %60, %58 ], [ %.0.i40.be, %.backedge85 ]
+61:                                               ; preds = %.backedge86, %58
+  %.0.i40 = phi i64 [ %60, %58 ], [ %.0.i40.be, %.backedge86 ]
   %62 = icmp ult i64 %.0.i40, %27
-  br i1 %62, label %63, label %.backedge85
+  br i1 %62, label %63, label %.backedge86
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds [0 x { i16, i16 }], ptr %26, i64 0, i64 %.0.i40
@@ -3779,9 +3784,9 @@ common.resume:                                    ; preds = %50, %52, %21
 
 66:                                               ; preds = %63
   %67 = add nuw i64 %.0.i40, 1
-  br label %.backedge85
+  br label %.backedge86
 
-.backedge85:                                      ; preds = %66, %61
+.backedge86:                                      ; preds = %66, %61
   %.0.i40.be = phi i64 [ %67, %66 ], [ 0, %61 ]
   br label %61
 
@@ -3793,7 +3798,7 @@ common.resume:                                    ; preds = %50, %52, %21
   br label %"_ZN4http6header3map18HeaderMap$LT$T$GT$23reinsert_entry_in_order17he53092e87d4f6034E.exit"
 
 "_ZN4http6header3map18HeaderMap$LT$T$GT$23reinsert_entry_in_order17he53092e87d4f6034E.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8c3d529afe1378E.exit", %68
-  %71 = icmp eq ptr %54, %11
+  %71 = icmp eq ptr %54, %47
   br i1 %71, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8c3d529afe1378E.exit.thread.preheader", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8c3d529afe1378E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8c3d529afe1378E.exit.thread._crit_edge": ; preds = %"_ZN4http6header3map18HeaderMap$LT$T$GT$23reinsert_entry_in_order17he53092e87d4f6034E.exit50", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8c3d529afe1378E.exit.thread.preheader"
@@ -3804,7 +3809,7 @@ common.resume:                                    ; preds = %50, %52, %21
   %76 = add i64 %75, %72
   %77 = sub i64 %27, %76
   %78 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h3936d435517c38cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %73, i64 noundef %75, i64 noundef %77)
-          to label %.noexc43 unwind label %50
+          to label %.noexc43 unwind label %51
 
 .noexc43:                                         ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e8c3d529afe1378E.exit.thread._crit_edge"
   %79 = extractvalue { i64, i64 } %78, 0
@@ -3815,7 +3820,7 @@ common.resume:                                    ; preds = %50, %52, %21
 
 80:                                               ; preds = %.noexc43
   invoke void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #35
-          to label %.noexc44 unwind label %50
+          to label %.noexc44 unwind label %51
 
 .noexc44:                                         ; preds = %80
   unreachable
@@ -3825,7 +3830,7 @@ common.resume:                                    ; preds = %50, %52, %21
   %83 = icmp eq i64 %79, -9223372036854775807
   %.sroa.33.0.i.i.i = select i1 %83, i64 undef, i64 %82
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %79, i64 noundef %.sroa.33.0.i.i.i) #35
-          to label %.noexc45 unwind label %50
+          to label %.noexc45 unwind label %51
 
 .noexc45:                                         ; preds = %81
   unreachable
@@ -3878,14 +3883,13 @@ common.resume:                                    ; preds = %50, %52, %21
   br i1 %12, label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$http..header..map..Pos$u5d$$GT$$GT$17hfbc3678b54a28a01E.exit51", label %102
 
 102:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17hee61d6f573420e23E.exit"
-  %103 = shl nsw i64 %10, 2
-  call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef range(i64 1, 0) %103, i64 noundef 2) #34
+  call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef range(i64 1, 0) %.idx, i64 noundef 2) #34
   br label %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$http..header..map..Pos$u5d$$GT$$GT$17hfbc3678b54a28a01E.exit51"
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$http..header..map..Pos$u5d$$GT$$GT$17hfbc3678b54a28a01E.exit51": ; preds = %102, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17hee61d6f573420e23E.exit", %2
   ret i1 %5
 
-104:                                              ; preds = %48
+103:                                              ; preds = %49
   unreachable
 }
 

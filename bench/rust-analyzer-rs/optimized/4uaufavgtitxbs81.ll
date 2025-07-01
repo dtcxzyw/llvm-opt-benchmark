@@ -11537,7 +11537,8 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hfac812c4dc94c1e8E.exit.i: ; preds 
   %.sroa.6.sroa.4.0.copyload.i.i.i.i = load i64, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx2.sroa_idx.i.i.i.i, align 8, !noalias !3464
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !3443
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !3465
-  %61 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sroa.6.sroa.0.0.copyload.i.i.i.i, i64 %.sroa.6.sroa.4.0.copyload.i.i.i.i
+  %.idx.i.i.i.i.i = shl nsw i64 %.sroa.6.sroa.4.0.copyload.i.i.i.i, 5
+  %61 = getelementptr inbounds i8, ptr %.sroa.6.sroa.0.0.copyload.i.i.i.i, i64 %.idx.i.i.i.i.i
   store ptr %.sroa.6.sroa.0.0.copyload.i.i.i.i, ptr %9, align 8, !noalias !3465
   store ptr %.sroa.6.sroa.0.0.copyload.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8, !noalias !3465
   store i64 %54, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i, align 8, !noalias !3465
@@ -14315,7 +14316,8 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %37 = load ptr, ptr %36, align 8, !alias.scope !4088, !noalias !4093, !nonnull !9, !noundef !9
   %38 = getelementptr inbounds nuw i8, ptr %.val19, i64 16
   %39 = load i64, ptr %38, align 8, !alias.scope !4088, !noalias !4093, !noundef !9
-  %40 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { { { { { i64, ptr, {} }, i64 } } } } } } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { ptr, [0 x i8] } }, { { ptr, [0 x i8] } }, i64, i64, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { ptr, [4 x i64] }, i8, i8, i8, i8, [4 x i8] }, ptr %37, i64 %39
+  %.idx.i.i.i = mul nsw i64 %39, 432
+  %40 = getelementptr inbounds i8, ptr %37, i64 %.idx.i.i.i
   %41 = icmp eq i64 %39, 0
   br i1 %41, label %.loopexit, label %.lr.ph.i.i.i
 

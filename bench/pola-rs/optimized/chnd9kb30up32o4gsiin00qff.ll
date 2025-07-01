@@ -18945,7 +18945,8 @@ define hidden void @"_ZN12polars_arrow2io3ipc5write6stream21StreamWriter$LT$W$GT
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.6.sroa.8)
   %46 = icmp ult i64 %.sroa.594.0.copyload, 192153584101141163
   tail call void @llvm.assume(i1 %46)
-  %47 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %.sroa.093.0.copyload, i64 %.sroa.594.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.594.0.copyload, 48
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.093.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   store ptr %.sroa.093.0.copyload, ptr %10, align 8
   %.sroa.568.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8

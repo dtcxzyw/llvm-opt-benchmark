@@ -1358,8 +1358,9 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br label %.body
 
 .lr.ph.preheader:                                 ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS2_10RefVariantENS2_10StrVariantEEEESt6vectorISG_SaISG_EEEESt20back_insert_iteratorISK_EET0_T_SP_SO_.exit.i
+  %.idx.i = shl nsw i64 %50, 4
   %81 = load ptr, ptr %49, align 8, !noalias !16
-  %82 = getelementptr inbounds %"class.WasmEdge::Variant", ptr %81, i64 %50
+  %82 = getelementptr inbounds i8, ptr %81, i64 %.idx.i
   %83 = load ptr, ptr %2, align 8, !noalias !16
   %84 = ptrtoint ptr %82 to i64
   %85 = ptrtoint ptr %83 to i64
@@ -2366,8 +2367,9 @@ _ZNSt20back_insert_iteratorISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_
   br i1 %151, label %.lr.ph.i60, label %._crit_edge.i.i.i, !llvm.loop !23
 
 ._crit_edge.i.i.i:                                ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEESaISF_EEEaSEOSF_.exit.i
+  %.idx.i = shl nsw i64 %126, 4
   %152 = load ptr, ptr %125, align 8, !noalias !42
-  %153 = getelementptr inbounds %"class.WasmEdge::Variant", ptr %152, i64 %126
+  %153 = getelementptr inbounds i8, ptr %152, i64 %.idx.i
   %154 = load ptr, ptr %2, align 8, !noalias !42
   %155 = ptrtoint ptr %153 to i64
   %156 = ptrtoint ptr %154 to i64
@@ -4705,7 +4707,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw %"class.WasmEdge::Variant", ptr %57, i64 %51
-  %107 = getelementptr inbounds nuw %"class.WasmEdge::Variant", ptr %106, i64 %52
+  %.idx = shl nuw nsw i64 %52, 4
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx
   %108 = getelementptr i8, ptr %105, i64 2
   %.val = load i8, ptr %108, align 2
   %.off.i.i = add i8 %.val, -119
@@ -5088,7 +5091,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   br i1 %.not, label %194, label %173
 
 173:                                              ; preds = %167
-  %174 = getelementptr inbounds nuw %"class.WasmEdge::Variant", ptr %172, i64 %64
+  %.idx = shl nuw nsw i64 %64, 4
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 %.idx
   %.not9.i = icmp eq i32 %2, 0
   br i1 %.not9.i, label %"_ZSt9transformIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESF_ZNKS0_8Executor8Executor14runArrayCopyOpEjjRKSC_jSJ_RKNS0_3AST13CompositeTypeESN_RKNSK_11InstructionEE3$_0ET0_T_ST_SS_T1_.exit", label %.lr.ph.i
 
@@ -5167,7 +5171,8 @@ _ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlf
   br i1 %.not2.i, label %"_ZSt9transformIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESF_ZNKS0_8Executor8Executor14runArrayCopyOpEjjRKSC_jSJ_RKNS0_3AST13CompositeTypeESN_RKNSK_11InstructionEE3$_0ET0_T_ST_SS_T1_.exit", label %.lr.ph.i117
 
 .lr.ph.i117:                                      ; preds = %194
-  %195 = getelementptr inbounds nuw %"class.WasmEdge::Variant", ptr %172, i64 %64
+  %.idx209 = shl nuw nsw i64 %64, 4
+  %195 = getelementptr inbounds nuw i8, ptr %172, i64 %.idx209
   %196 = getelementptr inbounds nuw %"class.WasmEdge::Variant", ptr %121, i64 %116
   %197 = getelementptr inbounds nuw %"class.WasmEdge::Variant", ptr %196, i64 %64
   %198 = getelementptr i8, ptr %169, i64 2
@@ -5935,7 +5940,8 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
 
 156:                                              ; preds = %118
   %157 = getelementptr inbounds nuw %"struct.WasmEdge::RefVariant", ptr %27, i64 %119
-  %158 = getelementptr inbounds nuw %"struct.WasmEdge::RefVariant", ptr %157, i64 %67
+  %.idx = shl nuw nsw i64 %67, 4
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 %.idx
   %.not8.i = icmp eq i32 %2, 0
   br i1 %.not8.i, label %"_ZSt9transformIPKN8WasmEdge10RefVariantEPNS0_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dS1_NS0_10StrVariantEEEEZNKS0_8Executor8Executor18runArrayInitElemOpEjjjRS2_RKNS0_3AST13CompositeTypeERKNS0_7Runtime8Instance15ElementInstanceERKNSL_11InstructionEE3$_0ET0_T_SZ_SY_T1_.exit", label %.lr.ph.i
 

@@ -66,9 +66,9 @@ do.body10.preheader:                              ; preds = %_ZL18performFunctio
   store ptr %add.ptr.i.i.i.i.i20, ptr %toRemove, align 8
   store i32 0, ptr %Size.i.i.i.i.i21, align 8
   store i32 16, ptr %Capacity2.i.i.i.i.i22, align 4
-  %__begin2.sroa.0.066107 = load ptr, ptr %Next.i.i.i.i.i, align 8
-  %cmp.i25.not67108 = icmp eq ptr %__begin2.sroa.0.066107, %FunctionList.i
-  br i1 %cmp.i25.not67108, label %do.end49, label %for.body17
+  %__begin2.sroa.0.066108 = load ptr, ptr %Next.i.i.i.i.i, align 8
+  %cmp.i25.not67109 = icmp eq ptr %__begin2.sroa.0.066108, %FunctionList.i
+  br i1 %cmp.i25.not67109, label %do.end49, label %for.body17
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZL18performFunctionDCEPN6hermes8FunctionE.exit
   %__begin1.sroa.0.065 = phi ptr [ %__begin1.sroa.0.062, %for.body.lr.ph ], [ %__begin1.sroa.0.0, %_ZL18performFunctionDCEPN6hermes8FunctionE.exit ]
@@ -158,7 +158,7 @@ _ZL18performFunctionDCEPN6hermes8FunctionE.exit:  ; preds = %for.end25.i, %if.th
   br i1 %cmp.i.not, label %do.body10.preheader, label %for.body
 
 for.body17:                                       ; preds = %do.body10.preheader, %for.body17.backedge
-  %__begin2.sroa.0.070 = phi ptr [ %__begin2.sroa.0.070.be, %for.body17.backedge ], [ %__begin2.sroa.0.066107, %do.body10.preheader ]
+  %__begin2.sroa.0.070 = phi ptr [ %__begin2.sroa.0.070.be, %for.body17.backedge ], [ %__begin2.sroa.0.066108, %do.body10.preheader ]
   %changed.269 = phi i1 [ %changed.3, %for.body17.backedge ], [ %changed.0.lcssa, %do.body10.preheader ]
   %localChanged.068 = phi i1 [ %localChanged.068.be, %for.body17.backedge ], [ false, %do.body10.preheader ]
   %9 = load ptr, ptr %cjsModuleFunctionMap_.i, align 8
@@ -293,7 +293,8 @@ for.end32:                                        ; preds = %for.inc30
   %.pre = load ptr, ptr %toRemove, align 8
   %.pre81 = load i32, ptr %Size.i.i.i.i.i21, align 8
   %conv.i = zext i32 %.pre81 to i64
-  %add.ptr.i78 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %conv.i
+  %add.ptr.i78.idx = shl nuw nsw i64 %conv.i, 3
+  %add.ptr.i78 = getelementptr inbounds nuw i8, ptr %.pre, i64 %add.ptr.i78.idx
   %cmp39.not73 = icmp eq i32 %.pre81, 0
   br i1 %cmp39.not73, label %for.end46, label %for.body40
 
@@ -330,11 +331,12 @@ do.body10.backedge:                               ; preds = %_ZN4llvh11SmallVect
   br i1 %cmp.i25.not67, label %do.end49, label %for.body17.backedge
 
 do.end49:                                         ; preds = %_ZN4llvh11SmallVectorIPN6hermes8FunctionELj16EED2Ev.exit, %if.then.i.i, %do.body10.backedge, %do.body10.preheader
-  %changed.2.lcssa909498 = phi i1 [ %changed.0.lcssa, %do.body10.preheader ], [ %changed.3, %do.body10.backedge ], [ %changed.3, %if.then.i.i ], [ %changed.3, %_ZN4llvh11SmallVectorIPN6hermes8FunctionELj16EED2Ev.exit ]
+  %changed.2.lcssa919599 = phi i1 [ %changed.0.lcssa, %do.body10.preheader ], [ %changed.3, %do.body10.backedge ], [ %changed.3, %if.then.i.i ], [ %changed.3, %_ZN4llvh11SmallVectorIPN6hermes8FunctionELj16EED2Ev.exit ]
   %32 = load ptr, ptr %toDestroy, align 8
   %33 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i47 = zext i32 %33 to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %32, i64 %conv.i47
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i47, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %32, i64 %add.ptr.i.idx
   %cmp56.not75 = icmp eq i32 %33, 0
   br i1 %cmp56.not75, label %for.end62, label %for.body57
 
@@ -363,7 +365,7 @@ if.then.i.i50:                                    ; preds = %for.end62
   br label %_ZN4llvh11SmallVectorIPN6hermes8FunctionELj16EED2Ev.exit51
 
 _ZN4llvh11SmallVectorIPN6hermes8FunctionELj16EED2Ev.exit51: ; preds = %for.end62, %if.then.i.i50
-  ret i1 %changed.2.lcssa909498
+  ret i1 %changed.2.lcssa919599
 }
 
 declare noundef zeroext i1 @_ZNK6hermes5Value8hasUsersEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1

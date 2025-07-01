@@ -1175,8 +1175,8 @@ define linkonce_odr void @_ZNK6casadi8Sparsity3setIyEEvPT_PKS2_RKS0_(ptr noundef
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit, label %27
 
 27:                                               ; preds = %26
-  %.idx = shl nsw i64 %18, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %2, i64 %.idx, i1 false)
+  %.idx216 = shl nsw i64 %18, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %2, i64 %.idx216, i1 false)
   br label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit
 
 28:                                               ; preds = %4
@@ -1192,7 +1192,8 @@ define linkonce_odr void @_ZNK6casadi8Sparsity3setIyEEvPT_PKS2_RKS0_(ptr noundef
   br i1 %33, label %34, label %42
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i64, ptr %1, i64 %18
+  %.idx = shl nsw i64 %18, 3
+  %35 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %36 = icmp eq i64 %21, 0
   br i1 %36, label %39, label %37
 
@@ -1224,72 +1225,72 @@ define linkonce_odr void @_ZNK6casadi8Sparsity3setIyEEvPT_PKS2_RKS0_(ptr noundef
   %48 = tail call noundef ptr @_ZNK6casadi8Sparsity3rowEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %49 = tail call noundef ptr @_ZNK6casadi8Sparsity6colindEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %50 = icmp sgt i64 %20, 0
-  br i1 %50, label %.lr.ph240, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit
+  br i1 %50, label %.lr.ph241, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit
 
 .loopexit:                                        ; preds = %89, %60
-  %exitcond246.not = icmp eq i64 %53, %20
-  br i1 %exitcond246.not, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit, label %.lr.ph240, !llvm.loop !59
+  %exitcond247.not = icmp eq i64 %53, %20
+  br i1 %exitcond247.not, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit, label %.lr.ph241, !llvm.loop !59
 
-.lr.ph240:                                        ; preds = %45, %.loopexit
-  %.0139238 = phi i64 [ %53, %.loopexit ], [ 0, %45 ]
-  %51 = getelementptr inbounds nuw i64, ptr %49, i64 %.0139238
+.lr.ph241:                                        ; preds = %45, %.loopexit
+  %.0139239 = phi i64 [ %53, %.loopexit ], [ 0, %45 ]
+  %51 = getelementptr inbounds nuw i64, ptr %49, i64 %.0139239
   %52 = load i64, ptr %51, align 8, !tbaa !35
-  %53 = add nuw nsw i64 %.0139238, 1
+  %53 = add nuw nsw i64 %.0139239, 1
   %54 = getelementptr inbounds nuw i64, ptr %49, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !35
   %56 = icmp slt i64 %52, %55
   br i1 %56, label %57, label %60
 
-57:                                               ; preds = %.lr.ph240
+57:                                               ; preds = %.lr.ph241
   %58 = getelementptr inbounds i64, ptr %48, i64 %52
   %59 = load i64, ptr %58, align 8, !tbaa !35
   br label %60
 
-60:                                               ; preds = %.lr.ph240, %57
-  %61 = phi i64 [ %59, %57 ], [ %19, %.lr.ph240 ]
-  %62 = getelementptr inbounds nuw i64, ptr %47, i64 %.0139238
+60:                                               ; preds = %.lr.ph241, %57
+  %61 = phi i64 [ %59, %57 ], [ %19, %.lr.ph241 ]
+  %62 = getelementptr inbounds nuw i64, ptr %47, i64 %.0139239
   %63 = load i64, ptr %62, align 8, !tbaa !35
   %64 = getelementptr inbounds nuw i64, ptr %47, i64 %53
   %65 = load i64, ptr %64, align 8, !tbaa !35
-  %.not169232 = icmp eq i64 %63, %65
-  br i1 %.not169232, label %.loopexit, label %.lr.ph237
+  %.not169233 = icmp eq i64 %63, %65
+  br i1 %.not169233, label %.loopexit, label %.lr.ph238
 
-.lr.ph237:                                        ; preds = %60, %89
-  %.0140235 = phi i64 [ %.2142, %89 ], [ %52, %60 ]
-  %.0144234 = phi i64 [ %.2146, %89 ], [ %61, %60 ]
-  %.0148233 = phi i64 [ %90, %89 ], [ %63, %60 ]
-  %66 = getelementptr inbounds i64, ptr %46, i64 %.0148233
+.lr.ph238:                                        ; preds = %60, %89
+  %.0140236 = phi i64 [ %.2142, %89 ], [ %52, %60 ]
+  %.0144235 = phi i64 [ %.2146, %89 ], [ %61, %60 ]
+  %.0148234 = phi i64 [ %90, %89 ], [ %63, %60 ]
+  %66 = getelementptr inbounds i64, ptr %46, i64 %.0148234
   %67 = load i64, ptr %66, align 8, !tbaa !35
-  %68 = icmp slt i64 %.0144234, %67
-  br i1 %68, label %.lr.ph229, label %._crit_edge230
+  %68 = icmp slt i64 %.0144235, %67
+  br i1 %68, label %.lr.ph230, label %._crit_edge231
 
-.lr.ph229:                                        ; preds = %.lr.ph237, %74
-  %.1141227 = phi i64 [ %69, %74 ], [ %.0140235, %.lr.ph237 ]
-  %69 = add nsw i64 %.1141227, 1
+.lr.ph230:                                        ; preds = %.lr.ph238, %74
+  %.1141228 = phi i64 [ %69, %74 ], [ %.0140236, %.lr.ph238 ]
+  %69 = add nsw i64 %.1141228, 1
   %70 = icmp slt i64 %69, %55
   br i1 %70, label %71, label %74
 
-71:                                               ; preds = %.lr.ph229
+71:                                               ; preds = %.lr.ph230
   %72 = getelementptr inbounds i64, ptr %48, i64 %69
   %73 = load i64, ptr %72, align 8, !tbaa !35
   br label %74
 
-74:                                               ; preds = %.lr.ph229, %71
-  %75 = phi i64 [ %73, %71 ], [ %19, %.lr.ph229 ]
+74:                                               ; preds = %.lr.ph230, %71
+  %75 = phi i64 [ %73, %71 ], [ %19, %.lr.ph230 ]
   %76 = icmp slt i64 %75, %67
-  br i1 %76, label %.lr.ph229, label %._crit_edge230, !llvm.loop !60
+  br i1 %76, label %.lr.ph230, label %._crit_edge231, !llvm.loop !60
 
-._crit_edge230:                                   ; preds = %74, %.lr.ph237
-  %.1145.lcssa = phi i64 [ %.0144234, %.lr.ph237 ], [ %75, %74 ]
-  %.1141.lcssa = phi i64 [ %.0140235, %.lr.ph237 ], [ %69, %74 ]
+._crit_edge231:                                   ; preds = %74, %.lr.ph238
+  %.1145.lcssa = phi i64 [ %.0144235, %.lr.ph238 ], [ %75, %74 ]
+  %.1141.lcssa = phi i64 [ %.0140236, %.lr.ph238 ], [ %69, %74 ]
   %77 = icmp eq i64 %.1145.lcssa, %67
   br i1 %77, label %78, label %87
 
-78:                                               ; preds = %._crit_edge230
+78:                                               ; preds = %._crit_edge231
   %79 = add nsw i64 %.1141.lcssa, 1
   %80 = getelementptr inbounds i64, ptr %2, i64 %.1141.lcssa
   %81 = load i64, ptr %80, align 8, !tbaa !35
-  %82 = getelementptr inbounds i64, ptr %1, i64 %.0148233
+  %82 = getelementptr inbounds i64, ptr %1, i64 %.0148234
   store i64 %81, ptr %82, align 8, !tbaa !35
   %83 = icmp slt i64 %79, %55
   br i1 %83, label %84, label %89
@@ -1299,18 +1300,18 @@ define linkonce_odr void @_ZNK6casadi8Sparsity3setIyEEvPT_PKS2_RKS0_(ptr noundef
   %86 = load i64, ptr %85, align 8, !tbaa !35
   br label %89
 
-87:                                               ; preds = %._crit_edge230
-  %88 = getelementptr inbounds i64, ptr %1, i64 %.0148233
+87:                                               ; preds = %._crit_edge231
+  %88 = getelementptr inbounds i64, ptr %1, i64 %.0148234
   store i64 0, ptr %88, align 8, !tbaa !35
   br label %89
 
 89:                                               ; preds = %84, %78, %87
   %.2146 = phi i64 [ %.1145.lcssa, %87 ], [ %86, %84 ], [ %19, %78 ]
   %.2142 = phi i64 [ %.1141.lcssa, %87 ], [ %79, %84 ], [ %79, %78 ]
-  %90 = add nsw i64 %.0148233, 1
+  %90 = add nsw i64 %.0148234, 1
   %91 = load i64, ptr %64, align 8, !tbaa !35
   %.not169 = icmp eq i64 %90, %91
-  br i1 %.not169, label %.loopexit, label %.lr.ph237, !llvm.loop !61
+  br i1 %.not169, label %.loopexit, label %.lr.ph238, !llvm.loop !61
 
 92:                                               ; preds = %42
   %93 = icmp eq i64 %19, %23
@@ -1326,11 +1327,11 @@ define linkonce_odr void @_ZNK6casadi8Sparsity3setIyEEvPT_PKS2_RKS0_(ptr noundef
   %98 = tail call noundef ptr @_ZNK6casadi8Sparsity6colindEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %99 = tail call noundef ptr @_ZNK6casadi8Sparsity3rowEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %100 = icmp sgt i64 %18, 0
-  br i1 %100, label %.lr.ph226, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit
+  br i1 %100, label %.lr.ph227, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit
 
-.lr.ph226:                                        ; preds = %97, %111
-  %.0147224 = phi i64 [ %114, %111 ], [ 0, %97 ]
-  %101 = getelementptr inbounds nuw i64, ptr %99, i64 %.0147224
+.lr.ph227:                                        ; preds = %97, %111
+  %.0147225 = phi i64 [ %114, %111 ], [ 0, %97 ]
+  %101 = getelementptr inbounds nuw i64, ptr %99, i64 %.0147225
   %102 = load i64, ptr %101, align 8, !tbaa !35
   %103 = getelementptr inbounds i64, ptr %98, i64 %102
   %104 = load i64, ptr %103, align 8, !tbaa !35
@@ -1339,18 +1340,18 @@ define linkonce_odr void @_ZNK6casadi8Sparsity3setIyEEvPT_PKS2_RKS0_(ptr noundef
   %107 = icmp eq i64 %104, %106
   br i1 %107, label %111, label %108
 
-108:                                              ; preds = %.lr.ph226
+108:                                              ; preds = %.lr.ph227
   %109 = getelementptr inbounds i64, ptr %2, i64 %104
   %110 = load i64, ptr %109, align 8, !tbaa !35
   br label %111
 
-111:                                              ; preds = %.lr.ph226, %108
-  %112 = phi i64 [ %110, %108 ], [ 0, %.lr.ph226 ]
-  %113 = getelementptr inbounds nuw i64, ptr %1, i64 %.0147224
+111:                                              ; preds = %.lr.ph227, %108
+  %112 = phi i64 [ %110, %108 ], [ 0, %.lr.ph227 ]
+  %113 = getelementptr inbounds nuw i64, ptr %1, i64 %.0147225
   store i64 %112, ptr %113, align 8, !tbaa !35
-  %114 = add nuw nsw i64 %.0147224, 1
-  %exitcond245.not = icmp eq i64 %114, %18
-  br i1 %exitcond245.not, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit, label %.lr.ph226, !llvm.loop !62
+  %114 = add nuw nsw i64 %.0147225, 1
+  %exitcond246.not = icmp eq i64 %114, %18
+  br i1 %exitcond246.not, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit, label %.lr.ph227, !llvm.loop !62
 
 115:                                              ; preds = %94
   %116 = icmp eq i64 %20, %22
@@ -1371,11 +1372,11 @@ define linkonce_odr void @_ZNK6casadi8Sparsity3setIyEEvPT_PKS2_RKS0_(ptr noundef
   %120 = tail call noundef ptr @_ZNK6casadi8Sparsity6colindEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %121 = tail call noundef ptr @_ZNK6casadi8Sparsity3rowEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %122 = icmp sgt i64 %21, 0
-  br i1 %122, label %.lr.ph223, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit
+  br i1 %122, label %.lr.ph224, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit
 
-.lr.ph223:                                        ; preds = %._crit_edge, %133
-  %.0138221 = phi i64 [ %134, %133 ], [ 0, %._crit_edge ]
-  %123 = getelementptr inbounds nuw i64, ptr %121, i64 %.0138221
+.lr.ph224:                                        ; preds = %._crit_edge, %133
+  %.0138222 = phi i64 [ %134, %133 ], [ 0, %._crit_edge ]
+  %123 = getelementptr inbounds nuw i64, ptr %121, i64 %.0138222
   %124 = load i64, ptr %123, align 8, !tbaa !35
   %125 = getelementptr inbounds i64, ptr %120, i64 %124
   %126 = load i64, ptr %125, align 8, !tbaa !35
@@ -1384,17 +1385,17 @@ define linkonce_odr void @_ZNK6casadi8Sparsity3setIyEEvPT_PKS2_RKS0_(ptr noundef
   %.not = icmp eq i64 %126, %128
   br i1 %.not, label %133, label %129
 
-129:                                              ; preds = %.lr.ph223
-  %130 = getelementptr inbounds nuw i64, ptr %2, i64 %.0138221
+129:                                              ; preds = %.lr.ph224
+  %130 = getelementptr inbounds nuw i64, ptr %2, i64 %.0138222
   %131 = load i64, ptr %130, align 8, !tbaa !35
   %132 = getelementptr inbounds i64, ptr %1, i64 %126
   store i64 %131, ptr %132, align 8, !tbaa !35
   br label %133
 
-133:                                              ; preds = %129, %.lr.ph223
-  %134 = add nuw nsw i64 %.0138221, 1
+133:                                              ; preds = %129, %.lr.ph224
+  %134 = add nuw nsw i64 %.0138222, 1
   %exitcond.not = icmp eq i64 %134, %21
-  br i1 %exitcond.not, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit, label %.lr.ph223, !llvm.loop !63
+  br i1 %exitcond.not, label %_ZSt4copyIPKyPyET0_T_S4_S3_.exit, label %.lr.ph224, !llvm.loop !63
 
 .critedge:                                        ; preds = %92, %115
   %135 = tail call ptr @__cxa_allocate_exception(i64 40) #21

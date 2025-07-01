@@ -2688,7 +2688,8 @@ define hidden void @_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16Ban
   %.sroa.18 = alloca [6 x i8], align 2
   %.sroa.11 = alloca [6 x i8], align 2
   %.sroa.44 = alloca [6 x i8], align 2
-  %23 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i64 %7
+  %.idx = shl nuw nsw i64 %7, 4
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %24 = icmp eq i64 %7, 0
   br i1 %24, label %._crit_edge, label %.lr.ph
 
@@ -2767,7 +2768,8 @@ define hidden void @_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16Ban
 
 .lr.ph275.lr.ph:                                  ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.44)
-  %43 = getelementptr inbounds nuw { i64, { { { i64, i32, [1 x i32] } } } }, ptr %4, i64 %5
+  %.idx341 = mul nuw nsw i64 %5, 24
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx341
   %.sroa.075.1272308 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 408

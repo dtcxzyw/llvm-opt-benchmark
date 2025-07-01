@@ -466,6 +466,7 @@ call5.i.i.i.i2.i.i1.i.noexc:                      ; preds = %if.end.i.i.i.i.i.i.
   %add.ptr.i.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i1.i38, i64 %23
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !59, !alias.scope !60
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i38, i64 %mul.i.i.i.i.i.i.i
   %24 = load double, ptr %displacement_.i, align 8, !tbaa !77, !noalias !60
   br label %for.body.i.i.i.i.i.i.i.i.i.i
 
@@ -473,12 +474,12 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i1.i38, %call5.i.i.i.i2.i.i1.i.noexc ]
   store double %24, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !77, !noalias !60
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i
+  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %invoke.cont31.thread, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !78
 
 invoke.cont31.thread:                             ; preds = %for.body.i.i.i.i.i.i.i.i.i.i
   %_M_finish.i.i7.i.i118 = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store ptr %add.ptr.i.i.i.i, ptr %_M_finish.i.i7.i.i118, align 8, !tbaa !57, !alias.scope !60
+  store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i118, align 8, !tbaa !57, !alias.scope !60
   br label %invoke.cont33
 
 invoke.cont31:                                    ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i

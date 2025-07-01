@@ -52,7 +52,8 @@ define dso_local void @_ZN5clang24EmitClangCommentHTMLTagsERKN4llvm12RecordKeepe
   %9 = extractvalue { ptr, i64 } %7, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
+  %.idx = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not28 = icmp eq i64 %9, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
@@ -420,7 +421,8 @@ define dso_local void @_ZN5clang34EmitClangCommentHTMLTagsPropertiesERKN4llvm12R
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %.idx = shl nuw nsw i64 %12, 3
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %.not67 = icmp eq i64 %12, 0
   br i1 %.not67, label %._crit_edge, label %.lr.ph
 

@@ -683,7 +683,8 @@ define hidden void @_ZN10serde_json5value2de16visit_object_ref17h15f2c0c82f2210d
   %5 = load ptr, ptr %4, align 8, !nonnull !11, !noundef !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !11
-  %8 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %5, i64 %7
+  %.idx = mul nsw i64 %7, 104
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h960d6cdeddab6b93E.exit.thread.i.thread", label %.lr.ph.i
 

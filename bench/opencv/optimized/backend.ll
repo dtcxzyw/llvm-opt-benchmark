@@ -11793,8 +11793,8 @@ _ZNSt12_Vector_baseIN2cv15highgui_backend11BackendInfoESaIS2_EED2Ev.exit: ; pred
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN2cv15highgui_backend11BackendInfoESaIS2_EEC2ESt16initializer_listIS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %5 = getelementptr inbounds nuw %"struct.cv::highgui_backend::BackendInfo", ptr %1, i64 %2
-  %.idx = mul nuw nsw i64 %2, 56
+  %.idx7 = mul nuw nsw i64 %2, 56
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx7
   %6 = icmp ugt i64 %2, 164703072086692425
   br i1 %6, label %7, label %_ZNSt6vectorIN2cv15highgui_backend11BackendInfoESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
 
@@ -11810,13 +11810,13 @@ _ZNSt6vectorIN2cv15highgui_backend11BackendInfoESaIS2_EE17_S_check_init_lenEmRKS
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN2cv15highgui_backend11BackendInfoESaIS2_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaIN2cv15highgui_backend11BackendInfoEEE8allocateERS3_m.exit.i.i
 
 _ZNSt16allocator_traitsISaIN2cv15highgui_backend11BackendInfoEEE8allocateERS3_m.exit.i.i: ; preds = %_ZNSt6vectorIN2cv15highgui_backend11BackendInfoESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #34
+  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx7) #34
           to label %_ZNSt12_Vector_baseIN2cv15highgui_backend11BackendInfoESaIS2_EE11_M_allocateEm.exit.i unwind label %15
 
 _ZNSt12_Vector_baseIN2cv15highgui_backend11BackendInfoESaIS2_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN2cv15highgui_backend11BackendInfoEEE8allocateERS3_m.exit.i.i, %_ZNSt6vectorIN2cv15highgui_backend11BackendInfoESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %9 = phi ptr [ null, %_ZNSt6vectorIN2cv15highgui_backend11BackendInfoESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %8, %_ZNSt16allocator_traitsISaIN2cv15highgui_backend11BackendInfoEEE8allocateERS3_m.exit.i.i ]
   store ptr %9, ptr %0, align 8, !tbaa !214
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8, !tbaa !306
   %12 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN2cv15highgui_backend11BackendInfoEPS2_ET0_T_S7_S6_(ptr noundef %1, ptr noundef %5, ptr noundef %9)

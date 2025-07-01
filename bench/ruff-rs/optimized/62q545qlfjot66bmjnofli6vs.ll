@@ -523,7 +523,8 @@ common.resume:                                    ; preds = %42, %12
   %24 = load ptr, ptr %23, align 8, !alias.scope !100, !nonnull !3, !noundef !3
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %26 = load i64, ptr %25, align 8, !alias.scope !100, !noundef !3
-  %27 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %24, i64 %26
+  %.idx.i = mul nuw nsw i64 %26, 24
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i
   %28 = icmp eq i64 %26, 0
   br i1 %28, label %._crit_edge.i, label %.lr.ph.i
 
@@ -1045,7 +1046,8 @@ _ZN4core3ops8function6FnOnce9call_once17hb9a2d4e1686efa66E.exit._ZN4core3ops8fun
   %.sroa.0.0.ph.i.i.i = phi i64 [ %.val.pre.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hb9a2d4e1686efa66E.exit._ZN4core3ops8function6FnOnce9call_once17hb9a2d4e1686efa66E.exit.thread_crit_edge.i.i.i.i ], [ %132, %131 ]
   %142 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %143 = load ptr, ptr %142, align 8, !alias.scope !141, !noalias !144, !nonnull !3, !noundef !3
-  %144 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %143, i64 %128
+  %.idx18.i.i.i = mul nuw nsw i64 %128, 24
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 %.idx18.i.i.i
   br label %.lr.ph.i.preheader.i.i.i
 
 .noexc6.i.i:                                      ; preds = %141, %.noexc5.i.i
@@ -1053,14 +1055,15 @@ _ZN4core3ops8function6FnOnce9call_once17hb9a2d4e1686efa66E.exit._ZN4core3ops8fun
   %.pre.i.i.i = load i64, ptr %127, align 8, !alias.scope !141, !noalias !144
   %145 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %146 = load ptr, ptr %145, align 8, !alias.scope !141, !noalias !144, !nonnull !3, !noundef !3
-  %147 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %146, i64 %.pre.i.i.i
+  %.idx.i.i.i = mul nuw nsw i64 %.pre.i.i.i, 24
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 %.idx.i.i.i
   %148 = icmp eq i64 %.pre.i.i.i, 0
   br i1 %148, label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$crossbeam_channel..waker..Entry$GT$$GT$17h412f0528c3d04335E.exit.i.i", label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %.noexc6.i.i, %.thread.i.i.i
   %149 = phi ptr [ %144, %.thread.i.i.i ], [ %147, %.noexc6.i.i ]
   %150 = phi ptr [ %143, %.thread.i.i.i ], [ %146, %.noexc6.i.i ]
-  %.sroa.0.018.i.i.i = phi i64 [ %.sroa.0.0.ph.i.i.i, %.thread.i.i.i ], [ %138, %.noexc6.i.i ]
+  %.sroa.0.019.i.i.i = phi i64 [ %.sroa.0.0.ph.i.i.i, %.thread.i.i.i ], [ %138, %.noexc6.i.i ]
   %151 = phi i64 [ %128, %.thread.i.i.i ], [ %.pre.i.i.i, %.noexc6.i.i ]
   br label %.lr.ph.i.i.i.i
 
@@ -1072,7 +1075,7 @@ _ZN4core3ops8function6FnOnce9call_once17hb9a2d4e1686efa66E.exit._ZN4core3ops8fun
   %154 = load ptr, ptr %152, align 8, !alias.scope !165, !noalias !168, !nonnull !3, !noundef !3
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 24
   %156 = load i64, ptr %155, align 8, !range !154, !noalias !172, !noundef !3
-  %.not.i.i.i.i.i = icmp eq i64 %156, %.sroa.0.018.i.i.i
+  %.not.i.i.i.i.i = icmp eq i64 %156, %.sroa.0.019.i.i.i
   br i1 %.not.i.i.i.i.i, label %"_ZN17crossbeam_channel5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h6856f0474df53290E.exit.i.i.i.i", label %157
 
 157:                                              ; preds = %.lr.ph.i.i.i.i

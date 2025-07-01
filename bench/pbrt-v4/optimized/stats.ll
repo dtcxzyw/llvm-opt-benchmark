@@ -20431,7 +20431,8 @@ _ZSt8_DestroyIPN4pbrt5ImageEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.
 .body:                                            ; preds = %66
   %72 = extractvalue { ptr, i32 } %67, 0
   %73 = tail call ptr @__cxa_begin_catch(ptr %72) #27
-  %74 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %42, i64 %1
+  %.idx = mul nuw nsw i64 %1, 152
+  %74 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx
   br label %.lr.ph.i.i.i46
 
 .lr.ph.i.i.i46:                                   ; preds = %.body, %.lr.ph.i.i.i46

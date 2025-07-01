@@ -20,6 +20,8 @@ $_ZN17XSafeDeleteNoLockIA_18XNMethodTableEntryED2Ev = comdat any
 
 $_ZN7LogImplILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz = comdat any
 
+$_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE23disable_deferred_deleteEv = comdat any
+
 $_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE = comdat any
 
 $_ZN9LogPrefixILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = comdat any
@@ -681,94 +683,106 @@ declare void @_ZN22XNMethodTableIteration17nmethods_do_beginEP18XNMethodTableEnt
 define hidden void @_ZN13XNMethodTable15nmethods_do_endEv() local_unnamed_addr #1 align 2 {
   %1 = load ptr, ptr @CodeCache_lock, align 8
   %.not.i.i = icmp eq ptr %1, null
-  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %2
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit.critedge, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
-2:                                                ; preds = %0
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %0
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %1) #14
-  br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-
-_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %0, %2
   tail call void @_ZN22XNMethodTableIteration15nmethods_do_endEv(ptr noundef nonnull align 64 dereferenceable(72) @_ZN13XNMethodTable10_iterationE) #14
-  %3 = load ptr, ptr @_ZN13XNMethodTable12_safe_deleteE, align 8
-  %.not.i.i1 = icmp eq ptr %3, null
-  br i1 %.not.i.i1, label %_ZN7XLockerI5XLockEC2EPS0_.exit.i, label %4
-
-4:                                                ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #14
-  br label %_ZN7XLockerI5XLockEC2EPS0_.exit.i
-
-_ZN7XLockerI5XLockEC2EPS0_.exit.i:                ; preds = %4, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
-  %7 = add i64 %6, -1
-  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %14
-
-9:                                                ; preds = %_ZN7XLockerI5XLockEC2EPS0_.exit.i
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 24), align 8
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 24), align 8
-  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 16), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 16), align 8
-  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 20), align 4
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 20), align 4
-  %13 = icmp eq i32 %12, 0
-  br label %14
-
-14:                                               ; preds = %9, %_ZN7XLockerI5XLockEC2EPS0_.exit.i
-  %.sroa.9.0.i = phi ptr [ %10, %9 ], [ null, %_ZN7XLockerI5XLockEC2EPS0_.exit.i ]
-  %.sroa.5.0.i = phi i1 [ %13, %9 ], [ true, %_ZN7XLockerI5XLockEC2EPS0_.exit.i ]
-  %.sroa.04.0.i = phi i32 [ %11, %9 ], [ 0, %_ZN7XLockerI5XLockEC2EPS0_.exit.i ]
-  br i1 %.not.i.i1, label %_ZN7XLockerI5XLockED2Ev.exit.i, label %15
-
-15:                                               ; preds = %14
-  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #14
-  br label %_ZN7XLockerI5XLockED2Ev.exit.i
-
-_ZN7XLockerI5XLockED2Ev.exit.i:                   ; preds = %15, %14
-  %17 = icmp eq i32 %.sroa.04.0.i, 0
-  %spec.select.i = select i1 %17, ptr null, ptr %.sroa.9.0.i
-  %18 = sext i32 %.sroa.04.0.i to i64
-  %19 = getelementptr inbounds ptr, ptr %spec.select.i, i64 %18
-  br i1 %17, label %_ZN18XArrayIteratorImplIP18XNMethodTableEntryLb0EE4nextEPS1_.exit.i, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %_ZN7XLockerI5XLockED2Ev.exit.i, %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit.i
-  %.sroa.0.016.i = phi ptr [ %21, %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit.i ], [ %.sroa.9.0.i, %_ZN7XLockerI5XLockED2Ev.exit.i ]
-  %20 = load ptr, ptr %.sroa.0.016.i, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.i, i64 8
-  %22 = icmp eq ptr %20, null
-  br i1 %22, label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit.i, label %23
-
-23:                                               ; preds = %.lr.ph.i
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %20) #14
-  br label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit.i
-
-_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit.i: ; preds = %23, %.lr.ph.i
-  %.not.i = icmp eq ptr %21, %19
-  br i1 %.not.i, label %_ZN18XArrayIteratorImplIP18XNMethodTableEntryLb0EE4nextEPS1_.exit.i, label %.lr.ph.i, !llvm.loop !11
-
-_ZN18XArrayIteratorImplIP18XNMethodTableEntryLb0EE4nextEPS1_.exit.i: ; preds = %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit.i, %_ZN7XLockerI5XLockED2Ev.exit.i
-  %.not.i.i.i.i = icmp eq ptr %.sroa.9.0.i, null
-  %or.cond.i = select i1 %.sroa.5.0.i, i1 true, i1 %.not.i.i.i.i
-  br i1 %or.cond.i, label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE23disable_deferred_deleteEv.exit, label %.loopexit.thread.i.i.i.i
-
-.loopexit.thread.i.i.i.i:                         ; preds = %_ZN18XArrayIteratorImplIP18XNMethodTableEntryLb0EE4nextEPS1_.exit.i
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.9.0.i) #14
-  br label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE23disable_deferred_deleteEv.exit
-
-_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE23disable_deferred_deleteEv.exit: ; preds = %_ZN18XArrayIteratorImplIP18XNMethodTableEntryLb0EE4nextEPS1_.exit.i, %.loopexit.thread.i.i.i.i
-  %24 = load ptr, ptr @CodeCache_lock, align 8
-  tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %24) #14
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %25
-
-25:                                               ; preds = %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE23disable_deferred_deleteEv.exit
+  tail call void @_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE23disable_deferred_deleteEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN13XNMethodTable12_safe_deleteE)
+  %2 = load ptr, ptr @CodeCache_lock, align 8
+  tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #14
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %1) #14
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE23disable_deferred_deleteEv.exit, %25
+_ZN11MutexLockerD2Ev.exit.critedge:               ; preds = %0
+  tail call void @_ZN22XNMethodTableIteration15nmethods_do_endEv(ptr noundef nonnull align 64 dereferenceable(72) @_ZN13XNMethodTable10_iterationE) #14
+  tail call void @_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE23disable_deferred_deleteEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN13XNMethodTable12_safe_deleteE)
+  %3 = load ptr, ptr @CodeCache_lock, align 8
+  tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #14
+  br label %_ZN11MutexLockerD2Ev.exit
+
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerD2Ev.exit.critedge, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   ret void
 }
 
 declare void @_ZN22XNMethodTableIteration15nmethods_do_endEv(ptr noundef nonnull align 64 dereferenceable(72)) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE23disable_deferred_deleteEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #1 comdat align 2 {
+  %2 = load ptr, ptr %0, align 8
+  %.not.i = icmp eq ptr %2, null
+  br i1 %.not.i, label %_ZN7XLockerI5XLockEC2EPS0_.exit, label %3
+
+3:                                                ; preds = %1
+  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #14
+  br label %_ZN7XLockerI5XLockEC2EPS0_.exit
+
+_ZN7XLockerI5XLockEC2EPS0_.exit:                  ; preds = %1, %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8
+  %7 = add i64 %6, -1
+  store i64 %7, ptr %5, align 8
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %9, label %17
+
+9:                                                ; preds = %_ZN7XLockerI5XLockEC2EPS0_.exit
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = load ptr, ptr %11, align 8
+  store ptr null, ptr %11, align 8
+  %13 = load i32, ptr %10, align 8
+  store i32 0, ptr %10, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %15 = load i32, ptr %14, align 4
+  store i32 0, ptr %14, align 4
+  %16 = icmp eq i32 %15, 0
+  br label %17
+
+17:                                               ; preds = %9, %_ZN7XLockerI5XLockEC2EPS0_.exit
+  %.sroa.9.0 = phi ptr [ %12, %9 ], [ null, %_ZN7XLockerI5XLockEC2EPS0_.exit ]
+  %.sroa.5.0 = phi i1 [ %16, %9 ], [ true, %_ZN7XLockerI5XLockEC2EPS0_.exit ]
+  %.sroa.04.0 = phi i32 [ %13, %9 ], [ 0, %_ZN7XLockerI5XLockEC2EPS0_.exit ]
+  br i1 %.not.i, label %_ZN7XLockerI5XLockED2Ev.exit, label %18
+
+18:                                               ; preds = %17
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #14
+  br label %_ZN7XLockerI5XLockED2Ev.exit
+
+_ZN7XLockerI5XLockED2Ev.exit:                     ; preds = %17, %18
+  %20 = icmp eq i32 %.sroa.04.0, 0
+  %spec.select = select i1 %20, ptr null, ptr %.sroa.9.0
+  %21 = sext i32 %.sroa.04.0 to i64
+  %.idx = shl nsw i64 %21, 3
+  %22 = getelementptr inbounds i8, ptr %spec.select, i64 %.idx
+  br i1 %20, label %_ZN18XArrayIteratorImplIP18XNMethodTableEntryLb0EE4nextEPS1_.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %_ZN7XLockerI5XLockED2Ev.exit, %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit
+  %.sroa.0.016 = phi ptr [ %24, %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit ], [ %.sroa.9.0, %_ZN7XLockerI5XLockED2Ev.exit ]
+  %23 = load ptr, ptr %.sroa.0.016, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.016, i64 8
+  %25 = icmp eq ptr %23, null
+  br i1 %25, label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit, label %26
+
+26:                                               ; preds = %.lr.ph
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %23) #14
+  br label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit
+
+_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit: ; preds = %.lr.ph, %26
+  %.not = icmp eq ptr %24, %22
+  br i1 %.not, label %_ZN18XArrayIteratorImplIP18XNMethodTableEntryLb0EE4nextEPS1_.exit, label %.lr.ph, !llvm.loop !11
+
+_ZN18XArrayIteratorImplIP18XNMethodTableEntryLb0EE4nextEPS1_.exit: ; preds = %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit, %_ZN7XLockerI5XLockED2Ev.exit
+  %.not.i.i.i = icmp eq ptr %.sroa.9.0, null
+  %or.cond = select i1 %.sroa.5.0, i1 true, i1 %.not.i.i.i
+  br i1 %or.cond, label %_ZN18GrowableArrayCHeapIP18XNMethodTableEntryL8MEMFLAGS5EED2Ev.exit, label %.loopexit.thread.i.i.i
+
+.loopexit.thread.i.i.i:                           ; preds = %_ZN18XArrayIteratorImplIP18XNMethodTableEntryLb0EE4nextEPS1_.exit
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.9.0) #14
+  br label %_ZN18GrowableArrayCHeapIP18XNMethodTableEntryL8MEMFLAGS5EED2Ev.exit
+
+_ZN18GrowableArrayCHeapIP18XNMethodTableEntryL8MEMFLAGS5EED2Ev.exit: ; preds = %.loopexit.thread.i.i.i, %_ZN18XArrayIteratorImplIP18XNMethodTableEntryLb0EE4nextEPS1_.exit
+  ret void
+}
 
 declare void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #0
 

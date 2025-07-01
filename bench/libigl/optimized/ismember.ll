@@ -126,7 +126,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS
   %56 = load i64, ptr %55, align 8, !tbaa !4
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %58 = load i64, ptr %57, align 8, !tbaa !11
-  %59 = mul i64 %58, %56
+  %59 = mul nsw i64 %58, %56
   %60 = icmp slt i64 %59, 1
   br i1 %60, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKi.exit, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKi.exit.loopexit
 

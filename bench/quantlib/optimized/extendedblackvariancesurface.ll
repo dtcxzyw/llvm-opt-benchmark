@@ -1415,7 +1415,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %do.end88
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad92
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %add.ptr.i.i.i = getelementptr double, ptr %call5.i.i.i.i2.i.i91, i64 %add
+  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i91, i64 %add
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i91, align 8, !tbaa !82
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i91, i64 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %20, %21
@@ -1424,10 +1424,11 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %_ZNSt6vectorIdSaIdE
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
   %75 = add nsw i64 %mul.i.i.i.i.i.i, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %75, i1 false), !tbaa !82
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.ptr.sub.i
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %call5.i.i.i.i2.i.i.noexc, %if.end.i.i.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i92 = getelementptr inbounds nuw i8, ptr %this, i64 136
   %_M_end_of_storage.i.i.i.i93 = getelementptr inbounds nuw i8, ptr %this, i64 144
   store ptr %call5.i.i.i.i2.i.i91, ptr %times_, align 8, !tbaa !51
@@ -3137,7 +3138,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %do.end84
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad88
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %add.ptr.i.i.i = getelementptr double, ptr %call5.i.i.i.i2.i.i95, i64 %add
+  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i95, i64 %add
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i95, align 8, !tbaa !82
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i95, i64 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %18, %19
@@ -3146,10 +3147,11 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %_ZNSt6vectorIdSaIdE
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
   %73 = add nsw i64 %mul.i.i.i.i.i.i, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %73, i1 false), !tbaa !82
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.ptr.sub.i
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %call5.i.i.i.i2.i.i.noexc, %if.end.i.i.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i96 = getelementptr inbounds nuw i8, ptr %this, i64 136
   %_M_end_of_storage.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %this, i64 144
   store ptr %call5.i.i.i.i2.i.i95, ptr %times_, align 8, !tbaa !51

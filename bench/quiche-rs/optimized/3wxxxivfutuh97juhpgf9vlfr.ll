@@ -3816,7 +3816,8 @@ define { i64, i64 } @_ZN6quiche7testing14process_flight17hd36d6402399278d1E(ptr 
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !290, !noalias !293
   %7 = icmp ult i64 %.sroa.5.0.copyload.i, 88686269585142076
   tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { i16, [15 x i16] }, { i16, [15 x i16] }, { { { i64, i32, [1 x i32] } } } } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nuw nsw i64 %.sroa.5.0.copyload.i, 104
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   %9 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   tail call void @llvm.assume(i1 %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
@@ -4399,7 +4400,8 @@ define void @_ZN6quiche7testing10encode_pkt17hdb508194cc8ec1b9E(ptr dead_on_unwi
   br label %149
 
 105:                                              ; preds = %100
-  %106 = getelementptr inbounds nuw { i64, [15 x i64] }, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 7
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %107 = icmp eq i64 %4, 0
   br i1 %107, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h904c2698c84a8ec1E.exit", label %.preheader154
 
@@ -5773,7 +5775,8 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17h2dbdcea4b31e0bf
   br i1 %.not48, label %17, label %.loopexit101
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %2, i64 %3
+  %.idx = mul nuw nsw i64 %3, 48
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %19 = icmp eq i64 %3, 0
   br i1 %19, label %._crit_edge, label %.lr.ph
 
@@ -5807,7 +5810,8 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17h2dbdcea4b31e0bf
   %37 = load ptr, ptr %36, align 8, !noalias !393, !nonnull !3, !align !396, !noundef !3
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load i64, ptr %38, align 8, !noalias !393, !noundef !3
-  %40 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr %37, i64 %39
+  %.idx.i = shl nuw nsw i64 %39, 5
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i
   %41 = icmp eq i64 %39, 0
   br i1 %41, label %.loopexit99, label %.lr.ph33.i
 

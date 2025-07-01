@@ -3537,7 +3537,8 @@ define linkonce_odr hidden noundef ptr @_ZNK9table2mapI17default_map_entryIj8rat
   %11 = and i32 %10, %4
   %12 = load ptr, ptr %0, align 8, !tbaa !215
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %class.default_map_entry, ptr %12, i64 %13
+  %.idx.i = mul nuw nsw i64 %13, 48
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %15 = zext i32 %9 to i64
   %16 = getelementptr inbounds nuw %class.default_map_entry, ptr %12, i64 %15
   %.not30.i = icmp eq i32 %11, %9
@@ -3735,7 +3736,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %18 = and i32 %17, %16
   %19 = load ptr, ptr %0, align 8, !tbaa !215
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw %class.default_map_entry, ptr %19, i64 %20
+  %.idx = mul nuw nsw i64 %20, 48
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %22 = zext i32 %15 to i64
   %23 = getelementptr inbounds nuw %class.default_map_entry, ptr %19, i64 %22
   %.not63 = icmp eq i32 %18, %15
@@ -4240,7 +4242,8 @@ declare void @_Z18invoke_exit_actionj(i32 noundef) local_unnamed_addr #0
 define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE10move_tableEPS2_jSA_j(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 comdat align 2 {
   %5 = add i32 %3, -1
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %class.default_map_entry, ptr %0, i64 %6
+  %.idx = mul nuw nsw i64 %6, 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %8 = zext i32 %3 to i64
   %9 = getelementptr inbounds nuw %class.default_map_entry, ptr %2, i64 %8
   %.not38 = icmp eq i32 %1, 0
@@ -4260,7 +4263,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %14 = load i32, ptr %.02839, align 8, !tbaa !209
   %15 = and i32 %14, %5
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %class.default_map_entry, ptr %2, i64 %16
+  %.idx44 = mul nuw nsw i64 %16, 48
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx44
   %.not2933 = icmp eq i32 %15, %3
   br i1 %.not2933, label %.preheader, label %.lr.ph
 
@@ -4613,7 +4617,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %7 = and i32 %6, %3
   %8 = load ptr, ptr %0, align 8, !tbaa !215
   %9 = zext i32 %7 to i64
-  %10 = getelementptr inbounds nuw %class.default_map_entry, ptr %8, i64 %9
+  %.idx = mul nuw nsw i64 %9, 48
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %11 = zext i32 %5 to i64
   %12 = getelementptr inbounds nuw %class.default_map_entry, ptr %8, i64 %11
   %.not39 = icmp eq i32 %7, %5
@@ -4992,7 +4997,8 @@ _ZN5u_mapI8rationalEC2Ev.exit:                    ; preds = %.lr.ph.i.i.i.i.i.i.
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !216
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %class.default_map_entry, ptr %21, i64 %24
+  %.idx.i.i.i = mul nuw nsw i64 %24, 48
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i
   %.not1.i.i.i.i.i = icmp eq i32 %23, 0
   br i1 %.not1.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i
 
@@ -5006,54 +5012,55 @@ _ZN5u_mapI8rationalEC2Ev.exit:                    ; preds = %.lr.ph.i.i.i.i.i.i.
 29:                                               ; preds = %.lr.ph.i.i.i.i.i
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 48
   %.not.i.i.i.i.i = icmp eq ptr %30, %25
-  br i1 %.not.i.i.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i.i.i, !llvm.loop !235
+  br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !235
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %_ZN5u_mapI8rationalEC2Ev.exit
-  %.sroa.0.1.i.i.i = phi ptr [ %21, %_ZN5u_mapI8rationalEC2Ev.exit ], [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %.not23 = icmp eq ptr %.sroa.0.1.i.i.i, %25
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %29, %_ZN5u_mapI8rationalEC2Ev.exit
+  %.sroa.0.1.i.i.i = phi ptr [ %21, %_ZN5u_mapI8rationalEC2Ev.exit ], [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i.i.i ], [ %25, %29 ]
+  %31 = getelementptr inbounds nuw %class.default_map_entry, ptr %21, i64 %24
+  %.not23 = icmp eq ptr %.sroa.0.1.i.i.i, %31
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %29, %_ZN2lp8lar_term14const_iteratorppEv.exit, %.loopexit
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %32 = load i32, ptr %31, align 8, !tbaa !219
-  store i32 %32, ptr %20, align 8, !tbaa !219
+._crit_edge:                                      ; preds = %_ZN2lp8lar_term14const_iteratorppEv.exit, %.loopexit
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %33 = load i32, ptr %32, align 8, !tbaa !219
+  store i32 %33, ptr %20, align 8, !tbaa !219
   ret void
 
 .lr.ph:                                           ; preds = %.loopexit, %_ZN2lp8lar_term14const_iteratorppEv.exit
   %.sroa.021.024 = phi ptr [ %.sroa.021.2, %_ZN2lp8lar_term14const_iteratorppEv.exit ], [ %.sroa.0.1.i.i.i, %.loopexit ]
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.021.024, i64 8
-  %34 = load i32, ptr %33, align 8, !tbaa !224
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.021.024, i64 16
-  invoke void @_ZN2lp8lar_term12add_monomialERK8rationalj(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef %34)
-          to label %36 unwind label %43
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.021.024, i64 8
+  %35 = load i32, ptr %34, align 8, !tbaa !224
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.021.024, i64 16
+  invoke void @_ZN2lp8lar_term12add_monomialERK8rationalj(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(32) %36, i32 noundef %35)
+          to label %37 unwind label %44
 
-36:                                               ; preds = %.lr.ph
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.021.024, i64 48
-  %.not1.i.i.i.i = icmp eq ptr %37, %25
+37:                                               ; preds = %.lr.ph
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.021.024, i64 48
+  %.not1.i.i.i.i = icmp eq ptr %38, %25
   br i1 %.not1.i.i.i.i, label %_ZN2lp8lar_term14const_iteratorppEv.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %36, %41
-  %.sroa.021.1 = phi ptr [ %42, %41 ], [ %37, %36 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.021.1, i64 4
-  %39 = load i32, ptr %38, align 4, !tbaa !213
-  %40 = icmp eq i32 %39, 2
-  br i1 %40, label %_ZN2lp8lar_term14const_iteratorppEv.exit, label %41
+.lr.ph.i.i.i.i:                                   ; preds = %37, %42
+  %.sroa.021.1 = phi ptr [ %43, %42 ], [ %38, %37 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.021.1, i64 4
+  %40 = load i32, ptr %39, align 4, !tbaa !213
+  %41 = icmp eq i32 %40, 2
+  br i1 %41, label %_ZN2lp8lar_term14const_iteratorppEv.exit, label %42
 
-41:                                               ; preds = %.lr.ph.i.i.i.i
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.021.1, i64 48
-  %.not.i.i.i.i = icmp eq ptr %42, %25
+42:                                               ; preds = %.lr.ph.i.i.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.021.1, i64 48
+  %.not.i.i.i.i = icmp eq ptr %43, %25
   br i1 %.not.i.i.i.i, label %_ZN2lp8lar_term14const_iteratorppEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !235
 
-_ZN2lp8lar_term14const_iteratorppEv.exit:         ; preds = %.lr.ph.i.i.i.i, %41, %36
-  %.sroa.021.2 = phi ptr [ %37, %36 ], [ %42, %41 ], [ %.sroa.021.1, %.lr.ph.i.i.i.i ]
-  %.not = icmp eq ptr %.sroa.021.2, %25
+_ZN2lp8lar_term14const_iteratorppEv.exit:         ; preds = %.lr.ph.i.i.i.i, %42, %37
+  %.sroa.021.2 = phi ptr [ %38, %37 ], [ %43, %42 ], [ %.sroa.021.1, %.lr.ph.i.i.i.i ]
+  %.not = icmp eq ptr %.sroa.021.2, %31
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-43:                                               ; preds = %.lr.ph
-  %44 = landingpad { ptr, i32 }
+44:                                               ; preds = %.lr.ph
+  %45 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN9table2mapI17default_map_entryIj8rationalE6u_hash4u_eqED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
-  resume { ptr, i32 } %44
+  resume { ptr, i32 } %45
 }
 
 declare noundef zeroext i1 @_ZNK11mpz_managerILb1EE9is_uint64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(600), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0

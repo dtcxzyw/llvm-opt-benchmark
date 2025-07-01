@@ -43,7 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.10 = type { ptr }
 %union.anon.11 = type { %struct.anon.12 }
 %struct.anon.12 = type { ptr, i32, i32 }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @zend_known_strings = external local_unnamed_addr global ptr, align 8
 @zend_ce_closure = dso_local local_unnamed_addr global ptr null, align 8
@@ -1825,7 +1824,8 @@ define internal ptr @zend_closure_get_debug_info(ptr noundef %0, ptr noundef wri
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %108 = load i32, ptr %107, align 8, !tbaa !118
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw %struct._Bucket, ptr %106, i64 %109
+  %.idx = shl nuw nsw i64 %109, 5
+  %110 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx
   %111 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %112 = load i32, ptr %111, align 8, !tbaa !15
   %113 = and i32 %112, 4
@@ -2800,7 +2800,8 @@ define internal void @zend_closure_call_magic(ptr noundef readonly captures(none
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %48 = load i32, ptr %47, align 8, !tbaa !118
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %struct._Bucket, ptr %46, i64 %49
+  %.idx = shl nuw nsw i64 %49, 5
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !15
   %53 = and i32 %52, 4

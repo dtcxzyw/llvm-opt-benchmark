@@ -8003,7 +8003,8 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %14
   br i1 %58, label %.loopexit.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %55
-  %59 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %53, i64 %57
+  %.idx.i = shl nsw i64 %57, 6
+  %59 = getelementptr inbounds i8, ptr %53, i64 %.idx.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
@@ -8865,15 +8866,15 @@ _ZN6icu_7715SimpleFormatterC2ERKNS_13UnicodeStringEiiR10UErrorCode.exit130: ; pr
   br i1 %227, label %.loopexit.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %225
-  %.idx149 = shl nsw i64 %226, 6
-  %.ptr79.add = or disjoint i64 %.idx149, 8
+  %.idx.i = shl nsw i64 %226, 6
+  %.ptr79.add = or disjoint i64 %.idx.i, 8
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %.idx147 = phi i64 [ %.add148, %.preheader.i ], [ %.ptr79.add, %.preheader.preheader.i ]
   %.add148 = add nsw i64 %.idx147, -64
-  %.ptr150 = getelementptr inbounds i8, ptr %35, i64 %.add148
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ptr150) #21
+  %.ptr149 = getelementptr inbounds i8, ptr %35, i64 %.add148
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ptr149) #21
   %228 = icmp eq i64 %.add148, 8
   br i1 %228, label %.loopexit.i, label %.preheader.i
 
@@ -8927,7 +8928,8 @@ define linkonce_odr void @_ZN6icu_7710LocalArrayINS_13UnicodeStringEED2Ev(ptr no
   br i1 %7, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %4
-  %8 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %2, i64 %6
+  %.idx = shl nsw i64 %6, 6
+  %8 = getelementptr inbounds i8, ptr %2, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -9101,7 +9103,8 @@ _ZN6icu_7712LocalPointerINS_6number4impl19LongNameMultiplexerEEC2EPS3_R10UErrorC
   br i1 %74, label %.loopexit.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %71
-  %75 = getelementptr inbounds %"class.icu_77::MeasureUnit", ptr %69, i64 %73
+  %.idx.i = mul nsw i64 %73, 24
+  %75 = getelementptr inbounds i8, ptr %69, i64 %.idx.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
@@ -9450,7 +9453,8 @@ _ZN6icu_7712LocalPointerINS_13ListFormatterEED2Ev.exit: ; preds = %1, %6
   br i1 %17, label %.loopexit.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %14
-  %18 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %12, i64 %16
+  %.idx.i = shl nsw i64 %16, 6
+  %18 = getelementptr inbounds i8, ptr %12, i64 %.idx.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
@@ -9501,7 +9505,8 @@ _ZN6icu_7712LocalPointerINS_13ListFormatterEED2Ev.exit.i: ; preds = %6, %1
   br i1 %17, label %.loopexit.i.i, label %.preheader.preheader.i.i
 
 .preheader.preheader.i.i:                         ; preds = %14
-  %18 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %12, i64 %16
+  %.idx.i.i = shl nsw i64 %16, 6
+  %18 = getelementptr inbounds i8, ptr %12, i64 %.idx.i.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
@@ -9553,7 +9558,8 @@ _ZN6icu_7712LocalPointerINS_13ListFormatterEED2Ev.exit.i: ; preds = %6, %1
   br i1 %17, label %.loopexit.i.i, label %.preheader.preheader.i.i
 
 .preheader.preheader.i.i:                         ; preds = %14
-  %18 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %12, i64 %16
+  %.idx.i.i = shl nsw i64 %16, 6
+  %18 = getelementptr inbounds i8, ptr %12, i64 %.idx.i.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
@@ -9604,7 +9610,8 @@ _ZN6icu_7712LocalPointerINS_13ListFormatterEED2Ev.exit.i.i: ; preds = %6, %1
   br i1 %17, label %.loopexit.i.i.i, label %.preheader.preheader.i.i.i
 
 .preheader.preheader.i.i.i:                       ; preds = %14
-  %18 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %12, i64 %16
+  %.idx.i.i.i = shl nsw i64 %16, 6
+  %18 = getelementptr inbounds i8, ptr %12, i64 %.idx.i.i.i
   br label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i, %.preheader.preheader.i.i.i
@@ -9639,7 +9646,8 @@ define linkonce_odr void @_ZN6icu_776number4impl19LongNameMultiplexerD2Ev(ptr no
   br i1 %8, label %.loopexit.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %5
-  %9 = getelementptr inbounds %"class.icu_77::MeasureUnit", ptr %3, i64 %7
+  %.idx.i = mul nsw i64 %7, 24
+  %9 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i

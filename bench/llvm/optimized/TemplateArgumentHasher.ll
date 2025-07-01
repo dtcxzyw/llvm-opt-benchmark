@@ -47,7 +47,8 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit:
   %7 = trunc i64 %1 to i32
   store i32 %7, ptr %4, align 8
   store i32 1, ptr %5, align 8, !tbaa !19
-  %8 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.not9 = icmp eq i64 %1, 0
   br i1 %.not9, label %._crit_edge.thread, label %.lr.ph
 
@@ -467,7 +468,8 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit14: ; preds = %160, 
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %175 = load ptr, ptr %174, align 8, !tbaa !22
   %176 = zext i32 %162 to i64
-  %177 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %175, i64 %176
+  %.idx = mul nuw nsw i64 %176, 24
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 %.idx
   %.not44 = icmp eq i32 %162, 0
   br i1 %.not44, label %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit, label %.lr.ph
 

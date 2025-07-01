@@ -2319,29 +2319,32 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit: ; preds = %3
 
 _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %14
+  br label %16
 
 6:                                                ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit
   %7 = shl nuw nsw i64 %1, 2
   %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #24
   store ptr %8, ptr %0, align 8, !tbaa !98
-  %9 = getelementptr float, ptr %8, i64 %1
+  %9 = getelementptr inbounds nuw float, ptr %8, i64 %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8, !tbaa !138
   store float 0.000000e+00, ptr %8, align 4, !tbaa !101
   %11 = getelementptr i8, ptr %8, i64 4
-  %12 = icmp eq i64 %1, 1
-  br i1 %12, label %14, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i
+  %12 = add nsw i64 %1, -1
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %16, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %6
-  %13 = add nsw i64 %7, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 %13, i1 false), !tbaa !101
-  br label %14
+  %14 = add nsw i64 %7, -4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 %14, i1 false), !tbaa !101
+  %.idx.i.i.i.i.i.i = shl nuw nsw i64 %12, 2
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i.i.i.i
+  br label %16
 
-14:                                               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %6, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread
-  %.0.i.i.i.i = phi ptr [ %11, %6 ], [ %9, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.i.i.i.i, ptr %15, align 8, !tbaa !139
+16:                                               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %6, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread
+  %.0.i.i.i.i = phi ptr [ %11, %6 ], [ %15, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.i.i.i.i, ptr %17, align 8, !tbaa !139
   ret void
 }
 

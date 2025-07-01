@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._php_stream_statbuf = type { %struct.stat }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct._zval_struct = type { %union._zend_value, %union.anon.3, %union.anon.6 }
 %union._zend_value = type { i64 }
 %union.anon.3 = type { i32 }
@@ -1319,7 +1318,8 @@ phar_dostat.exit100:                              ; preds = %81, %91
   %106 = getelementptr inbounds nuw i8, ptr %80, i64 200
   %107 = load i32, ptr %106, align 8, !tbaa !86
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw %struct._Bucket, ptr %105, i64 %108
+  %.idx = shl nuw nsw i64 %108, 5
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx
   %110 = and i32 %97, 4
   %.not84 = icmp eq i32 %110, 0
   call void @llvm.assume(i1 %.not84)
@@ -1858,9 +1858,9 @@ zend_string_equals.exit.thread:                   ; preds = %61, %zend_string_eq
 118:                                              ; preds = %113
   %119 = call i32 @phar_copy_on_write(ptr noundef nonnull %8) #15
   %120 = icmp eq i32 %119, -1
-  br i1 %120, label %121, label %._crit_edge330
+  br i1 %120, label %121, label %._crit_edge332
 
-._crit_edge330:                                   ; preds = %118
+._crit_edge332:                                   ; preds = %118
   %.pre = load ptr, ptr %8, align 8, !tbaa !33
   br label %122
 
@@ -1870,8 +1870,8 @@ zend_string_equals.exit.thread:                   ; preds = %61, %zend_string_eq
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.34, ptr noundef %1, ptr noundef %2) #15
   br label %426
 
-122:                                              ; preds = %._crit_edge330, %113
-  %123 = phi ptr [ %.pre, %._crit_edge330 ], [ %114, %113 ]
+122:                                              ; preds = %._crit_edge332, %113
+  %123 = phi ptr [ %.pre, %._crit_edge332 ], [ %114, %113 ]
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 64
   %125 = load ptr, ptr %76, align 8, !tbaa !23
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 25
@@ -2027,7 +2027,8 @@ zend_hash_str_update_mem.exit:                    ; preds = %153, %155
   %210 = getelementptr inbounds nuw i8, ptr %207, i64 88
   %211 = load i32, ptr %210, align 8, !tbaa !86
   %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds nuw %struct._Bucket, ptr %209, i64 %212
+  %.idx = shl nuw nsw i64 %212, 5
+  %213 = getelementptr inbounds nuw i8, ptr %209, i64 %.idx
   %214 = getelementptr inbounds nuw i8, ptr %207, i64 72
   %215 = load i32, ptr %214, align 8, !tbaa !9
   %216 = and i32 %215, 4
@@ -2190,11 +2191,11 @@ zend_string_hash_val.exit:                        ; preds = %zend_string_release
   br i1 %.not273, label %._crit_edge.loopexit, label %218
 
 ._crit_edge.loopexit:                             ; preds = %292
-  %.pre331 = load ptr, ptr %8, align 8, !tbaa !33
+  %.pre333 = load ptr, ptr %8, align 8, !tbaa !33
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.thread308
-  %294 = phi ptr [ %207, %.thread308 ], [ %.pre331, %._crit_edge.loopexit ]
+  %294 = phi ptr [ %207, %.thread308 ], [ %.pre333, %._crit_edge.loopexit ]
   %.3.lcssa = phi i32 [ %.1235312, %.thread308 ], [ %.4, %._crit_edge.loopexit ]
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 64
   call void @zend_hash_rehash(ptr noundef nonnull %295) #15
@@ -2204,7 +2205,8 @@ zend_string_hash_val.exit:                        ; preds = %zend_string_release
   %299 = getelementptr inbounds nuw i8, ptr %296, i64 144
   %300 = load i32, ptr %299, align 8, !tbaa !86
   %301 = zext i32 %300 to i64
-  %302 = getelementptr inbounds nuw %struct._Bucket, ptr %298, i64 %301
+  %.idx330 = shl nuw nsw i64 %301, 5
+  %302 = getelementptr inbounds nuw i8, ptr %298, i64 %.idx330
   %303 = getelementptr inbounds nuw i8, ptr %296, i64 128
   %304 = load i32, ptr %303, align 8, !tbaa !9
   %305 = and i32 %304, 4
@@ -2315,11 +2317,11 @@ zend_string_starts_with_cstr.exit.thread:         ; preds = %311, %zend_string_s
   br i1 %.not275, label %._crit_edge324.loopexit, label %307
 
 ._crit_edge324.loopexit:                          ; preds = %zend_string_starts_with_cstr.exit.thread
-  %.pre332 = load ptr, ptr %8, align 8, !tbaa !33
+  %.pre334 = load ptr, ptr %8, align 8, !tbaa !33
   br label %._crit_edge324
 
 ._crit_edge324:                                   ; preds = %._crit_edge324.loopexit, %._crit_edge
-  %356 = phi ptr [ %.pre332, %._crit_edge324.loopexit ], [ %296, %._crit_edge ]
+  %356 = phi ptr [ %.pre334, %._crit_edge324.loopexit ], [ %296, %._crit_edge ]
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 120
   call void @zend_hash_rehash(ptr noundef nonnull %357) #15
   %358 = load ptr, ptr %8, align 8, !tbaa !33
@@ -2328,7 +2330,8 @@ zend_string_starts_with_cstr.exit.thread:         ; preds = %311, %zend_string_s
   %361 = getelementptr inbounds nuw i8, ptr %358, i64 200
   %362 = load i32, ptr %361, align 8, !tbaa !86
   %363 = zext i32 %362 to i64
-  %364 = getelementptr inbounds nuw %struct._Bucket, ptr %360, i64 %363
+  %.idx331 = shl nuw nsw i64 %363, 5
+  %364 = getelementptr inbounds nuw i8, ptr %360, i64 %.idx331
   %365 = getelementptr inbounds nuw i8, ptr %358, i64 184
   %366 = load i32, ptr %365, align 8, !tbaa !9
   %367 = and i32 %366, 4
@@ -2439,11 +2442,11 @@ zend_string_starts_with_cstr.exit301.thread:      ; preds = %373, %zend_string_s
   br i1 %.not277, label %._crit_edge329.loopexit, label %369
 
 ._crit_edge329.loopexit:                          ; preds = %zend_string_starts_with_cstr.exit301.thread
-  %.pre333 = load ptr, ptr %8, align 8, !tbaa !33
+  %.pre335 = load ptr, ptr %8, align 8, !tbaa !33
   br label %._crit_edge329
 
 ._crit_edge329:                                   ; preds = %._crit_edge329.loopexit, %._crit_edge324
-  %418 = phi ptr [ %.pre333, %._crit_edge329.loopexit ], [ %358, %._crit_edge324 ]
+  %418 = phi ptr [ %.pre335, %._crit_edge329.loopexit ], [ %358, %._crit_edge324 ]
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 176
   call void @zend_hash_rehash(ptr noundef nonnull %419) #15
   %.not278 = icmp eq i32 %.3.lcssa, 0

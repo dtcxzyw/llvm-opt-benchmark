@@ -192,7 +192,8 @@ define linkonce_odr void @_ZN6icu_778numparse4impl14DecimalMatcherD2Ev(ptr nound
   br i1 %8, label %.loopexit.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %5
-  %9 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %3, i64 %7
+  %.idx.i = shl nsw i64 %7, 6
+  %9 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i

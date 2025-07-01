@@ -1080,7 +1080,8 @@ thread-pre-split.i.i:                             ; preds = %"_ZN4core3ptr149dro
   %225 = load i64, ptr %209, align 8, !noalias !61, !noundef !11
   call void @llvm.experimental.noalias.scope.decl(metadata !221)
   call void @llvm.experimental.noalias.scope.decl(metadata !224)
-  %226 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %224, i64 %225
+  %.idx.i.i.i = mul nsw i64 %225, 24
+  %226 = getelementptr inbounds i8, ptr %224, i64 %.idx.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !226)
   %.not.i.i.i.i = icmp eq i64 %225, 0
   br i1 %.not.i.i.i.i, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h772cad47a88d6040E.exit.thread.i.i", label %.lr.ph.i.i.i.i
@@ -18587,7 +18588,8 @@ define void @_ZN9uv_python10virtualenv19PyVenvConfiguration3set17hd016d400f08088
   %36 = load ptr, ptr %35, align 8, !nonnull !11, !noundef !11
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %38 = load i64, ptr %37, align 8, !noundef !11
-  %39 = getelementptr inbounds { i64, [2 x i64] }, ptr %36, i64 %38
+  %.idx = mul nsw i64 %38, 24
+  %39 = getelementptr inbounds i8, ptr %36, i64 %.idx
   %40 = icmp eq i64 %38, 0
   br i1 %40, label %._crit_edge, label %.lr.ph
 

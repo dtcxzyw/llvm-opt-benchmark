@@ -3078,7 +3078,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   store i64 %67, ptr %.sroa.046.sroa.4.0..sroa_idx, align 8
   %.sroa.046.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 40
   store i64 %69, ptr %.sroa.046.sroa.5.0..sroa_idx, align 8
-  %73 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 24
+  %73 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %74 = icmp eq i64 %1, 0
   br i1 %74, label %.critedge, label %.lr.ph
 

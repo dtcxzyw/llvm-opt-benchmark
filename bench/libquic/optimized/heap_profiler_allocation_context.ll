@@ -56,7 +56,8 @@ define noundef zeroext i1 @_ZN4base11trace_eventeqERKNS0_9BacktraceES3_(ptr noun
   br i1 %.not, label %7, label %_ZSt5equalIPKN4base11trace_event10StackFrameES4_EbT_S5_T0_.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw %"struct.base::trace_event::StackFrame", ptr %0, i64 %4
+  %.idx = shl nuw nsw i64 %4, 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN4base11trace_event10StackFrameES4_EbT_S5_T0_.exit, label %.lr.ph.i.i.i.i
 
@@ -89,7 +90,8 @@ define noundef zeroext i1 @_ZN4base11trace_eventneERKNS0_9BacktraceES3_(ptr noun
   br i1 %.not.i, label %7, label %_ZN4base11trace_eventeqERKNS0_9BacktraceES3_.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw %"struct.base::trace_event::StackFrame", ptr %0, i64 %4
+  %.idx.i = shl nuw nsw i64 %4, 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
   %.not9.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not9.i.i.i.i.i, label %_ZN4base11trace_eventeqERKNS0_9BacktraceES3_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -141,7 +143,8 @@ define noundef zeroext i1 @_ZN4base11trace_eventeqERKNS0_17AllocationContextES3_
   br i1 %.not.i, label %7, label %_ZN4base11trace_eventeqERKNS0_9BacktraceES3_.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw %"struct.base::trace_event::StackFrame", ptr %0, i64 %4
+  %.idx.i = shl nuw nsw i64 %4, 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
   %.not9.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not9.i.i.i.i.i, label %_ZN4base11trace_eventeqERKNS0_9BacktraceES3_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -180,7 +183,8 @@ define noundef zeroext i1 @_ZN4base11trace_eventneERKNS0_17AllocationContextES3_
   br i1 %.not.i.i, label %7, label %_ZN4base11trace_eventeqERKNS0_17AllocationContextES3_.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw %"struct.base::trace_event::StackFrame", ptr %0, i64 %4
+  %.idx.i.i = shl nuw nsw i64 %4, 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i.i
   %.not9.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not9.i.i.i.i.i.i, label %_ZN4base11trace_eventeqERKNS0_17AllocationContextES3_.exit, label %.lr.ph.i.i.i.i.i.i
 

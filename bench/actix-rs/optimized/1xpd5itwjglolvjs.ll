@@ -2133,7 +2133,8 @@ _ZN15actix_multipart6server14InnerMultipart13read_boundary17h45c533dd8c15961dE.e
           to label %386 unwind label %372, !noalias !451
 
 386:                                              ; preds = %383
-  %387 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %378, i64 %385
+  %.idx.i.i = shl nsw i64 %385, 5
+  %387 = getelementptr inbounds i8, ptr %378, i64 %.idx.i.i
   %388 = icmp eq i64 %385, 0
   br i1 %388, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb0ce2b987f184a87E.exit.thread.i.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb0ce2b987f184a87E.exit.lr.ph.i.i"
 

@@ -4195,7 +4195,7 @@ _ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %1468
           to label %.noexc1183 unwind label %1649
 
 .noexc1183:                                       ; preds = %1471
-  %1474 = getelementptr i64, ptr %1473, i64 %246
+  %1474 = getelementptr inbounds nuw i64, ptr %1473, i64 %246
   store i64 0, ptr %1473, align 8, !tbaa !63
   %1475 = icmp eq i64 %246, 1
   br i1 %1475, label %_ZNSt6vectorIxSaIxEEC2EmRKS0_.exit, label %_ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
@@ -15775,7 +15775,7 @@ _ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %1088
           to label %.noexc1004 unwind label %1238
 
 .noexc1004:                                       ; preds = %1091
-  %1094 = getelementptr i64, ptr %1093, i64 %251
+  %1094 = getelementptr inbounds nuw i64, ptr %1093, i64 %251
   store i64 0, ptr %1093, align 8, !tbaa !63
   %1095 = icmp eq i64 %251, 1
   br i1 %1095, label %_ZNSt6vectorIxSaIxEEC2EmRKS0_.exit, label %_ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i

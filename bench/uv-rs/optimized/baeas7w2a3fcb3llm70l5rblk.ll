@@ -3270,7 +3270,8 @@ define internal fastcc void @"_ZN5serde3ser5impls78_$LT$impl$u20$serde..ser..Ser
   tail call void @llvm.experimental.noalias.scope.decl(metadata !651)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !653)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !656)
-  %10 = getelementptr inbounds ptr, ptr %.0.val, i64 %.8.val
+  %.idx.i.i = shl nsw i64 %.8.val, 3
+  %10 = getelementptr inbounds i8, ptr %.0.val, i64 %.idx.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !658
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !658
   call void @"_ZN82_$LT$toml_edit..ser..map..MapValueSerializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hb314d61737093d6dE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 1 dereferenceable(1) %1, i64 noundef 1, i64 %.8.val), !noalias !661
@@ -6952,7 +6953,8 @@ define hidden void @"_ZN86_$LT$toml_edit..ser..map..SerializeInlineTable$u20$as$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1500)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1502)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1505)
-  %18 = getelementptr inbounds ptr, ptr %.val, i64 %.val8
+  %.idx.i.i.i = shl nsw i64 %.val8, 3
+  %18 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !1507
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !1507
   call void @"_ZN82_$LT$toml_edit..ser..map..MapValueSerializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hb314d61737093d6dE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 1 dereferenceable(1) %16, i64 noundef 1, i64 %.val8), !noalias !1511
@@ -10220,7 +10222,8 @@ define hidden void @"_ZN89_$LT$toml_edit..ser..map..SerializeInlineTable$u20$as$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1989)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1992)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1995)
-  %21 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %.val, i64 %.val15
+  %.idx.i.i.i = mul nsw i64 %.val15, 360
+  %21 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !1998
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !1998
   call void @"_ZN82_$LT$toml_edit..ser..map..MapValueSerializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hb314d61737093d6dE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 1 dereferenceable(1) %19, i64 noundef 1, i64 %.val15), !noalias !2004

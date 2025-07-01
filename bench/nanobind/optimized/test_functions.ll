@@ -7240,7 +7240,8 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nano
   %18 = load ptr, ptr %17, align 8, !tbaa !225, !noalias !254
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load i64, ptr %19, align 8, !tbaa !257, !noalias !254
-  %21 = getelementptr inbounds ptr, ptr %18, i64 %20
+  %.idx.i = shl nsw i64 %20, 3
+  %21 = getelementptr inbounds i8, ptr %18, i64 %.idx.i
   %.not4.i = icmp eq i64 %20, 0
   br i1 %.not4.i, label %"_ZZL32nanobind_init_test_functions_extRN8nanobind7module_EENK4$_29clENS_4listE.exit", label %.lr.ph.i
 

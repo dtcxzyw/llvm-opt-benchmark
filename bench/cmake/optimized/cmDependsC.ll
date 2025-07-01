@@ -8014,7 +8014,8 @@ _ZNSt11_Deque_baseIN10cmDependsC14UnscannedEntryESaIS1_EE15_M_allocate_mapEm.exi
   %12 = sub nsw i64 %.sroa.speculated, %9
   %13 = lshr i64 %12, 1
   %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %9
+  %.idx = shl nuw nsw i64 %9, 3
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIN10cmDependsC14UnscannedEntryESaIS1_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIN10cmDependsC14UnscannedEntryESaIS1_EE16_M_allocate_nodeEv.exit.i

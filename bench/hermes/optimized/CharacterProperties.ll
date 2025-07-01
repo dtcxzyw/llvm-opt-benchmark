@@ -263,7 +263,8 @@ _ZN6hermes12CodePointSetC2ERKS0_.exit:            ; preds = %entry, %return.sink
   %5 = phi i32 [ %0, %entry ], [ %.pre, %return.sink.split.i.i.i ]
   %6 = load ptr, ptr %set, align 8
   %conv.i.i.i = zext i32 %5 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"struct.hermes::CodePointRange", ptr %6, i64 %conv.i.i.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i.i.i, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 %add.ptr.i.idx
   %cmp.not223 = icmp eq i32 %5, 0
   br i1 %cmp.not223, label %for.end, label %for.body.lr.ph
 
@@ -700,7 +701,8 @@ _ZN6hermes12CodePointSetC2ERKS0_.exit32:          ; preds = %for.end, %return.si
   %53 = phi i32 [ %49, %for.end ], [ %.pre239, %return.sink.split.i.i.i25 ]
   %54 = load ptr, ptr %canonicalized, align 8
   %conv.i.i.i34 = zext i32 %53 to i64
-  %add.ptr.i38 = getelementptr inbounds nuw %"struct.hermes::CodePointRange", ptr %54, i64 %conv.i.i.i34
+  %add.ptr.i38.idx = shl nuw nsw i64 %conv.i.i.i34, 3
+  %add.ptr.i38 = getelementptr inbounds nuw i8, ptr %54, i64 %add.ptr.i38.idx
   %cmp11.not225 = icmp eq i32 %53, 0
   br i1 %cmp11.not225, label %nrvo.skipdtor, label %for.body12.lr.ph
 

@@ -513,7 +513,8 @@ define linkonce_odr void @_ZNSt10unique_ptrIA_N6duckdb14BaseStatisticsESt14defau
   br i1 %6, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %3
-  %7 = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %2, i64 %5
+  %.idx.i = mul nsw i64 %5, 88
+  %7 = getelementptr inbounds i8, ptr %2, i64 %.idx.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
@@ -727,7 +728,8 @@ define void @_ZN6duckdb9ListStats9ConstructERNS_14BaseStatisticsE(ptr noundef no
   br i1 %10, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i, label %.preheader.preheader.i.i.i.i.i.i
 
 .preheader.preheader.i.i.i.i.i.i:                 ; preds = %7
-  %11 = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %6, i64 %9
+  %.idx.i.i.i.i.i.i = mul nsw i64 %9, 88
+  %11 = getelementptr inbounds i8, ptr %6, i64 %.idx.i.i.i.i.i.i
   br label %.preheader.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i:                           ; preds = %.preheader.i.i.i.i.i.i, %.preheader.preheader.i.i.i.i.i.i
@@ -861,7 +863,8 @@ define void @_ZN6duckdb11StructStats9ConstructERNS_14BaseStatisticsE(ptr noundef
   br i1 %31, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i, label %.preheader.preheader.i.i.i.i.i.i
 
 .preheader.preheader.i.i.i.i.i.i:                 ; preds = %28
-  %32 = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %27, i64 %30
+  %.idx.i.i.i.i.i.i = mul nsw i64 %30, 88
+  %32 = getelementptr inbounds i8, ptr %27, i64 %.idx.i.i.i.i.i.i
   br label %.preheader.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i:                           ; preds = %.preheader.i.i.i.i.i.i, %.preheader.preheader.i.i.i.i.i.i
@@ -1097,7 +1100,8 @@ define void @_ZN6duckdb10ArrayStats9ConstructERNS_14BaseStatisticsE(ptr noundef 
   br i1 %10, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i, label %.preheader.preheader.i.i.i.i.i.i
 
 .preheader.preheader.i.i.i.i.i.i:                 ; preds = %7
-  %11 = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %6, i64 %9
+  %.idx.i.i.i.i.i.i = mul nsw i64 %9, 88
+  %11 = getelementptr inbounds i8, ptr %6, i64 %.idx.i.i.i.i.i.i
   br label %.preheader.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i:                           ; preds = %.preheader.i.i.i.i.i.i, %.preheader.preheader.i.i.i.i.i.i
@@ -1190,7 +1194,8 @@ define void @_ZN6duckdb14BaseStatisticsD2Ev(ptr noundef nonnull align 8 derefere
   br i1 %7, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i, label %.preheader.preheader.i.i
 
 .preheader.preheader.i.i:                         ; preds = %4
-  %8 = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %3, i64 %6
+  %.idx.i.i = mul nsw i64 %6, 88
+  %8 = getelementptr inbounds i8, ptr %3, i64 %.idx.i.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
@@ -1275,7 +1280,8 @@ define void @_ZN6duckdb14BaseStatisticsC2EOS0_(ptr noundef nonnull align 8 deref
   br i1 %38, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i, label %.preheader.preheader.i.i.i.i.i.i.i
 
 .preheader.preheader.i.i.i.i.i.i.i:               ; preds = %35
-  %39 = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %34, i64 %37
+  %.idx.i.i.i.i.i.i.i = mul nsw i64 %37, 88
+  %39 = getelementptr inbounds i8, ptr %34, i64 %.idx.i.i.i.i.i.i.i
   br label %.preheader.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i:                         ; preds = %.preheader.i.i.i.i.i.i.i, %.preheader.preheader.i.i.i.i.i.i.i
@@ -1299,24 +1305,25 @@ _ZN6duckdb10unique_ptrIA_NS_14BaseStatisticsESt14default_deleteIS1_ELb0EEaSEOS5_
   %45 = getelementptr inbounds i8, ptr %43, i64 -8
   %46 = load i64, ptr %45, align 8
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i7.i, label %.preheader.preheader.i.i.i.i.i.i5.i
+  br i1 %47, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i8.i, label %.preheader.preheader.i.i.i.i.i.i5.i
 
 .preheader.preheader.i.i.i.i.i.i5.i:              ; preds = %44
-  %48 = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %43, i64 %46
-  br label %.preheader.i.i.i.i.i.i6.i
+  %.idx.i.i.i.i.i.i6.i = mul nsw i64 %46, 88
+  %48 = getelementptr inbounds i8, ptr %43, i64 %.idx.i.i.i.i.i.i6.i
+  br label %.preheader.i.i.i.i.i.i7.i
 
-.preheader.i.i.i.i.i.i6.i:                        ; preds = %.preheader.i.i.i.i.i.i6.i, %.preheader.preheader.i.i.i.i.i.i5.i
-  %49 = phi ptr [ %50, %.preheader.i.i.i.i.i.i6.i ], [ %48, %.preheader.preheader.i.i.i.i.i.i5.i ]
+.preheader.i.i.i.i.i.i7.i:                        ; preds = %.preheader.i.i.i.i.i.i7.i, %.preheader.preheader.i.i.i.i.i.i5.i
+  %49 = phi ptr [ %50, %.preheader.i.i.i.i.i.i7.i ], [ %48, %.preheader.preheader.i.i.i.i.i.i5.i ]
   %50 = getelementptr inbounds i8, ptr %49, i64 -88
   call void @_ZN6duckdb14BaseStatisticsD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %50) #29
   %51 = icmp eq ptr %50, %43
-  br i1 %51, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i7.i, label %.preheader.i.i.i.i.i.i6.i
+  br i1 %51, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i8.i, label %.preheader.i.i.i.i.i.i7.i
 
-_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i7.i: ; preds = %.preheader.i.i.i.i.i.i6.i, %44
+_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i8.i: ; preds = %.preheader.i.i.i.i.i.i7.i, %44
   call void @_ZdaPv(ptr noundef nonnull %45) #30
   br label %_ZSt4swapIN6duckdb10unique_ptrIA_NS0_14BaseStatisticsESt14default_deleteIS2_ELb0EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_.exit
 
-_ZSt4swapIN6duckdb10unique_ptrIA_NS0_14BaseStatisticsESt14default_deleteIS2_ELb0EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_.exit: ; preds = %_ZN6duckdb10unique_ptrIA_NS_14BaseStatisticsESt14default_deleteIS1_ELb0EEaSEOS5_.exit.i, %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i7.i
+_ZSt4swapIN6duckdb10unique_ptrIA_NS0_14BaseStatisticsESt14default_deleteIS2_ELb0EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_.exit: ; preds = %_ZN6duckdb10unique_ptrIA_NS_14BaseStatisticsESt14default_deleteIS1_ELb0EEaSEOS5_.exit.i, %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i8.i
   ret void
 
 52:                                               ; preds = %2
@@ -1402,7 +1409,8 @@ define noundef nonnull align 8 dereferenceable(88) ptr @_ZN6duckdb14BaseStatisti
   br i1 %37, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i.i, label %.preheader.preheader.i.i.i.i.i.i.i
 
 .preheader.preheader.i.i.i.i.i.i.i:               ; preds = %34
-  %38 = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %33, i64 %36
+  %.idx.i.i.i.i.i.i.i = mul nsw i64 %36, 88
+  %38 = getelementptr inbounds i8, ptr %33, i64 %.idx.i.i.i.i.i.i.i
   br label %.preheader.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i:                         ; preds = %.preheader.i.i.i.i.i.i.i, %.preheader.preheader.i.i.i.i.i.i.i
@@ -1426,24 +1434,25 @@ _ZN6duckdb10unique_ptrIA_NS_14BaseStatisticsESt14default_deleteIS1_ELb0EEaSEOS5_
   %44 = getelementptr inbounds i8, ptr %42, i64 -8
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, 0
-  br i1 %46, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i7.i, label %.preheader.preheader.i.i.i.i.i.i5.i
+  br i1 %46, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i8.i, label %.preheader.preheader.i.i.i.i.i.i5.i
 
 .preheader.preheader.i.i.i.i.i.i5.i:              ; preds = %43
-  %47 = getelementptr inbounds %"class.duckdb::BaseStatistics", ptr %42, i64 %45
-  br label %.preheader.i.i.i.i.i.i6.i
+  %.idx.i.i.i.i.i.i6.i = mul nsw i64 %45, 88
+  %47 = getelementptr inbounds i8, ptr %42, i64 %.idx.i.i.i.i.i.i6.i
+  br label %.preheader.i.i.i.i.i.i7.i
 
-.preheader.i.i.i.i.i.i6.i:                        ; preds = %.preheader.i.i.i.i.i.i6.i, %.preheader.preheader.i.i.i.i.i.i5.i
-  %48 = phi ptr [ %49, %.preheader.i.i.i.i.i.i6.i ], [ %47, %.preheader.preheader.i.i.i.i.i.i5.i ]
+.preheader.i.i.i.i.i.i7.i:                        ; preds = %.preheader.i.i.i.i.i.i7.i, %.preheader.preheader.i.i.i.i.i.i5.i
+  %48 = phi ptr [ %49, %.preheader.i.i.i.i.i.i7.i ], [ %47, %.preheader.preheader.i.i.i.i.i.i5.i ]
   %49 = getelementptr inbounds i8, ptr %48, i64 -88
   call void @_ZN6duckdb14BaseStatisticsD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %49) #29
   %50 = icmp eq ptr %49, %42
-  br i1 %50, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i7.i, label %.preheader.i.i.i.i.i.i6.i
+  br i1 %50, label %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i8.i, label %.preheader.i.i.i.i.i.i7.i
 
-_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i7.i: ; preds = %.preheader.i.i.i.i.i.i6.i, %43
+_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i8.i: ; preds = %.preheader.i.i.i.i.i.i7.i, %43
   call void @_ZdaPv(ptr noundef nonnull %44) #30
   br label %_ZSt4swapIN6duckdb10unique_ptrIA_NS0_14BaseStatisticsESt14default_deleteIS2_ELb0EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_.exit
 
-_ZSt4swapIN6duckdb10unique_ptrIA_NS0_14BaseStatisticsESt14default_deleteIS2_ELb0EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_.exit: ; preds = %_ZN6duckdb10unique_ptrIA_NS_14BaseStatisticsESt14default_deleteIS1_ELb0EEaSEOS5_.exit.i, %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i7.i
+_ZSt4swapIN6duckdb10unique_ptrIA_NS0_14BaseStatisticsESt14default_deleteIS2_ELb0EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_.exit: ; preds = %_ZN6duckdb10unique_ptrIA_NS_14BaseStatisticsESt14default_deleteIS1_ELb0EEaSEOS5_.exit.i, %_ZNKSt14default_deleteIA_N6duckdb14BaseStatisticsEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i8.i
   ret ptr %0
 }
 

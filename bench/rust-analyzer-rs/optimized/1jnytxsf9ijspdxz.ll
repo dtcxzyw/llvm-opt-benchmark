@@ -4179,7 +4179,8 @@ common.resume:                                    ; preds = %.body, %32
   %.val = load ptr, ptr %37, align 8, !nonnull !4, !noundef !4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val36 = load i64, ptr %38, align 8, !noundef !4
-  %39 = getelementptr inbounds { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, i64 }, ptr %.val, i64 %.val36
+  %.idx89 = mul nsw i64 %.val36, 56
+  %39 = getelementptr inbounds i8, ptr %.val, i64 %.idx89
   %40 = icmp eq i64 %.val36, 0
   br i1 %40, label %._crit_edge, label %.lr.ph
 
@@ -4383,7 +4384,8 @@ common.resume:                                    ; preds = %.body, %32
   %119 = load ptr, ptr %118, align 8, !nonnull !4, !noundef !4
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.0.085, i64 40
   %121 = load i64, ptr %120, align 8, !noundef !4
-  %122 = getelementptr inbounds { i64, [1 x i64] }, ptr %119, i64 %121
+  %.idx = shl nsw i64 %121, 4
+  %122 = getelementptr inbounds i8, ptr %119, i64 %.idx
   %123 = icmp eq i64 %121, 0
   br i1 %123, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h7f08b9a7686b1421E.exit", label %.lr.ph.i
 
@@ -8469,7 +8471,8 @@ define void @"_ZN6syntax54Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1691, !noalias !1694, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1691, !noalias !1694
-  %39 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nsw i64 %.sroa.5.0.copyload.i, 5
+  %39 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4.0.copyload.i, ptr %9, align 8

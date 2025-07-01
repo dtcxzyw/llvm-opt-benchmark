@@ -32,8 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorBase.19" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.20" = type { [112 x i8] }
 %"struct.llvm::FmtAlign" = type <{ ptr, i32, i32, i8, [7 x i8] }>
-%"struct.llvm::ReplacementItem" = type { i32, %"class.llvm::StringRef", i32, i32, i32, i8, %"class.llvm::StringRef" }
-%"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector.0" }
 %"class.llvm::SmallVector.0" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage.1" }
 %"struct.llvm::SmallVectorStorage.1" = type { [16 x i8] }
@@ -2153,7 +2151,8 @@ define linkonce_odr hidden void @_ZNK4llvm19formatv_object_base6formatERNS_11raw
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !51
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.llvm::ReplacementItem", ptr %11, i64 %14
+  %.idx = mul nuw nsw i64 %14, 56
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %.not29 = icmp eq i32 %13, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 

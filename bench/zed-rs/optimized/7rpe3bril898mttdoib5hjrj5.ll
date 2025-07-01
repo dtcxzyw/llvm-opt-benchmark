@@ -6330,7 +6330,8 @@ define void @_ZN8settings14settings_store25update_value_in_json_text17h3426f3ee7
   %.val5.i = load i64, ptr %25, align 8, !alias.scope !1335, !noalias !1338
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1340)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1343)
-  %26 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %6
+  %.idx.i.i.i = shl nsw i64 %6, 4
+  %26 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i.i
   %.not.i.i.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 
@@ -6348,7 +6349,7 @@ define void @_ZN8settings14settings_store25update_value_in_json_text17h3426f3ee7
   %32 = load ptr, ptr %27, align 8, !alias.scope !1352, !noalias !1353, !nonnull !4, !align !165, !noundef !4
   %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %32, ptr nonnull readonly align 1 %.val.i, i64 %.val5.i), !alias.scope !1360, !noalias !1367
   %33 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
-  br i1 %33, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.loopexit73", label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h1e4ba4ea27415e2fE.llvm.12431300060975611421.exit.backedge.i.i.i.i"
+  br i1 %33, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.loopexit74", label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h1e4ba4ea27415e2fE.llvm.12431300060975611421.exit.backedge.i.i.i.i"
 
 "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h1e4ba4ea27415e2fE.llvm.12431300060975611421.exit.backedge.i.i.i.i": ; preds = %31, %.lr.ph.i.i.i.i
   %.not9.i.i.i.i = icmp eq ptr %28, %26
@@ -6359,15 +6360,16 @@ define void @_ZN8settings14settings_store25update_value_in_json_text17h3426f3ee7
   %36 = load ptr, ptr %35, align 8, !nonnull !4, !noundef !4
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = load i64, ptr %37, align 8, !noundef !4
-  %39 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %36, i64 %38
+  %.idx = mul nsw i64 %38, 104
+  %39 = getelementptr inbounds i8, ptr %36, i64 %.idx
   %40 = icmp eq i64 %38, 0
-  %.phi.trans.insert77 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.pre78 = load i64, ptr %.phi.trans.insert77, align 8
+  %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.pre79 = load i64, ptr %.phi.trans.insert78, align 8
   br i1 %40, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %34
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.pre76 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre77 = load ptr, ptr %.phi.trans.insert, align 8
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %34
@@ -6375,23 +6377,24 @@ define void @_ZN8settings14settings_store25update_value_in_json_text17h3426f3ee7
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %44 = load ptr, ptr %43, align 8, !nonnull !4
-  %.pre75 = load i64, ptr %41, align 8, !alias.scope !1368, !noalias !1371
+  %.pre76 = load i64, ptr %41, align 8, !alias.scope !1368, !noalias !1371
   br label %50
 
 ._crit_edge:                                      ; preds = %108, %.._crit_edge_crit_edge
-  %45 = phi ptr [ %.pre76, %.._crit_edge_crit_edge ], [ %44, %108 ]
-  %46 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %45, i64 %.pre78
-  %47 = icmp eq i64 %.pre78, 0
+  %45 = phi ptr [ %.pre77, %.._crit_edge_crit_edge ], [ %44, %108 ]
+  %.idx72 = mul nsw i64 %.pre79, 104
+  %46 = getelementptr inbounds i8, ptr %45, i64 %.idx72
+  %47 = icmp eq i64 %.pre79, 0
   br i1 %47, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit.thread", label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %._crit_edge
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre79 = load i64, ptr %48, align 8, !alias.scope !1373, !noalias !1376
+  %.pre80 = load i64, ptr %48, align 8, !alias.scope !1373, !noalias !1376
   br label %76
 
 50:                                               ; preds = %.lr.ph, %108
-  %51 = phi i64 [ %.pre75, %.lr.ph ], [ %109, %108 ]
+  %51 = phi i64 [ %.pre76, %.lr.ph ], [ %109, %108 ]
   %.sroa.0.068 = phi ptr [ %36, %.lr.ph ], [ %52, %108 ]
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.068, i64 104
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.068, i64 24
@@ -6422,7 +6425,7 @@ define void @_ZN8settings14settings_store25update_value_in_json_text17h3426f3ee7
   br i1 %switch.i, label %68, label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h18c292add68710e7E.exit"
 
 68:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfca6d4d48fa800acE.exit"
-  %69 = icmp ult i64 %67, %.pre78
+  %69 = icmp ult i64 %67, %.pre79
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %68
@@ -6430,7 +6433,7 @@ define void @_ZN8settings14settings_store25update_value_in_json_text17h3426f3ee7
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h18c292add68710e7E.exit"
 
 72:                                               ; preds = %68
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %67, i64 noundef %.pre78, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f2b51ffb21a51d35f4ea8c0eca9c76a.28.llvm.7407093845808595376) #19
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %67, i64 noundef %.pre79, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f2b51ffb21a51d35f4ea8c0eca9c76a.28.llvm.7407093845808595376) #19
   unreachable
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17h18c292add68710e7E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfca6d4d48fa800acE.exit", %70
@@ -6443,7 +6446,7 @@ define void @_ZN8settings14settings_store25update_value_in_json_text17h3426f3ee7
   br i1 %75, label %108, label %104
 
 76:                                               ; preds = %.lr.ph71, %101
-  %77 = phi i64 [ %.pre79, %.lr.ph71 ], [ %102, %101 ]
+  %77 = phi i64 [ %.pre80, %.lr.ph71 ], [ %102, %101 ]
   %.sroa.031.069 = phi ptr [ %45, %.lr.ph71 ], [ %78, %101 ]
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.031.069, i64 104
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.031.069, i64 24
@@ -6659,17 +6662,17 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1403
   br i1 %179, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit", label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit.thread"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.loopexit73": ; preds = %31
-  %.pre80 = xor i64 %15, -9223372036854775808
-  %.pre81 = tail call i64 @llvm.umin.i64(i64 %.pre80, i64 5)
+"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.loopexit74": ; preds = %31
+  %.pre81 = xor i64 %15, -9223372036854775808
+  %.pre82 = tail call i64 @llvm.umin.i64(i64 %.pre81, i64 5)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit": ; preds = %163, %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.loopexit73", %168, %158, %151, %131, %.loopexit, %154, %147, %143, %139, %125, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit"
-  %.pre-phi82 = phi i64 [ %.pre81, %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.loopexit73" ], [ %114, %168 ], [ %114, %158 ], [ %114, %151 ], [ %114, %131 ], [ %114, %.loopexit ], [ %114, %154 ], [ %114, %147 ], [ %114, %143 ], [ %114, %139 ], [ %114, %125 ], [ %114, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit" ], [ %114, %163 ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit": ; preds = %163, %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.loopexit74", %168, %158, %151, %131, %.loopexit, %154, %147, %143, %139, %125, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit"
+  %.pre-phi83 = phi i64 [ %.pre82, %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.loopexit74" ], [ %114, %168 ], [ %114, %158 ], [ %114, %151 ], [ %114, %131 ], [ %114, %.loopexit ], [ %114, %154 ], [ %114, %147 ], [ %114, %143 ], [ %114, %139 ], [ %114, %125 ], [ %114, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit" ], [ %114, %163 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !1404)
   call void @llvm.experimental.noalias.scope.decl(metadata !1407)
-  switch i64 %.pre-phi82, label %default.unreachable [
+  switch i64 %.pre-phi83, label %default.unreachable [
     i64 0, label %180
     i64 1, label %181
     i64 2, label %185

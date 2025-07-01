@@ -4389,7 +4389,8 @@ _ZN5tokio7runtime2io16registration_set15RegistrationSet8shutdown17h3d45222888aec
   %.sroa.416.0.copyload = load ptr, ptr %.sroa.416.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   %.sroa.517.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.517.0.copyload = load i64, ptr %.sroa.517.0..sroa_idx, align 8
-  %83 = getelementptr inbounds ptr, ptr %.sroa.416.0.copyload, i64 %.sroa.517.0.copyload
+  %.idx = shl nsw i64 %.sroa.517.0.copyload, 3
+  %83 = getelementptr inbounds i8, ptr %.sroa.416.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.416.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4521,7 +4522,8 @@ define hidden void @_ZN5tokio7runtime2io6driver6Driver4turn17h41c2eeeab8955e8cE.
   store i64 0, ptr %20, align 8, !alias.scope !660
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !660
   store i64 0, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !alias.scope !660
-  %21 = getelementptr inbounds ptr, ptr %.sroa.2.0.copyload.i.i, i64 %.sroa.3.0.copyload.i.i
+  %.idx.i.i = shl nsw i64 %.sroa.3.0.copyload.i.i, 3
+  %21 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i, i64 %.idx.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !660
   store ptr %.sroa.2.0.copyload.i.i, ptr %8, align 8, !noalias !660
   %.sroa.4.0..sroa_idx9.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8

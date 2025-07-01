@@ -5285,8 +5285,8 @@ define void @_ZN6duckdb22DuckTransactionManager17RemoveTransactionERNS_15DuckTra
   %9 = load i64, ptr @_ZN6duckdb20TRANSACTION_ID_STARTE, align 8, !tbaa !10
   %10 = load i64, ptr @_ZN6duckdb18MAX_TRANSACTION_IDE, align 8, !tbaa !10
   %11 = load i64, ptr @_ZN6duckdb16MAXIMUM_QUERY_IDE, align 8, !tbaa !10
-  %.not180 = icmp eq ptr %7, %8
-  br i1 %.not180, label %._crit_edge, label %.lr.ph.preheader
+  %.not181 = icmp eq ptr %7, %8
+  br i1 %.not181, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
   %12 = ptrtoint ptr %7 to i64
@@ -5309,12 +5309,12 @@ define void @_ZN6duckdb22DuckTransactionManager17RemoveTransactionERNS_15DuckTra
           to label %54 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %45
-  %.0159 = phi i64 [ %.1, %45 ], [ %15, %.lr.ph.preheader ]
-  %.043158 = phi i64 [ %.144, %45 ], [ %9, %.lr.ph.preheader ]
-  %.047157 = phi i64 [ %.148, %45 ], [ %10, %.lr.ph.preheader ]
-  %.050156 = phi i64 [ %.151, %45 ], [ %11, %.lr.ph.preheader ]
-  %.052155 = phi i64 [ %46, %45 ], [ 0, %.lr.ph.preheader ]
-  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %.052155)
+  %.0160 = phi i64 [ %.1, %45 ], [ %15, %.lr.ph.preheader ]
+  %.043159 = phi i64 [ %.144, %45 ], [ %9, %.lr.ph.preheader ]
+  %.047158 = phi i64 [ %.148, %45 ], [ %10, %.lr.ph.preheader ]
+  %.050157 = phi i64 [ %.151, %45 ], [ %11, %.lr.ph.preheader ]
+  %.052156 = phi i64 [ %46, %45 ], [ 0, %.lr.ph.preheader ]
+  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %.052156)
           to label %20 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 20:                                               ; preds = %.lr.ph
@@ -5323,7 +5323,7 @@ define void @_ZN6duckdb22DuckTransactionManager17RemoveTransactionERNS_15DuckTra
   br i1 %22, label %45, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %.052155)
+  %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %.052156)
           to label %25 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 25:                                               ; preds = %23
@@ -5333,7 +5333,7 @@ define void @_ZN6duckdb22DuckTransactionManager17RemoveTransactionERNS_15DuckTra
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %29 = load atomic i64, ptr %28 seq_cst, align 8
-  %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %.052155)
+  %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %.052156)
           to label %31 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 31:                                               ; preds = %27
@@ -5343,9 +5343,9 @@ define void @_ZN6duckdb22DuckTransactionManager17RemoveTransactionERNS_15DuckTra
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %35 = load i64, ptr %34, align 8, !tbaa !426
-  %36 = tail call noundef i64 @llvm.umin.i64(i64 %.043158, i64 %35)
-  %37 = tail call noundef i64 @llvm.umin.i64(i64 %.050156, i64 %29)
-  %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %.052155)
+  %36 = tail call noundef i64 @llvm.umin.i64(i64 %.043159, i64 %35)
+  %37 = tail call noundef i64 @llvm.umin.i64(i64 %.050157, i64 %29)
+  %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %.052156)
           to label %39 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 39:                                               ; preds = %33
@@ -5355,15 +5355,15 @@ define void @_ZN6duckdb22DuckTransactionManager17RemoveTransactionERNS_15DuckTra
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %43 = load i64, ptr %42, align 8, !tbaa !349
-  %44 = tail call noundef i64 @llvm.umin.i64(i64 %.047157, i64 %43)
+  %44 = tail call noundef i64 @llvm.umin.i64(i64 %.047158, i64 %43)
   br label %45
 
 45:                                               ; preds = %20, %41
-  %.151 = phi i64 [ %37, %41 ], [ %.050156, %20 ]
-  %.148 = phi i64 [ %44, %41 ], [ %.047157, %20 ]
-  %.144 = phi i64 [ %36, %41 ], [ %.043158, %20 ]
-  %.1 = phi i64 [ %.0159, %41 ], [ %.052155, %20 ]
-  %46 = add nuw i64 %.052155, 1
+  %.151 = phi i64 [ %37, %41 ], [ %.050157, %20 ]
+  %.148 = phi i64 [ %44, %41 ], [ %.047158, %20 ]
+  %.144 = phi i64 [ %36, %41 ], [ %.043159, %20 ]
+  %.1 = phi i64 [ %.0160, %41 ], [ %.052156, %20 ]
+  %46 = add nuw i64 %.052156, 1
   %47 = load ptr, ptr %6, align 8, !tbaa !41
   %48 = load ptr, ptr %5, align 8, !tbaa !40
   %49 = ptrtoint ptr %47 to i64
@@ -5644,18 +5644,18 @@ _ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %163 = load ptr, ptr %162, align 8, !tbaa !41
   %164 = load ptr, ptr %161, align 8, !tbaa !40
-  %.not181 = icmp eq ptr %163, %164
-  br i1 %.not181, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit, label %.lr.ph165
+  %.not182 = icmp eq ptr %163, %164
+  br i1 %.not182, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit, label %.lr.ph166
 
-.lr.ph165:                                        ; preds = %_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EE15unsafe_erase_atEm.exit
+.lr.ph166:                                        ; preds = %_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EE15unsafe_erase_atEm.exit
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %168
 
-168:                                              ; preds = %.lr.ph165, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE9push_backEOS5_.exit92
-  %.045164 = phi i64 [ 0, %.lr.ph165 ], [ %219, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE9push_backEOS5_.exit92 ]
-  %169 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %161, i64 noundef %.045164)
+168:                                              ; preds = %.lr.ph166, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE9push_backEOS5_.exit92
+  %.045165 = phi i64 [ 0, %.lr.ph166 ], [ %219, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE9push_backEOS5_.exit92 ]
+  %169 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %161, i64 noundef %.045165)
           to label %170 unwind label %.loopexit.split-lp.loopexit
 
 170:                                              ; preds = %168
@@ -5663,7 +5663,7 @@ _ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb
           to label %172 unwind label %.loopexit.split-lp.loopexit
 
 172:                                              ; preds = %170
-  %173 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %161, i64 noundef %.045164)
+  %173 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %161, i64 noundef %.045165)
           to label %174 unwind label %.loopexit.split-lp.loopexit
 
 174:                                              ; preds = %172
@@ -5674,10 +5674,10 @@ _ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb
   %177 = getelementptr inbounds nuw i8, ptr %175, i64 64
   %178 = load i64, ptr %177, align 8, !tbaa !422
   %179 = icmp ult i64 %178, %.043.lcssa
-  br i1 %179, label %180, label %._crit_edge166
+  br i1 %179, label %180, label %._crit_edge167
 
 180:                                              ; preds = %176
-  %181 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %161, i64 noundef %.045164)
+  %181 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %161, i64 noundef %.045165)
           to label %182 unwind label %.loopexit.split-lp.loopexit
 
 182:                                              ; preds = %180
@@ -5690,7 +5690,7 @@ _ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb
           to label %_ZN6duckdb15DuckTransaction7CleanupEm.exit76 unwind label %.loopexit.split-lp.loopexit
 
 _ZN6duckdb15DuckTransaction7CleanupEm.exit76:     ; preds = %184
-  %186 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %161, i64 noundef %.045164)
+  %186 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %161, i64 noundef %.045165)
           to label %187 unwind label %.loopexit.split-lp.loopexit
 
 187:                                              ; preds = %_ZN6duckdb15DuckTransaction7CleanupEm.exit76
@@ -5700,7 +5700,7 @@ _ZN6duckdb15DuckTransaction7CleanupEm.exit76:     ; preds = %184
 189:                                              ; preds = %187
   %190 = getelementptr inbounds nuw i8, ptr %188, i64 72
   store i64 %61, ptr %190, align 8, !tbaa !433
-  %191 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %161, i64 noundef %.045164)
+  %191 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %161, i64 noundef %.045165)
           to label %192 unwind label %.loopexit.split-lp.loopexit
 
 192:                                              ; preds = %189
@@ -5777,7 +5777,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_EL
   br label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE9push_backEOS5_.exit92
 
 _ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE9push_backEOS5_.exit92: ; preds = %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i89, %195
-  %219 = add nuw i64 %.045164, 1
+  %219 = add nuw i64 %.045165, 1
   %220 = load ptr, ptr %162, align 8, !tbaa !41
   %221 = load ptr, ptr %161, align 8, !tbaa !40
   %222 = ptrtoint ptr %220 to i64
@@ -5785,22 +5785,23 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_EL
   %224 = sub i64 %222, %223
   %225 = ashr exact i64 %224, 3
   %226 = icmp ult i64 %219, %225
-  br i1 %226, label %168, label %._crit_edge166.thread186, !llvm.loop !445
+  br i1 %226, label %168, label %._crit_edge167.thread187, !llvm.loop !445
 
-._crit_edge166:                                   ; preds = %176
-  %.not53 = icmp eq i64 %.045164, 0
-  br i1 %.not53, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit, label %._crit_edge166.thread186
+._crit_edge167:                                   ; preds = %176
+  %.not53 = icmp eq i64 %.045165, 0
+  br i1 %.not53, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit, label %._crit_edge167.thread187
 
-._crit_edge166.thread186:                         ; preds = %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE9push_backEOS5_.exit92, %._crit_edge166
-  %.045.lcssa189 = phi i64 [ %.045164, %._crit_edge166 ], [ %219, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE9push_backEOS5_.exit92 ]
+._crit_edge167.thread187:                         ; preds = %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE9push_backEOS5_.exit92, %._crit_edge167
+  %.045.lcssa190 = phi i64 [ %.045165, %._crit_edge167 ], [ %219, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE9push_backEOS5_.exit92 ]
   %227 = load ptr, ptr %161, align 8, !tbaa !79
-  %228 = getelementptr inbounds %"class.duckdb::unique_ptr.167", ptr %227, i64 %.045.lcssa189
+  %.idx = shl nsw i64 %.045.lcssa190, 3
+  %228 = getelementptr inbounds i8, ptr %227, i64 %.idx
   %229 = ptrtoint ptr %228 to i64
   %230 = load ptr, ptr %162, align 8, !tbaa !79
   %.not11.i.i = icmp eq ptr %228, %230
   br i1 %.not11.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i, label %231
 
-231:                                              ; preds = %._crit_edge166.thread186
+231:                                              ; preds = %._crit_edge167.thread187
   %232 = ptrtoint ptr %230 to i64
   %233 = sub i64 %232, %229
   %234 = ashr exact i64 %233, 3
@@ -5837,9 +5838,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransac
   %.pre13.i.i = ptrtoint ptr %.pre.i.i to i64
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i, %231, %._crit_edge166.thread186
-  %.pre-phi14.i.i = phi i64 [ %.pre13.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i ], [ %232, %231 ], [ %229, %._crit_edge166.thread186 ]
-  %245 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i ], [ %230, %231 ], [ %228, %._crit_edge166.thread186 ]
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i, %231, %._crit_edge167.thread187
+  %.pre-phi14.i.i = phi i64 [ %.pre13.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i ], [ %232, %231 ], [ %229, %._crit_edge167.thread187 ]
+  %245 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i ], [ %230, %231 ], [ %228, %._crit_edge167.thread187 ]
   %246 = sub i64 %.pre-phi14.i.i, %229
   %247 = getelementptr inbounds i8, ptr %227, i64 %246
   %.not.i.i.i94 = icmp eq ptr %245, %247
@@ -5868,7 +5869,7 @@ _ZSt8_DestroyIPN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_
   store ptr %247, ptr %162, align 8, !tbaa !41
   br label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit
 
-_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit: ; preds = %_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EE15unsafe_erase_atEm.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i, %_ZSt8_DestroyIPN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEES5_EvT_S7_RSaIT0_E.exit.i.i.i, %._crit_edge166
+_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit: ; preds = %_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EE15unsafe_erase_atEm.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i, %_ZSt8_DestroyIPN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEES5_EvT_S7_RSaIT0_E.exit.i.i.i, %._crit_edge167
   %253 = load ptr, ptr %5, align 8, !tbaa !79
   %254 = load ptr, ptr %6, align 8, !tbaa !79
   %255 = icmp eq ptr %253, %254
@@ -5882,14 +5883,14 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_EL
   %263 = ashr exact i64 %262, 3
   %264 = select i1 %255, i64 %263, i64 0
   %265 = icmp ult i64 %264, %263
-  br i1 %265, label %.lr.ph173, label %._crit_edge174
+  br i1 %265, label %.lr.ph174, label %._crit_edge175
 
-.lr.ph173:                                        ; preds = %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit, %272
-  %.146172 = phi i64 [ %273, %272 ], [ %264, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit ]
-  %266 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %256, i64 noundef %.146172)
+.lr.ph174:                                        ; preds = %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit, %272
+  %.146173 = phi i64 [ %273, %272 ], [ %264, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit ]
+  %266 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_15DuckTransactionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %256, i64 noundef %.146173)
           to label %267 unwind label %.loopexit
 
-267:                                              ; preds = %.lr.ph173
+267:                                              ; preds = %.lr.ph174
   %268 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_15DuckTransactionESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %266)
           to label %269 unwind label %.loopexit
 
@@ -5897,10 +5898,10 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_EL
   %270 = getelementptr inbounds nuw i8, ptr %268, i64 72
   %271 = load i64, ptr %270, align 8, !tbaa !433
   %.not54 = icmp ult i64 %271, %.050.lcssa
-  br i1 %.not54, label %272, label %._crit_edge174
+  br i1 %.not54, label %272, label %._crit_edge175
 
 272:                                              ; preds = %269
-  %273 = add nuw i64 %.146172, 1
+  %273 = add nuw i64 %.146173, 1
   %274 = load ptr, ptr %257, align 8, !tbaa !41
   %275 = load ptr, ptr %256, align 8, !tbaa !40
   %276 = ptrtoint ptr %274 to i64
@@ -5908,23 +5909,24 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_EL
   %278 = sub i64 %276, %277
   %279 = ashr exact i64 %278, 3
   %280 = icmp ult i64 %273, %279
-  br i1 %280, label %.lr.ph173, label %._crit_edge174.thread, !llvm.loop !446
+  br i1 %280, label %.lr.ph174, label %._crit_edge175.thread, !llvm.loop !446
 
-._crit_edge174:                                   ; preds = %269, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit
-  %.146.lcssa = phi i64 [ %264, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit ], [ %.146172, %269 ]
+._crit_edge175:                                   ; preds = %269, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit
+  %.146.lcssa = phi i64 [ %264, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit ], [ %.146173, %269 ]
   %.not55 = icmp eq i64 %.146.lcssa, 0
-  br i1 %.not55, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit120, label %._crit_edge174.thread
+  br i1 %.not55, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit120, label %._crit_edge175.thread
 
-._crit_edge174.thread:                            ; preds = %272, %._crit_edge174
-  %.146.lcssa192 = phi i64 [ %.146.lcssa, %._crit_edge174 ], [ %273, %272 ]
+._crit_edge175.thread:                            ; preds = %272, %._crit_edge175
+  %.146.lcssa193 = phi i64 [ %.146.lcssa, %._crit_edge175 ], [ %273, %272 ]
   %281 = load ptr, ptr %256, align 8, !tbaa !79
-  %282 = getelementptr inbounds %"class.duckdb::unique_ptr.167", ptr %281, i64 %.146.lcssa192
+  %.idx131 = shl nsw i64 %.146.lcssa193, 3
+  %282 = getelementptr inbounds i8, ptr %281, i64 %.idx131
   %283 = ptrtoint ptr %282 to i64
   %284 = load ptr, ptr %257, align 8, !tbaa !79
   %.not11.i.i99 = icmp eq ptr %282, %284
   br i1 %.not11.i.i99, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i100, label %285
 
-285:                                              ; preds = %._crit_edge174.thread
+285:                                              ; preds = %._crit_edge175.thread
   %286 = ptrtoint ptr %284 to i64
   %287 = sub i64 %286, %283
   %288 = ashr exact i64 %287, 3
@@ -5961,9 +5963,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransac
   %.pre13.i.i119 = ptrtoint ptr %.pre.i.i118 to i64
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i100
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i100: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i117, %285, %._crit_edge174.thread
-  %.pre-phi14.i.i101 = phi i64 [ %.pre13.i.i119, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i117 ], [ %286, %285 ], [ %283, %._crit_edge174.thread ]
-  %299 = phi ptr [ %.pre.i.i118, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i117 ], [ %284, %285 ], [ %282, %._crit_edge174.thread ]
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i100: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i117, %285, %._crit_edge175.thread
+  %.pre-phi14.i.i101 = phi i64 [ %.pre13.i.i119, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i117 ], [ %286, %285 ], [ %283, %._crit_edge175.thread ]
+  %299 = phi ptr [ %.pre.i.i118, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i117 ], [ %284, %285 ], [ %282, %._crit_edge175.thread ]
   %300 = sub i64 %.pre-phi14.i.i101, %283
   %301 = getelementptr inbounds i8, ptr %281, i64 %300
   %.not.i.i.i102 = icmp eq ptr %299, %301
@@ -5992,7 +5994,7 @@ _ZSt8_DestroyIPN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_
   store ptr %301, ptr %257, align 8, !tbaa !41
   br label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit120
 
-_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit120: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i100, %_ZSt8_DestroyIPN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEES5_EvT_S7_RSaIT0_E.exit.i.i.i109, %._crit_edge174
+_ZNSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit120: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN6duckdb10unique_ptrINS2_15DuckTransactionESt14default_deleteIS4_ELb1EEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i100, %_ZSt8_DestroyIPN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEES5_EvT_S7_RSaIT0_E.exit.i.i.i109, %._crit_edge175
   %307 = load ptr, ptr %4, align 8, !tbaa !42
   %.not.i121 = icmp eq ptr %307, null
   br i1 %.not.i121, label %_ZNSt10unique_ptrIN6duckdb15DuckTransactionESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6duckdb15DuckTransactionEEclEPS1_.exit.i
@@ -6008,18 +6010,18 @@ _ZNSt10unique_ptrIN6duckdb15DuckTransactionESt14default_deleteIS1_EED2Ev.exit: ;
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #33
   ret void
 
-.loopexit:                                        ; preds = %.lr.ph173, %267
+.loopexit:                                        ; preds = %.lr.ph174, %267
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %_ZNKSt6vectorIN6duckdb10unique_ptrINS0_15DuckTransactionESt14default_deleteIS2_ELb1EEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i78, %184, %189, %187, %_ZN6duckdb15DuckTransaction7CleanupEm.exit76, %182, %180, %174, %172, %170, %168
-  %lpad.loopexit131 = landingpad { ptr, i32 }
+  %lpad.loopexit132 = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.lr.ph, %23, %25, %27, %31, %33, %39
-  %lpad.loopexit134 = landingpad { ptr, i32 }
+  %lpad.loopexit135 = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
 
@@ -6029,7 +6031,7 @@ _ZNSt10unique_ptrIN6duckdb15DuckTransactionESt14default_deleteIS1_EED2Ev.exit: ;
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit131, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit134, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit132, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit135, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %311 = extractvalue { ptr, i32 } %lpad.phi, 0
   call void @__clang_call_terminate(ptr %311) #37
   unreachable
@@ -20356,7 +20358,8 @@ _ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb13ClientContextEESaIS3_EE15_M_a
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb13ClientContextEESaIS3_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb13ClientContextEESaIS3_EE16_M_allocate_nodeEv.exit.i
@@ -20476,7 +20479,8 @@ _ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb16DatabaseInstanceEESaIS3_EE15_
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb16DatabaseInstanceEESaIS3_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb16DatabaseInstanceEESaIS3_EE16_M_allocate_nodeEv.exit.i
@@ -20596,7 +20600,8 @@ _ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb7CatalogEESaIS3_EE15_M_allocate
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb7CatalogEESaIS3_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb7CatalogEESaIS3_EE16_M_allocate_nodeEv.exit.i
@@ -20716,7 +20721,8 @@ _ZNSt11_Deque_baseImSaImEE15_M_allocate_mapEm.exit:
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseImSaImEE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseImSaImEE16_M_allocate_nodeEv.exit.i
@@ -20836,7 +20842,8 @@ _ZNSt11_Deque_baseISt17reference_wrapperISt13unordered_mapINSt7__cxx1112basic_st
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseISt17reference_wrapperISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb10shared_ptrINS8_18BoundParameterDataELb1EEENS8_33CaseInsensitiveStringHashFunctionENS8_29CaseInsensitiveStringEqualityESaISt4pairIKS7_SB_EEEESaISJ_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseISt17reference_wrapperISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb10shared_ptrINS8_18BoundParameterDataELb1EEENS8_33CaseInsensitiveStringHashFunctionENS8_29CaseInsensitiveStringEqualityESaISt4pairIKS7_SB_EEEESaISJ_EE16_M_allocate_nodeEv.exit.i
@@ -20956,7 +20963,8 @@ _ZNSt11_Deque_baseISt17reference_wrapperIKN6duckdb11LogicalTypeEESaIS4_EE15_M_al
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseISt17reference_wrapperIKN6duckdb11LogicalTypeEESaIS4_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseISt17reference_wrapperIKN6duckdb11LogicalTypeEESaIS4_EE16_M_allocate_nodeEv.exit.i
@@ -21076,7 +21084,8 @@ _ZNSt11_Deque_baseISt17reference_wrapperIKN6duckdb15CompressionInfoEESaIS4_EE15_
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseISt17reference_wrapperIKN6duckdb15CompressionInfoEESaIS4_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseISt17reference_wrapperIKN6duckdb15CompressionInfoEESaIS4_EE16_M_allocate_nodeEv.exit.i

@@ -3210,7 +3210,8 @@ _Z13_compressAutoP7EncodermPmPPhmS2_S1_S3_i.exit: ; preds = %20, %27, %33, %44, 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @duckdb_fsst_compress(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #5 {
-  %9 = getelementptr inbounds nuw i64, ptr %2, i64 %1
+  %.idx = shl nuw nsw i64 %1, 3
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not6.i = icmp eq i64 %1, 0
   br i1 %.not6.i, label %_ZSt10accumulateIPmiET0_T_S2_S1_.exit, label %.lr.ph.i
 

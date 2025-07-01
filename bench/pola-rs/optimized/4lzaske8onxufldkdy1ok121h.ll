@@ -1782,7 +1782,8 @@ define internal void @_ZN10polars_ffi9version_023c_release_series_export17h7e597
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !align !143, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %.idx = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 

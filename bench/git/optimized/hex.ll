@@ -627,7 +627,8 @@ define dso_local noundef ptr @oid_to_hex_r(ptr noundef returned writeonly captur
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 4, !tbaa !37
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %5
+  %.idx = mul nsw i64 %5, 112
+  %6 = getelementptr inbounds i8, ptr @hash_algos, i64 %.idx
   %7 = icmp eq i32 %4, 0
   br i1 %7, label %8, label %12
 
@@ -779,7 +780,8 @@ define dso_local nonnull ptr @oid_to_hex(ptr noundef readonly captures(none) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 4, !tbaa !37
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %4
+  %.idx = mul nsw i64 %4, 112
+  %5 = getelementptr inbounds i8, ptr @hash_algos, i64 %.idx
   %6 = load i32, ptr @hash_to_hex_algop.bufno, align 4, !tbaa !43
   %7 = add nuw nsw i32 %6, 1
   %8 = and i32 %7, 3

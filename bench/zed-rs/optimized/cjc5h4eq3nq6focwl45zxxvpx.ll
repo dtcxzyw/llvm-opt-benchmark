@@ -29444,12 +29444,12 @@ define void @_ZN7copilot7Copilot21update_sign_in_status17heb075719d54e4479E(ptr 
   %switch = icmp eq i64 %26, 0
   br i1 %switch, label %29, label %.thread
 
-default.unreachable178:                           ; preds = %29
+default.unreachable180:                           ; preds = %29
   unreachable
 
 29:                                               ; preds = %25
   %30 = load i64, ptr %1, align 8, !range !84, !noundef !16
-  switch i64 %30, label %default.unreachable178 [
+  switch i64 %30, label %default.unreachable180 [
     i64 0, label %33
     i64 1, label %37
     i64 2, label %37
@@ -29543,7 +29543,8 @@ default.unreachable178:                           ; preds = %29
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i27, align 8, !alias.scope !5748, !noalias !5751, !nonnull !16, !noundef !16
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !5748, !noalias !5751
-  %62 = getelementptr inbounds { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx178 = shl nsw i64 %.sroa.5.0.copyload.i, 5
+  %62 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx178
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   store ptr %.sroa.4.0.copyload.i, ptr %16, align 8
@@ -29723,7 +29724,8 @@ default.unreachable178:                           ; preds = %29
   %.sroa.4.0.copyload.i43 = load ptr, ptr %.sroa.4.0..sroa_idx.i42, align 8, !alias.scope !5770, !noalias !5773, !nonnull !16, !noundef !16
   %.sroa.5.0..sroa_idx.i44 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.5.0.copyload.i45 = load i64, ptr %.sroa.5.0..sroa_idx.i44, align 8, !alias.scope !5770, !noalias !5773
-  %108 = getelementptr inbounds { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, ptr %.sroa.4.0.copyload.i43, i64 %.sroa.5.0.copyload.i45
+  %.idx = shl nsw i64 %.sroa.5.0.copyload.i45, 5
+  %108 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i43, i64 %.idx
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   store ptr %.sroa.4.0.copyload.i43, ptr %11, align 8
@@ -29842,7 +29844,8 @@ default.unreachable178:                           ; preds = %29
   %.sroa.4.0.copyload.i63 = load ptr, ptr %.sroa.4.0..sroa_idx.i62, align 8, !alias.scope !5792, !noalias !5795, !nonnull !16, !noundef !16
   %.sroa.5.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.5.0.copyload.i65 = load i64, ptr %.sroa.5.0..sroa_idx.i64, align 8, !alias.scope !5792, !noalias !5795
-  %140 = getelementptr inbounds { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, ptr %.sroa.4.0.copyload.i63, i64 %.sroa.5.0.copyload.i65
+  %.idx179 = shl nsw i64 %.sroa.5.0.copyload.i65, 5
+  %140 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i63, i64 %.idx179
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   store ptr %.sroa.4.0.copyload.i63, ptr %7, align 8

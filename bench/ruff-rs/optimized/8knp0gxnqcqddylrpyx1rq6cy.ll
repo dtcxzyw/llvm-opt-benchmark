@@ -879,7 +879,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h8b7337ea7916e3dcE(p
   %20 = shl i64 %.sroa.0.0.sroa.speculated.i, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16, i64 %20, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  %21 = getelementptr inbounds nuw ptr, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 %20
   store ptr %2, ptr %11, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %21, ptr %22, align 8

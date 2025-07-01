@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.187 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.187 = type { i64, [8 x i8] }
-%"class.llvm::StringRef" = type { ptr, i64 }
 %"class.clang::DeclarationName" = type { i64 }
 %"struct.std::pair" = type { %"class.clang::ento::CallDescription", i8, [7 x i8] }
 %"class.clang::ento::CallDescription" = type <{ %"class.std::optional.0", %"class.std::vector", %"class.std::optional", %"class.std::optional", i32, [4 x i8] }>
@@ -84,7 +83,8 @@ _ZL18readRequiredParamsSt8optionalIjES0_.exit:    ; preds = %14, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %1, ptr %17, align 8, !tbaa !8
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %3)
-  %18 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %2, i64 %3
+  %.idx.i = shl nuw nsw i64 %3, 4
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %.not5.i.i = icmp eq i64 %3, 0
   br i1 %.not5.i.i, label %"_ZN4llvm9transformIRNS_8ArrayRefINS_9StringRefEEESt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEZN5clang4ento15CallDescriptionC1ENSI_4ModeES3_St8optionalIjESL_E3$_0EET0_OT_SN_T1_.exit", label %.lr.ph.i.i
 
@@ -913,7 +913,8 @@ _ZN5clang4ento18CallDescriptionMapIbEC2EOSt16initializer_listISt4pairINS0_15Call
   %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %11, i64 %6
   store ptr %12, ptr %3, align 8, !tbaa !466
   %13 = load ptr, ptr %1, align 8, !tbaa !467
-  %14 = getelementptr inbounds nuw %"class.clang::ento::CallDescription", ptr %13, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 64

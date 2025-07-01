@@ -8013,7 +8013,8 @@ define linkonce_odr void @_ZN4pkpy3Py_INS_10pod_vectorIPNS_8PyObjectELi4EEEE12_o
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %2, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 3
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not15 = icmp eq i32 %5, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -8190,7 +8191,8 @@ define linkonce_odr void @_ZN4pkpy3Py_INS_5TupleEE12_obj_gc_markEv(ptr noundef n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr %3, i64 %6
+  %.idx = shl nsw i64 %6, 3
+  %7 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %.not15 = icmp eq i32 %5, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -8263,7 +8265,8 @@ _ZNSt11_Deque_baseIPN4pkpy8PyObjectESaIS2_EE15_M_allocate_mapEm.exit:
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIPN4pkpy8PyObjectESaIS2_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIPN4pkpy8PyObjectESaIS2_EE16_M_allocate_nodeEv.exit.i
@@ -8774,7 +8777,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN4pkpy8PyObjectERS
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %6, %8
-  br i1 %.not, label %151, label %9
+  br i1 %.not, label %157, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8795,28 +8798,28 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN4pkpy8PyObjectERS
   br i1 %24, label %.lr.ph.i, label %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit
 
 .lr.ph.i:                                         ; preds = %9, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i
-  %.sroa.085.0 = phi ptr [ %storemerge.i.i.i, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ], [ %13, %9 ]
-  %.sroa.987.0 = phi ptr [ %.sroa.987.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ], [ %17, %9 ]
-  %.sroa.1288.0 = phi ptr [ %.sroa.1288.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ], [ %19, %9 ]
-  %25 = phi ptr [ %.sroa.486.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ], [ %15, %9 ]
+  %.sroa.088.0 = phi ptr [ %storemerge.i.i.i, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ], [ %13, %9 ]
+  %.sroa.990.0 = phi ptr [ %.sroa.990.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ], [ %17, %9 ]
+  %.sroa.1291.0 = phi ptr [ %.sroa.1291.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ], [ %19, %9 ]
+  %25 = phi ptr [ %.sroa.489.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ], [ %15, %9 ]
   %.016.i = phi ptr [ %37, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ], [ %12, %9 ]
-  %storemerge15.i = phi i64 [ %57, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ], [ %23, %9 ]
-  %.not.i = icmp eq ptr %.sroa.085.0, %25
+  %storemerge15.i = phi i64 [ %59, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ], [ %23, %9 ]
+  %.not.i = icmp eq ptr %.sroa.088.0, %25
   br i1 %.not.i, label %.thread.i, label %30
 
 .thread.i:                                        ; preds = %.lr.ph.i
-  %26 = getelementptr inbounds i8, ptr %.sroa.1288.0, i64 -8
+  %26 = getelementptr inbounds i8, ptr %.sroa.1291.0, i64 -8
   %27 = load ptr, ptr %26, align 8, !noalias !206
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 512
   %29 = tail call i64 @llvm.umin.i64(i64 %storemerge15.i, i64 64)
-  %.pre101 = ptrtoint ptr %.sroa.085.0 to i64
-  %.pre102 = ptrtoint ptr %25 to i64
-  %.pre103 = sub i64 %.pre101, %.pre102
-  %.pre104 = ashr exact i64 %.pre103, 3
+  %.pre104 = ptrtoint ptr %.sroa.088.0 to i64
+  %.pre105 = ptrtoint ptr %25 to i64
+  %.pre106 = sub i64 %.pre104, %.pre105
+  %.pre107 = ashr exact i64 %.pre106, 3
   br label %35
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = ptrtoint ptr %.sroa.085.0 to i64
+  %31 = ptrtoint ptr %.sroa.088.0 to i64
   %32 = ptrtoint ptr %25 to i64
   %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 3
@@ -8824,363 +8827,375 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN4pkpy8PyObjectERS
   br label %35
 
 35:                                               ; preds = %30, %.thread.i
-  %.pre26.i.pre-phi = phi i64 [ %34, %30 ], [ %.pre104, %.thread.i ]
-  %.sroa.speculated33.i = phi i64 [ %.sroa.speculated.i, %30 ], [ %29, %.thread.i ]
-  %.0932.i = phi ptr [ %.sroa.085.0, %30 ], [ %28, %.thread.i ]
-  %36 = sub nsw i64 0, %.sroa.speculated33.i
-  %37 = getelementptr inbounds ptr, ptr %.016.i, i64 %36
-  %.idx.neg.i = shl nsw i64 %.sroa.speculated33.i, 3
-  %38 = getelementptr inbounds ptr, ptr %.0932.i, i64 %36
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull align 8 %37, i64 %.idx.neg.i, i1 false), !noalias !206
-  %39 = sub nsw i64 %.pre26.i.pre-phi, %.sroa.speculated33.i
-  %40 = icmp sgt i64 %39, -1
-  br i1 %40, label %41, label %47
+  %.pre26.i.pre-phi = phi i64 [ %34, %30 ], [ %.pre107, %.thread.i ]
+  %.sroa.speculated34.i = phi i64 [ %.sroa.speculated.i, %30 ], [ %29, %.thread.i ]
+  %.0933.i = phi ptr [ %.sroa.088.0, %30 ], [ %28, %.thread.i ]
+  %36 = sub nsw i64 0, %.sroa.speculated34.i
+  %.idx36.i = shl nsw i64 %36, 3
+  %37 = getelementptr inbounds i8, ptr %.016.i, i64 %.idx36.i
+  %gepdiff.i = sub nsw i64 0, %.idx36.i
+  %38 = ashr exact i64 %gepdiff.i, 3
+  %39 = sub nsw i64 0, %38
+  %40 = getelementptr inbounds ptr, ptr %.0933.i, i64 %39
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %40, ptr nonnull align 8 %37, i64 %gepdiff.i, i1 false), !noalias !206
+  %41 = sub nsw i64 %.pre26.i.pre-phi, %.sroa.speculated34.i
+  %42 = icmp sgt i64 %41, -1
+  br i1 %42, label %43, label %49
 
-41:                                               ; preds = %35
-  %42 = icmp samesign ult i64 %39, 64
-  br i1 %42, label %43, label %45
+43:                                               ; preds = %35
+  %44 = icmp samesign ult i64 %41, 64
+  br i1 %44, label %45, label %47
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds ptr, ptr %.sroa.085.0, i64 %36
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds ptr, ptr %.sroa.088.0, i64 %36
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i
 
-45:                                               ; preds = %41
-  %46 = lshr i64 %39, 6
-  br label %49
+47:                                               ; preds = %43
+  %48 = lshr i64 %41, 6
+  br label %51
 
-47:                                               ; preds = %35
-  %48 = ashr i64 %39, 6
-  br label %49
+49:                                               ; preds = %35
+  %50 = ashr i64 %41, 6
+  br label %51
 
-49:                                               ; preds = %47, %45
-  %50 = phi i64 [ %46, %45 ], [ %48, %47 ]
-  %51 = getelementptr inbounds ptr, ptr %.sroa.1288.0, i64 %50
-  %52 = load ptr, ptr %51, align 8, !noalias !206
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 512
-  %54 = shl nsw i64 %50, 6
-  %55 = sub nsw i64 %39, %54
-  %56 = getelementptr inbounds ptr, ptr %52, i64 %55
+51:                                               ; preds = %49, %47
+  %52 = phi i64 [ %48, %47 ], [ %50, %49 ]
+  %53 = getelementptr inbounds ptr, ptr %.sroa.1291.0, i64 %52
+  %54 = load ptr, ptr %53, align 8, !noalias !206
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 512
+  %56 = shl nsw i64 %52, 6
+  %57 = sub nsw i64 %41, %56
+  %58 = getelementptr inbounds ptr, ptr %54, i64 %57
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i
 
-_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i: ; preds = %49, %43
-  %.sroa.486.1 = phi ptr [ %25, %43 ], [ %52, %49 ]
-  %.sroa.987.1 = phi ptr [ %.sroa.987.0, %43 ], [ %53, %49 ]
-  %.sroa.1288.1 = phi ptr [ %.sroa.1288.0, %43 ], [ %51, %49 ]
-  %storemerge.i.i.i = phi ptr [ %44, %43 ], [ %56, %49 ]
-  %57 = sub nsw i64 %storemerge15.i, %.sroa.speculated33.i
-  %58 = icmp sgt i64 %57, 0
-  br i1 %58, label %.lr.ph.i, label %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit, !llvm.loop !209
+_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i: ; preds = %51, %45
+  %.sroa.489.1 = phi ptr [ %25, %45 ], [ %54, %51 ]
+  %.sroa.990.1 = phi ptr [ %.sroa.990.0, %45 ], [ %55, %51 ]
+  %.sroa.1291.1 = phi ptr [ %.sroa.1291.0, %45 ], [ %53, %51 ]
+  %storemerge.i.i.i = phi ptr [ %46, %45 ], [ %58, %51 ]
+  %59 = sub nsw i64 %storemerge15.i, %.sroa.speculated34.i
+  %60 = icmp sgt i64 %59, 0
+  br i1 %60, label %.lr.ph.i, label %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit, !llvm.loop !209
 
 _ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit: ; preds = %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i, %9
-  %.sroa.987.2 = phi ptr [ %17, %9 ], [ %.sroa.987.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ]
-  %.sroa.1288.2 = phi ptr [ %19, %9 ], [ %.sroa.1288.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ]
-  %59 = phi ptr [ %15, %9 ], [ %.sroa.486.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ]
-  %60 = phi ptr [ %13, %9 ], [ %storemerge.i.i.i, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ]
-  store ptr %60, ptr %3, align 8
-  store ptr %59, ptr %14, align 8
-  store ptr %.sroa.987.2, ptr %16, align 8
-  store ptr %.sroa.1288.2, ptr %18, align 8
-  %61 = load ptr, ptr %7, align 8
-  %.095 = getelementptr inbounds i8, ptr %61, i64 -8
-  %62 = load ptr, ptr %5, align 8
-  %.not496 = icmp eq ptr %.095, %62
-  br i1 %.not496, label %._crit_edge, label %.lr.ph
+  %.sroa.990.2 = phi ptr [ %17, %9 ], [ %.sroa.990.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ]
+  %.sroa.1291.2 = phi ptr [ %19, %9 ], [ %.sroa.1291.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ]
+  %61 = phi ptr [ %15, %9 ], [ %.sroa.489.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ]
+  %62 = phi ptr [ %13, %9 ], [ %storemerge.i.i.i, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i ]
+  store ptr %62, ptr %3, align 8
+  store ptr %61, ptr %14, align 8
+  store ptr %.sroa.990.2, ptr %16, align 8
+  store ptr %.sroa.1291.2, ptr %18, align 8
+  %63 = load ptr, ptr %7, align 8
+  %.098 = getelementptr inbounds i8, ptr %63, i64 -8
+  %64 = load ptr, ptr %5, align 8
+  %.not499 = icmp eq ptr %.098, %64
+  br i1 %.not499, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit26
-  %63 = phi ptr [ %.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit26 ], [ %.sroa.1288.2, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ]
-  %64 = phi ptr [ %.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit26 ], [ %.sroa.987.2, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ]
-  %65 = phi ptr [ %.sroa.480.1, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit26 ], [ %59, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ]
-  %66 = phi ptr [ %storemerge.i.i.i24, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit26 ], [ %60, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ]
-  %.097 = phi ptr [ %.0, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit26 ], [ %.095, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ]
-  %67 = load ptr, ptr %.097, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 512
-  br label %69
+.lr.ph:                                           ; preds = %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit27
+  %65 = phi ptr [ %.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit27 ], [ %.sroa.1291.2, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ]
+  %66 = phi ptr [ %.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit27 ], [ %.sroa.990.2, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ]
+  %67 = phi ptr [ %.sroa.483.1, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit27 ], [ %61, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ]
+  %68 = phi ptr [ %storemerge.i.i.i25, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit27 ], [ %62, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ]
+  %.0100 = phi ptr [ %.0, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit27 ], [ %.098, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ]
+  %69 = load ptr, ptr %.0100, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 512
+  br label %71
 
-69:                                               ; preds = %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i23, %.lr.ph
-  %.sroa.11.0 = phi ptr [ %63, %.lr.ph ], [ %.sroa.11.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i23 ]
-  %.sroa.8.0 = phi ptr [ %64, %.lr.ph ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i23 ]
-  %.sroa.079.0 = phi ptr [ %66, %.lr.ph ], [ %storemerge.i.i.i24, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i23 ]
-  %70 = phi ptr [ %65, %.lr.ph ], [ %.sroa.480.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i23 ]
-  %.016.i10 = phi ptr [ %68, %.lr.ph ], [ %82, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i23 ]
-  %storemerge15.i11 = phi i64 [ 64, %.lr.ph ], [ %102, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i23 ]
-  %.not.i12 = icmp eq ptr %.sroa.079.0, %70
-  br i1 %.not.i12, label %.thread.i25, label %75
+71:                                               ; preds = %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i24, %.lr.ph
+  %.sroa.11.0 = phi ptr [ %65, %.lr.ph ], [ %.sroa.11.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i24 ]
+  %.sroa.8.0 = phi ptr [ %66, %.lr.ph ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i24 ]
+  %.sroa.082.0 = phi ptr [ %68, %.lr.ph ], [ %storemerge.i.i.i25, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i24 ]
+  %72 = phi ptr [ %67, %.lr.ph ], [ %.sroa.483.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i24 ]
+  %.016.i10 = phi ptr [ %70, %.lr.ph ], [ %84, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i24 ]
+  %storemerge15.i11 = phi i64 [ 64, %.lr.ph ], [ %106, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i24 ]
+  %.not.i12 = icmp eq ptr %.sroa.082.0, %72
+  br i1 %.not.i12, label %.thread.i26, label %77
 
-.thread.i25:                                      ; preds = %69
-  %71 = getelementptr inbounds i8, ptr %.sroa.11.0, i64 -8
-  %72 = load ptr, ptr %71, align 8, !noalias !210
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 512
-  %74 = tail call i64 @llvm.umin.i64(i64 %storemerge15.i11, i64 64)
-  %.pre109 = ptrtoint ptr %.sroa.079.0 to i64
-  %.pre110 = ptrtoint ptr %70 to i64
-  %.pre111 = sub i64 %.pre109, %.pre110
-  %.pre112 = ashr exact i64 %.pre111, 3
-  br label %80
+.thread.i26:                                      ; preds = %71
+  %73 = getelementptr inbounds i8, ptr %.sroa.11.0, i64 -8
+  %74 = load ptr, ptr %73, align 8, !noalias !210
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 512
+  %76 = tail call i64 @llvm.umin.i64(i64 %storemerge15.i11, i64 64)
+  %.pre112 = ptrtoint ptr %.sroa.082.0 to i64
+  %.pre113 = ptrtoint ptr %72 to i64
+  %.pre114 = sub i64 %.pre112, %.pre113
+  %.pre115 = ashr exact i64 %.pre114, 3
+  br label %82
 
-75:                                               ; preds = %69
-  %76 = ptrtoint ptr %.sroa.079.0 to i64
-  %77 = ptrtoint ptr %70 to i64
-  %78 = sub i64 %76, %77
-  %79 = ashr exact i64 %78, 3
-  %.sroa.speculated.i13 = tail call i64 @llvm.smin.i64(i64 %79, i64 %storemerge15.i11)
-  br label %80
+77:                                               ; preds = %71
+  %78 = ptrtoint ptr %.sroa.082.0 to i64
+  %79 = ptrtoint ptr %72 to i64
+  %80 = sub i64 %78, %79
+  %81 = ashr exact i64 %80, 3
+  %.sroa.speculated.i13 = tail call i64 @llvm.smin.i64(i64 %81, i64 %storemerge15.i11)
+  br label %82
 
-80:                                               ; preds = %75, %.thread.i25
-  %.pre26.i22.pre-phi = phi i64 [ %79, %75 ], [ %.pre112, %.thread.i25 ]
-  %.sroa.speculated33.i14 = phi i64 [ %.sroa.speculated.i13, %75 ], [ %74, %.thread.i25 ]
-  %.0932.i15 = phi ptr [ %.sroa.079.0, %75 ], [ %73, %.thread.i25 ]
-  %81 = sub nsw i64 0, %.sroa.speculated33.i14
-  %82 = getelementptr inbounds ptr, ptr %.016.i10, i64 %81
-  %.idx.neg.i16 = shl nsw i64 %.sroa.speculated33.i14, 3
-  %83 = getelementptr inbounds ptr, ptr %.0932.i15, i64 %81
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %83, ptr nonnull align 8 %82, i64 %.idx.neg.i16, i1 false), !noalias !210
-  %84 = sub nsw i64 %.pre26.i22.pre-phi, %.sroa.speculated33.i14
-  %85 = icmp sgt i64 %84, -1
-  br i1 %85, label %86, label %92
+82:                                               ; preds = %77, %.thread.i26
+  %.pre26.i23.pre-phi = phi i64 [ %81, %77 ], [ %.pre115, %.thread.i26 ]
+  %.sroa.speculated34.i14 = phi i64 [ %.sroa.speculated.i13, %77 ], [ %76, %.thread.i26 ]
+  %.0933.i15 = phi ptr [ %.sroa.082.0, %77 ], [ %75, %.thread.i26 ]
+  %83 = sub nsw i64 0, %.sroa.speculated34.i14
+  %.idx36.i16 = shl nsw i64 %83, 3
+  %84 = getelementptr inbounds i8, ptr %.016.i10, i64 %.idx36.i16
+  %gepdiff.i17 = sub nsw i64 0, %.idx36.i16
+  %85 = ashr exact i64 %gepdiff.i17, 3
+  %86 = sub nsw i64 0, %85
+  %87 = getelementptr inbounds ptr, ptr %.0933.i15, i64 %86
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %87, ptr nonnull align 8 %84, i64 %gepdiff.i17, i1 false), !noalias !210
+  %88 = sub nsw i64 %.pre26.i23.pre-phi, %.sroa.speculated34.i14
+  %89 = icmp sgt i64 %88, -1
+  br i1 %89, label %90, label %96
 
-86:                                               ; preds = %80
-  %87 = icmp samesign ult i64 %84, 64
-  br i1 %87, label %88, label %90
+90:                                               ; preds = %82
+  %91 = icmp samesign ult i64 %88, 64
+  br i1 %91, label %92, label %94
 
-88:                                               ; preds = %86
-  %89 = getelementptr inbounds ptr, ptr %.sroa.079.0, i64 %81
-  br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i23
+92:                                               ; preds = %90
+  %93 = getelementptr inbounds ptr, ptr %.sroa.082.0, i64 %83
+  br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i24
 
-90:                                               ; preds = %86
-  %91 = lshr i64 %84, 6
-  br label %94
+94:                                               ; preds = %90
+  %95 = lshr i64 %88, 6
+  br label %98
 
-92:                                               ; preds = %80
-  %93 = ashr i64 %84, 6
-  br label %94
+96:                                               ; preds = %82
+  %97 = ashr i64 %88, 6
+  br label %98
 
-94:                                               ; preds = %92, %90
-  %95 = phi i64 [ %91, %90 ], [ %93, %92 ]
-  %96 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %95
-  %97 = load ptr, ptr %96, align 8, !noalias !210
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 512
-  %99 = shl nsw i64 %95, 6
-  %100 = sub nsw i64 %84, %99
-  %101 = getelementptr inbounds ptr, ptr %97, i64 %100
-  br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i23
+98:                                               ; preds = %96, %94
+  %99 = phi i64 [ %95, %94 ], [ %97, %96 ]
+  %100 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %99
+  %101 = load ptr, ptr %100, align 8, !noalias !210
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 512
+  %103 = shl nsw i64 %99, 6
+  %104 = sub nsw i64 %88, %103
+  %105 = getelementptr inbounds ptr, ptr %101, i64 %104
+  br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i24
 
-_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i23: ; preds = %94, %88
-  %.sroa.11.1 = phi ptr [ %.sroa.11.0, %88 ], [ %96, %94 ]
-  %.sroa.8.1 = phi ptr [ %.sroa.8.0, %88 ], [ %98, %94 ]
-  %.sroa.480.1 = phi ptr [ %70, %88 ], [ %97, %94 ]
-  %storemerge.i.i.i24 = phi ptr [ %89, %88 ], [ %101, %94 ]
-  %102 = sub nsw i64 %storemerge15.i11, %.sroa.speculated33.i14
-  %103 = icmp sgt i64 %102, 0
-  br i1 %103, label %69, label %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit26, !llvm.loop !209
+_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i24: ; preds = %98, %92
+  %.sroa.11.1 = phi ptr [ %.sroa.11.0, %92 ], [ %100, %98 ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.0, %92 ], [ %102, %98 ]
+  %.sroa.483.1 = phi ptr [ %72, %92 ], [ %101, %98 ]
+  %storemerge.i.i.i25 = phi ptr [ %93, %92 ], [ %105, %98 ]
+  %106 = sub nsw i64 %storemerge15.i11, %.sroa.speculated34.i14
+  %107 = icmp sgt i64 %106, 0
+  br i1 %107, label %71, label %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit27, !llvm.loop !209
 
-_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit26: ; preds = %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i23
-  store ptr %storemerge.i.i.i24, ptr %3, align 8
-  store ptr %.sroa.480.1, ptr %14, align 8
+_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit27: ; preds = %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i24
+  store ptr %storemerge.i.i.i25, ptr %3, align 8
+  store ptr %.sroa.483.1, ptr %14, align 8
   store ptr %.sroa.8.1, ptr %16, align 8
   store ptr %.sroa.11.1, ptr %18, align 8
-  %.0 = getelementptr inbounds i8, ptr %.097, i64 -8
-  %104 = load ptr, ptr %5, align 8
-  %.not4 = icmp eq ptr %.0, %104
+  %.0 = getelementptr inbounds i8, ptr %.0100, i64 -8
+  %108 = load ptr, ptr %5, align 8
+  %.not4 = icmp eq ptr %.0, %108
   br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !213
 
-._crit_edge:                                      ; preds = %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit26, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit
-  %105 = phi ptr [ %.sroa.1288.2, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ], [ %.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit26 ]
-  %106 = phi ptr [ %.sroa.987.2, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ], [ %.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit26 ]
-  %107 = phi ptr [ %59, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ], [ %.sroa.480.1, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit26 ]
-  %108 = phi ptr [ %60, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ], [ %storemerge.i.i.i24, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit26 ]
-  %109 = load ptr, ptr %1, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %111 = load ptr, ptr %110, align 8
-  %112 = ptrtoint ptr %111 to i64
-  %113 = ptrtoint ptr %109 to i64
-  %114 = sub i64 %112, %113
-  %115 = ashr exact i64 %114, 3
-  %116 = icmp sgt i64 %115, 0
-  br i1 %116, label %.lr.ph.i30, label %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit48
+._crit_edge:                                      ; preds = %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit27, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit
+  %109 = phi ptr [ %.sroa.1291.2, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ], [ %.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit27 ]
+  %110 = phi ptr [ %.sroa.990.2, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ], [ %.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit27 ]
+  %111 = phi ptr [ %61, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ], [ %.sroa.483.1, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit27 ]
+  %112 = phi ptr [ %62, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit ], [ %storemerge.i.i.i25, %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit27 ]
+  %113 = load ptr, ptr %1, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %115 = load ptr, ptr %114, align 8
+  %116 = ptrtoint ptr %115 to i64
+  %117 = ptrtoint ptr %113 to i64
+  %118 = sub i64 %116, %117
+  %119 = ashr exact i64 %118, 3
+  %120 = icmp sgt i64 %119, 0
+  br i1 %120, label %.lr.ph.i31, label %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit50
 
-.lr.ph.i30:                                       ; preds = %._crit_edge, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i45
-  %.sroa.1276.0 = phi ptr [ %.sroa.1276.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i45 ], [ %105, %._crit_edge ]
-  %.sroa.975.0 = phi ptr [ %.sroa.975.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i45 ], [ %106, %._crit_edge ]
-  %.sroa.073.0 = phi ptr [ %storemerge.i.i.i46, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i45 ], [ %108, %._crit_edge ]
-  %117 = phi ptr [ %.sroa.474.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i45 ], [ %107, %._crit_edge ]
-  %.016.i32 = phi ptr [ %129, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i45 ], [ %111, %._crit_edge ]
-  %storemerge15.i33 = phi i64 [ %149, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i45 ], [ %115, %._crit_edge ]
-  %.not.i34 = icmp eq ptr %.sroa.073.0, %117
-  br i1 %.not.i34, label %.thread.i47, label %122
+.lr.ph.i31:                                       ; preds = %._crit_edge, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47
+  %.sroa.1279.0 = phi ptr [ %.sroa.1279.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47 ], [ %109, %._crit_edge ]
+  %.sroa.978.0 = phi ptr [ %.sroa.978.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47 ], [ %110, %._crit_edge ]
+  %.sroa.076.0 = phi ptr [ %storemerge.i.i.i48, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47 ], [ %112, %._crit_edge ]
+  %121 = phi ptr [ %.sroa.477.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47 ], [ %111, %._crit_edge ]
+  %.016.i33 = phi ptr [ %133, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47 ], [ %115, %._crit_edge ]
+  %storemerge15.i34 = phi i64 [ %155, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47 ], [ %119, %._crit_edge ]
+  %.not.i35 = icmp eq ptr %.sroa.076.0, %121
+  br i1 %.not.i35, label %.thread.i49, label %126
 
-.thread.i47:                                      ; preds = %.lr.ph.i30
-  %118 = getelementptr inbounds i8, ptr %.sroa.1276.0, i64 -8
-  %119 = load ptr, ptr %118, align 8, !noalias !214
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 512
-  %121 = tail call i64 @llvm.umin.i64(i64 %storemerge15.i33, i64 64)
-  %.pre105 = ptrtoint ptr %.sroa.073.0 to i64
-  %.pre106 = ptrtoint ptr %117 to i64
-  %.pre107 = sub i64 %.pre105, %.pre106
-  %.pre108 = ashr exact i64 %.pre107, 3
-  br label %127
+.thread.i49:                                      ; preds = %.lr.ph.i31
+  %122 = getelementptr inbounds i8, ptr %.sroa.1279.0, i64 -8
+  %123 = load ptr, ptr %122, align 8, !noalias !214
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 512
+  %125 = tail call i64 @llvm.umin.i64(i64 %storemerge15.i34, i64 64)
+  %.pre108 = ptrtoint ptr %.sroa.076.0 to i64
+  %.pre109 = ptrtoint ptr %121 to i64
+  %.pre110 = sub i64 %.pre108, %.pre109
+  %.pre111 = ashr exact i64 %.pre110, 3
+  br label %131
 
-122:                                              ; preds = %.lr.ph.i30
-  %123 = ptrtoint ptr %.sroa.073.0 to i64
-  %124 = ptrtoint ptr %117 to i64
-  %125 = sub i64 %123, %124
-  %126 = ashr exact i64 %125, 3
-  %.sroa.speculated.i35 = tail call i64 @llvm.smin.i64(i64 %126, i64 %storemerge15.i33)
-  br label %127
+126:                                              ; preds = %.lr.ph.i31
+  %127 = ptrtoint ptr %.sroa.076.0 to i64
+  %128 = ptrtoint ptr %121 to i64
+  %129 = sub i64 %127, %128
+  %130 = ashr exact i64 %129, 3
+  %.sroa.speculated.i36 = tail call i64 @llvm.smin.i64(i64 %130, i64 %storemerge15.i34)
+  br label %131
 
-127:                                              ; preds = %122, %.thread.i47
-  %.pre26.i44.pre-phi = phi i64 [ %126, %122 ], [ %.pre108, %.thread.i47 ]
-  %.sroa.speculated33.i36 = phi i64 [ %.sroa.speculated.i35, %122 ], [ %121, %.thread.i47 ]
-  %.0932.i37 = phi ptr [ %.sroa.073.0, %122 ], [ %120, %.thread.i47 ]
-  %128 = sub nsw i64 0, %.sroa.speculated33.i36
-  %129 = getelementptr inbounds ptr, ptr %.016.i32, i64 %128
-  %.idx.neg.i38 = shl nsw i64 %.sroa.speculated33.i36, 3
-  %130 = getelementptr inbounds ptr, ptr %.0932.i37, i64 %128
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr nonnull align 8 %129, i64 %.idx.neg.i38, i1 false), !noalias !214
-  %131 = sub nsw i64 %.pre26.i44.pre-phi, %.sroa.speculated33.i36
-  %132 = icmp sgt i64 %131, -1
-  br i1 %132, label %133, label %139
+131:                                              ; preds = %126, %.thread.i49
+  %.pre26.i46.pre-phi = phi i64 [ %130, %126 ], [ %.pre111, %.thread.i49 ]
+  %.sroa.speculated34.i37 = phi i64 [ %.sroa.speculated.i36, %126 ], [ %125, %.thread.i49 ]
+  %.0933.i38 = phi ptr [ %.sroa.076.0, %126 ], [ %124, %.thread.i49 ]
+  %132 = sub nsw i64 0, %.sroa.speculated34.i37
+  %.idx36.i39 = shl nsw i64 %132, 3
+  %133 = getelementptr inbounds i8, ptr %.016.i33, i64 %.idx36.i39
+  %gepdiff.i40 = sub nsw i64 0, %.idx36.i39
+  %134 = ashr exact i64 %gepdiff.i40, 3
+  %135 = sub nsw i64 0, %134
+  %136 = getelementptr inbounds ptr, ptr %.0933.i38, i64 %135
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %136, ptr nonnull align 8 %133, i64 %gepdiff.i40, i1 false), !noalias !214
+  %137 = sub nsw i64 %.pre26.i46.pre-phi, %.sroa.speculated34.i37
+  %138 = icmp sgt i64 %137, -1
+  br i1 %138, label %139, label %145
 
-133:                                              ; preds = %127
-  %134 = icmp samesign ult i64 %131, 64
-  br i1 %134, label %135, label %137
+139:                                              ; preds = %131
+  %140 = icmp samesign ult i64 %137, 64
+  br i1 %140, label %141, label %143
 
-135:                                              ; preds = %133
-  %136 = getelementptr inbounds ptr, ptr %.sroa.073.0, i64 %128
-  br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i45
+141:                                              ; preds = %139
+  %142 = getelementptr inbounds ptr, ptr %.sroa.076.0, i64 %132
+  br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47
 
-137:                                              ; preds = %133
-  %138 = lshr i64 %131, 6
-  br label %141
+143:                                              ; preds = %139
+  %144 = lshr i64 %137, 6
+  br label %147
 
-139:                                              ; preds = %127
-  %140 = ashr i64 %131, 6
-  br label %141
+145:                                              ; preds = %131
+  %146 = ashr i64 %137, 6
+  br label %147
 
-141:                                              ; preds = %139, %137
-  %142 = phi i64 [ %138, %137 ], [ %140, %139 ]
-  %143 = getelementptr inbounds ptr, ptr %.sroa.1276.0, i64 %142
-  %144 = load ptr, ptr %143, align 8, !noalias !214
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 512
-  %146 = shl nsw i64 %142, 6
-  %147 = sub nsw i64 %131, %146
-  %148 = getelementptr inbounds ptr, ptr %144, i64 %147
-  br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i45
+147:                                              ; preds = %145, %143
+  %148 = phi i64 [ %144, %143 ], [ %146, %145 ]
+  %149 = getelementptr inbounds ptr, ptr %.sroa.1279.0, i64 %148
+  %150 = load ptr, ptr %149, align 8, !noalias !214
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 512
+  %152 = shl nsw i64 %148, 6
+  %153 = sub nsw i64 %137, %152
+  %154 = getelementptr inbounds ptr, ptr %150, i64 %153
+  br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47
 
-_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i45: ; preds = %141, %135
-  %.sroa.1276.1 = phi ptr [ %.sroa.1276.0, %135 ], [ %143, %141 ]
-  %.sroa.975.1 = phi ptr [ %.sroa.975.0, %135 ], [ %145, %141 ]
-  %.sroa.474.1 = phi ptr [ %117, %135 ], [ %144, %141 ]
-  %storemerge.i.i.i46 = phi ptr [ %136, %135 ], [ %148, %141 ]
-  %149 = sub nsw i64 %storemerge15.i33, %.sroa.speculated33.i36
-  %150 = icmp sgt i64 %149, 0
-  br i1 %150, label %.lr.ph.i30, label %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit48, !llvm.loop !209
+_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47: ; preds = %147, %141
+  %.sroa.1279.1 = phi ptr [ %.sroa.1279.0, %141 ], [ %149, %147 ]
+  %.sroa.978.1 = phi ptr [ %.sroa.978.0, %141 ], [ %151, %147 ]
+  %.sroa.477.1 = phi ptr [ %121, %141 ], [ %150, %147 ]
+  %storemerge.i.i.i48 = phi ptr [ %142, %141 ], [ %154, %147 ]
+  %155 = sub nsw i64 %storemerge15.i34, %.sroa.speculated34.i37
+  %156 = icmp sgt i64 %155, 0
+  br i1 %156, label %.lr.ph.i31, label %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit50, !llvm.loop !209
 
-151:                                              ; preds = %4
-  %152 = load ptr, ptr %1, align 8
-  %153 = load ptr, ptr %2, align 8
-  %154 = load ptr, ptr %3, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %160 = load ptr, ptr %159, align 8
-  %161 = ptrtoint ptr %153 to i64
-  %162 = ptrtoint ptr %152 to i64
-  %163 = sub i64 %161, %162
-  %164 = ashr exact i64 %163, 3
-  %165 = icmp sgt i64 %164, 0
-  br i1 %165, label %.lr.ph.i52, label %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit48
+157:                                              ; preds = %4
+  %158 = load ptr, ptr %1, align 8
+  %159 = load ptr, ptr %2, align 8
+  %160 = load ptr, ptr %3, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %166 = load ptr, ptr %165, align 8
+  %167 = ptrtoint ptr %159 to i64
+  %168 = ptrtoint ptr %158 to i64
+  %169 = sub i64 %167, %168
+  %170 = ashr exact i64 %169, 3
+  %171 = icmp sgt i64 %170, 0
+  br i1 %171, label %.lr.ph.i54, label %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit50
 
-.lr.ph.i52:                                       ; preds = %151, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i67
-  %.sroa.12.0 = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i67 ], [ %160, %151 ]
-  %.sroa.9.0 = phi ptr [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i67 ], [ %158, %151 ]
-  %.sroa.0.0 = phi ptr [ %storemerge.i.i.i68, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i67 ], [ %154, %151 ]
-  %166 = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i67 ], [ %156, %151 ]
-  %.016.i54 = phi ptr [ %178, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i67 ], [ %153, %151 ]
-  %storemerge15.i55 = phi i64 [ %198, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i67 ], [ %164, %151 ]
-  %.not.i56 = icmp eq ptr %.sroa.0.0, %166
-  br i1 %.not.i56, label %.thread.i69, label %171
+.lr.ph.i54:                                       ; preds = %157, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i70
+  %.sroa.12.0 = phi ptr [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i70 ], [ %166, %157 ]
+  %.sroa.9.0 = phi ptr [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i70 ], [ %164, %157 ]
+  %.sroa.0.0 = phi ptr [ %storemerge.i.i.i71, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i70 ], [ %160, %157 ]
+  %172 = phi ptr [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i70 ], [ %162, %157 ]
+  %.016.i56 = phi ptr [ %184, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i70 ], [ %159, %157 ]
+  %storemerge15.i57 = phi i64 [ %206, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i70 ], [ %170, %157 ]
+  %.not.i58 = icmp eq ptr %.sroa.0.0, %172
+  br i1 %.not.i58, label %.thread.i72, label %177
 
-.thread.i69:                                      ; preds = %.lr.ph.i52
-  %167 = getelementptr inbounds i8, ptr %.sroa.12.0, i64 -8
-  %168 = load ptr, ptr %167, align 8, !noalias !217
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 512
-  %170 = tail call i64 @llvm.umin.i64(i64 %storemerge15.i55, i64 64)
+.thread.i72:                                      ; preds = %.lr.ph.i54
+  %173 = getelementptr inbounds i8, ptr %.sroa.12.0, i64 -8
+  %174 = load ptr, ptr %173, align 8, !noalias !217
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 512
+  %176 = tail call i64 @llvm.umin.i64(i64 %storemerge15.i57, i64 64)
   %.pre = ptrtoint ptr %.sroa.0.0 to i64
-  %.pre98 = ptrtoint ptr %166 to i64
-  %.pre99 = sub i64 %.pre, %.pre98
-  %.pre100 = ashr exact i64 %.pre99, 3
-  br label %176
+  %.pre101 = ptrtoint ptr %172 to i64
+  %.pre102 = sub i64 %.pre, %.pre101
+  %.pre103 = ashr exact i64 %.pre102, 3
+  br label %182
 
-171:                                              ; preds = %.lr.ph.i52
-  %172 = ptrtoint ptr %.sroa.0.0 to i64
-  %173 = ptrtoint ptr %166 to i64
-  %174 = sub i64 %172, %173
-  %175 = ashr exact i64 %174, 3
-  %.sroa.speculated.i57 = tail call i64 @llvm.smin.i64(i64 %175, i64 %storemerge15.i55)
-  br label %176
+177:                                              ; preds = %.lr.ph.i54
+  %178 = ptrtoint ptr %.sroa.0.0 to i64
+  %179 = ptrtoint ptr %172 to i64
+  %180 = sub i64 %178, %179
+  %181 = ashr exact i64 %180, 3
+  %.sroa.speculated.i59 = tail call i64 @llvm.smin.i64(i64 %181, i64 %storemerge15.i57)
+  br label %182
 
-176:                                              ; preds = %171, %.thread.i69
-  %.pre26.i66.pre-phi = phi i64 [ %175, %171 ], [ %.pre100, %.thread.i69 ]
-  %.sroa.speculated33.i58 = phi i64 [ %.sroa.speculated.i57, %171 ], [ %170, %.thread.i69 ]
-  %.0932.i59 = phi ptr [ %.sroa.0.0, %171 ], [ %169, %.thread.i69 ]
-  %177 = sub nsw i64 0, %.sroa.speculated33.i58
-  %178 = getelementptr inbounds ptr, ptr %.016.i54, i64 %177
-  %.idx.neg.i60 = shl nsw i64 %.sroa.speculated33.i58, 3
-  %179 = getelementptr inbounds ptr, ptr %.0932.i59, i64 %177
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %179, ptr nonnull align 8 %178, i64 %.idx.neg.i60, i1 false), !noalias !217
-  %180 = sub nsw i64 %.pre26.i66.pre-phi, %.sroa.speculated33.i58
-  %181 = icmp sgt i64 %180, -1
-  br i1 %181, label %182, label %188
+182:                                              ; preds = %177, %.thread.i72
+  %.pre26.i69.pre-phi = phi i64 [ %181, %177 ], [ %.pre103, %.thread.i72 ]
+  %.sroa.speculated34.i60 = phi i64 [ %.sroa.speculated.i59, %177 ], [ %176, %.thread.i72 ]
+  %.0933.i61 = phi ptr [ %.sroa.0.0, %177 ], [ %175, %.thread.i72 ]
+  %183 = sub nsw i64 0, %.sroa.speculated34.i60
+  %.idx36.i62 = shl nsw i64 %183, 3
+  %184 = getelementptr inbounds i8, ptr %.016.i56, i64 %.idx36.i62
+  %gepdiff.i63 = sub nsw i64 0, %.idx36.i62
+  %185 = ashr exact i64 %gepdiff.i63, 3
+  %186 = sub nsw i64 0, %185
+  %187 = getelementptr inbounds ptr, ptr %.0933.i61, i64 %186
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %187, ptr nonnull align 8 %184, i64 %gepdiff.i63, i1 false), !noalias !217
+  %188 = sub nsw i64 %.pre26.i69.pre-phi, %.sroa.speculated34.i60
+  %189 = icmp sgt i64 %188, -1
+  br i1 %189, label %190, label %196
 
-182:                                              ; preds = %176
-  %183 = icmp samesign ult i64 %180, 64
-  br i1 %183, label %184, label %186
+190:                                              ; preds = %182
+  %191 = icmp samesign ult i64 %188, 64
+  br i1 %191, label %192, label %194
 
-184:                                              ; preds = %182
-  %185 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %177
-  br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i67
+192:                                              ; preds = %190
+  %193 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %183
+  br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i70
 
-186:                                              ; preds = %182
-  %187 = lshr i64 %180, 6
-  br label %190
+194:                                              ; preds = %190
+  %195 = lshr i64 %188, 6
+  br label %198
 
-188:                                              ; preds = %176
-  %189 = ashr i64 %180, 6
-  br label %190
+196:                                              ; preds = %182
+  %197 = ashr i64 %188, 6
+  br label %198
 
-190:                                              ; preds = %188, %186
-  %191 = phi i64 [ %187, %186 ], [ %189, %188 ]
-  %192 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %191
-  %193 = load ptr, ptr %192, align 8, !noalias !217
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 512
-  %195 = shl nsw i64 %191, 6
-  %196 = sub nsw i64 %180, %195
-  %197 = getelementptr inbounds ptr, ptr %193, i64 %196
-  br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i67
+198:                                              ; preds = %196, %194
+  %199 = phi i64 [ %195, %194 ], [ %197, %196 ]
+  %200 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %199
+  %201 = load ptr, ptr %200, align 8, !noalias !217
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 512
+  %203 = shl nsw i64 %199, 6
+  %204 = sub nsw i64 %188, %203
+  %205 = getelementptr inbounds ptr, ptr %201, i64 %204
+  br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i70
 
-_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i67: ; preds = %190, %184
-  %.sroa.12.1 = phi ptr [ %.sroa.12.0, %184 ], [ %192, %190 ]
-  %.sroa.9.1 = phi ptr [ %.sroa.9.0, %184 ], [ %194, %190 ]
-  %.sroa.4.1 = phi ptr [ %166, %184 ], [ %193, %190 ]
-  %storemerge.i.i.i68 = phi ptr [ %185, %184 ], [ %197, %190 ]
-  %198 = sub nsw i64 %storemerge15.i55, %.sroa.speculated33.i58
-  %199 = icmp sgt i64 %198, 0
-  br i1 %199, label %.lr.ph.i52, label %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit48, !llvm.loop !209
+_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i70: ; preds = %198, %192
+  %.sroa.12.1 = phi ptr [ %.sroa.12.0, %192 ], [ %200, %198 ]
+  %.sroa.9.1 = phi ptr [ %.sroa.9.0, %192 ], [ %202, %198 ]
+  %.sroa.4.1 = phi ptr [ %172, %192 ], [ %201, %198 ]
+  %storemerge.i.i.i71 = phi ptr [ %193, %192 ], [ %205, %198 ]
+  %206 = sub nsw i64 %storemerge15.i57, %.sroa.speculated34.i60
+  %207 = icmp sgt i64 %206, 0
+  br i1 %207, label %.lr.ph.i54, label %_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit50, !llvm.loop !209
 
-_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit48: ; preds = %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i45, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i67, %151, %._crit_edge
-  %.sink114 = phi ptr [ %108, %._crit_edge ], [ %154, %151 ], [ %storemerge.i.i.i68, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i67 ], [ %storemerge.i.i.i46, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i45 ]
-  %.sink = phi ptr [ %107, %._crit_edge ], [ %156, %151 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i67 ], [ %.sroa.474.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i45 ]
-  %.sroa.9.2.sink = phi ptr [ %106, %._crit_edge ], [ %158, %151 ], [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i67 ], [ %.sroa.975.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i45 ]
-  %.sroa.12.2.sink = phi ptr [ %105, %._crit_edge ], [ %160, %151 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i67 ], [ %.sroa.1276.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i45 ]
-  store ptr %.sink114, ptr %0, align 8
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %200, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.9.2.sink, ptr %201, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.12.2.sink, ptr %202, align 8
+_ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS8_PS8_EE6__typeES6_S6_SB_.exit50: ; preds = %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i70, %157, %._crit_edge
+  %.sink117 = phi ptr [ %112, %._crit_edge ], [ %160, %157 ], [ %storemerge.i.i.i71, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i70 ], [ %storemerge.i.i.i48, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47 ]
+  %.sink = phi ptr [ %111, %._crit_edge ], [ %162, %157 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i70 ], [ %.sroa.477.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47 ]
+  %.sroa.9.2.sink = phi ptr [ %110, %._crit_edge ], [ %164, %157 ], [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i70 ], [ %.sroa.978.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47 ]
+  %.sroa.12.2.sink = phi ptr [ %109, %._crit_edge ], [ %166, %157 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i70 ], [ %.sroa.1279.1, %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i47 ]
+  store ptr %.sink117, ptr %0, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %208, align 8
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.9.2.sink, ptr %209, align 8
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.sroa.12.2.sink, ptr %210, align 8
   ret void
 }
 
@@ -9223,13 +9238,13 @@ define linkonce_odr void @_ZSt15__copy_move_ditILb1EPN4pkpy8PyObjectERS2_PS2_St1
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 3
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %28, i64 %storemerge13.i)
-  %29 = getelementptr inbounds ptr, ptr %.014.i, i64 %.sroa.speculated.i
+  %.idx12.i = shl nsw i64 %.sroa.speculated.i, 3
+  %29 = getelementptr inbounds i8, ptr %.014.i, i64 %.idx12.i
   %.not.i.i.i.i = icmp eq ptr %.sroa.872.0, %.sroa.070.0
   br i1 %.not.i.i.i.i, label %_ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i, label %30
 
 30:                                               ; preds = %.lr.ph.i
-  %.idx.i = shl nsw i64 %.sroa.speculated.i, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.070.0, ptr align 8 %.014.i, i64 %.idx.i, i1 false), !noalias !220
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.070.0, ptr align 8 %.014.i, i64 %.idx12.i, i1 false), !noalias !220
   br label %_ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i
 
 _ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i: ; preds = %30, %.lr.ph.i
@@ -9311,13 +9326,13 @@ _ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__i
   %66 = sub i64 %64, %65
   %67 = ashr exact i64 %66, 3
   %.sroa.speculated.i12 = tail call i64 @llvm.smin.i64(i64 %67, i64 %storemerge13.i11)
-  %68 = getelementptr inbounds ptr, ptr %.014.i10, i64 %.sroa.speculated.i12
-  %.not.i.i.i.i13 = icmp eq ptr %.sroa.7.0, %.sroa.064.0
-  br i1 %.not.i.i.i.i13, label %_ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i17, label %69
+  %.idx12.i13 = shl nsw i64 %.sroa.speculated.i12, 3
+  %68 = getelementptr inbounds i8, ptr %.014.i10, i64 %.idx12.i13
+  %.not.i.i.i.i14 = icmp eq ptr %.sroa.7.0, %.sroa.064.0
+  br i1 %.not.i.i.i.i14, label %_ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i17, label %69
 
 69:                                               ; preds = %63
-  %.idx.i14 = shl nsw i64 %.sroa.speculated.i12, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.064.0, ptr align 8 %.014.i10, i64 %.idx.i14, i1 false), !noalias !224
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.064.0, ptr align 8 %.014.i10, i64 %.idx12.i13, i1 false), !noalias !224
   br label %_ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i17
 
 _ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i17: ; preds = %69, %63
@@ -9400,13 +9415,13 @@ _ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_ifIXsr23__i
   %108 = sub i64 %106, %107
   %109 = ashr exact i64 %108, 3
   %.sroa.speculated.i29 = tail call i64 @llvm.smin.i64(i64 %109, i64 %storemerge13.i28)
-  %110 = getelementptr inbounds ptr, ptr %.014.i27, i64 %.sroa.speculated.i29
-  %.not.i.i.i.i30 = icmp eq ptr %.sroa.860.0, %.sroa.058.0
-  br i1 %.not.i.i.i.i30, label %_ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i34, label %111
+  %.idx12.i30 = shl nsw i64 %.sroa.speculated.i29, 3
+  %110 = getelementptr inbounds i8, ptr %.014.i27, i64 %.idx12.i30
+  %.not.i.i.i.i31 = icmp eq ptr %.sroa.860.0, %.sroa.058.0
+  br i1 %.not.i.i.i.i31, label %_ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i34, label %111
 
 111:                                              ; preds = %.lr.ph.i26
-  %.idx.i31 = shl nsw i64 %.sroa.speculated.i29, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.058.0, ptr align 8 %.014.i27, i64 %.idx.i31, i1 false), !noalias !228
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.058.0, ptr align 8 %.014.i27, i64 %.idx12.i30, i1 false), !noalias !228
   br label %_ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i34
 
 _ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i34: ; preds = %111, %.lr.ph.i26
@@ -9479,13 +9494,13 @@ _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EpLEl.exit.i36: ; preds = %125, 
   %150 = sub i64 %148, %149
   %151 = ashr exact i64 %150, 3
   %.sroa.speculated.i46 = tail call i64 @llvm.smin.i64(i64 %151, i64 %storemerge13.i45)
-  %152 = getelementptr inbounds ptr, ptr %.014.i44, i64 %.sroa.speculated.i46
-  %.not.i.i.i.i47 = icmp eq ptr %.sroa.8.0, %.sroa.0.0
-  br i1 %.not.i.i.i.i47, label %_ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i51, label %153
+  %.idx12.i47 = shl nsw i64 %.sroa.speculated.i46, 3
+  %152 = getelementptr inbounds i8, ptr %.014.i44, i64 %.idx12.i47
+  %.not.i.i.i.i48 = icmp eq ptr %.sroa.8.0, %.sroa.0.0
+  br i1 %.not.i.i.i.i48, label %_ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i51, label %153
 
 153:                                              ; preds = %.lr.ph.i43
-  %.idx.i48 = shl nsw i64 %.sroa.speculated.i46, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.0.0, ptr align 8 %.014.i44, i64 %.idx.i48, i1 false), !noalias !231
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.0.0, ptr align 8 %.014.i44, i64 %.idx12.i47, i1 false), !noalias !231
   br label %_ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i51
 
 _ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i51: ; preds = %153, %.lr.ph.i43

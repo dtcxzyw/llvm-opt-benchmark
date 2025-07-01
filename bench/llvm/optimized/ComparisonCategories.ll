@@ -969,120 +969,127 @@ define dso_local noundef ptr @_ZNK5clang20ComparisonCategories17lookupInfoForTyp
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !435
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %20, i64 %23
-  br i1 %19, label %._crit_edge, label %25
+  br i1 %19, label %24, label %26
 
-25:                                               ; preds = %11
+24:                                               ; preds = %11
+  %25 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %20, i64 %23
+  br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E5beginEv.exit
+
+26:                                               ; preds = %11
+  %.idx.i = shl nuw nsw i64 %23, 7
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i
   %.not4.i5.i10.i2.i = icmp eq i32 %22, 0
   br i1 %.not4.i5.i10.i2.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i
 
-.lr.ph.i6.i12.i3.i:                               ; preds = %25, %.critedge2.i8.i14.i9.i
-  %.sroa.0.3.i4.i = phi ptr [ %27, %.critedge2.i8.i14.i9.i ], [ %20, %25 ]
-  %26 = load i8, ptr %.sroa.0.3.i4.i, align 1, !tbaa !12
-  %switch.i7.i13.i5.i = icmp ugt i8 %26, -3
+.lr.ph.i6.i12.i3.i:                               ; preds = %26, %.critedge2.i8.i14.i9.i
+  %.sroa.0.3.i4.i = phi ptr [ %29, %.critedge2.i8.i14.i9.i ], [ %20, %26 ]
+  %28 = load i8, ptr %.sroa.0.3.i4.i, align 1, !tbaa !12
+  %switch.i7.i13.i5.i = icmp ugt i8 %28, -3
   br i1 %switch.i7.i13.i5.i, label %.critedge2.i8.i14.i9.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E5beginEv.exit
 
 .critedge2.i8.i14.i9.i:                           ; preds = %.lr.ph.i6.i12.i3.i
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i4.i, i64 128
-  %.not.i9.i15.i10.i = icmp eq ptr %27, %24
-  br i1 %.not.i9.i15.i10.i, label %._crit_edge, label %.lr.ph.i6.i12.i3.i, !llvm.loop !460
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i4.i, i64 128
+  %.not.i9.i15.i10.i = icmp eq ptr %29, %27
+  br i1 %.not.i9.i15.i10.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E5beginEv.exit, label %.lr.ph.i6.i12.i3.i, !llvm.loop !460
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %25
-  %.pn14.i = phi ptr [ %20, %25 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ]
-  %.not4447 = icmp eq ptr %.pn14.i, %24
+_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i9.i, %24, %26
+  %.pn14.i = phi ptr [ %25, %24 ], [ %20, %26 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %27, %.critedge2.i8.i14.i9.i ]
+  %.pn12.i = phi ptr [ %25, %24 ], [ %27, %26 ], [ %27, %.critedge2.i8.i14.i9.i ], [ %27, %.lr.ph.i6.i12.i3.i ]
+  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %20, i64 %23
+  %.not4447 = icmp eq ptr %.pn14.i, %30
   br i1 %.not4447, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E5beginEv.exit, %_ZN4llvm16DenseMapIteratorIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS2_EELb0EEppEv.exit
   %.sroa.033.048 = phi ptr [ %.sroa.033.2, %_ZN4llvm16DenseMapIteratorIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS2_EELb0EEppEv.exit ], [ %.pn14.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E5beginEv.exit ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.033.048, i64 112
-  %29 = load ptr, ptr %28, align 8, !tbaa !38
-  %30 = load ptr, ptr %29, align 8, !tbaa !48
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(144) %29) #13
-  %.not28 = icmp eq ptr %15, %33
-  br i1 %.not28, label %.thread.loopexit51, label %34
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.033.048, i64 112
+  %32 = load ptr, ptr %31, align 8, !tbaa !38
+  %33 = load ptr, ptr %32, align 8, !tbaa !48
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(144) %32) #13
+  %.not28 = icmp eq ptr %15, %36
+  br i1 %.not28, label %.thread.loopexit51, label %37
 
-34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.033.048, i64 128
-  %.not4.i3.i = icmp eq ptr %35, %24
+37:                                               ; preds = %.lr.ph
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.033.048, i64 128
+  %.not4.i3.i = icmp eq ptr %38, %.pn12.i
   br i1 %.not4.i3.i, label %_ZN4llvm16DenseMapIteratorIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS2_EELb0EEppEv.exit, label %.lr.ph.i4.i
 
-.lr.ph.i4.i:                                      ; preds = %34, %.critedge2.i6.i
-  %.sroa.033.1 = phi ptr [ %37, %.critedge2.i6.i ], [ %35, %34 ]
-  %36 = load i8, ptr %.sroa.033.1, align 1, !tbaa !12
-  %switch.i5.i = icmp ugt i8 %36, -3
+.lr.ph.i4.i:                                      ; preds = %37, %.critedge2.i6.i
+  %.sroa.033.1 = phi ptr [ %40, %.critedge2.i6.i ], [ %38, %37 ]
+  %39 = load i8, ptr %.sroa.033.1, align 1, !tbaa !12
+  %switch.i5.i = icmp ugt i8 %39, -3
   br i1 %switch.i5.i, label %.critedge2.i6.i, label %_ZN4llvm16DenseMapIteratorIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS2_EELb0EEppEv.exit
 
 .critedge2.i6.i:                                  ; preds = %.lr.ph.i4.i
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.033.1, i64 128
-  %.not.i7.i = icmp eq ptr %37, %24
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.033.1, i64 128
+  %.not.i7.i = icmp eq ptr %40, %.pn12.i
   br i1 %.not.i7.i, label %_ZN4llvm16DenseMapIteratorIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS2_EELb0EEppEv.exit, label %.lr.ph.i4.i, !llvm.loop !460
 
-_ZN4llvm16DenseMapIteratorIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS2_EELb0EEppEv.exit: ; preds = %.lr.ph.i4.i, %.critedge2.i6.i, %34
-  %.sroa.033.2 = phi ptr [ %35, %34 ], [ %.sroa.033.1, %.lr.ph.i4.i ], [ %37, %.critedge2.i6.i ]
-  %.not44 = icmp eq ptr %.sroa.033.2, %24
+_ZN4llvm16DenseMapIteratorIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS2_EELb0EEppEv.exit: ; preds = %.lr.ph.i4.i, %.critedge2.i6.i, %37
+  %.sroa.033.2 = phi ptr [ %38, %37 ], [ %.sroa.033.1, %.lr.ph.i4.i ], [ %40, %.critedge2.i6.i ]
+  %.not44 = icmp eq ptr %.sroa.033.2, %30
   br i1 %.not44, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.critedge2.i8.i14.i9.i, %_ZN4llvm16DenseMapIteratorIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS2_EELb0EEppEv.exit, %11, %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E5beginEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %39 = tail call noundef ptr @_ZN5clang11DeclContext28getEnclosingNamespaceContextEv(ptr noundef nonnull align 8 dereferenceable(32) %38) #13
-  %40 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext14isStdNamespaceEv(ptr noundef nonnull align 8 dereferenceable(32) %39) #13
-  br i1 %40, label %.preheader, label %.thread
+._crit_edge:                                      ; preds = %_ZN4llvm16DenseMapIteratorIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS2_EELb0EEppEv.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E5beginEv.exit
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %42 = tail call noundef ptr @_ZN5clang11DeclContext28getEnclosingNamespaceContextEv(ptr noundef nonnull align 8 dereferenceable(32) %41) #13
+  %43 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext14isStdNamespaceEv(ptr noundef nonnull align 8 dereferenceable(32) %42) #13
+  br i1 %43, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %._crit_edge
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 40
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %.preheader, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-  %.02650 = phi i32 [ 0, %.preheader ], [ %61, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
+  %.02650 = phi i32 [ 0, %.preheader ], [ %64, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
-  %42 = trunc nuw nsw i32 %.02650 to i8
-  store i8 %42, ptr %4, align 1, !tbaa !433
+  %45 = trunc nuw nsw i32 %.02650 to i8
+  store i8 %45, ptr %4, align 1, !tbaa !433
   %.mask = and i32 %.02650, 255
-  %43 = zext nneg i32 %.mask to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE, i64 0, i64 %43
+  %46 = zext nneg i32 %.mask to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE, i64 0, i64 %46
   %switch.load = load i64, ptr %switch.gep, align 8
-  %.mask69 = and i32 %.02650, 255
-  %44 = zext nneg i32 %.mask69 to i64
-  %switch.gep67 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.11, i64 0, i64 %44
-  %switch.load68 = load ptr, ptr %switch.gep67, align 8
-  %45 = load i64, ptr %41, align 8, !tbaa !461
-  %46 = and i64 %45, 7
-  %47 = icmp ne i64 %46, 0
-  %48 = and i64 %45, -8
-  %.not2.i = icmp eq i64 %48, 0
-  %.not.i = or i1 %47, %.not2.i
-  br i1 %.not.i, label %_ZNK5clang9NamedDecl7getNameEv.exit, label %49
+  %.mask63 = and i32 %.02650, 255
+  %47 = zext nneg i32 %.mask63 to i64
+  %switch.gep61 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.11, i64 0, i64 %47
+  %switch.load62 = load ptr, ptr %switch.gep61, align 8
+  %48 = load i64, ptr %44, align 8, !tbaa !461
+  %49 = and i64 %48, 7
+  %50 = icmp ne i64 %49, 0
+  %51 = and i64 %48, -8
+  %.not2.i = icmp eq i64 %51, 0
+  %.not.i = or i1 %50, %.not2.i
+  br i1 %.not.i, label %_ZNK5clang9NamedDecl7getNameEv.exit, label %52
 
-49:                                               ; preds = %switch.lookup
-  %50 = inttoptr i64 %48 to ptr
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !430
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %54 = load i64, ptr %52, align 8, !tbaa !463
-  %55 = and i64 %54, 4294967295
+52:                                               ; preds = %switch.lookup
+  %53 = inttoptr i64 %51 to ptr
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %55 = load ptr, ptr %54, align 8, !tbaa !430
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %57 = load i64, ptr %55, align 8, !tbaa !463
+  %58 = and i64 %57, 4294967295
   br label %_ZNK5clang9NamedDecl7getNameEv.exit
 
-_ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %switch.lookup, %49
-  %.sroa.3.0.i = phi i64 [ %55, %49 ], [ 0, %switch.lookup ]
-  %.sroa.0.0.i29 = phi ptr [ %53, %49 ], [ @.str.9, %switch.lookup ]
+_ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %switch.lookup, %52
+  %.sroa.3.0.i = phi i64 [ %58, %52 ], [ 0, %switch.lookup ]
+  %.sroa.0.0.i29 = phi ptr [ %56, %52 ], [ @.str.9, %switch.lookup ]
   %.not.i32 = icmp eq i64 %switch.load, %.sroa.3.0.i
   br i1 %.not.i32, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %switch.load68, ptr noundef nonnull dereferenceable(1) %.sroa.0.0.i29, i64 %switch.load)
-  %56 = icmp eq i32 %bcmp.i, 0
-  br i1 %56, label %57, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %switch.load62, ptr noundef nonnull dereferenceable(1) %.sroa.0.0.i29, i64 %switch.load)
+  %59 = icmp eq i32 %bcmp.i, 0
+  br i1 %59, label %60, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
-57:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
+60:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #13
-  store i8 %42, ptr %6, align 1, !tbaa !12
-  %58 = load ptr, ptr %0, align 8, !tbaa !440
-  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E11try_emplaceIJRKNS2_10ASTContextERPKNS2_13CXXRecordDeclERNS2_22ComparisonCategoryTypeEEEESt4pairINS_16DenseMapIteratorIcS3_S5_S8_Lb0EEEbEOcDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.392") align 8 %5, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(23216) %58, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  store i8 %45, ptr %6, align 1, !tbaa !12
+  %61 = load ptr, ptr %0, align 8, !tbaa !440
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E11try_emplaceIJRKNS2_10ASTContextERPKNS2_13CXXRecordDeclERNS2_22ComparisonCategoryTypeEEEESt4pairINS_16DenseMapIteratorIcS3_S5_S8_Lb0EEEbEOcDpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.392") align 8 %5, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(23216) %61, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
@@ -1090,16 +1097,16 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZNK5clang9NamedDec
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
-  %61 = add nuw nsw i32 %.02650, 1
-  %exitcond = icmp eq i32 %61, 3
+  %64 = add nuw nsw i32 %.02650, 1
+  %exitcond = icmp eq i32 %64, 3
   br i1 %exitcond, label %.thread, label %switch.lookup, !llvm.loop !465
 
 .thread.loopexit51:                               ; preds = %.lr.ph
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.033.048, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.033.048, i64 8
   br label %.thread
 
-.thread:                                          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %.thread.loopexit51, %57, %._crit_edge, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %._crit_edge ], [ %60, %57 ], [ %62, %.thread.loopexit51 ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
+.thread:                                          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %.thread.loopexit51, %60, %._crit_edge, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %._crit_edge ], [ %63, %60 ], [ %65, %.thread.loopexit51 ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   ret ptr %.0
 }
@@ -1635,7 +1642,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22C
   store i32 0, ptr %25, align 4, !tbaa !454
   %26 = load i32, ptr %3, align 8, !tbaa !435
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %22, i64 %27
+  %.idx.i.i = shl nuw nsw i64 %27, 7
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i
   %.not5.i.i = icmp eq i32 %26, 0
   br i1 %.not5.i.i, label %_ZN4llvm8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS2_EEE4growEj.exit, label %.lr.ph.i.i
 
@@ -1668,7 +1676,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22C
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !435
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
+  %.idx.i = shl nuw nsw i64 %9, 7
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not5.i = icmp eq i32 %8, 0
   br i1 %.not5.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E9initEmptyEv.exit, label %.lr.ph.i
 

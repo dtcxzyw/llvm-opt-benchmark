@@ -8537,7 +8537,8 @@ define hidden void @"_ZN10prometheus3vec22MetricVecCore$LT$T$GT$28get_metric_wit
   br i1 %.not.i, label %12, label %"_ZN10prometheus3vec22MetricVecCore$LT$T$GT$17hash_label_values17h8690dab287b44818E.exit"
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %2, i64 %3
+  %.idx.i = shl nsw i64 %3, 4
+  %13 = getelementptr inbounds i8, ptr %2, i64 %.idx.i
   %14 = icmp eq i64 %3, 0
   br i1 %14, label %.loopexit, label %.lr.ph.i
 
@@ -11970,7 +11971,8 @@ define hidden { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_w
   %10 = load ptr, ptr %9, align 8, !alias.scope !1586, !noalias !1589, !nonnull !16, !align !323, !noundef !16
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = load i64, ptr %11, align 8, !alias.scope !1586, !noalias !1589, !noundef !16
-  %13 = getelementptr inbounds { { { { ptr, [1 x i64] } } }, { { i64 }, {} }, i64, i64 }, ptr %10, i64 %12
+  %.idx.i.i = mul nsw i64 %12, 40
+  %13 = getelementptr inbounds i8, ptr %10, i64 %.idx.i.i
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %.loopexit, label %.lr.ph.i.i
 
@@ -12116,7 +12118,8 @@ define hidden void @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$6create17hcc3a4bdf
   %8 = load ptr, ptr %7, align 8, !alias.scope !1613, !noalias !1616, !nonnull !16, !align !323, !noundef !16
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load i64, ptr %9, align 8, !alias.scope !1613, !noalias !1616, !noundef !16
-  %11 = getelementptr inbounds { { { { ptr, [1 x i64] } } }, { { i64 }, {} }, i64, i64 }, ptr %8, i64 %10
+  %.idx.i = mul nsw i64 %10, 40
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx.i
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %.loopexit, label %.lr.ph.i
 
@@ -12716,7 +12719,8 @@ define hidden void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$9init_with17h0b0
   %6 = load ptr, ptr %5, align 8, !nonnull !16, !align !323, !noundef !16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8, !noundef !16
-  %9 = getelementptr inbounds { { { { ptr, [1 x i64] } } }, { { i64 }, {} }, i64, i64 }, ptr %6, i64 %8
+  %.idx = mul nsw i64 %8, 40
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -35623,7 +35627,8 @@ _ZN6grenad6reader13reader_cursor16IndexBlockCursor20initial_index_blocks17h4b35b
   %113 = load ptr, ptr %112, align 8, !alias.scope !7264, !noalias !7228, !nonnull !16, !noundef !16
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %115 = load i64, ptr %114, align 8, !alias.scope !7264, !noalias !7228, !noundef !16
-  %116 = getelementptr inbounds { i64, { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, i8, [7 x i8] } } }, ptr %113, i64 %115
+  %.idx.i.i = mul nsw i64 %115, 88
+  %116 = getelementptr inbounds i8, ptr %113, i64 %.idx.i.i
   %117 = icmp eq i64 %115, 0
   br i1 %117, label %.sink.split.i, label %.lr.ph.i.i
 
@@ -36726,7 +36731,8 @@ _ZN6grenad6reader13reader_cursor16IndexBlockCursor20initial_index_blocks17h0be31
   %113 = load ptr, ptr %112, align 8, !alias.scope !7426, !noalias !7391, !nonnull !16, !noundef !16
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %115 = load i64, ptr %114, align 8, !alias.scope !7426, !noalias !7391, !noundef !16
-  %116 = getelementptr inbounds { i64, { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, i8, [7 x i8] } } }, ptr %113, i64 %115
+  %.idx.i.i = mul nsw i64 %115, 88
+  %116 = getelementptr inbounds i8, ptr %113, i64 %.idx.i.i
   %117 = icmp eq i64 %115, 0
   br i1 %117, label %.sink.split.i, label %.lr.ph.i.i
 
@@ -37812,7 +37818,8 @@ _ZN6grenad6reader13reader_cursor16IndexBlockCursor20initial_index_blocks17h91ec4
   %107 = load ptr, ptr %106, align 8, !alias.scope !7591, !noalias !7553, !nonnull !16, !noundef !16
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %109 = load i64, ptr %108, align 8, !alias.scope !7591, !noalias !7553, !noundef !16
-  %110 = getelementptr inbounds { i64, { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, i8, [7 x i8] } } }, ptr %107, i64 %109
+  %.idx.i.i = mul nsw i64 %109, 88
+  %110 = getelementptr inbounds i8, ptr %107, i64 %.idx.i.i
   %111 = icmp eq i64 %109, 0
   br i1 %111, label %.sink.split.i, label %.lr.ph.i.i
 
@@ -38894,7 +38901,8 @@ _ZN6grenad6reader13reader_cursor16IndexBlockCursor20initial_index_blocks17h23e41
   %94 = load ptr, ptr %93, align 8, !alias.scope !7751, !noalias !7733, !nonnull !16, !noundef !16
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %96 = load i64, ptr %95, align 8, !alias.scope !7751, !noalias !7733, !noundef !16
-  %97 = getelementptr inbounds { i64, { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, i8, [7 x i8] } } }, ptr %94, i64 %96
+  %.idx.i = mul nsw i64 %96, 88
+  %97 = getelementptr inbounds i8, ptr %94, i64 %.idx.i
   %98 = icmp eq i64 %96, 0
   br i1 %98, label %.sink.split, label %.lr.ph.i
 

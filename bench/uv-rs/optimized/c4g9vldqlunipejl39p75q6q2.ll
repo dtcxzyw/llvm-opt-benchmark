@@ -566,7 +566,8 @@ define hidden void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closure
   %.sroa.5124.0.copyload.i.i.i = load i64, ptr %.sroa.5124.0..sroa_idx.i.i.i, align 8, !noalias !65
   %97 = icmp ult i64 %.sroa.5124.0.copyload.i.i.i, 288230376151711744
   call void @llvm.assume(i1 %97)
-  %98 = getelementptr inbounds nuw { ptr, { { { ptr, i64 } } }, i8, {}, [7 x i8] }, ptr %.sroa.4123.0.copyload.i.i.i, i64 %.sroa.5124.0.copyload.i.i.i
+  %.idx.i.i.i = shl nuw nsw i64 %.sroa.5124.0.copyload.i.i.i, 5
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.4123.0.copyload.i.i.i, i64 %.idx.i.i.i
   %99 = icmp sgt i64 %.sroa.0122.0.copyload.i.i.i, -1
   call void @llvm.assume(i1 %99)
   %.sroa.0125.0.copyload.i.i.i = load i64, ptr %25, align 8, !noalias !65
@@ -1576,7 +1577,8 @@ default.unreachable2:                             ; preds = %2
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hd6aaf47c3f69c3adE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 3
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !331)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h2c26e94aa2872c1bE.llvm.592112742933196820.exit", label %.lr.ph.i

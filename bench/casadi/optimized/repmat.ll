@@ -3587,7 +3587,8 @@ define linkonce_odr noundef i32 @_ZNK6casadi10HorzRepsum8eval_genINS_6SXElemESt4
 
 .lr.ph.i.i.i.i:                                   ; preds = %5
   %10 = load ptr, ptr %2, align 8, !tbaa !56
-  %11 = getelementptr inbounds nuw %"class.casadi::SXElem", ptr %10, i64 %8
+  %.idx.i.i = shl nuw nsw i64 %8, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
   br label %12
 
 12:                                               ; preds = %12, %.lr.ph.i.i.i.i
@@ -3752,10 +3753,11 @@ define noundef i32 @_ZNK6casadi10HorzRepsum10sp_reverseEPPyS2_PxS1_(ptr noundef 
   %9 = load i64, ptr %8, align 8, !tbaa !113
   %10 = icmp sgt i64 %9, 0
   %.pre = load ptr, ptr %2, align 8, !tbaa !60
+  %.idx14 = shl i64 %7, 3
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %11 = getelementptr inbounds i64, ptr %.pre, i64 %7
+  %11 = getelementptr inbounds i8, ptr %.pre, i64 %.idx14
   %12 = load ptr, ptr %1, align 8, !tbaa !60
   %.not12.i = icmp eq i64 %7, 0
   br i1 %.not12.i, label %_ZSt4fillIPyiEvT_S1_RKT0_.exit, label %.lr.ph.i.preheader
@@ -3765,36 +3767,35 @@ define noundef i32 @_ZNK6casadi10HorzRepsum10sp_reverseEPPyS2_PxS1_(ptr noundef 
   br i1 %.not5.i.i.i, label %_ZSt4fillIPyiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %._crit_edge
-  %13 = shl i64 %7, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %.pre, i8 0, i64 %13, i1 false), !tbaa !63
+  tail call void @llvm.memset.p0.i64(ptr align 8 %.pre, i8 0, i64 %.idx14, i1 false), !tbaa !63
   br label %_ZSt4fillIPyiEvT_S1_RKT0_.exit
 
 _ZSt4fillIPyiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph, %.lr.ph.i.i.i.preheader, %._crit_edge
   ret i32 0
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %_ZSt9transformIPyS0_S0_PFyyyEET1_T_S4_T0_S3_T2_.exit.loopexit
-  %.014 = phi i64 [ %21, %_ZSt9transformIPyS0_S0_PFyyyEET1_T_S4_T0_S3_T2_.exit.loopexit ], [ 0, %.lr.ph ]
-  %14 = mul nsw i64 %.014, %7
-  %15 = getelementptr inbounds i64, ptr %12, i64 %14
+  %.015 = phi i64 [ %20, %_ZSt9transformIPyS0_S0_PFyyyEET1_T_S4_T0_S3_T2_.exit.loopexit ], [ 0, %.lr.ph ]
+  %13 = mul nsw i64 %.015, %7
+  %14 = getelementptr inbounds i64, ptr %12, i64 %13
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.015.i = phi ptr [ %19, %.lr.ph.i ], [ %.pre, %.lr.ph.i.preheader ]
-  %.01014.i = phi ptr [ %20, %.lr.ph.i ], [ %15, %.lr.ph.i.preheader ]
-  %16 = load i64, ptr %.015.i, align 8, !tbaa !63
-  %17 = load i64, ptr %.01014.i, align 8, !tbaa !63
-  %18 = or i64 %17, %16
-  store i64 %18, ptr %.01014.i, align 8, !tbaa !63
-  %19 = getelementptr inbounds nuw i8, ptr %.015.i, i64 8
-  %20 = getelementptr i8, ptr %.01014.i, i64 8
-  %.not.i = icmp eq ptr %19, %11
+  %.015.i = phi ptr [ %18, %.lr.ph.i ], [ %.pre, %.lr.ph.i.preheader ]
+  %.01014.i = phi ptr [ %19, %.lr.ph.i ], [ %14, %.lr.ph.i.preheader ]
+  %15 = load i64, ptr %.015.i, align 8, !tbaa !63
+  %16 = load i64, ptr %.01014.i, align 8, !tbaa !63
+  %17 = or i64 %16, %15
+  store i64 %17, ptr %.01014.i, align 8, !tbaa !63
+  %18 = getelementptr inbounds nuw i8, ptr %.015.i, i64 8
+  %19 = getelementptr i8, ptr %.01014.i, i64 8
+  %.not.i = icmp eq ptr %18, %11
   br i1 %.not.i, label %_ZSt9transformIPyS0_S0_PFyyyEET1_T_S4_T0_S3_T2_.exit.loopexit, label %.lr.ph.i, !llvm.loop !64
 
 _ZSt9transformIPyS0_S0_PFyyyEET1_T_S4_T0_S3_T2_.exit.loopexit: ; preds = %.lr.ph.i
-  %21 = add nuw nsw i64 %.014, 1
-  %22 = load i64, ptr %8, align 8, !tbaa !113
-  %23 = icmp slt i64 %21, %22
-  br i1 %23, label %.lr.ph.i.preheader, label %._crit_edge, !llvm.loop !145
+  %20 = add nuw nsw i64 %.015, 1
+  %21 = load i64, ptr %8, align 8, !tbaa !113
+  %22 = icmp slt i64 %20, %21
+  br i1 %22, label %.lr.ph.i.preheader, label %._crit_edge, !llvm.loop !145
 }
 
 ; Function Attrs: mustprogress uwtable

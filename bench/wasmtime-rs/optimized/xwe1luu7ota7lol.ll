@@ -1013,7 +1013,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   %4 = load ptr, ptr %3, align 8, !alias.scope !413, !nonnull !11, !noundef !11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !413, !noundef !11
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 40
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !418, !noundef !11
   %10 = add i64 %9, 8
@@ -1352,7 +1353,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   %4 = load ptr, ptr %3, align 8, !alias.scope !741, !nonnull !11, !noundef !11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !741, !noundef !11
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 40
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !746, !noundef !11
   %10 = add i64 %9, 8
@@ -1392,7 +1394,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   %4 = load ptr, ptr %3, align 8, !alias.scope !780, !nonnull !11, !noundef !11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !780, !noundef !11
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 40
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !785, !noundef !11
   %10 = add i64 %9, 8
@@ -1697,7 +1700,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h7a06
   %4 = load ptr, ptr %3, align 8, !alias.scope !1048, !nonnull !11, !noundef !11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1048, !noundef !11
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, i64 }, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 104
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !1053, !noundef !11
   %10 = add i64 %9, 8
@@ -1789,7 +1793,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   %4 = load ptr, ptr %3, align 8, !alias.scope !1194, !nonnull !11, !noundef !11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1194, !noundef !11
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 40
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !1199, !noundef !11
   %10 = add i64 %9, 8
@@ -2131,7 +2136,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   %4 = load ptr, ptr %3, align 8, !alias.scope !1543, !nonnull !11, !noundef !11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1543, !noundef !11
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 40
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !1548, !noundef !11
   %10 = add i64 %9, 8
@@ -2244,7 +2250,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17hcbf6
   %4 = load ptr, ptr %3, align 8, !alias.scope !1675, !nonnull !11, !noundef !11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1675, !noundef !11
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, i64 }, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 104
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !1680, !noundef !11
   %10 = add i64 %9, 8
@@ -2649,7 +2656,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   %4 = load ptr, ptr %3, align 8, !alias.scope !2081, !nonnull !11, !noundef !11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !2081, !noundef !11
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 40
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !2086, !noundef !11
   %10 = add i64 %9, 8
@@ -2852,7 +2860,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %.val = load ptr, ptr %3, align 8, !nonnull !11, !noundef !11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
-  %5 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] } }, ptr %.val, i64 %.val7
+  %.idx = shl nsw i64 %.val7, 5
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !2271, !noundef !11
   %8 = add i64 %7, 8
@@ -2933,7 +2942,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %.val = load ptr, ptr %3, align 8, !nonnull !11, !noundef !11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
-  %5 = getelementptr inbounds { i32, [1 x i32], { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.val7
+  %.idx = shl nsw i64 %.val7, 5
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !2317, !noundef !11
   %8 = add i64 %7, 8
@@ -2953,7 +2963,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2336)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2339)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2342)
-  %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val6.i.i, i64 %.val7.i.i
+  %.idx.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %.val7.i.i, 24
+  %14 = getelementptr inbounds i8, ptr %.val6.i.i, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %15 = add i64 %.lcssa13.i.i, 12
   %16 = icmp eq i64 %.val7.i.i, 0
   br i1 %16, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h6c8d1a5c7eb2803eE.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
@@ -4017,7 +4028,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %4 = load ptr, ptr %3, align 8, !alias.scope !2773, !nonnull !11, !noundef !11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !2773, !noundef !11
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i64, {} }, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 5
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !2778, !noundef !11
   %10 = add i64 %9, 8
@@ -4079,7 +4091,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h535d
   %.val = load ptr, ptr %3, align 8, !nonnull !11, !noundef !11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
-  %5 = getelementptr inbounds i32, ptr %.val, i64 %.val7
+  %.idx = shl nsw i64 %.val7, 2
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
@@ -4235,7 +4248,8 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h01dae6fa7aee2f4bE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h57b43cb42d0d320dE.llvm.12642593798105491766(ptr noalias noundef align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 4 captures(address) %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i32, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 2
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %5 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %2)
   %6 = extractvalue { i64, ptr } %5, 0
   %7 = extractvalue { i64, ptr } %5, 1
@@ -4430,7 +4444,8 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17hcc4cc433bbcb6239E.exit: ;
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h5f2fab7213f3f16dE.llvm.12642593798105491766(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 4 captures(address) %1, i64 noundef %2) unnamed_addr #11 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { i32, [1 x i32] }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 3
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !3076, !noundef !11
   %7 = add i64 %6, 8
@@ -4684,7 +4699,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %.val = load ptr, ptr %3, align 8, !nonnull !11, !noundef !11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
-  %5 = getelementptr inbounds { i32, [7 x i32] }, ptr %.val, i64 %.val7
+  %.idx = shl nsw i64 %.val7, 5
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !3188, !noundef !11
   %8 = add i64 %7, 8
@@ -4915,7 +4931,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %.val = load ptr, ptr %3, align 8, !nonnull !11, !noundef !11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
-  %5 = getelementptr inbounds { i32, [1 x i32], { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.val7
+  %.idx = shl nsw i64 %.val7, 5
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !3325, !noundef !11
   %8 = add i64 %7, 8
@@ -4935,7 +4952,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3344)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3347)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3350)
-  %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val6.i.i, i64 %.val7.i.i
+  %.idx.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %.val7.i.i, 24
+  %14 = getelementptr inbounds i8, ptr %.val6.i.i, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %15 = add i64 %.lcssa13.i.i, 12
   %16 = icmp eq i64 %.val7.i.i, 0
   br i1 %16, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2c2a23e56904d03bE.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
@@ -5111,7 +5129,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h86e2
   %.val = load ptr, ptr %3, align 8, !nonnull !11, !noundef !11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
-  %5 = getelementptr inbounds { i32, [1 x i32], { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.val7
+  %.idx = shl nsw i64 %.val7, 5
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
@@ -5163,7 +5182,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h86e2
   %.val9.i.i.i.i.i.i.i = load ptr, ptr %31, align 8, !alias.scope !3498, !noalias !3499, !nonnull !11, !noundef !11
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %.val10.i.i.i.i.i.i.i = load i64, ptr %32, align 8, !alias.scope !3498, !noalias !3499, !noundef !11
-  %33 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val9.i.i.i.i.i.i.i, i64 %.val10.i.i.i.i.i.i.i
+  %.idx.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %.val10.i.i.i.i.i.i.i, 24
+  %33 = getelementptr inbounds i8, ptr %.val9.i.i.i.i.i.i.i, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %34 = load i64, ptr %.val1.i.i.i.i.i, align 8, !alias.scope !3500, !noalias !3509, !noundef !11
   %35 = sub i64 %34, %30
   %36 = icmp ult i64 %35, 8
@@ -5368,7 +5388,8 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17hea96541f3f5b60caE.exit: ;
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h8b806d17c85e21f8E.llvm.12642593798105491766(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 4 captures(address) %1, i64 noundef %2) unnamed_addr #11 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { i32, [1 x i32] }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 3
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !3620, !noundef !11
   %7 = add i64 %6, 8
@@ -5397,7 +5418,8 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h96793fa73887428cE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h8db6ad5d3893fe4eE(ptr noalias noundef align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 4 captures(address) %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i32, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 2
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %5 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %2)
   %6 = extractvalue { i64, ptr } %5, 0
   %7 = extractvalue { i64, ptr } %5, 1
@@ -5456,7 +5478,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %.val = load ptr, ptr %3, align 8, !nonnull !11, !noundef !11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
-  %5 = getelementptr inbounds { i32, [7 x i32] }, ptr %.val, i64 %.val7
+  %.idx = shl nsw i64 %.val7, 5
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !3698, !noundef !11
   %8 = add i64 %7, 8
@@ -5974,7 +5997,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha43c
   %.val = load ptr, ptr %3, align 8, !nonnull !11, !noundef !11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
-  %5 = getelementptr inbounds { i32, i32 }, ptr %.val, i64 %.val7
+  %.idx = shl nsw i64 %.val7, 3
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
@@ -6143,7 +6167,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %.val = load ptr, ptr %3, align 8, !nonnull !11, !noundef !11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
-  %5 = getelementptr inbounds { { ptr, i64 }, { i8, [23 x i8] } }, ptr %.val, i64 %.val7
+  %.idx = mul nsw i64 %.val7, 40
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !4105, !noundef !11
   %8 = add i64 %7, 8
@@ -6231,7 +6256,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha9c2
   %.val = load ptr, ptr %3, align 8, !nonnull !11, !noundef !11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
-  %5 = getelementptr inbounds i32, ptr %.val, i64 %.val7
+  %.idx = shl nsw i64 %.val7, 2
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
@@ -6348,7 +6374,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %4 = load ptr, ptr %3, align 8, !alias.scope !4243, !nonnull !11, !noundef !11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !4243, !noundef !11
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i64, {} }, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 5
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !4248, !noundef !11
   %10 = add i64 %9, 8
@@ -6618,7 +6645,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hc461
   %.val = load ptr, ptr %3, align 8, !nonnull !11, !noundef !11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
-  %5 = getelementptr inbounds i32, ptr %.val, i64 %.val7
+  %.idx = shl nsw i64 %.val7, 2
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
@@ -6735,7 +6763,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %.val = load ptr, ptr %3, align 8, !nonnull !11, !noundef !11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
-  %5 = getelementptr inbounds { i64, [2 x i64] }, ptr %.val, i64 %.val7
+  %.idx = mul nsw i64 %.val7, 24
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !4437, !noundef !11
   %8 = add i64 %7, 8
@@ -6777,7 +6806,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4486)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4488)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4491)
-  %24 = getelementptr inbounds { i32, [1 x i32] }, ptr %21, i64 %23
+  %.idx.i.i.i.i1.i.i.i.i.i.i.i = shl nsw i64 %23, 3
+  %24 = getelementptr inbounds i8, ptr %21, i64 %.idx.i.i.i.i1.i.i.i.i.i.i.i
   %25 = add i64 %10, 12
   store i64 %25, ptr %6, align 8, !alias.scope !4493, !noalias !4498
   %26 = icmp eq i64 %23, 0
@@ -7038,7 +7068,8 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17hf73fda95f2a51c95E.exit: ;
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hd4edaa823933a9d0E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 4 captures(address) %1, i64 noundef %2) unnamed_addr #11 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { i32, [1 x i32] }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 3
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !4643, !noundef !11
   %7 = add i64 %6, 8
@@ -7158,7 +7189,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hdd1f
   %4 = load ptr, ptr %3, align 8, !alias.scope !4700, !nonnull !11, !noundef !11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !4700, !noundef !11
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i64, {} }, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 5
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -7237,7 +7269,8 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h672965effe5c39e7E.exit: ;
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hdd7d062315746052E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 4 captures(address) %1, i64 noundef %2) unnamed_addr #11 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { i32, [1 x i32] }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 3
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !4774, !noundef !11
   %7 = add i64 %6, 8
@@ -7328,7 +7361,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hdee9
   %.val = load ptr, ptr %3, align 8, !nonnull !11, !noundef !11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
-  %5 = getelementptr inbounds i32, ptr %.val, i64 %.val7
+  %.idx = shl nsw i64 %.val7, 2
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
@@ -7684,7 +7718,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %.val = load ptr, ptr %3, align 8, !nonnull !11, !noundef !11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
-  %5 = getelementptr inbounds { i64, [2 x i64] }, ptr %.val, i64 %.val7
+  %.idx = mul nsw i64 %.val7, 24
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !5065, !noundef !11
   %8 = add i64 %7, 8
@@ -7726,7 +7761,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5114)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5116)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5119)
-  %24 = getelementptr inbounds { i32, [1 x i32] }, ptr %21, i64 %23
+  %.idx.i.i.i.i1.i.i.i.i.i.i.i = shl nsw i64 %23, 3
+  %24 = getelementptr inbounds i8, ptr %21, i64 %.idx.i.i.i.i1.i.i.i.i.i.i.i
   %25 = add i64 %10, 12
   store i64 %25, ptr %6, align 8, !alias.scope !5121, !noalias !5126
   %26 = icmp eq i64 %23, 0
@@ -7763,7 +7799,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hfa79
   %.val = load ptr, ptr %3, align 8, !nonnull !11, !noundef !11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
-  %5 = getelementptr inbounds { i8, [7 x i8], { i64, i64 } }, ptr %.val, i64 %.val7
+  %.idx = mul nsw i64 %.val7, 24
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17hc1762e7d90aafa53E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %.val7)
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
@@ -7899,7 +7936,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %.val = load ptr, ptr %3, align 8, !nonnull !11, !noundef !11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !11
-  %5 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] } }, ptr %.val, i64 %.val7
+  %.idx = shl nsw i64 %.val7, 5
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !5270, !noundef !11
   %8 = add i64 %7, 8
@@ -8468,7 +8506,8 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls57_$LT$impl$u20$s
 define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls63_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$u5b$T$u5d$$GT$9serialize17h1618e2c7cfb65043E.llvm.12642593798105491766"(ptr noalias noundef nonnull readonly align 4 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(16) %2) unnamed_addr #12 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5685)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5688)
-  %4 = getelementptr inbounds { i32, [1 x i32] }, ptr %0, i64 %1
+  %.idx.i = shl nsw i64 %1, 3
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx.i
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !5690, !noalias !5688, !noundef !11
   %7 = add i64 %6, 8
@@ -8547,7 +8586,8 @@ _ZN5serde3ser10Serializer11collect_seq17h48d3e5e62f5a6e28E.llvm.1264259379810549
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls63_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$u5b$T$u5d$$GT$9serialize17h44cbd9daec0b9dafE.llvm.12642593798105491766"(ptr noalias noundef nonnull readonly align 4 captures(address) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5753)
-  %4 = getelementptr inbounds i32, ptr %0, i64 %1
+  %.idx.i = shl nsw i64 %1, 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5756)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5759), !noalias !5753
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5762), !noalias !5753
@@ -8638,7 +8678,8 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls63_$LT$impl$u20$s
 define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls63_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$u5b$T$u5d$$GT$9serialize17hd1ea0069bdc060a3E.llvm.12642593798105491766"(ptr noalias noundef nonnull readonly align 4 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(16) %2) unnamed_addr #12 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5849)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5852)
-  %4 = getelementptr inbounds { i32, [1 x i32] }, ptr %0, i64 %1
+  %.idx.i = shl nsw i64 %1, 3
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx.i
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !5854, !noalias !5852, !noundef !11
   %7 = add i64 %6, 8
@@ -8884,7 +8925,8 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls78_$LT$impl$u20$s
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6021)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6024)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6026)
-  %6 = getelementptr inbounds i32, ptr %3, i64 %5
+  %.idx.i.i = shl nsw i64 %5, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6029)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6032), !noalias !6026
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6035), !noalias !6026
@@ -8971,7 +9013,8 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls78_$LT$impl$u20$s
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6119)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6121)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6124)
-  %6 = getelementptr inbounds { i32, [1 x i32] }, ptr %3, i64 %5
+  %.idx.i.i = shl nsw i64 %5, 3
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i.i
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !alias.scope !6126, !noalias !6131, !noundef !11
   %9 = add i64 %8, 8
@@ -9060,7 +9103,8 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls78_$LT$impl$u20$s
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6197)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6199)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6202)
-  %6 = getelementptr inbounds { i32, [1 x i32] }, ptr %3, i64 %5
+  %.idx.i.i = shl nsw i64 %5, 3
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i.i
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !alias.scope !6204, !noalias !6209, !noundef !11
   %9 = add i64 %8, 8
@@ -11332,7 +11376,8 @@ define hidden noalias noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7597)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7599)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7602)
-  %13 = getelementptr inbounds { i32, [1 x i32] }, ptr %10, i64 %12
+  %.idx.i.i.i = shl nsw i64 %12, 3
+  %13 = getelementptr inbounds i8, ptr %10, i64 %.idx.i.i.i
   %14 = add i64 %9, 12
   store i64 %14, ptr %8, align 8, !alias.scope !7604, !noalias !7609
   %15 = icmp eq i64 %12, 0
@@ -11435,7 +11480,8 @@ define hidden noalias noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7716)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7718)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7721)
-  %13 = getelementptr inbounds { i32, [1 x i32] }, ptr %10, i64 %12
+  %.idx.i.i.i = shl nsw i64 %12, 3
+  %13 = getelementptr inbounds i8, ptr %10, i64 %.idx.i.i.i
   %14 = add i64 %9, 12
   store i64 %14, ptr %8, align 8, !alias.scope !7723, !noalias !7728
   %15 = icmp eq i64 %12, 0
@@ -15581,7 +15627,8 @@ define hidden noalias noundef align 8 ptr @"_ZN92_$LT$$RF$mut$u20$bincode..ser..
   %27 = load i64, ptr %26, align 8, !alias.scope !11130, !noalias !11133, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11135)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11138)
-  %28 = getelementptr inbounds i32, ptr %25, i64 %27
+  %.idx.i.i.i = shl nsw i64 %27, 2
+  %28 = getelementptr inbounds i8, ptr %25, i64 %.idx.i.i.i
   %29 = load i64, ptr %8, align 8, !alias.scope !11141, !noalias !11150, !noundef !11
   %30 = sub i64 %29, %24
   %31 = icmp ult i64 %30, 8

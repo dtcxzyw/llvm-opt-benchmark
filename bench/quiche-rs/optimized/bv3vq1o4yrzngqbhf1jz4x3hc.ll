@@ -1445,8 +1445,9 @@ define internal fastcc void @_ZN11quiche_apps6common20make_resource_writer17h1e5
   br label %36
 
 39:                                               ; preds = %31
+  %.idx = shl nuw nsw i64 %33, 4
   %40 = load ptr, ptr %.sroa.6.0..sroa_idx2, align 8, !nonnull !3, !noundef !3
-  %41 = getelementptr inbounds nuw { ptr, i64 }, ptr %40, i64 %33
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx
   %42 = getelementptr inbounds i8, ptr %41, i64 -16
   store ptr %42, ptr %16, align 8
   store ptr %22, ptr %17, align 8
@@ -3767,7 +3768,8 @@ define { ptr, ptr } @_ZN11quiche_apps6common10Http09Conn9with_urls17h5f4e6d98b24
   store ptr inttoptr (i64 8 to ptr), ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %18, align 8
-  %19 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 88
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.not58 = icmp eq i64 %1, 0
   br i1 %.not58, label %._crit_edge, label %.lr.ph60
 
@@ -4485,7 +4487,8 @@ define void @"_ZN81_$LT$quiche_apps..common..Http09Conn$u20$as$u20$quiche_apps..
 125:                                              ; preds = %144, %121
   %126 = load ptr, ptr %62, align 8, !nonnull !3, !noundef !3
   %127 = load i64, ptr %63, align 8, !noundef !3
-  %128 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [3 x i64] }, i64 }, ptr %126, i64 %127
+  %.idx = mul nuw nsw i64 %127, 168
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx
   call void @llvm.experimental.noalias.scope.decl(metadata !273)
   %129 = icmp eq i64 %127, 0
   br i1 %129, label %.loopexit, label %.lr.ph.i
@@ -6811,7 +6814,8 @@ define { ptr, ptr } @_ZN11quiche_apps6common9Http3Conn9with_urls17h632dd555cc956
   store ptr inttoptr (i64 8 to ptr), ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i64 0, ptr %61, align 8
-  %62 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 88
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %63 = icmp eq i64 %2, 0
   br i1 %63, label %._crit_edge285, label %.preheader.lr.ph
 
@@ -6831,7 +6835,8 @@ define { ptr, ptr } @_ZN11quiche_apps6common9Http3Conn9with_urls17h632dd555cc956
   %.sroa.7130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 32
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %70 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %4, i64 %5
+  %.idx286 = mul nuw nsw i64 %5, 24
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx286
   %71 = icmp eq i64 %5, 0
   %.sroa.077.1.idx272 = select i1 %71, i64 0, i64 24
   %.sroa.077.1273 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.077.1.idx272
@@ -6887,8 +6892,8 @@ define { ptr, ptr } @_ZN11quiche_apps6common9Http3Conn9with_urls17h632dd555cc956
   %89 = icmp eq ptr %.sroa.076.1283, %62
   %.sroa.076.1.idx = select i1 %89, i64 0, i64 88
   %.sroa.076.1 = getelementptr inbounds nuw i8, ptr %.sroa.076.1283, i64 %.sroa.076.1.idx
-  %.not415 = icmp eq ptr %.sroa.076.1283, null
-  %.not = or i1 %89, %.not415
+  %.not416 = icmp eq ptr %.sroa.076.1283, null
+  %.not = or i1 %89, %.not416
   br i1 %.not, label %._crit_edge285, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %..loopexit195_crit_edge
@@ -8611,9 +8616,9 @@ define void @"_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..c
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i64, ptr %67, align 8, !range !577, !noundef !3
   %69 = icmp eq i64 %68, -9223372036854775803
-  br i1 %69, label %._crit_edge209, label %.lr.ph208
+  br i1 %69, label %._crit_edge210, label %.lr.ph209
 
-.lr.ph208:                                        ; preds = %5
+.lr.ph209:                                        ; preds = %5
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 14728
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 14736
   %72 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -8690,7 +8695,7 @@ define void @"_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..c
   %129 = getelementptr inbounds nuw i8, ptr %60, i64 32
   br label %135
 
-._crit_edge209:                                   ; preds = %396, %5
+._crit_edge210:                                   ; preds = %396, %5
   %130 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %131 = load i64, ptr %130, align 8, !range !31, !noundef !3
   %132 = add nsw i64 %131, -20
@@ -8699,8 +8704,8 @@ define void @"_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..c
   %134 = icmp eq i64 %132, 0
   br i1 %134, label %416, label %399
 
-135:                                              ; preds = %.lr.ph208, %396
-  %136 = phi i64 [ %68, %.lr.ph208 ], [ %397, %396 ]
+135:                                              ; preds = %.lr.ph209, %396
+  %136 = phi i64 [ %68, %.lr.ph209 ], [ %397, %396 ]
   %137 = icmp slt i64 %136, -9223372036854775803
   %138 = add i64 %136, -9223372036854775807
   %139 = select i1 %137, i64 %138, i64 0
@@ -8723,8 +8728,8 @@ define void @"_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..c
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57)
   call void @_ZN6quiche2h310Connection9recv_body17h102f4601e765f39aE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %57, ptr noalias noundef nonnull align 8 dereferenceable(512) %0, ptr noalias noundef nonnull align 16 dereferenceable(15216) %1, i64 noundef %142, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
   %143 = load i64, ptr %57, align 8, !range !572, !noundef !3
-  %.not206 = icmp eq i64 %143, 40
-  br i1 %.not206, label %.lr.ph, label %._crit_edge
+  %.not207 = icmp eq i64 %143, 40
+  br i1 %.not207, label %.lr.ph, label %._crit_edge
 
 144:                                              ; preds = %135
   %145 = load i64, ptr %92, align 8, !noundef !3
@@ -8778,13 +8783,13 @@ define void @"_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..c
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %200, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false)
   br label %205
 
-.loopexit171:                                     ; preds = %198, %190
-  %lpad.loopexit173 = landingpad { ptr, i32 }
+.loopexit172:                                     ; preds = %198, %190
+  %lpad.loopexit174 = landingpad { ptr, i32 }
           cleanup
   br label %206
 
-.loopexit.split-lp172:                            ; preds = %.loopexit168
-  %lpad.loopexit.split-lp174 = landingpad { ptr, i32 }
+.loopexit.split-lp173:                            ; preds = %.loopexit169
+  %lpad.loopexit.split-lp175 = landingpad { ptr, i32 }
           cleanup
   br label %206
 
@@ -8803,10 +8808,11 @@ define void @"_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..c
 174:                                              ; preds = %199, %169
   %175 = load ptr, ptr %113, align 8, !nonnull !3, !noundef !3
   %176 = load i64, ptr %93, align 8, !noundef !3
-  %177 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [3 x i64] }, i64, i64, { [1 x i8], i8 }, [6 x i8] }, ptr %175, i64 %176
+  %.idx167 = mul nuw nsw i64 %176, 232
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 %.idx167
   call void @llvm.experimental.noalias.scope.decl(metadata !578)
   %178 = icmp eq i64 %176, 0
-  br i1 %178, label %.loopexit168, label %.lr.ph.i
+  br i1 %178, label %.loopexit169, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %174
   %179 = load i64, ptr %65, align 8, !alias.scope !578, !noalias !581
@@ -8827,7 +8833,7 @@ define void @"_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..c
 
 "_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..common..HttpConn$GT$16handle_responses28_$u7b$$u7b$closure$u7d$$u7d$17h1d1c730bb32d7ab5E.exit.backedge.i": ; preds = %185, %180
   %189 = icmp eq ptr %182, %177
-  br i1 %189, label %.loopexit168, label %180
+  br i1 %189, label %.loopexit169, label %180
 
 190:                                              ; preds = %169
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %63)
@@ -8837,7 +8843,7 @@ define void @"_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..c
   %192 = load i64, ptr %120, align 8, !noundef !3
   %193 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %191, i64 %192
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h7e711e4b169702ecE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %61, ptr noundef nonnull readonly align 8 %191, ptr noundef nonnull readonly %193, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.496ad3ee9a508f328fb6f26431887050.21)
-          to label %_ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit unwind label %.loopexit171
+          to label %_ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit unwind label %.loopexit172
 
 _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %190
   store ptr %61, ptr %62, align 8
@@ -8872,7 +8878,7 @@ _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %19
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %63)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %60)
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$$GT$17h961a072a95d90b0aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %61)
-          to label %199 unwind label %.loopexit171
+          to label %199 unwind label %.loopexit172
 
 199:                                              ; preds = %198
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %61)
@@ -8886,11 +8892,11 @@ _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %19
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$quiche..h3..Header$GT$$GT$17h9903a3e1aaa3d859E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %200)
           to label %202 unwind label %167
 
-.loopexit168:                                     ; preds = %174, %"_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..common..HttpConn$GT$16handle_responses28_$u7b$$u7b$closure$u7d$$u7d$17h1d1c730bb32d7ab5E.exit.backedge.i"
+.loopexit169:                                     ; preds = %174, %"_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..common..HttpConn$GT$16handle_responses28_$u7b$$u7b$closure$u7d$$u7d$17h1d1c730bb32d7ab5E.exit.backedge.i"
   invoke void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.496ad3ee9a508f328fb6f26431887050.404) #19
-          to label %201 unwind label %.loopexit.split-lp172
+          to label %201 unwind label %.loopexit.split-lp173
 
-201:                                              ; preds = %.loopexit168
+201:                                              ; preds = %.loopexit169
   unreachable
 
 202:                                              ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h9be7609331542fd9E.exit"
@@ -8910,8 +8916,8 @@ _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %19
   %.pn124 = phi { ptr, i32 } [ %470, %469 ], [ %.pn.ph, %206 ], [ %168, %167 ], [ %lpad.phi, %276 ], [ %355, %354 ]
   resume { ptr, i32 } %.pn124
 
-206:                                              ; preds = %.loopexit171, %.loopexit.split-lp172, %195
-  %.pn.ph = phi { ptr, i32 } [ %196, %195 ], [ %lpad.loopexit173, %.loopexit171 ], [ %lpad.loopexit.split-lp174, %.loopexit.split-lp172 ]
+206:                                              ; preds = %.loopexit172, %.loopexit.split-lp173, %195
+  %.pn.ph = phi { ptr, i32 } [ %196, %195 ], [ %lpad.loopexit174, %.loopexit172 ], [ %lpad.loopexit.split-lp175, %.loopexit.split-lp173 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$quiche..h3..Header$GT$$GT$17h9903a3e1aaa3d859E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %64) #17
           to label %205 unwind label %203
 
@@ -8933,10 +8939,11 @@ _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %19
 211:                                              ; preds = %227, %.lr.ph
   %212 = load ptr, ptr %113, align 8, !nonnull !3, !noundef !3
   %213 = load i64, ptr %93, align 8, !noundef !3
-  %214 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [3 x i64] }, i64, i64, { [1 x i8], i8 }, [6 x i8] }, ptr %212, i64 %213
+  %.idx = mul nuw nsw i64 %213, 232
+  %214 = getelementptr inbounds nuw i8, ptr %212, i64 %.idx
   call void @llvm.experimental.noalias.scope.decl(metadata !584)
   %215 = icmp eq i64 %213, 0
-  br i1 %215, label %.loopexit167, label %.lr.ph.i131
+  br i1 %215, label %.loopexit168, label %.lr.ph.i131
 
 .lr.ph.i131:                                      ; preds = %211
   %216 = load i64, ptr %58, align 8, !alias.scope !584, !noalias !587
@@ -8957,7 +8964,7 @@ _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %19
 
 "_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..common..HttpConn$GT$16handle_responses28_$u7b$$u7b$closure$u7d$$u7d$17h115239bd8f7926fbE.exit.backedge.i": ; preds = %222, %217
   %226 = icmp eq ptr %219, %214
-  br i1 %226, label %.loopexit167, label %217
+  br i1 %226, label %.loopexit168, label %217
 
 227:                                              ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %55)
@@ -9010,7 +9017,7 @@ _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %19
   %.not118 = icmp eq i64 %241, -9223372036854775808
   br i1 %.not118, label %251, label %242
 
-.loopexit167:                                     ; preds = %211, %"_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..common..HttpConn$GT$16handle_responses28_$u7b$$u7b$closure$u7d$$u7d$17h115239bd8f7926fbE.exit.backedge.i"
+.loopexit168:                                     ; preds = %211, %"_ZN80_$LT$quiche_apps..common..Http3Conn$u20$as$u20$quiche_apps..common..HttpConn$GT$16handle_responses28_$u7b$$u7b$closure$u7d$$u7d$17h115239bd8f7926fbE.exit.backedge.i"
   call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.496ad3ee9a508f328fb6f26431887050.409) #19
   unreachable
 
@@ -9082,7 +9089,7 @@ _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %19
 .noexc:                                           ; preds = %275
   unreachable
 
-.loopexit170:                                     ; preds = %283, %277
+.loopexit171:                                     ; preds = %283, %277
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %276
@@ -9092,15 +9099,15 @@ _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %19
           cleanup
   br label %276
 
-276:                                              ; preds = %.loopexit.split-lp, %.loopexit170
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit170 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+276:                                              ; preds = %.loopexit.split-lp, %.loopexit171
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit171 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr155drop_in_place$LT$core..cell..RefMut$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$alloc..string..String$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17hb01d9397999fe16fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %51) #17
           to label %205 unwind label %203
 
 277:                                              ; preds = %272
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !596
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17hee8f8d38eac8eb59E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, i64 noundef %273, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc135 unwind label %.loopexit170
+          to label %.noexc135 unwind label %.loopexit171
 
 .noexc135:                                        ; preds = %277
   %278 = load i64, ptr %9, align 8, !range !13, !noalias !596, !noundef !3
@@ -9128,7 +9135,7 @@ _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %19
   %286 = getelementptr inbounds nuw i8, ptr %256, i64 32
   %287 = load ptr, ptr %286, align 8, !invariant.load !3, !nonnull !3
   invoke void %287(ptr noundef nonnull align 1 %270, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %50)
-          to label %288 unwind label %.loopexit170
+          to label %288 unwind label %.loopexit171
 
 288:                                              ; preds = %283
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %50)
@@ -9170,7 +9177,7 @@ _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %19
   br label %289
 
 299:                                              ; preds = %303, %144
-  %300 = phi i64 [ %.pre240, %303 ], [ %147, %144 ]
+  %300 = phi i64 [ %.pre241, %303 ], [ %147, %144 ]
   %301 = phi i64 [ %.pre, %303 ], [ %146, %144 ]
   %302 = icmp eq i64 %301, %300
   br i1 %302, label %306, label %305
@@ -9199,7 +9206,7 @@ _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47)
   %.pre = load i64, ptr %92, align 8
-  %.pre240 = load i64, ptr %49, align 8
+  %.pre241 = load i64, ptr %49, align 8
   br label %299
 
 305:                                              ; preds = %299
@@ -9496,9 +9503,9 @@ _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %19
   call void @_ZN6quiche2h310Connection4poll17h937b97d21691f377E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %66, ptr noalias noundef nonnull align 8 dereferenceable(512) %0, ptr noalias noundef nonnull align 16 dereferenceable(15216) %1)
   %397 = load i64, ptr %67, align 8, !range !577, !noundef !3
   %398 = icmp eq i64 %397, -9223372036854775803
-  br i1 %398, label %._crit_edge209, label %135
+  br i1 %398, label %._crit_edge210, label %135
 
-399:                                              ; preds = %._crit_edge209
+399:                                              ; preds = %._crit_edge210
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
   %400 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %401 = load i64, ptr %400, align 8
@@ -9547,16 +9554,16 @@ _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br label %405
 
-416:                                              ; preds = %._crit_edge209, %357, %378, %405
+416:                                              ; preds = %._crit_edge210, %357, %378, %405
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %66)
   %417 = getelementptr inbounds nuw i8, ptr %1, i64 13584
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !603
   call void @_ZN6quiche5dgram13DatagramQueue3pop17hf37592007d5965a1E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(48) %417), !noalias !608
   %418 = load i64, ptr %8, align 8, !range !20, !noalias !603, !noundef !3
-  %.not.i210 = icmp eq i64 %418, -9223372036854775808
-  br i1 %.not.i210, label %.loopexit, label %.lr.ph212
+  %.not.i211 = icmp eq i64 %418, -9223372036854775808
+  br i1 %.not.i211, label %.loopexit, label %.lr.ph213
 
-.lr.ph212:                                        ; preds = %416
+.lr.ph213:                                        ; preds = %416
   %419 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %420 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %421 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -9578,7 +9585,7 @@ _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %19
   %432 = getelementptr inbounds nuw i8, ptr %10, i64 32
   br label %433
 
-433:                                              ; preds = %.lr.ph212, %443
+433:                                              ; preds = %.lr.ph213, %443
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !603
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !603
   %434 = load i64, ptr %419, align 8, !noalias !603, !noundef !3
@@ -10432,7 +10439,8 @@ _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %35
   store i64 0, ptr %92, align 8, !noalias !632
   store ptr inttoptr (i64 1 to ptr), ptr %213, align 8, !noalias !632
   store i64 0, ptr %214, align 8, !noalias !632
-  %383 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %374, i64 %375
+  %.idx.i = mul nuw nsw i64 %375, 48
+  %383 = getelementptr inbounds nuw i8, ptr %374, i64 %.idx.i
   %384 = icmp eq i64 %375, 0
   br i1 %384, label %._crit_edge.thread.i, label %.lr.ph.i
 

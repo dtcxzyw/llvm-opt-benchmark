@@ -2486,8 +2486,8 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow19AttrValue_ListValue12ByteSiz
   %85 = lshr i64 %84, 6
   %86 = add i64 %85, %.04976
   %87 = add nuw i32 %.05075, 1
-  %exitcond100.not = icmp eq i32 %87, %72
-  br i1 %exitcond100.not, label %._crit_edge79, label %75, !llvm.loop !93
+  %exitcond101.not = icmp eq i32 %87, %72
+  br i1 %exitcond101.not, label %._crit_edge79, label %75, !llvm.loop !93
 
 88:                                               ; preds = %._crit_edge79
   %89 = shl i64 %86, 32
@@ -2503,12 +2503,12 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow19AttrValue_ListValue12ByteSiz
   br label %._crit_edge79.thread
 
 ._crit_edge79.thread:                             ; preds = %69, %88, %._crit_edge79
-  %.049.lcssa103 = phi i64 [ %86, %88 ], [ 0, %._crit_edge79 ], [ 0, %69 ]
+  %.049.lcssa104 = phi i64 [ %86, %88 ], [ 0, %._crit_edge79 ], [ 0, %69 ]
   %.4 = phi i64 [ %97, %88 ], [ %70, %._crit_edge79 ], [ %70, %69 ]
-  %98 = trunc i64 %.049.lcssa103 to i32
+  %98 = trunc i64 %.049.lcssa104 to i32
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store atomic i32 %98, ptr %99 monotonic, align 8
-  %100 = add i64 %.4, %.049.lcssa103
+  %100 = add i64 %.4, %.049.lcssa104
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %102 = load i32, ptr %101, align 8, !tbaa !3
   %103 = sext i32 %102 to i64
@@ -2518,7 +2518,8 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow19AttrValue_ListValue12ByteSiz
   %.not.i.i = icmp eq ptr %106, null
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %107
-  %108 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %103
+  %.idx = shl nsw i64 %103, 3
+  %108 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not7181 = icmp eq i32 %102, 0
   br i1 %.not7181, label %._crit_edge86, label %.lr.ph85
 
@@ -2533,7 +2534,8 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow19AttrValue_ListValue12ByteSiz
   %.not.i.i58 = icmp eq ptr %114, null
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %spec.select.i.i59 = select i1 %.not.i.i58, ptr null, ptr %115
-  %116 = getelementptr inbounds ptr, ptr %spec.select.i.i59, i64 %111
+  %.idx96 = shl nsw i64 %111, 3
+  %116 = getelementptr inbounds i8, ptr %spec.select.i.i59, i64 %.idx96
   %.not7288 = icmp eq i32 %110, 0
   br i1 %.not7288, label %._crit_edge93, label %.lr.ph92
 
@@ -6821,7 +6823,8 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 
 76:                                               ; preds = %74
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #30
-  %77 = getelementptr inbounds nuw ptr, ptr %54, i64 %.024
+  %.idx = shl nuw nsw i64 %.024, 3
+  %77 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx
   %.not.i.i = icmp eq i64 %.024, 0
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEESt14default_deleteISE_EED2Ev.exit, label %78
 

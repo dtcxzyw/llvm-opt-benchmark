@@ -4804,7 +4804,8 @@ _RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15tur
   %43 = load ptr, ptr %42, align 8, !alias.scope !1131, !noalias !1134, !nonnull !5, !noundef !5
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.01.017.i, i64 16
   %45 = load i64, ptr %44, align 8, !alias.scope !1131, !noalias !1134, !noundef !5
-  %46 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %43, i64 %45
+  %.idx.i.i = mul nsw i64 %45, 36
+  %46 = getelementptr inbounds i8, ptr %43, i64 %.idx.i.i
   %47 = icmp eq i64 %45, 0
   br i1 %47, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i, label %.lr.ph.i5.i
 
@@ -4842,25 +4843,25 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i: ; preds = %.lr
   %64 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %61, i64 %63
   %65 = zext i16 %59 to i64
   %66 = icmp eq i16 %59, 0
-  br i1 %66, label %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i13, label %.lr.ph.i
+  br i1 %66, label %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i14, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %54, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i12
-  %.sroa.0.06.i = phi ptr [ %80, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i12 ], [ %61, %54 ]
-  %.sroa.7.05.i = phi i64 [ %67, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i12 ], [ %65, %54 ]
+.lr.ph.i:                                         ; preds = %54, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i13
+  %.sroa.0.06.i = phi ptr [ %80, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i13 ], [ %61, %54 ]
+  %.sroa.7.05.i = phi i64 [ %67, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i13 ], [ %65, %54 ]
   %67 = add nsw i64 %.sroa.7.05.i, -1
   %68 = icmp eq ptr %.sroa.0.06.i, %64
-  br i1 %68, label %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i13, label %79
+  br i1 %68, label %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i14, label %79
 
-_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i13: ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i12, %.lr.ph.i, %54
+_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i14: ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i13, %.lr.ph.i, %54
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1154)
-  %.not.i.i.not.i.i.i14 = icmp samesign ugt i64 %63, %65
-  br i1 %.not.i.i.not.i.i.i14, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i15, label %69
+  %.not.i.i.not.i.i.i15 = icmp samesign ugt i64 %63, %65
+  br i1 %.not.i.i.not.i.i.i15, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i16, label %69
 
-69:                                               ; preds = %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i13
+69:                                               ; preds = %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i14
   tail call void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.30abf622684a90b9d15f322ccd7029c1.22.llvm.18144538392194903364) #16, !noalias !1157
   unreachable
 
-_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i15: ; preds = %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i13
+_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i16: ; preds = %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i14
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i9, i64 118
   %71 = load i16, ptr %70, align 2, !alias.scope !1161, !noalias !1162, !noundef !5
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i9, i64 114
@@ -4870,8 +4871,8 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i1
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i16 @llvm.umin.i16(i16 %71, i16 %75)
   br label %76
 
-76:                                               ; preds = %76, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i15
-  %.sroa.0.08.i.i = phi i16 [ 0, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i15 ], [ %spec.select7.i.i, %76 ]
+76:                                               ; preds = %76, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i16
+  %.sroa.0.08.i.i = phi i16 [ 0, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i16 ], [ %spec.select7.i.i, %76 ]
   %77 = icmp uge i16 %.sroa.0.08.i.i, %.sroa.0.0.sroa.speculated.i.i.i
   %not..i.i = xor i1 %77, true
   %78 = zext i1 %not..i.i to i16
@@ -4891,75 +4892,78 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i1
   %82 = load ptr, ptr %81, align 8, !alias.scope !1167, !noalias !1170, !nonnull !5, !noundef !5
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 16
   %84 = load i64, ptr %83, align 8, !alias.scope !1167, !noalias !1170, !noundef !5
-  %85 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %82, i64 %84
+  %.idx.i.i10 = mul nsw i64 %84, 36
+  %85 = getelementptr inbounds i8, ptr %82, i64 %.idx.i.i10
   %86 = icmp eq i64 %84, 0
-  br i1 %86, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i12, label %.lr.ph.i.i10
+  br i1 %86, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i13, label %.lr.ph.i.i11
 
-.lr.ph.i.i10:                                     ; preds = %79, %.lr.ph.i.i10
-  %.sroa.0.04.i.i11 = phi ptr [ %87, %.lr.ph.i.i10 ], [ %82, %79 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i11, i64 36
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i11, i64 34
+.lr.ph.i.i11:                                     ; preds = %79, %.lr.ph.i.i11
+  %.sroa.0.04.i.i12 = phi ptr [ %87, %.lr.ph.i.i11 ], [ %82, %79 ]
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i12, i64 36
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i12, i64 34
   store i8 0, ptr %88, align 2, !alias.scope !1172, !noalias !1175
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i11, i64 25
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i12, i64 25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %89, ptr noundef nonnull align 8 dereferenceable(9) %8, i64 9, i1 false)
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i11, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i12, i64 24
   store i8 0, ptr %90, align 4, !alias.scope !1172, !noalias !1175
   %91 = icmp eq ptr %87, %85
-  br i1 %91, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i12, label %.lr.ph.i.i10
+  br i1 %91, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i13, label %.lr.ph.i.i11
 
-_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i12: ; preds = %.lr.ph.i.i10, %79
+_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i13: ; preds = %.lr.ph.i.i11, %79
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 24
   store i8 0, ptr %92, align 8, !alias.scope !1164, !noalias !1170
   %93 = icmp eq i64 %67, 0
-  br i1 %93, label %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i13, label %.lr.ph.i
+  br i1 %93, label %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i14, label %.lr.ph.i
 
 94:                                               ; preds = %2
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %96 = load i8, ptr %95, align 4, !alias.scope !1177, !noundef !5
   %97 = and i8 %96, 8
-  %.not.i16 = icmp eq i8 %97, 0
-  %.sroa.0.0.idx.i17 = select i1 %.not.i16, i64 0, i64 136
-  %.sroa.0.0.i18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.0.idx.i17
+  %.not.i17 = icmp eq i8 %97, 0
+  %.sroa.0.0.idx.i18 = select i1 %.not.i17, i64 0, i64 136
+  %.sroa.0.0.i19 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.0.idx.i18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1182)
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i18, i64 48
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i19, i64 48
   %99 = load ptr, ptr %98, align 8, !alias.scope !1185, !noalias !1188, !nonnull !5, !noundef !5
-  %100 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i18, i64 56
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i19, i64 56
   %101 = load i64, ptr %100, align 8, !alias.scope !1185, !noalias !1188, !noundef !5
-  %102 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %99, i64 %101
+  %.idx.i = shl nsw i64 %101, 5
+  %102 = getelementptr inbounds i8, ptr %99, i64 %.idx.i
   %103 = icmp eq i64 %101, 0
-  br i1 %103, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid17erase_all_forward.exit, label %.lr.ph.i19
+  br i1 %103, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid17erase_all_forward.exit, label %.lr.ph.i20
 
-.lr.ph.i19:                                       ; preds = %94, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i22
-  %.sroa.0.04.i = phi ptr [ %104, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i22 ], [ %99, %94 ]
+.lr.ph.i20:                                       ; preds = %94, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i24
+  %.sroa.0.04.i = phi ptr [ %104, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i24 ], [ %99, %94 ]
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1190)
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i, i64 8
   %106 = load ptr, ptr %105, align 8, !alias.scope !1193, !noalias !1196, !nonnull !5, !noundef !5
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i, i64 16
   %108 = load i64, ptr %107, align 8, !alias.scope !1193, !noalias !1196, !noundef !5
-  %109 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %106, i64 %108
+  %.idx.i.i21 = mul nsw i64 %108, 36
+  %109 = getelementptr inbounds i8, ptr %106, i64 %.idx.i.i21
   %110 = icmp eq i64 %108, 0
-  br i1 %110, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i22, label %.lr.ph.i.i20
+  br i1 %110, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i24, label %.lr.ph.i.i22
 
-.lr.ph.i.i20:                                     ; preds = %.lr.ph.i19, %.lr.ph.i.i20
-  %.sroa.0.04.i.i21 = phi ptr [ %111, %.lr.ph.i.i20 ], [ %106, %.lr.ph.i19 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i21, i64 36
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i21, i64 34
+.lr.ph.i.i22:                                     ; preds = %.lr.ph.i20, %.lr.ph.i.i22
+  %.sroa.0.04.i.i23 = phi ptr [ %111, %.lr.ph.i.i22 ], [ %106, %.lr.ph.i20 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i23, i64 36
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i23, i64 34
   store i8 0, ptr %112, align 2, !alias.scope !1198, !noalias !1201
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i21, i64 25
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i23, i64 25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %113, ptr noundef nonnull align 8 dereferenceable(9) %8, i64 9, i1 false)
-  %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i21, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i23, i64 24
   store i8 0, ptr %114, align 4, !alias.scope !1198, !noalias !1201
   %115 = icmp eq ptr %111, %109
-  br i1 %115, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i22, label %.lr.ph.i.i20
+  br i1 %115, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i24, label %.lr.ph.i.i22
 
-_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i22: ; preds = %.lr.ph.i.i20, %.lr.ph.i19
+_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i24: ; preds = %.lr.ph.i.i22, %.lr.ph.i20
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i, i64 24
   store i8 0, ptr %116, align 8, !alias.scope !1190, !noalias !1196
   %117 = icmp eq ptr %104, %102
-  br i1 %117, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid17erase_all_forward.exit, label %.lr.ph.i19
+  br i1 %117, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid17erase_all_forward.exit, label %.lr.ph.i20
 
-_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid17erase_all_forward.exit: ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i22, %76, %.lr.ph.i.i, %94, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i, %123
+_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid17erase_all_forward.exit: ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i24, %76, %.lr.ph.i.i, %94, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i, %123
   ret void
 
 118:                                              ; preds = %9
@@ -5135,7 +5139,8 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i14:
   %66 = load ptr, ptr %65, align 8, !alias.scope !1268, !noalias !1271, !nonnull !5, !noundef !5
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %68 = load i64, ptr %67, align 8, !alias.scope !1268, !noalias !1271, !noundef !5
-  %69 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %66, i64 %68
+  %.idx.i.i = mul nsw i64 %68, 36
+  %69 = getelementptr inbounds i8, ptr %66, i64 %.idx.i.i
   %70 = icmp eq i64 %68, 0
   br i1 %70, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid9erase_row.exit, label %.lr.ph.i.i
 
@@ -5600,7 +5605,8 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   store i64 0, ptr %21, align 4, !alias.scope !1402
   %92 = load ptr, ptr %22, align 8, !alias.scope !1405, !nonnull !5, !noundef !5
   %93 = load i64, ptr %23, align 8, !alias.scope !1405, !noundef !5
-  %94 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %92, i64 %93
+  %.idx.i = shl nsw i64 %93, 5
+  %94 = getelementptr inbounds i8, ptr %92, i64 %.idx.i
   %95 = icmp eq i64 %93, 0
   br i1 %95, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid5clear.exit, label %.lr.ph.i
 
@@ -5611,7 +5617,8 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   %98 = load ptr, ptr %97, align 8, !alias.scope !1408, !noalias !1413, !nonnull !5, !noundef !5
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.012.i, i64 16
   %100 = load i64, ptr %99, align 8, !alias.scope !1408, !noalias !1413, !noundef !5
-  %101 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %98, i64 %100
+  %.idx.i.i = mul nsw i64 %100, 36
+  %101 = getelementptr inbounds i8, ptr %98, i64 %.idx.i.i
   %102 = icmp eq i64 %100, 0
   br i1 %102, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i, label %.lr.ph.i.i
 

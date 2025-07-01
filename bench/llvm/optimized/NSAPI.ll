@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.432" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.433" = type { [32 x i8] }
-%"class.llvm::StringRef" = type { ptr, i64 }
 %"struct.std::pair.434" = type { ptr, i64 }
 
 $_ZN5clang15IdentifierTable3getEN4llvm9StringRefE = comdat any
@@ -1681,7 +1680,8 @@ define dso_local i64 @_ZNK5clang5NSAPI17getOrInitSelectorEN4llvm8ArrayRefINS1_9S
   store i32 0, ptr %9, align 8, !tbaa !423
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 4, ptr %10, align 4, !tbaa !424
-  %11 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not11 = icmp eq i64 %2, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 

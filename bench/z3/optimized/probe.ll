@@ -2016,7 +2016,8 @@ _Z19quick_for_each_exprI30is_non_propositional_predicateEvRT_R13ast_fast_markILj
   %66 = load ptr, ptr %3, align 8, !tbaa !46
   %67 = load i32, ptr %5, align 8, !tbaa !50
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %66, i64 %68
+  %.idx.i.i = shl nuw nsw i64 %68, 3
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i.i
   %.not8.i.i = icmp eq i32 %67, 0
   br i1 %.not8.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -2076,7 +2077,8 @@ define linkonce_odr hidden void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnul
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !50
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 3
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %.not8.i = icmp eq i32 %4, 0
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
 
@@ -4185,7 +4187,8 @@ _Z19quick_for_each_exprI21is_non_qfbv_predicateEvRT_R13ast_fast_markILj1EEP4expr
   %66 = load ptr, ptr %3, align 8, !tbaa !46
   %67 = load i32, ptr %5, align 8, !tbaa !50
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %66, i64 %68
+  %.idx.i.i = shl nuw nsw i64 %68, 3
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i.i
   %.not8.i.i = icmp eq i32 %67, 0
   br i1 %.not8.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -5284,7 +5287,8 @@ _Z19quick_for_each_exprI24is_non_qfaufbv_predicateEvRT_R13ast_fast_markILj1EEP4e
   %66 = load ptr, ptr %3, align 8, !tbaa !46
   %67 = load i32, ptr %5, align 8, !tbaa !50
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %66, i64 %68
+  %.idx.i.i = shl nuw nsw i64 %68, 3
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i.i
   %.not8.i.i = icmp eq i32 %67, 0
   br i1 %.not8.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -6395,7 +6399,8 @@ _Z19quick_for_each_exprI23is_non_qfufbv_predicateEvRT_R13ast_fast_markILj1EEP4ex
   %66 = load ptr, ptr %3, align 8, !tbaa !46
   %67 = load i32, ptr %5, align 8, !tbaa !50
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %66, i64 %68
+  %.idx.i.i = shl nuw nsw i64 %68, 3
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i.i
   %.not8.i.i = icmp eq i32 %67, 0
   br i1 %.not8.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -7379,7 +7384,8 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %26, %30, %34
   %.pre26 = load i32, ptr %38, align 8, !tbaa !50
   %41 = uitofp i32 %.pre to double
   %42 = zext i32 %.pre26 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %.pre25, i64 %42
+  %.idx.i.i = shl nuw nsw i64 %42, 3
+  %43 = getelementptr inbounds nuw i8, ptr %.pre25, i64 %.idx.i.i
   %.not8.i.i = icmp eq i32 %.pre26, 0
   br i1 %.not8.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -7399,8 +7405,8 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %26, %30, %34
   br label %.loopexit.i
 
 .loopexit.i.thread:                               ; preds = %_ZNK4goal4sizeEv.exit.thread, %_ZNK4goal4sizeEv.exit
-  %.ph32 = phi ptr [ %38, %_ZNK4goal4sizeEv.exit ], [ %20, %_ZNK4goal4sizeEv.exit.thread ]
-  store i32 0, ptr %.ph32, align 8, !tbaa !50
+  %.ph33 = phi ptr [ %38, %_ZNK4goal4sizeEv.exit ], [ %20, %_ZNK4goal4sizeEv.exit.thread ]
+  store i32 0, ptr %.ph33, align 8, !tbaa !50
   br label %_ZN13ast_fast_markILj1EED2Ev.exit
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %._crit_edge
@@ -8365,7 +8371,8 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %16, %20, %24
   %.pre28 = load i32, ptr %6, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #21
   %28 = zext i32 %.pre28 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %28
+  %.idx.i.i = shl nuw nsw i64 %28, 3
+  %29 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i.i
   %.not8.i.i = icmp eq i32 %.pre28, 0
   br i1 %.not8.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -9282,7 +9289,8 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %16, %20, %24
   %.pre28 = load i32, ptr %6, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #21
   %28 = zext i32 %.pre28 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %28
+  %.idx.i.i = shl nuw nsw i64 %28, 3
+  %29 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i.i
   %.not8.i.i = icmp eq i32 %.pre28, 0
   br i1 %.not8.i.i, label %.loopexit.i, label %.lr.ph.i.i
 

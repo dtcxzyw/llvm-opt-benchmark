@@ -22953,7 +22953,8 @@ _ZN8wasmtime7runtime11code_memory10CodeMemory4text17h5e24d6c2ed268e0cE.exit: ; p
 .lr.ph.i:                                         ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8, !alias.scope !5328, !nonnull !4, !noundef !4
-  %43 = getelementptr inbounds { i64, i8, [7 x i8] }, ptr %42, i64 %39
+  %.idx.i = shl nsw i64 %39, 4
+  %43 = getelementptr inbounds i8, ptr %42, i64 %.idx.i
   br label %44
 
 default.unreachable:                              ; preds = %44
@@ -25203,7 +25204,8 @@ define void @_ZN8wasmtime7runtime6module6Module18resources_required17hd83b83b907
 .split9:                                          ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %14 = load ptr, ptr %13, align 8, !alias.scope !5799, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds { { { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }, { i64, [1 x i64] }, i64, i64 }, ptr %14, i64 %8
+  %.idx = shl nsw i64 %8, 6
+  %15 = getelementptr inbounds i8, ptr %14, i64 %.idx
   %.not.i.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i.i, label %16, label %18
 
@@ -25262,7 +25264,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h746632c3fbd36fbbE.exit: ; preds 
 .split13:                                         ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h746632c3fbd36fbbE.exit
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 272
   %37 = load ptr, ptr %36, align 8, !alias.scope !5812, !nonnull !4, !noundef !4
-  %38 = getelementptr inbounds { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }, {} }, ptr %37, i64 %31
+  %.idx40 = mul nsw i64 %31, 24
+  %38 = getelementptr inbounds i8, ptr %37, i64 %.idx40
   %.not.i.i.i17 = icmp eq i64 %33, 0
   br i1 %.not.i.i.i17, label %39, label %41
 
@@ -27097,7 +27100,8 @@ define noundef zeroext i1 @"_ZN77_$LT$wasmtime..runtime..trap..WasmBacktrace$u20
   %42 = load ptr, ptr %41, align 8, !nonnull !4, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load i64, ptr %43, align 8, !noundef !4
-  %45 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i32, [1 x i32] }, ptr, i32, i32 }, ptr %42, i64 %44
+  %.idx = mul nsw i64 %44, 72
+  %45 = getelementptr inbounds i8, ptr %42, i64 %.idx
   %46 = icmp eq i64 %44, 0
   br i1 %46, label %._crit_edge, label %.lr.ph188
 
@@ -27245,9 +27249,9 @@ define noundef zeroext i1 @"_ZN77_$LT$wasmtime..runtime..trap..WasmBacktrace$u20
   br label %136
 
 136:                                              ; preds = %123, %131
-  %storemerge190 = phi ptr [ %135, %131 ], [ @anon.6c5507757c8b1c864a673afc90c467c5.364, %123 ]
+  %storemerge191 = phi ptr [ %135, %131 ], [ @anon.6c5507757c8b1c864a673afc90c467c5.364, %123 ]
   %storemerge = phi i64 [ %133, %131 ], [ 9, %123 ]
-  store ptr %storemerge190, ptr %31, align 8
+  store ptr %storemerge191, ptr %31, align 8
   store i64 %storemerge, ptr %51, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
@@ -27346,7 +27350,8 @@ _ZN8wasmtime7runtime4trap9FrameInfo13module_offset17h626567730e6efa21E.exit: ; p
 .lr.ph:                                           ; preds = %_ZN8wasmtime7runtime4trap9FrameInfo13module_offset17h626567730e6efa21E.exit
   %155 = getelementptr inbounds nuw i8, ptr %.sroa.0.0186, i64 8
   %156 = load ptr, ptr %155, align 8, !alias.scope !6199, !nonnull !4, !noundef !4
-  %157 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] } }, ptr %156, i64 %151
+  %.idx189 = shl nsw i64 %151, 6
+  %157 = getelementptr inbounds i8, ptr %156, i64 %.idx189
   %158 = getelementptr inbounds nuw i8, ptr %.sroa.0.0186, i64 24
   %159 = getelementptr inbounds nuw i8, ptr %.sroa.0.0186, i64 32
   %160 = getelementptr inbounds nuw i8, ptr %.sroa.0.0186, i64 40
@@ -28593,7 +28598,7 @@ define noundef ptr @_ZN8wasmtime7runtime9component8matching11TypeChecker10defini
 
 86:                                               ; preds = %3
   %87 = icmp eq ptr %2, null
-  br i1 %87, label %246, label %switch.lookup133
+  br i1 %87, label %246, label %switch.lookup134
 
 88:                                               ; preds = %3
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -28653,9 +28658,9 @@ switch.lookup:                                    ; preds = %76
   %114 = load i64, ptr %2, align 16, !range !625, !alias.scope !6397, !noundef !4
   %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.249, i64 0, i64 %114
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep123 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.250, i64 0, i64 %114
-  %switch.load124 = load ptr, ptr %switch.gep123, align 8
-  store ptr %switch.load124, ptr %54, align 8
+  %switch.gep124 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.250, i64 0, i64 %114
+  %switch.load125 = load ptr, ptr %switch.gep124, align 8
+  store ptr %switch.load125, ptr %54, align 8
   %115 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i64 %switch.load, ptr %115, align 8
   store ptr %54, ptr %55, align 8
@@ -28680,8 +28685,8 @@ switch.lookup:                                    ; preds = %76
 default.unreachable:                              ; preds = %458
   unreachable
 
-_ZN8wasmtime7runtime9component8matching11TypeChecker8instance17h2a07f861c9df5d52E.exit: ; preds = %.backedge88, %.backedge, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h44a549aa17d2379fE.exit36", %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h44a549aa17d2379fE.exit", %209, %158, %511, %427, %switch.lookup138, %_ZN8wasmtime7runtime9component8matching11TypeChecker6module17hc8317ad903bcfc07E.exit, %260, %switch.lookup133, %246, %switch.lookup128, %228, %219, %switch.lookup125, %switch.lookup, %108
-  %.032 = phi ptr [ %113, %108 ], [ %121, %switch.lookup ], [ %218, %switch.lookup125 ], [ %224, %219 ], [ %238, %228 ], [ %245, %switch.lookup128 ], [ %251, %246 ], [ %259, %switch.lookup133 ], [ %265, %260 ], [ %.0.i, %_ZN8wasmtime7runtime9component8matching11TypeChecker6module17hc8317ad903bcfc07E.exit ], [ %411, %switch.lookup138 ], [ %.1, %427 ], [ null, %511 ], [ %160, %158 ], [ %211, %209 ], [ null, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h44a549aa17d2379fE.exit" ], [ null, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h44a549aa17d2379fE.exit36" ], [ null, %.backedge ], [ null, %.backedge88 ]
+_ZN8wasmtime7runtime9component8matching11TypeChecker8instance17h2a07f861c9df5d52E.exit: ; preds = %.backedge88, %.backedge, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h44a549aa17d2379fE.exit36", %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h44a549aa17d2379fE.exit", %209, %158, %511, %427, %switch.lookup139, %_ZN8wasmtime7runtime9component8matching11TypeChecker6module17hc8317ad903bcfc07E.exit, %260, %switch.lookup134, %246, %switch.lookup129, %228, %219, %switch.lookup126, %switch.lookup, %108
+  %.032 = phi ptr [ %113, %108 ], [ %121, %switch.lookup ], [ %218, %switch.lookup126 ], [ %224, %219 ], [ %238, %228 ], [ %245, %switch.lookup129 ], [ %251, %246 ], [ %259, %switch.lookup134 ], [ %265, %260 ], [ %.0.i, %_ZN8wasmtime7runtime9component8matching11TypeChecker6module17hc8317ad903bcfc07E.exit ], [ %411, %switch.lookup139 ], [ %.1, %427 ], [ null, %511 ], [ %160, %158 ], [ %211, %209 ], [ null, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h44a549aa17d2379fE.exit" ], [ null, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h44a549aa17d2379fE.exit36" ], [ null, %.backedge ], [ null, %.backedge88 ]
   ret ptr %.032
 
 122:                                              ; preds = %78
@@ -28707,7 +28712,8 @@ _ZN8wasmtime7runtime9component8matching11TypeChecker8instance17h2a07f861c9df5d52
   %.val.i = load ptr, ptr %133, align 8, !alias.scope !6411, !noalias !6414, !nonnull !4, !noundef !4
   %134 = getelementptr i8, ptr %132, i64 16
   %.val17.i = load i64, ptr %134, align 8, !alias.scope !6411, !noalias !6414, !noundef !4
-  %135 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %.val.i, i64 %.val17.i
+  %.idx99 = mul nsw i64 %.val17.i, 40
+  %135 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx99
   %136 = icmp eq i64 %.val17.i, 0
   br i1 %136, label %_ZN8wasmtime7runtime9component8matching11TypeChecker8instance17h2a07f861c9df5d52E.exit, label %.lr.ph98
 
@@ -28791,7 +28797,7 @@ common.resume:                                    ; preds = %335, %348, %366, %3
 161:                                              ; preds = %78
   %162 = load i64, ptr %2, align 16, !range !625, !noundef !4
   %163 = icmp eq i64 %162, 0
-  br i1 %163, label %164, label %switch.lookup125
+  br i1 %163, label %164, label %switch.lookup126
 
 164:                                              ; preds = %161
   %165 = load ptr, ptr %0, align 8, !nonnull !4, !align !20, !noundef !4
@@ -28818,7 +28824,8 @@ common.resume:                                    ; preds = %335, %348, %366, %3
   %.val.i37 = load ptr, ptr %176, align 8, !alias.scope !6445, !noalias !6447, !nonnull !4, !noundef !4
   %177 = getelementptr i8, ptr %174, i64 16
   %.val17.i38 = load i64, ptr %177, align 8, !alias.scope !6445, !noalias !6447, !noundef !4
-  %178 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %.val.i37, i64 %.val17.i38
+  %.idx = mul nsw i64 %.val17.i38, 40
+  %178 = getelementptr inbounds i8, ptr %.val.i37, i64 %.idx
   %179 = icmp eq i64 %.val17.i38, 0
   br i1 %179, label %_ZN8wasmtime7runtime9component8matching11TypeChecker8instance17h2a07f861c9df5d52E.exit, label %.lr.ph
 
@@ -28905,16 +28912,16 @@ common.resume:                                    ; preds = %335, %348, %366, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37), !noalias !6449
   br label %_ZN8wasmtime7runtime9component8matching11TypeChecker8instance17h2a07f861c9df5d52E.exit
 
-switch.lookup125:                                 ; preds = %161
+switch.lookup126:                                 ; preds = %161
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %65)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %63)
   %switch.tableidx = add nsw i64 %162, -1
   %switch.idx.mult = shl nsw i64 %switch.tableidx, 1
   %switch.offset = add nsw i64 %switch.idx.mult, 4
-  %switch.gep126 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.246, i64 0, i64 %switch.tableidx
-  %switch.load127 = load ptr, ptr %switch.gep126, align 8
-  store ptr %switch.load127, ptr %63, align 8
+  %switch.gep127 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.246, i64 0, i64 %switch.tableidx
+  %switch.load128 = load ptr, ptr %switch.gep127, align 8
+  store ptr %switch.load128, ptr %63, align 8
   %212 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i64 %switch.offset, ptr %212, align 8
   store ptr %63, ptr %64, align 8
@@ -28954,7 +28961,7 @@ switch.lookup125:                                 ; preds = %161
 225:                                              ; preds = %82
   %226 = load i64, ptr %2, align 16, !range !625, !noundef !4
   %227 = icmp eq i64 %226, 1
-  br i1 %227, label %228, label %switch.lookup128
+  br i1 %227, label %228, label %switch.lookup129
 
 228:                                              ; preds = %225
   %229 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -28976,17 +28983,17 @@ switch.lookup125:                                 ; preds = %161
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36), !noalias !6484
   br label %_ZN8wasmtime7runtime9component8matching11TypeChecker8instance17h2a07f861c9df5d52E.exit
 
-switch.lookup128:                                 ; preds = %225
+switch.lookup129:                                 ; preds = %225
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %61)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %59)
-  %switch.gep129 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.247, i64 0, i64 %226
-  %switch.load130 = load i64, ptr %switch.gep129, align 8
-  %switch.gep131 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.248, i64 0, i64 %226
-  %switch.load132 = load ptr, ptr %switch.gep131, align 8
-  store ptr %switch.load132, ptr %59, align 8
+  %switch.gep130 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.247, i64 0, i64 %226
+  %switch.load131 = load i64, ptr %switch.gep130, align 8
+  %switch.gep132 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.248, i64 0, i64 %226
+  %switch.load133 = load ptr, ptr %switch.gep132, align 8
+  store ptr %switch.load133, ptr %59, align 8
   %239 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i64 %switch.load130, ptr %239, align 8
+  store i64 %switch.load131, ptr %239, align 8
   store ptr %59, ptr %60, align 8
   %240 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h4c78af84c82888acE", ptr %240, align 8
@@ -29021,18 +29028,18 @@ switch.lookup128:                                 ; preds = %225
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %48)
   br label %_ZN8wasmtime7runtime9component8matching11TypeChecker8instance17h2a07f861c9df5d52E.exit
 
-switch.lookup133:                                 ; preds = %86
+switch.lookup134:                                 ; preds = %86
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49)
   %252 = load i64, ptr %2, align 16, !range !625, !alias.scope !6501, !noundef !4
-  %switch.gep134 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.249, i64 0, i64 %252
-  %switch.load135 = load i64, ptr %switch.gep134, align 8
-  %switch.gep136 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.250, i64 0, i64 %252
-  %switch.load137 = load ptr, ptr %switch.gep136, align 8
-  store ptr %switch.load137, ptr %49, align 8
+  %switch.gep135 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.249, i64 0, i64 %252
+  %switch.load136 = load i64, ptr %switch.gep135, align 8
+  %switch.gep137 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.250, i64 0, i64 %252
+  %switch.load138 = load ptr, ptr %switch.gep137, align 8
+  store ptr %switch.load138, ptr %49, align 8
   %253 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i64 %switch.load135, ptr %253, align 8
+  store i64 %switch.load136, ptr %253, align 8
   store ptr %49, ptr %50, align 8
   %254 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h4c78af84c82888acE", ptr %254, align 8
@@ -29070,7 +29077,7 @@ switch.lookup133:                                 ; preds = %86
 266:                                              ; preds = %88
   %267 = load i64, ptr %2, align 16, !range !625, !noundef !4
   %268 = icmp eq i64 %267, 2
-  br i1 %268, label %269, label %switch.lookup138
+  br i1 %268, label %269, label %switch.lookup139
 
 269:                                              ; preds = %266
   %270 = load ptr, ptr %0, align 8, !nonnull !4, !align !20, !noundef !4
@@ -29119,7 +29126,8 @@ _ZN8wasmtime7runtime6module6Module5types17he164eb3c5ee92150E.llvm.34589438163313
   %.val.i53 = load ptr, ptr %294, align 8, !alias.scope !6518, !nonnull !4, !noundef !4
   %295 = getelementptr inbounds nuw i8, ptr %279, i64 88
   %.val58.i = load i64, ptr %295, align 8, !alias.scope !6518, !noundef !4
-  %296 = getelementptr inbounds { { i64, [3 x i64] }, { { { i64, ptr, {} }, i64 } }, i64 }, ptr %.val.i53, i64 %.val58.i
+  %.idx.i = shl nsw i64 %.val58.i, 6
+  %296 = getelementptr inbounds i8, ptr %.val.i53, i64 %.idx.i
   %297 = icmp eq i64 %.val58.i, 0
   br i1 %297, label %._crit_edge.i, label %.lr.ph.i
 
@@ -29452,17 +29460,17 @@ _ZN8wasmtime7runtime9component8matching11TypeChecker6module17hc8317ad903bcfc07E.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
   br label %_ZN8wasmtime7runtime9component8matching11TypeChecker8instance17h2a07f861c9df5d52E.exit
 
-switch.lookup138:                                 ; preds = %266
+switch.lookup139:                                 ; preds = %266
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %70)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %69)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68)
-  %switch.gep139 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.251, i64 0, i64 %267
-  %switch.load140 = load i64, ptr %switch.gep139, align 8
-  %switch.gep141 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.252, i64 0, i64 %267
-  %switch.load142 = load ptr, ptr %switch.gep141, align 8
-  store ptr %switch.load142, ptr %68, align 8
+  %switch.gep140 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.251, i64 0, i64 %267
+  %switch.load141 = load i64, ptr %switch.gep140, align 8
+  %switch.gep142 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.252, i64 0, i64 %267
+  %switch.load143 = load ptr, ptr %switch.gep142, align 8
+  store ptr %switch.load143, ptr %68, align 8
   %405 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store i64 %switch.load140, ptr %405, align 8
+  store i64 %switch.load141, ptr %405, align 8
   store ptr %68, ptr %69, align 8
   %406 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h4c78af84c82888acE", ptr %406, align 8
@@ -29494,7 +29502,7 @@ switch.lookup138:                                 ; preds = %266
 418:                                              ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h2bb2c2a0d96a9affE.exit"
   %419 = load i64, ptr %2, align 16, !range !625, !noundef !4
   %420 = icmp eq i64 %419, 3
-  br i1 %420, label %428, label %switch.lookup143
+  br i1 %420, label %428, label %switch.lookup144
 
 421:                                              ; preds = %412
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %42)
@@ -29511,8 +29519,8 @@ switch.lookup138:                                 ; preds = %266
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %42)
   br label %427
 
-427:                                              ; preds = %412, %"_ZN98_$LT$wasmtime..runtime..component..resources..ResourceTypeKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d406852faea746dE.exit.thread", %switch.lookup143, %421
-  %.1 = phi ptr [ %426, %421 ], [ %516, %"_ZN98_$LT$wasmtime..runtime..component..resources..ResourceTypeKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d406852faea746dE.exit.thread" ], [ %444, %switch.lookup143 ], [ null, %412 ]
+427:                                              ; preds = %412, %"_ZN98_$LT$wasmtime..runtime..component..resources..ResourceTypeKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d406852faea746dE.exit.thread", %switch.lookup144, %421
+  %.1 = phi ptr [ %426, %421 ], [ %516, %"_ZN98_$LT$wasmtime..runtime..component..resources..ResourceTypeKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3d406852faea746dE.exit.thread" ], [ %444, %switch.lookup144 ], [ null, %412 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47)
   br label %_ZN8wasmtime7runtime9component8matching11TypeChecker8instance17h2a07f861c9df5d52E.exit
 
@@ -29529,17 +29537,17 @@ switch.lookup138:                                 ; preds = %266
   %437 = getelementptr inbounds nuw { { i32, [7 x i32] } }, ptr %433, i64 %436
   br i1 %.not86, label %454, label %445
 
-switch.lookup143:                                 ; preds = %418
+switch.lookup144:                                 ; preds = %418
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43)
-  %switch.gep144 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.253, i64 0, i64 %419
-  %switch.load145 = load i64, ptr %switch.gep144, align 8
-  %switch.gep146 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.254, i64 0, i64 %419
-  %switch.load147 = load ptr, ptr %switch.gep146, align 8
-  store ptr %switch.load147, ptr %43, align 8
+  %switch.gep145 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.253, i64 0, i64 %419
+  %switch.load146 = load i64, ptr %switch.gep145, align 8
+  %switch.gep147 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.254, i64 0, i64 %419
+  %switch.load148 = load ptr, ptr %switch.gep147, align 8
+  store ptr %switch.load148, ptr %43, align 8
   %438 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i64 %switch.load145, ptr %438, align 8
+  store i64 %switch.load146, ptr %438, align 8
   store ptr %43, ptr %44, align 8
   %439 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h4c78af84c82888acE", ptr %439, align 8
@@ -34409,7 +34417,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.3458943816331328394.ex
   store ptr %.sink38, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.sink, ptr %26, align 8
-  %27 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %2, i64 %3
+  %.idx = mul nsw i64 %3, 24
+  %27 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %28 = icmp eq i64 %3, 0
   br i1 %28, label %._crit_edge, label %.lr.ph
 

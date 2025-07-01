@@ -1568,7 +1568,8 @@ Vec_StrFree.exit:                                 ; preds = %Vec_IntFree.exit, %
   %155 = add nsw i32 %152, -6
   %156 = shl nuw i32 1, %155
   %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds i64, ptr %151, i64 %157
+  %.idx.i.i = shl nsw i64 %157, 3
+  %158 = getelementptr inbounds i8, ptr %151, i64 %.idx.i.i
   %smax56.i.i = call i32 @llvm.smax.i32(i32 %156, i32 1)
   %wide.trip.count57.i.i = zext nneg i32 %smax56.i.i to i64
   br i1 %154, label %.lr.ph.split.us.i, label %.lr.ph.split.i

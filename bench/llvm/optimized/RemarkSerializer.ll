@@ -37,7 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorImpl.22" = type { %"class.llvm::SmallVectorTemplateBase.23" }
 %"class.llvm::SmallVectorTemplateBase.23" = type { %"class.llvm::SmallVectorTemplateCommon.24" }
 %"class.llvm::SmallVectorTemplateCommon.24" = type { %"class.llvm::SmallVectorBase" }
-%"struct.std::pair" = type { ptr, i64 }
 %"class.std::unique_ptr.3" = type { %"struct.std::__uniq_ptr_data.4" }
 %"struct.std::__uniq_ptr_data.4" = type { %"class.std::__uniq_ptr_impl.5" }
 %"class.std::__uniq_ptr_impl.5" = type { %"class.std::tuple.6" }
@@ -50,6 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.14" = type { %"struct.std::_Tuple_impl.15" }
 %"struct.std::_Tuple_impl.15" = type { %"struct.std::_Head_base.18" }
 %"struct.std::_Head_base.18" = type { ptr }
+%"struct.std::pair" = type { ptr, i64 }
 
 $_ZSt11make_uniqueIN4llvm7remarks20YAMLRemarkSerializerEJRNS0_11raw_ostreamERNS1_14SerializerModeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_ = comdat any
 
@@ -201,7 +201,8 @@ define linkonce_odr void @_ZSt11make_uniqueIN4llvm7remarks20YAMLRemarkSerializer
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %14 = load i32, ptr %13, align 8, !tbaa !48
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %12, i64 %15
+  %.idx.i = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %.not6.i.i = icmp eq i32 %14, 0
   br i1 %.not6.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit.i, label %.lr.ph.i.i
 
@@ -229,7 +230,8 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %30 = load i32, ptr %29, align 8, !tbaa !48
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.std::pair", ptr %28, i64 %31
+  %.idx.i.i = shl nuw nsw i64 %31, 4
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i
   %.not10.i.i = icmp eq i32 %30, 0
   br i1 %.not10.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.i, label %.lr.ph.i1.i
 
@@ -479,7 +481,8 @@ _ZNSt8optionalIN4llvm7remarks11StringTableEEC2IS2_TnNSt9enable_ifIX7__and_vISt6_
   %57 = load ptr, ptr %27, align 8, !tbaa !45
   %58 = load i32, ptr %29, align 8, !tbaa !48
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %57, i64 %59
+  %.idx.i = shl nuw nsw i64 %59, 3
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx.i
   %.not6.i.i = icmp eq i32 %58, 0
   br i1 %.not6.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit.i, label %.lr.ph.i.i
 
@@ -505,7 +508,8 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   %71 = load ptr, ptr %36, align 8, !tbaa !45
   %72 = load i32, ptr %38, align 8, !tbaa !48
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw %"struct.std::pair", ptr %71, i64 %73
+  %.idx.i.i = shl nuw nsw i64 %73, 4
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx.i.i
   %.not10.i.i = icmp eq i32 %72, 0
   br i1 %.not10.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.i, label %.lr.ph.i1.i
 
@@ -638,7 +642,8 @@ _ZN4llvm7remarks11StringTableC2EOS1_.exit:        ; preds = %_ZN4llvm11SmallVect
   %53 = load ptr, ptr %27, align 8, !tbaa !45
   %54 = load i32, ptr %29, align 8, !tbaa !48
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %55
+  %.idx.i = shl nuw nsw i64 %55, 3
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i
   %.not6.i.i = icmp eq i32 %54, 0
   br i1 %.not6.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit.i, label %.lr.ph.i.i
 
@@ -664,7 +669,8 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   %67 = load ptr, ptr %36, align 8, !tbaa !45
   %68 = load i32, ptr %38, align 8, !tbaa !48
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw %"struct.std::pair", ptr %67, i64 %69
+  %.idx.i.i = shl nuw nsw i64 %69, 4
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i.i
   %.not10.i.i = icmp eq i32 %68, 0
   br i1 %.not10.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.i, label %.lr.ph.i1.i
 
@@ -794,7 +800,8 @@ _ZN4llvm7remarks11StringTableC2EOS1_.exit:        ; preds = %_ZN4llvm11SmallVect
   %53 = load ptr, ptr %27, align 8, !tbaa !45
   %54 = load i32, ptr %29, align 8, !tbaa !48
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %55
+  %.idx.i = shl nuw nsw i64 %55, 3
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i
   %.not6.i.i = icmp eq i32 %54, 0
   br i1 %.not6.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit.i, label %.lr.ph.i.i
 
@@ -820,7 +827,8 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   %67 = load ptr, ptr %36, align 8, !tbaa !45
   %68 = load i32, ptr %38, align 8, !tbaa !48
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw %"struct.std::pair", ptr %67, i64 %69
+  %.idx.i.i = shl nuw nsw i64 %69, 4
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i.i
   %.not10.i.i = icmp eq i32 %68, 0
   br i1 %.not10.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.i, label %.lr.ph.i1.i
 
@@ -887,7 +895,8 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !48
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not6.i = icmp eq i32 %5, 0
   br i1 %.not6.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, label %.lr.ph.i
 
@@ -915,7 +924,8 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load i32, ptr %20, align 8, !tbaa !48
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.std::pair", ptr %19, i64 %22
+  %.idx.i = shl nuw nsw i64 %22, 4
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
   %.not10.i = icmp eq i32 %21, 0
   br i1 %.not10.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit, label %.lr.ph.i1
 
@@ -979,7 +989,8 @@ define linkonce_odr hidden void @_ZN4llvm7remarks26YAMLStrTabRemarkSerializerC2E
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %12 = load i32, ptr %11, align 8, !tbaa !48
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %13
+  %.idx.i = shl nuw nsw i64 %13, 3
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
   %.not6.i.i = icmp eq i32 %12, 0
   br i1 %.not6.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit.i, label %.lr.ph.i.i
 
@@ -1007,7 +1018,8 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %28 = load i32, ptr %27, align 8, !tbaa !48
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"struct.std::pair", ptr %26, i64 %29
+  %.idx.i.i = shl nuw nsw i64 %29, 4
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i
   %.not10.i.i = icmp eq i32 %28, 0
   br i1 %.not10.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.i, label %.lr.ph.i1.i
 
@@ -1450,7 +1462,8 @@ _ZNSt8optionalIN4llvm7remarks11StringTableEEC2IS2_TnNSt9enable_ifIX7__and_vISt6_
   %55 = load ptr, ptr %25, align 8, !tbaa !45
   %56 = load i32, ptr %27, align 8, !tbaa !48
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %55, i64 %57
+  %.idx.i = shl nuw nsw i64 %57, 3
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i
   %.not6.i.i = icmp eq i32 %56, 0
   br i1 %.not6.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit.i, label %.lr.ph.i.i
 
@@ -1476,7 +1489,8 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   %69 = load ptr, ptr %34, align 8, !tbaa !45
   %70 = load i32, ptr %36, align 8, !tbaa !48
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw %"struct.std::pair", ptr %69, i64 %71
+  %.idx.i.i = shl nuw nsw i64 %71, 4
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i.i
   %.not10.i.i = icmp eq i32 %70, 0
   br i1 %.not10.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.i, label %.lr.ph.i1.i
 

@@ -2016,7 +2016,8 @@ common.resume:                                    ; preds = %.body, %80
   %.sroa.735.0.copyload = load i64, ptr %.sroa.735.0..sroa_idx, align 8
   %103 = icmp ult i64 %.sroa.735.0.copyload, 76861433640456466
   call void @llvm.assume(i1 %103)
-  %104 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %95, i64 %.sroa.735.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.735.0.copyload, 120
+  %104 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %66)
   store ptr %95, ptr %66, align 8
   %.sroa.5.0..sroa_idx80 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -3795,7 +3796,8 @@ define internal fastcc noundef ptr @_ZN10wasmi_wast10WastRunner18assert_result_c
   %41 = load ptr, ptr %40, align 8, !nonnull !9, !noundef !9
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %43 = load i64, ptr %42, align 8, !noundef !9
-  %44 = getelementptr inbounds nuw { i32, [11 x i32] }, ptr %41, i64 %43
+  %.idx = mul nuw nsw i64 %43, 48
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %_ZN10wasmi_wast12v128_matches17h0c088f7ad4ca3e60E.exit.thread52, label %.lr.ph, !prof !214
 
@@ -5703,7 +5705,8 @@ define internal fastcc noundef ptr @_ZN10wasmi_wast10WastRunner6invoke17h0d7c95d
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 616
   store i64 0, ptr %49, align 8, !alias.scope !367, !noalias !370
-  %50 = getelementptr inbounds nuw { { i8, [39 x i8] } }, ptr %45, i64 %47
+  %.idx.i = mul nuw nsw i64 %47, 40
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx.i
   %51 = icmp eq i64 %47, 0
   br i1 %51, label %.loopexit64, label %.lr.ph.i
 

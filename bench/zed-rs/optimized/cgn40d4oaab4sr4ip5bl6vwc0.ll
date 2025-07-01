@@ -137,7 +137,8 @@ define hidden noundef nonnull align 8 dereferenceable(216) ptr @_ZN13async_proce
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(216) ptr @_ZN13async_process7Command4args17hb39b9fc8e62230d7E(ptr noalias noundef returned align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %2
+  %.idx.i = shl nsw i64 %2, 4
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx.i
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %_ZN3std7process7Command4args17hea77e80c68a9d904E.exit, label %.lr.ph.i
 

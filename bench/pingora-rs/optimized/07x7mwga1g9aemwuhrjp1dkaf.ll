@@ -1236,7 +1236,8 @@ define void @_ZN15pingora_runtime14NoStealRuntime16shutdown_timeout17h198d4ba567
   %.sroa.537.0.copyload = load i64, ptr %.sroa.537.0..sroa_idx, align 8
   %41 = icmp ult i64 %.sroa.537.0.copyload, 384307168202282326
   call void @llvm.assume(i1 %41)
-  %42 = getelementptr inbounds nuw { { ptr, ptr, i64 } }, ptr %.sroa.436.0.copyload, i64 %.sroa.537.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.537.0.copyload, 24
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.436.0.copyload, i64 %.idx
   %43 = icmp sgt i64 %.sroa.035.0.copyload, -1
   call void @llvm.assume(i1 %43)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)

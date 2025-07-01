@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.boost::urls::params_base.base" = type { %"class.boost::urls::detail::query_ref", %"struct.boost::urls::encoding_opts" }
 %"struct.boost::urls::encoding_opts" = type { i8, i8, i8 }
 %"struct.boost::urls::detail::params_iter.2" = type { %"struct.boost::urls::detail::any_params_iter.base", ptr, ptr, ptr }
-%"struct.boost::urls::param_view" = type <{ %"class.boost::core::basic_string_view", %"class.boost::core::basic_string_view", i8, [7 x i8] }>
 %"struct.boost::urls::detail::param_iter" = type { %"struct.boost::urls::detail::any_params_iter.base", i8, i8, [5 x i8] }
 %"struct.boost::urls::detail::query_iter" = type <{ %"struct.boost::urls::detail::any_params_iter.base", [7 x i8], %"class.boost::core::basic_string_view", i64, ptr, i8, [7 x i8] }>
 %"struct.boost::urls::param" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
@@ -21,6 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"struct.boost::urls::detail::param_value_iter" = type <{ %"struct.boost::urls::detail::any_params_iter.base", [7 x i8], i64, i8, i8, [6 x i8] }>
+%"struct.boost::urls::param_view" = type <{ %"class.boost::core::basic_string_view", %"class.boost::core::basic_string_view", i8, [7 x i8] }>
 
 $__clang_call_terminate = comdat any
 
@@ -213,7 +213,8 @@ define void @_ZN5boost4urls10params_ref6assignESt16initializer_listINS0_10param_
   %5 = alloca %"class.boost::urls::params_base::iterator", align 8
   %6 = alloca %"struct.boost::urls::detail::params_iter.2", align 8
   %7 = alloca %"struct.boost::urls::detail::params_iter_impl", align 8
-  %8 = getelementptr inbounds nuw %"struct.boost::urls::param_view", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #13
@@ -303,7 +304,8 @@ define void @_ZN5boost4urls10params_ref6insertENS0_11params_base8iteratorESt16in
   %8 = alloca %"class.boost::urls::params_base::iterator", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %8), !noalias !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %8, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
-  %9 = getelementptr inbounds nuw %"struct.boost::urls::param_view", ptr %3, i64 %4
+  %.idx = mul nuw nsw i64 %4, 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #13, !noalias !39
@@ -636,7 +638,8 @@ define void @_ZN5boost4urls10params_ref7replaceENS0_11params_base8iteratorES3_St
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, ptr noundef nonnull align 8 dereferenceable(112) %3, i64 112, i1 false)
-  %11 = getelementptr inbounds nuw %"struct.boost::urls::param_view", ptr %4, i64 %5
+  %.idx = mul nuw nsw i64 %5, 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #13, !noalias !76
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 56

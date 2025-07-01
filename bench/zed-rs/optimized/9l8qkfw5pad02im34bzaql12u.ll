@@ -6422,7 +6422,8 @@ _ZN3vim6motion9backspace17h2eaf4f01be22b93bE.exit.i.i: ; preds = %.loopexit.loop
   br i1 %89, label %.thread.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h47f83dc6f00fb098E.exit.i.i"
-  %90 = getelementptr inbounds { { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, { { { i64, ptr, {} }, i64 } } }, ptr %87, i64 %88
+  %.idx.i.i = mul nsw i64 %88, 120
+  %90 = getelementptr inbounds i8, ptr %87, i64 %.idx.i.i
   br label %92
 
 .loopexit.split-lp.i.i:                           ; preds = %.loopexit.split-lp.i.i.loopexit, %.loopexit.split-lp.i.i.loopexit.split-lp, %128, %.loopexit.i.i

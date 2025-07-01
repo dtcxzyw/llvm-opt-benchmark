@@ -42465,7 +42465,8 @@ define void @_ZN17cranelift_codegen3isa6unwind7systemv10UnwindInfo6to_fde17hbaf5
   %.val = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %13, align 8, !noundef !4
-  %14 = getelementptr inbounds { i32, { i8, [7 x i8] } }, ptr %.val, i64 %.val7
+  %.idx = mul nsw i64 %.val7, 12
+  %14 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %15 = icmp eq i64 %.val7, 0
   br i1 %15, label %._crit_edge, label %.lr.ph
 

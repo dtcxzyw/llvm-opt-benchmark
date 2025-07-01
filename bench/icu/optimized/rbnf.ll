@@ -3784,7 +3784,8 @@ define void @_ZN6icu_7721RuleBasedNumberFormat7disposeEv(ptr noundef nonnull ali
   br i1 %15, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %12
-  %16 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %11, i64 %14
+  %.idx = shl nsw i64 %14, 6
+  %16 = getelementptr inbounds i8, ptr %11, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader

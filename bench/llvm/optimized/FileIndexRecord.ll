@@ -5,6 +5,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::nothrow_t" = type { i8 }
 %"class.std::_Temporary_buffer" = type { i64, i64, ptr }
+%"class.llvm::ArrayRef.0" = type { ptr, i64 }
+%"struct.clang::index::SymbolRelation" = type { i32, ptr }
+%"class.clang::PresumedLoc" = type { ptr, %"class.clang::FileID", i32, i32, %"class.clang::SourceLocation" }
+%"class.clang::FileID" = type { i32 }
+%"class.clang::SourceLocation" = type { i32 }
 %"struct.clang::index::DeclOccurrence" = type { i32, i32, %"class.llvm::PointerUnion", ptr, %"class.llvm::SmallVector" }
 %"class.llvm::PointerUnion" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers" }
 %"class.llvm::pointer_union_detail::PointerUnionMembers" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.1" }
@@ -18,11 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage" = type { [48 x i8] }
-%"class.llvm::ArrayRef.0" = type { ptr, i64 }
-%"struct.clang::index::SymbolRelation" = type { i32, ptr }
-%"class.clang::PresumedLoc" = type { ptr, %"class.clang::FileID", i32, i32, %"class.clang::SourceLocation" }
-%"class.clang::FileID" = type { i32 }
-%"class.clang::SourceLocation" = type { i32 }
 
 $_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l = comdat any
 
@@ -89,7 +89,8 @@ define dso_local { ptr, i64 } @_ZNK5clang5index15FileIndexRecord32getDeclOccurre
   %25 = load ptr, ptr %17, align 8, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !22
-  %28 = getelementptr inbounds %"struct.clang::index::DeclOccurrence", ptr %25, i64 %27
+  %.idx.i.i.i.i = mul nsw i64 %27, 88
+  %28 = getelementptr inbounds i8, ptr %25, i64 %.idx.i.i.i.i
   %.not4.i.i.i.i.i.i = icmp eq i64 %27, 0
   br i1 %.not4.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_ED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -2706,16 +2707,21 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   br label %17
 
 17:                                               ; preds = %.lr.ph, %"_ZSt17__merge_sort_loopIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_T1_T2_.exit"
-  %.0156 = phi i64 [ 7, %.lr.ph ], [ %236, %"_ZSt17__merge_sort_loopIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_T1_T2_.exit" ]
-  %18 = shl nsw i64 %.0156, 1
+  %.0159 = phi i64 [ 7, %.lr.ph ], [ %236, %"_ZSt17__merge_sort_loopIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_T1_T2_.exit" ]
+  %18 = shl nsw i64 %.0159, 1
   %.not31.i = icmp slt i64 %7, %18
-  br i1 %.not31.i, label %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_T1_T2_.exit", label %.lr.ph.i21
+  br i1 %.not31.i, label %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_T1_T2_.exit", label %.lr.ph.i21.preheader
 
-.lr.ph.i21:                                       ; preds = %17, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit"
-  %.033.i = phi ptr [ %.08.lcssa.i.i.i.i.i9.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit" ], [ %2, %17 ]
-  %.sroa.023.032.i = phi ptr [ %20, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit" ], [ %0, %17 ]
-  %19 = getelementptr inbounds %"struct.clang::index::DeclOccurrence", ptr %.sroa.023.032.i, i64 %.0156
-  %20 = getelementptr inbounds %"struct.clang::index::DeclOccurrence", ptr %.sroa.023.032.i, i64 %18
+.lr.ph.i21.preheader:                             ; preds = %17
+  %.idx = mul nsw i64 %.0159, 88
+  %.idx145 = mul nsw i64 %.0159, 176
+  br label %.lr.ph.i21
+
+.lr.ph.i21:                                       ; preds = %.lr.ph.i21.preheader, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit"
+  %.033.i = phi ptr [ %.08.lcssa.i.i.i.i.i9.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit" ], [ %2, %.lr.ph.i21.preheader ]
+  %.sroa.023.032.i = phi ptr [ %20, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit" ], [ %0, %.lr.ph.i21.preheader ]
+  %19 = getelementptr inbounds i8, ptr %.sroa.023.032.i, i64 %.idx
+  %20 = getelementptr inbounds i8, ptr %.sroa.023.032.i, i64 %.idx145
   br label %.lr.ph.i28
 
 .lr.ph.i28:                                       ; preds = %.lr.ph.i21, %119
@@ -3239,23 +3245,24 @@ _ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit: ; preds =
   %.sroa.023.0.lcssa.i = phi ptr [ %0, %17 ], [ %20, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit" ]
   %.0.lcssa.i = phi ptr [ %2, %17 ], [ %.08.lcssa.i.i.i.i.i9.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit" ]
   %.lcssa.i = phi i64 [ %7, %17 ], [ %234, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit" ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.0156, i64 %.lcssa.i)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.0159, i64 %.lcssa.i)
   %235 = getelementptr inbounds %"struct.clang::index::DeclOccurrence", ptr %.sroa.023.0.lcssa.i, i64 %.sroa.speculated.i
   tail call fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_"(ptr %.sroa.023.0.lcssa.i, ptr %235, ptr %235, ptr %1, ptr noundef %.0.lcssa.i)
-  %236 = shl nsw i64 %.0156, 2
+  %236 = shl nsw i64 %.0159, 2
   %.not29.i = icmp slt i64 %16, %236
   br i1 %.not29.i, label %"_ZSt17__merge_sort_loopIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_T1_T2_.exit", label %.lr.ph.i22.preheader
 
 .lr.ph.i22.preheader:                             ; preds = %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_T1_T2_.exit"
-  %.not = icmp eq i64 %18, %236
+  %.idx146 = mul nsw i64 %.0159, 176
+  %.idx147 = mul nsw i64 %.0159, 352
   br label %.lr.ph.i22
 
 .lr.ph.i22:                                       ; preds = %.lr.ph.i22.preheader, %"_ZSt12__move_mergeIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit"
   %.sroa.022.031.i = phi ptr [ %458, %"_ZSt12__move_mergeIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit" ], [ %0, %.lr.ph.i22.preheader ]
   %.030.i = phi ptr [ %238, %"_ZSt12__move_mergeIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit" ], [ %2, %.lr.ph.i22.preheader ]
-  %237 = getelementptr inbounds %"struct.clang::index::DeclOccurrence", ptr %.030.i, i64 %18
-  %238 = getelementptr inbounds %"struct.clang::index::DeclOccurrence", ptr %.030.i, i64 %236
-  br i1 %.not, label %._crit_edge.i, label %.lr.ph.i36
+  %237 = getelementptr inbounds i8, ptr %.030.i, i64 %.idx146
+  %238 = getelementptr inbounds i8, ptr %.030.i, i64 %.idx147
+  br label %.lr.ph.i36
 
 .lr.ph.i36:                                       ; preds = %.lr.ph.i22, %337
   %.030.i37 = phi ptr [ %.1.i, %337 ], [ %.030.i, %.lr.ph.i22 ]
@@ -3504,12 +3511,9 @@ _ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit128: ; pred
   %341 = select i1 %339, i1 %340, i1 false
   br i1 %341, label %.lr.ph.i36, label %._crit_edge.i, !llvm.loop !90
 
-._crit_edge.i:                                    ; preds = %337, %.lr.ph.i22
-  %.sroa.0.0.lcssa.i = phi ptr [ %.sroa.022.031.i, %.lr.ph.i22 ], [ %338, %337 ]
-  %.016.lcssa.i = phi ptr [ %237, %.lr.ph.i22 ], [ %.117.i, %337 ]
-  %.0.lcssa.i29 = phi ptr [ %.030.i, %.lr.ph.i22 ], [ %.1.i, %337 ]
+._crit_edge.i:                                    ; preds = %337
   %342 = ptrtoint ptr %237 to i64
-  %343 = ptrtoint ptr %.0.lcssa.i29 to i64
+  %343 = ptrtoint ptr %.1.i to i64
   %344 = sub i64 %342, %343
   %345 = icmp sgt i64 %344, 0
   br i1 %345, label %.lr.ph.preheader.i.i.i.i.i.i31, label %_ZSt4moveIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i
@@ -3520,8 +3524,8 @@ _ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit128: ; pred
 
 .lr.ph.i.i.i.i.i.i32:                             ; preds = %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit113, %.lr.ph.preheader.i.i.i.i.i.i31
   %.012.i.i.i.i.i.i33 = phi i64 [ %395, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit113 ], [ %346, %.lr.ph.preheader.i.i.i.i.i.i31 ]
-  %.0811.i.i.i.i.i.i34 = phi ptr [ %394, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit113 ], [ %.sroa.0.0.lcssa.i, %.lr.ph.preheader.i.i.i.i.i.i31 ]
-  %.0910.i.i.i.i.i.i35 = phi ptr [ %393, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit113 ], [ %.0.lcssa.i29, %.lr.ph.preheader.i.i.i.i.i.i31 ]
+  %.0811.i.i.i.i.i.i34 = phi ptr [ %394, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit113 ], [ %338, %.lr.ph.preheader.i.i.i.i.i.i31 ]
+  %.0910.i.i.i.i.i.i35 = phi ptr [ %393, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit113 ], [ %.1.i, %.lr.ph.preheader.i.i.i.i.i.i31 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i.i34, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i.i35, i64 24, i1 false)
   %347 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i34, i64 24
   %348 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i35, i64 24
@@ -3639,13 +3643,13 @@ _ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit113: ; pred
   br i1 %396, label %.lr.ph.i.i.i.i.i.i32, label %_ZSt4moveIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i, !llvm.loop !88
 
 _ZSt4moveIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i: ; preds = %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit113, %._crit_edge.i
-  %.08.lcssa.i.i.i.i.i.i30 = phi ptr [ %.sroa.0.0.lcssa.i, %._crit_edge.i ], [ %394, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit113 ]
+  %.08.lcssa.i.i.i.i.i.i30 = phi ptr [ %338, %._crit_edge.i ], [ %394, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit113 ]
   %397 = ptrtoint ptr %.08.lcssa.i.i.i.i.i.i30 to i64
-  %398 = ptrtoint ptr %.sroa.0.0.lcssa.i to i64
+  %398 = ptrtoint ptr %338 to i64
   %399 = sub i64 %397, %398
-  %400 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i, i64 %399
+  %400 = getelementptr inbounds i8, ptr %338, i64 %399
   %401 = ptrtoint ptr %238 to i64
-  %402 = ptrtoint ptr %.016.lcssa.i to i64
+  %402 = ptrtoint ptr %.117.i to i64
   %403 = sub i64 %401, %402
   %404 = icmp sgt i64 %403, 0
   br i1 %404, label %.lr.ph.preheader.i.i.i.i.i19.i, label %"_ZSt12__move_mergeIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit"
@@ -3657,7 +3661,7 @@ _ZSt4moveIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6ve
 .lr.ph.i.i.i.i.i20.i:                             ; preds = %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit98, %.lr.ph.preheader.i.i.i.i.i19.i
   %.012.i.i.i.i.i21.i = phi i64 [ %454, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit98 ], [ %405, %.lr.ph.preheader.i.i.i.i.i19.i ]
   %.0811.i.i.i.i.i22.i = phi ptr [ %453, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit98 ], [ %400, %.lr.ph.preheader.i.i.i.i.i19.i ]
-  %.0910.i.i.i.i.i23.i = phi ptr [ %452, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit98 ], [ %.016.lcssa.i, %.lr.ph.preheader.i.i.i.i.i19.i ]
+  %.0910.i.i.i.i.i23.i = phi ptr [ %452, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit98 ], [ %.117.i, %.lr.ph.preheader.i.i.i.i.i19.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i22.i, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i23.i, i64 24, i1 false)
   %406 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i, i64 24
   %407 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i23.i, i64 24

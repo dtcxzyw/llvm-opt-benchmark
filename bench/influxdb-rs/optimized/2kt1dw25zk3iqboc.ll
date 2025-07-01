@@ -2994,7 +2994,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   br label %214
 
 .body:                                            ; preds = %.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.body430, %1315, %1288, %1259, %1210, %1181, %1157, %224
-  %.pn = phi { ptr, i32 } [ %1316, %1315 ], [ %1289, %1288 ], [ %1260, %1259 ], [ %1211, %1210 ], [ %1182, %1181 ], [ %1158, %1157 ], [ %225, %224 ], [ %.pn.i, %.body430 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp525, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit560, %.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp561, %.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %1316, %1315 ], [ %1289, %1288 ], [ %1260, %1259 ], [ %1211, %1210 ], [ %1182, %1181 ], [ %1158, %1157 ], [ %225, %224 ], [ %.pn.i, %.body430 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp525, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit561, %.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp562, %.loopexit.split-lp.loopexit.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hb2de949c6b72afc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %201) #9
           to label %1348 unwind label %1247
 
@@ -3004,12 +3004,12 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   br label %.body
 
 .loopexit.split-lp.loopexit.loopexit:             ; preds = %373, %1142
-  %lpad.loopexit560 = landingpad { ptr, i32 }
+  %lpad.loopexit561 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.loopexit.split-lp:    ; preds = %425, %428
-  %lpad.loopexit.split-lp561 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp562 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -3151,7 +3151,8 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 258:                                              ; preds = %"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$16write_list_begin17h72efbc62624a403cE.exit"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %198)
   %.val = load ptr, ptr %251, align 8, !nonnull !4, !noundef !4
-  %259 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { i64, [6 x i64] }, { i64, [40 x i64] }, { i32, i32 }, { i32, i32 }, { ptr, [2 x i64] }, i64, { ptr, [2 x i64] } }, ptr %.val, i64 %253
+  %.idx = mul nsw i64 %253, 488
+  %259 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %260 = icmp eq i64 %253, 0
   br i1 %260, label %._crit_edge, label %.lr.ph
 
@@ -3382,17 +3383,17 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   br label %384
 
 .body430:                                         ; preds = %.loopexit527.loopexit, %.loopexit527.loopexit.split-lp, %.loopexit.split-lp528, %.loopexit.split-lp.i, %1116, %1093, %1069, %1043, %1005, %964, %472, %434, %395
-  %.pn.i = phi { ptr, i32 } [ %1117, %1116 ], [ %1094, %1093 ], [ %1070, %1069 ], [ %1044, %1043 ], [ %1006, %1005 ], [ %965, %964 ], [ %473, %472 ], [ %435, %434 ], [ %396, %395 ], [ %.pn.i415, %.loopexit.split-lp.i ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp528 ], [ %lpad.loopexit562, %.loopexit527.loopexit ], [ %lpad.loopexit.split-lp563, %.loopexit527.loopexit.split-lp ]
+  %.pn.i = phi { ptr, i32 } [ %1117, %1116 ], [ %1094, %1093 ], [ %1070, %1069 ], [ %1044, %1043 ], [ %1006, %1005 ], [ %965, %964 ], [ %473, %472 ], [ %435, %434 ], [ %396, %395 ], [ %.pn.i415, %.loopexit.split-lp.i ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp528 ], [ %lpad.loopexit563, %.loopexit527.loopexit ], [ %lpad.loopexit.split-lp564, %.loopexit527.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hb2de949c6b72afc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %167) #9
           to label %.body unwind label %431, !noalias !785
 
 .loopexit527.loopexit:                            ; preds = %482, %480, %927, %727, %725, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit441", %974, %972, %1015, %1013, %1140, %1129, %1123, %1121, %1114, %1113, %1105, %1100, %1098, %1088, %1080, %1076, %1074, %1062, %1054, %1050, %1048, %1036, %1029, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit398", %998, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit411", %958, %469, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit407.i", %444, %442, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit.i", %405, %403, %393, %392, %383
-  %lpad.loopexit562 = landingpad { ptr, i32 }
+  %lpad.loopexit563 = landingpad { ptr, i32 }
           cleanup
   br label %.body430
 
 .loopexit527.loopexit.split-lp:                   ; preds = %490, %488, %982, %980, %1023, %1021, %1122, %1099, %1075, %1049, %452, %450, %413, %411
-  %lpad.loopexit.split-lp563 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp564 = landingpad { ptr, i32 }
           cleanup
   br label %.body430
 
@@ -3567,7 +3568,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 .thread:                                          ; preds = %.noexc370, %428
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %126), !noalias !841
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %167), !noalias !772
-  br label %.loopexit565
+  br label %.loopexit566
 
 431:                                              ; preds = %1116, %1093, %1069, %1043, %1005, %964, %472, %434, %395, %.body430
   %432 = landingpad { ptr, i32 }
@@ -4130,7 +4131,8 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 575:                                              ; preds = %"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$16write_list_begin17h72efbc62624a403cE.exit.i"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %87), !noalias !941
   %.val.i = load ptr, ptr %568, align 8, !alias.scope !937, !noalias !995, !nonnull !4, !noundef !4
-  %576 = getelementptr inbounds i32, ptr %.val.i, i64 %570
+  %.idx.i = shl nsw i64 %570, 2
+  %576 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx.i
   %577 = icmp eq i64 %570, 0
   br i1 %577, label %._crit_edge.i, label %.lr.ph.i
 
@@ -4223,7 +4225,8 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 601:                                              ; preds = %"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$16write_list_begin17h72efbc62624a403cE.exit763.i"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %82), !noalias !941
   %.val732.i = load ptr, ptr %594, align 8, !alias.scope !937, !noalias !995, !nonnull !4, !noundef !4
-  %602 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %.val732.i, i64 %596
+  %.idx951.i = mul nsw i64 %596, 24
+  %602 = getelementptr inbounds i8, ptr %.val732.i, i64 %.idx951.i
   %603 = icmp eq i64 %596, 0
   br i1 %603, label %._crit_edge948.i, label %.lr.ph947.i
 
@@ -4638,7 +4641,8 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 
 716:                                              ; preds = %"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$16write_list_begin17h72efbc62624a403cE.exit779.i"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %61), !noalias !941
-  %717 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { ptr, [2 x i64] } }, ptr %697, i64 %711
+  %.idx952.i = mul nsw i64 %711, 48
+  %717 = getelementptr inbounds i8, ptr %697, i64 %.idx952.i
   %718 = icmp eq i64 %711, 0
   br i1 %718, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h57d897f045fbf1c8E.exit.thread.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h57d897f045fbf1c8E.exit.i"
 
@@ -5125,7 +5129,8 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 
 856:                                              ; preds = %"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$16write_list_begin17h72efbc62624a403cE.exit790.i"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %40), !noalias !941
-  %857 = getelementptr inbounds { i32, i32, i32 }, ptr %816, i64 %851
+  %.idx953.i = mul nsw i64 %851, 12
+  %857 = getelementptr inbounds i8, ptr %816, i64 %.idx953.i
   %858 = icmp eq i64 %851, 0
   br i1 %858, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc7b0f6c3e6dac4c1E.exit.thread.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc7b0f6c3e6dac4c1E.exit.i"
 
@@ -6417,7 +6422,8 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
 
 1224:                                             ; preds = %"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$16write_list_begin17h72efbc62624a403cE.exit381"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %186)
-  %1225 = getelementptr inbounds { i32, i8, i8, [2 x i8] }, ptr %1201, i64 %1219
+  %.idx548 = shl nsw i64 %1219, 3
+  %1225 = getelementptr inbounds i8, ptr %1201, i64 %.idx548
   %1226 = icmp eq i64 %1219, 0
   br i1 %1226, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2136c431b3fc4a18E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2136c431b3fc4a18E.exit"
 
@@ -6451,7 +6457,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2264.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2264, i64 32, i1 false)
   br label %1233
 
-1233:                                             ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit366", %.loopexit565, %1342, %1341, %1338, %1333, %1332, %1327, %1306, %1305, %1300, %1277, %1276, %1271, %1246, %1245, %1232, %1223, %1202, %1195, %1176, %1171, %257
+1233:                                             ; preds = %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit366", %.loopexit566, %1342, %1341, %1338, %1333, %1332, %1327, %1306, %1305, %1300, %1277, %1276, %1271, %1246, %1245, %1232, %1223, %1202, %1195, %1176, %1171, %257
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %107), !noalias !1306
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6692686a2b5e9f59E.llvm.12494526139044184965"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %107, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %201)
   %1234 = getelementptr inbounds nuw i8, ptr %107, i64 8
@@ -6843,14 +6849,14 @@ define internal fastcc void @"_ZN76_$LT$parquet..format..RowGroup$u20$as$u20$par
   %.pre = load i64, ptr %197, align 8, !range !32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %167), !noalias !772
   %1344 = icmp eq i64 %.pre, 4
-  br i1 %1344, label %1345, label %.loopexit565
+  br i1 %1344, label %1345, label %.loopexit566
 
 1345:                                             ; preds = %1343
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %197)
   %1346 = icmp eq ptr %374, %259
   br i1 %1346, label %._crit_edge, label %373
 
-.loopexit565:                                     ; preds = %1343, %.thread
+.loopexit566:                                     ; preds = %1343, %.thread
   %1347 = phi i64 [ %426, %.thread ], [ %.pre, %1343 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2186, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2183.0..sroa_idx.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %197)
@@ -11507,7 +11513,8 @@ define hidden void @"_ZN79_$LT$parquet..format..ColumnIndex$u20$as$u20$parquet..
 130:                                              ; preds = %"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$16write_list_begin17h72efbc62624a403cE.exit359"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %32)
   %.val340 = load ptr, ptr %123, align 8, !nonnull !4, !noundef !4
-  %131 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %.val340, i64 %125
+  %.idx = mul nsw i64 %125, 24
+  %131 = getelementptr inbounds i8, ptr %.val340, i64 %.idx
   %132 = icmp eq i64 %125, 0
   br i1 %132, label %._crit_edge466, label %.lr.ph465
 
@@ -11614,7 +11621,8 @@ define hidden void @"_ZN79_$LT$parquet..format..ColumnIndex$u20$as$u20$parquet..
 161:                                              ; preds = %"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$16write_list_begin17h72efbc62624a403cE.exit364"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27)
   %.val342 = load ptr, ptr %154, align 8, !nonnull !4, !noundef !4
-  %162 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %.val342, i64 %156
+  %.idx472 = mul nsw i64 %156, 24
+  %162 = getelementptr inbounds i8, ptr %.val342, i64 %.idx472
   %163 = icmp eq i64 %156, 0
   br i1 %163, label %._crit_edge470, label %.lr.ph469
 
@@ -11819,7 +11827,8 @@ define hidden void @"_ZN79_$LT$parquet..format..ColumnIndex$u20$as$u20$parquet..
 
 219:                                              ; preds = %"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$16write_list_begin17h72efbc62624a403cE.exit372"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18)
-  %220 = getelementptr inbounds i64, ptr %197, i64 %214
+  %.idx473 = shl nsw i64 %214, 3
+  %220 = getelementptr inbounds i8, ptr %197, i64 %.idx473
   %221 = icmp eq i64 %214, 0
   br i1 %221, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h054d9696b1480018E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h054d9696b1480018E.exit"
 
@@ -15011,7 +15020,8 @@ define hidden void @"_ZN79_$LT$parquet..format..OffsetIndex$u20$as$u20$parquet..
 100:                                              ; preds = %"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$16write_list_begin17h72efbc62624a403cE.exit"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %41)
   %.val = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %101 = getelementptr inbounds { i64, i64, i32, [1 x i32] }, ptr %.val, i64 %95
+  %.idx = mul nsw i64 %95, 24
+  %101 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %102 = icmp eq i64 %95, 0
   br i1 %102, label %._crit_edge, label %.lr.ph
 
@@ -15873,7 +15883,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   br label %139
 
 .body:                                            ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit677, %818, %793, %756, %729, %682, %648, %624, %197, %149
-  %.pn = phi { ptr, i32 } [ %819, %818 ], [ %794, %793 ], [ %757, %756 ], [ %730, %729 ], [ %683, %682 ], [ %649, %648 ], [ %625, %624 ], [ %198, %197 ], [ %150, %149 ], [ %.pn.i, %.loopexit677 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit669, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit672, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp675, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit702, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp703, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %819, %818 ], [ %794, %793 ], [ %757, %756 ], [ %730, %729 ], [ %683, %682 ], [ %649, %648 ], [ %625, %624 ], [ %198, %197 ], [ %150, %149 ], [ %.pn.i, %.loopexit677 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit669, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit672, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp675, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit704, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp705, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hb2de949c6b72afc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %126) #9
           to label %859 unwind label %719
 
@@ -15893,12 +15903,12 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit: ; preds = %286, %614
-  %lpad.loopexit702 = landingpad { ptr, i32 }
+  %lpad.loopexit704 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %340, %343
-  %lpad.loopexit.split-lp703 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp705 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -16193,7 +16203,8 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
 231:                                              ; preds = %"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$16write_list_begin17h72efbc62624a403cE.exit"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %120)
   %.val = load ptr, ptr %224, align 8, !nonnull !4, !noundef !4
-  %232 = getelementptr inbounds { { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { { { ptr, i64 }, i64 } }, { i8, [11 x i8] }, [1 x i32] }, ptr %.val, i64 %226
+  %.idx = mul nsw i64 %226, 104
+  %232 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %233 = icmp eq i64 %226, 0
   br i1 %233, label %._crit_edge, label %.lr.ph
 
@@ -16318,17 +16329,17 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   br label %297
 
 .loopexit677:                                     ; preds = %.loopexit677.loopexit, %.loopexit677.loopexit.split-lp, %.loopexit.split-lp678, %590, %568, %542, %516, %488, %464, %421, %387, %355, %309
-  %.pn.i = phi { ptr, i32 } [ %591, %590 ], [ %569, %568 ], [ %543, %542 ], [ %517, %516 ], [ %489, %488 ], [ %465, %464 ], [ %422, %421 ], [ %388, %387 ], [ %356, %355 ], [ %310, %309 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp678 ], [ %lpad.loopexit704, %.loopexit677.loopexit ], [ %lpad.loopexit.split-lp705, %.loopexit677.loopexit.split-lp ]
+  %.pn.i = phi { ptr, i32 } [ %591, %590 ], [ %569, %568 ], [ %543, %542 ], [ %517, %516 ], [ %489, %488 ], [ %465, %464 ], [ %422, %421 ], [ %388, %387 ], [ %356, %355 ], [ %310, %309 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp678 ], [ %lpad.loopexit706, %.loopexit677.loopexit ], [ %lpad.loopexit.split-lp707, %.loopexit677.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$thrift..protocol..TStructIdentifier$GT$17hb2de949c6b72afc4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %76) #9
           to label %.body unwind label %346, !noalias !3259
 
 .loopexit677.loopexit:                            ; preds = %612, %601, %597, %595, %588, %587, %579, %575, %573, %561, %553, %549, %547, %535, %527, %523, %521, %509, %501, %495, %493, %483, %475, %471, %469, %457, %448, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit469.i", %431, %429, %413, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit459.i", %397, %395, %385, %384, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit442.i", %365, %363, %348, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit.i", %319, %317, %304, %296
-  %lpad.loopexit704 = landingpad { ptr, i32 }
+  %lpad.loopexit706 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit677
 
 .loopexit677.loopexit.split-lp:                   ; preds = %596, %574, %548, %522, %494, %470, %439, %437, %405, %403, %373, %371, %327, %325
-  %lpad.loopexit.split-lp705 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp707 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit677
 
@@ -16500,7 +16511,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
 .thread:                                          ; preds = %.noexc530, %343
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !3310
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %76), !noalias !3246
-  br label %.loopexit707
+  br label %.loopexit709
 
 346:                                              ; preds = %590, %568, %542, %516, %488, %464, %421, %387, %355, %309, %.loopexit677
   %347 = landingpad { ptr, i32 }
@@ -17637,7 +17648,8 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
 663:                                              ; preds = %"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$16write_list_begin17h72efbc62624a403cE.exit538"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %111)
   %.val500 = load ptr, ptr %656, align 8, !nonnull !4, !noundef !4
-  %664 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { { ptr, i64 }, i64 }, i64, i64, { ptr, [2 x i64] }, { i16, i16 }, [2 x i16] }, ptr %.val500, i64 %658
+  %.idx694 = mul nsw i64 %658, 104
+  %664 = getelementptr inbounds i8, ptr %.val500, i64 %.idx694
   %665 = icmp eq i64 %658, 0
   br i1 %665, label %._crit_edge688, label %.lr.ph687
 
@@ -17751,7 +17763,8 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
 
 696:                                              ; preds = %"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$16write_list_begin17h72efbc62624a403cE.exit543"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %106)
-  %697 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { ptr, [2 x i64] } }, ptr %672, i64 %691
+  %.idx695 = mul nsw i64 %691, 48
+  %697 = getelementptr inbounds i8, ptr %672, i64 %.idx695
   %698 = icmp eq i64 %691, 0
   br i1 %698, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h57d897f045fbf1c8E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h57d897f045fbf1c8E.exit"
 
@@ -17785,7 +17798,7 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2358.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2358, i64 32, i1 false)
   br label %705
 
-705:                                              ; preds = %832, %837, %838, %805, %810, %811, %742, %747, %748, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit513", %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit526", %.loopexit707, %853, %852, %851, %843, %784, %783, %777, %769, %718, %717, %704, %695, %673, %662, %643, %638, %619, %230, %191
+705:                                              ; preds = %832, %837, %838, %805, %810, %811, %742, %747, %748, %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit513", %"_ZN4core3ptr55drop_in_place$LT$thrift..protocol..TFieldIdentifier$GT$17h4357c47bb96a5924E.exit526", %.loopexit709, %853, %852, %851, %843, %784, %783, %777, %769, %718, %717, %704, %695, %673, %662, %643, %638, %619, %230, %191
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !3501
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6692686a2b5e9f59E.llvm.12494526139044184965"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %126)
   %706 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -18326,14 +18339,14 @@ define hidden void @"_ZN80_$LT$parquet..format..FileMetaData$u20$as$u20$parquet.
   %.pre = load i64, ptr %119, align 8, !range !32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %76), !noalias !3246
   %855 = icmp eq i64 %.pre, 4
-  br i1 %855, label %856, label %.loopexit707
+  br i1 %855, label %856, label %.loopexit709
 
 856:                                              ; preds = %854
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %119)
   %857 = icmp eq ptr %287, %232
   br i1 %857, label %._crit_edge, label %286
 
-.loopexit707:                                     ; preds = %854, %.thread
+.loopexit709:                                     ; preds = %854, %.thread
   %858 = phi i64 [ %341, %.thread ], [ %.pre, %854 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2268, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2201.0..sroa_idx.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %119)
@@ -19811,7 +19824,8 @@ define hidden void @"_ZN82_$LT$parquet..format..ColumnMetaData$u20$as$u20$parque
 196:                                              ; preds = %"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$16write_list_begin17h9805c662b36734efE.exit"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %85)
   %.val = load ptr, ptr %189, align 8, !nonnull !4, !noundef !4
-  %197 = getelementptr inbounds i32, ptr %.val, i64 %191
+  %.idx = shl nsw i64 %191, 2
+  %197 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %198 = icmp eq i64 %191, 0
   br i1 %198, label %._crit_edge, label %.lr.ph
 
@@ -19916,7 +19930,8 @@ define hidden void @"_ZN82_$LT$parquet..format..ColumnMetaData$u20$as$u20$parque
 225:                                              ; preds = %"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$16write_list_begin17h9805c662b36734efE.exit763"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %80)
   %.val732 = load ptr, ptr %218, align 8, !nonnull !4, !noundef !4
-  %226 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %.val732, i64 %220
+  %.idx951 = mul nsw i64 %220, 24
+  %226 = getelementptr inbounds i8, ptr %.val732, i64 %.idx951
   %227 = icmp eq i64 %220, 0
   br i1 %227, label %._crit_edge948, label %.lr.ph947
 
@@ -20391,7 +20406,8 @@ define hidden void @"_ZN82_$LT$parquet..format..ColumnMetaData$u20$as$u20$parque
 
 355:                                              ; preds = %"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$16write_list_begin17h9805c662b36734efE.exit779"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %59)
-  %356 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { ptr, [2 x i64] } }, ptr %333, i64 %350
+  %.idx952 = mul nsw i64 %350, 48
+  %356 = getelementptr inbounds i8, ptr %333, i64 %.idx952
   %357 = icmp eq i64 %350, 0
   br i1 %357, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h57d897f045fbf1c8E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h57d897f045fbf1c8E.exit"
 
@@ -20940,7 +20956,8 @@ define hidden void @"_ZN82_$LT$parquet..format..ColumnMetaData$u20$as$u20$parque
 
 512:                                              ; preds = %"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$16write_list_begin17h9805c662b36734efE.exit790"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %38)
-  %513 = getelementptr inbounds { i32, i32, i32 }, ptr %466, i64 %507
+  %.idx953 = mul nsw i64 %507, 12
+  %513 = getelementptr inbounds i8, ptr %466, i64 %.idx953
   %514 = icmp eq i64 %507, 0
   br i1 %514, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc7b0f6c3e6dac4c1E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc7b0f6c3e6dac4c1E.exit"
 
@@ -26489,7 +26506,8 @@ define internal fastcc void @"_ZN88_$LT$parquet..format..ColumnCryptoMetaData$u2
 
 262:                                              ; preds = %"_ZN112_$LT$thrift..protocol..compact..TCompactOutputProtocol$LT$T$GT$$u20$as$u20$thrift..protocol..TOutputProtocol$GT$16write_list_begin17h72efbc62624a403cE.exit.i"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25), !noalias !5372
-  %263 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %73, i64 %257
+  %.idx.i = mul nsw i64 %257, 24
+  %263 = getelementptr inbounds i8, ptr %73, i64 %.idx.i
   %264 = icmp eq i64 %257, 0
   br i1 %264, label %._crit_edge.i, label %.lr.ph.i
 

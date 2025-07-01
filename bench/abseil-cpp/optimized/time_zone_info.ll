@@ -7278,13 +7278,13 @@ _ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.thread.i.i.i.i: ; preds = %_ZNSt
   %214 = load i8, ptr %213, align 1, !tbaa !33, !noalias !293
   %215 = icmp eq i8 %214, 47
   %.sroa.0102.0.copyload.pre.i.sroa.speculated.i.i.i = select i1 %215, ptr %8, ptr %7
-  %.sroa.6.0.copyload.pre.i.sroa.speculated.i.i.i = select i1 %215, i64 1, i64 4
-  %216 = getelementptr inbounds nuw ptr, ptr %.sroa.0102.0.copyload.pre.i.sroa.speculated.i.i.i, i64 %.sroa.6.0.copyload.pre.i.sroa.speculated.i.i.i
+  %.sroa.6.0.copyload.pre.i.sroa.speculated.i.i.i = select i1 %215, i64 8, i64 32
+  %216 = getelementptr inbounds nuw i8, ptr %.sroa.0102.0.copyload.pre.i.sroa.speculated.i.i.i, i64 %.sroa.6.0.copyload.pre.i.sroa.speculated.i.i.i
   br label %.lr.ph.i25.i.i.i
 
 .lr.ph.i25.i.i.i:                                 ; preds = %211, %.thread.i37.i.i.i
   %217 = phi ptr [ %210, %.thread.i37.i.i.i ], [ %216, %211 ]
-  %.sroa.0102.0.copyload144.i.i.i.i = phi ptr [ %7, %.thread.i37.i.i.i ], [ %.sroa.0102.0.copyload.pre.i.sroa.speculated.i.i.i, %211 ]
+  %.sroa.0102.0.copyload145.i.i.i.i = phi ptr [ %7, %.thread.i37.i.i.i ], [ %.sroa.0102.0.copyload.pre.i.sroa.speculated.i.i.i, %211 ]
   %218 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %219 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %220 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -7292,7 +7292,7 @@ _ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.thread.i.i.i.i: ; preds = %_ZNSt
   br label %222
 
 222:                                              ; preds = %424, %.lr.ph.i25.i.i.i
-  %.0132.i.i.i.i = phi ptr [ %.sroa.0102.0.copyload144.i.i.i.i, %.lr.ph.i25.i.i.i ], [ %425, %424 ]
+  %.0132.i.i.i.i = phi ptr [ %.sroa.0102.0.copyload145.i.i.i.i, %.lr.ph.i25.i.i.i ], [ %425, %424 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #25, !noalias !293
   %223 = load ptr, ptr %.0132.i.i.i.i, align 8, !tbaa !285, !noalias !293
   store ptr %218, ptr %9, align 8, !tbaa !47, !noalias !293

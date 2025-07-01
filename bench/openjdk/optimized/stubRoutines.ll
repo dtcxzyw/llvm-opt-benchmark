@@ -1615,7 +1615,8 @@ define linkonce_odr hidden void @_ZN20ShenandoahBarrierSet17arraycopy_barrierI9n
   %26 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %29 = getelementptr inbounds i32, ptr %14, i64 %3
+  %.idx.i.i = shl nsw i64 %3, 2
+  %29 = getelementptr inbounds i8, ptr %14, i64 %.idx.i.i
   %30 = icmp sgt i64 %3, 0
   br i1 %30, label %.lr.ph.i.i, label %_ZN20ShenandoahBarrierSet17arraycopy_markingI9narrowOopEEvPT_S3_m.exit
 
@@ -1720,11 +1721,12 @@ _ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i: ; preds = %
   br i1 %93, label %94, label %_ZN20ShenandoahBarrierSet17arraycopy_markingI9narrowOopEEvPT_S3_m.exit
 
 94:                                               ; preds = %_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i
-  %95 = getelementptr inbounds i32, ptr %1, i64 %3
+  %.idx.i.i13 = shl nsw i64 %3, 2
+  %95 = getelementptr inbounds i8, ptr %1, i64 %.idx.i.i13
   %96 = icmp sgt i64 %3, 0
-  br i1 %96, label %.lr.ph.i.i13, label %_ZN20ShenandoahBarrierSet17arraycopy_markingI9narrowOopEEvPT_S3_m.exit
+  br i1 %96, label %.lr.ph.i.i14, label %_ZN20ShenandoahBarrierSet17arraycopy_markingI9narrowOopEEvPT_S3_m.exit
 
-.lr.ph.i.i13:                                     ; preds = %94
+.lr.ph.i.i14:                                     ; preds = %94
   %97 = load ptr, ptr %7, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 2440
   %99 = load ptr, ptr %98, align 8
@@ -1732,8 +1734,8 @@ _ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i: ; preds = %
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 80
   br label %102
 
-102:                                              ; preds = %133, %.lr.ph.i.i13
-  %.017.i.i = phi ptr [ %1, %.lr.ph.i.i13 ], [ %134, %133 ]
+102:                                              ; preds = %133, %.lr.ph.i.i14
+  %.017.i.i = phi ptr [ %1, %.lr.ph.i.i14 ], [ %134, %133 ]
   %103 = load i32, ptr %.017.i.i, align 4
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %133, label %105
@@ -1853,7 +1855,8 @@ _ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit: ; preds = %3,
 
 _ZN22ShenandoahEvacOOMScopeC2Ev.exit:             ; preds = %33, %34, %38, %43
   %44 = load ptr, ptr %25, align 8
-  %45 = getelementptr inbounds i32, ptr %1, i64 %2
+  %.idx.i = shl nsw i64 %2, 2
+  %45 = getelementptr inbounds i8, ptr %1, i64 %.idx.i
   %46 = icmp sgt i64 %2, 0
   br i1 %46, label %.lr.ph.i, label %_ZN20ShenandoahBarrierSet14arraycopy_workI9narrowOopLb1ELb1ELb0EEEvPT_m.exit
 
@@ -2055,7 +2058,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   %.not.i.i = icmp eq ptr %0, null
   %8 = getelementptr inbounds i8, ptr %0, i64 %1
   %spec.select.i.i = select i1 %.not.i.i, ptr %2, ptr %8
-  %9 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %6
+  %.idx.i.i = shl nsw i64 %6, 3
+  %9 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx.i.i
   %10 = icmp sgt i64 %6, 0
   br i1 %10, label %.lr.ph.i.i, label %_ZN11XBarrierSet13AccessBarrierILm2383942ES_E21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S6_mS8_m.exit
 
@@ -2149,7 +2153,8 @@ define linkonce_odr hidden void @_ZN20ShenandoahBarrierSet17arraycopy_barrierIP7
   %26 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %29 = getelementptr inbounds ptr, ptr %14, i64 %3
+  %.idx.i.i = shl nsw i64 %3, 3
+  %29 = getelementptr inbounds i8, ptr %14, i64 %.idx.i.i
   %30 = icmp sgt i64 %3, 0
   br i1 %30, label %.lr.ph.i.i, label %_ZN20ShenandoahBarrierSet17arraycopy_markingIP7oopDescEEvPT_S4_m.exit
 
@@ -2247,11 +2252,12 @@ _ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i: ; preds = %
   br i1 %86, label %87, label %_ZN20ShenandoahBarrierSet17arraycopy_markingIP7oopDescEEvPT_S4_m.exit
 
 87:                                               ; preds = %_ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i
-  %88 = getelementptr inbounds ptr, ptr %1, i64 %3
+  %.idx.i.i13 = shl nsw i64 %3, 3
+  %88 = getelementptr inbounds i8, ptr %1, i64 %.idx.i.i13
   %89 = icmp sgt i64 %3, 0
-  br i1 %89, label %.lr.ph.i.i13, label %_ZN20ShenandoahBarrierSet17arraycopy_markingIP7oopDescEEvPT_S4_m.exit
+  br i1 %89, label %.lr.ph.i.i14, label %_ZN20ShenandoahBarrierSet17arraycopy_markingIP7oopDescEEvPT_S4_m.exit
 
-.lr.ph.i.i13:                                     ; preds = %87
+.lr.ph.i.i14:                                     ; preds = %87
   %90 = load ptr, ptr %7, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 2440
   %92 = load ptr, ptr %91, align 8
@@ -2259,8 +2265,8 @@ _ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit.i: ; preds = %
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 80
   br label %95
 
-95:                                               ; preds = %113, %.lr.ph.i.i13
-  %.017.i.i = phi ptr [ %1, %.lr.ph.i.i13 ], [ %114, %113 ]
+95:                                               ; preds = %113, %.lr.ph.i.i14
+  %.017.i.i = phi ptr [ %1, %.lr.ph.i.i14 ], [ %114, %113 ]
   %96 = load ptr, ptr %.017.i.i, align 8
   %97 = icmp eq ptr %96, null
   br i1 %97, label %113, label %98
@@ -2365,7 +2371,8 @@ _ZN20ShenandoahBarrierSet16need_bulk_updateEPP12HeapWordImpl.exit: ; preds = %3,
 
 _ZN22ShenandoahEvacOOMScopeC2Ev.exit:             ; preds = %33, %34, %38, %43
   %44 = load ptr, ptr %25, align 8
-  %45 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %.idx.i = shl nsw i64 %2, 3
+  %45 = getelementptr inbounds i8, ptr %1, i64 %.idx.i
   %46 = icmp sgt i64 %2, 0
   br i1 %46, label %.lr.ph.i, label %_ZN20ShenandoahBarrierSet14arraycopy_workIP7oopDescLb1ELb1ELb0EEEvPT_m.exit
 
@@ -2445,7 +2452,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11ZBarrierSet13AccessBarrierIL
   br i1 %4, label %5, label %21
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i64, ptr %1, i64 %2
+  %.idx38 = shl nsw i64 %2, 3
+  %6 = getelementptr inbounds i8, ptr %1, i64 %.idx38
   %7 = icmp sgt i64 %2, 0
   br i1 %7, label %.lr.ph35, label %.loopexit
 
@@ -2478,7 +2486,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11ZBarrierSet13AccessBarrierIL
 
 .lr.ph.preheader:                                 ; preds = %21
   %24 = getelementptr inbounds nuw i64, ptr %0, i64 %23
-  %25 = getelementptr inbounds nuw i64, ptr %1, i64 %23
+  %.idx = shl nsw i64 %23, 3
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3064,7 +3073,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   %.not.i.i = icmp eq ptr %0, null
   %8 = getelementptr inbounds i8, ptr %0, i64 %1
   %spec.select.i.i = select i1 %.not.i.i, ptr %2, ptr %8
-  %9 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %6
+  %.idx.i.i = shl nsw i64 %6, 3
+  %9 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx.i.i
   %10 = icmp sgt i64 %6, 0
   br i1 %10, label %.lr.ph.i.i, label %_ZN11XBarrierSet13AccessBarrierILm6578246ES_E21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S6_mS8_m.exit
 
@@ -3124,7 +3134,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   br i1 %10, label %11, label %27
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i64, ptr %spec.select.i.i.i, i64 %6
+  %.idx38.i.i.i = shl nsw i64 %6, 3
+  %12 = getelementptr inbounds i8, ptr %spec.select.i.i.i, i64 %.idx38.i.i.i
   %13 = icmp sgt i64 %6, 0
   br i1 %13, label %.lr.ph35.i.i.i, label %_ZN11ZBarrierSet13AccessBarrierILm6578246ES_E21oop_arraycopy_in_heapEP12arrayOopDescmPP7oopDescS3_mS6_m.exit
 
@@ -3156,7 +3167,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
 
 .lr.ph.preheader.i.i.i:                           ; preds = %27
   %30 = getelementptr inbounds nuw i64, ptr %spec.select.i9.i.i, i64 %29
-  %31 = getelementptr inbounds nuw i64, ptr %spec.select.i.i.i, i64 %29
+  %.idx.i.i.i = shl nsw i64 %29, 3
+  %31 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
@@ -3429,7 +3441,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   %.not.i.i = icmp eq ptr %0, null
   %8 = getelementptr inbounds i8, ptr %0, i64 %1
   %spec.select.i.i = select i1 %.not.i.i, ptr %2, ptr %8
-  %9 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %6
+  %.idx.i.i = shl nsw i64 %6, 3
+  %9 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx.i.i
   %10 = icmp sgt i64 %6, 0
   br i1 %10, label %.lr.ph.i.i, label %_ZN11XBarrierSet13AccessBarrierILm69492806ES_E21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S6_mS8_m.exit
 
@@ -3495,7 +3508,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11ZBarrierSet13AccessBarrierIL
   br i1 %4, label %5, label %21
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i64, ptr %1, i64 %2
+  %.idx38 = shl nsw i64 %2, 3
+  %6 = getelementptr inbounds i8, ptr %1, i64 %.idx38
   %7 = icmp sgt i64 %2, 0
   br i1 %7, label %.lr.ph35, label %.loopexit
 
@@ -3528,7 +3542,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11ZBarrierSet13AccessBarrierIL
 
 .lr.ph.preheader:                                 ; preds = %21
   %24 = getelementptr inbounds nuw i64, ptr %0, i64 %23
-  %25 = getelementptr inbounds nuw i64, ptr %1, i64 %23
+  %.idx = shl nsw i64 %23, 3
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3800,7 +3815,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   %.not.i.i = icmp eq ptr %0, null
   %8 = getelementptr inbounds i8, ptr %0, i64 %1
   %spec.select.i.i = select i1 %.not.i.i, ptr %2, ptr %8
-  %9 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %6
+  %.idx.i.i = shl nsw i64 %6, 3
+  %9 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx.i.i
   %10 = icmp sgt i64 %6, 0
   br i1 %10, label %.lr.ph.i.i, label %_ZN11XBarrierSet13AccessBarrierILm73687110ES_E21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S6_mS8_m.exit
 
@@ -3860,7 +3876,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
   br i1 %10, label %11, label %27
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i64, ptr %spec.select.i.i.i, i64 %6
+  %.idx38.i.i.i = shl nsw i64 %6, 3
+  %12 = getelementptr inbounds i8, ptr %spec.select.i.i.i, i64 %.idx38.i.i.i
   %13 = icmp sgt i64 %6, 0
   br i1 %13, label %.lr.ph35.i.i.i, label %_ZN11ZBarrierSet13AccessBarrierILm73687110ES_E21oop_arraycopy_in_heapEP12arrayOopDescmPP7oopDescS3_mS6_m.exit
 
@@ -3892,7 +3909,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14AccessInternal19PostRuntimeD
 
 .lr.ph.preheader.i.i.i:                           ; preds = %27
   %30 = getelementptr inbounds nuw i64, ptr %spec.select.i9.i.i, i64 %29
-  %31 = getelementptr inbounds nuw i64, ptr %spec.select.i.i.i, i64 %29
+  %.idx.i.i.i = shl nsw i64 %29, 3
+  %31 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i

@@ -4006,7 +4006,8 @@ _ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7Command4args17h303dee2137f2271cE(ptr noalias noundef returned align 8 dereferenceable(208) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 24
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -4041,7 +4042,8 @@ define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7
   %4 = load ptr, ptr %3, align 8, !alias.scope !679, !nonnull !9, !noundef !9
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !679, !noundef !9
-  %7 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 24
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 

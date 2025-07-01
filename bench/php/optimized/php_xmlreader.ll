@@ -35,7 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.10 = type { %struct.anon.11 }
 %struct.anon.11 = type { ptr, i32, i32 }
 %struct.zend_type = type { ptr, i32 }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @.str = private unnamed_addr constant [21 x i8] c"Cannot unset %s::$%s\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c":\00", align 1
@@ -5275,7 +5274,8 @@ define internal ptr @xmlreader_get_debug_info(ptr noundef %0, ptr noundef writeo
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @xmlreader_prop_handlers, i64 16), align 8, !tbaa !8
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @xmlreader_prop_handlers, i64 24), align 8, !tbaa !139
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %struct._Bucket, ptr %7, i64 %9
+  %.idx = shl nuw nsw i64 %9, 5
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @xmlreader_prop_handlers, i64 8), align 8, !tbaa !8
   %12 = and i32 %11, 4
   %.not = icmp eq i32 %12, 0

@@ -6870,7 +6870,8 @@ define void @_ZN5uu_od11print_bytes17hbbdb0720af5959a2E(ptr noalias noundef nonn
   %35 = load ptr, ptr %34, align 8, !alias.scope !2032, !nonnull !5, !noundef !5
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %37 = load i64, ptr %36, align 8, !alias.scope !2032, !noundef !5
-  %38 = getelementptr inbounds { { { i64, [1 x i64] }, i64, i64 }, [8 x i64], i8, [7 x i8] }, ptr %35, i64 %37
+  %.idx = mul nsw i64 %37, 104
+  %38 = getelementptr inbounds i8, ptr %35, i64 %.idx
   %39 = icmp eq i64 %37, 0
   br i1 %39, label %._crit_edge186, label %.lr.ph185
 

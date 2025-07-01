@@ -61688,7 +61688,8 @@ _ZSt8_DestroyIPN3dap6SourceEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.
 .body:                                            ; preds = %62
   %68 = extractvalue { ptr, i32 } %63, 0
   %69 = tail call ptr @__cxa_begin_catch(ptr %68) #21
-  %70 = getelementptr inbounds nuw %"struct.dap::Source", ptr %39, i64 %1
+  %.idx = mul nuw nsw i64 %1, 304
+  %70 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.body, %.lr.ph.i.i
@@ -72736,7 +72737,8 @@ _ZSt8_DestroyIPN3dap16ExceptionDetailsEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph
 .body:                                            ; preds = %60
   %66 = extractvalue { ptr, i32 } %61, 0
   %67 = tail call ptr @__cxa_begin_catch(ptr %66) #21
-  %68 = getelementptr inbounds nuw %"struct.dap::ExceptionDetails", ptr %39, i64 %1
+  %.idx = mul nuw nsw i64 %1, 232
+  %68 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.body, %.lr.ph.i.i

@@ -1202,7 +1202,8 @@ define hidden void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..T
   %4 = load ptr, ptr %3, align 8, !alias.scope !304, !nonnull !12, !noundef !12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !304, !noundef !12
-  %7 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 8
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -4499,7 +4500,8 @@ define void @"_ZN3syn6derive8printing81_$LT$impl$u20$quote..to_tokens..ToTokens$
   %10 = load ptr, ptr %9, align 8, !nonnull !12, !noundef !12
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i64, ptr %11, align 8, !noundef !12
-  %13 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %10, i64 %12
+  %.idx = shl nsw i64 %12, 8
+  %13 = getelementptr inbounds i8, ptr %10, i64 %.idx
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %.loopexit, label %.lr.ph.i
 

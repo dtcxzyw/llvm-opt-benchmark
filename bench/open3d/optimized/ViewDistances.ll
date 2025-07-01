@@ -995,7 +995,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt7__cxx111
           to label %.noexc241 unwind label %336
 
 .noexc241:                                        ; preds = %264
-  %267 = getelementptr double, ptr %266, i64 %261
+  %267 = getelementptr inbounds nuw double, ptr %266, i64 %261
   store double 0.000000e+00, ptr %266, align 8, !tbaa !50
   %268 = icmp eq i64 %260, 24
   br i1 %268, label %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i

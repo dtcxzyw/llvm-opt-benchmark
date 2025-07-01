@@ -212,7 +212,8 @@ define void @_ZN7Imf_3_415DeepCompositing4sortEPiPPKfPPKciii(ptr nonnull readnon
 
 8:                                                ; preds = %7
   %9 = sext i32 %5 to i64
-  %10 = getelementptr inbounds i32, ptr %1, i64 %9
+  %.idx = shl nsw i64 %9, 2
+  %10 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %9, i1 true)
   %12 = shl nuw nsw i64 %11, 1
   %13 = xor i64 %12, 126

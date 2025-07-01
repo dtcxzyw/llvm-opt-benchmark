@@ -1154,7 +1154,7 @@ Rtm_ObjTransferToBigger.exit:                     ; preds = %._crit_edge.i12, %5
   %86 = phi i32 [ %4, %37 ], [ %.pre18, %Rtm_ObjTransferToBigger.exit ], [ %36, %Rtm_ObjTransferToBig.exit ]
   %87 = and i32 %86, 4094
   %88 = icmp samesign ugt i32 %87, 9
-  br i1 %88, label %89, label %108
+  br i1 %88, label %89, label %107
 
 89:                                               ; preds = %85
   %90 = getelementptr i8, ptr %0, i64 32
@@ -1168,37 +1168,37 @@ Rtm_ObjTransferToBigger.exit:                     ; preds = %._crit_edge.i12, %5
   %96 = or disjoint i32 %94, %95
   store i32 %96, ptr %1, align 8
   %97 = add nuw nsw i32 %94, 15
-  %98 = lshr i32 %97, 4
-  %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %93, i64 %99
-  %101 = and i32 %86, 4095
-  %.not.i15 = icmp eq i32 %101, 4095
+  %98 = lshr i32 %97, 2
+  %99 = and i32 %98, 2044
+  %.idx.i = zext nneg i32 %99 to i64
+  %100 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx.i
+  %.not.i15 = icmp eq i32 %99, 0
   br i1 %.not.i15, label %Rtm_ObjAddFirst2.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %89, %.lr.ph.i
-  %.02.i = phi i32 [ %103, %.lr.ph.i ], [ %2, %89 ]
-  %.0111.i = phi ptr [ %106, %.lr.ph.i ], [ %93, %89 ]
-  %102 = load i32, ptr %.0111.i, align 4, !tbaa !29
-  %103 = lshr i32 %102, 30
-  %104 = shl i32 %102, 2
-  %105 = or disjoint i32 %104, %.02.i
-  store i32 %105, ptr %.0111.i, align 4, !tbaa !29
-  %106 = getelementptr inbounds nuw i8, ptr %.0111.i, i64 4
-  %107 = icmp ult ptr %106, %100
-  br i1 %107, label %.lr.ph.i, label %Rtm_ObjAddFirst2.exit, !llvm.loop !53
+  %.02.i = phi i32 [ %102, %.lr.ph.i ], [ %2, %89 ]
+  %.0111.i = phi ptr [ %105, %.lr.ph.i ], [ %93, %89 ]
+  %101 = load i32, ptr %.0111.i, align 4, !tbaa !29
+  %102 = lshr i32 %101, 30
+  %103 = shl i32 %101, 2
+  %104 = or disjoint i32 %103, %.02.i
+  store i32 %104, ptr %.0111.i, align 4, !tbaa !29
+  %105 = getelementptr inbounds nuw i8, ptr %.0111.i, i64 4
+  %106 = icmp ult ptr %105, %100
+  br i1 %106, label %.lr.ph.i, label %Rtm_ObjAddFirst2.exit, !llvm.loop !53
 
-108:                                              ; preds = %85
-  %109 = lshr i32 %86, 10
-  %110 = and i32 %109, 1048572
-  %111 = or disjoint i32 %110, %2
-  %112 = shl nuw i32 %111, 12
+107:                                              ; preds = %85
+  %108 = lshr i32 %86, 10
+  %109 = and i32 %108, 1048572
+  %110 = or disjoint i32 %109, %2
+  %111 = shl nuw i32 %110, 12
   %narrow.i17 = add i32 %86, 1
-  %113 = and i32 %narrow.i17, 4095
-  %114 = or disjoint i32 %112, %113
-  store i32 %114, ptr %1, align 8
+  %112 = and i32 %narrow.i17, 4095
+  %113 = or disjoint i32 %111, %112
+  store i32 %113, ptr %1, align 8
   br label %Rtm_ObjAddFirst2.exit
 
-Rtm_ObjAddFirst2.exit:                            ; preds = %.lr.ph.i, %89, %108
+Rtm_ObjAddFirst2.exit:                            ; preds = %.lr.ph.i, %89, %107
   ret void
 }
 

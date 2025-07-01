@@ -936,7 +936,8 @@ _ZN10serde_json3ser6indent17hef4c431d91718ccfE.exit.i.i: ; preds = %239
   %.val15 = load ptr, ptr %256, align 8, !nonnull !13, !noundef !13
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val16 = load i64, ptr %257, align 8, !noundef !13
-  %258 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %.val15, i64 %.val16
+  %.idx = mul nsw i64 %.val16, 104
+  %258 = getelementptr inbounds i8, ptr %.val15, i64 %.idx
   %259 = icmp eq i64 %.val16, 0
   br i1 %259, label %._crit_edge, label %.lr.ph
 
@@ -1186,7 +1187,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h00f2
   %.val = load ptr, ptr %3, align 8, !nonnull !13, !noundef !13
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val6 = load i64, ptr %4, align 8, !noundef !13
-  %5 = getelementptr inbounds { i64, [8 x i64] }, ptr %.val, i64 %.val6
+  %.idx = mul nsw i64 %.val6, 72
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !544)
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !547, !noalias !550, !nonnull !13, !align !14, !noundef !13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !553)

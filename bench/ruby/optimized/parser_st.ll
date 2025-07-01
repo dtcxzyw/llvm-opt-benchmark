@@ -3288,12 +3288,12 @@ define dso_local range(i64 -1152921504606846976, 1152921504606846976) i64 @rb_pa
   %5 = load ptr, ptr %4, align 8, !tbaa !25
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i64, ptr %6, align 8, !tbaa !30
-  %8 = getelementptr i64, ptr %1, i64 %2
+  %.idx.i = shl i64 %2, 3
+  %8 = getelementptr i8, ptr %1, i64 %.idx.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8, !tbaa !31
   %11 = icmp uge i64 %10, %7
-  %.idx.mask.i = and i64 %2, 2305843009213693951
-  %12 = icmp eq i64 %.idx.mask.i, 0
+  %12 = icmp eq i64 %.idx.i, 0
   %or.cond19.i = or i1 %12, %11
   br i1 %or.cond19.i, label %st_general_keys.exit, label %.lr.ph.i
 
@@ -3335,12 +3335,12 @@ define dso_local range(i64 -1152921504606846976, 1152921504606846976) i64 @rb_pa
   %6 = load ptr, ptr %5, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8, !tbaa !30
-  %9 = getelementptr i64, ptr %1, i64 %2
+  %.idx.i = shl i64 %2, 3
+  %9 = getelementptr i8, ptr %1, i64 %.idx.i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8, !tbaa !31
   %12 = icmp uge i64 %11, %8
-  %.idx.mask.i = and i64 %2, 2305843009213693951
-  %13 = icmp eq i64 %.idx.mask.i, 0
+  %13 = icmp eq i64 %.idx.i, 0
   %or.cond19.i = or i1 %13, %12
   br i1 %or.cond19.i, label %st_general_keys.exit, label %.lr.ph.i
 
@@ -3380,14 +3380,14 @@ st_general_keys.exit:                             ; preds = %21, %4
 define dso_local range(i64 -1152921504606846976, 1152921504606846976) i64 @rb_parser_st_values(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !25
-  %6 = getelementptr i64, ptr %1, i64 %2
+  %.idx.i = shl i64 %2, 3
+  %6 = getelementptr i8, ptr %1, i64 %.idx.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8, !tbaa !31
   %11 = icmp uge i64 %10, %8
-  %.idx.mask.i = and i64 %2, 2305843009213693951
-  %12 = icmp eq i64 %.idx.mask.i, 0
+  %12 = icmp eq i64 %.idx.i, 0
   %or.cond18.i = or i1 %12, %11
   br i1 %or.cond18.i, label %st_general_values.exit, label %.lr.ph.i
 
@@ -3427,14 +3427,14 @@ st_general_values.exit:                           ; preds = %20, %3
 define dso_local range(i64 -1152921504606846976, 1152921504606846976) i64 @rb_parser_st_values_check(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #12 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !25
-  %7 = getelementptr i64, ptr %1, i64 %2
+  %.idx.i = shl i64 %2, 3
+  %7 = getelementptr i8, ptr %1, i64 %.idx.i
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i64, ptr %8, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8, !tbaa !31
   %12 = icmp uge i64 %11, %9
-  %.idx.mask.i = and i64 %2, 2305843009213693951
-  %13 = icmp eq i64 %.idx.mask.i, 0
+  %13 = icmp eq i64 %.idx.i, 0
   %or.cond18.i = or i1 %13, %12
   br i1 %or.cond18.i, label %st_general_values.exit, label %.lr.ph.i
 

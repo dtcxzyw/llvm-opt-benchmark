@@ -305,7 +305,8 @@ _ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread101: ; preds = %30, %_Z
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.039.075.i, i64 40
   %55 = load i24, ptr %54, align 8
   %56 = zext i24 %55 to i64
-  %57 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %53, i64 %56
+  %.idx.i = shl nuw nsw i64 %56, 5
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i
   %.not71.i = icmp eq i24 %55, 0
   br i1 %.not71.i, label %.loopexit64.i, label %.lr.ph.i
 
@@ -595,7 +596,8 @@ _ZN4llvm8DebugLocD2Ev.exit69:                     ; preds = %._crit_edge131, %16
   %171 = getelementptr inbounds nuw i8, ptr %.sroa.072.0121, i64 40
   %172 = load i24, ptr %171, align 8
   %173 = zext i24 %172 to i64
-  %174 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %170, i64 %173
+  %.idx = shl nuw nsw i64 %173, 5
+  %174 = getelementptr inbounds nuw i8, ptr %170, i64 %.idx
   %.not113 = icmp eq i24 %172, 0
   br i1 %.not113, label %._crit_edge, label %.lr.ph
 

@@ -341,7 +341,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %11 = load i64, ptr %10, align 8, !alias.scope !35, !noalias !38
   %.sink12.i.i = select i1 %8, ptr %9, ptr %5
   %.sink11.i.i = select i1 %8, i64 %11, i64 %7
-  %12 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %.sink12.i.i, i64 %.sink11.i.i
+  %.idx.i = mul nsw i64 %.sink11.i.i, 48
+  %12 = getelementptr inbounds i8, ptr %.sink12.i.i, i64 %.idx.i
   %13 = icmp eq i64 %.sink11.i.i, 0
   br i1 %13, label %"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h37c318321bb7df94E.exit", label %.lr.ph.i.i
 
@@ -922,7 +923,8 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$
   %10 = load i64, ptr %9, align 8, !alias.scope !95, !noalias !98
   %.sink12.i = select i1 %7, ptr %8, ptr %0
   %.sink11.i = select i1 %7, i64 %10, i64 %6
-  %11 = getelementptr inbounds { i8, [2 x i8] }, ptr %.sink12.i, i64 %.sink11.i
+  %.idx = mul nsw i64 %.sink11.i, 3
+  %11 = getelementptr inbounds i8, ptr %.sink12.i, i64 %.idx
   %12 = icmp eq i64 %.sink11.i, 0
   br i1 %12, label %_ZN4core3fmt8builders9DebugList7entries17h7ac828f74a4ff99bE.exit, label %.lr.ph.i
 
@@ -956,7 +958,8 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$
   %10 = load i64, ptr %9, align 8, !alias.scope !103, !noalias !106
   %.sink12.i = select i1 %7, ptr %8, ptr %0
   %.sink11.i = select i1 %7, i64 %10, i64 %6
-  %11 = getelementptr inbounds { i8, [15 x i8] }, ptr %.sink12.i, i64 %.sink11.i
+  %.idx = shl nsw i64 %.sink11.i, 4
+  %11 = getelementptr inbounds i8, ptr %.sink12.i, i64 %.idx
   %12 = icmp eq i64 %.sink11.i, 0
   br i1 %12, label %_ZN4core3fmt8builders9DebugList7entries17h1f0737254ec65294E.exit, label %.lr.ph.i
 
@@ -990,7 +993,8 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$
   %10 = load i64, ptr %9, align 8, !alias.scope !111, !noalias !114
   %.sink12.i = select i1 %7, ptr %8, ptr %0
   %.sink11.i = select i1 %7, i64 %10, i64 %6
-  %11 = getelementptr inbounds { i8, [4 x i8] }, ptr %.sink12.i, i64 %.sink11.i
+  %.idx = mul nsw i64 %.sink11.i, 5
+  %11 = getelementptr inbounds i8, ptr %.sink12.i, i64 %.idx
   %12 = icmp eq i64 %.sink11.i, 0
   br i1 %12, label %_ZN4core3fmt8builders9DebugList7entries17h7c211c8827e656fbE.exit, label %.lr.ph.i
 

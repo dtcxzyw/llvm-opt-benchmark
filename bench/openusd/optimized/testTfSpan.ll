@@ -657,12 +657,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit17: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  %24 = getelementptr inbounds i32, ptr %8, i64 %14
+  %.idx = shl nsw i64 %14, 2
+  %24 = getelementptr inbounds i8, ptr %8, i64 %.idx
   %.not.i.i.i.i = icmp eq i64 %14, 0
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit34, label %_ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.exit
 
 _ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit17
-  %.idx = shl nsw i64 %14, 2
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %8, ptr %9, i64 %.idx)
   %.not7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
@@ -806,12 +806,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit16: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  %20 = getelementptr inbounds i32, ptr %8, i64 %14
+  %.idx = shl nsw i64 %14, 2
+  %20 = getelementptr inbounds i8, ptr %8, i64 %.idx
   %.not.i.i.i.i = icmp eq i64 %14, 0
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit33, label %_ZSt5equalIPKiS1_EbT_S2_T0_.exit
 
 _ZSt5equalIPKiS1_EbT_S2_T0_.exit:                 ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit16
-  %.idx = shl nsw i64 %14, 2
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %8, ptr %9, i64 %.idx)
   %.not7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
@@ -960,12 +960,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit17: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  %24 = getelementptr inbounds i32, ptr %8, i64 %14
+  %.idx = shl nsw i64 %14, 2
+  %24 = getelementptr inbounds i8, ptr %8, i64 %.idx
   %.not.i.i.i.i = icmp eq i64 %14, 0
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit32, label %_ZSt5equalIPiN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEEbT_S9_T0_.exit
 
 _ZSt5equalIPiN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEEbT_S9_T0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit17
-  %.idx = shl nsw i64 %14, 2
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %8, ptr %9, i64 %.idx)
   %.not7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
@@ -1109,12 +1109,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit16: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  %20 = getelementptr inbounds i32, ptr %8, i64 %14
+  %.idx = shl nsw i64 %14, 2
+  %20 = getelementptr inbounds i8, ptr %8, i64 %.idx
   %.not.i.i.i.i = icmp eq i64 %14, 0
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit31, label %_ZSt5equalIPKiPiEbT_S3_T0_.exit
 
 _ZSt5equalIPKiPiEbT_S3_T0_.exit:                  ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit16
-  %.idx = shl nsw i64 %14, 2
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %8, ptr %9, i64 %.idx)
   %.not7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)

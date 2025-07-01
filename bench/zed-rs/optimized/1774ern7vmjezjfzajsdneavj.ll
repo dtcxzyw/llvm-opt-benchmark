@@ -113253,7 +113253,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h6b872a96847552bcE.exit: ; pred
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !40283, !noalias !40280, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !40283, !noalias !40280
-  %119 = getelementptr inbounds { i64, [4 x i64] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nsw i64 %.sroa.5.0.copyload.i, 40
+  %119 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   store ptr %.sroa.4.0.copyload.i, ptr %4, align 8, !alias.scope !40280, !noalias !40283
   %120 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sroa.0.0.copyload.i, ptr %120, align 8, !alias.scope !40280, !noalias !40283

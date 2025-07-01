@@ -474,10 +474,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %land
 _ZN5eastlneIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit: ; preds = %for.body.i.i
   %call2 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp1.i.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 339, ptr noundef nonnull @.str.63)
   %call6 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 340, ptr noundef nonnull @.str.64)
-  br label %for.body.i.i9
+  br label %for.body.i.i10
 
-for.body.i.i9:                                    ; preds = %_ZN5eastlneIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, %for.inc.i.i10
-  %first2.addr.017.i.i.idx = phi i64 [ %first2.addr.017.i.i.add, %for.inc.i.i10 ], [ 0, %_ZN5eastlneIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit ]
+for.body.i.i10:                                   ; preds = %_ZN5eastlneIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, %for.inc.i.i11
+  %first2.addr.017.i.i.idx = phi i64 [ %first2.addr.017.i.i.add, %for.inc.i.i11 ], [ 0, %_ZN5eastlneIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit ]
   %first2.addr.017.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first2.addr.017.i.i.idx
   %first1.addr.016.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr1, i64 %first2.addr.017.i.i.idx
   %2 = load i32, ptr %first1.addr.016.i.i.ptr, align 4
@@ -485,21 +485,21 @@ for.body.i.i9:                                    ; preds = %_ZN5eastlneIiLm1844
   %cmp2.i.i = icmp slt i32 %2, %3
   br i1 %cmp2.i.i, label %_ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %for.body.i.i9
+if.end.i.i:                                       ; preds = %for.body.i.i10
   %cmp3.i.i = icmp slt i32 %3, %2
-  br i1 %cmp3.i.i, label %_ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.inc.i.i10
+  br i1 %cmp3.i.i, label %_ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.inc.i.i11
 
-for.inc.i.i10:                                    ; preds = %if.end.i.i
+for.inc.i.i11:                                    ; preds = %if.end.i.i
   %first2.addr.017.i.i.add = add nuw nsw i64 %first2.addr.017.i.i.idx, 4
-  %cmp.i.i12.not = icmp eq i64 %first2.addr.017.i.i.add, 20
-  br i1 %cmp.i.i12.not, label %_ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i9, !llvm.loop !7
+  %cmp.i.i13.not = icmp eq i64 %first2.addr.017.i.i.add, 20
+  br i1 %cmp.i.i13.not, label %_ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i10, !llvm.loop !7
 
-_ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit: ; preds = %for.body.i.i9, %if.end.i.i, %for.inc.i.i10
-  %retval.0.i.i = phi i1 [ true, %for.inc.i.i10 ], [ false, %if.end.i.i ], [ true, %for.body.i.i9 ]
+_ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit: ; preds = %for.body.i.i10, %if.end.i.i, %for.inc.i.i11
+  %retval.0.i.i = phi i1 [ true, %for.inc.i.i11 ], [ false, %if.end.i.i ], [ true, %for.body.i.i10 ]
   %call10 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 341, ptr noundef nonnull @.str.65)
-  br label %for.body.i.i.i15
+  br label %for.body.i.i.i17
 
-for.body.i.i.i15:                                 ; preds = %if.end.i.i.i, %_ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit
+for.body.i.i.i17:                                 ; preds = %if.end.i.i.i, %_ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit
   %first2.addr.017.i.i.i.idx = phi i64 [ 0, %_ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit ], [ %first2.addr.017.i.i.i.add, %if.end.i.i.i ]
   %first2.addr.017.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr1, i64 %first2.addr.017.i.i.i.idx
   %first1.addr.016.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first2.addr.017.i.i.i.idx
@@ -508,58 +508,58 @@ for.body.i.i.i15:                                 ; preds = %if.end.i.i.i, %_ZN5
   %cmp2.i.i.not.i.not.not.not = icmp sge i32 %4, %5
   br i1 %cmp2.i.i.not.i.not.not.not, label %if.end.i.i.i, label %_ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit
 
-if.end.i.i.i:                                     ; preds = %for.body.i.i.i15
+if.end.i.i.i:                                     ; preds = %for.body.i.i.i17
   %cmp3.i.i.i = icmp slt i32 %5, %4
   %first2.addr.017.i.i.i.add = add nuw nsw i64 %first2.addr.017.i.i.i.idx, 4
   %cmp1.i.i.i.not = icmp eq i64 %first2.addr.017.i.i.i.add, 20
   %or.cond = select i1 %cmp3.i.i.i, i1 true, i1 %cmp1.i.i.i.not
-  br i1 %or.cond, label %_ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i.i15, !llvm.loop !7
+  br i1 %or.cond, label %_ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i.i17, !llvm.loop !7
 
-_ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit: ; preds = %for.body.i.i.i15, %if.end.i.i.i
+_ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit: ; preds = %for.body.i.i.i17, %if.end.i.i.i
   %call14 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2.i.i.not.i.not.not.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 342, ptr noundef nonnull @.str.66)
-  br label %for.body.i.i.i27
+  br label %for.body.i.i.i31
 
-for.body.i.i.i27:                                 ; preds = %_ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, %for.inc.i.i.i32
-  %first2.addr.017.i.i.i28.idx = phi i64 [ %first2.addr.017.i.i.i28.add, %for.inc.i.i.i32 ], [ 0, %_ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit ]
-  %first2.addr.017.i.i.i28.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first2.addr.017.i.i.i28.idx
-  %first1.addr.016.i.i.i29.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr1, i64 %first2.addr.017.i.i.i28.idx
-  %6 = load i32, ptr %first1.addr.016.i.i.i29.ptr, align 4
-  %7 = load i32, ptr %first2.addr.017.i.i.i28.ptr, align 4
+for.body.i.i.i31:                                 ; preds = %_ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, %for.inc.i.i.i36
+  %first2.addr.017.i.i.i32.idx = phi i64 [ %first2.addr.017.i.i.i32.add, %for.inc.i.i.i36 ], [ 0, %_ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit ]
+  %first2.addr.017.i.i.i32.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first2.addr.017.i.i.i32.idx
+  %first1.addr.016.i.i.i33.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr1, i64 %first2.addr.017.i.i.i32.idx
+  %6 = load i32, ptr %first1.addr.016.i.i.i33.ptr, align 4
+  %7 = load i32, ptr %first2.addr.017.i.i.i32.ptr, align 4
   %cmp2.i.i.i = icmp slt i32 %6, %7
-  br i1 %cmp2.i.i.i, label %_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %if.end.i.i.i30
+  br i1 %cmp2.i.i.i, label %_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %if.end.i.i.i34
 
-if.end.i.i.i30:                                   ; preds = %for.body.i.i.i27
-  %cmp3.i.i.i31 = icmp slt i32 %7, %6
-  br i1 %cmp3.i.i.i31, label %_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.inc.i.i.i32
+if.end.i.i.i34:                                   ; preds = %for.body.i.i.i31
+  %cmp3.i.i.i35 = icmp slt i32 %7, %6
+  br i1 %cmp3.i.i.i35, label %_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.inc.i.i.i36
 
-for.inc.i.i.i32:                                  ; preds = %if.end.i.i.i30
-  %first2.addr.017.i.i.i28.add = add nuw nsw i64 %first2.addr.017.i.i.i28.idx, 4
-  %cmp.i.i.i35.not = icmp eq i64 %first2.addr.017.i.i.i28.add, 20
-  br i1 %cmp.i.i.i35.not, label %_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i.i27, !llvm.loop !7
+for.inc.i.i.i36:                                  ; preds = %if.end.i.i.i34
+  %first2.addr.017.i.i.i32.add = add nuw nsw i64 %first2.addr.017.i.i.i32.idx, 4
+  %cmp.i.i.i39.not = icmp eq i64 %first2.addr.017.i.i.i32.add, 20
+  br i1 %cmp.i.i.i39.not, label %_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i.i31, !llvm.loop !7
 
-_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit: ; preds = %for.body.i.i.i27, %if.end.i.i.i30, %for.inc.i.i.i32
-  %retval.0.i.i.i26 = phi i1 [ true, %for.inc.i.i.i32 ], [ false, %if.end.i.i.i30 ], [ true, %for.body.i.i.i27 ]
-  %call18 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i.i26, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 343, ptr noundef nonnull @.str.67)
-  br label %for.body.i.i.i46
+_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit: ; preds = %for.body.i.i.i31, %if.end.i.i.i34, %for.inc.i.i.i36
+  %retval.0.i.i.i30 = phi i1 [ true, %for.inc.i.i.i36 ], [ false, %if.end.i.i.i34 ], [ true, %for.body.i.i.i31 ]
+  %call18 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i.i30, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 343, ptr noundef nonnull @.str.67)
+  br label %for.body.i.i.i52
 
-for.body.i.i.i46:                                 ; preds = %if.end.i.i.i50, %_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit
-  %first2.addr.017.i.i.i47.idx = phi i64 [ 0, %_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit ], [ %first2.addr.017.i.i.i47.add, %if.end.i.i.i50 ]
-  %first2.addr.017.i.i.i47.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr1, i64 %first2.addr.017.i.i.i47.idx
-  %first1.addr.016.i.i.i48.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first2.addr.017.i.i.i47.idx
-  %8 = load i32, ptr %first1.addr.016.i.i.i48.ptr, align 4
-  %9 = load i32, ptr %first2.addr.017.i.i.i47.ptr, align 4
-  %cmp2.i.i.not.i49.not.not.not = icmp sge i32 %8, %9
-  br i1 %cmp2.i.i.not.i49.not.not.not, label %if.end.i.i.i50, label %_ZN5eastlgeIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit
+for.body.i.i.i52:                                 ; preds = %if.end.i.i.i56, %_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit
+  %first2.addr.017.i.i.i53.idx = phi i64 [ 0, %_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit ], [ %first2.addr.017.i.i.i53.add, %if.end.i.i.i56 ]
+  %first2.addr.017.i.i.i53.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr1, i64 %first2.addr.017.i.i.i53.idx
+  %first1.addr.016.i.i.i54.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first2.addr.017.i.i.i53.idx
+  %8 = load i32, ptr %first1.addr.016.i.i.i54.ptr, align 4
+  %9 = load i32, ptr %first2.addr.017.i.i.i53.ptr, align 4
+  %cmp2.i.i.not.i55.not.not.not = icmp sge i32 %8, %9
+  br i1 %cmp2.i.i.not.i55.not.not.not, label %if.end.i.i.i56, label %_ZN5eastlgeIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit
 
-if.end.i.i.i50:                                   ; preds = %for.body.i.i.i46
-  %cmp3.i.i.i51 = icmp slt i32 %9, %8
-  %first2.addr.017.i.i.i47.add = add nuw nsw i64 %first2.addr.017.i.i.i47.idx, 4
-  %cmp1.i.i.i56.not = icmp eq i64 %first2.addr.017.i.i.i47.add, 20
-  %or.cond66 = select i1 %cmp3.i.i.i51, i1 true, i1 %cmp1.i.i.i56.not
-  br i1 %or.cond66, label %_ZN5eastlgeIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i.i46, !llvm.loop !7
+if.end.i.i.i56:                                   ; preds = %for.body.i.i.i52
+  %cmp3.i.i.i57 = icmp slt i32 %9, %8
+  %first2.addr.017.i.i.i53.add = add nuw nsw i64 %first2.addr.017.i.i.i53.idx, 4
+  %cmp1.i.i.i62.not = icmp eq i64 %first2.addr.017.i.i.i53.add, 20
+  %or.cond72 = select i1 %cmp3.i.i.i57, i1 true, i1 %cmp1.i.i.i62.not
+  br i1 %or.cond72, label %_ZN5eastlgeIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i.i52, !llvm.loop !7
 
-_ZN5eastlgeIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit: ; preds = %for.body.i.i.i46, %if.end.i.i.i50
-  %call22 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2.i.i.not.i49.not.not.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 344, ptr noundef nonnull @.str.68)
+_ZN5eastlgeIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit: ; preds = %for.body.i.i.i52, %if.end.i.i.i56
+  %call22 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2.i.i.not.i55.not.not.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 344, ptr noundef nonnull @.str.68)
   ret void
 }
 

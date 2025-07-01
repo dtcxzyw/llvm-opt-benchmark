@@ -409,7 +409,8 @@ define hidden noundef zeroext i1 @"_ZN157_$LT$brotli..enc..backward_references..
   %12 = load ptr, ptr %0, align 8, !alias.scope !18, !nonnull !13, !align !16, !noundef !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8, !alias.scope !18, !noundef !13
-  %15 = getelementptr inbounds i32, ptr %12, i64 %14
+  %.idx = shl nsw i64 %14, 2
+  %15 = getelementptr inbounds i8, ptr %12, i64 %.idx
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %._crit_edge, label %.lr.ph
 
@@ -467,7 +468,8 @@ define hidden { ptr, i64 } @"_ZN188_$LT$brotli..enc..backward_references..hash_t
   %6 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %6)
   %7 = extractvalue { ptr, i64 } %4, 1
-  %8 = getelementptr inbounds i32, ptr %5, i64 %7
+  %.idx = shl nsw i64 %7, 2
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.2002727345234535996.exit.thread", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.2002727345234535996.exit"
 
@@ -4864,7 +4866,8 @@ define hidden void @_ZN6brotli3enc19backward_references19hash_to_binary_tree14in
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   %18 = extractvalue { ptr, i64 } %15, 1
-  %19 = getelementptr inbounds i32, ptr %16, i64 %18
+  %.idx.i = shl nsw i64 %18, 2
+  %19 = getelementptr inbounds i8, ptr %16, i64 %.idx.i
   %20 = icmp eq i64 %18, 0
   br i1 %20, label %"_ZN188_$LT$brotli..enc..backward_references..hash_to_binary_tree..H10Buckets$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..hash_to_binary_tree..Allocable$LT$u32$C$AllocU32$GT$$GT$3new17h73b5bfc0e66537a0E.llvm.2002727345234535996.exit", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.2002727345234535996.exit.i"
 
@@ -4883,7 +4886,7 @@ define hidden void @_ZN6brotli3enc19backward_references19hash_to_binary_tree14in
 
 .noexc:                                           ; preds = %"_ZN188_$LT$brotli..enc..backward_references..hash_to_binary_tree..H10Buckets$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..hash_to_binary_tree..Allocable$LT$u32$C$AllocU32$GT$$GT$3new17h73b5bfc0e66537a0E.llvm.2002727345234535996.exit"
   %24 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h71317041b3aef333E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
-          to label %28 unwind label %25
+          to label %27 unwind label %25
 
 25:                                               ; preds = %.noexc, %"_ZN188_$LT$brotli..enc..backward_references..hash_to_binary_tree..H10Buckets$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..hash_to_binary_tree..Allocable$LT$u32$C$AllocU32$GT$$GT$3new17h73b5bfc0e66537a0E.llvm.2002727345234535996.exit"
   %26 = landingpad { ptr, i32 }
@@ -4891,36 +4894,35 @@ define hidden void @_ZN6brotli3enc19backward_references19hash_to_binary_tree14in
   br i1 %20, label %"_ZN4core3ptr132drop_in_place$LT$brotli..enc..backward_references..hash_to_binary_tree..H10Buckets$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h1679d9c2d30dc52cE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i": ; preds = %25
-  %27 = shl nsw i64 %18, 2
-  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %27, i64 noundef 4) #32, !noalias !559
+  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %.idx.i, i64 noundef 4) #32, !noalias !559
   br label %"_ZN4core3ptr132drop_in_place$LT$brotli..enc..backward_references..hash_to_binary_tree..H10Buckets$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h1679d9c2d30dc52cE.exit"
 
-28:                                               ; preds = %.noexc
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %30 = extractvalue { ptr, i64 } %24, 0
+27:                                               ; preds = %.noexc
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %29 = extractvalue { ptr, i64 } %24, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %31 = icmp ne ptr %30, null
-  tail call void @llvm.assume(i1 %31)
-  %32 = xor i32 %notmask, -1
-  %33 = zext nneg i32 %32 to i64
-  %34 = extractvalue { ptr, i64 } %24, 1
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %33, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
+  %30 = icmp ne ptr %29, null
+  tail call void @llvm.assume(i1 %30)
+  %31 = xor i32 %notmask, -1
+  %32 = zext nneg i32 %31 to i64
+  %33 = extractvalue { ptr, i64 } %24, 1
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %32, ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i8 0, i64 16, i1 false)
   store i32 1, ptr %.sroa.6.0..sroa_idx, align 8
   store ptr %16, ptr %0, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %18, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %.neg, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %30, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %34, ptr %40, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %18, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %.neg, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %29, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %33, ptr %39, align 8
   ret void
 
 "_ZN4core3ptr132drop_in_place$LT$brotli..enc..backward_references..hash_to_binary_tree..H10Buckets$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h1679d9c2d30dc52cE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i", %25

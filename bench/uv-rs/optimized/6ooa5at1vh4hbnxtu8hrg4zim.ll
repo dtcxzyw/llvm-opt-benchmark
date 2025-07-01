@@ -93,7 +93,8 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$12remo
   %8 = load ptr, ptr %7, align 8, !nonnull !7, !noundef !7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !7
-  %11 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %8, i64 %10
+  %.idx = mul nsw i64 %10, 24
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %.loopexit, label %.lr.ph.i
 

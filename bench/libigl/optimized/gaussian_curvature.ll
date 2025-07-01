@@ -51,7 +51,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 14:                                               ; preds = %.noexc
   %15 = load ptr, ptr %2, align 8, !tbaa !12
-  %16 = getelementptr inbounds nuw double, ptr %15, i64 %12
+  %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %12, 3
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, %14
@@ -165,7 +166,8 @@ define weak_odr dso_local void @_ZN3igl18gaussian_curvatureIN5Eigen6MatrixIdLin1
 
 13:                                               ; preds = %.noexc
   %14 = load ptr, ptr %2, align 8, !tbaa !27
-  %15 = getelementptr inbounds nuw double, ptr %14, i64 %11
+  %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %11, 3
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, %13

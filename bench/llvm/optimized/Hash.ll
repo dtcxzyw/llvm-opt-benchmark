@@ -3,8 +3,6 @@ source_filename = "bench/llvm/original/Hash.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon }
-%struct.anon = type { [4 x i8] }
 %"class.llvm::JamCRC" = type { i32 }
 
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
@@ -13,57 +11,56 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable
 define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr %0, i64 %1) local_unnamed_addr #0 {
   %3 = trunc i64 %1 to i32
-  %4 = lshr i64 %1, 2
-  %5 = and i64 %4, 1073741823
-  %6 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %0, i64 %5
-  %.not33 = icmp eq i64 %5, 0
+  %4 = and i64 %1, 4294967292
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
+  %.not33 = icmp samesign eq i64 %4, 0
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %10, %.lr.ph ]
-  %7 = and i32 %3, 3
-  %8 = icmp samesign ugt i32 %7, 1
-  br i1 %8, label %12, label %17
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %9, %.lr.ph ]
+  %6 = and i32 %3, 3
+  %7 = icmp samesign ugt i32 %6, 1
+  br i1 %7, label %11, label %16
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.035 = phi i32 [ %10, %.lr.ph ], [ 0, %2 ]
-  %.02234 = phi ptr [ %11, %.lr.ph ], [ %0, %2 ]
-  %9 = load i32, ptr %.02234, align 1, !tbaa !3
-  %10 = xor i32 %9, %.035
-  %11 = getelementptr inbounds nuw i8, ptr %.02234, i64 4
-  %.not = icmp eq ptr %11, %6
+  %.035 = phi i32 [ %9, %.lr.ph ], [ 0, %2 ]
+  %.02234 = phi ptr [ %10, %.lr.ph ], [ %0, %2 ]
+  %8 = load i32, ptr %.02234, align 1, !tbaa !3
+  %9 = xor i32 %8, %.035
+  %10 = getelementptr inbounds nuw i8, ptr %.02234, i64 4
+  %.not = icmp eq ptr %10, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-12:                                               ; preds = %._crit_edge
-  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
-  %.0.copyload.i.i.i27 = load i16, ptr %6, align 1
-  %13 = zext i16 %.0.copyload.i.i.i27 to i32
-  %14 = xor i32 %.0.lcssa, %13
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %16 = add nsw i32 %7, -2
-  br label %17
+11:                                               ; preds = %._crit_edge
+  call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
+  %.0.copyload.i.i.i27 = load i16, ptr %5, align 1
+  %12 = zext i16 %.0.copyload.i.i.i27 to i32
+  %13 = xor i32 %.0.lcssa, %12
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %15 = add nsw i32 %6, -2
+  br label %16
 
-17:                                               ; preds = %12, %._crit_edge
-  %.024 = phi ptr [ %15, %12 ], [ %6, %._crit_edge ]
-  %.023 = phi i32 [ %16, %12 ], [ %7, %._crit_edge ]
-  %.1 = phi i32 [ %14, %12 ], [ %.0.lcssa, %._crit_edge ]
-  %18 = icmp eq i32 %.023, 1
-  br i1 %18, label %19, label %23
+16:                                               ; preds = %11, %._crit_edge
+  %.024 = phi ptr [ %14, %11 ], [ %5, %._crit_edge ]
+  %.023 = phi i32 [ %15, %11 ], [ %6, %._crit_edge ]
+  %.1 = phi i32 [ %13, %11 ], [ %.0.lcssa, %._crit_edge ]
+  %17 = icmp eq i32 %.023, 1
+  br i1 %17, label %18, label %22
 
-19:                                               ; preds = %17
-  %20 = load i8, ptr %.024, align 1, !tbaa !3
-  %21 = zext i8 %20 to i32
-  %22 = xor i32 %.1, %21
-  br label %23
+18:                                               ; preds = %16
+  %19 = load i8, ptr %.024, align 1, !tbaa !3
+  %20 = zext i8 %19 to i32
+  %21 = xor i32 %.1, %20
+  br label %22
 
-23:                                               ; preds = %19, %17
-  %.2 = phi i32 [ %22, %19 ], [ %.1, %17 ]
-  %24 = or i32 %.2, 538976288
-  %25 = lshr i32 %24, 11
-  %26 = xor i32 %25, %24
-  %27 = lshr i32 %26, 16
-  %28 = xor i32 %27, %26
-  ret i32 %28
+22:                                               ; preds = %18, %16
+  %.2 = phi i32 [ %21, %18 ], [ %.1, %16 ]
+  %23 = or i32 %.2, 538976288
+  %24 = lshr i32 %23, 11
+  %25 = xor i32 %24, %23
+  %26 = lshr i32 %25, 16
+  %27 = xor i32 %26, %25
+  ret i32 %27
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -74,49 +71,47 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV2ENS_9StringRefE(ptr readonly captures(address) %0, i64 %1) local_unnamed_addr #2 {
-  %3 = lshr i64 %1, 2
-  %4 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %0, i64 %3
-  %.not37 = icmp ult i64 %1, 4
+  %.idx = and i64 %1, -4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %.not37 = icmp samesign eq i64 %.idx, 0
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi i32 [ -1318018625, %2 ], [ %13, %.lr.ph ]
-  %5 = and i64 %1, -4
-  %6 = and i64 %1, 3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %5
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %6
-  %.not2540 = icmp samesign eq i64 %6, 0
+  %.0.lcssa = phi i32 [ -1318018625, %2 ], [ %10, %.lr.ph ]
+  %4 = and i64 %1, 3
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 %4
+  %.not2540 = icmp samesign eq i64 %4, 0
   br i1 %.not2540, label %._crit_edge45, label %.lr.ph44
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.039 = phi i32 [ %13, %.lr.ph ], [ -1318018625, %2 ]
-  %.02338 = phi ptr [ %14, %.lr.ph ], [ %0, %2 ]
-  %9 = load i32, ptr %.02338, align 1, !tbaa !3
-  %10 = add i32 %9, %.039
-  %11 = mul i32 %10, 1025
-  %12 = lshr i32 %11, 6
-  %13 = xor i32 %12, %11
-  %14 = getelementptr inbounds nuw i8, ptr %.02338, i64 4
-  %.not = icmp eq ptr %14, %4
+  %.039 = phi i32 [ %10, %.lr.ph ], [ -1318018625, %2 ]
+  %.02338 = phi ptr [ %11, %.lr.ph ], [ %0, %2 ]
+  %6 = load i32, ptr %.02338, align 1, !tbaa !3
+  %7 = add i32 %6, %.039
+  %8 = mul i32 %7, 1025
+  %9 = lshr i32 %8, 6
+  %10 = xor i32 %9, %8
+  %11 = getelementptr inbounds nuw i8, ptr %.02338, i64 4
+  %.not = icmp eq ptr %11, %3
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge45:                                    ; preds = %.lr.ph44, %._crit_edge
-  %.1.lcssa = phi i32 [ %.0.lcssa, %._crit_edge ], [ %22, %.lr.ph44 ]
-  %15 = mul i32 %.1.lcssa, 1664525
-  %16 = add i32 %15, 1013904223
-  ret i32 %16
+  %.1.lcssa = phi i32 [ %.0.lcssa, %._crit_edge ], [ %19, %.lr.ph44 ]
+  %12 = mul i32 %.1.lcssa, 1664525
+  %13 = add i32 %12, 1013904223
+  ret i32 %13
 
 .lr.ph44:                                         ; preds = %._crit_edge, %.lr.ph44
-  %.142 = phi i32 [ %22, %.lr.ph44 ], [ %.0.lcssa, %._crit_edge ]
-  %.02441 = phi ptr [ %23, %.lr.ph44 ], [ %7, %._crit_edge ]
-  %17 = load i8, ptr %.02441, align 1, !tbaa !3
-  %18 = zext i8 %17 to i32
-  %19 = add i32 %.142, %18
-  %20 = mul i32 %19, 1025
-  %21 = lshr i32 %20, 6
-  %22 = xor i32 %21, %20
-  %23 = getelementptr inbounds nuw i8, ptr %.02441, i64 1
-  %.not25 = icmp eq ptr %23, %8
+  %.142 = phi i32 [ %19, %.lr.ph44 ], [ %.0.lcssa, %._crit_edge ]
+  %.02441 = phi ptr [ %20, %.lr.ph44 ], [ %3, %._crit_edge ]
+  %14 = load i8, ptr %.02441, align 1, !tbaa !3
+  %15 = zext i8 %14 to i32
+  %16 = add i32 %.142, %15
+  %17 = mul i32 %16, 1025
+  %18 = lshr i32 %17, 6
+  %19 = xor i32 %18, %17
+  %20 = getelementptr inbounds nuw i8, ptr %.02441, i64 1
+  %.not25 = icmp eq ptr %20, %5
   br i1 %.not25, label %._crit_edge45, label %.lr.ph44
 }
 

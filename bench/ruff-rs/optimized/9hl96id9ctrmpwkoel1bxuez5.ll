@@ -52850,7 +52850,8 @@ define hidden noundef zeroext i1 @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$
 .else41:                                          ; preds = %2
   %20 = load ptr, ptr %0, align 8, !alias.scope !10371, !noalias !10374, !nonnull !8
   %.sink10.i13 = select i1 %11, ptr %20, ptr %0
-  %21 = getelementptr inbounds nuw i32, ptr %.sink10.i13, i64 %.sink10.i
+  %.idx = shl nuw nsw i64 %.sink10.i, 2
+  %21 = getelementptr inbounds nuw i8, ptr %.sink10.i13, i64 %.idx
   %.sroa.033.0.copyload = load i64, ptr %1, align 8
   %spec.select = select i1 %16, i64 %15, i64 0
   %spec.select55 = select i1 %16, i64 0, i64 %18
@@ -53211,7 +53212,8 @@ define hidden noundef zeroext i1 @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$
   br i1 %.not.i, label %"_ZN8smallvec17SmallVec$LT$A$GT$8truncate17h071ddf068163537fE.exit.loopexit", label %.lr.ph.i
 
 .else50:                                          ; preds = %2
-  %26 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, i8, [7 x i8] }, { i8, [15 x i8] }, i32, i32 }, ptr %.sink10.i10, i64 %20
+  %.idx = mul nuw nsw i64 %20, 56
+  %26 = getelementptr inbounds nuw i8, ptr %.sink10.i10, i64 %.idx
   %.sroa.643.0.copyload = load i64, ptr %17, align 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.3.sroa.4.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -53742,7 +53744,8 @@ define hidden noundef zeroext i1 @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$
   %.sink9.idx.i = select i1 %11, i64 16, i64 0
   %.sink9.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink9.idx.i
   %75 = load i64, ptr %.sink9.i, align 8, !noundef !8
-  %76 = getelementptr inbounds nuw { { i8, [15 x i8] }, { i8, [15 x i8] }, { i8, [15 x i8] }, { i64, { [7 x i64] } }, i8, [7 x i8] }, ptr %.sink10.i10, i64 %75
+  %.idx = mul nuw nsw i64 %75, 120
+  %76 = getelementptr inbounds nuw i8, ptr %.sink10.i10, i64 %.idx
   %.sroa.648.0.copyload = load i64, ptr %18, align 8
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.3.sroa.4.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 40

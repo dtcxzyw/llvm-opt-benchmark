@@ -24477,7 +24477,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr119dro
   store ptr null, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !3585
   %40 = icmp ne ptr %.sroa.833.sroa.0.173, null
   call void @llvm.assume(i1 %40)
-  %41 = getelementptr inbounds { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %.sroa.833.sroa.0.173, i64 %.sroa.833.sroa.7.174
+  %.idx = mul nsw i64 %.sroa.833.sroa.7.174, 96
+  %41 = getelementptr inbounds i8, ptr %.sroa.833.sroa.0.173, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.833.sroa.0.173, ptr %6, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8

@@ -48969,7 +48969,8 @@ define void @"_ZN140_$LT$ruff_server..server..api..requests..execute_command..Ex
   %.sroa.5370.0.copyload = load i64, ptr %.sroa.548.0..sroa_idx, align 8
   %166 = icmp ult i64 %.sroa.5370.0.copyload, 96076792050570582
   call void @llvm.assume(i1 %166)
-  %167 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, i32, [1 x i32] }, ptr %.sroa.4369.0.copyload, i64 %.sroa.5370.0.copyload
+  %.idx470 = mul nuw nsw i64 %.sroa.5370.0.copyload, 96
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.4369.0.copyload, i64 %.idx470
   %168 = icmp sgt i64 %.sroa.0368.0.copyload, -1
   call void @llvm.assume(i1 %168)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %84)
@@ -49130,7 +49131,7 @@ define void @"_ZN140_$LT$ruff_server..server..api..requests..execute_command..Ex
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %85)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %87)
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha9f3a99a12a897cbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-          to label %.invoke482 unwind label %220
+          to label %.invoke483 unwind label %220
 
 219:                                              ; preds = %202
   store i8 6, ptr %0, align 8
@@ -49149,12 +49150,12 @@ define void @"_ZN140_$LT$ruff_server..server..api..requests..execute_command..Ex
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ruff_server..server..client..Notifier$GT$17h9e9b5776aa4d082eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %100) #33
           to label %696 unwind label %227
 
-224:                                              ; preds = %.invoke482
+224:                                              ; preds = %.invoke483
   %225 = landingpad { ptr, i32 }
           cleanup
   br label %223
 
-226:                                              ; preds = %.invoke482
+226:                                              ; preds = %.invoke483
   call void @"_ZN4core3ptr58drop_in_place$LT$ruff_server..server..client..Notifier$GT$17h9e9b5776aa4d082eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %100)
   ret void
 
@@ -49283,10 +49284,10 @@ define void @"_ZN140_$LT$ruff_server..server..api..requests..execute_command..Ex
           to label %315 unwind label %.loopexit
 
 268:                                              ; preds = %302, %313, %279, %290, %258, %265
-  %.sink509 = phi ptr [ %300, %302 ], [ %314, %313 ], [ %277, %279 ], [ %291, %290 ], [ %256, %258 ], [ %266, %265 ]
+  %.sink510 = phi ptr [ %300, %302 ], [ %314, %313 ], [ %277, %279 ], [ %291, %290 ], [ %256, %258 ], [ %266, %265 ]
   %.sink = phi i32 [ %301, %302 ], [ %312, %313 ], [ %278, %279 ], [ %289, %290 ], [ %257, %258 ], [ %264, %265 ]
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink509, ptr %269, align 8
+  store ptr %.sink510, ptr %269, align 8
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sink, ptr %270, align 8
   store i8 7, ptr %0, align 8
@@ -49717,7 +49718,8 @@ define void @"_ZN140_$LT$ruff_server..server..api..requests..execute_command..Ex
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx348, align 8
   %405 = icmp ult i64 %.sroa.5.0.copyload, 288230376151711744
   tail call void @llvm.assume(i1 %405)
-  %406 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.5.0.copyload, 5
+  %406 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 %.idx
   %407 = icmp sgt i64 %.sroa.0346.0.copyload, -1
   tail call void @llvm.assume(i1 %407)
   store ptr %.sroa.4.0.copyload, ptr %95, align 8, !alias.scope !5528, !noalias !5531
@@ -50361,10 +50363,10 @@ _ZN11ruff_server7session7Session12key_from_url17hfb097f85dc4aca5eE.exit.i: ; pre
   %585 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN140_$LT$ruff_server..server..api..requests..execute_command..ExecuteCommand$u20$as$u20$ruff_server..server..api..traits..SyncRequestHandler$GT$3run17h06936e0bfe160624E", i64 0, i64 %584
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep511 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN140_$LT$ruff_server..server..api..requests..execute_command..ExecuteCommand$u20$as$u20$ruff_server..server..api..traits..SyncRequestHandler$GT$3run17h06936e0bfe160624E.210", i64 0, i64 %584
-  %switch.load512 = load i64, ptr %switch.gep511, align 8
+  %switch.gep512 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN140_$LT$ruff_server..server..api..requests..execute_command..ExecuteCommand$u20$as$u20$ruff_server..server..api..traits..SyncRequestHandler$GT$3run17h06936e0bfe160624E.210", i64 0, i64 %584
+  %switch.load513 = load i64, ptr %switch.gep512, align 8
   store ptr %switch.load, ptr %30, align 8, !noalias !5554
-  store i64 %switch.load512, ptr %585, align 8, !noalias !5554
+  store i64 %switch.load513, ptr %585, align 8, !noalias !5554
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27), !noalias !5554
   %586 = invoke noundef i32 @_ZN11ruff_server7session5index13DocumentQuery7version17h13bd81d253348a97E(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %554)
           to label %590 unwind label %587, !noalias !5573
@@ -50818,9 +50820,9 @@ _ZN11ruff_server6server3api8requests15execute_command17debug_information17hbf780
   br i1 %.sroa.0176.2, label %689, label %685
 
 681:                                              ; preds = %136
-  br i1 %.sroa.0176.2, label %683, label %.invoke482
+  br i1 %.sroa.0176.2, label %683, label %.invoke483
 
-.invoke482:                                       ; preds = %681, %683, %218
+.invoke483:                                       ; preds = %681, %683, %218
   %682 = getelementptr inbounds nuw i8, ptr %4, i64 48
   invoke void @"_ZN4core3ptr64drop_in_place$LT$lsp_types..progress..WorkDoneProgressParams$GT$17hdbabf0645dd835a2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %682)
           to label %226 unwind label %224
@@ -50828,7 +50830,7 @@ _ZN11ruff_server6server3api8requests15execute_command17debug_information17hbf780
 683:                                              ; preds = %681
   %684 = getelementptr inbounds nuw i8, ptr %4, i64 24
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17had55086954f5bb73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %684)
-          to label %.invoke482 unwind label %687
+          to label %.invoke483 unwind label %687
 
 685:                                              ; preds = %689, %687, %679
   %.pn306 = phi { ptr, i32 } [ %688, %687 ], [ %680, %689 ], [ %680, %679 ]

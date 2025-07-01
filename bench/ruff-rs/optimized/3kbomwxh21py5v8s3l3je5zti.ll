@@ -10049,7 +10049,8 @@ define internal void @"_ZN4core3ptr94drop_in_place$LT$countme..Count$LT$ty_pytho
 
 ; Function Attrs: nofree nosync nounwind nonlazybind uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17hc6526567e2beefc5E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(8) %2) unnamed_addr #6 {
-  %4 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph.preheader
 
@@ -35317,7 +35318,8 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !4
-  %13 = getelementptr inbounds nuw { [55 x i8], i8 }, ptr %10, i64 %12
+  %.idx = mul nuw nsw i64 %12, 56
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %.loopexit, label %.lr.ph
 
@@ -35467,7 +35469,8 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !4
-  %13 = getelementptr inbounds nuw { [55 x i8], i8 }, ptr %10, i64 %12
+  %.idx = mul nuw nsw i64 %12, 56
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %.loopexit, label %.lr.ph
 
@@ -35607,7 +35610,8 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !4
-  %16 = getelementptr inbounds nuw { [55 x i8], i8 }, ptr %13, i64 %15
+  %.idx = mul nuw nsw i64 %15, 56
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %.loopexit, label %.lr.ph
 
@@ -35916,7 +35920,8 @@ define hidden void @_ZN18ty_python_semantic14semantic_index7builder20SemanticInd
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load i64, ptr %21, align 8, !noundef !4
-  %23 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %20, i64 %22
+  %.idx28 = shl nuw nsw i64 %22, 6
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx28
   %24 = icmp eq i64 %22, 0
   br i1 %24, label %.preheader, label %.lr.ph
 
@@ -35974,7 +35979,8 @@ define hidden void @_ZN18ty_python_semantic14semantic_index7builder20SemanticInd
   %40 = load ptr, ptr %39, align 8, !nonnull !4, !noundef !4
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.011.125, i64 16
   %42 = load i64, ptr %41, align 8, !noundef !4
-  %43 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %40, i64 %42
+  %.idx29 = shl nuw nsw i64 %42, 6
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx29
   %44 = icmp eq i64 %42, 0
   br i1 %44, label %.loopexit, label %.lr.ph22
 
@@ -36022,7 +36028,8 @@ define hidden void @_ZN18ty_python_semantic14semantic_index7builder20SemanticInd
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load i64, ptr %21, align 8, !noundef !4
-  %23 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %20, i64 %22
+  %.idx28 = shl nuw nsw i64 %22, 6
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx28
   %24 = icmp eq i64 %22, 0
   br i1 %24, label %.preheader, label %.lr.ph
 
@@ -36080,7 +36087,8 @@ define hidden void @_ZN18ty_python_semantic14semantic_index7builder20SemanticInd
   %40 = load ptr, ptr %39, align 8, !nonnull !4, !noundef !4
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.011.125, i64 16
   %42 = load i64, ptr %41, align 8, !noundef !4
-  %43 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %40, i64 %42
+  %.idx29 = shl nuw nsw i64 %42, 6
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx29
   %44 = icmp eq i64 %42, 0
   br i1 %44, label %.loopexit, label %.lr.ph22
 
@@ -36128,7 +36136,8 @@ define hidden void @_ZN18ty_python_semantic14semantic_index7builder20SemanticInd
   %21 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = load i64, ptr %22, align 8, !noundef !4
-  %24 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %21, i64 %23
+  %.idx28 = shl nuw nsw i64 %23, 6
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx28
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %.preheader, label %.lr.ph
 
@@ -36186,7 +36195,8 @@ define hidden void @_ZN18ty_python_semantic14semantic_index7builder20SemanticInd
   %41 = load ptr, ptr %40, align 8, !nonnull !4, !noundef !4
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.011.125, i64 16
   %43 = load i64, ptr %42, align 8, !noundef !4
-  %44 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %41, i64 %43
+  %.idx29 = shl nuw nsw i64 %43, 6
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx29
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %.loopexit, label %.lr.ph22
 
@@ -36235,7 +36245,8 @@ define hidden void @_ZN18ty_python_semantic14semantic_index7builder20SemanticInd
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load i64, ptr %21, align 8, !noundef !4
-  %23 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %20, i64 %22
+  %.idx28 = shl nuw nsw i64 %22, 6
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx28
   %24 = icmp eq i64 %22, 0
   br i1 %24, label %.preheader, label %.lr.ph
 
@@ -36293,7 +36304,8 @@ define hidden void @_ZN18ty_python_semantic14semantic_index7builder20SemanticInd
   %40 = load ptr, ptr %39, align 8, !nonnull !4, !noundef !4
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.011.125, i64 16
   %42 = load i64, ptr %41, align 8, !noundef !4
-  %43 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %40, i64 %42
+  %.idx29 = shl nuw nsw i64 %42, 6
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx29
   %44 = icmp eq i64 %42, 0
   br i1 %44, label %.loopexit, label %.lr.ph22
 

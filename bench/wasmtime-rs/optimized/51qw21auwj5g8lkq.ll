@@ -1245,7 +1245,8 @@ _ZN4core4iter8adapters11try_process17hbcde6a699859d34bE.exit: ; preds = %109
   %.val205 = load ptr, ptr %167, align 8, !nonnull !8, !noundef !8
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val206 = load i64, ptr %168, align 8, !noundef !8
-  %169 = getelementptr inbounds { { ptr, i64 }, { i8, [31 x i8] } }, ptr %.val205, i64 %.val206
+  %.idx = mul nsw i64 %.val206, 48
+  %169 = getelementptr inbounds i8, ptr %.val205, i64 %.idx
   %170 = icmp eq i64 %.val206, 0
   br i1 %170, label %._crit_edge, label %.lr.ph
 

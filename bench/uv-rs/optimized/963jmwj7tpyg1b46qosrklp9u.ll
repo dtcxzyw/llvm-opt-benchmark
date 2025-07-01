@@ -1663,7 +1663,8 @@ define hidden void @"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$uv_cache_key.
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !7, !noundef !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
-  %8 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %7, i64 %4
+  %.idx.i = mul nuw nsw i64 %4, 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
   %9 = icmp eq i64 %4, 0
   br i1 %9, label %_ZN12uv_cache_key9cache_key8CacheKey15cache_key_slice17ha3844ea53513ebc9E.exit, label %.lr.ph.i
 

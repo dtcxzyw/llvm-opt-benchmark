@@ -760,7 +760,8 @@ define dso_local void @_ZN4pbrt12LightSampler6CreateERKNSt7__cxx1112basic_string
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 32, i64 noundef 8)
-  %15 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %2, i64 %3
+  %.idx4.i.i.i = shl nuw nsw i64 %3, 3
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx4.i.i.i
   %16 = ptrtoint ptr %4 to i64
   store i64 %16, ptr %14, align 8, !tbaa !45
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -771,11 +772,10 @@ define dso_local void @_ZN4pbrt12LightSampler6CreateERKNSt7__cxx1112basic_string
   br i1 %.not.i.not.i.i.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE10new_objectIN4pbrt19UniformLightSamplerEJRNS_4spanIKNS5_5LightEEERS3_EEEPT_DpOT0_.exit, label %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i.i.i.i
 
 _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i.i.i.i: ; preds = %10
-  %.idx.i.i.i = shl nuw nsw i64 %3, 3
   %20 = load ptr, ptr %4, align 8, !tbaa !43
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %.idx.i.i.i, i64 noundef 8)
+  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %.idx4.i.i.i, i64 noundef 8)
   %24 = load i64, ptr %19, align 8, !tbaa !47
   %.not13.i.i.i.i.i = icmp eq i64 %24, 0
   %.pre.i.i.i.i.i = load ptr, ptr %17, align 8, !tbaa !51
@@ -1121,7 +1121,8 @@ define dso_local void @_ZN4pbrt17PowerLightSamplerC2EN4pstd4spanIKNS_5LightEEENS
   %10 = alloca %"class.pbrt::SampledWavelengths", align 8
   %11 = alloca %"class.pbrt::SampledSpectrum", align 8
   %12 = alloca %"class.pbrt::AliasTable", align 8
-  %13 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %1, i64 %2
+  %.idx68 = shl nuw nsw i64 %2, 3
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx68
   %14 = ptrtoint ptr %3 to i64
   store i64 %14, ptr %0, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1132,11 +1133,10 @@ define dso_local void @_ZN4pbrt17PowerLightSamplerC2EN4pstd4spanIKNS_5LightEEENS
   br i1 %.not.i.not.i, label %_ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEEC2IPKS2_EET_SA_RKS5_.exit, label %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i
 
 _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i: ; preds = %4
-  %.idx = shl nuw nsw i64 %2, 3
   %18 = load ptr, ptr %3, align 8, !tbaa !43
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %.idx, i64 noundef 8)
+  %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %.idx68, i64 noundef 8)
   %22 = load i64, ptr %17, align 8, !tbaa !47
   %.not13.i.i = icmp eq i64 %22, 0
   %.pre.i.i = load ptr, ptr %15, align 8, !tbaa !51
@@ -1359,7 +1359,8 @@ _ZN4pbrt21VisibleWavelengthsPDFEf.exit.i:         ; preds = %90, %75
   br i1 %109, label %104, label %70, !llvm.loop !120
 
 _ZN4pbrt18SampledWavelengths13SampleVisibleEf.exit._crit_edge: ; preds = %_ZN4pbrt18SampledWavelengths13SampleVisibleEf.exit
-  %110 = getelementptr inbounds nuw float, ptr %162, i64 %166
+  %.idx69 = shl nuw nsw i64 %166, 2
+  %110 = getelementptr inbounds nuw i8, ptr %162, i64 %.idx69
   %.not7.i = icmp eq i64 %166, 0
   br i1 %.not7.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i29
 
@@ -1982,7 +1983,8 @@ define dso_local void @_ZN4pbrt15BVHLightSamplerC2EN4pstd4spanIKNS_5LightEEENS1_
   %7 = alloca %"class.pstd::optional", align 8
   %.sroa.643 = alloca %"class.pbrt::LightBounds", align 8
   %8 = alloca %"struct.std::pair", align 4
-  %9 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %1, i64 %2
+  %.idx60 = shl nuw nsw i64 %2, 3
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx60
   %10 = ptrtoint ptr %3 to i64
   store i64 %10, ptr %0, align 8, !tbaa !45
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1993,11 +1995,10 @@ define dso_local void @_ZN4pbrt15BVHLightSamplerC2EN4pstd4spanIKNS_5LightEEENS1_
   br i1 %.not.i.not.i, label %.loopexit61, label %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i
 
 _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i: ; preds = %4
-  %.idx = shl nuw nsw i64 %2, 3
   %14 = load ptr, ptr %3, align 8, !tbaa !43
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %.idx, i64 noundef 8)
+  %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %.idx60, i64 noundef 8)
   %18 = load i64, ptr %13, align 8, !tbaa !47
   %.not13.i.i = icmp eq i64 %18, 0
   %.pre.i.i = load ptr, ptr %11, align 8, !tbaa !51
@@ -4805,7 +4806,8 @@ _ZN4pbrt12StringPrintfIJRKNS_18CompactLightBoundsERKjS5_EEENSt7__cxx1112basic_st
 define dso_local void @_ZN4pbrt22ExhaustiveLightSamplerC2EN4pstd4spanIKNS_5LightEEENS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 32)) %0, ptr %1, i64 %2, ptr %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pstd::optional", align 4
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %1, i64 %2
+  %.idx86 = shl nuw nsw i64 %2, 3
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx86
   %8 = ptrtoint ptr %3 to i64
   store i64 %8, ptr %0, align 8, !tbaa !45
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4816,11 +4818,10 @@ define dso_local void @_ZN4pbrt22ExhaustiveLightSamplerC2EN4pstd4spanIKNS_5Light
   br i1 %.not.i.not.i, label %_ZN4pstd6vectorIN4pbrt5LightENS_3pmr21polymorphic_allocatorIS2_EEEC2IPKS2_EET_SA_RKS5_.exit, label %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i
 
 _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE15allocate_objectIS3_EEPT_m.exit.i.i: ; preds = %4
-  %.idx = shl nuw nsw i64 %2, 3
   %12 = load ptr, ptr %3, align 8, !tbaa !43
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %.idx, i64 noundef 8)
+  %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %.idx86, i64 noundef 8)
   %16 = load i64, ptr %11, align 8, !tbaa !47
   %.not13.i.i = icmp eq i64 %16, 0
   %.pre.i.i = load ptr, ptr %9, align 8, !tbaa !51

@@ -2178,7 +2178,8 @@ _ZN5prost8encoding15check_wire_type17h5ede80c08301ef8dE.llvm.1839149405226499712
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5prost8encoding5bytes15encode_repeated17h284894c3530d10d1E(i32 noundef %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(24) %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 24
+  %5 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %._crit_edge, label %.lr.ph
 
@@ -2559,7 +2560,7 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1839149405226499712
   %60 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !778, !noalias !789, !noundef !4
   %61 = add i64 %60, 1
   store i64 %61, ptr %.phi.trans.insert.i, align 8, !alias.scope !778, !noalias !789
-  %62 = getelementptr inbounds float, ptr %1, i64 %2
+  %62 = getelementptr inbounds i8, ptr %1, i64 %37
   br label %.lr.ph15
 
 .lr.ph15:                                         ; preds = %.lr.ph15.preheader, %_ZN5bytes3buf7buf_mut6BufMut10put_f32_le17h544eace320257cb0E.llvm.18391494052264997128.exit
@@ -10643,7 +10644,8 @@ _ZN5prost8encoding4bool6encode17hc17d239ca25e5bb4E.exit: ; preds = %_ZN5prost8en
   %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %33 = load i64, ptr %32, align 8, !noundef !4
-  %34 = getelementptr inbounds { { i64, [4 x i64] }, { i64, [4 x i64] }, { i64, [4 x i64] }, { i64, [4 x i64] }, i64, i64 }, ptr %31, i64 %33
+  %.idx = mul nsw i64 %33, 176
+  %34 = getelementptr inbounds i8, ptr %31, i64 %.idx
   %35 = icmp eq i64 %33, 0
   br i1 %35, label %._crit_edge, label %.lr.ph
 
@@ -10652,7 +10654,8 @@ _ZN5prost8encoding4bool6encode17hc17d239ca25e5bb4E.exit: ; preds = %_ZN5prost8en
   %37 = load ptr, ptr %36, align 8, !nonnull !4, !noundef !4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %39 = load i64, ptr %38, align 8, !noundef !4
-  %40 = getelementptr inbounds { { i64, [5 x i64] }, { i64, [5 x i64] }, i64, i8, [7 x i8] }, ptr %37, i64 %39
+  %.idx24 = mul nsw i64 %39, 112
+  %40 = getelementptr inbounds i8, ptr %37, i64 %.idx24
   %41 = icmp eq i64 %39, 0
   br i1 %41, label %._crit_edge23, label %.lr.ph22
 
@@ -11548,7 +11551,8 @@ define hidden void @"_ZN66_$LT$proto..operation..Edit$u20$as$u20$prost..message.
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds { i32, i32 }, ptr %14, i64 %16
+  %.idx = shl nsw i64 %16, 3
+  %17 = getelementptr inbounds i8, ptr %14, i64 %.idx
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 
@@ -11557,7 +11561,8 @@ define hidden void @"_ZN66_$LT$proto..operation..Edit$u20$as$u20$prost..message.
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i64, ptr %21, align 8, !noundef !4
-  %23 = getelementptr inbounds { i64, i64 }, ptr %20, i64 %22
+  %.idx16 = shl nsw i64 %22, 4
+  %23 = getelementptr inbounds i8, ptr %20, i64 %.idx16
   %24 = icmp eq i64 %22, 0
   br i1 %24, label %._crit_edge15, label %.lr.ph14
 
@@ -11573,7 +11578,8 @@ define hidden void @"_ZN66_$LT$proto..operation..Edit$u20$as$u20$prost..message.
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %28, i64 %30
+  %.idx.i = mul nsw i64 %30, 24
+  %31 = getelementptr inbounds i8, ptr %28, i64 %.idx.i
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %_ZN5prost8encoding6string15encode_repeated17h1f0d56bdfcbeabfbE.exit, label %.lr.ph.i
 
@@ -11911,7 +11917,8 @@ define hidden void @"_ZN66_$LT$proto..operation..Undo$u20$as$u20$prost..message.
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds { i32, i32 }, ptr %14, i64 %16
+  %.idx = shl nsw i64 %16, 3
+  %17 = getelementptr inbounds i8, ptr %14, i64 %.idx
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 
@@ -11920,7 +11927,8 @@ define hidden void @"_ZN66_$LT$proto..operation..Undo$u20$as$u20$prost..message.
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i64, ptr %21, align 8, !noundef !4
-  %23 = getelementptr inbounds { i32, i32, i32 }, ptr %20, i64 %22
+  %.idx16 = mul nsw i64 %22, 12
+  %23 = getelementptr inbounds i8, ptr %20, i64 %.idx16
   %24 = icmp eq i64 %22, 0
   br i1 %24, label %._crit_edge15, label %.lr.ph14
 
@@ -12603,7 +12611,8 @@ define hidden void @"_ZN70_$LT$proto..update_view..Editor$u20$as$u20$prost..mess
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [21 x i64] } }, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 192
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -12617,7 +12626,8 @@ define hidden void @"_ZN70_$LT$proto..update_view..Editor$u20$as$u20$prost..mess
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds { { i64, [5 x i64] }, { i64, [5 x i64] }, i64, i8, [7 x i8] }, ptr %14, i64 %16
+  %.idx23 = mul nsw i64 %16, 112
+  %17 = getelementptr inbounds i8, ptr %14, i64 %.idx23
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %._crit_edge22, label %.lr.ph21
 
@@ -13573,7 +13583,8 @@ define hidden void @"_ZN71_$LT$proto..shell..WithArguments$u20$as$u20$prost..mes
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %6, i64 %8
+  %.idx.i = mul nsw i64 %8, 24
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %_ZN5prost8encoding6string15encode_repeated17h1f0d56bdfcbeabfbE.exit, label %.lr.ph.i
 
@@ -14667,7 +14678,8 @@ define hidden void @"_ZN78_$LT$proto..operation..UpdateSelections$u20$as$u20$pro
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds { { i64, [5 x i64] }, { i64, [5 x i64] }, i64, i8, [7 x i8] }, ptr %14, i64 %16
+  %.idx = mul nsw i64 %16, 112
+  %17 = getelementptr inbounds i8, ptr %14, i64 %.idx
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 
@@ -15617,7 +15629,8 @@ define hidden void @"_ZN83_$LT$proto..context_operation..InsertMessage$u20$as$u2
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load i64, ptr %9, align 8, !noundef !4
-  %11 = getelementptr inbounds { i32, i32 }, ptr %8, i64 %10
+  %.idx = shl nsw i64 %10, 3
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -15887,7 +15900,8 @@ define hidden void @"_ZN83_$LT$proto..context_operation..UpdateMessage$u20$as$u2
   %24 = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8, !noundef !4
-  %27 = getelementptr inbounds { i32, i32 }, ptr %24, i64 %26
+  %.idx = shl nsw i64 %26, 3
+  %27 = getelementptr inbounds i8, ptr %24, i64 %.idx
   %28 = icmp eq i64 %26, 0
   br i1 %28, label %._crit_edge, label %.lr.ph
 
@@ -16425,7 +16439,8 @@ _ZN5prost8encoding4bool6encode17hc17d239ca25e5bb4E.exit: ; preds = %_ZN5prost8en
   %33 = load ptr, ptr %32, align 8, !nonnull !4, !noundef !4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i64, ptr %34, align 8, !noundef !4
-  %36 = getelementptr inbounds { i32, i32 }, ptr %33, i64 %35
+  %.idx = shl nsw i64 %35, 3
+  %36 = getelementptr inbounds i8, ptr %33, i64 %.idx
   %37 = icmp eq i64 %35, 0
   br i1 %37, label %._crit_edge, label %.lr.ph
 
@@ -17052,7 +17067,8 @@ define hidden void @"_ZN86_$LT$proto..operation..UpdateCompletionTriggers$u20$as
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %14, i64 %16
+  %.idx.i = mul nsw i64 %16, 24
+  %17 = getelementptr inbounds i8, ptr %14, i64 %.idx.i
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %_ZN5prost8encoding6string15encode_repeated17h1f0d56bdfcbeabfbE.exit, label %.lr.ph.i
 
@@ -17558,7 +17574,8 @@ define hidden void @"_ZN90_$LT$proto..context_operation..SlashCommandFinished$u2
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load i64, ptr %14, align 8, !noundef !4
-  %16 = getelementptr inbounds { { i64, [9 x i64] }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %13, i64 %15
+  %.idx = mul nsw i64 %15, 152
+  %16 = getelementptr inbounds i8, ptr %13, i64 %.idx
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %._crit_edge, label %.lr.ph
 
@@ -17567,7 +17584,8 @@ define hidden void @"_ZN90_$LT$proto..context_operation..SlashCommandFinished$u2
   %19 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %21 = load i64, ptr %20, align 8, !noundef !4
-  %22 = getelementptr inbounds { i32, i32 }, ptr %19, i64 %21
+  %.idx16 = shl nsw i64 %21, 3
+  %22 = getelementptr inbounds i8, ptr %19, i64 %.idx16
   %23 = icmp eq i64 %21, 0
   br i1 %23, label %._crit_edge15, label %.lr.ph14
 

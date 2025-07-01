@@ -2638,7 +2638,8 @@ define internal noundef signext i8 @_ZL16collator_cleanupv() #5 {
   br i1 %11, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %8
-  %12 = getelementptr inbounds %"class.icu_77::Locale", ptr %7, i64 %10
+  %.idx = mul nsw i64 %10, 224
+  %12 = getelementptr inbounds i8, ptr %7, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader

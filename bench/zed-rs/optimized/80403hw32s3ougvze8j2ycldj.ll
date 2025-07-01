@@ -6142,7 +6142,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h3999449af35104f7E.exit: ; preds = %.no
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i29, align 8, !alias.scope !963, !noalias !966, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i30, align 8, !alias.scope !963, !noalias !966
-  %140 = getelementptr inbounds { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nsw i64 %.sroa.5.0.copyload.i, 40
+  %140 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
   store ptr %.sroa.4.0.copyload.i, ptr %19, align 8
@@ -6221,7 +6222,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h3999449af35104f7E.exit: ; preds = %.no
   %.sroa.4.0.copyload.i36 = load ptr, ptr %.sroa.4.0..sroa_idx.i35, align 8, !alias.scope !973, !noalias !976, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i37 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %.sroa.5.0.copyload.i38 = load i64, ptr %.sroa.5.0..sroa_idx.i37, align 8, !alias.scope !973, !noalias !976
-  %155 = getelementptr inbounds { i64, { i32, i32 }, { i32, i32 }, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %.sroa.4.0.copyload.i36, i64 %.sroa.5.0.copyload.i38
+  %.idx119 = mul nsw i64 %.sroa.5.0.copyload.i38, 40
+  %155 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i36, i64 %.idx119
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   store ptr %.sroa.4.0.copyload.i36, ptr %16, align 8

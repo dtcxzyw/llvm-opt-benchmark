@@ -8459,7 +8459,8 @@ define linkonce_odr void @_ZNSt11_Deque_baseIPN3tbb6detail2d14taskENS2_23cache_a
   %10 = sub i64 %9, %4
   %11 = lshr i64 %10, 1
   %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %4
+  %.idx = shl nuw nsw i64 %4, 3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %_ZNSt11_Deque_baseIPN3tbb6detail2d14taskENS2_23cache_aligned_allocatorIS4_EEE16_M_allocate_nodeEv.exit.i

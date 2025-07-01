@@ -139,7 +139,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha474
   %.val = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val6 = load i64, ptr %4, align 8, !noundef !4
-  %5 = getelementptr inbounds { i8, [31 x i8] }, ptr %.val, i64 %.val6
+  %.idx = shl nsw i64 %.val6, 5
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !40, !noalias !43, !nonnull !4, !align !5, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)

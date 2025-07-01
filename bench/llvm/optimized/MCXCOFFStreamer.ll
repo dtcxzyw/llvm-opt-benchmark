@@ -483,7 +483,8 @@ define dso_local void @_ZN4llvm15MCXCOFFStreamer14emitInstToDataERKNS_6MCInstERK
   %22 = load ptr, ptr %4, align 8, !tbaa !84
   %23 = load i32, ptr %9, align 8, !tbaa !82
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %22, i64 %24
+  %.idx = mul nuw nsw i64 %24, 24
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %.not20 = icmp eq i32 %23, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 

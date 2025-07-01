@@ -22,7 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.7 = type { %struct._zend_stream }
 %struct._zend_stream = type { ptr, i32, ptr, ptr, ptr }
 %struct._browscap_parser_ctx = type { ptr, ptr, ptr, %struct._zend_array }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @browscap_globals = hidden global %struct._zend_browscap_globals zeroinitializer, align 8
 @.str = private unnamed_addr constant [9 x i8] c"browscap\00", align 1
@@ -547,7 +546,8 @@ zend_hash_find_ptr.exit:                          ; preds = %59
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %70 = load i32, ptr %69, align 8, !tbaa !39
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw %struct._Bucket, ptr %68, i64 %71
+  %.idx = shl nuw nsw i64 %71, 5
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %74 = load i32, ptr %73, align 8, !tbaa !4
   %75 = and i32 %74, 4

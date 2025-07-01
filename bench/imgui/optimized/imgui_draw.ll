@@ -11264,7 +11264,8 @@ _ZN14ImTriangulator10BuildNodesEPK6ImVec2i.exit:  ; preds = %18
   %91 = load ptr, ptr %12, align 8, !tbaa !187
   %92 = load i32, ptr %39, align 8, !tbaa !198
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds ptr, ptr %91, i64 %93
+  %.idx.i.i = shl nsw i64 %93, 3
+  %94 = getelementptr inbounds i8, ptr %91, i64 %.idx.i.i
   %.not2428.i.i = icmp slt i32 %92, 1
   br i1 %.not2428.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -11468,7 +11469,8 @@ define void @_ZN14ImTriangulator9BuildEarsEv(ptr noundef nonnull align 8 capture
   %25 = load ptr, ptr %5, align 8, !tbaa !187
   %26 = load i32, ptr %6, align 8, !tbaa !198
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds ptr, ptr %25, i64 %27
+  %.idx.i = shl nsw i64 %27, 3
+  %28 = getelementptr inbounds i8, ptr %25, i64 %.idx.i
   %.not2428.i = icmp slt i32 %26, 1
   br i1 %.not2428.i, label %.loopexit, label %.lr.ph.i
 
@@ -11519,7 +11521,8 @@ define noundef zeroext i1 @_ZNK14ImTriangulator5IsEarEiiiRK6ImVec2S2_S2_(ptr nou
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8, !tbaa !198
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %9, i64 %12
+  %.idx = shl nsw i64 %12, 3
+  %13 = getelementptr inbounds i8, ptr %9, i64 %.idx
   %.not2428 = icmp slt i32 %11, 1
   br i1 %.not2428, label %.critedge27, label %.lr.ph
 
@@ -11673,7 +11676,8 @@ _ZN14ImTriangulator12FlipNodeListEv.exit:         ; preds = %.lr.ph.i, %7
   %72 = load ptr, ptr %21, align 8, !tbaa !187
   %73 = load i32, ptr %20, align 8, !tbaa !198
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds ptr, ptr %72, i64 %74
+  %.idx.i.i = shl nsw i64 %74, 3
+  %75 = getelementptr inbounds i8, ptr %72, i64 %.idx.i.i
   %.not2428.i.i = icmp slt i32 %73, 1
   br i1 %.not2428.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -11855,7 +11859,8 @@ define void @_ZN14ImTriangulator14ReclassifyNodeEP18ImTriangulatorNode(ptr nound
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load i32, ptr %36, align 8, !tbaa !198
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %35, i64 %38
+  %.idx.i = shl nsw i64 %38, 3
+  %39 = getelementptr inbounds i8, ptr %35, i64 %.idx.i
   %.not2428.i = icmp slt i32 %37, 1
   br i1 %.not2428.i, label %_ZNK14ImTriangulator5IsEarEiiiRK6ImVec2S2_S2_.exit, label %.lr.ph.i
 
@@ -12811,7 +12816,8 @@ define void @_ZN5ImGui23AddDrawListToDrawDataExEP10ImDrawDataP8ImVectorIP10ImDra
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !51
   %21 = sext i32 %4 to i64
-  %22 = getelementptr inbounds %struct.ImDrawCmd, ptr %20, i64 %21
+  %.idx = shl nsw i64 %21, 6
+  %22 = getelementptr inbounds i8, ptr %20, i64 %.idx
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 192
   br label %24
 
@@ -13159,7 +13165,8 @@ define void @_ZN10ImDrawData14ScaleClipRectsERK6ImVec2(ptr noundef nonnull reado
   %5 = load ptr, ptr %4, align 8, !tbaa !222
   %6 = load i32, ptr %3, align 8, !tbaa !223
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %.idx = shl nsw i64 %7, 3
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %.not27 = icmp eq i32 %6, 0
   br i1 %.not27, label %._crit_edge31, label %.lr.ph30
 
@@ -13177,7 +13184,8 @@ define void @_ZN10ImDrawData14ScaleClipRectsERK6ImVec2(ptr noundef nonnull reado
   %13 = load ptr, ptr %12, align 8, !tbaa !51
   %14 = load i32, ptr %11, align 8, !tbaa !53
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.ImDrawCmd, ptr %13, i64 %15
+  %.idx32 = shl nsw i64 %15, 6
+  %16 = getelementptr inbounds i8, ptr %13, i64 %.idx32
   %.not2425 = icmp eq i32 %14, 0
   br i1 %.not2425, label %._crit_edge, label %.lr.ph
 
@@ -13514,22 +13522,24 @@ define void @_ZN11ImFontAtlas14ClearInputDataEv(ptr noundef nonnull align 8 capt
   %4 = load ptr, ptr %3, align 8, !tbaa !252
   %5 = load i32, ptr %2, align 8, !tbaa !263
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.ImFontConfig, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 7
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not29 = icmp eq i32 %5, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %23
-  %.pre36.pre = load ptr, ptr %3, align 8, !tbaa !252
+  %.pre37.pre = load ptr, ptr %3, align 8, !tbaa !252
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %.pre = phi ptr [ %.pre36.pre, %._crit_edge.loopexit ], [ %4, %1 ]
+  %.pre = phi ptr [ %.pre37.pre, %._crit_edge.loopexit ], [ %4, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !254
   %11 = load i32, ptr %8, align 8, !tbaa !258
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %10, i64 %12
+  %.idx36 = shl nsw i64 %12, 3
+  %13 = getelementptr inbounds i8, ptr %10, i64 %.idx36
   %.not2531 = icmp eq i32 %11, 0
   br i1 %.not2531, label %._crit_edge35, label %.lr.ph34
 
@@ -14234,7 +14244,8 @@ _ZN8ImVectorI12ImFontConfigE9push_backERKS0_.exit: ; preds = %._ZN8ImVectorI12Im
   %102 = fptosi float %101 to i32
   %103 = sitofp i32 %102 to float
   store float %103, ptr %100, align 4, !tbaa !275
-  %104 = getelementptr inbounds %struct.ImFontConfig, ptr %99, i64 %.pre-phi
+  %.idx.i = shl nsw i64 %.pre-phi, 7
+  %104 = getelementptr inbounds i8, ptr %99, i64 %.idx.i
   %.not13.i = icmp eq i32 %98, 0
   br i1 %.not13.i, label %_Z35ImFontAtlasUpdateConfigDataPointersP11ImFontAtlas.exit, label %.lr.ph.i
 
@@ -14303,7 +14314,8 @@ define void @_Z35ImFontAtlasUpdateConfigDataPointersP11ImFontAtlas(ptr noundef r
   %4 = load ptr, ptr %3, align 8, !tbaa !252
   %5 = load i32, ptr %2, align 8, !tbaa !263
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.ImFontConfig, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 7
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not13 = icmp eq i32 %5, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -17873,7 +17885,8 @@ _ZN8ImVectorIiE7reserveEi.exit:                   ; preds = %.noexc392, %.lr.ph6
   %1252 = getelementptr i8, ptr %1234, i64 248
   %.val363 = load ptr, ptr %1252, align 8, !tbaa !361
   %1253 = sext i32 %.val362 to i64
-  %1254 = getelementptr inbounds i32, ptr %.val363, i64 %1253
+  %.idx.i = shl nsw i64 %1253, 2
+  %1254 = getelementptr inbounds i8, ptr %.val363, i64 %.idx.i
   %1255 = icmp sgt i32 %.val362, 0
   br i1 %1255, label %.lr.ph.i, label %_ZL30UnpackBitVectorToFlatIndexListPK11ImBitVectorP8ImVectorIiE.exit
 
@@ -24035,7 +24048,8 @@ _ZL34ImFontAtlasBuildRenderLinesTexDataP11ImFontAtlas.exit: ; preds = %.loopexit
   %230 = load ptr, ptr %229, align 8, !tbaa !254
   %231 = load i32, ptr %228, align 8, !tbaa !258
   %232 = sext i32 %231 to i64
-  %233 = getelementptr inbounds ptr, ptr %230, i64 %232
+  %.idx = shl nsw i64 %232, 3
+  %233 = getelementptr inbounds i8, ptr %230, i64 %.idx
   %.not41 = icmp eq i32 %231, 0
   br i1 %.not41, label %._crit_edge45, label %.lr.ph44
 

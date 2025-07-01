@@ -533,7 +533,8 @@ define internal { ptr, ptr } @"_ZN109_$LT$settings..settings_store..SettingValue
   br i1 %17, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %8
-  %18 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, { { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, [2 x i64] }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, i8, [7 x i8] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i64, i8, i8, i8, i8, i8, [3 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { i32, i32, i8, i8, i8, [1 x i8] }, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [6 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } }, ptr %14, i64 %16
+  %.idx = mul nsw i64 %16, 440
+  %18 = getelementptr inbounds i8, ptr %14, i64 %.idx
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %26, %8, %2
@@ -34856,7 +34857,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h02295d7122169bd3E(p
   %.20 = select i1 %.not, ptr %13, ptr %0
   %15 = shl i64 %.sroa.0.0.sroa.speculated.i, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2, ptr nonnull align 4 %.20, i64 %15, i1 false)
-  %16 = getelementptr inbounds { i32, i32 }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %16 = getelementptr inbounds i8, ptr %2, i64 %15
   br i1 %.not, label %.preheader, label %.lr.ph.i
 
 .preheader:                                       ; preds = %12, %.noexc
@@ -34987,7 +34988,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h08e54d7b497bcfb1E(p
   %.20 = select i1 %.not, ptr %22, ptr %0
   %24 = mul i64 %.sroa.0.0.sroa.speculated.i, 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20, i64 %24, i1 false)
-  %25 = getelementptr inbounds { i64, [12 x i64] }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %25 = getelementptr inbounds i8, ptr %2, i64 %24
   br i1 %.not, label %26, label %.lr.ph.i
 
 26:                                               ; preds = %21
@@ -35291,7 +35292,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h0ea423ceed54fe7aE(p
   %.20 = select i1 %.not, ptr %13, ptr %0
   %15 = mul i64 %.sroa.0.0.sroa.speculated.i, 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20, i64 %15, i1 false)
-  %16 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %16 = getelementptr inbounds i8, ptr %2, i64 %15
   br i1 %.not, label %.preheader, label %.lr.ph.i
 
 .preheader:                                       ; preds = %12, %.preheader
@@ -35374,7 +35375,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h38a20816557bd7dfE(p
   %.20 = select i1 %.not, ptr %13, ptr %0
   %15 = mul i64 %.sroa.0.0.sroa.speculated.i, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20, i64 %15, i1 false)
-  %16 = getelementptr inbounds { i64, { { { i64, ptr, {} }, i64 }, i64 } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %16 = getelementptr inbounds i8, ptr %2, i64 %15
   %.val = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   br i1 %.not, label %.preheader, label %.lr.ph.i
 
@@ -35593,7 +35594,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h4a1dd41f2e02d7b6E(p
   %.20 = select i1 %.not, ptr %17, ptr %0
   %19 = mul i64 %.sroa.0.0.sroa.speculated.i, 136
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20, i64 %19, i1 false)
-  %20 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, { { i32, i32 }, { i32, i32 } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %20 = getelementptr inbounds i8, ptr %2, i64 %19
   br i1 %.not, label %21, label %.lr.ph.i
 
 21:                                               ; preds = %16
@@ -35833,7 +35834,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h75177d0731e7d066E(p
   %.20 = select i1 %.not, ptr %13, ptr %0
   %15 = shl i64 %.sroa.0.0.sroa.speculated.i, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20, i64 %15, i1 false)
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %16 = getelementptr inbounds i8, ptr %2, i64 %15
   br i1 %.not, label %.preheader, label %.lr.ph.i
 
 .preheader:                                       ; preds = %12, %.preheader
@@ -35916,7 +35917,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17hcbf854859ea505e0E(p
   %.20 = select i1 %.not, ptr %13, ptr %0
   %15 = mul i64 %.sroa.0.0.sroa.speculated.i, 264
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20, i64 %15, i1 false)
-  %16 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [29 x i64] } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %16 = getelementptr inbounds i8, ptr %2, i64 %15
   br i1 %.not, label %.preheader, label %.lr.ph.i
 
 .preheader:                                       ; preds = %12, %.preheader
@@ -36021,7 +36022,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17he382566b7504b1a1E(p
   %.20 = select i1 %.not, ptr %17, ptr %0
   %19 = mul i64 %.sroa.0.0.sroa.speculated.i, 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20, i64 %19, i1 false)
-  %20 = getelementptr inbounds { i64, [12 x i64] }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %20 = getelementptr inbounds i8, ptr %2, i64 %19
   br i1 %.not, label %21, label %.lr.ph.i
 
 21:                                               ; preds = %16

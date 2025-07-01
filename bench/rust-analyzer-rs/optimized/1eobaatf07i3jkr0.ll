@@ -18021,7 +18021,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -18464,7 +18465,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -18907,7 +18909,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -19350,7 +19353,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -19793,7 +19797,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -20236,7 +20241,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -20679,7 +20685,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -21122,7 +21129,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -21565,7 +21573,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -22008,7 +22017,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -22451,7 +22461,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -22894,7 +22905,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -23337,7 +23349,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -23780,7 +23793,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -24223,7 +24237,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -24666,7 +24681,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -25109,7 +25125,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -25552,7 +25569,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -25995,7 +26013,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -26438,7 +26457,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -26881,7 +26901,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -27324,7 +27345,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -27767,7 +27789,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -28210,7 +28233,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -28653,7 +28677,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -29096,7 +29121,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -29539,7 +29565,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -29982,7 +30009,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -30425,7 +30453,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -30868,7 +30897,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -31311,7 +31341,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -31754,7 +31785,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -32197,7 +32229,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -32640,7 +32673,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -33083,7 +33117,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -33526,7 +33561,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -33969,7 +34005,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -34412,7 +34449,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -34855,7 +34893,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -35298,7 +35337,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -35741,7 +35781,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -36184,7 +36225,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -36627,7 +36669,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -37070,7 +37113,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -37513,7 +37557,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -37956,7 +38001,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -38399,7 +38445,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -38842,7 +38889,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -39285,7 +39333,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -39728,7 +39777,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -40171,7 +40221,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -40614,7 +40665,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -41057,7 +41109,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -41500,7 +41553,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -41943,7 +41997,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -42386,7 +42441,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -42829,7 +42885,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -43272,7 +43329,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -43715,7 +43773,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -44158,7 +44217,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -44601,7 +44661,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -45044,7 +45105,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -45487,7 +45549,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -45930,7 +45993,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -46373,7 +46437,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -46816,7 +46881,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -47259,7 +47325,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -47702,7 +47769,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -48145,7 +48213,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -48588,7 +48657,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -49031,7 +49101,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -49474,7 +49545,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -49917,7 +49989,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -50360,7 +50433,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -50803,7 +50877,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit120
   %.sroa.4166.0.copyload = load ptr, ptr %.sroa.4166.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5167.0.copyload = load i64, ptr %.sroa.5167.0..sroa_idx, align 8
-  %123 = getelementptr inbounds ptr, ptr %.sroa.4166.0.copyload, i64 %.sroa.5167.0.copyload
+  %.idx = shl nsw i64 %.sroa.5167.0.copyload, 3
+  %123 = getelementptr inbounds i8, ptr %.sroa.4166.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4166.0.copyload, ptr %9, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8

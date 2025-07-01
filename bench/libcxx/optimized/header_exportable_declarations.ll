@@ -8361,7 +8361,8 @@ _ZN5clang12ast_matchers8internal7MatcherINS_10FriendDeclEED2Ev.exit: ; preds = %
 
 54:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #23
-  %55 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %56 = icmp ugt i64 %2, 384307168202282325
   br i1 %56, label %57, label %.lr.ph.i.i.i.i.preheader.i.i
 
@@ -9026,7 +9027,8 @@ _ZN5clang12ast_matchers8internal7MatcherINS_9NamedDeclEED2Ev.exit: ; preds = %_Z
 
 54:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #23
-  %55 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %56 = icmp ugt i64 %2, 384307168202282325
   br i1 %56, label %57, label %.lr.ph.i.i.i.i.preheader.i.i
 

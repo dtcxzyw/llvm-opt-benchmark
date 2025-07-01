@@ -309,7 +309,8 @@ _ZN6icu_7712LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit96: ; preds =
   br i1 %121, label %.loopexit.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %118
-  %122 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %116, i64 %120
+  %.idx.i = shl nsw i64 %120, 6
+  %122 = getelementptr inbounds i8, ptr %116, i64 %.idx.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
@@ -455,7 +456,8 @@ define linkonce_odr void @_ZN6icu_7710LocalArrayIKNS_13UnicodeStringEED2Ev(ptr n
   br i1 %7, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %4
-  %8 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %2, i64 %6
+  %.idx = shl nsw i64 %6, 6
+  %8 = getelementptr inbounds i8, ptr %2, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -1534,7 +1536,8 @@ define linkonce_odr void @_ZN6icu_778numparse4impl14DecimalMatcherD2Ev(ptr nound
   br i1 %8, label %.loopexit.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %5
-  %9 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %3, i64 %7
+  %.idx.i = shl nsw i64 %7, 6
+  %9 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i

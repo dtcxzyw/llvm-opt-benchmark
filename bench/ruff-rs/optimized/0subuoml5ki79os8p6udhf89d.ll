@@ -378,7 +378,8 @@ define internal void @"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Contex
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal void @"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 captures(address) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca [24 x i8], align 8
-  %6 = getelementptr inbounds nuw { { ptr, ptr } }, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -7756,7 +7757,7 @@ define internal fastcc void @_ZN21ruff_python_formatter6string9docstring20Docstr
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %74, i64 16
   %124 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %125 = getelementptr inbounds nuw i8, ptr %74, i64 28
-  %.sroa.7.0..sroa_idx485 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %.sroa.7.0..sroa_idx488 = getelementptr inbounds nuw i8, ptr %64, i64 8
   br label %126
 
 126:                                              ; preds = %.lr.ph, %.backedge
@@ -8049,7 +8050,8 @@ _ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc4
 202:                                              ; preds = %200
   %203 = load ptr, ptr %.sroa.7.0..sroa_idx2, align 8, !alias.scope !824, !noalias !806, !nonnull !3, !noundef !3
   %204 = load i64, ptr %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx2.sroa_idx, align 8, !alias.scope !824, !noalias !806, !noundef !3
-  %205 = getelementptr inbounds nuw { { { ptr, i64 }, { ptr, [1 x i64] }, i32, [1 x i32] }, { ptr, i64 } }, ptr %203, i64 %204
+  %.idx.i.i.i = mul nuw nsw i64 %204, 56
+  %205 = getelementptr inbounds nuw i8, ptr %203, i64 %.idx.i.i.i
   %206 = icmp eq i64 %204, 0
   br i1 %206, label %.thread268, label %.lr.ph.i.i.i
 
@@ -8687,7 +8689,8 @@ _ZN21ruff_python_formatter6string9docstring15CodeExampleKind4code17h647eefb0f93d
   %390 = inttoptr i64 %.sroa.7.sroa.8.0.copyload to ptr
   %391 = icmp ult ptr %.sroa.7.sroa.9.0.copyload, inttoptr (i64 164703072086692426 to ptr)
   call void @llvm.assume(i1 %391)
-  %392 = getelementptr inbounds nuw { { { ptr, i64 }, { ptr, [1 x i64] }, i32, [1 x i32] }, { ptr, i64 } }, ptr %390, i64 %389
+  %.idx476 = mul nuw nsw i64 %389, 56
+  %392 = getelementptr inbounds nuw i8, ptr %390, i64 %.idx476
   %393 = icmp sgt ptr %.sroa.7.sroa.0.0.copyload, inttoptr (i64 -1 to ptr)
   call void @llvm.assume(i1 %393)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %73)
@@ -8872,7 +8875,8 @@ default.unreachable4.i:                           ; preds = %415
   %.sroa.5198.0.copyload = load i64, ptr %.sroa.5229.0..sroa_idx, align 8
   %429 = icmp ult i64 %.sroa.5198.0.copyload, 288230376151711744
   call void @llvm.assume(i1 %429)
-  %430 = getelementptr inbounds nuw { { i64, [2 x i64] }, i32, i8, [3 x i8] }, ptr %.sroa.4197.0.copyload, i64 %.sroa.5198.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.5198.0.copyload, 5
+  %430 = getelementptr inbounds nuw i8, ptr %.sroa.4197.0.copyload, i64 %.idx
   %431 = icmp sgt i64 %.sroa.0196.0.copyload, -1
   call void @llvm.assume(i1 %431)
   store ptr %.sroa.4197.0.copyload, ptr %65, align 8, !alias.scope !870, !noalias !873
@@ -8906,14 +8910,14 @@ default.unreachable4.i:                           ; preds = %415
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b963c49faac316E.exit": ; preds = %426
   %433 = getelementptr inbounds nuw i8, ptr %.sroa.4197.0.copyload, i64 32
   store ptr %433, ptr %119, align 8, !alias.scope !875, !noalias !878
-  %.sroa.0483.0.copyload484 = load i64, ptr %.sroa.4197.0.copyload, align 8, !noalias !875
-  %.not85 = icmp eq i64 %.sroa.0483.0.copyload484, -9223372036854775807
+  %.sroa.0486.0.copyload487 = load i64, ptr %.sroa.4197.0.copyload, align 8, !noalias !875
+  %.not85 = icmp eq i64 %.sroa.0486.0.copyload487, -9223372036854775807
   br i1 %.not85, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b963c49faac316E.exit.thread", label %434
 
 434:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b963c49faac316E.exit"
   %.sroa.7.0..sroa.4197.0.copyload.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4197.0.copyload, i64 8
-  store i64 %.sroa.0483.0.copyload484, ptr %64, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx485, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa.4197.0.copyload.sroa_idx, i64 24, i1 false)
+  store i64 %.sroa.0486.0.copyload487, ptr %64, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx488, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa.4197.0.copyload.sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %63)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %62)
   invoke void @_ZN21ruff_python_formatter6string9docstring19OutputDocstringLine3map17h83cf12a9c20c50ddE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %62, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %64, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %66)
@@ -9175,7 +9179,8 @@ _ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc4
   %.sroa.5213.0.copyload = load i64, ptr %.sroa.5229.0..sroa_idx, align 8
   %488 = icmp ult i64 %.sroa.5213.0.copyload, 288230376151711744
   call void @llvm.assume(i1 %488)
-  %489 = getelementptr inbounds nuw { { i64, [2 x i64] }, i32, i8, [3 x i8] }, ptr %.sroa.4212.0.copyload, i64 %.sroa.5213.0.copyload
+  %.idx478 = shl nuw nsw i64 %.sroa.5213.0.copyload, 5
+  %489 = getelementptr inbounds nuw i8, ptr %.sroa.4212.0.copyload, i64 %.idx478
   %490 = icmp sgt i64 %.sroa.0211.0.copyload, -1
   call void @llvm.assume(i1 %490)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %55)
@@ -9351,7 +9356,8 @@ _ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc4
   %.sroa.5229.0.copyload = load i64, ptr %.sroa.5229.0..sroa_idx, align 8
   %519 = icmp ult i64 %.sroa.5229.0.copyload, 288230376151711744
   call void @llvm.assume(i1 %519)
-  %520 = getelementptr inbounds nuw { { i64, [2 x i64] }, i32, i8, [3 x i8] }, ptr %.sroa.4228.0.copyload, i64 %.sroa.5229.0.copyload
+  %.idx477 = shl nuw nsw i64 %.sroa.5229.0.copyload, 5
+  %520 = getelementptr inbounds nuw i8, ptr %.sroa.4228.0.copyload, i64 %.idx477
   %521 = icmp sgt i64 %.sroa.0227.0.copyload, -1
   call void @llvm.assume(i1 %521)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49)
@@ -9490,8 +9496,8 @@ _ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %68, ptr noundef nonnull align 8 dereferenceable(80) %70, i64 80, i1 false)
   %548 = load i64, ptr %68, align 8, !range !171, !alias.scope !903, !noalias !906, !noundef !3
   %549 = icmp sgt i64 %548, -9223372036854775806
-  %switch494 = icmp eq i64 %548, -9223372036854775807
-  %switch = or i1 %549, %switch494
+  %switch497 = icmp eq i64 %548, -9223372036854775807
+  %switch = or i1 %549, %switch497
   %spec.select.idx.sroa.sel.idx = select i1 %switch, i64 0, i64 8
   %spec.select.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %68, i64 %spec.select.idx.sroa.sel.idx
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %123, ptr noundef nonnull align 8 dereferenceable(24) %spec.select.idx.sroa.sel, i64 24, i1 false)
@@ -10546,7 +10552,8 @@ define internal fastcc void @_ZN21ruff_python_formatter6string9docstring14CodeEx
   br i1 %11, label %.loopexit18.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %2
-  %12 = getelementptr inbounds nuw { { { ptr, i64 }, { ptr, [1 x i64] }, i32, [1 x i32] }, { ptr, i64 } }, ptr %8, i64 %10
+  %.idx = mul nuw nsw i64 %10, 56
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %"_ZN21ruff_python_formatter6string9docstring14CodeExampleRst18push_format_action28_$u7b$$u7b$closure$u7d$$u7d$17h84ed3eab3d79c847E.exit.i"

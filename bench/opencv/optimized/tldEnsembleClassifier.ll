@@ -1315,7 +1315,8 @@ _ZSt24__uninitialized_fill_n_aIPN2cv6Point_IiEEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exi
   br i1 %39, label %_ZSt6fill_nIPN2cv6Point_IiEEmS2_ET_S4_T0_RKT1_.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw %"class.cv::Point_", ptr %6, i64 %1
+  %.idx.i.i = shl nuw nsw i64 %1, 3
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
   br label %.lr.ph.i.i.i.i14
 
 .lr.ph.i.i.i.i14:                                 ; preds = %.lr.ph.i.i.i.i14, %40

@@ -12,8 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::CharString" = type { %"class.icu_77::MaybeStackArray", i32, [4 x i8] }
 %"class.icu_77::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 %"class.icu_77::StringPiece" = type <{ ptr, i32, [4 x i8] }>
-%struct.UCMapping = type { i32, %union.anon, i8, i8, i8, i8 }
-%union.anon = type { i32 }
 
 $_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ev = comdat any
 
@@ -844,7 +842,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit106: ; preds = 
           cleanup
   br label %525
 
-.loopexit.split-lp:                               ; preds = %158, %161, %172, %411, %176, %182, %189, %193, %204, %219, %229, %231, %239, %.noexc115, %253, %257, %265, %.noexc119, %278, %.thread168.i, %345, %350, %355, %365, %392, %.noexc128, %._crit_edge162.thread.i, %408, %515, %519, %521
+.loopexit.split-lp:                               ; preds = %158, %161, %172, %411, %176, %182, %189, %193, %204, %219, %229, %231, %239, %.noexc115, %253, %257, %265, %.noexc119, %278, %.thread169.i, %345, %350, %355, %365, %392, %.noexc128, %._crit_edge162.thread.i, %408, %515, %519, %521
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %525
@@ -969,9 +967,9 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 
 .noexc112:                                        ; preds = %219
   %.not151.i = icmp eq i8 %221, 0
-  br i1 %.not151.i, label %222, label %._crit_edge164.i
+  br i1 %.not151.i, label %222, label %._crit_edge165.i
 
-._crit_edge164.i:                                 ; preds = %.noexc112
+._crit_edge165.i:                                 ; preds = %.noexc112
   %.pre.i = load ptr, ptr %5, align 8, !tbaa !40
   br label %223
 
@@ -979,8 +977,8 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
   store i32 13, ptr %12, align 4, !tbaa !14
   br label %.thread152
 
-223:                                              ; preds = %._crit_edge164.i, %212
-  %224 = phi ptr [ %.pre.i, %._crit_edge164.i ], [ %213, %212 ]
+223:                                              ; preds = %._crit_edge165.i, %212
+  %224 = phi ptr [ %.pre.i, %._crit_edge165.i ], [ %213, %212 ]
   %225 = load ptr, ptr %224, align 8, !tbaa !53
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 57
   %227 = load i8, ptr %226, align 1, !tbaa !54
@@ -1100,7 +1098,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 275:                                              ; preds = %274
   %276 = load ptr, ptr @stderr, align 8, !tbaa !20
   %277 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %276, ptr noundef nonnull @.str.30, ptr noundef nonnull %4) #22
-  br label %.sink.split173.i
+  br label %.sink.split174.i
 
 278:                                              ; preds = %274
   %279 = load ptr, ptr %5, align 8, !tbaa !40
@@ -1110,7 +1108,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 .noexc121:                                        ; preds = %278
   store ptr %280, ptr %99, align 8, !tbaa !56
   %281 = icmp eq ptr %280, null
-  br i1 %281, label %.sink.split173.i, label %282
+  br i1 %281, label %.sink.split174.i, label %282
 
 282:                                              ; preds = %.noexc121
   %283 = load ptr, ptr %3, align 8, !tbaa !40
@@ -1177,9 +1175,10 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
   %316 = getelementptr inbounds nuw i8, ptr %314, i64 12
   %317 = load i32, ptr %316, align 4, !tbaa !50
   %318 = sext i32 %317 to i64
-  %319 = getelementptr inbounds %struct.UCMapping, ptr %315, i64 %318
+  %.idx.i = mul nsw i64 %318, 12
+  %319 = getelementptr inbounds i8, ptr %315, i64 %.idx.i
   %320 = icmp sgt i32 %317, 0
-  br i1 %320, label %.lr.ph.i, label %.thread168.i
+  br i1 %320, label %.lr.ph.i, label %.thread169.i
 
 .lr.ph.i:                                         ; preds = %312, %327
   %.0125157.i = phi i8 [ %.1126.i, %327 ], [ 0, %312 ]
@@ -1220,25 +1219,25 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 335:                                              ; preds = %334, %._crit_edge.i
   %336 = and i32 %332, 2
   %.not139.i = icmp eq i32 %336, 0
-  br i1 %.not139.i, label %.thread168.i, label %337
+  br i1 %.not139.i, label %.thread169.i, label %337
 
 337:                                              ; preds = %335
   store i8 1, ptr %108, align 1, !tbaa !69
-  br label %.thread168.i
+  br label %.thread169.i
 
-.thread168.i:                                     ; preds = %337, %335, %312
+.thread169.i:                                     ; preds = %337, %335, %312
   %338 = sext i8 %313 to i32
   %339 = invoke i32 @ucm_countChars(ptr noundef nonnull %284, ptr noundef nonnull %96, i32 noundef %338)
           to label %.noexc122 unwind label %.loopexit.split-lp
 
-.noexc122:                                        ; preds = %.thread168.i
+.noexc122:                                        ; preds = %.thread169.i
   %.not140.i = icmp eq i32 %339, 1
   br i1 %.not140.i, label %343, label %340
 
 340:                                              ; preds = %.noexc122
   %341 = load ptr, ptr @stderr, align 8, !tbaa !20
   %342 = call i64 @fwrite(ptr nonnull @.str.27, i64 87, i64 1, ptr %341) #23
-  br label %.sink.split173.i
+  br label %.sink.split174.i
 
 343:                                              ; preds = %.noexc122
   %344 = load i8, ptr %98, align 8, !tbaa !45
@@ -1256,7 +1255,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 347:                                              ; preds = %.noexc123
   %348 = load ptr, ptr @stderr, align 8, !tbaa !20
   %349 = call i64 @fwrite(ptr nonnull @.str.28, i64 64, i64 1, ptr %348) #23
-  br label %.sink.split173.i
+  br label %.sink.split174.i
 
 350:                                              ; preds = %.noexc123, %343
   %351 = load ptr, ptr %5, align 8, !tbaa !40
@@ -1267,7 +1266,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 
 .noexc124:                                        ; preds = %350
   %.not143.i = icmp eq i8 %354, 0
-  br i1 %.not143.i, label %.sink.split173.i, label %355
+  br i1 %.not143.i, label %.sink.split174.i, label %355
 
 355:                                              ; preds = %.noexc124
   %356 = load ptr, ptr %3, align 8, !tbaa !40
@@ -1280,7 +1279,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 
 .noexc125:                                        ; preds = %355
   %.not144.i = icmp eq i8 %361, 0
-  br i1 %.not144.i, label %.sink.split173.i, label %362
+  br i1 %.not144.i, label %.sink.split174.i, label %362
 
 362:                                              ; preds = %.noexc125
   %363 = load i32, ptr %299, align 4, !tbaa !60
@@ -1298,7 +1297,8 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
   %370 = getelementptr inbounds nuw i8, ptr %368, i64 12
   %371 = load i32, ptr %370, align 4, !tbaa !50
   %372 = sext i32 %371 to i64
-  %373 = getelementptr inbounds %struct.UCMapping, ptr %369, i64 %372
+  %.idx164.i = mul nsw i64 %372, 12
+  %373 = getelementptr inbounds i8, ptr %369, i64 %.idx164.i
   %374 = icmp sgt i32 %371, 0
   br i1 %374, label %.lr.ph161.i, label %._crit_edge162.thread.i
 
@@ -1366,14 +1366,14 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 
 .noexc130:                                        ; preds = %._crit_edge162.thread.i
   %.not146.i = icmp eq i8 %407, 0
-  br i1 %.not146.i, label %.sink.split173.i, label %408
+  br i1 %.not146.i, label %.sink.split174.i, label %408
 
-.sink.split173.i:                                 ; preds = %.noexc130, %.noexc125, %.noexc124, %347, %340, %.noexc121, %275
-  %.sink174.i = phi i32 [ 13, %340 ], [ 13, %347 ], [ 13, %275 ], [ 7, %.noexc121 ], [ 13, %.noexc125 ], [ 13, %.noexc124 ], [ 13, %.noexc130 ]
-  store i32 %.sink174.i, ptr %12, align 4, !tbaa !14
+.sink.split174.i:                                 ; preds = %.noexc130, %.noexc125, %.noexc124, %347, %340, %.noexc121, %275
+  %.sink175.i = phi i32 [ 13, %340 ], [ 13, %347 ], [ 13, %275 ], [ 7, %.noexc121 ], [ 13, %.noexc125 ], [ 13, %.noexc124 ], [ 13, %.noexc130 ]
+  store i32 %.sink175.i, ptr %12, align 4, !tbaa !14
   br label %408
 
-408:                                              ; preds = %.sink.split173.i, %.noexc130
+408:                                              ; preds = %.sink.split174.i, %.noexc130
   invoke fastcc void @_ZL15cleanupConvDataP8ConvData(ptr noundef %3)
           to label %.noexc131 unwind label %.loopexit.split-lp
 

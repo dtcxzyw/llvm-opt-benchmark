@@ -3259,7 +3259,8 @@ common.resume.i:                                  ; preds = %279, %105, %.body.i
 164:                                              ; preds = %163
   %165 = load ptr, ptr %56, align 8, !noalias !687, !nonnull !3, !noundef !3
   %166 = load i64, ptr %57, align 8, !noalias !687, !noundef !3
-  %167 = getelementptr inbounds { i32, [1 x i32] }, ptr %165, i64 %166
+  %.idx.i.i = shl nsw i64 %166, 3
+  %167 = getelementptr inbounds i8, ptr %165, i64 %.idx.i.i
   %168 = icmp eq i64 %166, 0
   br i1 %168, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -3309,7 +3310,8 @@ common.resume.i:                                  ; preds = %279, %105, %.body.i
 185:                                              ; preds = %184
   %186 = load ptr, ptr %56, align 8, !noalias !687, !nonnull !3, !noundef !3
   %187 = load i64, ptr %57, align 8, !noalias !687, !noundef !3
-  %188 = getelementptr inbounds { i32, [1 x i32] }, ptr %186, i64 %187
+  %.idx248.i.i = shl nsw i64 %187, 3
+  %188 = getelementptr inbounds i8, ptr %186, i64 %.idx248.i.i
   %189 = icmp eq i64 %187, 0
   br i1 %189, label %._crit_edge247.i.i, label %.lr.ph246.i.i
 

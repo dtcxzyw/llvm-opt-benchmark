@@ -7144,7 +7144,7 @@ define linkonce_odr dso_local void @_ZN4node9inspector8protocol4cbor18EncodeStri
 entry:
   %mul.i = shl i64 %in.coerce1, 1
   tail call void @_ZN4node9inspector8protocol4cbor9internals19WriteTokenStartTmplISt6vectorIhSaIhEEEEvNS2_9MajorTypeEmPT_(i32 noundef 2, i64 noundef %mul.i, ptr noundef %out)
-  %add.ptr.i = getelementptr inbounds i16, ptr %in.coerce0, i64 %in.coerce1
+  %add.ptr.i = getelementptr inbounds i8, ptr %in.coerce0, i64 %mul.i
   %cmp.not43 = icmp eq i64 %in.coerce1, 0
   br i1 %cmp.not43, label %for.end, label %for.body.lr.ph
 
@@ -7305,7 +7305,7 @@ define dso_local void @_ZN4node9inspector8protocol4cbor14EncodeString16ENS1_4spa
 entry:
   %mul.i.i = shl i64 %in.coerce1, 1
   tail call void @_ZN4node9inspector8protocol4cbor9internals19WriteTokenStartTmplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvNS2_9MajorTypeEmPT_(i32 noundef 2, i64 noundef %mul.i.i, ptr noundef %out)
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %in.coerce0, i64 %in.coerce1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %in.coerce0, i64 %mul.i.i
   %cmp.not10.i = icmp eq i64 %in.coerce1, 0
   br i1 %cmp.not10.i, label %_ZN4node9inspector8protocol4cbor18EncodeString16TmplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvNS1_4spanItEEPT_.exit, label %for.body.i
 
@@ -7912,7 +7912,8 @@ return:                                           ; preds = %if.then.i.i.i61, %f
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node9inspector8protocol4cbor15EncodeFromUTF16ENS1_4spanItEEPSt6vectorIhSaIhEE(ptr %utf16.coerce0, i64 %utf16.coerce1, ptr noundef %out) local_unnamed_addr #1 {
 entry:
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %utf16.coerce0, i64 %utf16.coerce1
+  %add.ptr.i.idx.i = shl nsw i64 %utf16.coerce1, 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %utf16.coerce0, i64 %add.ptr.i.idx.i
   %cmp.not16.i = icmp eq i64 %utf16.coerce1, 0
   br i1 %cmp.not16.i, label %for.end.i, label %for.body.i
 
@@ -7957,7 +7958,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node9inspector8protocol4cbor19EncodeFromUTF16TmplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvNS1_4spanItEEPT_(ptr %utf16.coerce0, i64 %utf16.coerce1, ptr noundef %out) local_unnamed_addr #1 comdat {
 entry:
-  %add.ptr.i = getelementptr inbounds i16, ptr %utf16.coerce0, i64 %utf16.coerce1
+  %add.ptr.i.idx = shl i64 %utf16.coerce1, 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %utf16.coerce0, i64 %add.ptr.i.idx
   %cmp.not16 = icmp eq i64 %utf16.coerce1, 0
   br i1 %cmp.not16, label %for.end, label %for.body
 
@@ -7973,8 +7975,7 @@ for.body:                                         ; preds = %entry, %for.cond
   br i1 %cmp2, label %for.cond, label %for.body.i.i.preheader
 
 for.body.i.i.preheader:                           ; preds = %for.body
-  %mul.i.i.i = shl i64 %utf16.coerce1, 1
-  tail call void @_ZN4node9inspector8protocol4cbor9internals19WriteTokenStartTmplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvNS2_9MajorTypeEmPT_(i32 noundef 2, i64 noundef %mul.i.i.i, ptr noundef %out)
+  tail call void @_ZN4node9inspector8protocol4cbor9internals19WriteTokenStartTmplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvNS2_9MajorTypeEmPT_(i32 noundef 2, i64 noundef %add.ptr.i.idx, ptr noundef %out)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
@@ -17580,7 +17581,8 @@ entry:
 if.end:                                           ; preds = %entry
   %out_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %out_, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %chars.coerce0, i64 %chars.coerce1
+  %add.ptr.i.idx.i.i = shl nsw i64 %chars.coerce1, 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %chars.coerce0, i64 %add.ptr.i.idx.i.i
   %cmp.not16.i.i = icmp eq i64 %chars.coerce1, 0
   br i1 %cmp.not16.i.i, label %for.end.i.i, label %for.body.i.i
 
@@ -19691,7 +19693,8 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS
   br label %_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit
 
 _ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEE4EmitEc.exit: ; preds = %if.then.i.i.i25, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i
-  %add.ptr.i = getelementptr inbounds i16, ptr %chars.coerce0, i64 %chars.coerce1
+  %add.ptr.i.idx = shl nsw i64 %chars.coerce1, 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %chars.coerce0, i64 %add.ptr.i.idx
   %cmp.not142 = icmp eq i64 %chars.coerce1, 0
   br i1 %cmp.not142, label %for.end, label %for.body
 
@@ -22605,7 +22608,8 @@ _ZN4node9inspector8protocol4json12_GLOBAL__N_15State12StartElementEPNSt7__cxx111
   store i32 %inc.i.i, ptr %size_.i.i, align 4
   %this.val21 = load ptr, ptr %out_, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %this.val21, i8 noundef signext 34) #27
-  %add.ptr.i = getelementptr inbounds i16, ptr %chars.coerce0, i64 %chars.coerce1
+  %add.ptr.i.idx = shl nsw i64 %chars.coerce1, 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %chars.coerce0, i64 %add.ptr.i.idx
   %cmp.not68 = icmp eq i64 %chars.coerce1, 0
   br i1 %cmp.not68, label %for.end, label %for.body
 

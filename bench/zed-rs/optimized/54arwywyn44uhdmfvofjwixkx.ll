@@ -11133,9 +11133,9 @@ common.resume:                                    ; preds = %.body.i, %.body20, 
   br i1 %50, label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$$GT$17h12990e7f4e0c522bE.llvm.11372070486381688224.exit", label %51
 
 51:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$$u5b$tab_switcher..TabMatch$u5d$$GT$17h4b4e760f2b97337eE.exit"
-  %.sroa.7.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.sroa.7.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.7.0..sroa_idx48, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.7.0..sroa_idx50, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !2681
   store i32 %49, ptr %14, align 8
   %52 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
@@ -11258,7 +11258,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17haf0e21b2299a0d9aE.exit: ; preds = %.no
   br i1 %92, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17h77a5d292da0e2b0aE.exit, label %.lr.ph.i9.preheader
 
 .lr.ph.i9.preheader:                              ; preds = %88
-  %93 = getelementptr inbounds { { { i32, i32 } }, i64 }, ptr %89, i64 %90
+  %.idx = shl nsw i64 %90, 4
+  %93 = getelementptr inbounds i8, ptr %89, i64 %.idx
   br label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %.lr.ph.i9.preheader, %.noexc10
@@ -11697,7 +11698,8 @@ define hidden void @_ZN12tab_switcher19TabSwitcherDelegate11select_item17hdf6aa4
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i64, i64, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nsw i64 %8, 40
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %.loopexit, label %.lr.ph.i
 

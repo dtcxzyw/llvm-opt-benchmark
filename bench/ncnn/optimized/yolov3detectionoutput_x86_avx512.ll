@@ -956,7 +956,8 @@ _ZN4ncnn3MatD2Ev.exit154:                         ; preds = %.preheader289.lr.ph
   %140 = and i32 %136, -8
   %141 = mul nsw i32 %140, %74
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds float, ptr %135, i64 %142
+  %.idx = shl nsw i64 %142, 2
+  %143 = getelementptr inbounds i8, ptr %135, i64 %.idx
   %144 = icmp sgt i32 %141, 0
   br i1 %144, label %.lr.ph, label %.preheader
 

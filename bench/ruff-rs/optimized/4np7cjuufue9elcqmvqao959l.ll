@@ -7321,7 +7321,8 @@ _ZN7tracing4span4Span8do_enter17hc42ad5655e37783bE.exit: ; preds = %.noexc726, %
   %.sroa.5830.0.copyload = load i64, ptr %.sroa.5830.0..sroa_idx, align 8
   %277 = icmp ult i64 %.sroa.5830.0.copyload, 288230376151711744
   call void @llvm.assume(i1 %277)
-  %278 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %.sroa.4829.0.copyload, i64 %.sroa.5830.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.5830.0.copyload, 5
+  %278 = getelementptr inbounds nuw i8, ptr %.sroa.4829.0.copyload, i64 %.idx
   %279 = icmp sgt i64 %.sroa.0828.0.copyload, -1
   call void @llvm.assume(i1 %279)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %172)

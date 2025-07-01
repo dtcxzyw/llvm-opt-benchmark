@@ -60,7 +60,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.msgpack::v2::detail::context<msgpack::v2::detail::parse_helper<msgpack::v2::detail::create_object_visitor>>::map_sv" = type { ptr }
 %"struct.msgpack::v2::detail::context<msgpack::v2::detail::parse_helper<msgpack::v2::detail::create_object_visitor>>::map_ev" = type { ptr }
 %"struct.msgpack::v2::detail::context<msgpack::v2::detail::parse_helper<msgpack::v2::detail::create_object_visitor>>::unpack_stack::stack_elem" = type { i32, i32 }
-%"struct.msgpack::v1::object_kv" = type { %"struct.msgpack::v2::object", %"struct.msgpack::v2::object" }
 
 $_ZN5boost4noneE = comdat any
 
@@ -8530,7 +8529,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   %14 = load ptr, ptr %13, align 8, !tbaa !33
   %15 = load i32, ptr %12, align 8, !tbaa !33
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"struct.msgpack::v1::object_kv", ptr %14, i64 %16
+  %.idx = mul nuw nsw i64 %16, 48
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #25
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %18, align 8, !tbaa !34

@@ -414,7 +414,8 @@ define void @_ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE(ptr noalias no
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  %23 = getelementptr inbounds { ptr, i64 }, ptr %2, i64 %3
+  %.idx.i = shl nsw i64 %3, 4
+  %23 = getelementptr inbounds i8, ptr %2, i64 %.idx.i
   %24 = icmp eq i64 %3, 0
   br i1 %24, label %_ZN5uu_dd9parseargs6Parser4read17h4273c84f79c6e53bE.exit, label %.lr.ph.i
 
@@ -3179,7 +3180,8 @@ define internal fastcc void @_ZN5uu_dd9parseargs31parse_bytes_with_opt_multiplie
   %.sroa.0100.0.copyload = load i64, ptr %17, align 8
   %.sroa.4.0..sroa_idx101 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx101, align 8, !nonnull !5, !noundef !5
-  %32 = getelementptr inbounds { ptr, i64 }, ptr %.sroa.4.0.copyload, i64 %19
+  %.idx = shl nsw i64 %19, 4
+  %32 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   store ptr %.sroa.4.0.copyload, ptr %15, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8

@@ -362,6 +362,7 @@ define internal fastcc void @do_elbg(ptr noalias noundef nonnull captures(none) 
   %51 = shl nsw i64 %45, 2
   %52 = mul nsw i32 %29, 3
   %53 = sext i32 %52 to i64
+  %.idx = shl nsw i64 %53, 2
   %54 = shl nsw i32 %29, 2
   %55 = sext i32 %54 to i64
   %56 = shl nsw i64 %50, 2
@@ -1070,7 +1071,7 @@ eval_error_cell.exit97.i.i:                       ; preds = %distance_limited.ex
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   store i64 0, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
-  %372 = getelementptr inbounds i32, ptr %220, i64 %53
+  %372 = getelementptr inbounds i8, ptr %220, i64 %.idx
   store ptr %372, ptr %6, align 16, !tbaa !65
   %373 = getelementptr inbounds i32, ptr %220, i64 %55
   store ptr %373, ptr %40, align 8, !tbaa !65

@@ -8032,8 +8032,9 @@ Vec_IntAlloc.exit:                                ; preds = %29, %33
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !30
   %43 = sext i32 %.val69 to i64
-  %44 = getelementptr inbounds i32, ptr %40, i64 %43
-  %45 = getelementptr inbounds i32, ptr %42, i64 %43
+  %.idx.i = shl nsw i64 %43, 2
+  %44 = getelementptr inbounds i8, ptr %40, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %42, i64 %.idx.i
   store i32 0, ptr %32, align 4, !tbaa !28
   %46 = icmp sgt i32 %.val69, 0
   br i1 %46, label %.lr.ph.i, label %.preheader52.i

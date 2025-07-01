@@ -37,10 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { %"class.llvm::json::ObjectKey", %"class.llvm::json::Value" }
-%"class.clang::SarifRule" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.clang::SarifReportingConfiguration", [4 x i8] }>
-%"class.clang::SarifReportingConfiguration" = type { i8, i32, float }
 
 $_ZN5clang22SARIFDiagnosticPrinterD2Ev = comdat any
 
@@ -726,7 +722,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9Ob
   %8 = load ptr, ptr %0, align 8, !tbaa !60
   %9 = load i32, ptr %4, align 8, !tbaa !62
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %10
+  %.idx = shl nuw nsw i64 %10, 6
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not51 = icmp eq i32 %9, 0
   br i1 %.not51, label %._crit_edge, label %.lr.ph
 
@@ -1013,7 +1010,8 @@ define linkonce_odr hidden void @_ZN4llvm11SmallVectorIN5clang9SarifRuleELj32EED
 
 .lr.ph.i.preheader:                               ; preds = %1
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %"class.clang::SarifRule", ptr %2, i64 %5
+  %.idx = mul nuw nsw i64 %5, 144
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN5clang9SarifRuleD2Ev.exit.i
@@ -1131,7 +1129,8 @@ define linkonce_odr hidden void @_ZN4llvm14StringMapEntryIN5clang6detail13SarifA
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %2
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i64 %8
+  %.idx.i.i.i = shl nuw nsw i64 %8, 5
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i

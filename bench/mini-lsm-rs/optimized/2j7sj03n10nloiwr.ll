@@ -460,7 +460,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h1616b9a56f5bf339E(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 24
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h6867259a3bdf4a7bE.exit, label %.lr.ph.i
 
@@ -3672,7 +3673,8 @@ common.resume:                                    ; preds = %161, %394, %155
 
 .lr.ph:                                           ; preds = %232
   %.val146 = load ptr, ptr %66, align 8, !nonnull !4, !noundef !4
-  %241 = getelementptr inbounds { { ptr, ptr, i64, { ptr } } }, ptr %.val146, i64 %233
+  %.idx = shl nsw i64 %233, 5
+  %241 = getelementptr inbounds i8, ptr %.val146, i64 %.idx
   %242 = load ptr, ptr %61, align 8
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %244 = getelementptr inbounds nuw i8, ptr %242, i64 16
@@ -4835,7 +4837,8 @@ common.resume:                                    ; preds = %159, %411, %153
 
 .lr.ph:                                           ; preds = %240
   %.val146 = load ptr, ptr %65, align 8, !nonnull !4, !noundef !4
-  %249 = getelementptr inbounds { { ptr, ptr, i64, { ptr } } }, ptr %.val146, i64 %241
+  %.idx = shl nsw i64 %241, 5
+  %249 = getelementptr inbounds i8, ptr %.val146, i64 %.idx
   br i1 %185, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -5916,7 +5919,8 @@ _ZN13mini_lsm_mvcc11lsm_storage15LsmStorageInner11path_of_sst17h091e5f390a5cf8b2
 
 .lr.ph.preheader:                                 ; preds = %206
   %.val146 = load ptr, ptr %63, align 8, !nonnull !4, !noundef !4
-  %215 = getelementptr inbounds { { ptr, ptr, i64, { ptr } } }, ptr %.val146, i64 %207
+  %.idx = shl nsw i64 %207, 5
+  %215 = getelementptr inbounds i8, ptr %.val146, i64 %.idx
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h873e0e162cd21019E.exit.backedge", %206, %204
@@ -6468,7 +6472,8 @@ _ZN13mini_lsm_mvcc11lsm_storage15LsmStorageInner4mvcc17h13204d47b54189c6E.exit70
 
 _ZN13mini_lsm_mvcc4mvcc12LsmMvccInner16latest_commit_ts17hd0c51950e3e6cae1E.exit: ; preds = %.noexc74, %34
   %35 = add i64 %30, 1
-  %36 = getelementptr inbounds { [2 x i64], ptr, [1 x i64] }, ptr %2, i64 %3
+  %.idx = shl nsw i64 %3, 5
+  %36 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %37 = icmp eq i64 %3, 0
   br i1 %37, label %._crit_edge, label %.lr.ph
 
@@ -6902,7 +6907,8 @@ _ZN13mini_lsm_mvcc11lsm_storage15LsmStorageInner4mvcc17h13204d47b54189c6E.exit64
 
 _ZN13mini_lsm_mvcc4mvcc12LsmMvccInner16latest_commit_ts17hd0c51950e3e6cae1E.exit: ; preds = %.noexc68, %34
   %35 = add i64 %30, 1
-  %36 = getelementptr inbounds { [4 x i64], ptr, [3 x i64] }, ptr %2, i64 %3
+  %.idx = shl nsw i64 %3, 6
+  %36 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %37 = icmp eq i64 %3, 0
   br i1 %37, label %._crit_edge, label %.lr.ph
 
@@ -9213,7 +9219,8 @@ define void @_ZN13mini_lsm_mvcc5table9BlockMeta17encode_block_meta17h3e3720dc29c
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %8 = getelementptr inbounds { { { ptr, ptr, i64, { ptr } }, i64 }, { { ptr, ptr, i64, { ptr } }, i64 }, i64 }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 88
+  %8 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %9 = icmp eq i64 %1, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 

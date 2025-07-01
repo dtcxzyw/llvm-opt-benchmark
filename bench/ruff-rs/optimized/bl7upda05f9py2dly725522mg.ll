@@ -8977,7 +8977,8 @@ define internal fastcc void @"_ZN18ty_python_semantic5types5infer20TypeInference
   %7 = alloca [8 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [8 x i8], align 8
-  %10 = getelementptr inbounds nuw { i32, { i32, [1 x i32] } }, ptr %3, i64 %4
+  %.idx = mul nuw nsw i64 %4, 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %11 = icmp eq i64 %4, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 
@@ -13039,7 +13040,8 @@ define hidden void @_ZN18ty_python_semantic5types9BoolError22report_diagnostic_i
 272:                                              ; preds = %268
   %273 = extractvalue { ptr, i64 } %271, 0
   %274 = extractvalue { ptr, i64 } %271, 1
-  %275 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %273, i64 %274
+  %.idx = shl nuw nsw i64 %274, 4
+  %275 = getelementptr inbounds nuw i8, ptr %273, i64 %.idx
   %276 = icmp ne ptr %273, null
   tail call void @llvm.assume(i1 %276)
   %277 = icmp eq i64 %274, 0
@@ -20299,7 +20301,8 @@ define noundef zeroext i1 @_ZN18ty_python_semantic5types4Type25is_union_of_singl
   %6 = tail call { ptr, i64 } @"_ZN18ty_python_semantic5types1_54_$LT$impl$u20$ty_python_semantic..types..UnionType$GT$8elements17h68536faae3677217E"(i32 noundef %.sroa.44.0.copyload, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2)
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
-  %9 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %7, i64 %8
+  %.idx = shl nuw nsw i64 %8, 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %10 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %10)
   %11 = icmp eq i64 %8, 0
@@ -26926,7 +26929,8 @@ default.unreachable264:                           ; preds = %5
   %73 = call { ptr, i64 } @"_ZN18ty_python_semantic5types1_54_$LT$impl$u20$ty_python_semantic..types..UnionType$GT$8elements17h68536faae3677217E"(i32 noundef range(i32 1, 0) %72, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3), !noalias !2721
   %74 = extractvalue { ptr, i64 } %73, 0
   %75 = extractvalue { ptr, i64 } %73, 1
-  %76 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %74, i64 %75
+  %.idx = shl nuw nsw i64 %75, 4
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx
   %77 = icmp ne ptr %74, null
   call void @llvm.assume(i1 %77)
   %78 = icmp eq i64 %75, 0
@@ -27584,7 +27588,8 @@ define internal fastcc void @"_ZN18ty_python_semantic5types4Type13try_bool_impl2
   %8 = tail call { ptr, i64 } @"_ZN18ty_python_semantic5types1_54_$LT$impl$u20$ty_python_semantic..types..UnionType$GT$8elements17h68536faae3677217E"(i32 noundef %2, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %7)
   %9 = extractvalue { ptr, i64 } %8, 0
   %10 = extractvalue { ptr, i64 } %8, 1
-  %11 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %9, i64 %10
+  %.idx = shl nuw nsw i64 %10, 4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   %12 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %12)
   %13 = icmp eq i64 %10, 0
@@ -27966,7 +27971,8 @@ define internal fastcc void @_ZN18ty_python_semantic5types4Type3len24non_negativ
 25:                                               ; preds = %13
   %26 = extractvalue { ptr, i64 } %16, 0
   %27 = extractvalue { ptr, i64 } %16, 1
-  %28 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %26, i64 %27
+  %.idx = shl nuw nsw i64 %27, 4
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
   %29 = icmp ne ptr %26, null
   tail call void @llvm.assume(i1 %29)
   %30 = icmp eq i64 %27, 0
@@ -36642,7 +36648,7 @@ define void @_ZN18ty_python_semantic5types4Type11to_instance17hd12c094681162f11E
   %25 = alloca [40 x i8], align 8
   %26 = alloca [40 x i8], align 8
   %27 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  switch i8 %27, label %default.unreachable139 [
+  switch i8 %27, label %default.unreachable140 [
     i8 0, label %28
     i8 1, label %28
     i8 2, label %29
@@ -36674,7 +36680,7 @@ define void @_ZN18ty_python_semantic5types4Type11to_instance17hd12c094681162f11E
     i8 28, label %29
   ]
 
-default.unreachable139:                           ; preds = %4
+default.unreachable140:                           ; preds = %4
   unreachable
 
 28:                                               ; preds = %4, %4
@@ -36794,7 +36800,8 @@ default.unreachable139:                           ; preds = %4
 72:                                               ; preds = %62
   %73 = extractvalue { ptr, i64 } %65, 0
   %74 = extractvalue { ptr, i64 } %65, 1
-  %75 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %73, i64 %74
+  %.idx139 = shl nuw nsw i64 %74, 4
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx139
   %76 = icmp ne ptr %73, null
   tail call void @llvm.assume(i1 %76)
   %77 = icmp eq i64 %74, 0
@@ -36956,7 +36963,8 @@ default.unreachable139:                           ; preds = %4
 104:                                              ; preds = %93
   %105 = extractvalue { ptr, i64 } %94, 0
   %106 = extractvalue { ptr, i64 } %94, 1
-  %107 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %105, i64 %106
+  %.idx = shl nuw nsw i64 %106, 4
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx
   %108 = icmp ne ptr %105, null
   tail call void @llvm.assume(i1 %108)
   %109 = icmp eq i64 %106, 0
@@ -37922,7 +37930,8 @@ default.unreachable183:                           ; preds = %5
 239:                                              ; preds = %96
   %240 = extractvalue { ptr, i64 } %99, 0
   %241 = extractvalue { ptr, i64 } %99, 1
-  %242 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %240, i64 %241
+  %.idx = shl nuw nsw i64 %241, 4
+  %242 = getelementptr inbounds nuw i8, ptr %240, i64 %.idx
   %243 = icmp ne ptr %240, null
   tail call void @llvm.assume(i1 %243)
   %244 = icmp eq i64 %241, 0
@@ -38425,7 +38434,7 @@ define hidden void @_ZN18ty_python_semantic5types4Type18apply_type_mapping17hdc4
   %21 = alloca [16 x i8], align 8
   %22 = alloca [16 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  switch i8 %23, label %default.unreachable63 [
+  switch i8 %23, label %default.unreachable64 [
     i8 0, label %25
     i8 1, label %25
     i8 2, label %26
@@ -38457,7 +38466,7 @@ define hidden void @_ZN18ty_python_semantic5types4Type18apply_type_mapping17hdc4
     i8 28, label %25
   ]
 
-default.unreachable63:                            ; preds = %38, %5
+default.unreachable64:                            ; preds = %38, %5
   unreachable
 
 24:                                               ; preds = %100
@@ -38496,7 +38505,7 @@ default.unreachable63:                            ; preds = %38, %5
 38:                                               ; preds = %5
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %40 = load i32, ptr %39, align 4, !range !2180, !noundef !3
-  switch i32 %40, label %default.unreachable63 [
+  switch i32 %40, label %default.unreachable64 [
     i32 0, label %108
     i32 1, label %114
     i32 2, label %120
@@ -38694,7 +38703,8 @@ default.unreachable63:                            ; preds = %38, %5
   %134 = load ptr, ptr %133, align 8, !nonnull !3, !noundef !3
   %135 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %136 = load i64, ptr %135, align 8, !noundef !3
-  %137 = getelementptr inbounds nuw { { i8, [15 x i8] }, i64, {} }, ptr %134, i64 %136
+  %.idx = mul nuw nsw i64 %136, 24
+  %137 = getelementptr inbounds nuw i8, ptr %134, i64 %.idx
   %138 = icmp eq i64 %136, 0
   br i1 %138, label %._crit_edge, label %.lr.ph.preheader
 
@@ -38722,7 +38732,8 @@ default.unreachable63:                            ; preds = %38, %5
   %142 = load ptr, ptr %141, align 8, !nonnull !3, !noundef !3
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %144 = load i64, ptr %143, align 8, !noundef !3
-  %145 = getelementptr inbounds nuw { { i8, [15 x i8] }, i64, {} }, ptr %142, i64 %144
+  %.idx63 = mul nuw nsw i64 %144, 24
+  %145 = getelementptr inbounds nuw i8, ptr %142, i64 %.idx63
   %146 = icmp eq i64 %144, 0
   br i1 %146, label %._crit_edge62, label %.lr.ph61.preheader
 
@@ -38876,7 +38887,7 @@ define hidden void @_ZN18ty_python_semantic5types4Type20find_legacy_typevars17he
   %14 = alloca [16 x i8], align 8
   %15 = alloca [16 x i8], align 8
   %16 = load i8, ptr %0, align 8, !range !709, !noundef !3
-  switch i8 %16, label %default.unreachable61 [
+  switch i8 %16, label %default.unreachable64 [
     i8 0, label %_ZN18ty_python_semantic5types12FunctionType20find_legacy_typevars17hdc750e400c652578E.exit
     i8 1, label %_ZN18ty_python_semantic5types12FunctionType20find_legacy_typevars17hdc750e400c652578E.exit
     i8 2, label %17
@@ -38908,7 +38919,7 @@ define hidden void @_ZN18ty_python_semantic5types4Type20find_legacy_typevars17he
     i8 28, label %_ZN18ty_python_semantic5types12FunctionType20find_legacy_typevars17hdc750e400c652578E.exit
   ]
 
-default.unreachable61:                            ; preds = %48, %4
+default.unreachable64:                            ; preds = %48, %4
   unreachable
 
 _ZN18ty_python_semantic5types12FunctionType20find_legacy_typevars17hdc750e400c652578E.exit: ; preds = %128, %127, %.lr.ph53, %.lr.ph56, %.lr.ph.i37, %.lr.ph.i34, %.lr.ph.i, %101, %81, %79, %._crit_edge, %82, %51, %32, %17, %110, %131, %115, %114, %72, %67, %65, %62, %48, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
@@ -38994,7 +39005,7 @@ _ZN18ty_python_semantic5types12FunctionType20find_legacy_typevars17hdc750e400c65
 48:                                               ; preds = %4
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %50 = load i32, ptr %49, align 4, !range !2180, !noundef !3
-  switch i32 %50, label %default.unreachable61 [
+  switch i32 %50, label %default.unreachable64 [
     i32 0, label %114
     i32 1, label %114
     i32 2, label %115
@@ -39008,7 +39019,8 @@ _ZN18ty_python_semantic5types12FunctionType20find_legacy_typevars17hdc750e400c65
   %54 = tail call { ptr, i64 } @"_ZN18ty_python_semantic5types1_57_$LT$impl$u20$ty_python_semantic..types..CallableType$GT$10signatures17h126b15d9ebff3d44E"(i32 noundef range(i32 1, 0) %53, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2), !noalias !3741
   %55 = extractvalue { ptr, i64 } %54, 0
   %56 = extractvalue { ptr, i64 } %54, 1
-  %57 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, i8, [7 x i8] }, { i8, [15 x i8] }, i32, i32 }, ptr %55, i64 %56
+  %.idx.i = mul nuw nsw i64 %56, 56
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i
   %58 = icmp ne ptr %55, null
   tail call void @llvm.assume(i1 %58)
   %59 = icmp eq i64 %56, 0
@@ -39075,7 +39087,8 @@ _ZN18ty_python_semantic5types12FunctionType20find_legacy_typevars17hdc750e400c65
   %85 = tail call { ptr, i64 } @"_ZN18ty_python_semantic5types1_54_$LT$impl$u20$ty_python_semantic..types..UnionType$GT$8elements17h68536faae3677217E"(i32 noundef %84, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2), !noalias !3744
   %86 = extractvalue { ptr, i64 } %85, 0
   %87 = extractvalue { ptr, i64 } %85, 1
-  %88 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %86, i64 %87
+  %.idx59 = shl nuw nsw i64 %87, 4
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx59
   %89 = icmp ne ptr %86, null
   tail call void @llvm.assume(i1 %89)
   %90 = icmp eq i64 %87, 0
@@ -39089,7 +39102,8 @@ _ZN18ty_python_semantic5types12FunctionType20find_legacy_typevars17hdc750e400c65
   %96 = load ptr, ptr %95, align 8, !nonnull !3, !noundef !3
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 16
   %98 = load i64, ptr %97, align 8, !noundef !3
-  %99 = getelementptr inbounds nuw { { i8, [15 x i8] }, i64, {} }, ptr %96, i64 %98
+  %.idx57 = mul nuw nsw i64 %98, 24
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx57
   %100 = icmp eq i64 %98, 0
   br i1 %100, label %._crit_edge, label %.lr.ph50
 
@@ -39099,7 +39113,8 @@ _ZN18ty_python_semantic5types12FunctionType20find_legacy_typevars17hdc750e400c65
   %104 = tail call { ptr, i64 } @"_ZN18ty_python_semantic5types1_54_$LT$impl$u20$ty_python_semantic..types..TupleType$GT$8elements17h64dda1d17fad637bE"(i32 noundef %103, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2), !noalias !3747
   %105 = extractvalue { ptr, i64 } %104, 0
   %106 = extractvalue { ptr, i64 } %104, 1
-  %107 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %105, i64 %106
+  %.idx = shl nuw nsw i64 %106, 4
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx
   %108 = icmp ne ptr %105, null
   tail call void @llvm.assume(i1 %108)
   %109 = icmp eq i64 %106, 0
@@ -39153,7 +39168,8 @@ _ZN18ty_python_semantic5types12FunctionType20find_legacy_typevars17hdc750e400c65
   %121 = load ptr, ptr %120, align 8, !nonnull !3, !noundef !3
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %123 = load i64, ptr %122, align 8, !noundef !3
-  %124 = getelementptr inbounds nuw { { i8, [15 x i8] }, i64, {} }, ptr %121, i64 %123
+  %.idx58 = mul nuw nsw i64 %123, 24
+  %124 = getelementptr inbounds nuw i8, ptr %121, i64 %.idx58
   %125 = icmp eq i64 %123, 0
   br i1 %125, label %_ZN18ty_python_semantic5types12FunctionType20find_legacy_typevars17hdc750e400c652578E.exit, label %.lr.ph53
 

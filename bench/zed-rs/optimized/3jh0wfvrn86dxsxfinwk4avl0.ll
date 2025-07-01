@@ -2382,7 +2382,8 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %5
   %104 = load ptr, ptr %103, align 8, !nonnull !5, !noundef !5
   %105 = getelementptr inbounds i8, ptr %86, i64 -72
   %106 = load i64, ptr %105, align 8, !noundef !5
-  %107 = getelementptr inbounds ptr, ptr %104, i64 %106
+  %.idx = shl nsw i64 %106, 3
+  %107 = getelementptr inbounds i8, ptr %104, i64 %.idx
   %108 = icmp eq i64 %106, 0
   br i1 %108, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hc65482020d11d92aE.exit.thread", label %.lr.ph.i
 
@@ -6295,7 +6296,8 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
   %123 = load ptr, ptr %122, align 8, !noalias !1378, !nonnull !5, !noundef !5
   %124 = getelementptr inbounds i8, ptr %102, i64 -72
   %125 = load i64, ptr %124, align 8, !noalias !1378, !noundef !5
-  %126 = getelementptr inbounds ptr, ptr %123, i64 %125
+  %.idx.i = shl nsw i64 %125, 3
+  %126 = getelementptr inbounds i8, ptr %123, i64 %.idx.i
   %127 = icmp eq i64 %125, 0
   br i1 %127, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hb69966b9678c60aaE.exit.i", label %.lr.ph.i.i
 

@@ -108,7 +108,8 @@ define internal void @"_ZN109_$LT$ruff_formatter..arguments..Arguments$LT$Contex
   %7 = load i64, ptr %6, align 8, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  %8 = getelementptr inbounds nuw { { ptr, ptr } }, ptr %5, i64 %7
+  %.idx.i = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %._crit_edge.i, label %.lr.ph.i
 
@@ -183,7 +184,8 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   %27 = load ptr, ptr %26, align 8, !noalias !22, !nonnull !3, !noundef !3
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %29 = load i64, ptr %28, align 8, !noalias !22, !noundef !3
-  %30 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %27, i64 %29
+  %.idx.i = shl nuw nsw i64 %29, 6
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i
   %31 = icmp eq i64 %29, 0
   br i1 %31, label %"_ZN167_$LT$ruff_python_formatter..other..comprehension..FormatComprehension$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..Comprehension$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h67945569b1f6fa93E.exit", label %.lr.ph.i
 
@@ -1135,7 +1137,8 @@ define hidden void @_ZN14ruff_formatter6format17h3dc869f7d2b03974E(ptr dead_on_u
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @anon.8228130015aded6fa68a0e300fceb238.4, ptr %46, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !130)
-  %47 = getelementptr inbounds nuw { { ptr, ptr } }, ptr %2, i64 %3
+  %.idx.i = shl nuw nsw i64 %3, 4
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %48 = icmp eq i64 %3, 0
   br i1 %48, label %.loopexit, label %.lr.ph.i
 
@@ -10282,7 +10285,8 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
 81:                                               ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %83 = load ptr, ptr %82, align 8, !nonnull !3, !noundef !3
-  %84 = getelementptr { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %83, i64 %54
+  %.idx = mul nuw nsw i64 %54, 96
+  %84 = getelementptr i8, ptr %83, i64 %.idx
   %85 = getelementptr i8, ptr %84, i64 -96
   %.not4869 = icmp eq ptr %85, null
   %.not48 = or i1 %56, %.not4869
@@ -10795,7 +10799,8 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
   %48 = load ptr, ptr %47, align 8, !nonnull !3, !noundef !3
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %50 = load i64, ptr %49, align 8, !noundef !3
-  %51 = getelementptr { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %48, i64 %50
+  %.idx = mul i64 %50, 72
+  %51 = getelementptr i8, ptr %48, i64 %.idx
   %52 = icmp eq i64 %50, 0
   br i1 %52, label %.._crit_edge_crit_edge, label %.lr.ph
 

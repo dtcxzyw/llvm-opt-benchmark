@@ -37,7 +37,7 @@ define void @_ZN7rocksdb22HistogramWindowingImplC2Ev(ptr noundef nonnull align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   invoke void @_ZN7rocksdb13HistogramStatC1Ev(ptr noundef nonnull align 8 dereferenceable(920) %3)
-          to label %4 unwind label %73
+          to label %4 unwind label %72
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 984
@@ -49,7 +49,7 @@ define void @_ZN7rocksdb22HistogramWindowingImplC2Ev(ptr noundef nonnull align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   store i64 0, ptr %8, align 8, !tbaa !32
   %9 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7rocksdb11SystemClock7DefaultEv()
-          to label %10 unwind label %75
+          to label %10 unwind label %74
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %9, align 8, !tbaa !33
@@ -146,7 +146,7 @@ _ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSERKS2_.exit: ; preds = %10, %_ZNSt16
   %54 = extractvalue { i64, i1 } %51, 0
   %55 = select i1 %53, i64 -1, i64 %54
   %56 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %55) #13
-          to label %57 unwind label %75
+          to label %57 unwind label %74
 
 57:                                               ; preds = %_ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSERKS2_.exit
   store i64 %47, ptr %56, align 16
@@ -179,57 +179,57 @@ _ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSERKS2_.exit: ; preds = %10, %_ZNSt16
 _ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i: ; preds = %.loopexit15
   %65 = getelementptr inbounds i8, ptr %64, i64 -8
   %66 = load i64, ptr %65, align 8
-  %67 = mul i64 %66, 920
-  %68 = add i64 %67, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %65, i64 noundef %68) #14
+  %.idx.i.i.i = mul i64 %66, 920
+  %67 = add i64 %.idx.i.i.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %65, i64 noundef %67) #14
   br label %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_.exit
 
 _ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_.exit: ; preds = %.loopexit15, %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i
-  %69 = load ptr, ptr %0, align 8, !tbaa !4
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %71 = load ptr, ptr %70, align 8
-  invoke void %71(ptr noundef nonnull align 8 dereferenceable(1032) %0)
-          to label %72 unwind label %75
+  %68 = load ptr, ptr %0, align 8, !tbaa !4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %70 = load ptr, ptr %69, align 8
+  invoke void %70(ptr noundef nonnull align 8 dereferenceable(1032) %0)
+          to label %71 unwind label %74
 
-72:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_.exit
+71:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_.exit
   ret void
 
-73:                                               ; preds = %1
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %1
+  %73 = landingpad { ptr, i32 }
           cleanup
-  br label %84
+  br label %82
 
-75:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_.exit, %_ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSERKS2_.exit, %4
-  %76 = landingpad { ptr, i32 }
+74:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_.exit, %_ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSERKS2_.exit, %4
+  %75 = landingpad { ptr, i32 }
           cleanup
-  br label %78
+  br label %77
 
 .loopexit:                                        ; preds = %61
-  %77 = landingpad { ptr, i32 }
+  %76 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdaPvm(ptr noundef nonnull %56, i64 noundef %55) #14
-  br label %78
+  br label %77
 
-78:                                               ; preds = %.loopexit, %75
-  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %77, %.loopexit ]
-  %79 = load ptr, ptr %5, align 8, !tbaa !42
-  %.not.i = icmp eq ptr %79, null
+77:                                               ; preds = %.loopexit, %74
+  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %76, %.loopexit ]
+  %78 = load ptr, ptr %5, align 8, !tbaa !42
+  %.not.i = icmp eq ptr %78, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
 
-_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i: ; preds = %78
-  %80 = getelementptr inbounds i8, ptr %79, i64 -8
-  %81 = load i64, ptr %80, align 8
-  %82 = mul i64 %81, 920
-  %83 = add i64 %82, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %80, i64 noundef %83) #14
+_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i: ; preds = %77
+  %79 = getelementptr inbounds i8, ptr %78, i64 -8
+  %80 = load i64, ptr %79, align 8
+  %.idx.i.i = mul i64 %80, 920
+  %81 = add i64 %.idx.i.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %79, i64 noundef %81) #14
   br label %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit: ; preds = %78, %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
+_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit: ; preds = %77, %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
   store ptr null, ptr %5, align 8, !tbaa !42
-  br label %84
+  br label %82
 
-84:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit, %73
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit ], [ %74, %73 ]
+82:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit, %72
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit ], [ %73, %72 ]
   tail call void @_ZNSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #12
   resume { ptr, i32 } %.pn.pn
 }
@@ -314,7 +314,7 @@ define void @_ZN7rocksdb22HistogramWindowingImplC2Emmm(ptr noundef nonnull align
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   invoke void @_ZN7rocksdb13HistogramStatC1Ev(ptr noundef nonnull align 8 dereferenceable(920) %6)
-          to label %7 unwind label %76
+          to label %7 unwind label %75
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 984
@@ -326,7 +326,7 @@ define void @_ZN7rocksdb22HistogramWindowingImplC2Emmm(ptr noundef nonnull align
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   store i64 %3, ptr %11, align 8, !tbaa !32
   %12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7rocksdb11SystemClock7DefaultEv()
-          to label %13 unwind label %78
+          to label %13 unwind label %77
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr %12, align 8, !tbaa !33
@@ -423,7 +423,7 @@ _ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSERKS2_.exit: ; preds = %13, %_ZNSt16
   %57 = extractvalue { i64, i1 } %54, 0
   %58 = select i1 %56, i64 -1, i64 %57
   %59 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %58) #13
-          to label %60 unwind label %78
+          to label %60 unwind label %77
 
 60:                                               ; preds = %_ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSERKS2_.exit
   store i64 %50, ptr %59, align 16
@@ -456,57 +456,57 @@ _ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSERKS2_.exit: ; preds = %13, %_ZNSt16
 _ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i: ; preds = %.loopexit18
   %68 = getelementptr inbounds i8, ptr %67, i64 -8
   %69 = load i64, ptr %68, align 8
-  %70 = mul i64 %69, 920
-  %71 = add i64 %70, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %68, i64 noundef %71) #14
+  %.idx.i.i.i = mul i64 %69, 920
+  %70 = add i64 %.idx.i.i.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %68, i64 noundef %70) #14
   br label %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_.exit
 
 _ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_.exit: ; preds = %.loopexit18, %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i
-  %72 = load ptr, ptr %0, align 8, !tbaa !4
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %74 = load ptr, ptr %73, align 8
-  invoke void %74(ptr noundef nonnull align 8 dereferenceable(1032) %0)
-          to label %75 unwind label %78
+  %71 = load ptr, ptr %0, align 8, !tbaa !4
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %73 = load ptr, ptr %72, align 8
+  invoke void %73(ptr noundef nonnull align 8 dereferenceable(1032) %0)
+          to label %74 unwind label %77
 
-75:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_.exit
+74:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_.exit
   ret void
 
-76:                                               ; preds = %4
-  %77 = landingpad { ptr, i32 }
+75:                                               ; preds = %4
+  %76 = landingpad { ptr, i32 }
           cleanup
-  br label %87
+  br label %85
 
-78:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_.exit, %_ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSERKS2_.exit, %7
-  %79 = landingpad { ptr, i32 }
+77:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_.exit, %_ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSERKS2_.exit, %7
+  %78 = landingpad { ptr, i32 }
           cleanup
-  br label %81
+  br label %80
 
 .loopexit:                                        ; preds = %64
-  %80 = landingpad { ptr, i32 }
+  %79 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdaPvm(ptr noundef nonnull %59, i64 noundef %58) #14
-  br label %81
+  br label %80
 
-81:                                               ; preds = %.loopexit, %78
-  %.pn = phi { ptr, i32 } [ %79, %78 ], [ %80, %.loopexit ]
-  %82 = load ptr, ptr %8, align 8, !tbaa !42
-  %.not.i = icmp eq ptr %82, null
+80:                                               ; preds = %.loopexit, %77
+  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %79, %.loopexit ]
+  %81 = load ptr, ptr %8, align 8, !tbaa !42
+  %.not.i = icmp eq ptr %81, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
 
-_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i: ; preds = %81
-  %83 = getelementptr inbounds i8, ptr %82, i64 -8
-  %84 = load i64, ptr %83, align 8
-  %85 = mul i64 %84, 920
-  %86 = add i64 %85, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %83, i64 noundef %86) #14
+_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i: ; preds = %80
+  %82 = getelementptr inbounds i8, ptr %81, i64 -8
+  %83 = load i64, ptr %82, align 8
+  %.idx.i.i = mul i64 %83, 920
+  %84 = add i64 %.idx.i.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %82, i64 noundef %84) #14
   br label %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit: ; preds = %81, %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
+_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit: ; preds = %80, %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
   store ptr null, ptr %8, align 8, !tbaa !42
-  br label %87
+  br label %85
 
-87:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit, %76
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit ], [ %77, %76 ]
+85:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit, %75
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit ], [ %76, %75 ]
   tail call void @_ZNSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
   resume { ptr, i32 } %.pn.pn
 }
@@ -522,63 +522,63 @@ define void @_ZN7rocksdb22HistogramWindowingImplD2Ev(ptr noundef nonnull align 8
 _ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i: ; preds = %1
   %4 = getelementptr inbounds i8, ptr %3, i64 -8
   %5 = load i64, ptr %4, align 8
-  %6 = mul i64 %5, 920
-  %7 = add i64 %6, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %4, i64 noundef %7) #14
+  %.idx.i.i = mul i64 %5, 920
+  %6 = add i64 %.idx.i.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %4, i64 noundef %6) #14
   br label %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
   store ptr null, ptr %2, align 8, !tbaa !42
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !34
-  %.not.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %10
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = load ptr, ptr %7, align 8, !tbaa !34
+  %.not.i.i = icmp eq ptr %8, null
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %9
 
-10:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = load atomic i64, ptr %11 acquire, align 8
-  %13 = icmp eq i64 %12, 4294967297
-  %14 = trunc i64 %12 to i32
-  br i1 %13, label %15, label %23
+9:                                                ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %11 = load atomic i64, ptr %10 acquire, align 8
+  %12 = icmp eq i64 %11, 4294967297
+  %13 = trunc i64 %11 to i32
+  br i1 %12, label %14, label %22
 
-15:                                               ; preds = %10
-  store i32 0, ptr %11, align 8, !tbaa !38
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !40
-  %17 = load ptr, ptr %9, align 8, !tbaa !4
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %9) #12
-  %20 = load ptr, ptr %9, align 8, !tbaa !4
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %9) #12
+14:                                               ; preds = %9
+  store i32 0, ptr %10, align 8, !tbaa !38
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i32 0, ptr %15, align 4, !tbaa !40
+  %16 = load ptr, ptr %8, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load ptr, ptr %17, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(16) %8) #12
+  %19 = load ptr, ptr %8, align 8, !tbaa !4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %21 = load ptr, ptr %20, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %8) #12
   br label %_ZNSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-23:                                               ; preds = %10
-  %24 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35
-  %.not.i.i.i = icmp eq i8 %24, 0
-  br i1 %.not.i.i.i, label %27, label %25
+22:                                               ; preds = %9
+  %23 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35
+  %.not.i.i.i = icmp eq i8 %23, 0
+  br i1 %.not.i.i.i, label %26, label %24
 
-25:                                               ; preds = %23
-  %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !36
+24:                                               ; preds = %22
+  %25 = add nsw i32 %13, -1
+  store i32 %25, ptr %10, align 4, !tbaa !36
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-27:                                               ; preds = %23
-  %28 = atomicrmw volatile add ptr %11, i32 -1 acq_rel, align 4
+26:                                               ; preds = %22
+  %27 = atomicrmw volatile add ptr %10, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %27, %25
-  %.0.i.i.i.i = phi i32 [ %14, %25 ], [ %28, %27 ]
-  %29 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %29, label %30, label %_ZNSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !41
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %26, %24
+  %.0.i.i.i.i = phi i32 [ %13, %24 ], [ %27, %26 ]
+  %28 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %28, label %29, label %_ZNSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !41
 
-30:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #12
+29:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #12
   br label %_ZNSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit, %15, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %30
+_ZNSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit, %14, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %29
   ret void
 }
 

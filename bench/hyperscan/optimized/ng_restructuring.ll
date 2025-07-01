@@ -90,7 +90,8 @@ define hidden void @_ZN3ue212numberStatesERNS_8NGHolderERKNS_8flat_setINS_12grap
   %.val = load ptr, ptr %2, align 8, !noalias !5
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load i64, ptr %17, align 8, !noalias !12
-  %18 = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %.val, i64 %.val5
+  %.idx.i.i = shl nuw nsw i64 %.val5, 4
+  %18 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i
   %.not8.i.i = icmp eq i64 %.val5, 0
   br i1 %.not8.i.i, label %_ZN3ue2L15wireStartToTopsERNS_8NGHolderERKNS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEERSt6vectorINS3_15edge_descriptorIS8_EESaISI_EE.exit.i, label %.lr.ph.i.i
 
@@ -2874,7 +2875,8 @@ _ZNSt11_Deque_baseISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graph
   %10 = sub nsw i64 %.sroa.speculated, %7
   %11 = lshr i64 %10, 1
   %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES9_ESaISA_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES9_ESaISA_EE16_M_allocate_nodeEv.exit.i

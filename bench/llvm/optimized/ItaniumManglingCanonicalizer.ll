@@ -18,13 +18,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SmallVectorStorage.19" = type { [128 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.11" }
-%"struct.std::pair.13" = type { ptr, i64 }
 %"class.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::SaveTemplateParams" = type { ptr, %"class.llvm::itanium_demangle::PODSmallVector.1", %"class.llvm::itanium_demangle::PODSmallVector.0" }
 %"class.llvm::itanium_demangle::PODSmallVector.1" = type { ptr, ptr, ptr, [4 x ptr] }
 %"class.llvm::itanium_demangle::PODSmallVector.0" = type { ptr, ptr, ptr, [8 x ptr] }
 %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::NameState" = type <{ i8, i8, [2 x i8], i32, i8, [7 x i8], i64, i8, [7 x i8] }>
 %"class.llvm::itanium_demangle::NodeArray" = type { ptr, i64 }
 %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder" = type { ptr }
+%"struct.std::pair.13" = type { ptr, i64 }
 %"class.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::ScopedTemplateParamList" = type { ptr, i64, %"class.llvm::itanium_demangle::PODSmallVector.0" }
 %union.anon = type { float }
 %union.anon.135 = type { double }
@@ -1894,7 +1894,8 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !60
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not6.i = icmp eq i32 %5, 0
   br i1 %.not6.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, label %.lr.ph.i
 
@@ -1922,7 +1923,8 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load i32, ptr %20, align 8, !tbaa !60
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.std::pair.13", ptr %19, i64 %22
+  %.idx.i = shl nuw nsw i64 %22, 4
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
   %.not10.i = icmp eq i32 %21, 0
   br i1 %.not10.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit, label %.lr.ph.i1
 
@@ -11299,7 +11301,8 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit:    ; preds = %_ZN4llvm16FoldingSe
   %31 = load i32, ptr %6, align 8, !tbaa !60
   %32 = add i32 %31, 1
   store i32 %32, ptr %6, align 8, !tbaa !60
-  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not10 = icmp eq i64 %2, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -47368,7 +47371,8 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit47: ; preds = %_ZN4llvm
   %127 = load ptr, ptr %126, align 8, !tbaa !371
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %129 = load i64, ptr %128, align 8, !tbaa !370
-  %130 = getelementptr inbounds nuw ptr, ptr %127, i64 %129
+  %.idx = shl nuw nsw i64 %129, 3
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 %.idx
   %.not64 = icmp eq i64 %129, 0
   br i1 %.not64, label %._crit_edge, label %.lr.ph
 
@@ -52524,7 +52528,8 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit: ; preds = %2, %._ZN4llvm16ita
   %18 = load ptr, ptr %0, align 8, !tbaa !371
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !370
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %.idx = shl nuw nsw i64 %20, 3
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %.not263 = icmp eq i64 %20, 0
   br i1 %.not263, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit107.thread252, label %.lr.ph266
 
@@ -63355,7 +63360,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_1
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i, i32 %11, i32 32
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %9, i64 %13
+  %.idx.i = shl nuw nsw i64 %13, 4
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
   %.not6.i = icmp eq i32 %12, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E9initEmptyEv.exit, label %.lr.ph.i
 

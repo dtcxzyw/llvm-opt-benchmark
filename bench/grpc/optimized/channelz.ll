@@ -1746,7 +1746,8 @@ define void @_ZN9grpc_core8channelz24PerCpuCallCountingHelper18PopulateCallCount
   %35 = load ptr, ptr %34, align 8, !tbaa !86
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !76
-  %38 = getelementptr inbounds nuw %"struct.grpc_core::channelz::PerCpuCallCountingHelper::PerCpuData", ptr %35, i64 %37
+  %.idx = shl nuw nsw i64 %37, 6
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx
   %.not143 = icmp eq i64 %37, 0
   br i1 %.not143, label %.thread171, label %.lr.ph
 
@@ -4056,7 +4057,8 @@ define linkonce_odr void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIc
   store ptr %7, ptr %10, align 8, !tbaa !113
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8, !tbaa !114
-  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 88
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
   store ptr %0, ptr %6, align 8, !tbaa !143
   %.not6.i = icmp eq i64 %2, 0

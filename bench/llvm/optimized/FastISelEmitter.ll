@@ -176,28 +176,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.314" = type { %"struct.std::_Head_base.317" }
 %"struct.std::_Head_base.317" = type { ptr }
 %"class.(anonymous namespace)::OperandsSignature::OpKind" = type { i8 }
-%"class.llvm::RecordVal" = type { ptr, %"class.llvm::SMLoc", %"class.llvm::PointerIntPair.415", ptr, i8, %"class.llvm::SmallVector.177" }
-%"class.llvm::SMLoc" = type { ptr }
-%"class.llvm::PointerIntPair.415" = type { %"struct.llvm::detail::PunnedPointer.416" }
-%"struct.llvm::detail::PunnedPointer.416" = type { [8 x i8] }
-%"class.llvm::SmallVector.177" = type { %"class.llvm::SmallVectorImpl.178" }
-%"class.llvm::SmallVectorImpl.178" = type { %"class.llvm::SmallVectorTemplateBase.179" }
-%"class.llvm::SmallVectorTemplateBase.179" = type { %"class.llvm::SmallVectorTemplateCommon.180" }
-%"class.llvm::SmallVectorTemplateCommon.180" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::IntrusiveRefCntPtr" = type { ptr }
 %"struct.llvm::ValueTypeByHwMode" = type <{ %"struct.llvm::InfoByHwMode.531", i32, [4 x i8] }>
 %"struct.llvm::InfoByHwMode.531" = type { %"class.std::map.532" }
 %"class.std::map.532" = type { %"class.std::_Rb_tree.533" }
 %"class.std::_Rb_tree.533" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, llvm::MVT>, std::_Select1st<std::pair<const unsigned int, llvm::MVT>>, std::less<unsigned int>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, llvm::MVT>, std::_Select1st<std::pair<const unsigned int, llvm::MVT>>, std::less<unsigned int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"struct.std::pair.305" = type { ptr, %"class.llvm::SMRange" }
-%"class.llvm::SMRange" = type { %"class.llvm::SMLoc", %"class.llvm::SMLoc" }
 %"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.base", [4 x i8] }
 %"struct.std::pair.base" = type <{ ptr, i32 }>
-%"class.llvm::SmallVector.588" = type { %"class.llvm::SmallVectorImpl.589" }
-%"class.llvm::SmallVectorImpl.589" = type { %"class.llvm::SmallVectorTemplateBase.590" }
-%"class.llvm::SmallVectorTemplateBase.590" = type { %"class.llvm::SmallVectorTemplateCommon.591" }
-%"class.llvm::SmallVectorTemplateCommon.591" = type { %"class.llvm::SmallVectorBase" }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_ = comdat any
 
@@ -1797,7 +1783,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit161.thread288.i: ; preds = %_ZN4llvmeqENS_9Stri
   %643 = getelementptr inbounds nuw i8, ptr %635, i64 112
   %644 = load i32, ptr %643, align 8, !tbaa !223
   %645 = zext i32 %644 to i64
-  %646 = getelementptr inbounds nuw %"class.llvm::RecordVal", ptr %642, i64 %645
+  %.idx.i.i.i.i = mul nuw nsw i64 %645, 56
+  %646 = getelementptr inbounds nuw i8, ptr %642, i64 %.idx.i.i.i.i
   %.not16.i.i.i.i = icmp ne i32 %644, 0
   call void @llvm.assume(i1 %.not16.i.i.i.i)
   %647 = load ptr, ptr %642, align 8, !tbaa !224
@@ -7663,7 +7650,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit777:              ; preds = %2149, %2151
   %2157 = getelementptr i8, ptr %.09.i.i.i, i64 40
   %.val10.i.i.i = load i64, ptr %2157, align 8, !tbaa !147
   %.v.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %.val212, i64 %.val10.i.i.i)
-  %2158 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i.i.i, i64 %.v.i.i.i.i.i.i
+  %2158 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.v.i.i.i.i.i.i
   %.not24.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.v.i.i.i.i.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i.i
 
@@ -7716,7 +7703,7 @@ _ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1
   %.val5.i.i = load i64, ptr %2169, align 8, !tbaa !147
   %2170 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val4.i.i, i64 %.val5.i.i
   %.v.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %.val5.i.i, i64 %.val212)
-  %2171 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val211, i64 %.v.i.i.i.i.i
+  %2171 = getelementptr inbounds i8, ptr %.val211, i64 %.v.i.i.i.i.i
   %.not24.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.v.i.i.i.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i
 
@@ -7837,7 +7824,7 @@ _ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit.i: ; preds = %_ZN12_GLOBAL__N_1
   %.val3.i.i = load i64, ptr %2200, align 8, !tbaa !147
   %2201 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val2.i.i, i64 %.val3.i.i
   %.v.i.i.i.i = call i64 @llvm.smin.i64(i64 %.val3.i.i, i64 %.val5.i)
-  %2202 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val4.i, i64 %.v.i.i.i.i
+  %2202 = getelementptr inbounds i8, ptr %.val4.i, i64 %.v.i.i.i.i
   %.not24.i.i.i.i.i.i.i.i.i = icmp eq i64 %.v.i.i.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_117OperandsSignatureENS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
 
@@ -8097,7 +8084,7 @@ _ZN4llvm4sortIRSt6vectorIN12_GLOBAL__N_117OperandsSignatureESaIS3_EEEEvOT_.exit:
 
 2277:                                             ; preds = %.lr.ph.i.i.i.i
   %.val2.i.i.i.i.i = load ptr, ptr %.sroa.09.014.i.i.i.i, align 8
-  %2278 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val2.i.i.i.i.i, i64 %.val3.i.i.i.i.i
+  %2278 = getelementptr inbounds nuw i8, ptr %.val2.i.i.i.i.i, i64 %.val3.i.i.i.i.i
   %.not9.i.i.i.i.i.i.i.i.i.i.i = icmp samesign eq i64 %.val3.i.i.i.i.i, 0
   br i1 %.not9.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.preheader.i.i.i.i.i
 
@@ -8150,7 +8137,7 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsS
 
 2291:                                             ; preds = %.lr.ph.i.i.i782
   %.val2.i.i.i.i = load ptr, ptr %.sroa.0.024.i.i.i, align 8
-  %2292 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val2.i.i.i.i, i64 %.val3.i.i.i.i
+  %2292 = getelementptr inbounds nuw i8, ptr %.val2.i.i.i.i, i64 %.val3.i.i.i.i
   %.not9.i.i.i.i.i.i.i.i.i.i = icmp samesign eq i64 %.val3.i.i.i.i, 0
   br i1 %.not9.i.i.i.i.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i.i.preheader.i.i.i.i
 
@@ -9602,7 +9589,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load i32, ptr %7, align 8, !tbaa !223
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %6, i64 %9
+  %.idx = mul nuw nsw i64 %9, 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %.not36.not = icmp eq i32 %8, 0
   br i1 %.not36.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph
 
@@ -10170,7 +10158,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt3ma
   %9 = getelementptr i8, ptr %.09.i.i.i, i64 40
   %.val10.i.i.i = load i64, ptr %9, align 8, !tbaa !147
   %.v.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %.val8, i64 %.val10.i.i.i)
-  %10 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i.i.i, i64 %.v.i.i.i.i.i.i
+  %10 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.v.i.i.i.i.i.i
   %.not24.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.v.i.i.i.i.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i.i
 
@@ -10223,7 +10211,7 @@ _ZNSt3mapIN12_GLOBAL__N_117OperandsSignatureES_INSt7__cxx1112basic_stringIcSt11c
   %.val6 = load i64, ptr %21, align 8, !tbaa !147
   %22 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val5, i64 %.val6
   %.v.i.i.i = tail call i64 @llvm.smin.i64(i64 %.val6, i64 %.val8)
-  %23 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val7, i64 %.v.i.i.i
+  %23 = getelementptr inbounds i8, ptr %.val7, i64 %.v.i.i.i
   %.not24.i.i.i.i.i.i.i.i = icmp eq i64 %.v.i.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
 
@@ -10326,7 +10314,7 @@ _ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St3mapINSt7__cxx11
   %.val26.i.i = load i64, ptr %51, align 8, !tbaa !147
   %52 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %39, i64 %.val8.i.i.i
   %.v.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %.val8.i.i.i, i64 %.val26.i.i)
-  %53 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val25.i.i, i64 %.v.i.i.i.i.i
+  %53 = getelementptr inbounds i8, ptr %.val25.i.i, i64 %.v.i.i.i.i.i
   %.not24.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.v.i.i.i.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i
 
@@ -10370,7 +10358,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread23.i.i: ;
   %.val12.i.i.i = load i64, ptr %61, align 8, !tbaa !147
   %62 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val11.i.i.i, i64 %.val12.i.i.i
   %.v.i.i.i.i.i.i18 = tail call i64 @llvm.smin.i64(i64 %.val12.i.i.i, i64 %.val8.i.i.i)
-  %63 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %39, i64 %.v.i.i.i.i.i.i18
+  %63 = getelementptr inbounds i8, ptr %39, i64 %.v.i.i.i.i.i.i18
   %.not24.i.i.i.i.i.i.i.i.i.i.i19 = icmp eq i64 %.v.i.i.i.i.i.i18, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i.i.i19, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.i.i.i27, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i.i20
 
@@ -10439,7 +10427,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i.thread
   %.010.lcssa31.i.i.i = phi ptr [ %.010.lcssa32.i.i.i, %74 ], [ %.01125.i.i.i, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i.thread.i.i ]
   %.sroa.01.0.i.i.i = phi ptr [ %75, %74 ], [ %.01125.i.i.i, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i.thread.i.i ]
   %76 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %39, i64 %.val8.i.i.i
-  %77 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val5.i.i.i, i64 %.v.i.i.i22.i.pre-phi.i.i
+  %77 = getelementptr inbounds i8, ptr %.val5.i.i.i, i64 %.v.i.i.i22.i.pre-phi.i.i
   %.not24.i.i.i.i.i.i.i.i23.i.i.i = icmp eq i64 %.v.i.i.i22.i.pre-phi.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i23.i.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit35.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i24.i.i.i
 
@@ -10477,7 +10465,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit35.i.i.i: ; pred
   %.val24.i.i = load i64, ptr %86, align 8, !tbaa !147
   %87 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val23.i.i, i64 %.val24.i.i
   %.v.i.i.i39.i.i = tail call i64 @llvm.smin.i64(i64 %.val24.i.i, i64 %.val8.i.i.i)
-  %88 = getelementptr %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %39, i64 %.v.i.i.i39.i.i
+  %88 = getelementptr i8, ptr %39, i64 %.v.i.i.i39.i.i
   %.not24.i.i.i.i.i.i.i.i40.i.i = icmp eq i64 %.v.i.i.i39.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i40.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit52.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i41.i.i
 
@@ -10522,7 +10510,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit52.thread.i.i: ;
   %.val18.i.i = load i64, ptr %101, align 8, !tbaa !147
   %102 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %39, i64 %.val8.i.i.i
   %.v.i.i.i53.i.i = tail call i64 @llvm.smin.i64(i64 %.val8.i.i.i, i64 %.val18.i.i)
-  %103 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val17.i.i, i64 %.v.i.i.i53.i.i
+  %103 = getelementptr inbounds i8, ptr %.val17.i.i, i64 %.v.i.i.i53.i.i
   %.not24.i.i.i.i.i.i.i.i54.i.i = icmp eq i64 %.v.i.i.i53.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i54.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit66.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i55.i.i
 
@@ -10572,7 +10560,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit66.thread35.i.i:
   %.val12.i72.i.i = load i64, ptr %113, align 8, !tbaa !147
   %114 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val11.i71.i.i, i64 %.val12.i72.i.i
   %.v.i.i.i.i73.i.i = tail call i64 @llvm.smin.i64(i64 %.val12.i72.i.i, i64 %.val8.i.i.i)
-  %115 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %39, i64 %.v.i.i.i.i73.i.i
+  %115 = getelementptr inbounds i8, ptr %39, i64 %.v.i.i.i.i73.i.i
   %.not24.i.i.i.i.i.i.i.i.i74.i.i = icmp eq i64 %.v.i.i.i.i73.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i74.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.i83.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i75.i.i
 
@@ -10638,7 +10626,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i86.thre
   %.val5.i94.i.i = phi ptr [ %.val5.i94.pre.i.i, %125 ], [ %.val11.i71.i.i, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i86.thread.i.i ]
   %.010.lcssa31.i92.i.i = phi ptr [ %.010.lcssa32.i115.i.i, %125 ], [ %.01125.i70.i.i, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i86.thread.i.i ]
   %.sroa.01.0.i93.i.i = phi ptr [ %126, %125 ], [ %.01125.i70.i.i, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i86.thread.i.i ]
-  %127 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val5.i94.i.i, i64 %.v.i.i.i22.i96.pre-phi.i.i
+  %127 = getelementptr inbounds i8, ptr %.val5.i94.i.i, i64 %.v.i.i.i22.i96.pre-phi.i.i
   %.not24.i.i.i.i.i.i.i.i23.i97.i.i = icmp eq i64 %.v.i.i.i22.i96.pre-phi.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i23.i97.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit35.i106.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i24.i98.i.i
 
@@ -10671,7 +10659,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit35.i106.i.i: ; p
 
 _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit52.thread32.i.i: ; preds = %90, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit52.i.i
   %134 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %39, i64 %.val8.i.i.i
-  %135 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val23.i.i, i64 %.v.i.i.i39.i.i
+  %135 = getelementptr inbounds i8, ptr %.val23.i.i, i64 %.v.i.i.i39.i.i
   br i1 %.not24.i.i.i.i.i.i.i.i40.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit132.i.i, label %.lr.ph.i.i.i.i.i.i.i.i123.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i123.i.i:                    ; preds = %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit52.thread32.i.i, %139
@@ -10711,7 +10699,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit132.thread.i.i: 
   %.val12.i.i = load i64, ptr %148, align 8, !tbaa !147
   %149 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val11.i.i, i64 %.val12.i.i
   %.v.i.i.i133.i.i = tail call i64 @llvm.smin.i64(i64 %.val12.i.i, i64 %.val8.i.i.i)
-  %150 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %39, i64 %.v.i.i.i133.i.i
+  %150 = getelementptr inbounds i8, ptr %39, i64 %.v.i.i.i133.i.i
   %.not24.i.i.i.i.i.i.i.i134.i.i = icmp eq i64 %.v.i.i.i133.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i134.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit146.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i135.i.i
 
@@ -10761,7 +10749,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit146.thread47.i.i
   %.val12.i152.i.i = load i64, ptr %160, align 8, !tbaa !147
   %161 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val11.i151.i.i, i64 %.val12.i152.i.i
   %.v.i.i.i.i153.i.i = tail call i64 @llvm.smin.i64(i64 %.val12.i152.i.i, i64 %.val8.i.i.i)
-  %162 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %39, i64 %.v.i.i.i.i153.i.i
+  %162 = getelementptr inbounds i8, ptr %39, i64 %.v.i.i.i.i153.i.i
   %.not24.i.i.i.i.i.i.i.i.i154.i.i = icmp eq i64 %.v.i.i.i.i153.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i154.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.i163.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i155.i.i
 
@@ -10829,7 +10817,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i166.thr
   %.val5.i174.i.i = phi ptr [ %.val5.i174.pre.i.i, %173 ], [ %.val11.i151.i.i, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i166.thread.i.i ]
   %.010.lcssa31.i172.i.i = phi ptr [ %.010.lcssa32.i195.i.i, %173 ], [ %.01125.i150.i.i, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i166.thread.i.i ]
   %.sroa.01.0.i173.i.i = phi ptr [ %174, %173 ], [ %.01125.i150.i.i, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i166.thread.i.i ]
-  %175 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val5.i174.i.i, i64 %.v.i.i.i22.i176.pre-phi.i.i
+  %175 = getelementptr inbounds i8, ptr %.val5.i174.i.i, i64 %.v.i.i.i22.i176.pre-phi.i.i
   %.not24.i.i.i.i.i.i.i.i23.i177.i.i = icmp eq i64 %.v.i.i.i22.i176.pre-phi.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i23.i177.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit35.i186.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i24.i178.i.i
 
@@ -10881,7 +10869,7 @@ _ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St3mapINSt7__cxx11
   %.val10.i.i.i16 = load i64, ptr %185, align 8, !tbaa !147
   %186 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val9.i.i.i, i64 %.val10.i.i.i16
   %.v.i.i.i.i.i12.i = tail call i64 @llvm.smin.i64(i64 %.val10.i.i.i16, i64 %.val8.i.i.i)
-  %187 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %39, i64 %.v.i.i.i.i.i12.i
+  %187 = getelementptr inbounds i8, ptr %39, i64 %.v.i.i.i.i.i12.i
   %.not24.i.i.i.i.i.i.i.i.i.i13.i = icmp eq i64 %.v.i.i.i.i.i12.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i.i13.i, label %.critedge.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i14.i
 
@@ -12094,7 +12082,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3ma
   %9 = getelementptr i8, ptr %.09.i.i.i, i64 40
   %.val10.i.i.i = load i64, ptr %9, align 8, !tbaa !147
   %.v.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %.val8, i64 %.val10.i.i.i)
-  %10 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i.i.i, i64 %.v.i.i.i.i.i.i
+  %10 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.v.i.i.i.i.i.i
   %.not24.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.v.i.i.i.i.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i.i
 
@@ -12147,7 +12135,7 @@ _ZNSt3mapIN12_GLOBAL__N_117OperandsSignatureESt6vectorIS1_SaIS1_EESt4lessIS1_ESa
   %.val6 = load i64, ptr %21, align 8, !tbaa !147
   %22 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val5, i64 %.val6
   %.v.i.i.i = tail call i64 @llvm.smin.i64(i64 %.val6, i64 %.val8)
-  %23 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val7, i64 %.v.i.i.i
+  %23 = getelementptr inbounds i8, ptr %.val7, i64 %.v.i.i.i
   %.not24.i.i.i.i.i.i.i.i = icmp eq i64 %.v.i.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
 
@@ -12220,7 +12208,7 @@ _ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1
   %.val26.i.i = load i64, ptr %46, align 8, !tbaa !147
   %47 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %38, i64 %.val8.i.i.i
   %.v.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %.val8.i.i.i, i64 %.val26.i.i)
-  %48 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val25.i.i, i64 %.v.i.i.i.i.i
+  %48 = getelementptr inbounds i8, ptr %.val25.i.i, i64 %.v.i.i.i.i.i
   %.not24.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.v.i.i.i.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i
 
@@ -12264,7 +12252,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread23.i.i: ;
   %.val11.i.i.i = load i64, ptr %56, align 8, !tbaa !147
   %57 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val10.i.i.i17, i64 %.val11.i.i.i
   %.v.i.i.i.i.i.i18 = tail call i64 @llvm.smin.i64(i64 %.val11.i.i.i, i64 %.val8.i.i.i)
-  %58 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %38, i64 %.v.i.i.i.i.i.i18
+  %58 = getelementptr inbounds i8, ptr %38, i64 %.v.i.i.i.i.i.i18
   %.not24.i.i.i.i.i.i.i.i.i.i.i19 = icmp eq i64 %.v.i.i.i.i.i.i18, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i.i.i19, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.i.i.i27, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i.i20
 
@@ -12333,7 +12321,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i.thread
   %.010.lcssa31.i.i.i = phi ptr [ %.010.lcssa32.i.i.i, %69 ], [ %.01125.i.i.i, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i.thread.i.i ]
   %.sroa.01.0.i.i.i = phi ptr [ %70, %69 ], [ %.01125.i.i.i, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i.thread.i.i ]
   %71 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %38, i64 %.val8.i.i.i
-  %72 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i.i.i31, i64 %.v.i.i.i22.i.pre-phi.i.i
+  %72 = getelementptr inbounds i8, ptr %.val.i.i.i31, i64 %.v.i.i.i22.i.pre-phi.i.i
   %.not24.i.i.i.i.i.i.i.i23.i.i.i = icmp eq i64 %.v.i.i.i22.i.pre-phi.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i23.i.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit35.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i24.i.i.i
 
@@ -12371,7 +12359,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit35.i.i.i: ; pred
   %.val24.i.i = load i64, ptr %81, align 8, !tbaa !147
   %82 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val23.i.i, i64 %.val24.i.i
   %.v.i.i.i39.i.i = tail call i64 @llvm.smin.i64(i64 %.val24.i.i, i64 %.val8.i.i.i)
-  %83 = getelementptr %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %38, i64 %.v.i.i.i39.i.i
+  %83 = getelementptr i8, ptr %38, i64 %.v.i.i.i39.i.i
   %.not24.i.i.i.i.i.i.i.i40.i.i = icmp eq i64 %.v.i.i.i39.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i40.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit52.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i41.i.i
 
@@ -12416,7 +12404,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit52.thread.i.i: ;
   %.val18.i.i = load i64, ptr %96, align 8, !tbaa !147
   %97 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %38, i64 %.val8.i.i.i
   %.v.i.i.i53.i.i = tail call i64 @llvm.smin.i64(i64 %.val8.i.i.i, i64 %.val18.i.i)
-  %98 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val17.i.i, i64 %.v.i.i.i53.i.i
+  %98 = getelementptr inbounds i8, ptr %.val17.i.i, i64 %.v.i.i.i53.i.i
   %.not24.i.i.i.i.i.i.i.i54.i.i = icmp eq i64 %.v.i.i.i53.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i54.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit66.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i55.i.i
 
@@ -12466,7 +12454,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit66.thread35.i.i:
   %.val11.i72.i.i = load i64, ptr %108, align 8, !tbaa !147
   %109 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val10.i71.i.i, i64 %.val11.i72.i.i
   %.v.i.i.i.i73.i.i = tail call i64 @llvm.smin.i64(i64 %.val11.i72.i.i, i64 %.val8.i.i.i)
-  %110 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %38, i64 %.v.i.i.i.i73.i.i
+  %110 = getelementptr inbounds i8, ptr %38, i64 %.v.i.i.i.i73.i.i
   %.not24.i.i.i.i.i.i.i.i.i74.i.i = icmp eq i64 %.v.i.i.i.i73.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i74.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.i83.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i75.i.i
 
@@ -12532,7 +12520,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i86.thre
   %.val.i94.i.i = phi ptr [ %.val.i94.pre.i.i, %120 ], [ %.val10.i71.i.i, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i86.thread.i.i ]
   %.010.lcssa31.i92.i.i = phi ptr [ %.010.lcssa32.i115.i.i, %120 ], [ %.01125.i70.i.i, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i86.thread.i.i ]
   %.sroa.01.0.i93.i.i = phi ptr [ %121, %120 ], [ %.01125.i70.i.i, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i86.thread.i.i ]
-  %122 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i94.i.i, i64 %.v.i.i.i22.i96.pre-phi.i.i
+  %122 = getelementptr inbounds i8, ptr %.val.i94.i.i, i64 %.v.i.i.i22.i96.pre-phi.i.i
   %.not24.i.i.i.i.i.i.i.i23.i97.i.i = icmp eq i64 %.v.i.i.i22.i96.pre-phi.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i23.i97.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit35.i106.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i24.i98.i.i
 
@@ -12565,7 +12553,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit35.i106.i.i: ; p
 
 _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit52.thread32.i.i: ; preds = %85, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit52.i.i
   %129 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %38, i64 %.val8.i.i.i
-  %130 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val23.i.i, i64 %.v.i.i.i39.i.i
+  %130 = getelementptr inbounds i8, ptr %.val23.i.i, i64 %.v.i.i.i39.i.i
   br i1 %.not24.i.i.i.i.i.i.i.i40.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit132.i.i, label %.lr.ph.i.i.i.i.i.i.i.i123.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i123.i.i:                    ; preds = %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit52.thread32.i.i, %134
@@ -12605,7 +12593,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit132.thread.i.i: 
   %.val12.i.i = load i64, ptr %143, align 8, !tbaa !147
   %144 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val11.i.i, i64 %.val12.i.i
   %.v.i.i.i133.i.i = tail call i64 @llvm.smin.i64(i64 %.val12.i.i, i64 %.val8.i.i.i)
-  %145 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %38, i64 %.v.i.i.i133.i.i
+  %145 = getelementptr inbounds i8, ptr %38, i64 %.v.i.i.i133.i.i
   %.not24.i.i.i.i.i.i.i.i134.i.i = icmp eq i64 %.v.i.i.i133.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i134.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit146.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i135.i.i
 
@@ -12655,7 +12643,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit146.thread47.i.i
   %.val11.i152.i.i = load i64, ptr %155, align 8, !tbaa !147
   %156 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val10.i151.i.i, i64 %.val11.i152.i.i
   %.v.i.i.i.i153.i.i = tail call i64 @llvm.smin.i64(i64 %.val11.i152.i.i, i64 %.val8.i.i.i)
-  %157 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %38, i64 %.v.i.i.i.i153.i.i
+  %157 = getelementptr inbounds i8, ptr %38, i64 %.v.i.i.i.i153.i.i
   %.not24.i.i.i.i.i.i.i.i.i154.i.i = icmp eq i64 %.v.i.i.i.i153.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i154.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.i163.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i155.i.i
 
@@ -12723,7 +12711,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i166.thr
   %.val.i174.i.i = phi ptr [ %.val.i174.pre.i.i, %168 ], [ %.val10.i151.i.i, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i166.thread.i.i ]
   %.010.lcssa31.i172.i.i = phi ptr [ %.010.lcssa32.i195.i.i, %168 ], [ %.01125.i150.i.i, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i166.thread.i.i ]
   %.sroa.01.0.i173.i.i = phi ptr [ %169, %168 ], [ %.01125.i150.i.i, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit.thread.i166.thread.i.i ]
-  %170 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i174.i.i, i64 %.v.i.i.i22.i176.pre-phi.i.i
+  %170 = getelementptr inbounds i8, ptr %.val.i174.i.i, i64 %.v.i.i.i22.i176.pre-phi.i.i
   %.not24.i.i.i.i.i.i.i.i23.i177.i.i = icmp eq i64 %.v.i.i.i22.i176.pre-phi.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i23.i177.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit35.i186.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i24.i178.i.i
 
@@ -12775,7 +12763,7 @@ _ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1
   %.val10.i.i13.i = load i64, ptr %180, align 8, !tbaa !147
   %181 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val9.i.i.i, i64 %.val10.i.i13.i
   %.v.i.i.i.i.i14.i = tail call i64 @llvm.smin.i64(i64 %.val10.i.i13.i, i64 %.val8.i.i.i)
-  %182 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %38, i64 %.v.i.i.i.i.i14.i
+  %182 = getelementptr inbounds i8, ptr %38, i64 %.v.i.i.i.i.i14.i
   %.not24.i.i.i.i.i.i.i.i.i.i15.i = icmp eq i64 %.v.i.i.i.i.i14.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i.i15.i, label %.critedge.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i16.i
 
@@ -13451,7 +13439,8 @@ _ZN4llvm8DenseMapIPNS_11TreePatternEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMa
   store i32 0, ptr %24, align 4, !tbaa !388
   %25 = load i32, ptr %2, align 8, !tbaa !269
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %26
+  %.idx.i = shl nuw nsw i64 %26, 4
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i
   %.not6.i = icmp eq i32 %25, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11TreePatternEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit, label %.lr.ph.i
 
@@ -13464,14 +13453,16 @@ _ZN4llvm8DenseMapIPNS_11TreePatternEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMa
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIPNS_11TreePatternEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %.idx = shl nuw nsw i64 %30, 4
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %32, align 8, !tbaa !387
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %33, align 4, !tbaa !388
   %34 = load i32, ptr %2, align 8, !tbaa !269
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %35
+  %.idx.i.i = shl nuw nsw i64 %35, 4
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i
   %.not6.i.i = icmp eq i32 %34, 0
   br i1 %.not6.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11TreePatternEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit.i, label %.lr.ph.i.i
 
@@ -13558,8 +13549,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11TreePatternEjNS_12DenseMapInfoIS3_vEEN
   br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11TreePatternEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E18moveFromOldBucketsEPS8_SB_.exit, label %.lr.ph.i7, !llvm.loop !390
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11TreePatternEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E18moveFromOldBucketsEPS8_SB_.exit: ; preds = %70, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11TreePatternEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit.i
-  %73 = shl nuw nsw i64 %30, 4
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %73, i64 noundef 8) #20
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %.idx, i64 noundef 8) #20
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11TreePatternEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11TreePatternEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit: ; preds = %.lr.ph.i, %22, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11TreePatternEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E18moveFromOldBucketsEPS8_SB_.exit
@@ -13908,7 +13898,7 @@ define internal fastcc noundef zeroext i1 @_ZNKSt4lessISt5tupleIJN12_GLOBAL__N_1
   %.val8.i.i = load i64, ptr %6, align 8, !tbaa !147
   %7 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val7.i.i, i64 %.val8.i.i
   %.v.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %.val8.i.i, i64 %.val6.i.i)
-  %8 = getelementptr %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i.i, i64 %.v.i.i.i.i
+  %8 = getelementptr i8, ptr %.val.i.i, i64 %.v.i.i.i.i
   %.not24.i.i.i.i.i.i.i.i.i = icmp eq i64 %.v.i.i.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_117OperandsSignatureltERKS0_.exit.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
 
@@ -13941,7 +13931,7 @@ _ZNK12_GLOBAL__N_117OperandsSignatureltERKS0_.exit.i.i: ; preds = %12, %2
 
 _ZNK12_GLOBAL__N_117OperandsSignatureltERKS0_.exit.thread28.i.i: ; preds = %10, %_ZNK12_GLOBAL__N_117OperandsSignatureltERKS0_.exit.i.i
   %15 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i.i, i64 %.val6.i.i
-  %16 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val7.i.i, i64 %.v.i.i.i.i
+  %16 = getelementptr inbounds i8, ptr %.val7.i.i, i64 %.v.i.i.i.i
   br i1 %.not24.i.i.i.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_117OperandsSignatureltERKS0_.exit26.i.i, label %.lr.ph.i.i.i.i.i.i.i17.i.i
 
 .lr.ph.i.i.i.i.i.i.i17.i.i:                       ; preds = %_ZNK12_GLOBAL__N_117OperandsSignatureltERKS0_.exit.thread28.i.i, %20
@@ -15884,7 +15874,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignat
   %.val3.i.i.i = load i64, ptr %88, align 8, !tbaa !147
   %89 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val2.i.i.i, i64 %.val3.i.i.i
   %.v.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %.val3.i.i.i, i64 %.val1.i.i.i)
-  %90 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i.i.i, i64 %.v.i.i.i.i.i
+  %90 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.v.i.i.i.i.i
   %.not24.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.v.i.i.i.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i
 
@@ -15921,7 +15911,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_11
   %.val3.i29.i.i = load i64, ptr %97, align 8, !tbaa !147
   %98 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val2.i28.i.i, i64 %.val3.i29.i.i
   %.v.i.i.i30.i.i = call i64 @llvm.smin.i64(i64 %.val3.i29.i.i, i64 %.val3.i.i.i)
-  %99 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val2.i.i.i, i64 %.v.i.i.i30.i.i
+  %99 = getelementptr inbounds i8, ptr %.val2.i.i.i, i64 %.v.i.i.i30.i.i
   %.not24.i.i.i.i.i.i.i.i31.i.i = icmp eq i64 %.v.i.i.i30.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i31.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit43.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i32.i.i
 
@@ -15954,7 +15944,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_11
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit43.thread102.i.i: ; preds = %101, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit43.i.i
   %.v.i.i.i48.i.i = call i64 @llvm.smin.i64(i64 %.val3.i29.i.i, i64 %.val1.i.i.i)
-  %106 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i.i.i, i64 %.v.i.i.i48.i.i
+  %106 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.v.i.i.i48.i.i
   %.not24.i.i.i.i.i.i.i.i49.i.i = icmp eq i64 %.v.i.i.i48.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i49.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit61.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i50.i.i
 
@@ -15994,7 +15984,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_11
   %.val3.i65.i.i = load i64, ptr %113, align 8, !tbaa !147
   %114 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val2.i64.i.i, i64 %.val3.i65.i.i
   %.v.i.i.i66.i.i = call i64 @llvm.smin.i64(i64 %.val3.i65.i.i, i64 %.val1.i.i.i)
-  %115 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i.i.i, i64 %.v.i.i.i66.i.i
+  %115 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.v.i.i.i66.i.i
   %.not24.i.i.i.i.i.i.i.i67.i.i = icmp eq i64 %.v.i.i.i66.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i67.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit79.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i68.i.i
 
@@ -16027,7 +16017,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_11
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit79.thread108.i.i: ; preds = %117, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit79.i.i
   %.v.i.i.i84.i.i = call i64 @llvm.smin.i64(i64 %.val3.i65.i.i, i64 %.val3.i.i.i)
-  %122 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val2.i.i.i, i64 %.v.i.i.i84.i.i
+  %122 = getelementptr inbounds i8, ptr %.val2.i.i.i, i64 %.v.i.i.i84.i.i
   %.not24.i.i.i.i.i.i.i.i85.i.i = icmp eq i64 %.v.i.i.i84.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i85.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit97.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i86.i.i
 
@@ -16198,7 +16188,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatur
   %170 = getelementptr i8, ptr %.sroa.028.1.i.i, i64 8
   %.val1.i.i17.i = load i64, ptr %170, align 8, !tbaa !147
   %.v.i.i.i.i18.i = call i64 @llvm.smin.i64(i64 %.val3.i.i15.i, i64 %.val1.i.i17.i)
-  %171 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i.i16.i, i64 %.v.i.i.i.i18.i
+  %171 = getelementptr inbounds i8, ptr %.val.i.i16.i, i64 %.v.i.i.i.i18.i
   %.not24.i.i.i.i.i.i.i.i.i19.i = icmp eq i64 %.v.i.i.i.i18.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i19.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i28.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i20.i
 
@@ -16245,7 +16235,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_11
   %.val3.i12.i.i = load i64, ptr %180, align 8, !tbaa !147
   %181 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val2.i11.i.i, i64 %.val3.i12.i.i
   %.v.i.i.i13.i.i = call i64 @llvm.smin.i64(i64 %.val3.i12.i.i, i64 %.val3.i.i15.i)
-  %182 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val2.i.i14.i, i64 %.v.i.i.i13.i.i
+  %182 = getelementptr inbounds i8, ptr %.val2.i.i14.i, i64 %.v.i.i.i13.i.i
   %.not24.i.i.i.i.i.i.i.i14.i.i = icmp eq i64 %.v.i.i.i13.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i14.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit26.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i15.i.i
 
@@ -16535,7 +16525,7 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %.val3.i = load i64, ptr %15, align 8, !tbaa !147
   %16 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val2.i, i64 %.val3.i
   %.v.i.i.i = tail call i64 @llvm.smin.i64(i64 %.val3.i, i64 %.val1.i)
-  %17 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i, i64 %.v.i.i.i
+  %17 = getelementptr inbounds i8, ptr %.val.i, i64 %.v.i.i.i
   %.not24.i.i.i.i.i.i.i.i = icmp eq i64 %.v.i.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
 
@@ -16631,7 +16621,7 @@ _ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit: ; preds = %42, %48
   %.val1.i.i = load i64, ptr %52, align 8, !tbaa !147
   %53 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val16.i, i64 %.val17.i
   %.v.i.i.i.i = call i64 @llvm.smin.i64(i64 %.val17.i, i64 %.val1.i.i)
-  %54 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i.i, i64 %.v.i.i.i.i
+  %54 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.v.i.i.i.i
   %.not24.i.i.i.i.i.i.i.i.i = icmp eq i64 %.v.i.i.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
 
@@ -16813,7 +16803,7 @@ define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iterat
   %.val3.i = load i64, ptr %5, align 8, !tbaa !147
   %15 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val2.i, i64 %.val3.i
   %.v.i.i.i = call i64 @llvm.smin.i64(i64 %.val3.i, i64 %.val1.i)
-  %16 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val.i, i64 %.v.i.i.i
+  %16 = getelementptr inbounds i8, ptr %.val.i, i64 %.v.i.i.i
   %.not24.i.i.i.i.i.i.i.i = icmp eq i64 %.v.i.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
 
@@ -17118,7 +17108,7 @@ _ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit: ; preds = %_ZN12_GLOBAL__N_117
   %.val3.i = load i64, ptr %10, align 8, !tbaa !147
   %11 = getelementptr inbounds nuw %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val2.i, i64 %.val3.i
   %.v.i.i.i = call i64 @llvm.smin.i64(i64 %.val3.i, i64 %.val5)
-  %12 = getelementptr inbounds %"class.(anonymous namespace)::OperandsSignature::OpKind", ptr %.val4, i64 %.v.i.i.i
+  %12 = getelementptr inbounds i8, ptr %.val4, i64 %.v.i.i.i
   %.not24.i.i.i.i.i.i.i.i = icmp eq i64 %.v.i.i.i, 0
   br i1 %.not24.i.i.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_117OperandsSignatureENS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEEEEbRT_T0_.exit, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
 
@@ -18329,7 +18319,8 @@ define linkonce_odr hidden void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4llvm16Co
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %.lr.ph
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::SmallVector.588", ptr %4, i64 %7
+  %.idx.i.i.i = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm11SmallVectorINS_16CodeGenIntrinsic12ArgAttributeELj0EED2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i

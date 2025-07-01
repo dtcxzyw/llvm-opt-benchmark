@@ -153,7 +153,8 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds nuw { i32, i32 }, ptr %30, i64 %32
+  %.idx = shl nuw nsw i64 %32, 3
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx
   %34 = icmp eq i64 %32, 0
   %.not120194205 = icmp eq ptr %30, null
   %.not195206 = or i1 %34, %.not120194205

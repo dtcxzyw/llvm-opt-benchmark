@@ -19097,7 +19097,8 @@ define linkonce_odr hidden void @_ZNSt3__13setINS_12basic_stringIcNS_11char_trai
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds %"class.std::__1::basic_string", ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 24
+  %6 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt3__13setINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_4lessIS6_EENS4_IS6_EEE6insertB8ne190000IPKS6_EEvT_SE_.exit, label %.lr.ph.i
 

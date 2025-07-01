@@ -19,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.197" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.198" = type { [192 x i8] }
-%"struct.llvm::Module::ModuleFlagEntry" = type { i32, ptr, ptr }
 %"class.llvm::MDOperand" = type { ptr }
 %"class.llvm::TypeSize" = type { %"class.llvm::details::FixedOrScalableQuantity.base", [7 x i8] }
 %"class.llvm::details::FixedOrScalableQuantity.base" = type <{ i64, i8 }>
@@ -358,7 +357,8 @@ define dso_local void @_ZNK4llvm24TargetLoweringObjectFile21emitCGProfileMetadat
   %10 = load ptr, ptr %4, align 8, !tbaa !302
   %11 = load i32, ptr %8, align 8, !tbaa !303
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::Module::ModuleFlagEntry", ptr %10, i64 %12
+  %.idx = mul nuw nsw i64 %12, 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %.not82 = icmp eq i32 %11, 0
   br i1 %.not82, label %.thread75, label %.lr.ph
 
@@ -415,7 +415,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %27, %33
   %.sroa.3.0.i.i = phi i64 [ %39, %33 ], [ %32, %27 ]
   %.sroa.0.0.i.i = phi ptr [ %37, %33 ], [ %29, %27 ]
-  %40 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i, i64 %.sroa.3.0.i.i
+  %.idx87 = shl nuw nsw i64 %.sroa.3.0.i.i, 3
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %.idx87
   %.not4484 = icmp eq i64 %.sroa.3.0.i.i, 0
   br i1 %.not4484, label %.thread75, label %.lr.ph86
 
@@ -1270,7 +1271,8 @@ define internal fastcc noundef zeroext i1 @_ZL13isNullOrUndefPKN4llvm8ConstantE(
 _ZNK4llvm4User14operand_valuesEv.exit:            ; preds = %12, %15
   %20 = phi ptr [ %14, %12 ], [ %19, %15 ]
   %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %12 ], [ %17, %15 ]
-  %21 = getelementptr inbounds nuw %"class.llvm::Use", ptr %20, i64 %.pre-phi2.i.i.i
+  %.idx = shl nuw nsw i64 %.pre-phi2.i.i.i, 5
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %.not15 = icmp eq i64 %.pre-phi2.i.i.i, 0
   br i1 %.not15, label %.loopexit, label %.lr.ph
 

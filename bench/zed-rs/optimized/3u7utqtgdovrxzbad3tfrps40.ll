@@ -3729,7 +3729,8 @@ define void @"_ZN57_$LT$image_viewer..ImageItem$u20$as$u20$project..Item$GT$8try
   %47 = extractvalue { ptr, i64 } %45, 0
   %48 = extractvalue { ptr, i64 } %45, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !672)
-  %49 = getelementptr inbounds { ptr, i64 }, ptr %47, i64 %48
+  %.idx.i = shl nsw i64 %48, 4
+  %49 = getelementptr inbounds i8, ptr %47, i64 %.idx.i
   %.not.i.i = icmp eq i64 %48, 0
   br i1 %.not.i.i, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h325ee0f1841bd7c9E.exit.thread", label %.lr.ph.i.i
 

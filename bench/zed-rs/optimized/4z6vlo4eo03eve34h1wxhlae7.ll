@@ -3904,7 +3904,8 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h13766f66b2c1952
   %.sink11.i.i.i.i.i = select i1 %6, i64 %9, i64 %5
   %10 = mul i64 %.sink11.i.i.i.i.i, 5871781006564002453
   store i64 %10, ptr %3, align 8, !alias.scope !1132, !noalias !1137
-  %11 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sink12.i.i.i.i.i, i64 %.sink11.i.i.i.i.i
+  %.idx.i.i.i.i.i = shl nsw i64 %.sink11.i.i.i.i.i, 5
+  %11 = getelementptr inbounds i8, ptr %.sink12.i.i.i.i.i, i64 %.idx.i.i.i.i.i
   %12 = icmp eq i64 %.sink11.i.i.i.i.i, 0
   br i1 %12, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17ha71580452f0cd17aE.llvm.4570929619291485657.exit", label %.lr.ph.i.i.i.i.i
 
@@ -4393,7 +4394,8 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %12 = xor i64 %11, %.sink11.i.i.i.i
   %13 = mul i64 %12, 5871781006564002453
   store i64 %13, ptr %1, align 8, !alias.scope !1345, !noalias !1350
-  %14 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sink12.i.i.i.i, i64 %.sink11.i.i.i.i
+  %.idx.i.i.i.i = shl nsw i64 %.sink11.i.i.i.i, 5
+  %14 = getelementptr inbounds i8, ptr %.sink12.i.i.i.i, i64 %.idx.i.i.i.i
   %15 = icmp eq i64 %.sink11.i.i.i.i, 0
   br i1 %15, label %"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for$u20$$LP$T$C$B$RP$$GT$4hash17h85c7617ac975af8dE.llvm.4570929619291485657.exit", label %.lr.ph.i.i.i.i
 
@@ -4570,7 +4572,8 @@ define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for
   %11 = xor i64 %10, %.sink11.i.i.i
   %12 = mul i64 %11, 5871781006564002453
   store i64 %12, ptr %1, align 8, !alias.scope !1423, !noalias !1428
-  %13 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sink12.i.i.i, i64 %.sink11.i.i.i
+  %.idx.i.i.i = shl nsw i64 %.sink11.i.i.i, 5
+  %13 = getelementptr inbounds i8, ptr %.sink12.i.i.i, i64 %.idx.i.i.i
   %14 = icmp eq i64 %.sink11.i.i.i, 0
   br i1 %14, label %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hf09c1064632c553cE.llvm.4570929619291485657.exit", label %.lr.ph.i.i.i
 
@@ -7292,7 +7295,8 @@ define hidden void @"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash
   %11 = xor i64 %10, %.sink11.i
   %12 = mul i64 %11, 5871781006564002453
   store i64 %12, ptr %1, align 8, !alias.scope !2217
-  %13 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sink12.i, i64 %.sink11.i
+  %.idx.i = shl nsw i64 %.sink11.i, 5
+  %13 = getelementptr inbounds i8, ptr %.sink12.i, i64 %.idx.i
   %14 = icmp eq i64 %.sink11.i, 0
   br i1 %14, label %_ZN4core4hash4Hash10hash_slice17hfb251acd4bb95315E.exit, label %.lr.ph.i
 
@@ -7401,7 +7405,8 @@ define hidden void @"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..h
   %11 = xor i64 %10, %.sink11.i.i
   %12 = mul i64 %11, 5871781006564002453
   store i64 %12, ptr %1, align 8, !alias.scope !2242, !noalias !2232
-  %13 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sink12.i.i, i64 %.sink11.i.i
+  %.idx.i.i = shl nsw i64 %.sink11.i.i, 5
+  %13 = getelementptr inbounds i8, ptr %.sink12.i.i, i64 %.idx.i.i
   %14 = icmp eq i64 %.sink11.i.i, 0
   br i1 %14, label %"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hed397a3c3b57bcceE.llvm.4570929619291485657.exit", label %.lr.ph.i.i
 

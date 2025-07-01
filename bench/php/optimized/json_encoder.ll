@@ -28,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.zend_get_gc_buffer = type { ptr, ptr, ptr }
 %struct._zend_call_stack = type { ptr, i64 }
 %struct._zend_strtod_state = type { [8 x ptr], ptr, ptr }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @php_json_escape_string.charmap = internal unnamed_addr constant [8 x i32] [i32 -1, i32 1342210244, i32 268435456, i32 0, i32 -1, i32 -1, i32 -1, i32 -1], align 16
 @.str.1 = private unnamed_addr constant [4 x i8] c"\EF\BF\BD\00", align 1
@@ -2202,7 +2201,8 @@ smart_str_appendl_ex.exit:                        ; preds = %14, %20
   %48 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !18
   %50 = zext i32 %45 to i64
-  %51 = getelementptr inbounds nuw %struct._zval_struct, ptr %49, i64 %50
+  %.idx.i = shl nuw nsw i64 %50, 4
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i
   %.not51.i8.i = icmp eq i32 %45, 0
   br i1 %.not51.i8.i, label %.thread503, label %.lr.ph.i
 
@@ -2233,7 +2233,8 @@ smart_str_appendl_ex.exit:                        ; preds = %14, %20
   %63 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %64 = load i32, ptr %63, align 8, !tbaa !83
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw %struct._Bucket, ptr %62, i64 %65
+  %.idx23.i = shl nuw nsw i64 %65, 5
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx23.i
   %.not48.i14.i = icmp eq i32 %64, 0
   br i1 %.not48.i14.i, label %.thread503, label %.lr.ph17.i
 

@@ -3,8 +3,6 @@ source_filename = "bench/llvm/original/DAGISelMatcher.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.std::pair" = type { ptr, ptr }
-%"struct.std::pair.12" = type { i16, ptr }
 %"class.llvm::TreePredicateFn" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -504,7 +502,8 @@ define dso_local void @_ZN4llvm12ScopeMatcherD2Ev(ptr noundef nonnull align 8 ca
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !26
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not9 = icmp eq i32 %5, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -577,7 +576,8 @@ define dso_local void @_ZN4llvm19SwitchOpcodeMatcherD2Ev(ptr noundef nonnull ali
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !26
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.std::pair", ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not9 = icmp eq i32 %5, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -648,7 +648,8 @@ define dso_local void @_ZN4llvm17SwitchTypeMatcherD2Ev(ptr noundef nonnull align
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !26
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not9 = icmp eq i32 %5, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -822,7 +823,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i32, ptr %21, align 8, !tbaa !26
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %23
+  %.idx = shl nuw nsw i64 %23, 3
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %.not27 = icmp eq i32 %22, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
@@ -1554,7 +1556,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i32, ptr %21, align 8, !tbaa !26
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i64 %23
+  %.idx = shl nuw nsw i64 %23, 4
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %.not30 = icmp eq i32 %22, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
@@ -1844,7 +1847,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i32, ptr %21, align 8, !tbaa !26
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.12", ptr %20, i64 %23
+  %.idx = shl nuw nsw i64 %23, 4
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %.not30 = icmp eq i32 %22, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
@@ -3850,7 +3854,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm21EmitNodeMatcherCommon11isEqualIm
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !173
-  %17 = getelementptr inbounds nuw i16, ptr %16, i64 %11
+  %.idx.i = shl nuw nsw i64 %11, 1
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
   %.not9.i.i.i.i.i = icmp eq i64 %11, 0
   br i1 %.not9.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.preheader.i
 
@@ -3888,12 +3893,12 @@ define dso_local noundef zeroext i1 @_ZNK4llvm21EmitNodeMatcherCommon11isEqualIm
 
 _ZNK4llvm15SmallVectorImplIjEeqERKS1_.exit:       ; preds = %31
   %32 = zext i32 %28 to i64
+  %.idx.i12 = shl nuw nsw i64 %32, 2
   %33 = load ptr, ptr %25, align 8, !tbaa !23
   %34 = load ptr, ptr %26, align 8, !tbaa !23
-  %.idx.i = shl nuw nsw i64 %32, 2
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %33, ptr %34, i64 %.idx.i)
-  %.not9.i.i.i.i.i12 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %.not9.i.i.i.i.i12, label %_ZNK4llvm15SmallVectorImplIjEeqERKS1_.exit.thread, label %_ZNK4llvm15SmallVectorImplINS_3MVT15SimpleValueTypeEEeqERKS3_.exit
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %33, ptr %34, i64 %.idx.i12)
+  %.not9.i.i.i.i.i13 = icmp eq i32 %bcmp.i.i.i.i.i, 0
+  br i1 %.not9.i.i.i.i.i13, label %_ZNK4llvm15SmallVectorImplIjEeqERKS1_.exit.thread, label %_ZNK4llvm15SmallVectorImplINS_3MVT15SimpleValueTypeEEeqERKS3_.exit
 
 _ZNK4llvm15SmallVectorImplIjEeqERKS1_.exit.thread: ; preds = %31, %_ZNK4llvm15SmallVectorImplIjEeqERKS1_.exit
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -5695,9 +5700,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm27EmitMergeInputChainsMa
 
 10:                                               ; preds = %9
   %11 = zext i32 %6 to i64
+  %.idx.i = shl nuw nsw i64 %11, 2
   %12 = load ptr, ptr %3, align 8, !tbaa !23
   %13 = load ptr, ptr %4, align 8, !tbaa !23
-  %.idx.i = shl nuw nsw i64 %11, 2
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %12, ptr %13, i64 %.idx.i)
   %.not9.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br label %_ZNK4llvm15SmallVectorImplIjEeqERKS1_.exit
@@ -6064,9 +6069,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm20CompleteMatchMatcher11
 
 _ZNK4llvm15SmallVectorImplIjEeqERKS1_.exit:       ; preds = %9
   %10 = zext i32 %6 to i64
+  %.idx.i = shl nuw nsw i64 %10, 2
   %11 = load ptr, ptr %3, align 8, !tbaa !23
   %12 = load ptr, ptr %4, align 8, !tbaa !23
-  %.idx.i = shl nuw nsw i64 %10, 2
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %11, ptr %12, i64 %.idx.i)
   %.not9.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not9.i.i.i.i.i, label %_ZNK4llvm15SmallVectorImplIjEeqERKS1_.exit.thread, label %_ZNK4llvm15SmallVectorImplIjEeqERKS1_.exit.thread4

@@ -3,9 +3,6 @@ source_filename = "bench/ozz-animation/original/blending_job.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.ozz::animation::BlendingJob::Layer" = type { float, %"struct.ozz::span.0", %"struct.ozz::span.2" }
-%"struct.ozz::span.0" = type { ptr, i64 }
-%"struct.ozz::span.2" = type { ptr, i64 }
 %"struct.ozz::animation::(anonymous namespace)::ProcessArgs" = type <{ [256 x <4 x float>], ptr, i64, i32, i32, float, [4 x i8] }>
 %"struct.ozz::math::SoaTransform" = type { %"struct.ozz::math::SoaFloat3", %"struct.ozz::math::SoaQuaternion", %"struct.ozz::math::SoaFloat3" }
 %"struct.ozz::math::SoaQuaternion" = type { <4 x float>, <4 x float>, <4 x float>, <4 x float> }
@@ -29,7 +26,8 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation11BlendingJob8ValidateEv(
   %14 = load ptr, ptr %13, align 8, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !19
-  %17 = getelementptr inbounds nuw %"struct.ozz::animation::BlendingJob::Layer", ptr %14, i64 %16
+  %.idx = mul nuw nsw i64 %16, 40
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %.not34 = icmp eq i64 %16, 0
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
@@ -39,7 +37,8 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation11BlendingJob8ValidateEv(
   %19 = load ptr, ptr %18, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i64, ptr %20, align 8, !tbaa !19
-  %22 = getelementptr inbounds nuw %"struct.ozz::animation::BlendingJob::Layer", ptr %19, i64 %21
+  %.idx44 = mul nuw nsw i64 %21, 40
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx44
   %.not2637 = icmp eq i64 %21, 0
   br i1 %.not2637, label %._crit_edge42, label %.lr.ph41
 
@@ -107,7 +106,8 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation11BlendingJob3RunEv(ptr n
   %15 = load ptr, ptr %14, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !19
-  %18 = getelementptr inbounds nuw %"struct.ozz::animation::BlendingJob::Layer", ptr %15, i64 %17
+  %.idx.i = mul nuw nsw i64 %17, 40
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
   %.not34.i = icmp eq i64 %17, 0
   br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -117,7 +117,8 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation11BlendingJob3RunEv(ptr n
   %20 = load ptr, ptr %19, align 8, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i64, ptr %21, align 8, !tbaa !19
-  %23 = getelementptr inbounds nuw %"struct.ozz::animation::BlendingJob::Layer", ptr %20, i64 %22
+  %.idx44.i = mul nuw nsw i64 %22, 40
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx44.i
   %.not2637.i = icmp eq i64 %22, 0
   br i1 %.not2637.i, label %_ZNK3ozz9animation11BlendingJob8ValidateEv.exit, label %.lr.ph41.i
 
@@ -204,9 +205,9 @@ _ZNK3ozz9animation11BlendingJob8ValidateEv.exit:  ; preds = %.lr.ph41.i, %._crit
   br i1 %62, label %.preheader193.i, label %.preheader195.i
 
 .preheader195.i:                                  ; preds = %59
-  br i1 %.not208.i, label %.loopexit.i, label %.lr.ph.i5
+  br i1 %.not208.i, label %.loopexit.i, label %.lr.ph.i6
 
-.lr.ph.i5:                                        ; preds = %.preheader195.i
+.lr.ph.i6:                                        ; preds = %.preheader195.i
   %63 = getelementptr inbounds nuw i8, ptr %.0205.i, i64 8
   br label %112
 
@@ -285,8 +286,8 @@ _ZNK3ozz9animation11BlendingJob8ValidateEv.exit:  ; preds = %.lr.ph41.i, %._crit
   %111 = icmp ult i64 %109, %110
   br i1 %111, label %65, label %.loopexit.i, !llvm.loop !46
 
-112:                                              ; preds = %112, %.lr.ph.i5
-  %.0109197.i = phi i64 [ 0, %.lr.ph.i5 ], [ %203, %112 ]
+112:                                              ; preds = %112, %.lr.ph.i6
+  %.0109197.i = phi i64 [ 0, %.lr.ph.i6 ], [ %203, %112 ]
   %113 = load ptr, ptr %63, align 8, !tbaa !32
   %114 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %113, i64 %.0109197.i
   %115 = load ptr, ptr %39, align 16, !tbaa !33
@@ -593,8 +594,8 @@ _ZNK3ozz9animation11BlendingJob8ValidateEv.exit:  ; preds = %.lr.ph41.i, %._crit
   %349 = phi i64 [ %343, %.loopexit.i ], [ %46, %.lr.ph206.i ]
   %350 = phi i32 [ %345, %.loopexit.i ], [ %47, %.lr.ph206.i ]
   %351 = getelementptr inbounds nuw i8, ptr %.0205.i, i64 40
-  %.not.i3 = icmp eq ptr %351, %18
-  br i1 %.not.i3, label %_ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit, label %.lr.ph206.i
+  %.not.i4 = icmp eq ptr %351, %18
+  br i1 %.not.i4, label %_ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit, label %.lr.ph206.i
 
 _ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit: ; preds = %346
   %.pr = load i32, ptr %42, align 4, !tbaa !28
@@ -637,8 +638,8 @@ _ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit.thread.thr
   %367 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %366, i64 %.0132.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %367, ptr noundef nonnull align 16 dereferenceable(160) %365, i64 160, i1 false), !tbaa.struct !84
   %368 = add nuw i64 %.0132.i, 1
-  %exitcond38.not = icmp eq i64 %368, %360
-  br i1 %exitcond38.not, label %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread58, label %.lr.ph133.i, !llvm.loop !85
+  %exitcond40.not = icmp eq i64 %368, %360
+  br i1 %exitcond40.not, label %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread60, label %.lr.ph133.i, !llvm.loop !85
 
 369:                                              ; preds = %358
   store float %354, ptr %43, align 8, !tbaa !29
@@ -746,20 +747,20 @@ _ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit.thread.thr
   store <4 x float> %453, ptr %451, align 16, !tbaa !36
   %454 = add nuw i64 %.074130.i, 1
   %exitcond.not = icmp eq i64 %454, %347
-  br i1 %exitcond.not, label %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread58, label %.lr.ph131.i, !llvm.loop !98
+  br i1 %exitcond.not, label %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread60, label %.lr.ph131.i, !llvm.loop !98
 
 455:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit
   %456 = insertelement <4 x float> poison, float %354, i64 0
   %457 = shufflevector <4 x float> %456, <4 x float> poison, <4 x i32> zeroinitializer
-  %.not.i6 = icmp eq i64 %347, 0
-  br i1 %.not.i6, label %.preheader.i9.thread, label %.lr.ph.i7
+  %.not.i7 = icmp eq i64 %347, 0
+  br i1 %.not.i7, label %.preheader.i10.thread, label %.lr.ph.i8
 
-.preheader.i9.thread:                             ; preds = %455
-  %.val.pre53 = load ptr, ptr %39, align 16, !tbaa !33
+.preheader.i10.thread:                            ; preds = %455
+  %.val.pre55 = load ptr, ptr %39, align 16, !tbaa !33
   br label %_ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit
 
-.lr.ph.i7:                                        ; preds = %455, %.lr.ph.i7
-  %.075129.i = phi i64 [ %546, %.lr.ph.i7 ], [ 0, %455 ]
+.lr.ph.i8:                                        ; preds = %455, %.lr.ph.i8
+  %.075129.i = phi i64 [ %546, %.lr.ph.i8 ], [ 0, %455 ]
   %458 = load ptr, ptr %39, align 16, !tbaa !33
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 40
   %460 = load ptr, ptr %459, align 8, !tbaa !32
@@ -862,50 +863,50 @@ _ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit.thread.thr
   %546 = add nuw i64 %.075129.i, 1
   %547 = load i64, ptr %40, align 8, !tbaa !24
   %548 = icmp ult i64 %546, %547
-  br i1 %548, label %.lr.ph.i7, label %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit, !llvm.loop !111
+  br i1 %548, label %.lr.ph.i8, label %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit, !llvm.loop !111
 
-_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit: ; preds = %.lr.ph.i7
-  %.pre41 = load i32, ptr %42, align 4, !tbaa !28
-  %549 = icmp eq i32 %.pre41, 0
-  br i1 %549, label %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread, label %.preheader.i9
+_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit: ; preds = %.lr.ph.i8
+  %.pre43 = load i32, ptr %42, align 4, !tbaa !28
+  %549 = icmp eq i32 %.pre43, 0
+  br i1 %549, label %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread, label %.preheader.i10
 
-.preheader.i9:                                    ; preds = %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit
-  %.not.i10 = icmp eq i64 %547, 0
+.preheader.i10:                                   ; preds = %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit
+  %.not.i11 = icmp eq i64 %547, 0
   %.val.pre = load ptr, ptr %39, align 16, !tbaa !33
-  br i1 %.not.i10, label %_ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit, label %.lr.ph.i11.preheader
+  br i1 %.not.i11, label %_ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit, label %.lr.ph.i12.preheader
 
-.lr.ph.i11.preheader:                             ; preds = %.preheader.i9
+.lr.ph.i12.preheader:                             ; preds = %.preheader.i10
   %550 = getelementptr inbounds nuw i8, ptr %.val.pre, i64 56
-  br label %.lr.ph.i11
+  br label %.lr.ph.i12
 
 _ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread: ; preds = %369, %.thread
-  %.val.pre4256 = load ptr, ptr %39, align 16, !tbaa !33
+  %.val.pre4458 = load ptr, ptr %39, align 16, !tbaa !33
   br label %_ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit
 
-_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread58: ; preds = %.lr.ph131.i, %.lr.ph133.i
-  %.val2.pr46.ph = phi i64 [ %360, %.lr.ph133.i ], [ %347, %.lr.ph131.i ]
+_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread60: ; preds = %.lr.ph131.i, %.lr.ph133.i
+  %.val2.pr48.ph = phi i64 [ %360, %.lr.ph133.i ], [ %347, %.lr.ph131.i ]
   %551 = load float, ptr %43, align 8, !tbaa !29
   %552 = fdiv float 1.000000e+00, %551
   %553 = insertelement <4 x float> poison, float %552, i64 0
   %554 = shufflevector <4 x float> %553, <4 x float> poison, <4 x i32> zeroinitializer
-  %.val.pre4261 = load ptr, ptr %39, align 16, !tbaa !33
+  %.val.pre4463 = load ptr, ptr %39, align 16, !tbaa !33
   br label %.lr.ph50.i.preheader
 
 _ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread: ; preds = %_ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit.thread.thread, %_ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit.thread, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit
-  %.val2.pr46 = phi i64 [ %547, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit ], [ %6, %_ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit.thread.thread ], [ %347, %_ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit.thread ]
+  %.val2.pr48 = phi i64 [ %547, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit ], [ %6, %_ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit.thread.thread ], [ %347, %_ZN3ozz9animation12_GLOBAL__N_111BlendLayersEPNS1_11ProcessArgsE.exit.thread ]
   %555 = load float, ptr %43, align 8, !tbaa !29
   %556 = fdiv float 1.000000e+00, %555
   %557 = insertelement <4 x float> poison, float %556, i64 0
   %558 = shufflevector <4 x float> %557, <4 x float> poison, <4 x i32> zeroinitializer
-  %.not51.i = icmp eq i64 %.val2.pr46, 0
-  %.val.pre42 = load ptr, ptr %39, align 16, !tbaa !33
+  %.not51.i = icmp eq i64 %.val2.pr48, 0
+  %.val.pre44 = load ptr, ptr %39, align 16, !tbaa !33
   br i1 %.not51.i, label %_ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit, label %.lr.ph50.i.preheader
 
-.lr.ph50.i.preheader:                             ; preds = %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread58, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread
-  %.val.pre4263 = phi ptr [ %.val.pre4261, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread58 ], [ %.val.pre42, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread ]
-  %559 = phi <4 x float> [ %554, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread58 ], [ %558, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread ]
-  %.val2.pr4662 = phi i64 [ %.val2.pr46.ph, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread58 ], [ %.val2.pr46, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread ]
-  %560 = getelementptr inbounds nuw i8, ptr %.val.pre4263, i64 56
+.lr.ph50.i.preheader:                             ; preds = %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread60, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread
+  %.val.pre4465 = phi ptr [ %.val.pre4463, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread60 ], [ %.val.pre44, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread ]
+  %559 = phi <4 x float> [ %554, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread60 ], [ %558, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread ]
+  %.val2.pr4864 = phi i64 [ %.val2.pr48.ph, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread60 ], [ %.val2.pr48, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread ]
+  %560 = getelementptr inbounds nuw i8, ptr %.val.pre4465, i64 56
   br label %.lr.ph50.i
 
 .lr.ph50.i:                                       ; preds = %.lr.ph50.i.preheader, %.lr.ph50.i
@@ -962,11 +963,11 @@ _ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread: 
   store <4 x float> %598, ptr %596, align 16, !tbaa !36
   store <4 x float> %601, ptr %599, align 16, !tbaa !36
   %602 = add nuw i64 %.049.i, 1
-  %exitcond40.not = icmp eq i64 %602, %.val2.pr4662
-  br i1 %exitcond40.not, label %_ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit, label %.lr.ph50.i, !llvm.loop !121
+  %exitcond42.not = icmp eq i64 %602, %.val2.pr4864
+  br i1 %exitcond42.not, label %_ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit, label %.lr.ph50.i, !llvm.loop !121
 
-.lr.ph.i11:                                       ; preds = %.lr.ph.i11.preheader, %.lr.ph.i11
-  %.03048.i = phi i64 [ %647, %.lr.ph.i11 ], [ 0, %.lr.ph.i11.preheader ]
+.lr.ph.i12:                                       ; preds = %.lr.ph.i12.preheader, %.lr.ph.i12
+  %.03048.i = phi i64 [ %647, %.lr.ph.i12 ], [ 0, %.lr.ph.i12.preheader ]
   %603 = getelementptr inbounds nuw [256 x <4 x float>], ptr %2, i64 0, i64 %.03048.i
   %604 = load <4 x float>, ptr %603, align 16, !tbaa !36
   %605 = fdiv <4 x float> splat (float 1.000000e+00), %604
@@ -1022,17 +1023,18 @@ _ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread: 
   store <4 x float> %643, ptr %641, align 16, !tbaa !36
   store <4 x float> %646, ptr %644, align 16, !tbaa !36
   %647 = add nuw i64 %.03048.i, 1
-  %exitcond39.not = icmp eq i64 %647, %547
-  br i1 %exitcond39.not, label %_ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit, label %.lr.ph.i11, !llvm.loop !131
+  %exitcond41.not = icmp eq i64 %647, %547
+  br i1 %exitcond41.not, label %_ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit, label %.lr.ph.i12, !llvm.loop !131
 
-_ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit: ; preds = %.lr.ph.i11, %.lr.ph50.i, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread, %.preheader.i9.thread, %.preheader.i9, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread
-  %.val = phi ptr [ %.val.pre, %.preheader.i9 ], [ %.val.pre42, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread ], [ %.val.pre53, %.preheader.i9.thread ], [ %.val.pre4256, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread ], [ %.val.pre4263, %.lr.ph50.i ], [ %.val.pre, %.lr.ph.i11 ]
-  %.val2 = phi i64 [ 0, %.preheader.i9 ], [ 0, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread ], [ 0, %.preheader.i9.thread ], [ 0, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread ], [ %.val2.pr4662, %.lr.ph50.i ], [ %547, %.lr.ph.i11 ]
+_ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit: ; preds = %.lr.ph.i12, %.lr.ph50.i, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread, %.preheader.i10.thread, %.preheader.i10, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread
+  %.val = phi ptr [ %.val.pre, %.preheader.i10 ], [ %.val.pre44, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread ], [ %.val.pre55, %.preheader.i10.thread ], [ %.val.pre4458, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread ], [ %.val.pre4465, %.lr.ph50.i ], [ %.val.pre, %.lr.ph.i12 ]
+  %.val2 = phi i64 [ 0, %.preheader.i10 ], [ 0, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread ], [ 0, %.preheader.i10.thread ], [ 0, %_ZN3ozz9animation12_GLOBAL__N_113BlendRestPoseEPNS1_11ProcessArgsE.exit.thread.thread ], [ %.val2.pr4864, %.lr.ph50.i ], [ %547, %.lr.ph.i12 ]
   %648 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %649 = load ptr, ptr %648, align 8, !tbaa !18
   %650 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %651 = load i64, ptr %650, align 8, !tbaa !19
-  %652 = getelementptr inbounds nuw %"struct.ozz::animation::BlendingJob::Layer", ptr %649, i64 %651
+  %.idx.i14 = mul nuw nsw i64 %651, 40
+  %652 = getelementptr inbounds nuw i8, ptr %649, i64 %.idx.i14
   %.not140.i = icmp eq i64 %651, 0
   br i1 %.not140.i, label %_ZN3ozz9animation12_GLOBAL__N_19AddLayersEPNS1_11ProcessArgsE.exit, label %.lr.ph143.i
 
@@ -1041,8 +1043,8 @@ _ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit: ; preds = %.
   %653 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   br label %654
 
-654:                                              ; preds = %.loopexit.i13, %.lr.ph143.i
-  %.0141.i = phi ptr [ %649, %.lr.ph143.i ], [ %1130, %.loopexit.i13 ]
+654:                                              ; preds = %.loopexit.i15, %.lr.ph143.i
+  %.0141.i = phi ptr [ %649, %.lr.ph143.i ], [ %1130, %.loopexit.i15 ]
   %655 = load float, ptr %.0141.i, align 8, !tbaa !30
   %656 = fcmp ogt float %655, 0.000000e+00
   br i1 %656, label %657, label %888
@@ -1054,12 +1056,12 @@ _ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit: ; preds = %.
   %661 = getelementptr inbounds nuw i8, ptr %.0141.i, i64 32
   %662 = load i64, ptr %661, align 8, !tbaa !20
   %663 = icmp eq i64 %662, 0
-  br i1 %663, label %778, label %.preheader.i17
+  br i1 %663, label %778, label %.preheader.i19
 
-.preheader.i17:                                   ; preds = %657
-  br i1 %.not144.i, label %.loopexit.i13, label %.lr.ph137.i
+.preheader.i19:                                   ; preds = %657
+  br i1 %.not144.i, label %.loopexit.i15, label %.lr.ph137.i
 
-.lr.ph137.i:                                      ; preds = %.preheader.i17
+.lr.ph137.i:                                      ; preds = %.preheader.i19
   %664 = getelementptr inbounds nuw i8, ptr %.0141.i, i64 8
   br label %665
 
@@ -1188,11 +1190,11 @@ _ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit: ; preds = %.
   store <4 x float> %776, ptr %770, align 16, !tbaa !36
   %777 = add nuw i64 %.0198136.i, 1
   %exitcond152.not.i = icmp eq i64 %777, %.val2
-  br i1 %exitcond152.not.i, label %.loopexit.i13, label %665, !llvm.loop !141
+  br i1 %exitcond152.not.i, label %.loopexit.i15, label %665, !llvm.loop !141
 
 778:                                              ; preds = %657
   %779 = fsub <4 x float> splat (float 1.000000e+00), %659
-  br i1 %.not144.i, label %.loopexit.i13, label %.lr.ph139.i
+  br i1 %.not144.i, label %.loopexit.i15, label %.lr.ph139.i
 
 .lr.ph139.i:                                      ; preds = %778
   %780 = getelementptr inbounds nuw i8, ptr %.0141.i, i64 8
@@ -1317,11 +1319,11 @@ _ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit: ; preds = %.
   store <4 x float> %886, ptr %880, align 16, !tbaa !36
   %887 = add nuw i64 %.0200138.i, 1
   %exitcond153.not.i = icmp eq i64 %887, %.val2
-  br i1 %exitcond153.not.i, label %.loopexit.i13, label %781, !llvm.loop !151
+  br i1 %exitcond153.not.i, label %.loopexit.i15, label %781, !llvm.loop !151
 
 888:                                              ; preds = %654
   %889 = fcmp olt float %655, 0.000000e+00
-  br i1 %889, label %890, label %.loopexit.i13
+  br i1 %889, label %890, label %.loopexit.i15
 
 890:                                              ; preds = %888
   %891 = fneg float %655
@@ -1334,14 +1336,14 @@ _ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit: ; preds = %.
   br i1 %897, label %1016, label %.preheader131.i
 
 .preheader131.i:                                  ; preds = %890
-  br i1 %.not144.i, label %.loopexit.i13, label %.lr.ph.i16
+  br i1 %.not144.i, label %.loopexit.i15, label %.lr.ph.i18
 
-.lr.ph.i16:                                       ; preds = %.preheader131.i
+.lr.ph.i18:                                       ; preds = %.preheader131.i
   %898 = getelementptr inbounds nuw i8, ptr %.0141.i, i64 8
   br label %899
 
-899:                                              ; preds = %899, %.lr.ph.i16
-  %.0201133.i = phi i64 [ 0, %.lr.ph.i16 ], [ %1015, %899 ]
+899:                                              ; preds = %899, %.lr.ph.i18
+  %.0201133.i = phi i64 [ 0, %.lr.ph.i18 ], [ %1015, %899 ]
   %900 = load ptr, ptr %898, align 8, !tbaa !32
   %901 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %900, i64 %.0201133.i
   %902 = load ptr, ptr %653, align 8, !tbaa !34
@@ -1469,11 +1471,11 @@ _ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit: ; preds = %.
   store <4 x float> %1014, ptr %1007, align 16, !tbaa !36
   %1015 = add nuw i64 %.0201133.i, 1
   %exitcond.not.i = icmp eq i64 %1015, %.val2
-  br i1 %exitcond.not.i, label %.loopexit.i13, label %899, !llvm.loop !161
+  br i1 %exitcond.not.i, label %.loopexit.i15, label %899, !llvm.loop !161
 
 1016:                                             ; preds = %890
   %1017 = fsub <4 x float> splat (float 1.000000e+00), %893
-  br i1 %.not144.i, label %.loopexit.i13, label %.lr.ph135.i
+  br i1 %.not144.i, label %.loopexit.i15, label %.lr.ph135.i
 
 .lr.ph135.i:                                      ; preds = %1016
   %1018 = getelementptr inbounds nuw i8, ptr %.0141.i, i64 8
@@ -1602,14 +1604,14 @@ _ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit: ; preds = %.
   store <4 x float> %1128, ptr %1121, align 16, !tbaa !36
   %1129 = add nuw i64 %.0199134.i, 1
   %exitcond151.not.i = icmp eq i64 %1129, %.val2
-  br i1 %exitcond151.not.i, label %.loopexit.i13, label %1019, !llvm.loop !171
+  br i1 %exitcond151.not.i, label %.loopexit.i15, label %1019, !llvm.loop !171
 
-.loopexit.i13:                                    ; preds = %899, %1019, %665, %781, %1016, %.preheader131.i, %888, %778, %.preheader.i17
+.loopexit.i15:                                    ; preds = %899, %1019, %665, %781, %1016, %.preheader131.i, %888, %778, %.preheader.i19
   %1130 = getelementptr inbounds nuw i8, ptr %.0141.i, i64 40
-  %.not.i14 = icmp eq ptr %1130, %652
-  br i1 %.not.i14, label %_ZN3ozz9animation12_GLOBAL__N_19AddLayersEPNS1_11ProcessArgsE.exit, label %654
+  %.not.i16 = icmp eq ptr %1130, %652
+  br i1 %.not.i16, label %_ZN3ozz9animation12_GLOBAL__N_19AddLayersEPNS1_11ProcessArgsE.exit, label %654
 
-_ZN3ozz9animation12_GLOBAL__N_19AddLayersEPNS1_11ProcessArgsE.exit: ; preds = %.loopexit.i13, %_ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit
+_ZN3ozz9animation12_GLOBAL__N_19AddLayersEPNS1_11ProcessArgsE.exit: ; preds = %.loopexit.i15, %_ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit
   call void @llvm.lifetime.end.p0(i64 4128, ptr nonnull %2) #6
   br label %1131
 

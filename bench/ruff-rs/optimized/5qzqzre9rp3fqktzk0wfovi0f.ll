@@ -508,7 +508,8 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
   %59 = tail call { ptr, i64 } @"_ZN84_$LT$ruff_formatter..format_element..Interned$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1bb2017b6f6b9d0dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
   %60 = extractvalue { ptr, i64 } %59, 0
   %61 = extractvalue { ptr, i64 } %59, 1
-  %62 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %60, i64 %61
+  %.idx = mul nuw nsw i64 %61, 24
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx
   %63 = icmp ne ptr %60, null
   tail call void @llvm.assume(i1 %63)
   %64 = icmp eq i64 %61, 0
@@ -1020,7 +1021,8 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h8203a764ab41f7cbE.exit30: ; preds = %"_ZN
   call void @llvm.assume(i1 %215)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
   store i64 %.sroa.058.1, ptr %17, align 8
-  %216 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %.sroa.962.2, i64 %.sroa.1263.2
+  %.idx239 = mul nuw nsw i64 %.sroa.1263.2, 24
+  %216 = getelementptr inbounds nuw i8, ptr %.sroa.962.2, i64 %.idx239
   %.not25235 = icmp eq i64 %.sroa.1263.2, 0
   br i1 %.not25235, label %._crit_edge, label %.lr.ph238
 
@@ -1038,7 +1040,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h8203a764ab41f7cbE.exit30: ; preds = %"_ZN
   %223 = phi i64 [ %255, %._crit_edge ], [ %208, %_ZN5alloc2rc10RcInnerPtr10inc_strong17h8203a764ab41f7cbE.exit30 ]
   %224 = phi ptr [ %254, %._crit_edge ], [ %206, %_ZN5alloc2rc10RcInnerPtr10inc_strong17h8203a764ab41f7cbE.exit30 ]
   %.val.i32 = phi i64 [ %.val.i32.pre, %._crit_edge ], [ %210, %_ZN5alloc2rc10RcInnerPtr10inc_strong17h8203a764ab41f7cbE.exit30 ]
-  %225 = phi ptr [ %.pre270, %._crit_edge ], [ %206, %_ZN5alloc2rc10RcInnerPtr10inc_strong17h8203a764ab41f7cbE.exit30 ]
+  %225 = phi ptr [ %.pre271, %._crit_edge ], [ %206, %_ZN5alloc2rc10RcInnerPtr10inc_strong17h8203a764ab41f7cbE.exit30 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   %226 = icmp ne i64 %.val.i32, 0
   call void @llvm.assume(i1 %226)
@@ -1148,8 +1150,8 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h8203a764ab41f7cbE.exit30: ; preds = %"_ZN
   store i64 %255, ptr %256, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  %.pre270 = load ptr, ptr %0, align 8
-  %.val.i32.pre = load i64, ptr %.pre270, align 8
+  %.pre271 = load ptr, ptr %0, align 8
+  %.val.i32.pre = load i64, ptr %.pre271, align 8
   br label %222
 
 .body.thread162:                                  ; preds = %334, %243, %266, %280

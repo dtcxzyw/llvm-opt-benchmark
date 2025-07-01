@@ -1648,7 +1648,8 @@ define void @_ZN5uu_du2du17h0d5f2f12fdf6b866E(ptr noalias noundef writeonly sret
   %.val = load ptr, ptr %76, align 8, !nonnull !5
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val150 = load i64, ptr %77, align 8
-  %78 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %.val, i64 %.val150
+  %.idx = mul nsw i64 %.val150, 56
+  %78 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %79 = icmp eq i64 %.val150, 0
   %80 = getelementptr inbounds nuw i8, ptr %47, i64 72
   %81 = getelementptr inbounds nuw i8, ptr %47, i64 80

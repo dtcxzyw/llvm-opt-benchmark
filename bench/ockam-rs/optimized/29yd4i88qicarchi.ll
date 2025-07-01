@@ -3025,7 +3025,8 @@ default.unreachable147:                           ; preds = %1064, %832, %815, %
   %141 = load ptr, ptr %140, align 8, !alias.scope !759, !noalias !762, !nonnull !4, !noundef !4
   %142 = getelementptr inbounds nuw i8, ptr %95, i64 72
   %143 = load i64, ptr %142, align 8, !alias.scope !759, !noalias !762, !noundef !4
-  %144 = getelementptr inbounds { { { { ptr, i64 }, i64 } } }, ptr %141, i64 %143
+  %.idx.i = mul nsw i64 %143, 24
+  %144 = getelementptr inbounds i8, ptr %141, i64 %.idx.i
   %145 = icmp eq i64 %143, 0
   br i1 %145, label %_ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_relay17h496cb99584f0330cE.exit, label %.lr.ph.i
 

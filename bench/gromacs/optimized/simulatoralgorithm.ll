@@ -16422,7 +16422,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementES
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %.not = icmp ult i64 %16, %8
-  br i1 %.not, label %73, label %17
+  br i1 %.not, label %72, label %17
 
 17:                                               ; preds = %5
   %18 = ptrtoint ptr %1 to i64
@@ -16432,98 +16432,98 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementES
   br i1 %21, label %22, label %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEmEvRT_T0_.exit
 
 22:                                               ; preds = %17
-  %23 = sub nsw i64 0, %9
-  %24 = getelementptr inbounds %"class.std::unique_ptr.275", ptr %13, i64 %23
+  %.idx = sub i64 0, %8
+  %23 = getelementptr inbounds i8, ptr %13, i64 %.idx
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %22, %.lr.ph.i.i.i.i.i
-  %.013.i.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i.i ], [ %13, %22 ]
-  %.sroa.08.012.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i ], [ %24, %22 ]
-  %25 = load i64, ptr %.sroa.08.012.i.i.i.i.i, align 8, !tbaa !220
-  store i64 %25, ptr %.013.i.i.i.i.i, align 8, !tbaa !220
+  %.013.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i ], [ %13, %22 ]
+  %.sroa.08.012.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i ], [ %23, %22 ]
+  %24 = load i64, ptr %.sroa.08.012.i.i.i.i.i, align 8, !tbaa !220
+  store i64 %24, ptr %.013.i.i.i.i.i, align 8, !tbaa !220
   store ptr null, ptr %.sroa.08.012.i.i.i.i.i, align 8, !tbaa !220
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 8
-  %27 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %26, %13
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i = icmp eq ptr %25, %13
   br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !1116
 
 _ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %28 = getelementptr inbounds nuw i8, ptr %13, i64 %8
-  store ptr %28, ptr %12, align 8, !tbaa !219
-  %29 = ptrtoint ptr %24 to i64
-  %30 = sub i64 %29, %18
-  %31 = ashr exact i64 %30, 3
-  %32 = icmp sgt i64 %31, 0
-  br i1 %32, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 %8
+  store ptr %27, ptr %12, align 8, !tbaa !219
+  %28 = ptrtoint ptr %23 to i64
+  %29 = sub i64 %28, %18
+  %30 = ashr exact i64 %29, 3
+  %31 = icmp sgt i64 %30, 0
+  br i1 %31, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit
 
 .lr.ph.i.i.i.i.i51:                               ; preds = %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i
-  %.010.i.i.i.i.i = phi i64 [ %40, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i ], [ %31, %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
-  %.069.i.i.i.i.i = phi ptr [ %34, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i ], [ %13, %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
-  %.078.i.i.i.i.i = phi ptr [ %33, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i ], [ %24, %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
-  %33 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
-  %34 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
+  %.010.i.i.i.i.i = phi i64 [ %39, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i ], [ %30, %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
+  %.069.i.i.i.i.i = phi ptr [ %33, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i ], [ %13, %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
+  %.078.i.i.i.i.i = phi ptr [ %32, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i ], [ %23, %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
+  %32 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
+  %33 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
+  %34 = load ptr, ptr %32, align 8, !tbaa !220
+  store ptr null, ptr %32, align 8, !tbaa !220
   %35 = load ptr, ptr %33, align 8, !tbaa !220
-  store ptr null, ptr %33, align 8, !tbaa !220
-  %36 = load ptr, ptr %34, align 8, !tbaa !220
-  store ptr %35, ptr %34, align 8, !tbaa !220
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %36, null
+  store ptr %34, ptr %33, align 8, !tbaa !220
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIN3gmx17ISimulatorElementEEclEPS1_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3gmx17ISimulatorElementEEclEPS1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i51
-  %37 = load ptr, ptr %36, align 8, !tbaa !167
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(8) %36) #32
+  %36 = load ptr, ptr %35, align 8, !tbaa !167
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %38 = load ptr, ptr %37, align 8
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(8) %35) #32
   br label %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i
 
 _ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3gmx17ISimulatorElementEEclEPS1_.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i51
-  %40 = add nsw i64 %.010.i.i.i.i.i, -1
-  %41 = icmp sgt i64 %.010.i.i.i.i.i, 1
-  br i1 %41, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit, !llvm.loop !1117
+  %39 = add nsw i64 %.010.i.i.i.i.i, -1
+  %40 = icmp sgt i64 %.010.i.i.i.i.i, 1
+  br i1 %40, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit, !llvm.loop !1117
 
 _ZSt13move_backwardIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit: ; preds = %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i, %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit
-  %42 = icmp sgt i64 %9, 0
-  br i1 %42, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEESD_ET0_T_SG_SF_.exit
+  %41 = icmp sgt i64 %9, 0
+  br i1 %41, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEESD_ET0_T_SG_SF_.exit
 
 .lr.ph.i.i.i.i.i52:                               ; preds = %_ZSt13move_backwardIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i55
-  %.012.i.i.i.i.i = phi i64 [ %50, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i55 ], [ %9, %_ZSt13move_backwardIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit ]
-  %.0811.i.i.i.i.i = phi ptr [ %49, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i55 ], [ %1, %_ZSt13move_backwardIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit ]
-  %.0910.i.i.i.i.i = phi ptr [ %48, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i55 ], [ %2, %_ZSt13move_backwardIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit ]
-  %43 = load ptr, ptr %.0910.i.i.i.i.i, align 8, !tbaa !220
+  %.012.i.i.i.i.i = phi i64 [ %49, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i55 ], [ %9, %_ZSt13move_backwardIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit ]
+  %.0811.i.i.i.i.i = phi ptr [ %48, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i55 ], [ %1, %_ZSt13move_backwardIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit ]
+  %.0910.i.i.i.i.i = phi ptr [ %47, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i55 ], [ %2, %_ZSt13move_backwardIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit ]
+  %42 = load ptr, ptr %.0910.i.i.i.i.i, align 8, !tbaa !220
   store ptr null, ptr %.0910.i.i.i.i.i, align 8, !tbaa !220
-  %44 = load ptr, ptr %.0811.i.i.i.i.i, align 8, !tbaa !220
-  store ptr %43, ptr %.0811.i.i.i.i.i, align 8, !tbaa !220
-  %.not.i.i.i.i.i.i.i.i.i53 = icmp eq ptr %44, null
+  %43 = load ptr, ptr %.0811.i.i.i.i.i, align 8, !tbaa !220
+  store ptr %42, ptr %.0811.i.i.i.i.i, align 8, !tbaa !220
+  %.not.i.i.i.i.i.i.i.i.i53 = icmp eq ptr %43, null
   br i1 %.not.i.i.i.i.i.i.i.i.i53, label %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i55, label %_ZNKSt14default_deleteIN3gmx17ISimulatorElementEEclEPS1_.exit.i.i.i.i.i.i.i.i.i54
 
 _ZNKSt14default_deleteIN3gmx17ISimulatorElementEEclEPS1_.exit.i.i.i.i.i.i.i.i.i54: ; preds = %.lr.ph.i.i.i.i.i52
-  %45 = load ptr, ptr %44, align 8, !tbaa !167
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %47 = load ptr, ptr %46, align 8
-  tail call void %47(ptr noundef nonnull align 8 dereferenceable(8) %44) #32
+  %44 = load ptr, ptr %43, align 8, !tbaa !167
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %46 = load ptr, ptr %45, align 8
+  tail call void %46(ptr noundef nonnull align 8 dereferenceable(8) %43) #32
   br label %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i55
 
 _ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i55: ; preds = %_ZNKSt14default_deleteIN3gmx17ISimulatorElementEEclEPS1_.exit.i.i.i.i.i.i.i.i.i54, %.lr.ph.i.i.i.i.i52
-  %48 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %49 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
-  %50 = add nsw i64 %.012.i.i.i.i.i, -1
-  %51 = icmp sgt i64 %.012.i.i.i.i.i, 1
-  br i1 %51, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEESD_ET0_T_SG_SF_.exit, !llvm.loop !1118
+  %47 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
+  %49 = add nsw i64 %.012.i.i.i.i.i, -1
+  %50 = icmp sgt i64 %.012.i.i.i.i.i, 1
+  br i1 %50, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEESD_ET0_T_SG_SF_.exit, !llvm.loop !1118
 
 _ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEmEvRT_T0_.exit: ; preds = %17
-  %52 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not10.i.i.i.i = icmp eq ptr %52, %3
+  %51 = getelementptr inbounds i8, ptr %2, i64 %19
+  %.not10.i.i.i.i = icmp eq ptr %51, %3
   br i1 %.not10.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEmEvRT_T0_.exit, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i ], [ %13, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEmEvRT_T0_.exit ]
-  %.sroa.08.011.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i ], [ %52, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEmEvRT_T0_.exit ]
-  %53 = load i64, ptr %.sroa.08.011.i.i.i.i, align 8, !tbaa !220
-  store i64 %53, ptr %.012.i.i.i.i, align 8, !tbaa !220
+  %.012.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i ], [ %13, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEmEvRT_T0_.exit ]
+  %.sroa.08.011.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i ], [ %51, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEmEvRT_T0_.exit ]
+  %52 = load i64, ptr %.sroa.08.011.i.i.i.i, align 8, !tbaa !220
+  store i64 %52, ptr %.012.i.i.i.i, align 8, !tbaa !220
   store ptr null, ptr %.sroa.08.011.i.i.i.i, align 8, !tbaa !220
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i, i64 8
-  %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %54, %3
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp eq ptr %53, %3
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !1119
 
 _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEmEvRT_T0_.exit
@@ -16531,109 +16531,109 @@ _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS
   br i1 %.not11.i.i.i.i.i56, label %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit62, label %.lr.ph.i.i.i.i.i57.preheader
 
 .lr.ph.i.i.i.i.i57.preheader:                     ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit
-  %56 = sub nuw nsw i64 %9, %20
-  %57 = getelementptr inbounds nuw %"class.std::unique_ptr.275", ptr %13, i64 %56
+  %55 = sub nuw nsw i64 %9, %20
+  %56 = getelementptr inbounds nuw %"class.std::unique_ptr.275", ptr %13, i64 %55
   br label %.lr.ph.i.i.i.i.i57
 
 .lr.ph.i.i.i.i.i57:                               ; preds = %.lr.ph.i.i.i.i.i57.preheader, %.lr.ph.i.i.i.i.i57
-  %.013.i.i.i.i.i58 = phi ptr [ %60, %.lr.ph.i.i.i.i.i57 ], [ %57, %.lr.ph.i.i.i.i.i57.preheader ]
-  %.sroa.08.012.i.i.i.i.i59 = phi ptr [ %59, %.lr.ph.i.i.i.i.i57 ], [ %1, %.lr.ph.i.i.i.i.i57.preheader ]
-  %58 = load i64, ptr %.sroa.08.012.i.i.i.i.i59, align 8, !tbaa !220
-  store i64 %58, ptr %.013.i.i.i.i.i58, align 8, !tbaa !220
+  %.013.i.i.i.i.i58 = phi ptr [ %59, %.lr.ph.i.i.i.i.i57 ], [ %56, %.lr.ph.i.i.i.i.i57.preheader ]
+  %.sroa.08.012.i.i.i.i.i59 = phi ptr [ %58, %.lr.ph.i.i.i.i.i57 ], [ %1, %.lr.ph.i.i.i.i.i57.preheader ]
+  %57 = load i64, ptr %.sroa.08.012.i.i.i.i.i59, align 8, !tbaa !220
+  store i64 %57, ptr %.013.i.i.i.i.i58, align 8, !tbaa !220
   store ptr null, ptr %.sroa.08.012.i.i.i.i.i59, align 8, !tbaa !220
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i59, i64 8
-  %60 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i58, i64 8
-  %.not.i.i.i.i.i60 = icmp eq ptr %59, %13
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i59, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i58, i64 8
+  %.not.i.i.i.i.i60 = icmp eq ptr %58, %13
   br i1 %.not.i.i.i.i.i60, label %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit62, label %.lr.ph.i.i.i.i.i57, !llvm.loop !1116
 
 _ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit62: ; preds = %.lr.ph.i.i.i.i.i57, %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit
-  %61 = getelementptr inbounds nuw i8, ptr %13, i64 %8
-  store ptr %61, ptr %12, align 8, !tbaa !219
-  %62 = ashr exact i64 %19, 3
-  %63 = icmp sgt i64 %62, 0
-  br i1 %63, label %.lr.ph.i.i.i.i.i64, label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEESD_ET0_T_SG_SF_.exit
+  %60 = getelementptr inbounds nuw i8, ptr %13, i64 %8
+  store ptr %60, ptr %12, align 8, !tbaa !219
+  %61 = ashr exact i64 %19, 3
+  %62 = icmp sgt i64 %61, 0
+  br i1 %62, label %.lr.ph.i.i.i.i.i64, label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEESD_ET0_T_SG_SF_.exit
 
 .lr.ph.i.i.i.i.i64:                               ; preds = %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit62, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i70
-  %.012.i.i.i.i.i65 = phi i64 [ %71, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i70 ], [ %62, %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit62 ]
-  %.0811.i.i.i.i.i66 = phi ptr [ %70, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i70 ], [ %1, %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit62 ]
-  %.0910.i.i.i.i.i67 = phi ptr [ %69, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i70 ], [ %2, %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit62 ]
-  %64 = load ptr, ptr %.0910.i.i.i.i.i67, align 8, !tbaa !220
+  %.012.i.i.i.i.i65 = phi i64 [ %70, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i70 ], [ %61, %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit62 ]
+  %.0811.i.i.i.i.i66 = phi ptr [ %69, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i70 ], [ %1, %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit62 ]
+  %.0910.i.i.i.i.i67 = phi ptr [ %68, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i70 ], [ %2, %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit62 ]
+  %63 = load ptr, ptr %.0910.i.i.i.i.i67, align 8, !tbaa !220
   store ptr null, ptr %.0910.i.i.i.i.i67, align 8, !tbaa !220
-  %65 = load ptr, ptr %.0811.i.i.i.i.i66, align 8, !tbaa !220
-  store ptr %64, ptr %.0811.i.i.i.i.i66, align 8, !tbaa !220
-  %.not.i.i.i.i.i.i.i.i.i68 = icmp eq ptr %65, null
+  %64 = load ptr, ptr %.0811.i.i.i.i.i66, align 8, !tbaa !220
+  store ptr %63, ptr %.0811.i.i.i.i.i66, align 8, !tbaa !220
+  %.not.i.i.i.i.i.i.i.i.i68 = icmp eq ptr %64, null
   br i1 %.not.i.i.i.i.i.i.i.i.i68, label %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i70, label %_ZNKSt14default_deleteIN3gmx17ISimulatorElementEEclEPS1_.exit.i.i.i.i.i.i.i.i.i69
 
 _ZNKSt14default_deleteIN3gmx17ISimulatorElementEEclEPS1_.exit.i.i.i.i.i.i.i.i.i69: ; preds = %.lr.ph.i.i.i.i.i64
-  %66 = load ptr, ptr %65, align 8, !tbaa !167
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %68 = load ptr, ptr %67, align 8
-  tail call void %68(ptr noundef nonnull align 8 dereferenceable(8) %65) #32
+  %65 = load ptr, ptr %64, align 8, !tbaa !167
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
+  %67 = load ptr, ptr %66, align 8
+  tail call void %67(ptr noundef nonnull align 8 dereferenceable(8) %64) #32
   br label %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i70
 
 _ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i70: ; preds = %_ZNKSt14default_deleteIN3gmx17ISimulatorElementEEclEPS1_.exit.i.i.i.i.i.i.i.i.i69, %.lr.ph.i.i.i.i.i64
-  %69 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i67, i64 8
-  %70 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i66, i64 8
-  %71 = add nsw i64 %.012.i.i.i.i.i65, -1
-  %72 = icmp sgt i64 %.012.i.i.i.i.i65, 1
-  br i1 %72, label %.lr.ph.i.i.i.i.i64, label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEESD_ET0_T_SG_SF_.exit, !llvm.loop !1118
+  %68 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i67, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i66, i64 8
+  %70 = add nsw i64 %.012.i.i.i.i.i65, -1
+  %71 = icmp sgt i64 %.012.i.i.i.i.i65, 1
+  br i1 %71, label %.lr.ph.i.i.i.i.i64, label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEESD_ET0_T_SG_SF_.exit, !llvm.loop !1118
 
-73:                                               ; preds = %5
-  %74 = load ptr, ptr %0, align 8, !tbaa !218
-  %75 = ptrtoint ptr %74 to i64
-  %76 = sub i64 %15, %75
-  %77 = ashr exact i64 %76, 3
-  %78 = sub nsw i64 1152921504606846975, %77
-  %79 = icmp ult i64 %78, %9
-  br i1 %79, label %80, label %_ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit
+72:                                               ; preds = %5
+  %73 = load ptr, ptr %0, align 8, !tbaa !218
+  %74 = ptrtoint ptr %73 to i64
+  %75 = sub i64 %15, %74
+  %76 = ashr exact i64 %75, 3
+  %77 = sub nsw i64 1152921504606846975, %76
+  %78 = icmp ult i64 %77, %9
+  br i1 %78, label %79, label %_ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit
 
-80:                                               ; preds = %73
+79:                                               ; preds = %72
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.82) #35
   unreachable
 
-_ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %73
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %77, i64 %9)
-  %81 = add nsw i64 %.sroa.speculated.i, %77
-  %82 = icmp ult i64 %81, %77
-  %83 = tail call i64 @llvm.umin.i64(i64 %81, i64 1152921504606846975)
-  %84 = select i1 %82, i64 1152921504606846975, i64 %83
-  %.not.i = icmp eq i64 %84, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit, label %85
+_ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %72
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %76, i64 %9)
+  %80 = add nsw i64 %.sroa.speculated.i, %76
+  %81 = icmp ult i64 %80, %76
+  %82 = tail call i64 @llvm.umin.i64(i64 %80, i64 1152921504606846975)
+  %83 = select i1 %81, i64 1152921504606846975, i64 %82
+  %.not.i = icmp eq i64 %83, 0
+  br i1 %.not.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit, label %84
 
-85:                                               ; preds = %_ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit
-  %86 = shl nuw nsw i64 %84, 3
-  %87 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %86) #31
+84:                                               ; preds = %_ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit
+  %85 = shl nuw nsw i64 %83, 3
+  %86 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %85) #31
   br label %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit, %85
-  %88 = phi ptr [ %87, %85 ], [ null, %_ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit ]
-  %.not11.i.i.i.i.i72 = icmp eq ptr %74, %1
+_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit, %84
+  %87 = phi ptr [ %86, %84 ], [ null, %_ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit ]
+  %.not11.i.i.i.i.i72 = icmp eq ptr %73, %1
   br i1 %.not11.i.i.i.i.i72, label %.lr.ph.i.i.i.i79.preheader, label %.lr.ph.i.i.i.i.i73
 
 .lr.ph.i.i.i.i.i73:                               ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit, %.lr.ph.i.i.i.i.i73
-  %.013.i.i.i.i.i74 = phi ptr [ %91, %.lr.ph.i.i.i.i.i73 ], [ %88, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ]
-  %.sroa.08.012.i.i.i.i.i75 = phi ptr [ %90, %.lr.ph.i.i.i.i.i73 ], [ %74, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ]
-  %89 = load i64, ptr %.sroa.08.012.i.i.i.i.i75, align 8, !tbaa !220
-  store i64 %89, ptr %.013.i.i.i.i.i74, align 8, !tbaa !220
+  %.013.i.i.i.i.i74 = phi ptr [ %90, %.lr.ph.i.i.i.i.i73 ], [ %87, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ]
+  %.sroa.08.012.i.i.i.i.i75 = phi ptr [ %89, %.lr.ph.i.i.i.i.i73 ], [ %73, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ]
+  %88 = load i64, ptr %.sroa.08.012.i.i.i.i.i75, align 8, !tbaa !220
+  store i64 %88, ptr %.013.i.i.i.i.i74, align 8, !tbaa !220
   store ptr null, ptr %.sroa.08.012.i.i.i.i.i75, align 8, !tbaa !220
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 8
-  %91 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 8
-  %.not.i.i.i.i.i76 = icmp eq ptr %90, %1
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 8
+  %.not.i.i.i.i.i76 = icmp eq ptr %89, %1
   br i1 %.not.i.i.i.i.i76, label %.lr.ph.i.i.i.i79.preheader, label %.lr.ph.i.i.i.i.i73, !llvm.loop !1116
 
 .lr.ph.i.i.i.i79.preheader:                       ; preds = %.lr.ph.i.i.i.i.i73, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
-  %.012.i.i.i.i80.ph = phi ptr [ %88, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %91, %.lr.ph.i.i.i.i.i73 ]
+  %.012.i.i.i.i80.ph = phi ptr [ %87, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %90, %.lr.ph.i.i.i.i.i73 ]
   br label %.lr.ph.i.i.i.i79
 
 .lr.ph.i.i.i.i79:                                 ; preds = %.lr.ph.i.i.i.i79.preheader, %.lr.ph.i.i.i.i79
-  %.012.i.i.i.i80 = phi ptr [ %94, %.lr.ph.i.i.i.i79 ], [ %.012.i.i.i.i80.ph, %.lr.ph.i.i.i.i79.preheader ]
-  %.sroa.08.011.i.i.i.i81 = phi ptr [ %93, %.lr.ph.i.i.i.i79 ], [ %2, %.lr.ph.i.i.i.i79.preheader ]
-  %92 = load i64, ptr %.sroa.08.011.i.i.i.i81, align 8, !tbaa !220
-  store i64 %92, ptr %.012.i.i.i.i80, align 8, !tbaa !220
+  %.012.i.i.i.i80 = phi ptr [ %93, %.lr.ph.i.i.i.i79 ], [ %.012.i.i.i.i80.ph, %.lr.ph.i.i.i.i79.preheader ]
+  %.sroa.08.011.i.i.i.i81 = phi ptr [ %92, %.lr.ph.i.i.i.i79 ], [ %2, %.lr.ph.i.i.i.i79.preheader ]
+  %91 = load i64, ptr %.sroa.08.011.i.i.i.i81, align 8, !tbaa !220
+  store i64 %91, ptr %.012.i.i.i.i80, align 8, !tbaa !220
   store ptr null, ptr %.sroa.08.011.i.i.i.i81, align 8, !tbaa !220
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i81, i64 8
-  %94 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i80, i64 8
-  %.not.i.i.i.i82 = icmp eq ptr %93, %3
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i81, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i80, i64 8
+  %.not.i.i.i.i82 = icmp eq ptr %92, %3
   br i1 %.not.i.i.i.i82, label %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit84, label %.lr.ph.i.i.i.i79, !llvm.loop !1119
 
 _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit84: ; preds = %.lr.ph.i.i.i.i79
@@ -16641,56 +16641,56 @@ _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS
   br i1 %.not11.i.i.i.i.i85, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit91, label %.lr.ph.i.i.i.i.i86
 
 .lr.ph.i.i.i.i.i86:                               ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit84, %.lr.ph.i.i.i.i.i86
-  %.013.i.i.i.i.i87 = phi ptr [ %97, %.lr.ph.i.i.i.i.i86 ], [ %94, %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit84 ]
-  %.sroa.08.012.i.i.i.i.i88 = phi ptr [ %96, %.lr.ph.i.i.i.i.i86 ], [ %1, %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit84 ]
-  %95 = load i64, ptr %.sroa.08.012.i.i.i.i.i88, align 8, !tbaa !220
-  store i64 %95, ptr %.013.i.i.i.i.i87, align 8, !tbaa !220
+  %.013.i.i.i.i.i87 = phi ptr [ %96, %.lr.ph.i.i.i.i.i86 ], [ %93, %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit84 ]
+  %.sroa.08.012.i.i.i.i.i88 = phi ptr [ %95, %.lr.ph.i.i.i.i.i86 ], [ %1, %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit84 ]
+  %94 = load i64, ptr %.sroa.08.012.i.i.i.i.i88, align 8, !tbaa !220
+  store i64 %94, ptr %.013.i.i.i.i.i87, align 8, !tbaa !220
   store ptr null, ptr %.sroa.08.012.i.i.i.i.i88, align 8, !tbaa !220
-  %96 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i88, i64 8
-  %97 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i87, i64 8
-  %.not.i.i.i.i.i89 = icmp eq ptr %96, %13
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i88, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i87, i64 8
+  %.not.i.i.i.i.i89 = icmp eq ptr %95, %13
   br i1 %.not.i.i.i.i.i89, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit91, label %.lr.ph.i.i.i.i.i86, !llvm.loop !1116
 
 _ZSt34__uninitialized_move_if_noexcept_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit91: ; preds = %.lr.ph.i.i.i.i.i86, %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit84
-  %.0.lcssa.i.i.i.i.i90 = phi ptr [ %94, %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit84 ], [ %97, %.lr.ph.i.i.i.i.i86 ]
-  %.not4.i.i.i = icmp eq ptr %74, %13
+  %.0.lcssa.i.i.i.i.i90 = phi ptr [ %93, %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit84 ], [ %96, %.lr.ph.i.i.i.i.i86 ]
+  %.not4.i.i.i = icmp eq ptr %73, %13
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit91, %_ZSt8_DestroyISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %102, %_ZSt8_DestroyISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EEEvPT_.exit.i.i.i ], [ %74, %_ZSt34__uninitialized_move_if_noexcept_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit91 ]
-  %98 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !220
-  %.not.i.i.i.i.i92 = icmp eq ptr %98, null
+  %.05.i.i.i = phi ptr [ %101, %_ZSt8_DestroyISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EEEvPT_.exit.i.i.i ], [ %73, %_ZSt34__uninitialized_move_if_noexcept_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit91 ]
+  %97 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !220
+  %.not.i.i.i.i.i92 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i92, label %_ZSt8_DestroyISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EEEvPT_.exit.i.i.i, label %_ZNKSt14default_deleteIN3gmx17ISimulatorElementEEclEPS1_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3gmx17ISimulatorElementEEclEPS1_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
-  %99 = load ptr, ptr %98, align 8, !tbaa !167
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  %101 = load ptr, ptr %100, align 8
-  tail call void %101(ptr noundef nonnull align 8 dereferenceable(8) %98) #32
+  %98 = load ptr, ptr %97, align 8, !tbaa !167
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
+  %100 = load ptr, ptr %99, align 8
+  tail call void %100(ptr noundef nonnull align 8 dereferenceable(8) %97) #32
   br label %_ZSt8_DestroyISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN3gmx17ISimulatorElementEEclEPS1_.exit.i.i.i.i.i, %.lr.ph.i.i.i
   store ptr null, ptr %.05.i.i.i, align 8, !tbaa !220
-  %102 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %102, %13
+  %101 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %101, %13
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !222
 
 _ZSt8_DestroyIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EEEvPT_.exit.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit91
-  %.not.i93 = icmp eq ptr %74, null
-  br i1 %.not.i93, label %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit, label %103
+  %.not.i93 = icmp eq ptr %73, null
+  br i1 %.not.i93, label %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit, label %102
 
-103:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit
-  %104 = load ptr, ptr %10, align 8, !tbaa !223
-  %105 = ptrtoint ptr %104 to i64
-  %106 = sub i64 %105, %75
-  tail call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef %106) #30
+102:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit
+  %103 = load ptr, ptr %10, align 8, !tbaa !223
+  %104 = ptrtoint ptr %103 to i64
+  %105 = sub i64 %104, %74
+  tail call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef %105) #30
   br label %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit
 
-_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit, %103
-  store ptr %88, ptr %0, align 8, !tbaa !218
+_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit, %102
+  store ptr %87, ptr %0, align 8, !tbaa !218
   store ptr %.0.lcssa.i.i.i.i.i90, ptr %12, align 8, !tbaa !219
-  %107 = getelementptr inbounds nuw %"class.std::unique_ptr.275", ptr %88, i64 %84
-  store ptr %107, ptr %10, align 8, !tbaa !223
+  %106 = getelementptr inbounds nuw %"class.std::unique_ptr.275", ptr %87, i64 %83
+  store ptr %106, ptr %10, align 8, !tbaa !223
   br label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEESD_ET0_T_SG_SF_.exit
 
 _ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEESD_ET0_T_SG_SF_.exit: ; preds = %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i70, %_ZNSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i55, %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit62, %_ZSt13move_backwardIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit, %4
@@ -16715,7 +16715,7 @@ define linkonce_odr void @_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE15_M_ra
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %.not = icmp ult i64 %16, %8
-  br i1 %.not, label %43, label %17
+  br i1 %.not, label %42, label %17
 
 17:                                               ; preds = %5
   %18 = ptrtoint ptr %1 to i64
@@ -16725,132 +16725,132 @@ define linkonce_odr void @_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE15_M_ra
   br i1 %21, label %_ZSt22__uninitialized_move_aIPPN3gmx17ISimulatorElementES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit
 
 _ZSt22__uninitialized_move_aIPPN3gmx17ISimulatorElementES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %17
-  %22 = sub nsw i64 0, %9
-  %23 = getelementptr inbounds ptr, ptr %13, i64 %22
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr align 8 %23, i64 %8, i1 false)
-  %24 = load ptr, ptr %12, align 8, !tbaa !817
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %8
-  store ptr %25, ptr %12, align 8, !tbaa !817
-  %.not.i.i.i.i.i = icmp eq ptr %23, %1
-  br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPPN3gmx17ISimulatorElementES3_ET0_T_S5_S4_.exit, label %26
+  %.idx = sub i64 0, %8
+  %22 = getelementptr inbounds i8, ptr %13, i64 %.idx
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %22, i64 %8, i1 false)
+  %23 = load ptr, ptr %12, align 8, !tbaa !817
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %8
+  store ptr %24, ptr %12, align 8, !tbaa !817
+  %.not.i.i.i.i.i = icmp eq ptr %22, %1
+  br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPPN3gmx17ISimulatorElementES3_ET0_T_S5_S4_.exit, label %25
 
-26:                                               ; preds = %_ZSt22__uninitialized_move_aIPPN3gmx17ISimulatorElementES3_SaIS2_EET0_T_S6_S5_RT1_.exit
-  %27 = ptrtoint ptr %23 to i64
-  %28 = sub i64 %27, %18
-  %29 = ashr exact i64 %28, 3
-  %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds ptr, ptr %13, i64 %30
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %31, ptr align 8 %1, i64 %28, i1 false)
+25:                                               ; preds = %_ZSt22__uninitialized_move_aIPPN3gmx17ISimulatorElementES3_SaIS2_EET0_T_S6_S5_RT1_.exit
+  %26 = ptrtoint ptr %22 to i64
+  %27 = sub i64 %26, %18
+  %28 = ashr exact i64 %27, 3
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds ptr, ptr %13, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPPN3gmx17ISimulatorElementES3_ET0_T_S5_S4_.exit
 
-_ZSt13move_backwardIPPN3gmx17ISimulatorElementES3_ET0_T_S5_S4_.exit: ; preds = %26, %_ZSt22__uninitialized_move_aIPPN3gmx17ISimulatorElementES3_SaIS2_EET0_T_S6_S5_RT1_.exit
+_ZSt13move_backwardIPPN3gmx17ISimulatorElementES3_ET0_T_S5_S4_.exit: ; preds = %25, %_ZSt22__uninitialized_move_aIPPN3gmx17ISimulatorElementES3_SaIS2_EET0_T_S6_S5_RT1_.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %2, i64 %8, i1 false)
   br label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEESA_ET0_T_SD_SC_.exit
 
 _ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit: ; preds = %17
-  %32 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %32
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit, label %33
+  %31 = getelementptr inbounds i8, ptr %2, i64 %19
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %31
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit, label %32
 
-33:                                               ; preds = %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit
-  %34 = ptrtoint ptr %32 to i64
-  %35 = sub i64 %6, %34
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr align 8 %32, i64 %35, i1 false)
+32:                                               ; preds = %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit
+  %33 = ptrtoint ptr %31 to i64
+  %34 = sub i64 %6, %33
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr align 8 %31, i64 %34, i1 false)
   %.pre = load ptr, ptr %12, align 8, !tbaa !817
   br label %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit
 
-_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit, %33
-  %36 = phi ptr [ %13, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit ], [ %.pre, %33 ]
-  %37 = sub nuw nsw i64 %9, %20
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %37
-  store ptr %38, ptr %12, align 8, !tbaa !817
+_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit, %32
+  %35 = phi ptr [ %13, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit ], [ %.pre, %32 ]
+  %36 = sub nuw nsw i64 %9, %20
+  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  store ptr %37, ptr %12, align 8, !tbaa !817
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
-  br i1 %.not.i.i.i.i.i.i.i.i.i52, label %_ZSt22__uninitialized_move_aIPPN3gmx17ISimulatorElementES3_SaIS2_EET0_T_S6_S5_RT1_.exit53, label %39
+  br i1 %.not.i.i.i.i.i.i.i.i.i52, label %_ZSt22__uninitialized_move_aIPPN3gmx17ISimulatorElementES3_SaIS2_EET0_T_S6_S5_RT1_.exit53, label %38
 
-39:                                               ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %1, i64 %19, i1 false)
+38:                                               ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %37, ptr align 8 %1, i64 %19, i1 false)
   %.pre74 = load ptr, ptr %12, align 8, !tbaa !817
   br label %_ZSt22__uninitialized_move_aIPPN3gmx17ISimulatorElementES3_SaIS2_EET0_T_S6_S5_RT1_.exit53
 
-_ZSt22__uninitialized_move_aIPPN3gmx17ISimulatorElementES3_SaIS2_EET0_T_S6_S5_RT1_.exit53: ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit, %39
-  %40 = phi ptr [ %38, %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit ], [ %.pre74, %39 ]
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %19
-  store ptr %41, ptr %12, align 8, !tbaa !817
+_ZSt22__uninitialized_move_aIPPN3gmx17ISimulatorElementES3_SaIS2_EET0_T_S6_S5_RT1_.exit53: ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit, %38
+  %39 = phi ptr [ %37, %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit ], [ %.pre74, %38 ]
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %19
+  store ptr %40, ptr %12, align 8, !tbaa !817
   %.not.i.i.i.i.i54 = icmp eq ptr %13, %1
-  br i1 %.not.i.i.i.i.i54, label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEESA_ET0_T_SD_SC_.exit, label %42
+  br i1 %.not.i.i.i.i.i54, label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEESA_ET0_T_SD_SC_.exit, label %41
 
-42:                                               ; preds = %_ZSt22__uninitialized_move_aIPPN3gmx17ISimulatorElementES3_SaIS2_EET0_T_S6_S5_RT1_.exit53
+41:                                               ; preds = %_ZSt22__uninitialized_move_aIPPN3gmx17ISimulatorElementES3_SaIS2_EET0_T_S6_S5_RT1_.exit53
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %2, i64 %19, i1 false)
   br label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEESA_ET0_T_SD_SC_.exit
 
-43:                                               ; preds = %5
-  %44 = load ptr, ptr %0, align 8, !tbaa !180
-  %45 = ptrtoint ptr %44 to i64
-  %46 = sub i64 %15, %45
-  %47 = ashr exact i64 %46, 3
-  %48 = sub nsw i64 1152921504606846975, %47
-  %49 = icmp ult i64 %48, %9
-  br i1 %49, label %50, label %_ZNKSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12_M_check_lenEmPKc.exit
+42:                                               ; preds = %5
+  %43 = load ptr, ptr %0, align 8, !tbaa !180
+  %44 = ptrtoint ptr %43 to i64
+  %45 = sub i64 %15, %44
+  %46 = ashr exact i64 %45, 3
+  %47 = sub nsw i64 1152921504606846975, %46
+  %48 = icmp ult i64 %47, %9
+  br i1 %48, label %49, label %_ZNKSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12_M_check_lenEmPKc.exit
 
-50:                                               ; preds = %43
+49:                                               ; preds = %42
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.82) #35
   unreachable
 
-_ZNKSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %43
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %47, i64 %9)
-  %51 = add nsw i64 %.sroa.speculated.i, %47
-  %52 = icmp ult i64 %51, %47
-  %53 = tail call i64 @llvm.umin.i64(i64 %51, i64 1152921504606846975)
-  %54 = select i1 %52, i64 1152921504606846975, i64 %53
-  %.not.i = icmp eq i64 %54, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIPN3gmx17ISimulatorElementESaIS2_EE11_M_allocateEm.exit, label %55
+_ZNKSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %42
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %46, i64 %9)
+  %50 = add nsw i64 %.sroa.speculated.i, %46
+  %51 = icmp ult i64 %50, %46
+  %52 = tail call i64 @llvm.umin.i64(i64 %50, i64 1152921504606846975)
+  %53 = select i1 %51, i64 1152921504606846975, i64 %52
+  %.not.i = icmp eq i64 %53, 0
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIPN3gmx17ISimulatorElementESaIS2_EE11_M_allocateEm.exit, label %54
 
-55:                                               ; preds = %_ZNKSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12_M_check_lenEmPKc.exit
-  %56 = shl nuw nsw i64 %54, 3
-  %57 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %56) #31
+54:                                               ; preds = %_ZNKSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12_M_check_lenEmPKc.exit
+  %55 = shl nuw nsw i64 %53, 3
+  %56 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %55) #31
   br label %_ZNSt12_Vector_baseIPN3gmx17ISimulatorElementESaIS2_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIPN3gmx17ISimulatorElementESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12_M_check_lenEmPKc.exit, %55
-  %58 = phi ptr [ %57, %55 ], [ null, %_ZNKSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %59 = ptrtoint ptr %1 to i64
-  %60 = sub i64 %59, %45
-  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %1, %44
-  br i1 %.not.i.i.i.i.i.i.i.i.i56, label %62, label %61
+_ZNSt12_Vector_baseIPN3gmx17ISimulatorElementESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12_M_check_lenEmPKc.exit, %54
+  %57 = phi ptr [ %56, %54 ], [ null, %_ZNKSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %58 = ptrtoint ptr %1 to i64
+  %59 = sub i64 %58, %44
+  %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %1, %43
+  br i1 %.not.i.i.i.i.i.i.i.i.i56, label %61, label %60
 
-61:                                               ; preds = %_ZNSt12_Vector_baseIPN3gmx17ISimulatorElementESaIS2_EE11_M_allocateEm.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %58, ptr align 8 %44, i64 %60, i1 false)
-  br label %62
+60:                                               ; preds = %_ZNSt12_Vector_baseIPN3gmx17ISimulatorElementESaIS2_EE11_M_allocateEm.exit
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr align 8 %43, i64 %59, i1 false)
+  br label %61
 
-62:                                               ; preds = %61, %_ZNSt12_Vector_baseIPN3gmx17ISimulatorElementESaIS2_EE11_M_allocateEm.exit
-  %63 = getelementptr inbounds i8, ptr %58, i64 %60
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %63, ptr align 8 %2, i64 %8, i1 false)
-  %64 = getelementptr inbounds i8, ptr %63, i64 %8
-  %65 = sub i64 %15, %59
+61:                                               ; preds = %60, %_ZNSt12_Vector_baseIPN3gmx17ISimulatorElementESaIS2_EE11_M_allocateEm.exit
+  %62 = getelementptr inbounds i8, ptr %57, i64 %59
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %62, ptr align 8 %2, i64 %8, i1 false)
+  %63 = getelementptr inbounds i8, ptr %62, i64 %8
+  %64 = sub i64 %15, %58
   %.not.i.i.i.i.i.i.i.i.i59 = icmp eq ptr %13, %1
-  br i1 %.not.i.i.i.i.i.i.i.i.i59, label %67, label %66
+  br i1 %.not.i.i.i.i.i.i.i.i.i59, label %66, label %65
 
-66:                                               ; preds = %62
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %64, ptr align 8 %1, i64 %65, i1 false)
-  br label %67
+65:                                               ; preds = %61
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %63, ptr align 8 %1, i64 %64, i1 false)
+  br label %66
 
-67:                                               ; preds = %66, %62
-  %68 = getelementptr inbounds i8, ptr %64, i64 %65
-  %.not.i61 = icmp eq ptr %44, null
-  br i1 %.not.i61, label %_ZNSt12_Vector_baseIPN3gmx17ISimulatorElementESaIS2_EE13_M_deallocateEPS2_m.exit, label %69
+66:                                               ; preds = %65, %61
+  %67 = getelementptr inbounds i8, ptr %63, i64 %64
+  %.not.i61 = icmp eq ptr %43, null
+  br i1 %.not.i61, label %_ZNSt12_Vector_baseIPN3gmx17ISimulatorElementESaIS2_EE13_M_deallocateEPS2_m.exit, label %68
 
-69:                                               ; preds = %67
-  %70 = sub i64 %14, %45
-  tail call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef %70) #30
+68:                                               ; preds = %66
+  %69 = sub i64 %14, %44
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %69) #30
   br label %_ZNSt12_Vector_baseIPN3gmx17ISimulatorElementESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseIPN3gmx17ISimulatorElementESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %67, %69
-  store ptr %58, ptr %0, align 8, !tbaa !180
-  store ptr %68, ptr %12, align 8, !tbaa !817
-  %71 = getelementptr inbounds nuw ptr, ptr %58, i64 %54
-  store ptr %71, ptr %10, align 8, !tbaa !181
+_ZNSt12_Vector_baseIPN3gmx17ISimulatorElementESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %66, %68
+  store ptr %57, ptr %0, align 8, !tbaa !180
+  store ptr %67, ptr %12, align 8, !tbaa !817
+  %70 = getelementptr inbounds nuw ptr, ptr %57, i64 %53
+  store ptr %70, ptr %10, align 8, !tbaa !181
   br label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEESA_ET0_T_SD_SC_.exit
 
-_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEESA_ET0_T_SD_SC_.exit: ; preds = %42, %_ZSt22__uninitialized_move_aIPPN3gmx17ISimulatorElementES3_SaIS2_EET0_T_S6_S5_RT1_.exit53, %_ZSt13move_backwardIPPN3gmx17ISimulatorElementES3_ET0_T_S5_S4_.exit, %_ZNSt12_Vector_baseIPN3gmx17ISimulatorElementESaIS2_EE13_M_deallocateEPS2_m.exit, %4
+_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEESA_ET0_T_SD_SC_.exit: ; preds = %41, %_ZSt22__uninitialized_move_aIPPN3gmx17ISimulatorElementES3_SaIS2_EET0_T_S6_S5_RT1_.exit53, %_ZSt13move_backwardIPPN3gmx17ISimulatorElementES3_ET0_T_S5_S4_.exit, %_ZNSt12_Vector_baseIPN3gmx17ISimulatorElementESaIS2_EE13_M_deallocateEPS2_m.exit, %4
   ret void
 }
 

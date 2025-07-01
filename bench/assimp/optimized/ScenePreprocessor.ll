@@ -5,8 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.aiString = type { i32, [1024 x i8] }
 %struct.aiColor3D = type { float, float, float }
-%class.aiVector3t = type { float, float, float }
 %struct.aiFace = type { i32, ptr }
+%class.aiVector3t = type { float, float, float }
 %class.aiQuaterniont = type { float, float, float, float }
 %struct.aiVectorKey = type { double, %class.aiVector3t, i32 }
 %struct.aiQuatKey = type <{ double, %class.aiQuaterniont, i32, [4 x i8] }>
@@ -236,13 +236,15 @@ define void @_ZN6Assimp17ScenePreprocessor11ProcessMeshEP6aiMesh(ptr nonnull rea
   %.pre = load ptr, ptr %13, align 8
   %18 = load i32, ptr %5, align 4
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %class.aiVector3t, ptr %.pre, i64 %19
+  %.idx109 = mul nuw nsw i64 %19, 12
+  %20 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx109
   br label %.preheader77
 
 21:                                               ; preds = %16
   %22 = load i32, ptr %5, align 4
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %class.aiVector3t, ptr %14, i64 %23
+  %.idx = mul nuw nsw i64 %23, 12
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   switch i32 %17, label %.loopexit78 [
     i32 2, label %.preheader77
     i32 1, label %.preheader79
@@ -325,8 +327,8 @@ switch.lookup:                                    ; preds = %39
   br label %45
 
 45:                                               ; preds = %39, %switch.lookup
-  %.sink112 = phi i32 [ %switch.load, %switch.lookup ], [ 8, %39 ]
-  %46 = or i32 %40, %.sink112
+  %.sink113 = phi i32 [ %switch.load, %switch.lookup ], [ 8, %39 ]
+  %46 = or i32 %40, %.sink113
   store i32 %46, ptr %1, align 8
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count

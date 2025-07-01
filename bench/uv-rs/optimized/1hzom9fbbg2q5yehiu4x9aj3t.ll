@@ -1455,14 +1455,16 @@ default.unreachable9:                             ; preds = %2
   %22 = tail call { ptr, i64 } @"_ZN89_$LT$uv_distribution..archive..Archive$u20$as$u20$uv_distribution_types..hash..Hashed$GT$6hashes17hcb5e17ed81ba41ebE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
   %23 = extractvalue { ptr, i64 } %22, 0
   %24 = extractvalue { ptr, i64 } %22, 1
-  %25 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %23, i64 %24
+  %.idx = shl nsw i64 %24, 4
+  %25 = getelementptr inbounds i8, ptr %23, i64 %.idx
   %26 = icmp ne ptr %23, null
   tail call void @llvm.assume(i1 %26)
   %.not.i = icmp eq i64 %24, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfe4eda01de4f56edE.llvm.14237793921444769281.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17
-  %27 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %19, i64 %21
+  %.idx.i.i.i = shl nsw i64 %21, 4
+  %27 = getelementptr inbounds i8, ptr %19, i64 %.idx.i.i.i
   %.not.i.i.i.i = icmp eq i64 %21, 0
   br i1 %.not.i.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfe4eda01de4f56edE.llvm.14237793921444769281.exit", label %.lr.ph.i.i.i.i
 
@@ -1510,7 +1512,8 @@ define hidden noundef zeroext i1 @"_ZN21uv_distribution_types4hash6Hashed9satisf
   %5 = load i64, ptr %4, align 8, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
-  %6 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %3, i64 %5
+  %.idx.i = shl nsw i64 %5, 4
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %.not.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h086b425ee0c34314E.exit", label %.lr.ph.i.i
 
@@ -3458,7 +3461,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %.val1 = load i64, ptr %6, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !305
   call void @_ZN4core3fmt9Formatter10debug_list17hb52e020ba072cadeE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !311
-  %7 = getelementptr inbounds { { { [9 x i8], i8, [6 x i8] } }, i8, [7 x i8] }, ptr %.val, i64 %.val1
+  %.idx.i.i = mul nsw i64 %.val1, 24
+  %7 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i.i
   %8 = icmp eq i64 %.val1, 0
   br i1 %8, label %"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17he2cc2551769d1f66E.exit", label %.lr.ph.i.i.i
 
@@ -3832,7 +3836,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hb52e020ba072cadeE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { i64, [6 x i64] }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 56
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h0fb70f4d54bb794eE.llvm.14237793921444769281.exit, label %.lr.ph.i
 
@@ -8261,7 +8266,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28a889ab0e602f28E.llvm.14237793921444769281.exit", label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %1, i64 %2
+  %.idx.i.i = shl nsw i64 %2, 4
+  %6 = getelementptr inbounds i8, ptr %1, i64 %.idx.i.i
   %.not.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i, label %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hbc52df9730ce9992E.llvm.14237793921444769281.exit.us", label %.lr.ph.i.i.i
 

@@ -3262,7 +3262,8 @@ _ZN3git3Oid7is_zero17h79c18cd17d592234E.exit287.i: ; preds = %679
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84)
   %728 = load ptr, ptr %.sroa.418.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %729 = load i64, ptr %.sroa.519.0..sroa_idx, align 8, !noundef !4
-  %730 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, i32 }, { { { [20 x i8] } } }, i32 }, ptr %728, i64 %729
+  %.idx = mul nsw i64 %729, 280
+  %730 = getelementptr inbounds i8, ptr %728, i64 %.idx
   %.not = icmp eq i64 %729, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

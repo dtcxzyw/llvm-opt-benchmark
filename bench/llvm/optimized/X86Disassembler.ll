@@ -2776,7 +2776,8 @@ define internal fastcc noundef zeroext i1 @_ZL20translateInstructionRN4llvm6MCIn
   %19 = load ptr, ptr %18, align 8, !tbaa !121
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %21 = load i64, ptr %20, align 8, !tbaa !122
-  %22 = getelementptr inbounds nuw %"struct.llvm::X86Disassembler::OperandSpecifier", ptr %19, i64 %21
+  %.idx = shl nuw nsw i64 %21, 1
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not2751.not = icmp eq i64 %21, 0
   br i1 %.not2751.not, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread35, label %.lr.ph
 

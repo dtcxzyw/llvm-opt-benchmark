@@ -8,9 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -42,22 +39,22 @@ define dso_local void @_ZN5clang18XRayFunctionFilterC2EN4llvm8ArrayRefINSt7__cxx
   %13 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
-  %14 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %2
+  %.idx1.i = shl nuw nsw i64 %2, 5
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false), !alias.scope !3
-  %.idx.i = shl nuw nsw i64 %2, 5
   %.not.i.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.thread.i.i.i: ; preds = %7
-  %15 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i
+  %15 = getelementptr inbounds nuw i8, ptr null, i64 %.idx1.i
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !6, !alias.scope !3
   br label %_ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vectorIS6_SaIS6_EEEv.exit
 
 .lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %7
-  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #11, !noalias !3
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx1.i) #11, !noalias !3
   store ptr %17, ptr %11, align 8, !tbaa !12, !alias.scope !3
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx1.i
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %18, ptr %19, align 8, !tbaa !6, !alias.scope !3
   br label %.lr.ph.i.i.i.i.i.i.i
@@ -173,22 +170,22 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #10
   call void @llvm.experimental.noalias.scope.decl(metadata !124)
-  %62 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i64 %4
+  %.idx1.i6 = shl nuw nsw i64 %4, 5
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx1.i6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false), !alias.scope !124
-  %.idx.i6 = shl nuw nsw i64 %4, 5
   %.not.i.i.i.i7 = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i7, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.thread.i.i.i16, label %.lr.ph.i.i.i.i.preheader.i.i.i8
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.thread.i.i.i16: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  %63 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i6
+  %63 = getelementptr inbounds nuw i8, ptr null, i64 %.idx1.i6
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %63, ptr %64, align 8, !tbaa !6, !alias.scope !124
   br label %_ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vectorIS6_SaIS6_EEEv.exit17
 
 .lr.ph.i.i.i.i.preheader.i.i.i8:                  ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  %65 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i6) #11, !noalias !124
+  %65 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx1.i6) #11, !noalias !124
   store ptr %65, ptr %12, align 8, !tbaa !12, !alias.scope !124
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx.i6
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx1.i6
   %67 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %66, ptr %67, align 8, !tbaa !6, !alias.scope !124
   br label %.lr.ph.i.i.i.i.i.i.i9
@@ -306,22 +303,22 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %109 = load ptr, ptr %5, align 8, !tbaa !130, !noalias !127
   %110 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %111 = load i64, ptr %110, align 8, !tbaa !132, !noalias !127
-  %112 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %109, i64 %111
+  %.idx1.i30 = shl nuw nsw i64 %111, 5
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 %.idx1.i30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false), !alias.scope !127
-  %.idx.i30 = shl nuw nsw i64 %111, 5
   %.not.i.i.i.i31 = icmp eq i64 %111, 0
   br i1 %.not.i.i.i.i31, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.thread.i.i.i40, label %.lr.ph.i.i.i.i.preheader.i.i.i32
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.thread.i.i.i40: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit29
-  %113 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i30
+  %113 = getelementptr inbounds nuw i8, ptr null, i64 %.idx1.i30
   %114 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %113, ptr %114, align 8, !tbaa !6, !alias.scope !127
   br label %_ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vectorIS6_SaIS6_EEEv.exit41
 
 .lr.ph.i.i.i.i.preheader.i.i.i32:                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit29
-  %115 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i30) #11, !noalias !127
+  %115 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx1.i30) #11, !noalias !127
   store ptr %115, ptr %13, align 8, !tbaa !12, !alias.scope !127
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx.i30
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx1.i30
   %117 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %116, ptr %117, align 8, !tbaa !6, !alias.scope !127
   br label %.lr.ph.i.i.i.i.i.i.i33

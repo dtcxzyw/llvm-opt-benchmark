@@ -3114,7 +3114,8 @@ define hidden void @_ZN10polars_row8variable6binary14decode_binview17h233edf8602
   store ptr inttoptr (i64 1 to ptr), ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not75 = icmp eq i64 %2, 0
   br i1 %.not75, label %._crit_edge80, label %.lr.ph79
 

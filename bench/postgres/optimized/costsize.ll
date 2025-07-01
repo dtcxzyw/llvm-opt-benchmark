@@ -1723,7 +1723,8 @@ define dso_local void @cost_bitmap_and_node(ptr noundef captures(none) %0, ptr n
   %indvars.iv = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next, %list_head.exit ]
   %.0203445 = phi double [ 1.000000e+00, %.lr.ph47 ], [ %39, %list_head.exit ]
   %.03544 = phi double [ 0.000000e+00, %.lr.ph47 ], [ %.1, %list_head.exit ]
-  %18 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 4
   switch i32 %20, label %.split [
@@ -1818,7 +1819,8 @@ define dso_local void @cost_bitmap_or_node(ptr noundef captures(none) %0, ptr no
   %indvars.iv = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next, %.thread35 ]
   %.0213950 = phi double [ 0.000000e+00, %.lr.ph52 ], [ %36, %.thread35 ]
   %.04049 = phi double [ 0.000000e+00, %.lr.ph52 ], [ %.1, %.thread35 ]
-  %19 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %20, align 4
   switch i32 %21, label %.split [

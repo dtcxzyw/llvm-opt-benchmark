@@ -312,7 +312,8 @@ define dso_local noundef i32 @_ZNK4llvm3pdb14LayoutItemBase15deepPaddingSizeEv(p
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8, !tbaa !27
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw i64, ptr %5, i64 %8
+  %.idx.i = shl nuw nsw i64 %8, 3
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
   %.not10.i = icmp eq i32 %7, 0
   br i1 %.not10.i, label %_ZNK4llvm9BitVector5countEv.exit, label %.lr.ph.i
 
@@ -2641,7 +2642,8 @@ define dso_local noundef i32 @_ZNK4llvm3pdb11ClassLayout16immediatePaddingEv(ptr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %7 = load i32, ptr %6, align 8, !tbaa !27
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw i64, ptr %5, i64 %8
+  %.idx.i = shl nuw nsw i64 %8, 3
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
   %.not10.i = icmp eq i32 %7, 0
   br i1 %.not10.i, label %_ZNK4llvm9BitVector5countEv.exit, label %.lr.ph.i
 
@@ -3104,7 +3106,8 @@ _ZN4llvm9BitVectorlSEj.exit:                      ; preds = %_ZN4llvm9BitVector6
   %145 = load ptr, ptr %3, align 8, !tbaa !26
   %146 = load i32, ptr %14, align 8, !tbaa !27
   %147 = zext i32 %146 to i64
-  %148 = getelementptr inbounds nuw i64, ptr %145, i64 %147
+  %.idx.i = shl nuw nsw i64 %147, 3
+  %148 = getelementptr inbounds nuw i8, ptr %145, i64 %.idx.i
   %.not10.i = icmp eq i32 %146, 0
   br i1 %.not10.i, label %_ZNK4llvm9BitVector5countEv.exit.thread, label %.lr.ph.i10
 

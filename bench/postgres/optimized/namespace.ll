@@ -3829,7 +3829,8 @@ define dso_local ptr @NameListToString(ptr noundef readonly captures(address_is_
 list_head.exit:                                   ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %10 = load ptr, ptr %9, align 8
   %.not15 = icmp eq i64 %indvars.iv, 0
   br i1 %.not15, label %12, label %11
@@ -5057,7 +5058,8 @@ define dso_local ptr @NameListToQuotedString(ptr noundef readonly captures(addre
 list_head.exit:                                   ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not10 = icmp eq i64 %indvars.iv, 0
   br i1 %.not10, label %11, label %10
 

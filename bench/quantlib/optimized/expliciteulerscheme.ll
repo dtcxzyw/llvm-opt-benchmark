@@ -630,7 +630,8 @@ _ZNK5boost10shared_ptrIN8QuantLib20FdmLinearOpCompositeEEptEv.exit48: ; preds = 
   %43 = load i64, ptr %n_3.i.i.i, align 8, !tbaa !8, !noalias !37
   store i64 %43, ptr %n_.i.i, align 8, !tbaa !8, !alias.scope !37
   store i64 0, ptr %n_3.i.i.i, align 8, !tbaa !8, !noalias !37
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %42, i64 %43
+  %add.ptr.i.idx.i = shl nuw nsw i64 %43, 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %42, i64 %add.ptr.i.idx.i
   %cmp.not5.i.i = icmp eq i64 %43, 0
   br i1 %cmp.not5.i.i, label %invoke.cont47, label %for.body.i.i
 
@@ -924,7 +925,8 @@ ehcleanup34:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 do.end:                                           ; preds = %entry
   %25 = load ptr, ptr %this, align 8, !tbaa !36
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %25, i64 %0
+  %add.ptr.i.idx = shl nuw nsw i64 %0, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %25, i64 %add.ptr.i.idx
   %cmp.not6.i = icmp eq i64 %0, 0
   br i1 %cmp.not6.i, label %_ZSt9transformIPdPKdS0_St4plusIvEET1_T_S6_T0_S5_T2_.exit, label %for.body.i.preheader
 

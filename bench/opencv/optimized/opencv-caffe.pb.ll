@@ -5696,7 +5696,8 @@ define hidden noundef i64 @_ZNK12opencv_caffe15BlobProtoVector12ByteSizeLongEv(p
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not11 = icmp eq i32 %3, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -17921,7 +17922,8 @@ define hidden noundef i64 @_ZNK12opencv_caffe12NetParameter12ByteSizeLongEv(ptr 
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not6366 = icmp eq i32 %3, 0
   br i1 %.not6366, label %._crit_edge, label %.lr.ph
 
@@ -17976,7 +17978,8 @@ define hidden noundef i64 @_ZNK12opencv_caffe12NetParameter12ByteSizeLongEv(ptr 
   %.not.i.i42 = icmp eq ptr %41, null
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %spec.select.i.i43 = select i1 %.not.i.i42, ptr null, ptr %42
-  %43 = getelementptr inbounds ptr, ptr %spec.select.i.i43, i64 %36
+  %.idx89 = shl nsw i64 %36, 3
+  %43 = getelementptr inbounds i8, ptr %spec.select.i.i43, i64 %.idx89
   %.not6475 = icmp eq i32 %35, 0
   br i1 %.not6475, label %._crit_edge80, label %.lr.ph79
 
@@ -18013,7 +18016,8 @@ define hidden noundef i64 @_ZNK12opencv_caffe12NetParameter12ByteSizeLongEv(ptr 
   %.not.i.i46 = icmp eq ptr %65, null
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %spec.select.i.i47 = select i1 %.not.i.i46, ptr null, ptr %66
-  %67 = getelementptr inbounds ptr, ptr %spec.select.i.i47, i64 %61
+  %.idx90 = shl nsw i64 %61, 3
+  %67 = getelementptr inbounds i8, ptr %spec.select.i.i47, i64 %.idx90
   %.not6582 = icmp eq i32 %60, 0
   br i1 %.not6582, label %._crit_edge87, label %.lr.ph86
 
@@ -23928,7 +23932,8 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %.not.i.i = icmp eq ptr %21, null
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %22
-  %23 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %15
+  %.idx = shl nsw i64 %15, 3
+  %23 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not173179 = icmp eq i32 %14, 0
   br i1 %.not173179, label %._crit_edge184, label %.lr.ph183
 
@@ -23965,7 +23970,8 @@ define hidden noundef i64 @_ZNK12opencv_caffe15SolverParameter12ByteSizeLongEv(p
   %.not.i.i148 = icmp eq ptr %45, null
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %spec.select.i.i149 = select i1 %.not.i.i148, ptr null, ptr %46
-  %47 = getelementptr inbounds ptr, ptr %spec.select.i.i149, i64 %41
+  %.idx193 = shl nsw i64 %41, 3
+  %47 = getelementptr inbounds i8, ptr %spec.select.i.i149, i64 %.idx193
   %.not174186 = icmp eq i32 %40, 0
   br i1 %.not174186, label %._crit_edge191, label %.lr.ph190
 
@@ -26912,7 +26918,8 @@ define hidden noundef i64 @_ZNK12opencv_caffe11SolverState12ByteSizeLongEv(ptr n
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not2122 = icmp eq i32 %3, 0
   br i1 %.not2122, label %._crit_edge, label %.lr.ph
 
@@ -48901,14 +48908,15 @@ define hidden noundef i64 @_ZNK12opencv_caffe14LayerParameter12ByteSizeLongEv(pt
   %.not.i.i = icmp eq ptr %43, null
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %44
-  %45 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %40
+  %.idx = shl nsw i64 %40, 3
+  %45 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not441453 = icmp eq i32 %39, 0
   br i1 %.not441453, label %._crit_edge458, label %.lr.ph457
 
 46:                                               ; preds = %.lr.ph450, %46
-  %indvars.iv488 = phi i64 [ 0, %.lr.ph450 ], [ %indvars.iv.next489, %46 ]
+  %indvars.iv491 = phi i64 [ 0, %.lr.ph450 ], [ %indvars.iv.next492, %46 ]
   %.1448 = phi i64 [ %12, %.lr.ph450 ], [ %60, %46 ]
-  %47 = getelementptr inbounds nuw [268435454 x ptr], ptr %16, i64 0, i64 %indvars.iv488
+  %47 = getelementptr inbounds nuw [268435454 x ptr], ptr %16, i64 0, i64 %indvars.iv491
   %48 = load ptr, ptr %47, align 8, !tbaa !87
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !72
@@ -48922,9 +48930,9 @@ define hidden noundef i64 @_ZNK12opencv_caffe14LayerParameter12ByteSizeLongEv(pt
   %58 = zext nneg i32 %57 to i64
   %59 = add i64 %50, %.1448
   %60 = add i64 %59, %58
-  %indvars.iv.next489 = add nuw nsw i64 %indvars.iv488, 1
-  %exitcond492.not = icmp eq i64 %indvars.iv.next489, %11
-  br i1 %exitcond492.not, label %._crit_edge451, label %46, !llvm.loop !648
+  %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491, 1
+  %exitcond495.not = icmp eq i64 %indvars.iv.next492, %11
+  br i1 %exitcond495.not, label %._crit_edge451, label %46, !llvm.loop !648
 
 ._crit_edge458:                                   ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9ParamSpecEEEmRKT_.exit, %._crit_edge451
   %.2.lcssa = phi i64 [ %41, %._crit_edge451 ], [ %123, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9ParamSpecEEEmRKT_.exit ]
@@ -48937,7 +48945,8 @@ define hidden noundef i64 @_ZNK12opencv_caffe14LayerParameter12ByteSizeLongEv(pt
   %.not.i.i229 = icmp eq ptr %66, null
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %spec.select.i.i230 = select i1 %.not.i.i229, ptr null, ptr %67
-  %68 = getelementptr inbounds ptr, ptr %spec.select.i.i230, i64 %63
+  %.idx481 = shl nsw i64 %63, 3
+  %68 = getelementptr inbounds i8, ptr %spec.select.i.i230, i64 %.idx481
   %.not442460 = icmp eq i32 %62, 0
   br i1 %.not442460, label %._crit_edge465, label %.lr.ph464
 
@@ -49037,7 +49046,8 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9ParamS
   %.not.i.i235 = icmp eq ptr %130, null
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %spec.select.i.i236 = select i1 %.not.i.i235, ptr null, ptr %131
-  %132 = getelementptr inbounds ptr, ptr %spec.select.i.i236, i64 %127
+  %.idx482 = shl nsw i64 %127, 3
+  %132 = getelementptr inbounds i8, ptr %spec.select.i.i236, i64 %.idx482
   %.not443467 = icmp eq i32 %126, 0
   br i1 %.not443467, label %._crit_edge472, label %.lr.ph471
 
@@ -49071,7 +49081,8 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9ParamS
   %.not.i.i239 = icmp eq ptr %151, null
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %spec.select.i.i240 = select i1 %.not.i.i239, ptr null, ptr %152
-  %153 = getelementptr inbounds ptr, ptr %spec.select.i.i240, i64 %148
+  %.idx483 = shl nsw i64 %148, 3
+  %153 = getelementptr inbounds i8, ptr %spec.select.i.i240, i64 %.idx483
   %.not444474 = icmp eq i32 %147, 0
   br i1 %.not444474, label %._crit_edge479, label %.lr.ph478
 
@@ -51407,7 +51418,8 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe13BiasP
   %.not.i.i.i.i = icmp eq ptr %1740, null
   %1741 = getelementptr inbounds nuw i8, ptr %1740, i64 8
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %1741
-  %1742 = getelementptr inbounds ptr, ptr %spec.select.i.i.i.i, i64 %1738
+  %.idx.i.i = shl nsw i64 %1738, 3
+  %1742 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i, i64 %.idx.i.i
   %.not12.i.i399 = icmp eq i32 %1737, 0
   br i1 %.not12.i.i399, label %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe14InputParameterEEEmRKT_.exit, label %.lr.ph.i.i
 
@@ -79004,7 +79016,8 @@ define hidden noundef i64 @_ZNK12opencv_caffe18DummyDataParameter12ByteSizeLongE
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not38 = icmp eq i32 %3, 0
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
@@ -79043,7 +79056,8 @@ define hidden noundef i64 @_ZNK12opencv_caffe18DummyDataParameter12ByteSizeLongE
   %.not.i.i25 = icmp eq ptr %38, null
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %spec.select.i.i26 = select i1 %.not.i.i25, ptr null, ptr %39
-  %40 = getelementptr inbounds ptr, ptr %spec.select.i.i26, i64 %27
+  %.idx48 = shl nsw i64 %27, 3
+  %40 = getelementptr inbounds i8, ptr %spec.select.i.i26, i64 %.idx48
   %.not3741 = icmp eq i32 %26, 0
   br i1 %.not3741, label %._crit_edge46, label %.lr.ph45
 
@@ -89711,7 +89725,8 @@ define hidden noundef i64 @_ZNK12opencv_caffe14InputParameter12ByteSizeLongEv(pt
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not12 = icmp eq i32 %3, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -120914,14 +120929,15 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V1LayerParameter12ByteSizeLongEv(
   %.not.i.i = icmp eq ptr %37, null
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %38
-  %39 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %34
+  %.idx = shl nsw i64 %34, 3
+  %39 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not281294 = icmp eq i32 %33, 0
   br i1 %.not281294, label %._crit_edge299, label %.lr.ph298
 
 40:                                               ; preds = %.lr.ph291, %40
-  %indvars.iv335 = phi i64 [ 0, %.lr.ph291 ], [ %indvars.iv.next336, %40 ]
+  %indvars.iv337 = phi i64 [ 0, %.lr.ph291 ], [ %indvars.iv.next338, %40 ]
   %.1289 = phi i64 [ %12, %.lr.ph291 ], [ %54, %40 ]
-  %41 = getelementptr inbounds nuw [268435454 x ptr], ptr %16, i64 0, i64 %indvars.iv335
+  %41 = getelementptr inbounds nuw [268435454 x ptr], ptr %16, i64 0, i64 %indvars.iv337
   %42 = load ptr, ptr %41, align 8, !tbaa !87
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !72
@@ -120935,9 +120951,9 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V1LayerParameter12ByteSizeLongEv(
   %52 = zext nneg i32 %51 to i64
   %53 = add i64 %44, %.1289
   %54 = add i64 %53, %52
-  %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
-  %exitcond339.not = icmp eq i64 %indvars.iv.next336, %11
-  br i1 %exitcond339.not, label %._crit_edge292, label %40, !llvm.loop !909
+  %indvars.iv.next338 = add nuw nsw i64 %indvars.iv337, 1
+  %exitcond341.not = icmp eq i64 %indvars.iv.next338, %11
+  br i1 %exitcond341.not, label %._crit_edge292, label %40, !llvm.loop !909
 
 ._crit_edge299:                                   ; preds = %.lr.ph298, %._crit_edge292
   %.2.lcssa = phi i64 [ %35, %._crit_edge292 ], [ %84, %.lr.ph298 ]
@@ -120962,7 +120978,8 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V1LayerParameter12ByteSizeLongEv(
   %.not.i.i168 = icmp eq ptr %70, null
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %spec.select.i.i169 = select i1 %.not.i.i168, ptr null, ptr %71
-  %72 = getelementptr inbounds ptr, ptr %spec.select.i.i169, i64 %63
+  %.idx327 = shl nsw i64 %63, 3
+  %72 = getelementptr inbounds i8, ptr %spec.select.i.i169, i64 %.idx327
   %.not282301 = icmp eq i32 %62, 0
   br i1 %.not282301, label %._crit_edge306, label %.lr.ph305
 
@@ -120997,7 +121014,8 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V1LayerParameter12ByteSizeLongEv(
   %.not.i.i172 = icmp eq ptr %92, null
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %spec.select.i.i173 = select i1 %.not.i.i172, ptr null, ptr %93
-  %94 = getelementptr inbounds ptr, ptr %spec.select.i.i173, i64 %88
+  %.idx328 = shl nsw i64 %88, 3
+  %94 = getelementptr inbounds i8, ptr %spec.select.i.i173, i64 %.idx328
   %.not283308 = icmp eq i32 %87, 0
   br i1 %.not283308, label %._crit_edge313, label %.lr.ph312
 
@@ -121065,8 +121083,8 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V1LayerParameter12ByteSizeLongEv(
   %.5.lcssa = phi i64 [ %116, %._crit_edge313 ], [ %152, %138 ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %135 = load i32, ptr %134, align 8, !tbaa !201
-  %.not327 = icmp eq i32 %135, 0
-  br i1 %.not327, label %._crit_edge325, label %.lr.ph324
+  %.not329 = icmp eq i32 %135, 0
+  br i1 %.not329, label %._crit_edge325, label %.lr.ph324
 
 .lr.ph324:                                        ; preds = %._crit_edge319
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -121074,9 +121092,9 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V1LayerParameter12ByteSizeLongEv(
   br label %160
 
 138:                                              ; preds = %.lr.ph318, %138
-  %indvars.iv340 = phi i64 [ 0, %.lr.ph318 ], [ %indvars.iv.next341, %138 ]
+  %indvars.iv342 = phi i64 [ 0, %.lr.ph318 ], [ %indvars.iv.next343, %138 ]
   %.5316 = phi i64 [ %116, %.lr.ph318 ], [ %152, %138 ]
-  %139 = getelementptr inbounds nuw [268435454 x ptr], ptr %120, i64 0, i64 %indvars.iv340
+  %139 = getelementptr inbounds nuw [268435454 x ptr], ptr %120, i64 0, i64 %indvars.iv342
   %140 = load ptr, ptr %139, align 8, !tbaa !87
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load i64, ptr %141, align 8, !tbaa !72
@@ -121090,9 +121108,9 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V1LayerParameter12ByteSizeLongEv(
   %150 = zext nneg i32 %149 to i64
   %151 = add i64 %142, %.5316
   %152 = add i64 %151, %150
-  %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
-  %exitcond344.not = icmp eq i64 %indvars.iv.next341, %114
-  br i1 %exitcond344.not, label %._crit_edge319, label %138, !llvm.loop !910
+  %indvars.iv.next343 = add nuw nsw i64 %indvars.iv342, 1
+  %exitcond346.not = icmp eq i64 %indvars.iv.next343, %114
+  br i1 %exitcond346.not, label %._crit_edge319, label %138, !llvm.loop !910
 
 ._crit_edge325:                                   ; preds = %160, %._crit_edge319
   %.0125.lcssa = phi i64 [ 0, %._crit_edge319 ], [ %171, %160 ]
@@ -121121,8 +121139,8 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V1LayerParameter12ByteSizeLongEv(
   %170 = lshr i64 %169, 6
   %171 = add i64 %170, %.0125321
   %172 = add nuw i32 %.0322, 1
-  %exitcond345.not = icmp eq i32 %172, %135
-  br i1 %exitcond345.not, label %._crit_edge325, label %160, !llvm.loop !911
+  %exitcond347.not = icmp eq i32 %172, %135
+  br i1 %exitcond347.not, label %._crit_edge325, label %160, !llvm.loop !911
 
 173:                                              ; preds = %._crit_edge325
   %174 = and i32 %158, 1
@@ -131117,7 +131135,8 @@ define hidden noundef i64 @_ZNK12opencv_caffe16V0LayerParameter12ByteSizeLongEv(
   %.not.i.i = icmp eq ptr %7, null
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %8
-  %9 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %9 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not141147 = icmp eq i32 %3, 0
   br i1 %.not141147, label %._crit_edge, label %.lr.ph
 

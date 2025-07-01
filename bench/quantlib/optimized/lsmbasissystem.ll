@@ -1423,21 +1423,24 @@ _ZNSt6vectorISt8functionIFddEESaIS2_EED2Ev.exit:  ; preds = %invoke.cont.i63, %i
 
 call5.i.i.i.i2.i.i.noexc79:                       ; preds = %_ZNSt6vectorISt8functionIFddEESaIS2_EED2Ev.exit
   store ptr %call5.i.i.i.i2.i.i80, ptr %ref.tmp41, align 8, !tbaa !53
-  %add.ptr.i.i.i73 = getelementptr i64, ptr %call5.i.i.i.i2.i.i80, i64 %dim
+  %add.ptr.i.i.i73 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i80, i64 %dim
   %_M_end_of_storage.i.i.i74 = getelementptr inbounds nuw i8, ptr %ref.tmp41, i64 16
   store ptr %add.ptr.i.i.i73, ptr %_M_end_of_storage.i.i.i74, align 8, !tbaa !55
   store i64 0, ptr %call5.i.i.i.i2.i.i80, align 8, !tbaa !10
   %incdec.ptr.i.i.i.i.i75 = getelementptr i8, ptr %call5.i.i.i.i2.i.i80, i64 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %dim, 1
+  %sub.i.i.i.i.i = add nsw i64 %dim, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont44, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc79
   %38 = add nsw i64 %mul.i.i.i.i.i.i72, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i75, i8 0, i64 %38, i1 false), !tbaa !10
+  %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i75, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %invoke.cont44
 
 invoke.cont44:                                    ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc79
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i75, %call5.i.i.i.i2.i.i.noexc79 ], [ %add.ptr.i.i.i73, %if.end.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i75, %call5.i.i.i.i2.i.i.noexc79 ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %ref.tmp41, i64 8
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !56
   %call5.i.i.i.i2.i.i94 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23

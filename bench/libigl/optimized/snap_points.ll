@@ -37,7 +37,8 @@ define weak_odr dso_local void @_ZN3igl11snap_pointsIN5Eigen6MatrixIdLi1ELi3ELi1
 
 11:                                               ; preds = %4
   %12 = load ptr, ptr %3, align 8, !tbaa !13
-  %13 = getelementptr inbounds nuw double, ptr %12, i64 %9
+  %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %9, 3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, %11
@@ -213,7 +214,8 @@ define linkonce_odr dso_local void @_ZN3igl11snap_pointsIN5Eigen6MatrixIdLin1ELi
 
 15:                                               ; preds = %4
   %16 = load ptr, ptr %3, align 8, !tbaa !13
-  %17 = getelementptr inbounds nuw double, ptr %16, i64 %13
+  %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %13, 3
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, %15

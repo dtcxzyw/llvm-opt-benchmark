@@ -18800,7 +18800,8 @@ define hidden void @_ZN12polars_arrow5array7binview4view14validate_views17h991d7
   %16 = alloca [4 x i8], align 4
   %17 = alloca [48 x i8], align 8
   %18 = alloca [24 x i8], align 8
-  %19 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %20 = icmp eq i64 %2, 0
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -62025,7 +62026,8 @@ define { ptr, ptr } @_ZN14polars_compute6gather7sublist4list11sublist_get17h998b
   %10 = load ptr, ptr %9, align 8, !noalias !8910, !nonnull !6, !noundef !6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8, !noalias !8910, !noundef !6
-  %13 = getelementptr inbounds nuw i64, ptr %10, i64 %12
+  %.idx.i = shl nuw nsw i64 %12, 3
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !8910
   %.not.i = icmp eq i64 %12, 0
   %spec.select.i = select i1 %.not.i, ptr @anon.b1f0ac1e253f2a4064c61b0db2d4d543.219, ptr %10
@@ -64114,7 +64116,8 @@ define hidden noundef zeroext i1 @_ZN14polars_compute12if_then_else4view21has_du
   store i64 %5, ptr %8, align 8, !alias.scope !9048
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  %9 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h8965e4c105634e3cE.exit.thread", label %.lr.ph
 

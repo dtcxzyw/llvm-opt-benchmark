@@ -5478,7 +5478,8 @@ if.end:                                           ; preds = %entry
   %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %8 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %8 to i64
-  %add.ptr.i14.i = getelementptr inbounds nuw i32, ptr %7, i64 %conv.i.i
+  %add.ptr.i14.idx.i = shl nuw nsw i64 %conv.i.i, 2
+  %add.ptr.i14.i = getelementptr inbounds nuw i8, ptr %7, i64 %add.ptr.i14.idx.i
   %cmp.not6.i = icmp eq i32 %8, 0
   br i1 %cmp.not6.i, label %if.then13, label %for.body.lr.ph.i
 
@@ -5495,13 +5496,15 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 for.inc.i:                                        ; preds = %for.body.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %I.07.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i14.i
-  br i1 %cmp.not.i, label %if.end9, label %for.body.i, !llvm.loop !64
+  br i1 %cmp.not.i, label %_ZNK4llvh8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit, label %for.body.i, !llvm.loop !64
 
-_ZNK4llvh8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit: ; preds = %for.body.i
-  %cmp.not = icmp eq ptr %I.07.i, %add.ptr.i14.i
+_ZNK4llvh8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit: ; preds = %for.body.i, %for.inc.i
+  %retval.0.i = phi ptr [ %add.ptr.i14.i, %for.inc.i ], [ %I.07.i, %for.body.i ]
+  %add.ptr.i = getelementptr inbounds nuw i32, ptr %7, i64 %conv.i.i
+  %cmp.not = icmp eq ptr %retval.0.i, %add.ptr.i
   br i1 %cmp.not, label %if.end9, label %return
 
-if.end9:                                          ; preds = %for.inc.i, %_ZNK4llvh8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit
+if.end9:                                          ; preds = %_ZNK4llvh8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit
   %cmp12 = icmp ult i32 %8, 8
   br i1 %cmp12, label %if.then13, label %while.body.lr.ph
 
@@ -5515,13 +5518,13 @@ if.then.i:                                        ; preds = %if.then13
   %add.ptr.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i.i13, i64 noundef 0, i64 noundef 4) #13
   %.pre.i = load i32, ptr %Size.i.i, align 8
-  %.pre122 = load ptr, ptr %this, align 8
-  %.pre123 = zext i32 %.pre.i to i64
+  %.pre121 = load ptr, ptr %this, align 8
+  %.pre122 = zext i32 %.pre.i to i64
   br label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit
 
 _ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit: ; preds = %if.then13, %if.then.i
-  %conv.i3.i.pre-phi = phi i64 [ %conv.i.i, %if.then13 ], [ %.pre123, %if.then.i ]
-  %12 = phi ptr [ %7, %if.then13 ], [ %.pre122, %if.then.i ]
+  %conv.i3.i.pre-phi = phi i64 [ %conv.i.i, %if.then13 ], [ %.pre122, %if.then.i ]
+  %12 = phi ptr [ %7, %if.then13 ], [ %.pre121, %if.then.i ]
   %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %12, i64 %conv.i3.i.pre-phi
   %13 = load i32, ptr %V, align 4
   store i32 %13, ptr %add.ptr.i.i, align 1
@@ -5877,7 +5880,8 @@ if.then:                                          ; preds = %entry
   %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %2 to i64
-  %add.ptr.i14.i = getelementptr inbounds nuw i32, ptr %1, i64 %conv.i.i
+  %add.ptr.i14.idx.i = shl nuw nsw i64 %conv.i.i, 2
+  %add.ptr.i14.i = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i14.idx.i
   %cmp.not6.i = icmp eq i32 %2, 0
   br i1 %cmp.not6.i, label %_ZNK4llvh8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit, label %for.body.lr.ph.i
 
@@ -5898,7 +5902,8 @@ for.inc.i:                                        ; preds = %for.body.i
 
 _ZNK4llvh8SmallSetIjLj8ESt4lessIjEE5vfindERKj.exit: ; preds = %for.body.i, %for.inc.i, %if.then
   %retval.0.i = phi ptr [ %add.ptr.i14.i, %if.then ], [ %I.07.i, %for.body.i ], [ %add.ptr.i14.i, %for.inc.i ]
-  %cmp = icmp ne ptr %retval.0.i, %add.ptr.i14.i
+  %add.ptr.i = getelementptr inbounds nuw i32, ptr %1, i64 %conv.i.i
+  %cmp = icmp ne ptr %retval.0.i, %add.ptr.i
   br label %return
 
 if.else:                                          ; preds = %entry

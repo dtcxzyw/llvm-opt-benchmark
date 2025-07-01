@@ -2860,7 +2860,8 @@ define noundef ptr @Mio_CollectRootsNew2(ptr noundef %0, i32 noundef %1, ptr nou
 
 .preheader148:                                    ; preds = %Mio_CollectCopy2.exit
   %12 = sext i32 %.1113 to i64
-  %13 = getelementptr inbounds %struct.Mio_Cell2_t_, ptr %10, i64 %12
+  %.idx = mul nsw i64 %12, 80
+  %13 = getelementptr inbounds i8, ptr %10, i64 %.idx
   %14 = icmp sgt i32 %.1113, 0
   br i1 %14, label %.preheader147, label %._crit_edge
 
@@ -3050,9 +3051,9 @@ Mio_CompareTwo2.exit:                             ; preds = %90
   br label %Mio_CompareTwo2.exit.thread.sink.split
 
 Mio_CompareTwo2.exit.thread.sink.split:           ; preds = %Mio_CompareTwo2.exit, %76, %84, %98, %102, %106
-  %.lcssa205.sink = phi ptr [ %109, %106 ], [ %105, %102 ], [ %101, %98 ], [ %69, %84 ], [ %69, %76 ], [ %69, %Mio_CompareTwo2.exit ]
+  %.lcssa206.sink = phi ptr [ %109, %106 ], [ %105, %102 ], [ %101, %98 ], [ %69, %84 ], [ %69, %76 ], [ %69, %Mio_CompareTwo2.exit ]
   %.1111.ph = phi i32 [ %107, %106 ], [ %.0110159, %102 ], [ %.0110159, %98 ], [ %.0110159, %84 ], [ %.0110159, %76 ], [ %.0110159, %Mio_CompareTwo2.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.lcssa205.sink, ptr noundef nonnull align 8 dereferenceable(80) %.0114157, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.lcssa206.sink, ptr noundef nonnull align 8 dereferenceable(80) %.0114157, i64 80, i1 false)
   br label %Mio_CompareTwo2.exit.thread
 
 Mio_CompareTwo2.exit.thread:                      ; preds = %Mio_CompareTwo2.exit.thread.sink.split, %90, %82, %Mio_CompareTwo2.exit

@@ -4901,13 +4901,13 @@ define hidden void @"_ZN70_$LT$uv_pep508..marker..algebra..Edges$u20$as$u20$core
   %10 = mul i64 %9, -1065810590584100411
   store i64 %10, ptr %1, align 8, !alias.scope !981
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i64 %7, label %default.unreachable5 [
+  switch i64 %7, label %default.unreachable6 [
     i64 0, label %12
     i64 1, label %34
     i64 2, label %56
   ]
 
-default.unreachable5:                             ; preds = %2
+default.unreachable6:                             ; preds = %2
   unreachable
 
 12:                                               ; preds = %2
@@ -4923,7 +4923,8 @@ default.unreachable5:                             ; preds = %2
   store i64 %17, ptr %1, align 8, !alias.scope !991, !noalias !996
   tail call void @llvm.experimental.noalias.scope.decl(metadata !997)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1000)
-  %18 = getelementptr inbounds { { { { [6 x i64] }, i64 } }, i64 }, ptr %13, i64 %15
+  %.idx.i.i = shl nsw i64 %15, 6
+  %18 = getelementptr inbounds i8, ptr %13, i64 %.idx.i.i
   %19 = icmp eq i64 %15, 0
   br i1 %19, label %"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h5b9806afde701a9eE.exit", label %.lr.ph.i.i
 
@@ -4972,25 +4973,26 @@ default.unreachable5:                             ; preds = %2
   store i64 %39, ptr %1, align 8, !alias.scope !1039, !noalias !1044
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1045)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1048)
-  %40 = getelementptr inbounds { { { { [4 x i64] }, i64 } }, i64 }, ptr %35, i64 %37
+  %.idx.i.i1 = mul nsw i64 %37, 48
+  %40 = getelementptr inbounds i8, ptr %35, i64 %.idx.i.i1
   %41 = icmp eq i64 %37, 0
-  br i1 %41, label %"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h5b9806afde701a9eE.exit", label %.lr.ph.i.i1
+  br i1 %41, label %"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h5b9806afde701a9eE.exit", label %.lr.ph.i.i2
 
-.lr.ph.i.i1:                                      ; preds = %34
+.lr.ph.i.i2:                                      ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %43
 
-43:                                               ; preds = %43, %.lr.ph.i.i1
-  %44 = phi i64 [ %39, %.lr.ph.i.i1 ], [ %54, %43 ]
-  %.sroa.0.05.i.i2 = phi ptr [ %35, %.lr.ph.i.i1 ], [ %45, %43 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i2, i64 48
+43:                                               ; preds = %43, %.lr.ph.i.i2
+  %44 = phi i64 [ %39, %.lr.ph.i.i2 ], [ %54, %43 ]
+  %.sroa.0.05.i.i3 = phi ptr [ %35, %.lr.ph.i.i2 ], [ %45, %43 ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i3, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1050)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1053)
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i2, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i3, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1055)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1058)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1061
-  call void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hb0b420a9ffa08f1eE.llvm.9724254067853043990"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.05.i.i2), !noalias !1064
+  call void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hb0b420a9ffa08f1eE.llvm.9724254067853043990"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.05.i.i3), !noalias !1064
   %47 = load ptr, ptr %3, align 8, !noalias !1061, !nonnull !3, !noundef !3
   %48 = load i64, ptr %42, align 8, !noalias !1061, !noundef !3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1061

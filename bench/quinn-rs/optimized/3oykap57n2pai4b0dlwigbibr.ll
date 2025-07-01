@@ -10928,7 +10928,8 @@ _ZN11quinn_proto10connection14ConnectionSide18remote_may_migrate17h8932ea4393aba
   %.sroa.082.0.copyload = load i64, ptr %6, align 8
   %200 = icmp ult i64 %38, 192153584101141163
   tail call void @llvm.assume(i1 %200)
-  %201 = getelementptr inbounds nuw { { [16 x i8] }, i64, { [20 x i8], i8 }, [3 x i8] }, ptr %36, i64 %38
+  %.idx = mul nuw nsw i64 %38, 48
+  %201 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx
   %202 = icmp sgt i64 %.sroa.082.0.copyload, -1
   tail call void @llvm.assume(i1 %202)
   store ptr %36, ptr %5, align 8, !alias.scope !328, !noalias !331
@@ -14917,7 +14918,8 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_packet
   %39 = load ptr, ptr %38, align 8, !nonnull !3, !noundef !3
   %40 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %41 = load i64, ptr %40, align 8, !noundef !3
-  %42 = getelementptr inbounds nuw { i64, i64 }, ptr %39, i64 %41
+  %.idx = shl nuw nsw i64 %41, 4
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
   %43 = icmp eq i64 %41, 0
   br i1 %43, label %.loopexit50, label %.lr.ph
 
@@ -15823,7 +15825,8 @@ _ZN4core4time8Duration11checked_add17h757bdf52c7b42d91E.exit.thread.i.cont: ; pr
 283:                                              ; preds = %267, %282, %250, %.thread235, %318
   %284 = load ptr, ptr %38, align 8, !nonnull !3, !noundef !3
   %285 = load i64, ptr %39, align 8, !noundef !3
-  %286 = getelementptr inbounds nuw i64, ptr %284, i64 %285
+  %.idx = shl nuw nsw i64 %285, 3
+  %286 = getelementptr inbounds nuw i8, ptr %284, i64 %.idx
   %287 = icmp eq i64 %285, 0
   br i1 %287, label %._crit_edge, label %.lr.ph
 

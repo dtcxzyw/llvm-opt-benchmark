@@ -258,7 +258,8 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %58 = phi i32 [ %47, %52 ], [ %.pre.i.i, %56 ]
   %59 = load ptr, ptr %3, align 8, !tbaa !9
   %60 = getelementptr inbounds nuw i64, ptr %59, i64 %.pre-phi.i
-  %61 = getelementptr inbounds nuw i64, ptr %60, i64 %53
+  %.idx.i.i.i.i.i.i = shl nuw nsw i64 %53, 3
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i.i

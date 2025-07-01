@@ -4361,47 +4361,47 @@ define void @_Z29gmx_print_tng_molecule_systemP18gmx_tng_trajectoryP8_IO_FILE(pt
   store ptr null, ptr %19, align 8, !tbaa !277
   %20 = load ptr, ptr %0, align 8, !tbaa !41
   %21 = invoke i32 @tng_num_molecule_types_get(ptr noundef %20, ptr noundef nonnull %3)
-          to label %22 unwind label %.thread176
+          to label %22 unwind label %.thread177
 
 22:                                               ; preds = %2
   %23 = invoke i32 @tng_molecule_cnt_list_get(ptr noundef %20, ptr noundef nonnull %11)
-          to label %24 unwind label %.thread176
+          to label %24 unwind label %.thread177
 
 24:                                               ; preds = %22
   %25 = invoke i32 @tng_num_particles_variable_get(ptr noundef %20, ptr noundef nonnull %17)
-          to label %.preheader194 unwind label %.thread176
+          to label %.preheader195 unwind label %.thread177
 
-.preheader194:                                    ; preds = %24
+.preheader195:                                    ; preds = %24
   %26 = load i64, ptr %3, align 8, !tbaa !31
   %27 = icmp sgt i64 %26, 0
-  br i1 %27, label %.lr.ph211, label %._crit_edge212
+  br i1 %27, label %.lr.ph212, label %._crit_edge213
 
-._crit_edge212:                                   ; preds = %.loopexit190, %.preheader194
+._crit_edge213:                                   ; preds = %.loopexit191, %.preheader195
   %28 = invoke i32 @tng_num_particles_get(ptr noundef %20, ptr noundef nonnull %6)
-          to label %131 unwind label %.thread176
+          to label %131 unwind label %.thread177
 
-.lr.ph211:                                        ; preds = %.preheader194, %.loopexit190
-  %.0104210 = phi i64 [ %128, %.loopexit190 ], [ 0, %.preheader194 ]
-  %29 = call i32 @tng_molecule_of_index_get(ptr noundef %20, i64 noundef %.0104210, ptr noundef nonnull %12)
+.lr.ph212:                                        ; preds = %.preheader195, %.loopexit191
+  %.0104211 = phi i64 [ %128, %.loopexit191 ], [ 0, %.preheader195 ]
+  %29 = call i32 @tng_molecule_of_index_get(ptr noundef %20, i64 noundef %.0104211, ptr noundef nonnull %12)
   %30 = load ptr, ptr %12, align 8, !tbaa !98
   %31 = call i32 @tng_molecule_name_get(ptr noundef %20, ptr noundef %30, ptr noundef nonnull %16, i32 noundef 256)
   %32 = load i8, ptr %17, align 1, !tbaa !32
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %34, label %42
 
-34:                                               ; preds = %.lr.ph211
+34:                                               ; preds = %.lr.ph212
   %35 = load ptr, ptr %11, align 8, !tbaa !275
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %.0104210
+  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %.0104211
   %37 = load i64, ptr %36, align 8, !tbaa !31
   %38 = trunc i64 %37 to i32
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.loopexit190, label %40
+  br i1 %39, label %.loopexit191, label %40
 
 40:                                               ; preds = %34
   %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.33, ptr noundef nonnull %16, i32 noundef %38) #22
   br label %44
 
-42:                                               ; preds = %.lr.ph211
+42:                                               ; preds = %.lr.ph212
   %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.34, ptr noundef nonnull %16) #22
   br label %44
 
@@ -4410,12 +4410,12 @@ define void @_Z29gmx_print_tng_molecule_systemP18gmx_tng_trajectoryP8_IO_FILE(pt
   %46 = call i32 @tng_molecule_num_chains_get(ptr noundef %20, ptr noundef %45, ptr noundef nonnull %4)
   %47 = load i64, ptr %4, align 8, !tbaa !31
   %48 = icmp sgt i64 %47, 0
-  br i1 %48, label %.lr.ph209, label %84
+  br i1 %48, label %.lr.ph210, label %84
 
-.lr.ph209:                                        ; preds = %44, %._crit_edge207
-  %.0103208 = phi i64 [ %58, %._crit_edge207 ], [ 0, %44 ]
+.lr.ph210:                                        ; preds = %44, %._crit_edge208
+  %.0103209 = phi i64 [ %58, %._crit_edge208 ], [ 0, %44 ]
   %49 = load ptr, ptr %12, align 8, !tbaa !98
-  %50 = call i32 @tng_molecule_chain_of_index_get(ptr noundef %20, ptr noundef %49, i64 noundef %.0103208, ptr noundef nonnull %13)
+  %50 = call i32 @tng_molecule_chain_of_index_get(ptr noundef %20, ptr noundef %49, i64 noundef %.0103209, ptr noundef nonnull %13)
   %51 = load ptr, ptr %13, align 8, !tbaa !118
   %52 = call i32 @tng_chain_name_get(ptr noundef %20, ptr noundef %51, ptr noundef nonnull %16, i32 noundef 256)
   %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.35, ptr noundef nonnull %16) #22
@@ -4423,18 +4423,18 @@ define void @_Z29gmx_print_tng_molecule_systemP18gmx_tng_trajectoryP8_IO_FILE(pt
   %55 = call i32 @tng_chain_num_residues_get(ptr noundef %20, ptr noundef %54, ptr noundef nonnull %5)
   %56 = load i64, ptr %5, align 8, !tbaa !31
   %57 = icmp sgt i64 %56, 0
-  br i1 %57, label %.lr.ph206, label %._crit_edge207
+  br i1 %57, label %.lr.ph207, label %._crit_edge208
 
-._crit_edge207:                                   ; preds = %._crit_edge203, %.lr.ph209
-  %58 = add nuw nsw i64 %.0103208, 1
+._crit_edge208:                                   ; preds = %._crit_edge204, %.lr.ph210
+  %58 = add nuw nsw i64 %.0103209, 1
   %59 = load i64, ptr %4, align 8, !tbaa !31
   %60 = icmp slt i64 %58, %59
-  br i1 %60, label %.lr.ph209, label %.loopexit190, !llvm.loop !298
+  br i1 %60, label %.lr.ph210, label %.loopexit191, !llvm.loop !298
 
-.lr.ph206:                                        ; preds = %.lr.ph209, %._crit_edge203
-  %.0102204 = phi i64 [ %70, %._crit_edge203 ], [ 0, %.lr.ph209 ]
+.lr.ph207:                                        ; preds = %.lr.ph210, %._crit_edge204
+  %.0102205 = phi i64 [ %70, %._crit_edge204 ], [ 0, %.lr.ph210 ]
   %61 = load ptr, ptr %13, align 8, !tbaa !118
-  %62 = call i32 @tng_chain_residue_of_index_get(ptr noundef %20, ptr noundef %61, i64 noundef %.0102204, ptr noundef nonnull %14)
+  %62 = call i32 @tng_chain_residue_of_index_get(ptr noundef %20, ptr noundef %61, i64 noundef %.0102205, ptr noundef nonnull %14)
   %63 = load ptr, ptr %14, align 8, !tbaa !120
   %64 = call i32 @tng_residue_name_get(ptr noundef %20, ptr noundef %63, ptr noundef nonnull %16, i32 noundef 256)
   %65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.36, ptr noundef nonnull %16) #22
@@ -4442,40 +4442,40 @@ define void @_Z29gmx_print_tng_molecule_systemP18gmx_tng_trajectoryP8_IO_FILE(pt
   %67 = call i32 @tng_residue_num_atoms_get(ptr noundef %20, ptr noundef %66, ptr noundef nonnull %6)
   %68 = load i64, ptr %6, align 8, !tbaa !31
   %69 = icmp sgt i64 %68, 0
-  br i1 %69, label %.lr.ph202, label %._crit_edge203
+  br i1 %69, label %.lr.ph203, label %._crit_edge204
 
-._crit_edge203:                                   ; preds = %.lr.ph202, %.lr.ph206
-  %70 = add nuw nsw i64 %.0102204, 1
+._crit_edge204:                                   ; preds = %.lr.ph203, %.lr.ph207
+  %70 = add nuw nsw i64 %.0102205, 1
   %71 = load i64, ptr %5, align 8, !tbaa !31
   %72 = icmp slt i64 %70, %71
-  br i1 %72, label %.lr.ph206, label %._crit_edge207, !llvm.loop !299
+  br i1 %72, label %.lr.ph207, label %._crit_edge208, !llvm.loop !299
 
-.lr.ph202:                                        ; preds = %.lr.ph206, %.lr.ph202
-  %.0101200 = phi i64 [ %81, %.lr.ph202 ], [ 0, %.lr.ph206 ]
+.lr.ph203:                                        ; preds = %.lr.ph207, %.lr.ph203
+  %.0101201 = phi i64 [ %81, %.lr.ph203 ], [ 0, %.lr.ph207 ]
   %73 = load ptr, ptr %14, align 8, !tbaa !120
-  %74 = call i32 @tng_residue_atom_of_index_get(ptr noundef %20, ptr noundef %73, i64 noundef %.0101200, ptr noundef nonnull %15)
+  %74 = call i32 @tng_residue_atom_of_index_get(ptr noundef %20, ptr noundef %73, i64 noundef %.0101201, ptr noundef nonnull %15)
   %75 = load ptr, ptr %15, align 8, !tbaa !132
   %76 = call i32 @tng_atom_name_get(ptr noundef %20, ptr noundef %75, ptr noundef nonnull %16, i32 noundef 256)
   %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.37, ptr noundef nonnull %16) #22
   %78 = load ptr, ptr %15, align 8, !tbaa !132
   %79 = call i32 @tng_atom_type_get(ptr noundef %20, ptr noundef %78, ptr noundef nonnull %16, i32 noundef 256)
   %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.38, ptr noundef nonnull %16) #22
-  %81 = add nuw nsw i64 %.0101200, 1
+  %81 = add nuw nsw i64 %.0101201, 1
   %82 = load i64, ptr %6, align 8, !tbaa !31
   %83 = icmp slt i64 %81, %82
-  br i1 %83, label %.lr.ph202, label %._crit_edge203, !llvm.loop !300
+  br i1 %83, label %.lr.ph203, label %._crit_edge204, !llvm.loop !300
 
 84:                                               ; preds = %44
   %85 = load ptr, ptr %12, align 8, !tbaa !98
   %86 = call i32 @tng_molecule_num_residues_get(ptr noundef %20, ptr noundef %85, ptr noundef nonnull %5)
   %87 = load i64, ptr %5, align 8, !tbaa !31
   %88 = icmp sgt i64 %87, 0
-  br i1 %88, label %.lr.ph199, label %112
+  br i1 %88, label %.lr.ph200, label %112
 
-.lr.ph199:                                        ; preds = %84, %._crit_edge
-  %.0100198 = phi i64 [ %98, %._crit_edge ], [ 0, %84 ]
+.lr.ph200:                                        ; preds = %84, %._crit_edge
+  %.0100199 = phi i64 [ %98, %._crit_edge ], [ 0, %84 ]
   %89 = load ptr, ptr %12, align 8, !tbaa !98
-  %90 = call i32 @tng_molecule_residue_of_index_get(ptr noundef %20, ptr noundef %89, i64 noundef %.0100198, ptr noundef nonnull %14)
+  %90 = call i32 @tng_molecule_residue_of_index_get(ptr noundef %20, ptr noundef %89, i64 noundef %.0100199, ptr noundef nonnull %14)
   %91 = load ptr, ptr %14, align 8, !tbaa !120
   %92 = call i32 @tng_residue_name_get(ptr noundef %20, ptr noundef %91, ptr noundef nonnull %16, i32 noundef 256)
   %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.36, ptr noundef nonnull %16) #22
@@ -4483,64 +4483,64 @@ define void @_Z29gmx_print_tng_molecule_systemP18gmx_tng_trajectoryP8_IO_FILE(pt
   %95 = call i32 @tng_residue_num_atoms_get(ptr noundef %20, ptr noundef %94, ptr noundef nonnull %6)
   %96 = load i64, ptr %6, align 8, !tbaa !31
   %97 = icmp sgt i64 %96, 0
-  br i1 %97, label %.lr.ph197, label %._crit_edge
+  br i1 %97, label %.lr.ph198, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph197, %.lr.ph199
-  %98 = add nuw nsw i64 %.0100198, 1
+._crit_edge:                                      ; preds = %.lr.ph198, %.lr.ph200
+  %98 = add nuw nsw i64 %.0100199, 1
   %99 = load i64, ptr %5, align 8, !tbaa !31
   %100 = icmp slt i64 %98, %99
-  br i1 %100, label %.lr.ph199, label %.loopexit190, !llvm.loop !301
+  br i1 %100, label %.lr.ph200, label %.loopexit191, !llvm.loop !301
 
-.lr.ph197:                                        ; preds = %.lr.ph199, %.lr.ph197
-  %.099196 = phi i64 [ %109, %.lr.ph197 ], [ 0, %.lr.ph199 ]
+.lr.ph198:                                        ; preds = %.lr.ph200, %.lr.ph198
+  %.099197 = phi i64 [ %109, %.lr.ph198 ], [ 0, %.lr.ph200 ]
   %101 = load ptr, ptr %14, align 8, !tbaa !120
-  %102 = call i32 @tng_residue_atom_of_index_get(ptr noundef %20, ptr noundef %101, i64 noundef %.099196, ptr noundef nonnull %15)
+  %102 = call i32 @tng_residue_atom_of_index_get(ptr noundef %20, ptr noundef %101, i64 noundef %.099197, ptr noundef nonnull %15)
   %103 = load ptr, ptr %15, align 8, !tbaa !132
   %104 = call i32 @tng_atom_name_get(ptr noundef %20, ptr noundef %103, ptr noundef nonnull %16, i32 noundef 256)
   %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.37, ptr noundef nonnull %16) #22
   %106 = load ptr, ptr %15, align 8, !tbaa !132
   %107 = call i32 @tng_atom_type_get(ptr noundef %20, ptr noundef %106, ptr noundef nonnull %16, i32 noundef 256)
   %108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.38, ptr noundef nonnull %16) #22
-  %109 = add nuw nsw i64 %.099196, 1
+  %109 = add nuw nsw i64 %.099197, 1
   %110 = load i64, ptr %6, align 8, !tbaa !31
   %111 = icmp slt i64 %109, %110
-  br i1 %111, label %.lr.ph197, label %._crit_edge, !llvm.loop !302
+  br i1 %111, label %.lr.ph198, label %._crit_edge, !llvm.loop !302
 
 112:                                              ; preds = %84
   %113 = load ptr, ptr %12, align 8, !tbaa !98
   %114 = call i32 @tng_molecule_num_atoms_get(ptr noundef %20, ptr noundef %113, ptr noundef nonnull %6)
   %115 = load i64, ptr %6, align 8, !tbaa !31
   %116 = icmp sgt i64 %115, 0
-  br i1 %116, label %.lr.ph, label %.loopexit190
+  br i1 %116, label %.lr.ph, label %.loopexit191
 
 .lr.ph:                                           ; preds = %112, %.lr.ph
-  %.098195 = phi i64 [ %125, %.lr.ph ], [ 0, %112 ]
+  %.098196 = phi i64 [ %125, %.lr.ph ], [ 0, %112 ]
   %117 = load ptr, ptr %12, align 8, !tbaa !98
-  %118 = call i32 @tng_molecule_atom_of_index_get(ptr noundef %20, ptr noundef %117, i64 noundef %.098195, ptr noundef nonnull %15)
+  %118 = call i32 @tng_molecule_atom_of_index_get(ptr noundef %20, ptr noundef %117, i64 noundef %.098196, ptr noundef nonnull %15)
   %119 = load ptr, ptr %15, align 8, !tbaa !132
   %120 = call i32 @tng_atom_name_get(ptr noundef %20, ptr noundef %119, ptr noundef nonnull %16, i32 noundef 256)
   %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.37, ptr noundef nonnull %16) #22
   %122 = load ptr, ptr %15, align 8, !tbaa !132
   %123 = call i32 @tng_atom_type_get(ptr noundef %20, ptr noundef %122, ptr noundef nonnull %16, i32 noundef 256)
   %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.38, ptr noundef nonnull %16) #22
-  %125 = add nuw nsw i64 %.098195, 1
+  %125 = add nuw nsw i64 %.098196, 1
   %126 = load i64, ptr %6, align 8, !tbaa !31
   %127 = icmp slt i64 %125, %126
-  br i1 %127, label %.lr.ph, label %.loopexit190, !llvm.loop !303
+  br i1 %127, label %.lr.ph, label %.loopexit191, !llvm.loop !303
 
-.loopexit190:                                     ; preds = %.lr.ph, %._crit_edge, %._crit_edge207, %112, %34
-  %128 = add nuw nsw i64 %.0104210, 1
+.loopexit191:                                     ; preds = %.lr.ph, %._crit_edge, %._crit_edge208, %112, %34
+  %128 = add nuw nsw i64 %.0104211, 1
   %129 = load i64, ptr %3, align 8, !tbaa !31
   %130 = icmp slt i64 %128, %129
-  br i1 %130, label %.lr.ph211, label %._crit_edge212, !llvm.loop !304
+  br i1 %130, label %.lr.ph212, label %._crit_edge213, !llvm.loop !304
 
-131:                                              ; preds = %._crit_edge212
+131:                                              ; preds = %._crit_edge213
   %132 = invoke i32 @tng_particle_data_vector_get(ptr noundef %20, i64 noundef 268435460, ptr noundef nonnull %19, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %18)
-          to label %133 unwind label %.thread176
+          to label %133 unwind label %.thread177
 
 133:                                              ; preds = %131
   %134 = icmp eq i32 %132, 0
-  br i1 %134, label %135, label %.loopexit189
+  br i1 %134, label %135, label %.loopexit190
 
 135:                                              ; preds = %133
   %136 = load i64, ptr %6, align 8, !tbaa !31
@@ -4553,7 +4553,7 @@ define void @_Z29gmx_print_tng_molecule_systemP18gmx_tng_trajectoryP8_IO_FILE(pt
 
 139:                                              ; preds = %137
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.46) #23
-          to label %.noexc130 unwind label %.thread176
+          to label %.noexc130 unwind label %.thread177
 
 .noexc130:                                        ; preds = %139
   unreachable
@@ -4561,7 +4561,7 @@ define void @_Z29gmx_print_tng_molecule_systemP18gmx_tng_trajectoryP8_IO_FILE(pt
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i:  ; preds = %137
   %140 = shl nuw nsw i64 %136, 2
   %141 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %140) #21
-          to label %.noexc131 unwind label %.thread176
+          to label %.noexc131 unwind label %.thread177
 
 .noexc131:                                        ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i
   store float 0.000000e+00, ptr %141, align 4, !tbaa !152
@@ -4579,13 +4579,13 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc131
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc, %135
-  %.sroa.0155.3 = phi ptr [ %141, %.noexc ], [ null, %135 ]
-  %.sroa.16163.3 = phi ptr [ %145, %.noexc ], [ null, %135 ]
+  %.sroa.0156.3 = phi ptr [ %141, %.noexc ], [ null, %135 ]
+  %.sroa.16164.3 = phi ptr [ %145, %.noexc ], [ null, %135 ]
   %146 = load ptr, ptr %19, align 8, !tbaa !277
   %147 = trunc i64 %136 to i32
   %148 = load i8, ptr %18, align 1, !tbaa !32
-  invoke fastcc void @_ZN12_GLOBAL__N_127convert_array_to_real_arrayEPvPffiic(ptr noundef %146, ptr noundef %.sroa.0155.3, float noundef 1.000000e+00, i32 noundef %147, i32 noundef 1, i8 noundef signext %148)
-          to label %149 unwind label %.thread176
+  invoke fastcc void @_ZN12_GLOBAL__N_127convert_array_to_real_arrayEPvPffiic(ptr noundef %146, ptr noundef %.sroa.0156.3, float noundef 1.000000e+00, i32 noundef %147, i32 noundef 1, i8 noundef signext %148)
+          to label %149 unwind label %.thread177
 
 149:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
   %150 = load i64, ptr %6, align 8, !tbaa !31
@@ -4593,80 +4593,80 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc, %135
   %152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.39, i32 noundef %151) #22
   %153 = load i64, ptr %6, align 8, !tbaa !31
   %154 = icmp sgt i64 %153, 0
-  br i1 %154, label %.lr.ph216, label %.loopexit189
+  br i1 %154, label %.lr.ph217, label %.loopexit190
 
-.lr.ph216:                                        ; preds = %149, %.critedge
-  %.097214 = phi i64 [ %162, %.critedge ], [ 0, %149 ]
-  %155 = trunc i64 %.097214 to i32
+.lr.ph217:                                        ; preds = %149, %.critedge
+  %.097215 = phi i64 [ %162, %.critedge ], [ 0, %149 ]
+  %155 = trunc i64 %.097215 to i32
   %156 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.40, i32 noundef %155) #22
   br label %157
 
-157:                                              ; preds = %.lr.ph216, %165
-  %.096213 = phi i64 [ 0, %.lr.ph216 ], [ %170, %165 ]
-  %158 = add nuw nsw i64 %.096213, %.097214
+157:                                              ; preds = %.lr.ph217, %165
+  %.096214 = phi i64 [ 0, %.lr.ph217 ], [ %170, %165 ]
+  %158 = add nuw nsw i64 %.096214, %.097215
   %159 = load i64, ptr %6, align 8, !tbaa !31
   %160 = icmp slt i64 %158, %159
   br i1 %160, label %165, label %.critedge
 
 .critedge:                                        ; preds = %165, %157
   %161 = call i64 @fwrite(ptr nonnull @.str.42, i64 2, i64 1, ptr %1)
-  %162 = add nuw nsw i64 %.097214, 10
+  %162 = add nuw nsw i64 %.097215, 10
   %163 = load i64, ptr %6, align 8, !tbaa !31
   %164 = icmp slt i64 %162, %163
-  br i1 %164, label %.lr.ph216, label %.loopexit189, !llvm.loop !305
+  br i1 %164, label %.lr.ph217, label %.loopexit190, !llvm.loop !305
 
 165:                                              ; preds = %157
-  %166 = getelementptr inbounds nuw float, ptr %.sroa.0155.3, i64 %158
+  %166 = getelementptr inbounds nuw float, ptr %.sroa.0156.3, i64 %158
   %167 = load float, ptr %166, align 4, !tbaa !152
   %168 = fpext float %167 to double
   %169 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.41, double noundef %168) #22
-  %170 = add nuw nsw i64 %.096213, 1
+  %170 = add nuw nsw i64 %.096214, 1
   %exitcond.not = icmp eq i64 %170, 10
   br i1 %exitcond.not, label %.critedge, label %157, !llvm.loop !306
 
-.loopexit189:                                     ; preds = %.critedge, %149, %133
-  %.sroa.0155.2 = phi ptr [ null, %133 ], [ %.sroa.0155.3, %149 ], [ %.sroa.0155.3, %.critedge ]
-  %.sroa.16163.2 = phi ptr [ null, %133 ], [ %.sroa.16163.3, %149 ], [ %.sroa.16163.3, %.critedge ]
+.loopexit190:                                     ; preds = %.critedge, %149, %133
+  %.sroa.0156.2 = phi ptr [ null, %133 ], [ %.sroa.0156.3, %149 ], [ %.sroa.0156.3, %.critedge ]
+  %.sroa.16164.2 = phi ptr [ null, %133 ], [ %.sroa.16164.3, %149 ], [ %.sroa.16164.3, %.critedge ]
   %171 = invoke i32 @tng_particle_data_vector_get(ptr noundef %20, i64 noundef 268435472, ptr noundef nonnull %19, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %18)
-          to label %172 unwind label %.thread176
+          to label %172 unwind label %.thread177
 
-172:                                              ; preds = %.loopexit189
+172:                                              ; preds = %.loopexit190
   %173 = icmp eq i32 %171, 0
   br i1 %173, label %174, label %.loopexit
 
 174:                                              ; preds = %172
   %175 = load i64, ptr %6, align 8, !tbaa !31
-  %.not188 = icmp eq i64 %175, 0
-  br i1 %.not188, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit122, label %176
+  %.not189 = icmp eq i64 %175, 0
+  br i1 %.not189, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit122, label %176
 
 176:                                              ; preds = %174
   %177 = icmp ugt i64 %175, 2305843009213693951
-  br i1 %177, label %178, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i137
+  br i1 %177, label %178, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i138
 
 178:                                              ; preds = %176
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.46) #23
-          to label %.noexc144 unwind label %.thread176
+          to label %.noexc145 unwind label %.thread177
 
-.noexc144:                                        ; preds = %178
+.noexc145:                                        ; preds = %178
   unreachable
 
-_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i137: ; preds = %176
+_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i138: ; preds = %176
   %179 = shl nuw nsw i64 %175, 2
   %180 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %179) #21
-          to label %.noexc145 unwind label %.thread176
+          to label %.noexc146 unwind label %.thread177
 
-.noexc145:                                        ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i137
+.noexc146:                                        ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i138
   store float 0.000000e+00, ptr %180, align 4, !tbaa !152
   %181 = icmp eq i64 %175, 1
-  br i1 %181, label %.noexc121, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i139
+  br i1 %181, label %.noexc121, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i140
 
-_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i139: ; preds = %.noexc145
+_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i140: ; preds = %.noexc146
   %182 = getelementptr i8, ptr %180, i64 4
   %183 = add nsw i64 %179, -4
   call void @llvm.memset.p0.i64(ptr align 4 %182, i8 0, i64 %183, i1 false), !tbaa !152
   br label %.noexc121
 
-.noexc121:                                        ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i139, %.noexc145
+.noexc121:                                        ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i140, %.noexc146
   %184 = getelementptr inbounds nuw float, ptr %180, i64 %175
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit122
 
@@ -4685,36 +4685,36 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit122:            ; preds = %.noexc121, %174
   %191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.43, i32 noundef %190) #22
   %192 = load i64, ptr %6, align 8, !tbaa !31
   %193 = icmp sgt i64 %192, 0
-  br i1 %193, label %.lr.ph220, label %.loopexit
+  br i1 %193, label %.lr.ph221, label %.loopexit
 
-.lr.ph220:                                        ; preds = %188, %.critedge2
-  %.095218 = phi i64 [ %201, %.critedge2 ], [ 0, %188 ]
-  %194 = trunc i64 %.095218 to i32
+.lr.ph221:                                        ; preds = %188, %.critedge2
+  %.095219 = phi i64 [ %201, %.critedge2 ], [ 0, %188 ]
+  %194 = trunc i64 %.095219 to i32
   %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.44, i32 noundef %194) #22
   br label %196
 
-196:                                              ; preds = %.lr.ph220, %204
-  %.0217 = phi i64 [ 0, %.lr.ph220 ], [ %209, %204 ]
-  %197 = add nuw nsw i64 %.0217, %.095218
+196:                                              ; preds = %.lr.ph221, %204
+  %.0218 = phi i64 [ 0, %.lr.ph221 ], [ %209, %204 ]
+  %197 = add nuw nsw i64 %.0218, %.095219
   %198 = load i64, ptr %6, align 8, !tbaa !31
   %199 = icmp slt i64 %197, %198
   br i1 %199, label %204, label %.critedge2
 
 .critedge2:                                       ; preds = %204, %196
   %200 = call i64 @fwrite(ptr nonnull @.str.42, i64 2, i64 1, ptr %1)
-  %201 = add nuw nsw i64 %.095218, 10
+  %201 = add nuw nsw i64 %.095219, 10
   %202 = load i64, ptr %6, align 8, !tbaa !31
   %203 = icmp slt i64 %201, %202
-  br i1 %203, label %.lr.ph220, label %.loopexit, !llvm.loop !307
+  br i1 %203, label %.lr.ph221, label %.loopexit, !llvm.loop !307
 
 204:                                              ; preds = %196
   %205 = getelementptr inbounds nuw float, ptr %.sroa.0.3, i64 %197
   %206 = load float, ptr %205, align 4, !tbaa !152
   %207 = fpext float %206 to double
   %208 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.41, double noundef %207) #22
-  %209 = add nuw nsw i64 %.0217, 1
-  %exitcond223.not = icmp eq i64 %209, 10
-  br i1 %exitcond223.not, label %.critedge2, label %196, !llvm.loop !308
+  %209 = add nuw nsw i64 %.0218, 1
+  %exitcond224.not = icmp eq i64 %209, 10
+  br i1 %exitcond224.not, label %.critedge2, label %196, !llvm.loop !308
 
 .loopexit:                                        ; preds = %.critedge2, %188, %172
   %.sroa.0.2 = phi ptr [ null, %172 ], [ %.sroa.0.3, %188 ], [ %.sroa.0.3, %.critedge2 ]
@@ -4735,14 +4735,14 @@ _ZL14gmx_sfree_implIvEvPKcS1_iPT_.exit:           ; preds = %.loopexit
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZL14gmx_sfree_implIvEvPKcS1_iPT_.exit, %211
-  %.not.i.i.i124 = icmp eq ptr %.sroa.0155.2, null
+  %.not.i.i.i124 = icmp eq ptr %.sroa.0156.2, null
   br i1 %.not.i.i.i124, label %_ZNSt6vectorIfSaIfEED2Ev.exit125, label %215
 
 215:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %216 = ptrtoint ptr %.sroa.16163.2 to i64
-  %217 = ptrtoint ptr %.sroa.0155.2 to i64
+  %216 = ptrtoint ptr %.sroa.16164.2 to i64
+  %217 = ptrtoint ptr %.sroa.0156.2 to i64
   %218 = sub i64 %216, %217
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0155.2, i64 noundef %218) #24
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0156.2, i64 noundef %218) #24
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit125
 
 _ZNSt6vectorIfSaIfEED2Ev.exit125:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %215
@@ -4765,9 +4765,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit125:                 ; preds = %_ZNSt6vectorIfSaIfE
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
   ret void
 
-.thread176:                                       ; preds = %178, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i137, %.loopexit189, %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %139, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i, %131, %._crit_edge212, %24, %22, %2
-  %.sroa.0155.0.ph = phi ptr [ null, %2 ], [ null, %22 ], [ null, %24 ], [ null, %._crit_edge212 ], [ null, %131 ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i ], [ null, %139 ], [ %.sroa.0155.3, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %.sroa.0155.2, %.loopexit189 ], [ %.sroa.0155.2, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i137 ], [ %.sroa.0155.2, %178 ]
-  %.sroa.16163.0.ph = phi ptr [ null, %2 ], [ null, %22 ], [ null, %24 ], [ null, %._crit_edge212 ], [ null, %131 ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i ], [ null, %139 ], [ %.sroa.16163.3, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %.sroa.16163.2, %.loopexit189 ], [ %.sroa.16163.2, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i137 ], [ %.sroa.16163.2, %178 ]
+.thread177:                                       ; preds = %178, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i138, %.loopexit190, %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %139, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i, %131, %._crit_edge213, %24, %22, %2
+  %.sroa.0156.0.ph = phi ptr [ null, %2 ], [ null, %22 ], [ null, %24 ], [ null, %._crit_edge213 ], [ null, %131 ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i ], [ null, %139 ], [ %.sroa.0156.3, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %.sroa.0156.2, %.loopexit190 ], [ %.sroa.0156.2, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i138 ], [ %.sroa.0156.2, %178 ]
+  %.sroa.16164.0.ph = phi ptr [ null, %2 ], [ null, %22 ], [ null, %24 ], [ null, %._crit_edge213 ], [ null, %131 ], [ null, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i ], [ null, %139 ], [ %.sroa.16164.3, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %.sroa.16164.2, %.loopexit190 ], [ %.sroa.16164.2, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i138 ], [ %.sroa.16164.2, %178 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit127
@@ -4787,18 +4787,18 @@ _ZNSt6vectorIfSaIfEED2Ev.exit125:                 ; preds = %_ZNSt6vectorIfSaIfE
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0.ph, i64 noundef %223) #24
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit127
 
-_ZNSt6vectorIfSaIfEED2Ev.exit127:                 ; preds = %.thread176, %219, %220
-  %.pn115.pn.pn.pn174 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %219 ], [ %lpad.thr_comm.split-lp, %220 ], [ %lpad.thr_comm, %.thread176 ]
-  %.sroa.16163.1173 = phi ptr [ %.sroa.16163.2, %219 ], [ %.sroa.16163.2, %220 ], [ %.sroa.16163.0.ph, %.thread176 ]
-  %.sroa.0155.1172 = phi ptr [ %.sroa.0155.2, %219 ], [ %.sroa.0155.2, %220 ], [ %.sroa.0155.0.ph, %.thread176 ]
-  %.not.i.i.i128 = icmp eq ptr %.sroa.0155.1172, null
+_ZNSt6vectorIfSaIfEED2Ev.exit127:                 ; preds = %.thread177, %219, %220
+  %.pn115.pn.pn.pn175 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %219 ], [ %lpad.thr_comm.split-lp, %220 ], [ %lpad.thr_comm, %.thread177 ]
+  %.sroa.16164.1174 = phi ptr [ %.sroa.16164.2, %219 ], [ %.sroa.16164.2, %220 ], [ %.sroa.16164.0.ph, %.thread177 ]
+  %.sroa.0156.1173 = phi ptr [ %.sroa.0156.2, %219 ], [ %.sroa.0156.2, %220 ], [ %.sroa.0156.0.ph, %.thread177 ]
+  %.not.i.i.i128 = icmp eq ptr %.sroa.0156.1173, null
   br i1 %.not.i.i.i128, label %_ZNSt6vectorIfSaIfEED2Ev.exit129, label %224
 
 224:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit127
-  %225 = ptrtoint ptr %.sroa.16163.1173 to i64
-  %226 = ptrtoint ptr %.sroa.0155.1172 to i64
+  %225 = ptrtoint ptr %.sroa.16164.1174 to i64
+  %226 = ptrtoint ptr %.sroa.0156.1173 to i64
   %227 = sub i64 %225, %226
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0155.1172, i64 noundef %227) #24
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0156.1173, i64 noundef %227) #24
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit129
 
 _ZNSt6vectorIfSaIfEED2Ev.exit129:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit127, %224
@@ -4819,7 +4819,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit129:                 ; preds = %_ZNSt6vectorIfSaIfE
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
-  resume { ptr, i32 } %.pn115.pn.pn.pn174
+  resume { ptr, i32 } %.pn115.pn.pn.pn175
 }
 
 declare i32 @tng_molecule_cnt_list_get(ptr noundef, ptr noundef) local_unnamed_addr #1

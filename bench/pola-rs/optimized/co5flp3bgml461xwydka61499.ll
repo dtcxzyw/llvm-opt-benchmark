@@ -3929,7 +3929,8 @@ define hidden void @_ZN11polars_core5utils30accumulate_dataframes_vertical17h527
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !584, !noalias !581
   %10 = icmp ult i64 %.sroa.5.0.copyload.i, 192153584101141163
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nuw nsw i64 %.sroa.5.0.copyload.i, 48
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   %12 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   tail call void @llvm.assume(i1 %12)
   store ptr %.sroa.4.0.copyload.i, ptr %9, align 8, !alias.scope !581, !noalias !584
@@ -4166,7 +4167,8 @@ define hidden void @_ZN11polars_core5utils40accumulate_dataframes_vertical_unche
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !605, !noalias !602
   %9 = icmp ult i64 %.sroa.5.0.copyload.i, 192153584101141163
   tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nuw nsw i64 %.sroa.5.0.copyload.i, 48
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   %11 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   tail call void @llvm.assume(i1 %11)
   store ptr %.sroa.4.0.copyload.i, ptr %8, align 8, !alias.scope !602, !noalias !605
@@ -5644,7 +5646,8 @@ select.unfold.i.i:                                ; preds = %"_ZN4core6option15O
   %.val.i.i.i.i = load ptr, ptr %22, align 8, !noalias !763, !nonnull !4, !noundef !4
   %23 = getelementptr i8, ptr %.sroa.0.0121, i64 16
   %.val3.i.i.i.i = load i64, ptr %23, align 8, !noalias !763, !noundef !4
-  %24 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %.val.i.i.i.i, i64 %.val3.i.i.i.i
+  %.idx = mul nuw nsw i64 %.val3.i.i.i.i, 48
+  %24 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 %.idx
   %25 = icmp eq i64 %.val3.i.i.i.i, 0
   br i1 %25, label %select.unfold.i.i, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94a822aea405c858E.exit.loopexit"
 
@@ -5717,7 +5720,8 @@ select.unfold.i.i32:                              ; preds = %35, %38
   %.val.i.i.i.i34 = load ptr, ptr %40, align 8, !noalias !772, !nonnull !4, !noundef !4
   %41 = getelementptr i8, ptr %.sroa.059.1126, i64 16
   %.val3.i.i.i.i35 = load i64, ptr %41, align 8, !noalias !772, !noundef !4
-  %42 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %.val.i.i.i.i34, i64 %.val3.i.i.i.i35
+  %.idx131 = mul nuw nsw i64 %.val3.i.i.i.i35, 48
+  %42 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i34, i64 %.idx131
   %43 = icmp eq i64 %.val3.i.i.i.i35, 0
   br i1 %43, label %select.unfold.i.i32, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94a822aea405c858E.exit40.loopexit"
 
@@ -30228,7 +30232,8 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit: ; preds = %56
   %.sroa.4108.0.copyload = load ptr, ptr %62, align 8, !nonnull !4, !noundef !4
   %96 = icmp ult i64 %.sroa.5109.0.copyload, 1152921504606846976
   call void @llvm.assume(i1 %96)
-  %97 = getelementptr inbounds nuw ptr, ptr %.sroa.4108.0.copyload, i64 %.sroa.5109.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.5109.0.copyload, 3
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.4108.0.copyload, i64 %.idx
   %98 = icmp sgt i64 %.sroa.0107.0.copyload, -1
   call void @llvm.assume(i1 %98)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
@@ -32639,7 +32644,8 @@ define internal fastcc void @_ZN17polars_mem_engine9executors5stack9StackExec12e
   %99 = load ptr, ptr %98, align 8, !nonnull !4, !noundef !4
   %100 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %101 = load i64, ptr %100, align 8, !noundef !4
-  %102 = getelementptr inbounds nuw { i8, [159 x i8] }, ptr %99, i64 %101
+  %.idx = mul nuw nsw i64 %101, 160
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx
   %103 = icmp eq i64 %101, 0
   br i1 %103, label %._crit_edge, label %.lr.ph
 
@@ -32652,7 +32658,8 @@ define internal fastcc void @_ZN17polars_mem_engine9executors5stack9StackExec12e
 
 .lr.ph.thread:                                    ; preds = %.thread276
   %108 = load ptr, ptr %104, align 8, !nonnull !4, !noundef !4
-  %109 = getelementptr inbounds nuw { i8, [159 x i8] }, ptr %108, i64 %106
+  %.idx278 = mul nuw nsw i64 %106, 160
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx278
   %110 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %111 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %112 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -35058,7 +35065,8 @@ default.unreachable:                              ; preds = %127
   %234 = load ptr, ptr %233, align 8, !nonnull !4, !noundef !4
   %235 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %236 = load i64, ptr %235, align 8, !noundef !4
-  %237 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, i64 }, ptr %234, i64 %236
+  %.idx = mul nuw nsw i64 %236, 80
+  %237 = getelementptr inbounds nuw i8, ptr %234, i64 %.idx
   %238 = icmp eq i64 %236, 0
   br i1 %238, label %._crit_edge, label %.lr.ph
 
@@ -36025,7 +36033,8 @@ define void @"_ZN114_$LT$polars_mem_engine..predicate..PhysicalExprWithConstCols
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds nuw { { { { ptr, i64, i32, i16, i8, i8 } } }, [1 x i64], { { i8, [47 x i8] }, { i8, [47 x i8] } } }, ptr %14, i64 %16
+  %.idx = shl nuw nsw i64 %16, 7
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 
@@ -36206,7 +36215,8 @@ define void @"_ZN114_$LT$polars_mem_engine..predicate..PhysicalExprWithConstCols
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !4
-  %18 = getelementptr inbounds nuw { { { { ptr, i64, i32, i16, i8, i8 } } }, [1 x i64], { { i8, [47 x i8] }, { i8, [47 x i8] } } }, ptr %15, i64 %17
+  %.idx = shl nuw nsw i64 %17, 7
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %._crit_edge, label %.lr.ph
 

@@ -1391,7 +1391,8 @@ GET_ARRAYS.exit103:                               ; preds = %161, %157, %142
 .lr.ph.preheader:                                 ; preds = %207
   %211 = mul i64 %209, 3
   %212 = getelementptr inbounds i8, ptr %208, i64 %211
-  %213 = getelementptr inbounds nuw i32, ptr %208, i64 %209
+  %.idx = shl nsw i64 %209, 2
+  %213 = getelementptr inbounds nuw i8, ptr %208, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

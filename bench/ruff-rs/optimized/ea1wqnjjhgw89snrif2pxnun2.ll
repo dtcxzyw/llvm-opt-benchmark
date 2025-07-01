@@ -23082,7 +23082,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hc7cfb01cae66fdd1E.exit: ; preds =
   %.16.i = select i1 %.not.i33, ptr %236, ptr %208
   %237 = shl i64 %.sroa.0.0.sroa.speculated.i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %237, i1 false), !alias.scope !3791
-  %238 = getelementptr inbounds nuw ptr, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i
+  %238 = getelementptr inbounds nuw i8, ptr %2, i64 %237
   br i1 %.not.i33, label %.preheader87, label %.lr.ph.i.i
 
 .preheader87:                                     ; preds = %235, %.noexc24.i

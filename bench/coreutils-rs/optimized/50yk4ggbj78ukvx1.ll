@@ -1381,7 +1381,8 @@ define void @"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_s
   %27 = load i64, ptr %26, align 8, !range !53
   %.fr189 = freeze i64 %27
   %.not68 = icmp eq i64 %.fr189, -9223372036854775808
-  %28 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, i8, [7 x i8] }, ptr %21, i64 %18
+  %.idx = mul nsw i64 %18, 80
+  %28 = getelementptr inbounds i8, ptr %21, i64 %.idx
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %31 = load i64, ptr %23, align 8, !noundef !4

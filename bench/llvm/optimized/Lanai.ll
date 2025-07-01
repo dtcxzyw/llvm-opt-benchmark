@@ -560,7 +560,8 @@ define internal void @_ZNK12_GLOBAL__N_112LanaiABIInfo11computeInfoERN5clang7Cod
   store i32 0, ptr %29, align 8, !tbaa !67, !noalias !42
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %28, i64 noundef %86, i64 noundef 8) #13, !noalias !42
   %89 = load ptr, ptr %3, align 8, !tbaa !64, !noalias !42
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %86
+  %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %86, 3
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %88
@@ -575,7 +576,8 @@ _ZSt6fill_nIPPN4llvm4TypeEmS2_ET_S4_T0_RKT1_.exit.i.i.i: ; preds = %84
   br i1 %.not.i52.i, label %_ZN4llvm11SmallVectorIPNS_4TypeELj3EEC2EmRKS2_.exit.i, label %92
 
 92:                                               ; preds = %_ZSt6fill_nIPPN4llvm4TypeEmS2_ET_S4_T0_RKT1_.exit.i.i.i
-  %93 = getelementptr inbounds nuw ptr, ptr %28, i64 %86
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %86, 3
+  %93 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %92

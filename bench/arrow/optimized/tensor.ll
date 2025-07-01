@@ -7810,7 +7810,8 @@ _ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i124.i:  ; preds = %78
   br i1 %.not.i.i.i.i.i113.i, label %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i114.i, label %.lr.ph.i.i.i.i.i110.i, !llvm.loop !273
 
 _ZNK5arrow6Tensor4sizeEv.exit.i.i.i114.i:         ; preds = %.lr.ph.i.i.i.i.i110.i
-  %94 = getelementptr inbounds i16, ptr %86, i64 %92
+  %.idx.i.i.i.i = shl nsw i64 %92, 1
+  %94 = getelementptr inbounds i8, ptr %86, i64 %.idx.i.i.i.i
   %.not7.i.i.i.i.i115.i = icmp eq i64 %92, 0
   br i1 %.not7.i.i.i.i.i115.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.preheader.i.i.i116.i
 
@@ -7855,11 +7856,11 @@ _ZNK5arrow6Tensor4sizeEv.exit.i.i.i114.i:         ; preds = %.lr.ph.i.i.i.i.i110
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %115 = load ptr, ptr %114, align 8, !tbaa !99, !noalias !294
   %.not5.i.i.i.i.i126.i = icmp eq ptr %113, %115
-  br i1 %.not5.i.i.i.i.i126.i, label %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i141.i, label %.lr.ph.i.i.i.i.i127.i
+  br i1 %.not5.i.i.i.i.i126.i, label %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i142.i, label %.lr.ph.i.i.i.i.i127.i
 
-_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i141.i:  ; preds = %104
+_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i142.i:  ; preds = %104
   %116 = getelementptr inbounds nuw i8, ptr %112, i64 2
-  br label %.lr.ph.i.i4.preheader.i.i.i133.i
+  br label %.lr.ph.i.i4.preheader.i.i.i134.i
 
 .lr.ph.i.i.i.i.i127.i:                            ; preds = %104, %.lr.ph.i.i.i.i.i127.i
   %.07.i.i.i.i.i128.i = phi i64 [ %118, %.lr.ph.i.i.i.i.i127.i ], [ 1, %104 ]
@@ -7871,24 +7872,25 @@ _ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i141.i:  ; preds = %104
   br i1 %.not.i.i.i.i.i130.i, label %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i131.i, label %.lr.ph.i.i.i.i.i127.i, !llvm.loop !273
 
 _ZNK5arrow6Tensor4sizeEv.exit.i.i.i131.i:         ; preds = %.lr.ph.i.i.i.i.i127.i
-  %120 = getelementptr inbounds i16, ptr %112, i64 %118
-  %.not7.i.i.i.i.i132.i = icmp eq i64 %118, 0
-  br i1 %.not7.i.i.i.i.i132.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.preheader.i.i.i133.i
+  %.idx.i.i.i132.i = shl nsw i64 %118, 1
+  %120 = getelementptr inbounds i8, ptr %112, i64 %.idx.i.i.i132.i
+  %.not7.i.i.i.i.i133.i = icmp eq i64 %118, 0
+  br i1 %.not7.i.i.i.i.i133.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.preheader.i.i.i134.i
 
-.lr.ph.i.i4.preheader.i.i.i133.i:                 ; preds = %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i131.i, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i141.i
-  %121 = phi ptr [ %116, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i141.i ], [ %120, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i131.i ]
-  br label %.lr.ph.i.i4.i.i.i134.i
+.lr.ph.i.i4.preheader.i.i.i134.i:                 ; preds = %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i131.i, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i142.i
+  %121 = phi ptr [ %116, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i142.i ], [ %120, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i131.i ]
+  br label %.lr.ph.i.i4.i.i.i135.i
 
-.lr.ph.i.i4.i.i.i134.i:                           ; preds = %.lr.ph.i.i4.i.i.i134.i, %.lr.ph.i.i4.preheader.i.i.i133.i
-  %.09.i.i.i.i.i135.i = phi i64 [ %spec.select.i.i.i.i.i139.i, %.lr.ph.i.i4.i.i.i134.i ], [ 0, %.lr.ph.i.i4.preheader.i.i.i133.i ]
-  %.058.i.i.i.i.i136.i = phi ptr [ %123, %.lr.ph.i.i4.i.i.i134.i ], [ %112, %.lr.ph.i.i4.preheader.i.i.i133.i ]
-  %.05.val.i.i.i.i.i137.i = load i16, ptr %.058.i.i.i.i.i136.i, align 2, !tbaa !291, !noalias !294
-  %.not6.i.i.i.i.i138.i = icmp ne i16 %.05.val.i.i.i.i.i137.i, 0
-  %122 = zext i1 %.not6.i.i.i.i.i138.i to i64
-  %spec.select.i.i.i.i.i139.i = add nuw nsw i64 %.09.i.i.i.i.i135.i, %122
-  %123 = getelementptr inbounds nuw i8, ptr %.058.i.i.i.i.i136.i, i64 2
-  %.not.i.i5.i.i.i140.i = icmp eq ptr %123, %121
-  br i1 %.not.i.i5.i.i.i140.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.i.i.i134.i, !llvm.loop !297
+.lr.ph.i.i4.i.i.i135.i:                           ; preds = %.lr.ph.i.i4.i.i.i135.i, %.lr.ph.i.i4.preheader.i.i.i134.i
+  %.09.i.i.i.i.i136.i = phi i64 [ %spec.select.i.i.i.i.i140.i, %.lr.ph.i.i4.i.i.i135.i ], [ 0, %.lr.ph.i.i4.preheader.i.i.i134.i ]
+  %.058.i.i.i.i.i137.i = phi ptr [ %123, %.lr.ph.i.i4.i.i.i135.i ], [ %112, %.lr.ph.i.i4.preheader.i.i.i134.i ]
+  %.05.val.i.i.i.i.i138.i = load i16, ptr %.058.i.i.i.i.i137.i, align 2, !tbaa !291, !noalias !294
+  %.not6.i.i.i.i.i139.i = icmp ne i16 %.05.val.i.i.i.i.i138.i, 0
+  %122 = zext i1 %.not6.i.i.i.i.i139.i to i64
+  %spec.select.i.i.i.i.i140.i = add nuw nsw i64 %.09.i.i.i.i.i136.i, %122
+  %123 = getelementptr inbounds nuw i8, ptr %.058.i.i.i.i.i137.i, i64 2
+  %.not.i.i5.i.i.i141.i = icmp eq ptr %123, %121
+  br i1 %.not.i.i5.i.i.i141.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.i.i.i135.i, !llvm.loop !297
 
 124:                                              ; preds = %.noexc7
   %125 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_10UInt16TypeEEElilRKNS_6TensorE(i32 noundef 0, i64 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(112) %1), !noalias !294
@@ -7915,41 +7917,42 @@ _ZNK5arrow6Tensor4sizeEv.exit.i.i.i131.i:         ; preds = %.lr.ph.i.i.i.i.i127
   %139 = load ptr, ptr %127, align 8, !tbaa !99, !noalias !298
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %141 = load ptr, ptr %140, align 8, !tbaa !99, !noalias !298
-  %.not5.i.i.i.i.i143.i = icmp eq ptr %139, %141
-  br i1 %.not5.i.i.i.i.i143.i, label %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i158.i, label %.lr.ph.i.i.i.i.i144.i
+  %.not5.i.i.i.i.i144.i = icmp eq ptr %139, %141
+  br i1 %.not5.i.i.i.i.i144.i, label %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i160.i, label %.lr.ph.i.i.i.i.i145.i
 
-_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i158.i:  ; preds = %130
+_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i160.i:  ; preds = %130
   %142 = getelementptr inbounds nuw i8, ptr %138, i64 4
-  br label %.lr.ph.i.i4.preheader.i.i.i150.i
+  br label %.lr.ph.i.i4.preheader.i.i.i152.i
 
-.lr.ph.i.i.i.i.i144.i:                            ; preds = %130, %.lr.ph.i.i.i.i.i144.i
-  %.07.i.i.i.i.i145.i = phi i64 [ %144, %.lr.ph.i.i.i.i.i144.i ], [ 1, %130 ]
-  %.sroa.02.06.i.i.i.i.i146.i = phi ptr [ %145, %.lr.ph.i.i.i.i.i144.i ], [ %139, %130 ]
-  %143 = load i64, ptr %.sroa.02.06.i.i.i.i.i146.i, align 8, !tbaa !12, !noalias !298
-  %144 = mul nsw i64 %143, %.07.i.i.i.i.i145.i
-  %145 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i.i146.i, i64 8
-  %.not.i.i.i.i.i147.i = icmp eq ptr %145, %141
-  br i1 %.not.i.i.i.i.i147.i, label %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i148.i, label %.lr.ph.i.i.i.i.i144.i, !llvm.loop !273
+.lr.ph.i.i.i.i.i145.i:                            ; preds = %130, %.lr.ph.i.i.i.i.i145.i
+  %.07.i.i.i.i.i146.i = phi i64 [ %144, %.lr.ph.i.i.i.i.i145.i ], [ 1, %130 ]
+  %.sroa.02.06.i.i.i.i.i147.i = phi ptr [ %145, %.lr.ph.i.i.i.i.i145.i ], [ %139, %130 ]
+  %143 = load i64, ptr %.sroa.02.06.i.i.i.i.i147.i, align 8, !tbaa !12, !noalias !298
+  %144 = mul nsw i64 %143, %.07.i.i.i.i.i146.i
+  %145 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i.i147.i, i64 8
+  %.not.i.i.i.i.i148.i = icmp eq ptr %145, %141
+  br i1 %.not.i.i.i.i.i148.i, label %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i149.i, label %.lr.ph.i.i.i.i.i145.i, !llvm.loop !273
 
-_ZNK5arrow6Tensor4sizeEv.exit.i.i.i148.i:         ; preds = %.lr.ph.i.i.i.i.i144.i
-  %146 = getelementptr inbounds i32, ptr %138, i64 %144
-  %.not7.i.i.i.i.i149.i = icmp eq i64 %144, 0
-  br i1 %.not7.i.i.i.i.i149.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.preheader.i.i.i150.i
+_ZNK5arrow6Tensor4sizeEv.exit.i.i.i149.i:         ; preds = %.lr.ph.i.i.i.i.i145.i
+  %.idx.i.i.i150.i = shl nsw i64 %144, 2
+  %146 = getelementptr inbounds i8, ptr %138, i64 %.idx.i.i.i150.i
+  %.not7.i.i.i.i.i151.i = icmp eq i64 %144, 0
+  br i1 %.not7.i.i.i.i.i151.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.preheader.i.i.i152.i
 
-.lr.ph.i.i4.preheader.i.i.i150.i:                 ; preds = %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i148.i, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i158.i
-  %147 = phi ptr [ %142, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i158.i ], [ %146, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i148.i ]
-  br label %.lr.ph.i.i4.i.i.i151.i
+.lr.ph.i.i4.preheader.i.i.i152.i:                 ; preds = %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i149.i, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i160.i
+  %147 = phi ptr [ %142, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i160.i ], [ %146, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i149.i ]
+  br label %.lr.ph.i.i4.i.i.i153.i
 
-.lr.ph.i.i4.i.i.i151.i:                           ; preds = %.lr.ph.i.i4.i.i.i151.i, %.lr.ph.i.i4.preheader.i.i.i150.i
-  %.09.i.i.i.i.i152.i = phi i64 [ %spec.select.i.i.i.i.i156.i, %.lr.ph.i.i4.i.i.i151.i ], [ 0, %.lr.ph.i.i4.preheader.i.i.i150.i ]
-  %.058.i.i.i.i.i153.i = phi ptr [ %149, %.lr.ph.i.i4.i.i.i151.i ], [ %138, %.lr.ph.i.i4.preheader.i.i.i150.i ]
-  %.05.val.i.i.i.i.i154.i = load i32, ptr %.058.i.i.i.i.i153.i, align 4, !tbaa !133, !noalias !298
-  %.not6.i.i.i.i.i155.i = icmp ne i32 %.05.val.i.i.i.i.i154.i, 0
-  %148 = zext i1 %.not6.i.i.i.i.i155.i to i64
-  %spec.select.i.i.i.i.i156.i = add nuw nsw i64 %.09.i.i.i.i.i152.i, %148
-  %149 = getelementptr inbounds nuw i8, ptr %.058.i.i.i.i.i153.i, i64 4
-  %.not.i.i5.i.i.i157.i = icmp eq ptr %149, %147
-  br i1 %.not.i.i5.i.i.i157.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.i.i.i151.i, !llvm.loop !301
+.lr.ph.i.i4.i.i.i153.i:                           ; preds = %.lr.ph.i.i4.i.i.i153.i, %.lr.ph.i.i4.preheader.i.i.i152.i
+  %.09.i.i.i.i.i154.i = phi i64 [ %spec.select.i.i.i.i.i158.i, %.lr.ph.i.i4.i.i.i153.i ], [ 0, %.lr.ph.i.i4.preheader.i.i.i152.i ]
+  %.058.i.i.i.i.i155.i = phi ptr [ %149, %.lr.ph.i.i4.i.i.i153.i ], [ %138, %.lr.ph.i.i4.preheader.i.i.i152.i ]
+  %.05.val.i.i.i.i.i156.i = load i32, ptr %.058.i.i.i.i.i155.i, align 4, !tbaa !133, !noalias !298
+  %.not6.i.i.i.i.i157.i = icmp ne i32 %.05.val.i.i.i.i.i156.i, 0
+  %148 = zext i1 %.not6.i.i.i.i.i157.i to i64
+  %spec.select.i.i.i.i.i158.i = add nuw nsw i64 %.09.i.i.i.i.i154.i, %148
+  %149 = getelementptr inbounds nuw i8, ptr %.058.i.i.i.i.i155.i, i64 4
+  %.not.i.i5.i.i.i159.i = icmp eq ptr %149, %147
+  br i1 %.not.i.i5.i.i.i159.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.i.i.i153.i, !llvm.loop !301
 
 150:                                              ; preds = %.noexc8
   %151 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_9Int32TypeEEElilRKNS_6TensorE(i32 noundef 0, i64 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(112) %1), !noalias !298
@@ -7976,41 +7979,42 @@ _ZNK5arrow6Tensor4sizeEv.exit.i.i.i148.i:         ; preds = %.lr.ph.i.i.i.i.i144
   %165 = load ptr, ptr %153, align 8, !tbaa !99, !noalias !302
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %167 = load ptr, ptr %166, align 8, !tbaa !99, !noalias !302
-  %.not5.i.i.i.i.i160.i = icmp eq ptr %165, %167
-  br i1 %.not5.i.i.i.i.i160.i, label %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i175.i, label %.lr.ph.i.i.i.i.i161.i
+  %.not5.i.i.i.i.i162.i = icmp eq ptr %165, %167
+  br i1 %.not5.i.i.i.i.i162.i, label %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i178.i, label %.lr.ph.i.i.i.i.i163.i
 
-_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i175.i:  ; preds = %156
+_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i178.i:  ; preds = %156
   %168 = getelementptr inbounds nuw i8, ptr %164, i64 4
-  br label %.lr.ph.i.i4.preheader.i.i.i167.i
+  br label %.lr.ph.i.i4.preheader.i.i.i170.i
 
-.lr.ph.i.i.i.i.i161.i:                            ; preds = %156, %.lr.ph.i.i.i.i.i161.i
-  %.07.i.i.i.i.i162.i = phi i64 [ %170, %.lr.ph.i.i.i.i.i161.i ], [ 1, %156 ]
-  %.sroa.02.06.i.i.i.i.i163.i = phi ptr [ %171, %.lr.ph.i.i.i.i.i161.i ], [ %165, %156 ]
-  %169 = load i64, ptr %.sroa.02.06.i.i.i.i.i163.i, align 8, !tbaa !12, !noalias !302
-  %170 = mul nsw i64 %169, %.07.i.i.i.i.i162.i
-  %171 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i.i163.i, i64 8
-  %.not.i.i.i.i.i164.i = icmp eq ptr %171, %167
-  br i1 %.not.i.i.i.i.i164.i, label %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i165.i, label %.lr.ph.i.i.i.i.i161.i, !llvm.loop !273
+.lr.ph.i.i.i.i.i163.i:                            ; preds = %156, %.lr.ph.i.i.i.i.i163.i
+  %.07.i.i.i.i.i164.i = phi i64 [ %170, %.lr.ph.i.i.i.i.i163.i ], [ 1, %156 ]
+  %.sroa.02.06.i.i.i.i.i165.i = phi ptr [ %171, %.lr.ph.i.i.i.i.i163.i ], [ %165, %156 ]
+  %169 = load i64, ptr %.sroa.02.06.i.i.i.i.i165.i, align 8, !tbaa !12, !noalias !302
+  %170 = mul nsw i64 %169, %.07.i.i.i.i.i164.i
+  %171 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i.i165.i, i64 8
+  %.not.i.i.i.i.i166.i = icmp eq ptr %171, %167
+  br i1 %.not.i.i.i.i.i166.i, label %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i167.i, label %.lr.ph.i.i.i.i.i163.i, !llvm.loop !273
 
-_ZNK5arrow6Tensor4sizeEv.exit.i.i.i165.i:         ; preds = %.lr.ph.i.i.i.i.i161.i
-  %172 = getelementptr inbounds i32, ptr %164, i64 %170
-  %.not7.i.i.i.i.i166.i = icmp eq i64 %170, 0
-  br i1 %.not7.i.i.i.i.i166.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.preheader.i.i.i167.i
+_ZNK5arrow6Tensor4sizeEv.exit.i.i.i167.i:         ; preds = %.lr.ph.i.i.i.i.i163.i
+  %.idx.i.i.i168.i = shl nsw i64 %170, 2
+  %172 = getelementptr inbounds i8, ptr %164, i64 %.idx.i.i.i168.i
+  %.not7.i.i.i.i.i169.i = icmp eq i64 %170, 0
+  br i1 %.not7.i.i.i.i.i169.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.preheader.i.i.i170.i
 
-.lr.ph.i.i4.preheader.i.i.i167.i:                 ; preds = %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i165.i, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i175.i
-  %173 = phi ptr [ %168, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i175.i ], [ %172, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i165.i ]
-  br label %.lr.ph.i.i4.i.i.i168.i
+.lr.ph.i.i4.preheader.i.i.i170.i:                 ; preds = %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i167.i, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i178.i
+  %173 = phi ptr [ %168, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i178.i ], [ %172, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i167.i ]
+  br label %.lr.ph.i.i4.i.i.i171.i
 
-.lr.ph.i.i4.i.i.i168.i:                           ; preds = %.lr.ph.i.i4.i.i.i168.i, %.lr.ph.i.i4.preheader.i.i.i167.i
-  %.09.i.i.i.i.i169.i = phi i64 [ %spec.select.i.i.i.i.i173.i, %.lr.ph.i.i4.i.i.i168.i ], [ 0, %.lr.ph.i.i4.preheader.i.i.i167.i ]
-  %.058.i.i.i.i.i170.i = phi ptr [ %175, %.lr.ph.i.i4.i.i.i168.i ], [ %164, %.lr.ph.i.i4.preheader.i.i.i167.i ]
-  %.05.val.i.i.i.i.i171.i = load i32, ptr %.058.i.i.i.i.i170.i, align 4, !tbaa !133, !noalias !302
-  %.not6.i.i.i.i.i172.i = icmp ne i32 %.05.val.i.i.i.i.i171.i, 0
-  %174 = zext i1 %.not6.i.i.i.i.i172.i to i64
-  %spec.select.i.i.i.i.i173.i = add nuw nsw i64 %.09.i.i.i.i.i169.i, %174
-  %175 = getelementptr inbounds nuw i8, ptr %.058.i.i.i.i.i170.i, i64 4
-  %.not.i.i5.i.i.i174.i = icmp eq ptr %175, %173
-  br i1 %.not.i.i5.i.i.i174.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.i.i.i168.i, !llvm.loop !305
+.lr.ph.i.i4.i.i.i171.i:                           ; preds = %.lr.ph.i.i4.i.i.i171.i, %.lr.ph.i.i4.preheader.i.i.i170.i
+  %.09.i.i.i.i.i172.i = phi i64 [ %spec.select.i.i.i.i.i176.i, %.lr.ph.i.i4.i.i.i171.i ], [ 0, %.lr.ph.i.i4.preheader.i.i.i170.i ]
+  %.058.i.i.i.i.i173.i = phi ptr [ %175, %.lr.ph.i.i4.i.i.i171.i ], [ %164, %.lr.ph.i.i4.preheader.i.i.i170.i ]
+  %.05.val.i.i.i.i.i174.i = load i32, ptr %.058.i.i.i.i.i173.i, align 4, !tbaa !133, !noalias !302
+  %.not6.i.i.i.i.i175.i = icmp ne i32 %.05.val.i.i.i.i.i174.i, 0
+  %174 = zext i1 %.not6.i.i.i.i.i175.i to i64
+  %spec.select.i.i.i.i.i176.i = add nuw nsw i64 %.09.i.i.i.i.i172.i, %174
+  %175 = getelementptr inbounds nuw i8, ptr %.058.i.i.i.i.i173.i, i64 4
+  %.not.i.i5.i.i.i177.i = icmp eq ptr %175, %173
+  br i1 %.not.i.i5.i.i.i177.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.i.i.i171.i, !llvm.loop !305
 
 176:                                              ; preds = %.noexc9
   %177 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_10UInt32TypeEEElilRKNS_6TensorE(i32 noundef 0, i64 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(112) %1), !noalias !302
@@ -8037,41 +8041,42 @@ _ZNK5arrow6Tensor4sizeEv.exit.i.i.i165.i:         ; preds = %.lr.ph.i.i.i.i.i161
   %191 = load ptr, ptr %179, align 8, !tbaa !99, !noalias !306
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %193 = load ptr, ptr %192, align 8, !tbaa !99, !noalias !306
-  %.not5.i.i.i.i.i177.i = icmp eq ptr %191, %193
-  br i1 %.not5.i.i.i.i.i177.i, label %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i192.i, label %.lr.ph.i.i.i.i.i178.i
+  %.not5.i.i.i.i.i180.i = icmp eq ptr %191, %193
+  br i1 %.not5.i.i.i.i.i180.i, label %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i196.i, label %.lr.ph.i.i.i.i.i181.i
 
-_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i192.i:  ; preds = %182
+_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i196.i:  ; preds = %182
   %194 = getelementptr inbounds nuw i8, ptr %190, i64 8
-  br label %.lr.ph.i.i4.preheader.i.i.i184.i
+  br label %.lr.ph.i.i4.preheader.i.i.i188.i
 
-.lr.ph.i.i.i.i.i178.i:                            ; preds = %182, %.lr.ph.i.i.i.i.i178.i
-  %.07.i.i.i.i.i179.i = phi i64 [ %196, %.lr.ph.i.i.i.i.i178.i ], [ 1, %182 ]
-  %.sroa.02.06.i.i.i.i.i180.i = phi ptr [ %197, %.lr.ph.i.i.i.i.i178.i ], [ %191, %182 ]
-  %195 = load i64, ptr %.sroa.02.06.i.i.i.i.i180.i, align 8, !tbaa !12, !noalias !306
-  %196 = mul nsw i64 %195, %.07.i.i.i.i.i179.i
-  %197 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i.i180.i, i64 8
-  %.not.i.i.i.i.i181.i = icmp eq ptr %197, %193
-  br i1 %.not.i.i.i.i.i181.i, label %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i182.i, label %.lr.ph.i.i.i.i.i178.i, !llvm.loop !273
+.lr.ph.i.i.i.i.i181.i:                            ; preds = %182, %.lr.ph.i.i.i.i.i181.i
+  %.07.i.i.i.i.i182.i = phi i64 [ %196, %.lr.ph.i.i.i.i.i181.i ], [ 1, %182 ]
+  %.sroa.02.06.i.i.i.i.i183.i = phi ptr [ %197, %.lr.ph.i.i.i.i.i181.i ], [ %191, %182 ]
+  %195 = load i64, ptr %.sroa.02.06.i.i.i.i.i183.i, align 8, !tbaa !12, !noalias !306
+  %196 = mul nsw i64 %195, %.07.i.i.i.i.i182.i
+  %197 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i.i183.i, i64 8
+  %.not.i.i.i.i.i184.i = icmp eq ptr %197, %193
+  br i1 %.not.i.i.i.i.i184.i, label %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i185.i, label %.lr.ph.i.i.i.i.i181.i, !llvm.loop !273
 
-_ZNK5arrow6Tensor4sizeEv.exit.i.i.i182.i:         ; preds = %.lr.ph.i.i.i.i.i178.i
-  %198 = getelementptr inbounds i64, ptr %190, i64 %196
-  %.not7.i.i.i.i.i183.i = icmp eq i64 %196, 0
-  br i1 %.not7.i.i.i.i.i183.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.preheader.i.i.i184.i
+_ZNK5arrow6Tensor4sizeEv.exit.i.i.i185.i:         ; preds = %.lr.ph.i.i.i.i.i181.i
+  %.idx.i.i.i186.i = shl nsw i64 %196, 3
+  %198 = getelementptr inbounds i8, ptr %190, i64 %.idx.i.i.i186.i
+  %.not7.i.i.i.i.i187.i = icmp eq i64 %196, 0
+  br i1 %.not7.i.i.i.i.i187.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.preheader.i.i.i188.i
 
-.lr.ph.i.i4.preheader.i.i.i184.i:                 ; preds = %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i182.i, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i192.i
-  %199 = phi ptr [ %194, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i192.i ], [ %198, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i182.i ]
-  br label %.lr.ph.i.i4.i.i.i185.i
+.lr.ph.i.i4.preheader.i.i.i188.i:                 ; preds = %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i185.i, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i196.i
+  %199 = phi ptr [ %194, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i196.i ], [ %198, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i185.i ]
+  br label %.lr.ph.i.i4.i.i.i189.i
 
-.lr.ph.i.i4.i.i.i185.i:                           ; preds = %.lr.ph.i.i4.i.i.i185.i, %.lr.ph.i.i4.preheader.i.i.i184.i
-  %.09.i.i.i.i.i186.i = phi i64 [ %spec.select.i.i.i.i.i190.i, %.lr.ph.i.i4.i.i.i185.i ], [ 0, %.lr.ph.i.i4.preheader.i.i.i184.i ]
-  %.058.i.i.i.i.i187.i = phi ptr [ %201, %.lr.ph.i.i4.i.i.i185.i ], [ %190, %.lr.ph.i.i4.preheader.i.i.i184.i ]
-  %.05.val.i.i.i.i.i188.i = load i64, ptr %.058.i.i.i.i.i187.i, align 8, !tbaa !12, !noalias !306
-  %.not6.i.i.i.i.i189.i = icmp ne i64 %.05.val.i.i.i.i.i188.i, 0
-  %200 = zext i1 %.not6.i.i.i.i.i189.i to i64
-  %spec.select.i.i.i.i.i190.i = add nuw nsw i64 %.09.i.i.i.i.i186.i, %200
-  %201 = getelementptr inbounds nuw i8, ptr %.058.i.i.i.i.i187.i, i64 8
-  %.not.i.i5.i.i.i191.i = icmp eq ptr %201, %199
-  br i1 %.not.i.i5.i.i.i191.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.i.i.i185.i, !llvm.loop !309
+.lr.ph.i.i4.i.i.i189.i:                           ; preds = %.lr.ph.i.i4.i.i.i189.i, %.lr.ph.i.i4.preheader.i.i.i188.i
+  %.09.i.i.i.i.i190.i = phi i64 [ %spec.select.i.i.i.i.i194.i, %.lr.ph.i.i4.i.i.i189.i ], [ 0, %.lr.ph.i.i4.preheader.i.i.i188.i ]
+  %.058.i.i.i.i.i191.i = phi ptr [ %201, %.lr.ph.i.i4.i.i.i189.i ], [ %190, %.lr.ph.i.i4.preheader.i.i.i188.i ]
+  %.05.val.i.i.i.i.i192.i = load i64, ptr %.058.i.i.i.i.i191.i, align 8, !tbaa !12, !noalias !306
+  %.not6.i.i.i.i.i193.i = icmp ne i64 %.05.val.i.i.i.i.i192.i, 0
+  %200 = zext i1 %.not6.i.i.i.i.i193.i to i64
+  %spec.select.i.i.i.i.i194.i = add nuw nsw i64 %.09.i.i.i.i.i190.i, %200
+  %201 = getelementptr inbounds nuw i8, ptr %.058.i.i.i.i.i191.i, i64 8
+  %.not.i.i5.i.i.i195.i = icmp eq ptr %201, %199
+  br i1 %.not.i.i5.i.i.i195.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.i.i.i189.i, !llvm.loop !309
 
 202:                                              ; preds = %.noexc10
   %203 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_9Int64TypeEEElilRKNS_6TensorE(i32 noundef 0, i64 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(112) %1), !noalias !306
@@ -8098,41 +8103,42 @@ _ZNK5arrow6Tensor4sizeEv.exit.i.i.i182.i:         ; preds = %.lr.ph.i.i.i.i.i178
   %217 = load ptr, ptr %205, align 8, !tbaa !99, !noalias !310
   %218 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %219 = load ptr, ptr %218, align 8, !tbaa !99, !noalias !310
-  %.not5.i.i.i.i.i194.i = icmp eq ptr %217, %219
-  br i1 %.not5.i.i.i.i.i194.i, label %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i209.i, label %.lr.ph.i.i.i.i.i195.i
+  %.not5.i.i.i.i.i198.i = icmp eq ptr %217, %219
+  br i1 %.not5.i.i.i.i.i198.i, label %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i214.i, label %.lr.ph.i.i.i.i.i199.i
 
-_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i209.i:  ; preds = %208
+_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i214.i:  ; preds = %208
   %220 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  br label %.lr.ph.i.i4.preheader.i.i.i201.i
+  br label %.lr.ph.i.i4.preheader.i.i.i206.i
 
-.lr.ph.i.i.i.i.i195.i:                            ; preds = %208, %.lr.ph.i.i.i.i.i195.i
-  %.07.i.i.i.i.i196.i = phi i64 [ %222, %.lr.ph.i.i.i.i.i195.i ], [ 1, %208 ]
-  %.sroa.02.06.i.i.i.i.i197.i = phi ptr [ %223, %.lr.ph.i.i.i.i.i195.i ], [ %217, %208 ]
-  %221 = load i64, ptr %.sroa.02.06.i.i.i.i.i197.i, align 8, !tbaa !12, !noalias !310
-  %222 = mul nsw i64 %221, %.07.i.i.i.i.i196.i
-  %223 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i.i197.i, i64 8
-  %.not.i.i.i.i.i198.i = icmp eq ptr %223, %219
-  br i1 %.not.i.i.i.i.i198.i, label %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i199.i, label %.lr.ph.i.i.i.i.i195.i, !llvm.loop !273
+.lr.ph.i.i.i.i.i199.i:                            ; preds = %208, %.lr.ph.i.i.i.i.i199.i
+  %.07.i.i.i.i.i200.i = phi i64 [ %222, %.lr.ph.i.i.i.i.i199.i ], [ 1, %208 ]
+  %.sroa.02.06.i.i.i.i.i201.i = phi ptr [ %223, %.lr.ph.i.i.i.i.i199.i ], [ %217, %208 ]
+  %221 = load i64, ptr %.sroa.02.06.i.i.i.i.i201.i, align 8, !tbaa !12, !noalias !310
+  %222 = mul nsw i64 %221, %.07.i.i.i.i.i200.i
+  %223 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i.i201.i, i64 8
+  %.not.i.i.i.i.i202.i = icmp eq ptr %223, %219
+  br i1 %.not.i.i.i.i.i202.i, label %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i203.i, label %.lr.ph.i.i.i.i.i199.i, !llvm.loop !273
 
-_ZNK5arrow6Tensor4sizeEv.exit.i.i.i199.i:         ; preds = %.lr.ph.i.i.i.i.i195.i
-  %224 = getelementptr inbounds i64, ptr %216, i64 %222
-  %.not7.i.i.i.i.i200.i = icmp eq i64 %222, 0
-  br i1 %.not7.i.i.i.i.i200.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.preheader.i.i.i201.i
+_ZNK5arrow6Tensor4sizeEv.exit.i.i.i203.i:         ; preds = %.lr.ph.i.i.i.i.i199.i
+  %.idx.i.i.i204.i = shl nsw i64 %222, 3
+  %224 = getelementptr inbounds i8, ptr %216, i64 %.idx.i.i.i204.i
+  %.not7.i.i.i.i.i205.i = icmp eq i64 %222, 0
+  br i1 %.not7.i.i.i.i.i205.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.preheader.i.i.i206.i
 
-.lr.ph.i.i4.preheader.i.i.i201.i:                 ; preds = %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i199.i, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i209.i
-  %225 = phi ptr [ %220, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i209.i ], [ %224, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i199.i ]
-  br label %.lr.ph.i.i4.i.i.i202.i
+.lr.ph.i.i4.preheader.i.i.i206.i:                 ; preds = %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i203.i, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i214.i
+  %225 = phi ptr [ %220, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i214.i ], [ %224, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i203.i ]
+  br label %.lr.ph.i.i4.i.i.i207.i
 
-.lr.ph.i.i4.i.i.i202.i:                           ; preds = %.lr.ph.i.i4.i.i.i202.i, %.lr.ph.i.i4.preheader.i.i.i201.i
-  %.09.i.i.i.i.i203.i = phi i64 [ %spec.select.i.i.i.i.i207.i, %.lr.ph.i.i4.i.i.i202.i ], [ 0, %.lr.ph.i.i4.preheader.i.i.i201.i ]
-  %.058.i.i.i.i.i204.i = phi ptr [ %227, %.lr.ph.i.i4.i.i.i202.i ], [ %216, %.lr.ph.i.i4.preheader.i.i.i201.i ]
-  %.05.val.i.i.i.i.i205.i = load i64, ptr %.058.i.i.i.i.i204.i, align 8, !tbaa !12, !noalias !310
-  %.not6.i.i.i.i.i206.i = icmp ne i64 %.05.val.i.i.i.i.i205.i, 0
-  %226 = zext i1 %.not6.i.i.i.i.i206.i to i64
-  %spec.select.i.i.i.i.i207.i = add nuw nsw i64 %.09.i.i.i.i.i203.i, %226
-  %227 = getelementptr inbounds nuw i8, ptr %.058.i.i.i.i.i204.i, i64 8
-  %.not.i.i5.i.i.i208.i = icmp eq ptr %227, %225
-  br i1 %.not.i.i5.i.i.i208.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.i.i.i202.i, !llvm.loop !313
+.lr.ph.i.i4.i.i.i207.i:                           ; preds = %.lr.ph.i.i4.i.i.i207.i, %.lr.ph.i.i4.preheader.i.i.i206.i
+  %.09.i.i.i.i.i208.i = phi i64 [ %spec.select.i.i.i.i.i212.i, %.lr.ph.i.i4.i.i.i207.i ], [ 0, %.lr.ph.i.i4.preheader.i.i.i206.i ]
+  %.058.i.i.i.i.i209.i = phi ptr [ %227, %.lr.ph.i.i4.i.i.i207.i ], [ %216, %.lr.ph.i.i4.preheader.i.i.i206.i ]
+  %.05.val.i.i.i.i.i210.i = load i64, ptr %.058.i.i.i.i.i209.i, align 8, !tbaa !12, !noalias !310
+  %.not6.i.i.i.i.i211.i = icmp ne i64 %.05.val.i.i.i.i.i210.i, 0
+  %226 = zext i1 %.not6.i.i.i.i.i211.i to i64
+  %spec.select.i.i.i.i.i212.i = add nuw nsw i64 %.09.i.i.i.i.i208.i, %226
+  %227 = getelementptr inbounds nuw i8, ptr %.058.i.i.i.i.i209.i, i64 8
+  %.not.i.i5.i.i.i213.i = icmp eq ptr %227, %225
+  br i1 %.not.i.i5.i.i.i213.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.i.i.i207.i, !llvm.loop !313
 
 228:                                              ; preds = %.noexc11
   %229 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_10UInt64TypeEEElilRKNS_6TensorE(i32 noundef 0, i64 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(112) %1), !noalias !310
@@ -8159,41 +8165,42 @@ _ZNK5arrow6Tensor4sizeEv.exit.i.i.i199.i:         ; preds = %.lr.ph.i.i.i.i.i195
   %243 = load ptr, ptr %231, align 8, !tbaa !99, !noalias !314
   %244 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %245 = load ptr, ptr %244, align 8, !tbaa !99, !noalias !314
-  %.not5.i.i.i.i.i211.i = icmp eq ptr %243, %245
-  br i1 %.not5.i.i.i.i.i211.i, label %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i226.i, label %.lr.ph.i.i.i.i.i212.i
+  %.not5.i.i.i.i.i216.i = icmp eq ptr %243, %245
+  br i1 %.not5.i.i.i.i.i216.i, label %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i232.i, label %.lr.ph.i.i.i.i.i217.i
 
-_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i226.i:  ; preds = %234
+_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i232.i:  ; preds = %234
   %246 = getelementptr inbounds nuw i8, ptr %242, i64 2
-  br label %.lr.ph.i.i4.preheader.i.i.i218.i
+  br label %.lr.ph.i.i4.preheader.i.i.i224.i
 
-.lr.ph.i.i.i.i.i212.i:                            ; preds = %234, %.lr.ph.i.i.i.i.i212.i
-  %.07.i.i.i.i.i213.i = phi i64 [ %248, %.lr.ph.i.i.i.i.i212.i ], [ 1, %234 ]
-  %.sroa.02.06.i.i.i.i.i214.i = phi ptr [ %249, %.lr.ph.i.i.i.i.i212.i ], [ %243, %234 ]
-  %247 = load i64, ptr %.sroa.02.06.i.i.i.i.i214.i, align 8, !tbaa !12, !noalias !314
-  %248 = mul nsw i64 %247, %.07.i.i.i.i.i213.i
-  %249 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i.i214.i, i64 8
-  %.not.i.i.i.i.i215.i = icmp eq ptr %249, %245
-  br i1 %.not.i.i.i.i.i215.i, label %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i216.i, label %.lr.ph.i.i.i.i.i212.i, !llvm.loop !273
+.lr.ph.i.i.i.i.i217.i:                            ; preds = %234, %.lr.ph.i.i.i.i.i217.i
+  %.07.i.i.i.i.i218.i = phi i64 [ %248, %.lr.ph.i.i.i.i.i217.i ], [ 1, %234 ]
+  %.sroa.02.06.i.i.i.i.i219.i = phi ptr [ %249, %.lr.ph.i.i.i.i.i217.i ], [ %243, %234 ]
+  %247 = load i64, ptr %.sroa.02.06.i.i.i.i.i219.i, align 8, !tbaa !12, !noalias !314
+  %248 = mul nsw i64 %247, %.07.i.i.i.i.i218.i
+  %249 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i.i219.i, i64 8
+  %.not.i.i.i.i.i220.i = icmp eq ptr %249, %245
+  br i1 %.not.i.i.i.i.i220.i, label %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i221.i, label %.lr.ph.i.i.i.i.i217.i, !llvm.loop !273
 
-_ZNK5arrow6Tensor4sizeEv.exit.i.i.i216.i:         ; preds = %.lr.ph.i.i.i.i.i212.i
-  %250 = getelementptr inbounds i16, ptr %242, i64 %248
-  %.not7.i.i.i.i.i217.i = icmp eq i64 %248, 0
-  br i1 %.not7.i.i.i.i.i217.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.preheader.i.i.i218.i
+_ZNK5arrow6Tensor4sizeEv.exit.i.i.i221.i:         ; preds = %.lr.ph.i.i.i.i.i217.i
+  %.idx.i.i.i222.i = shl nsw i64 %248, 1
+  %250 = getelementptr inbounds i8, ptr %242, i64 %.idx.i.i.i222.i
+  %.not7.i.i.i.i.i223.i = icmp eq i64 %248, 0
+  br i1 %.not7.i.i.i.i.i223.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.preheader.i.i.i224.i
 
-.lr.ph.i.i4.preheader.i.i.i218.i:                 ; preds = %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i216.i, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i226.i
-  %251 = phi ptr [ %246, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i226.i ], [ %250, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i216.i ]
-  br label %.lr.ph.i.i4.i.i.i219.i
+.lr.ph.i.i4.preheader.i.i.i224.i:                 ; preds = %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i221.i, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i232.i
+  %251 = phi ptr [ %246, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i232.i ], [ %250, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i221.i ]
+  br label %.lr.ph.i.i4.i.i.i225.i
 
-.lr.ph.i.i4.i.i.i219.i:                           ; preds = %.lr.ph.i.i4.i.i.i219.i, %.lr.ph.i.i4.preheader.i.i.i218.i
-  %.09.i.i.i.i.i220.i = phi i64 [ %spec.select.i.i.i.i.i224.i, %.lr.ph.i.i4.i.i.i219.i ], [ 0, %.lr.ph.i.i4.preheader.i.i.i218.i ]
-  %.058.i.i.i.i.i221.i = phi ptr [ %253, %.lr.ph.i.i4.i.i.i219.i ], [ %242, %.lr.ph.i.i4.preheader.i.i.i218.i ]
-  %.05.val.i.i.i.i.i222.i = load i16, ptr %.058.i.i.i.i.i221.i, align 2, !tbaa !291, !noalias !314
-  %.not6.i.i.i.i.i223.i = icmp ne i16 %.05.val.i.i.i.i.i222.i, 0
-  %252 = zext i1 %.not6.i.i.i.i.i223.i to i64
-  %spec.select.i.i.i.i.i224.i = add nuw nsw i64 %.09.i.i.i.i.i220.i, %252
-  %253 = getelementptr inbounds nuw i8, ptr %.058.i.i.i.i.i221.i, i64 2
-  %.not.i.i5.i.i.i225.i = icmp eq ptr %253, %251
-  br i1 %.not.i.i5.i.i.i225.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.i.i.i219.i, !llvm.loop !317
+.lr.ph.i.i4.i.i.i225.i:                           ; preds = %.lr.ph.i.i4.i.i.i225.i, %.lr.ph.i.i4.preheader.i.i.i224.i
+  %.09.i.i.i.i.i226.i = phi i64 [ %spec.select.i.i.i.i.i230.i, %.lr.ph.i.i4.i.i.i225.i ], [ 0, %.lr.ph.i.i4.preheader.i.i.i224.i ]
+  %.058.i.i.i.i.i227.i = phi ptr [ %253, %.lr.ph.i.i4.i.i.i225.i ], [ %242, %.lr.ph.i.i4.preheader.i.i.i224.i ]
+  %.05.val.i.i.i.i.i228.i = load i16, ptr %.058.i.i.i.i.i227.i, align 2, !tbaa !291, !noalias !314
+  %.not6.i.i.i.i.i229.i = icmp ne i16 %.05.val.i.i.i.i.i228.i, 0
+  %252 = zext i1 %.not6.i.i.i.i.i229.i to i64
+  %spec.select.i.i.i.i.i230.i = add nuw nsw i64 %.09.i.i.i.i.i226.i, %252
+  %253 = getelementptr inbounds nuw i8, ptr %.058.i.i.i.i.i227.i, i64 2
+  %.not.i.i5.i.i.i231.i = icmp eq ptr %253, %251
+  br i1 %.not.i.i5.i.i.i231.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.i.i.i225.i, !llvm.loop !317
 
 254:                                              ; preds = %.noexc12
   %255 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_13HalfFloatTypeEEElilRKNS_6TensorE(i32 noundef 0, i64 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(112) %1), !noalias !314
@@ -8220,41 +8227,42 @@ _ZNK5arrow6Tensor4sizeEv.exit.i.i.i216.i:         ; preds = %.lr.ph.i.i.i.i.i212
   %269 = load ptr, ptr %257, align 8, !tbaa !99, !noalias !318
   %270 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %271 = load ptr, ptr %270, align 8, !tbaa !99, !noalias !318
-  %.not5.i.i.i.i.i228.i = icmp eq ptr %269, %271
-  br i1 %.not5.i.i.i.i.i228.i, label %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i240.i, label %.lr.ph.i.i.i.i.i229.i
+  %.not5.i.i.i.i.i234.i = icmp eq ptr %269, %271
+  br i1 %.not5.i.i.i.i.i234.i, label %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i247.i, label %.lr.ph.i.i.i.i.i235.i
 
-_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i240.i:  ; preds = %260
+_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i247.i:  ; preds = %260
   %272 = getelementptr inbounds nuw i8, ptr %268, i64 4
-  br label %.lr.ph.i.i4.preheader.i.i.i235.i
+  br label %.lr.ph.i.i4.preheader.i.i.i242.i
 
-.lr.ph.i.i.i.i.i229.i:                            ; preds = %260, %.lr.ph.i.i.i.i.i229.i
-  %.07.i.i.i.i.i230.i = phi i64 [ %274, %.lr.ph.i.i.i.i.i229.i ], [ 1, %260 ]
-  %.sroa.02.06.i.i.i.i.i231.i = phi ptr [ %275, %.lr.ph.i.i.i.i.i229.i ], [ %269, %260 ]
-  %273 = load i64, ptr %.sroa.02.06.i.i.i.i.i231.i, align 8, !tbaa !12, !noalias !318
-  %274 = mul nsw i64 %273, %.07.i.i.i.i.i230.i
-  %275 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i.i231.i, i64 8
-  %.not.i.i.i.i.i232.i = icmp eq ptr %275, %271
-  br i1 %.not.i.i.i.i.i232.i, label %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i233.i, label %.lr.ph.i.i.i.i.i229.i, !llvm.loop !273
+.lr.ph.i.i.i.i.i235.i:                            ; preds = %260, %.lr.ph.i.i.i.i.i235.i
+  %.07.i.i.i.i.i236.i = phi i64 [ %274, %.lr.ph.i.i.i.i.i235.i ], [ 1, %260 ]
+  %.sroa.02.06.i.i.i.i.i237.i = phi ptr [ %275, %.lr.ph.i.i.i.i.i235.i ], [ %269, %260 ]
+  %273 = load i64, ptr %.sroa.02.06.i.i.i.i.i237.i, align 8, !tbaa !12, !noalias !318
+  %274 = mul nsw i64 %273, %.07.i.i.i.i.i236.i
+  %275 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i.i237.i, i64 8
+  %.not.i.i.i.i.i238.i = icmp eq ptr %275, %271
+  br i1 %.not.i.i.i.i.i238.i, label %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i239.i, label %.lr.ph.i.i.i.i.i235.i, !llvm.loop !273
 
-_ZNK5arrow6Tensor4sizeEv.exit.i.i.i233.i:         ; preds = %.lr.ph.i.i.i.i.i229.i
-  %276 = getelementptr inbounds float, ptr %268, i64 %274
-  %.not6.i.i.i.i.i234.i = icmp eq i64 %274, 0
-  br i1 %.not6.i.i.i.i.i234.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.preheader.i.i.i235.i
+_ZNK5arrow6Tensor4sizeEv.exit.i.i.i239.i:         ; preds = %.lr.ph.i.i.i.i.i235.i
+  %.idx.i.i.i240.i = shl nsw i64 %274, 2
+  %276 = getelementptr inbounds i8, ptr %268, i64 %.idx.i.i.i240.i
+  %.not6.i.i.i.i.i241.i = icmp eq i64 %274, 0
+  br i1 %.not6.i.i.i.i.i241.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.preheader.i.i.i242.i
 
-.lr.ph.i.i4.preheader.i.i.i235.i:                 ; preds = %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i233.i, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i240.i
-  %277 = phi ptr [ %272, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i240.i ], [ %276, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i233.i ]
-  br label %.lr.ph.i.i4.i.i.i236.i
+.lr.ph.i.i4.preheader.i.i.i242.i:                 ; preds = %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i239.i, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i247.i
+  %277 = phi ptr [ %272, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i247.i ], [ %276, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i239.i ]
+  br label %.lr.ph.i.i4.i.i.i243.i
 
-.lr.ph.i.i4.i.i.i236.i:                           ; preds = %.lr.ph.i.i4.i.i.i236.i, %.lr.ph.i.i4.preheader.i.i.i235.i
-  %.08.i.i.i.i.i.i = phi i64 [ %spec.select.i.i.i.i.i238.i, %.lr.ph.i.i4.i.i.i236.i ], [ 0, %.lr.ph.i.i4.preheader.i.i.i235.i ]
-  %.057.i.i.i.i.i.i = phi ptr [ %280, %.lr.ph.i.i4.i.i.i236.i ], [ %268, %.lr.ph.i.i4.preheader.i.i.i235.i ]
-  %.05.val.i.i.i.i.i237.i = load float, ptr %.057.i.i.i.i.i.i, align 4, !tbaa !321, !noalias !318
-  %278 = fcmp une float %.05.val.i.i.i.i.i237.i, 0.000000e+00
+.lr.ph.i.i4.i.i.i243.i:                           ; preds = %.lr.ph.i.i4.i.i.i243.i, %.lr.ph.i.i4.preheader.i.i.i242.i
+  %.08.i.i.i.i.i.i = phi i64 [ %spec.select.i.i.i.i.i245.i, %.lr.ph.i.i4.i.i.i243.i ], [ 0, %.lr.ph.i.i4.preheader.i.i.i242.i ]
+  %.057.i.i.i.i.i.i = phi ptr [ %280, %.lr.ph.i.i4.i.i.i243.i ], [ %268, %.lr.ph.i.i4.preheader.i.i.i242.i ]
+  %.05.val.i.i.i.i.i244.i = load float, ptr %.057.i.i.i.i.i.i, align 4, !tbaa !321, !noalias !318
+  %278 = fcmp une float %.05.val.i.i.i.i.i244.i, 0.000000e+00
   %279 = zext i1 %278 to i64
-  %spec.select.i.i.i.i.i238.i = add nuw nsw i64 %.08.i.i.i.i.i.i, %279
+  %spec.select.i.i.i.i.i245.i = add nuw nsw i64 %.08.i.i.i.i.i.i, %279
   %280 = getelementptr inbounds nuw i8, ptr %.057.i.i.i.i.i.i, i64 4
-  %.not.i.i5.i.i.i239.i = icmp eq ptr %280, %277
-  br i1 %.not.i.i5.i.i.i239.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.i.i.i236.i, !llvm.loop !323
+  %.not.i.i5.i.i.i246.i = icmp eq ptr %280, %277
+  br i1 %.not.i.i5.i.i.i246.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.i.i.i243.i, !llvm.loop !323
 
 281:                                              ; preds = %.noexc13
   %282 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_9FloatTypeEEElilRKNS_6TensorE(i32 noundef 0, i64 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(112) %1), !noalias !318
@@ -8281,41 +8289,42 @@ _ZNK5arrow6Tensor4sizeEv.exit.i.i.i233.i:         ; preds = %.lr.ph.i.i.i.i.i229
   %296 = load ptr, ptr %284, align 8, !tbaa !99, !noalias !324
   %297 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %298 = load ptr, ptr %297, align 8, !tbaa !99, !noalias !324
-  %.not5.i.i.i.i.i242.i = icmp eq ptr %296, %298
-  br i1 %.not5.i.i.i.i.i242.i, label %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i256.i, label %.lr.ph.i.i.i.i.i243.i
+  %.not5.i.i.i.i.i249.i = icmp eq ptr %296, %298
+  br i1 %.not5.i.i.i.i.i249.i, label %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i264.i, label %.lr.ph.i.i.i.i.i250.i
 
-_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i256.i:  ; preds = %287
+_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i264.i:  ; preds = %287
   %299 = getelementptr inbounds nuw i8, ptr %295, i64 8
-  br label %.lr.ph.i.i4.preheader.i.i.i249.i
+  br label %.lr.ph.i.i4.preheader.i.i.i257.i
 
-.lr.ph.i.i.i.i.i243.i:                            ; preds = %287, %.lr.ph.i.i.i.i.i243.i
-  %.07.i.i.i.i.i244.i = phi i64 [ %301, %.lr.ph.i.i.i.i.i243.i ], [ 1, %287 ]
-  %.sroa.02.06.i.i.i.i.i245.i = phi ptr [ %302, %.lr.ph.i.i.i.i.i243.i ], [ %296, %287 ]
-  %300 = load i64, ptr %.sroa.02.06.i.i.i.i.i245.i, align 8, !tbaa !12, !noalias !324
-  %301 = mul nsw i64 %300, %.07.i.i.i.i.i244.i
-  %302 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i.i245.i, i64 8
-  %.not.i.i.i.i.i246.i = icmp eq ptr %302, %298
-  br i1 %.not.i.i.i.i.i246.i, label %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i247.i, label %.lr.ph.i.i.i.i.i243.i, !llvm.loop !273
+.lr.ph.i.i.i.i.i250.i:                            ; preds = %287, %.lr.ph.i.i.i.i.i250.i
+  %.07.i.i.i.i.i251.i = phi i64 [ %301, %.lr.ph.i.i.i.i.i250.i ], [ 1, %287 ]
+  %.sroa.02.06.i.i.i.i.i252.i = phi ptr [ %302, %.lr.ph.i.i.i.i.i250.i ], [ %296, %287 ]
+  %300 = load i64, ptr %.sroa.02.06.i.i.i.i.i252.i, align 8, !tbaa !12, !noalias !324
+  %301 = mul nsw i64 %300, %.07.i.i.i.i.i251.i
+  %302 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i.i252.i, i64 8
+  %.not.i.i.i.i.i253.i = icmp eq ptr %302, %298
+  br i1 %.not.i.i.i.i.i253.i, label %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i254.i, label %.lr.ph.i.i.i.i.i250.i, !llvm.loop !273
 
-_ZNK5arrow6Tensor4sizeEv.exit.i.i.i247.i:         ; preds = %.lr.ph.i.i.i.i.i243.i
-  %303 = getelementptr inbounds double, ptr %295, i64 %301
-  %.not6.i.i.i.i.i248.i = icmp eq i64 %301, 0
-  br i1 %.not6.i.i.i.i.i248.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.preheader.i.i.i249.i
+_ZNK5arrow6Tensor4sizeEv.exit.i.i.i254.i:         ; preds = %.lr.ph.i.i.i.i.i250.i
+  %.idx.i.i.i255.i = shl nsw i64 %301, 3
+  %303 = getelementptr inbounds i8, ptr %295, i64 %.idx.i.i.i255.i
+  %.not6.i.i.i.i.i256.i = icmp eq i64 %301, 0
+  br i1 %.not6.i.i.i.i.i256.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.preheader.i.i.i257.i
 
-.lr.ph.i.i4.preheader.i.i.i249.i:                 ; preds = %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i247.i, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i256.i
-  %304 = phi ptr [ %299, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i256.i ], [ %303, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i247.i ]
-  br label %.lr.ph.i.i4.i.i.i250.i
+.lr.ph.i.i4.preheader.i.i.i257.i:                 ; preds = %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i254.i, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i264.i
+  %304 = phi ptr [ %299, %_ZNK5arrow6Tensor4sizeEv.exit.thread.i.i.i264.i ], [ %303, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i254.i ]
+  br label %.lr.ph.i.i4.i.i.i258.i
 
-.lr.ph.i.i4.i.i.i250.i:                           ; preds = %.lr.ph.i.i4.i.i.i250.i, %.lr.ph.i.i4.preheader.i.i.i249.i
-  %.08.i.i.i.i.i251.i = phi i64 [ %spec.select.i.i.i.i.i254.i, %.lr.ph.i.i4.i.i.i250.i ], [ 0, %.lr.ph.i.i4.preheader.i.i.i249.i ]
-  %.057.i.i.i.i.i252.i = phi ptr [ %307, %.lr.ph.i.i4.i.i.i250.i ], [ %295, %.lr.ph.i.i4.preheader.i.i.i249.i ]
-  %.05.val.i.i.i.i.i253.i = load double, ptr %.057.i.i.i.i.i252.i, align 8, !tbaa !327, !noalias !324
-  %305 = fcmp une double %.05.val.i.i.i.i.i253.i, 0.000000e+00
+.lr.ph.i.i4.i.i.i258.i:                           ; preds = %.lr.ph.i.i4.i.i.i258.i, %.lr.ph.i.i4.preheader.i.i.i257.i
+  %.08.i.i.i.i.i259.i = phi i64 [ %spec.select.i.i.i.i.i262.i, %.lr.ph.i.i4.i.i.i258.i ], [ 0, %.lr.ph.i.i4.preheader.i.i.i257.i ]
+  %.057.i.i.i.i.i260.i = phi ptr [ %307, %.lr.ph.i.i4.i.i.i258.i ], [ %295, %.lr.ph.i.i4.preheader.i.i.i257.i ]
+  %.05.val.i.i.i.i.i261.i = load double, ptr %.057.i.i.i.i.i260.i, align 8, !tbaa !327, !noalias !324
+  %305 = fcmp une double %.05.val.i.i.i.i.i261.i, 0.000000e+00
   %306 = zext i1 %305 to i64
-  %spec.select.i.i.i.i.i254.i = add nuw nsw i64 %.08.i.i.i.i.i251.i, %306
-  %307 = getelementptr inbounds nuw i8, ptr %.057.i.i.i.i.i252.i, i64 8
-  %.not.i.i5.i.i.i255.i = icmp eq ptr %307, %304
-  br i1 %.not.i.i5.i.i.i255.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.i.i.i250.i, !llvm.loop !329
+  %spec.select.i.i.i.i.i262.i = add nuw nsw i64 %.08.i.i.i.i.i259.i, %306
+  %307 = getelementptr inbounds nuw i8, ptr %.057.i.i.i.i.i260.i, i64 8
+  %.not.i.i5.i.i.i263.i = icmp eq ptr %307, %304
+  br i1 %.not.i.i5.i.i.i263.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %.lr.ph.i.i4.i.i.i258.i, !llvm.loop !329
 
 308:                                              ; preds = %.noexc14
   %309 = tail call fastcc noundef i64 @_ZN5arrow12_GLOBAL__N_125StridedTensorCountNonZeroINS_10DoubleTypeEEElilRKNS_6TensorE(i32 noundef 0, i64 noundef 0, ptr noundef nonnull readonly align 8 dereferenceable(112) %1), !noalias !324
@@ -8329,8 +8338,8 @@ _ZNK5arrow6Tensor4sizeEv.exit.i.i.i247.i:         ; preds = %.lr.ph.i.i.i.i.i243
   invoke void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %4, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.32)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %343
 
-_ZN5arrow6StatusD2Ev.exit.sink.split:             ; preds = %.lr.ph.i.i4.i.i.i250.i, %.lr.ph.i.i4.i.i.i236.i, %.lr.ph.i.i4.i.i.i219.i, %.lr.ph.i.i4.i.i.i202.i, %.lr.ph.i.i4.i.i.i185.i, %.lr.ph.i.i4.i.i.i168.i, %.lr.ph.i.i4.i.i.i151.i, %.lr.ph.i.i4.i.i.i134.i, %.lr.ph.i.i4.i.i.i117.i, %.lr.ph.i.i4.i.i.i100.i, %.lr.ph.i.i4.i.i.i.i, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i247.i, %308, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i233.i, %281, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i216.i, %254, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i199.i, %228, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i182.i, %202, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i165.i, %176, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i148.i, %150, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i131.i, %124, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i114.i, %98, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i97.i, %72, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i.i, %46
-  %.sroa.15.0.ph = phi i64 [ %47, %46 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i.i ], [ %73, %72 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i97.i ], [ %99, %98 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i114.i ], [ %125, %124 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i131.i ], [ %151, %150 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i148.i ], [ %177, %176 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i165.i ], [ %203, %202 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i182.i ], [ %229, %228 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i199.i ], [ %255, %254 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i216.i ], [ %282, %281 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i233.i ], [ %309, %308 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i247.i ], [ %spec.select.i.i.i.i.i.i, %.lr.ph.i.i4.i.i.i.i ], [ %spec.select.i.i.i.i.i105.i, %.lr.ph.i.i4.i.i.i100.i ], [ %spec.select.i.i.i.i.i122.i, %.lr.ph.i.i4.i.i.i117.i ], [ %spec.select.i.i.i.i.i139.i, %.lr.ph.i.i4.i.i.i134.i ], [ %spec.select.i.i.i.i.i156.i, %.lr.ph.i.i4.i.i.i151.i ], [ %spec.select.i.i.i.i.i173.i, %.lr.ph.i.i4.i.i.i168.i ], [ %spec.select.i.i.i.i.i190.i, %.lr.ph.i.i4.i.i.i185.i ], [ %spec.select.i.i.i.i.i207.i, %.lr.ph.i.i4.i.i.i202.i ], [ %spec.select.i.i.i.i.i224.i, %.lr.ph.i.i4.i.i.i219.i ], [ %spec.select.i.i.i.i.i238.i, %.lr.ph.i.i4.i.i.i236.i ], [ %spec.select.i.i.i.i.i254.i, %.lr.ph.i.i4.i.i.i250.i ]
+_ZN5arrow6StatusD2Ev.exit.sink.split:             ; preds = %.lr.ph.i.i4.i.i.i258.i, %.lr.ph.i.i4.i.i.i243.i, %.lr.ph.i.i4.i.i.i225.i, %.lr.ph.i.i4.i.i.i207.i, %.lr.ph.i.i4.i.i.i189.i, %.lr.ph.i.i4.i.i.i171.i, %.lr.ph.i.i4.i.i.i153.i, %.lr.ph.i.i4.i.i.i135.i, %.lr.ph.i.i4.i.i.i117.i, %.lr.ph.i.i4.i.i.i100.i, %.lr.ph.i.i4.i.i.i.i, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i254.i, %308, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i239.i, %281, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i221.i, %254, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i203.i, %228, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i185.i, %202, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i167.i, %176, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i149.i, %150, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i131.i, %124, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i114.i, %98, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i97.i, %72, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i.i, %46
+  %.sroa.15.0.ph = phi i64 [ %47, %46 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i.i ], [ %73, %72 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i97.i ], [ %99, %98 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i114.i ], [ %125, %124 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i131.i ], [ %151, %150 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i149.i ], [ %177, %176 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i167.i ], [ %203, %202 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i185.i ], [ %229, %228 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i203.i ], [ %255, %254 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i221.i ], [ %282, %281 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i239.i ], [ %309, %308 ], [ 0, %_ZNK5arrow6Tensor4sizeEv.exit.i.i.i254.i ], [ %spec.select.i.i.i.i.i.i, %.lr.ph.i.i4.i.i.i.i ], [ %spec.select.i.i.i.i.i105.i, %.lr.ph.i.i4.i.i.i100.i ], [ %spec.select.i.i.i.i.i122.i, %.lr.ph.i.i4.i.i.i117.i ], [ %spec.select.i.i.i.i.i140.i, %.lr.ph.i.i4.i.i.i135.i ], [ %spec.select.i.i.i.i.i158.i, %.lr.ph.i.i4.i.i.i153.i ], [ %spec.select.i.i.i.i.i176.i, %.lr.ph.i.i4.i.i.i171.i ], [ %spec.select.i.i.i.i.i194.i, %.lr.ph.i.i4.i.i.i189.i ], [ %spec.select.i.i.i.i.i212.i, %.lr.ph.i.i4.i.i.i207.i ], [ %spec.select.i.i.i.i.i230.i, %.lr.ph.i.i4.i.i.i225.i ], [ %spec.select.i.i.i.i.i245.i, %.lr.ph.i.i4.i.i.i243.i ], [ %spec.select.i.i.i.i.i262.i, %.lr.ph.i.i4.i.i.i258.i ]
   store ptr null, ptr %4, align 8, !tbaa !16, !alias.scope !277
   br label %_ZN5arrow6StatusD2Ev.exit
 
@@ -9805,7 +9814,7 @@ define linkonce_odr void @_ZNSt6vectorIlSaIlEE14_M_fill_assignEmRKl(ptr noundef 
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = icmp ugt i64 %1, %10
-  br i1 %11, label %12, label %22
+  br i1 %11, label %12, label %23
 
 12:                                               ; preds = %3
   %13 = icmp ugt i64 %1, 1152921504606846975
@@ -9818,7 +9827,7 @@ define linkonce_odr void @_ZNSt6vectorIlSaIlEE14_M_fill_assignEmRKl(ptr noundef 
 _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %12
   %15 = shl nuw nsw i64 %1, 3
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #26
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %1
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %15
   %18 = load i64, ptr %2, align 8, !tbaa !12
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
@@ -9830,85 +9839,88 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %12
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !353
 
 _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i64, ptr %16, i64 %1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %0, align 8, !tbaa !11
-  store ptr %17, ptr %20, align 8, !tbaa !6
-  store ptr %17, ptr %4, align 8, !tbaa !22
+  store ptr %17, ptr %21, align 8, !tbaa !6
+  store ptr %20, ptr %4, align 8, !tbaa !22
   %.not.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %21
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %22
 
-21:                                               ; preds = %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit
+22:                                               ; preds = %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %9) #27
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-22:                                               ; preds = %3
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !6
-  %25 = ptrtoint ptr %24 to i64
-  %26 = sub i64 %25, %8
-  %27 = ashr exact i64 %26, 3
-  %28 = icmp ugt i64 %1, %27
-  br i1 %28, label %29, label %36
+23:                                               ; preds = %3
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !6
+  %26 = ptrtoint ptr %25 to i64
+  %27 = sub i64 %26, %8
+  %28 = ashr exact i64 %27, 3
+  %29 = icmp ugt i64 %1, %28
+  br i1 %29, label %30, label %37
 
-29:                                               ; preds = %22
-  %30 = load i64, ptr %2, align 8, !tbaa !12
-  %.not5.i.i.i.i = icmp eq ptr %6, %24
+30:                                               ; preds = %23
+  %31 = load i64, ptr %2, align 8, !tbaa !12
+  %.not5.i.i.i.i = icmp eq ptr %6, %25
   br i1 %.not5.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %29, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i ], [ %6, %29 ]
-  store i64 %30, ptr %.06.i.i.i.i, align 8, !tbaa !12
-  %31 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
-  %.not.i.i.i.i11 = icmp eq ptr %31, %24
+.lr.ph.i.i.i.i:                                   ; preds = %30, %.lr.ph.i.i.i.i
+  %.06.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i ], [ %6, %30 ]
+  store i64 %31, ptr %.06.i.i.i.i, align 8, !tbaa !12
+  %32 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
+  %.not.i.i.i.i11 = icmp eq ptr %32, %25
   br i1 %.not.i.i.i.i11, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !353
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i
   %.pre = load i64, ptr %2, align 8, !tbaa !12
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit
 
-_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit.loopexit, %29
-  %32 = phi i64 [ %.pre, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit.loopexit ], [ %30, %29 ]
-  %33 = sub i64 %1, %27
-  %34 = getelementptr inbounds nuw i64, ptr %24, i64 %33
+_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit: ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit.loopexit, %30
+  %33 = phi i64 [ %.pre, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit.loopexit ], [ %31, %30 ]
+  %34 = sub i64 %1, %28
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %34, 3
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit
-  %.06.i.i.i.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i.i.i.i ], [ %24, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit ]
-  store i64 %32, ptr %.06.i.i.i.i.i.i.i, align 8, !tbaa !12
-  %35 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %35, %34
+  %.06.i.i.i.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i.i.i ], [ %25, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEvT_S7_RKT0_.exit ]
+  store i64 %33, ptr %.06.i.i.i.i.i.i.i, align 8, !tbaa !12
+  %36 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %36, %35
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPlmllET_S1_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !353
 
 _ZSt24__uninitialized_fill_n_aIPlmllET_S1_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  store ptr %34, ptr %23, align 8, !tbaa !6
+  store ptr %35, ptr %24, align 8, !tbaa !6
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-36:                                               ; preds = %22
-  %37 = icmp eq i64 %1, 0
-  br i1 %37, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit, label %38
+37:                                               ; preds = %23
+  %38 = icmp eq i64 %1, 0
+  br i1 %38, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit, label %39
 
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw i64, ptr %6, i64 %1
-  %40 = load i64, ptr %2, align 8, !tbaa !12
+39:                                               ; preds = %37
+  %.idx.i.i = shl nuw nsw i64 %1, 3
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
+  %41 = load i64, ptr %2, align 8, !tbaa !12
   br label %.lr.ph.i.i.i.i12
 
-.lr.ph.i.i.i.i12:                                 ; preds = %.lr.ph.i.i.i.i12, %38
-  %.06.i.i.i.i13 = phi ptr [ %41, %.lr.ph.i.i.i.i12 ], [ %6, %38 ]
-  store i64 %40, ptr %.06.i.i.i.i13, align 8, !tbaa !12
-  %41 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i13, i64 8
-  %.not.i.i.i.i14 = icmp eq ptr %41, %39
+.lr.ph.i.i.i.i12:                                 ; preds = %.lr.ph.i.i.i.i12, %39
+  %.06.i.i.i.i13 = phi ptr [ %42, %.lr.ph.i.i.i.i12 ], [ %6, %39 ]
+  store i64 %41, ptr %.06.i.i.i.i13, align 8, !tbaa !12
+  %42 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i13, i64 8
+  %.not.i.i.i.i14 = icmp eq ptr %42, %40
   br i1 %.not.i.i.i.i14, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit, label %.lr.ph.i.i.i.i12, !llvm.loop !353
 
-_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit:              ; preds = %.lr.ph.i.i.i.i12, %36
-  %.0.i.i = phi ptr [ %6, %36 ], [ %39, %.lr.ph.i.i.i.i12 ]
-  %.not.i = icmp eq ptr %24, %.0.i.i
-  br i1 %.not.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %42
+_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit:              ; preds = %.lr.ph.i.i.i.i12, %37
+  %.0.i.i = phi ptr [ %6, %37 ], [ %40, %.lr.ph.i.i.i.i12 ]
+  %.not.i = icmp eq ptr %25, %.0.i.i
+  br i1 %.not.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %43
 
-42:                                               ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit
-  store ptr %.0.i.i, ptr %23, align 8, !tbaa !6
+43:                                               ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit
+  store ptr %.0.i.i, ptr %24, align 8, !tbaa !6
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %42, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit, %21, %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit, %_ZSt24__uninitialized_fill_n_aIPlmllET_S1_T0_RKT1_RSaIT2_E.exit
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %43, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit, %22, %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit, %_ZSt24__uninitialized_fill_n_aIPlmllET_S1_T0_RKT1_RSaIT2_E.exit
   ret void
 }
 
@@ -13810,7 +13822,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -13985,7 +13998,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -14160,7 +14174,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -14335,7 +14350,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -14510,7 +14526,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i64, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -14685,7 +14702,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i64, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -14860,7 +14878,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -15035,7 +15054,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw float, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -15210,7 +15230,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw double, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -18318,7 +18339,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -18665,7 +18687,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -18847,7 +18870,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -19029,7 +19053,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i64, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -19211,7 +19236,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i64, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -19560,7 +19586,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw float, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -19742,7 +19769,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw double, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -22859,7 +22887,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -23041,7 +23070,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -23223,7 +23253,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -23570,7 +23601,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i64, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -23752,7 +23784,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i64, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -23934,7 +23967,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -24116,7 +24150,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw float, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -24298,7 +24333,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw double, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -27426,7 +27462,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -27608,7 +27645,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -27790,7 +27828,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -27972,7 +28011,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -28154,7 +28194,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i64, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -28501,7 +28542,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -28683,7 +28725,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw float, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -28865,7 +28908,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw double, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -31996,7 +32040,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -32171,7 +32216,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -32346,7 +32392,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -32521,7 +32568,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -32696,7 +32744,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i64, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -32871,7 +32920,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i64, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -33046,7 +33096,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -33221,7 +33272,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw float, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -33396,7 +33448,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw double, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -36671,7 +36724,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -36851,7 +36905,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -37033,7 +37088,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -37215,7 +37271,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i64, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -37397,7 +37454,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i64, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -37579,7 +37637,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -37759,7 +37818,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw float, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -37941,7 +38001,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw double, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -41058,7 +41119,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -41240,7 +41302,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -41589,7 +41652,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -41769,7 +41833,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i64, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -41951,7 +42016,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i64, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -42133,7 +42199,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -42315,7 +42382,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw float, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -42497,7 +42565,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw double, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -45625,7 +45694,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -45807,7 +45877,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -45989,7 +46060,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -46171,7 +46243,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -46520,7 +46593,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i64, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -46700,7 +46774,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -46882,7 +46957,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw float, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -47064,7 +47140,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw double, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -50183,7 +50260,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -50365,7 +50443,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -50547,7 +50626,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -50729,7 +50809,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -50911,7 +50992,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i64, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -51093,7 +51175,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i64, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -51275,7 +51358,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -51624,7 +51708,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw double, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -54743,7 +54828,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -54925,7 +55011,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -55107,7 +55194,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -55289,7 +55377,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -55471,7 +55560,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i64, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -55653,7 +55743,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i64, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -55835,7 +55926,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 
@@ -56017,7 +56109,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   br i1 %39, label %.lr.ph, label %.loopexit
 
 40:                                               ; preds = %_ZN5arrow9ArraySpanD2Ev.exit
-  %41 = getelementptr inbounds nuw float, ptr %19, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not18 = icmp eq i64 %15, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph20
 

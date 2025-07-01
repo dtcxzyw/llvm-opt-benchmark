@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.obj_map<expr, bool>::obj_map_entry" = type { %"struct.obj_map<expr, bool>::key_data" }
-%"struct.obj_map<expr, bool>::key_data" = type <{ ptr, i8, [7 x i8] }>
 
 $_ZN26lackr_model_converter_lazyD2Ev = comdat any
 
@@ -245,7 +243,8 @@ define linkonce_odr hidden void @_ZN26lackr_model_converter_lazy9get_unitsER7obj
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !50
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"class.obj_map<expr, bool>::obj_map_entry", ptr %10, i64 %13
+  %.idx.i.i = shl nuw nsw i64 %13, 4
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
   %.not11.i.i = icmp eq i32 %12, 0
   br i1 %.not11.i.i, label %._crit_edge.thread.i.i, label %.lr.ph.i.i
 

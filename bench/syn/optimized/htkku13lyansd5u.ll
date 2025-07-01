@@ -3384,7 +3384,8 @@ define void @"_ZN3syn4data8printing75_$LT$impl$u20$quote..to_tokens..ToTokens$u2
   %4 = load ptr, ptr %3, align 8, !alias.scope !542, !noalias !545, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load i64, ptr %5, align 8, !alias.scope !542, !noalias !545, !noundef !4
-  %7 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %4, i64 %6
+  %.idx.i = shl nsw i64 %6, 8
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx.i
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17h2f114c75ca7ebd97E.exit", label %.lr.ph.i
 
@@ -3472,7 +3473,8 @@ define void @"_ZN3syn4data8printing73_$LT$impl$u20$quote..to_tokens..ToTokens$u2
   %5 = load ptr, ptr %4, align 8, !alias.scope !563, !noalias !566, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %7 = load i64, ptr %6, align 8, !alias.scope !563, !noalias !566, !noundef !4
-  %8 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %5, i64 %7
+  %.idx.i = shl nsw i64 %7, 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx.i
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17h2f114c75ca7ebd97E.exit", label %.lr.ph.i
 

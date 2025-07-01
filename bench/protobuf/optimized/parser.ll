@@ -29272,7 +29272,8 @@ invoke.cont14:                                    ; preds = %do.end
   %current_size_.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 40
   %16 = load i32, ptr %current_size_.i.i.i, align 8
   %idx.ext.i = sext i32 %16 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i.i.i, i64 %idx.ext.i
+  %add.ptr.i.idx = shl nsw i64 %idx.ext.i, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %add.ptr.i.idx
   %cmp.i24.not48 = icmp eq i32 %16, 0
   br i1 %cmp.i24.not48, label %invoke.cont51, label %for.body.lr.ph
 

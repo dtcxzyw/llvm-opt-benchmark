@@ -72021,7 +72021,8 @@ _ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struc
   unreachable
 
 33:                                               ; preds = %_ZNSt3__18__locale11__mbsrtowcsB8ne210000EPwPPKcmP11__mbstate_tP15__locale_struct.exit
-  %34 = getelementptr inbounds nuw i32, ptr %8, i64 %28
+  %.idx = shl nuw nsw i64 %28, 2
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not461 = icmp eq i64 %28, 0
   br i1 %.not461, label %._crit_edge, label %.lr.ph463
@@ -77923,7 +77924,8 @@ _ZNSt3__114__rotate_rightB8ne210000INS_17_ClassicAlgPolicyENS_11__wrap_iterIPwEE
   br i1 %.not.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !559
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %.preheader.i.i.i.i
-  %47 = getelementptr inbounds i32, ptr %25, i64 %.06.i.i.i.i.i
+  %.idx.i.i.i.i = shl nsw i64 %.06.i.i.i.i.i, 2
+  %47 = getelementptr inbounds i8, ptr %25, i64 %.idx.i.i.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %61, %.lr.ph.preheader.i.i.i.i

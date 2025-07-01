@@ -9195,7 +9195,8 @@ define noundef zeroext i1 @_RNvXso_NtCs1LoaDTb72WA_4core3fmtSNtNtNtCseG2FYMysgNb
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h9b0f342ff6719931E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { i64, [2 x i64] }, { i8, [23 x i8] }, i64 }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 56
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_RINvMs5_NtNtCs1LoaDTb72WA_4core3fmt8buildersNtB6_9DebugList7entriesRNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryINtNtNtBa_5slice4iter4IterB14_EEB1a_.exit, label %.lr.ph.i
 

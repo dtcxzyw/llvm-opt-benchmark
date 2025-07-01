@@ -28628,7 +28628,8 @@ define internal fastcc void @"_ZN5serde3ser5impls77_$LT$impl$u20$serde..ser..Ser
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5558)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5561)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.858.i.i)
-  %14 = getelementptr inbounds nuw { { { ptr, i64, i32, i16, i8, i8 } } }, ptr %13, i64 %.8.val
+  %.idx.i.i = mul nuw nsw i64 %.8.val, 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i
   %15 = icmp samesign ult i64 %.8.val, 4294967296
   %16 = trunc nuw i64 %.8.val to i32
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -28960,7 +28961,8 @@ define internal fastcc void @"_ZN5serde3ser5impls77_$LT$impl$u20$serde..ser..Ser
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5631)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5634)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.858.i.i)
-  %14 = getelementptr inbounds nuw { { { ptr, i64, i32, i16, i8, i8 } } }, ptr %13, i64 %.8.val
+  %.idx.i.i = mul nuw nsw i64 %.8.val, 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i
   %15 = icmp samesign ult i64 %.8.val, 4294967296
   %16 = trunc nuw i64 %.8.val to i32
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -29292,7 +29294,8 @@ define internal fastcc void @"_ZN5serde3ser5impls77_$LT$impl$u20$serde..ser..Ser
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5704)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5707)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.858.i.i)
-  %14 = getelementptr inbounds nuw { { { ptr, i64, i32, i16, i8, i8 } } }, ptr %13, i64 %.8.val
+  %.idx.i.i = mul nuw nsw i64 %.8.val, 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i
   %15 = icmp samesign ult i64 %.8.val, 4294967296
   %16 = trunc nuw i64 %.8.val to i32
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -67045,7 +67048,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12979)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12982)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12984)
-  %29 = getelementptr inbounds nuw { i128, [2 x i64] }, ptr %.val, i64 %.val4
+  %.idx.i.i.i = shl nuw nsw i64 %.val4, 5
+  %29 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i.i
   %30 = icmp samesign ult i64 %.val4, 4294967296
   %31 = trunc nuw i64 %.val4 to i32
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -70831,7 +70835,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13938)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13940)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.860.i.i.i)
-  %29 = getelementptr inbounds nuw { [23 x i8], i8 }, ptr %.val, i64 %.val4
+  %.idx.i.i.i = mul nuw nsw i64 %.val4, 24
+  %29 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i.i
   %30 = icmp samesign ult i64 %.val4, 4294967296
   %31 = trunc nuw i64 %.val4 to i32
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -71640,7 +71645,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14139)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14142)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14144)
-  %26 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %.val, i64 %.val4
+  %.idx.i.i.i = shl nuw nsw i64 %.val4, 4
+  %26 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i.i
   %27 = icmp samesign ult i64 %.val4, 4294967296
   %28 = trunc nuw i64 %.val4 to i32
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -73992,7 +73998,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14528)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14531)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14533)
-  %26 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %.val, i64 %.val4
+  %.idx.i.i.i = shl nuw nsw i64 %.val4, 4
+  %26 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i.i
   %27 = icmp samesign ult i64 %.val4, 4294967296
   %28 = trunc nuw i64 %.val4 to i32
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -75047,7 +75054,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14663)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14665)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.860.i.i.i)
-  %29 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %.val, i64 %.val4
+  %.idx.i.i.i = mul nuw nsw i64 %.val4, 24
+  %29 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i.i
   %30 = icmp samesign ult i64 %.val4, 4294967296
   %31 = trunc nuw i64 %.val4 to i32
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -76303,7 +76311,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14889)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14892)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14894)
-  %26 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %.val, i64 %.val4
+  %.idx.i.i.i = shl nuw nsw i64 %.val4, 4
+  %26 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i.i
   %27 = icmp samesign ult i64 %.val4, 4294967296
   %28 = trunc nuw i64 %.val4 to i32
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -80820,7 +80829,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15705)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15708)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15710)
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %.val4
+  %.idx.i.i.i = shl nuw nsw i64 %.val4, 3
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i
   %31 = icmp samesign ult i64 %.val4, 4294967296
   %32 = trunc nuw i64 %.val4 to i32
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -83085,7 +83095,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16152)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16155)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16157)
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %.val4
+  %.idx.i.i.i = shl nuw nsw i64 %.val4, 3
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i
   %31 = icmp samesign ult i64 %.val4, 4294967296
   %32 = trunc nuw i64 %.val4 to i32
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -88862,7 +88873,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17459)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17461)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.860.i.i.i)
-  %29 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %.val, i64 %.val4
+  %.idx.i.i.i = mul nuw nsw i64 %.val4, 24
+  %29 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i.i
   %30 = icmp samesign ult i64 %.val4, 4294967296
   %31 = trunc nuw i64 %.val4 to i32
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -90282,7 +90294,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17729)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17732)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17734)
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %.val4
+  %.idx.i.i.i = shl nuw nsw i64 %.val4, 3
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i
   %31 = icmp samesign ult i64 %.val4, 4294967296
   %32 = trunc nuw i64 %.val4 to i32
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -91076,7 +91089,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17919)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17921)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.860.i.i.i)
-  %29 = getelementptr inbounds nuw { [23 x i8], i8 }, ptr %.val, i64 %.val4
+  %.idx.i.i.i = mul nuw nsw i64 %.val4, 24
+  %29 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i.i
   %30 = icmp samesign ult i64 %.val4, 4294967296
   %31 = trunc nuw i64 %.val4 to i32
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -92702,7 +92716,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18329)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18332)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18334)
-  %29 = getelementptr inbounds nuw { i128, [2 x i64] }, ptr %.val, i64 %.val4
+  %.idx.i.i.i = shl nuw nsw i64 %.val4, 5
+  %29 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i.i
   %30 = icmp samesign ult i64 %.val4, 4294967296
   %31 = trunc nuw i64 %.val4 to i32
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -94301,7 +94316,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18618)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18621)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18623)
-  %29 = getelementptr inbounds nuw { i128, [2 x i64] }, ptr %.val, i64 %.val4
+  %.idx.i.i.i = shl nuw nsw i64 %.val4, 5
+  %29 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i.i
   %30 = icmp samesign ult i64 %.val4, 4294967296
   %31 = trunc nuw i64 %.val4 to i32
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -96624,7 +96640,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19155)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.860.i.i.i)
-  %29 = getelementptr inbounds nuw { [23 x i8], i8 }, ptr %.val, i64 %.val4
+  %.idx.i.i.i = mul nuw nsw i64 %.val4, 24
+  %29 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i.i
   %30 = icmp samesign ult i64 %.val4, 4294967296
   %31 = trunc nuw i64 %.val4 to i32
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -99701,7 +99718,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19893)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19895)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.860.i.i.i)
-  %29 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %.val, i64 %.val4
+  %.idx.i.i.i = mul nuw nsw i64 %.val4, 24
+  %29 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i.i
   %30 = icmp samesign ult i64 %.val4, 4294967296
   %31 = trunc nuw i64 %.val4 to i32
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 28

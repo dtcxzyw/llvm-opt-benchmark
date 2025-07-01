@@ -4805,7 +4805,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %14, %16
   %18 = load ptr, ptr %0, align 8, !tbaa !56
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !59
-  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %20
+  %.idx = shl i64 %20, 2
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %invariant.gep = getelementptr i8, ptr %1, i64 16
   %.not44 = icmp eq i64 %20, 0
   br i1 %.not44, label %._crit_edge.thread, label %.lr.ph

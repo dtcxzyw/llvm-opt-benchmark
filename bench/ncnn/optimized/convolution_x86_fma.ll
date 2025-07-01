@@ -16449,7 +16449,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %732
           to label %.noexc262 unwind label %309
 
 .noexc262:                                        ; preds = %.noexc1911.i
-  %750 = getelementptr i32, ptr %749, i64 %746
+  %750 = getelementptr inbounds nuw i32, ptr %749, i64 %746
   store i32 0, ptr %749, align 4, !tbaa !73
   %751 = icmp eq i32 %745, 1
   br i1 %751, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
@@ -23179,7 +23179,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %13
 .noexc908:                                        ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %52 = shl nuw nsw i64 %50, 2
   %53 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %52) #35
-  %54 = getelementptr i32, ptr %53, i64 %50
+  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %50
   store i32 0, ptr %53, align 4, !tbaa !73
   %55 = icmp eq i32 %49, 1
   br i1 %55, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i

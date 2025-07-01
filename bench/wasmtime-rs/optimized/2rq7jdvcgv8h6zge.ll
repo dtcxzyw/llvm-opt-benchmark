@@ -334,7 +334,8 @@ common.resume:                                    ; preds = %.body, %19
   %26 = load ptr, ptr %25, align 8, !alias.scope !33, !nonnull !9, !noundef !9
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load i64, ptr %27, align 8, !alias.scope !33, !noundef !9
-  %29 = getelementptr inbounds { ptr, i64, ptr }, ptr %26, i64 %28
+  %.idx.i = mul nsw i64 %28, 24
+  %29 = getelementptr inbounds i8, ptr %26, i64 %.idx.i
   %30 = icmp eq i64 %28, 0
   br i1 %30, label %._crit_edge.i, label %.lr.ph.i
 

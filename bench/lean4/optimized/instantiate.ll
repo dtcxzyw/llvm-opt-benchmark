@@ -1290,7 +1290,8 @@ _ZN4lean10object_refD2Ev.exit18:                  ; preds = %_ZN4lean10object_re
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
   %68 = load ptr, ptr %3, align 8, !tbaa !27
   %69 = load i64, ptr %24, align 8, !tbaa !29
-  %70 = getelementptr inbounds nuw %"class.lean::expr", ptr %68, i64 %69
+  %.idx.i.i.i = shl nuw nsw i64 %69, 3
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i.i.i
   %.not4.i.i.i.i = icmp eq i64 %69, 0
   br i1 %.not4.i.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -1399,7 +1400,8 @@ define linkonce_odr hidden void @_ZN4lean6bufferINS_4exprELm16EED2Ev(ptr noundef
   %2 = load ptr, ptr %0, align 8, !tbaa !27
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !29
-  %5 = getelementptr inbounds nuw %"class.lean::expr", ptr %2, i64 %4
+  %.idx.i.i = shl nuw nsw i64 %4, 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i
   %.not4.i.i.i = icmp eq i64 %4, 0
   br i1 %.not4.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i, label %.lr.ph.i.i.i
 
@@ -1748,7 +1750,8 @@ _ZN4lean4expraSERKS0_.exit:                       ; preds = %75, %_ZN4lean3incEP
 _ZN4lean4exprC2ERKS0_.exit43:                     ; preds = %.invoke, %117, %115, %109, %118
   %119 = load ptr, ptr %4, align 8, !tbaa !27
   %120 = load i64, ptr %45, align 8, !tbaa !29
-  %121 = getelementptr inbounds nuw %"class.lean::expr", ptr %119, i64 %120
+  %.idx.i.i.i = shl nuw nsw i64 %120, 3
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 %.idx.i.i.i
   %.not4.i.i.i.i = icmp eq i64 %120, 0
   br i1 %.not4.i.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i, label %.lr.ph.i.i.i.i
 

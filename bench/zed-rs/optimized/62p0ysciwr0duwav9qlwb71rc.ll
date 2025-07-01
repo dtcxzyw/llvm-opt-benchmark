@@ -43307,7 +43307,8 @@ default.unreachable424:                           ; preds = %1252, %800, %627, %
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %81), !noalias !10663
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %71), !noalias !10663
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %70), !noalias !10663
-  %272 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, ptr %.sroa.2.0.copyload.i, i64 %.sroa.3193.0.copyload.i
+  %.idx.i = mul nsw i64 %.sroa.3193.0.copyload.i, 104
+  %272 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 %.idx.i
   %273 = getelementptr inbounds nuw i8, ptr %1, i64 576
   call void @llvm.experimental.noalias.scope.decl(metadata !10803)
   store ptr %.sroa.2.0.copyload.i, ptr %70, align 8, !alias.scope !10806, !noalias !10808

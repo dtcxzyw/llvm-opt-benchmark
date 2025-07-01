@@ -1656,7 +1656,8 @@ define hidden noundef zeroext i1 @"_ZN4hkdf17Hkdf$LT$H$C$I$GT$17expand_multi_inf
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 120
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 184
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %26 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %26 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %27 = icmp eq i64 %2, 0
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 1

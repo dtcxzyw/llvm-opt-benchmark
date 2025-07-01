@@ -5045,7 +5045,8 @@ define internal fastcc void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEE
   %43 = load ptr, ptr %42, align 8, !tbaa !531
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.065.080.i.i.i.i.i.i.i.i.i.i, i64 24
   %45 = load i64, ptr %44, align 8, !tbaa !484
-  %46 = getelementptr inbounds nuw %"class.mold::Integer", ptr %43, i64 %45
+  %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %45, 2
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %47 = icmp eq i64 %45, 0
   br i1 %47, label %._crit_edge.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 

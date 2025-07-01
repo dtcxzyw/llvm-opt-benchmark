@@ -1380,7 +1380,8 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hfce3a58e586e748dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 3
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !235)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9249d0fc889f284eE.llvm.13172722887856092680.exit", label %.lr.ph.i
@@ -4058,7 +4059,8 @@ define hidden noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree22evaluat
   %.sroa.6114.0.copyload = load i64, ptr %.sroa.6114.0..sroa_idx, align 8
   %.sroa.7115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 24
   %.sroa.7115.0.copyload = load i8, ptr %.sroa.7115.0..sroa_idx, align 8
-  %35 = getelementptr inbounds { { { { [4 x i64] }, i64 } }, i64 }, ptr %.sroa.0112.0.copyload, i64 %.sroa.5113.0.copyload
+  %.idx = mul nsw i64 %.sroa.5113.0.copyload, 48
+  %35 = getelementptr inbounds i8, ptr %.sroa.0112.0.copyload, i64 %.idx
   %36 = icmp eq i64 %.sroa.5113.0.copyload, 0
   br i1 %36, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd282fe2c8343c16fE.llvm.13172722887856092680.exit.thread", label %.lr.ph
 
@@ -4138,7 +4140,8 @@ define hidden noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree22evaluat
   %.sroa.579.0.copyload = load i64, ptr %.sroa.579.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !707)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !710)
-  %70 = getelementptr inbounds ptr, ptr %2, i64 %3
+  %.idx.i = shl nsw i64 %3, 3
+  %70 = getelementptr inbounds i8, ptr %2, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !712)
   %.not.i.i = icmp eq i64 %3, 0
   br i1 %.not.i.i, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hfce3a58e586e748dE.exit", label %.lr.ph.i.i

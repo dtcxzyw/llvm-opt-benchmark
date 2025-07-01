@@ -1063,7 +1063,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hd6657c9b4ac76e70E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hdc080f31a394863fE.exit, label %.lr.ph.i
 
@@ -2314,7 +2315,8 @@ define hidden void @"_ZN4core4hash3sip15Hasher$LT$S$GT$5reset17h5c6a83a3af539ecf
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17hc146bd14d1edad60E.llvm.8271119346295809160(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(8) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %6, label %.lr.ph.preheader
 
@@ -2420,7 +2422,8 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17hc146bd14d1edad60E.llvm.8271
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17hfaad1138fb50fb02E.llvm.8271119346295809160(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(72) %2) unnamed_addr #11 {
   %4 = alloca [1 x i8], align 1
-  %5 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %6 = icmp eq i64 %1, 0
   br i1 %6, label %._crit_edge, label %.lr.ph
 
@@ -10597,7 +10600,8 @@ define hidden void @"_ZN88_$LT$indexed_docs..providers..rustdoc..item..RustdocIt
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h51d1712de59c58d9E.llvm.8271119346295809160"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !1555
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1560)
-  %14 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %11, i64 %13
+  %.idx.i = shl nsw i64 %13, 4
+  %14 = getelementptr inbounds i8, ptr %11, i64 %.idx.i
   %15 = icmp eq i64 %13, 0
   br i1 %15, label %_ZN4core4hash4Hash10hash_slice17hfaad1138fb50fb02E.llvm.8271119346295809160.exit, label %.lr.ph.i
 
@@ -10650,7 +10654,8 @@ define hidden void @"_ZN88_$LT$indexed_docs..providers..rustdoc..item..RustdocIt
   store i64 %16, ptr %1, align 8, !alias.scope !1594
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1599)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1602)
-  %17 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %11, i64 %13
+  %.idx.i = shl nsw i64 %13, 4
+  %17 = getelementptr inbounds i8, ptr %11, i64 %.idx.i
   %18 = icmp eq i64 %13, 0
   br i1 %18, label %_ZN4core4hash4Hash10hash_slice17hc146bd14d1edad60E.llvm.8271119346295809160.exit, label %.lr.ph.i
 

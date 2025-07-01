@@ -23377,7 +23377,8 @@ define hidden void @_ZN12polars_arrow6offset17try_check_offsets17h5fb948be35275b
   br i1 %17, label %19, label %.lr.ph.preheader, !prof !16
 
 .lr.ph.preheader:                                 ; preds = %15
-  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 2
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br label %.lr.ph
 
 19:                                               ; preds = %15
@@ -25034,7 +25035,8 @@ define hidden void @_ZN12polars_arrow2io3ipc4read5array5union10skip_union17hfebf
   %57 = tail call { ptr, i64 } @_ZN12polars_arrow5array5union10UnionArray10get_fields17h400cb7290ea03ca7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
   %58 = extractvalue { ptr, i64 } %57, 0
   %59 = extractvalue { ptr, i64 } %57, 1
-  %60 = getelementptr inbounds nuw { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] }, ptr %58, i64 %59
+  %.idx = mul nuw nsw i64 %59, 72
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2147)
   %61 = icmp ne ptr %58, null
   tail call void @llvm.assume(i1 %61)
@@ -27343,7 +27345,8 @@ define void @_ZN12polars_arrow2io3ipc5write6common23encode_new_dictionaries17h65
   %.sroa.519.0.copyload = load i64, ptr %13, align 8
   %18 = icmp ult i64 %.sroa.519.0.copyload, 384307168202282326
   call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds nuw { i64, { { { { ptr, ptr } }, {} }, {} } }, ptr %.sroa.4.0.copyload, i64 %.sroa.519.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.519.0.copyload, 24
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 %.idx
   %20 = icmp sgt i64 %.sroa.018.0.copyload, -1
   call void @llvm.assume(i1 %20)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
@@ -27955,7 +27958,8 @@ common.resume:                                    ; preds = %98, %112, %121
   %125 = tail call { ptr, i64 } @_ZN12polars_arrow5array7struct_11StructArray6values17h5dbb5a2c7e2955b6E(ptr noundef nonnull align 8 %36)
   %126 = extractvalue { ptr, i64 } %125, 0
   %127 = extractvalue { ptr, i64 } %125, 1
-  %128 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %126, i64 %127
+  %.idx = shl nuw nsw i64 %127, 4
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx
   %129 = icmp ne ptr %126, null
   tail call void @llvm.assume(i1 %129)
   %130 = icmp eq i64 %127, 0
@@ -28223,7 +28227,8 @@ define void @_ZN12polars_arrow2io3ipc5write6common19encode_record_batch17h9d186d
   %20 = load ptr, ptr %19, align 8, !nonnull !3, !noundef !3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8, !noundef !3
-  %23 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %20, i64 %22
+  %.idx = shl nuw nsw i64 %22, 4
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %.not7 = icmp eq i64 %22, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -29769,7 +29774,8 @@ define void @_ZN12polars_arrow2io4avro5write9serialize17haadad636b007e38cE(ptr n
   br i1 %.not9, label %._crit_edge, label %.lr.ph8
 
 .lr.ph8:                                          ; preds = %3
-  %7 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %0, i64 %1
+  %.idx = shl nuw nsw i64 %1, 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %8 = icmp eq i64 %1, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 

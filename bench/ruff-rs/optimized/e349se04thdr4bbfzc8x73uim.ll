@@ -3641,7 +3641,8 @@ define hidden noundef range(i64 1, 0) i64 @_ZN7ty_test6parser21EmbeddedFileSourc
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i64 %7
+  %.idx = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %.loopexit, label %.lr.ph
 

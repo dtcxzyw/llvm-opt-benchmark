@@ -27854,7 +27854,8 @@ define linkonce_odr void @_ZNSt3setIsSt4lessIsESaIsEEC2ESt16initializer_listIsER
   store ptr %6, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i16, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIssSt9_IdentityIsESt4lessIsESaIsEE22_M_insert_range_uniqueIPKsEENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESA_SA_.exit, label %.lr.ph.i
 

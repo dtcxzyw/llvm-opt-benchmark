@@ -9878,7 +9878,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i117:
   %109 = load ptr, ptr %108, align 8, !nonnull !9, !noundef !9
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 616
   %111 = load i64, ptr %110, align 8, !noundef !9
-  %112 = getelementptr inbounds { i32, [1 x i32] }, ptr %109, i64 %111
+  %.idx = shl nsw i64 %111, 3
+  %112 = getelementptr inbounds i8, ptr %109, i64 %.idx
   %113 = icmp eq i64 %111, 0
   br i1 %113, label %._crit_edge, label %.lr.ph
 

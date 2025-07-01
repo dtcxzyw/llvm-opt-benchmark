@@ -2387,7 +2387,8 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore11put_api_key17hf2d7cb442
   store i8 %134, ptr %26, align 1
   %135 = load ptr, ptr %92, align 8, !nonnull !4, !noundef !4
   %136 = load i64, ptr %94, align 8, !noundef !4
-  %137 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } } }, ptr %135, i64 %136
+  %.idx = mul nsw i64 %136, 24
+  %137 = getelementptr inbounds i8, ptr %135, i64 %.idx
   %138 = icmp eq i64 %136, 0
   br i1 %138, label %.loopexit.us, label %.lr.ph175.us
 

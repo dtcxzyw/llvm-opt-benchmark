@@ -2992,7 +2992,8 @@ default.unreachable2:                             ; preds = %5
   %51 = load ptr, ptr %48, align 8, !alias.scope !409, !nonnull !4, !align !33, !noundef !4
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load i64, ptr %52, align 8, !alias.scope !409, !noundef !4
-  %54 = getelementptr inbounds i32, ptr %51, i64 %53
+  %.idx.i = shl nsw i64 %53, 2
+  %54 = getelementptr inbounds i8, ptr %51, i64 %.idx.i
   %55 = icmp eq i64 %53, 0
   br i1 %55, label %._crit_edge.i1, label %.lr.ph.i
 

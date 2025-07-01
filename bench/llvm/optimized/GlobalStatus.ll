@@ -77,7 +77,8 @@ thread-pre-split:                                 ; preds = %_ZN4llvm23SmallVect
   %22 = load ptr, ptr %2, align 8, !tbaa !10, !noalias !21
   %23 = load i32, ptr %8, align 4, !tbaa !14, !noalias !21
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %.idx.i.i = shl nuw nsw i64 %24, 3
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i
   %.not36.i.i = icmp eq i32 %23, 0
   br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -525,7 +526,8 @@ _ZNK4llvm12GlobalStatus18getStoredOnceValueEv.exit: ; preds = %129, %131
   %144 = load ptr, ptr %2, align 8, !tbaa !10, !noalias !76
   %145 = load i32, ptr %17, align 4, !tbaa !14, !noalias !76
   %146 = zext i32 %145 to i64
-  %147 = getelementptr inbounds nuw ptr, ptr %144, i64 %146
+  %.idx.i.i = shl nuw nsw i64 %146, 3
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 %.idx.i.i
   %.not36.i.i = icmp eq i32 %145, 0
   br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 

@@ -7427,7 +7427,8 @@ define linkonce_odr void @_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsI
   store ptr %0, ptr %0, align 8, !tbaa !162
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %6, align 8, !tbaa !175
-  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 5
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not5.i = icmp eq i64 %2, 0
   br i1 %.not5.i, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE22_M_initialize_dispatchIPKS5_EEvT_SB_St12__false_type.exit, label %.lr.ph.i
 

@@ -811,8 +811,9 @@ _ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder8append_n17hae7f67c3f4b88
 75:                                               ; preds = %_ZN12arrow_buffer7builder7boolean20BooleanBufferBuilder8append_n17hae7f67c3f4b88995E.exit, %48
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %77 = load ptr, ptr %76, align 8, !nonnull !4, !noundef !4
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %33
-  %79 = icmp ult i64 %.val, 4
+  %.idx = and i64 %.val, -4
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx
+  %79 = icmp samesign eq i64 %.idx, 0
   br i1 %79, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %75

@@ -562,7 +562,8 @@ _ZN19maximize_ac_sharing5entryC2EP9func_declP4exprS4_.exit.i: ; preds = %155, %1
   %201 = xor i32 %199, %200
   %202 = and i32 %201, %145
   %203 = zext i32 %202 to i64
-  %204 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %146, i64 %203
+  %.idx.i = shl nuw nsw i64 %203, 4
+  %204 = getelementptr inbounds nuw i8, ptr %146, i64 %.idx.i
   %.not53.i = icmp eq i32 %202, %144
   br i1 %.not53.i, label %.preheader.i, label %.lr.ph.i132
 
@@ -1571,7 +1572,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14ptr_hash_entryIN19maximiz
   %51 = and i32 %47, %50
   %52 = load ptr, ptr %0, align 8, !tbaa !79
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %52, i64 %53
+  %.idx = shl nuw nsw i64 %53, 4
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx
   %55 = zext i32 %49 to i64
   %56 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %52, i64 %55
   %.not62 = icmp eq i32 %51, %49
@@ -1714,7 +1716,8 @@ define hidden void @_ZN19maximize_ac_sharing5resetEv(ptr noundef nonnull align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8, !tbaa !80
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %10, i64 %13
+  %.idx.i = shl nuw nsw i64 %13, 4
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
   %.not11.i = icmp eq i32 %12, 0
   br i1 %.not11.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
@@ -2528,7 +2531,8 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI14ptr_hash_entryIN1
   %51 = and i32 %47, %50
   %52 = load ptr, ptr %0, align 8, !tbaa !79
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %52, i64 %53
+  %.idx = shl nuw nsw i64 %53, 4
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx
   %55 = zext i32 %49 to i64
   %56 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %52, i64 %55
   %.not53 = icmp eq i32 %51, %49
@@ -2817,7 +2821,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14ptr_hash_entryIN19maximiz
   %62 = and i32 %60, %61
   %63 = load ptr, ptr %0, align 8, !tbaa !79
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %63, i64 %64
+  %.idx = shl nuw nsw i64 %64, 4
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx
   %66 = zext i32 %15 to i64
   %67 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %63, i64 %66
   %.not83 = icmp eq i32 %62, %15
@@ -2991,7 +2996,8 @@ _ZN14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_has
   %12 = load i32, ptr %2, align 8, !tbaa !80
   %13 = add i32 %4, -1
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %11, i64 %14
+  %.idx.i = shl nuw nsw i64 %14, 4
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   %16 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %7, i64 %5
   %.not38.i = icmp eq i32 %12, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE10move_tableEPS3_jS9_j.exit, label %.lr.ph41.i
@@ -3007,7 +3013,8 @@ _ZN14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_has
   %20 = load i32, ptr %.02839.i, align 8, !tbaa !37
   %21 = and i32 %20, %13
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %7, i64 %22
+  %.idx43.i = shl nuw nsw i64 %22, 4
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx43.i
   %.not2933.i = icmp eq i32 %21, %4
   br i1 %.not2933.i, label %.preheader.i, label %.lr.ph.i
 
@@ -3111,7 +3118,8 @@ _ZN14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_has
   %13 = load i32, ptr %4, align 8, !tbaa !80
   %14 = add i32 %13, -1
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %12, i64 %15
+  %.idx.i = shl nuw nsw i64 %15, 4
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %17 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %8, i64 %15
   %.not38.i = icmp eq i32 %13, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_hashIS2_E8deref_eqIS2_EE10move_tableEPS3_jS9_j.exit, label %.lr.ph41.i
@@ -3127,7 +3135,8 @@ _ZN14core_hashtableI14ptr_hash_entryIN19maximize_ac_sharing5entryEE12obj_ptr_has
   %21 = load i32, ptr %.02839.i, align 8, !tbaa !37
   %22 = and i32 %21, %14
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %8, i64 %23
+  %.idx43.i = shl nuw nsw i64 %23, 4
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx43.i
   %.not2933.i = icmp eq i32 %22, %13
   br i1 %.not2933.i, label %.preheader.i, label %.lr.ph.i
 

@@ -30988,7 +30988,8 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h96380a43f1502690E.exit: ; preds = %
 ._crit_edge.i:                                    ; preds = %91, %_ZN4core4iter6traits8iterator8Iterator3zip17h96380a43f1502690E.exit
   %94 = load ptr, ptr %62, align 8, !nonnull !6, !noundef !6
   %95 = load i64, ptr %48, align 8, !noundef !6
-  %96 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %94, i64 %95
+  %.idx = shl nuw nsw i64 %95, 4
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx
   %97 = icmp eq i64 %95, 0
   br i1 %97, label %.loopexit110, label %.lr.ph.i51
 
@@ -31757,7 +31758,8 @@ common.resume:                                    ; preds = %46, %40
   store ptr %.sroa.08.0, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.7)
-  %52 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %.pre, i64 %.pre25
+  %.idx = shl nuw nsw i64 %.pre25, 4
+  %52 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
   %53 = icmp eq i64 %.pre25, 0
   br i1 %53, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h1c21856ddad37b75E.exit", label %.lr.ph.i
 
@@ -32252,7 +32254,8 @@ define void @"_ZN92_$LT$polars_arrow..array..struct_..StructArray$u20$as$u20$pol
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load ptr, ptr %54, align 8, !nonnull !6, !noundef !6
   %56 = load i64, ptr %17, align 8, !noundef !6
-  %57 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %55, i64 %56
+  %.idx = shl nuw nsw i64 %56, 4
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx
   %58 = icmp eq i64 %56, 0
   br i1 %58, label %._crit_edge, label %.lr.ph
 
@@ -32790,7 +32793,8 @@ _ZN4core5slice5ascii8is_ascii17hea282b4795ae863cE.exit.thread30: ; preds = %.pre
   br i1 %exitcond.not, label %.thread, label %.lr.ph
 
 _ZN4core5slice5ascii8is_ascii17hea282b4795ae863cE.exit.thread: ; preds = %_ZN4core5slice5ascii8is_ascii17hea282b4795ae863cE.exit, %._crit_edge.i, %.preheader14.i
-  %31 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %32 = icmp eq i64 %2, 0
   br i1 %32, label %.loopexit, label %.lr.ph51.preheader
 
@@ -32799,7 +32803,8 @@ _ZN4core5slice5ascii8is_ascii17hea282b4795ae863cE.exit.thread: ; preds = %_ZN4co
   br label %.lr.ph51
 
 .thread:                                          ; preds = %_ZN4core5slice5ascii8is_ascii17hea282b4795ae863cE.exit.thread30, %6
-  %33 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %1, i64 %2
+  %.idx52 = shl nuw nsw i64 %2, 4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx52
   %34 = icmp eq i64 %2, 0
   br i1 %34, label %.loopexit, label %.lr.ph46
 
@@ -37467,7 +37472,8 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h25fc155748ccab51E.exit: ; preds = %
   %.sroa.019.0153 = phi ptr [ %.sroa.019.1.lcssa, %.lr.ph156.splitthread-pre-split ], [ %38, %.lr.ph156 ]
   %.sroa.421.0152 = phi i64 [ %.sroa.421.1.lcssa, %.lr.ph156.splitthread-pre-split ], [ %40, %.lr.ph156 ]
   %95 = load ptr, ptr %59, align 8, !nonnull !6, !noundef !6
-  %96 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %95, i64 %93
+  %.idx = shl nuw nsw i64 %93, 4
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx
   %97 = icmp eq i64 %93, 0
   br i1 %97, label %._crit_edge, label %.lr.ph
 
@@ -37797,7 +37803,8 @@ define internal void @"_ZN113_$LT$polars_arrow..io..avro..read..nested..DynMutab
   %3 = load ptr, ptr %2, align 8, !alias.scope !3880, !nonnull !6, !noundef !6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !3880, !noundef !6
-  %6 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %3, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h03f39900975e2ad9E.exit.i", label %.lr.ph.i.i
 

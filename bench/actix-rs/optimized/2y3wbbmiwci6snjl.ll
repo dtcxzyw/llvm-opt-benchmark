@@ -930,7 +930,8 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @_ZN9actix_web7requ
   br i1 %19, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17he98551200196bf8dE.llvm.16950135292325605555.exit"
-  %20 = getelementptr inbounds ptr, ptr %.sink3.i, i64 %.sink2.i
+  %.idx = shl nsw i64 %.sink2.i, 3
+  %20 = getelementptr inbounds i8, ptr %.sink3.i, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN10actix_http10extensions10Extensions3get17h51dc239d760e2d2fE.exit
@@ -1017,7 +1018,8 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @_ZN9actix_web7req
   br i1 %19, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17he98551200196bf8dE.llvm.16950135292325605555.exit"
-  %20 = getelementptr inbounds ptr, ptr %.sink3.i, i64 %.sink2.i
+  %.idx = shl nsw i64 %.sink2.i, 3
+  %20 = getelementptr inbounds i8, ptr %.sink3.i, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN10actix_http10extensions10Extensions3get17h38514b6ca8d12e72E.exit
@@ -1104,7 +1106,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN9actix_web7req
   br i1 %19, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17he98551200196bf8dE.llvm.16950135292325605555.exit"
-  %20 = getelementptr inbounds ptr, ptr %.sink3.i, i64 %.sink2.i
+  %.idx = shl nsw i64 %.sink2.i, 3
+  %20 = getelementptr inbounds i8, ptr %.sink3.i, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN10actix_http10extensions10Extensions3get17hbd67e5b8c276acb8E.exit
@@ -1191,7 +1194,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN9actix_web7req
   br i1 %19, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17he98551200196bf8dE.llvm.16950135292325605555.exit"
-  %20 = getelementptr inbounds ptr, ptr %.sink3.i, i64 %.sink2.i
+  %.idx = shl nsw i64 %.sink2.i, 3
+  %20 = getelementptr inbounds i8, ptr %.sink3.i, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN10actix_http10extensions10Extensions3get17heec76e5d95bd9e09E.exit
@@ -1278,7 +1282,8 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @_ZN9actix_web7requ
   br i1 %19, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17he98551200196bf8dE.llvm.16950135292325605555.exit"
-  %20 = getelementptr inbounds ptr, ptr %.sink3.i, i64 %.sink2.i
+  %.idx = shl nsw i64 %.sink2.i, 3
+  %20 = getelementptr inbounds i8, ptr %.sink3.i, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN10actix_http10extensions10Extensions3get17h87dd385d0f1025d2E.exit
@@ -1365,7 +1370,8 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @_ZN9actix_web7requ
   br i1 %19, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17he98551200196bf8dE.llvm.16950135292325605555.exit"
-  %20 = getelementptr inbounds ptr, ptr %.sink3.i, i64 %.sink2.i
+  %.idx = shl nsw i64 %.sink2.i, 3
+  %20 = getelementptr inbounds i8, ptr %.sink3.i, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN10actix_http10extensions10Extensions3get17h40495b8be55b4df5E.exit
@@ -1452,7 +1458,8 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @_ZN9actix_web7requ
   br i1 %19, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17he98551200196bf8dE.llvm.16950135292325605555.exit"
-  %20 = getelementptr inbounds ptr, ptr %.sink3.i, i64 %.sink2.i
+  %.idx = shl nsw i64 %.sink2.i, 3
+  %20 = getelementptr inbounds i8, ptr %.sink3.i, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN10actix_http10extensions10Extensions3get17hf17983e87db2ba3dE.exit
@@ -1539,7 +1546,8 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN9actix_web7req
   br i1 %19, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17he98551200196bf8dE.llvm.16950135292325605555.exit"
-  %20 = getelementptr inbounds ptr, ptr %.sink3.i, i64 %.sink2.i
+  %.idx = shl nsw i64 %.sink2.i, 3
+  %20 = getelementptr inbounds i8, ptr %.sink3.i, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN10actix_http10extensions10Extensions3get17h9337d6242685a3faE.exit

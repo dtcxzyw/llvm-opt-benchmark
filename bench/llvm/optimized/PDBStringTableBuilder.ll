@@ -468,49 +468,55 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZL18computeBucketC
   %25 = zext i32 %.fr to i64
   %26 = shl nuw nsw i64 %25, 2
   %27 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #14
-  %28 = getelementptr %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %27, i64 %25
+  %28 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %27, i64 %25
   store i32 0, ptr %27, align 1
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %30 = icmp eq i32 %.fr, 1
-  br i1 %30, label %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i
+  %30 = add nsw i64 %25, -1
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit, label %32
 
-.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %24, %.lr.ph.i.i.i.i.i.i.i.i.i
-  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %29, %24 ]
-  %31 = load i32, ptr %27, align 1, !tbaa !36
-  store i32 %31, ptr %.06.i.i.i.i.i.i.i.i.i, align 1, !tbaa !36
-  %32 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %32, %28
+32:                                               ; preds = %24
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %30, 2
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i.i.i.i.i
+  br label %.lr.ph.i.i.i.i.i.i.i.i.i
+
+.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %32
+  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %29, %32 ]
+  %34 = load i32, ptr %27, align 1, !tbaa !36
+  store i32 %34, ptr %.06.i.i.i.i.i.i.i.i.i, align 1, !tbaa !36
+  %35 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %35, %33
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !65
 
 _ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZN4llvm5ErrorD2Ev.exit, %24
   %.sroa.11.0 = phi ptr [ %28, %24 ], [ null, %_ZN4llvm5ErrorD2Ev.exit ], [ %28, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %.sroa.044.0 = phi ptr [ %27, %24 ], [ null, %_ZN4llvm5ErrorD2Ev.exit ], [ %27, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.0.i.i.i.i.i = phi ptr [ %29, %24 ], [ null, %_ZN4llvm5ErrorD2Ev.exit ], [ %28, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %34 = load ptr, ptr %33, align 8, !tbaa !29
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %36 = load i32, ptr %35, align 8, !tbaa !28
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %_ZNK4llvm8codeview26DebugStringTableSubsection5beginEv.exit, label %.preheader.i.i.i.i
+  %.0.i.i.i.i.i = phi ptr [ %29, %24 ], [ null, %_ZN4llvm5ErrorD2Ev.exit ], [ %33, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %37 = load ptr, ptr %36, align 8, !tbaa !29
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %39 = load i32, ptr %38, align 8, !tbaa !28
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %_ZNK4llvm8codeview26DebugStringTableSubsection5beginEv.exit, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit, %.critedge.i.i.i.i.i
-  %.sroa.0.0.i.i = phi ptr [ %39, %.critedge.i.i.i.i.i ], [ %34, %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit ]
-  %38 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !31
-  %magicptr.i.i.i.i.i = ptrtoint ptr %38 to i64
+  %.sroa.0.0.i.i = phi ptr [ %42, %.critedge.i.i.i.i.i ], [ %37, %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit ]
+  %41 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !31
+  %magicptr.i.i.i.i.i = ptrtoint ptr %41 to i64
   switch i64 %magicptr.i.i.i.i.i, label %_ZNK4llvm8codeview26DebugStringTableSubsection5beginEv.exit [
     i64 0, label %.critedge.i.i.i.i.i
     i64 -8, label %.critedge.i.i.i.i.i
   ]
 
 .critedge.i.i.i.i.i:                              ; preds = %.preheader.i.i.i.i, %.preheader.i.i.i.i
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
   br label %.preheader.i.i.i.i, !llvm.loop !66
 
 _ZNK4llvm8codeview26DebugStringTableSubsection5beginEv.exit: ; preds = %.preheader.i.i.i.i, %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit
-  %.sroa.0.1.i.i = phi ptr [ %34, %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit ], [ %.sroa.0.0.i.i, %.preheader.i.i.i.i ]
-  %40 = zext i32 %36 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %34, i64 %40
-  %.not5054 = icmp eq ptr %.sroa.0.1.i.i, %41
+  %.sroa.0.1.i.i = phi ptr [ %37, %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit ], [ %.sroa.0.0.i.i, %.preheader.i.i.i.i ]
+  %43 = zext i32 %39 to i64
+  %44 = getelementptr inbounds nuw ptr, ptr %37, i64 %43
+  %.not5054 = icmp eq ptr %.sroa.0.1.i.i, %44
   br i1 %.not5054, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm8codeview26DebugStringTableSubsection5beginEv.exit
@@ -518,18 +524,18 @@ _ZNK4llvm8codeview26DebugStringTableSubsection5beginEv.exit: ; preds = %.prehead
   br i1 %.not.i.i.i.i, label %.loopexit.us, label %.critedge31.lr.ph
 
 .loopexit.us:                                     ; preds = %.lr.ph, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit.us
-  %42 = phi ptr [ %46, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit.us ], [ %.pre58, %.lr.ph ]
+  %45 = phi ptr [ %49, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit.us ], [ %.pre58, %.lr.ph ]
   %.sroa.040.055.us = phi ptr [ %storemerge.i.us, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit.us ], [ %.sroa.0.1.i.i, %.lr.ph ]
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i64, ptr %42, align 8, !tbaa !33
-  %45 = call noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr nonnull %43, i64 %44) #13
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %47 = load i64, ptr %45, align 8, !tbaa !33
+  %48 = call noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr nonnull %46, i64 %47) #13
   br label %.critedge.i.i.us
 
 .critedge.i.i.us:                                 ; preds = %.critedge.i.i.us.backedge, %.loopexit.us
   %.pn.i.us = phi ptr [ %.sroa.040.055.us, %.loopexit.us ], [ %storemerge.i.us, %.critedge.i.i.us.backedge ]
   %storemerge.i.us = getelementptr inbounds nuw i8, ptr %.pn.i.us, i64 8
-  %46 = load ptr, ptr %storemerge.i.us, align 8, !tbaa !31
-  %magicptr.i.i.us = ptrtoint ptr %46 to i64
+  %49 = load ptr, ptr %storemerge.i.us, align 8, !tbaa !31
+  %magicptr.i.i.us = ptrtoint ptr %49 to i64
   switch i64 %magicptr.i.i.us, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit.us [
     i64 0, label %.critedge.i.i.us.backedge
     i64 -8, label %.critedge.i.i.us.backedge
@@ -539,74 +545,74 @@ _ZNK4llvm8codeview26DebugStringTableSubsection5beginEv.exit: ; preds = %.prehead
   br label %.critedge.i.i.us, !llvm.loop !66
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit.us: ; preds = %.critedge.i.i.us
-  %.not50.us = icmp eq ptr %storemerge.i.us, %41
+  %.not50.us = icmp eq ptr %storemerge.i.us, %44
   br i1 %.not50.us, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit._crit_edge, label %.loopexit.us
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit: ; preds = %..loopexit_crit_edge
-  %.not50 = icmp eq ptr %storemerge.i, %41
+  %.not50 = icmp eq ptr %storemerge.i, %44
   br i1 %.not50, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit._crit_edge, label %.critedge31.lr.ph
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit._crit_edge: ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit.us, %_ZNK4llvm8codeview26DebugStringTableSubsection5beginEv.exit
-  %47 = ptrtoint ptr %.0.i.i.i.i.i to i64
-  %48 = ptrtoint ptr %.sroa.044.0 to i64
-  %49 = sub i64 %47, %48
-  %50 = icmp eq ptr %.0.i.i.i.i.i, %.sroa.044.0
-  br i1 %50, label %.critedge33.sink.split, label %51
+  %50 = ptrtoint ptr %.0.i.i.i.i.i to i64
+  %51 = ptrtoint ptr %.sroa.044.0 to i64
+  %52 = sub i64 %50, %51
+  %53 = icmp eq ptr %.0.i.i.i.i.i, %.sroa.044.0
+  br i1 %53, label %.critedge33.sink.split, label %54
 
-51:                                               ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit._crit_edge
-  %52 = icmp ugt i64 %49, 4294967292
-  br i1 %52, label %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit.thread, label %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit
+54:                                               ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit._crit_edge
+  %55 = icmp ugt i64 %52, 4294967292
+  br i1 %55, label %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit.thread, label %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit
 
-_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit.thread: ; preds = %51
-  %53 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #14, !noalias !67
-  call void @_ZN4llvm17BinaryStreamErrorC1ENS_17stream_error_codeE(ptr noundef nonnull align 8 dereferenceable(44) %53, i32 noundef 2) #13, !noalias !67
+_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit.thread: ; preds = %54
+  %56 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #14, !noalias !67
+  call void @_ZN4llvm17BinaryStreamErrorC1ENS_17stream_error_codeE(ptr noundef nonnull align 8 dereferenceable(44) %56, i32 noundef 2) #13, !noalias !67
   br label %.critedge33.sink.split
 
-_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit: ; preds = %51
-  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr %.sroa.044.0, i64 %49) #13
+_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit: ; preds = %54
+  call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr %.sroa.044.0, i64 %52) #13
   %.pr = load ptr, ptr %0, align 8, !tbaa !62
   %.not51 = icmp eq ptr %.pr, null
   br i1 %.not51, label %.critedge33.sink.split, label %.critedge33
 
 .critedge31.lr.ph:                                ; preds = %.lr.ph, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit
-  %54 = phi ptr [ %67, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit ], [ %.pre58, %.lr.ph ]
+  %57 = phi ptr [ %70, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit ], [ %.pre58, %.lr.ph ]
   %.sroa.040.055 = phi ptr [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit ], [ %.sroa.0.1.i.i, %.lr.ph ]
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %56 = load i64, ptr %54, align 8, !tbaa !33
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %58 = load i32, ptr %57, align 4, !tbaa !9
-  %59 = call noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr nonnull %55, i64 %56) #13
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %59 = load i64, ptr %57, align 8, !tbaa !33
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %61 = load i32, ptr %60, align 4, !tbaa !9
+  %62 = call noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr nonnull %58, i64 %59) #13
   br label %.critedge31
 
-60:                                               ; preds = %.critedge31
-  %61 = add nuw i32 %.02653, 1
-  %.not = icmp eq i32 %61, %.fr
+63:                                               ; preds = %.critedge31
+  %64 = add nuw i32 %.02653, 1
+  %.not = icmp eq i32 %64, %.fr
   br i1 %.not, label %..loopexit_crit_edge.preheader, label %.critedge31, !llvm.loop !74
 
-.critedge31:                                      ; preds = %.critedge31.lr.ph, %60
-  %.02653 = phi i32 [ 0, %.critedge31.lr.ph ], [ %61, %60 ]
-  %62 = add i32 %.02653, %59
-  %63 = urem i32 %62, %.fr
-  %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %.sroa.044.0, i64 %64
-  call void @llvm.assume(i1 true) [ "align"(ptr %65, i64 1) ]
-  %.0.copyload.i.i.i = load i32, ptr %65, align 1
+.critedge31:                                      ; preds = %.critedge31.lr.ph, %63
+  %.02653 = phi i32 [ 0, %.critedge31.lr.ph ], [ %64, %63 ]
+  %65 = add i32 %.02653, %62
+  %66 = urem i32 %65, %.fr
+  %67 = zext i32 %66 to i64
+  %68 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %.sroa.044.0, i64 %67
+  call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 1) ]
+  %.0.copyload.i.i.i = load i32, ptr %68, align 1
   %.not29.not = icmp eq i32 %.0.copyload.i.i.i, 0
-  br i1 %.not29.not, label %66, label %60
+  br i1 %.not29.not, label %69, label %63
 
-66:                                               ; preds = %.critedge31
-  call void @llvm.assume(i1 true) [ "align"(ptr %65, i64 1) ]
-  store i32 %58, ptr %65, align 1
+69:                                               ; preds = %.critedge31
+  call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 1) ]
+  store i32 %61, ptr %68, align 1
   br label %..loopexit_crit_edge.preheader
 
-..loopexit_crit_edge.preheader:                   ; preds = %60, %66
+..loopexit_crit_edge.preheader:                   ; preds = %63, %69
   br label %..loopexit_crit_edge
 
 ..loopexit_crit_edge:                             ; preds = %..loopexit_crit_edge.backedge, %..loopexit_crit_edge.preheader
   %.pn.i = phi ptr [ %.sroa.040.055, %..loopexit_crit_edge.preheader ], [ %storemerge.i, %..loopexit_crit_edge.backedge ]
   %storemerge.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
-  %67 = load ptr, ptr %storemerge.i, align 8, !tbaa !31
-  %magicptr.i.i = ptrtoint ptr %67 to i64
+  %70 = load ptr, ptr %storemerge.i, align 8, !tbaa !31
+  %magicptr.i.i = ptrtoint ptr %70 to i64
   switch i64 %magicptr.i.i, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit [
     i64 0, label %..loopexit_crit_edge.backedge
     i64 -8, label %..loopexit_crit_edge.backedge
@@ -616,21 +622,21 @@ _ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_speci
   br label %..loopexit_crit_edge, !llvm.loop !66
 
 .critedge33.sink.split:                           ; preds = %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit._crit_edge, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit.thread
-  %.sink = phi ptr [ %53, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit.thread ], [ null, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit._crit_edge ], [ null, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit ]
+  %.sink = phi ptr [ %56, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit.thread ], [ null, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit._crit_edge ], [ null, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit ]
   store ptr %.sink, ptr %0, align 8, !tbaa !62
   br label %.critedge33
 
 .critedge33:                                      ; preds = %.critedge33.sink.split, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorENS_8ArrayRefIT_EE.exit
   %.not.i.i.i36 = icmp eq ptr %.sroa.044.0, null
-  br i1 %.not.i.i.i36, label %.critedge, label %68
+  br i1 %.not.i.i.i36, label %.critedge, label %71
 
-68:                                               ; preds = %.critedge33
-  %69 = ptrtoint ptr %.sroa.11.0 to i64
-  %70 = sub i64 %69, %48
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.044.0, i64 noundef %70) #15
+71:                                               ; preds = %.critedge33
+  %72 = ptrtoint ptr %.sroa.11.0 to i64
+  %73 = sub i64 %72, %51
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.044.0, i64 noundef %73) #15
   br label %.critedge
 
-.critedge:                                        ; preds = %68, %.critedge33, %_ZL18computeBucketCountj.exit
+.critedge:                                        ; preds = %71, %.critedge33, %_ZL18computeBucketCountj.exit
   ret void
 }
 

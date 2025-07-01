@@ -6060,7 +6060,8 @@ define void @_ZN5ockam13relay_service7options19RelayServiceOptions36setup_flow_c
   %6 = load ptr, ptr %5, align 8, !alias.scope !786, !nonnull !14, !noundef !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8, !alias.scope !786, !noundef !14
-  %9 = getelementptr inbounds { { { { ptr, i64 }, i64 } } }, ptr %6, i64 %8
+  %.idx = mul nsw i64 %8, 24
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -6106,7 +6107,8 @@ define hidden void @_ZN5ockam13relay_service7options19RelayServiceOptions28setup
   %6 = load ptr, ptr %5, align 8, !alias.scope !799, !nonnull !14, !noundef !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i64, ptr %7, align 8, !alias.scope !799, !noundef !14
-  %9 = getelementptr inbounds { { { { ptr, i64 }, i64 } } }, ptr %6, i64 %8
+  %.idx = mul nsw i64 %8, 24
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 

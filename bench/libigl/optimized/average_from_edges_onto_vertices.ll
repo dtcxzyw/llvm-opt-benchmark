@@ -170,7 +170,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %73 = load i64, ptr %72, align 8, !tbaa !26
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %75 = load i64, ptr %74, align 8, !tbaa !29
-  %76 = mul i64 %75, %73
+  %76 = mul nsw i64 %75, %73
   %77 = icmp slt i64 %76, 1
   br i1 %77, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i
 
@@ -468,7 +468,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %73 = load i64, ptr %72, align 8, !tbaa !26
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %75 = load i64, ptr %74, align 8, !tbaa !29
-  %76 = mul i64 %75, %73
+  %76 = mul nsw i64 %75, %73
   %77 = icmp slt i64 %76, 1
   br i1 %77, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i
 

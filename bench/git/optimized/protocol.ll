@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [26 x i8] c"GIT_TEST_PROTOCOL_VERSION\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"protocol.version\00", align 1
@@ -116,7 +115,8 @@ define dso_local range(i32 0, 3) i32 @determine_protocol_version_server() local_
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !17
-  %9 = getelementptr inbounds nuw %struct.string_list_item, ptr %6, i64 %8
+  %.idx = shl nuw nsw i64 %8, 4
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %.not29 = icmp eq i64 %8, 0
   br i1 %.not29, label %.critedge, label %.lr.ph28
 

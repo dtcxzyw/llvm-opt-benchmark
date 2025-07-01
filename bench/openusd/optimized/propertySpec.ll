@@ -8040,7 +8040,8 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__17SdfPathExpression12MakeAbsoluteERKNS_7S
   fence acquire
   %28 = load ptr, ptr %7, align 8
   %29 = load i64, ptr %5, align 8
-  %30 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", ptr %28, i64 %29
+  %.idx.i.i = mul nsw i64 %29, 104
+  %30 = getelementptr inbounds i8, ptr %28, i64 %.idx.i.i
   %.not2829.i.i = icmp eq i64 %29, 0
   br i1 %.not2829.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -8109,23 +8110,24 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEEaSEOS2_.ex
   fence acquire
   %51 = load ptr, ptr %6, align 8
   %52 = load i64, ptr %4, align 8
-  %53 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", ptr %51, i64 %52
-  %.not2829.i.i12 = icmp eq i64 %52, 0
-  br i1 %.not2829.i.i12, label %._crit_edge.i.i18, label %.lr.ph.i.i13
+  %.idx.i.i12 = mul nsw i64 %52, 104
+  %53 = getelementptr inbounds i8, ptr %51, i64 %.idx.i.i12
+  %.not2829.i.i13 = icmp eq i64 %52, 0
+  br i1 %.not2829.i.i13, label %._crit_edge.i.i19, label %.lr.ph.i.i14
 
-.lr.ph.i.i13:                                     ; preds = %50, %.lr.ph.i.i13
-  %.02430.i.i14 = phi ptr [ %54, %.lr.ph.i.i13 ], [ %51, %50 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %.02430.i.i14) #20
-  %54 = getelementptr inbounds nuw i8, ptr %.02430.i.i14, i64 104
-  %.not28.i.i15 = icmp eq ptr %54, %53
-  br i1 %.not28.i.i15, label %._crit_edge.loopexit.i.i16, label %.lr.ph.i.i13, !llvm.loop !84
+.lr.ph.i.i14:                                     ; preds = %50, %.lr.ph.i.i14
+  %.02430.i.i15 = phi ptr [ %54, %.lr.ph.i.i14 ], [ %51, %50 ]
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %.02430.i.i15) #20
+  %54 = getelementptr inbounds nuw i8, ptr %.02430.i.i15, i64 104
+  %.not28.i.i16 = icmp eq ptr %54, %53
+  br i1 %.not28.i.i16, label %._crit_edge.loopexit.i.i17, label %.lr.ph.i.i14, !llvm.loop !84
 
-._crit_edge.loopexit.i.i16:                       ; preds = %.lr.ph.i.i13
-  %.pre.i.i17 = load ptr, ptr %6, align 8
-  br label %._crit_edge.i.i18
+._crit_edge.loopexit.i.i17:                       ; preds = %.lr.ph.i.i14
+  %.pre.i.i18 = load ptr, ptr %6, align 8
+  br label %._crit_edge.i.i19
 
-._crit_edge.i.i18:                                ; preds = %._crit_edge.loopexit.i.i16, %50
-  %55 = phi ptr [ %.pre.i.i17, %._crit_edge.loopexit.i.i16 ], [ %51, %50 ]
+._crit_edge.i.i19:                                ; preds = %._crit_edge.loopexit.i.i17, %50
+  %55 = phi ptr [ %.pre.i.i18, %._crit_edge.loopexit.i.i17 ], [ %51, %50 ]
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   call void @_ZdlPv(ptr noundef nonnull %56) #20
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEED2Ev.exit
@@ -8154,7 +8156,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEEaSEOS2_.ex
   call void @__clang_call_terminate(ptr %67) #19
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEED2Ev.exit: ; preds = %46, %._crit_edge.i.i18, %57, %60, %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEEaSEOS2_.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEEaSEOS2_.exit
+_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEED2Ev.exit: ; preds = %46, %._crit_edge.i.i19, %57, %60, %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEEaSEOS2_.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEEaSEOS2_.exit
   ret void
 
 .loopexit:                                        ; preds = %.lr.ph.i
@@ -13717,7 +13719,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17Sdf
   fence acquire
   %12 = load ptr, ptr %2, align 8
   %13 = load i64, ptr %0, align 8
-  %14 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", ptr %12, i64 %13
+  %.idx.i = mul nsw i64 %13, 104
+  %14 = getelementptr inbounds i8, ptr %12, i64 %.idx.i
   %.not2829.i = icmp eq i64 %13, 0
   br i1 %.not2829.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -13804,7 +13807,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__25TfDelegatedCoun
   fence acquire
   %18 = load ptr, ptr %8, align 8
   %19 = load i64, ptr %0, align 8
-  %20 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", ptr %18, i64 %19
+  %.idx.i.i.i = mul nsw i64 %19, 104
+  %20 = getelementptr inbounds i8, ptr %18, i64 %.idx.i.i.i
   %.not2829.i.i.i = icmp eq i64 %19, 0
   br i1 %.not2829.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -13900,7 +13904,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE9_IsUniqu
   fence acquire
   %21 = load ptr, ptr %2, align 8
   %22 = load i64, ptr %0, align 8
-  %23 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", ptr %21, i64 %22
+  %.idx.i = mul nsw i64 %22, 104
+  %23 = getelementptr inbounds i8, ptr %21, i64 %.idx.i
   %.not2829.i = icmp eq i64 %22, 0
   br i1 %.not2829.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -13955,7 +13960,8 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ArrayBase15_DetachCopyH
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE13_AllocateCopyEPS1_mm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %2)
-  %6 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", ptr %1, i64 %3
+  %.idx = mul nsw i64 %3, 104
+  %6 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not14.i.i.i = icmp eq i64 %3, 0
   br i1 %.not14.i.i.i, label %_ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionES2_ET0_T_S4_S3_.exit, label %.lr.ph.i.i.i
 

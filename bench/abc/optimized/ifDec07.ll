@@ -2832,7 +2832,8 @@ define range(i32 0, 2) i32 @If_CutPerformCheck07(ptr noundef readnone captures(n
   %9 = add i32 %2, -6
   %10 = shl nuw i32 1, %9
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i64, ptr %1, i64 %11
+  %.idx.i = shl nsw i64 %11, 3
+  %12 = getelementptr inbounds i8, ptr %1, i64 %.idx.i
   %smax56.i = tail call i32 @llvm.smax.i32(i32 %10, i32 1)
   %wide.trip.count57.i = zext nneg i32 %smax56.i to i64
   br i1 %8, label %.lr.ph.split.us, label %.lr.ph.split

@@ -9720,13 +9720,13 @@ define noundef i32 @_ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringE
   %76 = sext i16 %75 to i32
   %77 = load i32, ptr %71, align 4
   %78 = select i1 %74, i32 %77, i32 %76
-  %.not8411062 = icmp slt i32 %72, %78
-  br i1 %.not8411062, label %.lr.ph, label %._crit_edge
+  %.not8411063 = icmp slt i32 %72, %78
+  br i1 %.not8411063, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %90, %69
-  %.lcssa1059 = phi i32 [ %72, %69 ], [ %94, %90 ]
-  %79 = sub nsw i32 0, %.lcssa1059
-  br label %.thread990
+  %.lcssa1060 = phi i32 [ %72, %69 ], [ %94, %90 ]
+  %79 = sub nsw i32 0, %.lcssa1060
+  br label %.thread991
 
 .lr.ph:                                           ; preds = %69, %90
   %80 = phi i32 [ %94, %90 ], [ %72, %69 ]
@@ -9779,12 +9779,12 @@ define noundef i32 @_ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringE
   %107 = load ptr, ptr %106, align 8, !tbaa !72
   %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7715ChineseCalendarE, i64 8), align 8, !tbaa !72
   %109 = icmp eq ptr %107, %108
-  br i1 %109, label %_ZNKSt9type_infoeqERKS_.exit953, label %110
+  br i1 %109, label %_ZNKSt9type_infoeqERKS_.exit954, label %110
 
 110:                                              ; preds = %101
   %111 = load i8, ptr %107, align 1, !tbaa !51
   %.not.i = icmp eq i8 %111, 42
-  br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread958, label %_ZNKSt9type_infoeqERKS_.exit
+  br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread959, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %110
   %112 = load i8, ptr %108, align 1, !tbaa !51
@@ -9793,29 +9793,29 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx.i.i
   %115 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(1) %114) #23
   %116 = icmp eq i32 %115, 0
-  br i1 %116, label %_ZNKSt9type_infoeqERKS_.exit953, label %_ZNKSt9type_infoeqERKS_.exit.thread958.thread
+  br i1 %116, label %_ZNKSt9type_infoeqERKS_.exit954, label %_ZNKSt9type_infoeqERKS_.exit.thread959.thread
 
-_ZNKSt9type_infoeqERKS_.exit.thread958:           ; preds = %110
+_ZNKSt9type_infoeqERKS_.exit.thread959:           ; preds = %110
   %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7713DangiCalendarE, i64 8), align 8, !tbaa !72
   %118 = icmp eq ptr %107, %117
-  br label %_ZNKSt9type_infoeqERKS_.exit953
+  br label %_ZNKSt9type_infoeqERKS_.exit954
 
-_ZNKSt9type_infoeqERKS_.exit.thread958.thread:    ; preds = %_ZNKSt9type_infoeqERKS_.exit
+_ZNKSt9type_infoeqERKS_.exit.thread959.thread:    ; preds = %_ZNKSt9type_infoeqERKS_.exit
   %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7713DangiCalendarE, i64 8), align 8, !tbaa !72
   %120 = icmp eq ptr %107, %119
-  br i1 %120, label %_ZNKSt9type_infoeqERKS_.exit953, label %121
+  br i1 %120, label %_ZNKSt9type_infoeqERKS_.exit954, label %121
 
-121:                                              ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread958.thread
+121:                                              ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread959.thread
   %122 = load i8, ptr %119, align 1, !tbaa !51
   %123 = icmp eq i8 %122, 42
-  %.idx.i.i951 = zext i1 %123 to i64
-  %124 = getelementptr inbounds nuw i8, ptr %119, i64 %.idx.i.i951
+  %.idx.i.i952 = zext i1 %123 to i64
+  %124 = getelementptr inbounds nuw i8, ptr %119, i64 %.idx.i.i952
   %125 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(1) %124) #23
   %126 = icmp eq i32 %125, 0
-  br label %_ZNKSt9type_infoeqERKS_.exit953
+  br label %_ZNKSt9type_infoeqERKS_.exit954
 
-_ZNKSt9type_infoeqERKS_.exit953:                  ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread958, %_ZNKSt9type_infoeqERKS_.exit.thread958.thread, %101, %121, %_ZNKSt9type_infoeqERKS_.exit
-  %127 = phi i1 [ true, %_ZNKSt9type_infoeqERKS_.exit ], [ %126, %121 ], [ true, %101 ], [ true, %_ZNKSt9type_infoeqERKS_.exit.thread958.thread ], [ %118, %_ZNKSt9type_infoeqERKS_.exit.thread958 ]
+_ZNKSt9type_infoeqERKS_.exit954:                  ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread959, %_ZNKSt9type_infoeqERKS_.exit.thread959.thread, %101, %121, %_ZNKSt9type_infoeqERKS_.exit
+  %127 = phi i1 [ true, %_ZNKSt9type_infoeqERKS_.exit ], [ %126, %121 ], [ true, %101 ], [ true, %_ZNKSt9type_infoeqERKS_.exit.thread959.thread ], [ %118, %_ZNKSt9type_infoeqERKS_.exit.thread959 ]
   switch i32 %29, label %128 [
     i32 16, label %139
     i32 15, label %139
@@ -9823,20 +9823,20 @@ _ZNKSt9type_infoeqERKS_.exit953:                  ; preds = %_ZNKSt9type_infoeqE
     i32 4, label %139
   ]
 
-128:                                              ; preds = %_ZNKSt9type_infoeqERKS_.exit953
+128:                                              ; preds = %_ZNKSt9type_infoeqERKS_.exit954
   %129 = icmp eq i32 %29, 19
   %130 = icmp slt i32 %4, 3
   %131 = icmp eq i32 %29, 25
-  %or.cond221039 = or i1 %129, %131
+  %or.cond221040 = or i1 %129, %131
   %132 = icmp eq i32 %29, 2
-  %or.cond1040 = or i1 %132, %or.cond221039
+  %or.cond1041 = or i1 %132, %or.cond221040
   %133 = and i32 %29, -2
   %134 = icmp eq i32 %133, 26
-  %or.cond9341042 = or i1 %134, %or.cond1040
+  %or.cond9351043 = or i1 %134, %or.cond1041
   %135 = icmp eq i32 %29, 28
-  %or.cond9351043 = or i1 %135, %or.cond9341042
-  %or.cond944 = and i1 %130, %or.cond9351043
-  br i1 %or.cond944, label %139, label %switch.early.test
+  %or.cond9361044 = or i1 %135, %or.cond9351043
+  %or.cond945 = and i1 %130, %or.cond9361044
+  br i1 %or.cond945, label %139, label %switch.early.test
 
 switch.early.test:                                ; preds = %128
   switch i32 %29, label %136 [
@@ -9850,9 +9850,9 @@ switch.early.test:                                ; preds = %128
   %or.cond40 = and i1 %137, %127
   %138 = icmp eq i32 %29, 8
   %or.cond42 = or i1 %138, %or.cond40
-  br i1 %or.cond42, label %139, label %.thread964
+  br i1 %or.cond42, label %139, label %.thread965
 
-139:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %_ZNKSt9type_infoeqERKS_.exit953, %_ZNKSt9type_infoeqERKS_.exit953, %_ZNKSt9type_infoeqERKS_.exit953, %_ZNKSt9type_infoeqERKS_.exit953, %136, %128
+139:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %_ZNKSt9type_infoeqERKS_.exit954, %_ZNKSt9type_infoeqERKS_.exit954, %_ZNKSt9type_infoeqERKS_.exit954, %_ZNKSt9type_infoeqERKS_.exit954, %136, %128
   br i1 %.not, label %.critedge, label %140
 
 140:                                              ; preds = %139
@@ -9876,8 +9876,8 @@ switch.early.test:                                ; preds = %128
   %or.cond46 = select i1 %147, i1 %149, i1 false
   %150 = load i32, ptr %27, align 8
   %151 = icmp sgt i32 %150, %102
-  %or.cond1038 = select i1 %or.cond46, i1 %151, i1 false
-  br i1 %or.cond1038, label %152, label %170
+  %or.cond1039 = select i1 %or.cond46, i1 %151, i1 false
+  br i1 %or.cond1039, label %152, label %170
 
 152:                                              ; preds = %146
   %153 = invoke noundef signext i8 @_ZNK6icu_7711Formattable9isNumericEv(ptr noundef nonnull align 8 dereferenceable(112) %145)
@@ -9902,20 +9902,21 @@ switch.early.test:                                ; preds = %128
   %161 = getelementptr inbounds i8, ptr %145, i64 -8
   %162 = load i64, ptr %161, align 8
   %163 = icmp eq i64 %162, 0
-  br i1 %163, label %.critedge946, label %.preheader1053.preheader
+  br i1 %163, label %.critedge947, label %.preheader1054.preheader
 
-.preheader1053.preheader:                         ; preds = %160
-  %164 = getelementptr inbounds %"class.icu_77::Formattable", ptr %145, i64 %162
-  br label %.preheader1053
+.preheader1054.preheader:                         ; preds = %160
+  %.idx = mul nsw i64 %162, 112
+  %164 = getelementptr inbounds i8, ptr %145, i64 %.idx
+  br label %.preheader1054
 
-.preheader1053:                                   ; preds = %.preheader1053.preheader, %.preheader1053
-  %165 = phi ptr [ %166, %.preheader1053 ], [ %164, %.preheader1053.preheader ]
+.preheader1054:                                   ; preds = %.preheader1054.preheader, %.preheader1054
+  %165 = phi ptr [ %166, %.preheader1054 ], [ %164, %.preheader1054.preheader ]
   %166 = getelementptr inbounds i8, ptr %165, i64 -112
   call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %166) #23
   %167 = icmp eq ptr %166, %145
-  br i1 %167, label %.critedge946, label %.preheader1053
+  br i1 %167, label %.critedge947, label %.preheader1054
 
-.critedge946:                                     ; preds = %.preheader1053, %160
+.critedge947:                                     ; preds = %.preheader1054, %160
   call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %161) #23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #23
   br label %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit
@@ -9953,7 +9954,7 @@ switch.early.test:                                ; preds = %128
 
 182:                                              ; preds = %172
   %183 = sub nsw i32 0, %173
-  br label %.thread990
+  br label %.thread991
 
 184:                                              ; preds = %190, %186
   %185 = landingpad { ptr, i32 }
@@ -9973,10 +9974,10 @@ switch.early.test:                                ; preds = %128
   invoke void @_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableEiRNS_13ParsePositionEaPKNS_12NumberFormatE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %.0737, ptr noundef nonnull align 8 dereferenceable(112) %15, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(16) %17, i8 noundef signext %6, ptr noundef %191)
           to label %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit unwind label %184
 
-_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit: ; preds = %190, %.critedge946
+_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit: ; preds = %190, %.critedge947
   %192 = load i32, ptr %27, align 8, !tbaa !189
   %193 = icmp sgt i32 %192, %102
-  br i1 %193, label %194, label %.thread964
+  br i1 %193, label %194, label %.thread965
 
 194:                                              ; preds = %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit
   %195 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -10017,7 +10018,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 214:                                              ; preds = %209
   %.not848 = icmp eq i8 %213, 0
-  br i1 %.not848, label %215, label %.thread960
+  br i1 %.not848, label %215, label %.thread961
 
 215:                                              ; preds = %214
   %216 = getelementptr inbounds nuw [36 x i32], ptr @_ZN6icu_77L15gFieldRangeBiasE, i64 0, i64 %57
@@ -10025,7 +10026,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
   %218 = shl nuw i64 1, %57
   %219 = and i64 %218, 100663500
   %.not849 = icmp eq i64 %219, 0
-  br i1 %.not849, label %.thread960, label %220
+  br i1 %.not849, label %.thread961, label %220
 
 220:                                              ; preds = %215
   %221 = load ptr, ptr %9, align 8, !tbaa !44
@@ -10049,7 +10050,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 233:                                              ; preds = %228
   %234 = add nsw i32 %232, %217
   %235 = icmp slt i32 %.3654, %234
-  br i1 %235, label %238, label %.thread960
+  br i1 %235, label %238, label %.thread961
 
 236:                                              ; preds = %228, %220
   %237 = landingpad { ptr, i32 }
@@ -10059,16 +10060,16 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 238:                                              ; preds = %225, %233
   %239 = load i32, ptr %2, align 4, !tbaa !12
   %240 = sub nsw i32 0, %239
-  br label %.thread990
+  br label %.thread991
 
-.thread960:                                       ; preds = %215, %233, %214
+.thread961:                                       ; preds = %215, %233, %214
   store i32 %.0741, ptr %27, align 8, !tbaa !189
-  br label %.thread964
+  br label %.thread965
 
-.thread964:                                       ; preds = %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit, %.thread960, %136
-  %241 = phi i32 [ %102, %136 ], [ %192, %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit ], [ %.0741, %.thread960 ]
-  %.not890 = phi i1 [ true, %136 ], [ true, %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit ], [ false, %.thread960 ]
-  %.0651 = phi i32 [ 0, %136 ], [ 0, %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit ], [ %.3654, %.thread960 ]
+.thread965:                                       ; preds = %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit, %.thread961, %136
+  %241 = phi i32 [ %102, %136 ], [ %192, %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit ], [ %.0741, %.thread961 ]
+  %.not891 = phi i1 [ true, %136 ], [ true, %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit ], [ false, %.thread961 ]
+  %.0651 = phi i32 [ 0, %136 ], [ 0, %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit ], [ %.3654, %.thread961 ]
   switch i32 %29, label %1286 [
     i32 4, label %242
     i32 5, label %242
@@ -10099,22 +10100,22 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
     i32 36, label %1224
   ]
 
-242:                                              ; preds = %.thread964, %.thread964, %.thread964, %.thread964
+242:                                              ; preds = %.thread965, %.thread965, %.thread965, %.thread965
   %or.cond48 = icmp ugt i32 %.0651, 24
   br i1 %or.cond48, label %243, label %246
 
 243:                                              ; preds = %242
   %244 = load i32, ptr %2, align 4, !tbaa !12
   %245 = sub nsw i32 0, %244
-  br label %.thread990
+  br label %.thread991
 
-246:                                              ; preds = %.thread964, %.thread964, %.thread964, %242
-  br i1 %.not890, label %247, label %250
+246:                                              ; preds = %.thread965, %.thread965, %.thread965, %242
+  br i1 %.not891, label %247, label %250
 
 247:                                              ; preds = %246
   %248 = load i32, ptr %2, align 4, !tbaa !12
   %249 = sub nsw i32 0, %248
-  br label %.thread990
+  br label %.thread991
 
 250:                                              ; preds = %246
   switch i32 %29, label %1286 [
@@ -10122,7 +10123,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
     i32 1, label %276
     i32 18, label %335
     i32 16, label %814
-    i32 2, label %.thread973
+    i32 2, label %.thread974
     i32 15, label %806
     i32 4, label %582
     i32 5, label %590
@@ -10131,26 +10132,26 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
     i32 9, label %609
   ]
 
-251:                                              ; preds = %.thread964
+251:                                              ; preds = %.thread965
   br i1 %127, label %252, label %260
 
 252:                                              ; preds = %251
-  br i1 %.not890, label %253, label %.thread970
+  br i1 %.not891, label %253, label %.thread971
 
 253:                                              ; preds = %252
   %254 = load i32, ptr %2, align 4, !tbaa !12
   %255 = sub nsw i32 0, %254
-  br label %.thread990
+  br label %.thread991
 
-.thread970:                                       ; preds = %252
+.thread971:                                       ; preds = %252
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 0, i32 noundef %.0651)
           to label %256 unwind label %258
 
-256:                                              ; preds = %.thread970
+256:                                              ; preds = %.thread971
   %257 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
-258:                                              ; preds = %.invoke, %.thread1011, %.thread1005, %814, %806, %.thread999, %.thread993, %.loopexit, %593, %590, %582, %435, %407, %396, %378, %360, %358, %355, %352, %349, %343, %335, %321, %301, %299, %296, %293, %290, %284, %276, %.thread970
+258:                                              ; preds = %.invoke, %.thread1012, %.thread1006, %814, %806, %.thread1000, %.thread994, %.loopexit, %593, %590, %582, %435, %407, %396, %378, %360, %358, %355, %352, %349, %343, %335, %321, %301, %299, %296, %293, %290, %284, %276, %.thread971
   %259 = landingpad { ptr, i32 }
           cleanup
   br label %1400
@@ -10171,11 +10172,11 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
   br label %.invoke
 
 .invoke:                                          ; preds = %260, %264, %265
-  %.sink1079 = phi i64 [ 24, %264 ], [ 8, %265 ], [ 40, %260 ]
-  %.sink1078 = phi i64 [ 32, %264 ], [ 16, %265 ], [ 48, %260 ]
-  %266 = getelementptr inbounds nuw i8, ptr %263, i64 %.sink1079
+  %.sink1080 = phi i64 [ 24, %264 ], [ 8, %265 ], [ 40, %260 ]
+  %.sink1079 = phi i64 [ 32, %264 ], [ 16, %265 ], [ 48, %260 ]
+  %266 = getelementptr inbounds nuw i8, ptr %263, i64 %.sink1080
   %267 = load ptr, ptr %266, align 8, !tbaa !181
-  %268 = getelementptr inbounds nuw i8, ptr %263, i64 %.sink1078
+  %268 = getelementptr inbounds nuw i8, ptr %263, i64 %.sink1079
   %269 = load i32, ptr %268, align 8, !tbaa !12
   %270 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %261, i32 noundef 0, ptr noundef %267, i32 noundef %269, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
           to label %271 unwind label %258
@@ -10185,8 +10186,8 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
   %273 = sub nsw i32 0, %272
   %274 = icmp eq i32 %270, %273
   %275 = sext i1 %274 to i32
-  %spec.select936 = add nsw i32 %270, %275
-  br label %.thread990
+  %spec.select937 = add nsw i32 %270, %275
+  br label %.thread991
 
 276:                                              ; preds = %250
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -10224,8 +10225,8 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
           to label %295 unwind label %258
 
 295:                                              ; preds = %293
-  %.not911 = icmp eq i8 %294, 0
-  br i1 %.not911, label %321, label %296
+  %.not912 = icmp eq i8 %294, 0
+  br i1 %.not912, label %321, label %296
 
 296:                                              ; preds = %295
   %297 = load i32, ptr %2, align 4, !tbaa !12
@@ -10243,12 +10244,12 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 303:                                              ; preds = %301
   %304 = icmp eq i8 %302, 0
   %305 = icmp sgt i32 %4, 2
-  %or.cond118.not1049 = or i1 %305, %304
+  %or.cond118.not1050 = or i1 %305, %304
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %307 = load i8, ptr %306, align 8
-  %.not912 = icmp eq i8 %307, 0
-  %or.cond938 = select i1 %or.cond118.not1049, i1 true, i1 %.not912
-  br i1 %or.cond938, label %321, label %308
+  %.not913 = icmp eq i8 %307, 0
+  %or.cond939 = select i1 %or.cond118.not1050, i1 true, i1 %.not913
+  br i1 %or.cond939, label %321, label %308
 
 308:                                              ; preds = %303
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 492
@@ -10258,11 +10259,11 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
   %313 = zext i1 %312 to i8
   store i8 %313, ptr %7, align 1, !tbaa !51
   %314 = load i32, ptr %309, align 4, !tbaa !55
-  %.fr913 = freeze i32 %314
-  %315 = srem i32 %.fr913, 100
+  %.fr914 = freeze i32 %314
+  %315 = srem i32 %.fr914, 100
   %316 = icmp slt i32 %.0651, %311
   %317 = select i1 %316, i32 100, i32 0
-  %318 = add i32 %.fr913, %.0651
+  %318 = add i32 %.fr914, %.0651
   %319 = add i32 %318, %317
   %320 = sub i32 %319, %315
   br label %321
@@ -10279,30 +10280,30 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 325:                                              ; preds = %322
   %326 = invoke noundef signext i8 @_ZN6icu_7714HebrewCalendar10isLeapYearEi(i32 noundef %.7658)
-          to label %.invoke1080 unwind label %330
+          to label %.invoke1081 unwind label %330
 
-.invoke1080:                                      ; preds = %325
-  %.not914 = icmp ne i8 %326, 0
+.invoke1081:                                      ; preds = %325
+  %.not915 = icmp ne i8 %326, 0
   %.pre = load i32, ptr %8, align 4, !tbaa !12
   %327 = icmp slt i32 %.pre, 6
-  %or.cond.not = or i1 %.not914, %327
+  %or.cond.not = or i1 %.not915, %327
   %328 = sext i1 %or.cond.not to i32
   %329 = add nsw i32 %.pre, %328
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 2, i32 noundef %329)
           to label %332 unwind label %330
 
-330:                                              ; preds = %.invoke1080, %325
+330:                                              ; preds = %.invoke1081, %325
   %331 = landingpad { ptr, i32 }
           cleanup
   br label %1400
 
-332:                                              ; preds = %.invoke1080
+332:                                              ; preds = %.invoke1081
   store i32 -1, ptr %8, align 4, !tbaa !12
   br label %333
 
 333:                                              ; preds = %332, %322
   %334 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
 335:                                              ; preds = %250
   %336 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -10339,8 +10340,8 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
           to label %354 unwind label %258
 
 354:                                              ; preds = %352
-  %.not908 = icmp eq i8 %353, 0
-  br i1 %.not908, label %378, label %355
+  %.not909 = icmp eq i8 %353, 0
+  br i1 %.not909, label %378, label %355
 
 355:                                              ; preds = %354
   %356 = load i32, ptr %2, align 4, !tbaa !12
@@ -10356,12 +10357,12 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
           to label %362 unwind label %258
 
 362:                                              ; preds = %360
-  %.not909 = icmp eq i8 %361, 0
+  %.not910 = icmp eq i8 %361, 0
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %364 = load i8, ptr %363, align 8
-  %.not910 = icmp eq i8 %364, 0
-  %or.cond940 = select i1 %.not909, i1 true, i1 %.not910
-  br i1 %or.cond940, label %378, label %365
+  %.not911 = icmp eq i8 %364, 0
+  %or.cond941 = select i1 %.not910, i1 true, i1 %.not911
+  br i1 %or.cond941, label %378, label %365
 
 365:                                              ; preds = %362
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 492
@@ -10387,15 +10388,15 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 379:                                              ; preds = %378
   %380 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
-381:                                              ; preds = %.thread964
+381:                                              ; preds = %.thread965
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %383 = load ptr, ptr %382, align 8, !tbaa !46
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 488
   %385 = load ptr, ptr %384, align 8, !tbaa !97
-  %.not905 = icmp eq ptr %385, null
-  br i1 %.not905, label %395, label %386
+  %.not906 = icmp eq ptr %385, null
+  br i1 %.not906, label %395, label %386
 
 386:                                              ; preds = %381
   %387 = load i32, ptr %2, align 4, !tbaa !12
@@ -10406,7 +10407,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 391:                                              ; preds = %386
   %392 = icmp slt i32 %390, 1
-  br i1 %392, label %395, label %.thread990
+  br i1 %392, label %395, label %.thread991
 
 393:                                              ; preds = %386
   %394 = landingpad { ptr, i32 }
@@ -10414,7 +10415,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
   br label %1400
 
 395:                                              ; preds = %391, %381
-  br i1 %.not890, label %410, label %396
+  br i1 %.not891, label %410, label %396
 
 396:                                              ; preds = %395
   %397 = load ptr, ptr %0, align 8, !tbaa !44
@@ -10424,8 +10425,8 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
           to label %401 unwind label %258
 
 401:                                              ; preds = %396
-  %.not907 = icmp eq i8 %400, 0
-  br i1 %.not907, label %402, label %407
+  %.not908 = icmp eq i8 %400, 0
+  br i1 %.not908, label %402, label %407
 
 402:                                              ; preds = %401
   %403 = load ptr, ptr %382, align 8, !tbaa !46
@@ -10440,30 +10441,30 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 408:                                              ; preds = %407
   %409 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
 410:                                              ; preds = %402, %395
   %411 = load i32, ptr %2, align 4, !tbaa !12
   %412 = sub nsw i32 0, %411
-  br label %.thread990
+  br label %.thread991
 
-413:                                              ; preds = %.thread964, %.thread964
-  br i1 %.not890, label %439, label %.thread973
+413:                                              ; preds = %.thread965, %.thread965
+  br i1 %.not891, label %439, label %.thread974
 
-.thread973:                                       ; preds = %250, %413
+.thread974:                                       ; preds = %250, %413
   %414 = load ptr, ptr %9, align 8, !tbaa !44
   %415 = getelementptr inbounds i8, ptr %414, i64 -8
   %416 = load ptr, ptr %415, align 8
   %417 = call noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %416, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN6icu_7714HebrewCalendarE) #23
   br i1 %417, label %418, label %435
 
-418:                                              ; preds = %.thread973
+418:                                              ; preds = %.thread974
   %419 = invoke noundef signext i8 @_ZNK6icu_778Calendar5isSetE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 1)
           to label %420 unwind label %429
 
 420:                                              ; preds = %418
-  %.not902 = icmp eq i8 %419, 0
-  br i1 %.not902, label %434, label %421
+  %.not903 = icmp eq i8 %419, 0
+  br i1 %.not903, label %434, label %421
 
 421:                                              ; preds = %420
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #23
@@ -10473,9 +10474,9 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 423:                                              ; preds = %421
   %424 = invoke noundef signext i8 @_ZN6icu_7714HebrewCalendar10isLeapYearEi(i32 noundef %422)
-          to label %.invoke1081 unwind label %431
+          to label %.invoke1082 unwind label %431
 
-.invoke1081:                                      ; preds = %423
+.invoke1082:                                      ; preds = %423
   %425 = icmp ne i8 %424, 0
   %426 = icmp slt i32 %.0651, 6
   %or.cond56.not = select i1 %425, i1 true, i1 %426
@@ -10489,13 +10490,13 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
           cleanup
   br label %1400
 
-431:                                              ; preds = %.invoke1081, %423, %421
+431:                                              ; preds = %.invoke1082, %423, %421
   %432 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #23
   br label %1400
 
-433:                                              ; preds = %.invoke1081
+433:                                              ; preds = %.invoke1082
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #23
   br label %437
 
@@ -10503,22 +10504,22 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
   store i32 %.0651, ptr %8, align 4, !tbaa !12
   br label %437
 
-435:                                              ; preds = %.thread973
+435:                                              ; preds = %.thread974
   %436 = add nsw i32 %.0651, -1
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 2, i32 noundef %436)
           to label %437 unwind label %258
 
 437:                                              ; preds = %433, %434, %435
   %438 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
 439:                                              ; preds = %413
   %440 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %441 = load ptr, ptr %440, align 8, !tbaa !46
   %442 = getelementptr inbounds nuw i8, ptr %441, i64 472
   %443 = load ptr, ptr %442, align 8, !tbaa !99
-  %.not900 = icmp eq ptr %443, null
-  br i1 %.not900, label %453, label %444
+  %.not901 = icmp eq ptr %443, null
+  br i1 %.not901, label %453, label %444
 
 444:                                              ; preds = %439
   %445 = getelementptr inbounds nuw i8, ptr %441, i64 480
@@ -10528,13 +10529,13 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 448:                                              ; preds = %444
   %449 = icmp eq i32 %29, 2
-  br i1 %449, label %.thread975, label %.thread980
+  br i1 %449, label %.thread976, label %.thread981
 
-.thread975:                                       ; preds = %448
+.thread976:                                       ; preds = %448
   %450 = getelementptr inbounds nuw i8, ptr %443, i64 64
   br label %455
 
-.thread980:                                       ; preds = %448
+.thread981:                                       ; preds = %448
   %451 = getelementptr inbounds nuw i8, ptr %443, i64 192
   %452 = getelementptr inbounds nuw i8, ptr %443, i64 256
   br label %512
@@ -10543,9 +10544,9 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
   %454 = icmp eq i32 %29, 2
   br i1 %454, label %455, label %512
 
-455:                                              ; preds = %.thread975, %453
-  %.0742979 = phi ptr [ %443, %.thread975 ], [ null, %453 ]
-  %.0743978 = phi ptr [ %450, %.thread975 ], [ null, %453 ]
+455:                                              ; preds = %.thread976, %453
+  %.0742980 = phi ptr [ %443, %.thread976 ], [ null, %453 ]
+  %.0743979 = phi ptr [ %450, %.thread976 ], [ null, %453 ]
   %456 = load ptr, ptr %0, align 8, !tbaa !44
   %457 = getelementptr inbounds nuw i8, ptr %456, i64 224
   %458 = load ptr, ptr %457, align 8
@@ -10585,9 +10586,9 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 482:                                              ; preds = %475
   %483 = icmp sgt i32 %481, 0
-  br i1 %483, label %.thread990, label %486
+  br i1 %483, label %.thread991, label %486
 
-484:                                              ; preds = %.invoke1082, %.thread986, %559, %549, %541, %532, %512, %504, %494, %486, %475, %455
+484:                                              ; preds = %.invoke1083, %.thread987, %559, %549, %541, %532, %512, %504, %494, %486, %475, %455
   %485 = landingpad { ptr, i32 }
           cleanup
   br label %1400
@@ -10613,12 +10614,12 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
   %498 = load ptr, ptr %497, align 8, !tbaa !105
   %499 = getelementptr inbounds nuw i8, ptr %496, i64 64
   %500 = load i32, ptr %499, align 8, !tbaa !106
-  %501 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %495, i32 noundef 2, ptr noundef %498, i32 noundef %500, ptr noundef %.0742979, ptr noundef nonnull align 8 dereferenceable(192) %9)
+  %501 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %495, i32 noundef 2, ptr noundef %498, i32 noundef %500, ptr noundef %.0742980, ptr noundef nonnull align 8 dereferenceable(192) %9)
           to label %502 unwind label %484
 
 502:                                              ; preds = %494
   %503 = icmp sgt i32 %501, 0
-  br i1 %503, label %.thread990, label %504
+  br i1 %503, label %.thread991, label %504
 
 504:                                              ; preds = %502, %491
   %.1745 = phi i32 [ %501, %502 ], [ %.0744, %491 ]
@@ -10632,11 +10633,11 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
   %510 = icmp ne i8 %508, 0
   %511 = icmp eq i32 %4, 3
   %or.cond64 = or i1 %511, %510
-  br i1 %or.cond64, label %.invoke1082, label %.thread986
+  br i1 %or.cond64, label %.invoke1083, label %.thread987
 
-512:                                              ; preds = %.thread980, %453
-  %.0742984 = phi ptr [ %451, %.thread980 ], [ null, %453 ]
-  %.0743983 = phi ptr [ %452, %.thread980 ], [ null, %453 ]
+512:                                              ; preds = %.thread981, %453
+  %.0742985 = phi ptr [ %451, %.thread981 ], [ null, %453 ]
+  %.0743984 = phi ptr [ %452, %.thread981 ], [ null, %453 ]
   %513 = load ptr, ptr %0, align 8, !tbaa !44
   %514 = getelementptr inbounds nuw i8, ptr %513, i64 224
   %515 = load ptr, ptr %514, align 8
@@ -10676,7 +10677,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 539:                                              ; preds = %532
   %540 = icmp sgt i32 %538, 0
-  br i1 %540, label %.thread990, label %541
+  br i1 %540, label %.thread991, label %541
 
 541:                                              ; preds = %539, %526, %521, %517
   %.3747 = phi i32 [ %538, %539 ], [ 0, %526 ], [ 0, %521 ], [ 0, %517 ]
@@ -10699,12 +10700,12 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
   %553 = load ptr, ptr %552, align 8, !tbaa !107
   %554 = getelementptr inbounds nuw i8, ptr %551, i64 112
   %555 = load i32, ptr %554, align 8, !tbaa !108
-  %556 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %550, i32 noundef 2, ptr noundef %553, i32 noundef %555, ptr noundef %.0742984, ptr noundef nonnull align 8 dereferenceable(192) %9)
+  %556 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %550, i32 noundef 2, ptr noundef %553, i32 noundef %555, ptr noundef %.0742985, ptr noundef nonnull align 8 dereferenceable(192) %9)
           to label %557 unwind label %484
 
 557:                                              ; preds = %549
   %558 = icmp sgt i32 %556, 0
-  br i1 %558, label %.thread990, label %559
+  br i1 %558, label %.thread991, label %559
 
 559:                                              ; preds = %557, %546
   %.4748 = phi i32 [ %556, %557 ], [ %.3747, %546 ]
@@ -10718,36 +10719,36 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
   %565 = icmp ne i8 %563, 0
   %566 = icmp eq i32 %4, 3
   %or.cond72 = or i1 %566, %565
-  br i1 %or.cond72, label %.invoke1082, label %.thread986
+  br i1 %or.cond72, label %.invoke1083, label %.thread987
 
-.invoke1082:                                      ; preds = %564, %509
-  %.sink1086 = phi i64 [ 72, %509 ], [ 120, %564 ]
-  %.sink1084 = phi i64 [ 80, %509 ], [ 128, %564 ]
-  %567 = phi ptr [ %.0743978, %509 ], [ %.0743983, %564 ]
+.invoke1083:                                      ; preds = %564, %509
+  %.sink1087 = phi i64 [ 72, %509 ], [ 120, %564 ]
+  %.sink1085 = phi i64 [ 80, %509 ], [ 128, %564 ]
+  %567 = phi ptr [ %.0743979, %509 ], [ %.0743984, %564 ]
   %568 = load i32, ptr %2, align 4, !tbaa !12
   %569 = load ptr, ptr %440, align 8, !tbaa !46
-  %570 = getelementptr inbounds nuw i8, ptr %569, i64 %.sink1086
+  %570 = getelementptr inbounds nuw i8, ptr %569, i64 %.sink1087
   %571 = load ptr, ptr %570, align 8, !tbaa !181
-  %572 = getelementptr inbounds nuw i8, ptr %569, i64 %.sink1084
+  %572 = getelementptr inbounds nuw i8, ptr %569, i64 %.sink1085
   %573 = load i32, ptr %572, align 8, !tbaa !12
   %574 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %568, i32 noundef 2, ptr noundef %571, i32 noundef %573, ptr noundef %567, ptr noundef nonnull align 8 dereferenceable(192) %9)
           to label %575 unwind label %484
 
-575:                                              ; preds = %.invoke1082
+575:                                              ; preds = %.invoke1083
   %576 = icmp sgt i32 %574, 0
-  br i1 %576, label %.thread990, label %.thread986
+  br i1 %576, label %.thread991, label %.thread987
 
-.thread986:                                       ; preds = %564, %509, %575
-  %.2746988 = phi i32 [ %574, %575 ], [ %.4748, %564 ], [ %.1745, %509 ]
+.thread987:                                       ; preds = %564, %509, %575
+  %.2746989 = phi i32 [ %574, %575 ], [ %.4748, %564 ], [ %.1745, %509 ]
   %577 = load ptr, ptr %0, align 8, !tbaa !44
   %578 = getelementptr inbounds nuw i8, ptr %577, i64 224
   %579 = load ptr, ptr %578, align 8
   %580 = invoke noundef signext i8 %579(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %16)
           to label %581 unwind label %484
 
-581:                                              ; preds = %.thread986
-  %.not901.not = icmp eq i8 %580, 0
-  br i1 %.not901.not, label %.thread990, label %1286
+581:                                              ; preds = %.thread987
+  %.not902.not = icmp eq i8 %580, 0
+  br i1 %.not902.not, label %.thread991, label %1286
 
 582:                                              ; preds = %250
   %583 = load ptr, ptr %9, align 8, !tbaa !44
@@ -10759,17 +10760,17 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 587:                                              ; preds = %582
   %588 = add nsw i32 %586, 1
   %589 = icmp eq i32 %.0651, %588
-  %spec.select941 = select i1 %589, i32 0, i32 %.0651
+  %spec.select942 = select i1 %589, i32 0, i32 %.0651
   br label %590
 
 590:                                              ; preds = %587, %250
-  %.5656 = phi i32 [ %.0651, %250 ], [ %spec.select941, %587 ]
+  %.5656 = phi i32 [ %.0651, %250 ], [ %spec.select942, %587 ]
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 11, i32 noundef %.5656)
           to label %591 unwind label %258
 
 591:                                              ; preds = %590
   %592 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
 593:                                              ; preds = %250
   %594 = load i32, ptr %2, align 4, !tbaa !12
@@ -10778,54 +10779,54 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 596:                                              ; preds = %593
   %597 = icmp slt i32 %595, 3
-  br i1 %597, label %.preheader, label %.preheader1051
+  br i1 %597, label %.preheader, label %.preheader1052
 
-.preheader1051:                                   ; preds = %596
-  %.not1070 = icmp eq i32 %595, 3
-  br i1 %.not1070, label %._crit_edge1066, label %.lr.ph1065
+.preheader1052:                                   ; preds = %596
+  %.not1071 = icmp eq i32 %595, 3
+  br i1 %.not1071, label %._crit_edge1067, label %.lr.ph1066
 
 .preheader:                                       ; preds = %596, %.preheader
-  %.96601069 = phi i32 [ %598, %.preheader ], [ %.0651, %596 ]
-  %.06621068 = phi i32 [ %599, %.preheader ], [ %595, %596 ]
-  %598 = mul nsw i32 %.96601069, 10
-  %599 = add i32 %.06621068, 1
+  %.96601070 = phi i32 [ %598, %.preheader ], [ %.0651, %596 ]
+  %.06621069 = phi i32 [ %599, %.preheader ], [ %595, %596 ]
+  %598 = mul nsw i32 %.96601070, 10
+  %599 = add i32 %.06621069, 1
   %exitcond.not = icmp eq i32 %599, 3
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !199
 
-.lr.ph1065:                                       ; preds = %.preheader1051, %.lr.ph1065
-  %.16631064 = phi i32 [ %601, %.lr.ph1065 ], [ %595, %.preheader1051 ]
-  %.07501063 = phi i32 [ %600, %.lr.ph1065 ], [ 1, %.preheader1051 ]
-  %600 = mul nuw nsw i32 %.07501063, 10
-  %601 = add nsw i32 %.16631064, -1
-  %602 = icmp samesign ugt i32 %.16631064, 4
-  br i1 %602, label %.lr.ph1065, label %._crit_edge1066, !llvm.loop !200
+.lr.ph1066:                                       ; preds = %.preheader1052, %.lr.ph1066
+  %.16631065 = phi i32 [ %601, %.lr.ph1066 ], [ %595, %.preheader1052 ]
+  %.07501064 = phi i32 [ %600, %.lr.ph1066 ], [ 1, %.preheader1052 ]
+  %600 = mul nuw nsw i32 %.07501064, 10
+  %601 = add nsw i32 %.16631065, -1
+  %602 = icmp samesign ugt i32 %.16631065, 4
+  br i1 %602, label %.lr.ph1066, label %._crit_edge1067, !llvm.loop !200
 
-._crit_edge1066:                                  ; preds = %.lr.ph1065, %.preheader1051
-  %.0750.lcssa = phi i32 [ 1, %.preheader1051 ], [ %600, %.lr.ph1065 ]
+._crit_edge1067:                                  ; preds = %.lr.ph1066, %.preheader1052
+  %.0750.lcssa = phi i32 [ 1, %.preheader1052 ], [ %600, %.lr.ph1066 ]
   %603 = sdiv i32 %.0651, %.0750.lcssa
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %._crit_edge1066
-  %.10661 = phi i32 [ %603, %._crit_edge1066 ], [ %598, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %._crit_edge1067
+  %.10661 = phi i32 [ %603, %._crit_edge1067 ], [ %598, %.preheader ]
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 14, i32 noundef %.10661)
           to label %604 unwind label %258
 
 604:                                              ; preds = %.loopexit
   %605 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
-606:                                              ; preds = %.thread964
-  br i1 %.not890, label %609, label %.thread993
+606:                                              ; preds = %.thread965
+  br i1 %.not891, label %609, label %.thread994
 
-.thread993:                                       ; preds = %606
+.thread994:                                       ; preds = %606
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 18, i32 noundef %.0651)
           to label %607 unwind label %258
 
-607:                                              ; preds = %.thread993
+607:                                              ; preds = %.thread994
   %608 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
-609:                                              ; preds = %.thread964, %606, %250
+609:                                              ; preds = %.thread965, %606, %250
   %610 = load ptr, ptr %0, align 8, !tbaa !44
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 224
   %612 = load ptr, ptr %611, align 8
@@ -10851,7 +10852,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 626:                                              ; preds = %617
   %627 = icmp sgt i32 %625, 0
-  br i1 %627, label %.thread990, label %630
+  br i1 %627, label %.thread991, label %630
 
 628:                                              ; preds = %687, %676, %668, %657, %649, %638, %630, %617, %609
   %629 = landingpad { ptr, i32 }
@@ -10885,7 +10886,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 647:                                              ; preds = %638
   %648 = icmp sgt i32 %646, 0
-  br i1 %648, label %.thread990, label %649
+  br i1 %648, label %.thread991, label %649
 
 649:                                              ; preds = %647, %635
   %.1752 = phi i32 [ %646, %647 ], [ %.0751, %635 ]
@@ -10914,7 +10915,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 666:                                              ; preds = %657
   %667 = icmp sgt i32 %665, 0
-  br i1 %667, label %.thread990, label %668
+  br i1 %667, label %.thread991, label %668
 
 668:                                              ; preds = %666, %654
   %.2753 = phi i32 [ %665, %666 ], [ %.1752, %654 ]
@@ -10943,7 +10944,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 685:                                              ; preds = %676
   %686 = icmp sgt i32 %684, 0
-  br i1 %686, label %.thread990, label %687
+  br i1 %686, label %.thread991, label %687
 
 687:                                              ; preds = %685, %673
   %.3754 = phi i32 [ %684, %685 ], [ %.2753, %673 ]
@@ -10957,18 +10958,18 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
   %693 = icmp ne i8 %691, 0
   %694 = icmp ne i32 %29, 9
   %or.cond82.not = and i1 %694, %693
-  br i1 %or.cond82.not, label %1286, label %.thread990
+  br i1 %or.cond82.not, label %1286, label %.thread991
 
-695:                                              ; preds = %.thread964
-  br i1 %.not890, label %698, label %.thread999
+695:                                              ; preds = %.thread965
+  br i1 %.not891, label %698, label %.thread1000
 
-.thread999:                                       ; preds = %695
+.thread1000:                                      ; preds = %695
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 18, i32 noundef %.0651)
           to label %696 unwind label %258
 
-696:                                              ; preds = %.thread999
+696:                                              ; preds = %.thread1000
   %697 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
 698:                                              ; preds = %695
   %699 = load ptr, ptr %0, align 8, !tbaa !44
@@ -10996,7 +10997,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 715:                                              ; preds = %706
   %716 = icmp sgt i32 %714, 0
-  br i1 %716, label %.thread990, label %719
+  br i1 %716, label %.thread991, label %719
 
 717:                                              ; preds = %757, %746, %738, %727, %719, %706, %698
   %718 = landingpad { ptr, i32 }
@@ -11030,7 +11031,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 736:                                              ; preds = %727
   %737 = icmp sgt i32 %735, 0
-  br i1 %737, label %.thread990, label %738
+  br i1 %737, label %.thread991, label %738
 
 738:                                              ; preds = %736, %724
   %.1756 = phi i32 [ %735, %736 ], [ %.0755, %724 ]
@@ -11059,7 +11060,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 755:                                              ; preds = %746
   %756 = icmp sgt i32 %754, 0
-  br i1 %756, label %.thread990, label %757
+  br i1 %756, label %.thread991, label %757
 
 757:                                              ; preds = %755, %743
   %.2757 = phi i32 [ %754, %755 ], [ %.1756, %743 ]
@@ -11070,10 +11071,10 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
           to label %762 unwind label %717
 
 762:                                              ; preds = %757
-  %.not897.not = icmp eq i8 %761, 0
-  br i1 %.not897.not, label %.thread990, label %1286
+  %.not898.not = icmp eq i8 %761, 0
+  br i1 %.not898.not, label %.thread991, label %1286
 
-763:                                              ; preds = %250, %.thread964
+763:                                              ; preds = %250, %.thread965
   %764 = load ptr, ptr %0, align 8, !tbaa !44
   %765 = getelementptr inbounds nuw i8, ptr %764, i64 224
   %766 = load ptr, ptr %765, align 8
@@ -11099,7 +11100,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 780:                                              ; preds = %771
   %781 = icmp sgt i32 %779, 0
-  br i1 %781, label %.thread990, label %784
+  br i1 %781, label %.thread991, label %784
 
 782:                                              ; preds = %792, %784, %771, %763
   %783 = landingpad { ptr, i32 }
@@ -11132,12 +11133,12 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 801:                                              ; preds = %792
   %802 = icmp sgt i32 %800, 0
-  br i1 %802, label %.thread990, label %803
+  br i1 %802, label %.thread991, label %803
 
 803:                                              ; preds = %801, %789
   %804 = load i32, ptr %2, align 4, !tbaa !12
   %805 = sub nsw i32 0, %804
-  br label %.thread990
+  br label %.thread991
 
 806:                                              ; preds = %250
   %807 = load ptr, ptr %9, align 8, !tbaa !44
@@ -11149,30 +11150,30 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 811:                                              ; preds = %806
   %812 = add nsw i32 %810, 1
   %813 = icmp eq i32 %.0651, %812
-  %spec.select943 = select i1 %813, i32 0, i32 %.0651
+  %spec.select944 = select i1 %813, i32 0, i32 %.0651
   br label %814
 
 814:                                              ; preds = %250, %811
-  %.6657 = phi i32 [ %.0651, %250 ], [ %spec.select943, %811 ]
+  %.6657 = phi i32 [ %.0651, %250 ], [ %spec.select944, %811 ]
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 10, i32 noundef %.6657)
           to label %815 unwind label %258
 
 815:                                              ; preds = %814
   %816 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
-817:                                              ; preds = %.thread964
-  br i1 %.not890, label %822, label %.thread1005
+817:                                              ; preds = %.thread965
+  br i1 %.not891, label %822, label %.thread1006
 
-.thread1005:                                      ; preds = %817
+.thread1006:                                      ; preds = %817
   %818 = mul i32 %.0651, 3
   %819 = add i32 %818, -3
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 2, i32 noundef %819)
           to label %820 unwind label %258
 
-820:                                              ; preds = %.thread1005
+820:                                              ; preds = %.thread1006
   %821 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
 822:                                              ; preds = %817
   %823 = load ptr, ptr %0, align 8, !tbaa !44
@@ -11200,7 +11201,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 839:                                              ; preds = %830
   %840 = icmp sgt i32 %838, 0
-  br i1 %840, label %.thread990, label %843
+  br i1 %840, label %.thread991, label %843
 
 841:                                              ; preds = %887, %881, %870, %862, %851, %843, %830, %822
   %842 = landingpad { ptr, i32 }
@@ -11234,7 +11235,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 860:                                              ; preds = %851
   %861 = icmp sgt i32 %859, 0
-  br i1 %861, label %.thread990, label %862
+  br i1 %861, label %.thread991, label %862
 
 862:                                              ; preds = %860, %848
   %.1759 = phi i32 [ %859, %860 ], [ %.0758, %848 ]
@@ -11263,7 +11264,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 879:                                              ; preds = %870
   %880 = icmp sgt i32 %878, 0
-  br i1 %880, label %.thread990, label %881
+  br i1 %880, label %.thread991, label %881
 
 881:                                              ; preds = %879, %867
   %.2760 = phi i32 [ %878, %879 ], [ %.1759, %867 ]
@@ -11274,8 +11275,8 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
           to label %886 unwind label %841
 
 886:                                              ; preds = %881
-  %.not894 = icmp eq i8 %885, 0
-  br i1 %.not894, label %.thread990, label %887
+  %.not895 = icmp eq i8 %885, 0
+  br i1 %.not895, label %.thread991, label %887
 
 887:                                              ; preds = %886
   %888 = load ptr, ptr %0, align 8, !tbaa !44
@@ -11285,26 +11286,26 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
           to label %892 unwind label %841
 
 892:                                              ; preds = %887
-  %.not895 = icmp eq i8 %891, 0
-  br i1 %.not895, label %893, label %1286
+  %.not896 = icmp eq i8 %891, 0
+  br i1 %.not896, label %893, label %1286
 
 893:                                              ; preds = %892
   %894 = load i32, ptr %2, align 4, !tbaa !12
   %895 = sub nsw i32 0, %894
-  br label %.thread990
+  br label %.thread991
 
-896:                                              ; preds = %.thread964
-  br i1 %.not890, label %901, label %.thread1011
+896:                                              ; preds = %.thread965
+  br i1 %.not891, label %901, label %.thread1012
 
-.thread1011:                                      ; preds = %896
+.thread1012:                                      ; preds = %896
   %897 = mul i32 %.0651, 3
   %898 = add i32 %897, -3
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 2, i32 noundef %898)
           to label %899 unwind label %258
 
-899:                                              ; preds = %.thread1011
+899:                                              ; preds = %.thread1012
   %900 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
 901:                                              ; preds = %896
   %902 = load ptr, ptr %0, align 8, !tbaa !44
@@ -11332,7 +11333,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 918:                                              ; preds = %909
   %919 = icmp sgt i32 %917, 0
-  br i1 %919, label %.thread990, label %922
+  br i1 %919, label %.thread991, label %922
 
 920:                                              ; preds = %966, %960, %949, %941, %930, %922, %909, %901
   %921 = landingpad { ptr, i32 }
@@ -11366,7 +11367,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 939:                                              ; preds = %930
   %940 = icmp sgt i32 %938, 0
-  br i1 %940, label %.thread990, label %941
+  br i1 %940, label %.thread991, label %941
 
 941:                                              ; preds = %939, %927
   %.1762 = phi i32 [ %938, %939 ], [ %.0761, %927 ]
@@ -11395,7 +11396,7 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 958:                                              ; preds = %949
   %959 = icmp sgt i32 %957, 0
-  br i1 %959, label %.thread990, label %960
+  br i1 %959, label %.thread991, label %960
 
 960:                                              ; preds = %958, %946
   %.2763 = phi i32 [ %957, %958 ], [ %.1762, %946 ]
@@ -11406,8 +11407,8 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
           to label %965 unwind label %920
 
 965:                                              ; preds = %960
-  %.not891 = icmp eq i8 %964, 0
-  br i1 %.not891, label %.thread990, label %966
+  %.not892 = icmp eq i8 %964, 0
+  br i1 %.not892, label %.thread991, label %966
 
 966:                                              ; preds = %965
   %967 = load ptr, ptr %0, align 8, !tbaa !44
@@ -11417,15 +11418,15 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
           to label %971 unwind label %920
 
 971:                                              ; preds = %966
-  %.not892 = icmp eq i8 %970, 0
-  br i1 %.not892, label %972, label %1286
+  %.not893 = icmp eq i8 %970, 0
+  br i1 %.not893, label %972, label %1286
 
 972:                                              ; preds = %971
   %973 = load i32, ptr %2, align 4, !tbaa !12
   %974 = sub nsw i32 0, %973
-  br label %.thread990
+  br label %.thread991
 
-975:                                              ; preds = %250, %.thread964
+975:                                              ; preds = %250, %.thread965
   %976 = icmp slt i32 %4, 4
   %977 = select i1 %976, i32 4, i32 3
   %978 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
@@ -11434,15 +11435,15 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 979:                                              ; preds = %975
   %980 = load i32, ptr %16, align 4, !tbaa !13
   %981 = icmp sgt i32 %980, 0
-  br i1 %981, label %.thread1017, label %982
+  br i1 %981, label %.thread1018, label %982
 
 982:                                              ; preds = %979
   %983 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %978, i32 noundef %977, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
           to label %984 unwind label %988
 
 984:                                              ; preds = %982
-  %.not887 = icmp eq ptr %983, null
-  br i1 %.not887, label %.thread1017, label %985
+  %.not888 = icmp eq ptr %983, null
+  br i1 %.not888, label %.thread1018, label %985
 
 985:                                              ; preds = %984
   invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %983)
@@ -11460,14 +11461,14 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 990:                                              ; preds = %985
   %991 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
-.thread1017:                                      ; preds = %984, %979
+.thread1018:                                      ; preds = %984, %979
   %992 = load i32, ptr %2, align 4, !tbaa !12
   %993 = sub nsw i32 0, %992
-  br label %.thread990
+  br label %.thread991
 
-994:                                              ; preds = %.thread964
+994:                                              ; preds = %.thread965
   %995 = icmp slt i32 %4, 4
   %996 = icmp eq i32 %4, 5
   %997 = select i1 %996, i32 15, i32 5
@@ -11478,15 +11479,15 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 1000:                                             ; preds = %994
   %1001 = load i32, ptr %16, align 4, !tbaa !13
   %1002 = icmp sgt i32 %1001, 0
-  br i1 %1002, label %.thread1019, label %1003
+  br i1 %1002, label %.thread1020, label %1003
 
 1003:                                             ; preds = %1000
   %1004 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %999, i32 noundef %998, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
           to label %1005 unwind label %1009
 
 1005:                                             ; preds = %1003
-  %.not883 = icmp eq ptr %1004, null
-  br i1 %.not883, label %.thread1019, label %1006
+  %.not884 = icmp eq ptr %1004, null
+  br i1 %.not884, label %.thread1020, label %1006
 
 1006:                                             ; preds = %1005
   invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %1004)
@@ -11504,14 +11505,14 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 1011:                                             ; preds = %1006
   %1012 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
-.thread1019:                                      ; preds = %1005, %1000
+.thread1020:                                      ; preds = %1005, %1000
   %1013 = load i32, ptr %2, align 4, !tbaa !12
   %1014 = sub nsw i32 0, %1013
-  br label %.thread990
+  br label %.thread991
 
-1015:                                             ; preds = %.thread964
+1015:                                             ; preds = %.thread965
   %1016 = icmp slt i32 %4, 4
   %1017 = select i1 %1016, i32 2, i32 1
   %1018 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
@@ -11520,15 +11521,15 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 1019:                                             ; preds = %1015
   %1020 = load i32, ptr %16, align 4, !tbaa !13
   %1021 = icmp sgt i32 %1020, 0
-  br i1 %1021, label %.thread1021, label %1022
+  br i1 %1021, label %.thread1022, label %1022
 
 1022:                                             ; preds = %1019
   %1023 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %1018, i32 noundef %1017, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
           to label %1024 unwind label %1028
 
 1024:                                             ; preds = %1022
-  %.not879 = icmp eq ptr %1023, null
-  br i1 %.not879, label %.thread1021, label %1025
+  %.not880 = icmp eq ptr %1023, null
+  br i1 %.not880, label %.thread1022, label %1025
 
 1025:                                             ; preds = %1024
   invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %1023)
@@ -11546,14 +11547,14 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 1030:                                             ; preds = %1025
   %1031 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
-.thread1021:                                      ; preds = %1024, %1019
+.thread1022:                                      ; preds = %1024, %1019
   %1032 = load i32, ptr %2, align 4, !tbaa !12
   %1033 = sub nsw i32 0, %1032
-  br label %.thread990
+  br label %.thread991
 
-1034:                                             ; preds = %.thread964
+1034:                                             ; preds = %.thread965
   %switch.tableidx = add i32 %4, -1
   %1035 = icmp ult i32 %switch.tableidx, 3
   br i1 %1035, label %switch.lookup, label %1037
@@ -11572,15 +11573,15 @@ switch.lookup:                                    ; preds = %1034
 1039:                                             ; preds = %1037
   %1040 = load i32, ptr %16, align 4, !tbaa !13
   %1041 = icmp sgt i32 %1040, 0
-  br i1 %1041, label %.thread1023, label %1042
+  br i1 %1041, label %.thread1024, label %1042
 
 1042:                                             ; preds = %1039
   %1043 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %1038, i32 noundef %.0749, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
           to label %1044 unwind label %1048
 
 1044:                                             ; preds = %1042
-  %.not875 = icmp eq ptr %1043, null
-  br i1 %.not875, label %.thread1023, label %1045
+  %.not876 = icmp eq ptr %1043, null
+  br i1 %.not876, label %.thread1024, label %1045
 
 1045:                                             ; preds = %1044
   invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %1043)
@@ -11598,14 +11599,14 @@ switch.lookup:                                    ; preds = %1034
 
 1050:                                             ; preds = %1045
   %1051 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
-.thread1023:                                      ; preds = %1044, %1039
+.thread1024:                                      ; preds = %1044, %1039
   %1052 = load i32, ptr %2, align 4, !tbaa !12
   %1053 = sub nsw i32 0, %1052
-  br label %.thread990
+  br label %.thread991
 
-1054:                                             ; preds = %.thread964
+1054:                                             ; preds = %.thread965
   %1055 = icmp slt i32 %4, 4
   %1056 = select i1 %1055, i32 6, i32 5
   %1057 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
@@ -11614,15 +11615,15 @@ switch.lookup:                                    ; preds = %1034
 1058:                                             ; preds = %1054
   %1059 = load i32, ptr %16, align 4, !tbaa !13
   %1060 = icmp sgt i32 %1059, 0
-  br i1 %1060, label %.thread1025, label %1061
+  br i1 %1060, label %.thread1026, label %1061
 
 1061:                                             ; preds = %1058
   %1062 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %1057, i32 noundef %1056, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
           to label %1063 unwind label %1067
 
 1063:                                             ; preds = %1061
-  %.not871 = icmp eq ptr %1062, null
-  br i1 %.not871, label %.thread1025, label %1064
+  %.not872 = icmp eq ptr %1062, null
+  br i1 %.not872, label %.thread1026, label %1064
 
 1064:                                             ; preds = %1063
   invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %1062)
@@ -11640,41 +11641,41 @@ switch.lookup:                                    ; preds = %1034
 
 1069:                                             ; preds = %1064
   %1070 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
-.thread1025:                                      ; preds = %1063, %1058
+.thread1026:                                      ; preds = %1063, %1058
   %1071 = load i32, ptr %2, align 4, !tbaa !12
   %1072 = sub nsw i32 0, %1071
-  br label %.thread990
+  br label %.thread991
 
-1073:                                             ; preds = %.thread964
-  %switch.tableidx1097 = add i32 %4, -1
-  %1074 = icmp ult i32 %switch.tableidx1097, 4
-  br i1 %1074, label %switch.lookup1096, label %1076
+1073:                                             ; preds = %.thread965
+  %switch.tableidx1098 = add i32 %4, -1
+  %1074 = icmp ult i32 %switch.tableidx1098, 4
+  br i1 %1074, label %switch.lookup1097, label %1076
 
-switch.lookup1096:                                ; preds = %1073
-  %1075 = zext nneg i32 %switch.tableidx1097 to i64
-  %switch.gep1098 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringERiDsiaaPaS4_RNS_8CalendarEiPNS_13MessageFormatEP23UTimeZoneFormatTimeTypePi.1, i64 0, i64 %1075
-  %switch.load1099 = load i32, ptr %switch.gep1098, align 4
+switch.lookup1097:                                ; preds = %1073
+  %1075 = zext nneg i32 %switch.tableidx1098 to i64
+  %switch.gep1099 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringERiDsiaaPaS4_RNS_8CalendarEiPNS_13MessageFormatEP23UTimeZoneFormatTimeTypePi.1, i64 0, i64 %1075
+  %switch.load1100 = load i32, ptr %switch.gep1099, align 4
   br label %1076
 
-1076:                                             ; preds = %1073, %switch.lookup1096
-  %.0738 = phi i32 [ %switch.load1099, %switch.lookup1096 ], [ 15, %1073 ]
+1076:                                             ; preds = %1073, %switch.lookup1097
+  %.0738 = phi i32 [ %switch.load1100, %switch.lookup1097 ], [ 15, %1073 ]
   %1077 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
           to label %1078 unwind label %1085
 
 1078:                                             ; preds = %1076
   %1079 = load i32, ptr %16, align 4, !tbaa !13
   %1080 = icmp sgt i32 %1079, 0
-  br i1 %1080, label %.thread1027, label %1081
+  br i1 %1080, label %.thread1028, label %1081
 
 1081:                                             ; preds = %1078
   %1082 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %1077, i32 noundef %.0738, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
           to label %1083 unwind label %1087
 
 1083:                                             ; preds = %1081
-  %.not867 = icmp eq ptr %1082, null
-  br i1 %.not867, label %.thread1027, label %1084
+  %.not868 = icmp eq ptr %1082, null
+  br i1 %.not868, label %.thread1028, label %1084
 
 1084:                                             ; preds = %1083
   invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %1082)
@@ -11692,41 +11693,41 @@ switch.lookup1096:                                ; preds = %1073
 
 1089:                                             ; preds = %1084
   %1090 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
-.thread1027:                                      ; preds = %1083, %1078
+.thread1028:                                      ; preds = %1083, %1078
   %1091 = load i32, ptr %2, align 4, !tbaa !12
   %1092 = sub nsw i32 0, %1091
-  br label %.thread990
+  br label %.thread991
 
-1093:                                             ; preds = %.thread964
-  %switch.tableidx1101 = add i32 %4, -1
-  %1094 = icmp ult i32 %switch.tableidx1101, 4
-  br i1 %1094, label %switch.lookup1100, label %1096
+1093:                                             ; preds = %.thread965
+  %switch.tableidx1102 = add i32 %4, -1
+  %1094 = icmp ult i32 %switch.tableidx1102, 4
+  br i1 %1094, label %switch.lookup1101, label %1096
 
-switch.lookup1100:                                ; preds = %1093
-  %1095 = zext nneg i32 %switch.tableidx1101 to i64
-  %switch.gep1102 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringERiDsiaaPaS4_RNS_8CalendarEiPNS_13MessageFormatEP23UTimeZoneFormatTimeTypePi.2, i64 0, i64 %1095
-  %switch.load1103 = load i32, ptr %switch.gep1102, align 4
+switch.lookup1101:                                ; preds = %1093
+  %1095 = zext nneg i32 %switch.tableidx1102 to i64
+  %switch.gep1103 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringERiDsiaaPaS4_RNS_8CalendarEiPNS_13MessageFormatEP23UTimeZoneFormatTimeTypePi.2, i64 0, i64 %1095
+  %switch.load1104 = load i32, ptr %switch.gep1103, align 4
   br label %1096
 
-1096:                                             ; preds = %1093, %switch.lookup1100
-  %.0718 = phi i32 [ %switch.load1103, %switch.lookup1100 ], [ 16, %1093 ]
+1096:                                             ; preds = %1093, %switch.lookup1101
+  %.0718 = phi i32 [ %switch.load1104, %switch.lookup1101 ], [ 16, %1093 ]
   %1097 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
           to label %1098 unwind label %1105
 
 1098:                                             ; preds = %1096
   %1099 = load i32, ptr %16, align 4, !tbaa !13
   %1100 = icmp sgt i32 %1099, 0
-  br i1 %1100, label %.thread1029, label %1101
+  br i1 %1100, label %.thread1030, label %1101
 
 1101:                                             ; preds = %1098
   %1102 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %1097, i32 noundef %.0718, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
           to label %1103 unwind label %1107
 
 1103:                                             ; preds = %1101
-  %.not863 = icmp eq ptr %1102, null
-  br i1 %.not863, label %.thread1029, label %1104
+  %.not864 = icmp eq ptr %1102, null
+  br i1 %.not864, label %.thread1030, label %1104
 
 1104:                                             ; preds = %1103
   invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %1102)
@@ -11744,24 +11745,24 @@ switch.lookup1100:                                ; preds = %1093
 
 1109:                                             ; preds = %1104
   %1110 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
-.thread1029:                                      ; preds = %1103, %1098
+.thread1030:                                      ; preds = %1103, %1098
   %1111 = load i32, ptr %2, align 4, !tbaa !12
   %1112 = sub nsw i32 0, %1111
-  br label %.thread990
+  br label %.thread991
 
-1113:                                             ; preds = %.thread964
+1113:                                             ; preds = %.thread965
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %23) #23
   br label %1114
 
 1114:                                             ; preds = %1113, %1114
-  %.idx = phi i64 [ 0, %1113 ], [ %.add, %1114 ]
-  %.ptr = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
+  %.idx856 = phi i64 [ 0, %1113 ], [ %.add, %1114 ]
+  %.ptr = getelementptr inbounds nuw i8, ptr %23, i64 %.idx856
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %.ptr, align 16, !tbaa !44
   %1115 = getelementptr inbounds nuw i8, ptr %.ptr, i64 8
   store i16 2, ptr %1115, align 8, !tbaa !51
-  %.add = add nuw nsw i64 %.idx, 64
+  %.add = add nuw nsw i64 %.idx856, 64
   %1116 = icmp eq i64 %.add, 192
   br i1 %1116, label %1117, label %1114
 
@@ -11778,17 +11779,17 @@ switch.lookup1100:                                ; preds = %1093
           to label %1124 unwind label %1131
 
 1124:                                             ; preds = %1122
-  %.not857 = icmp eq i8 %1123, 0
+  %.not858 = icmp eq i8 %1123, 0
   %1125 = load ptr, ptr %24, align 8, !tbaa !63
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1125) #23, !srcloc !65
-  br i1 %.not857, label %1134, label %1126
+  br i1 %.not858, label %1134, label %1126
 
 1126:                                             ; preds = %1124
   %1127 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %1128 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEDs(ptr noundef nonnull align 8 dereferenceable(64) %1127, i16 noundef zeroext 58)
           to label %1134 unwind label %1129
 
-1129:                                             ; preds = %.thread1032, %1144, %1134, %1126, %1117
+1129:                                             ; preds = %.thread1033, %1144, %1134, %1126, %1117
   %1130 = landingpad { ptr, i32 }
           cleanup
   br label %1158
@@ -11809,8 +11810,8 @@ switch.lookup1100:                                ; preds = %1093
           to label %1139 unwind label %1129
 
 1139:                                             ; preds = %1134
-  %.not858.not = icmp eq i8 %1138, 0
-  br i1 %.not858.not, label %.thread1032, label %1140
+  %.not859.not = icmp eq i8 %1138, 0
+  br i1 %.not859.not, label %.thread1033, label %1140
 
 1140:                                             ; preds = %1139
   store ptr @_ZZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringERiDsiaaPaS4_RNS_8CalendarEiPNS_13MessageFormatEP23UTimeZoneFormatTimeTypePiE7alt_sep, ptr %25, align 8, !tbaa !63
@@ -11818,17 +11819,17 @@ switch.lookup1100:                                ; preds = %1093
           to label %1142 unwind label %1149
 
 1142:                                             ; preds = %1140
-  %.not1044 = icmp eq i8 %1141, 0
+  %.not1045 = icmp eq i8 %1141, 0
   %1143 = load ptr, ptr %25, align 8, !tbaa !63
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1143) #23, !srcloc !65
-  br i1 %.not1044, label %.thread1032, label %1144
+  br i1 %.not1045, label %.thread1033, label %1144
 
 1144:                                             ; preds = %1142
   %1145 = add nuw nsw i32 %.0690, 1
   %1146 = zext nneg i32 %.0690 to i64
   %1147 = getelementptr inbounds nuw [3 x %"class.icu_77::UnicodeString"], ptr %23, i64 0, i64 %1146
   %1148 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEDs(ptr noundef nonnull align 8 dereferenceable(64) %1147, i16 noundef zeroext 46)
-          to label %.thread1032 unwind label %1129
+          to label %.thread1033 unwind label %1129
 
 1149:                                             ; preds = %1140
   %1150 = landingpad { ptr, i32 }
@@ -11837,25 +11838,25 @@ switch.lookup1100:                                ; preds = %1093
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1151) #23, !srcloc !65
   br label %1158
 
-.thread1032:                                      ; preds = %1139, %1144, %1142
+.thread1033:                                      ; preds = %1139, %1144, %1142
   %.1691 = phi i32 [ %1145, %1144 ], [ %.0690, %1142 ], [ %.0690, %1139 ]
   %1152 = load i32, ptr %2, align 4, !tbaa !12
   %1153 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %1152, i32 noundef 24, ptr noundef nonnull %23, i32 noundef %.1691, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %.preheader1052 unwind label %1129
+          to label %.preheader1053 unwind label %1129
 
-.preheader1052:                                   ; preds = %.thread1032, %.preheader1052
-  %1154 = phi ptr [ %1155, %.preheader1052 ], [ %1118, %.thread1032 ]
+.preheader1053:                                   ; preds = %.thread1033, %.preheader1053
+  %1154 = phi ptr [ %1155, %.preheader1053 ], [ %1118, %.thread1033 ]
   %1155 = getelementptr inbounds i8, ptr %1154, i64 -64
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %1155) #23
   %1156 = icmp eq ptr %1155, %23
-  br i1 %1156, label %1157, label %.preheader1052
+  br i1 %1156, label %1157, label %.preheader1053
 
-1157:                                             ; preds = %.preheader1052
+1157:                                             ; preds = %.preheader1053
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %23) #23
-  br label %.thread990
+  br label %.thread991
 
 1158:                                             ; preds = %1149, %1131, %1129
-  %.pn859 = phi { ptr, i32 } [ %1130, %1129 ], [ %1150, %1149 ], [ %1132, %1131 ]
+  %.pn860 = phi { ptr, i32 } [ %1130, %1129 ], [ %1150, %1149 ], [ %1132, %1131 ]
   br label %1159
 
 1159:                                             ; preds = %1159, %1158
@@ -11869,13 +11870,13 @@ switch.lookup1100:                                ; preds = %1093
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %23) #23
   br label %1400
 
-1164:                                             ; preds = %.thread964
+1164:                                             ; preds = %.thread965
   %1165 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringERiDsiaaPaS4_RNS_8CalendarEiPNS_13MessageFormatEP23UTimeZoneFormatTimeTypePi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, i16 noundef zeroext 97, i32 noundef %4, i8 noundef signext %5, i8 noundef signext %6, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef null)
           to label %1166 unwind label %1168
 
 1166:                                             ; preds = %1164
   %1167 = icmp sgt i32 %1165, 0
-  br i1 %1167, label %.thread990, label %1170
+  br i1 %1167, label %.thread991, label %1170
 
 1168:                                             ; preds = %1164
   %1169 = landingpad { ptr, i32 }
@@ -11906,7 +11907,7 @@ switch.lookup1100:                                ; preds = %1093
 
 1185:                                             ; preds = %1178
   %1186 = icmp sgt i32 %1184, 0
-  br i1 %1186, label %.thread990, label %1189
+  br i1 %1186, label %.thread991, label %1189
 
 1187:                                             ; preds = %1212, %1206, %1197, %1189, %1178, %1170
   %1188 = landingpad { ptr, i32 }
@@ -11937,7 +11938,7 @@ switch.lookup1100:                                ; preds = %1093
 
 1204:                                             ; preds = %1197
   %1205 = icmp sgt i32 %1203, 0
-  br i1 %1205, label %.thread990, label %1206
+  br i1 %1205, label %.thread991, label %1206
 
 1206:                                             ; preds = %1204, %1194
   %1207 = load ptr, ptr %0, align 8, !tbaa !44
@@ -11961,14 +11962,14 @@ switch.lookup1100:                                ; preds = %1093
 
 1219:                                             ; preds = %1212
   %1220 = icmp sgt i32 %1218, 0
-  br i1 %1220, label %.thread990, label %1221
+  br i1 %1220, label %.thread991, label %1221
 
 1221:                                             ; preds = %1219, %1211
   %1222 = load i32, ptr %2, align 4, !tbaa !12
   %1223 = sub nsw i32 0, %1222
-  br label %.thread990
+  br label %.thread991
 
-1224:                                             ; preds = %.thread964
+1224:                                             ; preds = %.thread965
   %1225 = load ptr, ptr %0, align 8, !tbaa !44
   %1226 = getelementptr inbounds nuw i8, ptr %1225, i64 224
   %1227 = load ptr, ptr %1226, align 8
@@ -11994,7 +11995,7 @@ switch.lookup1100:                                ; preds = %1093
 
 1241:                                             ; preds = %1232
   %1242 = icmp sgt i32 %1240, 0
-  br i1 %1242, label %.thread990, label %1245
+  br i1 %1242, label %.thread991, label %1245
 
 1243:                                             ; preds = %1272, %1264, %1253, %1245, %1232, %1224
   %1244 = landingpad { ptr, i32 }
@@ -12027,7 +12028,7 @@ switch.lookup1100:                                ; preds = %1093
 
 1262:                                             ; preds = %1253
   %1263 = icmp sgt i32 %1261, 0
-  br i1 %1263, label %.thread990, label %1264
+  br i1 %1263, label %.thread991, label %1264
 
 1264:                                             ; preds = %1262, %1250
   %1265 = load ptr, ptr %0, align 8, !tbaa !44
@@ -12055,17 +12056,17 @@ switch.lookup1100:                                ; preds = %1093
 
 1281:                                             ; preds = %1272
   %1282 = icmp sgt i32 %1280, 0
-  br i1 %1282, label %.thread990, label %1283
+  br i1 %1282, label %.thread991, label %1283
 
 1283:                                             ; preds = %1281, %1269
   %1284 = load i32, ptr %2, align 4, !tbaa !12
   %1285 = sub nsw i32 0, %1284
-  br label %.thread990
+  br label %.thread991
 
-1286:                                             ; preds = %971, %892, %.thread964, %250, %762, %692, %581
+1286:                                             ; preds = %971, %892, %.thread965, %250, %762, %692, %581
   %1287 = load i32, ptr %27, align 8, !tbaa !189
-  %.not916 = icmp eq i8 %5, 0
-  br i1 %.not916, label %1306, label %1288
+  %.not917 = icmp eq i8 %5, 0
+  br i1 %.not917, label %1306, label %1288
 
 1288:                                             ; preds = %1286
   %1289 = load i32, ptr %2, align 4, !tbaa !12
@@ -12081,7 +12082,7 @@ switch.lookup1100:                                ; preds = %1093
 
 1298:                                             ; preds = %1288
   %1299 = sub nsw i32 0, %1289
-  br label %.thread990
+  br label %.thread991
 
 1300:                                             ; preds = %1306, %1308, %1302
   %1301 = landingpad { ptr, i32 }
@@ -12099,16 +12100,16 @@ switch.lookup1100:                                ; preds = %1093
   %.0664 = phi ptr [ %19, %1302 ], [ %1, %1286 ]
   %1307 = load ptr, ptr %18, align 8, !tbaa !43
   invoke void @_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableEiRNS_13ParsePositionEaPKNS_12NumberFormatE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %.0664, ptr noundef nonnull align 8 dereferenceable(112) %15, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(16) %17, i8 noundef signext %6, ptr noundef %1307)
-          to label %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954 unwind label %1300
+          to label %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit955 unwind label %1300
 
-_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954: ; preds = %1306
-  br i1 %.not916, label %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954._crit_edge, label %1308
+_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit955: ; preds = %1306
+  br i1 %.not917, label %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit955._crit_edge, label %1308
 
-_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954._crit_edge: ; preds = %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954
-  %.pre1073 = load i32, ptr %27, align 8, !tbaa !189
+_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit955._crit_edge: ; preds = %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit955
+  %.pre1074 = load i32, ptr %27, align 8, !tbaa !189
   br label %1320
 
-1308:                                             ; preds = %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954
+1308:                                             ; preds = %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit955
   %1309 = load ptr, ptr %0, align 8, !tbaa !44
   %1310 = getelementptr inbounds nuw i8, ptr %1309, i64 96
   %1311 = load ptr, ptr %1310, align 8
@@ -12116,24 +12117,24 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
           to label %1313 unwind label %1300
 
 1313:                                             ; preds = %1308
-  %.not917 = icmp eq i8 %1312, 0
-  %.pre1074 = load i32, ptr %27, align 8, !tbaa !189
-  br i1 %.not917, label %1314, label %1320
+  %.not918 = icmp eq i8 %1312, 0
+  %.pre1075 = load i32, ptr %27, align 8, !tbaa !189
+  br i1 %.not918, label %1314, label %1320
 
 1314:                                             ; preds = %1313
   %1315 = load i32, ptr %2, align 4, !tbaa !12
   %1316 = add nsw i32 %1315, %4
-  %1317 = icmp slt i32 %.pre1074, %1316
+  %1317 = icmp slt i32 %.pre1075, %1316
   br i1 %1317, label %1318, label %1320
 
 1318:                                             ; preds = %1314
   %1319 = sub nsw i32 0, %1315
-  br label %.thread990
+  br label %.thread991
 
-1320:                                             ; preds = %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954._crit_edge, %1314, %1313
-  %1321 = phi i32 [ %.pre1073, %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954._crit_edge ], [ %.pre1074, %1314 ], [ %.pre1074, %1313 ]
-  %.not918 = icmp eq i32 %1321, %1287
-  br i1 %.not918, label %1397, label %1322
+1320:                                             ; preds = %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit955._crit_edge, %1314, %1313
+  %1321 = phi i32 [ %.pre1074, %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit955._crit_edge ], [ %.pre1075, %1314 ], [ %.pre1075, %1313 ]
+  %.not919 = icmp eq i32 %1321, %1287
+  br i1 %.not919, label %1397, label %1322
 
 1322:                                             ; preds = %1320
   %1323 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -12146,16 +12147,16 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
           to label %1330 unwind label %1352
 
 1330:                                             ; preds = %1322
-  %.not919 = icmp eq i8 %1329, 0
-  br i1 %.not919, label %1331, label %.thread1034
+  %.not920 = icmp eq i8 %1329, 0
+  br i1 %.not920, label %1331, label %.thread1035
 
 1331:                                             ; preds = %1330
   %1332 = getelementptr inbounds nuw [36 x i32], ptr @_ZN6icu_77L15gFieldRangeBiasE, i64 0, i64 %57
   %1333 = load i32, ptr %1332, align 4, !tbaa !12
   %1334 = shl nuw i64 1, %57
   %1335 = and i64 %1334, 100663500
-  %.not920 = icmp eq i64 %1335, 0
-  br i1 %.not920, label %.thread1034, label %1336
+  %.not921 = icmp eq i64 %1335, 0
+  br i1 %.not921, label %.thread1035, label %1336
 
 1336:                                             ; preds = %1331
   %1337 = load ptr, ptr %9, align 8, !tbaa !44
@@ -12179,9 +12180,9 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 1349:                                             ; preds = %1344
   %1350 = add nsw i32 %1348, %1333
   %1351 = icmp sgt i32 %1350, %1325
-  br i1 %1351, label %1356, label %.thread1034
+  br i1 %1351, label %1356, label %.thread1035
 
-1352:                                             ; preds = %.invoke1087, %1388, %1322
+1352:                                             ; preds = %.invoke1088, %1388, %1322
   %1353 = landingpad { ptr, i32 }
           cleanup
   br label %1400
@@ -12194,20 +12195,20 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 1356:                                             ; preds = %1341, %1349
   %1357 = load i32, ptr %2, align 4, !tbaa !12
   %1358 = sub nsw i32 0, %1357
-  br label %.thread990
+  br label %.thread991
 
-.thread1034:                                      ; preds = %1331, %1349, %1330
+.thread1035:                                      ; preds = %1331, %1349, %1330
   switch i32 %29, label %1392 [
     i32 2, label %1359
     i32 26, label %1383
-    i32 19, label %.invoke1087
-    i32 25, label %.invoke1087
+    i32 19, label %.invoke1088
+    i32 25, label %.invoke1088
     i32 27, label %1385
     i32 28, label %1385
     i32 34, label %1388
   ]
 
-1359:                                             ; preds = %.thread1034
+1359:                                             ; preds = %.thread1035
   %1360 = load ptr, ptr %9, align 8, !tbaa !44
   %1361 = getelementptr inbounds i8, ptr %1360, i64 -8
   %1362 = load ptr, ptr %1361, align 8
@@ -12219,8 +12220,8 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
           to label %1366 unwind label %1375
 
 1366:                                             ; preds = %1364
-  %.not921 = icmp eq i8 %1365, 0
-  br i1 %.not921, label %1380, label %1367
+  %.not922 = icmp eq i8 %1365, 0
+  br i1 %.not922, label %1380, label %1367
 
 1367:                                             ; preds = %1366
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #23
@@ -12230,9 +12231,9 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 1369:                                             ; preds = %1367
   %1370 = invoke noundef signext i8 @_ZN6icu_7714HebrewCalendar10isLeapYearEi(i32 noundef %1368)
-          to label %.invoke1088 unwind label %1377
+          to label %.invoke1089 unwind label %1377
 
-.invoke1088:                                      ; preds = %1369
+.invoke1089:                                      ; preds = %1369
   %1371 = icmp ne i8 %1370, 0
   %1372 = icmp slt i32 %1325, 6
   %or.cond116.not = or i1 %1372, %1371
@@ -12246,13 +12247,13 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
           cleanup
   br label %1400
 
-1377:                                             ; preds = %.invoke1088, %1369, %1367
+1377:                                             ; preds = %.invoke1089, %1369, %1367
   %1378 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #23
   br label %1400
 
-1379:                                             ; preds = %.invoke1088
+1379:                                             ; preds = %.invoke1089
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #23
   br label %1395
 
@@ -12262,63 +12263,63 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
 
 1381:                                             ; preds = %1359
   %1382 = add nsw i32 %1325, -1
-  br label %.invoke1087
+  br label %.invoke1088
 
-1383:                                             ; preds = %.thread1034
+1383:                                             ; preds = %.thread1035
   %1384 = add nsw i32 %1325, -1
-  br label %.invoke1087
+  br label %.invoke1088
 
-1385:                                             ; preds = %.thread1034, %.thread1034
+1385:                                             ; preds = %.thread1035, %.thread1035
   %1386 = mul i32 %1325, 3
   %1387 = add i32 %1386, -3
-  br label %.invoke1087
+  br label %.invoke1088
 
-1388:                                             ; preds = %.thread1034
+1388:                                             ; preds = %.thread1035
   %1389 = load ptr, ptr %9, align 8, !tbaa !44
   %1390 = getelementptr inbounds nuw i8, ptr %1389, i64 440
   %1391 = load ptr, ptr %1390, align 8
   invoke void %1391(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef %1325)
           to label %1395 unwind label %1352
 
-1392:                                             ; preds = %.thread1034
-  br label %.invoke1087
+1392:                                             ; preds = %.thread1035
+  br label %.invoke1088
 
-.invoke1087:                                      ; preds = %.thread1034, %.thread1034, %1381, %1383, %1385, %1392
-  %1393 = phi i32 [ %59, %1392 ], [ 2, %1385 ], [ 2, %1383 ], [ 2, %1381 ], [ 18, %.thread1034 ], [ 18, %.thread1034 ]
-  %1394 = phi i32 [ %1325, %1392 ], [ %1387, %1385 ], [ %1384, %1383 ], [ %1382, %1381 ], [ %1325, %.thread1034 ], [ %1325, %.thread1034 ]
+.invoke1088:                                      ; preds = %.thread1035, %.thread1035, %1381, %1383, %1385, %1392
+  %1393 = phi i32 [ %59, %1392 ], [ 2, %1385 ], [ 2, %1383 ], [ 2, %1381 ], [ 18, %.thread1035 ], [ 18, %.thread1035 ]
+  %1394 = phi i32 [ %1325, %1392 ], [ %1387, %1385 ], [ %1384, %1383 ], [ %1382, %1381 ], [ %1325, %.thread1035 ], [ %1325, %.thread1035 ]
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef %1393, i32 noundef %1394)
           to label %1395 unwind label %1352
 
-1395:                                             ; preds = %.invoke1087, %1379, %1380, %1388
+1395:                                             ; preds = %.invoke1088, %1379, %1380, %1388
   %1396 = load i32, ptr %27, align 8, !tbaa !189
-  br label %.thread990
+  br label %.thread991
 
 1397:                                             ; preds = %1320
   %1398 = load i32, ptr %2, align 4, !tbaa !12
   %1399 = sub nsw i32 0, %1398
-  br label %.thread990
+  br label %.thread991
 
-.thread990:                                       ; preds = %965, %958, %939, %918, %972, %886, %879, %860, %839, %893, %755, %736, %715, %685, %666, %647, %626, %575, %557, %539, %502, %482, %1356, %1109, %1089, %1069, %1050, %1030, %1011, %990, %182, %238, %243, %247, %253, %256, %271, %333, %379, %408, %410, %437, %591, %604, %607, %696, %815, %820, %899, %1157, %762, %692, %581, %391, %801, %780, %803, %.thread1017, %.thread1019, %.thread1021, %.thread1023, %.thread1025, %.thread1027, %.thread1029, %1221, %1185, %1204, %1219, %1166, %1281, %1262, %1241, %1283, %1395, %1397, %1318, %1298, %._crit_edge
-  %.1 = phi i32 [ %79, %._crit_edge ], [ %257, %256 ], [ %255, %253 ], [ %spec.select936, %271 ], [ %334, %333 ], [ %380, %379 ], [ %409, %408 ], [ %412, %410 ], [ %390, %391 ], [ %438, %437 ], [ %.2746988, %581 ], [ %592, %591 ], [ %605, %604 ], [ %608, %607 ], [ %.3754, %692 ], [ %697, %696 ], [ %.2757, %762 ], [ %816, %815 ], [ %821, %820 ], [ %900, %899 ], [ %1153, %1157 ], [ %245, %243 ], [ %249, %247 ], [ %805, %803 ], [ %779, %780 ], [ %800, %801 ], [ %993, %.thread1017 ], [ %991, %990 ], [ %1014, %.thread1019 ], [ %1012, %1011 ], [ %1033, %.thread1021 ], [ %1031, %1030 ], [ %1053, %.thread1023 ], [ %1051, %1050 ], [ %1072, %.thread1025 ], [ %1070, %1069 ], [ %1092, %.thread1027 ], [ %1090, %1089 ], [ %1112, %.thread1029 ], [ %1110, %1109 ], [ %1165, %1166 ], [ %1223, %1221 ], [ %1184, %1185 ], [ %1203, %1204 ], [ %1218, %1219 ], [ %1285, %1283 ], [ %1240, %1241 ], [ %1261, %1262 ], [ %1280, %1281 ], [ %1299, %1298 ], [ %1399, %1397 ], [ %1319, %1318 ], [ %1396, %1395 ], [ %1358, %1356 ], [ %183, %182 ], [ %240, %238 ], [ %574, %575 ], [ %556, %557 ], [ %538, %539 ], [ %501, %502 ], [ %481, %482 ], [ %684, %685 ], [ %665, %666 ], [ %646, %647 ], [ %625, %626 ], [ %754, %755 ], [ %735, %736 ], [ %714, %715 ], [ %.2760, %886 ], [ %878, %879 ], [ %859, %860 ], [ %838, %839 ], [ %895, %893 ], [ %.2763, %965 ], [ %957, %958 ], [ %938, %939 ], [ %917, %918 ], [ %974, %972 ]
+.thread991:                                       ; preds = %965, %958, %939, %918, %972, %886, %879, %860, %839, %893, %755, %736, %715, %685, %666, %647, %626, %575, %557, %539, %502, %482, %1356, %1109, %1089, %1069, %1050, %1030, %1011, %990, %182, %238, %243, %247, %253, %256, %271, %333, %379, %408, %410, %437, %591, %604, %607, %696, %815, %820, %899, %1157, %762, %692, %581, %391, %801, %780, %803, %.thread1018, %.thread1020, %.thread1022, %.thread1024, %.thread1026, %.thread1028, %.thread1030, %1221, %1185, %1204, %1219, %1166, %1281, %1262, %1241, %1283, %1395, %1397, %1318, %1298, %._crit_edge
+  %.1 = phi i32 [ %79, %._crit_edge ], [ %257, %256 ], [ %255, %253 ], [ %spec.select937, %271 ], [ %334, %333 ], [ %380, %379 ], [ %409, %408 ], [ %412, %410 ], [ %390, %391 ], [ %438, %437 ], [ %.2746989, %581 ], [ %592, %591 ], [ %605, %604 ], [ %608, %607 ], [ %.3754, %692 ], [ %697, %696 ], [ %.2757, %762 ], [ %816, %815 ], [ %821, %820 ], [ %900, %899 ], [ %1153, %1157 ], [ %245, %243 ], [ %249, %247 ], [ %805, %803 ], [ %779, %780 ], [ %800, %801 ], [ %993, %.thread1018 ], [ %991, %990 ], [ %1014, %.thread1020 ], [ %1012, %1011 ], [ %1033, %.thread1022 ], [ %1031, %1030 ], [ %1053, %.thread1024 ], [ %1051, %1050 ], [ %1072, %.thread1026 ], [ %1070, %1069 ], [ %1092, %.thread1028 ], [ %1090, %1089 ], [ %1112, %.thread1030 ], [ %1110, %1109 ], [ %1165, %1166 ], [ %1223, %1221 ], [ %1184, %1185 ], [ %1203, %1204 ], [ %1218, %1219 ], [ %1285, %1283 ], [ %1240, %1241 ], [ %1261, %1262 ], [ %1280, %1281 ], [ %1299, %1298 ], [ %1399, %1397 ], [ %1319, %1318 ], [ %1396, %1395 ], [ %1358, %1356 ], [ %183, %182 ], [ %240, %238 ], [ %574, %575 ], [ %556, %557 ], [ %538, %539 ], [ %501, %502 ], [ %481, %482 ], [ %684, %685 ], [ %665, %666 ], [ %646, %647 ], [ %625, %626 ], [ %754, %755 ], [ %735, %736 ], [ %714, %715 ], [ %.2760, %886 ], [ %878, %879 ], [ %859, %860 ], [ %838, %839 ], [ %895, %893 ], [ %.2763, %965 ], [ %957, %958 ], [ %938, %939 ], [ %917, %918 ], [ %974, %972 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %20) #23
   br label %1402
 
 1400:                                             ; preds = %258, %330, %393, %484, %628, %717, %782, %841, %920, %1163, %1243, %205, %236, %184, %168, %431, %429, %988, %986, %1009, %1007, %1028, %1026, %1048, %1046, %1067, %1065, %1087, %1085, %1107, %1105, %1187, %1168, %1352, %1354, %1377, %1375, %1300, %88, %67
-  %.pn924.pn.pn.pn = phi { ptr, i32 } [ %89, %88 ], [ %68, %67 ], [ %259, %258 ], [ %331, %330 ], [ %394, %393 ], [ %485, %484 ], [ %629, %628 ], [ %718, %717 ], [ %783, %782 ], [ %842, %841 ], [ %921, %920 ], [ %.pn859, %1163 ], [ %1244, %1243 ], [ %185, %184 ], [ %169, %168 ], [ %237, %236 ], [ %206, %205 ], [ %432, %431 ], [ %430, %429 ], [ %989, %988 ], [ %987, %986 ], [ %1010, %1009 ], [ %1008, %1007 ], [ %1029, %1028 ], [ %1027, %1026 ], [ %1049, %1048 ], [ %1047, %1046 ], [ %1068, %1067 ], [ %1066, %1065 ], [ %1088, %1087 ], [ %1086, %1085 ], [ %1108, %1107 ], [ %1106, %1105 ], [ %1188, %1187 ], [ %1169, %1168 ], [ %1301, %1300 ], [ %1353, %1352 ], [ %1355, %1354 ], [ %1378, %1377 ], [ %1376, %1375 ]
+  %.pn925.pn.pn.pn = phi { ptr, i32 } [ %89, %88 ], [ %68, %67 ], [ %259, %258 ], [ %331, %330 ], [ %394, %393 ], [ %485, %484 ], [ %629, %628 ], [ %718, %717 ], [ %783, %782 ], [ %842, %841 ], [ %921, %920 ], [ %.pn860, %1163 ], [ %1244, %1243 ], [ %185, %184 ], [ %169, %168 ], [ %237, %236 ], [ %206, %205 ], [ %432, %431 ], [ %430, %429 ], [ %989, %988 ], [ %987, %986 ], [ %1010, %1009 ], [ %1008, %1007 ], [ %1029, %1028 ], [ %1027, %1026 ], [ %1049, %1048 ], [ %1047, %1046 ], [ %1068, %1067 ], [ %1066, %1065 ], [ %1088, %1087 ], [ %1086, %1085 ], [ %1108, %1107 ], [ %1106, %1105 ], [ %1188, %1187 ], [ %1169, %1168 ], [ %1301, %1300 ], [ %1353, %1352 ], [ %1355, %1354 ], [ %1378, %1377 ], [ %1376, %1375 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #23
   br label %1401
 
 1401:                                             ; preds = %1400, %65
-  %.pn924.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn924.pn.pn.pn, %1400 ], [ %66, %65 ]
+  %.pn925.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn925.pn.pn.pn, %1400 ], [ %66, %65 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %20) #23
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %19) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #23
   br label %1403
 
-1402:                                             ; preds = %.thread990, %53, %33
-  %.0 = phi i32 [ %35, %33 ], [ %55, %53 ], [ %.1, %.thread990 ]
+1402:                                             ; preds = %.thread991, %53, %33
+  %.0 = phi i32 [ %35, %33 ], [ %55, %53 ], [ %.1, %.thread991 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %19) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #23
@@ -12330,13 +12331,13 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
   ret i32 %.0
 
 1403:                                             ; preds = %1401, %36
-  %.pn924.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn924.pn.pn.pn.pn, %1401 ], [ %37, %36 ]
+  %.pn925.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn925.pn.pn.pn.pn, %1401 ], [ %37, %36 ]
   call void @_ZN6icu_7713ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #23
   call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %15) #23
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %15) #23
-  resume { ptr, i32 } %.pn924.pn.pn.pn.pn.pn.pn.pn
+  resume { ptr, i32 } %.pn925.pn.pn.pn.pn.pn.pn.pn
 }
 
 declare noundef signext i8 @_ZN6icu_7712PatternProps12isWhiteSpaceEi(i32 noundef) local_unnamed_addr #9

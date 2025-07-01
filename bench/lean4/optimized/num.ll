@@ -802,7 +802,8 @@ thread-pre-split:                                 ; preds = %.invoke, %8, %34, %
   %79 = phi i64 [ %.pr, %thread-pre-split ], [ %73, %72 ], [ %61, %60 ], [ %49, %48 ], [ %36, %35 ], [ %23, %22 ]
   %.0 = phi i1 [ %.0.ph, %thread-pre-split ], [ false, %72 ], [ false, %60 ], [ %50, %48 ], [ %37, %35 ], [ %24, %22 ]
   %80 = load ptr, ptr %3, align 8, !tbaa !44
-  %81 = getelementptr inbounds nuw %"class.lean::expr", ptr %80, i64 %79
+  %.idx.i.i.i = shl nuw nsw i64 %79, 3
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx.i.i.i
   %.not4.i.i.i.i = icmp eq i64 %79, 0
   br i1 %.not4.i.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -2047,7 +2048,8 @@ define linkonce_odr hidden void @_ZN4lean6bufferINS_4exprELm16EED2Ev(ptr noundef
   %2 = load ptr, ptr %0, align 8, !tbaa !44
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !48
-  %5 = getelementptr inbounds nuw %"class.lean::expr", ptr %2, i64 %4
+  %.idx.i.i = shl nuw nsw i64 %4, 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i
   %.not4.i.i.i = icmp eq i64 %4, 0
   br i1 %.not4.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i, label %.lr.ph.i.i.i
 

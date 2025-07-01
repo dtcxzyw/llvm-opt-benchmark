@@ -72,7 +72,8 @@ define dso_local noundef i64 @_ZN4llvm23DXContainerObjectWriter11writeObjectERNS
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %21 = load i32, ptr %20, align 8, !tbaa !9
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
+  %.idx = shl nuw nsw i64 %22, 3
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not167173 = icmp eq i32 %21, 0
   br i1 %.not167173, label %._crit_edge, label %.lr.ph
 
@@ -152,7 +153,8 @@ _ZN4llvm7support6endian6Writer5writeIcEEvNS_8ArrayRefIT_EE.exit: ; preds = %.lr.
   %54 = load ptr, ptr %12, align 8, !tbaa !3
   %55 = load i32, ptr %16, align 8, !tbaa !9
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %56
+  %.idx185 = shl nuw nsw i64 %56, 3
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx185
   %.not176 = icmp eq i32 %55, 0
   br i1 %.not176, label %._crit_edge179, label %.lr.ph178
 
@@ -214,7 +216,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread154:      ; preds = %_ZN4llvmeqENS_9Stri
   %80 = load ptr, ptr %18, align 8, !tbaa !3
   %81 = load i32, ptr %20, align 8, !tbaa !9
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %80, i64 %82
+  %.idx186 = shl nuw nsw i64 %82, 3
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx186
   %.not168180 = icmp eq i32 %81, 0
   br i1 %.not168180, label %._crit_edge184, label %.lr.ph183
 

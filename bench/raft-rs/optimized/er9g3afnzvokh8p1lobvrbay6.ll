@@ -698,7 +698,8 @@ define void @_ZN10raft_proto10confchange21stringify_conf_change17h9b28720fbfeae6
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.54.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %.sroa.54.0..sroa_idx, align 8
-  %8 = getelementptr inbounds nuw { i64, ptr, { { i64 } }, i8, [7 x i8] }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 5
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %9 = icmp eq i64 %2, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 

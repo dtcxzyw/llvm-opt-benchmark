@@ -127140,7 +127140,8 @@ define linkonce_odr hidden void @_ZNSt3mapIcPKcSt4lessIcESaISt4pairIS0_S1_EEEC2E
   store ptr %6, ptr %9, align 8, !tbaa !150
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !151
-  %11 = getelementptr inbounds nuw %"struct.std::pair.885", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIcSt4pairIKcPS1_ESt10_Select1stIS3_ESt4lessIcESaIS3_EE22_M_insert_range_uniqueIPKS3_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESE_SE_.exit, label %.lr.ph.i
 
@@ -128661,7 +128662,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %.not = icmp ult i64 %16, %8
-  br i1 %.not, label %148, label %17
+  br i1 %.not, label %147, label %17
 
 17:                                               ; preds = %5
   %18 = ptrtoint ptr %1 to i64
@@ -128671,183 +128672,183 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test
   br i1 %21, label %22, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit
 
 22:                                               ; preds = %17
-  %23 = sub nsw i64 0, %9
-  %24 = getelementptr inbounds %"class.boost::shared_ptr", ptr %13, i64 %23
+  %.idx = sub i64 0, %8
+  %23 = getelementptr inbounds i8, ptr %13, i64 %.idx
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %22, %.lr.ph.i.i.i.i.i
-  %.013.i.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i.i ], [ %13, %22 ]
-  %.sroa.08.012.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i ], [ %24, %22 ]
-  %25 = load ptr, ptr %.sroa.08.012.i.i.i.i.i, align 8, !tbaa !320
-  store ptr %25, ptr %.013.i.i.i.i.i, align 8, !tbaa !320
-  %26 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !322
-  store ptr %28, ptr %26, align 8, !tbaa !322
+  %.013.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i ], [ %13, %22 ]
+  %.sroa.08.012.i.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i.i ], [ %23, %22 ]
+  %24 = load ptr, ptr %.sroa.08.012.i.i.i.i.i, align 8, !tbaa !320
+  store ptr %24, ptr %.013.i.i.i.i.i, align 8, !tbaa !320
+  %25 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !322
+  store ptr %27, ptr %25, align 8, !tbaa !322
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.012.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 16
-  %30 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %29, %13
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %28, %13
   br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !2213
 
 _ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %31 = load ptr, ptr %12, align 8, !tbaa !318
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %8
-  store ptr %32, ptr %12, align 8, !tbaa !318
-  %33 = ptrtoint ptr %24 to i64
-  %34 = sub i64 %33, %18
-  %35 = ashr exact i64 %34, 4
-  %36 = icmp sgt i64 %35, 0
-  br i1 %36, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_ET0_T_S8_S7_.exit
+  %30 = load ptr, ptr %12, align 8, !tbaa !318
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %8
+  store ptr %31, ptr %12, align 8, !tbaa !318
+  %32 = ptrtoint ptr %23 to i64
+  %33 = sub i64 %32, %18
+  %34 = ashr exact i64 %33, 4
+  %35 = icmp sgt i64 %34, 0
+  br i1 %35, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_ET0_T_S8_S7_.exit
 
 .lr.ph.i.i.i.i.i51:                               ; preds = %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSEOS4_.exit.i.i.i.i.i
-  %.011.i.i.i.i.i = phi i64 [ %62, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSEOS4_.exit.i.i.i.i.i ], [ %35, %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
-  %.0610.i.i.i.i.i = phi ptr [ %38, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSEOS4_.exit.i.i.i.i.i ], [ %13, %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
-  %.079.i.i.i.i.i = phi ptr [ %37, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSEOS4_.exit.i.i.i.i.i ], [ %24, %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
-  %37 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -16
-  %38 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -16
-  %39 = load ptr, ptr %37, align 8, !tbaa !320
-  %40 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -8
-  %41 = load ptr, ptr %40, align 8, !tbaa !322
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
-  store ptr %39, ptr %38, align 8, !tbaa !174
-  %42 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -8
-  %43 = load ptr, ptr %42, align 8, !tbaa !322
-  store ptr %41, ptr %42, align 8, !tbaa !322
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSEOS4_.exit.i.i.i.i.i, label %44
+  %.011.i.i.i.i.i = phi i64 [ %61, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSEOS4_.exit.i.i.i.i.i ], [ %34, %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
+  %.0610.i.i.i.i.i = phi ptr [ %37, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSEOS4_.exit.i.i.i.i.i ], [ %13, %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
+  %.079.i.i.i.i.i = phi ptr [ %36, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSEOS4_.exit.i.i.i.i.i ], [ %23, %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
+  %36 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -16
+  %37 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -16
+  %38 = load ptr, ptr %36, align 8, !tbaa !320
+  %39 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -8
+  %40 = load ptr, ptr %39, align 8, !tbaa !322
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
+  store ptr %38, ptr %37, align 8, !tbaa !174
+  %41 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -8
+  %42 = load ptr, ptr %41, align 8, !tbaa !322
+  store ptr %40, ptr %41, align 8, !tbaa !322
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSEOS4_.exit.i.i.i.i.i, label %43
 
-44:                                               ; preds = %.lr.ph.i.i.i.i.i51
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %46 = atomicrmw sub ptr %45, i32 1 acq_rel, align 4
-  %47 = icmp eq i32 %46, 1
-  br i1 %47, label %48, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSEOS4_.exit.i.i.i.i.i
+43:                                               ; preds = %.lr.ph.i.i.i.i.i51
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %45 = atomicrmw sub ptr %44, i32 1 acq_rel, align 4
+  %46 = icmp eq i32 %45, 1
+  br i1 %46, label %47, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSEOS4_.exit.i.i.i.i.i
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %43, align 8, !tbaa !25
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load ptr, ptr %50, align 8
-  invoke void %51(ptr noundef nonnull align 8 dereferenceable(16) %43)
-          to label %.noexc.i.i.i.i.i.i.i.i unwind label %59
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %42, align 8, !tbaa !25
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %50 = load ptr, ptr %49, align 8
+  invoke void %50(ptr noundef nonnull align 8 dereferenceable(16) %42)
+          to label %.noexc.i.i.i.i.i.i.i.i unwind label %58
 
-.noexc.i.i.i.i.i.i.i.i:                           ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %43, i64 12
-  %53 = atomicrmw sub ptr %52, i32 1 acq_rel, align 4
-  %54 = icmp eq i32 %53, 1
-  br i1 %54, label %55, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSEOS4_.exit.i.i.i.i.i
+.noexc.i.i.i.i.i.i.i.i:                           ; preds = %47
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 12
+  %52 = atomicrmw sub ptr %51, i32 1 acq_rel, align 4
+  %53 = icmp eq i32 %52, 1
+  br i1 %53, label %54, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSEOS4_.exit.i.i.i.i.i
 
-55:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i
-  %56 = load ptr, ptr %43, align 8, !tbaa !25
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %58 = load ptr, ptr %57, align 8
-  invoke void %58(ptr noundef nonnull align 8 dereferenceable(16) %43)
-          to label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSEOS4_.exit.i.i.i.i.i unwind label %59
+54:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i
+  %55 = load ptr, ptr %42, align 8, !tbaa !25
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %57 = load ptr, ptr %56, align 8
+  invoke void %57(ptr noundef nonnull align 8 dereferenceable(16) %42)
+          to label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSEOS4_.exit.i.i.i.i.i unwind label %58
 
-59:                                               ; preds = %55, %48
-  %60 = landingpad { ptr, i32 }
+58:                                               ; preds = %54, %47
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %61 = extractvalue { ptr, i32 } %60, 0
-  tail call void @__clang_call_terminate(ptr %61) #56
+  %60 = extractvalue { ptr, i32 } %59, 0
+  tail call void @__clang_call_terminate(ptr %60) #56
   unreachable
 
-_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSEOS4_.exit.i.i.i.i.i: ; preds = %55, %.noexc.i.i.i.i.i.i.i.i, %44, %.lr.ph.i.i.i.i.i51
-  %62 = add nsw i64 %.011.i.i.i.i.i, -1
-  %63 = icmp sgt i64 %.011.i.i.i.i.i, 1
-  br i1 %63, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_ET0_T_S8_S7_.exit, !llvm.loop !2214
+_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSEOS4_.exit.i.i.i.i.i: ; preds = %54, %.noexc.i.i.i.i.i.i.i.i, %43, %.lr.ph.i.i.i.i.i51
+  %61 = add nsw i64 %.011.i.i.i.i.i, -1
+  %62 = icmp sgt i64 %.011.i.i.i.i.i, 1
+  br i1 %62, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_ET0_T_S8_S7_.exit, !llvm.loop !2214
 
 _ZSt13move_backwardIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_ET0_T_S8_S7_.exit: ; preds = %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSEOS4_.exit.i.i.i.i.i, %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit
-  %64 = icmp sgt i64 %9, 0
-  br i1 %64, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit
+  %63 = icmp sgt i64 %9, 0
+  br i1 %63, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit
 
 .lr.ph.i.i.i.i.i52:                               ; preds = %_ZSt13move_backwardIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_ET0_T_S8_S7_.exit, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i
-  %.013.i.i.i.i.i53 = phi i64 [ %93, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i ], [ %9, %_ZSt13move_backwardIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_ET0_T_S8_S7_.exit ]
-  %.0812.i.i.i.i.i = phi ptr [ %92, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i ], [ %1, %_ZSt13move_backwardIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_ET0_T_S8_S7_.exit ]
-  %.0911.i.i.i.i.i = phi ptr [ %91, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i ], [ %2, %_ZSt13move_backwardIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_ET0_T_S8_S7_.exit ]
-  %65 = load ptr, ptr %.0911.i.i.i.i.i, align 8, !tbaa !320
-  %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !322
-  %.not.i.i.i.i.i.i.i.i54 = icmp eq ptr %67, null
-  br i1 %.not.i.i.i.i.i.i.i.i54, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEC2ERKS4_.exit.i.i.i.i.i.i, label %68
+  %.013.i.i.i.i.i53 = phi i64 [ %92, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i ], [ %9, %_ZSt13move_backwardIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_ET0_T_S8_S7_.exit ]
+  %.0812.i.i.i.i.i = phi ptr [ %91, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i ], [ %1, %_ZSt13move_backwardIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_ET0_T_S8_S7_.exit ]
+  %.0911.i.i.i.i.i = phi ptr [ %90, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i ], [ %2, %_ZSt13move_backwardIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_ET0_T_S8_S7_.exit ]
+  %64 = load ptr, ptr %.0911.i.i.i.i.i, align 8, !tbaa !320
+  %65 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !322
+  %.not.i.i.i.i.i.i.i.i54 = icmp eq ptr %66, null
+  br i1 %.not.i.i.i.i.i.i.i.i54, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEC2ERKS4_.exit.i.i.i.i.i.i, label %67
 
-68:                                               ; preds = %.lr.ph.i.i.i.i.i52
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %70 = atomicrmw add ptr %69, i32 1 monotonic, align 4
+67:                                               ; preds = %.lr.ph.i.i.i.i.i52
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %69 = atomicrmw add ptr %68, i32 1 monotonic, align 4
   br label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEC2ERKS4_.exit.i.i.i.i.i.i
 
-_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEC2ERKS4_.exit.i.i.i.i.i.i: ; preds = %68, %.lr.ph.i.i.i.i.i52
-  store ptr %65, ptr %.0812.i.i.i.i.i, align 8, !tbaa !174
-  %71 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !322
-  store ptr %67, ptr %71, align 8, !tbaa !322
-  %.not.i.i2.i.i.i.i.i.i = icmp eq ptr %72, null
-  br i1 %.not.i.i2.i.i.i.i.i.i, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i, label %73
+_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEC2ERKS4_.exit.i.i.i.i.i.i: ; preds = %67, %.lr.ph.i.i.i.i.i52
+  store ptr %64, ptr %.0812.i.i.i.i.i, align 8, !tbaa !174
+  %70 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 8
+  %71 = load ptr, ptr %70, align 8, !tbaa !322
+  store ptr %66, ptr %70, align 8, !tbaa !322
+  %.not.i.i2.i.i.i.i.i.i = icmp eq ptr %71, null
+  br i1 %.not.i.i2.i.i.i.i.i.i, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i, label %72
 
-73:                                               ; preds = %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEC2ERKS4_.exit.i.i.i.i.i.i
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %75 = atomicrmw sub ptr %74, i32 1 acq_rel, align 4
-  %76 = icmp eq i32 %75, 1
-  br i1 %76, label %77, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i
+72:                                               ; preds = %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEC2ERKS4_.exit.i.i.i.i.i.i
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %74 = atomicrmw sub ptr %73, i32 1 acq_rel, align 4
+  %75 = icmp eq i32 %74, 1
+  br i1 %75, label %76, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i
 
-77:                                               ; preds = %73
-  %78 = load ptr, ptr %72, align 8, !tbaa !25
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %80 = load ptr, ptr %79, align 8
-  invoke void %80(ptr noundef nonnull align 8 dereferenceable(16) %72)
-          to label %.noexc.i.i.i.i.i.i.i.i55 unwind label %88
+76:                                               ; preds = %72
+  %77 = load ptr, ptr %71, align 8, !tbaa !25
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %79 = load ptr, ptr %78, align 8
+  invoke void %79(ptr noundef nonnull align 8 dereferenceable(16) %71)
+          to label %.noexc.i.i.i.i.i.i.i.i55 unwind label %87
 
-.noexc.i.i.i.i.i.i.i.i55:                         ; preds = %77
-  %81 = getelementptr inbounds nuw i8, ptr %72, i64 12
-  %82 = atomicrmw sub ptr %81, i32 1 acq_rel, align 4
-  %83 = icmp eq i32 %82, 1
-  br i1 %83, label %84, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i
+.noexc.i.i.i.i.i.i.i.i55:                         ; preds = %76
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 12
+  %81 = atomicrmw sub ptr %80, i32 1 acq_rel, align 4
+  %82 = icmp eq i32 %81, 1
+  br i1 %82, label %83, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i
 
-84:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i55
-  %85 = load ptr, ptr %72, align 8, !tbaa !25
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %87 = load ptr, ptr %86, align 8
-  invoke void %87(ptr noundef nonnull align 8 dereferenceable(16) %72)
-          to label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i unwind label %88
+83:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i55
+  %84 = load ptr, ptr %71, align 8, !tbaa !25
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  %86 = load ptr, ptr %85, align 8
+  invoke void %86(ptr noundef nonnull align 8 dereferenceable(16) %71)
+          to label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i unwind label %87
 
-88:                                               ; preds = %84, %77
-  %89 = landingpad { ptr, i32 }
+87:                                               ; preds = %83, %76
+  %88 = landingpad { ptr, i32 }
           catch ptr null
-  %90 = extractvalue { ptr, i32 } %89, 0
-  tail call void @__clang_call_terminate(ptr %90) #56
+  %89 = extractvalue { ptr, i32 } %88, 0
+  tail call void @__clang_call_terminate(ptr %89) #56
   unreachable
 
-_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i: ; preds = %84, %.noexc.i.i.i.i.i.i.i.i55, %73, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEC2ERKS4_.exit.i.i.i.i.i.i
-  %91 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 16
-  %92 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 16
-  %93 = add nsw i64 %.013.i.i.i.i.i53, -1
-  %94 = icmp sgt i64 %.013.i.i.i.i.i53, 1
-  br i1 %94, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit, !llvm.loop !2215
+_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i: ; preds = %83, %.noexc.i.i.i.i.i.i.i.i55, %72, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEC2ERKS4_.exit.i.i.i.i.i.i
+  %90 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 16
+  %92 = add nsw i64 %.013.i.i.i.i.i53, -1
+  %93 = icmp sgt i64 %.013.i.i.i.i.i53, 1
+  br i1 %93, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit, !llvm.loop !2215
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit: ; preds = %17
-  %95 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not7.i.i.i.i = icmp eq ptr %95, %3
+  %94 = getelementptr inbounds i8, ptr %2, i64 %19
+  %.not7.i.i.i.i = icmp eq ptr %94, %3
   br i1 %.not7.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit, %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i
-  %.09.i.i.i.i = phi ptr [ %104, %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ]
-  %.sroa.04.08.i.i.i.i = phi ptr [ %103, %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i ], [ %95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ]
-  %96 = load ptr, ptr %.sroa.04.08.i.i.i.i, align 8, !tbaa !320
-  store ptr %96, ptr %.09.i.i.i.i, align 8, !tbaa !320
-  %97 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 8
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i, i64 8
-  %99 = load ptr, ptr %98, align 8, !tbaa !322
-  store ptr %99, ptr %97, align 8, !tbaa !322
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %99, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i, label %100
+  %.09.i.i.i.i = phi ptr [ %103, %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ]
+  %.sroa.04.08.i.i.i.i = phi ptr [ %102, %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i ], [ %94, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ]
+  %95 = load ptr, ptr %.sroa.04.08.i.i.i.i, align 8, !tbaa !320
+  store ptr %95, ptr %.09.i.i.i.i, align 8, !tbaa !320
+  %96 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i, i64 8
+  %98 = load ptr, ptr %97, align 8, !tbaa !322
+  store ptr %98, ptr %96, align 8, !tbaa !322
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %98, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i, label %99
 
-100:                                              ; preds = %.lr.ph.i.i.i.i
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %102 = atomicrmw add ptr %101, i32 1 monotonic, align 4
+99:                                               ; preds = %.lr.ph.i.i.i.i
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %101 = atomicrmw add ptr %100, i32 1 monotonic, align 4
   br label %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i
 
-_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %100, %.lr.ph.i.i.i.i
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i, i64 16
-  %104 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %103, %3
+_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %99, %.lr.ph.i.i.i.i
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %102, %3
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !2216
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit.loopexit: ; preds = %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i
@@ -128855,26 +128856,26 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptr
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit
-  %105 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ]
-  %106 = sub nuw nsw i64 %9, %20
-  %107 = getelementptr inbounds nuw %"class.boost::shared_ptr", ptr %105, i64 %106
-  store ptr %107, ptr %12, align 8, !tbaa !318
+  %104 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ]
+  %105 = sub nuw nsw i64 %9, %20
+  %106 = getelementptr inbounds nuw %"class.boost::shared_ptr", ptr %104, i64 %105
+  store ptr %106, ptr %12, align 8, !tbaa !318
   %.not11.i.i.i.i.i56 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i56, label %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit62, label %.lr.ph.i.i.i.i.i57
 
 .lr.ph.i.i.i.i.i57:                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit, %.lr.ph.i.i.i.i.i57
-  %.013.i.i.i.i.i58 = phi ptr [ %113, %.lr.ph.i.i.i.i.i57 ], [ %107, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit ]
-  %.sroa.08.012.i.i.i.i.i59 = phi ptr [ %112, %.lr.ph.i.i.i.i.i57 ], [ %1, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit ]
-  %108 = load ptr, ptr %.sroa.08.012.i.i.i.i.i59, align 8, !tbaa !320
-  store ptr %108, ptr %.013.i.i.i.i.i58, align 8, !tbaa !320
-  %109 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i58, i64 8
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i59, i64 8
-  %111 = load ptr, ptr %110, align 8, !tbaa !322
-  store ptr %111, ptr %109, align 8, !tbaa !322
+  %.013.i.i.i.i.i58 = phi ptr [ %112, %.lr.ph.i.i.i.i.i57 ], [ %106, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit ]
+  %.sroa.08.012.i.i.i.i.i59 = phi ptr [ %111, %.lr.ph.i.i.i.i.i57 ], [ %1, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit ]
+  %107 = load ptr, ptr %.sroa.08.012.i.i.i.i.i59, align 8, !tbaa !320
+  store ptr %107, ptr %.013.i.i.i.i.i58, align 8, !tbaa !320
+  %108 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i58, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i59, i64 8
+  %110 = load ptr, ptr %109, align 8, !tbaa !322
+  store ptr %110, ptr %108, align 8, !tbaa !322
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.012.i.i.i.i.i59, i8 0, i64 16, i1 false)
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i59, i64 16
-  %113 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i58, i64 16
-  %.not.i.i.i.i.i60 = icmp eq ptr %112, %13
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i59, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i58, i64 16
+  %.not.i.i.i.i.i60 = icmp eq ptr %111, %13
   br i1 %.not.i.i.i.i.i60, label %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit62.loopexit, label %.lr.ph.i.i.i.i.i57, !llvm.loop !2213
 
 _ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit62.loopexit: ; preds = %.lr.ph.i.i.i.i.i57
@@ -128882,148 +128883,148 @@ _ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseE
   br label %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit62
 
 _ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit62: ; preds = %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit62.loopexit, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit
-  %114 = phi ptr [ %.pre115, %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit62.loopexit ], [ %107, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit ]
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 %19
-  store ptr %115, ptr %12, align 8, !tbaa !318
-  %116 = ashr exact i64 %19, 4
-  %117 = icmp sgt i64 %116, 0
-  br i1 %117, label %.lr.ph.i.i.i.i.i64, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit
+  %113 = phi ptr [ %.pre115, %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit62.loopexit ], [ %106, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit ]
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 %19
+  store ptr %114, ptr %12, align 8, !tbaa !318
+  %115 = ashr exact i64 %19, 4
+  %116 = icmp sgt i64 %115, 0
+  br i1 %116, label %.lr.ph.i.i.i.i.i64, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit
 
 .lr.ph.i.i.i.i.i64:                               ; preds = %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit62, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i71
-  %.013.i.i.i.i.i65 = phi i64 [ %146, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i71 ], [ %116, %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit62 ]
-  %.0812.i.i.i.i.i66 = phi ptr [ %145, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i71 ], [ %1, %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit62 ]
-  %.0911.i.i.i.i.i67 = phi ptr [ %144, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i71 ], [ %2, %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit62 ]
-  %118 = load ptr, ptr %.0911.i.i.i.i.i67, align 8, !tbaa !320
-  %119 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i67, i64 8
-  %120 = load ptr, ptr %119, align 8, !tbaa !322
-  %.not.i.i.i.i.i.i.i.i68 = icmp eq ptr %120, null
-  br i1 %.not.i.i.i.i.i.i.i.i68, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEC2ERKS4_.exit.i.i.i.i.i.i69, label %121
+  %.013.i.i.i.i.i65 = phi i64 [ %145, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i71 ], [ %115, %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit62 ]
+  %.0812.i.i.i.i.i66 = phi ptr [ %144, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i71 ], [ %1, %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit62 ]
+  %.0911.i.i.i.i.i67 = phi ptr [ %143, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i71 ], [ %2, %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit62 ]
+  %117 = load ptr, ptr %.0911.i.i.i.i.i67, align 8, !tbaa !320
+  %118 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i67, i64 8
+  %119 = load ptr, ptr %118, align 8, !tbaa !322
+  %.not.i.i.i.i.i.i.i.i68 = icmp eq ptr %119, null
+  br i1 %.not.i.i.i.i.i.i.i.i68, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEC2ERKS4_.exit.i.i.i.i.i.i69, label %120
 
-121:                                              ; preds = %.lr.ph.i.i.i.i.i64
-  %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %123 = atomicrmw add ptr %122, i32 1 monotonic, align 4
+120:                                              ; preds = %.lr.ph.i.i.i.i.i64
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
+  %122 = atomicrmw add ptr %121, i32 1 monotonic, align 4
   br label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEC2ERKS4_.exit.i.i.i.i.i.i69
 
-_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEC2ERKS4_.exit.i.i.i.i.i.i69: ; preds = %121, %.lr.ph.i.i.i.i.i64
-  store ptr %118, ptr %.0812.i.i.i.i.i66, align 8, !tbaa !174
-  %124 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i66, i64 8
-  %125 = load ptr, ptr %124, align 8, !tbaa !322
-  store ptr %120, ptr %124, align 8, !tbaa !322
-  %.not.i.i2.i.i.i.i.i.i70 = icmp eq ptr %125, null
-  br i1 %.not.i.i2.i.i.i.i.i.i70, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i71, label %126
+_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEC2ERKS4_.exit.i.i.i.i.i.i69: ; preds = %120, %.lr.ph.i.i.i.i.i64
+  store ptr %117, ptr %.0812.i.i.i.i.i66, align 8, !tbaa !174
+  %123 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i66, i64 8
+  %124 = load ptr, ptr %123, align 8, !tbaa !322
+  store ptr %119, ptr %123, align 8, !tbaa !322
+  %.not.i.i2.i.i.i.i.i.i70 = icmp eq ptr %124, null
+  br i1 %.not.i.i2.i.i.i.i.i.i70, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i71, label %125
 
-126:                                              ; preds = %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEC2ERKS4_.exit.i.i.i.i.i.i69
-  %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %128 = atomicrmw sub ptr %127, i32 1 acq_rel, align 4
-  %129 = icmp eq i32 %128, 1
-  br i1 %129, label %130, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i71
+125:                                              ; preds = %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEC2ERKS4_.exit.i.i.i.i.i.i69
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  %127 = atomicrmw sub ptr %126, i32 1 acq_rel, align 4
+  %128 = icmp eq i32 %127, 1
+  br i1 %128, label %129, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i71
 
-130:                                              ; preds = %126
-  %131 = load ptr, ptr %125, align 8, !tbaa !25
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  %133 = load ptr, ptr %132, align 8
-  invoke void %133(ptr noundef nonnull align 8 dereferenceable(16) %125)
-          to label %.noexc.i.i.i.i.i.i.i.i72 unwind label %141
+129:                                              ; preds = %125
+  %130 = load ptr, ptr %124, align 8, !tbaa !25
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
+  %132 = load ptr, ptr %131, align 8
+  invoke void %132(ptr noundef nonnull align 8 dereferenceable(16) %124)
+          to label %.noexc.i.i.i.i.i.i.i.i72 unwind label %140
 
-.noexc.i.i.i.i.i.i.i.i72:                         ; preds = %130
-  %134 = getelementptr inbounds nuw i8, ptr %125, i64 12
-  %135 = atomicrmw sub ptr %134, i32 1 acq_rel, align 4
-  %136 = icmp eq i32 %135, 1
-  br i1 %136, label %137, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i71
+.noexc.i.i.i.i.i.i.i.i72:                         ; preds = %129
+  %133 = getelementptr inbounds nuw i8, ptr %124, i64 12
+  %134 = atomicrmw sub ptr %133, i32 1 acq_rel, align 4
+  %135 = icmp eq i32 %134, 1
+  br i1 %135, label %136, label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i71
 
-137:                                              ; preds = %.noexc.i.i.i.i.i.i.i.i72
-  %138 = load ptr, ptr %125, align 8, !tbaa !25
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
-  %140 = load ptr, ptr %139, align 8
-  invoke void %140(ptr noundef nonnull align 8 dereferenceable(16) %125)
-          to label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i71 unwind label %141
+136:                                              ; preds = %.noexc.i.i.i.i.i.i.i.i72
+  %137 = load ptr, ptr %124, align 8, !tbaa !25
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 24
+  %139 = load ptr, ptr %138, align 8
+  invoke void %139(ptr noundef nonnull align 8 dereferenceable(16) %124)
+          to label %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i71 unwind label %140
 
-141:                                              ; preds = %137, %130
-  %142 = landingpad { ptr, i32 }
+140:                                              ; preds = %136, %129
+  %141 = landingpad { ptr, i32 }
           catch ptr null
-  %143 = extractvalue { ptr, i32 } %142, 0
-  tail call void @__clang_call_terminate(ptr %143) #56
+  %142 = extractvalue { ptr, i32 } %141, 0
+  tail call void @__clang_call_terminate(ptr %142) #56
   unreachable
 
-_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i71: ; preds = %137, %.noexc.i.i.i.i.i.i.i.i72, %126, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEC2ERKS4_.exit.i.i.i.i.i.i69
-  %144 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i67, i64 16
-  %145 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i66, i64 16
-  %146 = add nsw i64 %.013.i.i.i.i.i65, -1
-  %147 = icmp sgt i64 %.013.i.i.i.i.i65, 1
-  br i1 %147, label %.lr.ph.i.i.i.i.i64, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit, !llvm.loop !2215
+_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i71: ; preds = %136, %.noexc.i.i.i.i.i.i.i.i72, %125, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEC2ERKS4_.exit.i.i.i.i.i.i69
+  %143 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i67, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i66, i64 16
+  %145 = add nsw i64 %.013.i.i.i.i.i65, -1
+  %146 = icmp sgt i64 %.013.i.i.i.i.i65, 1
+  br i1 %146, label %.lr.ph.i.i.i.i.i64, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit, !llvm.loop !2215
 
-148:                                              ; preds = %5
-  %149 = load ptr, ptr %0, align 8, !tbaa !323
-  %150 = ptrtoint ptr %149 to i64
-  %151 = sub i64 %15, %150
-  %152 = ashr exact i64 %151, 4
-  %153 = sub nsw i64 576460752303423487, %152
-  %154 = icmp ult i64 %153, %9
-  br i1 %154, label %155, label %_ZNKSt6vectorIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE12_M_check_lenEmPKc.exit
+147:                                              ; preds = %5
+  %148 = load ptr, ptr %0, align 8, !tbaa !323
+  %149 = ptrtoint ptr %148 to i64
+  %150 = sub i64 %15, %149
+  %151 = ashr exact i64 %150, 4
+  %152 = sub nsw i64 576460752303423487, %151
+  %153 = icmp ult i64 %152, %9
+  br i1 %153, label %154, label %_ZNKSt6vectorIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE12_M_check_lenEmPKc.exit
 
-155:                                              ; preds = %148
+154:                                              ; preds = %147
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.747) #54
   unreachable
 
-_ZNKSt6vectorIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %148
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %152, i64 %9)
-  %156 = add nsw i64 %.sroa.speculated.i, %152
-  %157 = icmp ult i64 %156, %152
-  %158 = tail call i64 @llvm.umin.i64(i64 %156, i64 576460752303423487)
-  %159 = select i1 %157, i64 576460752303423487, i64 %158
-  %.not.i = icmp eq i64 %159, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE11_M_allocateEm.exit, label %160
+_ZNKSt6vectorIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %147
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %151, i64 %9)
+  %155 = add nsw i64 %.sroa.speculated.i, %151
+  %156 = icmp ult i64 %155, %151
+  %157 = tail call i64 @llvm.umin.i64(i64 %155, i64 576460752303423487)
+  %158 = select i1 %156, i64 576460752303423487, i64 %157
+  %.not.i = icmp eq i64 %158, 0
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE11_M_allocateEm.exit, label %159
 
-160:                                              ; preds = %_ZNKSt6vectorIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE12_M_check_lenEmPKc.exit
-  %161 = shl nuw nsw i64 %159, 4
-  %162 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %161) #58
+159:                                              ; preds = %_ZNKSt6vectorIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE12_M_check_lenEmPKc.exit
+  %160 = shl nuw nsw i64 %158, 4
+  %161 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %160) #58
   br label %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE12_M_check_lenEmPKc.exit, %160
-  %163 = phi ptr [ %162, %160 ], [ null, %_ZNKSt6vectorIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE12_M_check_lenEmPKc.exit ]
-  %.not11.i.i.i.i.i74 = icmp eq ptr %149, %1
+_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE12_M_check_lenEmPKc.exit, %159
+  %162 = phi ptr [ %161, %159 ], [ null, %_ZNKSt6vectorIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE12_M_check_lenEmPKc.exit ]
+  %.not11.i.i.i.i.i74 = icmp eq ptr %148, %1
   br i1 %.not11.i.i.i.i.i74, label %.lr.ph.i.i.i.i81.preheader, label %.lr.ph.i.i.i.i.i75
 
 .lr.ph.i.i.i.i.i75:                               ; preds = %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE11_M_allocateEm.exit, %.lr.ph.i.i.i.i.i75
-  %.013.i.i.i.i.i76 = phi ptr [ %169, %.lr.ph.i.i.i.i.i75 ], [ %163, %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE11_M_allocateEm.exit ]
-  %.sroa.08.012.i.i.i.i.i77 = phi ptr [ %168, %.lr.ph.i.i.i.i.i75 ], [ %149, %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE11_M_allocateEm.exit ]
-  %164 = load ptr, ptr %.sroa.08.012.i.i.i.i.i77, align 8, !tbaa !320
-  store ptr %164, ptr %.013.i.i.i.i.i76, align 8, !tbaa !320
-  %165 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i76, i64 8
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i77, i64 8
-  %167 = load ptr, ptr %166, align 8, !tbaa !322
-  store ptr %167, ptr %165, align 8, !tbaa !322
+  %.013.i.i.i.i.i76 = phi ptr [ %168, %.lr.ph.i.i.i.i.i75 ], [ %162, %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE11_M_allocateEm.exit ]
+  %.sroa.08.012.i.i.i.i.i77 = phi ptr [ %167, %.lr.ph.i.i.i.i.i75 ], [ %148, %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE11_M_allocateEm.exit ]
+  %163 = load ptr, ptr %.sroa.08.012.i.i.i.i.i77, align 8, !tbaa !320
+  store ptr %163, ptr %.013.i.i.i.i.i76, align 8, !tbaa !320
+  %164 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i76, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i77, i64 8
+  %166 = load ptr, ptr %165, align 8, !tbaa !322
+  store ptr %166, ptr %164, align 8, !tbaa !322
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.012.i.i.i.i.i77, i8 0, i64 16, i1 false)
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i77, i64 16
-  %169 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i76, i64 16
-  %.not.i.i.i.i.i78 = icmp eq ptr %168, %1
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i77, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i76, i64 16
+  %.not.i.i.i.i.i78 = icmp eq ptr %167, %1
   br i1 %.not.i.i.i.i.i78, label %.lr.ph.i.i.i.i81.preheader, label %.lr.ph.i.i.i.i.i75, !llvm.loop !2213
 
 .lr.ph.i.i.i.i81.preheader:                       ; preds = %.lr.ph.i.i.i.i.i75, %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE11_M_allocateEm.exit
-  %.09.i.i.i.i82.ph = phi ptr [ %163, %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE11_M_allocateEm.exit ], [ %169, %.lr.ph.i.i.i.i.i75 ]
+  %.09.i.i.i.i82.ph = phi ptr [ %162, %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE11_M_allocateEm.exit ], [ %168, %.lr.ph.i.i.i.i.i75 ]
   br label %.lr.ph.i.i.i.i81
 
 .lr.ph.i.i.i.i81:                                 ; preds = %.lr.ph.i.i.i.i81.preheader, %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i85
-  %.09.i.i.i.i82 = phi ptr [ %178, %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i85 ], [ %.09.i.i.i.i82.ph, %.lr.ph.i.i.i.i81.preheader ]
-  %.sroa.04.08.i.i.i.i83 = phi ptr [ %177, %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i85 ], [ %2, %.lr.ph.i.i.i.i81.preheader ]
-  %170 = load ptr, ptr %.sroa.04.08.i.i.i.i83, align 8, !tbaa !320
-  store ptr %170, ptr %.09.i.i.i.i82, align 8, !tbaa !320
-  %171 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i82, i64 8
-  %172 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i83, i64 8
-  %173 = load ptr, ptr %172, align 8, !tbaa !322
-  store ptr %173, ptr %171, align 8, !tbaa !322
-  %.not.i.i.i.i.i.i.i84 = icmp eq ptr %173, null
-  br i1 %.not.i.i.i.i.i.i.i84, label %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i85, label %174
+  %.09.i.i.i.i82 = phi ptr [ %177, %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i85 ], [ %.09.i.i.i.i82.ph, %.lr.ph.i.i.i.i81.preheader ]
+  %.sroa.04.08.i.i.i.i83 = phi ptr [ %176, %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i85 ], [ %2, %.lr.ph.i.i.i.i81.preheader ]
+  %169 = load ptr, ptr %.sroa.04.08.i.i.i.i83, align 8, !tbaa !320
+  store ptr %169, ptr %.09.i.i.i.i82, align 8, !tbaa !320
+  %170 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i82, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i83, i64 8
+  %172 = load ptr, ptr %171, align 8, !tbaa !322
+  store ptr %172, ptr %170, align 8, !tbaa !322
+  %.not.i.i.i.i.i.i.i84 = icmp eq ptr %172, null
+  br i1 %.not.i.i.i.i.i.i.i84, label %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i85, label %173
 
-174:                                              ; preds = %.lr.ph.i.i.i.i81
-  %175 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %176 = atomicrmw add ptr %175, i32 1 monotonic, align 4
+173:                                              ; preds = %.lr.ph.i.i.i.i81
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  %175 = atomicrmw add ptr %174, i32 1 monotonic, align 4
   br label %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i85
 
-_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i85: ; preds = %174, %.lr.ph.i.i.i.i81
-  %177 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i83, i64 16
-  %178 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i82, i64 16
-  %.not.i.i.i.i86 = icmp eq ptr %177, %3
+_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i85: ; preds = %173, %.lr.ph.i.i.i.i81
+  %176 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i83, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i82, i64 16
+  %.not.i.i.i.i86 = icmp eq ptr %176, %3
   br i1 %.not.i.i.i.i86, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit88, label %.lr.ph.i.i.i.i81, !llvm.loop !2216
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit88: ; preds = %_ZSt10_ConstructIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEJRS5_EEvPT_DpOT0_.exit.i.i.i.i85
@@ -129031,86 +129032,86 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptr
   br i1 %.not11.i.i.i.i.i89, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit95, label %.lr.ph.i.i.i.i.i90
 
 .lr.ph.i.i.i.i.i90:                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit88, %.lr.ph.i.i.i.i.i90
-  %.013.i.i.i.i.i91 = phi ptr [ %184, %.lr.ph.i.i.i.i.i90 ], [ %178, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit88 ]
-  %.sroa.08.012.i.i.i.i.i92 = phi ptr [ %183, %.lr.ph.i.i.i.i.i90 ], [ %1, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit88 ]
-  %179 = load ptr, ptr %.sroa.08.012.i.i.i.i.i92, align 8, !tbaa !320
-  store ptr %179, ptr %.013.i.i.i.i.i91, align 8, !tbaa !320
-  %180 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i91, i64 8
-  %181 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i92, i64 8
-  %182 = load ptr, ptr %181, align 8, !tbaa !322
-  store ptr %182, ptr %180, align 8, !tbaa !322
+  %.013.i.i.i.i.i91 = phi ptr [ %183, %.lr.ph.i.i.i.i.i90 ], [ %177, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit88 ]
+  %.sroa.08.012.i.i.i.i.i92 = phi ptr [ %182, %.lr.ph.i.i.i.i.i90 ], [ %1, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit88 ]
+  %178 = load ptr, ptr %.sroa.08.012.i.i.i.i.i92, align 8, !tbaa !320
+  store ptr %178, ptr %.013.i.i.i.i.i91, align 8, !tbaa !320
+  %179 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i91, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i92, i64 8
+  %181 = load ptr, ptr %180, align 8, !tbaa !322
+  store ptr %181, ptr %179, align 8, !tbaa !322
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.012.i.i.i.i.i92, i8 0, i64 16, i1 false)
-  %183 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i92, i64 16
-  %184 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i91, i64 16
-  %.not.i.i.i.i.i93 = icmp eq ptr %183, %13
+  %182 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i92, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i91, i64 16
+  %.not.i.i.i.i.i93 = icmp eq ptr %182, %13
   br i1 %.not.i.i.i.i.i93, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit95, label %.lr.ph.i.i.i.i.i90, !llvm.loop !2213
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit95: ; preds = %.lr.ph.i.i.i.i.i90, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit88
-  %.0.lcssa.i.i.i.i.i94 = phi ptr [ %178, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit88 ], [ %184, %.lr.ph.i.i.i.i.i90 ]
-  %.not4.i.i.i = icmp eq ptr %149, %13
+  %.0.lcssa.i.i.i.i.i94 = phi ptr [ %177, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit88 ], [ %183, %.lr.ph.i.i.i.i.i90 ]
+  %.not4.i.i.i = icmp eq ptr %148, %13
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES5_EvT_S7_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit95, %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %205, %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEEvPT_.exit.i.i.i ], [ %149, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit95 ]
-  %185 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
-  %186 = load ptr, ptr %185, align 8, !tbaa !322
-  %.not.i.i.i.i.i.i = icmp eq ptr %186, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEEvPT_.exit.i.i.i, label %187
+  %.05.i.i.i = phi ptr [ %204, %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEEvPT_.exit.i.i.i ], [ %148, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit95 ]
+  %184 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
+  %185 = load ptr, ptr %184, align 8, !tbaa !322
+  %.not.i.i.i.i.i.i = icmp eq ptr %185, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEEvPT_.exit.i.i.i, label %186
 
-187:                                              ; preds = %.lr.ph.i.i.i
-  %188 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %189 = atomicrmw sub ptr %188, i32 1 acq_rel, align 4
-  %190 = icmp eq i32 %189, 1
-  br i1 %190, label %191, label %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEEvPT_.exit.i.i.i
+186:                                              ; preds = %.lr.ph.i.i.i
+  %187 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  %188 = atomicrmw sub ptr %187, i32 1 acq_rel, align 4
+  %189 = icmp eq i32 %188, 1
+  br i1 %189, label %190, label %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEEvPT_.exit.i.i.i
 
-191:                                              ; preds = %187
-  %192 = load ptr, ptr %186, align 8, !tbaa !25
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
-  %194 = load ptr, ptr %193, align 8
-  invoke void %194(ptr noundef nonnull align 8 dereferenceable(16) %186)
-          to label %.noexc.i.i.i.i.i.i unwind label %202
+190:                                              ; preds = %186
+  %191 = load ptr, ptr %185, align 8, !tbaa !25
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
+  %193 = load ptr, ptr %192, align 8
+  invoke void %193(ptr noundef nonnull align 8 dereferenceable(16) %185)
+          to label %.noexc.i.i.i.i.i.i unwind label %201
 
-.noexc.i.i.i.i.i.i:                               ; preds = %191
-  %195 = getelementptr inbounds nuw i8, ptr %186, i64 12
-  %196 = atomicrmw sub ptr %195, i32 1 acq_rel, align 4
-  %197 = icmp eq i32 %196, 1
-  br i1 %197, label %198, label %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEEvPT_.exit.i.i.i
+.noexc.i.i.i.i.i.i:                               ; preds = %190
+  %194 = getelementptr inbounds nuw i8, ptr %185, i64 12
+  %195 = atomicrmw sub ptr %194, i32 1 acq_rel, align 4
+  %196 = icmp eq i32 %195, 1
+  br i1 %196, label %197, label %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEEvPT_.exit.i.i.i
 
-198:                                              ; preds = %.noexc.i.i.i.i.i.i
-  %199 = load ptr, ptr %186, align 8, !tbaa !25
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 24
-  %201 = load ptr, ptr %200, align 8
-  invoke void %201(ptr noundef nonnull align 8 dereferenceable(16) %186)
-          to label %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEEvPT_.exit.i.i.i unwind label %202
+197:                                              ; preds = %.noexc.i.i.i.i.i.i
+  %198 = load ptr, ptr %185, align 8, !tbaa !25
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 24
+  %200 = load ptr, ptr %199, align 8
+  invoke void %200(ptr noundef nonnull align 8 dereferenceable(16) %185)
+          to label %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEEvPT_.exit.i.i.i unwind label %201
 
-202:                                              ; preds = %198, %191
-  %203 = landingpad { ptr, i32 }
+201:                                              ; preds = %197, %190
+  %202 = landingpad { ptr, i32 }
           catch ptr null
-  %204 = extractvalue { ptr, i32 } %203, 0
-  tail call void @__clang_call_terminate(ptr %204) #56
+  %203 = extractvalue { ptr, i32 } %202, 0
+  tail call void @__clang_call_terminate(ptr %203) #56
   unreachable
 
-_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEEvPT_.exit.i.i.i: ; preds = %198, %.noexc.i.i.i.i.i.i, %187, %.lr.ph.i.i.i
-  %205 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
-  %.not.i.i.i = icmp eq ptr %205, %13
+_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEEvPT_.exit.i.i.i: ; preds = %197, %.noexc.i.i.i.i.i.i, %186, %.lr.ph.i.i.i
+  %204 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
+  %.not.i.i.i = icmp eq ptr %204, %13
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES5_EvT_S7_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !324
 
 _ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES5_EvT_S7_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEEEvPT_.exit.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit95
-  %.not.i96 = icmp eq ptr %149, null
-  br i1 %.not.i96, label %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE13_M_deallocateEPS5_m.exit, label %206
+  %.not.i96 = icmp eq ptr %148, null
+  br i1 %.not.i96, label %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE13_M_deallocateEPS5_m.exit, label %205
 
-206:                                              ; preds = %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES5_EvT_S7_RSaIT0_E.exit
-  %207 = load ptr, ptr %10, align 8, !tbaa !319
-  %208 = ptrtoint ptr %207 to i64
-  %209 = sub i64 %208, %150
-  tail call void @_ZdlPvm(ptr noundef nonnull %149, i64 noundef %209) #57
+205:                                              ; preds = %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES5_EvT_S7_RSaIT0_E.exit
+  %206 = load ptr, ptr %10, align 8, !tbaa !319
+  %207 = ptrtoint ptr %206 to i64
+  %208 = sub i64 %207, %149
+  tail call void @_ZdlPvm(ptr noundef nonnull %148, i64 noundef %208) #57
   br label %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
-_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES5_EvT_S7_RSaIT0_E.exit, %206
-  store ptr %163, ptr %0, align 8, !tbaa !323
+_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES5_EvT_S7_RSaIT0_E.exit, %205
+  store ptr %162, ptr %0, align 8, !tbaa !323
   store ptr %.0.lcssa.i.i.i.i.i94, ptr %12, align 8, !tbaa !318
-  %210 = getelementptr inbounds nuw %"class.boost::shared_ptr", ptr %163, i64 %159
-  store ptr %210, ptr %10, align 8, !tbaa !319
+  %209 = getelementptr inbounds nuw %"class.boost::shared_ptr", ptr %162, i64 %158
+  store ptr %209, ptr %10, align 8, !tbaa !319
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit: ; preds = %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i71, %_ZN5boost10shared_ptrINS_9unit_test9decorator4baseEEaSERKS4_.exit.i.i.i.i.i, %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit62, %_ZSt13move_backwardIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_ET0_T_S8_S7_.exit, %_ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE13_M_deallocateEPS5_m.exit, %4

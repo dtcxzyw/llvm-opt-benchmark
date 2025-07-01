@@ -153,7 +153,8 @@ define hidden void @_ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledB
   %17 = load ptr, ptr %16, align 8, !nonnull !12, !noundef !12
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8, !noundef !12
-  %20 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %17, i64 %19
+  %.idx = mul nuw nsw i64 %19, 24
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %21 = icmp eq i64 %19, 0
   br i1 %21, label %._crit_edge389, label %.lr.ph388
 
@@ -246,7 +247,8 @@ define hidden void @_ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledB
   %32 = load ptr, ptr %31, align 8, !nonnull !12, !noundef !12
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0386, i64 16
   %34 = load i64, ptr %33, align 8, !noundef !12
-  %35 = getelementptr inbounds nuw { i32, { { i8, [3 x i8] }, { i8, [3 x i8] }, { i8, [3 x i8] }, i16 }, [1 x i16] }, ptr %32, i64 %34
+  %.idx390 = mul nuw nsw i64 %34, 20
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx390
   %36 = icmp eq i64 %34, 0
   br i1 %36, label %._crit_edge, label %.lr.ph.preheader
 
@@ -412,9 +414,9 @@ define hidden void @_ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledB
   %95 = icmp eq i16 %.sroa.20.0.lcssa, 0
   %or.cond335 = select i1 %or.cond334, i1 %95, i1 false
   %spec.select = select i1 %or.cond335, ptr inttoptr (i64 1 to ptr), ptr @anon.265f6e68ff509be5f170c2a2d7e74362.12
-  %spec.select402 = select i1 %or.cond335, i64 0, i64 4
+  %spec.select403 = select i1 %or.cond335, i64 0, i64 4
   store ptr %spec.select, ptr %8, align 8
-  store i64 %spec.select402, ptr %24, align 8
+  store i64 %spec.select403, ptr %24, align 8
   store ptr %8, ptr %9, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h820fd6c4331550f5E", ptr %.sroa.438.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !35
@@ -578,9 +580,9 @@ define hidden void @_ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledB
   br label %117
 
 117:                                              ; preds = %.thread333, %114, %"_ZN62_$LT$anstyle..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd0d0cbe7678c08aaE.exit101.thread"
-  %storemerge395 = phi ptr [ @anon.265f6e68ff509be5f170c2a2d7e74362.12, %"_ZN62_$LT$anstyle..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd0d0cbe7678c08aaE.exit101.thread" ], [ inttoptr (i64 1 to ptr), %114 ], [ inttoptr (i64 1 to ptr), %.thread333 ]
+  %storemerge396 = phi ptr [ @anon.265f6e68ff509be5f170c2a2d7e74362.12, %"_ZN62_$LT$anstyle..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd0d0cbe7678c08aaE.exit101.thread" ], [ inttoptr (i64 1 to ptr), %114 ], [ inttoptr (i64 1 to ptr), %.thread333 ]
   %storemerge = phi i64 [ 4, %"_ZN62_$LT$anstyle..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd0d0cbe7678c08aaE.exit101.thread" ], [ 0, %114 ], [ 0, %.thread333 ]
-  store ptr %storemerge395, ptr %13, align 8
+  store ptr %storemerge396, ptr %13, align 8
   store i64 %storemerge, ptr %23, align 8
   store ptr %13, ptr %14, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h820fd6c4331550f5E", ptr %.sroa.426.0..sroa_idx, align 8

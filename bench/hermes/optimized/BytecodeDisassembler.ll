@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::array" = type { [20 x i8] }
 %"class.std::locale" = type { ptr }
 %"class.llvh::FormattedNumber" = type <{ i64, i64, i32, i8, i8, i8, i8 }>
-%"struct.hermes::StringKind::Entry" = type { i32 }
 %"class.std::allocator" = type { i8 }
 %"struct.hermes::bigint::BigIntTableEntry" = type { i32, i32 }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
@@ -39,6 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.hermes::hbc::SmallFuncHeader" = type { [15 x i8], %"union.hermes::hbc::FunctionHeaderFlag" }
 %"union.hermes::hbc::FunctionHeaderFlag" = type { %struct.anon.50 }
 %struct.anon.50 = type { i8 }
+%"struct.hermes::StringKind::Entry" = type { i32 }
 %"struct.hermes::hbc::SmallStringTableEntry" = type { i32 }
 %"struct.hermes::hbc::OverflowStringTableEntry" = type { i32, i32 }
 %"struct.hermes::RegExpTableEntry" = type { i32, i32 }
@@ -1102,7 +1102,8 @@ if.then4.i.i:                                     ; preds = %if.end
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
   call void @_ZNSt6localeC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %loc, ptr noundef nonnull @.str.17) #17
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::StringKind::Entry", ptr %retval.sroa.0.0.copyload.i29, i64 %retval.sroa.2.0.copyload.i30
+  %add.ptr.i.idx = shl nsw i64 %retval.sroa.2.0.copyload.i30, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i29, i64 %add.ptr.i.idx
   %cmp16.not244 = icmp eq i64 %retval.sroa.2.0.copyload.i30, 0
   br i1 %cmp16.not244, label %for.end72, label %for.body.lr.ph
 
@@ -2522,7 +2523,8 @@ if.then4.i.i:                                     ; preds = %if.then
   br label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then4.i.i, %if.then.i.i
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair.5", ptr %retval.sroa.0.0.copyload.i, i64 %retval.sroa.2.0.copyload.i
+  %add.ptr.i.idx = shl nsw i64 %retval.sroa.2.0.copyload.i, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i, i64 %add.ptr.i.idx
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN4llvh11raw_ostreamlsEc.exit
@@ -2782,7 +2784,8 @@ if.then4.i.i:                                     ; preds = %if.then
   br label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then4.i.i, %if.then.i.i
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair.5", ptr %retval.sroa.0.0.copyload.i, i64 %retval.sroa.2.0.copyload.i
+  %add.ptr.i.idx = shl nsw i64 %retval.sroa.2.0.copyload.i, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i, i64 %add.ptr.i.idx
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN4llvh11raw_ostreamlsEc.exit
@@ -4075,7 +4078,8 @@ entry:
   %call2 = tail call { ptr, i64 } %2(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 noundef %1) #17
   %3 = extractvalue { ptr, i64 } %call2, 0
   %4 = extractvalue { ptr, i64 } %call2, 1
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::HBCExceptionHandlerInfo", ptr %3, i64 %4
+  %add.ptr.i.idx = mul nsw i64 %4, 12
+  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %add.ptr.i.idx
   %cmp.not27 = icmp eq i64 %4, 0
   br i1 %cmp.not27, label %for.end, label %for.body.lr.ph
 
@@ -10450,7 +10454,8 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   %retval.sroa.0.0.copyload.i11 = load ptr, ptr %regExpTable_.i, align 8
   %retval.sroa.2.0.regExpTable_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 160
   %retval.sroa.2.0.copyload.i12 = load i64, ptr %retval.sroa.2.0.regExpTable_.sroa_idx.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::RegExpTableEntry", ptr %retval.sroa.0.0.copyload.i11, i64 %retval.sroa.2.0.copyload.i12
+  %add.ptr.i.idx = shl nsw i64 %retval.sroa.2.0.copyload.i12, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i11, i64 %add.ptr.i.idx
   %cmp.not104 = icmp eq i64 %retval.sroa.2.0.copyload.i12, 0
   br i1 %cmp.not104, label %for.end, label %for.body.lr.ph
 

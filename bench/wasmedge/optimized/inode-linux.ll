@@ -27,10 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cxx20::detail::expected_storage_base" = type { i8, %union.anon }
 %union.anon = type { %"class.WasmEdge::Host::WASI::INode" }
 %struct.iovec = type { ptr, i64 }
-%"struct.cxx20::span.25" = type { %"class.cxx20::detail::span_storage.26" }
-%"class.cxx20::detail::span_storage.26" = type { ptr, i64 }
-%"struct.cxx20::span.29" = type { %"class.cxx20::detail::span_storage.30" }
-%"class.cxx20::detail::span_storage.30" = type { ptr, i64 }
 %"struct.cxx20::span.46" = type { %"class.cxx20::detail::span_storage.47" }
 %"class.cxx20::detail::span_storage.47" = type { ptr, i64 }
 %"struct.cxx20::span.48" = type { %"class.cxx20::detail::span_storage.49" }
@@ -49,7 +45,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::__detail::__variant::_Variadic_union.54" = type { %"struct.std::__detail::__variant::_Uninitialized.55" }
 %"struct.std::__detail::__variant::_Uninitialized.55" = type { %struct.sockaddr_storage }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
+%"struct.cxx20::span.25" = type { %"class.cxx20::detail::span_storage.26" }
+%"class.cxx20::detail::span_storage.26" = type { ptr, i64 }
 %struct.msghdr = type { ptr, i32, ptr, i64, ptr, i64, i32 }
+%"struct.cxx20::span.29" = type { %"class.cxx20::detail::span_storage.30" }
+%"class.cxx20::detail::span_storage.30" = type { ptr, i64 }
 %"class.cxx20::expected.80" = type { %"struct.cxx20::detail::expected_move_assign_base.81" }
 %"struct.cxx20::detail::expected_move_assign_base.81" = type { %"struct.cxx20::detail::expected_copy_assign_base.82" }
 %"struct.cxx20::detail::expected_copy_assign_base.82" = type { %"struct.cxx20::detail::expected_move_base.83" }
@@ -891,7 +891,8 @@ declare i32 @futimens(i32 noundef, ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode7fdPreadEN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEEmRj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr readonly captures(address) %1, i64 %2, i64 noundef %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [1024 x %struct.iovec], align 16
-  %7 = getelementptr inbounds %"struct.cxx20::span.25", ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %7 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not21 = icmp eq i64 %2, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
@@ -954,7 +955,8 @@ declare i64 @preadv(i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_un
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode8fdPwriteEN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEmRj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr readonly captures(address) %1, i64 %2, i64 noundef %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [1024 x %struct.iovec], align 16
-  %7 = getelementptr inbounds %"struct.cxx20::span.29", ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %7 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not21 = icmp eq i64 %2, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
@@ -1017,7 +1019,8 @@ declare i64 @pwritev(i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_u
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode6fdReadEN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEERj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [1024 x %struct.iovec], align 16
-  %6 = getelementptr inbounds %"struct.cxx20::span.25", ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %6 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not20 = icmp eq i64 %2, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
@@ -1527,7 +1530,8 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode6fdTellERm(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode7fdWriteEN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEERj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [1024 x %struct.iovec], align 16
-  %6 = getelementptr inbounds %"struct.cxx20::span.29", ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %6 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not21 = icmp eq i64 %2, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
@@ -2788,7 +2792,8 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode12sockRecvFromEN5c
   %16 = and i16 %15, 256
   %.167 = or disjoint i16 %14, %16
   %.1 = zext nneg i16 %.167 to i32
-  %17 = getelementptr inbounds %"struct.cxx20::span.25", ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %17 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not4868 = icmp eq i64 %2, 0
   br i1 %.not4868, label %._crit_edge, label %.lr.ph
 
@@ -3086,7 +3091,8 @@ _ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE1
 _ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit: ; preds = %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split, %8
   %26 = phi ptr [ null, %8 ], [ %9, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split ]
   %.021 = phi i32 [ 0, %8 ], [ %.021.ph, %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split ]
-  %27 = getelementptr inbounds %"struct.cxx20::span.29", ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %27 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not2461 = icmp eq i64 %2, 0
   br i1 %.not2461, label %._crit_edge, label %.lr.ph
 
@@ -7257,7 +7263,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorI11epoll_eventSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %44, label %3
+  br i1 %.not, label %46, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7278,87 +7284,91 @@ define linkonce_odr void @_ZNSt6vectorI11epoll_eventSaIS0_EE17_M_default_appendE
   %18 = icmp ule i64 %15, %17
   tail call void @llvm.assume(i1 %18)
   %.not28 = icmp ult i64 %15, %1
-  br i1 %.not28, label %25, label %19
+  br i1 %.not28, label %26, label %19
 
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %5, i8 0, i64 12, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %21 = icmp eq i64 %1, 1
-  br i1 %21, label %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit, label %22
+  %21 = add i64 %1, -1
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit, label %23
 
-22:                                               ; preds = %19
-  %23 = getelementptr %struct.epoll_event, ptr %5, i64 %1
+23:                                               ; preds = %19
+  %.idx.i.i.i.i.i = mul nsw i64 %21, 12
+  %24 = getelementptr inbounds i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %22
-  %.06.i.i.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i.i.i ], [ %20, %22 ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %23
+  %.06.i.i.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i.i.i ], [ %20, %23 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.06.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(12) %5, i64 12, i1 false)
-  %24 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 12
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %24, %23
+  %25 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 12
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %25, %24
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !50
 
 _ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %19
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %.lr.ph.i.i.i.i.i.i.i ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %24, %.lr.ph.i.i.i.i.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8
-  br label %44
+  br label %46
 
-25:                                               ; preds = %3
-  %26 = icmp ult i64 %17, %1
-  br i1 %26, label %27, label %_ZNKSt6vectorI11epoll_eventSaIS0_EE12_M_check_lenEmPKc.exit
+26:                                               ; preds = %3
+  %27 = icmp ult i64 %17, %1
+  br i1 %27, label %28, label %_ZNKSt6vectorI11epoll_eventSaIS0_EE12_M_check_lenEmPKc.exit
 
-27:                                               ; preds = %25
+28:                                               ; preds = %26
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #27
   unreachable
 
-_ZNKSt6vectorI11epoll_eventSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %25
+_ZNKSt6vectorI11epoll_eventSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %26
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %10, i64 %1)
-  %28 = add nuw nsw i64 %.sroa.speculated.i, %10
-  %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 768614336404564650)
-  %30 = mul nuw nsw i64 %29, 12
-  %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #28
-  %32 = getelementptr inbounds i8, ptr %31, i64 %9
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %32, i8 0, i64 12, i1 false)
-  %33 = icmp eq i64 %1, 1
-  br i1 %33, label %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit34, label %34
+  %29 = add nuw nsw i64 %.sroa.speculated.i, %10
+  %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 768614336404564650)
+  %31 = mul nuw nsw i64 %30, 12
+  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #28
+  %33 = getelementptr inbounds i8, ptr %32, i64 %9
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %33, i8 0, i64 12, i1 false)
+  %34 = add nsw i64 %1, -1
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit35, label %36
 
-34:                                               ; preds = %_ZNKSt6vectorI11epoll_eventSaIS0_EE12_M_check_lenEmPKc.exit
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 12
-  %36 = getelementptr %struct.epoll_event, ptr %32, i64 %1
-  br label %.lr.ph.i.i.i.i.i.i.i30
+36:                                               ; preds = %_ZNKSt6vectorI11epoll_eventSaIS0_EE12_M_check_lenEmPKc.exit
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 12
+  %.idx.i.i.i.i.i30 = mul nuw nsw i64 %34, 12
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i.i.i.i30
+  br label %.lr.ph.i.i.i.i.i.i.i31
 
-.lr.ph.i.i.i.i.i.i.i30:                           ; preds = %.lr.ph.i.i.i.i.i.i.i30, %34
-  %.06.i.i.i.i.i.i.i31 = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i30 ], [ %35, %34 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.06.i.i.i.i.i.i.i31, ptr noundef nonnull align 1 dereferenceable(12) %32, i64 12, i1 false)
-  %37 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i31, i64 12
-  %.not.i.i.i.i.i.i.i32 = icmp eq ptr %37, %36
-  br i1 %.not.i.i.i.i.i.i.i32, label %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit34, label %.lr.ph.i.i.i.i.i.i.i30, !llvm.loop !50
+.lr.ph.i.i.i.i.i.i.i31:                           ; preds = %.lr.ph.i.i.i.i.i.i.i31, %36
+  %.06.i.i.i.i.i.i.i32 = phi ptr [ %39, %.lr.ph.i.i.i.i.i.i.i31 ], [ %37, %36 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.06.i.i.i.i.i.i.i32, ptr noundef nonnull align 1 dereferenceable(12) %33, i64 12, i1 false)
+  %39 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i32, i64 12
+  %.not.i.i.i.i.i.i.i33 = icmp eq ptr %39, %38
+  br i1 %.not.i.i.i.i.i.i.i33, label %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i.i.i.i.i31, !llvm.loop !50
 
-_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit34: ; preds = %.lr.ph.i.i.i.i.i.i.i30, %_ZNKSt6vectorI11epoll_eventSaIS0_EE12_M_check_lenEmPKc.exit
-  %38 = icmp sgt i64 %9, 0
-  br i1 %38, label %39, label %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
+_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit35: ; preds = %.lr.ph.i.i.i.i.i.i.i31, %_ZNKSt6vectorI11epoll_eventSaIS0_EE12_M_check_lenEmPKc.exit
+  %40 = icmp sgt i64 %9, 0
+  br i1 %40, label %41, label %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
 
-39:                                               ; preds = %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit34
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %6, i64 %9, i1 false)
+41:                                               ; preds = %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit35
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %6, i64 %9, i1 false)
   br label %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
 
-_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit34, %39
-  %.not.i36 = icmp eq ptr %6, null
-  br i1 %.not.i36, label %_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit37, label %40
+_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit35, %41
+  %.not.i37 = icmp eq ptr %6, null
+  br i1 %.not.i37, label %_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit38, label %42
 
-40:                                               ; preds = %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
-  %41 = sub i64 %13, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %41) #29
-  br label %_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit37
+42:                                               ; preds = %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
+  %43 = sub i64 %13, %8
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %43) #29
+  br label %_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit38
 
-_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %40
-  store ptr %31, ptr %0, align 8
-  %42 = getelementptr inbounds %struct.epoll_event, ptr %32, i64 %1
-  store ptr %42, ptr %4, align 8
-  %43 = getelementptr inbounds nuw %struct.epoll_event, ptr %31, i64 %29
-  store ptr %43, ptr %11, align 8
-  br label %44
+_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit38: ; preds = %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %42
+  store ptr %32, ptr %0, align 8
+  %44 = getelementptr inbounds %struct.epoll_event, ptr %33, i64 %1
+  store ptr %44, ptr %4, align 8
+  %45 = getelementptr inbounds nuw %struct.epoll_event, ptr %32, i64 %30
+  store ptr %45, ptr %11, align 8
+  br label %46
 
-44:                                               ; preds = %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit37, %2
+46:                                               ; preds = %_ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit38, %2
   ret void
 }
 

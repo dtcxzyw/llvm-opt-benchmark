@@ -1170,7 +1170,8 @@ _ZNK5clang16ObjCProtocolDecl28isThisDeclarationADefinitionEv.exit: ; preds = %_Z
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = load i32, ptr %30, align 8, !tbaa !83
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %29, i64 %32
+  %.idx.i = shl nuw nsw i64 %32, 3
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i
   %.not27.i = icmp eq i32 %31, 0
   br i1 %.not27.i, label %.loopexit, label %.lr.ph.i
 
@@ -1412,7 +1413,8 @@ _ZNK5clang17ObjCInterfaceDecl22getReferencedProtocolsEv.exit: ; preds = %.crited
   %72 = getelementptr inbounds nuw i8, ptr %.pre-phi4.i, i64 24
   %73 = load i32, ptr %72, align 8, !tbaa !83
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %71, i64 %74
+  %.idx.i = shl nuw nsw i64 %74, 3
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx.i
   %.not27.i = icmp eq i32 %73, 0
   br i1 %.not27.i, label %.loopexit, label %.lr.ph.i
 
@@ -1777,7 +1779,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119IndexingDeclVisito
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %29 = load i32, ptr %28, align 8, !tbaa !83
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %27, i64 %30
+  %.idx.i = shl nuw nsw i64 %30, 3
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i
   %.not27.i = icmp eq i32 %29, 0
   br i1 %.not27.i, label %.loopexit, label %.lr.ph.i
 
@@ -3128,7 +3131,8 @@ _ZNK5clang4Decl21getLexicalDeclContextEv.exit33:  ; preds = %_ZN5clang4Decl21get
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %60 = load i32, ptr %59, align 8, !tbaa !48
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %58, i64 %61
+  %.idx.i.i = shl nuw nsw i64 %61, 3
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i.i
   %.not.i.i = icmp eq i32 %60, 0
   br i1 %.not.i.i, label %_ZNK5clang4Decl7getAttrINS_22IBOutletCollectionAttrEEEPT_v.exit.thread, label %.lr.ph.i.i.i.i.i
 
@@ -3504,7 +3508,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_119IndexingDeclVisitor16handleObjCM
   %17 = load ptr, ptr %6, align 8, !tbaa !46
   %18 = load i32, ptr %15, align 8, !tbaa !48
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %19
+  %.idx = shl nuw nsw i64 %19, 3
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %.not83 = icmp eq i32 %18, 0
   br i1 %.not83, label %._crit_edge, label %.lr.ph
 
@@ -3730,7 +3735,8 @@ _ZNK5clang4Decl14getDeclContextEv.exit59:         ; preds = %_ZNK5clang4Decl14ge
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %121 = load i32, ptr %120, align 8, !tbaa !48
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw ptr, ptr %119, i64 %122
+  %.idx.i.i = shl nuw nsw i64 %122, 3
+  %123 = getelementptr inbounds nuw i8, ptr %119, i64 %.idx.i.i
   %.not.i.i61 = icmp eq i32 %121, 0
   br i1 %.not.i.i61, label %_ZN5clang15hasSpecificAttrINS_12IBActionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -3760,7 +3766,8 @@ _ZNK5clang4Decl7hasAttrINS_12IBActionAttrEEEbv.exit: ; preds = %111, %_ZN5clang1
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %135 = load i32, ptr %134, align 8, !tbaa !221
   %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw ptr, ptr %133, i64 %136
+  %.idx90 = shl nuw nsw i64 %136, 3
+  %137 = getelementptr inbounds nuw i8, ptr %133, i64 %.idx90
   %.not5085 = icmp eq i32 %135, 0
   br i1 %.not5085, label %._crit_edge89, label %.lr.ph88
 
@@ -3884,8 +3891,8 @@ _ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit: ; preds = %_ZNK5clang4Decl21
 
 31:                                               ; preds = %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit
   %32 = and i32 %30, 127
-  %.not131 = icmp eq i32 %32, 41
-  br i1 %.not131, label %33, label %80
+  %.not132 = icmp eq i32 %32, 41
+  br i1 %.not132, label %33, label %80
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -4028,7 +4035,8 @@ _ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit81.thread: ; preds 
   %110 = load ptr, ptr %109, align 8, !tbaa !230
   %111 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #10
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw ptr, ptr %110, i64 %112
+  %.idx129 = shl nuw nsw i64 %112, 3
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx129
   %.not62126 = icmp eq i32 %111, 0
   br i1 %.not62126, label %.loopexit, label %.lr.ph128
 
@@ -4113,7 +4121,8 @@ _ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit92.thread: ; preds 
   %153 = load ptr, ptr %152, align 8, !tbaa !230
   %154 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #10
   %155 = zext i32 %154 to i64
-  %156 = getelementptr inbounds nuw ptr, ptr %153, i64 %155
+  %.idx = shl nuw nsw i64 %155, 3
+  %156 = getelementptr inbounds nuw i8, ptr %153, i64 %.idx
   %.not59124 = icmp eq i32 %154, 0
   br i1 %.not59124, label %.loopexit, label %.lr.ph
 

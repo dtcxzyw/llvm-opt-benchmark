@@ -3,11 +3,11 @@ source_filename = "bench/llvm/original/MachineSSAContext.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
+%"class.llvm::Register" = type { i32 }
 %"class.llvm::MachineOperand" = type { i32, %union.anon, ptr, %"union.llvm::MachineOperand::ContentsUnion" }
 %union.anon = type { i32 }
 %"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef" }
 %"class.llvm::ArrayRef" = type { ptr, i64 }
-%"class.llvm::Register" = type { i32 }
 %"class.llvm::Printable" = type { %"class.std::function" }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
@@ -43,7 +43,8 @@ define dso_local void @_ZN4llvm17GenericSSAContextINS_15MachineFunctionEE15appen
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.017.026, i64 40
   %12 = load i24, ptr %11, align 8, !noalias !28
   %13 = zext i24 %12 to i64
-  %14 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %10, i64 %13
+  %.idx.i = shl nuw nsw i64 %13, 5
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
   %.not1.i.i.i.i.i = icmp eq i24 %12, 0
   br i1 %.not1.i.i.i.i.i, label %_ZNK4llvm12MachineInstr8all_defsEv.exit, label %.lr.ph.i.i.i.i.i
 

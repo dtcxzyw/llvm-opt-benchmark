@@ -1343,7 +1343,8 @@ define { ptr, i64 } @"_ZN130_$LT$salsa..memo_ingredient_indices..MemoIngredientI
 46:                                               ; preds = %44
   %47 = load ptr, ptr %17, align 8, !nonnull !6, !noundef !6
   %48 = load i64, ptr %18, align 8, !noundef !6
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
+  %.idx = shl nuw nsw i64 %48, 2
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %._crit_edge, label %.lr.ph
 

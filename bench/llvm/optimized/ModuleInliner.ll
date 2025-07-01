@@ -126,12 +126,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SmallVectorStorage.241" = type { [64 x i8] }
 %"class.llvm::InlineResult" = type { ptr }
 %class.anon.263 = type { ptr }
-%"struct.std::pair.206" = type { ptr, ptr }
 %"struct.std::pair.258" = type <{ ptr, i32, [4 x i8] }>
-%"class.llvm::WeakTrackingVH" = type { %"class.llvm::ValueHandleBase" }
-%"class.llvm::ValueHandleBase" = type { %"class.llvm::PointerIntPair", ptr, ptr }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
 %"struct.llvm::cl::initializer" = type { ptr }
 %"struct.llvm::cl::desc" = type { %"class.llvm::StringRef" }
 
@@ -672,10 +667,11 @@ _ZNK4llvm15AnalysisManagerINS_6ModuleEJEE15getCachedResultINS_22ProfileSummaryAn
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EneERKSD_.exit
   %.pre = load ptr, ptr %117, align 8, !tbaa !25
-  %.pre252 = load i32, ptr %119, align 8, !tbaa !26
-  %147 = zext i32 %.pre252 to i64
-  %148 = getelementptr inbounds nuw %"struct.std::pair.206", ptr %.pre, i64 %147
-  %.not222 = icmp eq i32 %.pre252, 0
+  %.pre254 = load i32, ptr %119, align 8, !tbaa !26
+  %147 = zext i32 %.pre254 to i64
+  %.idx = shl nuw nsw i64 %147, 4
+  %148 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
+  %.not222 = icmp eq i32 %.pre254, 0
   br i1 %.not222, label %._crit_edge226, label %.lr.ph225
 
 .lr.ph225:                                        ; preds = %._crit_edge
@@ -947,7 +943,8 @@ _ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit6.i.i: ; preds = %_ZNK
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit6.i.i
   %259 = zext i32 %258 to i64
-  %260 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %257, i64 %259
+  %.idx.i.i.i.i = mul nuw nsw i64 %259, 80
+  %260 = getelementptr inbounds nuw i8, ptr %257, i64 %.idx.i.i.i.i
   br label %.lr.ph.i.i.i.i.i114
 
 .lr.ph.i.i.i.i.i114:                              ; preds = %_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -1021,7 +1018,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %"_ZZN4llvm17ModuleInlinerPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_2clEv.exit.i"
   %284 = zext i32 %283 to i64
-  %285 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %282, i64 %284
+  %.idx.i.i.i = mul nuw nsw i64 %284, 80
+  %285 = getelementptr inbounds nuw i8, ptr %282, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i.i115
 
 .lr.ph.i.i.i.i115:                                ; preds = %_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -1400,7 +1398,8 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8FunctionEiELb1EE9push_backES4_.ex
 
 .lr.ph229.preheader:                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8FunctionEiELb1EE9push_backES4_.exit
   %462 = zext i32 %461 to i64
-  %463 = getelementptr inbounds nuw ptr, ptr %460, i64 %462
+  %.idx241 = shl nuw nsw i64 %462, 3
+  %463 = getelementptr inbounds nuw i8, ptr %460, i64 %.idx241
   br label %.lr.ph229
 
 .lr.ph229:                                        ; preds = %.lr.ph229.preheader, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit129.thread199
@@ -1569,7 +1568,8 @@ _ZN4llvm11SmallVectorIPNS_8CallBaseELj8EED2Ev.exit.i: ; preds = %537, %534
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN4llvm11SmallVectorIPNS_8CallBaseELj8EED2Ev.exit.i
   %540 = zext i32 %539 to i64
-  %541 = getelementptr inbounds nuw %"class.llvm::WeakTrackingVH", ptr %538, i64 %540
+  %.idx.i.i = mul nuw nsw i64 %540, 24
+  %541 = getelementptr inbounds nuw i8, ptr %538, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -1651,7 +1651,8 @@ _ZNSt10unique_ptrIN4llvm12InlineAdviceESt14default_deleteIS1_EED2Ev.exit: ; pred
   %563 = load ptr, ptr %17, align 8, !tbaa !25
   %564 = load i32, ptr %365, align 8, !tbaa !26
   %565 = zext i32 %564 to i64
-  %566 = getelementptr inbounds nuw ptr, ptr %563, i64 %565
+  %.idx242 = shl nuw nsw i64 %565, 3
+  %566 = getelementptr inbounds nuw i8, ptr %563, i64 %.idx242
   %.not102236 = icmp eq i32 %564, 0
   br i1 %.not102236, label %._crit_edge240, label %.lr.ph239
 
@@ -1697,13 +1698,13 @@ _ZNSt10unique_ptrIN4llvm12InlineAdviceESt14default_deleteIS1_EED2Ev.exit: ; pred
 
 583:                                              ; preds = %580, %577
   %.ptr1.i138.sink = phi ptr [ %582, %580 ], [ %.ptr1.i138, %577 ]
-  %.sink251 = phi i32 [ 0, %580 ], [ 1, %577 ]
+  %.sink253 = phi i32 [ 0, %580 ], [ 1, %577 ]
   %.sink = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.ptr1.i138.sink, ptr %0, align 8, !tbaa !28
   %584 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %584, align 8, !tbaa !29
   %585 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sink251, ptr %585, align 4, !tbaa !30
+  store i32 %.sink253, ptr %585, align 4, !tbaa !30
   %586 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 1, ptr %586, align 4, !tbaa !32
   %587 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2295,7 +2296,8 @@ _ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit.i: ; preds = %_ZNKSt7
   br i1 %.not4.i.i, label %_ZN4llvm15SmallVectorImplINS_30DiagnosticInfoOptimizationBase8ArgumentEE5clearEv.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %47
-  %49 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %48, i64 %11
+  %.idx.i = mul nuw nsw i64 %11, 80
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -2423,7 +2425,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoO
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !26
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %3, i64 %6
+  %.idx = mul nuw nsw i64 %6, 80
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not7.i.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -2502,13 +2505,14 @@ _ZSt10_ConstructIN4llvm30DiagnosticInfoOptimizationBase8ArgumentEJS2_EEvPT_DpOT0
 
 _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit: ; preds = %_ZSt10_ConstructIN4llvm30DiagnosticInfoOptimizationBase8ArgumentEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !25
-  %.pre2 = load i32, ptr %4, align 8, !tbaa !26
-  %.not4.i = icmp eq i32 %.pre2, 0
+  %.pre3 = load i32, ptr %4, align 8, !tbaa !26
+  %.not4.i = icmp eq i32 %.pre3, 0
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit
-  %40 = zext i32 %.pre2 to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %.pre, i64 %40
+  %40 = zext i32 %.pre3 to i64
+  %.idx2 = mul nuw nsw i64 %40, 80
+  %41 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx2
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit.i

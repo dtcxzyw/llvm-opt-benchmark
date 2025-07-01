@@ -1147,7 +1147,8 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_125AArch64ConditionOptimizer
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %13 = load i32, ptr %12, align 8, !tbaa !199
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %.idx = shl nuw nsw i64 %14, 3
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %.not3756 = icmp eq i32 %13, 0
   br i1 %.not3756, label %.critedge, label %.lr.ph
 
@@ -2003,7 +2004,8 @@ define linkonce_odr hidden void @_ZN4llvm11df_iteratorIPNS_20MachineDominatorTre
   %32 = load ptr, ptr %0, align 8, !tbaa !188, !noalias !331
   %33 = load i32, ptr %5, align 4, !tbaa !249, !noalias !331
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %32, i64 %34
+  %.idx.i.i.i = shl nuw nsw i64 %34, 3
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i.i
   %.not36.i.i.i = icmp eq i32 %33, 0
   br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 

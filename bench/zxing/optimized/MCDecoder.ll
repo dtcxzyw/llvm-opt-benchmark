@@ -3322,145 +3322,146 @@ define internal fastcc noundef zeroext i1 @_ZN5ZXing8MaxiCodeL13CorrectErrorsERN
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %13, ptr %14, align 8, !tbaa !114
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %12, i8 0, i64 %11, i1 false), !tbaa !115
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %13, ptr %15, align 8, !tbaa !116
-  %16 = add nsw i32 %4, -1
-  %17 = load ptr, ptr %0, align 8
-  %18 = zext nneg i32 %1 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %11
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %15, ptr %16, align 8, !tbaa !116
+  %17 = add nsw i32 %4, -1
+  %18 = load ptr, ptr %0, align 8
+  %19 = zext nneg i32 %1 to i64
   %wide.trip.count49 = zext nneg i32 %6 to i64
-  %invariant.gep63 = getelementptr inbounds nuw i8, ptr %17, i64 %18
+  %invariant.gep63 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   br i1 %7, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %.noexc, %28
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %28 ], [ 0, %.noexc ]
-  %19 = trunc nuw nsw i64 %indvars.iv46 to i32
-  %20 = and i32 %19, 1
-  %21 = icmp eq i32 %20, %16
-  br i1 %21, label %22, label %28
+.split.us:                                        ; preds = %.noexc, %29
+  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %29 ], [ 0, %.noexc ]
+  %20 = trunc nuw nsw i64 %indvars.iv46 to i32
+  %21 = and i32 %20, 1
+  %22 = icmp eq i32 %21, %17
+  br i1 %22, label %23, label %29
 
-22:                                               ; preds = %.split.us
+23:                                               ; preds = %.split.us
   %gep64 = getelementptr inbounds nuw i8, ptr %invariant.gep63, i64 %indvars.iv46
-  %23 = load i8, ptr %gep64, align 1, !tbaa !13
-  %24 = zext i8 %23 to i32
-  %25 = lshr i32 %19, %8
-  %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %12, i64 %26
-  store i32 %24, ptr %27, align 4, !tbaa !115
-  br label %28
+  %24 = load i8, ptr %gep64, align 1, !tbaa !13
+  %25 = zext i8 %24 to i32
+  %26 = lshr i32 %20, %8
+  %27 = zext nneg i32 %26 to i64
+  %28 = getelementptr inbounds nuw i32, ptr %12, i64 %27
+  store i32 %25, ptr %28, align 4, !tbaa !115
+  br label %29
 
-28:                                               ; preds = %22, %.split.us
+29:                                               ; preds = %23, %.split.us
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
   br i1 %exitcond50.not, label %.split41.us, label %.split.us, !llvm.loop !117
 
-.split41.us:                                      ; preds = %.split, %28
-  %29 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN5ZXing9GenericGF15MaxiCodeField64Ev()
-          to label %36 unwind label %55
+.split41.us:                                      ; preds = %.split, %29
+  %30 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN5ZXing9GenericGF15MaxiCodeField64Ev()
+          to label %37 unwind label %56
 
 .split:                                           ; preds = %.noexc, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %.noexc ]
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep63, i64 %indvars.iv
-  %30 = load i8, ptr %gep, align 1, !tbaa !13
-  %31 = zext i8 %30 to i32
-  %32 = trunc nuw nsw i64 %indvars.iv to i32
-  %33 = lshr i32 %32, %8
-  %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %12, i64 %34
-  store i32 %31, ptr %35, align 4, !tbaa !115
+  %31 = load i8, ptr %gep, align 1, !tbaa !13
+  %32 = zext i8 %31 to i32
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
+  %34 = lshr i32 %33, %8
+  %35 = zext nneg i32 %34 to i64
+  %36 = getelementptr inbounds nuw i32, ptr %12, i64 %35
+  store i32 %32, ptr %36, align 4, !tbaa !115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count49
   br i1 %exitcond.not, label %.split41.us, label %.split, !llvm.loop !117
 
-36:                                               ; preds = %.split41.us
-  %37 = lshr i32 %3, %8
-  %38 = invoke noundef zeroext i1 @_ZN5ZXing17ReedSolomonDecodeERKNS_9GenericGFERSt6vectorIiSaIiEEi(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %37)
-          to label %39 unwind label %55
+37:                                               ; preds = %.split41.us
+  %38 = lshr i32 %3, %8
+  %39 = invoke noundef zeroext i1 @_ZN5ZXing17ReedSolomonDecodeERKNS_9GenericGFERSt6vectorIiSaIiEEi(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %38)
+          to label %40 unwind label %56
 
-39:                                               ; preds = %36
-  br i1 %38, label %.preheader, label %.loopexit
+40:                                               ; preds = %37
+  br i1 %39, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %39
-  %40 = zext nneg i32 %1 to i64
+.preheader:                                       ; preds = %40
+  %41 = zext nneg i32 %1 to i64
   %wide.trip.count59 = zext nneg i32 %2 to i64
   br i1 %7, label %.preheader.split.us, label %.preheader.split
 
-.preheader.split.us:                              ; preds = %.preheader, %54
-  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %54 ], [ 0, %.preheader ]
-  %41 = trunc nuw nsw i64 %indvars.iv56 to i32
-  %42 = and i32 %41, 1
-  %43 = icmp eq i32 %42, %16
-  br i1 %43, label %44, label %54
+.preheader.split.us:                              ; preds = %.preheader, %55
+  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %55 ], [ 0, %.preheader ]
+  %42 = trunc nuw nsw i64 %indvars.iv56 to i32
+  %43 = and i32 %42, 1
+  %44 = icmp eq i32 %43, %17
+  br i1 %44, label %45, label %55
 
-44:                                               ; preds = %.preheader.split.us
-  %45 = lshr i32 %41, %8
-  %46 = zext nneg i32 %45 to i64
-  %47 = load ptr, ptr %5, align 8, !tbaa !111
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %46
-  %49 = load i32, ptr %48, align 4, !tbaa !115
-  %50 = trunc i32 %49 to i8
-  %51 = load ptr, ptr %0, align 8, !tbaa !50
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %indvars.iv56
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %40
-  store i8 %50, ptr %53, align 1, !tbaa !13
-  br label %54
+45:                                               ; preds = %.preheader.split.us
+  %46 = lshr i32 %42, %8
+  %47 = zext nneg i32 %46 to i64
+  %48 = load ptr, ptr %5, align 8, !tbaa !111
+  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %47
+  %50 = load i32, ptr %49, align 4, !tbaa !115
+  %51 = trunc i32 %50 to i8
+  %52 = load ptr, ptr %0, align 8, !tbaa !50
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv56
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %41
+  store i8 %51, ptr %54, align 1, !tbaa !13
+  br label %55
 
-54:                                               ; preds = %44, %.preheader.split.us
+55:                                               ; preds = %45, %.preheader.split.us
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
   br i1 %exitcond60.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !118
 
-55:                                               ; preds = %36, %.split41.us
-  %56 = landingpad { ptr, i32 }
+56:                                               ; preds = %37, %.split41.us
+  %57 = landingpad { ptr, i32 }
           cleanup
-  %57 = load ptr, ptr %5, align 8, !tbaa !111
-  %.not.i.i.i = icmp eq ptr %57, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %58
+  %58 = load ptr, ptr %5, align 8, !tbaa !111
+  %.not.i.i.i = icmp eq ptr %58, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %59
 
-58:                                               ; preds = %55
-  %59 = load ptr, ptr %14, align 8, !tbaa !114
-  %60 = ptrtoint ptr %59 to i64
-  %61 = ptrtoint ptr %57 to i64
-  %62 = sub i64 %60, %61
-  call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %62) #19
+59:                                               ; preds = %56
+  %60 = load ptr, ptr %14, align 8, !tbaa !114
+  %61 = ptrtoint ptr %60 to i64
+  %62 = ptrtoint ptr %58 to i64
+  %63 = sub i64 %61, %62
+  call void @_ZdlPvm(ptr noundef nonnull %58, i64 noundef %63) #19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %.preheader.split ], [ 0, %.preheader ]
-  %63 = trunc nuw nsw i64 %indvars.iv51 to i32
-  %64 = lshr i32 %63, %8
-  %65 = zext nneg i32 %64 to i64
-  %66 = load ptr, ptr %5, align 8, !tbaa !111
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %65
-  %68 = load i32, ptr %67, align 4, !tbaa !115
-  %69 = trunc i32 %68 to i8
-  %70 = load ptr, ptr %0, align 8, !tbaa !50
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv51
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %40
-  store i8 %69, ptr %72, align 1, !tbaa !13
+  %64 = trunc nuw nsw i64 %indvars.iv51 to i32
+  %65 = lshr i32 %64, %8
+  %66 = zext nneg i32 %65 to i64
+  %67 = load ptr, ptr %5, align 8, !tbaa !111
+  %68 = getelementptr inbounds nuw i32, ptr %67, i64 %66
+  %69 = load i32, ptr %68, align 4, !tbaa !115
+  %70 = trunc i32 %69 to i8
+  %71 = load ptr, ptr %0, align 8, !tbaa !50
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %indvars.iv51
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 %41
+  store i8 %70, ptr %73, align 1, !tbaa !13
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count59
   br i1 %exitcond55.not, label %.loopexit, label %.preheader.split, !llvm.loop !118
 
-.loopexit:                                        ; preds = %.preheader.split, %54, %39
-  %73 = load ptr, ptr %5, align 8, !tbaa !111
-  %.not.i.i.i37 = icmp eq ptr %73, null
-  br i1 %.not.i.i.i37, label %_ZNSt6vectorIiSaIiEED2Ev.exit38, label %74
+.loopexit:                                        ; preds = %.preheader.split, %55, %40
+  %74 = load ptr, ptr %5, align 8, !tbaa !111
+  %.not.i.i.i37 = icmp eq ptr %74, null
+  br i1 %.not.i.i.i37, label %_ZNSt6vectorIiSaIiEED2Ev.exit38, label %75
 
-74:                                               ; preds = %.loopexit
-  %75 = load ptr, ptr %14, align 8, !tbaa !114
-  %76 = ptrtoint ptr %75 to i64
-  %77 = ptrtoint ptr %73 to i64
-  %78 = sub i64 %76, %77
-  call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef %78) #19
+75:                                               ; preds = %.loopexit
+  %76 = load ptr, ptr %14, align 8, !tbaa !114
+  %77 = ptrtoint ptr %76 to i64
+  %78 = ptrtoint ptr %74 to i64
+  %79 = sub i64 %77, %78
+  call void @_ZdlPvm(ptr noundef nonnull %74, i64 noundef %79) #19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit38
 
-_ZNSt6vectorIiSaIiEED2Ev.exit38:                  ; preds = %.loopexit, %74
+_ZNSt6vectorIiSaIiEED2Ev.exit38:                  ; preds = %.loopexit, %75
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
-  ret i1 %38
+  ret i1 %39
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %58, %55
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %59, %56
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
-  resume { ptr, i32 } %56
+  resume { ptr, i32 } %57
 }
 
 declare i32 @__gxx_personality_v0(...)

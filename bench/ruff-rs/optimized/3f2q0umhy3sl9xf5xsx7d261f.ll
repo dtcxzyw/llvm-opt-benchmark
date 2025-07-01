@@ -36668,7 +36668,8 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
   %19 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i64, ptr %20, align 8, !noundef !4
-  %22 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %19, i64 %21
+  %.idx = shl nuw nsw i64 %21, 6
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %19, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -37062,7 +37063,8 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
   %17 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8, !noundef !4
-  %20 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %17, i64 %19
+  %.idx = shl nuw nsw i64 %19, 6
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %17, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -37373,7 +37375,8 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
   %17 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8, !noundef !4
-  %20 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %17, i64 %19
+  %.idx = shl nuw nsw i64 %19, 6
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %17, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -37687,7 +37690,8 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8, !noundef !4
-  %23 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %20, i64 %22
+  %.idx = shl nuw nsw i64 %22, 6
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr %20, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -38136,7 +38140,8 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
   %19 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i64, ptr %20, align 8, !noundef !4
-  %22 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %19, i64 %21
+  %.idx = shl nuw nsw i64 %21, 6
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %19, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -40910,7 +40915,8 @@ define void @_ZN11ruff_server4edit13text_document12TextDocument13apply_changes17
   %.sroa.5106.0.copyload = load i64, ptr %28, align 8
   %142 = icmp ult i64 %.sroa.5106.0.copyload, 164703072086692426
   tail call void @llvm.assume(i1 %142)
-  %143 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [4 x i32] }, [1 x i32] }, ptr %.sroa.4105.0.copyload, i64 %.sroa.5106.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.5106.0.copyload, 56
+  %143 = getelementptr inbounds nuw i8, ptr %.sroa.4105.0.copyload, i64 %.idx
   %144 = icmp sgt i64 %.sroa.0104.0.copyload, -1
   tail call void @llvm.assume(i1 %144)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
@@ -44850,7 +44856,8 @@ define hidden void @_ZN11ruff_server7session8settings22ResolvedClientSettings16r
   %19 = alloca [96 x i8], align 8
   %20 = alloca [96 x i8], align 8
   %.sroa.7.i.i.i = alloca [16 x i8], align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6063)
   %22 = icmp eq i64 %2, 0
   br i1 %22, label %"_ZN4core3ptr118drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ruff_server..session..settings..ResolvedConfiguration$GT$$GT$17h97a727b4c3d591d9E.exit", label %.lr.ph.i
@@ -45219,7 +45226,8 @@ define hidden void @_ZN11ruff_server7session8settings22ResolvedClientSettings16r
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN11ruff_server7session8settings22ResolvedClientSettings16resolve_optional17h20bc8e1b13d41ef1E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2, ptr noalias noundef align 1 dereferenceable(1) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
-  %6 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %7 = icmp eq i64 %2, 0
   br i1 %7, label %"_ZN4core3ptr128drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$alloc..vec..Vec$LT$ruff_linter..rule_selector..RuleSelector$GT$$GT$$GT$17h06312c4c2407c369E.exit", label %.lr.ph.i
 
@@ -45266,7 +45274,8 @@ define hidden void @_ZN11ruff_server7session8settings22ResolvedClientSettings16r
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN11ruff_server7session8settings22ResolvedClientSettings16resolve_optional17h43f9a484100b3095E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %"_ZN4core3ptr109drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h2bddb03ee854f3f2E.exit", label %.lr.ph.i
 
@@ -45331,7 +45340,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h2cc87da1e25a6384E.exit: ; pred
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN11ruff_server7session8settings22ResolvedClientSettings16resolve_optional17h91b1926112f80bf7E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2, ptr noalias noundef align 1 dereferenceable(1) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
-  %6 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %7 = icmp eq i64 %2, 0
   br i1 %7, label %"_ZN4core3ptr128drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$alloc..vec..Vec$LT$ruff_linter..rule_selector..RuleSelector$GT$$GT$$GT$17h06312c4c2407c369E.exit", label %.lr.ph.i
 
@@ -45405,7 +45415,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h32b62dc9b6299a8eE.exit: ; pred
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN11ruff_server7session8settings22ResolvedClientSettings16resolve_optional17hdbac9556d3c85cd6E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2, ptr noalias noundef align 1 dereferenceable(1) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
-  %6 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %7 = icmp eq i64 %2, 0
   br i1 %7, label %"_ZN4core3ptr128drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$alloc..vec..Vec$LT$ruff_linter..rule_selector..RuleSelector$GT$$GT$$GT$17h06312c4c2407c369E.exit", label %.lr.ph.i
 

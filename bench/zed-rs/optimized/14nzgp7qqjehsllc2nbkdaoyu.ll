@@ -2295,7 +2295,8 @@ _ZN10serde_json3ser9Formatter9write_f6417h5c884ed52c668411E.exit.i.i: ; preds = 
   %204 = load ptr, ptr %203, align 8, !alias.scope !421, !noalias !424, !nonnull !4, !noundef !4
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %206 = load i64, ptr %205, align 8, !alias.scope !421, !noalias !424, !noundef !4
-  %207 = getelementptr inbounds { i64, [8 x i64] }, ptr %204, i64 %206
+  %.idx126 = mul nsw i64 %206, 72
+  %207 = getelementptr inbounds i8, ptr %204, i64 %.idx126
   tail call void @llvm.experimental.noalias.scope.decl(metadata !427)
   %.val.i24 = load ptr, ptr %1, align 8, !alias.scope !430, !noalias !433, !nonnull !4, !align !5, !noundef !4
   %208 = getelementptr inbounds nuw i8, ptr %.val.i24, i64 16
@@ -2469,7 +2470,8 @@ _ZN10serde_json3ser9Formatter10end_object17hf481953044d8c6dfE.exit.i: ; preds = 
   %284 = load ptr, ptr %283, align 8, !nonnull !4, !noundef !4
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %286 = load i64, ptr %285, align 8, !noundef !4
-  %287 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %284, i64 %286
+  %.idx = mul nsw i64 %286, 104
+  %287 = getelementptr inbounds i8, ptr %284, i64 %.idx
   %288 = icmp eq i64 %286, 0
   br i1 %288, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h32b99810c0a33b26E.exit._crit_edge", label %.lr.ph
 
@@ -10084,7 +10086,8 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %10 = load i64, ptr %9, align 8, !noalias !2216, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2217)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2220)
-  %11 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %8, i64 %10
+  %.idx.i.i = shl nsw i64 %10, 4
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2222)
   %.not.i.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i
@@ -10226,7 +10229,8 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   %9 = load i64, ptr %8, align 8, !noalias !2277, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2278)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2281)
-  %10 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %7, i64 %9
+  %.idx.i.i = shl nsw i64 %9, 4
+  %10 = getelementptr inbounds i8, ptr %7, i64 %.idx.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2283)
   %.not.i.i.i = icmp eq i64 %9, 0
   br i1 %.not.i.i.i, label %"_ZN9extension14ExtensionStore18extensions_updated28_$u7b$$u7b$closure$u7d$$u7d$17h7c94107ae96f04fdE.llvm.12913194176958376934.exit", label %.lr.ph.i.i.i
@@ -10297,7 +10301,8 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %10 = load ptr, ptr %9, align 8, !alias.scope !2319, !noalias !2316, !nonnull !4, !align !5, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2322)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2325)
-  %11 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %6, i64 %8
+  %.idx.i.i = shl nsw i64 %8, 4
+  %11 = getelementptr inbounds i8, ptr %6, i64 %.idx.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2327)
   %.not.i.i.i = icmp eq i64 %8, 0
   br i1 %.not.i.i.i, label %"_ZN9extension14ExtensionStore18extensions_updated28_$u7b$$u7b$closure$u7d$$u7d$17h46bfef6df2b05ba3E.llvm.12913194176958376934.exit", label %.lr.ph.i.i.i
@@ -41034,7 +41039,8 @@ define hidden noalias noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$
   %.val9 = load i64, ptr %21, align 8, !alias.scope !12159, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12162)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12165)
-  %22 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val8, i64 %.val9
+  %.idx.i.i = mul nsw i64 %.val9, 24
+  %22 = getelementptr inbounds i8, ptr %.val8, i64 %.idx.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12168)
   %.val.i.i.i = load ptr, ptr %7, align 8, !alias.scope !12171, !noalias !12174, !nonnull !4, !align !5, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12177)
@@ -42190,7 +42196,8 @@ _ZN10serde_json3ser9Formatter18begin_object_value17ha0f7f3acf16d6b13E.exit.i.i: 
   %.val2.i.i.i = load ptr, ptr %51, align 8, !alias.scope !12733, !noalias !12655, !nonnull !4, !noundef !4
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val3.i.i.i = load i64, ptr %52, align 8, !alias.scope !12733, !noalias !12655, !noundef !4
-  %53 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val2.i.i.i, i64 %.val3.i.i.i
+  %.idx.i.i.i.i.i.i = mul nsw i64 %.val3.i.i.i, 24
+  %53 = getelementptr inbounds i8, ptr %.val2.i.i.i, i64 %.idx.i.i.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.val8.i6.i, i64 16
   %55 = load i64, ptr %54, align 8, !alias.scope !12736, !noalias !12745, !noundef !4
   %56 = load i64, ptr %.val8.i6.i, align 8, !alias.scope !12736, !noalias !12745, !noundef !4
@@ -42451,7 +42458,8 @@ define internal fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound
   tail call void @llvm.assume(i1 %23)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12929)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12932)
-  %24 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %.8.val, i64 %.16.val
+  %.idx.i.i.i.i = mul nsw i64 %.16.val, 24
+  %24 = getelementptr inbounds i8, ptr %.8.val, i64 %.idx.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12935)
   %.val.i.i.i.i.i = load ptr, ptr %.val3.i, align 8, !alias.scope !12938, !noalias !12941, !nonnull !4, !align !5, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12944)
@@ -45253,7 +45261,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !14311, !nonnull !4, !noundef !4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !14311, !noundef !4
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5e085e8f25ea6386E.exit._crit_edge", label %.lr.ph
 
@@ -84136,7 +84145,8 @@ default.unreachable30:                            ; preds = %2
   %.sroa.524.0.copyload = load ptr, ptr %.sroa.524.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.625.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.625.0.copyload = load i64, ptr %.sroa.625.0..sroa_idx, align 8
-  %12 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %.sroa.524.0.copyload, i64 %.sroa.625.0.copyload
+  %.idx = shl nsw i64 %.sroa.625.0.copyload, 4
+  %12 = getelementptr inbounds i8, ptr %.sroa.524.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   store ptr %.sroa.524.0.copyload, ptr %8, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -93922,7 +93932,8 @@ define hidden void @"_ZN9extension14ExtensionStore18extensions_updated28_$u7b$$u
   %9 = load i64, ptr %8, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26034)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26037)
-  %10 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %7, i64 %9
+  %.idx.i = shl nsw i64 %9, 4
+  %10 = getelementptr inbounds i8, ptr %7, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26039)
   %.not.i.i = icmp eq i64 %9, 0
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i
@@ -93996,7 +94007,8 @@ define hidden { ptr, i64 } @"_ZN9extension14ExtensionStore18extensions_updated28
   %8 = load i64, ptr %7, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26071)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26074)
-  %9 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %6, i64 %8
+  %.idx.i = shl nsw i64 %8, 4
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26076)
   %.not.i.i = icmp eq i64 %8, 0
   br i1 %.not.i.i, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h196441ca7b274cc0E.exit.thread", label %.lr.ph.i.i
@@ -94064,7 +94076,8 @@ define hidden noundef zeroext i1 @"_ZN9extension14ExtensionStore18extensions_upd
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !5, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26108)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26111)
-  %10 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %5, i64 %7
+  %.idx.i = shl nsw i64 %7, 4
+  %10 = getelementptr inbounds i8, ptr %5, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26113)
   %.not.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h196441ca7b274cc0E.exit", label %.lr.ph.i.i
@@ -97046,7 +97059,8 @@ default.unreachable125:                           ; preds = %56, %33, %2
   %134 = load ptr, ptr %133, align 8, !alias.scope !26976, !noalias !26934, !nonnull !4, !noundef !4
   %135 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %136 = load i64, ptr %135, align 8, !alias.scope !26976, !noalias !26934, !noundef !4
-  %137 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, i8, [7 x i8] }, i8, [7 x i8] }, ptr %134, i64 %136
+  %.idx.i.i = mul nsw i64 %136, 3424
+  %137 = getelementptr inbounds i8, ptr %134, i64 %.idx.i.i
   %138 = icmp eq i64 %136, 0
   br i1 %138, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -101712,7 +101726,8 @@ _ZN10serde_json3ser9Formatter12begin_string17h94597f9a3ef77143E.llvm.12913194176
   call void @llvm.assume(i1 %751), !noalias !28555
   call void @llvm.experimental.noalias.scope.decl(metadata !29218), !noalias !28555
   call void @llvm.experimental.noalias.scope.decl(metadata !29221), !noalias !28555
-  %752 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} } }, ptr %.val38.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.val39.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %.val39.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
+  %752 = getelementptr inbounds i8, ptr %.val38.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !29224), !noalias !28555
   %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.val3.i.i43.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !29227, !noalias !29230, !nonnull !4, !align !5, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !29233), !noalias !28555
@@ -102342,7 +102357,8 @@ _ZN10serde_json3ser9Formatter12begin_string17h94597f9a3ef77143E.llvm.12913194176
   call void @llvm.experimental.noalias.scope.decl(metadata !29785), !noalias !28555
   call void @llvm.experimental.noalias.scope.decl(metadata !29788), !noalias !28555
   call void @llvm.experimental.noalias.scope.decl(metadata !29791), !noalias !28555
-  %1024 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %.val1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.val2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %.val2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 24
+  %1024 = getelementptr inbounds i8, ptr %.val1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !29794), !noalias !28555
   %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.val3.i.i73.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !29797, !noalias !29800, !nonnull !4, !align !5, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !29803), !noalias !28555

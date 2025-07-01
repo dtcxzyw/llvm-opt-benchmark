@@ -1503,7 +1503,8 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow8GraphDef12ByteSizeLongEv(ptr 
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not1516 = icmp eq i32 %3, 0
   br i1 %.not1516, label %._crit_edge, label %.lr.ph
 
@@ -3487,7 +3488,8 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 
 169:                                              ; preds = %167
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
-  %170 = getelementptr inbounds nuw ptr, ptr %147, i64 %.037
+  %.idx = shl nuw nsw i64 %.037, 3
+  %170 = getelementptr inbounds nuw i8, ptr %147, i64 %.idx
   %.not.i.i = icmp eq i64 %.037, 0
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEESt14default_deleteISE_EED2Ev.exit, label %171
 

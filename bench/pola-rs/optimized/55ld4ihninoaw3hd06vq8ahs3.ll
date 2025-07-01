@@ -9073,7 +9073,8 @@ define hidden void @"_ZN166_$LT$polars_arrow..array..list..ListArray$LT$i64$GT$$
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !6, !noundef !6
   %23 = load i64, ptr %15, align 8, !noundef !6
-  %24 = getelementptr inbounds nuw { ptr, [1 x i64] }, ptr %22, i64 %23
+  %.idx = shl nuw nsw i64 %23, 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
 
@@ -9369,7 +9370,8 @@ define hidden void @"_ZN166_$LT$polars_arrow..array..list..ListArray$LT$i64$GT$$
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !6, !noundef !6
   %23 = load i64, ptr %15, align 8, !noundef !6
-  %24 = getelementptr inbounds nuw { ptr, [1 x i64] }, ptr %22, i64 %23
+  %.idx = shl nuw nsw i64 %23, 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
 
@@ -9665,7 +9667,8 @@ define hidden void @"_ZN166_$LT$polars_arrow..array..list..ListArray$LT$i64$GT$$
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !6, !noundef !6
   %23 = load i64, ptr %15, align 8, !noundef !6
-  %24 = getelementptr inbounds nuw { ptr, [1 x i64] }, ptr %22, i64 %23
+  %.idx = shl nuw nsw i64 %23, 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
 
@@ -9961,7 +9964,8 @@ define hidden void @"_ZN166_$LT$polars_arrow..array..list..ListArray$LT$i64$GT$$
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !6, !noundef !6
   %23 = load i64, ptr %15, align 8, !noundef !6
-  %24 = getelementptr inbounds nuw { ptr, [1 x i64] }, ptr %22, i64 %23
+  %.idx = shl nuw nsw i64 %23, 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
 
@@ -10257,7 +10261,8 @@ define hidden void @"_ZN166_$LT$polars_arrow..array..list..ListArray$LT$i64$GT$$
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !6, !noundef !6
   %23 = load i64, ptr %15, align 8, !noundef !6
-  %24 = getelementptr inbounds nuw { ptr, [1 x i64] }, ptr %22, i64 %23
+  %.idx = shl nuw nsw i64 %23, 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
 

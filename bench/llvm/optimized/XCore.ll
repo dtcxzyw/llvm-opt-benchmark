@@ -22,8 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.14 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.14 = type { i64, [8 x i8] }
-%"class.clang::driver::InputInfo" = type { %union.anon, i32, ptr, i32, ptr }
-%union.anon = type { ptr }
 %"class.llvm::opt::OptSpecifier" = type { i32 }
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector.147" }
 %"class.llvm::SmallVector.147" = type { %"class.llvm::SmallVectorImpl.148", %"struct.llvm::SmallVectorStorage.152" }
@@ -300,7 +298,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit38: ; preds = %51, 
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !11
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw %"class.clang::driver::InputInfo", ptr %64, i64 %67
+  %.idx = mul nuw nsw i64 %67, 40
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx
   %.not2351 = icmp eq i32 %66, 0
   br i1 %.not2351, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1552,7 +1551,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5cla
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !11
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"class.std::unique_ptr.103", ptr %6, i64 %9
+  %.idx.i = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6driver7CommandESt14default_deleteIS4_EELb0EE19moveElementsForGrowEPS7_.exit, label %.lr.ph.i.i.i.i.i.i
 

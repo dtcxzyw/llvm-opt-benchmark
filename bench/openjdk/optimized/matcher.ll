@@ -1051,9 +1051,10 @@ _ZN7Matcher19grow_new_node_arrayEj.exit:          ; preds = %333, %340
 
 .lr.ph101:                                        ; preds = %398
   %403 = zext i32 %402 to i64
+  %.idx = shl nuw nsw i64 %403, 3
   %404 = getelementptr inbounds nuw i8, ptr %400, i64 16
   %405 = load ptr, ptr %404, align 8
-  %406 = getelementptr inbounds nuw ptr, ptr %405, i64 %403
+  %406 = getelementptr inbounds nuw i8, ptr %405, i64 %.idx
   %407 = getelementptr inbounds nuw i8, ptr %384, i64 16
   %408 = getelementptr inbounds nuw i8, ptr %384, i64 32
   %409 = getelementptr inbounds nuw i8, ptr %384, i64 36
@@ -12686,7 +12687,8 @@ tailrecurse:                                      ; preds = %53, %1
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %28, i64 %31
+  %.idx = shl nuw nsw i64 %31, 3
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
   %.not133 = icmp eq i32 %30, 0
   br i1 %.not133, label %.loopexit, label %.lr.ph
 
@@ -12790,7 +12792,8 @@ _ZNK7Compile21is_method_compilationEv.exit:       ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %.idx = shl nuw nsw i64 %17, 3
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %.not65 = icmp eq i32 %16, 0
   br i1 %.not65, label %_ZNK7Compile21is_method_compilationEv.exit.thread, label %.lr.ph
 
@@ -12820,9 +12823,10 @@ _ZNK7Compile21is_method_compilationEv.exit:       ; preds = %1
   %31 = getelementptr inbounds nuw i8, ptr %.03759, i64 32
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %33
-  %.not67 = icmp eq i32 %32, 0
-  br i1 %.not67, label %_ZNK7Compile21is_method_compilationEv.exit.thread, label %.lr.ph54
+  %.idx67 = shl nuw nsw i64 %33, 3
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx67
+  %.not68 = icmp eq i32 %32, 0
+  br i1 %.not68, label %_ZNK7Compile21is_method_compilationEv.exit.thread, label %.lr.ph54
 
 .lr.ph54:                                         ; preds = %28, %.lr.ph54
   %.03952 = phi ptr [ %42, %.lr.ph54 ], [ %30, %28 ]

@@ -2137,7 +2137,8 @@ _ZNK4Luau8PositiongeERKS0_.exit.i:                ; preds = %30
   %40 = load ptr, ptr %39, align 8, !tbaa !83
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load i64, ptr %41, align 8, !tbaa !86
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %42
+  %.idx.i = shl nuw nsw i64 %42, 3
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx.i
   %.not15.i = icmp eq i64 %42, 0
   br i1 %.not15.i, label %_ZN4Luau12_GLOBAL__N_18FindNode5visitEPNS_12AstStatBlockE.exit, label %.lr.ph.i
 
@@ -2202,7 +2203,8 @@ define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_18FindNode5visitEPNS_12
   %8 = load ptr, ptr %7, align 8, !tbaa !83
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i64, ptr %9, align 8, !tbaa !86
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
+  %.idx = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not15 = icmp eq i64 %10, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -3148,7 +3150,8 @@ define dso_local { ptr, ptr } @_ZN4Luau25findExprOrLocalAtPositionERKNS_12Source
   %9 = load ptr, ptr %8, align 8, !tbaa !83
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %11 = load i64, ptr %10, align 8, !tbaa !86
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %.idx.i = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
   %.not13.i = icmp eq i64 %11, 0
   br i1 %.not13.i, label %_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visitEPNS_12AstStatBlockE.exit, label %.lr.ph.i
 
@@ -3219,7 +3222,8 @@ define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visi
   %4 = load ptr, ptr %3, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i64, ptr %5, align 8, !tbaa !86
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not13 = icmp eq i64 %6, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -8610,7 +8614,8 @@ define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visi
   %6 = load ptr, ptr %5, align 8, !tbaa !253
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load i64, ptr %7, align 8, !tbaa !254
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %.idx = shl nuw nsw i64 %8, 3
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %.not9 = icmp eq i64 %8, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 

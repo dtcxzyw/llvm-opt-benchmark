@@ -264,7 +264,8 @@ define linkonce_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixI
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load i64, ptr %14, align 8, !tbaa !17
   %16 = mul nsw i64 %15, %13
-  %17 = getelementptr inbounds i32, ptr %11, i64 %16
+  %.idx = shl nsw i64 %16, 2
+  %17 = getelementptr inbounds i8, ptr %11, i64 %.idx
   %.not4.i = icmp eq i64 %16, 0
   br i1 %.not4.i, label %_ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEESL_SM_NS4_IiLin1ELi1ELi0ELin1ELi1EEESN_EEvRKNS3_10MatrixBaseIT_EERKNSO_IT0_EERNS3_15PlainObjectBaseIT1_EERNSX_IT2_EERNSX_IT3_EERNSX_IT4_EEEUlRiE_EST_SP_SP_ST_.exit, label %.lr.ph.i
 
@@ -342,7 +343,8 @@ define linkonce_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixI
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load i64, ptr %14, align 8, !tbaa !17
   %16 = mul nsw i64 %15, %13
-  %17 = getelementptr inbounds i32, ptr %11, i64 %16
+  %.idx = shl nsw i64 %16, 2
+  %17 = getelementptr inbounds i8, ptr %11, i64 %.idx
   %.not4.i = icmp eq i64 %16, 0
   br i1 %.not4.i, label %_ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEESL_SM_NS4_IiLin1ELi1ELi0ELin1ELi1EEESN_EEvRKNS3_10MatrixBaseIT_EERKNSO_IT0_EERNS3_15PlainObjectBaseIT1_EERNSX_IT2_EERNSX_IT3_EERNSX_IT4_EEEUlRiE_EST_SP_SP_ST_.exit, label %.lr.ph.i
 
@@ -553,7 +555,8 @@ define linkonce_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixI
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load i64, ptr %14, align 8, !tbaa !17
   %16 = mul nsw i64 %15, %13
-  %17 = getelementptr inbounds i32, ptr %11, i64 %16
+  %.idx = shl nsw i64 %16, 2
+  %17 = getelementptr inbounds i8, ptr %11, i64 %.idx
   %.not4.i = icmp eq i64 %16, 0
   br i1 %.not4.i, label %_ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELin1ELi0ELin1ELin1EEENS4_ISK_Lin1ELin1ELi1ELin1ELin1EEESM_NS4_IiLin1ELi1ELi0ELin1ELi1EEESO_EEvRKNS3_10MatrixBaseIT_EERKNSP_IT0_EERNS3_15PlainObjectBaseIT1_EERNSY_IT2_EERNSY_IT3_EERNSY_IT4_EEEUlRiE_ESU_SQ_SQ_SU_.exit, label %.lr.ph.i
 
@@ -635,7 +638,8 @@ define linkonce_odr dso_local void @_ZN3igl19remove_unreferencedIN5Eigen6MatrixI
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !17
   %20 = mul nsw i64 %19, %17
-  %21 = getelementptr inbounds i32, ptr %15, i64 %20
+  %.idx = shl nsw i64 %20, 2
+  %21 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %.not4.i = icmp eq i64 %20, 0
   br i1 %.not4.i, label %_ZSt8for_eachIPiZN3igl19remove_unreferencedIN5Eigen6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEENS4_IiLin1ELin1ELi0ELin1ELin1EEESL_SM_NS4_IiLin1ELi1ELi0ELin1ELi1EEESN_EEvRKNS3_10MatrixBaseIT_EERKNSO_IT0_EERNS3_15PlainObjectBaseIT1_EERNSX_IT2_EERNSX_IT3_EERNSX_IT4_EEEUlRiE_EST_SP_SP_ST_.exit, label %.lr.ph.i
 

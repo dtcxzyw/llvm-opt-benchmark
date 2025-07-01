@@ -221,11 +221,16 @@ _ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit.i: ; preds = %4
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %22, ptr %6, align 8, !tbaa !14
   %23 = icmp eq i64 %.sroa.speculated, 0
-  br i1 %23, label %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Emd.exit, label %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit.thread.i
+  br i1 %23, label %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Emd.exit, label %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit._crit_edge.i
 
-_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit.thread.i: ; preds = %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit.i, %17
-  %24 = phi ptr [ %22, %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit.i ], [ %19, %17 ]
-  %25 = getelementptr inbounds nuw double, ptr %24, i64 %.sroa.speculated
+_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit._crit_edge.i: ; preds = %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit.i
+  %.pre.i = shl nuw nsw i64 %.sroa.speculated, 3
+  br label %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit.thread.i
+
+_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit.thread.i: ; preds = %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit._crit_edge.i, %17
+  %.idx.i.i.pre-phi.i = phi i64 [ %.pre.i, %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit._crit_edge.i ], [ %18, %17 ]
+  %24 = phi ptr [ %22, %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit._crit_edge.i ], [ %19, %17 ]
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i.pre-phi.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit.thread.i
@@ -247,7 +252,8 @@ _ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Emd.exit: ; preds = %.lr.ph.i.i.
 29:                                               ; preds = %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Emd.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
   %30 = load ptr, ptr %6, align 8, !tbaa !14
-  %31 = getelementptr inbounds nuw double, ptr %30, i64 %.sroa.speculated
+  %.idx = shl nuw nsw i64 %.sroa.speculated, 3
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx
   %32 = load double, ptr %3, align 8, !tbaa !8
   %.not7.i = icmp eq i64 %.sroa.speculated, 0
   br i1 %.not7.i, label %_ZSt10accumulateIPddET0_T_S2_S1_.exit, label %.lr.ph.i
@@ -676,7 +682,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !51
   %12 = icmp eq i64 %2, 1
   br i1 %12, label %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit, label %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i

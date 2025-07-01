@@ -18862,7 +18862,8 @@ _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE9push_backERKS1_.exit: ; preds = %34
   %39 = shl nuw nsw i64 %37, 4
   %40 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #33
   store ptr %40, ptr %17, align 8
-  %41 = getelementptr inbounds nuw %"struct.ClipperLib::IntPoint", ptr %40, i64 %37
+  %.idx = shl nuw nsw i64 %37, 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx
   store ptr %41, ptr %38, align 8
   %42 = getelementptr inbounds nuw i8, ptr %16, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)

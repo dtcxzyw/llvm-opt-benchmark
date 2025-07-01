@@ -5794,7 +5794,8 @@ define internal fastcc range(i32 0, 2) i32 @Abc_TtCofsOppositeWithMask(ptr nound
   %25 = add nsw i32 %3, -6
   %26 = shl nuw i32 1, %25
   %27 = sext i32 %2 to i64
-  %28 = getelementptr inbounds i64, ptr %0, i64 %27
+  %.idx = shl nsw i64 %27, 3
+  %28 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %29 = icmp sgt i32 %2, 0
   br i1 %29, label %.preheader.lr.ph, label %.loopexit
 

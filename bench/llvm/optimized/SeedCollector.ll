@@ -584,7 +584,8 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4T
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE9push_backEOSI_.exit
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %62, i64 %64
+  %.idx.i.i = shl nuw nsw i64 %64, 3
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -627,7 +628,8 @@ _ZNSt4pairISt5tupleIJPN4llvm9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6Opcode
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZNSt4pairISt5tupleIJPN4llvm9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEENS1_11SmallVectorISt10unique_ptrINS2_10SeedBundleESt14default_deleteISC_EELj6EEEED2Ev.exit
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %74, i64 %76
+  %.idx.i = shl nuw nsw i64 %76, 3
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -1956,7 +1958,8 @@ define dso_local void @_ZN4llvm9sandboxir13SeedCollectorD2Ev(ptr noundef nonnull
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %1
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"struct.std::pair.289", ptr %13, i64 %16
+  %.idx.i.i.i = mul nuw nsw i64 %16, 88
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt4pairISt5tupleIJPN4llvm9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEENS1_11SmallVectorISt10unique_ptrINS2_10SeedBundleESt14default_deleteISC_EELj6EEEED2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -1971,7 +1974,8 @@ define dso_local void @_ZN4llvm9sandboxir13SeedCollectorD2Ev(ptr noundef nonnull
 
 .lr.ph.i.preheader.i.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %20, i64 %23
+  %.idx.i.i.i.i.i.i = shl nuw nsw i64 %23, 3
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i
@@ -2043,79 +2047,81 @@ _ZN4llvm9sandboxir13SeedContainerD2Ev.exit:       ; preds = %_ZN4llvm23SmallVect
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load i32, ptr %50, align 8, !tbaa !27
   %.not4.i.i.i.i1 = icmp eq i32 %51, 0
-  br i1 %.not4.i.i.i.i1, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit.i.i.i20, label %.lr.ph.i.preheader.i.i.i2
+  br i1 %.not4.i.i.i.i1, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit.i.i.i22, label %.lr.ph.i.preheader.i.i.i2
 
 .lr.ph.i.preheader.i.i.i2:                        ; preds = %_ZN4llvm9sandboxir13SeedContainerD2Ev.exit
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %"struct.std::pair.289", ptr %49, i64 %52
-  br label %.lr.ph.i.i.i.i3
+  %.idx.i.i.i3 = mul nuw nsw i64 %52, 88
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i.i.i3
+  br label %.lr.ph.i.i.i.i4
 
-.lr.ph.i.i.i.i3:                                  ; preds = %_ZNSt4pairISt5tupleIJPN4llvm9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEENS1_11SmallVectorISt10unique_ptrINS2_10SeedBundleESt14default_deleteISC_EELj6EEEED2Ev.exit.i.i.i.i16, %.lr.ph.i.preheader.i.i.i2
-  %.05.i.i.i.i4 = phi ptr [ %54, %_ZNSt4pairISt5tupleIJPN4llvm9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEENS1_11SmallVectorISt10unique_ptrINS2_10SeedBundleESt14default_deleteISC_EELj6EEEED2Ev.exit.i.i.i.i16 ], [ %53, %.lr.ph.i.preheader.i.i.i2 ]
-  %54 = getelementptr inbounds i8, ptr %.05.i.i.i.i4, i64 -88
-  %55 = getelementptr inbounds i8, ptr %.05.i.i.i.i4, i64 -64
+.lr.ph.i.i.i.i4:                                  ; preds = %_ZNSt4pairISt5tupleIJPN4llvm9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEENS1_11SmallVectorISt10unique_ptrINS2_10SeedBundleESt14default_deleteISC_EELj6EEEED2Ev.exit.i.i.i.i18, %.lr.ph.i.preheader.i.i.i2
+  %.05.i.i.i.i5 = phi ptr [ %54, %_ZNSt4pairISt5tupleIJPN4llvm9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEENS1_11SmallVectorISt10unique_ptrINS2_10SeedBundleESt14default_deleteISC_EELj6EEEED2Ev.exit.i.i.i.i18 ], [ %53, %.lr.ph.i.preheader.i.i.i2 ]
+  %54 = getelementptr inbounds i8, ptr %.05.i.i.i.i5, i64 -88
+  %55 = getelementptr inbounds i8, ptr %.05.i.i.i.i5, i64 -64
   %56 = load ptr, ptr %55, align 8, !tbaa !30
-  %57 = getelementptr inbounds i8, ptr %.05.i.i.i.i4, i64 -56
+  %57 = getelementptr inbounds i8, ptr %.05.i.i.i.i5, i64 -56
   %58 = load i32, ptr %57, align 8, !tbaa !27
-  %.not4.i.i.i.i.i.i.i5 = icmp eq i32 %58, 0
-  br i1 %.not4.i.i.i.i.i.i.i5, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.i.i15, label %.lr.ph.i.preheader.i.i.i.i.i.i6
+  %.not4.i.i.i.i.i.i.i6 = icmp eq i32 %58, 0
+  br i1 %.not4.i.i.i.i.i.i.i6, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.i.i17, label %.lr.ph.i.preheader.i.i.i.i.i.i7
 
-.lr.ph.i.preheader.i.i.i.i.i.i6:                  ; preds = %.lr.ph.i.i.i.i3
+.lr.ph.i.preheader.i.i.i.i.i.i7:                  ; preds = %.lr.ph.i.i.i.i4
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %56, i64 %59
-  br label %.lr.ph.i.i.i.i.i.i.i7
+  %.idx.i.i.i.i.i.i8 = shl nuw nsw i64 %59, 3
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx.i.i.i.i.i.i8
+  br label %.lr.ph.i.i.i.i.i.i.i9
 
-.lr.ph.i.i.i.i.i.i.i7:                            ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i11, %.lr.ph.i.preheader.i.i.i.i.i.i6
-  %.05.i.i.i.i.i.i.i8 = phi ptr [ %61, %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i11 ], [ %60, %.lr.ph.i.preheader.i.i.i.i.i.i6 ]
-  %61 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i8, i64 -8
+.lr.ph.i.i.i.i.i.i.i9:                            ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i13, %.lr.ph.i.preheader.i.i.i.i.i.i7
+  %.05.i.i.i.i.i.i.i10 = phi ptr [ %61, %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i13 ], [ %60, %.lr.ph.i.preheader.i.i.i.i.i.i7 ]
+  %61 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i10, i64 -8
   %62 = load ptr, ptr %61, align 8, !tbaa !31
-  %.not.i.i.i.i.i.i.i.i9 = icmp eq ptr %62, null
-  br i1 %.not.i.i.i.i.i.i.i.i9, label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i11, label %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i.i.i.i.i.i10
+  %.not.i.i.i.i.i.i.i.i11 = icmp eq ptr %62, null
+  br i1 %.not.i.i.i.i.i.i.i.i11, label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i13, label %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i.i.i.i.i.i12
 
-_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i.i.i.i.i.i10: ; preds = %.lr.ph.i.i.i.i.i.i.i7
+_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i.i.i.i.i.i12: ; preds = %.lr.ph.i.i.i.i.i.i.i9
   %63 = load ptr, ptr %62, align 8, !tbaa !43
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(152) %62) #21
-  br label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i11
+  br label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i13
 
-_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i11: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i.i.i.i.i.i10, %.lr.ph.i.i.i.i.i.i.i7
+_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i13: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i.i.i.i.i.i12, %.lr.ph.i.i.i.i.i.i.i9
   store ptr null, ptr %61, align 8, !tbaa !31
-  %.not.i.i.i.i.i.i.i12 = icmp eq ptr %56, %61
-  br i1 %.not.i.i.i.i.i.i.i12, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i.i.i.i.i13, label %.lr.ph.i.i.i.i.i.i.i7, !llvm.loop !99
+  %.not.i.i.i.i.i.i.i14 = icmp eq ptr %56, %61
+  br i1 %.not.i.i.i.i.i.i.i14, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i.i.i.i.i15, label %.lr.ph.i.i.i.i.i.i.i9, !llvm.loop !99
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i.i.i.i.i13: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i11
-  %.pre.i.i.i.i.i.i14 = load ptr, ptr %55, align 8, !tbaa !30
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.i.i15
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i.i.i.i.i15: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i13
+  %.pre.i.i.i.i.i.i16 = load ptr, ptr %55, align 8, !tbaa !30
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.i.i17
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.i.i15: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i.i.i.i.i13, %.lr.ph.i.i.i.i3
-  %66 = phi ptr [ %.pre.i.i.i.i.i.i14, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i.i.i.i.i13 ], [ %56, %.lr.ph.i.i.i.i3 ]
-  %67 = getelementptr inbounds i8, ptr %.05.i.i.i.i4, i64 -48
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.i.i17: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i.i.i.i.i15, %.lr.ph.i.i.i.i4
+  %66 = phi ptr [ %.pre.i.i.i.i.i.i16, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i.i.i.i.i15 ], [ %56, %.lr.ph.i.i.i.i4 ]
+  %67 = getelementptr inbounds i8, ptr %.05.i.i.i.i5, i64 -48
   %68 = icmp eq ptr %66, %67
-  br i1 %68, label %_ZNSt4pairISt5tupleIJPN4llvm9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEENS1_11SmallVectorISt10unique_ptrINS2_10SeedBundleESt14default_deleteISC_EELj6EEEED2Ev.exit.i.i.i.i16, label %69
+  br i1 %68, label %_ZNSt4pairISt5tupleIJPN4llvm9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEENS1_11SmallVectorISt10unique_ptrINS2_10SeedBundleESt14default_deleteISC_EELj6EEEED2Ev.exit.i.i.i.i18, label %69
 
-69:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.i.i15
+69:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.i.i17
   tail call void @free(ptr noundef %66) #21
-  br label %_ZNSt4pairISt5tupleIJPN4llvm9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEENS1_11SmallVectorISt10unique_ptrINS2_10SeedBundleESt14default_deleteISC_EELj6EEEED2Ev.exit.i.i.i.i16
+  br label %_ZNSt4pairISt5tupleIJPN4llvm9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEENS1_11SmallVectorISt10unique_ptrINS2_10SeedBundleESt14default_deleteISC_EELj6EEEED2Ev.exit.i.i.i.i18
 
-_ZNSt4pairISt5tupleIJPN4llvm9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEENS1_11SmallVectorISt10unique_ptrINS2_10SeedBundleESt14default_deleteISC_EELj6EEEED2Ev.exit.i.i.i.i16: ; preds = %69, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.i.i15
-  %.not.i.i.i.i17 = icmp eq ptr %49, %54
-  br i1 %.not.i.i.i.i17, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit.loopexit.i.i.i18, label %.lr.ph.i.i.i.i3, !llvm.loop !178
+_ZNSt4pairISt5tupleIJPN4llvm9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEENS1_11SmallVectorISt10unique_ptrINS2_10SeedBundleESt14default_deleteISC_EELj6EEEED2Ev.exit.i.i.i.i18: ; preds = %69, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.i.i17
+  %.not.i.i.i.i19 = icmp eq ptr %49, %54
+  br i1 %.not.i.i.i.i19, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit.loopexit.i.i.i20, label %.lr.ph.i.i.i.i4, !llvm.loop !178
 
-_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit.loopexit.i.i.i18: ; preds = %_ZNSt4pairISt5tupleIJPN4llvm9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEENS1_11SmallVectorISt10unique_ptrINS2_10SeedBundleESt14default_deleteISC_EELj6EEEED2Ev.exit.i.i.i.i16
-  %.pre.i.i.i19 = load ptr, ptr %48, align 8, !tbaa !30
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit.i.i.i20
+_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit.loopexit.i.i.i20: ; preds = %_ZNSt4pairISt5tupleIJPN4llvm9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEENS1_11SmallVectorISt10unique_ptrINS2_10SeedBundleESt14default_deleteISC_EELj6EEEED2Ev.exit.i.i.i.i18
+  %.pre.i.i.i21 = load ptr, ptr %48, align 8, !tbaa !30
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit.i.i.i22
 
-_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit.i.i.i20: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit.loopexit.i.i.i18, %_ZN4llvm9sandboxir13SeedContainerD2Ev.exit
-  %70 = phi ptr [ %.pre.i.i.i19, %_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit.loopexit.i.i.i18 ], [ %49, %_ZN4llvm9sandboxir13SeedContainerD2Ev.exit ]
+_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit.i.i.i22: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit.loopexit.i.i.i20, %_ZN4llvm9sandboxir13SeedContainerD2Ev.exit
+  %70 = phi ptr [ %.pre.i.i.i21, %_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit.loopexit.i.i.i20 ], [ %49, %_ZN4llvm9sandboxir13SeedContainerD2Ev.exit ]
   %71 = icmp eq ptr %70, %42
-  br i1 %71, label %_ZN4llvm9sandboxir13SeedContainerD2Ev.exit21, label %72
+  br i1 %71, label %_ZN4llvm9sandboxir13SeedContainerD2Ev.exit23, label %72
 
-72:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit.i.i.i20
+72:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit.i.i.i22
   tail call void @free(ptr noundef %70) #21
-  br label %_ZN4llvm9sandboxir13SeedContainerD2Ev.exit21
+  br label %_ZN4llvm9sandboxir13SeedContainerD2Ev.exit23
 
-_ZN4llvm9sandboxir13SeedContainerD2Ev.exit21:     ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit.i.i.i20, %72
+_ZN4llvm9sandboxir13SeedContainerD2Ev.exit23:     ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit.i.i.i22, %72
   %73 = load ptr, ptr %0, align 8, !tbaa !179
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %75 = load i32, ptr %74, align 8, !tbaa !180
@@ -2916,7 +2922,8 @@ _ZN4llvm8DenseMapISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6Op
   store i32 0, ptr %25, align 4, !tbaa !199
   %26 = load i32, ptr %3, align 8, !tbaa !180
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %22, i64 %27
+  %.idx.i = shl nuw nsw i64 %27, 5
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i
   %.not6.i = icmp eq i32 %26, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEEjNS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_jEEEESA_jSC_SF_E9initEmptyEv.exit, label %.lr.ph.i
 
@@ -2933,14 +2940,16 @@ _ZN4llvm8DenseMapISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6Op
 
 30:                                               ; preds = %_ZN4llvm8DenseMapISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEEjNS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_jEEE15allocateBucketsEj.exit
   %31 = zext i32 %4 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %5, i64 %31
+  %.idx = shl nuw nsw i64 %31, 5
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %33, align 8, !tbaa !198
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %34, align 4, !tbaa !199
   %35 = load i32, ptr %3, align 8, !tbaa !180
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %22, i64 %36
+  %.idx.i.i = shl nuw nsw i64 %36, 5
+  %37 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i
   %.not6.i.i = icmp eq i32 %35, 0
   br i1 %.not6.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEEjNS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_jEEEESA_jSC_SF_E9initEmptyEv.exit.i, label %.lr.ph.i.i
 
@@ -3016,8 +3025,7 @@ _ZN4llvm12DenseMapInfoISt5tupleIJPNS_9sandboxir5ValueEPNS2_4TypeENS2_11Instructi
   br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEEjNS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_jEEEESA_jSC_SF_E18moveFromOldBucketsEPSF_SI_.exit, label %.lr.ph.i7, !llvm.loop !205
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEEjNS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_jEEEESA_jSC_SF_E18moveFromOldBucketsEPSF_SI_.exit: ; preds = %66, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEEjNS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_jEEEESA_jSC_SF_E9initEmptyEv.exit.i
-  %68 = shl nuw nsw i64 %31, 5
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %5, i64 noundef %68, i64 noundef 8) #21
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %5, i64 noundef %.idx, i64 noundef 8) #21
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEEjNS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_jEEEESA_jSC_SF_E9initEmptyEv.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEEjNS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_jEEEESA_jSC_SF_E9initEmptyEv.exit: ; preds = %.lr.ph.i, %23, %_ZN4llvm12DenseMapBaseINS_8DenseMapISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEEjNS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_jEEEESA_jSC_SF_E18moveFromOldBucketsEPSF_SI_.exit
@@ -3055,7 +3063,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPN
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !27
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.std::pair.289", ptr %3, i64 %6
+  %.idx = mul nuw nsw i64 %6, 88
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not7.i.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -3097,13 +3106,14 @@ _ZSt10_ConstructISt4pairISt5tupleIJPN4llvm9sandboxir5ValueEPNS3_4TypeENS3_11Inst
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE18uninitialized_moveIPSI_SL_EEvT_SM_T0_.exit: ; preds = %_ZSt10_ConstructISt4pairISt5tupleIJPN4llvm9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS2_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEEJSI_EEvPT_DpOT0_.exit.i.i.i.i.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !30
-  %.pre3 = load i32, ptr %4, align 8, !tbaa !27
-  %.not4.i = icmp eq i32 %.pre3, 0
+  %.pre4 = load i32, ptr %4, align 8, !tbaa !27
+  %.not4.i = icmp eq i32 %.pre4, 0
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE13destroy_rangeEPSI_SK_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4TypeENS3_11Instruction6OpcodeEEENS_11SmallVectorISt10unique_ptrINS3_10SeedBundleESt14default_deleteISD_EELj6EEEELb0EE18uninitialized_moveIPSI_SL_EEvT_SM_T0_.exit
-  %26 = zext i32 %.pre3 to i64
-  %27 = getelementptr inbounds nuw %"struct.std::pair.289", ptr %.pre, i64 %26
+  %26 = zext i32 %.pre4 to i64
+  %.idx3 = mul nuw nsw i64 %26, 88
+  %27 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx3
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNSt4pairISt5tupleIJPN4llvm9sandboxir5ValueEPNS2_4TypeENS2_11Instruction6OpcodeEEENS1_11SmallVectorISt10unique_ptrINS2_10SeedBundleESt14default_deleteISC_EELj6EEEED2Ev.exit.i
@@ -3118,7 +3128,8 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairISt5tupleIJPNS_9sandboxir5ValueEPNS3_4T
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %.lr.ph.i
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %30, i64 %33
+  %.idx.i.i.i = shl nuw nsw i64 %33, 3
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -3185,7 +3196,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
 
 .lr.ph.i.preheader.i:                             ; preds = %9
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %10, i64 %13
+  %.idx.i = shl nuw nsw i64 %13, 3
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -3278,12 +3290,12 @@ _ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EEaSEOS5_.e
 
 _ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.loopexit: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !30
-  %.pre76 = load i32, ptr %34, align 8, !tbaa !27
-  %.pre79 = zext i32 %.pre76 to i64
+  %.pre79 = load i32, ptr %34, align 8, !tbaa !27
+  %.pre82 = zext i32 %.pre79 to i64
   br label %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit
 
 _ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit: ; preds = %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.loopexit, %37
-  %.pre-phi = phi i64 [ %.pre79, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.loopexit ], [ %36, %37 ]
+  %.pre-phi = phi i64 [ %.pre82, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.loopexit ], [ %36, %37 ]
   %48 = phi ptr [ %.pre, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.loopexit ], [ %38, %37 ]
   %.0 = phi ptr [ %45, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.loopexit ], [ %38, %37 ]
   %49 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %48, i64 %.pre-phi
@@ -3318,29 +3330,30 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14d
 
 .lr.ph.i.preheader.i36:                           ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %55, i64 %57
-  br label %.lr.ph.i.i37
+  %.idx.i37 = shl nuw nsw i64 %57, 3
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i37
+  br label %.lr.ph.i.i38
 
-.lr.ph.i.i37:                                     ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i41, %.lr.ph.i.preheader.i36
-  %.05.i.i38 = phi ptr [ %59, %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i41 ], [ %58, %.lr.ph.i.preheader.i36 ]
-  %59 = getelementptr inbounds i8, ptr %.05.i.i38, i64 -8
+.lr.ph.i.i38:                                     ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i42, %.lr.ph.i.preheader.i36
+  %.05.i.i39 = phi ptr [ %59, %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i42 ], [ %58, %.lr.ph.i.preheader.i36 ]
+  %59 = getelementptr inbounds i8, ptr %.05.i.i39, i64 -8
   %60 = load ptr, ptr %59, align 8, !tbaa !31
-  %.not.i.i.i39 = icmp eq ptr %60, null
-  br i1 %.not.i.i.i39, label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i41, label %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i40
+  %.not.i.i.i40 = icmp eq ptr %60, null
+  br i1 %.not.i.i.i40, label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i42, label %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i41
 
-_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i40: ; preds = %.lr.ph.i.i37
+_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i41: ; preds = %.lr.ph.i.i38
   %61 = load ptr, ptr %60, align 8, !tbaa !43
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(152) %60) #21
-  br label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i41
+  br label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i42
 
-_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i41: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i40, %.lr.ph.i.i37
+_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i42: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i41, %.lr.ph.i.i38
   store ptr null, ptr %59, align 8, !tbaa !31
-  %.not.i.i42 = icmp eq ptr %55, %59
-  br i1 %.not.i.i42, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit, label %.lr.ph.i.i37, !llvm.loop !99
+  %.not.i.i43 = icmp eq ptr %55, %59
+  br i1 %.not.i.i43, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit, label %.lr.ph.i.i38, !llvm.loop !99
 
-_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i41, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit
+_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i42, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit
   store i32 0, ptr %31, align 8, !tbaa !27
   br label %123
 
@@ -3352,33 +3365,34 @@ _ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_d
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr %0, align 8, !tbaa !30
-  %.not4.i.i44 = icmp eq i32 %35, 0
-  br i1 %.not4.i.i44, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit53, label %.lr.ph.i.preheader.i45
+  %.not4.i.i45 = icmp eq i32 %35, 0
+  br i1 %.not4.i.i45, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit55, label %.lr.ph.i.preheader.i46
 
-.lr.ph.i.preheader.i45:                           ; preds = %68
-  %70 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %69, i64 %36
-  br label %.lr.ph.i.i46
+.lr.ph.i.preheader.i46:                           ; preds = %68
+  %.idx.i47 = shl nuw nsw i64 %36, 3
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i47
+  br label %.lr.ph.i.i48
 
-.lr.ph.i.i46:                                     ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i50, %.lr.ph.i.preheader.i45
-  %.05.i.i47 = phi ptr [ %71, %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i50 ], [ %70, %.lr.ph.i.preheader.i45 ]
-  %71 = getelementptr inbounds i8, ptr %.05.i.i47, i64 -8
+.lr.ph.i.i48:                                     ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i52, %.lr.ph.i.preheader.i46
+  %.05.i.i49 = phi ptr [ %71, %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i52 ], [ %70, %.lr.ph.i.preheader.i46 ]
+  %71 = getelementptr inbounds i8, ptr %.05.i.i49, i64 -8
   %72 = load ptr, ptr %71, align 8, !tbaa !31
-  %.not.i.i.i48 = icmp eq ptr %72, null
-  br i1 %.not.i.i.i48, label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i50, label %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i49
+  %.not.i.i.i50 = icmp eq ptr %72, null
+  br i1 %.not.i.i.i50, label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i52, label %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i51
 
-_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i49: ; preds = %.lr.ph.i.i46
+_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i51: ; preds = %.lr.ph.i.i48
   %73 = load ptr, ptr %72, align 8, !tbaa !43
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   tail call void %75(ptr noundef nonnull align 8 dereferenceable(152) %72) #21
-  br label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i50
+  br label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i52
 
-_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i50: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i49, %.lr.ph.i.i46
+_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i52: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i51, %.lr.ph.i.i48
   store ptr null, ptr %71, align 8, !tbaa !31
-  %.not.i.i51 = icmp eq ptr %69, %71
-  br i1 %.not.i.i51, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit53, label %.lr.ph.i.i46, !llvm.loop !99
+  %.not.i.i53 = icmp eq ptr %69, %71
+  br i1 %.not.i.i53, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit55, label %.lr.ph.i.i48, !llvm.loop !99
 
-_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit53: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i50, %68
+_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit55: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i52, %68
   store i32 0, ptr %34, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3386,13 +3400,14 @@ _ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_d
   %78 = load ptr, ptr %0, align 8, !tbaa !30
   %79 = load i32, ptr %34, align 8, !tbaa !27
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %78, i64 %80
+  %.idx.i.i = shl nuw nsw i64 %80, 3
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx.i.i
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %79, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i, label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit53, %.lr.ph.i.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i.i = phi ptr [ %84, %.lr.ph.i.i.i.i.i.i.i ], [ %77, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit53 ]
-  %.sroa.04.08.i.i.i.i.i.i.i = phi ptr [ %83, %.lr.ph.i.i.i.i.i.i.i ], [ %78, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit53 ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit55, %.lr.ph.i.i.i.i.i.i.i
+  %.09.i.i.i.i.i.i.i = phi ptr [ %84, %.lr.ph.i.i.i.i.i.i.i ], [ %77, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit55 ]
+  %.sroa.04.08.i.i.i.i.i.i.i = phi ptr [ %83, %.lr.ph.i.i.i.i.i.i.i ], [ %78, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit55 ]
   %82 = load i64, ptr %.sroa.04.08.i.i.i.i.i.i.i, align 8, !tbaa !31
   store i64 %82, ptr %.09.i.i.i.i.i.i.i, align 8, !tbaa !31
   store ptr null, ptr %.sroa.04.08.i.i.i.i.i.i.i, align 8, !tbaa !31
@@ -3417,15 +3432,15 @@ _ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i.i: ; pre
 
 _ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i.i, %.lr.ph.i.i.i
   store ptr null, ptr %85, align 8, !tbaa !31
-  %.not.i.i.i54 = icmp eq ptr %78, %85
-  br i1 %.not.i.i.i54, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !99
+  %.not.i.i.i56 = icmp eq ptr %78, %85
+  br i1 %.not.i.i.i56, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !99
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i.i
-  %.pre.i55 = load ptr, ptr %0, align 8, !tbaa !30
+  %.pre.i57 = load ptr, ptr %0, align 8, !tbaa !30
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit53
-  %90 = phi ptr [ %.pre.i55, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i ], [ %78, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit53 ]
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit55
+  %90 = phi ptr [ %.pre.i57, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i ], [ %78, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit55 ]
   %91 = load i64, ptr %3, align 8, !tbaa !145
   %92 = icmp eq ptr %90, %76
   br i1 %92, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE4growEm.exit, label %93
@@ -3439,103 +3454,104 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14d
   %94 = trunc i64 %91 to i32
   store i32 %94, ptr %65, align 4, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
-  br label %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64
+  br label %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66
 
 95:                                               ; preds = %64
   %.not32 = icmp eq i32 %35, 0
-  %.pre78 = load ptr, ptr %0, align 8, !tbaa !30
-  br i1 %.not32, label %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64, label %.lr.ph.i.i.i.i.i57
+  %.pre81 = load ptr, ptr %0, align 8, !tbaa !30
+  br i1 %.not32, label %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66, label %.lr.ph.i.i.i.i.i59
 
-.lr.ph.i.i.i.i.i57:                               ; preds = %95, %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63
-  %.012.i.i.i.i.i58 = phi i64 [ %103, %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63 ], [ %36, %95 ]
-  %.0811.i.i.i.i.i59 = phi ptr [ %102, %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63 ], [ %.pre78, %95 ]
-  %.0910.i.i.i.i.i60 = phi ptr [ %101, %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63 ], [ %6, %95 ]
-  %96 = load ptr, ptr %.0910.i.i.i.i.i60, align 8, !tbaa !31
-  store ptr null, ptr %.0910.i.i.i.i.i60, align 8, !tbaa !31
-  %97 = load ptr, ptr %.0811.i.i.i.i.i59, align 8, !tbaa !31
-  store ptr %96, ptr %.0811.i.i.i.i.i59, align 8, !tbaa !31
-  %.not.i.i.i.i.i.i.i.i.i61 = icmp eq ptr %97, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i61, label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63, label %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i62
+.lr.ph.i.i.i.i.i59:                               ; preds = %95, %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i65
+  %.012.i.i.i.i.i60 = phi i64 [ %103, %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i65 ], [ %36, %95 ]
+  %.0811.i.i.i.i.i61 = phi ptr [ %102, %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i65 ], [ %.pre81, %95 ]
+  %.0910.i.i.i.i.i62 = phi ptr [ %101, %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i65 ], [ %6, %95 ]
+  %96 = load ptr, ptr %.0910.i.i.i.i.i62, align 8, !tbaa !31
+  store ptr null, ptr %.0910.i.i.i.i.i62, align 8, !tbaa !31
+  %97 = load ptr, ptr %.0811.i.i.i.i.i61, align 8, !tbaa !31
+  store ptr %96, ptr %.0811.i.i.i.i.i61, align 8, !tbaa !31
+  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %97, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i63, label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i65, label %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i64
 
-_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i62: ; preds = %.lr.ph.i.i.i.i.i57
+_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i64: ; preds = %.lr.ph.i.i.i.i.i59
   %98 = load ptr, ptr %97, align 8, !tbaa !43
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8
   tail call void %100(ptr noundef nonnull align 8 dereferenceable(152) %97) #21
-  br label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63
+  br label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i65
 
-_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i62, %.lr.ph.i.i.i.i.i57
-  %101 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i60, i64 8
-  %102 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i59, i64 8
-  %103 = add nsw i64 %.012.i.i.i.i.i58, -1
-  %104 = icmp sgt i64 %.012.i.i.i.i.i58, 1
-  br i1 %104, label %.lr.ph.i.i.i.i.i57, label %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64.loopexit, !llvm.loop !207
+_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i65: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i64, %.lr.ph.i.i.i.i.i59
+  %101 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i62, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i61, i64 8
+  %103 = add nsw i64 %.012.i.i.i.i.i60, -1
+  %104 = icmp sgt i64 %.012.i.i.i.i.i60, 1
+  br i1 %104, label %.lr.ph.i.i.i.i.i59, label %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66.loopexit, !llvm.loop !207
 
-_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64.loopexit: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63
-  %.pre77 = load ptr, ptr %0, align 8, !tbaa !30
-  br label %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64
+_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66.loopexit: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i65
+  %.pre80 = load ptr, ptr %0, align 8, !tbaa !30
+  br label %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66
 
-_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64: ; preds = %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64.loopexit, %95, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE4growEm.exit
-  %105 = phi ptr [ %77, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE4growEm.exit ], [ %.pre78, %95 ], [ %.pre77, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64.loopexit ]
-  %.026 = phi i64 [ 0, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE4growEm.exit ], [ 0, %95 ], [ %36, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64.loopexit ]
+_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66: ; preds = %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66.loopexit, %95, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE4growEm.exit
+  %105 = phi ptr [ %77, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE4growEm.exit ], [ %.pre81, %95 ], [ %.pre80, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66.loopexit ]
+  %.026 = phi i64 [ 0, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE4growEm.exit ], [ 0, %95 ], [ %36, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66.loopexit ]
   %106 = load ptr, ptr %1, align 8, !tbaa !30
   %107 = load i32, ptr %31, align 8, !tbaa !27
   %108 = zext i32 %107 to i64
   %109 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %106, i64 %108
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %108
-  br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i65.preheader
+  br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i67.preheader
 
-.lr.ph.i.i.i.i.i65.preheader:                     ; preds = %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64
+.lr.ph.i.i.i.i.i67.preheader:                     ; preds = %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66
   %110 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %105, i64 %.026
   %111 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %106, i64 %.026
-  br label %.lr.ph.i.i.i.i.i65
+  br label %.lr.ph.i.i.i.i.i67
 
-.lr.ph.i.i.i.i.i65:                               ; preds = %.lr.ph.i.i.i.i.i65.preheader, %.lr.ph.i.i.i.i.i65
-  %.09.i.i.i.i.i = phi ptr [ %114, %.lr.ph.i.i.i.i.i65 ], [ %110, %.lr.ph.i.i.i.i.i65.preheader ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %113, %.lr.ph.i.i.i.i.i65 ], [ %111, %.lr.ph.i.i.i.i.i65.preheader ]
+.lr.ph.i.i.i.i.i67:                               ; preds = %.lr.ph.i.i.i.i.i67.preheader, %.lr.ph.i.i.i.i.i67
+  %.09.i.i.i.i.i = phi ptr [ %114, %.lr.ph.i.i.i.i.i67 ], [ %110, %.lr.ph.i.i.i.i.i67.preheader ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %113, %.lr.ph.i.i.i.i.i67 ], [ %111, %.lr.ph.i.i.i.i.i67.preheader ]
   %112 = load i64, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !31
   store i64 %112, ptr %.09.i.i.i.i.i, align 8, !tbaa !31
   store ptr null, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !31
   %113 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
   %114 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %113, %109
-  br i1 %.not.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i65, !llvm.loop !208
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i67, !llvm.loop !208
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i65, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i67, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66
   store i32 %32, ptr %34, align 8, !tbaa !27
   %115 = load i32, ptr %31, align 8, !tbaa !27
-  %.not4.i.i66 = icmp eq i32 %115, 0
-  br i1 %.not4.i.i66, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit75, label %.lr.ph.i.preheader.i67
+  %.not4.i.i68 = icmp eq i32 %115, 0
+  br i1 %.not4.i.i68, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit78, label %.lr.ph.i.preheader.i69
 
-.lr.ph.i.preheader.i67:                           ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit
+.lr.ph.i.preheader.i69:                           ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %106, i64 %116
-  br label %.lr.ph.i.i68
+  %.idx.i70 = shl nuw nsw i64 %116, 3
+  %117 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx.i70
+  br label %.lr.ph.i.i71
 
-.lr.ph.i.i68:                                     ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i72, %.lr.ph.i.preheader.i67
-  %.05.i.i69 = phi ptr [ %118, %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i72 ], [ %117, %.lr.ph.i.preheader.i67 ]
-  %118 = getelementptr inbounds i8, ptr %.05.i.i69, i64 -8
+.lr.ph.i.i71:                                     ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i75, %.lr.ph.i.preheader.i69
+  %.05.i.i72 = phi ptr [ %118, %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i75 ], [ %117, %.lr.ph.i.preheader.i69 ]
+  %118 = getelementptr inbounds i8, ptr %.05.i.i72, i64 -8
   %119 = load ptr, ptr %118, align 8, !tbaa !31
-  %.not.i.i.i70 = icmp eq ptr %119, null
-  br i1 %.not.i.i.i70, label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i72, label %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i71
+  %.not.i.i.i73 = icmp eq ptr %119, null
+  br i1 %.not.i.i.i73, label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i75, label %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i74
 
-_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i71: ; preds = %.lr.ph.i.i68
+_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i74: ; preds = %.lr.ph.i.i71
   %120 = load ptr, ptr %119, align 8, !tbaa !43
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8
   call void %122(ptr noundef nonnull align 8 dereferenceable(152) %119) #21
-  br label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i72
+  br label %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i75
 
-_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i72: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i71, %.lr.ph.i.i68
+_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i75: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir10SeedBundleEEclEPS2_.exit.i.i.i74, %.lr.ph.i.i71
   store ptr null, ptr %118, align 8, !tbaa !31
-  %.not.i.i73 = icmp eq ptr %106, %118
-  br i1 %.not.i.i73, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit75, label %.lr.ph.i.i68, !llvm.loop !99
+  %.not.i.i76 = icmp eq ptr %106, %118
+  br i1 %.not.i.i76, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit78, label %.lr.ph.i.i71, !llvm.loop !99
 
-_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit75: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i72, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit
+_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit78: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir10SeedBundleESt14default_deleteIS2_EED2Ev.exit.i.i75, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit
   store i32 0, ptr %31, align 8, !tbaa !27
   br label %123
 
-123:                                              ; preds = %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit75, %2, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE12assignRemoteEOS7_.exit
+123:                                              ; preds = %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE5clearEv.exit78, %2, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EEE12assignRemoteEOS7_.exit
   ret ptr %0
 }
 
@@ -3765,7 +3781,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   store ptr null, ptr %1, align 8, !tbaa !61
   store ptr %10, ptr %9, align 8, !tbaa !64
   %11 = load ptr, ptr %0, align 8, !tbaa !30
-  %12 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %11, i64 %8
+  %.idx.i = shl nuw nsw i64 %8, 3
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -3922,7 +3939,8 @@ _ZN4llvm8DenseMapIPNS_9sandboxir11InstructionEPNS1_10SeedBundleENS_12DenseMapInf
   store i32 0, ptr %24, align 4, !tbaa !108
   %25 = load i32, ptr %2, align 8, !tbaa !102
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %26
+  %.idx.i = shl nuw nsw i64 %26, 4
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i
   %.not6.i = icmp eq i32 %25, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionEPNS2_10SeedBundleENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E9initEmptyEv.exit, label %.lr.ph.i
 
@@ -3935,14 +3953,16 @@ _ZN4llvm8DenseMapIPNS_9sandboxir11InstructionEPNS1_10SeedBundleENS_12DenseMapInf
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIPNS_9sandboxir11InstructionEPNS1_10SeedBundleENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %.idx = shl nuw nsw i64 %30, 4
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %32, align 8, !tbaa !107
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %33, align 4, !tbaa !108
   %34 = load i32, ptr %2, align 8, !tbaa !102
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %35
+  %.idx.i.i = shl nuw nsw i64 %35, 4
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i
   %.not6.i.i = icmp ne i32 %34, 0
   br i1 %.not6.i.i, label %.lr.ph.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionEPNS2_10SeedBundleENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E9initEmptyEv.exit.i
 
@@ -4030,8 +4050,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionEPNS2_10SeedBundl
   br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionEPNS2_10SeedBundleENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E18moveFromOldBucketsEPSB_SE_.exit, label %39, !llvm.loop !282
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionEPNS2_10SeedBundleENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E18moveFromOldBucketsEPSB_SE_.exit: ; preds = %69, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionEPNS2_10SeedBundleENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E9initEmptyEv.exit.i
-  %72 = shl nuw nsw i64 %30, 4
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %72, i64 noundef 8) #21
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %.idx, i64 noundef 8) #21
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionEPNS2_10SeedBundleENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E9initEmptyEv.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionEPNS2_10SeedBundleENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E9initEmptyEv.exit: ; preds = %.lr.ph.i, %22, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionEPNS2_10SeedBundleENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E18moveFromOldBucketsEPSB_SE_.exit
@@ -4177,7 +4196,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   store ptr null, ptr %1, align 8, !tbaa !112
   store ptr %10, ptr %9, align 8, !tbaa !64
   %11 = load ptr, ptr %0, align 8, !tbaa !30
-  %12 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %11, i64 %8
+  %.idx.i = shl nuw nsw i64 %8, 3
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10SeedBundleESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit, label %.lr.ph.i.i.i.i.i.i
 

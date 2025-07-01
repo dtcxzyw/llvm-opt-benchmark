@@ -227,11 +227,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.128" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.openvdb::v11_0::tree::LeafBuffer" = type <{ %union.anon.187, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
-%union.anon.187 = type { ptr }
-%"class.tbb::detail::d1::spin_mutex" = type { %"struct.std::atomic.190" }
-%"struct.std::atomic.190" = type { %"struct.std::__atomic_base.191" }
-%"struct.std::__atomic_base.191" = type { i8 }
 %"class.tbb::detail::d1::auto_partitioner" = type { i8 }
 %"class.std::deque" = type { %"class.std::_Deque_base" }
 %"class.std::_Deque_base" = type { %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<int, 3>, 4> *>>::_Deque_impl" }
@@ -248,6 +243,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.193 = type { ptr, ptr, ptr }
 %"class.openvdb::v11_0::tree::NodeUnion" = type { %union.anon.185 }
 %union.anon.185 = type { ptr }
+%"class.openvdb::v11_0::tree::LeafBuffer" = type <{ %union.anon.187, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
+%union.anon.187 = type { ptr }
+%"class.tbb::detail::d1::spin_mutex" = type { %"struct.std::atomic.190" }
+%"struct.std::atomic.190" = type { %"struct.std::__atomic_base.191" }
+%"struct.std::__atomic_base.191" = type { i8 }
 %"class.openvdb::v11_0::tree::NodeUnion.201" = type { %union.anon.202 }
 %union.anon.202 = type { ptr }
 %"class.tbb::detail::d1::range_vector" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space" }
@@ -265,8 +265,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.248" = type { ptr }
 %"class.std::basic_istream" = type { ptr, i64, %"class.std::basic_ios" }
 %class.anon.267 = type { i8 }
-%"class.openvdb::v11_0::tree::LeafBuffer.338" = type <{ %union.anon.339, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
-%union.anon.339 = type { ptr }
 %"class.std::deque.325" = type { %"class.std::_Deque_base.326" }
 %"class.std::_Deque_base.326" = type { %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4> *>>::_Deque_impl" }
 %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4> *>>::_Deque_impl" = type { %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<long, 3>, 4> *>>::_Deque_impl_data" }
@@ -279,6 +277,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.341 = type { ptr, ptr, ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.332" = type { %union.anon.333 }
 %union.anon.333 = type { ptr }
+%"class.openvdb::v11_0::tree::LeafBuffer.338" = type <{ %union.anon.339, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
+%union.anon.339 = type { ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.349" = type { %union.anon.350 }
 %union.anon.350 = type { ptr }
 %"class.tbb::detail::d1::range_vector.370" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space.371" }
@@ -292,8 +292,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl.377" = type { %"struct.std::_Head_base.380" }
 %"struct.std::_Head_base.380" = type { ptr }
 %class.anon.397 = type { i8 }
-%"class.openvdb::v11_0::tree::LeafBuffer.469" = type <{ %union.anon.470, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
-%union.anon.470 = type { ptr }
 %"class.std::deque.456" = type { %"class.std::_Deque_base.457" }
 %"class.std::_Deque_base.457" = type { %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4> *>>::_Deque_impl" }
 %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4> *>>::_Deque_impl" = type { %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<float, 3>, 4> *>>::_Deque_impl_data" }
@@ -306,6 +304,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.472 = type { ptr, ptr, ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.463" = type { %union.anon.464 }
 %union.anon.464 = type { ptr }
+%"class.openvdb::v11_0::tree::LeafBuffer.469" = type <{ %union.anon.470, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
+%union.anon.470 = type { ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.480" = type { %union.anon.481 }
 %union.anon.481 = type { ptr }
 %"class.tbb::detail::d1::range_vector.501" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space.502" }
@@ -320,8 +320,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.511" = type { ptr }
 %"class.openvdb::v11_0::math::internal::half" = type { i16 }
 %class.anon.534 = type { i8 }
-%"class.openvdb::v11_0::tree::LeafBuffer.605" = type <{ %union.anon.606, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
-%union.anon.606 = type { ptr }
 %"class.std::deque.592" = type { %"class.std::_Deque_base.593" }
 %"class.std::_Deque_base.593" = type { %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4> *>>::_Deque_impl" }
 %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4> *>>::_Deque_impl" = type { %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<double, 3>, 4> *>>::_Deque_impl_data" }
@@ -334,6 +332,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.608 = type { ptr, ptr, ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.599" = type { %union.anon.600 }
 %union.anon.600 = type { ptr }
+%"class.openvdb::v11_0::tree::LeafBuffer.605" = type <{ %union.anon.606, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
+%union.anon.606 = type { ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.616" = type { %union.anon.617 }
 %union.anon.617 = type { ptr }
 %"class.tbb::detail::d1::range_vector.637" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space.638" }
@@ -347,8 +347,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl.644" = type { %"struct.std::_Head_base.647" }
 %"struct.std::_Head_base.647" = type { ptr }
 %class.anon.664 = type { i8 }
-%"class.openvdb::v11_0::tree::LeafBuffer.738" = type <{ %union.anon.739, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
-%union.anon.739 = type { ptr }
 %"class.std::deque.725" = type { %"class.std::_Deque_base.726" }
 %"class.std::_Deque_base.726" = type { %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4> *>>::_Deque_impl" }
 %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4> *>>::_Deque_impl" = type { %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<int>, 3>, 4> *>>::_Deque_impl_data" }
@@ -361,6 +359,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.741 = type { ptr, ptr, ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.732" = type { %union.anon.733 }
 %union.anon.733 = type <{ ptr, [8 x i8] }>
+%"class.openvdb::v11_0::tree::LeafBuffer.738" = type <{ %union.anon.739, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
+%union.anon.739 = type { ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.749" = type { %union.anon.750 }
 %union.anon.750 = type <{ ptr, [8 x i8] }>
 %"class.tbb::detail::d1::range_vector.771" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space.772" }
@@ -374,8 +374,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl.778" = type { %"struct.std::_Head_base.781" }
 %"struct.std::_Head_base.781" = type { ptr }
 %class.anon.798 = type { i8 }
-%"class.openvdb::v11_0::tree::LeafBuffer.873" = type <{ %union.anon.874, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
-%union.anon.874 = type { ptr }
 %"class.std::deque.859" = type { %"class.std::_Deque_base.860" }
 %"class.std::_Deque_base.860" = type { %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4> *>>::_Deque_impl" }
 %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4> *>>::_Deque_impl" = type { %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<float>, 3>, 4> *>>::_Deque_impl_data" }
@@ -388,6 +386,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.876 = type { ptr, ptr, ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.866" = type { %union.anon.867 }
 %union.anon.867 = type <{ ptr, [8 x i8] }>
+%"class.openvdb::v11_0::tree::LeafBuffer.873" = type <{ %union.anon.874, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
+%union.anon.874 = type { ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.884" = type { %union.anon.885 }
 %union.anon.885 = type <{ ptr, [8 x i8] }>
 %"class.tbb::detail::d1::range_vector.906" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space.907" }
@@ -403,8 +403,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.openvdb::v11_0::math::Vec3.934" = type { %"class.openvdb::v11_0::math::Tuple.935" }
 %"class.openvdb::v11_0::math::Tuple.935" = type { [3 x %"class.openvdb::v11_0::math::internal::half"] }
 %class.anon.941 = type { i8 }
-%"class.openvdb::v11_0::tree::LeafBuffer.1012" = type <{ %union.anon.1013, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
-%union.anon.1013 = type { ptr }
 %"class.std::deque.999" = type { %"class.std::_Deque_base.1000" }
 %"class.std::_Deque_base.1000" = type { %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4> *>>::_Deque_impl" }
 %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4> *>>::_Deque_impl" = type { %"struct.std::_Deque_base<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4> *, std::allocator<const openvdb::v11_0::tree::InternalNode<openvdb::v11_0::tree::LeafNode<openvdb::v11_0::math::Vec3<double>, 3>, 4> *>>::_Deque_impl_data" }
@@ -417,6 +415,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.1015 = type { ptr, ptr, ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.1006" = type { %union.anon.1007 }
 %union.anon.1007 = type { %"class.openvdb::v11_0::math::Vec3" }
+%"class.openvdb::v11_0::tree::LeafBuffer.1012" = type <{ %union.anon.1013, %"struct.std::atomic.188", %"class.tbb::detail::d1::spin_mutex", [3 x i8] }>
+%union.anon.1013 = type { ptr }
 %"class.openvdb::v11_0::tree::NodeUnion.1023" = type { %union.anon.1024 }
 %union.anon.1024 = type { %"class.openvdb::v11_0::math::Vec3" }
 %"class.tbb::detail::d1::range_vector.1044" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space.1045" }
@@ -19950,7 +19950,8 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04tree10LeafBufferIiLj3EEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit, label %arraydestroy.body.preheader.i
 
 arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer", ptr %0, i64 %2
+  %delete.end.idx.i = shl nsw i64 %2, 4
+  %delete.end.i = getelementptr inbounds i8, ptr %0, i64 %delete.end.idx.i
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN7openvdb5v11_04tree10LeafBufferIiLj3EED2Ev.exit.i, %arraydestroy.body.preheader.i
@@ -20256,23 +20257,23 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i197
 
 call5.i.i.i.i.noexc206:                           ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
   store i32 0, ptr %call5.i.i.i.i207, align 4
-  %cmp.i.i.i.i.i24.i = icmp eq i64 %add12.i.i, 1
-  br i1 %cmp.i.i.i.i.i24.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i, label %if.end.i.i.i.i.i25.i
+  %cmp.i.i.i.i.i25.i = icmp eq i64 %add12.i.i, 1
+  br i1 %cmp.i.i.i.i.i25.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i, label %if.end.i.i.i.i.i26.i
 
-if.end.i.i.i.i.i25.i:                             ; preds = %call5.i.i.i.i.noexc206
+if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc206
   %incdec.ptr.i.i.i23.i = getelementptr i8, ptr %call5.i.i.i.i207, i64 4
   %21 = add nsw i64 %mul.i.i.i.i200, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i23.i, i8 0, i64 %21, i1 false)
-  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
+  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i
 
-_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i: ; preds = %if.end.i.i.i.i.i25.i, %call5.i.i.i.i.noexc206
+_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc206
   store ptr %call5.i.i.i.i207, ptr %leafCounts, align 8
   %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i207, i64 %add12.i.i
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont11
 
-invoke.cont11:                                    ; preds = %if.else, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
+invoke.cont11:                                    ; preds = %if.else, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i
   store i64 %add12.i.i, ptr %ref.tmp12, align 8
   %my_begin.i = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 8
   store i64 0, ptr %my_begin.i, align 8
@@ -20778,7 +20779,8 @@ entry:
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
   %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
-  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
+  %add.ptr14.idx = shl nuw nsw i64 %add, 3
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
   br label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %invoke.cont.i
@@ -23201,7 +23203,8 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04tree10LeafBufferIiLj3EEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit, label %arraydestroy.body.preheader.i
 
 arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer", ptr %0, i64 %2
+  %delete.end.idx.i = shl nsw i64 %2, 4
+  %delete.end.i = getelementptr inbounds i8, ptr %0, i64 %delete.end.idx.i
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN7openvdb5v11_04tree10LeafBufferIiLj3EED2Ev.exit.i, %arraydestroy.body.preheader.i
@@ -27589,7 +27592,8 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04tree10LeafBufferIlLj3EEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit, label %arraydestroy.body.preheader.i
 
 arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.338", ptr %0, i64 %2
+  %delete.end.idx.i = shl nsw i64 %2, 4
+  %delete.end.i = getelementptr inbounds i8, ptr %0, i64 %delete.end.idx.i
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN7openvdb5v11_04tree10LeafBufferIlLj3EED2Ev.exit.i, %arraydestroy.body.preheader.i
@@ -27895,23 +27899,23 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i197
 
 call5.i.i.i.i.noexc206:                           ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
   store i32 0, ptr %call5.i.i.i.i207, align 4
-  %cmp.i.i.i.i.i24.i = icmp eq i64 %add12.i.i, 1
-  br i1 %cmp.i.i.i.i.i24.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i, label %if.end.i.i.i.i.i25.i
+  %cmp.i.i.i.i.i25.i = icmp eq i64 %add12.i.i, 1
+  br i1 %cmp.i.i.i.i.i25.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i, label %if.end.i.i.i.i.i26.i
 
-if.end.i.i.i.i.i25.i:                             ; preds = %call5.i.i.i.i.noexc206
+if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc206
   %incdec.ptr.i.i.i23.i = getelementptr i8, ptr %call5.i.i.i.i207, i64 4
   %21 = add nsw i64 %mul.i.i.i.i200, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i23.i, i8 0, i64 %21, i1 false)
-  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
+  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i
 
-_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i: ; preds = %if.end.i.i.i.i.i25.i, %call5.i.i.i.i.noexc206
+_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc206
   store ptr %call5.i.i.i.i207, ptr %leafCounts, align 8
   %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i207, i64 %add12.i.i
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont11
 
-invoke.cont11:                                    ; preds = %if.else, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
+invoke.cont11:                                    ; preds = %if.else, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i
   store i64 %add12.i.i, ptr %ref.tmp12, align 8
   %my_begin.i = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 8
   store i64 0, ptr %my_begin.i, align 8
@@ -28414,7 +28418,8 @@ entry:
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
   %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
-  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
+  %add.ptr14.idx = shl nuw nsw i64 %add, 3
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
   br label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %invoke.cont.i
@@ -30762,7 +30767,8 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04tree10LeafBufferIlLj3EEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit, label %arraydestroy.body.preheader.i
 
 arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.338", ptr %0, i64 %2
+  %delete.end.idx.i = shl nsw i64 %2, 4
+  %delete.end.i = getelementptr inbounds i8, ptr %0, i64 %delete.end.idx.i
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN7openvdb5v11_04tree10LeafBufferIlLj3EED2Ev.exit.i, %arraydestroy.body.preheader.i
@@ -35036,7 +35042,8 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04tree10LeafBufferIfLj3EEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit, label %arraydestroy.body.preheader.i
 
 arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.469", ptr %0, i64 %2
+  %delete.end.idx.i = shl nsw i64 %2, 4
+  %delete.end.i = getelementptr inbounds i8, ptr %0, i64 %delete.end.idx.i
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EED2Ev.exit.i, %arraydestroy.body.preheader.i
@@ -35342,23 +35349,23 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i197
 
 call5.i.i.i.i.noexc206:                           ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
   store i32 0, ptr %call5.i.i.i.i207, align 4
-  %cmp.i.i.i.i.i24.i = icmp eq i64 %add12.i.i, 1
-  br i1 %cmp.i.i.i.i.i24.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i, label %if.end.i.i.i.i.i25.i
+  %cmp.i.i.i.i.i25.i = icmp eq i64 %add12.i.i, 1
+  br i1 %cmp.i.i.i.i.i25.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i, label %if.end.i.i.i.i.i26.i
 
-if.end.i.i.i.i.i25.i:                             ; preds = %call5.i.i.i.i.noexc206
+if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc206
   %incdec.ptr.i.i.i23.i = getelementptr i8, ptr %call5.i.i.i.i207, i64 4
   %21 = add nsw i64 %mul.i.i.i.i200, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i23.i, i8 0, i64 %21, i1 false)
-  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
+  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i
 
-_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i: ; preds = %if.end.i.i.i.i.i25.i, %call5.i.i.i.i.noexc206
+_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc206
   store ptr %call5.i.i.i.i207, ptr %leafCounts, align 8
   %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i207, i64 %add12.i.i
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont11
 
-invoke.cont11:                                    ; preds = %if.else, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
+invoke.cont11:                                    ; preds = %if.else, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i
   store i64 %add12.i.i, ptr %ref.tmp12, align 8
   %my_begin.i = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 8
   store i64 0, ptr %my_begin.i, align 8
@@ -35861,7 +35868,8 @@ entry:
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
   %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
-  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
+  %add.ptr14.idx = shl nuw nsw i64 %add, 3
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
   br label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %invoke.cont.i
@@ -38209,7 +38217,8 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04tree10LeafBufferIfLj3EEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit, label %arraydestroy.body.preheader.i
 
 arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.469", ptr %0, i64 %2
+  %delete.end.idx.i = shl nsw i64 %2, 4
+  %delete.end.i = getelementptr inbounds i8, ptr %0, i64 %delete.end.idx.i
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EED2Ev.exit.i, %arraydestroy.body.preheader.i
@@ -41994,17 +42003,19 @@ if.then.i.i.i.i.i:                                ; preds = %if.end
   %call5.i.i.i.i2.i.i10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #38
   store i16 0, ptr %call5.i.i.i.i2.i.i10, align 2
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i10, i64 2
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %count, 1
+  %sub.i.i.i.i.i = add nsw i64 %conv, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i14, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  %add.ptr.i.i.i = getelementptr %"class.openvdb::v11_0::math::internal::half", ptr %call5.i.i.i.i2.i.i10, i64 %conv
   %1 = add nsw i64 %mul.i.i.i.i.i.i, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i.i.i, i8 0, i64 %1, i1 false)
+  %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 1
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %if.else.i14
 
 if.else.i14:                                      ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %and9.i15 = and i32 %compression, 4
   %tobool10.not.i16 = icmp eq i32 %and9.i15, 0
   br i1 %tobool10.not.i16, label %if.else12.i20, label %if.then11.i17
@@ -42787,7 +42798,8 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04tree10LeafBufferIdLj3EEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit, label %arraydestroy.body.preheader.i
 
 arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.605", ptr %0, i64 %2
+  %delete.end.idx.i = shl nsw i64 %2, 4
+  %delete.end.i = getelementptr inbounds i8, ptr %0, i64 %delete.end.idx.i
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EED2Ev.exit.i, %arraydestroy.body.preheader.i
@@ -43093,23 +43105,23 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i197
 
 call5.i.i.i.i.noexc206:                           ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
   store i32 0, ptr %call5.i.i.i.i207, align 4
-  %cmp.i.i.i.i.i24.i = icmp eq i64 %add12.i.i, 1
-  br i1 %cmp.i.i.i.i.i24.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i, label %if.end.i.i.i.i.i25.i
+  %cmp.i.i.i.i.i25.i = icmp eq i64 %add12.i.i, 1
+  br i1 %cmp.i.i.i.i.i25.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i, label %if.end.i.i.i.i.i26.i
 
-if.end.i.i.i.i.i25.i:                             ; preds = %call5.i.i.i.i.noexc206
+if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc206
   %incdec.ptr.i.i.i23.i = getelementptr i8, ptr %call5.i.i.i.i207, i64 4
   %21 = add nsw i64 %mul.i.i.i.i200, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i23.i, i8 0, i64 %21, i1 false)
-  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
+  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i
 
-_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i: ; preds = %if.end.i.i.i.i.i25.i, %call5.i.i.i.i.noexc206
+_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc206
   store ptr %call5.i.i.i.i207, ptr %leafCounts, align 8
   %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i207, i64 %add12.i.i
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont11
 
-invoke.cont11:                                    ; preds = %if.else, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
+invoke.cont11:                                    ; preds = %if.else, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i
   store i64 %add12.i.i, ptr %ref.tmp12, align 8
   %my_begin.i = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 8
   store i64 0, ptr %my_begin.i, align 8
@@ -43612,7 +43624,8 @@ entry:
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
   %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
-  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
+  %add.ptr14.idx = shl nuw nsw i64 %add, 3
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
   br label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %invoke.cont.i
@@ -45960,7 +45973,8 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04tree10LeafBufferIdLj3EEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit, label %arraydestroy.body.preheader.i
 
 arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.605", ptr %0, i64 %2
+  %delete.end.idx.i = shl nsw i64 %2, 4
+  %delete.end.i = getelementptr inbounds i8, ptr %0, i64 %delete.end.idx.i
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EED2Ev.exit.i, %arraydestroy.body.preheader.i
@@ -49745,17 +49759,19 @@ if.then.i.i.i.i.i:                                ; preds = %if.end
   %call5.i.i.i.i2.i.i10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #38
   store i16 0, ptr %call5.i.i.i.i2.i.i10, align 2
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i10, i64 2
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %count, 1
+  %sub.i.i.i.i.i = add nsw i64 %conv, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i14, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  %add.ptr.i.i.i = getelementptr %"class.openvdb::v11_0::math::internal::half", ptr %call5.i.i.i.i2.i.i10, i64 %conv
   %1 = add nsw i64 %mul.i.i.i.i.i.i, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i.i.i, i8 0, i64 %1, i1 false)
+  %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 1
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %if.else.i14
 
 if.else.i14:                                      ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %and9.i15 = and i32 %compression, 4
   %tobool10.not.i16 = icmp eq i32 %and9.i15, 0
   br i1 %tobool10.not.i16, label %if.else12.i20, label %if.then11.i17
@@ -50538,7 +50554,8 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04tree10LeafBufferINS1_4math4Vec3IiEELj3EEEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_.exit, label %arraydestroy.body.preheader.i
 
 arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.738", ptr %0, i64 %2
+  %delete.end.idx.i = shl nsw i64 %2, 4
+  %delete.end.i = getelementptr inbounds i8, ptr %0, i64 %delete.end.idx.i
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EED2Ev.exit.i, %arraydestroy.body.preheader.i
@@ -50844,23 +50861,23 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i197
 
 call5.i.i.i.i.noexc206:                           ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
   store i32 0, ptr %call5.i.i.i.i207, align 4
-  %cmp.i.i.i.i.i24.i = icmp eq i64 %add12.i.i, 1
-  br i1 %cmp.i.i.i.i.i24.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i, label %if.end.i.i.i.i.i25.i
+  %cmp.i.i.i.i.i25.i = icmp eq i64 %add12.i.i, 1
+  br i1 %cmp.i.i.i.i.i25.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i, label %if.end.i.i.i.i.i26.i
 
-if.end.i.i.i.i.i25.i:                             ; preds = %call5.i.i.i.i.noexc206
+if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc206
   %incdec.ptr.i.i.i23.i = getelementptr i8, ptr %call5.i.i.i.i207, i64 4
   %21 = add nsw i64 %mul.i.i.i.i200, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i23.i, i8 0, i64 %21, i1 false)
-  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
+  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i
 
-_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i: ; preds = %if.end.i.i.i.i.i25.i, %call5.i.i.i.i.noexc206
+_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc206
   store ptr %call5.i.i.i.i207, ptr %leafCounts, align 8
   %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i207, i64 %add12.i.i
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont11
 
-invoke.cont11:                                    ; preds = %if.else, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
+invoke.cont11:                                    ; preds = %if.else, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i
   store i64 %add12.i.i, ptr %ref.tmp12, align 8
   %my_begin.i = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 8
   store i64 0, ptr %my_begin.i, align 8
@@ -51363,7 +51380,8 @@ entry:
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
   %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
-  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
+  %add.ptr14.idx = shl nuw nsw i64 %add, 3
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
   br label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %invoke.cont.i
@@ -53711,7 +53729,8 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04tree10LeafBufferINS1_4math4Vec3IiEELj3EEEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_.exit, label %arraydestroy.body.preheader.i
 
 arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.738", ptr %0, i64 %2
+  %delete.end.idx.i = shl nsw i64 %2, 4
+  %delete.end.i = getelementptr inbounds i8, ptr %0, i64 %delete.end.idx.i
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EED2Ev.exit.i, %arraydestroy.body.preheader.i
@@ -58159,7 +58178,8 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04tree10LeafBufferINS1_4math4Vec3IfEELj3EEEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_.exit, label %arraydestroy.body.preheader.i
 
 arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.873", ptr %0, i64 %2
+  %delete.end.idx.i = shl nsw i64 %2, 4
+  %delete.end.i = getelementptr inbounds i8, ptr %0, i64 %delete.end.idx.i
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EED2Ev.exit.i, %arraydestroy.body.preheader.i
@@ -58465,23 +58485,23 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i197
 
 call5.i.i.i.i.noexc206:                           ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
   store i32 0, ptr %call5.i.i.i.i207, align 4
-  %cmp.i.i.i.i.i24.i = icmp eq i64 %add12.i.i, 1
-  br i1 %cmp.i.i.i.i.i24.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i, label %if.end.i.i.i.i.i25.i
+  %cmp.i.i.i.i.i25.i = icmp eq i64 %add12.i.i, 1
+  br i1 %cmp.i.i.i.i.i25.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i, label %if.end.i.i.i.i.i26.i
 
-if.end.i.i.i.i.i25.i:                             ; preds = %call5.i.i.i.i.noexc206
+if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc206
   %incdec.ptr.i.i.i23.i = getelementptr i8, ptr %call5.i.i.i.i207, i64 4
   %21 = add nsw i64 %mul.i.i.i.i200, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i23.i, i8 0, i64 %21, i1 false)
-  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
+  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i
 
-_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i: ; preds = %if.end.i.i.i.i.i25.i, %call5.i.i.i.i.noexc206
+_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc206
   store ptr %call5.i.i.i.i207, ptr %leafCounts, align 8
   %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i207, i64 %add12.i.i
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont11
 
-invoke.cont11:                                    ; preds = %if.else, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
+invoke.cont11:                                    ; preds = %if.else, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i
   store i64 %add12.i.i, ptr %ref.tmp12, align 8
   %my_begin.i = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 8
   store i64 0, ptr %my_begin.i, align 8
@@ -58984,7 +59004,8 @@ entry:
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
   %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
-  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
+  %add.ptr14.idx = shl nuw nsw i64 %add, 3
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
   br label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %invoke.cont.i
@@ -61332,7 +61353,8 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04tree10LeafBufferINS1_4math4Vec3IfEELj3EEEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_.exit, label %arraydestroy.body.preheader.i
 
 arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.873", ptr %0, i64 %2
+  %delete.end.idx.i = shl nsw i64 %2, 4
+  %delete.end.i = getelementptr inbounds i8, ptr %0, i64 %delete.end.idx.i
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EED2Ev.exit.i, %arraydestroy.body.preheader.i
@@ -65276,21 +65298,26 @@ if.then.i.i.i.i.i:                                ; preds = %if.end
   %conv = zext i32 %count to i64
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %conv, 6
   %call5.i.i.i.i2.i.i10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #38
-  %add.ptr.i.i.i = getelementptr %"class.openvdb::v11_0::math::Vec3.934", ptr %call5.i.i.i.i2.i.i10, i64 %conv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %call5.i.i.i.i2.i.i10, i8 0, i64 6, i1 false)
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i10, i64 6
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %count, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i14, label %for.body.i.i.i.i.i.i.i.i.i
+  %sub.i.i.i.i.i = add nsw i64 %conv, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i14, label %if.end.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
+if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
+  %add.ptr.idx.i.i.i.i.i.i.i = mul nuw nsw i64 %sub.i.i.i.i.i, 6
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
+  br label %for.body.i.i.i.i.i.i.i.i.i
+
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(6) %call5.i.i.i.i2.i.i10, i64 6, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 6
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %if.else.i14, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !536
 
 if.else.i14:                                      ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %and9.i15 = and i32 %compression, 4
   %tobool10.not.i16 = icmp eq i32 %and9.i15, 0
   br i1 %tobool10.not.i16, label %if.else12.i20, label %if.then11.i17
@@ -65551,20 +65578,22 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   %conv = zext i32 %count to i64
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %conv, 6
   %call5.i.i.i.i2.i.i8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #38
-  %add.ptr.i.i.i = getelementptr %"class.openvdb::v11_0::math::Vec3.934", ptr %call5.i.i.i.i2.i.i8, i64 %conv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %call5.i.i.i.i2.i.i8, i8 0, i64 6, i1 false)
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %count, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %for.body.i.i.i.i.i.i.i.i.i.preheader
+  %sub.i.i.i.i.i = add nsw i64 %conv, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %if.end.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %if.then.i.i.i.i.i
+if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i8, i64 6
+  %add.ptr.idx.i.i.i.i.i.i.i = mul nuw nsw i64 %sub.i.i.i.i.i, 6
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.preheader ]
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(6) %call5.i.i.i.i2.i.i8, i64 6, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 6
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %for.body.preheader, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !536
 
 for.body.preheader:                               ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -66368,7 +66397,8 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04tree10LeafBufferINS1_4math4Vec3IdEELj3EEEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_.exit, label %arraydestroy.body.preheader.i
 
 arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.1012", ptr %0, i64 %2
+  %delete.end.idx.i = shl nsw i64 %2, 4
+  %delete.end.i = getelementptr inbounds i8, ptr %0, i64 %delete.end.idx.i
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EED2Ev.exit.i, %arraydestroy.body.preheader.i
@@ -66674,23 +66704,23 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i197
 
 call5.i.i.i.i.noexc206:                           ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i
   store i32 0, ptr %call5.i.i.i.i207, align 4
-  %cmp.i.i.i.i.i24.i = icmp eq i64 %add12.i.i, 1
-  br i1 %cmp.i.i.i.i.i24.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i, label %if.end.i.i.i.i.i25.i
+  %cmp.i.i.i.i.i25.i = icmp eq i64 %add12.i.i, 1
+  br i1 %cmp.i.i.i.i.i25.i, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i, label %if.end.i.i.i.i.i26.i
 
-if.end.i.i.i.i.i25.i:                             ; preds = %call5.i.i.i.i.noexc206
+if.end.i.i.i.i.i26.i:                             ; preds = %call5.i.i.i.i.noexc206
   %incdec.ptr.i.i.i23.i = getelementptr i8, ptr %call5.i.i.i.i207, i64 4
   %21 = add nsw i64 %mul.i.i.i.i200, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i23.i, i8 0, i64 %21, i1 false)
-  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
+  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i
 
-_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i: ; preds = %if.end.i.i.i.i.i25.i, %call5.i.i.i.i.noexc206
+_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i: ; preds = %if.end.i.i.i.i.i26.i, %call5.i.i.i.i.noexc206
   store ptr %call5.i.i.i.i207, ptr %leafCounts, align 8
   %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i207, i64 %add12.i.i
   store ptr %add.ptr37.i, ptr %_M_finish.i.i64, align 8
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %invoke.cont11
 
-invoke.cont11:                                    ; preds = %if.else, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i
+invoke.cont11:                                    ; preds = %if.else, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35.i
   store i64 %add12.i.i, ptr %ref.tmp12, align 8
   %my_begin.i = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 8
   store i64 0, ptr %my_begin.i, align 8
@@ -67193,7 +67223,8 @@ entry:
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
   %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
-  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
+  %add.ptr14.idx = shl nuw nsw i64 %add, 3
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
   br label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %invoke.cont.i
@@ -69541,7 +69572,8 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04tree10LeafBufferINS1_4math4Vec3IdEELj3EEEEclIS7_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS8_EE5valueEvE4typeEPSC_.exit, label %arraydestroy.body.preheader.i
 
 arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.1012", ptr %0, i64 %2
+  %delete.end.idx.i = shl nsw i64 %2, 4
+  %delete.end.i = getelementptr inbounds i8, ptr %0, i64 %delete.end.idx.i
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EED2Ev.exit.i, %arraydestroy.body.preheader.i
@@ -73492,21 +73524,26 @@ if.then.i.i.i.i.i:                                ; preds = %if.end
   %conv = zext i32 %count to i64
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %conv, 6
   %call5.i.i.i.i2.i.i10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #38
-  %add.ptr.i.i.i = getelementptr %"class.openvdb::v11_0::math::Vec3.934", ptr %call5.i.i.i.i2.i.i10, i64 %conv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %call5.i.i.i.i2.i.i10, i8 0, i64 6, i1 false)
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i10, i64 6
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %count, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i14, label %for.body.i.i.i.i.i.i.i.i.i
+  %sub.i.i.i.i.i = add nsw i64 %conv, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.else.i14, label %if.end.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
+if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
+  %add.ptr.idx.i.i.i.i.i.i.i = mul nuw nsw i64 %sub.i.i.i.i.i, 6
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
+  br label %for.body.i.i.i.i.i.i.i.i.i
+
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(6) %call5.i.i.i.i2.i.i10, i64 6, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 6
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %if.else.i14, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !536
 
 if.else.i14:                                      ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %and9.i15 = and i32 %compression, 4
   %tobool10.not.i16 = icmp eq i32 %and9.i15, 0
   br i1 %tobool10.not.i16, label %if.else12.i20, label %if.then11.i17
@@ -73774,20 +73811,22 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   %conv = zext i32 %count to i64
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %conv, 6
   %call5.i.i.i.i2.i.i8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #38
-  %add.ptr.i.i.i = getelementptr %"class.openvdb::v11_0::math::Vec3.934", ptr %call5.i.i.i.i2.i.i8, i64 %conv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %call5.i.i.i.i2.i.i8, i8 0, i64 6, i1 false)
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %count, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i.i.i.i.preheader
+  %sub.i.i.i.i.i = add nsw i64 %conv, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont, label %if.end.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %if.then.i.i.i.i.i
+if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i8, i64 6
+  %add.ptr.idx.i.i.i.i.i.i.i = mul nuw nsw i64 %sub.i.i.i.i.i, 6
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.preheader ]
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(6) %call5.i.i.i.i2.i.i8, i64 6, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 6
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !536
 
 invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i

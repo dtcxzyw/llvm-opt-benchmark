@@ -20,8 +20,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ImGuiMultiSelectTempData = type <{ %struct.ImGuiMultiSelectIO, ptr, i32, i32, %struct.ImVec2, %struct.ImVec2, i64, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8 }>
 %struct.ImGuiMultiSelectIO = type { %struct.ImVector.41, i64, i64, i8, i8, i32 }
 %struct.ImVector.41 = type { i32, i32, ptr }
-%struct.ImGuiSelectionRequest = type { i32, i8, i8, i64, i64 }
 %struct.ImGuiMultiSelectState = type { ptr, i32, i32, i32, i8, i8, i64, i64 }
+%struct.ImGuiSelectionRequest = type { i32, i8, i8, i64, i64 }
 %struct.ImGuiStoragePair = type { i32, %union.anon }
 %union.anon = type { ptr }
 %struct.ImGuiPlotArrayGetterData = type <{ ptr, i32, [4 x i8] }>
@@ -32967,7 +32967,8 @@ define dso_local noundef ptr @_ZN5ImGui22GetTypingSelectRequestEi(i32 noundef %0
   %57 = load ptr, ptr %56, align 8, !tbaa !426
   %58 = load i32, ptr %55, align 8, !tbaa !429
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i16, ptr %57, i64 %59
+  %.idx = shl nsw i64 %59, 1
+  %60 = getelementptr inbounds i8, ptr %57, i64 %.idx
   %.not109117 = icmp eq i32 %58, 0
   br i1 %.not109117, label %._crit_edge, label %.lr.ph
 
@@ -34572,7 +34573,8 @@ _ZL23BoxSelectDeactivateDragP19ImGuiBoxSelectState.exit: ; preds = %237, %249
   %267 = getelementptr i8, ptr %50, i64 -88
   %.val135 = load ptr, ptr %267, align 8, !tbaa !255
   %268 = sext i32 %.val to i64
-  %269 = getelementptr inbounds %struct.ImGuiSelectionRequest, ptr %.val135, i64 %268
+  %.idx.i = mul nsw i64 %268, 24
+  %269 = getelementptr inbounds i8, ptr %.val135, i64 %.idx.i
   %.not1.i = icmp eq i32 %.val, 0
   br i1 %.not1.i, label %_ZL27DebugLogMultiSelectRequestsPKcPK18ImGuiMultiSelectIO.exit, label %.lr.ph.i
 
@@ -35255,7 +35257,8 @@ _ZNK6ImRect8ContainsERK6ImVec2.exit78.thread:     ; preds = %117, %123, %115, %1
   %204 = getelementptr i8, ptr %5, i64 8
   %.val75 = load ptr, ptr %204, align 8, !tbaa !255
   %205 = sext i32 %.val74 to i64
-  %206 = getelementptr inbounds %struct.ImGuiSelectionRequest, ptr %.val75, i64 %205
+  %.idx.i = mul nsw i64 %205, 24
+  %206 = getelementptr inbounds i8, ptr %.val75, i64 %.idx.i
   %.not1.i = icmp eq i32 %.val74, 0
   br i1 %.not1.i, label %_ZL27DebugLogMultiSelectRequestsPKcPK18ImGuiMultiSelectIO.exit, label %.lr.ph.i
 
@@ -35836,7 +35839,8 @@ define dso_local void @_ZN26ImGuiSelectionBasicStorage13ApplyRequestsEP18ImGuiMu
   %4 = load ptr, ptr %3, align 8, !tbaa !255
   %5 = load i32, ptr %1, align 8, !tbaa !256
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.ImGuiSelectionRequest, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 24
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not80 = icmp eq i32 %5, 0
   br i1 %.not80, label %._crit_edge84, label %.lr.ph83
 
@@ -36294,7 +36298,8 @@ define dso_local void @_ZN29ImGuiSelectionExternalStorage13ApplyRequestsEP18ImGu
   %4 = load ptr, ptr %3, align 8, !tbaa !255
   %5 = load i32, ptr %1, align 8, !tbaa !256
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.ImGuiSelectionRequest, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 24
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not27 = icmp eq i32 %5, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph30
 

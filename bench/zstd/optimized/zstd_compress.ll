@@ -5069,7 +5069,8 @@ ZSTD_deriveBlockSplits.exit.i.i.i:                ; preds = %319, %310
 337:                                              ; preds = %336, %333, %329
   %338 = load ptr, ptr %147, align 8, !tbaa !184
   store ptr %338, ptr %156, align 8, !tbaa !184
-  %339 = getelementptr inbounds nuw %struct.SeqDef_s, ptr %338, i64 %331
+  %.idx.i.i.i = shl nuw nsw i64 %331, 3
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 %.idx.i.i.i
   store ptr %339, ptr %161, align 8, !tbaa !188
   %340 = load ptr, ptr %148, align 8, !tbaa !188
   %341 = ptrtoint ptr %340 to i64

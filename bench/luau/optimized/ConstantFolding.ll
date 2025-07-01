@@ -2730,7 +2730,8 @@ _ZNK4Luau7Compile8Constant10isTruthfulEv.exit.thread154: ; preds = %226, %_ZNK4L
   %243 = load ptr, ptr %242, align 8, !tbaa !150
   %244 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %245 = load i64, ptr %244, align 8, !tbaa !151
-  %246 = getelementptr inbounds nuw ptr, ptr %243, i64 %245
+  %.idx = shl nuw nsw i64 %245, 3
+  %246 = getelementptr inbounds nuw i8, ptr %243, i64 %.idx
   %.not129186 = icmp eq i64 %245, 0
   br i1 %.not129186, label %.loopexit, label %.lr.ph189
 

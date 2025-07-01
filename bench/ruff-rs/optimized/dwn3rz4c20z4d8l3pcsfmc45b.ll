@@ -15040,7 +15040,8 @@ define internal fastcc noundef range(i8 0, 4) i8 @_ZN18ty_python_semantic10dunde
 define internal fastcc noundef zeroext i1 @_ZN18ty_python_semantic10dunder_all23DunderAllNamesCollector9add_names17h2f83a8ff6f473992E(ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  %6 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 6
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %7 = icmp eq i64 %2, 0
   br i1 %7, label %.loopexit, label %.lr.ph
 
@@ -15245,7 +15246,8 @@ default.unreachable:                              ; preds = %113, %30
   %37 = load ptr, ptr %36, align 8, !nonnull !8, !noundef !8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %39 = load i64, ptr %38, align 8, !noundef !8
-  %40 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %37, i64 %39
+  %.idx = mul nuw nsw i64 %39, 72
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx
   %41 = icmp eq i64 %39, 0
   br i1 %41, label %.loopexit, label %.lr.ph
 
@@ -15371,7 +15373,8 @@ _ZN18ty_python_semantic10dunder_all23DunderAllNamesCollector13update_origin17he8
   %100 = load ptr, ptr %99, align 8, !nonnull !8, !noundef !8
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %102 = load i64, ptr %101, align 8, !noundef !8
-  %103 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %100, i64 %102
+  %.idx85 = mul nuw nsw i64 %102, 96
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 %.idx85
   %104 = icmp eq i64 %102, 0
   br i1 %104, label %.loopexit, label %.lr.ph82
 
@@ -18830,7 +18833,8 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types5class17CodeGener
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9), !noalias !2818
   %15 = extractvalue { ptr, i64 } %14, 0
   %16 = extractvalue { ptr, i64 } %14, 1
-  %17 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %15, i64 %16
+  %.idx = shl nuw nsw i64 %16, 4
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   %18 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %18)
   %.not.i = icmp eq i64 %16, 0
@@ -21607,7 +21611,8 @@ _ZN4core3ops8function6FnOnce9call_once17h64e228730fee1958E.exit: ; preds = %41, 
 44:                                               ; preds = %26
   %45 = extractvalue { ptr, i64 } %29, 0
   %46 = extractvalue { ptr, i64 } %29, 1
-  %47 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %45, i64 %46
+  %.idx = shl nuw nsw i64 %46, 4
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx
   %48 = icmp ne ptr %45, null
   tail call void @llvm.assume(i1 %48)
   %49 = icmp eq i64 %46, 0
@@ -23697,7 +23702,8 @@ _ZN18ty_python_semantic5types6narrow27NarrowingConstraintsBuilder28evaluate_matc
   %79 = load ptr, ptr %78, align 8, !alias.scope !3203, !noalias !3207, !nonnull !8, !noundef !8
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %81 = load i64, ptr %80, align 8, !alias.scope !3203, !noalias !3207, !noundef !8
-  %82 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %79, i64 %81
+  %.idx = mul nuw nsw i64 %81, 24
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3208)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.521)
   %83 = icmp eq i64 %81, 0
@@ -24688,7 +24694,8 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types14protocol_class2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !3333
   %10 = extractvalue { ptr, i64 } %9, 0
   %11 = extractvalue { ptr, i64 } %9, 1
-  %12 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %10, i64 %11
+  %.idx = shl nuw nsw i64 %11, 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %13 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %13)
   %.not.i.i = icmp eq i64 %11, 0
@@ -28357,7 +28364,8 @@ _ZN18ty_python_semantic5types5class9ClassType13class_literal17h29591e18154063c7E
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !3683
   %15 = extractvalue { ptr, i64 } %14, 0
   %16 = extractvalue { ptr, i64 } %14, 1
-  %17 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %15, i64 %16
+  %.idx.i = shl nuw nsw i64 %16, 4
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
   %18 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %18)
   %.not.i.i.i = icmp eq i64 %16, 0
@@ -29519,7 +29527,8 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types5class12ClassLite
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !3853
   %10 = extractvalue { ptr, i64 } %9, 0
   %11 = extractvalue { ptr, i64 } %9, 1
-  %12 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %10, i64 %11
+  %.idx = shl nuw nsw i64 %11, 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %13 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %13)
   %.not.i.i = icmp eq i64 %11, 0
@@ -30190,7 +30199,8 @@ _ZN18ty_python_semantic5types5class17CodeGeneratorKind7matches17h86f326a4f78223f
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10), !noalias !3979
   %124 = extractvalue { ptr, i64 } %123, 0
   %125 = extractvalue { ptr, i64 } %123, 1
-  %126 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %124, i64 %125
+  %.idx.i.i = shl nuw nsw i64 %125, 4
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 %.idx.i.i
   %127 = icmp ne ptr %124, null
   call void @llvm.assume(i1 %127), !noalias !3962
   %.not.i.i.i = icmp eq i64 %125, 0
@@ -30737,7 +30747,8 @@ define internal fastcc void @"_ZN18ty_python_semantic5types5class12ClassLiteral2
   call void @llvm.assume(i1 %64)
   %65 = icmp ult i64 %.sroa.6.0.copyload, 144115188075855872
   call void @llvm.assume(i1 %65)
-  %66 = getelementptr inbounds nuw { { { i8, [15 x i8] }, { i8, [15 x i8] } }, { { { ptr, i64, i32, i16, i8, i8 } } }, i64 }, ptr %.sroa.571.0.copyload, i64 %.sroa.6.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.6.0.copyload, 6
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.571.0.copyload, i64 %.idx
   %67 = icmp sgt i64 %.sroa.069.0.copyload, -1
   call void @llvm.assume(i1 %67)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %43)

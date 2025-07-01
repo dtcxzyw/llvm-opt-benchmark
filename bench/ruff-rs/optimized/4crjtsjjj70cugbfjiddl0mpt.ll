@@ -5298,7 +5298,8 @@ define void @_ZN9ty_server8document8notebook16NotebookDocument3new17h882503d0a52
           to label %.noexc unwind label %161
 
 .noexc:                                           ; preds = %31
-  %36 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { { { i64, ptr, {} }, {} }, i64 } }, ptr, i32, i8, [3 x i8] }, i8, [7 x i8] }, ptr %33, i64 %35
+  %.idx.i = mul nuw nsw i64 %35, 136
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i
   %37 = icmp eq i64 %35, 0
   br i1 %37, label %.loopexit, label %.lr.ph.i
 
@@ -10459,7 +10460,8 @@ define hidden void @_ZN9ty_server7session5index5Index22open_notebook_document17h
   %.val = load ptr, ptr %11, align 8, !nonnull !7, !noundef !7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 336
   %.val9 = load i64, ptr %12, align 8, !noundef !7
-  %13 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { { { i64, ptr, {} }, {} }, i64 } }, ptr, i32, i8, [3 x i8] }, i8, [7 x i8] }, ptr %.val, i64 %.val9
+  %.idx = mul nuw nsw i64 %.val9, 136
+  %13 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx
   %14 = icmp eq i64 %.val9, 0
   br i1 %14, label %._crit_edge, label %.lr.ph
 

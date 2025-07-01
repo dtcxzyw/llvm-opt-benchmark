@@ -1153,7 +1153,8 @@ define internal fastcc void @"_ZN14version_ranges15Ranges$LT$V$GT$15negate_segme
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 17
   %.sroa.9.0.copyload = load i8, ptr %.sroa.9.0..sroa_idx, align 1
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 18
-  %10 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %2, i64 %3
+  %.idx = mul nsw i64 %3, 48
+  %10 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %11 = icmp eq i64 %3, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 

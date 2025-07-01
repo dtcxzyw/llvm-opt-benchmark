@@ -900,7 +900,8 @@ common.resume:                                    ; preds = %.body, %29
   %40 = load ptr, ptr %39, align 8, !alias.scope !79, !nonnull !4, !noundef !4
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %42 = load i64, ptr %41, align 8, !alias.scope !79, !noundef !4
-  %43 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %40, i64 %42
+  %.idx.i = mul nuw nsw i64 %42, 24
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx.i
   %44 = icmp eq i64 %42, 0
   br i1 %44, label %._crit_edge.i, label %.lr.ph.i
 

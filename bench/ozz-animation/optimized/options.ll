@@ -464,17 +464,18 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %102, label %3
+  br i1 %.not, label %103, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load i32, ptr %4, align 8, !tbaa !22
   %6 = icmp eq i32 %5, 32
-  br i1 %6, label %102, label %7
+  br i1 %6, label %103, label %7
 
 7:                                                ; preds = %3
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds ptr, ptr %0, i64 %8
+  %.idx = shl nsw i64 %8, 3
+  %9 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %.not6.i.i = icmp eq i32 %5, 0
   br i1 %.not6.i.i, label %_ZSt5countIPPN3ozz7options6OptionES3_ENSt15iterator_traitsIT_E15difference_typeES6_S6_RKT0_.exit.thread.thread, label %.lr.ph.i.i
 
@@ -491,7 +492,7 @@ define dso_local noundef zeroext i1 @_ZN3ozz7options6Parser14RegisterOptionEPNS0
 
 _ZSt5countIPPN3ozz7options6OptionES3_ENSt15iterator_traitsIT_E15difference_typeES6_S6_RKT0_.exit: ; preds = %.lr.ph.i.i
   %.not7 = icmp eq i64 %spec.select.i.i, 0
-  br i1 %.not7, label %_ZSt5countIPPN3ozz7options6OptionES3_ENSt15iterator_traitsIT_E15difference_typeES6_S6_RKT0_.exit.thread, label %102
+  br i1 %.not7, label %_ZSt5countIPPN3ozz7options6OptionES3_ENSt15iterator_traitsIT_E15difference_typeES6_S6_RKT0_.exit.thread, label %103
 
 _ZSt5countIPPN3ozz7options6OptionES3_ENSt15iterator_traitsIT_E15difference_typeES6_S6_RKT0_.exit.thread: ; preds = %_ZSt5countIPPN3ozz7options6OptionES3_ENSt15iterator_traitsIT_E15difference_typeES6_S6_RKT0_.exit
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -553,7 +554,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %.0.i.i.i = phi i8 [ %36, %34 ], [ %41, %37 ]
   %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i)
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %42)
-  br label %102
+  br label %103
 
 44:                                               ; preds = %_ZN3ozz7options12_GLOBAL__N_17StrICmpEPKcS3_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -649,19 +650,20 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i9: ; preds = %_ZStlsISt11char_t
   %.0.i.i.i11 = phi i8 [ %89, %87 ], [ %94, %90 ]
   %96 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i11)
   %97 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %96)
-  br label %102
+  br label %103
 
 ._crit_edge:                                      ; preds = %44, %_ZSt5countIPPN3ozz7options6OptionES3_ENSt15iterator_traitsIT_E15difference_typeES6_S6_RKT0_.exit.thread.thread, %.preheader
   %98 = add nsw i32 %5, 1
   store i32 %98, ptr %4, align 8, !tbaa !22
-  store ptr %1, ptr %9, align 8, !tbaa !55
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds ptr, ptr %0, i64 %99
-  %101 = getelementptr inbounds i8, ptr %100, i64 -8
-  tail call void @_ZSt15__inplace_mergeIPPN3ozz7options6OptionEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_SB_T0_(ptr noundef nonnull %0, ptr noundef nonnull %101, ptr noundef nonnull %100, ptr nonnull @_ZN3ozz7options12_GLOBAL__N_112sort_optionsEPNS0_6OptionES3_)
-  br label %102
+  %99 = getelementptr inbounds [32 x ptr], ptr %0, i64 0, i64 %8
+  store ptr %1, ptr %99, align 8, !tbaa !55
+  %100 = sext i32 %98 to i64
+  %101 = getelementptr inbounds ptr, ptr %0, i64 %100
+  %102 = getelementptr inbounds i8, ptr %101, i64 -8
+  tail call void @_ZSt15__inplace_mergeIPPN3ozz7options6OptionEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_SB_T0_(ptr noundef nonnull %0, ptr noundef nonnull %102, ptr noundef nonnull %101, ptr nonnull @_ZN3ozz7options12_GLOBAL__N_112sort_optionsEPNS0_6OptionES3_)
+  br label %103
 
-102:                                              ; preds = %95, %_ZSt5countIPPN3ozz7options6OptionES3_ENSt15iterator_traitsIT_E15difference_typeES6_S6_RKT0_.exit, %3, %2, %._crit_edge, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
+103:                                              ; preds = %95, %_ZSt5countIPPN3ozz7options6OptionES3_ENSt15iterator_traitsIT_E15difference_typeES6_S6_RKT0_.exit, %3, %2, %._crit_edge, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
   %.06 = phi i1 [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ], [ true, %._crit_edge ], [ false, %95 ], [ false, %2 ], [ false, %3 ], [ false, %_ZSt5countIPPN3ozz7options6OptionES3_ENSt15iterator_traitsIT_E15difference_typeES6_S6_RKT0_.exit ]
   ret i1 %.06
 }

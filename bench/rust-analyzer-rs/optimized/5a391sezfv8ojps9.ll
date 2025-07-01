@@ -53,7 +53,8 @@ define hidden void @"_ZN101_$LT$object..read..macho..file..MachOFile$LT$Mach$C$R
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load i64, ptr %10, align 8, !noundef !4
-  %12 = getelementptr inbounds { { i32, [1 x i32] }, ptr, i64, i64 }, ptr %9, i64 %11
+  %.idx = shl nsw i64 %11, 5
+  %12 = getelementptr inbounds i8, ptr %9, i64 %.idx
   %13 = icmp eq i64 %11, 0
   br i1 %13, label %.loopexit, label %"_ZN125_$LT$object..read..macho..section..MachOSectionIterator$LT$Mach$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcdb72bf9299caa68E.exit.lr.ph.i"
 
@@ -243,7 +244,8 @@ define hidden void @"_ZN101_$LT$object..read..macho..file..MachOFile$LT$Mach$C$R
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load i64, ptr %10, align 8, !noundef !4
-  %12 = getelementptr inbounds { { i32, [1 x i32] }, ptr, i64, i64 }, ptr %9, i64 %11
+  %.idx = shl nsw i64 %11, 5
+  %12 = getelementptr inbounds i8, ptr %9, i64 %.idx
   %13 = icmp eq i64 %11, 0
   br i1 %13, label %.loopexit, label %"_ZN125_$LT$object..read..macho..section..MachOSectionIterator$LT$Mach$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hadf23ed5157e6ca4E.exit.lr.ph.i"
 
@@ -1063,7 +1065,8 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 
 73:                                               ; preds = %71
   %74 = extractvalue { ptr, i64 } %70, 1
-  %75 = getelementptr inbounds { [16 x i8], [16 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32 }, ptr %72, i64 %74
+  %.idx = mul nsw i64 %74, 68
+  %75 = getelementptr inbounds i8, ptr %72, i64 %.idx
   %76 = icmp eq i64 %74, 0
   br i1 %76, label %.thread150, label %.lr.ph.preheader
 
@@ -1480,7 +1483,8 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$5parse
 
 73:                                               ; preds = %71
   %74 = extractvalue { ptr, i64 } %70, 1
-  %75 = getelementptr inbounds { [16 x i8], [16 x i8], i64, i64, i32, i32, i32, i32, i32, i32, i32, i32 }, ptr %72, i64 %74
+  %.idx = mul nsw i64 %74, 80
+  %75 = getelementptr inbounds i8, ptr %72, i64 %.idx
   %76 = icmp eq i64 %74, 0
   br i1 %76, label %.thread150, label %.lr.ph.preheader
 

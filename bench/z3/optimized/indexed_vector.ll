@@ -1644,13 +1644,14 @@ _ZNSt6vectorI8rational13std_allocatorIS0_EE16_Temporary_valueC2IJRKS0_EEEPS3_DpO
   br i1 %45, label %46, label %102
 
 46:                                               ; preds = %_ZNSt6vectorI8rational13std_allocatorIS0_EE16_Temporary_valueC2IJRKS0_EEEPS3_DpOT_.exit
-  %47 = sub i64 0, %2
-  %48 = getelementptr inbounds %class.rational, ptr %40, i64 %47
-  br label %.lr.ph.i.i
+  %.neg = mul i64 %2, -32
+  %47 = getelementptr inbounds i8, ptr %40, i64 %.neg
+  %48 = icmp eq i64 %.neg, 0
+  br i1 %48, label %.lr.ph.i.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %46, %.lr.ph.i.i
   %.09.i.i = phi ptr [ %74, %.lr.ph.i.i ], [ %40, %46 ]
-  %.sroa.05.08.i.i = phi ptr [ %73, %.lr.ph.i.i ], [ %48, %46 ]
+  %.sroa.05.08.i.i = phi ptr [ %73, %.lr.ph.i.i ], [ %47, %46 ]
   %49 = load i32, ptr %.sroa.05.08.i.i, align 8, !tbaa !45
   store i32 %49, ptr %.09.i.i, align 8, !tbaa !45
   %50 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 4
@@ -1662,6 +1663,7 @@ _ZNSt6vectorI8rational13std_allocatorIS0_EE16_Temporary_valueC2IJRKS0_EEEPS3_DpO
   %56 = or disjoint i8 %54, %55
   store i8 %56, ptr %50, align 4
   %57 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 8
+  store ptr null, ptr %57, align 8, !tbaa !86
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.05.08.i.i, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !87
   store ptr %59, ptr %57, align 8, !tbaa !87
@@ -1679,6 +1681,7 @@ _ZNSt6vectorI8rational13std_allocatorIS0_EE16_Temporary_valueC2IJRKS0_EEEPS3_DpO
   %69 = or disjoint i8 %67, %68
   store i8 %69, ptr %63, align 4
   %70 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 24
+  store ptr null, ptr %70, align 8, !tbaa !86
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.05.08.i.i, i64 24
   %72 = load ptr, ptr %71, align 8, !tbaa !87
   store ptr %72, ptr %70, align 8, !tbaa !87
@@ -1686,14 +1689,19 @@ _ZNSt6vectorI8rational13std_allocatorIS0_EE16_Temporary_valueC2IJRKS0_EEEPS3_DpO
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.05.08.i.i, i64 32
   %74 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 32
   %75 = icmp eq ptr %73, %40
-  br i1 %75, label %.lr.ph.i.i.i, label %.lr.ph.i.i, !llvm.loop !88
+  br i1 %75, label %.lr.ph.i.i.i.loopexit, label %.lr.ph.i.i, !llvm.loop !88
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i
-  %76 = load ptr, ptr %9, align 8, !tbaa !58
+.lr.ph.i.i.i.loopexit:                            ; preds = %.lr.ph.i.i
+  %.pre = load ptr, ptr %9, align 8, !tbaa !58
+  br label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.loopexit, %46
+  %76 = phi ptr [ %.pre, %.lr.ph.i.i.i.loopexit ], [ %40, %46 ]
   %77 = getelementptr inbounds nuw %class.rational, ptr %76, i64 %2
   store ptr %77, ptr %9, align 8, !tbaa !58
-  %78 = call noundef ptr @_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIP8rationalS4_EET0_T_S6_S5_(ptr noundef %1, ptr noundef nonnull %48, ptr noundef %40)
-  %79 = getelementptr inbounds nuw %class.rational, ptr %1, i64 %2
+  %78 = call noundef ptr @_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIP8rationalS4_EET0_T_S6_S5_(ptr noundef %1, ptr noundef nonnull %47, ptr noundef %40)
+  %.idx = shl nuw nsw i64 %2, 5
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br label %80
 
 80:                                               ; preds = %_ZN8rationalaSERKS_.exit.i.i.i, %.lr.ph.i.i.i
@@ -2404,13 +2412,14 @@ define linkonce_odr hidden void @_ZNSt6vectorIj13std_allocatorIjEE14_M_fill_inse
   br i1 %19, label %20, label %36
 
 20:                                               ; preds = %14
-  %21 = sub i64 0, %2
-  %22 = getelementptr inbounds i32, ptr %9, i64 %21
-  br label %.lr.ph.i.i
+  %.neg = mul i64 %2, -4
+  %21 = getelementptr inbounds i8, ptr %9, i64 %.neg
+  %22 = icmp eq i64 %.neg, 0
+  br i1 %22, label %_ZSt22__uninitialized_move_aIPjS0_13std_allocatorIjEET0_T_S4_S3_RT1_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %20, %.lr.ph.i.i
   %.09.i.i = phi ptr [ %25, %.lr.ph.i.i ], [ %9, %20 ]
-  %.sroa.05.08.i.i = phi ptr [ %24, %.lr.ph.i.i ], [ %22, %20 ]
+  %.sroa.05.08.i.i = phi ptr [ %24, %.lr.ph.i.i ], [ %21, %20 ]
   %23 = load i32, ptr %.sroa.05.08.i.i, align 4, !tbaa !9
   store i32 %23, ptr %.09.i.i, align 4, !tbaa !9
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.05.08.i.i, i64 4
@@ -2418,14 +2427,14 @@ define linkonce_odr hidden void @_ZNSt6vectorIj13std_allocatorIjEE14_M_fill_inse
   %26 = icmp eq ptr %24, %9
   br i1 %26, label %_ZSt22__uninitialized_move_aIPjS0_13std_allocatorIjEET0_T_S4_S3_RT1_.exit, label %.lr.ph.i.i, !llvm.loop !92
 
-_ZSt22__uninitialized_move_aIPjS0_13std_allocatorIjEET0_T_S4_S3_RT1_.exit: ; preds = %.lr.ph.i.i
+_ZSt22__uninitialized_move_aIPjS0_13std_allocatorIjEET0_T_S4_S3_RT1_.exit: ; preds = %.lr.ph.i.i, %20
   %27 = getelementptr inbounds nuw i32, ptr %9, i64 %2
   store ptr %27, ptr %8, align 8, !tbaa !48
-  %.not.i.i.i.i.i = icmp eq ptr %22, %1
+  %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit, label %28
 
 28:                                               ; preds = %_ZSt22__uninitialized_move_aIPjS0_13std_allocatorIjEET0_T_S4_S3_RT1_.exit
-  %29 = ptrtoint ptr %22 to i64
+  %29 = ptrtoint ptr %21 to i64
   %30 = sub i64 %29, %16
   %31 = ashr exact i64 %30, 2
   %32 = sub nsw i64 0, %31
@@ -2434,7 +2443,8 @@ _ZSt22__uninitialized_move_aIPjS0_13std_allocatorIjEET0_T_S4_S3_RT1_.exit: ; pre
   br label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %28, %_ZSt22__uninitialized_move_aIPjS0_13std_allocatorIjEET0_T_S4_S3_RT1_.exit
-  %34 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 2
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit, %.lr.ph.i.i.i

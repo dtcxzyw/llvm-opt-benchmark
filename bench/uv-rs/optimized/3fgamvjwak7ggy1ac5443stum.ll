@@ -2404,7 +2404,8 @@ _ZN4core3ops8function5FnMut8call_mut17hb91ca6c52c684c85E.llvm.697765110188846001
   %49 = load ptr, ptr %19, align 8, !noalias !778, !nonnull !12, !noundef !12
   %50 = load i64, ptr %20, align 8, !noalias !778, !noundef !12
   call void @llvm.experimental.noalias.scope.decl(metadata !785)
-  %51 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %49, i64 %50
+  %.idx.i.i.i.i.i = mul nsw i64 %50, 24
+  %51 = getelementptr inbounds i8, ptr %49, i64 %.idx.i.i.i.i.i
   %.not.i.i.i.i.i.i = icmp eq i64 %50, 0
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h65e3a78ebe4d5b9dE.exit", label %.lr.ph.i.i.i.i.i.i
 
@@ -2890,7 +2891,8 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17ha5284d2b4d2cf24aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #11 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 24
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !921)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd7c63ded7728b623E.llvm.6977651101888460017.exit", label %.lr.ph.i

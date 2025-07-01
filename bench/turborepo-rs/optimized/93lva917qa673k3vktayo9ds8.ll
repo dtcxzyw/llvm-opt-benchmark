@@ -1201,7 +1201,8 @@ _RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultNtNtNtCsapf13pIxsjn_3std4hash6rand
   store ptr inttoptr (i64 8 to ptr), ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i64 0, ptr %60, align 8
-  %61 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %2, i64 %3
+  %.idx = mul nsw i64 %3, 24
+  %61 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %62 = icmp eq i64 %3, 0
   br i1 %62, label %._crit_edge, label %.lr.ph
 
@@ -2291,7 +2292,8 @@ _RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultNtNtNtCsapf13pIxsjn_3std4hash6rand
   store ptr inttoptr (i64 8 to ptr), ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i64 0, ptr %60, align 8
-  %61 = getelementptr inbounds { ptr, i64 }, ptr %2, i64 %3
+  %.idx = shl nsw i64 %3, 4
+  %61 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %62 = icmp eq i64 %3, 0
   br i1 %62, label %._crit_edge, label %.lr.ph
 

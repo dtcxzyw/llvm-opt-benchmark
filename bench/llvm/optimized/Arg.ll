@@ -471,7 +471,8 @@ tailrecurse:                                      ; preds = %tailrecurse, %3
   %22 = load ptr, ptr %7, align 8, !tbaa !33
   %23 = load i32, ptr %20, align 8, !tbaa !34
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %.idx = shl nuw nsw i64 %24, 3
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %.not13 = icmp eq i32 %23, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 

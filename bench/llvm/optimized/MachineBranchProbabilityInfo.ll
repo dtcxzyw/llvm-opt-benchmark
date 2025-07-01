@@ -522,7 +522,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %43, %45
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.024.032, i64 120
   %66 = load i32, ptr %65, align 8, !tbaa !36
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %64, i64 %67
+  %.idx = shl nuw nsw i64 %67, 3
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx
   %.not28 = icmp eq i32 %66, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
@@ -888,7 +889,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm28MachineBranchProbabilityInfo10inv
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %12 = load i32, ptr %11, align 4, !tbaa !40, !noalias !93
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %13
+  %.idx.i.i.i.i = shl nuw nsw i64 %13, 3
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i.i
   %.not.not9.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not.not9.i.i.i.i, label %_ZNK4llvm17PreservedAnalyses10getCheckerINS_32MachineBranchProbabilityAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit, label %.lr.ph.i.i.i.i
 

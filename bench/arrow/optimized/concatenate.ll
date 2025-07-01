@@ -16345,7 +16345,8 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE6resizeEm.exit: ; preds = %1
   %.sroa.3.0.i = tail call i64 @llvm.usub.sat.i64(i64 %60, i64 2)
   %.sroa.0.0.idx.i = select i1 %61, i64 0, i64 2
   %.sroa.0.0.i = getelementptr inbounds nuw %"class.std::shared_ptr.48", ptr %54, i64 %.sroa.0.0.idx.i
-  %62 = getelementptr inbounds nuw %"class.std::shared_ptr.48", ptr %.sroa.0.0.i, i64 %.sroa.3.0.i
+  %.idx = shl nuw nsw i64 %.sroa.3.0.i, 4
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %.idx
   %.not30 = icmp ult i64 %60, 3
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
@@ -19878,7 +19879,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZN5arrow6Stat
           to label %.noexc277 unwind label %523
 
 .noexc277:                                        ; preds = %511
-  %514 = getelementptr i32, ptr %513, i64 %508
+  %514 = getelementptr inbounds nuw i32, ptr %513, i64 %508
   store i32 0, ptr %513, align 4, !tbaa !44
   %515 = icmp eq i64 %508, 1
   br i1 %515, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i

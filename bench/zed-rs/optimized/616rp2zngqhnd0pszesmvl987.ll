@@ -3805,7 +3805,8 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as
   %8 = load i64, ptr %7, align 8, !noundef !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !836
   call void @_ZN4core3fmt9Formatter10debug_list17hd6657c9b4ac76e70E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !840
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 %8
+  %.idx.i = shl nsw i64 %8, 4
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17hd268f727bb2118c4E.exit", label %.lr.ph.i.i
 
@@ -4225,7 +4226,8 @@ define hidden void @_ZN8indexmap3map4core3raw19insert_bulk_no_grow17h92bf9e9a931
   unreachable
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 104
+  %9 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %10 = icmp eq i64 %2, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 

@@ -421,7 +421,8 @@ define weak_odr void @_ZN5boost7archive18basic_xml_iarchiveINS0_13xml_wiarchiveE
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 464
   %32 = load ptr, ptr %31, align 8, !tbaa !47
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %26
+  %.idx = shl nuw nsw i64 %26, 2
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %26, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEPKcEbT_SC_T0_.exit.thread, label %.lr.ph.i.i.i.i
 

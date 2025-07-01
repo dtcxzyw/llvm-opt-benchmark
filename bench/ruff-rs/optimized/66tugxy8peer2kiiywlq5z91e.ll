@@ -1090,7 +1090,8 @@ define void @_ZN14ruff_formatter7Printed11slice_range17h27dc781fce40c0d5E(ptr de
   %.sroa.545.0.copyload = load i64, ptr %.sroa.545.0..sroa_idx, align 8
   %13 = icmp ult i64 %.sroa.545.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds nuw { i32, i32 }, ptr %.sroa.444.0.copyload, i64 %.sroa.545.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.545.0.copyload, 3
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.444.0.copyload, i64 %.idx
   %15 = icmp sgt i64 %.sroa.043.0.copyload, -1
   tail call void @llvm.assume(i1 %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)

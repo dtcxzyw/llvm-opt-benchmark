@@ -13,13 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::DiagnosticBuilder" = type <{ %"class.clang::StreamingDiagnostic", ptr, %"class.clang::SourceLocation", i32, %"class.std::__cxx11::basic_string", i8, i8, [6 x i8] }>
 %"class.clang::StreamingDiagnostic" = type { ptr, ptr }
 %"class.clang::SourceLocation" = type { i32 }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.clang::FixItHint" = type <{ %"class.clang::CharSourceRange", %"class.clang::CharSourceRange", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
-%"class.clang::CharSourceRange" = type <{ %"class.clang::SourceRange", i8, [3 x i8] }>
-%"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
 %"struct.std::pair.196" = type { %"class.llvm::StringRef", %"struct.clang::ento::CmdLineOption" }
 %"struct.std::pair.194" = type { %"class.llvm::StringRef", %"class.llvm::StringRef" }
 %"struct.clang::ento::PackageInfo" = type { %"class.llvm::StringRef", %"class.llvm::SmallVector.57" }
@@ -2959,9 +2952,10 @@ define dso_local void @_ZN5clang4ento15CheckerRegistryC2ERNS0_19CheckerRegistryD
   %1084 = getelementptr inbounds nuw i8, ptr %675, i64 8
   store i64 77, ptr %1084, align 8, !tbaa !16
   tail call void @_ZN5clang4ento15CheckerRegistry10addCheckerEPFvRNS0_14CheckerManagerEEPFbRKS2_EN4llvm9StringRefESB_SB_b(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @_ZN5clang4ento13registervforkERNS0_14CheckerManagerE, ptr noundef nonnull @_ZN5clang4ento19shouldRegistervforkERKNS0_14CheckerManagerE, ptr nonnull @.str.577, i64 26, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %674, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %675, i1 noundef zeroext false)
-  %1085 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %2, i64 %3
-  %.not2720 = icmp eq i64 %3, 0
-  br i1 %.not2720, label %._crit_edge, label %.lr.ph
+  %.idx = shl nuw nsw i64 %3, 5
+  %1085 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
+  %.not2721 = icmp eq i64 %3, 0
+  br i1 %.not2721, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %1086 = getelementptr inbounds nuw i8, ptr %676, i64 16
@@ -2993,28 +2987,29 @@ define dso_local void @_ZN5clang4ento15CheckerRegistryC2ERNS0_19CheckerRegistryD
   %1109 = load ptr, ptr %6, align 8, !tbaa !17
   %1110 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %1111 = load i64, ptr %1110, align 8, !tbaa !20
-  %1112 = getelementptr inbounds nuw %"class.std::function", ptr %1109, i64 %1111
-  %.not422722 = icmp eq i64 %1111, 0
-  br i1 %.not422722, label %._crit_edge2726, label %.lr.ph2725
+  %.idx2736 = shl nuw nsw i64 %1111, 5
+  %1112 = getelementptr inbounds nuw i8, ptr %1109, i64 %.idx2736
+  %.not422723 = icmp eq i64 %1111, 0
+  br i1 %.not422723, label %._crit_edge2727, label %.lr.ph2726
 
 1113:                                             ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.02721 = phi ptr [ %2, %.lr.ph ], [ %1257, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.02722 = phi ptr [ %2, %.lr.ph ], [ %1257, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %676) #15
   store ptr %1086, ptr %676, align 8, !tbaa !21
   store i64 0, ptr %1087, align 8, !tbaa !23
   store i8 0, ptr %1086, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %677) #15
-  %1114 = load ptr, ptr %.02721, align 8, !tbaa !26
+  %1114 = load ptr, ptr %.02722, align 8, !tbaa !26
   %1115 = call ptr @_ZN4llvm3sys14DynamicLibrary19getPermanentLibraryEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %1114, ptr noundef nonnull %676) #15
   store ptr %1115, ptr %677, align 8
-  %.not2717 = icmp eq ptr %1115, @_ZN4llvm3sys14DynamicLibrary7InvalidE
-  br i1 %.not2717, label %1116, label %1139
+  %.not2718 = icmp eq ptr %1115, @_ZN4llvm3sys14DynamicLibrary7InvalidE
+  br i1 %.not2718, label %1116, label %1139
 
 1116:                                             ; preds = %1113
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %678) #15
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %678, ptr noundef nonnull align 8 dereferenceable(15248) %4, i32 0, i32 noundef 737) #15
-  %1117 = load ptr, ptr %.02721, align 8, !tbaa !26
-  %1118 = getelementptr inbounds nuw i8, ptr %.02721, i64 8
+  %1117 = load ptr, ptr %.02722, align 8, !tbaa !26
+  %1118 = getelementptr inbounds nuw i8, ptr %.02722, i64 8
   %1119 = load i64, ptr %1118, align 8, !tbaa !23
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %678, ptr %1117, i64 %1119)
   %1120 = load ptr, ptr %676, align 8, !tbaa !26
@@ -3082,8 +3077,8 @@ _ZL22isCompatibleAPIVersionPKc.exit:              ; preds = %1139
 _ZL22isCompatibleAPIVersionPKc.exit.thread:       ; preds = %1139, %_ZL22isCompatibleAPIVersionPKc.exit
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %679) #15
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %679, ptr noundef nonnull align 8 dereferenceable(15248) %4, i32 0, i32 noundef 836) #15
-  %1143 = load ptr, ptr %.02721, align 8, !tbaa !26
-  %1144 = getelementptr inbounds nuw i8, ptr %.02721, i64 8
+  %1143 = load ptr, ptr %.02722, align 8, !tbaa !26
+  %1144 = getelementptr inbounds nuw i8, ptr %.02722, i64 8
   %1145 = load i64, ptr %1144, align 8, !tbaa !23
   %1146 = call { ptr, i64 } @_ZN4llvm3sys4path8filenameENS_9StringRefENS1_5StyleE(ptr %1143, i64 %1145, i32 noundef 0) #15
   %1147 = extractvalue { ptr, i64 } %1146, 0
@@ -3140,7 +3135,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit50:          ; preds = %_ZNSt7__cxx1112basi
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %680, ptr noundef nonnull align 8 dereferenceable(15248) %4, i32 0, i32 noundef 791) #15
   %1166 = load ptr, ptr %680, align 8, !tbaa !39
   %.not.i652 = icmp eq ptr %1166, null
-  br i1 %.not.i652, label %1167, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit669
+  br i1 %.not.i652, label %1167, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit670
 
 1167:                                             ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit50
   %1168 = load ptr, ptr %1095, align 8, !tbaa !40
@@ -3202,7 +3197,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %1174
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %1186
   %1197 = zext i32 %1196 to i64
-  %1198 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %1194, i64 %1197
+  %.idx.i7.i.i.i = shl nuw nsw i64 %1197, 6
+  %1198 = getelementptr inbounds nuw i8, ptr %1194, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -3238,9 +3234,9 @@ _ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i: ; preds = %_ZN
 _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i: ; preds = %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i
   %.0.i.i.i = phi ptr [ %1173, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i ], [ %1191, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i ]
   store ptr %.0.i.i.i, ptr %680, align 8, !tbaa !39
-  br label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit669
+  br label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit670
 
-_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit669: ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i, %_ZN5clang17DiagnosticBuilderD2Ev.exit50
+_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit670: ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i, %_ZN5clang17DiagnosticBuilderD2Ev.exit50
   %1209 = phi ptr [ %.0.i.i.i, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i ], [ %1166, %_ZN5clang17DiagnosticBuilderD2Ev.exit50 ]
   %1210 = getelementptr inbounds nuw i8, ptr %1209, i64 1
   %1211 = load i8, ptr %1209, align 8, !tbaa !43
@@ -3272,7 +3268,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %1231 = trunc nuw i8 %1230 to i1
   br i1 %1231, label %1232, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i51
 
-1232:                                             ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit669
+1232:                                             ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit670
   %1233 = load ptr, ptr %1097, align 8, !tbaa !37
   %1234 = load i8, ptr %1098, align 1, !tbaa !38, !range !35, !noundef !36
   %1235 = trunc nuw i8 %1234 to i1
@@ -3282,7 +3278,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   store i8 0, ptr %1098, align 1, !tbaa !38
   br label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i51
 
-_ZN5clang17DiagnosticBuilder4EmitEv.exit.i51:     ; preds = %1232, %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit669
+_ZN5clang17DiagnosticBuilder4EmitEv.exit.i51:     ; preds = %1232, %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit670
   %1237 = load ptr, ptr %1099, align 8, !tbaa !26
   %1238 = icmp eq ptr %1237, %1100
   br i1 %1238, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i52
@@ -3346,11 +3342,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %676) #15
-  %1257 = getelementptr inbounds nuw i8, ptr %.02721, i64 32
+  %1257 = getelementptr inbounds nuw i8, ptr %.02722, i64 32
   %.not = icmp eq ptr %1257, %1085
   br i1 %.not, label %._crit_edge, label %1113
 
-._crit_edge2726:                                  ; preds = %_ZNKSt8functionIFvRN5clang4ento15CheckerRegistryEEEclES3_.exit, %._crit_edge
+._crit_edge2727:                                  ; preds = %_ZNKSt8functionIFvRN5clang4ento15CheckerRegistryEEEclES3_.exit, %._crit_edge
   %1258 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %1259 = load ptr, ptr %1258, align 8, !tbaa !56
   %1260 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -3361,7 +3357,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.not.i.i.i.i58 = icmp eq i32 %1261, 0
   br i1 %.not.i.i.i.i58, label %_ZN4llvm4sortIRNS_11SmallVectorIN5clang4ento11PackageInfoELj0EEENS3_16checker_registry10FullNameLTIS4_EEEEvOT_T0_.exit, label %1264
 
-1264:                                             ; preds = %._crit_edge2726
+1264:                                             ; preds = %._crit_edge2727
   %1265 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1262, i1 true)
   %1266 = shl nuw nsw i64 %1265, 1
   %1267 = xor i64 %1266, 126
@@ -3385,7 +3381,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @_ZSt16__insertion_sortIPN5clang4ento11PackageInfoEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_16checker_registry10FullNameLTIS2_EEEEEvT_SB_T0_(ptr noundef nonnull %1259, ptr noundef nonnull %1263)
   br label %_ZN4llvm4sortIRNS_11SmallVectorIN5clang4ento11PackageInfoELj0EEENS3_16checker_registry10FullNameLTIS4_EEEEvOT_T0_.exit
 
-_ZN4llvm4sortIRNS_11SmallVectorIN5clang4ento11PackageInfoELj0EEENS3_16checker_registry10FullNameLTIS4_EEEEvOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge2726, %1272
+_ZN4llvm4sortIRNS_11SmallVectorIN5clang4ento11PackageInfoELj0EEENS3_16checker_registry10FullNameLTIS4_EEEEvOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge2727, %1272
   %1273 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %1274 = load ptr, ptr %1273, align 8, !tbaa !64
   %1275 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -3432,16 +3428,16 @@ _ZN4llvm4sortIRSt6vectorIN5clang4ento11CheckerInfoESaIS4_EENS3_16checker_registr
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %275) #15
   %1293 = getelementptr inbounds nuw i8, ptr %275, i64 32
   store ptr @.str.585, ptr %1293, align 8
-  %.sroa.42223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %275, i64 40
-  store i64 5, ptr %.sroa.42223.0..sroa_idx, align 8
+  %.sroa.42224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %275, i64 40
+  store i64 5, ptr %.sroa.42224.0..sroa_idx, align 8
   %1294 = getelementptr inbounds nuw i8, ptr %275, i64 48
   store ptr @.str.586, ptr %1294, align 8
-  %.sroa.42225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %275, i64 56
-  store i64 242, ptr %.sroa.42225.0..sroa_idx, align 8
+  %.sroa.42226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %275, i64 56
+  store i64 242, ptr %.sroa.42226.0..sroa_idx, align 8
   %1295 = getelementptr inbounds nuw i8, ptr %275, i64 64
   store ptr @.str.587, ptr %1295, align 8
-  %.sroa.42227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %275, i64 72
-  store i64 8, ptr %.sroa.42227.0..sroa_idx, align 8
+  %.sroa.42228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %275, i64 72
+  store i64 8, ptr %.sroa.42228.0..sroa_idx, align 8
   store ptr @.str.583, ptr %275, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %275, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !62
@@ -6078,16 +6074,16 @@ _ZN5clang4ento15CheckerRegistry17addWeakDependencyEN4llvm9StringRefES3_.exit206:
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %129) #15
   %2538 = getelementptr inbounds nuw i8, ptr %129, i64 32
   store ptr @.str.585, ptr %2538, align 8
-  %.sroa.42231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 40
-  store i64 5, ptr %.sroa.42231.0..sroa_idx, align 8
+  %.sroa.42232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 40
+  store i64 5, ptr %.sroa.42232.0..sroa_idx, align 8
   %2539 = getelementptr inbounds nuw i8, ptr %129, i64 48
   store ptr @.str.53, ptr %2539, align 8
-  %.sroa.42233.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 56
-  store i64 0, ptr %.sroa.42233.0..sroa_idx, align 8
+  %.sroa.42234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 56
+  store i64 0, ptr %.sroa.42234.0..sroa_idx, align 8
   %2540 = getelementptr inbounds nuw i8, ptr %129, i64 64
   store ptr @.str.587, ptr %2540, align 8
-  %.sroa.42235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 72
-  store i64 8, ptr %.sroa.42235.0..sroa_idx, align 8
+  %.sroa.42236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 72
+  store i64 8, ptr %.sroa.42236.0..sroa_idx, align 8
   store ptr @.str.583, ptr %129, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i210 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i210, align 8, !tbaa !62
@@ -6132,16 +6128,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %127) #15
   %2559 = getelementptr inbounds nuw i8, ptr %127, i64 32
   store ptr @.str.585, ptr %2559, align 8
-  %.sroa.42239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %127, i64 40
-  store i64 5, ptr %.sroa.42239.0..sroa_idx, align 8
+  %.sroa.42240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %127, i64 40
+  store i64 5, ptr %.sroa.42240.0..sroa_idx, align 8
   %2560 = getelementptr inbounds nuw i8, ptr %127, i64 48
   store ptr @.str.53, ptr %2560, align 8
-  %.sroa.42241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %127, i64 56
-  store i64 0, ptr %.sroa.42241.0..sroa_idx, align 8
+  %.sroa.42242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %127, i64 56
+  store i64 0, ptr %.sroa.42242.0..sroa_idx, align 8
   %2561 = getelementptr inbounds nuw i8, ptr %127, i64 64
   store ptr @.str.587, ptr %2561, align 8
-  %.sroa.42243.0..sroa_idx = getelementptr inbounds nuw i8, ptr %127, i64 72
-  store i64 8, ptr %.sroa.42243.0..sroa_idx, align 8
+  %.sroa.42244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %127, i64 72
+  store i64 8, ptr %.sroa.42244.0..sroa_idx, align 8
   store ptr @.str.583, ptr %127, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i216 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i216, align 8, !tbaa !62
@@ -6186,16 +6182,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %125) #15
   %2580 = getelementptr inbounds nuw i8, ptr %125, i64 32
   store ptr @.str.585, ptr %2580, align 8
-  %.sroa.42247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 40
-  store i64 5, ptr %.sroa.42247.0..sroa_idx, align 8
+  %.sroa.42248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 40
+  store i64 5, ptr %.sroa.42248.0..sroa_idx, align 8
   %2581 = getelementptr inbounds nuw i8, ptr %125, i64 48
   store ptr @.str.53, ptr %2581, align 8
-  %.sroa.42249.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 56
-  store i64 0, ptr %.sroa.42249.0..sroa_idx, align 8
+  %.sroa.42250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 56
+  store i64 0, ptr %.sroa.42250.0..sroa_idx, align 8
   %2582 = getelementptr inbounds nuw i8, ptr %125, i64 64
   store ptr @.str.587, ptr %2582, align 8
-  %.sroa.42251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 72
-  store i64 8, ptr %.sroa.42251.0..sroa_idx, align 8
+  %.sroa.42252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 72
+  store i64 8, ptr %.sroa.42252.0..sroa_idx, align 8
   store ptr @.str.583, ptr %125, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i223 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i223, align 8, !tbaa !62
@@ -6240,16 +6236,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %123) #15
   %2601 = getelementptr inbounds nuw i8, ptr %123, i64 32
   store ptr @.str.585, ptr %2601, align 8
-  %.sroa.42255.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 40
-  store i64 5, ptr %.sroa.42255.0..sroa_idx, align 8
+  %.sroa.42256.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 40
+  store i64 5, ptr %.sroa.42256.0..sroa_idx, align 8
   %2602 = getelementptr inbounds nuw i8, ptr %123, i64 48
   store ptr @.str.53, ptr %2602, align 8
-  %.sroa.42257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 56
-  store i64 0, ptr %.sroa.42257.0..sroa_idx, align 8
+  %.sroa.42258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 56
+  store i64 0, ptr %.sroa.42258.0..sroa_idx, align 8
   %2603 = getelementptr inbounds nuw i8, ptr %123, i64 64
   store ptr @.str.587, ptr %2603, align 8
-  %.sroa.42259.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 72
-  store i64 8, ptr %.sroa.42259.0..sroa_idx, align 8
+  %.sroa.42260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 72
+  store i64 8, ptr %.sroa.42260.0..sroa_idx, align 8
   store ptr @.str.583, ptr %123, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i230 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i230, align 8, !tbaa !62
@@ -6294,16 +6290,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %121) #15
   %2622 = getelementptr inbounds nuw i8, ptr %121, i64 32
   store ptr @.str.585, ptr %2622, align 8
-  %.sroa.42263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 40
-  store i64 5, ptr %.sroa.42263.0..sroa_idx, align 8
+  %.sroa.42264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 40
+  store i64 5, ptr %.sroa.42264.0..sroa_idx, align 8
   %2623 = getelementptr inbounds nuw i8, ptr %121, i64 48
   store ptr @.str.53, ptr %2623, align 8
-  %.sroa.42265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 56
-  store i64 0, ptr %.sroa.42265.0..sroa_idx, align 8
+  %.sroa.42266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 56
+  store i64 0, ptr %.sroa.42266.0..sroa_idx, align 8
   %2624 = getelementptr inbounds nuw i8, ptr %121, i64 64
   store ptr @.str.587, ptr %2624, align 8
-  %.sroa.42267.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 72
-  store i64 8, ptr %.sroa.42267.0..sroa_idx, align 8
+  %.sroa.42268.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 72
+  store i64 8, ptr %.sroa.42268.0..sroa_idx, align 8
   store ptr @.str.583, ptr %121, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i237 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i237, align 8, !tbaa !62
@@ -6348,16 +6344,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %119) #15
   %2643 = getelementptr inbounds nuw i8, ptr %119, i64 32
   store ptr @.str.585, ptr %2643, align 8
-  %.sroa.42271.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 40
-  store i64 5, ptr %.sroa.42271.0..sroa_idx, align 8
+  %.sroa.42272.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 40
+  store i64 5, ptr %.sroa.42272.0..sroa_idx, align 8
   %2644 = getelementptr inbounds nuw i8, ptr %119, i64 48
   store ptr @.str.53, ptr %2644, align 8
-  %.sroa.42273.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 56
-  store i64 0, ptr %.sroa.42273.0..sroa_idx, align 8
+  %.sroa.42274.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 56
+  store i64 0, ptr %.sroa.42274.0..sroa_idx, align 8
   %2645 = getelementptr inbounds nuw i8, ptr %119, i64 64
   store ptr @.str.587, ptr %2645, align 8
-  %.sroa.42275.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 72
-  store i64 8, ptr %.sroa.42275.0..sroa_idx, align 8
+  %.sroa.42276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 72
+  store i64 8, ptr %.sroa.42276.0..sroa_idx, align 8
   store ptr @.str.583, ptr %119, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i244 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i244, align 8, !tbaa !62
@@ -6402,16 +6398,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %117) #15
   %2664 = getelementptr inbounds nuw i8, ptr %117, i64 32
   store ptr @.str.585, ptr %2664, align 8
-  %.sroa.42279.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 40
-  store i64 5, ptr %.sroa.42279.0..sroa_idx, align 8
+  %.sroa.42280.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 40
+  store i64 5, ptr %.sroa.42280.0..sroa_idx, align 8
   %2665 = getelementptr inbounds nuw i8, ptr %117, i64 48
   store ptr @.str.53, ptr %2665, align 8
-  %.sroa.42281.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 56
-  store i64 0, ptr %.sroa.42281.0..sroa_idx, align 8
+  %.sroa.42282.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 56
+  store i64 0, ptr %.sroa.42282.0..sroa_idx, align 8
   %2666 = getelementptr inbounds nuw i8, ptr %117, i64 64
   store ptr @.str.587, ptr %2666, align 8
-  %.sroa.42283.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 72
-  store i64 8, ptr %.sroa.42283.0..sroa_idx, align 8
+  %.sroa.42284.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 72
+  store i64 8, ptr %.sroa.42284.0..sroa_idx, align 8
   store ptr @.str.583, ptr %117, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i251 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i251, align 8, !tbaa !62
@@ -6456,16 +6452,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %115) #15
   %2685 = getelementptr inbounds nuw i8, ptr %115, i64 32
   store ptr @.str.585, ptr %2685, align 8
-  %.sroa.42287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 40
-  store i64 5, ptr %.sroa.42287.0..sroa_idx, align 8
+  %.sroa.42288.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 40
+  store i64 5, ptr %.sroa.42288.0..sroa_idx, align 8
   %2686 = getelementptr inbounds nuw i8, ptr %115, i64 48
   store ptr @.str.53, ptr %2686, align 8
-  %.sroa.42289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 56
-  store i64 0, ptr %.sroa.42289.0..sroa_idx, align 8
+  %.sroa.42290.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 56
+  store i64 0, ptr %.sroa.42290.0..sroa_idx, align 8
   %2687 = getelementptr inbounds nuw i8, ptr %115, i64 64
   store ptr @.str.587, ptr %2687, align 8
-  %.sroa.42291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 72
-  store i64 8, ptr %.sroa.42291.0..sroa_idx, align 8
+  %.sroa.42292.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 72
+  store i64 8, ptr %.sroa.42292.0..sroa_idx, align 8
   store ptr @.str.583, ptr %115, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i258 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i258, align 8, !tbaa !62
@@ -6510,16 +6506,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %113) #15
   %2706 = getelementptr inbounds nuw i8, ptr %113, i64 32
   store ptr @.str.585, ptr %2706, align 8
-  %.sroa.42295.0..sroa_idx = getelementptr inbounds nuw i8, ptr %113, i64 40
-  store i64 5, ptr %.sroa.42295.0..sroa_idx, align 8
+  %.sroa.42296.0..sroa_idx = getelementptr inbounds nuw i8, ptr %113, i64 40
+  store i64 5, ptr %.sroa.42296.0..sroa_idx, align 8
   %2707 = getelementptr inbounds nuw i8, ptr %113, i64 48
   store ptr @.str.53, ptr %2707, align 8
-  %.sroa.42297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %113, i64 56
-  store i64 0, ptr %.sroa.42297.0..sroa_idx, align 8
+  %.sroa.42298.0..sroa_idx = getelementptr inbounds nuw i8, ptr %113, i64 56
+  store i64 0, ptr %.sroa.42298.0..sroa_idx, align 8
   %2708 = getelementptr inbounds nuw i8, ptr %113, i64 64
   store ptr @.str.587, ptr %2708, align 8
-  %.sroa.42299.0..sroa_idx = getelementptr inbounds nuw i8, ptr %113, i64 72
-  store i64 8, ptr %.sroa.42299.0..sroa_idx, align 8
+  %.sroa.42300.0..sroa_idx = getelementptr inbounds nuw i8, ptr %113, i64 72
+  store i64 8, ptr %.sroa.42300.0..sroa_idx, align 8
   store ptr @.str.583, ptr %113, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i265 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i265, align 8, !tbaa !62
@@ -6564,16 +6560,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %111) #15
   %2727 = getelementptr inbounds nuw i8, ptr %111, i64 32
   store ptr @.str.585, ptr %2727, align 8
-  %.sroa.42303.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 40
-  store i64 5, ptr %.sroa.42303.0..sroa_idx, align 8
+  %.sroa.42304.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 40
+  store i64 5, ptr %.sroa.42304.0..sroa_idx, align 8
   %2728 = getelementptr inbounds nuw i8, ptr %111, i64 48
   store ptr @.str.53, ptr %2728, align 8
-  %.sroa.42305.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 56
-  store i64 0, ptr %.sroa.42305.0..sroa_idx, align 8
+  %.sroa.42306.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 56
+  store i64 0, ptr %.sroa.42306.0..sroa_idx, align 8
   %2729 = getelementptr inbounds nuw i8, ptr %111, i64 64
   store ptr @.str.587, ptr %2729, align 8
-  %.sroa.42307.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 72
-  store i64 8, ptr %.sroa.42307.0..sroa_idx, align 8
+  %.sroa.42308.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 72
+  store i64 8, ptr %.sroa.42308.0..sroa_idx, align 8
   store ptr @.str.583, ptr %111, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i272 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i272, align 8, !tbaa !62
@@ -6618,16 +6614,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %109) #15
   %2748 = getelementptr inbounds nuw i8, ptr %109, i64 32
   store ptr @.str.585, ptr %2748, align 8
-  %.sroa.42311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 40
-  store i64 5, ptr %.sroa.42311.0..sroa_idx, align 8
+  %.sroa.42312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 40
+  store i64 5, ptr %.sroa.42312.0..sroa_idx, align 8
   %2749 = getelementptr inbounds nuw i8, ptr %109, i64 48
   store ptr @.str.53, ptr %2749, align 8
-  %.sroa.42313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 56
-  store i64 0, ptr %.sroa.42313.0..sroa_idx, align 8
+  %.sroa.42314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 56
+  store i64 0, ptr %.sroa.42314.0..sroa_idx, align 8
   %2750 = getelementptr inbounds nuw i8, ptr %109, i64 64
   store ptr @.str.587, ptr %2750, align 8
-  %.sroa.42315.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 72
-  store i64 8, ptr %.sroa.42315.0..sroa_idx, align 8
+  %.sroa.42316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 72
+  store i64 8, ptr %.sroa.42316.0..sroa_idx, align 8
   store ptr @.str.583, ptr %109, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i279 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i279, align 8, !tbaa !62
@@ -6672,16 +6668,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %107) #15
   %2769 = getelementptr inbounds nuw i8, ptr %107, i64 32
   store ptr @.str.585, ptr %2769, align 8
-  %.sroa.42319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 40
-  store i64 5, ptr %.sroa.42319.0..sroa_idx, align 8
+  %.sroa.42320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 40
+  store i64 5, ptr %.sroa.42320.0..sroa_idx, align 8
   %2770 = getelementptr inbounds nuw i8, ptr %107, i64 48
   store ptr @.str.53, ptr %2770, align 8
-  %.sroa.42321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 56
-  store i64 0, ptr %.sroa.42321.0..sroa_idx, align 8
+  %.sroa.42322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 56
+  store i64 0, ptr %.sroa.42322.0..sroa_idx, align 8
   %2771 = getelementptr inbounds nuw i8, ptr %107, i64 64
   store ptr @.str.587, ptr %2771, align 8
-  %.sroa.42323.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 72
-  store i64 8, ptr %.sroa.42323.0..sroa_idx, align 8
+  %.sroa.42324.0..sroa_idx = getelementptr inbounds nuw i8, ptr %107, i64 72
+  store i64 8, ptr %.sroa.42324.0..sroa_idx, align 8
   store ptr @.str.583, ptr %107, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i286 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i286, align 8, !tbaa !62
@@ -6726,16 +6722,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %105) #15
   %2790 = getelementptr inbounds nuw i8, ptr %105, i64 32
   store ptr @.str.585, ptr %2790, align 8
-  %.sroa.42327.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 40
-  store i64 5, ptr %.sroa.42327.0..sroa_idx, align 8
+  %.sroa.42328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 40
+  store i64 5, ptr %.sroa.42328.0..sroa_idx, align 8
   %2791 = getelementptr inbounds nuw i8, ptr %105, i64 48
   store ptr @.str.53, ptr %2791, align 8
-  %.sroa.42329.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 56
-  store i64 0, ptr %.sroa.42329.0..sroa_idx, align 8
+  %.sroa.42330.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 56
+  store i64 0, ptr %.sroa.42330.0..sroa_idx, align 8
   %2792 = getelementptr inbounds nuw i8, ptr %105, i64 64
   store ptr @.str.587, ptr %2792, align 8
-  %.sroa.42331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 72
-  store i64 8, ptr %.sroa.42331.0..sroa_idx, align 8
+  %.sroa.42332.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 72
+  store i64 8, ptr %.sroa.42332.0..sroa_idx, align 8
   store ptr @.str.583, ptr %105, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i293 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i293, align 8, !tbaa !62
@@ -6780,16 +6776,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %103) #15
   %2811 = getelementptr inbounds nuw i8, ptr %103, i64 32
   store ptr @.str.585, ptr %2811, align 8
-  %.sroa.42335.0..sroa_idx = getelementptr inbounds nuw i8, ptr %103, i64 40
-  store i64 5, ptr %.sroa.42335.0..sroa_idx, align 8
+  %.sroa.42336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %103, i64 40
+  store i64 5, ptr %.sroa.42336.0..sroa_idx, align 8
   %2812 = getelementptr inbounds nuw i8, ptr %103, i64 48
   store ptr @.str.53, ptr %2812, align 8
-  %.sroa.42337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %103, i64 56
-  store i64 0, ptr %.sroa.42337.0..sroa_idx, align 8
+  %.sroa.42338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %103, i64 56
+  store i64 0, ptr %.sroa.42338.0..sroa_idx, align 8
   %2813 = getelementptr inbounds nuw i8, ptr %103, i64 64
   store ptr @.str.587, ptr %2813, align 8
-  %.sroa.42339.0..sroa_idx = getelementptr inbounds nuw i8, ptr %103, i64 72
-  store i64 8, ptr %.sroa.42339.0..sroa_idx, align 8
+  %.sroa.42340.0..sroa_idx = getelementptr inbounds nuw i8, ptr %103, i64 72
+  store i64 8, ptr %.sroa.42340.0..sroa_idx, align 8
   store ptr @.str.583, ptr %103, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i300 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i300, align 8, !tbaa !62
@@ -6834,16 +6830,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %101) #15
   %2832 = getelementptr inbounds nuw i8, ptr %101, i64 32
   store ptr @.str.585, ptr %2832, align 8
-  %.sroa.42343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 40
-  store i64 5, ptr %.sroa.42343.0..sroa_idx, align 8
+  %.sroa.42344.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 40
+  store i64 5, ptr %.sroa.42344.0..sroa_idx, align 8
   %2833 = getelementptr inbounds nuw i8, ptr %101, i64 48
   store ptr @.str.53, ptr %2833, align 8
-  %.sroa.42345.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 56
-  store i64 0, ptr %.sroa.42345.0..sroa_idx, align 8
+  %.sroa.42346.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 56
+  store i64 0, ptr %.sroa.42346.0..sroa_idx, align 8
   %2834 = getelementptr inbounds nuw i8, ptr %101, i64 64
   store ptr @.str.587, ptr %2834, align 8
-  %.sroa.42347.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 72
-  store i64 8, ptr %.sroa.42347.0..sroa_idx, align 8
+  %.sroa.42348.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 72
+  store i64 8, ptr %.sroa.42348.0..sroa_idx, align 8
   store ptr @.str.583, ptr %101, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i307 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i307, align 8, !tbaa !62
@@ -6888,16 +6884,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %99) #15
   %2853 = getelementptr inbounds nuw i8, ptr %99, i64 32
   store ptr @.str.585, ptr %2853, align 8
-  %.sroa.42351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 40
-  store i64 5, ptr %.sroa.42351.0..sroa_idx, align 8
+  %.sroa.42352.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 40
+  store i64 5, ptr %.sroa.42352.0..sroa_idx, align 8
   %2854 = getelementptr inbounds nuw i8, ptr %99, i64 48
   store ptr @.str.53, ptr %2854, align 8
-  %.sroa.42353.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 56
-  store i64 0, ptr %.sroa.42353.0..sroa_idx, align 8
+  %.sroa.42354.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 56
+  store i64 0, ptr %.sroa.42354.0..sroa_idx, align 8
   %2855 = getelementptr inbounds nuw i8, ptr %99, i64 64
   store ptr @.str.587, ptr %2855, align 8
-  %.sroa.42355.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 72
-  store i64 8, ptr %.sroa.42355.0..sroa_idx, align 8
+  %.sroa.42356.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 72
+  store i64 8, ptr %.sroa.42356.0..sroa_idx, align 8
   store ptr @.str.583, ptr %99, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i314 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i314, align 8, !tbaa !62
@@ -6942,16 +6938,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %97) #15
   %2874 = getelementptr inbounds nuw i8, ptr %97, i64 32
   store ptr @.str.585, ptr %2874, align 8
-  %.sroa.42359.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 40
-  store i64 5, ptr %.sroa.42359.0..sroa_idx, align 8
+  %.sroa.42360.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 40
+  store i64 5, ptr %.sroa.42360.0..sroa_idx, align 8
   %2875 = getelementptr inbounds nuw i8, ptr %97, i64 48
   store ptr @.str.53, ptr %2875, align 8
-  %.sroa.42361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 56
-  store i64 0, ptr %.sroa.42361.0..sroa_idx, align 8
+  %.sroa.42362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 56
+  store i64 0, ptr %.sroa.42362.0..sroa_idx, align 8
   %2876 = getelementptr inbounds nuw i8, ptr %97, i64 64
   store ptr @.str.587, ptr %2876, align 8
-  %.sroa.42363.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 72
-  store i64 8, ptr %.sroa.42363.0..sroa_idx, align 8
+  %.sroa.42364.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 72
+  store i64 8, ptr %.sroa.42364.0..sroa_idx, align 8
   store ptr @.str.583, ptr %97, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i321 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i321, align 8, !tbaa !62
@@ -6996,16 +6992,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %95) #15
   %2895 = getelementptr inbounds nuw i8, ptr %95, i64 32
   store ptr @.str.585, ptr %2895, align 8
-  %.sroa.42367.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 40
-  store i64 5, ptr %.sroa.42367.0..sroa_idx, align 8
+  %.sroa.42368.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 40
+  store i64 5, ptr %.sroa.42368.0..sroa_idx, align 8
   %2896 = getelementptr inbounds nuw i8, ptr %95, i64 48
   store ptr @.str.53, ptr %2896, align 8
-  %.sroa.42369.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 56
-  store i64 0, ptr %.sroa.42369.0..sroa_idx, align 8
+  %.sroa.42370.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 56
+  store i64 0, ptr %.sroa.42370.0..sroa_idx, align 8
   %2897 = getelementptr inbounds nuw i8, ptr %95, i64 64
   store ptr @.str.587, ptr %2897, align 8
-  %.sroa.42371.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 72
-  store i64 8, ptr %.sroa.42371.0..sroa_idx, align 8
+  %.sroa.42372.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 72
+  store i64 8, ptr %.sroa.42372.0..sroa_idx, align 8
   store ptr @.str.583, ptr %95, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i328 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i328, align 8, !tbaa !62
@@ -7050,16 +7046,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %93) #15
   %2916 = getelementptr inbounds nuw i8, ptr %93, i64 32
   store ptr @.str.585, ptr %2916, align 8
-  %.sroa.42375.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 40
-  store i64 5, ptr %.sroa.42375.0..sroa_idx, align 8
+  %.sroa.42376.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 40
+  store i64 5, ptr %.sroa.42376.0..sroa_idx, align 8
   %2917 = getelementptr inbounds nuw i8, ptr %93, i64 48
   store ptr @.str.53, ptr %2917, align 8
-  %.sroa.42377.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 56
-  store i64 0, ptr %.sroa.42377.0..sroa_idx, align 8
+  %.sroa.42378.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 56
+  store i64 0, ptr %.sroa.42378.0..sroa_idx, align 8
   %2918 = getelementptr inbounds nuw i8, ptr %93, i64 64
   store ptr @.str.587, ptr %2918, align 8
-  %.sroa.42379.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 72
-  store i64 8, ptr %.sroa.42379.0..sroa_idx, align 8
+  %.sroa.42380.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 72
+  store i64 8, ptr %.sroa.42380.0..sroa_idx, align 8
   store ptr @.str.583, ptr %93, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i335 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i335, align 8, !tbaa !62
@@ -7104,16 +7100,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %91) #15
   %2937 = getelementptr inbounds nuw i8, ptr %91, i64 32
   store ptr @.str.585, ptr %2937, align 8
-  %.sroa.42383.0..sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 40
-  store i64 5, ptr %.sroa.42383.0..sroa_idx, align 8
+  %.sroa.42384.0..sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 40
+  store i64 5, ptr %.sroa.42384.0..sroa_idx, align 8
   %2938 = getelementptr inbounds nuw i8, ptr %91, i64 48
   store ptr @.str.53, ptr %2938, align 8
-  %.sroa.42385.0..sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 56
-  store i64 0, ptr %.sroa.42385.0..sroa_idx, align 8
+  %.sroa.42386.0..sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 56
+  store i64 0, ptr %.sroa.42386.0..sroa_idx, align 8
   %2939 = getelementptr inbounds nuw i8, ptr %91, i64 64
   store ptr @.str.587, ptr %2939, align 8
-  %.sroa.42387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 72
-  store i64 8, ptr %.sroa.42387.0..sroa_idx, align 8
+  %.sroa.42388.0..sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 72
+  store i64 8, ptr %.sroa.42388.0..sroa_idx, align 8
   store ptr @.str.583, ptr %91, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i342 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i342, align 8, !tbaa !62
@@ -7158,16 +7154,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %89) #15
   %2958 = getelementptr inbounds nuw i8, ptr %89, i64 32
   store ptr @.str.585, ptr %2958, align 8
-  %.sroa.42391.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 40
-  store i64 5, ptr %.sroa.42391.0..sroa_idx, align 8
+  %.sroa.42392.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 40
+  store i64 5, ptr %.sroa.42392.0..sroa_idx, align 8
   %2959 = getelementptr inbounds nuw i8, ptr %89, i64 48
   store ptr @.str.53, ptr %2959, align 8
-  %.sroa.42393.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 56
-  store i64 0, ptr %.sroa.42393.0..sroa_idx, align 8
+  %.sroa.42394.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 56
+  store i64 0, ptr %.sroa.42394.0..sroa_idx, align 8
   %2960 = getelementptr inbounds nuw i8, ptr %89, i64 64
   store ptr @.str.587, ptr %2960, align 8
-  %.sroa.42395.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 72
-  store i64 8, ptr %.sroa.42395.0..sroa_idx, align 8
+  %.sroa.42396.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 72
+  store i64 8, ptr %.sroa.42396.0..sroa_idx, align 8
   store ptr @.str.583, ptr %89, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i349 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i349, align 8, !tbaa !62
@@ -7212,16 +7208,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %87) #15
   %2979 = getelementptr inbounds nuw i8, ptr %87, i64 32
   store ptr @.str.585, ptr %2979, align 8
-  %.sroa.42399.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 40
-  store i64 5, ptr %.sroa.42399.0..sroa_idx, align 8
+  %.sroa.42400.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 40
+  store i64 5, ptr %.sroa.42400.0..sroa_idx, align 8
   %2980 = getelementptr inbounds nuw i8, ptr %87, i64 48
   store ptr @.str.53, ptr %2980, align 8
-  %.sroa.42401.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 56
-  store i64 0, ptr %.sroa.42401.0..sroa_idx, align 8
+  %.sroa.42402.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 56
+  store i64 0, ptr %.sroa.42402.0..sroa_idx, align 8
   %2981 = getelementptr inbounds nuw i8, ptr %87, i64 64
   store ptr @.str.587, ptr %2981, align 8
-  %.sroa.42403.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 72
-  store i64 8, ptr %.sroa.42403.0..sroa_idx, align 8
+  %.sroa.42404.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 72
+  store i64 8, ptr %.sroa.42404.0..sroa_idx, align 8
   store ptr @.str.583, ptr %87, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i356 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i356, align 8, !tbaa !62
@@ -7266,16 +7262,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %85) #15
   %3000 = getelementptr inbounds nuw i8, ptr %85, i64 32
   store ptr @.str.585, ptr %3000, align 8
-  %.sroa.42407.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 40
-  store i64 5, ptr %.sroa.42407.0..sroa_idx, align 8
+  %.sroa.42408.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 40
+  store i64 5, ptr %.sroa.42408.0..sroa_idx, align 8
   %3001 = getelementptr inbounds nuw i8, ptr %85, i64 48
   store ptr @.str.611, ptr %3001, align 8
-  %.sroa.42409.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 56
-  store i64 22, ptr %.sroa.42409.0..sroa_idx, align 8
+  %.sroa.42410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 56
+  store i64 22, ptr %.sroa.42410.0..sroa_idx, align 8
   %3002 = getelementptr inbounds nuw i8, ptr %85, i64 64
   store ptr @.str.587, ptr %3002, align 8
-  %.sroa.42411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 72
-  store i64 8, ptr %.sroa.42411.0..sroa_idx, align 8
+  %.sroa.42412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 72
+  store i64 8, ptr %.sroa.42412.0..sroa_idx, align 8
   store ptr @.str.583, ptr %85, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i363 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i363, align 8, !tbaa !62
@@ -7320,16 +7316,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %83) #15
   %3021 = getelementptr inbounds nuw i8, ptr %83, i64 32
   store ptr @.str.585, ptr %3021, align 8
-  %.sroa.42415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 40
-  store i64 5, ptr %.sroa.42415.0..sroa_idx, align 8
+  %.sroa.42416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 40
+  store i64 5, ptr %.sroa.42416.0..sroa_idx, align 8
   %3022 = getelementptr inbounds nuw i8, ptr %83, i64 48
   store ptr @.str.613, ptr %3022, align 8
-  %.sroa.42417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 56
-  store i64 166, ptr %.sroa.42417.0..sroa_idx, align 8
+  %.sroa.42418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 56
+  store i64 166, ptr %.sroa.42418.0..sroa_idx, align 8
   %3023 = getelementptr inbounds nuw i8, ptr %83, i64 64
   store ptr @.str.587, ptr %3023, align 8
-  %.sroa.42419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 72
-  store i64 8, ptr %.sroa.42419.0..sroa_idx, align 8
+  %.sroa.42420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 72
+  store i64 8, ptr %.sroa.42420.0..sroa_idx, align 8
   store ptr @.str.583, ptr %83, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i370 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i370, align 8, !tbaa !62
@@ -7374,16 +7370,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %81) #15
   %3042 = getelementptr inbounds nuw i8, ptr %81, i64 32
   store ptr @.str.615, ptr %3042, align 8
-  %.sroa.42423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 40
-  store i64 4, ptr %.sroa.42423.0..sroa_idx, align 8
+  %.sroa.42424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 40
+  store i64 4, ptr %.sroa.42424.0..sroa_idx, align 8
   %3043 = getelementptr inbounds nuw i8, ptr %81, i64 48
   store ptr @.str.616, ptr %3043, align 8
-  %.sroa.42425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 56
-  store i64 60, ptr %.sroa.42425.0..sroa_idx, align 8
+  %.sroa.42426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 56
+  store i64 60, ptr %.sroa.42426.0..sroa_idx, align 8
   %3044 = getelementptr inbounds nuw i8, ptr %81, i64 64
   store ptr @.str.587, ptr %3044, align 8
-  %.sroa.42427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 72
-  store i64 8, ptr %.sroa.42427.0..sroa_idx, align 8
+  %.sroa.42428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 72
+  store i64 8, ptr %.sroa.42428.0..sroa_idx, align 8
   store ptr @.str.583, ptr %81, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i377 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i377, align 8, !tbaa !62
@@ -7428,16 +7424,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %79) #15
   %3063 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store ptr @.str.615, ptr %3063, align 8
-  %.sroa.42431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 40
-  store i64 4, ptr %.sroa.42431.0..sroa_idx, align 8
+  %.sroa.42432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 40
+  store i64 4, ptr %.sroa.42432.0..sroa_idx, align 8
   %3064 = getelementptr inbounds nuw i8, ptr %79, i64 48
   store ptr @.str.618, ptr %3064, align 8
-  %.sroa.42433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 56
-  store i64 76, ptr %.sroa.42433.0..sroa_idx, align 8
+  %.sroa.42434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 56
+  store i64 76, ptr %.sroa.42434.0..sroa_idx, align 8
   %3065 = getelementptr inbounds nuw i8, ptr %79, i64 64
   store ptr @.str.587, ptr %3065, align 8
-  %.sroa.42435.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 72
-  store i64 8, ptr %.sroa.42435.0..sroa_idx, align 8
+  %.sroa.42436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 72
+  store i64 8, ptr %.sroa.42436.0..sroa_idx, align 8
   store ptr @.str.583, ptr %79, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i384 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i384, align 8, !tbaa !62
@@ -7482,16 +7478,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %77) #15
   %3084 = getelementptr inbounds nuw i8, ptr %77, i64 32
   store ptr @.str.615, ptr %3084, align 8
-  %.sroa.42439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 40
-  store i64 4, ptr %.sroa.42439.0..sroa_idx, align 8
+  %.sroa.42440.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 40
+  store i64 4, ptr %.sroa.42440.0..sroa_idx, align 8
   %3085 = getelementptr inbounds nuw i8, ptr %77, i64 48
   store ptr @.str.620, ptr %3085, align 8
-  %.sroa.42441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 56
-  store i64 81, ptr %.sroa.42441.0..sroa_idx, align 8
+  %.sroa.42442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 56
+  store i64 81, ptr %.sroa.42442.0..sroa_idx, align 8
   %3086 = getelementptr inbounds nuw i8, ptr %77, i64 64
   store ptr @.str.587, ptr %3086, align 8
-  %.sroa.42443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 72
-  store i64 8, ptr %.sroa.42443.0..sroa_idx, align 8
+  %.sroa.42444.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 72
+  store i64 8, ptr %.sroa.42444.0..sroa_idx, align 8
   store ptr @.str.583, ptr %77, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i391 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i391, align 8, !tbaa !62
@@ -7536,16 +7532,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %75) #15
   %3105 = getelementptr inbounds nuw i8, ptr %75, i64 32
   store ptr @.str.615, ptr %3105, align 8
-  %.sroa.42447.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 40
-  store i64 4, ptr %.sroa.42447.0..sroa_idx, align 8
+  %.sroa.42448.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 40
+  store i64 4, ptr %.sroa.42448.0..sroa_idx, align 8
   %3106 = getelementptr inbounds nuw i8, ptr %75, i64 48
   store ptr @.str.622, ptr %3106, align 8
-  %.sroa.42449.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 56
-  store i64 58, ptr %.sroa.42449.0..sroa_idx, align 8
+  %.sroa.42450.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 56
+  store i64 58, ptr %.sroa.42450.0..sroa_idx, align 8
   %3107 = getelementptr inbounds nuw i8, ptr %75, i64 64
   store ptr @.str.587, ptr %3107, align 8
-  %.sroa.42451.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 72
-  store i64 8, ptr %.sroa.42451.0..sroa_idx, align 8
+  %.sroa.42452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 72
+  store i64 8, ptr %.sroa.42452.0..sroa_idx, align 8
   store ptr @.str.583, ptr %75, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i398 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i398, align 8, !tbaa !62
@@ -7590,16 +7586,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %73) #15
   %3126 = getelementptr inbounds nuw i8, ptr %73, i64 32
   store ptr @.str.615, ptr %3126, align 8
-  %.sroa.42455.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 40
-  store i64 4, ptr %.sroa.42455.0..sroa_idx, align 8
+  %.sroa.42456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 40
+  store i64 4, ptr %.sroa.42456.0..sroa_idx, align 8
   %3127 = getelementptr inbounds nuw i8, ptr %73, i64 48
   store ptr @.str.624, ptr %3127, align 8
-  %.sroa.42457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 56
-  store i64 62, ptr %.sroa.42457.0..sroa_idx, align 8
+  %.sroa.42458.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 56
+  store i64 62, ptr %.sroa.42458.0..sroa_idx, align 8
   %3128 = getelementptr inbounds nuw i8, ptr %73, i64 64
   store ptr @.str.587, ptr %3128, align 8
-  %.sroa.42459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 72
-  store i64 8, ptr %.sroa.42459.0..sroa_idx, align 8
+  %.sroa.42460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 72
+  store i64 8, ptr %.sroa.42460.0..sroa_idx, align 8
   store ptr @.str.583, ptr %73, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i405 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i405, align 8, !tbaa !62
@@ -7644,16 +7640,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %71) #15
   %3147 = getelementptr inbounds nuw i8, ptr %71, i64 32
   store ptr @.str.585, ptr %3147, align 8
-  %.sroa.42463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 40
-  store i64 5, ptr %.sroa.42463.0..sroa_idx, align 8
+  %.sroa.42464.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 40
+  store i64 5, ptr %.sroa.42464.0..sroa_idx, align 8
   %3148 = getelementptr inbounds nuw i8, ptr %71, i64 48
   store ptr @.str.626, ptr %3148, align 8
-  %.sroa.42465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 56
-  store i64 80, ptr %.sroa.42465.0..sroa_idx, align 8
+  %.sroa.42466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 56
+  store i64 80, ptr %.sroa.42466.0..sroa_idx, align 8
   %3149 = getelementptr inbounds nuw i8, ptr %71, i64 64
   store ptr @.str.36, ptr %3149, align 8
-  %.sroa.42467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 72
-  store i64 5, ptr %.sroa.42467.0..sroa_idx, align 8
+  %.sroa.42468.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 72
+  store i64 5, ptr %.sroa.42468.0..sroa_idx, align 8
   store ptr @.str.583, ptr %71, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i412 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i412, align 8, !tbaa !62
@@ -7698,16 +7694,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %69) #15
   %3168 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store ptr @.str.615, ptr %3168, align 8
-  %.sroa.42471.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 40
-  store i64 4, ptr %.sroa.42471.0..sroa_idx, align 8
+  %.sroa.42472.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 40
+  store i64 4, ptr %.sroa.42472.0..sroa_idx, align 8
   %3169 = getelementptr inbounds nuw i8, ptr %69, i64 48
   store ptr @.str.628, ptr %3169, align 8
-  %.sroa.42473.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 56
-  store i64 59, ptr %.sroa.42473.0..sroa_idx, align 8
+  %.sroa.42474.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 56
+  store i64 59, ptr %.sroa.42474.0..sroa_idx, align 8
   %3170 = getelementptr inbounds nuw i8, ptr %69, i64 64
   store ptr @.str.587, ptr %3170, align 8
-  %.sroa.42475.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 72
-  store i64 8, ptr %.sroa.42475.0..sroa_idx, align 8
+  %.sroa.42476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 72
+  store i64 8, ptr %.sroa.42476.0..sroa_idx, align 8
   store ptr @.str.583, ptr %69, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i419 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i419, align 8, !tbaa !62
@@ -7752,16 +7748,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %67) #15
   %3189 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr @.str.615, ptr %3189, align 8
-  %.sroa.42479.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 40
-  store i64 4, ptr %.sroa.42479.0..sroa_idx, align 8
+  %.sroa.42480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 40
+  store i64 4, ptr %.sroa.42480.0..sroa_idx, align 8
   %3190 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr @.str.630, ptr %3190, align 8
-  %.sroa.42481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 56
-  store i64 65, ptr %.sroa.42481.0..sroa_idx, align 8
+  %.sroa.42482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 56
+  store i64 65, ptr %.sroa.42482.0..sroa_idx, align 8
   %3191 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr @.str.587, ptr %3191, align 8
-  %.sroa.42483.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 72
-  store i64 8, ptr %.sroa.42483.0..sroa_idx, align 8
+  %.sroa.42484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 72
+  store i64 8, ptr %.sroa.42484.0..sroa_idx, align 8
   store ptr @.str.583, ptr %67, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i426 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i426, align 8, !tbaa !62
@@ -7806,16 +7802,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %65) #15
   %3210 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store ptr @.str.633, ptr %3210, align 8
-  %.sroa.42487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 40
-  store i64 2, ptr %.sroa.42487.0..sroa_idx, align 8
+  %.sroa.42488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 40
+  store i64 2, ptr %.sroa.42488.0..sroa_idx, align 8
   %3211 = getelementptr inbounds nuw i8, ptr %65, i64 48
   store ptr @.str.634, ptr %3211, align 8
-  %.sroa.42489.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 56
-  store i64 271, ptr %.sroa.42489.0..sroa_idx, align 8
+  %.sroa.42490.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 56
+  store i64 271, ptr %.sroa.42490.0..sroa_idx, align 8
   %3212 = getelementptr inbounds nuw i8, ptr %65, i64 64
   store ptr @.str.587, ptr %3212, align 8
-  %.sroa.42491.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 72
-  store i64 8, ptr %.sroa.42491.0..sroa_idx, align 8
+  %.sroa.42492.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 72
+  store i64 8, ptr %.sroa.42492.0..sroa_idx, align 8
   store ptr @.str.631, ptr %65, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i433 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 3, ptr %.sroa.22.0..sroa_idx.i.i433, align 8, !tbaa !62
@@ -7860,16 +7856,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %63) #15
   %3231 = getelementptr inbounds nuw i8, ptr %63, i64 32
   store ptr @.str.615, ptr %3231, align 8
-  %.sroa.42495.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 40
-  store i64 4, ptr %.sroa.42495.0..sroa_idx, align 8
+  %.sroa.42496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 40
+  store i64 4, ptr %.sroa.42496.0..sroa_idx, align 8
   %3232 = getelementptr inbounds nuw i8, ptr %63, i64 48
   store ptr @.str.636, ptr %3232, align 8
-  %.sroa.42497.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 56
-  store i64 45, ptr %.sroa.42497.0..sroa_idx, align 8
+  %.sroa.42498.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 56
+  store i64 45, ptr %.sroa.42498.0..sroa_idx, align 8
   %3233 = getelementptr inbounds nuw i8, ptr %63, i64 64
   store ptr @.str.587, ptr %3233, align 8
-  %.sroa.42499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 72
-  store i64 8, ptr %.sroa.42499.0..sroa_idx, align 8
+  %.sroa.42500.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 72
+  store i64 8, ptr %.sroa.42500.0..sroa_idx, align 8
   store ptr @.str.583, ptr %63, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i440 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i440, align 8, !tbaa !62
@@ -7914,16 +7910,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %61) #15
   %3252 = getelementptr inbounds nuw i8, ptr %61, i64 32
   store ptr @.str.639, ptr %3252, align 8
-  %.sroa.42503.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 40
-  store i64 2, ptr %.sroa.42503.0..sroa_idx, align 8
+  %.sroa.42504.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 40
+  store i64 2, ptr %.sroa.42504.0..sroa_idx, align 8
   %3253 = getelementptr inbounds nuw i8, ptr %61, i64 48
   store ptr @.str.640, ptr %3253, align 8
-  %.sroa.42505.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 56
-  store i64 91, ptr %.sroa.42505.0..sroa_idx, align 8
+  %.sroa.42506.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 56
+  store i64 91, ptr %.sroa.42506.0..sroa_idx, align 8
   %3254 = getelementptr inbounds nuw i8, ptr %61, i64 64
   store ptr @.str.587, ptr %3254, align 8
-  %.sroa.42507.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 72
-  store i64 8, ptr %.sroa.42507.0..sroa_idx, align 8
+  %.sroa.42508.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 72
+  store i64 8, ptr %.sroa.42508.0..sroa_idx, align 8
   store ptr @.str.637, ptr %61, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i447 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 6, ptr %.sroa.22.0..sroa_idx.i.i447, align 8, !tbaa !62
@@ -7968,16 +7964,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %59) #15
   %3273 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store ptr @.str.615, ptr %3273, align 8
-  %.sroa.42511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 40
-  store i64 4, ptr %.sroa.42511.0..sroa_idx, align 8
+  %.sroa.42512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 40
+  store i64 4, ptr %.sroa.42512.0..sroa_idx, align 8
   %3274 = getelementptr inbounds nuw i8, ptr %59, i64 48
   store ptr @.str.642, ptr %3274, align 8
-  %.sroa.42513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 56
-  store i64 82, ptr %.sroa.42513.0..sroa_idx, align 8
+  %.sroa.42514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 56
+  store i64 82, ptr %.sroa.42514.0..sroa_idx, align 8
   %3275 = getelementptr inbounds nuw i8, ptr %59, i64 64
   store ptr @.str.587, ptr %3275, align 8
-  %.sroa.42515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 72
-  store i64 8, ptr %.sroa.42515.0..sroa_idx, align 8
+  %.sroa.42516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 72
+  store i64 8, ptr %.sroa.42516.0..sroa_idx, align 8
   store ptr @.str.583, ptr %59, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i454 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i454, align 8, !tbaa !62
@@ -8022,16 +8018,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %57) #15
   %3294 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store ptr @.str.585, ptr %3294, align 8
-  %.sroa.42519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 40
-  store i64 5, ptr %.sroa.42519.0..sroa_idx, align 8
+  %.sroa.42520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 40
+  store i64 5, ptr %.sroa.42520.0..sroa_idx, align 8
   %3295 = getelementptr inbounds nuw i8, ptr %57, i64 48
   store ptr @.str.644, ptr %3295, align 8
-  %.sroa.42521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 56
-  store i64 36, ptr %.sroa.42521.0..sroa_idx, align 8
+  %.sroa.42522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 56
+  store i64 36, ptr %.sroa.42522.0..sroa_idx, align 8
   %3296 = getelementptr inbounds nuw i8, ptr %57, i64 64
   store ptr @.str.36, ptr %3296, align 8
-  %.sroa.42523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 72
-  store i64 5, ptr %.sroa.42523.0..sroa_idx, align 8
+  %.sroa.42524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 72
+  store i64 5, ptr %.sroa.42524.0..sroa_idx, align 8
   store ptr @.str.583, ptr %57, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i461 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i461, align 8, !tbaa !62
@@ -8076,16 +8072,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %55) #15
   %3315 = getelementptr inbounds nuw i8, ptr %55, i64 32
   store ptr @.str.585, ptr %3315, align 8
-  %.sroa.42527.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 40
-  store i64 5, ptr %.sroa.42527.0..sroa_idx, align 8
+  %.sroa.42528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 40
+  store i64 5, ptr %.sroa.42528.0..sroa_idx, align 8
   %3316 = getelementptr inbounds nuw i8, ptr %55, i64 48
   store ptr @.str.646, ptr %3316, align 8
-  %.sroa.42529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 56
-  store i64 124, ptr %.sroa.42529.0..sroa_idx, align 8
+  %.sroa.42530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 56
+  store i64 124, ptr %.sroa.42530.0..sroa_idx, align 8
   %3317 = getelementptr inbounds nuw i8, ptr %55, i64 64
   store ptr @.str.36, ptr %3317, align 8
-  %.sroa.42531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 72
-  store i64 5, ptr %.sroa.42531.0..sroa_idx, align 8
+  %.sroa.42532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 72
+  store i64 5, ptr %.sroa.42532.0..sroa_idx, align 8
   store ptr @.str.583, ptr %55, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i468 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i468, align 8, !tbaa !62
@@ -8130,16 +8126,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %53) #15
   %3336 = getelementptr inbounds nuw i8, ptr %53, i64 32
   store ptr @.str.585, ptr %3336, align 8
-  %.sroa.42535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 40
-  store i64 5, ptr %.sroa.42535.0..sroa_idx, align 8
+  %.sroa.42536.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 40
+  store i64 5, ptr %.sroa.42536.0..sroa_idx, align 8
   %3337 = getelementptr inbounds nuw i8, ptr %53, i64 48
   store ptr @.str.648, ptr %3337, align 8
-  %.sroa.42537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 56
-  store i64 161, ptr %.sroa.42537.0..sroa_idx, align 8
+  %.sroa.42538.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 56
+  store i64 161, ptr %.sroa.42538.0..sroa_idx, align 8
   %3338 = getelementptr inbounds nuw i8, ptr %53, i64 64
   store ptr @.str.36, ptr %3338, align 8
-  %.sroa.42539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 72
-  store i64 5, ptr %.sroa.42539.0..sroa_idx, align 8
+  %.sroa.42540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 72
+  store i64 5, ptr %.sroa.42540.0..sroa_idx, align 8
   store ptr @.str.583, ptr %53, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i475 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i475, align 8, !tbaa !62
@@ -8184,16 +8180,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %51) #15
   %3357 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store ptr @.str.615, ptr %3357, align 8
-  %.sroa.42543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 40
-  store i64 4, ptr %.sroa.42543.0..sroa_idx, align 8
+  %.sroa.42544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 40
+  store i64 4, ptr %.sroa.42544.0..sroa_idx, align 8
   %3358 = getelementptr inbounds nuw i8, ptr %51, i64 48
   store ptr @.str.650, ptr %3358, align 8
-  %.sroa.42545.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 56
-  store i64 229, ptr %.sroa.42545.0..sroa_idx, align 8
+  %.sroa.42546.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 56
+  store i64 229, ptr %.sroa.42546.0..sroa_idx, align 8
   %3359 = getelementptr inbounds nuw i8, ptr %51, i64 64
   store ptr @.str.587, ptr %3359, align 8
-  %.sroa.42547.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 72
-  store i64 8, ptr %.sroa.42547.0..sroa_idx, align 8
+  %.sroa.42548.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 72
+  store i64 8, ptr %.sroa.42548.0..sroa_idx, align 8
   store ptr @.str.583, ptr %51, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i482 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i482, align 8, !tbaa !62
@@ -8238,16 +8234,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %49) #15
   %3378 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store ptr @.str.615, ptr %3378, align 8
-  %.sroa.42551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 40
-  store i64 4, ptr %.sroa.42551.0..sroa_idx, align 8
+  %.sroa.42552.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 40
+  store i64 4, ptr %.sroa.42552.0..sroa_idx, align 8
   %3379 = getelementptr inbounds nuw i8, ptr %49, i64 48
   store ptr @.str.652, ptr %3379, align 8
-  %.sroa.42553.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 56
-  store i64 62, ptr %.sroa.42553.0..sroa_idx, align 8
+  %.sroa.42554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 56
+  store i64 62, ptr %.sroa.42554.0..sroa_idx, align 8
   %3380 = getelementptr inbounds nuw i8, ptr %49, i64 64
   store ptr @.str.36, ptr %3380, align 8
-  %.sroa.42555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 72
-  store i64 5, ptr %.sroa.42555.0..sroa_idx, align 8
+  %.sroa.42556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 72
+  store i64 5, ptr %.sroa.42556.0..sroa_idx, align 8
   store ptr @.str.583, ptr %49, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i489 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i489, align 8, !tbaa !62
@@ -8292,16 +8288,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %47) #15
   %3399 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store ptr @.str.585, ptr %3399, align 8
-  %.sroa.42559.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 40
-  store i64 5, ptr %.sroa.42559.0..sroa_idx, align 8
+  %.sroa.42560.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 40
+  store i64 5, ptr %.sroa.42560.0..sroa_idx, align 8
   %3400 = getelementptr inbounds nuw i8, ptr %47, i64 48
   store ptr @.str.654, ptr %3400, align 8
-  %.sroa.42561.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 56
-  store i64 125, ptr %.sroa.42561.0..sroa_idx, align 8
+  %.sroa.42562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 56
+  store i64 125, ptr %.sroa.42562.0..sroa_idx, align 8
   %3401 = getelementptr inbounds nuw i8, ptr %47, i64 64
   store ptr @.str.587, ptr %3401, align 8
-  %.sroa.42563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 72
-  store i64 8, ptr %.sroa.42563.0..sroa_idx, align 8
+  %.sroa.42564.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 72
+  store i64 8, ptr %.sroa.42564.0..sroa_idx, align 8
   store ptr @.str.583, ptr %47, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i496 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i496, align 8, !tbaa !62
@@ -8346,16 +8342,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %45) #15
   %3420 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr @.str.656, ptr %3420, align 8
-  %.sroa.42567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 40
-  store i64 15, ptr %.sroa.42567.0..sroa_idx, align 8
+  %.sroa.42568.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 40
+  store i64 15, ptr %.sroa.42568.0..sroa_idx, align 8
   %3421 = getelementptr inbounds nuw i8, ptr %45, i64 48
   store ptr @.str.657, ptr %3421, align 8
-  %.sroa.42569.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 56
-  store i64 278, ptr %.sroa.42569.0..sroa_idx, align 8
+  %.sroa.42570.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 56
+  store i64 278, ptr %.sroa.42570.0..sroa_idx, align 8
   %3422 = getelementptr inbounds nuw i8, ptr %45, i64 64
   store ptr @.str.587, ptr %3422, align 8
-  %.sroa.42571.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 72
-  store i64 8, ptr %.sroa.42571.0..sroa_idx, align 8
+  %.sroa.42572.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 72
+  store i64 8, ptr %.sroa.42572.0..sroa_idx, align 8
   store ptr @.str.637, ptr %45, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i503 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 6, ptr %.sroa.22.0..sroa_idx.i.i503, align 8, !tbaa !62
@@ -8400,16 +8396,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %43) #15
   %3441 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr @.str.585, ptr %3441, align 8
-  %.sroa.42575.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 40
-  store i64 5, ptr %.sroa.42575.0..sroa_idx, align 8
+  %.sroa.42576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 40
+  store i64 5, ptr %.sroa.42576.0..sroa_idx, align 8
   %3442 = getelementptr inbounds nuw i8, ptr %43, i64 48
   store ptr @.str.659, ptr %3442, align 8
-  %.sroa.42577.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 56
-  store i64 302, ptr %.sroa.42577.0..sroa_idx, align 8
+  %.sroa.42578.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 56
+  store i64 302, ptr %.sroa.42578.0..sroa_idx, align 8
   %3443 = getelementptr inbounds nuw i8, ptr %43, i64 64
   store ptr @.str.36, ptr %3443, align 8
-  %.sroa.42579.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 72
-  store i64 5, ptr %.sroa.42579.0..sroa_idx, align 8
+  %.sroa.42580.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 72
+  store i64 5, ptr %.sroa.42580.0..sroa_idx, align 8
   store ptr @.str.583, ptr %43, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i510 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i510, align 8, !tbaa !62
@@ -8454,16 +8450,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %41) #15
   %3462 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr @.str.615, ptr %3462, align 8
-  %.sroa.42583.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 40
-  store i64 4, ptr %.sroa.42583.0..sroa_idx, align 8
+  %.sroa.42584.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 40
+  store i64 4, ptr %.sroa.42584.0..sroa_idx, align 8
   %3463 = getelementptr inbounds nuw i8, ptr %41, i64 48
   store ptr @.str.661, ptr %3463, align 8
-  %.sroa.42585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 56
-  store i64 61, ptr %.sroa.42585.0..sroa_idx, align 8
+  %.sroa.42586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 56
+  store i64 61, ptr %.sroa.42586.0..sroa_idx, align 8
   %3464 = getelementptr inbounds nuw i8, ptr %41, i64 64
   store ptr @.str.587, ptr %3464, align 8
-  %.sroa.42587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 72
-  store i64 8, ptr %.sroa.42587.0..sroa_idx, align 8
+  %.sroa.42588.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 72
+  store i64 8, ptr %.sroa.42588.0..sroa_idx, align 8
   store ptr @.str.583, ptr %41, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i517 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i517, align 8, !tbaa !62
@@ -8508,16 +8504,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %39) #15
   %3483 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr @.str.585, ptr %3483, align 8
-  %.sroa.42591.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 40
-  store i64 5, ptr %.sroa.42591.0..sroa_idx, align 8
+  %.sroa.42592.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 40
+  store i64 5, ptr %.sroa.42592.0..sroa_idx, align 8
   %3484 = getelementptr inbounds nuw i8, ptr %39, i64 48
   store ptr @.str.662, ptr %3484, align 8
-  %.sroa.42593.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 56
-  store i64 142, ptr %.sroa.42593.0..sroa_idx, align 8
+  %.sroa.42594.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 56
+  store i64 142, ptr %.sroa.42594.0..sroa_idx, align 8
   %3485 = getelementptr inbounds nuw i8, ptr %39, i64 64
   store ptr @.str.587, ptr %3485, align 8
-  %.sroa.42595.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 72
-  store i64 8, ptr %.sroa.42595.0..sroa_idx, align 8
+  %.sroa.42596.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 72
+  store i64 8, ptr %.sroa.42596.0..sroa_idx, align 8
   store ptr @.str.583, ptr %39, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i524 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i524, align 8, !tbaa !62
@@ -8562,16 +8558,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %37) #15
   %3504 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store ptr @.str.664, ptr %3504, align 8
-  %.sroa.42599.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 40
-  store i64 2, ptr %.sroa.42599.0..sroa_idx, align 8
+  %.sroa.42600.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 40
+  store i64 2, ptr %.sroa.42600.0..sroa_idx, align 8
   %3505 = getelementptr inbounds nuw i8, ptr %37, i64 48
   store ptr @.str.665, ptr %3505, align 8
-  %.sroa.42601.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 56
-  store i64 82, ptr %.sroa.42601.0..sroa_idx, align 8
+  %.sroa.42602.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 56
+  store i64 82, ptr %.sroa.42602.0..sroa_idx, align 8
   %3506 = getelementptr inbounds nuw i8, ptr %37, i64 64
   store ptr @.str.587, ptr %3506, align 8
-  %.sroa.42603.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 72
-  store i64 8, ptr %.sroa.42603.0..sroa_idx, align 8
+  %.sroa.42604.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 72
+  store i64 8, ptr %.sroa.42604.0..sroa_idx, align 8
   store ptr @.str.631, ptr %37, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i531 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 3, ptr %.sroa.22.0..sroa_idx.i.i531, align 8, !tbaa !62
@@ -8616,16 +8612,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %35) #15
   %3525 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr @.str.585, ptr %3525, align 8
-  %.sroa.42607.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 40
-  store i64 5, ptr %.sroa.42607.0..sroa_idx, align 8
+  %.sroa.42608.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 40
+  store i64 5, ptr %.sroa.42608.0..sroa_idx, align 8
   %3526 = getelementptr inbounds nuw i8, ptr %35, i64 48
   store ptr @.str.667, ptr %3526, align 8
-  %.sroa.42609.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 56
-  store i64 237, ptr %.sroa.42609.0..sroa_idx, align 8
+  %.sroa.42610.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 56
+  store i64 237, ptr %.sroa.42610.0..sroa_idx, align 8
   %3527 = getelementptr inbounds nuw i8, ptr %35, i64 64
   store ptr @.str.587, ptr %3527, align 8
-  %.sroa.42611.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 72
-  store i64 8, ptr %.sroa.42611.0..sroa_idx, align 8
+  %.sroa.42612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 72
+  store i64 8, ptr %.sroa.42612.0..sroa_idx, align 8
   store ptr @.str.583, ptr %35, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i538 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i538, align 8, !tbaa !62
@@ -8670,16 +8666,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %33) #15
   %3546 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr @.str.585, ptr %3546, align 8
-  %.sroa.42615.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 40
-  store i64 5, ptr %.sroa.42615.0..sroa_idx, align 8
+  %.sroa.42616.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 40
+  store i64 5, ptr %.sroa.42616.0..sroa_idx, align 8
   %3547 = getelementptr inbounds nuw i8, ptr %33, i64 48
   store ptr @.str.669, ptr %3547, align 8
-  %.sroa.42617.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 56
-  store i64 70, ptr %.sroa.42617.0..sroa_idx, align 8
+  %.sroa.42618.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 56
+  store i64 70, ptr %.sroa.42618.0..sroa_idx, align 8
   %3548 = getelementptr inbounds nuw i8, ptr %33, i64 64
   store ptr @.str.587, ptr %3548, align 8
-  %.sroa.42619.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 72
-  store i64 8, ptr %.sroa.42619.0..sroa_idx, align 8
+  %.sroa.42620.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 72
+  store i64 8, ptr %.sroa.42620.0..sroa_idx, align 8
   store ptr @.str.583, ptr %33, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i545 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i545, align 8, !tbaa !62
@@ -8724,16 +8720,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %31) #15
   %3567 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr @.str.585, ptr %3567, align 8
-  %.sroa.42623.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 40
-  store i64 5, ptr %.sroa.42623.0..sroa_idx, align 8
+  %.sroa.42624.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 40
+  store i64 5, ptr %.sroa.42624.0..sroa_idx, align 8
   %3568 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store ptr @.str.671, ptr %3568, align 8
-  %.sroa.42625.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 56
-  store i64 46, ptr %.sroa.42625.0..sroa_idx, align 8
+  %.sroa.42626.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 56
+  store i64 46, ptr %.sroa.42626.0..sroa_idx, align 8
   %3569 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store ptr @.str.36, ptr %3569, align 8
-  %.sroa.42627.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 72
-  store i64 5, ptr %.sroa.42627.0..sroa_idx, align 8
+  %.sroa.42628.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 72
+  store i64 5, ptr %.sroa.42628.0..sroa_idx, align 8
   store ptr @.str.583, ptr %31, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i552 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i552, align 8, !tbaa !62
@@ -8778,16 +8774,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %29) #15
   %3588 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr @.str.585, ptr %3588, align 8
-  %.sroa.42631.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 40
-  store i64 5, ptr %.sroa.42631.0..sroa_idx, align 8
+  %.sroa.42632.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 40
+  store i64 5, ptr %.sroa.42632.0..sroa_idx, align 8
   %3589 = getelementptr inbounds nuw i8, ptr %29, i64 48
   store ptr @.str.673, ptr %3589, align 8
-  %.sroa.42633.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 56
-  store i64 88, ptr %.sroa.42633.0..sroa_idx, align 8
+  %.sroa.42634.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 56
+  store i64 88, ptr %.sroa.42634.0..sroa_idx, align 8
   %3590 = getelementptr inbounds nuw i8, ptr %29, i64 64
   store ptr @.str.587, ptr %3590, align 8
-  %.sroa.42635.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 72
-  store i64 8, ptr %.sroa.42635.0..sroa_idx, align 8
+  %.sroa.42636.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 72
+  store i64 8, ptr %.sroa.42636.0..sroa_idx, align 8
   store ptr @.str.583, ptr %29, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i559 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i559, align 8, !tbaa !62
@@ -8832,16 +8828,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %27) #15
   %3609 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr @.str.615, ptr %3609, align 8
-  %.sroa.42639.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 40
-  store i64 4, ptr %.sroa.42639.0..sroa_idx, align 8
+  %.sroa.42640.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 40
+  store i64 4, ptr %.sroa.42640.0..sroa_idx, align 8
   %3610 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store ptr @.str.675, ptr %3610, align 8
-  %.sroa.42641.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 56
-  store i64 80, ptr %.sroa.42641.0..sroa_idx, align 8
+  %.sroa.42642.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 56
+  store i64 80, ptr %.sroa.42642.0..sroa_idx, align 8
   %3611 = getelementptr inbounds nuw i8, ptr %27, i64 64
   store ptr @.str.36, ptr %3611, align 8
-  %.sroa.42643.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 72
-  store i64 5, ptr %.sroa.42643.0..sroa_idx, align 8
+  %.sroa.42644.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 72
+  store i64 5, ptr %.sroa.42644.0..sroa_idx, align 8
   store ptr @.str.583, ptr %27, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i566 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i566, align 8, !tbaa !62
@@ -8886,16 +8882,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %25) #15
   %3630 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr @.str.585, ptr %3630, align 8
-  %.sroa.42647.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 40
-  store i64 5, ptr %.sroa.42647.0..sroa_idx, align 8
+  %.sroa.42648.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 40
+  store i64 5, ptr %.sroa.42648.0..sroa_idx, align 8
   %3631 = getelementptr inbounds nuw i8, ptr %25, i64 48
   store ptr @.str.676, ptr %3631, align 8
-  %.sroa.42649.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 56
-  store i64 90, ptr %.sroa.42649.0..sroa_idx, align 8
+  %.sroa.42650.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 56
+  store i64 90, ptr %.sroa.42650.0..sroa_idx, align 8
   %3632 = getelementptr inbounds nuw i8, ptr %25, i64 64
   store ptr @.str.36, ptr %3632, align 8
-  %.sroa.42651.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 72
-  store i64 5, ptr %.sroa.42651.0..sroa_idx, align 8
+  %.sroa.42652.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 72
+  store i64 5, ptr %.sroa.42652.0..sroa_idx, align 8
   store ptr @.str.583, ptr %25, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i573 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i573, align 8, !tbaa !62
@@ -8940,16 +8936,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %23) #15
   %3651 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr @.str.53, ptr %3651, align 8
-  %.sroa.42655.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 40
-  store i64 0, ptr %.sroa.42655.0..sroa_idx, align 8
+  %.sroa.42656.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 40
+  store i64 0, ptr %.sroa.42656.0..sroa_idx, align 8
   %3652 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr @.str.678, ptr %3652, align 8
-  %.sroa.42657.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 56
-  store i64 45, ptr %.sroa.42657.0..sroa_idx, align 8
+  %.sroa.42658.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 56
+  store i64 45, ptr %.sroa.42658.0..sroa_idx, align 8
   %3653 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store ptr @.str.587, ptr %3653, align 8
-  %.sroa.42659.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 72
-  store i64 8, ptr %.sroa.42659.0..sroa_idx, align 8
+  %.sroa.42660.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 72
+  store i64 8, ptr %.sroa.42660.0..sroa_idx, align 8
   store ptr @.str.637, ptr %23, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i580 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 6, ptr %.sroa.22.0..sroa_idx.i.i580, align 8, !tbaa !62
@@ -8994,16 +8990,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %21) #15
   %3672 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr @.str.585, ptr %3672, align 8
-  %.sroa.42663.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 40
-  store i64 5, ptr %.sroa.42663.0..sroa_idx, align 8
+  %.sroa.42664.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 40
+  store i64 5, ptr %.sroa.42664.0..sroa_idx, align 8
   %3673 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store ptr @.str.679, ptr %3673, align 8
-  %.sroa.42665.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 56
-  store i64 108, ptr %.sroa.42665.0..sroa_idx, align 8
+  %.sroa.42666.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 56
+  store i64 108, ptr %.sroa.42666.0..sroa_idx, align 8
   %3674 = getelementptr inbounds nuw i8, ptr %21, i64 64
   store ptr @.str.587, ptr %3674, align 8
-  %.sroa.42667.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 72
-  store i64 8, ptr %.sroa.42667.0..sroa_idx, align 8
+  %.sroa.42668.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 72
+  store i64 8, ptr %.sroa.42668.0..sroa_idx, align 8
   store ptr @.str.583, ptr %21, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i587 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i587, align 8, !tbaa !62
@@ -9048,16 +9044,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %19) #15
   %3693 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr @.str.585, ptr %3693, align 8
-  %.sroa.42671.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store i64 5, ptr %.sroa.42671.0..sroa_idx, align 8
+  %.sroa.42672.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 40
+  store i64 5, ptr %.sroa.42672.0..sroa_idx, align 8
   %3694 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store ptr @.str.681, ptr %3694, align 8
-  %.sroa.42673.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 56
-  store i64 199, ptr %.sroa.42673.0..sroa_idx, align 8
+  %.sroa.42674.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 56
+  store i64 199, ptr %.sroa.42674.0..sroa_idx, align 8
   %3695 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store ptr @.str.587, ptr %3695, align 8
-  %.sroa.42675.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 72
-  store i64 8, ptr %.sroa.42675.0..sroa_idx, align 8
+  %.sroa.42676.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 72
+  store i64 8, ptr %.sroa.42676.0..sroa_idx, align 8
   store ptr @.str.583, ptr %19, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i594 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i594, align 8, !tbaa !62
@@ -9102,16 +9098,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %17) #15
   %3714 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr @.str.585, ptr %3714, align 8
-  %.sroa.42679.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store i64 5, ptr %.sroa.42679.0..sroa_idx, align 8
+  %.sroa.42680.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 40
+  store i64 5, ptr %.sroa.42680.0..sroa_idx, align 8
   %3715 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr @.str.683, ptr %3715, align 8
-  %.sroa.42681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 56
-  store i64 148, ptr %.sroa.42681.0..sroa_idx, align 8
+  %.sroa.42682.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 56
+  store i64 148, ptr %.sroa.42682.0..sroa_idx, align 8
   %3716 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store ptr @.str.36, ptr %3716, align 8
-  %.sroa.42683.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 72
-  store i64 5, ptr %.sroa.42683.0..sroa_idx, align 8
+  %.sroa.42684.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 72
+  store i64 5, ptr %.sroa.42684.0..sroa_idx, align 8
   store ptr @.str.583, ptr %17, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i601 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i601, align 8, !tbaa !62
@@ -9156,16 +9152,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %15) #15
   %3735 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr @.str.639, ptr %3735, align 8
-  %.sroa.42687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store i64 2, ptr %.sroa.42687.0..sroa_idx, align 8
+  %.sroa.42688.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store i64 2, ptr %.sroa.42688.0..sroa_idx, align 8
   %3736 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr @.str.685, ptr %3736, align 8
-  %.sroa.42689.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 56
-  store i64 127, ptr %.sroa.42689.0..sroa_idx, align 8
+  %.sroa.42690.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 56
+  store i64 127, ptr %.sroa.42690.0..sroa_idx, align 8
   %3737 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store ptr @.str.587, ptr %3737, align 8
-  %.sroa.42691.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 72
-  store i64 8, ptr %.sroa.42691.0..sroa_idx, align 8
+  %.sroa.42692.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 72
+  store i64 8, ptr %.sroa.42692.0..sroa_idx, align 8
   store ptr @.str.637, ptr %15, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i608 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 6, ptr %.sroa.22.0..sroa_idx.i.i608, align 8, !tbaa !62
@@ -9210,16 +9206,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %13) #15
   %3756 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr @.str.585, ptr %3756, align 8
-  %.sroa.42695.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store i64 5, ptr %.sroa.42695.0..sroa_idx, align 8
+  %.sroa.42696.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 40
+  store i64 5, ptr %.sroa.42696.0..sroa_idx, align 8
   %3757 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr @.str.687, ptr %3757, align 8
-  %.sroa.42697.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store i64 155, ptr %.sroa.42697.0..sroa_idx, align 8
+  %.sroa.42698.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 56
+  store i64 155, ptr %.sroa.42698.0..sroa_idx, align 8
   %3758 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store ptr @.str.36, ptr %3758, align 8
-  %.sroa.42699.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 72
-  store i64 5, ptr %.sroa.42699.0..sroa_idx, align 8
+  %.sroa.42700.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 72
+  store i64 5, ptr %.sroa.42700.0..sroa_idx, align 8
   store ptr @.str.583, ptr %13, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i615 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i615, align 8, !tbaa !62
@@ -9264,16 +9260,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %11) #15
   %3777 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr @.str.585, ptr %3777, align 8
-  %.sroa.42703.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i64 5, ptr %.sroa.42703.0..sroa_idx, align 8
+  %.sroa.42704.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
+  store i64 5, ptr %.sroa.42704.0..sroa_idx, align 8
   %3778 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr @.str.644, ptr %3778, align 8
-  %.sroa.42705.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 56
-  store i64 36, ptr %.sroa.42705.0..sroa_idx, align 8
+  %.sroa.42706.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 56
+  store i64 36, ptr %.sroa.42706.0..sroa_idx, align 8
   %3779 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store ptr @.str.36, ptr %3779, align 8
-  %.sroa.42707.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store i64 5, ptr %.sroa.42707.0..sroa_idx, align 8
+  %.sroa.42708.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store i64 5, ptr %.sroa.42708.0..sroa_idx, align 8
   store ptr @.str.583, ptr %11, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i622 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i622, align 8, !tbaa !62
@@ -9318,16 +9314,16 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %9) #15
   %3798 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr @.str.585, ptr %3798, align 8
-  %.sroa.42711.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i64 5, ptr %.sroa.42711.0..sroa_idx, align 8
+  %.sroa.42712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store i64 5, ptr %.sroa.42712.0..sroa_idx, align 8
   %3799 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr @.str.689, ptr %3799, align 8
-  %.sroa.42713.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i64 120, ptr %.sroa.42713.0..sroa_idx, align 8
+  %.sroa.42714.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 56
+  store i64 120, ptr %.sroa.42714.0..sroa_idx, align 8
   %3800 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr @.str.36, ptr %3800, align 8
-  %.sroa.42715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store i64 5, ptr %.sroa.42715.0..sroa_idx, align 8
+  %.sroa.42716.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store i64 5, ptr %.sroa.42716.0..sroa_idx, align 8
   store ptr @.str.583, ptr %9, align 8, !tbaa !69
   %.sroa.22.0..sroa_idx.i.i629 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 4, ptr %.sroa.22.0..sroa_idx.i.i629, align 8, !tbaa !62
@@ -9370,10 +9366,10 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   %3817 = load ptr, ptr %3816, align 8, !tbaa !76
   %3818 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %3819 = load ptr, ptr %3818, align 8, !tbaa !76
-  %.not27182731 = icmp eq ptr %3817, %3819
-  br i1 %.not27182731, label %._crit_edge2734, label %.lr.ph2733
+  %.not27192732 = icmp eq ptr %3817, %3819
+  br i1 %.not27192732, label %._crit_edge2735, label %.lr.ph2734
 
-.lr.ph2733:                                       ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit632
+.lr.ph2734:                                       ; preds = %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit632
   %3820 = getelementptr inbounds nuw i8, ptr %681, i64 64
   %3821 = getelementptr inbounds nuw i8, ptr %681, i64 16
   %3822 = getelementptr inbounds nuw i8, ptr %681, i64 65
@@ -9390,44 +9386,44 @@ _ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S
   %3833 = getelementptr inbounds nuw i8, ptr %682, i64 8
   br label %3840
 
-.lr.ph2725:                                       ; preds = %._crit_edge, %_ZNKSt8functionIFvRN5clang4ento15CheckerRegistryEEEclES3_.exit
-  %.0402723 = phi ptr [ %3839, %_ZNKSt8functionIFvRN5clang4ento15CheckerRegistryEEEclES3_.exit ], [ %1109, %._crit_edge ]
-  %3834 = getelementptr inbounds nuw i8, ptr %.0402723, i64 16
+.lr.ph2726:                                       ; preds = %._crit_edge, %_ZNKSt8functionIFvRN5clang4ento15CheckerRegistryEEEclES3_.exit
+  %.0402724 = phi ptr [ %3839, %_ZNKSt8functionIFvRN5clang4ento15CheckerRegistryEEEclES3_.exit ], [ %1109, %._crit_edge ]
+  %3834 = getelementptr inbounds nuw i8, ptr %.0402724, i64 16
   %3835 = load ptr, ptr %3834, align 8, !tbaa !78
   %.not.i.i633 = icmp eq ptr %3835, null
   br i1 %.not.i.i633, label %3836, label %_ZNKSt8functionIFvRN5clang4ento15CheckerRegistryEEEclES3_.exit
 
-3836:                                             ; preds = %.lr.ph2725
+3836:                                             ; preds = %.lr.ph2726
   call void @_ZSt25__throw_bad_function_callv() #19
   unreachable
 
-_ZNKSt8functionIFvRN5clang4ento15CheckerRegistryEEEclES3_.exit: ; preds = %.lr.ph2725
-  %3837 = getelementptr inbounds nuw i8, ptr %.0402723, i64 24
+_ZNKSt8functionIFvRN5clang4ento15CheckerRegistryEEEclES3_.exit: ; preds = %.lr.ph2726
+  %3837 = getelementptr inbounds nuw i8, ptr %.0402724, i64 24
   %3838 = load ptr, ptr %3837, align 8, !tbaa !80
-  call void %3838(ptr noundef nonnull align 8 dereferenceable(32) %.0402723, ptr noundef nonnull align 8 dereferenceable(24) %0) #15
-  %3839 = getelementptr inbounds nuw i8, ptr %.0402723, i64 32
+  call void %3838(ptr noundef nonnull align 8 dereferenceable(32) %.0402724, ptr noundef nonnull align 8 dereferenceable(24) %0) #15
+  %3839 = getelementptr inbounds nuw i8, ptr %.0402724, i64 32
   %.not42 = icmp eq ptr %3839, %1112
-  br i1 %.not42, label %._crit_edge2726, label %.lr.ph2725
+  br i1 %.not42, label %._crit_edge2727, label %.lr.ph2726
 
-._crit_edge2734:                                  ; preds = %._crit_edge2730, %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit632
+._crit_edge2735:                                  ; preds = %._crit_edge2731, %_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b.exit632
   call void @_ZNK5clang4ento15CheckerRegistry22validateCheckerOptionsEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   ret void
 
-3840:                                             ; preds = %.lr.ph2733, %._crit_edge2730
-  %.sroa.0678.02732 = phi ptr [ %3817, %.lr.ph2733 ], [ %3889, %._crit_edge2730 ]
-  %3841 = load ptr, ptr %.sroa.0678.02732, align 8, !tbaa !26
-  %3842 = getelementptr inbounds nuw i8, ptr %.sroa.0678.02732, i64 8
+3840:                                             ; preds = %.lr.ph2734, %._crit_edge2731
+  %.sroa.0679.02733 = phi ptr [ %3817, %.lr.ph2734 ], [ %3889, %._crit_edge2731 ]
+  %3841 = load ptr, ptr %.sroa.0679.02733, align 8, !tbaa !26
+  %3842 = getelementptr inbounds nuw i8, ptr %.sroa.0679.02733, i64 8
   %3843 = load i64, ptr %3842, align 8, !tbaa !23
   %3844 = call { ptr, ptr } @_ZN5clang4ento19CheckerRegistryData31getMutableCheckersForCmdLineArgEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr %3841, i64 %3843) #15
   %3845 = extractvalue { ptr, ptr } %3844, 0
   %3846 = extractvalue { ptr, ptr } %3844, 1
   %3847 = icmp eq ptr %3845, %3846
-  br i1 %3847, label %3848, label %.lr.ph2729
+  br i1 %3847, label %3848, label %.lr.ph2730
 
 3848:                                             ; preds = %3840
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %681) #15
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %681, ptr noundef nonnull align 8 dereferenceable(15248) %4, i32 0, i32 noundef 81) #15
-  %3849 = load ptr, ptr %.sroa.0678.02732, align 8, !tbaa !26
+  %3849 = load ptr, ptr %.sroa.0679.02733, align 8, !tbaa !26
   %3850 = load i64, ptr %3842, align 8, !tbaa !23
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %681, ptr %3849, i64 %3850)
   %3851 = load i8, ptr %3820, align 8, !tbaa !27, !range !35, !noundef !36
@@ -9512,37 +9508,37 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i645: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i644, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i648
   %3881 = load ptr, ptr %682, align 8, !tbaa !39
   %.not.i.i.i646 = icmp eq ptr %3881, null
-  br i1 %.not.i.i.i646, label %._crit_edge2730, label %3882
+  br i1 %.not.i.i.i646, label %._crit_edge2731, label %3882
 
 3882:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i645
   %3883 = load ptr, ptr %3833, align 8, !tbaa !40
   %.not.i.i.i.i647 = icmp eq ptr %3883, null
-  br i1 %.not.i.i.i.i647, label %._crit_edge2730, label %3884
+  br i1 %.not.i.i.i.i647, label %._crit_edge2731, label %3884
 
 3884:                                             ; preds = %3882
   call void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %3883, ptr noundef nonnull %3881)
   store ptr null, ptr %682, align 8, !tbaa !39
-  br label %._crit_edge2730
+  br label %._crit_edge2731
 
-.lr.ph2729:                                       ; preds = %3840
-  %3885 = getelementptr inbounds nuw i8, ptr %.sroa.0678.02732, i64 32
+.lr.ph2730:                                       ; preds = %3840
+  %3885 = getelementptr inbounds nuw i8, ptr %.sroa.0679.02733, i64 32
   %3886 = load i8, ptr %3885, align 8, !tbaa !82, !range !35, !noundef !36
   %3887 = trunc nuw i8 %3886 to i1
   %3888 = select i1 %3887, i32 2, i32 1
   br label %3890
 
-._crit_edge2730:                                  ; preds = %3890, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i645, %3882, %3884
-  %3889 = getelementptr inbounds nuw i8, ptr %.sroa.0678.02732, i64 40
-  %.not2718 = icmp eq ptr %3889, %3819
-  br i1 %.not2718, label %._crit_edge2734, label %3840
+._crit_edge2731:                                  ; preds = %3890, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i645, %3882, %3884
+  %3889 = getelementptr inbounds nuw i8, ptr %.sroa.0679.02733, i64 40
+  %.not2719 = icmp eq ptr %3889, %3819
+  br i1 %.not2719, label %._crit_edge2735, label %3840
 
-3890:                                             ; preds = %.lr.ph2729, %3890
-  %.sroa.0670.02728 = phi ptr [ %3845, %.lr.ph2729 ], [ %3892, %3890 ]
-  %3891 = getelementptr inbounds nuw i8, ptr %.sroa.0670.02728, i64 84
+3890:                                             ; preds = %.lr.ph2730, %3890
+  %.sroa.0671.02729 = phi ptr [ %3845, %.lr.ph2730 ], [ %3892, %3890 ]
+  %3891 = getelementptr inbounds nuw i8, ptr %.sroa.0671.02729, i64 84
   store i32 %3888, ptr %3891, align 4, !tbaa !84
-  %3892 = getelementptr inbounds nuw i8, ptr %.sroa.0670.02728, i64 120
-  %.not2719 = icmp eq ptr %3892, %3846
-  br i1 %.not2719, label %._crit_edge2730, label %3890
+  %3892 = getelementptr inbounds nuw i8, ptr %.sroa.0671.02729, i64 120
+  %.not2720 = icmp eq ptr %3892, %3846
+  br i1 %.not2720, label %._crit_edge2731, label %3890
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10793,7 +10789,8 @@ define linkonce_odr void @_ZN5clang4ento15CheckerRegistry19resolveDependenciesIL
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %9 = load i32, ptr %8, align 8, !tbaa !57
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %7, i64 %10
+  %.idx = shl nuw nsw i64 %10, 5
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not34 = icmp eq i32 %9, 0
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
@@ -11020,7 +11017,8 @@ define linkonce_odr void @_ZN5clang4ento15CheckerRegistry19resolveDependenciesIL
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %9 = load i32, ptr %8, align 8, !tbaa !57
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %7, i64 %10
+  %.idx = shl nuw nsw i64 %10, 5
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not34 = icmp eq i32 %9, 0
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
@@ -11246,7 +11244,8 @@ define dso_local void @_ZN5clang4ento15CheckerRegistry31resolveCheckerAndPackage
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %8 = load i32, ptr %7, align 8, !tbaa !57
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %6, i64 %9
+  %.idx = mul nuw nsw i64 %9, 104
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %.not37 = icmp eq i32 %8, 0
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
@@ -11280,7 +11279,8 @@ define dso_local void @_ZN5clang4ento15CheckerRegistry31resolveCheckerAndPackage
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 112
   %30 = load i32, ptr %29, align 8, !tbaa !57
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %28, i64 %31
+  %.idx44 = mul nuw nsw i64 %31, 104
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx44
   %.not2039 = icmp eq i32 %30, 0
   br i1 %.not2039, label %._crit_edge43, label %.lr.ph42
 
@@ -11880,7 +11880,8 @@ _ZNK5clang4ento11CheckerInfo9isEnabledERKNS0_14CheckerManagerE.exit: ; preds = %
   %47 = load ptr, ptr %21, align 8, !tbaa !56
   %48 = load i32, ptr %23, align 8, !tbaa !57
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %49
+  %.idx = shl nuw nsw i64 %49, 3
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx
   %.not5.i = icmp eq i32 %48, 0
   br i1 %.not5.i, label %_ZN4llvm9SetVectorIPKN5clang4ento11CheckerInfoENS_11SmallVectorIS5_Lj0EEENS_8DenseSetIS5_NS_12DenseMapInfoIS5_vEEEELj0EE6insertIPKS5_EEvT_SG_.exit, label %.lr.ph.i
 
@@ -12173,7 +12174,8 @@ _ZNK5clang4ento11CheckerInfo9isEnabledERKNS0_14CheckerManagerE.exit26: ; preds =
   %189 = load ptr, ptr %30, align 8, !tbaa !56
   %190 = load i32, ptr %32, align 8, !tbaa !57
   %191 = zext i32 %190 to i64
-  %192 = getelementptr inbounds nuw ptr, ptr %189, i64 %191
+  %.idx.i = shl nuw nsw i64 %191, 3
+  %192 = getelementptr inbounds nuw i8, ptr %189, i64 %.idx.i
   %.not8.i = icmp eq i32 %190, 0
   br i1 %.not8.i, label %_ZN4llvm9SetVectorIPKN5clang4ento11CheckerInfoENS_11SmallVectorIS5_Lj0EEENS_8DenseSetIS5_NS_12DenseMapInfoIS5_vEEEELj0EE9set_unionISC_EEbRKT_.exit, label %.lr.ph.i27
 
@@ -12446,7 +12448,8 @@ define internal fastcc noundef zeroext i1 @"_ZL25collectStrongDependenciesIZN5cl
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !57
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %.idx = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not3 = icmp eq i32 %9, 0
   br i1 %.not3, label %.loopexit, label %.lr.ph
 
@@ -12543,7 +12546,8 @@ define internal fastcc void @"_ZL23collectWeakDependenciesIZN5clang4ento15Checke
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !57
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %.idx = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not3 = icmp eq i32 %9, 0
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
@@ -12665,7 +12669,8 @@ define dso_local void @_ZNK5clang4ento15CheckerRegistry17initializeManagerERNS0_
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8, !tbaa !57
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
+  %.idx = shl nuw nsw i64 %8, 3
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %.not12 = icmp eq i32 %7, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -13027,7 +13032,8 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
 
 .lr.ph.i.preheader.i.i:                           ; preds = %14
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %16, i64 %19
+  %.idx.i.i = shl nuw nsw i64 %19, 6
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -13648,7 +13654,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %15
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %27
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %35, i64 %38
+  %.idx.i7.i.i = shl nuw nsw i64 %38, 6
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i7.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -17982,7 +17989,8 @@ _ZN4llvm8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12Den
   store i32 0, ptr %24, align 4, !tbaa !147
   %25 = load i32, ptr %2, align 8, !tbaa !142
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %21, i64 %26
+  %.idx.i = shl nuw nsw i64 %26, 3
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i
   %.not6.i = icmp eq i32 %25, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E9initEmptyEv.exit, label %.lr.ph.i
 
@@ -17995,14 +18003,16 @@ _ZN4llvm8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12Den
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS6_12DenseSetPairIS5_EEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
-  %31 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %4, i64 %30
+  %.idx = shl nuw nsw i64 %30, 3
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %32, align 8, !tbaa !146
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %33, align 4, !tbaa !147
   %34 = load i32, ptr %2, align 8, !tbaa !142
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %21, i64 %35
+  %.idx.i.i = shl nuw nsw i64 %35, 3
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i
   %.not6.i.i = icmp ne i32 %34, 0
   br i1 %.not6.i.i, label %.lr.ph.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E9initEmptyEv.exit.i
 
@@ -18086,8 +18096,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13Dens
   br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E18moveFromOldBucketsEPSC_SF_.exit, label %39, !llvm.loop !199
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E18moveFromOldBucketsEPSC_SF_.exit: ; preds = %66, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E9initEmptyEv.exit.i
-  %69 = shl nuw nsw i64 %30, 3
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %69, i64 noundef 8) #15
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %.idx, i64 noundef 8) #15
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E9initEmptyEv.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E9initEmptyEv.exit: ; preds = %.lr.ph.i, %22, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS7_12DenseSetPairIS6_EEEES6_S8_SA_SC_E18moveFromOldBucketsEPSC_SF_.exit
@@ -18103,7 +18112,8 @@ define internal fastcc noundef zeroext i1 @"_ZL25collectStrongDependenciesIZN5cl
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !57
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %.idx = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not8 = icmp eq i32 %9, 0
   br i1 %.not8, label %.loopexit, label %.lr.ph
 
@@ -18450,7 +18460,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #15
   %80 = trunc nuw i8 %.fca.1.extract to i1
-  br i1 %80, label %_ZN4llvmneENS_9StringRefES0_.exit.thread99, label %81
+  br i1 %80, label %_ZN4llvmneENS_9StringRefES0_.exit.thread100, label %81
 
 81:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %82 = load ptr, ptr %.fca.0.extract, align 8, !tbaa !108
@@ -18461,7 +18471,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.sroa.05.0.copyload = load ptr, ptr %2, align 8, !tbaa !69
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.26.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !62
-  switch i64 %.sroa.26.0.copyload, label %_ZN4llvmneENS_9StringRefES0_.exit.thread99 [
+  switch i64 %.sroa.26.0.copyload, label %_ZN4llvmneENS_9StringRefES0_.exit.thread100 [
     i64 4, label %_ZN4llvmeqENS_9StringRefES0_.exit
     i64 3, label %_ZN4llvmeqENS_9StringRefES0_.exit37
   ]
@@ -18469,7 +18479,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %81
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.05.0.copyload, ptr noundef nonnull dereferenceable(4) @.str.583, i64 4)
   %87 = icmp eq i32 %bcmp.i, 0
-  br i1 %87, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmneENS_9StringRefES0_.exit.thread99
+  br i1 %87, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmneENS_9StringRefES0_.exit.thread100
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
   switch i64 %86, label %_ZN4llvmneENS_9StringRefES0_.exit25.thread [
@@ -18479,13 +18489,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %84, ptr noundef nonnull dereferenceable(4) @.str.615, i64 4)
-  %.not108 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not108, label %_ZN4llvmneENS_9StringRefES0_.exit.thread99, label %_ZN4llvmneENS_9StringRefES0_.exit25.thread
+  %.not109 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %.not109, label %_ZN4llvmneENS_9StringRefES0_.exit.thread100, label %_ZN4llvmneENS_9StringRefES0_.exit25.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit25:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   %bcmp.i.i24 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %84, ptr noundef nonnull dereferenceable(5) @.str.585, i64 5)
-  %.not109 = icmp eq i32 %bcmp.i.i24, 0
-  br i1 %.not109, label %_ZN4llvmneENS_9StringRefES0_.exit.thread99, label %_ZN4llvmneENS_9StringRefES0_.exit25.thread
+  %.not110 = icmp eq i32 %bcmp.i.i24, 0
+  br i1 %.not110, label %_ZN4llvmneENS_9StringRefES0_.exit.thread100, label %_ZN4llvmneENS_9StringRefES0_.exit25.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit25.thread:       ; preds = %_ZN4llvmneENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmneENS_9StringRefES0_.exit25
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 196
@@ -18565,7 +18575,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %103
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %115
   %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %123, i64 %126
+  %.idx.i7.i.i.i = shl nuw nsw i64 %126, 6
+  %127 = getelementptr inbounds nuw i8, ptr %123, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -18672,11 +18683,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %169, %172
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14) #15
-  %.pre110 = load ptr, ptr %.fca.0.extract, align 8, !tbaa !108
+  %.pre111 = load ptr, ptr %.fca.0.extract, align 8, !tbaa !108
   br label %173
 
 173:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit, %_ZN4llvmneENS_9StringRefES0_.exit25.thread
-  %174 = phi ptr [ %.pre110, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ %82, %_ZN4llvmneENS_9StringRefES0_.exit25.thread ]
+  %174 = phi ptr [ %.pre111, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ %82, %_ZN4llvmneENS_9StringRefES0_.exit25.thread ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #15
   %175 = load ptr, ptr %30, align 8, !tbaa !12
   %176 = load i64, ptr %32, align 8, !tbaa !16
@@ -18748,12 +18759,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #15
-  br label %_ZN4llvmneENS_9StringRefES0_.exit.thread99
+  br label %_ZN4llvmneENS_9StringRefES0_.exit.thread100
 
 _ZN4llvmeqENS_9StringRefES0_.exit37:              ; preds = %81
   %bcmp.i36 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.sroa.05.0.copyload, ptr noundef nonnull dereferenceable(3) @.str.631, i64 3)
   %201 = icmp eq i32 %bcmp.i36, 0
-  br i1 %201, label %_ZN4llvmeqENS_9StringRefES0_.exit37.thread, label %_ZN4llvmneENS_9StringRefES0_.exit.thread99
+  br i1 %201, label %_ZN4llvmeqENS_9StringRefES0_.exit37.thread, label %_ZN4llvmneENS_9StringRefES0_.exit.thread100
 
 _ZN4llvmeqENS_9StringRefES0_.exit37.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
@@ -18768,7 +18779,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit37.thread:       ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit:  ; preds = %203
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  br label %_ZN4llvmneENS_9StringRefES0_.exit.thread99
+  br label %_ZN4llvmneENS_9StringRefES0_.exit.thread100
 
 206:                                              ; preds = %203, %_ZN4llvmeqENS_9StringRefES0_.exit37.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
@@ -18786,7 +18797,7 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit:  ; preds = %203
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %16, ptr %211, i64 %212)
   %213 = load ptr, ptr %16, align 8, !tbaa !39
   %.not.i57 = icmp eq ptr %213, null
-  br i1 %.not.i57, label %214, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit73
+  br i1 %.not.i57, label %214, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit74
 
 214:                                              ; preds = %210
   %215 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -18802,18 +18813,18 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit:  ; preds = %203
   br label %222
 
 222:                                              ; preds = %222, %220
-  %.idx.i.i.i.i69 = phi i64 [ 96, %220 ], [ %.add.i.i.i.i71, %222 ]
-  %.ptr.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %221, i64 %.idx.i.i.i.i69
-  %223 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i70, i64 16
-  store ptr %223, ptr %.ptr.i.i.i.i70, align 8, !tbaa !21
-  %224 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i70, i64 8
+  %.idx.i.i.i.i70 = phi i64 [ 96, %220 ], [ %.add.i.i.i.i72, %222 ]
+  %.ptr.i.i.i.i71 = getelementptr inbounds nuw i8, ptr %221, i64 %.idx.i.i.i.i70
+  %223 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i71, i64 16
+  store ptr %223, ptr %.ptr.i.i.i.i71, align 8, !tbaa !21
+  %224 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i71, i64 8
   store i64 0, ptr %224, align 8, !tbaa !23
   store i8 0, ptr %223, align 1, !tbaa !25
-  %.add.i.i.i.i71 = add nuw nsw i64 %.idx.i.i.i.i69, 32
-  %225 = icmp eq i64 %.add.i.i.i.i71, 416
-  br i1 %225, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i72, label %222
+  %.add.i.i.i.i72 = add nuw nsw i64 %.idx.i.i.i.i70, 32
+  %225 = icmp eq i64 %.add.i.i.i.i72, 416
+  br i1 %225, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i73, label %222
 
-_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i72:    ; preds = %222
+_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i73:    ; preds = %222
   %226 = getelementptr inbounds nuw i8, ptr %221, i64 416
   %227 = getelementptr inbounds nuw i8, ptr %221, i64 432
   store ptr %227, ptr %226, align 8, !tbaa !56
@@ -18828,7 +18839,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i72:    ; preds = %222
   store i32 0, ptr %232, align 8, !tbaa !57
   %233 = getelementptr inbounds nuw i8, ptr %221, i64 540
   store i32 6, ptr %233, align 4, !tbaa !58
-  br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i66
+  br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i67
 
 234:                                              ; preds = %214
   %235 = getelementptr inbounds nuw i8, ptr %216, i64 14848
@@ -18845,50 +18856,51 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i72:    ; preds = %222
   %243 = getelementptr inbounds nuw i8, ptr %239, i64 536
   %244 = load i32, ptr %243, align 8, !tbaa !57
   %.not4.i.i.i.i.i58 = icmp eq i32 %244, 0
-  br i1 %.not4.i.i.i.i.i58, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i65, label %.lr.ph.i.preheader.i.i.i.i59
+  br i1 %.not4.i.i.i.i.i58, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i66, label %.lr.ph.i.preheader.i.i.i.i59
 
 .lr.ph.i.preheader.i.i.i.i59:                     ; preds = %234
   %245 = zext i32 %244 to i64
-  %246 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %242, i64 %245
-  br label %.lr.ph.i.i.i.i.i60
+  %.idx.i7.i.i.i60 = shl nuw nsw i64 %245, 6
+  %246 = getelementptr inbounds nuw i8, ptr %242, i64 %.idx.i7.i.i.i60
+  br label %.lr.ph.i.i.i.i.i61
 
-.lr.ph.i.i.i.i.i60:                               ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i63, %.lr.ph.i.preheader.i.i.i.i59
-  %.05.i.i.i.i.i61 = phi ptr [ %247, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i63 ], [ %246, %.lr.ph.i.preheader.i.i.i.i59 ]
-  %247 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i61, i64 -64
-  %248 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i61, i64 -40
+.lr.ph.i.i.i.i.i61:                               ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i64, %.lr.ph.i.preheader.i.i.i.i59
+  %.05.i.i.i.i.i62 = phi ptr [ %247, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i64 ], [ %246, %.lr.ph.i.preheader.i.i.i.i59 ]
+  %247 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i62, i64 -64
+  %248 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i62, i64 -40
   %249 = load ptr, ptr %248, align 8, !tbaa !26
-  %250 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i61, i64 -24
+  %250 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i62, i64 -24
   %251 = icmp eq ptr %249, %250
-  br i1 %251, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i62
+  br i1 %251, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i69, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i63
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i68: ; preds = %.lr.ph.i.i.i.i.i60
-  %252 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i61, i64 -32
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i69: ; preds = %.lr.ph.i.i.i.i.i61
+  %252 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i62, i64 -32
   %253 = load i64, ptr %252, align 8, !tbaa !23
   %254 = icmp ult i64 %253, 16
   call void @llvm.assume(i1 %254)
-  br label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i63
+  br label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i64
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i62: ; preds = %.lr.ph.i.i.i.i.i60
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i63: ; preds = %.lr.ph.i.i.i.i.i61
   %255 = load i64, ptr %250, align 8, !tbaa !25
   %256 = add i64 %255, 1
   call void @_ZdlPvm(ptr noundef %249, i64 noundef %256) #16
-  br label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i63
+  br label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i64
 
-_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i63:         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i68
-  %.not.i.i.i.i.i64 = icmp eq ptr %242, %247
-  br i1 %.not.i.i.i.i.i64, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i65, label %.lr.ph.i.i.i.i.i60, !llvm.loop !60
+_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i64:         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i63, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i69
+  %.not.i.i.i.i.i65 = icmp eq ptr %242, %247
+  br i1 %.not.i.i.i.i.i65, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i66, label %.lr.ph.i.i.i.i.i61, !llvm.loop !60
 
-_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i65: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i63, %234
+_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i66: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i64, %234
   store i32 0, ptr %243, align 8, !tbaa !57
-  br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i66
+  br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i67
 
-_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i66: ; preds = %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i65, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i72
-  %.0.i.i.i67 = phi ptr [ %221, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i72 ], [ %239, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i65 ]
-  store ptr %.0.i.i.i67, ptr %16, align 8, !tbaa !39
-  br label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit73
+_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i67: ; preds = %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i66, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i73
+  %.0.i.i.i68 = phi ptr [ %221, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i73 ], [ %239, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i66 ]
+  store ptr %.0.i.i.i68, ptr %16, align 8, !tbaa !39
+  br label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit74
 
-_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit73: ; preds = %210, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i66
-  %257 = phi ptr [ %.0.i.i.i67, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i66 ], [ %213, %210 ]
+_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit74: ; preds = %210, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i67
+  %257 = phi ptr [ %.0.i.i.i68, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i67 ], [ %213, %210 ]
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 1
   %259 = load i8, ptr %257, align 8, !tbaa !43
   %260 = zext i8 %259 to i64
@@ -18907,7 +18919,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %270 = trunc nuw i8 %269 to i1
   br i1 %270, label %271, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i40
 
-271:                                              ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit73
+271:                                              ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit74
   %272 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %273 = load ptr, ptr %272, align 8, !tbaa !37
   %274 = getelementptr inbounds nuw i8, ptr %16, i64 65
@@ -18919,7 +18931,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   store i8 0, ptr %274, align 1, !tbaa !38
   br label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i40
 
-_ZN5clang17DiagnosticBuilder4EmitEv.exit.i40:     ; preds = %271, %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit73
+_ZN5clang17DiagnosticBuilder4EmitEv.exit.i40:     ; preds = %271, %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit74
   %278 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %279 = load ptr, ptr %278, align 8, !tbaa !26
   %280 = getelementptr inbounds nuw i8, ptr %16, i64 48
@@ -19031,21 +19043,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #15
-  br label %_ZN4llvmneENS_9StringRefES0_.exit.thread99
+  br label %_ZN4llvmneENS_9StringRefES0_.exit.thread100
 
-_ZN4llvmneENS_9StringRefES0_.exit.thread99:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %81, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33, %_ZN4llvmneENS_9StringRefES0_.exit25, %_ZN4llvmneENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit37, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+_ZN4llvmneENS_9StringRefES0_.exit.thread100:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %81, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33, %_ZN4llvmneENS_9StringRefES0_.exit25, %_ZN4llvmneENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit37, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %320 = load ptr, ptr %9, align 8, !tbaa !26
   %321 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %322 = icmp eq ptr %320, %321
   br i1 %322, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i54, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i54: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread99
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i54: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread100
   %323 = load i64, ptr %53, align 8, !tbaa !23
   %324 = icmp ult i64 %323, 16
   call void @llvm.assume(i1 %324)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread99
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53: ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread100
   %325 = load i64, ptr %321, align 8, !tbaa !25
   %326 = add i64 %325, 1
   call void @_ZdlPvm(ptr noundef %320, i64 noundef %326) #16
@@ -19270,7 +19282,8 @@ _ZN5clang4ento11PackageInfoC2EOS1_.exit:          ; preds = %2, %16
   %19 = load ptr, ptr %0, align 8, !tbaa !56
   %20 = load i32, ptr %6, align 8, !tbaa !57
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.clang::ento::PackageInfo", ptr %19, i64 %21
+  %.idx.i = shl nuw nsw i64 %21, 5
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %20, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento11PackageInfoELb0EE19moveElementsForGrowEPS3_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -19302,13 +19315,14 @@ _ZSt10_ConstructIN5clang4ento11PackageInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; 
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang4ento11PackageInfoELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i: ; preds = %_ZSt10_ConstructIN5clang4ento11PackageInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !56
-  %.pre2.i = load i32, ptr %6, align 8, !tbaa !57
-  %.not4.i.i = icmp eq i32 %.pre2.i, 0
+  %.pre3.i = load i32, ptr %6, align 8, !tbaa !57
+  %.not4.i.i = icmp eq i32 %.pre3.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento11PackageInfoELb0EE19moveElementsForGrowEPS3_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento11PackageInfoELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
-  %33 = zext i32 %.pre2.i to i64
-  %34 = getelementptr inbounds nuw %"struct.clang::ento::PackageInfo", ptr %.pre.i, i64 %33
+  %33 = zext i32 %.pre3.i to i64
+  %.idx2.i = shl nuw nsw i64 %33, 5
+  %34 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang4ento11PackageInfoD2Ev.exit.i.i, %.lr.ph.i.preheader.i

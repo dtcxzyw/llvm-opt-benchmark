@@ -6359,7 +6359,8 @@ _ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i: ; preds = %16
 
 _ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit:     ; preds = %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i
   store ptr %26, ptr %0, align 8, !tbaa !187
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %21
+  %.idx = shl nuw nsw i64 %21, 3
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
   store ptr %27, ptr %24, align 8, !tbaa !191
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %2, align 8, !tbaa !186

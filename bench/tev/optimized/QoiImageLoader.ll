@@ -12959,7 +12959,8 @@ _ZNSt3__116allocator_traitsINS_9allocatorIiEEE8allocateB8ne190000ERS2_m.exit: ; 
   %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #31
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i32, ptr %16, i64 %20
+  %.idx = shl nsw i64 %20, 2
+  %21 = getelementptr inbounds i8, ptr %16, i64 %.idx
   %.not9.i.i = icmp eq i64 %20, 0
   br i1 %.not9.i.i, label %_ZNSt3__118uninitialized_copyB8ne190000IPiS1_EET0_T_S3_S2_.exit, label %.lr.ph.i.i
 
@@ -27033,7 +27034,8 @@ _ZNSt3__116allocator_traitsINS_9allocatorIjEEE8allocateB8ne190000ERS2_m.exit: ; 
   %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #31
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i32, ptr %16, i64 %20
+  %.idx = shl nsw i64 %20, 2
+  %21 = getelementptr inbounds i8, ptr %16, i64 %.idx
   %.not9.i.i = icmp eq i64 %20, 0
   br i1 %.not9.i.i, label %_ZNSt3__118uninitialized_copyB8ne190000IPjS1_EET0_T_S3_S2_.exit, label %.lr.ph.i.i
 

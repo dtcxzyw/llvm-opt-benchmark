@@ -38,7 +38,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::Optional.33" = type { %"struct.llvh::optional_detail::OptionalStorage.34" }
 %"struct.llvh::optional_detail::OptionalStorage.34" = type { %"struct.llvh::AlignedCharArrayUnion.2", i8, [7 x i8] }
 %"struct.llvh::AlignedCharArrayUnion.2" = type { %"struct.llvh::AlignedCharArray" }
-%"struct.std::pair" = type { ptr, i64 }
 %struct.sigaction = type { %union.anon.16, %struct.__sigset_t, i32, ptr }
 %union.anon.16 = type { ptr }
 %struct.__sigset_t = type { [16 x i64] }
@@ -626,7 +625,8 @@ _ZNSt6vectorIPKcSaIS1_EED2Ev.exit122:             ; preds = %_ZNSt6vectorIPKcSaI
   %23 = load ptr, ptr %Slabs.i, align 8
   %24 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i = zext i32 %24 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %23, i64 %conv.i.i
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i.i, 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %23, i64 %add.ptr.i.idx.i
   %cmp.not4.i.i = icmp eq i32 %24, 0
   br i1 %cmp.not4.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i, label %for.body.i.i
 
@@ -642,7 +642,8 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateS
   %26 = load ptr, ptr %CustomSizedSlabs.i, align 8
   %27 = load i32, ptr %Size.i.i.i.i.i2.i, align 8
   %conv.i.i.i = zext i32 %27 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %26, i64 %conv.i.i.i
+  %add.ptr.i.idx.i.i = shl nuw nsw i64 %conv.i.i.i, 4
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 %add.ptr.i.idx.i.i
   %cmp.not5.i.i = icmp eq i32 %27, 0
   br i1 %cmp.not5.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i, label %for.body.i1.i
 
@@ -929,12 +930,13 @@ _ZN4llvh15SmallVectorImplINS_9StringRefEE7reserveEm.exit: ; preds = %entry
   br i1 %cmp.not17, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN4llvh15SmallVectorImplINS_9StringRefEE7reserveEm.exit.thread, %_ZN4llvh15SmallVectorImplINS_9StringRefEE7reserveEm.exit
-  %.pre1924 = phi i32 [ %.pre19.pre, %_ZN4llvh15SmallVectorImplINS_9StringRefEE7reserveEm.exit.thread ], [ 0, %_ZN4llvh15SmallVectorImplINS_9StringRefEE7reserveEm.exit ]
-  %add.ptr.i25 = getelementptr inbounds ptr, ptr %Args.coerce0, i64 %Args.coerce1
+  %.pre1925 = phi i32 [ %.pre19.pre, %_ZN4llvh15SmallVectorImplINS_9StringRefEE7reserveEm.exit.thread ], [ 0, %_ZN4llvh15SmallVectorImplINS_9StringRefEE7reserveEm.exit ]
+  %add.ptr.i.idx22.pn = shl nsw i64 %Args.coerce1, 3
+  %add.ptr.i26 = getelementptr inbounds i8, ptr %Args.coerce0, i64 %add.ptr.i.idx22.pn
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN4llvh15SmallVectorImplINS_9StringRefEE12emplace_backIJRPKcEEEvDpOT_.exit
-  %0 = phi i32 [ %add.i, %_ZN4llvh15SmallVectorImplINS_9StringRefEE12emplace_backIJRPKcEEEvDpOT_.exit ], [ %.pre1924, %for.body.preheader ]
+  %0 = phi i32 [ %add.i, %_ZN4llvh15SmallVectorImplINS_9StringRefEE12emplace_backIJRPKcEEEvDpOT_.exit ], [ %.pre1925, %for.body.preheader ]
   %__begin1.018 = phi ptr [ %incdec.ptr, %_ZN4llvh15SmallVectorImplINS_9StringRefEE12emplace_backIJRPKcEEEvDpOT_.exit ], [ %Args.coerce0, %for.body.preheader ]
   %1 = load ptr, ptr %__begin1.018, align 8
   %2 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
@@ -967,7 +969,7 @@ _ZN4llvh15SmallVectorImplINS_9StringRefEE12emplace_backIJRPKcEEEvDpOT_.exit: ; p
   %add.i = add i32 %5, 1
   store i32 %add.i, ptr %Size.i.i.i.i.i, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.018, i64 8
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i25
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i26
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN4llvh15SmallVectorImplINS_9StringRefEE12emplace_backIJRPKcEEEvDpOT_.exit, %_ZN4llvh15SmallVectorImplINS_9StringRefEE7reserveEm.exit
@@ -998,7 +1000,8 @@ init.end.i:                                       ; preds = %init.i, %init.check
   br i1 %cmp4.i, label %_ZN4llvh3sys33commandLineFitsWithinSystemLimitsENS_9StringRefENS_8ArrayRefIS1_EE.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %init.end.i
-  %add.ptr.i.i12 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %7, i64 %conv.i.i10
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i.i10, 4
+  %add.ptr.i.i12 = getelementptr inbounds nuw i8, ptr %7, i64 %add.ptr.i.idx.i
   %cmp10.not10.i = icmp eq i32 %6, 0
   br i1 %cmp10.not10.i, label %_ZN4llvh3sys33commandLineFitsWithinSystemLimitsENS_9StringRefENS_8ArrayRefIS1_EE.exit, label %for.body.preheader.i
 
@@ -1066,7 +1069,8 @@ init.end:                                         ; preds = %init, %init.check, 
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %init.end
-  %add.ptr.i = getelementptr inbounds %"class.llvh::StringRef", ptr %Args.coerce0, i64 %Args.coerce1
+  %add.ptr.i.idx = shl nsw i64 %Args.coerce1, 4
+  %add.ptr.i = getelementptr inbounds i8, ptr %Args.coerce0, i64 %add.ptr.i.idx
   %cmp10.not10 = icmp eq i64 %Args.coerce1, 0
   br i1 %cmp10.not10, label %return, label %for.body.preheader
 
@@ -1171,10 +1175,11 @@ if.end:                                           ; preds = %if.then.i, %entry
   %Capacity2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %EnvironmentPaths, i64 12
   store i32 16, ptr %Capacity2.i.i.i.i.i, align 4
   %cmp.i15 = icmp eq i64 %Paths.coerce1, 0
-  br i1 %cmp.i15, label %if.then2, label %if.end8.thread60
+  br i1 %cmp.i15, label %if.then2, label %if.end8.thread61
 
-if.end8.thread60:                                 ; preds = %if.end
-  %add.ptr.i1863 = getelementptr inbounds %"class.llvh::StringRef", ptr %Paths.coerce0, i64 %Paths.coerce1
+if.end8.thread61:                                 ; preds = %if.end
+  %add.ptr.i18.idx64 = shl nsw i64 %Paths.coerce1, 4
+  %add.ptr.i1865 = getelementptr inbounds i8, ptr %Paths.coerce0, i64 %add.ptr.i18.idx64
   br label %for.body.lr.ph
 
 if.then2:                                         ; preds = %if.end
@@ -1188,13 +1193,14 @@ if.end8:                                          ; preds = %if.then2
   %2 = load ptr, ptr %EnvironmentPaths, align 8
   %3 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i.i = zext i32 %3 to i64
-  %add.ptr.i18 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %2, i64 %conv.i.i
+  %add.ptr.i18.idx = shl nuw nsw i64 %conv.i.i, 4
+  %add.ptr.i18 = getelementptr inbounds nuw i8, ptr %2, i64 %add.ptr.i18.idx
   %cmp11.not54 = icmp eq i32 %3, 0
   br i1 %cmp11.not54, label %for.end, label %for.body.lr.ph
 
-for.body.lr.ph:                                   ; preds = %if.end8.thread60, %if.end8
-  %add.ptr.i1866 = phi ptr [ %add.ptr.i1863, %if.end8.thread60 ], [ %add.ptr.i18, %if.end8 ]
-  %Paths.sroa.0.065 = phi ptr [ %Paths.coerce0, %if.end8.thread60 ], [ %2, %if.end8 ]
+for.body.lr.ph:                                   ; preds = %if.end8.thread61, %if.end8
+  %add.ptr.i1868 = phi ptr [ %add.ptr.i1865, %if.end8.thread61 ], [ %add.ptr.i18, %if.end8 ]
+  %Paths.sroa.0.067 = phi ptr [ %Paths.coerce0, %if.end8.thread61 ], [ %2, %if.end8 ]
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %FilePath, i64 16
   %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %FilePath, i64 8
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %FilePath, i64 12
@@ -1208,7 +1214,7 @@ for.body.lr.ph:                                   ; preds = %if.end8.thread60, %
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin1.055 = phi ptr [ %Paths.sroa.0.065, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %__begin1.055 = phi ptr [ %Paths.sroa.0.067, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
   %Path.sroa.2.0.__begin1.0.sroa_idx = getelementptr inbounds nuw i8, ptr %__begin1.055, i64 8
   %Path.sroa.2.0.copyload = load i64, ptr %Path.sroa.2.0.__begin1.0.sroa_idx, align 8
   %cmp.i47 = icmp eq i64 %Path.sroa.2.0.copyload, 0
@@ -1322,7 +1328,7 @@ if.then.i.i.i44:                                  ; preds = %for.inc.critedge
 
 for.inc:                                          ; preds = %if.then.i.i.i44, %for.inc.critedge, %for.body
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.055, i64 16
-  %cmp11.not = icmp eq ptr %incdec.ptr, %add.ptr.i1866
+  %cmp11.not = icmp eq ptr %incdec.ptr, %add.ptr.i1868
   br i1 %cmp11.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %if.then2, %if.end8
@@ -1625,7 +1631,8 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 define internal fastcc void @_ZL28toNullTerminatedCStringArrayN4llvh8ArrayRefINS_9StringRefEEERNS_11StringSaverE(ptr noalias nonnull align 8 captures(none) initializes((0, 24)) %agg.result, ptr readonly captures(address) %Strings.coerce0, i64 %Strings.coerce1, ptr noundef nonnull align 8 dereferenceable(8) %Saver) unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %add.ptr.i = getelementptr inbounds %"class.llvh::StringRef", ptr %Strings.coerce0, i64 %Strings.coerce1
+  %add.ptr.i.idx = shl nsw i64 %Strings.coerce1, 4
+  %add.ptr.i = getelementptr inbounds i8, ptr %Strings.coerce0, i64 %add.ptr.i.idx
   %cmp.not37 = icmp eq i64 %Strings.coerce1, 0
   br i1 %cmp.not37, label %for.end.thread, label %for.body.lr.ph
 

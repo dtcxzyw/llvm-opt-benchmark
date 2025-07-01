@@ -8407,7 +8407,8 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$
   %10 = load i64, ptr %9, align 8, !alias.scope !3544, !noalias !3547
   %.sink5.i = select i1 %7, ptr %8, ptr %0
   %.sink4.i = select i1 %7, i64 %10, i64 %6
-  %11 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %.sink5.i, i64 %.sink4.i
+  %.idx = shl nsw i64 %.sink4.i, 4
+  %11 = getelementptr inbounds i8, ptr %.sink5.i, i64 %.idx
   %12 = icmp eq i64 %.sink4.i, 0
   br i1 %12, label %_ZN4core3fmt8builders9DebugList7entries17h865a837e289bd35aE.exit, label %.lr.ph.i
 
@@ -8444,7 +8445,8 @@ define hidden void @"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash
   store i64 %12, ptr %1, align 8, !alias.scope !3557
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3562)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3565)
-  %13 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %.sink5.i, i64 %.sink4.i
+  %.idx.i = shl nsw i64 %.sink4.i, 4
+  %13 = getelementptr inbounds i8, ptr %.sink5.i, i64 %.idx.i
   %14 = icmp eq i64 %.sink4.i, 0
   br i1 %14, label %_ZN4core4hash4Hash10hash_slice17h80696cdcc8597b36E.exit, label %.lr.ph.i
 
@@ -8495,7 +8497,8 @@ define hidden void @"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash
   store i64 %12, ptr %1, align 8, !alias.scope !3584
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3589)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3592)
-  %13 = getelementptr inbounds { { i8, [23 x i8] } }, ptr %.sink5.i, i64 %.sink4.i
+  %.idx.i = mul nsw i64 %.sink4.i, 24
+  %13 = getelementptr inbounds i8, ptr %.sink5.i, i64 %.idx.i
   %14 = icmp eq i64 %.sink4.i, 0
   br i1 %14, label %_ZN4core4hash4Hash10hash_slice17h1fe7ab736ec2e69aE.exit, label %.lr.ph.i
 
@@ -13735,7 +13738,8 @@ define hidden void @"_ZN7ide_ssr6search38_$LT$impl$u20$ide_ssr..MatchFinder$GT$1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) @anon.b173010368e59c66bf1ee32fd524a9f3.1.llvm.4309087787269155690, i64 32, i1 false)
   %99 = getelementptr i8, ptr %0, i64 104
   %.val = load ptr, ptr %99, align 8, !nonnull !4, !noundef !4
-  %100 = getelementptr inbounds { { i32, i32 }, i32 }, ptr %.val, i64 %13
+  %.idx = mul nsw i64 %13, 12
+  %100 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %102 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -14098,7 +14102,8 @@ define hidden void @"_ZN7ide_ssr6search38_$LT$impl$u20$ide_ssr..MatchFinder$GT$1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) @anon.b173010368e59c66bf1ee32fd524a9f3.1.llvm.4309087787269155690, i64 32, i1 false)
   %115 = getelementptr i8, ptr %0, i64 104
   %.val = load ptr, ptr %115, align 8, !nonnull !4, !noundef !4
-  %116 = getelementptr inbounds { { i32, i32 }, i32 }, ptr %.val, i64 %15
+  %.idx = mul nsw i64 %15, 12
+  %116 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %117 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %118 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %119 = load ptr, ptr %1, align 8, !nonnull !4, !align !5

@@ -1120,7 +1120,8 @@ _ZN4llvm5ErrorD2Ev.exit101:                       ; preds = %194
   %204 = load ptr, ptr %33, align 8, !tbaa !38
   %205 = load i32, ptr %202, align 8, !tbaa !39
   %206 = zext i32 %205 to i64
-  %207 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %204, i64 %206
+  %.idx = shl nuw nsw i64 %206, 4
+  %207 = getelementptr inbounds nuw i8, ptr %204, i64 %.idx
   %.not171 = icmp eq i32 %205, 0
   br i1 %.not171, label %.critedge, label %.lr.ph
 

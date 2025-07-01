@@ -182,7 +182,8 @@ entry:
   %3 = load i32, ptr %CurArraySize.i, align 8
   %cond.v.v.i = select i1 %cmp.i.i, i32 %2, i32 %3
   %cond.v.i = zext i32 %cond.v.v.i to i64
-  %cond.i = getelementptr inbounds nuw ptr, ptr %0, i64 %cond.v.i
+  %cond.i.idx = shl nuw nsw i64 %cond.v.i, 3
+  %cond.i = getelementptr inbounds nuw i8, ptr %0, i64 %cond.i.idx
   %conv = zext i32 %NewSize to i64
   %mul = shl nuw nsw i64 %conv, 3
   %call.i = tail call noalias ptr @malloc(i64 noundef %mul) #14
@@ -814,7 +815,8 @@ if.end49:                                         ; preds = %land.lhs.true29
   %29 = load i32, ptr %NumNonEmpty50, align 4
   %30 = tail call i32 @llvm.umin.i32(i32 %28, i32 %29)
   %idx.ext55 = zext i32 %30 to i64
-  %add.ptr56 = getelementptr inbounds nuw ptr, ptr %1, i64 %idx.ext55
+  %add.ptr56.idx = shl nuw nsw i64 %idx.ext55, 3
+  %add.ptr56 = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr56.idx
   %cmp.not5.i = icmp eq i32 %30, 0
   br i1 %cmp.not5.i, label %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit, label %for.body.i
 
@@ -837,12 +839,11 @@ _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit.loopexit: ; preds = %for.body.i
 _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit:       ; preds = %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit.loopexit, %if.end49
   %33 = phi i32 [ %.pre, %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit.loopexit ], [ %29, %if.end49 ]
   %cmp60 = icmp ugt i32 %33, %30
-  %add.ptr64.idx = shl nuw nsw i64 %idx.ext55, 3
   br i1 %cmp60, label %if.then.i.i.i.i.i57, label %if.else
 
 if.then.i.i.i.i.i57:                              ; preds = %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit
   %34 = load ptr, ptr %this, align 8
-  %add.ptr64 = getelementptr inbounds nuw i8, ptr %34, i64 %add.ptr64.idx
+  %add.ptr64 = getelementptr inbounds nuw i8, ptr %34, i64 %add.ptr56.idx
   %narrow = sub nuw i32 %33, %30
   %35 = zext i32 %narrow to i64
   %gepdiff69 = shl nuw nsw i64 %35, 3
@@ -855,13 +856,13 @@ if.else:                                          ; preds = %_ZSt11swap_rangesIP
   %37 = load i32, ptr %NumNonEmpty51, align 4
   %idx.ext78 = zext i32 %37 to i64
   %add.ptr79.idx = shl nuw nsw i64 %idx.ext78, 3
-  %tobool.not.i.i.i.i.i63 = icmp samesign eq i64 %add.ptr79.idx, %add.ptr64.idx
+  %tobool.not.i.i.i.i.i63 = icmp samesign eq i64 %add.ptr79.idx, %add.ptr56.idx
   br i1 %tobool.not.i.i.i.i.i63, label %if.end84, label %if.then.i.i.i.i.i64
 
 if.then.i.i.i.i.i64:                              ; preds = %if.else
   %38 = load ptr, ptr %RHS, align 8
-  %add.ptr75 = getelementptr inbounds nuw i8, ptr %38, i64 %add.ptr64.idx
-  %gepdiff = sub nsw i64 %add.ptr79.idx, %add.ptr64.idx
+  %add.ptr75 = getelementptr inbounds nuw i8, ptr %38, i64 %add.ptr56.idx
+  %gepdiff = sub nsw i64 %add.ptr79.idx, %add.ptr56.idx
   %39 = load ptr, ptr %this, align 8
   %add.ptr82 = getelementptr inbounds nuw ptr, ptr %39, i64 %idx.ext55
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr82, ptr align 8 %add.ptr75, i64 %gepdiff, i1 false)

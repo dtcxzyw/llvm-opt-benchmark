@@ -360,7 +360,8 @@ define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX647takeRegENS1_11RegisterX
 
 ; Function Attrs: mustprogress uwtable
 define dso_local i8 @_ZN4Luau7CodeGen3X6413IrRegAllocX6415allocRegOrReuseENS1_7SizeX64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, i8 noundef zeroext %1, i32 noundef %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #1 align 2 {
-  %6 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 2
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not48 = icmp eq i64 %4, 0
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 

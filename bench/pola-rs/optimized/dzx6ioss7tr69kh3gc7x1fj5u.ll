@@ -3604,7 +3604,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10polars_row8variable6binary11encode_iter17h6cd4abd85e58cfbbE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %2, i8 noundef %3, ptr noalias noundef nonnull align 8 captures(address) %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
   %7 = alloca [24 x i8], align 8
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.sroa.3.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.sroa.2.0.copyload = load i64, ptr %.sroa.3.sroa.2.0..sroa_idx, align 8, !alias.scope !534
   %.sroa.3.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3774,7 +3775,8 @@ define hidden void @_ZN10polars_row8variable6binary11encode_iter17h6cd4abd85e58c
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10polars_row8variable6binary11encode_iter17haafd785ab450ad92E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %2, i8 noundef %3, ptr noalias noundef nonnull align 8 captures(address) %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
   %7 = alloca [24 x i8], align 8
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.sroa.3.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.sroa.2.0.copyload = load i64, ptr %.sroa.3.sroa.2.0..sroa_idx, align 8, !alias.scope !562
   %.sroa.3.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3989,7 +3991,8 @@ define hidden void @_ZN10polars_row8variable6binary11encode_iter17haafd785ab450a
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10polars_row8variable6binary11encode_iter17hd5ace15d1f27971bE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %2, i8 noundef %3, ptr noalias noundef nonnull align 8 captures(address) %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
   %7 = alloca [24 x i8], align 8
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.sroa.3.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.sroa.2.0.copyload = load i64, ptr %.sroa.3.sroa.2.0..sroa_idx, align 8, !alias.scope !608
   %.sroa.3.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -4155,7 +4158,8 @@ define hidden void @_ZN10polars_row8variable6binary11encode_iter17hd5ace15d1f279
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order17h44bdb866235731f1E(ptr noalias noundef nonnull writeonly align 1 captures(none) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %2, i8 noundef %3, ptr noalias noundef nonnull align 8 captures(address) %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
   %7 = alloca [24 x i8], align 8
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.sroa.3.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.sroa.2.0.copyload = load i64, ptr %.sroa.3.sroa.2.0..sroa_idx, align 8, !alias.scope !634
   %.sroa.3.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -4366,7 +4370,8 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order17h58e54221099ba478E(ptr noalias noundef nonnull writeonly align 1 captures(none) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %2, i8 noundef %3, ptr noalias noundef nonnull align 8 captures(address) %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
   %7 = alloca [24 x i8], align 8
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.sroa.3.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.sroa.2.0.copyload = load i64, ptr %.sroa.3.sroa.2.0..sroa_idx, align 8, !alias.scope !681
   %.sroa.3.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -4577,7 +4582,8 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order17h7302326ac7031f25E(ptr noalias noundef nonnull writeonly align 1 captures(none) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %2, i8 noundef %3, ptr noalias noundef nonnull align 8 captures(address) %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
   %7 = alloca [24 x i8], align 8
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.sroa.3.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.sroa.2.0.copyload = load i64, ptr %.sroa.3.sroa.2.0..sroa_idx, align 8, !alias.scope !725
   %.sroa.3.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -4792,7 +4798,8 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order17h7bdef069b49ace3dE(ptr noalias noundef nonnull writeonly align 1 captures(none) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %2, i8 noundef %3, ptr noalias noundef nonnull align 8 captures(address) %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
   %7 = alloca [24 x i8], align 8
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.sroa.3.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.sroa.2.0.copyload = load i64, ptr %.sroa.3.sroa.2.0..sroa_idx, align 8, !alias.scope !769
   %.sroa.3.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -5007,7 +5014,8 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order17hd18cb516ce0c0d8cE(ptr noalias noundef nonnull writeonly align 1 captures(none) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %2, i8 noundef %3, ptr noalias noundef nonnull align 8 captures(address) %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
   %7 = alloca [24 x i8], align 8
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.sroa.3.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.sroa.2.0.copyload = load i64, ptr %.sroa.3.sroa.2.0..sroa_idx, align 8, !alias.scope !816
   %.sroa.3.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -5276,7 +5284,8 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order17hed342eec36f3fdcfE(ptr noalias noundef nonnull writeonly align 1 captures(none) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %2, i8 noundef %3, ptr noalias noundef nonnull align 8 captures(address) %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
   %7 = alloca [24 x i8], align 8
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.sroa.3.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.sroa.2.0.copyload = load i64, ptr %.sroa.3.sroa.2.0..sroa_idx, align 8, !alias.scope !882
   %.sroa.3.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -5548,7 +5557,8 @@ define hidden void @_ZN10polars_row8variable4utf810encode_str17h1e4cd67ac7647207
   %8 = tail call noundef i8 @_ZN10polars_row3row18RowEncodingOptions13null_sentinel17h7347bf126d040b63E(i8 noundef %3)
   %9 = and i8 %3, 1
   %sext = sub nsw i8 0, %9
-  %10 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.424.0.copyload = load i64, ptr %.sroa.424.0..sroa_idx, align 8
   %.sroa.525.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -5772,7 +5782,8 @@ define hidden void @_ZN10polars_row8variable4utf810encode_str17h1ee8de3a3e44ff43
   %8 = tail call noundef i8 @_ZN10polars_row3row18RowEncodingOptions13null_sentinel17h7347bf126d040b63E(i8 noundef %3)
   %9 = and i8 %3, 1
   %sext = sub nsw i8 0, %9
-  %10 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.424.0.copyload = load i64, ptr %.sroa.424.0..sroa_idx, align 8
   %.sroa.525.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -6052,7 +6063,8 @@ define hidden void @_ZN10polars_row8variable4utf810encode_str17h47b8df71b8b02e5e
   %8 = tail call noundef i8 @_ZN10polars_row3row18RowEncodingOptions13null_sentinel17h7347bf126d040b63E(i8 noundef %3)
   %9 = and i8 %3, 1
   %sext = sub nsw i8 0, %9
-  %10 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.424.0.copyload = load i64, ptr %.sroa.424.0..sroa_idx, align 8
   %.sroa.525.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16

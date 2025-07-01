@@ -10174,7 +10174,8 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform17address_transform16
   %67 = load ptr, ptr %66, align 8, !alias.scope !1871, !noalias !1874, !nonnull !9, !noundef !9
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %69 = load i64, ptr %68, align 8, !alias.scope !1871, !noalias !1874, !noundef !9
-  %70 = getelementptr inbounds ptr, ptr %67, i64 %69
+  %.idx = shl nsw i64 %69, 3
+  %70 = getelementptr inbounds i8, ptr %67, i64 %.idx
   %71 = icmp eq i64 %69, 0
   br i1 %71, label %._crit_edge530.thread, label %.lr.ph529
 
@@ -10303,7 +10304,8 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform17address_transform16
   %108 = load ptr, ptr %107, align 8, !noalias !1876, !nonnull !9, !align !1102, !noundef !9
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 104
   %110 = load i64, ptr %109, align 8, !noalias !1876, !noundef !9
-  %111 = getelementptr inbounds { i32, i32 }, ptr %108, i64 %110
+  %.idx41.i = shl nsw i64 %110, 3
+  %111 = getelementptr inbounds i8, ptr %108, i64 %.idx41.i
   %112 = icmp eq i64 %110, 0
   br i1 %112, label %._crit_edge.i, label %.lr.ph.i
 

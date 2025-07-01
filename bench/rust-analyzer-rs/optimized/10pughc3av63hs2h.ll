@@ -2257,7 +2257,8 @@ select.unfold107:                                 ; preds = %21, %"_ZN3mbe7tt_it
   %26 = load ptr, ptr %11, align 8, !alias.scope !598, !nonnull !4, !align !358, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %28 = load i64, ptr %27, align 8, !alias.scope !598, !noundef !4
-  %29 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %26, i64 %28
+  %.idx = shl nsw i64 %28, 6
+  %29 = getelementptr inbounds i8, ptr %26, i64 %.idx
   store ptr %26, ptr %5, align 8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %29, ptr %30, align 8

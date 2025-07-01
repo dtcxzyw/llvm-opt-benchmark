@@ -315,7 +315,8 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   %10 = load ptr, ptr %9, align 8, !alias.scope !23, !noalias !29, !nonnull !3, !align !4, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !23, !noalias !29, !noundef !3
-  %13 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %10, i64 %12
+  %.idx.i = shl nuw nsw i64 %12, 6
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %"_ZN167_$LT$ruff_python_formatter..statement..stmt_delete..FormatStmtDelete$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..StmtDelete$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h37076a0219709500E.exit", label %.lr.ph.i.i
 
@@ -362,7 +363,8 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   %14 = load ptr, ptr %13, align 8, !noalias !35, !nonnull !3, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %16 = load i64, ptr %15, align 8, !noalias !35, !noundef !3
-  %17 = getelementptr inbounds nuw { [55 x i8], i8 }, ptr %14, i64 %16
+  %.idx.i = mul nuw nsw i64 %16, 56
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %"_ZN164_$LT$ruff_python_formatter..type_param..type_params..FormatTypeParams$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..TypeParams$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h1249ff263b44397eE.exit", label %.lr.ph.i.i
@@ -604,7 +606,8 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   %.val1 = load i64, ptr %6, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !83
   call void @_ZN4core3fmt9Formatter10debug_list17h707f9a0a1c7e66ccE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-  %7 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.val, i64 %.val1
+  %.idx.i.i = mul nuw nsw i64 %.val1, 12
+  %7 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i
   %8 = icmp eq i64 %.val1, 0
   br i1 %8, label %"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he10d574dac3f3ffaE.exit", label %.lr.ph.i.i.i
 
@@ -6014,7 +6017,8 @@ define hidden void @_ZN21ruff_python_formatter5range11NarrowRange6narrow17h23f6e
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN21ruff_python_formatter5range11NarrowRange6narrow17h553838f29ffa289fE(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 

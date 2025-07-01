@@ -225,7 +225,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %0, 3
   %call5.i.i.i.i2.i.i41 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #23
-  %add.ptr.i.i.i = getelementptr double, ptr %call5.i.i.i.i2.i.i41, i64 %0
+  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i41, i64 %0
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i41, align 8, !tbaa !8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %0, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %if.end.i.i.i.i.i.i.i
@@ -248,10 +248,10 @@ for.cond.cleanup:                                 ; preds = %invoke.cont6, %_ZNS
 
 cond.end.thread.i:                                ; preds = %for.cond.cleanup
   store ptr null, ptr %agg.result, align 8, !tbaa !20
-  %rows_6.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %0, ptr %rows_6.i, align 8, !tbaa !21
-  %columns_7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i64 %0, ptr %columns_7.i, align 8, !tbaa !29
+  %rows_7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i64 %0, ptr %rows_7.i, align 8, !tbaa !21
+  %columns_8.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  store i64 %0, ptr %columns_8.i, align 8, !tbaa !29
   br label %_ZN8QuantLib6MatrixC2Emmd.exit
 
 for.body.i.i.i.preheader.i:                       ; preds = %for.cond.cleanup
@@ -518,10 +518,10 @@ entry:
 
 cond.end.thread.i:                                ; preds = %entry
   store ptr null, ptr %agg.result, align 8, !tbaa !20
-  %rows_6.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %0, ptr %rows_6.i, align 8, !tbaa !21
-  %columns_7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i64 %0, ptr %columns_7.i, align 8, !tbaa !29
+  %rows_7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i64 %0, ptr %rows_7.i, align 8, !tbaa !21
+  %columns_8.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  store i64 %0, ptr %columns_8.i, align 8, !tbaa !29
   br label %_ZN8QuantLib6MatrixC2Emmd.exit
 
 for.body.i.i.i.preheader.i:                       ; preds = %entry
@@ -691,10 +691,10 @@ entry:
 
 cond.end.thread.i:                                ; preds = %entry
   store ptr null, ptr %agg.result, align 8, !tbaa !20
-  %rows_6.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %0, ptr %rows_6.i, align 8, !tbaa !21
-  %columns_7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i64 %0, ptr %columns_7.i, align 8, !tbaa !29
+  %rows_7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i64 %0, ptr %rows_7.i, align 8, !tbaa !21
+  %columns_8.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  store i64 %0, ptr %columns_8.i, align 8, !tbaa !29
   br label %_ZN8QuantLib6MatrixC2Emmd.exit
 
 for.body.i.i.i.preheader.i:                       ; preds = %entry

@@ -236,7 +236,8 @@ _ZN4llvm5APIntD2Ev.exit61:                        ; preds = %81, %85, %88
   store i32 0, ptr %98, align 8, !tbaa !699
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull %97, i64 noundef %93, i64 noundef 8) #7
   %102 = load ptr, ptr %7, align 8, !tbaa !697
-  %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %93
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %93, 3
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %101
@@ -251,7 +252,8 @@ _ZSt6fill_nIPPN4llvm8ConstantEmS2_ET_S4_T0_RKT1_.exit.i.i: ; preds = %91
   br i1 %.not.i, label %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EEC2EmRKS2_.exit, label %105
 
 105:                                              ; preds = %_ZSt6fill_nIPPN4llvm8ConstantEmS2_ET_S4_T0_RKT1_.exit.i.i
-  %106 = getelementptr inbounds nuw ptr, ptr %97, i64 %93
+  %.idx.i.i.i.i.i.i = shl nuw nsw i64 %93, 3
+  %106 = getelementptr inbounds nuw i8, ptr %97, i64 %.idx.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %105

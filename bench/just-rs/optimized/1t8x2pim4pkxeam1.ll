@@ -3125,7 +3125,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { i64, [15 x i64] }, { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } }, i8, i8, [6 x i8] }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 208
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17ha088a18bd0cfb8deE.exit, label %.lr.ph.i
 
@@ -3151,7 +3152,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h51e50170d3461470E.exit, label %.lr.ph.i
 
@@ -10991,7 +10993,8 @@ _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit: ; preds = %"_ZN4core3str21
   %.val = load ptr, ptr %136, align 8, !nonnull !9, !noundef !9
   %137 = getelementptr inbounds nuw i8, ptr %.tr315, i64 120
   %.val241 = load i64, ptr %137, align 8, !noundef !9
-  %138 = getelementptr inbounds { i64, [15 x i64] }, ptr %.val, i64 %.val241
+  %.idx342 = shl nsw i64 %.val241, 7
+  %138 = getelementptr inbounds i8, ptr %.val, i64 %.idx342
   %139 = icmp eq i64 %.val241, 0
   br i1 %139, label %._crit_edge, label %.lr.ph
 
@@ -14199,7 +14202,8 @@ _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit89: ; preds = %"_ZN4core3str
   %.val = load ptr, ptr %315, align 8, !nonnull !9, !noundef !9
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.val47 = load i64, ptr %316, align 8, !noundef !9
-  %317 = getelementptr inbounds { i64, [15 x i64] }, ptr %.val, i64 %.val47
+  %.idx = shl nsw i64 %.val47, 7
+  %317 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %318 = icmp eq i64 %.val47, 0
   br i1 %318, label %._crit_edge, label %.lr.ph
 

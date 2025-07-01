@@ -551,7 +551,8 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h87c71e4f76ece589E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 3
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3e374b0cbf712464E.llvm.18320878128899670748.exit", label %.lr.ph.i
@@ -2243,7 +2244,8 @@ define noundef zeroext i1 @_ZN16uv_configuration15install_options14InstallOption
   %75 = load i64, ptr %74, align 8, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !707)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !710)
-  %76 = getelementptr inbounds ptr, ptr %73, i64 %75
+  %.idx.i = shl nsw i64 %75, 3
+  %76 = getelementptr inbounds i8, ptr %73, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !712)
   %.not.i.i164 = icmp eq i64 %75, 0
   br i1 %.not.i.i164, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h87c71e4f76ece589E.exit", label %.lr.ph.i.i

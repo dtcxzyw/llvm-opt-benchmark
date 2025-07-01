@@ -5741,7 +5741,8 @@ _ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7GfVec2dEEEEaSIS3
   fence acquire
   %2132 = load ptr, ptr %1225, align 8
   %2133 = load i64, ptr %43, align 8
-  %2134 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %2132, i64 %2133
+  %.idx.i.i.i = shl nsw i64 %2133, 6
+  %2134 = getelementptr inbounds i8, ptr %2132, i64 %.idx.i.i.i
   %.not2829.i.i.i = icmp eq i64 %2133, 0
   br i1 %.not2829.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -12885,7 +12886,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12Sdf
   fence acquire
   %12 = load ptr, ptr %2, align 8
   %13 = load i64, ptr %0, align 8
-  %14 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %12, i64 %13
+  %.idx.i = shl nsw i64 %13, 6
+  %14 = getelementptr inbounds i8, ptr %12, i64 %.idx.i
   %.not2829.i = icmp eq i64 %13, 0
   br i1 %.not2829.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -12993,7 +12995,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8optio
   fence acquire
   %19 = load ptr, ptr %9, align 8
   %20 = load i64, ptr %0, align 8
-  %21 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %19, i64 %20
+  %.idx.i.i = shl nsw i64 %20, 6
+  %21 = getelementptr inbounds i8, ptr %19, i64 %.idx.i.i
   %.not2829.i.i = icmp eq i64 %20, 0
   br i1 %.not2829.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -13345,7 +13348,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE16_CapacityFor
   fence acquire
   %58 = load ptr, ptr %38, align 8
   %59 = load i64, ptr %0, align 8
-  %60 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %58, i64 %59
+  %.idx.i = shl nsw i64 %59, 6
+  %60 = getelementptr inbounds i8, ptr %58, i64 %.idx.i
   %.not2829.i = icmp eq i64 %59, 0
   br i1 %.not2829.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -16326,7 +16330,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEC2ERKS2_.exit.t
   fence acquire
   %25 = load ptr, ptr %15, align 8
   %26 = load i64, ptr %0, align 8
-  %27 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %25, i64 %26
+  %.idx.i.i = shl nsw i64 %26, 6
+  %27 = getelementptr inbounds i8, ptr %25, i64 %.idx.i.i
   %.not2829.i.i = icmp eq i64 %26, 0
   br i1 %.not2829.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -16393,20 +16398,21 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEaSEOS2_.exit.th
   fence acquire
   %49 = load ptr, ptr %5, align 8
   %50 = load i64, ptr %3, align 8
-  %51 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %49, i64 %50
-  %.not2829.i.i9 = icmp eq i64 %50, 0
-  br i1 %.not2829.i.i9, label %._crit_edge.i.i15, label %.lr.ph.i.i10
+  %.idx.i.i9 = shl nsw i64 %50, 6
+  %51 = getelementptr inbounds i8, ptr %49, i64 %.idx.i.i9
+  %.not2829.i.i10 = icmp eq i64 %50, 0
+  br i1 %.not2829.i.i10, label %._crit_edge.i.i16, label %.lr.ph.i.i11
 
-.lr.ph.i.i10:                                     ; preds = %48, %.lr.ph.i.i10
-  %.02430.i.i11 = phi ptr [ %53, %.lr.ph.i.i10 ], [ %49, %48 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.02430.i.i11, i64 32
+.lr.ph.i.i11:                                     ; preds = %48, %.lr.ph.i.i11
+  %.02430.i.i12 = phi ptr [ %53, %.lr.ph.i.i11 ], [ %49, %48 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.02430.i.i12, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.02430.i.i11) #22
-  %53 = getelementptr inbounds nuw i8, ptr %.02430.i.i11, i64 64
-  %.not28.i.i12 = icmp eq ptr %53, %51
-  br i1 %.not28.i.i12, label %._crit_edge.i.i15, label %.lr.ph.i.i10, !llvm.loop !46
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.02430.i.i12) #22
+  %53 = getelementptr inbounds nuw i8, ptr %.02430.i.i12, i64 64
+  %.not28.i.i13 = icmp eq ptr %53, %51
+  br i1 %.not28.i.i13, label %._crit_edge.i.i16, label %.lr.ph.i.i11, !llvm.loop !46
 
-._crit_edge.i.i15:                                ; preds = %.lr.ph.i.i10, %48
+._crit_edge.i.i16:                                ; preds = %.lr.ph.i.i11, %48
   %54 = getelementptr inbounds i8, ptr %49, i64 -16
   call void @_ZdlPv(ptr noundef nonnull %54) #22
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEED2Ev.exit
@@ -16441,7 +16447,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEaSEOS2_.exit.th
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #22
   resume { ptr, i32 } %67
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEED2Ev.exit: ; preds = %44, %._crit_edge.i.i15, %55, %58, %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEC2ERKS2_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEaSEOS2_.exit.thread, %2
+_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEED2Ev.exit: ; preds = %44, %._crit_edge.i.i16, %55, %58, %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEC2ERKS2_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEaSEOS2_.exit.thread, %2
   ret ptr %0
 }
 

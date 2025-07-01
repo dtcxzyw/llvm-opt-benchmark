@@ -5824,7 +5824,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hdafe9e59d8eb6288E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { i64, i64, i64, i32, [1 x i32] }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 5
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h0fe44aac8aba3dd1E.exit, label %.lr.ph.i
 
@@ -10057,7 +10058,8 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hd
   %.sroa.441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %7, ptr %.sroa.442.0..sroa_idx, align 8, !noalias !2746
-  %46 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %.idx.i = shl nsw i64 %6, 3
+  %46 = getelementptr inbounds i8, ptr %5, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2747)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2750)
   %47 = icmp eq i64 %6, 0
@@ -31248,7 +31250,8 @@ define hidden noundef i64 @_ZN10tokenizers9tokenizer16added_vocabulary15AddedVoc
   %57 = alloca { { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } }, align 8
   %58 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %59 = alloca { { { { i64, ptr, {} }, i64 } }, i8, i8, i8, i8, i8, [3 x i8] }, align 8
-  %60 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i8, i8, i8, i8, i8, [3 x i8] }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 5
+  %60 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %61 = icmp eq i64 %2, 0
   br i1 %61, label %.outer._crit_edge, label %.lr.ph
 

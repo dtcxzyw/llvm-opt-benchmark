@@ -3124,7 +3124,8 @@ define void @_ZN3git16hosting_provider20parse_git_remote_url17hb84dc7162fa81a49E
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !629, !noalias !626, !nonnull !5, !noundef !5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !629, !noalias !626
-  %18 = getelementptr inbounds { { { ptr, ptr } }, {}, {} }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nsw i64 %.sroa.5.0.copyload.i, 4
+  %18 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   store ptr %.sroa.4.0.copyload.i, ptr %8, align 8, !alias.scope !626, !noalias !629
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %.sroa.0.0.copyload.i, ptr %19, align 8, !alias.scope !626, !noalias !629

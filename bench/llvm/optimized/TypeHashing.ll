@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::codeview::TypeIndex" = type { %"struct.llvm::support::detail::packed_endian_specific_integral" }
 %"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon }
 %struct.anon = type { [4 x i8] }
-%"struct.llvm::codeview::TiReference" = type { i32, i32, i32 }
 
 $_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_ = comdat any
 
@@ -74,7 +73,8 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   %16 = load ptr, ptr %8, align 8, !tbaa !10
   %17 = load i32, ptr %12, align 8, !tbaa !13
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %16, i64 %18
+  %.idx = mul nuw nsw i64 %18, 12
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   %.not102 = icmp eq i32 %17, 0
   br i1 %.not102, label %.thread95, label %.lr.ph106
 
@@ -98,7 +98,8 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   %31 = load i32, ptr %30, align 4, !tbaa !19
   %32 = zext i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 %29
-  %34 = getelementptr inbounds nuw %"class.llvm::codeview::TypeIndex", ptr %33, i64 %32
+  %.idx107 = shl nuw nsw i64 %32, 2
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx107
   %.not53100 = icmp eq i32 %31, 0
   br i1 %.not53100, label %._crit_edge, label %.lr.ph
 
@@ -145,8 +146,8 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
 
 ._crit_edge.loopexit:                             ; preds = %.critedge
   %.pre = load i32, ptr %20, align 4, !tbaa !15
-  %.pre107 = load i32, ptr %30, align 4, !tbaa !19
-  %48 = shl i32 %.pre107, 2
+  %.pre108 = load i32, ptr %30, align 4, !tbaa !19
+  %48 = shl i32 %.pre108, 2
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph106

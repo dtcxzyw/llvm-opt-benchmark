@@ -106306,12 +106306,14 @@ define void @"_ZN89_$LT$assistant..model_selector..ModelPickerDelegate$u20$as$u2
   %89 = load ptr, ptr %88, align 8, !alias.scope !25087, !nonnull !9, !noundef !9
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %91 = load i64, ptr %90, align 8, !alias.scope !25087, !noundef !9
-  %92 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} }, i32, i8, i8, [2 x i8] }, ptr %89, i64 %91
+  %.idx = mul nsw i64 %91, 24
+  %92 = getelementptr inbounds i8, ptr %89, i64 %.idx
   %93 = icmp eq i64 %91, 0
   br i1 %93, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %87
-  %94 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} }, i32, i8, i8, [2 x i8] }, ptr %22, i64 %16
+  %.idx115117 = mul nsw i64 %16, 24
+  %94 = getelementptr inbounds i8, ptr %22, i64 %.idx115117
   br label %.lr.ph113
 
 .lr.ph:                                           ; preds = %87
@@ -106345,9 +106347,10 @@ define void @"_ZN89_$LT$assistant..model_selector..ModelPickerDelegate$u20$as$u2
 
 ._crit_edge:                                      ; preds = %236
   %.pre = load ptr, ptr %21, align 8, !alias.scope !25090
-  %.pre115 = load i64, ptr %15, align 8, !alias.scope !25090
-  %112 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} }, i32, i8, i8, [2 x i8] }, ptr %.pre, i64 %.pre115
-  %113 = icmp eq i64 %.pre115, 0
+  %.pre116 = load i64, ptr %15, align 8, !alias.scope !25090
+  %.idx115 = mul nsw i64 %.pre116, 24
+  %112 = getelementptr inbounds i8, ptr %.pre, i64 %.idx115
+  %113 = icmp eq i64 %.pre116, 0
   br i1 %113, label %._crit_edge114, label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %._crit_edge.thread, %._crit_edge

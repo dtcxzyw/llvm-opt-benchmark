@@ -57834,7 +57834,8 @@ common.resume:                                    ; preds = %.body, %26
   %32 = load ptr, ptr %31, align 8, !nonnull !5, !noundef !5
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %34 = load i64, ptr %33, align 8, !noundef !5
-  %35 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %32, i64 %34
+  %.idx.i = shl nsw i64 %34, 5
+  %35 = getelementptr inbounds i8, ptr %32, i64 %.idx.i
   %.not.i.i = icmp eq i64 %34, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load i8, ptr %.phi.trans.insert, align 8
@@ -58094,7 +58095,8 @@ common.resume:                                    ; preds = %52, %27
   %33 = load ptr, ptr %32, align 8, !nonnull !5, !noundef !5
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %35 = load i64, ptr %34, align 8, !noundef !5
-  %36 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %33, i64 %35
+  %.idx = shl nsw i64 %35, 5
+  %36 = getelementptr inbounds i8, ptr %33, i64 %.idx
   %37 = icmp eq i64 %35, 0
   br i1 %37, label %.loopexit, label %.lr.ph.i
 

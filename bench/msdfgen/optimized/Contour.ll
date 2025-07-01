@@ -1105,7 +1105,7 @@ unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.
 lpad.body:                                        ; preds = %lpad2.i.i.i.i.i
   %12 = extractvalue { ptr, i32 } %9, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #13
-  %add.ptr28 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %add.ptr, i64 %__n
+  %add.ptr28 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %5
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %lpad.body, %for.body.i.i.i

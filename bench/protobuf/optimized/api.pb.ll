@@ -1179,7 +1179,8 @@ entry:
   %3 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %cond.i.i.i = select i1 %cmp.i.i.i.i, ptr %methods_.i, ptr %elements.i.i.i
-  %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i.i.i, i64 %conv
+  %add.ptr.i.idx = shl nsw i64 %conv, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %add.ptr.i.idx
   %cmp.i.not114 = icmp eq i32 %0, 0
   br i1 %cmp.i.not114, label %for.end, label %for.body
 
@@ -1217,7 +1218,8 @@ for.end:                                          ; preds = %for.body, %entry
   %9 = inttoptr i64 %sub.i.i.i.i.i23 to ptr
   %elements.i.i.i24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %cond.i.i.i25 = select i1 %cmp.i.i.i.i22, ptr %options_.i, ptr %elements.i.i.i24
-  %add.ptr.i33 = getelementptr inbounds ptr, ptr %cond.i.i.i25, i64 %conv12
+  %add.ptr.i33.idx = shl nsw i64 %conv12, 3
+  %add.ptr.i33 = getelementptr inbounds i8, ptr %cond.i.i.i25, i64 %add.ptr.i33.idx
   %cmp.i34.not117 = icmp eq i32 %6, 0
   br i1 %cmp.i34.not117, label %for.end32, label %for.body25
 
@@ -1255,7 +1257,8 @@ for.end32:                                        ; preds = %for.body25, %for.en
   %15 = inttoptr i64 %sub.i.i.i.i.i48 to ptr
   %elements.i.i.i49 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %cond.i.i.i50 = select i1 %cmp.i.i.i.i47, ptr %mixins_.i, ptr %elements.i.i.i49
-  %add.ptr.i58 = getelementptr inbounds ptr, ptr %cond.i.i.i50, i64 %conv34
+  %add.ptr.i58.idx = shl nsw i64 %conv34, 3
+  %add.ptr.i58 = getelementptr inbounds i8, ptr %cond.i.i.i50, i64 %add.ptr.i58.idx
   %cmp.i59.not121 = icmp eq i32 %12, 0
   br i1 %cmp.i59.not121, label %for.end54, label %for.body47
 
@@ -2266,7 +2269,8 @@ entry:
   %4 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %cond.i.i.i = select i1 %cmp.i.i.i.i, ptr %1, ptr %elements.i.i.i
-  %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i.i.i, i64 %conv
+  %add.ptr.i.idx = shl nsw i64 %conv, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %add.ptr.i.idx
   %cmp.i.not60 = icmp eq i32 %0, 0
   br i1 %cmp.i.not60, label %for.end, label %for.body
 

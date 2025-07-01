@@ -816,7 +816,8 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h84ebdf23553011dfE(pt
   %.sroa.596.0.copyload = load i64, ptr %.sroa.596.0..sroa_idx, align 8
   %82 = icmp ult i64 %.sroa.596.0.copyload, 288230376151711744
   call void @llvm.assume(i1 %82)
-  %83 = getelementptr inbounds nuw { ptr, { { { ptr, i64 } } }, i8, {}, [7 x i8] }, ptr %.sroa.495.0.copyload, i64 %.sroa.596.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.596.0.copyload, 5
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.495.0.copyload, i64 %.idx
   %84 = icmp sgt i64 %.sroa.094.0.copyload, -1
   call void @llvm.assume(i1 %84)
   %.sroa.097.0.copyload = load i64, ptr %21, align 8

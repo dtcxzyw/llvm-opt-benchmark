@@ -1388,7 +1388,8 @@ _ZN10num_bigint7biguint8division9rem_digit17ha4d36f6717b21bb9E.exit.thread: ; pr
   br label %34
 
 .lr.ph.preheader.i:                               ; preds = %11
-  %14 = getelementptr inbounds i64, ptr %.val, i64 %.val1
+  %.idx.i = shl nsw i64 %.val1, 3
+  %14 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i

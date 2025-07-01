@@ -26032,7 +26032,8 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %61)
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %68 = load ptr, ptr %67, align 8, !nonnull !4, !noundef !4
-  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %63
+  %.idx1606 = shl nuw nsw i64 %63, 3
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx1606
   store ptr %68, ptr %60, align 8
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %69, ptr %70, align 8
@@ -26043,7 +26044,8 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   %73 = load ptr, ptr %72, align 8, !nonnull !4, !noundef !4
   %74 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %75 = load i64, ptr %74, align 8, !noundef !4
-  %76 = getelementptr inbounds { i64, i64, { i16, i16 }, { i16, i16 }, i8, i8, i8, [5 x i8] }, ptr %73, i64 %75
+  %.idx1598 = shl nsw i64 %75, 5
+  %76 = getelementptr inbounds i8, ptr %73, i64 %.idx1598
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 232
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5628)
   br label %78
@@ -26731,7 +26733,8 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   br i1 %.not1600, label %.thread782, label %.lr.ph1574
 
 .lr.ph1574:                                       ; preds = %.preheader954
-  %339 = getelementptr inbounds { i64, i64, { i16, i16 }, { i16, i16 }, i8, i8, i8, [5 x i8] }, ptr %336, i64 %335
+  %.idx1601 = shl nsw i64 %335, 5
+  %339 = getelementptr inbounds i8, ptr %336, i64 %.idx1601
   %340 = icmp eq i64 %335, 0
   br label %347
 
@@ -26752,7 +26755,8 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$11decode_scan17h
   %342 = phi ptr [ %336, %.preheader954 ], [ %.pre, %.thread782.loopexit ]
   %.sroa.0475.1.lcssa = phi i16 [ %.sroa.0475.01583, %.preheader954 ], [ %.sroa.0475.1.lcssa.ph, %.thread782.loopexit ]
   %.sroa.056.1.lcssa = phi i16 [ %.sroa.056.01584, %.preheader954 ], [ %.sroa.056.1.lcssa.ph, %.thread782.loopexit ]
-  %343 = getelementptr inbounds { i64, i64, { i16, i16 }, { i16, i16 }, i8, i8, i8, [5 x i8] }, ptr %342, i64 %341
+  %.idx1605 = shl nsw i64 %341, 5
+  %343 = getelementptr inbounds i8, ptr %342, i64 %.idx1605
   %344 = icmp eq i64 %341, 0
   br i1 %344, label %.loopexit950, label %.lr.ph1582
 
@@ -28805,7 +28809,8 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$13decode_planes1
 63:                                               ; preds = %58
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %65 = load ptr, ptr %64, align 8, !nonnull !4, !noundef !4
-  %66 = getelementptr inbounds { i64, i64, { i16, i16 }, { i16, i16 }, i8, i8, i8, [5 x i8] }, ptr %65, i64 %30
+  %.idx = shl nsw i64 %30, 5
+  %66 = getelementptr inbounds i8, ptr %65, i64 %.idx
   %67 = icmp eq i64 %30, 0
   br i1 %67, label %.loopexit, label %.lr.ph
 
@@ -31160,7 +31165,8 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   %576 = load ptr, ptr %206, align 8, !noalias !6572, !nonnull !4
   %577 = load i64, ptr %207, align 8, !noalias !6572
   %.fr851.i = freeze i64 %577
-  %578 = getelementptr inbounds { i64, i64, { i16, i16 }, { i16, i16 }, i8, i8, i8, [5 x i8] }, ptr %576, i64 %.fr851.i
+  %.idx.i = shl nsw i64 %.fr851.i, 5
+  %578 = getelementptr inbounds i8, ptr %576, i64 %.idx.i
   br i1 %.not850.i, label %._crit_edge.i531, label %.lr.ph702.split.us.i
 
 .lr.ph702.split.us.i:                             ; preds = %.lr.ph702.i
@@ -31222,12 +31228,12 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
 .loopexit462.us.us712.us.i:                       ; preds = %593, %581
   %.sroa.027.3.us.us.us.i = phi i16 [ %558, %593 ], [ %.sroa.027.1687.us.us.us.i, %581 ]
   %596 = add i16 %.sroa.027.3.us.us.us.i, -1
-  %exitcond1124.not.i = icmp eq i64 %582, %525
-  br i1 %exitcond1124.not.i, label %..loopexit466_crit_edge.split.us.split.us713.us.i, label %581
+  %exitcond1126.not.i = icmp eq i64 %582, %525
+  br i1 %exitcond1126.not.i, label %..loopexit466_crit_edge.split.us.split.us713.us.i, label %581
 
 ..loopexit466_crit_edge.split.us.split.us713.us.i: ; preds = %.loopexit462.us.us712.us.i
-  %exitcond1125.not.i = icmp eq i64 %580, %523
-  br i1 %exitcond1125.not.i, label %._crit_edge.i531, label %.lr.ph688.us.us.i
+  %exitcond1127.not.i = icmp eq i64 %580, %523
+  br i1 %exitcond1127.not.i, label %._crit_edge.i531, label %.lr.ph688.us.us.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us.split.us.i: ; preds = %584
   %lpad.loopexit467.us.us.us.i = landingpad { ptr, i32 }
@@ -31301,13 +31307,13 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   %617 = getelementptr inbounds nuw i8, ptr %.sroa.0336.0684.us.i, i64 32
   %618 = add nuw nsw i64 %.sroa.8338.0685.us.i, 1
   %exitcond.not.i = icmp eq i64 %.sroa.8338.0685.us.i, %540
-  br i1 %exitcond.not.i, label %.invoke1402.i, label %619
+  br i1 %exitcond.not.i, label %.invoke1404.i, label %619
 
 619:                                              ; preds = %616
   %620 = getelementptr inbounds nuw [0 x i64], ptr %539, i64 0, i64 %.sroa.8338.0685.us.i
   %621 = load i64, ptr %620, align 8, !noalias !6571, !noundef !4
   %622 = icmp ult i64 %621, %542
-  br i1 %622, label %623, label %.invoke1402.i
+  br i1 %622, label %623, label %.invoke1404.i
 
 623:                                              ; preds = %619
   %624 = getelementptr inbounds [0 x { i64, [211 x i64] }], ptr %543, i64 0, i64 %621
@@ -31393,7 +31399,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   %.sroa.057.0.us.i = phi i32 [ %661, %643 ], [ 32768, %633 ], [ 0, %631 ]
   %663 = load i64, ptr %209, align 8, !noalias !6572, !noundef !4
   %664 = icmp ult i64 %.sroa.8338.0685.us.i, %663
-  br i1 %664, label %665, label %.invoke1402.i
+  br i1 %664, label %665, label %.invoke1404.i
 
 665:                                              ; preds = %662
   %666 = load ptr, ptr %210, align 8, !noalias !6572, !nonnull !4, !noundef !4
@@ -31419,12 +31425,12 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   br i1 %677, label %..loopexit462_crit_edge.us.i, label %616
 
 ..loopexit462_crit_edge.us.i:                     ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7f9a9b7fd255fe7cE.exit.us.i"
-  %exitcond1122.not.i = icmp eq i64 %599, %525
-  br i1 %exitcond1122.not.i, label %..loopexit466_crit_edge.split.us708.i, label %598
+  %exitcond1124.not.i = icmp eq i64 %599, %525
+  br i1 %exitcond1124.not.i, label %..loopexit466_crit_edge.split.us708.i, label %598
 
 ..loopexit466_crit_edge.split.us708.i:            ; preds = %..loopexit462_crit_edge.us.i
-  %exitcond1123.not.i = icmp eq i64 %597, %523
-  br i1 %exitcond1123.not.i, label %._crit_edge.i531, label %.lr.ph688.us.i
+  %exitcond1125.not.i = icmp eq i64 %597, %523
+  br i1 %exitcond1125.not.i, label %._crit_edge.i531, label %.lr.ph688.us.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.split.us.i: ; preds = %602
   %lpad.loopexit467.us715.i = landingpad { ptr, i32 }
@@ -31447,12 +31453,12 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.i: ; preds = %934, %914
-  %lpad.loopexit1140.i = landingpad { ptr, i32 }
+  %lpad.loopexit1142.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp.i: ; preds = %939
-  %lpad.loopexit.split-lp1141.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp1143.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
 
@@ -31461,13 +31467,13 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
           cleanup
   br label %.loopexit.split-lp.i
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp: ; preds = %.invoke1402.i, %.split695.us.i, %.split691.us.i, %.split697.us.i, %.split730.us.invoke.i, %.split736.us.i, %960
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp: ; preds = %.invoke1404.i, %.split695.us.i, %.split691.us.i, %.split697.us.i, %.split730.us.invoke.i, %.split736.us.i, %960
   %lpad.loopexit.split-lp1396 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.i:                             ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.split.us.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us.split.us.i
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit450.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit463.us.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i ], [ %lpad.loopexit467.us715.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.split.us.i ], [ %lpad.loopexit467.us.us.us.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us.split.us.i ], [ %lpad.loopexit1140.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.i ], [ %lpad.loopexit.split-lp1141.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp.i ], [ %lpad.loopexit1395, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp1396, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp ]
+  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit450.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit463.us.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.i ], [ %lpad.loopexit467.us715.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.split.us.i ], [ %lpad.loopexit467.us.us.us.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us.split.us.split.us.i ], [ %lpad.loopexit1142.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.i ], [ %lpad.loopexit.split-lp1143.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp.i ], [ %lpad.loopexit1395, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp1396, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$i32$GT$$GT$$GT$17h7084ea0431862d06E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31) #47
           to label %552 unwind label %972, !noalias !6571
 
@@ -31539,7 +31545,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   %706 = add nuw nsw i64 %.sroa.7347.0756.us.i, 1
   %707 = load i64, ptr %209, align 8, !noalias !6572, !noundef !4
   %708 = icmp ult i64 %.sroa.7347.0756.us.i, %707
-  br i1 %708, label %709, label %.invoke1402.i
+  br i1 %708, label %709, label %.invoke1404.i
 
 709:                                              ; preds = %704
   %710 = load ptr, ptr %210, align 8, !noalias !6572, !nonnull !4, !noundef !4
@@ -31547,7 +31553,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   %712 = getelementptr inbounds nuw i8, ptr %711, i64 16
   %713 = load i64, ptr %712, align 8, !noalias !6571, !noundef !4
   %714 = icmp ult i64 %701, %713
-  br i1 %714, label %715, label %.invoke1402.i
+  br i1 %714, label %715, label %.invoke1404.i
 
 715:                                              ; preds = %709
   %716 = getelementptr inbounds nuw i8, ptr %711, i64 8
@@ -31559,7 +31565,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
 720:                                              ; preds = %715
   %721 = load i64, ptr %212, align 8, !noalias !6572, !noundef !4
   %722 = icmp ult i64 %.sroa.7347.0756.us.i, %721
-  br i1 %722, label %723, label %.invoke1402.i
+  br i1 %722, label %723, label %.invoke1404.i
 
 723:                                              ; preds = %720
   %724 = load ptr, ptr %213, align 8, !noalias !6572, !nonnull !4, !noundef !4
@@ -31567,11 +31573,11 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   %726 = getelementptr inbounds nuw i8, ptr %725, i64 16
   %727 = load i64, ptr %726, align 8, !noalias !6571, !noundef !4
   %728 = icmp ult i64 %702, %727
-  br i1 %728, label %729, label %.invoke1402.i
+  br i1 %728, label %729, label %.invoke1404.i
 
 729:                                              ; preds = %723
   %730 = icmp samesign ult i64 %.sroa.7347.0756.us.i, 4
-  br i1 %730, label %731, label %.invoke1402.i
+  br i1 %730, label %731, label %.invoke1404.i
 
 731:                                              ; preds = %729
   %732 = getelementptr inbounds nuw i8, ptr %725, i64 8
@@ -31588,7 +31594,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
 738:                                              ; preds = %737
   %739 = load i64, ptr %212, align 8, !noalias !6572, !noundef !4
   %740 = icmp ult i64 %.sroa.7347.0756.us.i, %739
-  br i1 %740, label %741, label %.invoke1402.i
+  br i1 %740, label %741, label %.invoke1404.i
 
 741:                                              ; preds = %738
   %742 = load ptr, ptr %213, align 8, !noalias !6572, !nonnull !4, !noundef !4
@@ -31596,11 +31602,11 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   %744 = getelementptr inbounds nuw i8, ptr %743, i64 16
   %745 = load i64, ptr %744, align 8, !noalias !6571, !noundef !4
   %746 = icmp ult i64 %703, %745
-  br i1 %746, label %747, label %.invoke1402.i
+  br i1 %746, label %747, label %.invoke1404.i
 
 747:                                              ; preds = %741
   %748 = icmp samesign ult i64 %.sroa.7347.0756.us.i, 4
-  br i1 %748, label %749, label %.invoke1402.i
+  br i1 %748, label %749, label %.invoke1404.i
 
 749:                                              ; preds = %747
   %750 = getelementptr inbounds nuw i8, ptr %743, i64 8
@@ -31611,19 +31617,19 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
 
 754:                                              ; preds = %749
   %755 = icmp ult i64 %.reass.reass.us.i, %745
-  br i1 %755, label %.thread1135.i, label %.invoke1402.i
+  br i1 %755, label %.thread1137.i, label %.invoke1404.i
 
 756:                                              ; preds = %737
   %757 = icmp samesign ult i64 %.sroa.7347.0756.us.i, 4
-  br i1 %757, label %.thread416.us.i, label %.invoke1402.i
+  br i1 %757, label %.thread416.us.i, label %.invoke1404.i
 
 .thread416.us.i:                                  ; preds = %756
   %758 = getelementptr inbounds nuw [4 x i16], ptr %32, i64 0, i64 %.sroa.7347.0756.us.i
   %759 = load i16, ptr %758, align 2, !noalias !6572, !noundef !4
   %760 = zext i16 %759 to i32
-  br i1 %brmerge.i, label %.thread1137.i, label %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i
+  br i1 %brmerge.i, label %.thread1139.i, label %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i
 
-.thread1135.i:                                    ; preds = %754
+.thread1137.i:                                    ; preds = %754
   %761 = getelementptr inbounds nuw [0 x i16], ptr %751, i64 0, i64 %.reass.reass.us.i
   %762 = load i16, ptr %761, align 2, !noalias !6571, !noundef !4
   %763 = getelementptr inbounds nuw [4 x i16], ptr %32, i64 0, i64 %.sroa.7347.0756.us.i
@@ -31631,9 +31637,9 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   %765 = zext i16 %764 to i32
   %766 = zext i16 %753 to i32
   %767 = zext i16 %762 to i32
-  br i1 %.sroa.080.0.i, label %.thread1137.i, label %.thread1136.i
+  br i1 %.sroa.080.0.i, label %.thread1139.i, label %.thread1138.i
 
-.thread1136.i:                                    ; preds = %.thread1135.i
+.thread1138.i:                                    ; preds = %.thread1137.i
   switch i8 %678, label %default.unreachable [
     i8 0, label %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i
     i8 1, label %784
@@ -31645,51 +31651,51 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
     i8 7, label %768
   ]
 
-768:                                              ; preds = %.thread1136.i
+768:                                              ; preds = %.thread1138.i
   %769 = add nuw nsw i32 %765, %766
   %770 = lshr i32 %769, 1
   br label %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i
 
-771:                                              ; preds = %.thread1136.i
+771:                                              ; preds = %.thread1138.i
   %772 = sub nsw i32 %765, %767
   %773 = ashr i32 %772, 1
   %774 = add nsw i32 %773, %766
   br label %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i
 
-775:                                              ; preds = %.thread1136.i
+775:                                              ; preds = %.thread1138.i
   %776 = sub nsw i32 %766, %767
   %777 = ashr i32 %776, 1
   %778 = add nsw i32 %777, %765
   br label %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i
 
-779:                                              ; preds = %.thread1136.i
+779:                                              ; preds = %.thread1138.i
   %780 = sub nsw i32 %766, %767
   %781 = add nsw i32 %780, %765
   br label %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i
 
-782:                                              ; preds = %.thread1136.i
+782:                                              ; preds = %.thread1138.i
   br label %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i
 
-783:                                              ; preds = %.thread1136.i
+783:                                              ; preds = %.thread1138.i
   br label %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i
 
-784:                                              ; preds = %.thread1136.i
+784:                                              ; preds = %.thread1138.i
   br label %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i
 
 785:                                              ; preds = %749
   %786 = zext i16 %753 to i32
-  br i1 %brmerge.i.us.i, label %.thread1137.i, label %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i
+  br i1 %brmerge.i.us.i, label %.thread1139.i, label %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i
 
-.thread1137.i:                                    ; preds = %785, %.thread1135.i, %.thread416.us.i
+.thread1139.i:                                    ; preds = %785, %.thread1137.i, %.thread416.us.i
   br label %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i
 
-_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i: ; preds = %.thread1137.i, %785, %784, %783, %782, %779, %775, %771, %768, %.thread1136.i, %.thread416.us.i
-  %.sroa.01.0.i.us.i = phi i32 [ %765, %784 ], [ %766, %783 ], [ %767, %782 ], [ %781, %779 ], [ %778, %775 ], [ %774, %771 ], [ %770, %768 ], [ %786, %785 ], [ 0, %.thread1136.i ], [ %spec.select848.i, %.thread1137.i ], [ %760, %.thread416.us.i ]
+_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i: ; preds = %.thread1139.i, %785, %784, %783, %782, %779, %775, %771, %768, %.thread1138.i, %.thread416.us.i
+  %.sroa.01.0.i.us.i = phi i32 [ %765, %784 ], [ %766, %783 ], [ %767, %782 ], [ %781, %779 ], [ %778, %775 ], [ %774, %771 ], [ %770, %768 ], [ %786, %785 ], [ 0, %.thread1138.i ], [ %spec.select848.i, %.thread1139.i ], [ %760, %.thread416.us.i ]
   %787 = add i32 %.sroa.01.0.i.us.i, %719
   %788 = trunc i32 %787 to i16
   %789 = load i64, ptr %212, align 8, !noalias !6572, !noundef !4
   %790 = icmp ult i64 %.sroa.7347.0756.us.i, %789
-  br i1 %790, label %791, label %.invoke1402.i
+  br i1 %790, label %791, label %.invoke1404.i
 
 791:                                              ; preds = %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i
   %792 = load ptr, ptr %213, align 8, !noalias !6572, !nonnull !4, !noundef !4
@@ -31697,7 +31703,7 @@ _ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i: ; pred
   %794 = getelementptr inbounds nuw i8, ptr %793, i64 16
   %795 = load i64, ptr %794, align 8, !noalias !6571, !noundef !4
   %796 = icmp ult i64 %701, %795
-  br i1 %796, label %797, label %.invoke1402.i
+  br i1 %796, label %797, label %.invoke1404.i
 
 797:                                              ; preds = %791
   %798 = getelementptr inbounds nuw i8, ptr %793, i64 8
@@ -31709,20 +31715,21 @@ _ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i: ; pred
   br i1 %802, label %..loopexit458_crit_edge.us.i, label %704
 
 ..loopexit458_crit_edge.us.i:                     ; preds = %797
-  %exitcond1126.not.i = icmp eq i64 %700, %525
-  br i1 %exitcond1126.not.i, label %..loopexit459_crit_edge.us.i, label %.lr.ph.us764.i
+  %exitcond1128.not.i = icmp eq i64 %700, %525
+  br i1 %exitcond1128.not.i, label %..loopexit459_crit_edge.us.i, label %.lr.ph.us764.i
 
 ..loopexit459_crit_edge.us.i:                     ; preds = %..loopexit458_crit_edge.us.i, %.lr.ph760.us.i
-  %exitcond1127.not.i = icmp eq i64 %696, %523
-  br i1 %exitcond1127.not.i, label %.thread386.i, label %.lr.ph760.us.i
+  %exitcond1129.not.i = icmp eq i64 %696, %523
+  br i1 %exitcond1129.not.i, label %.thread386.i, label %.lr.ph760.us.i
 
-default.unreachable:                              ; preds = %.thread1136.i
+default.unreachable:                              ; preds = %.thread1138.i
   unreachable
 
 803:                                              ; preds = %._crit_edge.thread.i._crit_edge, %._crit_edge.i531
   %804 = phi i64 [ %.pre2614, %._crit_edge.thread.i._crit_edge ], [ %.fr851.i, %._crit_edge.i531 ]
   %805 = phi ptr [ %.pre2613, %._crit_edge.thread.i._crit_edge ], [ %576, %._crit_edge.i531 ]
-  %806 = getelementptr inbounds { i64, i64, { i16, i16 }, { i16, i16 }, i8, i8, i8, [5 x i8] }, ptr %805, i64 %804
+  %.idx855.i = shl nsw i64 %804, 5
+  %806 = getelementptr inbounds i8, ptr %805, i64 %.idx855.i
   %807 = icmp eq i64 %804, 0
   br i1 %807, label %.thread386.i, label %.lr.ph843.i
 
@@ -31738,7 +31745,7 @@ default.unreachable:                              ; preds = %.thread1136.i
   %816 = zext nneg i8 %815 to i16
   %817 = icmp ugt i16 %522, 1
   %818 = icmp ult i16 %524, 2
-  %brmerge1406.i = or i1 %.not849.i, %818
+  %brmerge1408.i = or i1 %.not849.i, %818
   br label %820
 
 .loopexit457.i:                                   ; preds = %..loopexit455_crit_edge.us.i, %.preheader456.i
@@ -31752,7 +31759,7 @@ default.unreachable:                              ; preds = %.thread1136.i
   %822 = add nuw nsw i64 %.sroa.7344.0841.i, 1
   %823 = load i64, ptr %209, align 8, !noalias !6572, !noundef !4
   %824 = icmp ult i64 %.sroa.7344.0841.i, %823
-  br i1 %824, label %825, label %.invoke1402.i
+  br i1 %824, label %825, label %.invoke1404.i
 
 .thread386.i:                                     ; preds = %..loopexit459_crit_edge.us.i, %.loopexit457.i, %803, %.preheader460.i, %._crit_edge.thread.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !6572
@@ -31767,16 +31774,16 @@ default.unreachable:                              ; preds = %.thread1136.i
   %828 = getelementptr inbounds nuw i8, ptr %827, i64 16
   %829 = load i64, ptr %828, align 8, !noalias !6571, !noundef !4
   %.not256.i = icmp eq i64 %829, 0
-  br i1 %.not256.i, label %.invoke1402.i, label %833
+  br i1 %.not256.i, label %.invoke1404.i, label %833
 
-.invoke1402.i:                                    ; preds = %842, %833, %825, %820, %890, %883, %.lr.ph.i533, %662, %619, %616, %791, %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i, %756, %754, %747, %741, %738, %729, %723, %720, %709, %704, %871, %862, %855, %851
+.invoke1404.i:                                    ; preds = %842, %833, %825, %820, %890, %883, %.lr.ph.i533, %662, %619, %616, %791, %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i, %756, %754, %747, %741, %738, %729, %723, %720, %709, %704, %871, %862, %855, %851
   %830 = phi i64 [ %858, %871 ], [ %867, %862 ], [ %858, %855 ], [ %.sroa.7344.0841.i, %851 ], [ %701, %791 ], [ %.sroa.7347.0756.us.i, %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i ], [ 4, %756 ], [ %.reass.reass.us.i, %754 ], [ 4, %747 ], [ %703, %741 ], [ %.sroa.7347.0756.us.i, %738 ], [ 4, %729 ], [ %702, %723 ], [ %.sroa.7347.0756.us.i, %720 ], [ %701, %709 ], [ %.sroa.7347.0756.us.i, %704 ], [ %.sroa.8338.0685.us.i, %662 ], [ %621, %619 ], [ %540, %616 ], [ %886, %890 ], [ %886, %883 ], [ %.sroa.7344.0841.i, %.lr.ph.i533 ], [ 0, %842 ], [ %.sroa.7344.0841.i, %833 ], [ 0, %825 ], [ %.sroa.7344.0841.i, %820 ]
   %831 = phi i64 [ %869, %871 ], [ %869, %862 ], [ %860, %855 ], [ %853, %851 ], [ %795, %791 ], [ %789, %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i ], [ 4, %756 ], [ %745, %754 ], [ 4, %747 ], [ %745, %741 ], [ %739, %738 ], [ 4, %729 ], [ %727, %723 ], [ %721, %720 ], [ %713, %709 ], [ %707, %704 ], [ %663, %662 ], [ %542, %619 ], [ %540, %616 ], [ %891, %890 ], [ %888, %883 ], [ %881, %.lr.ph.i533 ], [ 0, %842 ], [ %840, %833 ], [ 0, %825 ], [ %823, %820 ]
   %832 = phi ptr [ @anon.d1cf9fc9ecfe16391752041d970e7322.165, %871 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.163, %862 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.161, %855 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.160, %851 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.185, %791 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.184, %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.181, %756 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.179, %754 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.177, %747 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.176, %741 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.175, %738 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.174, %729 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.173, %723 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.172, %720 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.171, %709 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.170, %704 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.189, %662 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.187, %619 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.186, %616 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.169, %890 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.167, %883 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.166, %.lr.ph.i533 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.159, %842 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.158, %833 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.157, %825 ], [ @anon.d1cf9fc9ecfe16391752041d970e7322.156, %820 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %830, i64 noundef %831, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %832) #45
-          to label %.cont1403.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp, !noalias !6571
+          to label %.cont1405.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp, !noalias !6571
 
-.cont1403.i:                                      ; preds = %.invoke1402.i
+.cont1405.i:                                      ; preds = %.invoke1404.i
   unreachable
 
 833:                                              ; preds = %825
@@ -31788,7 +31795,7 @@ default.unreachable:                              ; preds = %.thread1136.i
   %839 = shl i16 %838, %816
   %840 = load i64, ptr %212, align 8, !noalias !6572, !noundef !4
   %841 = icmp ult i64 %.sroa.7344.0841.i, %840
-  br i1 %841, label %842, label %.invoke1402.i
+  br i1 %841, label %842, label %.invoke1404.i
 
 842:                                              ; preds = %833
   %843 = load ptr, ptr %213, align 8, !noalias !6572, !nonnull !4, !noundef !4
@@ -31796,7 +31803,7 @@ default.unreachable:                              ; preds = %.thread1136.i
   %845 = getelementptr inbounds nuw i8, ptr %844, i64 16
   %846 = load i64, ptr %845, align 8, !noalias !6571, !noundef !4
   %.not257.i = icmp eq i64 %846, 0
-  br i1 %.not257.i, label %.invoke1402.i, label %847
+  br i1 %.not257.i, label %.invoke1404.i, label %847
 
 847:                                              ; preds = %842
   %848 = getelementptr inbounds nuw i8, ptr %844, i64 8
@@ -31805,7 +31812,7 @@ default.unreachable:                              ; preds = %.thread1136.i
   br i1 %817, label %.lr.ph.i533, label %.preheader456.i
 
 .preheader456.i:                                  ; preds = %893, %847
-  br i1 %brmerge1406.i, label %.loopexit457.i, label %.preheader.us.i
+  br i1 %brmerge1408.i, label %.loopexit457.i, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.preheader456.i, %..loopexit455_crit_edge.us.i
   %spec.select819.us.i = phi i64 [ %spec.select.us.i, %..loopexit455_crit_edge.us.i ], [ 1, %.preheader456.i ]
@@ -31818,7 +31825,7 @@ default.unreachable:                              ; preds = %.thread1136.i
   %852 = add nuw nsw i64 %.sroa.0191.0816.us.i, 1
   %853 = load i64, ptr %209, align 8, !noalias !6572, !noundef !4
   %854 = icmp ult i64 %.sroa.7344.0841.i, %853
-  br i1 %854, label %855, label %.invoke1402.i
+  br i1 %854, label %855, label %.invoke1404.i
 
 855:                                              ; preds = %851
   %856 = load ptr, ptr %210, align 8, !noalias !6572, !nonnull !4, !noundef !4
@@ -31827,7 +31834,7 @@ default.unreachable:                              ; preds = %.thread1136.i
   %859 = getelementptr inbounds nuw i8, ptr %857, i64 16
   %860 = load i64, ptr %859, align 8, !noalias !6571, !noundef !4
   %861 = icmp ult i64 %858, %860
-  br i1 %861, label %862, label %.invoke1402.i
+  br i1 %861, label %862, label %.invoke1404.i
 
 862:                                              ; preds = %855
   %863 = getelementptr inbounds nuw i8, ptr %857, i64 8
@@ -31838,11 +31845,11 @@ default.unreachable:                              ; preds = %.thread1136.i
   %868 = load ptr, ptr %848, align 8, !noalias !6571, !nonnull !4, !noundef !4
   %869 = load i64, ptr %845, align 8, !noalias !6571, !noundef !4
   %870 = icmp ult i64 %867, %869
-  br i1 %870, label %871, label %.invoke1402.i
+  br i1 %870, label %871, label %.invoke1404.i
 
 871:                                              ; preds = %862
   %872 = icmp ult i64 %858, %869
-  br i1 %872, label %873, label %.invoke1402.i
+  br i1 %872, label %873, label %.invoke1404.i
 
 873:                                              ; preds = %871
   %874 = getelementptr inbounds [0 x i16], ptr %868, i64 0, i64 %867
@@ -31852,8 +31859,8 @@ default.unreachable:                              ; preds = %.thread1136.i
   %876 = shl i16 %.narrow262.us.i, %816
   %877 = getelementptr inbounds [0 x i16], ptr %868, i64 0, i64 %858
   store i16 %876, ptr %877, align 2, !noalias !6571
-  %exitcond1129.not.i = icmp eq i64 %852, %525
-  br i1 %exitcond1129.not.i, label %..loopexit455_crit_edge.us.i, label %851
+  %exitcond1131.not.i = icmp eq i64 %852, %525
+  br i1 %exitcond1131.not.i, label %..loopexit455_crit_edge.us.i, label %851
 
 ..loopexit455_crit_edge.us.i:                     ; preds = %873
   %878 = icmp ult i64 %spec.select819.us.i, %523
@@ -31867,7 +31874,7 @@ default.unreachable:                              ; preds = %.thread1136.i
   %880 = add nuw nsw i64 %.sroa.0187.0814.i, 1
   %881 = load i64, ptr %209, align 8, !noalias !6572, !noundef !4
   %882 = icmp ult i64 %.sroa.7344.0841.i, %881
-  br i1 %882, label %883, label %.invoke1402.i
+  br i1 %882, label %883, label %.invoke1404.i
 
 883:                                              ; preds = %.lr.ph.i533
   %884 = load ptr, ptr %210, align 8, !noalias !6572, !nonnull !4, !noundef !4
@@ -31876,12 +31883,12 @@ default.unreachable:                              ; preds = %.thread1136.i
   %887 = getelementptr inbounds nuw i8, ptr %885, i64 16
   %888 = load i64, ptr %887, align 8, !noalias !6571, !noundef !4
   %889 = icmp ult i64 %886, %888
-  br i1 %889, label %890, label %.invoke1402.i
+  br i1 %889, label %890, label %.invoke1404.i
 
 890:                                              ; preds = %883
   %891 = load i64, ptr %845, align 8, !noalias !6571, !noundef !4
   %892 = icmp ult i64 %886, %891
-  br i1 %892, label %893, label %.invoke1402.i
+  br i1 %892, label %893, label %.invoke1404.i
 
 893:                                              ; preds = %890
   %894 = getelementptr inbounds nuw i8, ptr %885, i64 8
@@ -31894,8 +31901,8 @@ default.unreachable:                              ; preds = %.thread1136.i
   %899 = load ptr, ptr %848, align 8, !noalias !6571, !nonnull !4, !noundef !4
   %900 = getelementptr inbounds nuw [0 x i16], ptr %899, i64 0, i64 %886
   store i16 %898, ptr %900, align 2, !noalias !6571
-  %exitcond1128.not.i = icmp eq i64 %880, %523
-  br i1 %exitcond1128.not.i, label %.preheader456.i, label %.lr.ph.i533
+  %exitcond1130.not.i = icmp eq i64 %880, %523
+  br i1 %exitcond1130.not.i, label %.preheader456.i, label %.lr.ph.i533
 
 901:                                              ; preds = %.thread386.i
   %902 = load i64, ptr %17, align 8, !range !5757, !noalias !6572, !noundef !4
@@ -59402,13 +59409,15 @@ define hidden void @_ZN9zune_jpeg4misc22setup_component_params17h1976fb6d05275d3
   store i8 0, ptr %13, align 2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !12577, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, i64, i64, i64, i64, [64 x i32], i64, i64, i64, i64, i64, i64, i32, i8, i8, i8, i8, i8, [7 x i8] }, ptr %17, i64 %11
+  %.idx110 = mul nuw nsw i64 %11, 480
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx110
   br label %.lr.ph
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !alias.scope !12577, !nonnull !4, !noundef !4
-  %22 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, i64, i64, i64, i64, [64 x i32], i64, i64, i64, i64, i64, i64, i32, i8, i8, i8, i8, i8, [7 x i8] }, ptr %21, i64 %11
+  %.idx = mul nsw i64 %11, 480
+  %22 = getelementptr inbounds i8, ptr %21, i64 %.idx
   %23 = icmp eq i64 %11, 0
   br i1 %23, label %._crit_edge, label %.lr.ph
 
@@ -59426,9 +59435,9 @@ define hidden void @_ZN9zune_jpeg4misc22setup_component_params17h1976fb6d05275d3
   %34 = zext i16 %9 to i64
   %35 = zext i16 %7 to i64
   %.pre = load i64, ptr %26, align 8
-  %.pre108 = load i64, ptr %27, align 8
+  %.pre109 = load i64, ptr %27, align 8
   %invariant.op = add nsw i64 %35, -1
-  %invariant.op121 = add nsw i64 %34, -1
+  %invariant.op123 = add nsw i64 %34, -1
   br label %47
 
 ._crit_edge:                                      ; preds = %119, %19
@@ -59450,7 +59459,7 @@ define hidden void @_ZN9zune_jpeg4misc22setup_component_params17h1976fb6d05275d3
   br i1 %46, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17heaf820aef8407558E.exit", label %39
 
 47:                                               ; preds = %.lr.ph, %119
-  %48 = phi i64 [ %.pre108, %.lr.ph ], [ %.sroa.0.0.sroa.speculated.i55, %119 ]
+  %48 = phi i64 [ %.pre109, %.lr.ph ], [ %.sroa.0.0.sroa.speculated.i55, %119 ]
   %49 = phi i64 [ %.pre, %.lr.ph ], [ %.sroa.0.0.sroa.speculated.i, %119 ]
   %.sroa.0.091 = phi ptr [ %25, %.lr.ph ], [ %50, %119 ]
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.091, i64 480
@@ -59551,8 +59560,8 @@ define hidden void @_ZN9zune_jpeg4misc22setup_component_params17h1976fb6d05275d3
   unreachable
 
 96:                                               ; preds = %92
-  %.reass122 = add i64 %56, %invariant.op121
-  %97 = udiv i64 %.reass122, %56
+  %.reass124 = add i64 %56, %invariant.op123
+  %97 = udiv i64 %.reass124, %56
   store i64 %97, ptr %31, align 8
   %98 = icmp eq i64 %.sroa.0.0.sroa.speculated.i, 1
   %99 = icmp eq i64 %.sroa.0.0.sroa.speculated.i55, 1

@@ -164,7 +164,8 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %out, i64 noundef %input.coerce1) #10
   %tobool.not = icmp eq i64 %maxCharacters, 0
   %spec.select = select i1 %tobool.not, i64 -1, i64 %maxCharacters
-  %add.ptr.i = getelementptr inbounds i16, ptr %input.coerce0, i64 %input.coerce1
+  %add.ptr.i.idx = shl nsw i64 %input.coerce1, 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %input.coerce0, i64 %add.ptr.i.idx
   %cmp25 = icmp sgt i64 %input.coerce1, 0
   br i1 %cmp25, label %for.body, label %for.end
 
@@ -253,7 +254,8 @@ entry:
   %ptr = alloca ptr, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %dest) #10
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %dest, i64 noundef %input.coerce1) #10
-  %add.ptr.i = getelementptr inbounds i16, ptr %input.coerce0, i64 %input.coerce1
+  %add.ptr.i.idx = shl nsw i64 %input.coerce1, 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %input.coerce0, i64 %add.ptr.i.idx
   %cmp.not14 = icmp eq i64 %input.coerce1, 0
   br i1 %cmp.not14, label %for.end, label %for.body
 

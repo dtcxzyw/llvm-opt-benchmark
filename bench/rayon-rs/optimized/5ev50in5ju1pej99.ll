@@ -1339,7 +1339,8 @@ define void @_ZN10rayon_core8registry8Registry17wait_until_primed17he3defff33130
   %3 = load ptr, ptr %2, align 128, !alias.scope !188, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %5 = load i64, ptr %4, align 8, !alias.scope !188, !noundef !4
-  %6 = getelementptr inbounds { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }, ptr %3, i64 %5
+  %.idx = mul nsw i64 %5, 48
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -1522,7 +1523,8 @@ define void @_ZN10rayon_core8registry8Registry9terminate17h483558ace8b06c66E(ptr
   %7 = load ptr, ptr %6, align 128, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %9 = load i64, ptr %8, align 8, !noundef !4
-  %10 = getelementptr inbounds { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }, ptr %7, i64 %9
+  %.idx = mul nsw i64 %9, 48
+  %10 = getelementptr inbounds i8, ptr %7, i64 %.idx
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %.loopexit, label %.lr.ph
 

@@ -61,7 +61,8 @@ define hidden noundef zeroext i1 @_ZN11tree_sitter10QueryMatch25satisfies_text_p
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !align !6, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i64, ptr %28, align 8, !noundef !4
-  %30 = getelementptr inbounds { i8, [39 x i8] }, ptr %27, i64 %29
+  %.idx = mul nsw i64 %29, 40
+  %30 = getelementptr inbounds i8, ptr %27, i64 %.idx
   %31 = icmp eq i64 %29, 0
   br i1 %31, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17haba28b16326b0356E.exit", label %.lr.ph.i
 
@@ -246,7 +247,8 @@ _ZN14regex_automata4util6search5Input8set_span17h3cea326bd5c4d169E.exit.i.us.i: 
   %96 = load ptr, ptr %95, align 8, !alias.scope !7, !noalias !15, !nonnull !4, !align !6
   %97 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %98 = load i64, ptr %97, align 8, !alias.scope !7, !noalias !15
-  %99 = getelementptr inbounds { ptr, i64 }, ptr %96, i64 %98
+  %.idx.i.i = shl nsw i64 %98, 4
+  %99 = getelementptr inbounds i8, ptr %96, i64 %.idx.i.i
   %.not.i154.i.i = icmp eq i64 %98, 0
   %100 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %101 = load i8, ptr %100, align 1, !range !19, !alias.scope !7, !noalias !15

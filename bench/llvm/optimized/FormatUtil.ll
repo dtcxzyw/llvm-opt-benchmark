@@ -676,7 +676,8 @@ define dso_local void @_ZN4llvm3pdb17typesetStringListB5cxx11EjNS_8ArrayRefINS_9
   store i64 1, ptr %8, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 0, ptr %9, align 1, !tbaa !12
-  %10 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not13 = icmp eq i64 %3, 0
   br i1 %.not13, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit, label %.lr.ph
 

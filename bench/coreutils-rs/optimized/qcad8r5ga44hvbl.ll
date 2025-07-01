@@ -4448,7 +4448,8 @@ _ZN5uu_wc8Settings14number_enabled17h77b05f1ade4b8716E.exit30.i: ; preds = %.lr.
 100:                                              ; preds = %_ZN5uu_wc8Settings14number_enabled17h77b05f1ade4b8716E.exit30.i
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val21.i = load ptr, ptr %101, align 8, !alias.scope !1218, !noalias !1221, !nonnull !16, !noundef !16
-  %102 = getelementptr inbounds { i64, [2 x i64] }, ptr %.val21.i, i64 %98
+  %.idx.i = mul nsw i64 %98, 24
+  %102 = getelementptr inbounds i8, ptr %.val21.i, i64 %.idx.i
   %103 = icmp eq i64 %98, 0
   br i1 %103, label %_ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit.thread311, label %.lr.ph.i
 

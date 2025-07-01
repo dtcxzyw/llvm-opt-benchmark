@@ -5640,7 +5640,8 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
   %10 = sub nsw i64 %.sroa.speculated, %7
   %11 = lshr i64 %10, 1
   %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE16_M_allocate_nodeEv.exit.i
@@ -6108,7 +6109,8 @@ define linkonce_odr dso_local void @_ZSt13__stable_sortISt15_Deque_iteratorINSt7
   %83 = load ptr, ptr %45, align 8, !tbaa !272
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %85 = load i64, ptr %84, align 8, !tbaa !274
-  %86 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %83, i64 %85
+  %.idx.i = shl nsw i64 %85, 5
+  %86 = getelementptr inbounds i8, ptr %83, i64 %.idx.i
   %.not4.i.i.i = icmp eq i64 %85, 0
   br i1 %.not4.i.i.i, label %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_ED2Ev.exit, label %.lr.ph.i.i.i
 
@@ -6690,7 +6692,8 @@ define linkonce_odr dso_local void @_ZNSt17_Temporary_bufferISt15_Deque_iterator
   %3 = load ptr, ptr %2, align 8, !tbaa !272
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !274
-  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %3, i64 %5
+  %.idx = shl nsw i64 %5, 5
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %.not4.i.i = icmp eq i64 %5, 0
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit, label %.lr.ph.i.i
 

@@ -1321,7 +1321,8 @@ define void @_ZN12typst_syntax4node10SyntaxNode5inner17h663e2a0e3d635b85E(ptr no
   %.val.i = load ptr, ptr %5, align 8, !alias.scope !136, !noalias !139, !nonnull !7, !noundef !7
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val9.i = load i64, ptr %6, align 8, !alias.scope !136, !noalias !139, !noundef !7
-  %7 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %.val.i, i64 %.val9.i
+  %.idx.i = shl nsw i64 %.val9.i, 5
+  %7 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx.i
   %8 = icmp eq i64 %.val9.i, 0
   br i1 %8, label %_ZN12typst_syntax4node9InnerNode3new17hae373927df35c123E.llvm.5914695560033043764.exit, label %.lr.ph.i
 
@@ -1728,7 +1729,8 @@ define void @_ZN12typst_syntax4node10SyntaxNode9into_text17h9658513e8f7c4ed8E(pt
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %25 = load i64, ptr %24, align 8, !noundef !7
-  %26 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %23, i64 %25
+  %.idx = shl nsw i64 %25, 5
+  %26 = getelementptr inbounds i8, ptr %23, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !197
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %6, i8 0, i64 15, i1 false), !noalias !197
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 15
@@ -2215,7 +2217,8 @@ define void @_ZN12typst_syntax4node10SyntaxNode10synthesize17he49868f838496554E(
   %.val.i = load ptr, ptr %15, align 8, !alias.scope !292, !nonnull !7, !noundef !7
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.val2.i = load i64, ptr %16, align 8, !alias.scope !292, !noundef !7
-  %17 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %.val.i, i64 %.val2.i
+  %.idx = shl nsw i64 %.val2.i, 5
+  %17 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx
   %18 = icmp eq i64 %.val2.i, 0
   br i1 %18, label %_ZN12typst_syntax4node9InnerNode10synthesize17h514cd42e7c4a3799E.exit, label %.lr.ph
 
@@ -3122,7 +3125,8 @@ define hidden void @_ZN12typst_syntax4node10SyntaxNode13update_parent17h6030b09d
   %20 = load ptr, ptr %19, align 8, !alias.scope !444, !nonnull !7, !noundef !7
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %22 = load i64, ptr %21, align 8, !alias.scope !444, !noundef !7
-  %23 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %20, i64 %22
+  %.idx.i = shl nsw i64 %22, 5
+  %23 = getelementptr inbounds i8, ptr %20, i64 %.idx.i
   %.not.i.i = icmp eq i64 %22, 0
   br i1 %.not.i.i, label %_ZN12typst_syntax4node9InnerNode13update_parent17h9ad3083fe41b39b7E.llvm.5914695560033043764.exit, label %.lr.ph.i.i
 
@@ -3324,7 +3328,8 @@ define hidden void @_ZN12typst_syntax4node9InnerNode3new17hae373927df35c123E.llv
   %.val = load ptr, ptr %5, align 8, !nonnull !7, !noundef !7
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val9 = load i64, ptr %6, align 8, !noundef !7
-  %7 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %.val, i64 %.val9
+  %.idx = shl nsw i64 %.val9, 5
+  %7 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %8 = icmp eq i64 %.val9, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -4516,7 +4521,8 @@ define hidden void @_ZN12typst_syntax4node9InnerNode13update_parent17h9ad3083fe4
   %15 = load ptr, ptr %14, align 8, !nonnull !7, !noundef !7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !7
-  %18 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %15, i64 %17
+  %.idx = shl nsw i64 %17, 5
+  %18 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %.not.i = icmp eq i64 %17, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h774183f8e8b0429bE.llvm.5914695560033043764.exit", label %.lr.ph.i
 
@@ -4605,7 +4611,8 @@ define noundef zeroext i1 @"_ZN66_$LT$typst_syntax..node..InnerNode$u20$as$u20$c
   call void @llvm.experimental.noalias.scope.decl(metadata !690)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !alias.scope !693, !noalias !696, !nonnull !7, !noundef !7
-  %26 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %25, i64 %19
+  %.idx.i = shl nsw i64 %19, 5
+  %26 = getelementptr inbounds i8, ptr %25, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.i

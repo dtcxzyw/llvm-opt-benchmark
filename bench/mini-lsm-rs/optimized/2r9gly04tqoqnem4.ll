@@ -385,7 +385,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   %.val.i = load ptr, ptr %48, align 8, !nonnull !4, !noundef !4
   %49 = getelementptr i8, ptr %47, i64 80
   %.val14.i = load i64, ptr %49, align 8, !noundef !4
-  %50 = getelementptr inbounds { i64, { { i64, ptr }, i64 } }, ptr %.val.i, i64 %.val14.i
+  %.idx.i = shl nsw i64 %.val14.i, 5
+  %50 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx.i
   %51 = icmp eq i64 %.val14.i, 0
   br i1 %51, label %._crit_edge.i, label %.lr.ph.i
 

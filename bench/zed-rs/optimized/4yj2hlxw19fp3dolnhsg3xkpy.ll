@@ -9629,7 +9629,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h28b49a1fc194700fE(p
   %.20 = select i1 %.not, ptr %13, ptr %0
   %15 = shl i64 %.sroa.0.0.sroa.speculated.i, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20, i64 %15, i1 false)
-  %16 = getelementptr inbounds { i64, i64 }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %16 = getelementptr inbounds i8, ptr %2, i64 %15
   br i1 %.not, label %.preheader, label %.lr.ph.i
 
 .preheader:                                       ; preds = %12, %.preheader
@@ -12387,7 +12387,8 @@ define internal fastcc void @_ZN4text6Buffer16apply_local_edit17he2497bab7e711fb
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %7), !noalias !3111
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %90), !noalias !3111
   %.sroa.01.0.copyload.i = load i64, ptr %105, align 8, !alias.scope !3089, !noalias !3091
-  %540 = getelementptr inbounds { i64, [7 x i64] }, ptr %486, i64 %475
+  %.idx.i = shl nsw i64 %475, 6
+  %540 = getelementptr inbounds i8, ptr %486, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %89), !noalias !3111
   store ptr %486, ptr %89, align 8, !noalias !3111
   %.sroa.4.0..sroa_idx.i157 = getelementptr inbounds nuw i8, ptr %89, i64 8

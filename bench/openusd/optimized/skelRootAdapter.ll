@@ -56,21 +56,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pxrInternal_v0_24__pxrReserved__::UsdImagingInstancerContext" = type { %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", %"class.pxrInternal_v0_24__pxrReserved__::TfToken", %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", %"class.pxrInternal_v0_24__pxrReserved__::TfToken", %"class.pxrInternal_v0_24__pxrReserved__::TfToken", %"class.std::shared_ptr.1" }
 %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelBinding" = type { %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkeleton", %"class.pxrInternal_v0_24__pxrReserved__::VtArray" }
 %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkeleton" = type { %"class.pxrInternal_v0_24__pxrReserved__::UsdGeomBoundable" }
-%"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery" = type { %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", i32, i32, %"class.pxrInternal_v0_24__pxrReserved__::TfToken", %"class.pxrInternal_v0_24__pxrReserved__::UsdGeomPrimvar", %"class.pxrInternal_v0_24__pxrReserved__::UsdGeomPrimvar", %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", %"class.pxrInternal_v0_24__pxrReserved__::UsdRelationship", %"class.std::shared_ptr.7", %"class.std::shared_ptr.7", %"class.std::optional", %"class.std::optional" }
-%"class.pxrInternal_v0_24__pxrReserved__::UsdGeomPrimvar" = type <{ %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", %"class.pxrInternal_v0_24__pxrReserved__::TfToken", %"struct.std::atomic", [4 x i8] }>
-%"struct.std::atomic" = type { i32 }
-%"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute" = type { %"class.pxrInternal_v0_24__pxrReserved__::UsdProperty" }
-%"class.pxrInternal_v0_24__pxrReserved__::UsdProperty" = type { %"class.pxrInternal_v0_24__pxrReserved__::UsdObject" }
-%"class.pxrInternal_v0_24__pxrReserved__::UsdRelationship" = type { %"class.pxrInternal_v0_24__pxrReserved__::UsdProperty" }
-%"class.std::shared_ptr.7" = type { %"class.std::__shared_ptr.8" }
-%"class.std::__shared_ptr.8" = type { ptr, %"class.std::__shared_count" }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
-%"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<pxrInternal_v0_24__pxrReserved__::VtArray<TfToken>>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<pxrInternal_v0_24__pxrReserved__::VtArray<TfToken>>::_Storage" = type { %"class.pxrInternal_v0_24__pxrReserved__::VtArray.11" }
-%"class.pxrInternal_v0_24__pxrReserved__::VtArray.11" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
 %"class.std::vector.46" = type { %"struct.std::_Vector_base.47" }
 %"struct.std::_Vector_base.47" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::TfToken, std::allocator<pxrInternal_v0_24__pxrReserved__::TfToken>>::_Vector_impl" }
 %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::TfToken, std::allocator<pxrInternal_v0_24__pxrReserved__::TfToken>>::_Vector_impl" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::TfToken, std::allocator<pxrInternal_v0_24__pxrReserved__::TfToken>>::_Vector_impl_data" }
@@ -98,6 +83,21 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.pxrInternal_v0_24__pxrReserved__::TfMallocTag::Auto" = type <{ ptr, i32, [4 x i8] }>
+%"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery" = type { %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", i32, i32, %"class.pxrInternal_v0_24__pxrReserved__::TfToken", %"class.pxrInternal_v0_24__pxrReserved__::UsdGeomPrimvar", %"class.pxrInternal_v0_24__pxrReserved__::UsdGeomPrimvar", %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", %"class.pxrInternal_v0_24__pxrReserved__::UsdRelationship", %"class.std::shared_ptr.7", %"class.std::shared_ptr.7", %"class.std::optional", %"class.std::optional" }
+%"class.pxrInternal_v0_24__pxrReserved__::UsdGeomPrimvar" = type <{ %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", %"class.pxrInternal_v0_24__pxrReserved__::TfToken", %"struct.std::atomic", [4 x i8] }>
+%"struct.std::atomic" = type { i32 }
+%"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute" = type { %"class.pxrInternal_v0_24__pxrReserved__::UsdProperty" }
+%"class.pxrInternal_v0_24__pxrReserved__::UsdProperty" = type { %"class.pxrInternal_v0_24__pxrReserved__::UsdObject" }
+%"class.pxrInternal_v0_24__pxrReserved__::UsdRelationship" = type { %"class.pxrInternal_v0_24__pxrReserved__::UsdProperty" }
+%"class.std::shared_ptr.7" = type { %"class.std::__shared_ptr.8" }
+%"class.std::__shared_ptr.8" = type { ptr, %"class.std::__shared_count" }
+%"class.std::optional" = type { %"struct.std::_Optional_base" }
+%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
+%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
+%"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
+%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<pxrInternal_v0_24__pxrReserved__::VtArray<TfToken>>::_Storage", i8 }>
+%"union.std::_Optional_payload_base<pxrInternal_v0_24__pxrReserved__::VtArray<TfToken>>::_Storage" = type { %"class.pxrInternal_v0_24__pxrReserved__::VtArray.11" }
+%"class.pxrInternal_v0_24__pxrReserved__::VtArray.11" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
 
 $_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev = comdat any
 
@@ -669,7 +669,8 @@ _ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSk
   %141 = getelementptr inbounds nuw i8, ptr %.sroa.082.0111, i64 56
   %142 = load ptr, ptr %141, align 8
   %143 = load i64, ptr %138, align 8
-  %144 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery", ptr %142, i64 %143
+  %.idx = mul nsw i64 %143, 400
+  %144 = getelementptr inbounds i8, ptr %142, i64 %.idx
   %.not108 = icmp eq i64 %143, 0
   br i1 %.not108, label %._crit_edge, label %.lr.ph
 
@@ -1223,7 +1224,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingC2ERKNS_15UsdSkelSkeletonER
   fence acquire
   %389 = load ptr, ptr %72, align 8
   %390 = load i64, ptr %18, align 8
-  %391 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery", ptr %389, i64 %390
+  %.idx.i.i = mul nsw i64 %390, 400
+  %391 = getelementptr inbounds i8, ptr %389, i64 %.idx.i.i
   %.not2829.i.i = icmp eq i64 %390, 0
   br i1 %.not2829.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -1714,7 +1716,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE8capac
   fence acquire
   %23 = load ptr, ptr %3, align 8
   %24 = load i64, ptr %0, align 8
-  %25 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery", ptr %23, i64 %24
+  %.idx.i = mul nsw i64 %24, 400
+  %25 = getelementptr inbounds i8, ptr %23, i64 %.idx.i
   %.not2829.i = icmp eq i64 %24, 0
   br i1 %.not2829.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -2466,7 +2469,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingD
   fence acquire
   %13 = load ptr, ptr %3, align 8
   %14 = load i64, ptr %2, align 8
-  %15 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery", ptr %13, i64 %14
+  %.idx.i.i = mul nsw i64 %14, 400
+  %15 = getelementptr inbounds i8, ptr %13, i64 %.idx.i.i
   %.not2829.i.i = icmp eq i64 %14, 0
   br i1 %.not2829.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -2543,7 +2547,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20Usd
   fence acquire
   %12 = load ptr, ptr %2, align 8
   %13 = load i64, ptr %0, align 8
-  %14 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery", ptr %12, i64 %13
+  %.idx.i = mul nsw i64 %13, 400
+  %14 = getelementptr inbounds i8, ptr %12, i64 %.idx.i
   %.not2829.i = icmp eq i64 %13, 0
   br i1 %.not2829.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -4227,7 +4232,8 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #14
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE13_AllocateCopyEPS1_mm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %2)
-  %6 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery", ptr %1, i64 %3
+  %.idx = mul nsw i64 %3, 400
+  %6 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not14.i.i.i = icmp eq i64 %3, 0
   br i1 %.not14.i.i.i, label %_ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__20UsdSkelSkinningQueryES2_ET0_T_S4_S3_.exit, label %.lr.ph.i.i.i
 
@@ -5029,7 +5035,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE16_Cap
   fence acquire
   %54 = load ptr, ptr %38, align 8
   %55 = load i64, ptr %0, align 8
-  %56 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery", ptr %54, i64 %55
+  %.idx.i = mul nsw i64 %55, 400
+  %56 = getelementptr inbounds i8, ptr %54, i64 %.idx.i
   %.not2829.i = icmp eq i64 %55, 0
   br i1 %.not2829.i, label %._crit_edge.i, label %.lr.ph.i
 

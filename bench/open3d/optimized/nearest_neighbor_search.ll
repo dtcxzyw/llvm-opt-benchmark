@@ -8920,7 +8920,8 @@ _ZNK8pybind115tuple5beginEv.exit.thread:          ; preds = %_ZN8pybind1118reint
   %19 = phi ptr [ %18, %17 ], [ %16, %_ZN8pybind1118reinterpret_borrowINS_5tupleEEET_NS_6handleE.exit ]
   %.sroa.0.0.copyload.val.i151.in = getelementptr i8, ptr %7, i64 16
   %.sroa.0.0.copyload.val.i151 = load i64, ptr %.sroa.0.0.copyload.val.i151.in, align 8, !tbaa !459
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %.sroa.0.0.copyload.val.i151
+  %.idx = shl nsw i64 %.sroa.0.0.copyload.val.i151, 3
+  %20 = getelementptr inbounds i8, ptr %19, i64 %.idx
   %.not163229 = icmp eq i64 %.sroa.0.0.copyload.val.i151, 0
   br i1 %.not163229, label %._crit_edge.thread, label %.lr.ph
 
@@ -8928,9 +8929,9 @@ _ZNK8pybind115tuple5beginEv.exit.thread:          ; preds = %_ZN8pybind1118reint
   br i1 %.not.i.i.i.i.i, label %_ZN8pybind116objectD2Ev.exit, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZNK8pybind115tuple5beginEv.exit.thread, %._crit_edge
-  %.sroa.0136.0.lcssa304 = phi ptr [ %.sroa.0136.7, %._crit_edge ], [ null, %_ZNK8pybind115tuple5beginEv.exit.thread ]
-  %.sroa.13.0.lcssa302 = phi ptr [ %.sroa.13.6, %._crit_edge ], [ null, %_ZNK8pybind115tuple5beginEv.exit.thread ]
-  %.sroa.23.0.lcssa300 = phi ptr [ %.sroa.23.7, %._crit_edge ], [ null, %_ZNK8pybind115tuple5beginEv.exit.thread ]
+  %.sroa.0136.0.lcssa305 = phi ptr [ %.sroa.0136.7, %._crit_edge ], [ null, %_ZNK8pybind115tuple5beginEv.exit.thread ]
+  %.sroa.13.0.lcssa303 = phi ptr [ %.sroa.13.6, %._crit_edge ], [ null, %_ZNK8pybind115tuple5beginEv.exit.thread ]
+  %.sroa.23.0.lcssa301 = phi ptr [ %.sroa.23.7, %._crit_edge ], [ null, %_ZNK8pybind115tuple5beginEv.exit.thread ]
   %21 = load i64, ptr %7, align 8, !tbaa !118
   %22 = and i64 %21, 2147483648
   %.not2.i.i.i = icmp eq i64 %22, 0
@@ -8954,9 +8955,9 @@ _ZNK8pybind115tuple5beginEv.exit.thread:          ; preds = %_ZN8pybind1118reint
   unreachable
 
 _ZN8pybind116objectD2Ev.exit:                     ; preds = %._crit_edge, %._crit_edge.thread, %23, %26
-  %.sroa.0136.0.lcssa305 = phi ptr [ %.sroa.0136.7, %._crit_edge ], [ %.sroa.0136.0.lcssa304, %._crit_edge.thread ], [ %.sroa.0136.0.lcssa304, %23 ], [ %.sroa.0136.0.lcssa304, %26 ]
-  %.sroa.13.0.lcssa303 = phi ptr [ %.sroa.13.6, %._crit_edge ], [ %.sroa.13.0.lcssa302, %._crit_edge.thread ], [ %.sroa.13.0.lcssa302, %23 ], [ %.sroa.13.0.lcssa302, %26 ]
-  %.sroa.23.0.lcssa301 = phi ptr [ %.sroa.23.7, %._crit_edge ], [ %.sroa.23.0.lcssa300, %._crit_edge.thread ], [ %.sroa.23.0.lcssa300, %23 ], [ %.sroa.23.0.lcssa300, %26 ]
+  %.sroa.0136.0.lcssa306 = phi ptr [ %.sroa.0136.7, %._crit_edge ], [ %.sroa.0136.0.lcssa305, %._crit_edge.thread ], [ %.sroa.0136.0.lcssa305, %23 ], [ %.sroa.0136.0.lcssa305, %26 ]
+  %.sroa.13.0.lcssa304 = phi ptr [ %.sroa.13.6, %._crit_edge ], [ %.sroa.13.0.lcssa303, %._crit_edge.thread ], [ %.sroa.13.0.lcssa303, %23 ], [ %.sroa.13.0.lcssa303, %26 ]
+  %.sroa.23.0.lcssa302 = phi ptr [ %.sroa.23.7, %._crit_edge ], [ %.sroa.23.0.lcssa301, %._crit_edge.thread ], [ %.sroa.23.0.lcssa301, %23 ], [ %.sroa.23.0.lcssa301, %26 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
   %30 = invoke noundef nonnull align 8 dereferenceable(488) ptr @_ZN8pybind116detail13get_internalsEv()
           to label %53 unwind label %67
@@ -9050,12 +9051,12 @@ _ZNSt6vectorIP11_typeobjectSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vector
 
 53:                                               ; preds = %_ZN8pybind116objectD2Ev.exit
   %54 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  %55 = ptrtoint ptr %.sroa.0136.0.lcssa305 to i64
-  %.not264 = icmp eq ptr %.sroa.13.0.lcssa303, %.sroa.0136.0.lcssa305
+  %55 = ptrtoint ptr %.sroa.0136.0.lcssa306 to i64
+  %.not264 = icmp eq ptr %.sroa.13.0.lcssa304, %.sroa.0136.0.lcssa306
   br i1 %.not264, label %._crit_edge260, label %.lr.ph259
 
 .lr.ph259:                                        ; preds = %53
-  %56 = ptrtoint ptr %.sroa.13.0.lcssa303 to i64
+  %56 = ptrtoint ptr %.sroa.13.0.lcssa304 to i64
   %57 = sub i64 %56, %55
   %58 = ashr exact i64 %57, 3
   %59 = getelementptr inbounds nuw i8, ptr %30, i64 80
@@ -9066,8 +9067,8 @@ _ZNSt6vectorIP11_typeobjectSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vector
   br label %69
 
 ._crit_edge260:                                   ; preds = %.loopexit173, %53
-  %.sroa.23.2.lcssa = phi ptr [ %.sroa.23.0.lcssa301, %53 ], [ %.sroa.23.3, %.loopexit173 ]
-  %.sroa.0136.2.lcssa = phi ptr [ %.sroa.0136.0.lcssa305, %53 ], [ %.sroa.0136.3, %.loopexit173 ]
+  %.sroa.23.2.lcssa = phi ptr [ %.sroa.23.0.lcssa302, %53 ], [ %.sroa.23.3, %.loopexit173 ]
+  %.sroa.0136.2.lcssa = phi ptr [ %.sroa.0136.0.lcssa306, %53 ], [ %.sroa.0136.3, %.loopexit173 ]
   %.lcssa198 = phi i64 [ %55, %53 ], [ %197, %.loopexit173 ]
   %.not.i.i.i68 = icmp eq ptr %.sroa.0136.2.lcssa, null
   br i1 %.not.i.i.i68, label %_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit, label %64
@@ -9089,9 +9090,9 @@ _ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit:     ; preds = %._crit_edge260, %64
 69:                                               ; preds = %.lr.ph259, %.loopexit173
   %70 = phi i64 [ %58, %.lr.ph259 ], [ %199, %.loopexit173 ]
   %.036257 = phi i64 [ 0, %.lr.ph259 ], [ %195, %.loopexit173 ]
-  %.sroa.0136.2256 = phi ptr [ %.sroa.0136.0.lcssa305, %.lr.ph259 ], [ %.sroa.0136.3, %.loopexit173 ]
-  %.sroa.13.1255 = phi ptr [ %.sroa.13.0.lcssa303, %.lr.ph259 ], [ %.sroa.13.2, %.loopexit173 ]
-  %.sroa.23.2254 = phi ptr [ %.sroa.23.0.lcssa301, %.lr.ph259 ], [ %.sroa.23.3, %.loopexit173 ]
+  %.sroa.0136.2256 = phi ptr [ %.sroa.0136.0.lcssa306, %.lr.ph259 ], [ %.sroa.0136.3, %.loopexit173 ]
+  %.sroa.13.1255 = phi ptr [ %.sroa.13.0.lcssa304, %.lr.ph259 ], [ %.sroa.13.2, %.loopexit173 ]
+  %.sroa.23.2254 = phi ptr [ %.sroa.23.0.lcssa302, %.lr.ph259 ], [ %.sroa.23.3, %.loopexit173 ]
   %71 = getelementptr inbounds nuw ptr, ptr %.sroa.0136.2256, i64 %.036257
   %72 = load ptr, ptr %71, align 8, !tbaa !439
   %73 = getelementptr i8, ptr %72, i64 8
@@ -9166,8 +9167,8 @@ _ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6
   %.not241 = icmp eq ptr %103, %105
   br i1 %.not241, label %.loopexit173, label %.lr.ph243
 
-.lr.ph243:                                        ; preds = %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit, %.loopexit316
-  %.sroa.0118.0242 = phi ptr [ %144, %.loopexit316 ], [ %103, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ]
+.lr.ph243:                                        ; preds = %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit, %.loopexit317
+  %.sroa.0118.0242 = phi ptr [ %144, %.loopexit317 ], [ %103, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ]
   %106 = load ptr, ptr %.sroa.0118.0242, align 8, !tbaa !414
   %107 = load ptr, ptr %1, align 8, !tbaa !413
   %108 = load ptr, ptr %62, align 8, !tbaa !413
@@ -9188,7 +9189,7 @@ _ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6
   %.sroa.0114.0237 = phi ptr [ %110, %109 ], [ %107, %.lr.ph243 ]
   %111 = load ptr, ptr %.sroa.0114.0237, align 8, !tbaa !414
   %.not50 = icmp eq ptr %111, %106
-  br i1 %.not50, label %.loopexit316, label %109
+  br i1 %.not50, label %.loopexit317, label %109
 
 .critedge:                                        ; preds = %109
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -9285,7 +9286,7 @@ _ZNSt6vectorIPN8pybind116detail9type_infoESaIS3_EE17_M_realloc_insertIJRKS3_EEEv
 
 _ZN8pybind116detail41all_type_info_add_base_most_derived_firstERSt6vectorIPNS0_9type_infoESaIS3_EES3_.exit: ; preds = %118, %122, %_ZNSt6vectorIPN8pybind116detail9type_infoESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %.loopexit316
+  br label %.loopexit317
 
 .loopexit:                                        ; preds = %.lr.ph.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -9302,7 +9303,7 @@ _ZN8pybind116detail41all_type_info_add_base_most_derived_firstERSt6vectorIPNS0_9
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit316:                                     ; preds = %.lr.ph240, %_ZN8pybind116detail41all_type_info_add_base_most_derived_firstERSt6vectorIPNS0_9type_infoESaIS3_EES3_.exit
+.loopexit317:                                     ; preds = %.lr.ph240, %_ZN8pybind116detail41all_type_info_add_base_most_derived_firstERSt6vectorIPNS0_9type_infoESaIS3_EES3_.exit
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0242, i64 8
   %.not = icmp eq ptr %144, %105
   br i1 %.not, label %.loopexit173, label %.lr.ph243
@@ -9350,7 +9351,8 @@ _ZNK8pybind115tuple5beginEv.exit85.thread:        ; preds = %_ZN8pybind1118reint
   %161 = phi ptr [ %160, %159 ], [ %158, %_ZN8pybind1118reinterpret_borrowINS_5tupleEEET_NS_6handleE.exit80 ]
   %.sroa.0.0.copyload.val.i87154.in = getelementptr i8, ptr %146, i64 16
   %.sroa.0.0.copyload.val.i87154 = load i64, ptr %.sroa.0.0.copyload.val.i87154.in, align 8, !tbaa !459
-  %162 = getelementptr inbounds ptr, ptr %161, i64 %.sroa.0.0.copyload.val.i87154
+  %.idx265 = shl nsw i64 %.sroa.0.0.copyload.val.i87154, 3
+  %162 = getelementptr inbounds i8, ptr %161, i64 %.idx265
   %.not166244 = icmp eq i64 %.sroa.0.0.copyload.val.i87154, 0
   br i1 %.not166244, label %._crit_edge250.thread, label %.lr.ph249
 
@@ -9360,9 +9362,9 @@ _ZNK8pybind115tuple5beginEv.exit85.thread:        ; preds = %_ZN8pybind1118reint
   br i1 %.not.i.i.i92, label %_ZN8pybind116objectD2Ev.exit94, label %._crit_edge250.thread
 
 ._crit_edge250.thread:                            ; preds = %_ZNK8pybind115tuple5beginEv.exit85.thread, %._crit_edge250
-  %.sroa.0136.6.lcssa314 = phi ptr [ %.sroa.0136.8, %._crit_edge250 ], [ %.sroa.0136.2256, %_ZNK8pybind115tuple5beginEv.exit85.thread ]
-  %.sroa.13.5.lcssa312 = phi ptr [ %.sroa.13.7, %._crit_edge250 ], [ %.sroa.13.4, %_ZNK8pybind115tuple5beginEv.exit85.thread ]
-  %.sroa.23.6.lcssa310 = phi ptr [ %.sroa.23.8, %._crit_edge250 ], [ %.sroa.23.2254, %_ZNK8pybind115tuple5beginEv.exit85.thread ]
+  %.sroa.0136.6.lcssa315 = phi ptr [ %.sroa.0136.8, %._crit_edge250 ], [ %.sroa.0136.2256, %_ZNK8pybind115tuple5beginEv.exit85.thread ]
+  %.sroa.13.5.lcssa313 = phi ptr [ %.sroa.13.7, %._crit_edge250 ], [ %.sroa.13.4, %_ZNK8pybind115tuple5beginEv.exit85.thread ]
+  %.sroa.23.6.lcssa311 = phi ptr [ %.sroa.23.8, %._crit_edge250 ], [ %.sroa.23.2254, %_ZNK8pybind115tuple5beginEv.exit85.thread ]
   %163 = phi ptr [ %.pre, %._crit_edge250 ], [ %146, %_ZNK8pybind115tuple5beginEv.exit85.thread ]
   %164 = load i64, ptr %163, align 8, !tbaa !118
   %165 = and i64 %164, 2147483648
@@ -9387,9 +9389,9 @@ _ZNK8pybind115tuple5beginEv.exit85.thread:        ; preds = %_ZN8pybind1118reint
   unreachable
 
 _ZN8pybind116objectD2Ev.exit94:                   ; preds = %._crit_edge250, %._crit_edge250.thread, %166, %169
-  %.sroa.0136.6.lcssa315 = phi ptr [ %.sroa.0136.8, %._crit_edge250 ], [ %.sroa.0136.6.lcssa314, %._crit_edge250.thread ], [ %.sroa.0136.6.lcssa314, %166 ], [ %.sroa.0136.6.lcssa314, %169 ]
-  %.sroa.13.5.lcssa313 = phi ptr [ %.sroa.13.7, %._crit_edge250 ], [ %.sroa.13.5.lcssa312, %._crit_edge250.thread ], [ %.sroa.13.5.lcssa312, %166 ], [ %.sroa.13.5.lcssa312, %169 ]
-  %.sroa.23.6.lcssa311 = phi ptr [ %.sroa.23.8, %._crit_edge250 ], [ %.sroa.23.6.lcssa310, %._crit_edge250.thread ], [ %.sroa.23.6.lcssa310, %166 ], [ %.sroa.23.6.lcssa310, %169 ]
+  %.sroa.0136.6.lcssa316 = phi ptr [ %.sroa.0136.8, %._crit_edge250 ], [ %.sroa.0136.6.lcssa315, %._crit_edge250.thread ], [ %.sroa.0136.6.lcssa315, %166 ], [ %.sroa.0136.6.lcssa315, %169 ]
+  %.sroa.13.5.lcssa314 = phi ptr [ %.sroa.13.7, %._crit_edge250 ], [ %.sroa.13.5.lcssa313, %._crit_edge250.thread ], [ %.sroa.13.5.lcssa313, %166 ], [ %.sroa.13.5.lcssa313, %169 ]
+  %.sroa.23.6.lcssa312 = phi ptr [ %.sroa.23.8, %._crit_edge250 ], [ %.sroa.23.6.lcssa311, %._crit_edge250.thread ], [ %.sroa.23.6.lcssa311, %166 ], [ %.sroa.23.6.lcssa311, %169 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #29
   br label %.loopexit173
 
@@ -9480,11 +9482,11 @@ _ZNSt6vectorIP11_typeobjectSaIS1_EE9push_backEOS1_.exit104: ; preds = %_ZNSt6vec
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #29
   br label %.loopexit.split-lp
 
-.loopexit173:                                     ; preds = %.loopexit316, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit, %_ZN8pybind116objectD2Ev.exit94, %.loopexit177, %69
-  %.sroa.23.3 = phi ptr [ %.sroa.23.2254, %69 ], [ %.sroa.23.2254, %.loopexit177 ], [ %.sroa.23.6.lcssa311, %_ZN8pybind116objectD2Ev.exit94 ], [ %.sroa.23.2254, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ], [ %.sroa.23.2254, %.loopexit316 ]
-  %.sroa.13.2 = phi ptr [ %.sroa.13.1255, %69 ], [ %.sroa.13.1255, %.loopexit177 ], [ %.sroa.13.5.lcssa313, %_ZN8pybind116objectD2Ev.exit94 ], [ %.sroa.13.1255, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ], [ %.sroa.13.1255, %.loopexit316 ]
-  %.sroa.0136.3 = phi ptr [ %.sroa.0136.2256, %69 ], [ %.sroa.0136.2256, %.loopexit177 ], [ %.sroa.0136.6.lcssa315, %_ZN8pybind116objectD2Ev.exit94 ], [ %.sroa.0136.2256, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ], [ %.sroa.0136.2256, %.loopexit316 ]
-  %.137 = phi i64 [ %.036257, %69 ], [ %.036257, %.loopexit177 ], [ %.339, %_ZN8pybind116objectD2Ev.exit94 ], [ %.036257, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ], [ %.036257, %.loopexit316 ]
+.loopexit173:                                     ; preds = %.loopexit317, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit, %_ZN8pybind116objectD2Ev.exit94, %.loopexit177, %69
+  %.sroa.23.3 = phi ptr [ %.sroa.23.2254, %69 ], [ %.sroa.23.2254, %.loopexit177 ], [ %.sroa.23.6.lcssa312, %_ZN8pybind116objectD2Ev.exit94 ], [ %.sroa.23.2254, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ], [ %.sroa.23.2254, %.loopexit317 ]
+  %.sroa.13.2 = phi ptr [ %.sroa.13.1255, %69 ], [ %.sroa.13.1255, %.loopexit177 ], [ %.sroa.13.5.lcssa314, %_ZN8pybind116objectD2Ev.exit94 ], [ %.sroa.13.1255, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ], [ %.sroa.13.1255, %.loopexit317 ]
+  %.sroa.0136.3 = phi ptr [ %.sroa.0136.2256, %69 ], [ %.sroa.0136.2256, %.loopexit177 ], [ %.sroa.0136.6.lcssa316, %_ZN8pybind116objectD2Ev.exit94 ], [ %.sroa.0136.2256, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ], [ %.sroa.0136.2256, %.loopexit317 ]
+  %.137 = phi i64 [ %.036257, %69 ], [ %.036257, %.loopexit177 ], [ %.339, %_ZN8pybind116objectD2Ev.exit94 ], [ %.036257, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ], [ %.036257, %.loopexit317 ]
   %195 = add i64 %.137, 1
   %196 = ptrtoint ptr %.sroa.13.2 to i64
   %197 = ptrtoint ptr %.sroa.0136.3 to i64
@@ -9494,8 +9496,8 @@ _ZNSt6vectorIP11_typeobjectSaIS1_EE9push_backEOS1_.exit104: ; preds = %_ZNSt6vec
   br i1 %200, label %69, label %._crit_edge260, !llvm.loop !466
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %194, %67, %52
-  %.sroa.23.1 = phi ptr [ %.sroa.13.0232, %52 ], [ %.sroa.23.0.lcssa301, %67 ], [ %.sroa.13.5247, %194 ], [ %.sroa.23.2254, %.loopexit ], [ %.sroa.23.2254, %.loopexit.split-lp.loopexit ], [ %.sroa.23.2254, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0136.1 = phi ptr [ %.sroa.0136.0233, %52 ], [ %.sroa.0136.0.lcssa305, %67 ], [ %.sroa.0136.6248, %194 ], [ %.sroa.0136.2256, %.loopexit ], [ %.sroa.0136.2256, %.loopexit.split-lp.loopexit ], [ %.sroa.0136.2256, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.23.1 = phi ptr [ %.sroa.13.0232, %52 ], [ %.sroa.23.0.lcssa302, %67 ], [ %.sroa.13.5247, %194 ], [ %.sroa.23.2254, %.loopexit ], [ %.sroa.23.2254, %.loopexit.split-lp.loopexit ], [ %.sroa.23.2254, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0136.1 = phi ptr [ %.sroa.0136.0233, %52 ], [ %.sroa.0136.0.lcssa306, %67 ], [ %.sroa.0136.6248, %194 ], [ %.sroa.0136.2256, %.loopexit ], [ %.sroa.0136.2256, %.loopexit.split-lp.loopexit ], [ %.sroa.0136.2256, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn57.pn.pn.pn = phi { ptr, i32 } [ %lpad.phi183, %52 ], [ %68, %67 ], [ %lpad.phi172, %194 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit174, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp175, %.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i105 = icmp eq ptr %.sroa.0136.1, null
   br i1 %.not.i.i.i105, label %_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit106, label %.thread
@@ -27020,7 +27022,8 @@ _ZNK8pybind115tuple5beginEv.exit.thread:          ; preds = %_ZN8pybind1118reint
   %20 = phi ptr [ %19, %18 ], [ %17, %_ZN8pybind1118reinterpret_borrowINS_5tupleEEET_NS_6handleE.exit ]
   %.sroa.0.0.copyload.val.i51.in = getelementptr i8, ptr %8, i64 16
   %.sroa.0.0.copyload.val.i51 = load i64, ptr %.sroa.0.0.copyload.val.i51.in, align 8, !tbaa !459
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %.sroa.0.0.copyload.val.i51
+  %.idx = shl nsw i64 %.sroa.0.0.copyload.val.i51, 3
+  %21 = getelementptr inbounds i8, ptr %20, i64 %.idx
   %.not5257 = icmp eq i64 %.sroa.0.0.copyload.val.i51, 0
   br i1 %.not5257, label %._crit_edge.thread, label %.lr.ph59
 
@@ -34993,7 +34996,8 @@ _ZNK8pybind115tuple5beginEv.exit.thread:          ; preds = %_ZN8pybind1118reint
   %17 = phi ptr [ %16, %15 ], [ %14, %_ZN8pybind1118reinterpret_borrowINS_5tupleEEET_NS_6handleE.exit ]
   %.sroa.0.0.copyload.val.i27.in = getelementptr i8, ptr %5, i64 16
   %.sroa.0.0.copyload.val.i27 = load i64, ptr %.sroa.0.0.copyload.val.i27.in, align 8, !tbaa !459
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %.sroa.0.0.copyload.val.i27
+  %.idx = shl nsw i64 %.sroa.0.0.copyload.val.i27, 3
+  %18 = getelementptr inbounds i8, ptr %17, i64 %.idx
   %.not2829 = icmp eq i64 %.sroa.0.0.copyload.val.i27, 0
   br i1 %.not2829, label %._crit_edge.thread, label %.lr.ph
 
@@ -36005,7 +36009,8 @@ _ZNK8pybind115tuple5beginEv.exit.thread:          ; preds = %_ZN8pybind1118reint
   %19 = phi ptr [ %18, %17 ], [ %16, %_ZN8pybind1118reinterpret_borrowINS_5tupleEEET_NS_6handleE.exit ]
   %.sroa.0.0.copyload.val.i84.in = getelementptr i8, ptr %7, i64 16
   %.sroa.0.0.copyload.val.i84 = load i64, ptr %.sroa.0.0.copyload.val.i84.in, align 8, !tbaa !459
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %.sroa.0.0.copyload.val.i84
+  %.idx = shl nsw i64 %.sroa.0.0.copyload.val.i84, 3
+  %20 = getelementptr inbounds i8, ptr %19, i64 %.idx
   %.not8587 = icmp eq i64 %.sroa.0.0.copyload.val.i84, 0
   br i1 %.not8587, label %._crit_edge.thread, label %.lr.ph
 

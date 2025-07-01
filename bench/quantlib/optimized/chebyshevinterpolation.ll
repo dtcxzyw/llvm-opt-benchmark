@@ -226,13 +226,14 @@ cond.true.i:                                      ; preds = %entry
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #22
   br label %invoke.cont4
 
-invoke.cont4:                                     ; preds = %cond.true.i, %entry
+invoke.cont4:                                     ; preds = %entry, %cond.true.i
+  %add.ptr.i.i.idx.pre-phi = phi i64 [ %2, %cond.true.i ], [ 0, %entry ]
   %cond.i = phi ptr [ %call.i, %cond.true.i ], [ null, %entry ]
   store ptr %cond.i, ptr %agg.result, align 8, !tbaa !15
   %n_.i4 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %0, ptr %n_.i4, align 8, !tbaa !3
   %4 = load ptr, ptr %x, align 8, !tbaa !15
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %4, i64 %0
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %add.ptr.i.i.idx.pre-phi
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %f, i64 16

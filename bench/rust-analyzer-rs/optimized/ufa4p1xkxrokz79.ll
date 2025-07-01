@@ -129,13 +129,13 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 %4, ptr %9, align 4
-  %.sroa.0.0134 = trunc i64 %3 to i32
-  %.sroa.6.0.in135 = lshr i64 %3, 32
-  %.sroa.6.0136 = trunc i64 %.sroa.6.0.in135 to i16
-  %.sroa.8.0.in137 = lshr i64 %3, 48
-  %.sroa.8.0138 = trunc nuw i64 %.sroa.8.0.in137 to i16
-  %.not139 = icmp eq i32 %4, %1
-  br i1 %.not139, label %._crit_edge, label %.lr.ph
+  %.sroa.0.0135 = trunc i64 %3 to i32
+  %.sroa.6.0.in136 = lshr i64 %3, 32
+  %.sroa.6.0137 = trunc i64 %.sroa.6.0.in136 to i16
+  %.sroa.8.0.in138 = lshr i64 %3, 48
+  %.sroa.8.0139 = trunc nuw i64 %.sroa.8.0.in138 to i16
+  %.not140 = icmp eq i32 %4, %1
+  br i1 %.not140, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -149,14 +149,15 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit", %5
   %.053.lcssa = phi i1 [ false, %5 ], [ %.197, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
-  %.sroa.0.0.lcssa = phi i32 [ %.sroa.0.0134, %5 ], [ %.sroa.0.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
-  %.sroa.6.0.lcssa = phi i16 [ %.sroa.6.0136, %5 ], [ %.sroa.6.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
-  %.sroa.8.0.lcssa = phi i16 [ %.sroa.8.0138, %5 ], [ %.sroa.8.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
+  %.sroa.0.0.lcssa = phi i32 [ %.sroa.0.0135, %5 ], [ %.sroa.0.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
+  %.sroa.6.0.lcssa = phi i16 [ %.sroa.6.0137, %5 ], [ %.sroa.6.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
+  %.sroa.8.0.lcssa = phi i16 [ %.sroa.8.0139, %5 ], [ %.sroa.8.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !5
-  %21 = getelementptr inbounds { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %18, i64 %20
+  %.idx110 = mul nsw i64 %20, 80
+  %21 = getelementptr inbounds i8, ptr %18, i64 %.idx110
   %22 = icmp eq i64 %20, 0
   br i1 %22, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h07af414f35b8ec7bE.exit.thread", label %.lr.ph.i.i.i
 
@@ -193,10 +194,10 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
 
 37:                                               ; preds = %.lr.ph, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit"
   %38 = phi i32 [ %4, %.lr.ph ], [ %106, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
-  %.sroa.8.0143 = phi i16 [ %.sroa.8.0138, %.lr.ph ], [ %.sroa.8.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
-  %.sroa.6.0142 = phi i16 [ %.sroa.6.0136, %.lr.ph ], [ %.sroa.6.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
-  %.sroa.0.0141 = phi i32 [ %.sroa.0.0134, %.lr.ph ], [ %.sroa.0.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
-  %.053140 = phi i1 [ false, %.lr.ph ], [ %.197, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
+  %.sroa.8.0144 = phi i16 [ %.sroa.8.0139, %.lr.ph ], [ %.sroa.8.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
+  %.sroa.6.0143 = phi i16 [ %.sroa.6.0137, %.lr.ph ], [ %.sroa.6.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
+  %.sroa.0.0142 = phi i32 [ %.sroa.0.0135, %.lr.ph ], [ %.sroa.0.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
+  %.053141 = phi i1 [ false, %.lr.ph ], [ %.197, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %39 = load i64, ptr %10, align 8, !alias.scope !49, !noundef !5
   %40 = icmp eq i64 %39, 0
@@ -290,7 +291,8 @@ select.unfold:                                    ; preds = %37, %51
   %78 = load ptr, ptr %77, align 8, !nonnull !5, !noundef !5
   %79 = getelementptr inbounds i8, ptr %76, i64 -32
   %80 = load i64, ptr %79, align 8, !noundef !5
-  %81 = getelementptr inbounds { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %78, i64 %80
+  %.idx = mul nsw i64 %80, 80
+  %81 = getelementptr inbounds i8, ptr %78, i64 %.idx
   %82 = icmp eq i64 %80, 0
   br i1 %82, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64aaa459e1d97467E.exit.thread", label %.lr.ph.i.i.i66
 
@@ -311,18 +313,18 @@ select.unfold:                                    ; preds = %37, %51
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 56
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 60
   %91 = load i16, ptr %90, align 4, !alias.scope !80, !noalias !83, !noundef !5
-  %92 = icmp eq i16 %91, %.sroa.6.0142
+  %92 = icmp eq i16 %91, %.sroa.6.0143
   br i1 %92, label %93, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h83b272e62f84dd27E.exit.i.i.i"
 
 93:                                               ; preds = %.lr.ph.i.i.i66
   %94 = getelementptr inbounds nuw i8, ptr %87, i64 62
   %95 = load i16, ptr %94, align 2, !alias.scope !80, !noalias !83, !noundef !5
-  %96 = icmp eq i16 %95, %.sroa.8.0143
+  %96 = icmp eq i16 %95, %.sroa.8.0144
   br i1 %96, label %"_ZN5salsa7runtime16dependency_graph15DependencyGraph31maybe_unblock_runtimes_in_cycle28_$u7b$$u7b$closure$u7d$$u7d$17h23b5326c091a96d3E.exit.i.i.i.i", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h83b272e62f84dd27E.exit.i.i.i"
 
 "_ZN5salsa7runtime16dependency_graph15DependencyGraph31maybe_unblock_runtimes_in_cycle28_$u7b$$u7b$closure$u7d$$u7d$17h23b5326c091a96d3E.exit.i.i.i.i": ; preds = %93
   %97 = load i32, ptr %89, align 8, !alias.scope !80, !noalias !83, !noundef !5
-  %.not.i.i.i.i71 = icmp eq i32 %97, %.sroa.0.0141
+  %.not.i.i.i.i71 = icmp eq i32 %97, %.sroa.0.0142
   br i1 %.not.i.i.i.i71, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64aaa459e1d97467E.exit", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h83b272e62f84dd27E.exit.i.i.i"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h83b272e62f84dd27E.exit.i.i.i": ; preds = %"_ZN5salsa7runtime16dependency_graph15DependencyGraph31maybe_unblock_runtimes_in_cycle28_$u7b$$u7b$closure$u7d$$u7d$17h23b5326c091a96d3E.exit.i.i.i.i", %93, %.lr.ph.i.i.i66
@@ -429,7 +431,7 @@ select.unfold103:                                 ; preds = %.noexc, %110
   unreachable
 
 "_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit": ; preds = %105, %.thread
-  %.197 = phi i1 [ true, %.thread ], [ %.053140, %105 ]
+  %.197 = phi i1 [ true, %.thread ], [ %.053141, %105 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   store i32 %106, ptr %9, align 4
   %137 = load i64, ptr %8, align 8

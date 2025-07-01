@@ -228,7 +228,8 @@ _ZNSt6vectorIN3gmx5RangeIiEESaIS2_EED2Ev.exit50:  ; preds = %41, %._crit_edge, %
   %73 = sub nsw i32 %72, %68
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %70
-  %76 = getelementptr inbounds %"class.gmx::BasicVector", ptr %75, i64 %74
+  %.idx = mul nsw i64 %74, 12
+  %76 = getelementptr inbounds i8, ptr %75, i64 %.idx
   %.val = load ptr, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
   store float 0.000000e+00, ptr %10, align 8, !tbaa !39

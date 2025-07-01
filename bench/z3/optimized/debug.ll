@@ -2207,7 +2207,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14ptr_hash_entryIKcE13str_h
   %21 = and i32 %20, %18
   %22 = load ptr, ptr %0, align 8, !tbaa !23
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %22, i64 %23
+  %.idx = shl nuw nsw i64 %23, 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %25 = zext i32 %19 to i64
   %26 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %22, i64 %25
   %.not66 = icmp eq i32 %21, %19
@@ -2365,7 +2366,8 @@ _ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tab
   %12 = load i32, ptr %2, align 8, !tbaa !31
   %13 = add i32 %4, -1
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %11, i64 %14
+  %.idx.i = shl nuw nsw i64 %14, 4
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   %16 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %7, i64 %5
   %.not38.i = icmp eq i32 %12, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit, label %.lr.ph41.i
@@ -2381,7 +2383,8 @@ _ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tab
   %20 = load i32, ptr %.02839.i, align 8, !tbaa !56
   %21 = and i32 %20, %13
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %7, i64 %22
+  %.idx43.i = shl nuw nsw i64 %22, 4
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx43.i
   %.not2933.i = icmp eq i32 %21, %4
   br i1 %.not2933.i, label %.preheader.i, label %.lr.ph.i
 
@@ -2466,7 +2469,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14ptr_hash_entryIKcE13str_h
   %10 = and i32 %9, %6
   %11 = load ptr, ptr %0, align 8, !tbaa !23
   %12 = zext i32 %10 to i64
-  %13 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %11, i64 %12
+  %.idx = shl nuw nsw i64 %12, 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %14 = zext i32 %8 to i64
   %15 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %11, i64 %14
   %.not43 = icmp eq i32 %10, %8
@@ -2605,7 +2609,8 @@ _ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tab
   %13 = load i32, ptr %4, align 8, !tbaa !31
   %14 = add i32 %13, -1
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %12, i64 %15
+  %.idx.i = shl nuw nsw i64 %15, 4
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %17 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %8, i64 %15
   %.not38.i = icmp eq i32 %13, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit, label %.lr.ph41.i
@@ -2621,7 +2626,8 @@ _ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tab
   %21 = load i32, ptr %.02839.i, align 8, !tbaa !56
   %22 = and i32 %21, %14
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %8, i64 %23
+  %.idx43.i = shl nuw nsw i64 %23, 4
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx43.i
   %.not2933.i = icmp eq i32 %22, %13
   br i1 %.not2933.i, label %.preheader.i, label %.lr.ph.i
 
@@ -2705,7 +2711,8 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI14ptr_hash_entryIKc
   %10 = and i32 %9, %6
   %11 = load ptr, ptr %0, align 8, !tbaa !23
   %12 = zext i32 %10 to i64
-  %13 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %11, i64 %12
+  %.idx = shl nuw nsw i64 %12, 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %14 = zext i32 %8 to i64
   %15 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %11, i64 %14
   %.not34 = icmp eq i32 %10, %8

@@ -98,7 +98,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallInstELb1EE9push_backES2_.exit.i: ; pr
 
 .lr.ph40.preheader.i:                             ; preds = %._crit_edge.i
   %37 = zext i32 %.pre.i to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %.pre42.pre.i, i64 %37
+  %.idx.i = shl nuw nsw i64 %37, 3
+  %38 = getelementptr inbounds nuw i8, ptr %.pre42.pre.i, i64 %.idx.i
   br label %.lr.ph40.i
 
 .lr.ph40.i:                                       ; preds = %.lr.ph40.i, %.lr.ph40.preheader.i

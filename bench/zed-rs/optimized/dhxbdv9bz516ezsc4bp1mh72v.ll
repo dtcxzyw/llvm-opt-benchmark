@@ -5079,7 +5079,8 @@ define hidden void @_ZN13project_panel12ProjectPanel11select_prev17h465db3ad2a79
   %15 = load ptr, ptr %14, align 8, !alias.scope !1075, !noalias !1078, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %17 = load i64, ptr %16, align 8, !alias.scope !1075, !noalias !1078, !noundef !4
-  %18 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, { { { ptr, [5 x i64] } } } }, ptr %15, i64 %17
+  %.idx.i = mul nsw i64 %17, 80
+  %18 = getelementptr inbounds i8, ptr %15, i64 %.idx.i
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %.thread40, label %.lr.ph.i
 
@@ -5102,7 +5103,8 @@ define hidden void @_ZN13project_panel12ProjectPanel11select_prev17h465db3ad2a79
   %29 = load ptr, ptr %28, align 8, !noalias !1080, !nonnull !4, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i, i64 16
   %31 = load i64, ptr %30, align 8, !noalias !1080, !noundef !4
-  %32 = getelementptr inbounds { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %29, i64 %31
+  %.idx33.i = mul nsw i64 %31, 88
+  %32 = getelementptr inbounds i8, ptr %29, i64 %.idx33.i
   %33 = icmp eq i64 %31, 0
   br i1 %33, label %.thread40, label %.lr.ph32.i
 
@@ -5226,7 +5228,8 @@ define hidden void @_ZN13project_panel12ProjectPanel11select_prev17h465db3ad2a79
   call void @llvm.experimental.noalias.scope.decl(metadata !1089)
   %80 = load ptr, ptr %14, align 8, !alias.scope !1092, !noalias !1093, !nonnull !4, !noundef !4
   %81 = load i64, ptr %16, align 8, !alias.scope !1092, !noalias !1093, !noundef !4
-  %82 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, { { { ptr, [5 x i64] } } } }, ptr %80, i64 %81
+  %.idx.i.i = mul nsw i64 %81, 80
+  %82 = getelementptr inbounds i8, ptr %80, i64 %.idx.i.i
   %83 = icmp eq i64 %81, 0
   br i1 %83, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph.i.i
 
@@ -5251,7 +5254,8 @@ define hidden void @_ZN13project_panel12ProjectPanel11select_prev17h465db3ad2a79
   %95 = load ptr, ptr %94, align 8, !noalias !1095, !nonnull !4, !noundef !4
   %96 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i.i, i64 16
   %97 = load i64, ptr %96, align 8, !noalias !1095, !noundef !4
-  %98 = getelementptr inbounds { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %95, i64 %97
+  %.idx33.i.i = mul nsw i64 %97, 88
+  %98 = getelementptr inbounds i8, ptr %95, i64 %.idx33.i.i
   %99 = icmp eq i64 %97, 0
   br i1 %99, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph32.i.i
 
@@ -7295,7 +7299,8 @@ common.resume:                                    ; preds = %.body60, %209, %85,
   %216 = load ptr, ptr %215, align 8, !alias.scope !1470, !noalias !1471, !nonnull !4, !noundef !4
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %218 = load i64, ptr %217, align 8, !alias.scope !1470, !noalias !1471, !noundef !4
-  %219 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, { { { ptr, [5 x i64] } } } }, ptr %216, i64 %218
+  %.idx.i.i = mul nsw i64 %218, 80
+  %219 = getelementptr inbounds i8, ptr %216, i64 %.idx.i.i
   %220 = icmp eq i64 %218, 0
   br i1 %220, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph.i.i70
 
@@ -7320,7 +7325,8 @@ common.resume:                                    ; preds = %.body60, %209, %85,
   %232 = load ptr, ptr %231, align 8, !noalias !1473, !nonnull !4, !noundef !4
   %233 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i.i, i64 16
   %234 = load i64, ptr %233, align 8, !noalias !1473, !noundef !4
-  %235 = getelementptr inbounds { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %232, i64 %234
+  %.idx33.i.i = mul nsw i64 %234, 88
+  %235 = getelementptr inbounds i8, ptr %232, i64 %.idx33.i.i
   %236 = icmp eq i64 %234, 0
   br i1 %236, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph32.i.i
 
@@ -7915,7 +7921,8 @@ common.resume:                                    ; preds = %91, %122
   %209 = load ptr, ptr %208, align 8, !alias.scope !1586, !noalias !1587, !nonnull !4, !noundef !4
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %211 = load i64, ptr %210, align 8, !alias.scope !1586, !noalias !1587, !noundef !4
-  %212 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, { { { ptr, [5 x i64] } } } }, ptr %209, i64 %211
+  %.idx.i.i = mul nsw i64 %211, 80
+  %212 = getelementptr inbounds i8, ptr %209, i64 %.idx.i.i
   %213 = icmp eq i64 %211, 0
   br i1 %213, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph.i.i
 
@@ -7940,7 +7947,8 @@ common.resume:                                    ; preds = %91, %122
   %225 = load ptr, ptr %224, align 8, !noalias !1589, !nonnull !4, !noundef !4
   %226 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i.i, i64 16
   %227 = load i64, ptr %226, align 8, !noalias !1589, !noundef !4
-  %228 = getelementptr inbounds { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %225, i64 %227
+  %.idx33.i.i = mul nsw i64 %227, 88
+  %228 = getelementptr inbounds i8, ptr %225, i64 %.idx33.i.i
   %229 = icmp eq i64 %227, 0
   br i1 %229, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph32.i.i
 
@@ -8271,7 +8279,8 @@ define hidden void @_ZN13project_panel12ProjectPanel16unfold_directory17h204563e
   %70 = load ptr, ptr %69, align 8, !alias.scope !1637, !noalias !1638, !nonnull !4, !noundef !4
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %72 = load i64, ptr %71, align 8, !alias.scope !1637, !noalias !1638, !noundef !4
-  %73 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, { { { ptr, [5 x i64] } } } }, ptr %70, i64 %72
+  %.idx.i.i = mul nsw i64 %72, 80
+  %73 = getelementptr inbounds i8, ptr %70, i64 %.idx.i.i
   %74 = icmp eq i64 %72, 0
   br i1 %74, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph.i.i
 
@@ -8296,7 +8305,8 @@ define hidden void @_ZN13project_panel12ProjectPanel16unfold_directory17h204563e
   %86 = load ptr, ptr %85, align 8, !noalias !1640, !nonnull !4, !noundef !4
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i.i, i64 16
   %88 = load i64, ptr %87, align 8, !noalias !1640, !noundef !4
-  %89 = getelementptr inbounds { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %86, i64 %88
+  %.idx33.i.i = mul nsw i64 %88, 88
+  %89 = getelementptr inbounds i8, ptr %86, i64 %.idx33.i.i
   %90 = icmp eq i64 %88, 0
   br i1 %90, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph32.i.i
 
@@ -8472,7 +8482,8 @@ define hidden void @_ZN13project_panel12ProjectPanel14fold_directory17h8b744767a
   %50 = load ptr, ptr %49, align 8, !alias.scope !1667, !noalias !1668, !nonnull !4, !noundef !4
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %52 = load i64, ptr %51, align 8, !alias.scope !1667, !noalias !1668, !noundef !4
-  %53 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, { { { ptr, [5 x i64] } } } }, ptr %50, i64 %52
+  %.idx.i.i = mul nsw i64 %52, 80
+  %53 = getelementptr inbounds i8, ptr %50, i64 %.idx.i.i
   %54 = icmp eq i64 %52, 0
   br i1 %54, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph.i.i
 
@@ -8497,7 +8508,8 @@ define hidden void @_ZN13project_panel12ProjectPanel14fold_directory17h8b744767a
   %66 = load ptr, ptr %65, align 8, !noalias !1670, !nonnull !4, !noundef !4
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i.i, i64 16
   %68 = load i64, ptr %67, align 8, !noalias !1670, !noundef !4
-  %69 = getelementptr inbounds { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %66, i64 %68
+  %.idx33.i.i = mul nsw i64 %68, 88
+  %69 = getelementptr inbounds i8, ptr %66, i64 %.idx33.i.i
   %70 = icmp eq i64 %68, 0
   br i1 %70, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph32.i.i
 
@@ -8573,7 +8585,8 @@ define hidden void @_ZN13project_panel12ProjectPanel11select_next17he015ae21c4e2
   %15 = load ptr, ptr %14, align 8, !alias.scope !1671, !noalias !1674, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %17 = load i64, ptr %16, align 8, !alias.scope !1671, !noalias !1674, !noundef !4
-  %18 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, { { { ptr, [5 x i64] } } } }, ptr %15, i64 %17
+  %.idx.i = mul nsw i64 %17, 80
+  %18 = getelementptr inbounds i8, ptr %15, i64 %.idx.i
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %.loopexit, label %.lr.ph.i
 
@@ -8596,7 +8609,8 @@ define hidden void @_ZN13project_panel12ProjectPanel11select_next17he015ae21c4e2
   %29 = load ptr, ptr %28, align 8, !noalias !1676, !nonnull !4, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i, i64 16
   %31 = load i64, ptr %30, align 8, !noalias !1676, !noundef !4
-  %32 = getelementptr inbounds { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %29, i64 %31
+  %.idx33.i = mul nsw i64 %31, 88
+  %32 = getelementptr inbounds i8, ptr %29, i64 %.idx33.i
   %33 = icmp eq i64 %31, 0
   br i1 %33, label %.loopexit, label %.lr.ph32.i
 
@@ -8702,7 +8716,8 @@ define hidden void @_ZN13project_panel12ProjectPanel11select_next17he015ae21c4e2
   call void @llvm.experimental.noalias.scope.decl(metadata !1685)
   %76 = load ptr, ptr %14, align 8, !alias.scope !1688, !noalias !1689, !nonnull !4, !noundef !4
   %77 = load i64, ptr %16, align 8, !alias.scope !1688, !noalias !1689, !noundef !4
-  %78 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, { { { ptr, [5 x i64] } } } }, ptr %76, i64 %77
+  %.idx.i.i = mul nsw i64 %77, 80
+  %78 = getelementptr inbounds i8, ptr %76, i64 %.idx.i.i
   %79 = icmp eq i64 %77, 0
   br i1 %79, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph.i.i
 
@@ -8727,7 +8742,8 @@ define hidden void @_ZN13project_panel12ProjectPanel11select_next17he015ae21c4e2
   %91 = load ptr, ptr %90, align 8, !noalias !1691, !nonnull !4, !noundef !4
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i.i, i64 16
   %93 = load i64, ptr %92, align 8, !noalias !1691, !noundef !4
-  %94 = getelementptr inbounds { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %91, i64 %93
+  %.idx33.i.i = mul nsw i64 %93, 88
+  %94 = getelementptr inbounds i8, ptr %91, i64 %.idx33.i.i
   %95 = icmp eq i64 %93, 0
   br i1 %95, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph32.i.i
 
@@ -8846,7 +8862,8 @@ _ZN8worktree8Snapshot14entry_for_path17h36656e0848112471E.exit.thread: ; preds =
   %41 = load ptr, ptr %40, align 8, !alias.scope !1710, !noalias !1711, !nonnull !4, !noundef !4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %43 = load i64, ptr %42, align 8, !alias.scope !1710, !noalias !1711, !noundef !4
-  %44 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, { { { ptr, [5 x i64] } } } }, ptr %41, i64 %43
+  %.idx.i.i = mul nsw i64 %43, 80
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx.i.i
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph.i.i
 
@@ -8871,7 +8888,8 @@ _ZN8worktree8Snapshot14entry_for_path17h36656e0848112471E.exit.thread: ; preds =
   %57 = load ptr, ptr %56, align 8, !noalias !1713, !nonnull !4, !noundef !4
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i.i, i64 16
   %59 = load i64, ptr %58, align 8, !noalias !1713, !noundef !4
-  %60 = getelementptr inbounds { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %57, i64 %59
+  %.idx33.i.i = mul nsw i64 %59, 88
+  %60 = getelementptr inbounds i8, ptr %57, i64 %.idx33.i.i
   %61 = icmp eq i64 %59, 0
   br i1 %61, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph32.i.i
 
@@ -9142,7 +9160,8 @@ common.resume:                                    ; preds = %41, %77
   call void @llvm.experimental.noalias.scope.decl(metadata !1750)
   %96 = load ptr, ptr %12, align 8, !alias.scope !1753, !noalias !1754, !nonnull !4, !noundef !4
   %97 = load i64, ptr %9, align 8, !alias.scope !1753, !noalias !1754, !noundef !4
-  %98 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, { { { ptr, [5 x i64] } } } }, ptr %96, i64 %97
+  %.idx.i.i = mul nsw i64 %97, 80
+  %98 = getelementptr inbounds i8, ptr %96, i64 %.idx.i.i
   %99 = icmp eq i64 %97, 0
   br i1 %99, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph.i.i
 
@@ -9167,7 +9186,8 @@ common.resume:                                    ; preds = %41, %77
   %111 = load ptr, ptr %110, align 8, !noalias !1756, !nonnull !4, !noundef !4
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i.i, i64 16
   %113 = load i64, ptr %112, align 8, !noalias !1756, !noundef !4
-  %114 = getelementptr inbounds { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %111, i64 %113
+  %.idx33.i.i = mul nsw i64 %113, 88
+  %114 = getelementptr inbounds i8, ptr %111, i64 %.idx33.i.i
   %115 = icmp eq i64 %113, 0
   br i1 %115, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph32.i.i
 
@@ -9398,7 +9418,8 @@ _ZN4core4iter6traits8iterator8Iterator4fold17he7b37bdb1df3e432E.exit: ; preds = 
   call void @llvm.experimental.noalias.scope.decl(metadata !1808)
   %80 = load ptr, ptr %10, align 8, !alias.scope !1811, !noalias !1812, !nonnull !4, !noundef !4
   %81 = load i64, ptr %7, align 8, !alias.scope !1811, !noalias !1812, !noundef !4
-  %82 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, { { { ptr, [5 x i64] } } } }, ptr %80, i64 %81
+  %.idx.i.i = mul nsw i64 %81, 80
+  %82 = getelementptr inbounds i8, ptr %80, i64 %.idx.i.i
   %83 = icmp eq i64 %81, 0
   br i1 %83, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph.i.i
 
@@ -9423,7 +9444,8 @@ _ZN4core4iter6traits8iterator8Iterator4fold17he7b37bdb1df3e432E.exit: ; preds = 
   %95 = load ptr, ptr %94, align 8, !noalias !1814, !nonnull !4, !noundef !4
   %96 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i.i, i64 16
   %97 = load i64, ptr %96, align 8, !noalias !1814, !noundef !4
-  %98 = getelementptr inbounds { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %95, i64 %97
+  %.idx33.i.i = mul nsw i64 %97, 88
+  %98 = getelementptr inbounds i8, ptr %95, i64 %.idx33.i.i
   %99 = icmp eq i64 %97, 0
   br i1 %99, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph32.i.i
 
@@ -9519,7 +9541,8 @@ define hidden void @_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf
   %6 = load ptr, ptr %5, align 8, !alias.scope !1815, !noalias !1818, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load i64, ptr %7, align 8, !alias.scope !1815, !noalias !1818, !noundef !4
-  %9 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, { { { ptr, [5 x i64] } } } }, ptr %6, i64 %8
+  %.idx.i = mul nsw i64 %8, 80
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %_ZN13project_panel12ProjectPanel19index_for_selection17h270892eeb1268034E.exit.thread, label %.lr.ph.i
 
@@ -9544,7 +9567,8 @@ define hidden void @_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf
   %22 = load ptr, ptr %21, align 8, !noalias !1820, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i, i64 16
   %24 = load i64, ptr %23, align 8, !noalias !1820, !noundef !4
-  %25 = getelementptr inbounds { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %22, i64 %24
+  %.idx33.i = mul nsw i64 %24, 88
+  %25 = getelementptr inbounds i8, ptr %22, i64 %.idx33.i
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %_ZN13project_panel12ProjectPanel19index_for_selection17h270892eeb1268034E.exit.thread, label %.lr.ph32.i
 
@@ -11924,7 +11948,8 @@ define hidden void @_ZN13project_panel12ProjectPanel19index_for_selection17h2708
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, { { { ptr, [5 x i64] } } } }, ptr %6, i64 %8
+  %.idx = mul nsw i64 %8, 80
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb0c701849c1151d8E.exit.thread", label %.lr.ph
 
@@ -11949,7 +11974,8 @@ define hidden void @_ZN13project_panel12ProjectPanel19index_for_selection17h2708
 21:                                               ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %23, i64 %15
+  %.idx33 = mul nsw i64 %15, 88
+  %24 = getelementptr inbounds i8, ptr %23, i64 %.idx33
   %25 = icmp eq i64 %15, 0
   br i1 %25, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb0c701849c1151d8E.exit.thread", label %.lr.ph32
 
@@ -13768,7 +13794,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h324f5eaef5cb88f9E.exit.i: ; preds = %.
 336:                                              ; preds = %.loopexit603
   %337 = load ptr, ptr %183, align 8, !nonnull !4, !noundef !4
   %338 = load i64, ptr %185, align 8, !noundef !4
-  %339 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, { { { ptr, [5 x i64] } } } }, ptr %337, i64 %338
+  %.idx = mul nsw i64 %338, 80
+  %339 = getelementptr inbounds i8, ptr %337, i64 %.idx
   %340 = icmp eq i64 %338, 0
   br i1 %340, label %.thread501, label %.lr.ph.i225
 
@@ -13792,7 +13819,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h324f5eaef5cb88f9E.exit.i: ; preds = %.
   %352 = load ptr, ptr %351, align 8, !noalias !2610, !nonnull !4, !noundef !4
   %353 = getelementptr inbounds nuw i8, ptr %341, i64 16
   %354 = load i64, ptr %353, align 8, !noalias !2610, !noundef !4
-  %355 = getelementptr inbounds { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %352, i64 %354
+  %.idx.i.i = mul nsw i64 %354, 88
+  %355 = getelementptr inbounds i8, ptr %352, i64 %.idx.i.i
   %356 = icmp eq i64 %354, 0
   br i1 %356, label %"_ZN13project_panel12ProjectPanel22update_visible_entries28_$u7b$$u7b$closure$u7d$$u7d$17h1d723b92190427c3E.exit.i", label %.lr.ph.i.i.i
 
@@ -16613,7 +16641,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h324f5eaef5cb88f9E.exit35.i: ; preds = 
   %178 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %179 = load ptr, ptr %178, align 8, !nonnull !4, !noundef !4
   %180 = load i64, ptr %35, align 8, !noundef !4
-  %181 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %179, i64 %180
+  %.idx = shl nsw i64 %180, 4
+  %181 = getelementptr inbounds i8, ptr %179, i64 %.idx
   %182 = icmp eq i64 %180, 0
   br i1 %182, label %._crit_edge, label %.lr.ph
 
@@ -20801,7 +20830,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h324f5eaef5cb88f9E.exit: ; preds = %.no
   %102 = load ptr, ptr %101, align 8, !alias.scope !3896, !noalias !3897, !nonnull !4, !noundef !4
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %104 = load i64, ptr %103, align 8, !alias.scope !3896, !noalias !3897, !noundef !4
-  %105 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, { { { ptr, [5 x i64] } } } }, ptr %102, i64 %104
+  %.idx.i.i = mul nsw i64 %104, 80
+  %105 = getelementptr inbounds i8, ptr %102, i64 %.idx.i.i
   %106 = icmp eq i64 %104, 0
   br i1 %106, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph.i.i
 
@@ -20826,7 +20856,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h324f5eaef5cb88f9E.exit: ; preds = %.no
   %118 = load ptr, ptr %117, align 8, !noalias !3899, !nonnull !4, !noundef !4
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i.i, i64 16
   %120 = load i64, ptr %119, align 8, !noalias !3899, !noundef !4
-  %121 = getelementptr inbounds { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %118, i64 %120
+  %.idx33.i.i = mul nsw i64 %120, 88
+  %121 = getelementptr inbounds i8, ptr %118, i64 %.idx33.i.i
   %122 = icmp eq i64 %120, 0
   br i1 %122, label %_ZN13project_panel12ProjectPanel10autoscroll17hb52900529eabf222E.exit, label %.lr.ph32.i.i
 

@@ -10196,7 +10196,7 @@ for.body.i.i.i.preheader.i:                       ; preds = %entry
   store ptr %call.i, ptr %agg.result, align 8, !tbaa !3
   %n_.i1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %0, ptr %n_.i1, align 8, !tbaa !59
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %call.i, i64 %0
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %2
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.i.preheader.i
@@ -10230,7 +10230,7 @@ for.body.i.i.i.preheader.i:                       ; preds = %entry
   store ptr %call.i, ptr %agg.result, align 8, !tbaa !3
   %n_.i1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %0, ptr %n_.i1, align 8, !tbaa !59
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %call.i, i64 %0
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %2
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.i.preheader.i
@@ -10548,7 +10548,7 @@ for.body.i.i.i.preheader.i:                       ; preds = %entry
   store ptr %call.i, ptr %agg.result, align 8, !tbaa !3
   %n_.i1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %0, ptr %n_.i1, align 8, !tbaa !59
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %call.i, i64 %0
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %2
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.i.preheader.i
@@ -11020,7 +11020,7 @@ for.body.i.i.i.preheader.i:                       ; preds = %entry
   store ptr %call.i, ptr %agg.result, align 8, !tbaa !3
   %n_.i1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %0, ptr %n_.i1, align 8, !tbaa !59
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %call.i, i64 %0
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %3
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.i.preheader.i
@@ -11056,7 +11056,7 @@ for.body.i.i.i.preheader.i:                       ; preds = %entry
   store ptr %call.i, ptr %agg.result, align 8, !tbaa !3
   %n_.i1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %0, ptr %n_.i1, align 8, !tbaa !59
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %call.i, i64 %0
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %3
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.i.preheader.i

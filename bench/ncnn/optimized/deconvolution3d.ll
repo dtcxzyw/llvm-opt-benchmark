@@ -1246,7 +1246,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %157
           to label %.noexc67 unwind label %209
 
 .noexc67:                                         ; preds = %.noexc47.i
-  %182 = getelementptr i32, ptr %181, i64 %178
+  %182 = getelementptr inbounds nuw i32, ptr %181, i64 %178
   store i32 0, ptr %181, align 4, !tbaa !66
   %183 = icmp eq i32 %177, 1
   br i1 %183, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i

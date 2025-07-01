@@ -4054,7 +4054,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IllEERKT_RKT0_.exit: ; preds = %_ZN
   store i64 %.sroa.861.0.copyload, ptr %42, align 16, !tbaa !444
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 %.sroa.1058.56.copyload, ptr %43, align 8, !tbaa !447
-  %44 = mul i64 %.sroa.1058.56.copyload, %.sroa.861.0.copyload
+  %44 = mul nsw i64 %.sroa.1058.56.copyload, %.sroa.861.0.copyload
   %45 = icmp slt i64 %44, 1
   br i1 %45, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELi1ELi2EEEEC2INS_7ProductINS_14TriangularViewIKNS_9TransposeIKNS_5BlockINS1_IdLi2ELi1ELi0ELi2ELi1EEELin1ELin1ELb0EEEEELj6EEENS8_INS1_IdLi2ELi2ELi0ELi2ELi2EEELin1ELin1ELb0EEELi0EEEEERKNS_9DenseBaseIT_EE.exit.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi1ELi1ELi2EEEE11setConstantERKd.exit.loopexit.i.i.i.i.i.i.i
 
@@ -9759,7 +9759,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELi2EEEE6resizeEll.exit
   %.pre.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !675
   %.pre13.i.i.i.i = load i64, ptr %11, align 8, !tbaa !454
   %.pre14.i.i.i.i = load i64, ptr %12, align 8, !tbaa !456
-  %21 = mul i64 %.pre13.i.i.i.i, %.pre14.i.i.i.i
+  %21 = mul nsw i64 %.pre13.i.i.i.i, %.pre14.i.i.i.i
   %22 = icmp slt i64 %21, 1
   br i1 %22, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELi2EEEE12_set_noaliasINS_7ProductINS_14TriangularViewIKNS_9TransposeIKNS1_IdLin1ELin1ELi1ELin1ELin1EEEEELj1EEENS1_IdLin1ELin1ELi1ELi1ELi2EEELi0EEEEERS2_RKNS_9DenseBaseIT_EE.exit.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELi2EEEE11setConstantERKd.exit.loopexit.i.i.i.i.i.i
 

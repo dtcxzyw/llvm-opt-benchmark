@@ -248,11 +248,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.459" = type { %"struct.std::_Tuple_impl.460" }
 %"struct.std::_Tuple_impl.460" = type { %"struct.std::_Head_base.461" }
 %"struct.std::_Head_base.461" = type { ptr }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.491" }
-%"struct.std::pair.491" = type { ptr, %"class.llvm::TrackingMDRef" }
-%"class.llvm::TrackingMDRef" = type { ptr }
-%"class.llvm::detail::DenseSetPair" = type { ptr }
-%"struct.std::pair.525" = type { ptr, i64 }
 %"class.llvm::Expected.597" = type { %union.anon.598, i8, [7 x i8] }
 %union.anon.598 = type { %"struct.llvm::AlignedCharArrayUnion.599" }
 %"struct.llvm::AlignedCharArrayUnion.599" = type { [8 x i8] }
@@ -8373,7 +8368,8 @@ declare void @_ZN4llvm21reportAndResetTimingsEPNS_11raw_ostreamE(ptr noundef) lo
 define dso_local void @_ZN4llvm16LTOCodeGenerator22setCodeGenDebugOptionsENS_8ArrayRefINS_9StringRefEEE(ptr noundef nonnull align 8 dereferenceable(1728) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #2 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  %6 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not9 = icmp eq i64 %2, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -9556,7 +9552,8 @@ define linkonce_odr hidden void @_ZN4llvm7IRMoverD2Ev(ptr noundef nonnull align 
 
 .lr.ph.preheader.i.i:                             ; preds = %1
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.pre1.i, i64 %6
+  %.idx.i.i = shl nuw nsw i64 %6, 4
+  %7 = getelementptr inbounds nuw i8, ptr %.pre1.i, i64 %.idx.i.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm13TrackingMDRefD2Ev.exit.i.i, %.lr.ph.preheader.i.i
@@ -9606,7 +9603,8 @@ _ZN4llvm8DenseMapIPKNS_8MetadataENS_13TrackingMDRefENS_12DenseMapInfoIS3_vEENS_6
   %25 = load ptr, ptr %18, align 8, !tbaa !582
   %26 = load i32, ptr %19, align 8, !tbaa !579
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %25, i64 %27
+  %.idx.i.i.i.i = shl nuw nsw i64 %27, 3
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i.i.i.i
   %.not10.i.i.i.i = icmp eq i32 %26, 0
   br i1 %.not10.i.i.i.i, label %_ZN4llvm7IRMover23IdentifiedStructTypeSetD2Ev.exit, label %.lr.ph.i.i.i.i
 
@@ -10114,7 +10112,8 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !26
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not6.i = icmp eq i32 %5, 0
   br i1 %.not6.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, label %.lr.ph.i
 
@@ -10142,7 +10141,8 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load i32, ptr %20, align 8, !tbaa !26
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.std::pair.525", ptr %19, i64 %22
+  %.idx.i = shl nuw nsw i64 %22, 4
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
   %.not10.i = icmp eq i32 %21, 0
   br i1 %.not10.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit, label %.lr.ph.i1
 

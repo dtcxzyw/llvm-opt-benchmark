@@ -163,7 +163,8 @@ common.resume:                                    ; preds = %.body, %44
   %46 = load ptr, ptr %45, align 8, !nonnull !6, !noundef !6
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load i64, ptr %47, align 8, !noundef !6
-  %49 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %46, i64 %48
+  %.idx = mul nuw nsw i64 %48, 24
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %._crit_edge, label %.lr.ph
 
@@ -701,7 +702,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %.val1 = load i64, ptr %7, align 8, !noundef !6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !75
   call void @_ZN4core3fmt9Formatter10debug_list17h6d35c138e0d8eb64E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !81
-  %8 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, i32, i32 }, ptr %.val, i64 %.val1
+  %.idx.i.i = mul nuw nsw i64 %.val1, 40
+  %8 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i
   %9 = icmp eq i64 %.val1, 0
   br i1 %9, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5adad7bbb985e1bE.exit", label %.lr.ph.i.i.i
 
@@ -978,7 +980,8 @@ define hidden noundef i64 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17ha78023b28660097cE(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(72) %2) unnamed_addr #4 {
   %4 = alloca [1 x i8], align 1
-  %5 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %6 = icmp eq i64 %1, 0
   br i1 %6, label %._crit_edge, label %.lr.ph
 

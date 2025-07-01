@@ -671,7 +671,8 @@ _ZNSt12_Vector_baseISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESaIS5_EE11_M_all
   store ptr %30, ptr %28, align 8
   %31 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %30, i64 %2
   store ptr %31, ptr %27, align 8
-  %32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 5
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 16

@@ -652,9 +652,10 @@ define noundef zeroext i1 @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl6Ref
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 16
   %10 = select i1 %.not.i.i, ptr %8, ptr %9
-  %11 = lshr i64 %6, 1
-  %12 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %10, i64 %11
-  %13 = icmp ult i64 %6, 2
+  %11 = shl nuw nsw i64 %6, 4
+  %.idx = and i64 %11, 9223372036854775776
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
+  %13 = icmp samesign eq i64 %.idx, 0
   br i1 %13, label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %4

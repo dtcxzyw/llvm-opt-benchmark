@@ -14476,7 +14476,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h1616b9a56f5bf339E(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds ptr, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 3
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h6cc3cadc233b9495E.exit, label %.lr.ph.i
 
@@ -14502,7 +14503,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h1616b9a56f5bf339E(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 24
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h5ab886c16d1208efE.exit, label %.lr.ph.i
 
@@ -40010,7 +40012,8 @@ define hidden void @"_ZN15tree_sitter_cli8generate12build_tables17build_parse_ta
   %76 = load ptr, ptr %75, align 8, !nonnull !4, !noundef !4
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %78 = load i64, ptr %77, align 8, !noundef !4
-  %79 = getelementptr inbounds { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }, ptr %76, i64 %78
+  %.idx = mul nsw i64 %78, 104
+  %79 = getelementptr inbounds i8, ptr %76, i64 %.idx
   %80 = icmp eq i64 %78, 0
   br i1 %80, label %._crit_edge133, label %.lr.ph132
 
@@ -40621,7 +40624,8 @@ define hidden void @_ZN15tree_sitter_cli8generate13grammar_files12insert_after17
   %33 = load ptr, ptr %32, align 8, !nonnull !4, !noundef !4
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %35 = load i64, ptr %34, align 8, !noundef !4
-  %36 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { i64, [8 x i64] } }, ptr %33, i64 %35
+  %.idx = mul nsw i64 %35, 96
+  %36 = getelementptr inbounds i8, ptr %33, i64 %.idx
   %37 = icmp eq i64 %35, 0
   br i1 %37, label %.loopexit, label %.lr.ph.i
 
@@ -44236,7 +44240,8 @@ define hidden noundef ptr @_ZN15tree_sitter_cli4test21write_tests_to_buffer17h21
   %20 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %21 = alloca ptr, align 8
   %22 = alloca ptr, align 8
-  %23 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 } }, i64, i64 }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 88
+  %23 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %24 = icmp eq i64 %2, 0
   br i1 %24, label %.loopexit, label %.lr.ph
 

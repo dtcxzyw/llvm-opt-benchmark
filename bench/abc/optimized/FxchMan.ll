@@ -2371,9 +2371,11 @@ Fxch_ManCompressCubes.exit268:                    ; preds = %113, %Fxch_ManCompr
   %118 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %119 = load i32, ptr %79, align 4, !tbaa !26
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds i32, ptr %117, i64 %120
+  %.idx.i = shl nsw i64 %120, 2
+  %121 = getelementptr inbounds i8, ptr %117, i64 %.idx.i
   %122 = sext i32 %.011.lcssa.i256 to i64
-  %123 = getelementptr inbounds i32, ptr %.val12.i258, i64 %122
+  %.idx68.i = shl nsw i64 %122, 2
+  %123 = getelementptr inbounds i8, ptr %.val12.i258, i64 %.idx68.i
   store i32 0, ptr %62, align 4, !tbaa !26
   %124 = icmp sgt i32 %119, 0
   %125 = icmp sgt i32 %.011.lcssa.i256, 0

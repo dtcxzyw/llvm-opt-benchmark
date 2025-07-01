@@ -9766,7 +9766,8 @@ define hidden noundef zeroext i1 @_ZN6rustls6client11client_conn12ClientConfig17
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = getelementptr inbounds { i64, ptr }, ptr %6, i64 %8
+  %.idx = shl nsw i64 %8, 4
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h052f1cebde650b37E.llvm.3875224068774112026.exit", label %.lr.ph.i
 
@@ -11225,7 +11226,8 @@ default.unreachable:                              ; preds = %585
   br i1 %brmerge.demorgan, label %142, label %123
 
 123:                                              ; preds = %118
-  %124 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { i16, i16 }, [2 x i16] }, ptr %103, i64 %105
+  %.idx = shl nsw i64 %105, 5
+  %124 = getelementptr inbounds i8, ptr %103, i64 %.idx
   %125 = icmp eq i64 %105, 0
   br i1 %125, label %.loopexit675, label %.lr.ph.i
 
@@ -11648,7 +11650,8 @@ _ZN6rustls4msgs9handshake18ClientHelloPayload21check_psk_ext_is_last17h554d9d984
 .lr.ph:                                           ; preds = %275
   %280 = getelementptr inbounds nuw i8, ptr %174, i64 16
   %281 = load ptr, ptr %280, align 8, !nonnull !4, !noundef !4
-  %282 = getelementptr inbounds { { { { i64, ptr }, i64 } }, i32, [1 x i32] }, ptr %281, i64 %263
+  %.idx700 = shl nsw i64 %263, 5
+  %282 = getelementptr inbounds i8, ptr %281, i64 %.idx700
   %283 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %284 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %285 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -12435,8 +12438,8 @@ _ZN6rustls6server5tls1312client_hello13emit_fake_ccs17he996375f99b9cc44E.exit424
   invoke fastcc void @_ZN6rustls6server5tls1312client_hello25emit_encrypted_extensions17h5128df3b73b2d149E(ptr noalias noundef align 8 captures(none) dereferenceable(32) %57, ptr noalias noundef align 8 dereferenceable(56) %497, i16 %.val340, i16 %.val341, ptr noalias noundef align 8 dereferenceable(24) %2, ptr noalias noundef align 8 dereferenceable(16) %58, ptr noalias noundef readonly align 8 dereferenceable(152) %5, ptr noalias noundef readonly align 8 dereferenceable_or_null(144) %.316, ptr noalias noundef align 8 captures(none) dereferenceable(24) %56, ptr noalias noundef readonly align 8 dereferenceable(176) %567)
           to label %574 unwind label %572
 
-570:                                              ; preds = %.invoke744, %.invoke, %555, %581, %634, %629, %622, %601, %591
-  %.9286 = phi i8 [ 0, %629 ], [ 0, %634 ], [ 0, %622 ], [ 0, %601 ], [ 0, %591 ], [ 0, %581 ], [ 1, %555 ], [ 0, %.invoke ], [ 0, %.invoke744 ]
+570:                                              ; preds = %.invoke745, %.invoke, %555, %581, %634, %629, %622, %601, %591
+  %.9286 = phi i8 [ 0, %629 ], [ 0, %634 ], [ 0, %622 ], [ 0, %601 ], [ 0, %591 ], [ 0, %581 ], [ 1, %555 ], [ 0, %.invoke ], [ 0, %.invoke745 ]
   %571 = landingpad { ptr, i32 }
           cleanup
   br label %737
@@ -12482,7 +12485,7 @@ _ZN6rustls6server5tls1312client_hello13emit_fake_ccs17he996375f99b9cc44E.exit424
 585:                                              ; preds = %579, %619
   %.0287 = phi i1 [ %620, %619 ], [ false, %579 ]
   switch i8 %578, label %default.unreachable [
-    i8 0, label %.invoke744
+    i8 0, label %.invoke745
     i8 1, label %631
     i8 2, label %622
   ]
@@ -12604,16 +12607,16 @@ _ZN6rustls6server5tls1312client_hello13emit_fake_ccs17he996375f99b9cc44E.exit424
   %644 = icmp eq i32 %643, 0
   %narrow.i427 = select i1 %644, i32 16384, i32 %643
   %.0.i428 = zext i32 %narrow.i427 to i64
-  br label %.invoke744
+  br label %.invoke745
 
-.invoke744:                                       ; preds = %585, %640
+.invoke745:                                       ; preds = %585, %640
   %645 = phi i64 [ 1, %640 ], [ 0, %585 ]
   %646 = phi i64 [ %.0.i428, %640 ], [ undef, %585 ]
   %647 = load ptr, ptr %2, align 8, !nonnull !4, !align !5, !noundef !4
   invoke fastcc void @_ZN6rustls5tls1312key_schedule20KeyScheduleHandshake23set_handshake_decrypter17h0b3d503624760939E(ptr noalias noundef readonly align 8 dereferenceable(168) %60, i64 noundef %645, i64 %646, ptr noalias noundef align 8 dereferenceable(776) %647)
           to label %.invoke unwind label %570
 
-.invoke:                                          ; preds = %.invoke744
+.invoke:                                          ; preds = %.invoke745
   %648 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %649 = load ptr, ptr %648, align 8, !nonnull !4, !align !5, !noundef !4
   invoke void @_ZN6rustls6server11server_conn14EarlyDataState6reject17h8fd2141712b8a2bfE(ptr noalias noundef nonnull align 8 dereferenceable(48) %649)
@@ -12717,7 +12720,7 @@ _ZN6rustls12common_state11CommonState22start_outgoing_traffic17hbb62ca2585324154
   %687 = getelementptr inbounds nuw i8, ptr %686, i64 772
   %688 = load i8, ptr %687, align 4, !range !334, !alias.scope !2955, !noundef !4
   %689 = trunc nuw i8 %688 to i1
-  %.pre721 = load ptr, ptr %539, align 8
+  %.pre722 = load ptr, ptr %539, align 8
   br i1 %689, label %704, label %690
 
 690:                                              ; preds = %685
@@ -12729,7 +12732,7 @@ _ZN6rustls12common_state11CommonState22start_outgoing_traffic17hbb62ca2585324154
   %693 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %694 = load i64, ptr %693, align 8, !noundef !4
   %695 = getelementptr inbounds nuw i8, ptr %48, i64 56
-  store ptr %.pre721, ptr %695, align 8
+  store ptr %.pre722, ptr %695, align 8
   %696 = getelementptr inbounds nuw i8, ptr %48, i64 64
   store ptr %691, ptr %696, align 8
   %697 = getelementptr inbounds nuw i8, ptr %48, i64 384
@@ -12755,7 +12758,7 @@ _ZN6rustls12common_state11CommonState22start_outgoing_traffic17hbb62ca2585324154
   br label %719
 
 704:                                              ; preds = %_ZN6rustls12common_state11CommonState22start_outgoing_traffic17hbb62ca2585324154E.exit._crit_edge, %685
-  %705 = phi ptr [ %.pre, %_ZN6rustls12common_state11CommonState22start_outgoing_traffic17hbb62ca2585324154E.exit._crit_edge ], [ %.pre721, %685 ]
+  %705 = phi ptr [ %.pre, %_ZN6rustls12common_state11CommonState22start_outgoing_traffic17hbb62ca2585324154E.exit._crit_edge ], [ %.pre722, %685 ]
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %47)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull align 8 dereferenceable(56) %497, i64 56, i1 false)
   %706 = load ptr, ptr %534, align 8, !nonnull !4, !align !5, !noundef !4
@@ -14891,7 +14894,8 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello22emit_certifi
   store ptr inttoptr (i64 8 to ptr), ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 0, ptr %18, align 8
-  %19 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %2, i64 %3
+  %.idx = mul nsw i64 %3, 24
+  %19 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %20 = icmp eq i64 %3, 0
   br i1 %20, label %._crit_edge.thread, label %.lr.ph
 

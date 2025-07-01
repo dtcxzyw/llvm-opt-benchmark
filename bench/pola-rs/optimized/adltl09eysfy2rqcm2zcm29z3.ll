@@ -102773,7 +102773,8 @@ common.resume.i.i:                                ; preds = %307, %304, %48
   %64 = load ptr, ptr %63, align 8, !noalias !7973, !nonnull !9, !noundef !9
   %65 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %66 = load i64, ptr %65, align 8, !noalias !7973, !noundef !9
-  %67 = getelementptr inbounds nuw { i8, [159 x i8] }, ptr %64, i64 %66
+  %.idx.i.i = mul nuw nsw i64 %66, 160
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx.i.i
   %68 = icmp eq i64 %66, 0
   br i1 %68, label %.loopexit.i.i, label %.lr.ph.i.i
 

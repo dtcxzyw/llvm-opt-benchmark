@@ -3094,7 +3094,8 @@ entry:
   %1 = load ptr, ptr %ref.tmp.i, align 8
   store ptr %1, ptr %agg.result, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %add.ptr.i = getelementptr inbounds %"class.facebook::jsi::Value", ptr %elements.coerce0, i64 %elements.coerce1
+  %add.ptr.i.idx = shl nsw i64 %elements.coerce1, 4
+  %add.ptr.i = getelementptr inbounds i8, ptr %elements.coerce0, i64 %add.ptr.i.idx
   %cmp.not8 = icmp eq i64 %elements.coerce1, 0
   br i1 %cmp.not8, label %nrvo.skipdtor, label %for.body
 

@@ -444,7 +444,7 @@ _ZN2cv6signalL6BesselEf.exit57.i:                 ; preds = %_ZN2cv6signalL6Bess
 
 _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit103:         ; preds = %195
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %197, i8 0, i64 %196, i1 false), !tbaa !32
-  %198 = getelementptr inbounds nuw float, ptr %197, i64 %194
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 %196
   %199 = ptrtoint ptr %198 to i64
   %200 = add i32 %192, 33
   %201 = icmp ugt i32 %200, 33

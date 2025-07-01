@@ -12519,7 +12519,8 @@ define hidden void @_ZN12polars_arrow5array13specification13check_indexes17h3674
   %14 = alloca [64 x i8], align 8
   %15 = alloca [8 x i8], align 8
   store i64 %3, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i64, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2030)
   %17 = icmp eq i64 %2, 0
   br i1 %17, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h871d34130b666020E.exit, label %.lr.ph.i
@@ -12711,7 +12712,8 @@ define hidden void @_ZN12polars_arrow5array13specification13check_indexes17h5bb1
   %14 = alloca [64 x i8], align 8
   %15 = alloca [8 x i8], align 8
   store i64 %3, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i16, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 1
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2102)
   %17 = icmp eq i64 %2, 0
   br i1 %17, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h07e4a7fd1696fb2aE.exit, label %.lr.ph.i
@@ -12829,7 +12831,8 @@ define hidden void @_ZN12polars_arrow5array13specification13check_indexes17h5f12
   %9 = alloca [64 x i8], align 8
   %10 = alloca [8 x i8], align 8
   store i64 %3, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 2
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2150)
   %12 = icmp eq i64 %2, 0
   br i1 %12, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h08204c3c6be907dbE.exit, label %.lr.ph.i
@@ -12899,7 +12902,8 @@ define hidden void @_ZN12polars_arrow5array13specification13check_indexes17h9686
   %9 = alloca [64 x i8], align 8
   %10 = alloca [8 x i8], align 8
   store i64 %3, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i64, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2174)
   %12 = icmp eq i64 %2, 0
   br i1 %12, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17he1d7e7052349b368E.exit, label %.lr.ph.i
@@ -12973,7 +12977,8 @@ define hidden void @_ZN12polars_arrow5array13specification13check_indexes17ha788
   %14 = alloca [64 x i8], align 8
   %15 = alloca [8 x i8], align 8
   store i64 %3, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i128, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2198)
   %17 = icmp eq i64 %2, 0
   br i1 %17, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h77a7cbd412bbd0d3E.exit, label %.lr.ph.i
@@ -13096,7 +13101,8 @@ define hidden void @_ZN12polars_arrow5array13specification13check_indexes17hbc35
   %14 = alloca [64 x i8], align 8
   %15 = alloca [8 x i8], align 8
   store i64 %3, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 2
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2246)
   %17 = icmp eq i64 %2, 0
   br i1 %17, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h18f5a66be5b4d573E.exit, label %.lr.ph.i
@@ -13214,7 +13220,8 @@ define hidden void @_ZN12polars_arrow5array13specification13check_indexes17hc0fa
   %9 = alloca [64 x i8], align 8
   %10 = alloca [8 x i8], align 8
   store i64 %3, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i16, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2294)
   %12 = icmp eq i64 %2, 0
   br i1 %12, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7652e0906420a3aaE.exit, label %.lr.ph.i
@@ -13823,7 +13830,8 @@ define hidden void @_ZN12polars_arrow5array13specification23check_indexes_unchec
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8
   store i64 %3, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %11 = icmp eq i64 %2, 0
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h01a6f56c939f1da6E.exit.thread", label %.lr.ph.i
 
@@ -13895,7 +13903,8 @@ define hidden void @_ZN12polars_arrow5array13specification23check_indexes_unchec
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8
   store i64 %3, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i128, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %11 = icmp eq i64 %2, 0
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h816c055d1ff06e15E.exit.thread", label %.lr.ph.i
 
@@ -13967,7 +13976,8 @@ define hidden void @_ZN12polars_arrow5array13specification23check_indexes_unchec
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8
   store i64 %3, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i16, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %11 = icmp eq i64 %2, 0
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h074ddfb92b8846a7E.exit.thread", label %.lr.ph.i
 
@@ -14111,7 +14121,8 @@ define hidden void @_ZN12polars_arrow5array13specification23check_indexes_unchec
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8
   store i64 %3, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i16, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %11 = icmp eq i64 %2, 0
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hb0500ba99ef9367eE.exit.thread", label %.lr.ph.i
 
@@ -14179,7 +14190,8 @@ define hidden void @_ZN12polars_arrow5array13specification23check_indexes_unchec
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8
   store i64 %3, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i64, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %11 = icmp eq i64 %2, 0
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h55c97cab8b99cdf7E.exit.thread", label %.lr.ph.i
 
@@ -14245,7 +14257,8 @@ define hidden void @_ZN12polars_arrow5array13specification23check_indexes_unchec
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8
   store i64 %3, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i64, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %11 = icmp eq i64 %2, 0
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h4152410fb7bfe21aE.exit.thread", label %.lr.ph.i
 
@@ -14315,7 +14328,8 @@ define hidden void @_ZN12polars_arrow5array13specification23check_indexes_unchec
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8
   store i64 %3, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %11 = icmp eq i64 %2, 0
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17he87cc3a05f2cedf4E.exit.thread", label %.lr.ph.i
 
@@ -14541,7 +14555,8 @@ define hidden void @_ZN12polars_arrow5array7binview4view14validate_views17h791e4
   %16 = alloca [4 x i8], align 4
   %17 = alloca [48 x i8], align 8
   %18 = alloca [24 x i8], align 8
-  %19 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %20 = icmp eq i64 %2, 0
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -14752,7 +14767,8 @@ define hidden void @_ZN12polars_arrow5array7binview4view14validate_views17h9638e
   %18 = alloca [64 x i8], align 8
   %19 = alloca [48 x i8], align 8
   %20 = alloca [24 x i8], align 8
-  %21 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %22 = icmp eq i64 %2, 0
   br i1 %22, label %._crit_edge, label %.lr.ph
 

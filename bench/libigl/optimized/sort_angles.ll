@@ -165,7 +165,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit: 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
   %48 = load ptr, ptr %1, align 8, !tbaa !16
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %13
+  %.idx = shl nuw nsw i64 %13, 2
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx
   %.not.i.i13 = icmp eq i64 %13, 0
   br i1 %.not.i.i13, label %_ZSt4sortIPiZN3igl11sort_anglesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS3_10MatrixBaseIT_EERNS3_15PlainObjectBaseIT0_EEEUlmmE_EvS8_S8_SD_.exit, label %50
 

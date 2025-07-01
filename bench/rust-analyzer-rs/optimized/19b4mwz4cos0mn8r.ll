@@ -110,7 +110,8 @@ define hidden noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_w
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !11
   %23 = icmp ne ptr %.val5.i, null
   tail call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val5.i, i64 %.val6.i
+  %.idx.i.i = mul nsw i64 %.val6.i, 24
+  %24 = getelementptr inbounds i8, ptr %.val5.i, i64 %.idx.i.i
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -1495,7 +1496,8 @@ define hidden void @_ZN4stdx13panic_context8with_ctx17h3f0e5e3f57b619c9E(ptr noa
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !442
   %20 = icmp ne ptr %.val5.i.i, null
   tail call void @llvm.assume(i1 %20)
-  %21 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val5.i.i, i64 %.val6.i.i
+  %.idx.i.i.i = mul nsw i64 %.val6.i.i, 24
+  %21 = getelementptr inbounds i8, ptr %.val5.i.i, i64 %.idx.i.i.i
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 32

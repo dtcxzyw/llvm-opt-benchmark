@@ -2445,7 +2445,8 @@ common.resume:                                    ; preds = %433, %47, %386, %.b
   %399 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %400 = load i64, ptr %399, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !381)
-  %401 = getelementptr inbounds { i32, [13 x i32] }, ptr %398, i64 %400
+  %.idx.i = mul nsw i64 %400, 56
+  %401 = getelementptr inbounds i8, ptr %398, i64 %.idx.i
   %402 = icmp eq i64 %400, 0
   br i1 %402, label %.loopexit, label %.lr.ph.i.i
 

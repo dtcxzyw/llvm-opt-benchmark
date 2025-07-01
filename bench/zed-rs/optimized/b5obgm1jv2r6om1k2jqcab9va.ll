@@ -3458,7 +3458,8 @@ _ZN5prost8encoding15check_wire_type17h5ede80c08301ef8dE.llvm.8801228890571076355
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5prost8encoding6string15encode_repeated17h978b654023ddfad5E(i32 noundef %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2, ptr noalias noundef align 8 dereferenceable(24) %3) unnamed_addr #7 {
-  %5 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 24
+  %5 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %._crit_edge, label %.lr.ph
 

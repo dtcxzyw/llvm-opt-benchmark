@@ -107,13 +107,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.std::_Optional_payload_base<google::protobuf::io::AnnotationCollector::Semantic>::_Storage" = type { i32 }
 %class.anon.180 = type { %"class.absl::lts_20230802::flat_hash_map.128" }
 %class.anon.183 = type { %"class.absl::lts_20230802::flat_hash_map.137" }
-%"class.google::protobuf::io::Printer::Sub" = type { %"class.std::__cxx11::basic_string", %"struct.google::protobuf::io::Printer::ValueImpl.146", %"class.std::optional.107" }
-%"class.std::optional.107" = type { %"struct.std::_Optional_base.108" }
-%"struct.std::_Optional_base.108" = type { %"struct.std::_Optional_payload.110" }
-%"struct.std::_Optional_payload.110" = type { %"struct.std::_Optional_payload.base.114", [7 x i8] }
-%"struct.std::_Optional_payload.base.114" = type { %"struct.std::_Optional_payload_base.base.113" }
-%"struct.std::_Optional_payload_base.base.113" = type <{ %"union.std::_Optional_payload_base<google::protobuf::io::Printer::AnnotationRecord>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<google::protobuf::io::Printer::AnnotationRecord>::_Storage" = type { %"struct.google::protobuf::io::Printer::AnnotationRecord" }
 %"union.absl::lts_20230802::container_internal::map_slot_type" = type { %"struct.std::pair.189" }
 %"struct.std::pair.189" = type { %"class.std::__cxx11::basic_string", %"struct.google::protobuf::io::Printer::ValueImpl.146" }
 %"union.absl::lts_20230802::container_internal::map_slot_type.232" = type { %"struct.std::pair.233" }
@@ -130,6 +123,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::pair" = type { i64, i64 }
 %class.anon.106 = type { %"struct.std::pair.104", %"class.std::basic_string_view" }
 %"struct.std::pair.104" = type { %"class.std::basic_string_view", i64 }
+%"class.std::optional.107" = type { %"struct.std::_Optional_base.108" }
+%"struct.std::_Optional_base.108" = type { %"struct.std::_Optional_payload.110" }
+%"struct.std::_Optional_payload.110" = type { %"struct.std::_Optional_payload.base.114", [7 x i8] }
+%"struct.std::_Optional_payload.base.114" = type { %"struct.std::_Optional_payload_base.base.113" }
+%"struct.std::_Optional_payload_base.base.113" = type <{ %"union.std::_Optional_payload_base<google::protobuf::io::Printer::AnnotationRecord>::_Storage", i8 }>
+%"union.std::_Optional_payload_base<google::protobuf::io::Printer::AnnotationRecord>::_Storage" = type { %"struct.google::protobuf::io::Printer::AnnotationRecord" }
 %class.anon.118 = type { %"class.std::basic_string_view" }
 %class.anon.119 = type { %"class.std::basic_string_view" }
 %"struct.std::pair.121" = type <{ %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<std::__cxx11::basic_string<char>, std::pair<unsigned long, unsigned long>>, absl::lts_20230802::container_internal::StringHash, absl::lts_20230802::container_internal::StringEq, std::allocator<std::pair<const std::__cxx11::basic_string<char>, std::pair<unsigned long, unsigned long>>>>::iterator", i8, [7 x i8] }>
@@ -1969,8 +1968,9 @@ invoke.cont2:                                     ; preds = %entry
   br i1 %cmp.not112, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont2.thread, %invoke.cont2
-  %slots_.i.i.i.i.i.i.i13124 = phi ptr [ %slots_.i.i.i.i.i.i.i13121, %invoke.cont2.thread ], [ %slots_.i.i.i.i.i.i.i13, %invoke.cont2 ]
-  %add.ptr.i126 = getelementptr inbounds %"class.google::protobuf::io::Printer::Sub", ptr %vars.coerce0, i64 %vars.coerce1
+  %slots_.i.i.i.i.i.i.i13125 = phi ptr [ %slots_.i.i.i.i.i.i.i13121, %invoke.cont2.thread ], [ %slots_.i.i.i.i.i.i.i13, %invoke.cont2 ]
+  %add.ptr.i.idx122.pn = mul nsw i64 %vars.coerce1, 184
+  %add.ptr.i127 = getelementptr inbounds i8, ptr %vars.coerce0, i64 %add.ptr.i.idx122.pn
   %second.i = getelementptr inbounds nuw i8, ptr %ref.tmp19, i64 32
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp19, i64 64
   %_M_invoker2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp19, i64 56
@@ -2180,7 +2180,7 @@ call.i.i.i.i.i.i.i.noexc:                         ; preds = %invoke.cont55
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %call.i.i.i.i.i.i.i.noexc
   %23 = extractvalue { i64, i8 } %call.i.i.i.i.i.i.i24, 0
-  %24 = load ptr, ptr %slots_.i.i.i.i.i.i.i13124, align 8, !noalias !63
+  %24 = load ptr, ptr %slots_.i.i.i.i.i.i.i13125, align 8, !noalias !63
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.232", ptr %24, i64 %23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp51) #27, !noalias !63
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 32
@@ -2222,11 +2222,11 @@ lpad56:                                           ; preds = %invoke.cont55
 
 for.inc:                                          ; preds = %cleanup.done46, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf2io7Printer16AnnotationRecordEED2Ev.exit
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.0113, i64 184
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i126
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i127
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %invoke.cont2
-  %slots_.i.i.i.i.i.i.i13125 = phi ptr [ %slots_.i.i.i.i.i.i.i13, %invoke.cont2 ], [ %slots_.i.i.i.i.i.i.i13124, %for.inc ]
+  %slots_.i.i.i.i.i.i.i13126 = phi ptr [ %slots_.i.i.i.i.i.i.i13, %invoke.cont2 ], [ %slots_.i.i.i.i.i.i.i13125, %for.inc ]
   %31 = load ptr, ptr %var_map, align 8, !noalias !78
   %32 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !78
   %capacity_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %var_map, i64 16
@@ -2355,11 +2355,11 @@ invoke.cont62:                                    ; preds = %invoke.cont13.i, %i
 
 if.then67:                                        ; preds = %invoke.cont62
   %52 = load ptr, ptr %annotation_map, align 8, !noalias !85
-  %53 = load ptr, ptr %slots_.i.i.i.i.i.i.i13125, align 8, !noalias !85
+  %53 = load ptr, ptr %slots_.i.i.i.i.i.i.i13126, align 8, !noalias !85
   %capacity_.i.i.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %annotation_map, i64 16
   %54 = load i64, ptr %capacity_.i.i.i.i.i.i32, align 8, !noalias !85
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %annotation_map, align 8, !noalias !85
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i13125, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i13126, i8 0, i64 24, i1 false)
   store ptr %52, ptr %ref.tmp68, align 8
   %slots_.i.i.i.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %ref.tmp68, i64 8
   store ptr %53, ptr %slots_.i.i.i.i.i.i.i34, align 8
@@ -2478,7 +2478,7 @@ invoke.cont76:                                    ; preds = %invoke.cont62, %inv
 
 if.end.i.i.i:                                     ; preds = %invoke.cont76
   %71 = load ptr, ptr %annotation_map, align 8
-  %72 = load ptr, ptr %slots_.i.i.i.i.i.i.i13125, align 8
+  %72 = load ptr, ptr %slots_.i.i.i.i.i.i.i13126, align 8
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %if.end.i.i.i

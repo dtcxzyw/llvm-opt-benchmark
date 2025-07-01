@@ -252,7 +252,8 @@ define linkonce_odr hidden void @_ZNSt3mapIjN2cv8obsensor11FrameFormatESt4lessIj
   store ptr %6, ptr %9, align 8, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !15
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIjSt4pairIKjN2cv8obsensor11FrameFormatEESt10_Select1stIS5_ESt4lessIjESaIS5_EE22_M_insert_range_uniqueIPKS5_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESG_SG_.exit, label %.lr.ph.i
 

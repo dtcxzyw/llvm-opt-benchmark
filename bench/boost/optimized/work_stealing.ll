@@ -1930,7 +1930,8 @@ _ZSt8distanceISt23_Rb_tree_const_iteratorIjEENSt15iterator_traitsIT_E15differenc
 
 _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %15
   %20 = xor i64 %.06.i.i, -1
-  %21 = getelementptr inbounds i32, ptr %10, i64 %20
+  %.idx = shl nsw i64 %20, 2
+  %21 = getelementptr inbounds i8, ptr %10, i64 %.idx
   %.neg = shl i64 %.06.i.i, 2
   %.idx.neg = add i64 %.neg, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %10, ptr nonnull align 4 %21, i64 %.idx.neg, i1 false)

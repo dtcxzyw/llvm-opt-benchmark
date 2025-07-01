@@ -3,8 +3,6 @@ source_filename = "bench/php/original/zend_call_graph.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._zend_op = type { ptr, %union._znode_op, %union._znode_op, %union._znode_op, i32, i32, i8, i8, i8, i8 }
-%union._znode_op = type { i32 }
 %struct._zend_send_arg_info = type { ptr }
 %struct._zend_func_info = type { i32, i32, %struct._zend_ssa, ptr, ptr, ptr, %struct._zend_ssa_var_info }
 %struct._zend_ssa = type { %struct._zend_cfg, i32, i32, ptr, ptr, ptr, ptr }
@@ -24,7 +22,8 @@ define dso_local void @zend_analyze_calls(ptr noundef captures(none) %0, ptr nou
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %10 = load i32, ptr %9, align 8, !tbaa !23
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct._zend_op, ptr %8, i64 %11
+  %.idx = shl nuw nsw i64 %11, 5
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
   %13 = lshr i32 %10, 1
   %14 = zext nneg i32 %13 to i64

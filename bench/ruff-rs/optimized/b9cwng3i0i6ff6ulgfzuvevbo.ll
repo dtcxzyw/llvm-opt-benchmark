@@ -110,7 +110,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h256a55ecf3b8a7f7E(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  %5 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %._crit_edge, label %.lr.ph
 

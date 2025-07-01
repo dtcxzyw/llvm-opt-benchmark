@@ -642,7 +642,8 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit: ; pred
   %sub.i29 = sub nsw i32 %cond3.i.i, %13
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %7, i32 %sub.i29)
   %idx.ext10 = sext i32 %.sroa.speculated to i64
-  %add.ptr11 = getelementptr inbounds ptr, ptr %cond.i27, i64 %idx.ext10
+  %add.ptr11.idx = shl nsw i64 %idx.ext10, 3
+  %add.ptr11 = getelementptr inbounds i8, ptr %cond.i27, i64 %add.ptr11.idx
   %cmp40 = icmp sgt i32 %.sroa.speculated, 0
   br i1 %cmp40, label %for.body, label %for.end
 

@@ -157,7 +157,8 @@ define dso_local void @_ZN5clang16EmitClangOpcodesERKN4llvm12RecordKeeperERNS0_1
   %23 = tail call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr nonnull @.str.1, i64 6) #10
   %24 = extractvalue { ptr, i64 } %23, 0
   %25 = extractvalue { ptr, i64 } %23, 1
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %.idx.i = shl nuw nsw i64 %25, 3
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i
   %.not86.i = icmp eq i64 %25, 0
   br i1 %.not86.i, label %_ZN12_GLOBAL__N_119ClangOpcodesEmitter3runERN4llvm11raw_ostreamE.exit, label %.lr.ph.i
 

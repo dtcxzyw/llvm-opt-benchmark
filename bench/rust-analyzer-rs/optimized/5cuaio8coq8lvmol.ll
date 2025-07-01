@@ -1203,7 +1203,8 @@ define hidden void @_ZN3mbe16DeclarativeMacro12parse_macro217ha47e5ba335706dfdE(
   %.val50 = phi i64 [ %.val50.pr, %.loopexit103thread-pre-split ], [ %59, %55 ]
   %.2 = phi ptr [ %.2.ph, %.loopexit103thread-pre-split ], [ null, %55 ]
   %.val49 = load ptr, ptr %23, align 8, !nonnull !17, !noundef !17
-  %128 = getelementptr inbounds { { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } } }, ptr %.val49, i64 %.val50
+  %.idx = shl nsw i64 %.val50, 5
+  %128 = getelementptr inbounds i8, ptr %.val49, i64 %.idx
   %129 = icmp eq i64 %.val50, 0
   br i1 %129, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa468bb7cd272ae8E.exit.thread", label %.lr.ph
 
@@ -1502,7 +1503,8 @@ define hidden void @_ZN3mbe16DeclarativeMacro17parse_macro_rules17hdae0becb44f65
   %.val28 = phi i64 [ %.val28.pr, %.loopexit51thread-pre-split ], [ %46, %42 ]
   %.146 = phi ptr [ %.146.ph, %.loopexit51thread-pre-split ], [ null, %42 ]
   %.val27 = load ptr, ptr %18, align 8, !nonnull !17, !noundef !17
-  %70 = getelementptr inbounds { { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } } }, ptr %.val27, i64 %.val28
+  %.idx = shl nsw i64 %.val28, 5
+  %70 = getelementptr inbounds i8, ptr %.val27, i64 %.idx
   %71 = icmp eq i64 %.val28, 0
   br i1 %71, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa468bb7cd272ae8E.exit.thread", label %.lr.ph
 
@@ -10949,7 +10951,8 @@ _ZN10hir_expand2db25token_tree_to_syntax_node17hd756cde1288c7b53E.exit: ; preds 
   %632 = load ptr, ptr %631, align 8, !alias.scope !2806, !noalias !2811, !nonnull !17, !noundef !17
   %633 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %634 = load i64, ptr %633, align 8, !alias.scope !2806, !noalias !2811, !noundef !17
-  %635 = getelementptr inbounds { i32, { i32, { i32, i32 }, { i32, i32 } } }, ptr %632, i64 %634
+  %.idx = mul nsw i64 %634, 24
+  %635 = getelementptr inbounds i8, ptr %632, i64 %.idx
   %636 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %637 = load i32, ptr %636, align 4, !alias.scope !2809, !noalias !2813, !noundef !17
   %638 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -20078,7 +20081,8 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i: ; preds = %556, %553
   %.sroa.0454.0.copyload = load i64, ptr %53, align 8
   %.sroa.4455.0.copyload = load ptr, ptr %66, align 8, !nonnull !17, !noundef !17
   %.sroa.5456.0.copyload = load i64, ptr %67, align 8
-  %783 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.4455.0.copyload, i64 %.sroa.5456.0.copyload
+  %.idx = shl nsw i64 %.sroa.5456.0.copyload, 4
+  %783 = getelementptr inbounds i8, ptr %.sroa.4455.0.copyload, i64 %.idx
   store ptr %.sroa.4455.0.copyload, ptr %27, align 8, !alias.scope !5428, !noalias !5431
   %784 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 %.sroa.0454.0.copyload, ptr %784, align 8, !alias.scope !5428, !noalias !5431

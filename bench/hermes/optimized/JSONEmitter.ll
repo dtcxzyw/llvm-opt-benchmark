@@ -618,7 +618,8 @@ if.then:                                          ; preds = %"_ZN6hermes10decode
   %16 = load ptr, ptr %utf16Chars, align 8
   %17 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i = zext i32 %17 to i64
-  %add.ptr.i = getelementptr inbounds nuw i16, ptr %16, i64 %conv.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %16, i64 %add.ptr.i.idx
   %cmp9.not155 = icmp eq i32 %17, 0
   br i1 %cmp9.not155, label %for.end, label %for.body
 

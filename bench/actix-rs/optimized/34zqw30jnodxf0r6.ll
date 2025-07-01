@@ -3195,7 +3195,8 @@ define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17h7918a
   %107 = alloca { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, align 8
   %108 = alloca { i64, [4 x i64] }, align 8
   %109 = alloca { { ptr, [3 x i64] } }, align 8
-  %110 = getelementptr inbounds { { i64, i64 }, { i64, i64 } }, ptr %3, i64 %4
+  %.idx = shl nsw i64 %4, 5
+  %110 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %111 = icmp eq i64 %4, 0
   br i1 %111, label %.thread1172, label %.lr.ph
 

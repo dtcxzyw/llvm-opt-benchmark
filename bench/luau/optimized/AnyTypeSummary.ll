@@ -2366,7 +2366,8 @@ common.resume:                                    ; preds = %137, %149, %161, %1
   %29 = load ptr, ptr %28, align 8, !tbaa !28
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %31 = load i64, ptr %30, align 8, !tbaa !33
-  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %31
+  %.idx = shl nuw nsw i64 %31, 3
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx
   %.not13.i335 = icmp eq i64 %31, 0
   br i1 %.not13.i335, label %_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_12AstStatBlockEPKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEE.exit, label %.lr.ph
 
@@ -2432,7 +2433,8 @@ _ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_12AstStatBlockEPKNS_6ModuleENS_7N
   %57 = load ptr, ptr %56, align 8, !tbaa !28
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %59 = load i64, ptr %58, align 8, !tbaa !33
-  %60 = getelementptr inbounds nuw ptr, ptr %57, i64 %59
+  %.idx346 = shl nuw nsw i64 %59, 3
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx346
   %.not13.i295337 = icmp eq i64 %59, 0
   br i1 %.not13.i295337, label %.noexc264, label %.lr.ph339
 
@@ -2456,8 +2458,8 @@ _ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_12AstStatBlockEPKNS_6ModuleENS_7N
   br label %common.resume
 
 .noexc264.loopexit:                               ; preds = %62
-  %.pre346 = load i32, ptr %6, align 8, !tbaa !4
-  %68 = add nsw i32 %.pre346, -1
+  %.pre349 = load i32, ptr %6, align 8, !tbaa !4
+  %68 = add nsw i32 %.pre349, -1
   br label %.noexc264
 
 .noexc264:                                        ; preds = %.noexc264.loopexit, %55, %.noexc
@@ -2518,7 +2520,8 @@ _ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_12AstStatBlockEPKNS_6ModuleENS_7N
   %92 = load ptr, ptr %91, align 8, !tbaa !28
   %93 = getelementptr inbounds nuw i8, ptr %86, i64 40
   %94 = load i64, ptr %93, align 8, !tbaa !33
-  %95 = getelementptr inbounds nuw ptr, ptr %92, i64 %94
+  %.idx347 = shl nuw nsw i64 %94, 3
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx347
   %.not13.i301340 = icmp eq i64 %94, 0
   br i1 %.not13.i301340, label %_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_9AstStatIfEPKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEE.exit.sink.split, label %.lr.ph342
 
@@ -2542,8 +2545,8 @@ _ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_12AstStatBlockEPKNS_6ModuleENS_7N
   br label %common.resume
 
 _ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_12AstStatWhileEPKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEE.exit.loopexit: ; preds = %97
-  %.pre347 = load i32, ptr %6, align 8, !tbaa !4
-  %103 = add nsw i32 %.pre347, -1
+  %.pre350 = load i32, ptr %6, align 8, !tbaa !4
+  %103 = add nsw i32 %.pre350, -1
   br label %_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_9AstStatIfEPKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEE.exit.sink.split
 
 104:                                              ; preds = %82
@@ -2580,7 +2583,8 @@ _ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_12AstStatWhileEPKNS_6ModuleENS_7N
   %119 = load ptr, ptr %118, align 8, !tbaa !28
   %120 = getelementptr inbounds nuw i8, ptr %113, i64 40
   %121 = load i64, ptr %120, align 8, !tbaa !33
-  %122 = getelementptr inbounds nuw ptr, ptr %119, i64 %121
+  %.idx348 = shl nuw nsw i64 %121, 3
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 %.idx348
   %.not13.i307343 = icmp eq i64 %121, 0
   br i1 %.not13.i307343, label %_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_9AstStatIfEPKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEE.exit.sink.split, label %.lr.ph345
 
@@ -2604,8 +2608,8 @@ _ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_12AstStatWhileEPKNS_6ModuleENS_7N
   br label %common.resume
 
 _ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_13AstStatRepeatEPKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEE.exit.loopexit: ; preds = %124
-  %.pre348 = load i32, ptr %6, align 8, !tbaa !4
-  %130 = add nsw i32 %.pre348, -1
+  %.pre351 = load i32, ptr %6, align 8, !tbaa !4
+  %130 = add nsw i32 %.pre351, -1
   br label %_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_9AstStatIfEPKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEE.exit.sink.split
 
 131:                                              ; preds = %109
@@ -2896,7 +2900,8 @@ define dso_local void @_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_12AstStatB
   %12 = load ptr, ptr %11, align 8, !tbaa !28
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %14 = load i64, ptr %13, align 8, !tbaa !33
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %.idx = shl nuw nsw i64 %14, 3
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   %.not1315 = icmp eq i64 %14, 0
   br i1 %.not1315, label %.loopexit, label %.lr.ph
 
@@ -2957,7 +2962,8 @@ define dso_local void @_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_9AstStatIf
   %18 = load ptr, ptr %17, align 8, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !33
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %.idx.i = shl nuw nsw i64 %20, 3
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i
   %.not1315.i = icmp eq i64 %20, 0
   br i1 %.not1315.i, label %_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_12AstStatBlockEPKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEE.exit, label %.lr.ph.i
 
@@ -3032,7 +3038,8 @@ define dso_local void @_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_12AstStatW
   %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %18 = load i64, ptr %17, align 8, !tbaa !33
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
+  %.idx.i = shl nuw nsw i64 %18, 3
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
   %.not1315.i = icmp eq i64 %18, 0
   br i1 %.not1315.i, label %_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_12AstStatBlockEPKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEE.exit, label %.lr.ph.i
 
@@ -3088,7 +3095,8 @@ define dso_local void @_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_13AstStatR
   %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %18 = load i64, ptr %17, align 8, !tbaa !33
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
+  %.idx.i = shl nuw nsw i64 %18, 3
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
   %.not1315.i = icmp eq i64 %18, 0
   br i1 %.not1315.i, label %_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_12AstStatBlockEPKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEE.exit, label %.lr.ph.i
 
@@ -3174,7 +3182,8 @@ define dso_local void @_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_13AstStatR
   %39 = load ptr, ptr %38, align 8, !tbaa !108
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %41 = load i64, ptr %40, align 8, !tbaa !111
-  %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %41
+  %.idx = shl nuw nsw i64 %41, 3
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
   %.not226 = icmp eq i64 %41, 0
   br i1 %.not226, label %._crit_edge, label %.lr.ph
 
@@ -5152,7 +5161,8 @@ define dso_local void @_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_12AstStatL
   %48 = load ptr, ptr %47, align 8, !tbaa !181
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !184
-  %51 = getelementptr inbounds nuw ptr, ptr %48, i64 %50
+  %.idx = shl nuw nsw i64 %50, 3
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx
   %.not360 = icmp eq i64 %50, 0
   br i1 %.not360, label %._crit_edge, label %.lr.ph
 
@@ -7231,7 +7241,8 @@ define dso_local void @_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_10AstStatF
   %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %18 = load i64, ptr %17, align 8, !tbaa !33
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
+  %.idx = shl nuw nsw i64 %18, 3
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   %.not13.i9 = icmp eq i64 %18, 0
   br i1 %.not13.i9, label %_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_12AstStatBlockEPKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEE.exit, label %.lr.ph
 
@@ -7287,7 +7298,8 @@ define dso_local void @_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_12AstStatF
   %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %18 = load i64, ptr %17, align 8, !tbaa !33
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
+  %.idx = shl nuw nsw i64 %18, 3
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   %.not13.i9 = icmp eq i64 %18, 0
   br i1 %.not13.i9, label %_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_12AstStatBlockEPKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEE.exit, label %.lr.ph
 
@@ -7386,7 +7398,8 @@ define dso_local void @_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_13AstStatA
   %50 = load ptr, ptr %49, align 8, !tbaa !108
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %52 = load i64, ptr %51, align 8, !tbaa !111
-  %53 = getelementptr inbounds nuw ptr, ptr %50, i64 %52
+  %.idx = shl nuw nsw i64 %52, 3
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx
   %.not362 = icmp eq i64 %52, 0
   br i1 %.not362, label %._crit_edge, label %.lr.ph
 
@@ -7428,7 +7441,8 @@ define dso_local void @_ZN4Luau14AnyTypeSummary5visitEPKNS_5ScopeEPNS_13AstStatA
 ._crit_edge:                                      ; preds = %394, %5
   %86 = load ptr, ptr %46, align 8, !tbaa !108
   %87 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !111
-  %88 = getelementptr inbounds nuw ptr, ptr %86, i64 %87
+  %.idx371 = shl nuw nsw i64 %87, 3
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx371
   %.not82366 = icmp eq i64 %87, 0
   br i1 %.not82366, label %._crit_edge370, label %.lr.ph369
 
@@ -8706,8 +8720,8 @@ _ZN4Luau14AnyTypeSummary9isAnyCallEPKNS_5ScopeEPNS_7AstExprEPKNS_6ModuleENS_7Not
 550:                                              ; preds = %.noexc217
   %551 = load i32, ptr %402, align 8, !tbaa !24
   %552 = load i32, ptr @_ZN4Luau7AstRttiINS_20AstExprTypeAssertionEE5valueE, align 4, !tbaa !4
-  %.not371 = icmp eq i32 %551, %552
-  br i1 %.not371, label %553, label %_ZN4Luau14AnyTypeSummary9isAnyCastEPKNS_5ScopeEPNS_7AstExprEPKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEE.exit
+  %.not372 = icmp eq i32 %551, %552
+  br i1 %.not372, label %553, label %_ZN4Luau14AnyTypeSummary9isAnyCastEPKNS_5ScopeEPNS_7AstExprEPKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEE.exit
 
 553:                                              ; preds = %550
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %25) #32
@@ -11986,7 +12000,8 @@ _ZN4Luau14AnyTypeSummary15hasVariadicAnysEPKNS_5ScopeEPNS_15AstExprFunctionEPKNS
 .lr.ph.preheader.i:                               ; preds = %_ZN4Luau14AnyTypeSummary15hasVariadicAnysEPKNS_5ScopeEPNS_15AstExprFunctionEPKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEE.exit.thread
   %207 = getelementptr inbounds nuw i8, ptr %204, i64 88
   %208 = load ptr, ptr %207, align 8, !tbaa !181
-  %209 = getelementptr inbounds nuw ptr, ptr %208, i64 %206
+  %.idx.i = shl nuw nsw i64 %206, 3
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.preheader.i
@@ -12546,7 +12561,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128: ; preds = %_Z
 .lr.ph.preheader:                                 ; preds = %413
   %418 = getelementptr inbounds nuw i8, ptr %410, i64 32
   %419 = load ptr, ptr %418, align 8, !tbaa !28
-  %420 = getelementptr inbounds nuw ptr, ptr %419, i64 %412
+  %.idx = shl nuw nsw i64 %412, 3
+  %420 = getelementptr inbounds nuw i8, ptr %419, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %422
@@ -13113,7 +13129,8 @@ _ZN4Luau14AnyTypeSummary15hasVariadicAnysEPKNS_5ScopeEPNS_15AstExprFunctionEPKNS
 .lr.ph.preheader.i:                               ; preds = %_ZN4Luau14AnyTypeSummary15hasVariadicAnysEPKNS_5ScopeEPNS_15AstExprFunctionEPKNS_6ModuleENS_7NotNullINS_12BuiltinTypesEEE.exit.thread
   %208 = getelementptr inbounds nuw i8, ptr %205, i64 88
   %209 = load ptr, ptr %208, align 8, !tbaa !181
-  %210 = getelementptr inbounds nuw ptr, ptr %209, i64 %207
+  %.idx.i = shl nuw nsw i64 %207, 3
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.preheader.i
@@ -13909,7 +13926,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156: ; preds = %_Z
 .lr.ph.preheader:                                 ; preds = %506
   %511 = getelementptr inbounds nuw i8, ptr %503, i64 32
   %512 = load ptr, ptr %511, align 8, !tbaa !28
-  %513 = getelementptr inbounds nuw ptr, ptr %512, i64 %505
+  %.idx = shl nuw nsw i64 %505, 3
+  %513 = getelementptr inbounds nuw i8, ptr %512, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %515
@@ -16341,7 +16359,8 @@ define dso_local noundef zeroext i1 @_ZN4Luau14AnyTypeSummary10hasArgAnysEPKNS_5
 .lr.ph.preheader:                                 ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %9 = load ptr, ptr %8, align 8, !tbaa !181
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
@@ -16379,7 +16398,8 @@ define dso_local noundef zeroext i1 @_ZN4Luau14AnyTypeSummary13hasAnyReturnsEPKN
   %11 = load ptr, ptr %10, align 8, !tbaa !359
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %13 = load i64, ptr %12, align 8, !tbaa !362
-  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
+  %.idx = shl nuw nsw i64 %13, 3
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %.not36 = icmp eq i64 %13, 0
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 

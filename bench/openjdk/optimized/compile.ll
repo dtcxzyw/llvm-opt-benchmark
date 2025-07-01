@@ -4624,7 +4624,8 @@ _ZN11PhaseValues8set_typeEPK4NodePK4Type.exit:    ; preds = %498, %510
   %518 = getelementptr inbounds nuw i8, ptr %515, i64 32
   %519 = load i32, ptr %518, align 8
   %520 = zext i32 %519 to i64
-  %521 = getelementptr inbounds nuw ptr, ptr %517, i64 %520
+  %.idx.i = shl nuw nsw i64 %520, 3
+  %521 = getelementptr inbounds nuw i8, ptr %517, i64 %.idx.i
   %.not.i65 = icmp eq i32 %519, 0
   br i1 %.not.i65, label %._crit_edge.i, label %.lr.ph.i
 
@@ -5596,7 +5597,8 @@ define hidden noundef ptr @_ZNK7Compile5startEv(ptr noundef nonnull readonly ali
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
+  %.idx = shl nuw nsw i64 %8, 3
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -8569,7 +8571,8 @@ define hidden noundef ptr @_ZN7Compile16immutable_memoryEv(ptr noundef nonnull a
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
+  %.idx.i = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -12533,7 +12536,8 @@ _ZN16Unique_Node_List4pushEP4Node.exit36:         ; preds = %_ZN9VectorSet8test_
   %104 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %105 = load i32, ptr %104, align 8
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw ptr, ptr %103, i64 %106
+  %.idx = shl nuw nsw i64 %106, 3
+  %107 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx
   %.not51 = icmp eq i32 %105, 0
   br i1 %.not51, label %._crit_edge, label %.lr.ph
 
@@ -13682,7 +13686,8 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9VectorSet8test_
   %253 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %254 = load ptr, ptr %253, align 8
   %255 = zext i32 %252 to i64
-  %256 = getelementptr inbounds nuw ptr, ptr %254, i64 %255
+  %.idx = shl nuw nsw i64 %255, 3
+  %256 = getelementptr inbounds nuw i8, ptr %254, i64 %.idx
   %.not130 = icmp eq i32 %252, 0
   br i1 %.not130, label %._crit_edge120, label %.lr.ph119
 
@@ -14178,7 +14183,8 @@ _ZL20is_vector_bitwise_opP4Node.exit.thread.i:    ; preds = %_ZL20is_vector_bitw
   %64 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %65 = load i32, ptr %64, align 8
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %63, i64 %66
+  %.idx.i = shl nuw nsw i64 %66, 3
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx.i
   %.not24.i = icmp eq i32 %65, 0
   br i1 %.not24.i, label %_ZL27is_vector_bitwise_cone_rootP4Node.exit, label %.lr.ph.i
 
@@ -16811,7 +16817,8 @@ _ZNK4Type8make_ptrEv.exit:                        ; preds = %124, %127, %130
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 32
   %204 = load i32, ptr %203, align 8
   %205 = zext i32 %204 to i64
-  %206 = getelementptr inbounds nuw ptr, ptr %202, i64 %205
+  %.idx = shl nuw nsw i64 %205, 3
+  %206 = getelementptr inbounds nuw i8, ptr %202, i64 %.idx
   %.not375 = icmp eq i32 %204, 0
   br i1 %.not375, label %._crit_edge362, label %.lr.ph361
 

@@ -60,7 +60,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._phar_t = type { ptr, ptr, ptr, ptr, ptr, i32 }
 %struct._phar_entry_info = type { i32, i32, i32, i32, i32, i32, %struct._phar_metadata_tracker, ptr, i32, i64, i64, i64, ptr, ptr, i32, ptr, ptr, ptr, i8, i32, i16, i16 }
 %struct._phar_metadata_tracker = type { %struct._zval_struct, ptr }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct._zend_class_entry = type { i8, ptr, %union.anon.12, i32, i32, i32, i32, ptr, ptr, ptr, %struct._zend_array, %struct._zend_array, %struct._zend_array, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %union.anon.13, ptr, ptr, ptr, ptr, i32, i32, i32, i32, %union.anon.14, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.15 }
 %union.anon.12 = type { ptr }
 %union.anon.13 = type { ptr }
@@ -5345,7 +5344,8 @@ define internal fastcc ptr @phar_convert_to_other(ptr noundef %0, i32 noundef %1
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %63 = load i32, ptr %62, align 8, !tbaa !103
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw %struct._Bucket, ptr %61, i64 %64
+  %.idx = shl nuw nsw i64 %64, 5
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %67 = load i32, ptr %66, align 8, !tbaa !8
   %68 = and i32 %67, 4
@@ -11465,7 +11465,8 @@ define internal fastcc i32 @extract_helper(ptr noundef %0, ptr noundef %1, ptr n
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i32, ptr %10, align 8, !tbaa !103
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct._Bucket, ptr %9, i64 %12
+  %.idx110 = shl nuw nsw i64 %12, 5
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx110
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load i32, ptr %14, align 8, !tbaa !8
   %16 = and i32 %15, 4
@@ -11515,7 +11516,8 @@ define internal fastcc i32 @extract_helper(ptr noundef %0, ptr noundef %1, ptr n
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %40 = load i32, ptr %39, align 8, !tbaa !103
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw %struct._Bucket, ptr %38, i64 %41
+  %.idx = shl nuw nsw i64 %41, 5
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i32, ptr %43, align 8, !tbaa !8
   %45 = and i32 %44, 4

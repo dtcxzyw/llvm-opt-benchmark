@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._php_stream_statbuf = type { %struct.stat }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct._phar_entry_data = type { ptr, ptr, i64, i64, ptr }
 %struct._phar_metadata_tracker = type { %struct._zval_struct, ptr }
 %struct.PHP_SHA512_CTX = type { [8 x i64], [2 x i64], [128 x i8] }
@@ -2321,7 +2320,8 @@ zend_string_alloc.exit:                           ; preds = %76
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %109 = load i32, ptr %108, align 8, !tbaa !89
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw %struct._Bucket, ptr %107, i64 %110
+  %.idx = shl nuw nsw i64 %110, 5
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx
   %112 = and i32 %99, 4
   %.not111 = icmp eq i32 %112, 0
   call void @llvm.assume(i1 %.not111)
@@ -2583,7 +2583,8 @@ define hidden range(i32 -1, 1) i32 @phar_copy_on_write(ptr noundef captures(none
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 16), align 8, !tbaa !19
   %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 24), align 8, !tbaa !89
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw %struct._Bucket, ptr %51, i64 %53
+  %.idx.i = shl nuw nsw i64 %53, 5
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i
   %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 8), align 8, !tbaa !19
   %56 = and i32 %55, 4
   %.not49.i = icmp eq i32 %56, 0

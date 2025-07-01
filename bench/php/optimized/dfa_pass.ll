@@ -5131,7 +5131,8 @@ define internal fastcc void @zend_ssa_remove_nops(ptr noundef %0, ptr noundef re
   %4 = load ptr, ptr %3, align 8, !tbaa !104
   %5 = load i32, ptr %1, align 8, !tbaa !103
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct._zend_basic_block, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 6
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8, !tbaa !112
   %10 = zext i32 %9 to i64

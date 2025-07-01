@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Rb_tree.25" = type { %"struct.std::_Rb_tree<std::array<unsigned short, 4>, std::pair<const std::array<unsigned short, 4>, std::array<unsigned short, 4>>, std::_Select1st<std::pair<const std::array<unsigned short, 4>, std::array<unsigned short, 4>>>, std::less<std::array<unsigned short, 4>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::array<unsigned short, 4>, std::pair<const std::array<unsigned short, 4>, std::array<unsigned short, 4>>, std::_Select1st<std::pair<const std::array<unsigned short, 4>, std::array<unsigned short, 4>>>, std::less<std::array<unsigned short, 4>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::array.23" = type { [4 x i16] }
-%"struct.std::pair.21" = type { i8, i8 }
 
 $_ZNSt3mapIhN3ue29CharReachESt4lessIhESaISt4pairIKhS1_EEEixERS5_ = comdat any
 
@@ -683,7 +682,8 @@ define hidden noundef zeroext i1 @_ZN3ue222shuftiBuildDoubleMasksERKNS_9CharReac
   %13 = load ptr, ptr %1, align 8, !noalias !13
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8, !noalias !20
-  %16 = getelementptr inbounds nuw %"struct.std::pair.21", ptr %13, i64 %15
+  %.idx = shl nuw nsw i64 %15, 1
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %.not323393 = icmp eq i64 %15, 0
   br i1 %.not323393, label %.preheader343, label %.lr.ph
 

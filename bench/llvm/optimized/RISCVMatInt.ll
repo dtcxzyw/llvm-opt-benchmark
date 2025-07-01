@@ -1996,7 +1996,8 @@ define dso_local void @_ZN4llvm11RISCVMatInt17generateMCInstSeqElRKNS_15MCSubtar
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !9
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %10, i64 %13
+  %.idx = shl nuw nsw i64 %13, 3
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %.not88 = icmp eq i32 %12, 0
   br i1 %.not88, label %._crit_edge, label %.lr.ph
 
@@ -2558,7 +2559,8 @@ _ZNK4llvm5APInt12getSExtValueEv.exit18:           ; preds = %67, %74
 
 77:                                               ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit18
   %78 = zext i32 %.val15 to i64
-  %79 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %.val, i64 %78
+  %.idx.i = shl nuw nsw i64 %78, 3
+  %79 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %.not1.i = icmp eq i32 %.val15, 0
   br i1 %.not1.i, label %_ZL14getInstSeqCostRN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEEb.exit, label %.lr.ph.i
 
@@ -2922,7 +2924,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE4gro
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !9
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"class.llvm::MCInst", ptr %6, i64 %9
+  %.idx.i = shl nuw nsw i64 %9, 7
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE19moveElementsForGrowEPS1_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -2955,13 +2958,14 @@ _ZSt10_ConstructIN4llvm6MCInstEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %17,
 
 _ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i: ; preds = %_ZSt10_ConstructIN4llvm6MCInstEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !3
-  %.pre2.i = load i32, ptr %7, align 8, !tbaa !9
-  %.not4.i.i = icmp eq i32 %.pre2.i, 0
+  %.pre3.i = load i32, ptr %7, align 8, !tbaa !9
+  %.not4.i.i = icmp eq i32 %.pre3.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE19moveElementsForGrowEPS1_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6MCInstELb0EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i
-  %22 = zext i32 %.pre2.i to i64
-  %23 = getelementptr inbounds nuw %"class.llvm::MCInst", ptr %.pre.i, i64 %22
+  %22 = zext i32 %.pre3.i to i64
+  %.idx2.i = shl nuw nsw i64 %22, 7
+  %23 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm6MCInstD2Ev.exit.i.i, %.lr.ph.i.preheader.i

@@ -36336,7 +36336,8 @@ define hidden void @"_ZN12polars_arrow5array7binview31BinaryViewArrayGeneric$LT$
 71:                                               ; preds = %65
   %72 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %73 = load ptr, ptr %72, align 8, !alias.scope !1858, !noalias !1861, !nonnull !3, !noundef !3
-  %74 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %73, i64 %68
+  %.idx43.i = shl nuw nsw i64 %68, 4
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx43.i
   %.not41.i = icmp eq i64 %68, 0
   br i1 %.not41.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -36917,7 +36918,8 @@ define hidden void @"_ZN12polars_arrow5array7binview31BinaryViewArrayGeneric$LT$
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %71 = load ptr, ptr %70, align 8, !alias.scope !1960, !noalias !1963, !nonnull !3, !noundef !3
-  %72 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %71, i64 %64
+  %.idx.i = shl nuw nsw i64 %64, 4
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx.i
   %.not16.i = icmp eq i64 %64, 0
   br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i
 

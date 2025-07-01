@@ -583,7 +583,8 @@ define dso_local void @_ZNK4llvm13CSEMIRBuilder17profileEverythingEjNS_8ArrayRef
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm23GISelInstProfileBuilder12addNodeIDMBBEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %10) #17
   %12 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm23GISelInstProfileBuilder15addNodeIDOpcodeEj(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %1) #17
-  %13 = getelementptr inbounds nuw %"class.llvm::DstOp", ptr %2, i64 %3
+  %.idx.i = mul nuw nsw i64 %3, 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %.not10.i = icmp eq i64 %3, 0
   br i1 %.not10.i, label %_ZNK4llvm13CSEMIRBuilder13profileDstOpsENS_8ArrayRefINS_5DstOpEEERNS_23GISelInstProfileBuilderE.exit, label %.lr.ph.i
 
@@ -626,13 +627,14 @@ _ZNK4llvm13CSEMIRBuilder12profileDstOpERKNS_5DstOpERNS_23GISelInstProfileBuilder
   br i1 %.not.i, label %_ZNK4llvm13CSEMIRBuilder13profileDstOpsENS_8ArrayRefINS_5DstOpEEERNS_23GISelInstProfileBuilderE.exit, label %.lr.ph.i
 
 _ZNK4llvm13CSEMIRBuilder13profileDstOpsENS_8ArrayRefINS_5DstOpEEERNS_23GISelInstProfileBuilderE.exit: ; preds = %_ZNK4llvm13CSEMIRBuilder12profileDstOpERKNS_5DstOpERNS_23GISelInstProfileBuilderE.exit.i, %8
-  %26 = getelementptr inbounds nuw %"class.llvm::SrcOp", ptr %4, i64 %5
-  %.not10.i11 = icmp eq i64 %5, 0
-  br i1 %.not10.i11, label %_ZNK4llvm13CSEMIRBuilder13profileSrcOpsENS_8ArrayRefINS_5SrcOpEEERNS_23GISelInstProfileBuilderE.exit, label %.lr.ph.i12
+  %.idx.i11 = mul nuw nsw i64 %5, 24
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i11
+  %.not10.i12 = icmp eq i64 %5, 0
+  br i1 %.not10.i12, label %_ZNK4llvm13CSEMIRBuilder13profileSrcOpsENS_8ArrayRefINS_5SrcOpEEERNS_23GISelInstProfileBuilderE.exit, label %.lr.ph.i13
 
-.lr.ph.i12:                                       ; preds = %_ZNK4llvm13CSEMIRBuilder13profileDstOpsENS_8ArrayRefINS_5DstOpEEERNS_23GISelInstProfileBuilderE.exit, %_ZNK4llvm13CSEMIRBuilder12profileSrcOpERKNS_5SrcOpERNS_23GISelInstProfileBuilderE.exit.i
-  %.011.i13 = phi ptr [ %43, %_ZNK4llvm13CSEMIRBuilder12profileSrcOpERKNS_5SrcOpERNS_23GISelInstProfileBuilderE.exit.i ], [ %4, %_ZNK4llvm13CSEMIRBuilder13profileDstOpsENS_8ArrayRefINS_5DstOpEEERNS_23GISelInstProfileBuilderE.exit ]
-  %27 = getelementptr inbounds nuw i8, ptr %.011.i13, i64 16
+.lr.ph.i13:                                       ; preds = %_ZNK4llvm13CSEMIRBuilder13profileDstOpsENS_8ArrayRefINS_5DstOpEEERNS_23GISelInstProfileBuilderE.exit, %_ZNK4llvm13CSEMIRBuilder12profileSrcOpERKNS_5SrcOpERNS_23GISelInstProfileBuilderE.exit.i
+  %.011.i14 = phi ptr [ %43, %_ZNK4llvm13CSEMIRBuilder12profileSrcOpERKNS_5SrcOpERNS_23GISelInstProfileBuilderE.exit.i ], [ %4, %_ZNK4llvm13CSEMIRBuilder13profileDstOpsENS_8ArrayRefINS_5DstOpEEERNS_23GISelInstProfileBuilderE.exit ]
+  %27 = getelementptr inbounds nuw i8, ptr %.011.i14, i64 16
   %28 = load i32, ptr %27, align 8, !tbaa !56
   switch i32 %28, label %_ZNK4llvm5SrcOp6getRegEv.exit.i.i [
     i32 3, label %29
@@ -640,35 +642,35 @@ _ZNK4llvm13CSEMIRBuilder13profileDstOpsENS_8ArrayRefINS_5DstOpEEERNS_23GISelInst
     i32 1, label %36
   ]
 
-29:                                               ; preds = %.lr.ph.i12
-  %30 = load i64, ptr %.011.i13, align 8, !tbaa !51
+29:                                               ; preds = %.lr.ph.i13
+  %30 = load i64, ptr %.011.i14, align 8, !tbaa !51
   %31 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm23GISelInstProfileBuilder18addNodeIDImmediateEl(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %30) #17
   br label %_ZNK4llvm13CSEMIRBuilder12profileSrcOpERKNS_5SrcOpERNS_23GISelInstProfileBuilderE.exit.i
 
-32:                                               ; preds = %.lr.ph.i12
-  %33 = load i32, ptr %.011.i13, align 8, !tbaa !51
+32:                                               ; preds = %.lr.ph.i13
+  %33 = load i32, ptr %.011.i14, align 8, !tbaa !51
   %34 = zext i32 %33 to i64
   %35 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm23GISelInstProfileBuilder18addNodeIDImmediateEl(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %34) #17
   br label %_ZNK4llvm13CSEMIRBuilder12profileSrcOpERKNS_5SrcOpERNS_23GISelInstProfileBuilderE.exit.i
 
-36:                                               ; preds = %.lr.ph.i12
-  %37 = getelementptr inbounds nuw i8, ptr %.011.i13, i64 8
+36:                                               ; preds = %.lr.ph.i13
+  %37 = getelementptr inbounds nuw i8, ptr %.011.i14, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !59
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !62
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   br label %_ZNK4llvm5SrcOp6getRegEv.exit.i.i
 
-_ZNK4llvm5SrcOp6getRegEv.exit.i.i:                ; preds = %36, %.lr.ph.i12
-  %.sroa.0.0.in.i.i.i = phi ptr [ %41, %36 ], [ %.011.i13, %.lr.ph.i12 ]
+_ZNK4llvm5SrcOp6getRegEv.exit.i.i:                ; preds = %36, %.lr.ph.i13
+  %.sroa.0.0.in.i.i.i = phi ptr [ %41, %36 ], [ %.011.i14, %.lr.ph.i13 ]
   %.sroa.0.0.i.i.i = load i32, ptr %.sroa.0.0.in.i.i.i, align 4, !tbaa !51
   %42 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4llvm23GISelInstProfileBuilder16addNodeIDRegTypeENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 %.sroa.0.0.i.i.i) #17
   br label %_ZNK4llvm13CSEMIRBuilder12profileSrcOpERKNS_5SrcOpERNS_23GISelInstProfileBuilderE.exit.i
 
 _ZNK4llvm13CSEMIRBuilder12profileSrcOpERKNS_5SrcOpERNS_23GISelInstProfileBuilderE.exit.i: ; preds = %_ZNK4llvm5SrcOp6getRegEv.exit.i.i, %32, %29
-  %43 = getelementptr inbounds nuw i8, ptr %.011.i13, i64 24
-  %.not.i14 = icmp eq ptr %43, %26
-  br i1 %.not.i14, label %_ZNK4llvm13CSEMIRBuilder13profileSrcOpsENS_8ArrayRefINS_5SrcOpEEERNS_23GISelInstProfileBuilderE.exit, label %.lr.ph.i12
+  %43 = getelementptr inbounds nuw i8, ptr %.011.i14, i64 24
+  %.not.i15 = icmp eq ptr %43, %26
+  br i1 %.not.i15, label %_ZNK4llvm13CSEMIRBuilder13profileSrcOpsENS_8ArrayRefINS_5SrcOpEEERNS_23GISelInstProfileBuilderE.exit, label %.lr.ph.i13
 
 _ZNK4llvm13CSEMIRBuilder13profileSrcOpsENS_8ArrayRefINS_5SrcOpEEERNS_23GISelInstProfileBuilderE.exit: ; preds = %_ZNK4llvm13CSEMIRBuilder12profileSrcOpERKNS_5SrcOpERNS_23GISelInstProfileBuilderE.exit.i, %_ZNK4llvm13CSEMIRBuilder13profileDstOpsENS_8ArrayRefINS_5DstOpEEERNS_23GISelInstProfileBuilderE.exit
   %44 = and i64 %6, 4294967296
@@ -1146,7 +1148,8 @@ _ZNK4llvm5SrcOp6getRegEv.exit96:                  ; preds = %_ZNK4llvm5SrcOp6get
 
 .lr.ph.i.preheader.i.i.i.i.i:                     ; preds = %88
   %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw %"class.llvm::APInt", ptr %89, i64 %92
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %92, 4
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
@@ -1315,7 +1318,8 @@ _ZNK4llvm5SrcOp6getRegEv.exit111:                 ; preds = %_ZNK4llvm5SrcOp6get
 
 .lr.ph.i.preheader.i:                             ; preds = %175
   %181 = zext i32 %.pr to i64
-  %182 = getelementptr inbounds nuw %"class.llvm::APInt", ptr %180, i64 %181
+  %.idx.i = shl nuw nsw i64 %181, 4
+  %182 = getelementptr inbounds nuw i8, ptr %180, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm5APIntD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -1757,7 +1761,8 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNSt8functionIFjN4
   %382 = load ptr, ptr %15, align 8, !tbaa !55
   %383 = load i32, ptr %366, align 8, !tbaa !53
   %384 = zext i32 %383 to i64
-  %385 = getelementptr inbounds nuw i32, ptr %382, i64 %384
+  %.idx = shl nuw nsw i64 %384, 2
+  %385 = getelementptr inbounds nuw i8, ptr %382, i64 %.idx
   %.not229 = icmp eq i32 %383, 0
   br i1 %.not229, label %._crit_edge, label %.lr.ph
 
@@ -2582,11 +2587,12 @@ define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 -8
   %6 = load i64, ptr %5, align 8
+  %.idx.i = mul i64 %6, 24
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %8 = getelementptr inbounds %"class.llvm::APFloat", ptr %3, i64 %6
+  %8 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %9 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #19
   br label %10
 
@@ -2610,9 +2616,8 @@ _ZN4llvm7APFloatD2Ev.exit.i:                      ; preds = %15, %14
   br i1 %16, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %10
 
 _ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit: ; preds = %_ZN4llvm7APFloatD2Ev.exit.i, %4
-  %17 = mul i64 %6, 24
-  %18 = add i64 %17, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %18) #18
+  %17 = add i64 %.idx.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %17) #18
   br label %_ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit

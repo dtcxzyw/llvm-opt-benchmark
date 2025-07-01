@@ -28346,7 +28346,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.13318982336751502688.exit
   %48 = load ptr, ptr %47, align 8, !nonnull !4, !noundef !4
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %50 = load i64, ptr %49, align 8, !noundef !4
-  %51 = getelementptr inbounds { { ptr, ptr } }, ptr %48, i64 %50
+  %.idx = shl nsw i64 %50, 4
+  %51 = getelementptr inbounds i8, ptr %48, i64 %.idx
   %52 = icmp eq i64 %50, 0
   %.pre = load ptr, ptr %1, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8

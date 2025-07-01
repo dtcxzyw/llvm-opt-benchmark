@@ -7030,7 +7030,8 @@ define hidden void @_ZN9typst_pdf7pattern14write_patterns17h69089a8c61e52037E(pt
   %27 = load ptr, ptr %26, align 8, !alias.scope !1112, !nonnull !4, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %29 = load i64, ptr %28, align 8, !alias.scope !1112, !noundef !4
-  %30 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, ptr, { double, double, double, double, double, double } }, ptr %27, i64 %29
+  %.idx = mul nsw i64 %29, 104
+  %30 = getelementptr inbounds i8, ptr %27, i64 %.idx
   %31 = icmp eq i64 %29, 0
   br i1 %31, label %._crit_edge, label %.lr.ph
 

@@ -6531,7 +6531,8 @@ define hidden void @_ZN14polars_compute12if_then_else6scalar39if_then_else_broad
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: write) uwtable
 define hidden void @_ZN14polars_compute12if_then_else6scalar39if_then_else_broadcast_both_scalar_rest17hb71a8c38d55e9768E(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias noundef nonnull writeonly align 4 captures(address) %3, i64 noundef %4) unnamed_addr #10 personality ptr @rust_eh_personality {
-  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 2
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %7 = icmp eq i64 %4, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 

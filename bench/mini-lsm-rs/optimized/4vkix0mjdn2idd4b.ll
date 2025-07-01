@@ -6134,7 +6134,8 @@ define hidden noundef align 8 ptr @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
   %69 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %70 = load i64, ptr %27, align 8, !noundef !14
-  %71 = getelementptr inbounds { { i64 }, {} }, ptr %69, i64 %70
+  %.idx = shl nsw i64 %70, 3
+  %71 = getelementptr inbounds i8, ptr %69, i64 %.idx
   %72 = icmp eq i64 %70, 0
   br i1 %72, label %._crit_edge, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4fcd3aee9a63d4c2E.exit.lr.ph"
 
@@ -7207,7 +7208,8 @@ define hidden noundef align 8 ptr @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   %68 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %69 = load i64, ptr %26, align 8, !noundef !14
-  %70 = getelementptr inbounds { { i64 }, {} }, ptr %68, i64 %69
+  %.idx = shl nsw i64 %69, 3
+  %70 = getelementptr inbounds i8, ptr %68, i64 %.idx
   %71 = icmp eq i64 %69, 0
   br i1 %71, label %._crit_edge, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc68826530b3f898bE.exit.lr.ph"
 
@@ -8085,7 +8087,8 @@ define hidden noundef align 8 ptr @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   %68 = load ptr, ptr %0, align 8, !nonnull !14, !align !764, !noundef !14
   %69 = load i64, ptr %26, align 8, !noundef !14
-  %70 = getelementptr inbounds { { i64 }, {} }, ptr %68, i64 %69
+  %.idx = shl nsw i64 %69, 3
+  %70 = getelementptr inbounds i8, ptr %68, i64 %.idx
   %71 = icmp eq i64 %69, 0
   br i1 %71, label %._crit_edge, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4e5a7a475723d60aE.exit.lr.ph"
 

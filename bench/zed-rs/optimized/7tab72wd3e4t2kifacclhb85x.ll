@@ -3666,7 +3666,8 @@ select.unfold:                                    ; preds = %"_ZN97_$LT$alloc..v
   store i8 %.sroa.0.0.i21, ptr %93, align 1, !alias.scope !787, !noalias !790
   %94 = load ptr, ptr %12, align 8, !nonnull !20, !noundef !20
   %95 = load i64, ptr %13, align 8, !noundef !20
-  %96 = getelementptr inbounds { { i64, i64 }, { i32, i16, [1 x i16] } }, ptr %94, i64 %95
+  %.idx = mul nsw i64 %95, 24
+  %96 = getelementptr inbounds i8, ptr %94, i64 %.idx
   %97 = icmp eq i64 %95, 0
   br i1 %97, label %_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h002393b2fa612439E.exit, label %.lr.ph62
 

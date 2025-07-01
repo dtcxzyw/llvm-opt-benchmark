@@ -1290,7 +1290,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5LightEE17deallocate_objectIS3_EEvPT_m
 
 331:                                              ; preds = %330
   store ptr %329, ptr %44, align 8, !tbaa !134
-  %332 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %180, i64 %179
+  %.idx = shl nuw nsw i64 %179, 3
+  %332 = getelementptr inbounds nuw i8, ptr %180, i64 %.idx
   %.not384 = icmp eq i64 %179, 0
   br i1 %.not384, label %._crit_edge388, label %.lr.ph387
 
@@ -26730,7 +26731,8 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt12ForAllQueuedIZNS1_2
   %130 = load ptr, ptr %129, align 8, !tbaa !101
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %132 = load i64, ptr %131, align 8, !tbaa !99
-  %133 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %130, i64 %132
+  %.idx.i.i.i.i = shl nuw nsw i64 %132, 3
+  %133 = getelementptr inbounds nuw i8, ptr %130, i64 %.idx.i.i.i.i
   %.not14.i.i.i.i = icmp eq i64 %132, 0
   br i1 %.not14.i.i.i.i, label %.preheader.i.i.i.i.preheader, label %.lr.ph.i.i.i.i
 

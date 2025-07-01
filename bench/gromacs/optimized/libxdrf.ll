@@ -128,6 +128,7 @@ define noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %0, ptr noundef %1,
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %7, ptr %47, align 8, !tbaa !17
+  %.pre = mul nuw nsw i64 %35, 12
   br label %.lr.ph
 
 48:                                               ; preds = %44
@@ -152,7 +153,8 @@ define noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %0, ptr noundef %1,
   unreachable
 
 .lr.ph:                                           ; preds = %46, %48
-  %.0403 = phi ptr [ %6, %46 ], [ %53, %48 ]
+  %.idx644.pre-phi = phi i64 [ %52, %48 ], [ %.pre, %46 ]
+  %.0403 = phi ptr [ %53, %48 ], [ %6, %46 ]
   %62 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -166,7 +168,7 @@ define noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %0, ptr noundef %1,
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 -2147483648, ptr %67, align 4, !tbaa !16
   store i32 -2147483648, ptr %9, align 4, !tbaa !16
-  %68 = getelementptr inbounds nuw float, ptr %1, i64 %36
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx644.pre-phi
   %69 = load float, ptr @_ZL14maxAbsoluteInt, align 4, !tbaa !20
   %70 = load float, ptr %3, align 4, !tbaa !20
   br label %71

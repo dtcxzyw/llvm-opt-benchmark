@@ -53,9 +53,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.873" = type { %"struct.std::_Tuple_impl.874" }
 %"struct.std::_Tuple_impl.874" = type { %"struct.std::_Head_base.877" }
 %"struct.std::_Head_base.877" = type { ptr }
-%"class.clang::DesignatedInitExpr::Designator" = type { i32, %union.anon.879 }
-%union.anon.879 = type { %"struct.clang::DesignatedInitExpr::Designator::FieldDesignatorInfo" }
-%"struct.clang::DesignatedInitExpr::Designator::FieldDesignatorInfo" = type { i64, %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
 %"class.clang::NestedNameSpecifierLoc" = type { ptr, ptr }
 %"class.(anonymous namespace)::OpenACCClauseProfiler" = type { ptr }
 %"class.(anonymous namespace)::OMPClauseProfiler" = type { ptr }
@@ -3396,7 +3393,8 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit53:  ; preds = %_ZN4llvm16FoldingSe
   %65 = getelementptr inbounds nuw ptr, ptr %.ptr, i64 %64
   %66 = load i32, ptr %36, align 4, !tbaa !128
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %65, i64 %67
+  %.idx101 = shl nuw nsw i64 %67, 3
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx101
   %.not4196 = icmp eq i32 %66, 0
   br i1 %.not4196, label %._crit_edge99, label %.lr.ph98
 
@@ -5006,8 +5004,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitGenericSelect
   %7 = zext nneg i32 %.lobit.i.i to i64
   %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %7
   %9 = and i32 %5, 32767
-  %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
+  %10 = shl nuw nsw i32 %9, 3
+  %.idx = zext nneg i32 %10 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not21 = icmp eq i32 %9, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
@@ -5430,113 +5429,114 @@ _ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit:    ; preds = %2, %12
   %24 = load i32, ptr %5, align 4
   %25 = lshr i32 %24, 1
   %26 = and i32 %25, 32767
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"class.clang::DesignatedInitExpr::Designator", ptr %23, i64 %27
+  %narrow = mul nuw nsw i32 %26, 24
+  %.idx = zext nneg i32 %narrow to i64
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   %.not24 = icmp eq i32 %26, 0
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %78, %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit
+._crit_edge:                                      ; preds = %77, %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit
   ret void
 
-.lr.ph:                                           ; preds = %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit, %78
-  %.025 = phi ptr [ %79, %78 ], [ %23, %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit ]
-  %29 = load i32, ptr %.025, align 8, !tbaa !281
-  %30 = load ptr, ptr %3, align 8, !tbaa !78
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load i32, ptr %31, align 8, !tbaa !79
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 12
-  %34 = load i32, ptr %33, align 4, !tbaa !81
-  %.not.i.i.not.i.i17 = icmp ult i32 %32, %34
-  switch i32 %29, label %52 [
-    i32 0, label %35
-    i32 1, label %51
+.lr.ph:                                           ; preds = %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit, %77
+  %.025 = phi ptr [ %78, %77 ], [ %23, %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit ]
+  %28 = load i32, ptr %.025, align 8, !tbaa !281
+  %29 = load ptr, ptr %3, align 8, !tbaa !78
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load i32, ptr %30, align 8, !tbaa !79
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  %33 = load i32, ptr %32, align 4, !tbaa !81
+  %.not.i.i.not.i.i17 = icmp ult i32 %31, %33
+  switch i32 %28, label %51 [
+    i32 0, label %34
+    i32 1, label %50
   ]
 
-35:                                               ; preds = %.lr.ph
-  br i1 %.not.i.i.not.i.i17, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit, label %36, !prof !82
+34:                                               ; preds = %.lr.ph
+  br i1 %.not.i.i.not.i.i17, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit, label %35, !prof !82
 
-36:                                               ; preds = %35
-  %37 = zext i32 %32 to i64
-  %38 = add nuw nsw i64 %37, 1
-  %39 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %30, ptr noundef nonnull %39, i64 noundef %38, i64 noundef 4) #12
-  %.pre.i.i = load i32, ptr %31, align 8, !tbaa !79
+35:                                               ; preds = %34
+  %36 = zext i32 %31 to i64
+  %37 = add nuw nsw i64 %36, 1
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %29, ptr noundef nonnull %38, i64 noundef %37, i64 noundef 4) #12
+  %.pre.i.i = load i32, ptr %30, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %35, %36
-  %40 = phi i32 [ %32, %35 ], [ %.pre.i.i, %36 ]
-  %41 = load ptr, ptr %30, align 8, !tbaa !83
-  %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
-  store i32 0, ptr %43, align 1
-  %44 = load i32, ptr %31, align 8, !tbaa !79
-  %45 = add i32 %44, 1
-  store i32 %45, ptr %31, align 8, !tbaa !79
-  %46 = tail call noundef ptr @_ZNK5clang18DesignatedInitExpr10Designator12getFieldNameEv(ptr noundef nonnull align 8 dereferenceable(24) %.025) #12
-  %47 = ptrtoint ptr %46 to i64
-  %48 = load ptr, ptr %0, align 8, !tbaa !12
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %47, i1 noundef zeroext false) #12
-  br label %78
+_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %34, %35
+  %39 = phi i32 [ %31, %34 ], [ %.pre.i.i, %35 ]
+  %40 = load ptr, ptr %29, align 8, !tbaa !83
+  %41 = zext i32 %39 to i64
+  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
+  store i32 0, ptr %42, align 1
+  %43 = load i32, ptr %30, align 8, !tbaa !79
+  %44 = add i32 %43, 1
+  store i32 %44, ptr %30, align 8, !tbaa !79
+  %45 = tail call noundef ptr @_ZNK5clang18DesignatedInitExpr10Designator12getFieldNameEv(ptr noundef nonnull align 8 dereferenceable(24) %.025) #12
+  %46 = ptrtoint ptr %45 to i64
+  %47 = load ptr, ptr %0, align 8, !tbaa !12
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  %49 = load ptr, ptr %48, align 8
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %46, i1 noundef zeroext false) #12
+  br label %77
+
+50:                                               ; preds = %.lr.ph
+  br i1 %.not.i.i.not.i.i17, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16.sink.split, !prof !82
 
 51:                                               ; preds = %.lr.ph
   br i1 %.not.i.i.not.i.i17, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16.sink.split, !prof !82
 
-52:                                               ; preds = %.lr.ph
-  br i1 %.not.i.i.not.i.i17, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16.sink.split, !prof !82
-
-_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16.sink.split: ; preds = %52, %51
-  %.sink.ph = phi i32 [ 1, %51 ], [ 2, %52 ]
-  %53 = zext i32 %32 to i64
-  %54 = add nuw nsw i64 %53, 1
-  %55 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %30, ptr noundef nonnull %55, i64 noundef %54, i64 noundef 4) #12
-  %.pre.i.i18 = load i32, ptr %31, align 8, !tbaa !79
+_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16.sink.split: ; preds = %51, %50
+  %.sink.ph = phi i32 [ 1, %50 ], [ 2, %51 ]
+  %52 = zext i32 %31 to i64
+  %53 = add nuw nsw i64 %52, 1
+  %54 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %29, ptr noundef nonnull %54, i64 noundef %53, i64 noundef 4) #12
+  %.pre.i.i18 = load i32, ptr %30, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16:  ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16.sink.split, %52, %51
-  %.sink30 = phi i32 [ %32, %51 ], [ %32, %52 ], [ %.pre.i.i18, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16.sink.split ]
-  %.sink = phi i32 [ 1, %51 ], [ 2, %52 ], [ %.sink.ph, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16.sink.split ]
-  %56 = load ptr, ptr %30, align 8, !tbaa !83
-  %57 = zext i32 %.sink30 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
-  store i32 %.sink, ptr %58, align 1
-  %59 = load i32, ptr %31, align 8, !tbaa !79
-  %60 = add i32 %59, 1
-  store i32 %60, ptr %31, align 8, !tbaa !79
-  %61 = load ptr, ptr %3, align 8, !tbaa !78
-  %62 = getelementptr inbounds nuw i8, ptr %.025, i64 8
-  %63 = load i32, ptr %62, align 8, !tbaa !35
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %65 = load i32, ptr %64, align 8, !tbaa !79
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 12
-  %67 = load i32, ptr %66, align 4, !tbaa !81
-  %.not.i.i.not.i.i20 = icmp ult i32 %65, %67
-  br i1 %.not.i.i.not.i.i20, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit, label %68, !prof !82
+_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16:  ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16.sink.split, %51, %50
+  %.sink30 = phi i32 [ %31, %50 ], [ %31, %51 ], [ %.pre.i.i18, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16.sink.split ]
+  %.sink = phi i32 [ 1, %50 ], [ 2, %51 ], [ %.sink.ph, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16.sink.split ]
+  %55 = load ptr, ptr %29, align 8, !tbaa !83
+  %56 = zext i32 %.sink30 to i64
+  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
+  store i32 %.sink, ptr %57, align 1
+  %58 = load i32, ptr %30, align 8, !tbaa !79
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %30, align 8, !tbaa !79
+  %60 = load ptr, ptr %3, align 8, !tbaa !78
+  %61 = getelementptr inbounds nuw i8, ptr %.025, i64 8
+  %62 = load i32, ptr %61, align 8, !tbaa !35
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %64 = load i32, ptr %63, align 8, !tbaa !79
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 12
+  %66 = load i32, ptr %65, align 4, !tbaa !81
+  %.not.i.i.not.i.i20 = icmp ult i32 %64, %66
+  br i1 %.not.i.i.not.i.i20, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit, label %67, !prof !82
 
-68:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16
-  %69 = zext i32 %65 to i64
-  %70 = add nuw nsw i64 %69, 1
-  %71 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %61, ptr noundef nonnull %71, i64 noundef %70, i64 noundef 4) #12
-  %.pre.i.i21 = load i32, ptr %64, align 8, !tbaa !79
+67:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16
+  %68 = zext i32 %64 to i64
+  %69 = add nuw nsw i64 %68, 1
+  %70 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %60, ptr noundef nonnull %70, i64 noundef %69, i64 noundef 4) #12
+  %.pre.i.i21 = load i32, ptr %63, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16, %68
-  %72 = phi i32 [ %65, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16 ], [ %.pre.i.i21, %68 ]
-  %73 = load ptr, ptr %61, align 8, !tbaa !83
-  %74 = zext i32 %72 to i64
-  %75 = getelementptr inbounds nuw i32, ptr %73, i64 %74
-  store i32 %63, ptr %75, align 1
-  %76 = load i32, ptr %64, align 8, !tbaa !79
-  %77 = add i32 %76, 1
-  store i32 %77, ptr %64, align 8, !tbaa !79
-  br label %78
+_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16, %67
+  %71 = phi i32 [ %64, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16 ], [ %.pre.i.i21, %67 ]
+  %72 = load ptr, ptr %60, align 8, !tbaa !83
+  %73 = zext i32 %71 to i64
+  %74 = getelementptr inbounds nuw i32, ptr %72, i64 %73
+  store i32 %62, ptr %74, align 1
+  %75 = load i32, ptr %63, align 8, !tbaa !79
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %63, align 8, !tbaa !79
+  br label %77
 
-78:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
-  %79 = getelementptr inbounds nuw i8, ptr %.025, i64 24
-  %.not = icmp eq ptr %79, %28
+77:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
+  %78 = getelementptr inbounds nuw i8, ptr %.025, i64 24
+  %.not = icmp eq ptr %78, %27
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
@@ -7446,7 +7446,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitOpenACCWaitCo
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8, !tbaa !332
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !170
-  %5 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
   %.not.i4 = icmp eq i64 %.sroa.2.0.copyload.i, 0
   br i1 %.not.i4, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitOpenACCClauseListEN4llvm8ArrayRefIPKN5clang13OpenACCClauseEEE.exit, label %.lr.ph
 
@@ -7473,7 +7474,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOpenACCUpdate
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8, !tbaa !332
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !170
-  %5 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
   %.not.i4 = icmp eq i64 %.sroa.2.0.copyload.i, 0
   br i1 %.not.i4, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitOpenACCClauseListEN4llvm8ArrayRefIPKN5clang13OpenACCClauseEEE.exit, label %.lr.ph
 
@@ -7500,7 +7502,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler29VisitOpenACCShutdo
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8, !tbaa !332
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !170
-  %5 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
   %.not.i4 = icmp eq i64 %.sroa.2.0.copyload.i, 0
   br i1 %.not.i4, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitOpenACCClauseListEN4llvm8ArrayRefIPKN5clang13OpenACCClauseEEE.exit, label %.lr.ph
 
@@ -7527,7 +7530,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler24VisitOpenACCSetCon
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8, !tbaa !332
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !170
-  %5 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
   %.not.i4 = icmp eq i64 %.sroa.2.0.copyload.i, 0
   br i1 %.not.i4, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitOpenACCClauseListEN4llvm8ArrayRefIPKN5clang13OpenACCClauseEEE.exit, label %.lr.ph
 
@@ -7554,7 +7558,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitOpenACCInitCo
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8, !tbaa !332
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !170
-  %5 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
   %.not.i4 = icmp eq i64 %.sroa.2.0.copyload.i, 0
   br i1 %.not.i4, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitOpenACCClauseListEN4llvm8ArrayRefIPKN5clang13OpenACCClauseEEE.exit, label %.lr.ph
 
@@ -7581,7 +7586,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler29VisitOpenACCExitDa
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8, !tbaa !332
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !170
-  %5 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
   %.not.i4 = icmp eq i64 %.sroa.2.0.copyload.i, 0
   br i1 %.not.i4, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitOpenACCClauseListEN4llvm8ArrayRefIPKN5clang13OpenACCClauseEEE.exit, label %.lr.ph
 
@@ -7608,7 +7614,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler30VisitOpenACCEnterD
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8, !tbaa !332
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !170
-  %5 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
   %.not.i4 = icmp eq i64 %.sroa.2.0.copyload.i, 0
   br i1 %.not.i4, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitOpenACCClauseListEN4llvm8ArrayRefIPKN5clang13OpenACCClauseEEE.exit, label %.lr.ph
 
@@ -7635,7 +7642,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitOpenACCLoopCo
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8, !tbaa !332
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !170
-  %5 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
   %.not.i4 = icmp eq i64 %.sroa.2.0.copyload.i, 0
   br i1 %.not.i4, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitOpenACCClauseListEN4llvm8ArrayRefIPKN5clang13OpenACCClauseEEE.exit, label %.lr.ph
 
@@ -7662,7 +7670,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler29VisitOpenACCHostDa
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8, !tbaa !332
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !170
-  %5 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
   %.not.i4 = icmp eq i64 %.sroa.2.0.copyload.i, 0
   br i1 %.not.i4, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitOpenACCClauseListEN4llvm8ArrayRefIPKN5clang13OpenACCClauseEEE.exit, label %.lr.ph
 
@@ -7689,7 +7698,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitOpenACCDataCo
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8, !tbaa !332
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !170
-  %5 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
   %.not.i4 = icmp eq i64 %.sroa.2.0.copyload.i, 0
   br i1 %.not.i4, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitOpenACCClauseListEN4llvm8ArrayRefIPKN5clang13OpenACCClauseEEE.exit, label %.lr.ph
 
@@ -7716,7 +7726,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler28VisitOpenACCComput
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8, !tbaa !332
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !170
-  %5 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
   %.not.i4 = icmp eq i64 %.sroa.2.0.copyload.i, 0
   br i1 %.not.i4, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitOpenACCClauseListEN4llvm8ArrayRefIPKN5clang13OpenACCClauseEEE.exit, label %.lr.ph
 
@@ -7743,7 +7754,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler29VisitOpenACCCombin
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8, !tbaa !332
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !170
-  %5 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
   %.not.i4 = icmp eq i64 %.sroa.2.0.copyload.i, 0
   br i1 %.not.i4, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitOpenACCClauseListEN4llvm8ArrayRefIPKN5clang13OpenACCClauseEEE.exit, label %.lr.ph
 
@@ -7822,43 +7834,44 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit:
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %4, align 8, !tbaa !344
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %8 = shl nuw nsw i64 %7, 3
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %8
   %.not.i7 = icmp eq i32 %6, 0
   br i1 %.not.i7, label %_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK5clang22OMPExecutableDirective7clausesEv.exit, %11
-  %.0.i8 = phi ptr [ %12, %11 ], [ %5, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit ]
-  %9 = load ptr, ptr %.0.i8, align 8, !tbaa !346
-  %.not9.i = icmp eq ptr %9, null
-  br i1 %.not9.i, label %11, label %10
+.lr.ph:                                           ; preds = %_ZNK5clang22OMPExecutableDirective7clausesEv.exit, %12
+  %.0.i8 = phi ptr [ %13, %12 ], [ %5, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit ]
+  %10 = load ptr, ptr %.0.i8, align 8, !tbaa !346
+  %.not9.i = icmp eq ptr %10, null
+  br i1 %.not9.i, label %12, label %11
 
-10:                                               ; preds = %.lr.ph
-  call fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OMPClauseProfilerENS_9const_ptrEvE5VisitEPKNS_9OMPClauseE(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %9)
-  br label %11
+11:                                               ; preds = %.lr.ph
+  call fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OMPClauseProfilerENS_9const_ptrEvE5VisitEPKNS_9OMPClauseE(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %10)
+  br label %12
 
-11:                                               ; preds = %10, %.lr.ph
-  %12 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 8
-  %.not.i = icmp eq ptr %12, %8
+12:                                               ; preds = %11, %.lr.ph
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 8
+  %.not.i = icmp eq ptr %13, %9
   br i1 %.not.i, label %_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE.exit.loopexit, label %.lr.ph, !llvm.loop !348
 
-_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE.exit.loopexit: ; preds = %11
+_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE.exit.loopexit: ; preds = %12
   %.pre = load ptr, ptr %3, align 8, !tbaa !340
   br label %_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE.exit
 
 _ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE.exit: ; preds = %_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE.exit.loopexit, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
-  %13 = phi ptr [ %.pre, %_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE.exit.loopexit ], [ %4, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit ]
+  %14 = phi ptr [ %.pre, %_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE.exit.loopexit ], [ %4, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
-  %14 = tail call { ptr, i64 } @_ZN5clang11OMPChildren11getChildrenEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #12
-  %15 = extractvalue { ptr, i64 } %14, 0
-  %16 = load ptr, ptr %15, align 8, !tbaa !168
-  %.not = icmp eq ptr %16, null
-  br i1 %.not, label %18, label %17
+  %15 = tail call { ptr, i64 } @_ZN5clang11OMPChildren11getChildrenEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #12
+  %16 = extractvalue { ptr, i64 } %15, 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !168
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %19, label %18
 
-17:                                               ; preds = %_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %16)
-  br label %18
+18:                                               ; preds = %_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %17)
+  br label %19
 
-18:                                               ; preds = %17, %_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE.exit
+19:                                               ; preds = %18, %_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE.exit
   ret void
 }
 
@@ -7877,33 +7890,34 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit: ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %5, align 8, !tbaa !344
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = shl nuw nsw i64 %8, 3
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %.not.i6 = icmp eq i32 %7, 0
   br i1 %.not.i6, label %_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK5clang22OMPExecutableDirective7clausesEv.exit, %12
-  %.0.i7 = phi ptr [ %13, %12 ], [ %6, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit ]
-  %10 = load ptr, ptr %.0.i7, align 8, !tbaa !346
-  %.not9.i = icmp eq ptr %10, null
-  br i1 %.not9.i, label %12, label %11
+.lr.ph:                                           ; preds = %_ZNK5clang22OMPExecutableDirective7clausesEv.exit, %13
+  %.0.i7 = phi ptr [ %14, %13 ], [ %6, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit ]
+  %11 = load ptr, ptr %.0.i7, align 8, !tbaa !346
+  %.not9.i = icmp eq ptr %11, null
+  br i1 %.not9.i, label %13, label %12
 
-11:                                               ; preds = %.lr.ph
-  call fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OMPClauseProfilerENS_9const_ptrEvE5VisitEPKNS_9OMPClauseE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10)
-  br label %12
+12:                                               ; preds = %.lr.ph
+  call fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OMPClauseProfilerENS_9const_ptrEvE5VisitEPKNS_9OMPClauseE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11)
+  br label %13
 
-12:                                               ; preds = %11, %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 8
-  %.not.i = icmp eq ptr %13, %9
+13:                                               ; preds = %12, %.lr.ph
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 8
+  %.not.i = icmp eq ptr %14, %10
   br i1 %.not.i, label %_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE.exit, label %.lr.ph, !llvm.loop !348
 
-_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE.exit: ; preds = %12, %2, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
+_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE.exit: ; preds = %13, %2, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.0.0.copyload = load i64, ptr %14, align 8, !tbaa !170
-  %15 = load ptr, ptr %0, align 8, !tbaa !12
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload, i1 noundef zeroext false) #12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.0.0.copyload = load i64, ptr %15, align 8, !tbaa !170
+  %16 = load ptr, ptr %0, align 8, !tbaa !12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %18 = load ptr, ptr %17, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload, i1 noundef zeroext false) #12
   ret void
 }
 
@@ -8425,7 +8439,8 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit56:  ; preds = %._crit_edge93, %238
   %255 = getelementptr inbounds nuw ptr, ptr %252, i64 %254
   %256 = load i32, ptr %232, align 8, !tbaa !379
   %257 = zext i32 %256 to i64
-  %258 = getelementptr inbounds nuw ptr, ptr %255, i64 %257
+  %.idx = shl nuw nsw i64 %257, 3
+  %258 = getelementptr inbounds nuw i8, ptr %255, i64 %.idx
   %.not8394 = icmp eq i32 %256, 0
   br i1 %.not8394, label %._crit_edge97, label %.lr.ph96
 
@@ -8815,7 +8830,8 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK5clang16Templat
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %105 = load i32, ptr %104, align 4, !tbaa !35
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %103, i64 %106
+  %.idx = mul nuw nsw i64 %106, 24
+  %107 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx
   %.not27 = icmp eq i32 %105, 0
   br i1 %.not27, label %.loopexit, label %.lr.ph
 
@@ -9090,11 +9106,12 @@ define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 -8
   %6 = load i64, ptr %5, align 8
+  %.idx.i = mul i64 %6, 24
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %8 = getelementptr inbounds %"class.llvm::APFloat", ptr %3, i64 %6
+  %8 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %9 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #14
   br label %10
 
@@ -9118,9 +9135,8 @@ _ZN4llvm7APFloatD2Ev.exit.i:                      ; preds = %15, %14
   br i1 %16, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %10
 
 _ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit: ; preds = %_ZN4llvm7APFloatD2Ev.exit.i, %4
-  %17 = mul i64 %6, 24
-  %18 = add i64 %17, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %18) #13
+  %17 = add i64 %.idx.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %17) #13
   br label %_ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit
@@ -9140,60 +9156,60 @@ declare noundef zeroext i1 @_ZNK5clang4Expr17isImplicitCXXThisEv(ptr noundef non
 declare noundef ptr @_ZN5clang10SwitchStmt20getConditionVariableEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang20OpenACCClauseVisitorIN12_GLOBAL__N_121OpenACCClauseProfilerEE5VisitEPKNS_13OpenACCClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang20OpenACCClauseVisitorIN12_GLOBAL__N_121OpenACCClauseProfilerEE5VisitEPKNS_13OpenACCClauseE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8, !tbaa !399
-  switch i8 %5, label %211 [
+  switch i8 %5, label %81 [
     i8 4, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
     i8 46, label %6
     i8 15, label %10
-    i8 37, label %16
-    i8 11, label %22
-    i8 12, label %28
-    i8 13, label %34
-    i8 30, label %40
-    i8 31, label %46
-    i8 32, label %52
-    i8 27, label %58
-    i8 28, label %64
-    i8 29, label %70
-    i8 33, label %76
-    i8 34, label %82
-    i8 35, label %88
+    i8 37, label %11
+    i8 11, label %17
+    i8 12, label %18
+    i8 13, label %19
+    i8 30, label %20
+    i8 31, label %21
+    i8 32, label %22
+    i8 27, label %23
+    i8 28, label %24
+    i8 29, label %25
+    i8 33, label %26
+    i8 34, label %27
+    i8 35, label %28
     i8 8, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
-    i8 43, label %94
-    i8 16, label %100
-    i8 17, label %106
-    i8 18, label %112
-    i8 42, label %118
-    i8 19, label %124
+    i8 43, label %29
+    i8 16, label %35
+    i8 17, label %36
+    i8 18, label %37
+    i8 42, label %38
+    i8 19, label %44
     i8 44, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
     i8 45, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
     i8 0, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
-    i8 21, label %130
-    i8 48, label %136
-    i8 22, label %137
-    i8 9, label %143
+    i8 21, label %45
+    i8 48, label %46
+    i8 22, label %47
+    i8 9, label %48
     i8 1, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
     i8 3, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
-    i8 24, label %147
-    i8 40, label %153
-    i8 41, label %159
-    i8 25, label %165
-    i8 26, label %171
-    i8 36, label %177
-    i8 10, label %183
+    i8 24, label %52
+    i8 40, label %53
+    i8 41, label %54
+    i8 25, label %60
+    i8 26, label %61
+    i8 36, label %62
+    i8 10, label %63
     i8 2, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
-    i8 47, label %184
-    i8 14, label %190
-    i8 6, label %196
-    i8 39, label %200
-    i8 49, label %206
-    i8 5, label %207
+    i8 47, label %64
+    i8 14, label %65
+    i8 6, label %66
+    i8 39, label %70
+    i8 49, label %76
+    i8 5, label %77
   ]
 
 6:                                                ; preds = %3
@@ -9211,614 +9227,490 @@ _ZNK5clang30OpenACCClauseWithSingleIntExpr10getIntExprEv.exit.i: ; preds = %6
   br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i62 = load ptr, ptr %11, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i63 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i64 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i63, align 8, !tbaa !170
-  %12 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i62, i64 %.sroa.2.0.copyload.i.i.i64
-  %.not.i3.i = icmp eq i64 %.sroa.2.0.copyload.i.i.i64, 0
-  br i1 %.not.i3.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler17VisitAttachClauseERKN5clang19OpenACCAttachClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-.lr.ph.i:                                         ; preds = %10, %.lr.ph.i
-  %.0.i4.i = phi ptr [ %15, %.lr.ph.i ], [ %.sroa.0.0.copyload.i.i.i62, %10 ]
-  %13 = load ptr, ptr %.0.i4.i, align 8, !tbaa !164
-  %14 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %14, ptr noundef %13)
-  %15 = getelementptr inbounds nuw i8, ptr %.0.i4.i, i64 8
-  %.not.i.i65 = icmp eq ptr %15, %12
-  br i1 %.not.i.i65, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i
-
-16:                                               ; preds = %3
-  %17 = load ptr, ptr %0, align 8, !tbaa !402
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %0, align 8, !tbaa !402
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !170
   %.not.i.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i.i.i.i, 0
-  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler19VisitCollapseClauseERKN5clang21OpenACCCollapseClauseE.exit, label %18
+  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler19VisitCollapseClauseERKN5clang21OpenACCCollapseClauseE.exit, label %13
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %19, align 8, !tbaa !404
-  %20 = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i, align 8, !tbaa !164
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !404
+  %15 = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i, align 8, !tbaa !164
   br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler19VisitCollapseClauseERKN5clang21OpenACCCollapseClauseE.exit
 
-_ZN12_GLOBAL__N_121OpenACCClauseProfiler19VisitCollapseClauseERKN5clang21OpenACCCollapseClauseE.exit: ; preds = %16, %18
-  %21 = phi ptr [ %20, %18 ], [ null, %16 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %17, ptr noundef %21)
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler19VisitCollapseClauseERKN5clang21OpenACCCollapseClauseE.exit: ; preds = %11, %13
+  %16 = phi ptr [ %15, %13 ], [ null, %11 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %12, ptr noundef %16)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
+
+17:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler15VisitCopyClauseERKN5clang17OpenACCCopyClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
+
+18:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler15VisitCopyClauseERKN5clang17OpenACCCopyClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
+
+19:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler15VisitCopyClauseERKN5clang17OpenACCCopyClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
+
+20:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler17VisitCopyInClauseERKN5clang19OpenACCCopyInClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
+
+21:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler17VisitCopyInClauseERKN5clang19OpenACCCopyInClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i66 = load ptr, ptr %23, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i67 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i68 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i67, align 8, !tbaa !170
-  %24 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i66, i64 %.sroa.2.0.copyload.i.i.i68
-  %.not.i3.i69 = icmp eq i64 %.sroa.2.0.copyload.i.i.i68, 0
-  br i1 %.not.i3.i69, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i70
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler17VisitCopyInClauseERKN5clang19OpenACCCopyInClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-.lr.ph.i70:                                       ; preds = %22, %.lr.ph.i70
-  %.0.i4.i71 = phi ptr [ %27, %.lr.ph.i70 ], [ %.sroa.0.0.copyload.i.i.i66, %22 ]
-  %25 = load ptr, ptr %.0.i4.i71, align 8, !tbaa !164
-  %26 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %26, ptr noundef %25)
-  %27 = getelementptr inbounds nuw i8, ptr %.0.i4.i71, i64 8
-  %.not.i.i72 = icmp eq ptr %27, %24
-  br i1 %.not.i.i72, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i70
+23:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler18VisitCopyOutClauseERKN5clang20OpenACCCopyOutClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
+
+24:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler18VisitCopyOutClauseERKN5clang20OpenACCCopyOutClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
+
+25:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler18VisitCopyOutClauseERKN5clang20OpenACCCopyOutClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
+
+26:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler17VisitCreateClauseERKN5clang19OpenACCCreateClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
+
+27:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler17VisitCreateClauseERKN5clang19OpenACCCreateClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
 28:                                               ; preds = %3
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i73 = load ptr, ptr %29, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i74 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i75 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i74, align 8, !tbaa !170
-  %30 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i73, i64 %.sroa.2.0.copyload.i.i.i75
-  %.not.i3.i76 = icmp eq i64 %.sroa.2.0.copyload.i.i.i75, 0
-  br i1 %.not.i3.i76, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i77
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler17VisitCreateClauseERKN5clang19OpenACCCreateClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-.lr.ph.i77:                                       ; preds = %28, %.lr.ph.i77
-  %.0.i4.i78 = phi ptr [ %33, %.lr.ph.i77 ], [ %.sroa.0.0.copyload.i.i.i73, %28 ]
-  %31 = load ptr, ptr %.0.i4.i78, align 8, !tbaa !164
-  %32 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %32, ptr noundef %31)
-  %33 = getelementptr inbounds nuw i8, ptr %.0.i4.i78, i64 8
-  %.not.i.i79 = icmp eq ptr %33, %30
-  br i1 %.not.i.i79, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i77
-
-34:                                               ; preds = %3
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i81 = load ptr, ptr %35, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i82 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i83 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i82, align 8, !tbaa !170
-  %36 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i81, i64 %.sroa.2.0.copyload.i.i.i83
-  %.not.i3.i84 = icmp eq i64 %.sroa.2.0.copyload.i.i.i83, 0
-  br i1 %.not.i3.i84, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i85
-
-.lr.ph.i85:                                       ; preds = %34, %.lr.ph.i85
-  %.0.i4.i86 = phi ptr [ %39, %.lr.ph.i85 ], [ %.sroa.0.0.copyload.i.i.i81, %34 ]
-  %37 = load ptr, ptr %.0.i4.i86, align 8, !tbaa !164
-  %38 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %38, ptr noundef %37)
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i4.i86, i64 8
-  %.not.i.i87 = icmp eq ptr %39, %36
-  br i1 %.not.i.i87, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i85
-
-40:                                               ; preds = %3
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i89 = load ptr, ptr %41, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i90 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i91 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i90, align 8, !tbaa !170
-  %42 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i89, i64 %.sroa.2.0.copyload.i.i.i91
-  %.not.i3.i92 = icmp eq i64 %.sroa.2.0.copyload.i.i.i91, 0
-  br i1 %.not.i3.i92, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i93
-
-.lr.ph.i93:                                       ; preds = %40, %.lr.ph.i93
-  %.0.i4.i94 = phi ptr [ %45, %.lr.ph.i93 ], [ %.sroa.0.0.copyload.i.i.i89, %40 ]
-  %43 = load ptr, ptr %.0.i4.i94, align 8, !tbaa !164
-  %44 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %44, ptr noundef %43)
-  %45 = getelementptr inbounds nuw i8, ptr %.0.i4.i94, i64 8
-  %.not.i.i95 = icmp eq ptr %45, %42
-  br i1 %.not.i.i95, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i93
-
-46:                                               ; preds = %3
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i96 = load ptr, ptr %47, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i97 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i98 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i97, align 8, !tbaa !170
-  %48 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i96, i64 %.sroa.2.0.copyload.i.i.i98
-  %.not.i3.i99 = icmp eq i64 %.sroa.2.0.copyload.i.i.i98, 0
-  br i1 %.not.i3.i99, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i100
-
-.lr.ph.i100:                                      ; preds = %46, %.lr.ph.i100
-  %.0.i4.i101 = phi ptr [ %51, %.lr.ph.i100 ], [ %.sroa.0.0.copyload.i.i.i96, %46 ]
-  %49 = load ptr, ptr %.0.i4.i101, align 8, !tbaa !164
-  %50 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %50, ptr noundef %49)
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i4.i101, i64 8
-  %.not.i.i102 = icmp eq ptr %51, %48
-  br i1 %.not.i.i102, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i100
-
-52:                                               ; preds = %3
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i104 = load ptr, ptr %53, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i105 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i106 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i105, align 8, !tbaa !170
-  %54 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i104, i64 %.sroa.2.0.copyload.i.i.i106
-  %.not.i3.i107 = icmp eq i64 %.sroa.2.0.copyload.i.i.i106, 0
-  br i1 %.not.i3.i107, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i108
-
-.lr.ph.i108:                                      ; preds = %52, %.lr.ph.i108
-  %.0.i4.i109 = phi ptr [ %57, %.lr.ph.i108 ], [ %.sroa.0.0.copyload.i.i.i104, %52 ]
-  %55 = load ptr, ptr %.0.i4.i109, align 8, !tbaa !164
-  %56 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %56, ptr noundef %55)
-  %57 = getelementptr inbounds nuw i8, ptr %.0.i4.i109, i64 8
-  %.not.i.i110 = icmp eq ptr %57, %54
-  br i1 %.not.i.i110, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i108
-
-58:                                               ; preds = %3
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i112 = load ptr, ptr %59, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i113 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i114 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i113, align 8, !tbaa !170
-  %60 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i112, i64 %.sroa.2.0.copyload.i.i.i114
-  %.not.i3.i115 = icmp eq i64 %.sroa.2.0.copyload.i.i.i114, 0
-  br i1 %.not.i3.i115, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i116
-
-.lr.ph.i116:                                      ; preds = %58, %.lr.ph.i116
-  %.0.i4.i117 = phi ptr [ %63, %.lr.ph.i116 ], [ %.sroa.0.0.copyload.i.i.i112, %58 ]
-  %61 = load ptr, ptr %.0.i4.i117, align 8, !tbaa !164
-  %62 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %62, ptr noundef %61)
-  %63 = getelementptr inbounds nuw i8, ptr %.0.i4.i117, i64 8
-  %.not.i.i118 = icmp eq ptr %63, %60
-  br i1 %.not.i.i118, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i116
-
-64:                                               ; preds = %3
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i119 = load ptr, ptr %65, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i120 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i121 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i120, align 8, !tbaa !170
-  %66 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i119, i64 %.sroa.2.0.copyload.i.i.i121
-  %.not.i3.i122 = icmp eq i64 %.sroa.2.0.copyload.i.i.i121, 0
-  br i1 %.not.i3.i122, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i123
-
-.lr.ph.i123:                                      ; preds = %64, %.lr.ph.i123
-  %.0.i4.i124 = phi ptr [ %69, %.lr.ph.i123 ], [ %.sroa.0.0.copyload.i.i.i119, %64 ]
-  %67 = load ptr, ptr %.0.i4.i124, align 8, !tbaa !164
-  %68 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %68, ptr noundef %67)
-  %69 = getelementptr inbounds nuw i8, ptr %.0.i4.i124, i64 8
-  %.not.i.i125 = icmp eq ptr %69, %66
-  br i1 %.not.i.i125, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i123
-
-70:                                               ; preds = %3
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i127 = load ptr, ptr %71, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i128 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i129 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i128, align 8, !tbaa !170
-  %72 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i127, i64 %.sroa.2.0.copyload.i.i.i129
-  %.not.i3.i130 = icmp eq i64 %.sroa.2.0.copyload.i.i.i129, 0
-  br i1 %.not.i3.i130, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i131
-
-.lr.ph.i131:                                      ; preds = %70, %.lr.ph.i131
-  %.0.i4.i132 = phi ptr [ %75, %.lr.ph.i131 ], [ %.sroa.0.0.copyload.i.i.i127, %70 ]
-  %73 = load ptr, ptr %.0.i4.i132, align 8, !tbaa !164
-  %74 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %74, ptr noundef %73)
-  %75 = getelementptr inbounds nuw i8, ptr %.0.i4.i132, i64 8
-  %.not.i.i133 = icmp eq ptr %75, %72
-  br i1 %.not.i.i133, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i131
-
-76:                                               ; preds = %3
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i135 = load ptr, ptr %77, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i136 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i137 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i136, align 8, !tbaa !170
-  %78 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i135, i64 %.sroa.2.0.copyload.i.i.i137
-  %.not.i3.i138 = icmp eq i64 %.sroa.2.0.copyload.i.i.i137, 0
-  br i1 %.not.i3.i138, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i139
-
-.lr.ph.i139:                                      ; preds = %76, %.lr.ph.i139
-  %.0.i4.i140 = phi ptr [ %81, %.lr.ph.i139 ], [ %.sroa.0.0.copyload.i.i.i135, %76 ]
-  %79 = load ptr, ptr %.0.i4.i140, align 8, !tbaa !164
-  %80 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %80, ptr noundef %79)
-  %81 = getelementptr inbounds nuw i8, ptr %.0.i4.i140, i64 8
-  %.not.i.i141 = icmp eq ptr %81, %78
-  br i1 %.not.i.i141, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i139
-
-82:                                               ; preds = %3
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i142 = load ptr, ptr %83, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i143 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i144 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i143, align 8, !tbaa !170
-  %84 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i142, i64 %.sroa.2.0.copyload.i.i.i144
-  %.not.i3.i145 = icmp eq i64 %.sroa.2.0.copyload.i.i.i144, 0
-  br i1 %.not.i3.i145, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i146
-
-.lr.ph.i146:                                      ; preds = %82, %.lr.ph.i146
-  %.0.i4.i147 = phi ptr [ %87, %.lr.ph.i146 ], [ %.sroa.0.0.copyload.i.i.i142, %82 ]
-  %85 = load ptr, ptr %.0.i4.i147, align 8, !tbaa !164
-  %86 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %86, ptr noundef %85)
-  %87 = getelementptr inbounds nuw i8, ptr %.0.i4.i147, i64 8
-  %.not.i.i148 = icmp eq ptr %87, %84
-  br i1 %.not.i.i148, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i146
-
-88:                                               ; preds = %3
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i150 = load ptr, ptr %89, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i151 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i152 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i151, align 8, !tbaa !170
-  %90 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i150, i64 %.sroa.2.0.copyload.i.i.i152
-  %.not.i3.i153 = icmp eq i64 %.sroa.2.0.copyload.i.i.i152, 0
-  br i1 %.not.i3.i153, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i154
-
-.lr.ph.i154:                                      ; preds = %88, %.lr.ph.i154
-  %.0.i4.i155 = phi ptr [ %93, %.lr.ph.i154 ], [ %.sroa.0.0.copyload.i.i.i150, %88 ]
-  %91 = load ptr, ptr %.0.i4.i155, align 8, !tbaa !164
-  %92 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %92, ptr noundef %91)
-  %93 = getelementptr inbounds nuw i8, ptr %.0.i4.i155, i64 8
-  %.not.i.i156 = icmp eq ptr %93, %90
-  br i1 %.not.i.i156, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i154
-
-94:                                               ; preds = %3
-  %95 = load ptr, ptr %0, align 8, !tbaa !402
+29:                                               ; preds = %3
+  %30 = load ptr, ptr %0, align 8, !tbaa !402
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !170
   %.not.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i.i.i, 0
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler23VisitDefaultAsyncClauseERKN5clang25OpenACCDefaultAsyncClauseE.exit, label %96
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler23VisitDefaultAsyncClauseERKN5clang25OpenACCDefaultAsyncClauseE.exit, label %31
 
-96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %97, align 8, !tbaa !404
-  %98 = load ptr, ptr %.sroa.0.0.copyload.i.i.i, align 8, !tbaa !164
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %32, align 8, !tbaa !404
+  %33 = load ptr, ptr %.sroa.0.0.copyload.i.i.i, align 8, !tbaa !164
   br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler23VisitDefaultAsyncClauseERKN5clang25OpenACCDefaultAsyncClauseE.exit
 
-_ZN12_GLOBAL__N_121OpenACCClauseProfiler23VisitDefaultAsyncClauseERKN5clang25OpenACCDefaultAsyncClauseE.exit: ; preds = %94, %96
-  %99 = phi ptr [ %98, %96 ], [ null, %94 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %95, ptr noundef %99)
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler23VisitDefaultAsyncClauseERKN5clang25OpenACCDefaultAsyncClauseE.exit: ; preds = %29, %31
+  %34 = phi ptr [ %33, %31 ], [ null, %29 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %30, ptr noundef %34)
   br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-100:                                              ; preds = %3
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i158 = load ptr, ptr %101, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i159 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i160 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i159, align 8, !tbaa !170
-  %102 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i158, i64 %.sroa.2.0.copyload.i.i.i160
-  %.not.i3.i161 = icmp eq i64 %.sroa.2.0.copyload.i.i.i160, 0
-  br i1 %.not.i3.i161, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i162
+35:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler17VisitDeleteClauseERKN5clang19OpenACCDeleteClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-.lr.ph.i162:                                      ; preds = %100, %.lr.ph.i162
-  %.0.i4.i163 = phi ptr [ %105, %.lr.ph.i162 ], [ %.sroa.0.0.copyload.i.i.i158, %100 ]
-  %103 = load ptr, ptr %.0.i4.i163, align 8, !tbaa !164
-  %104 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %104, ptr noundef %103)
-  %105 = getelementptr inbounds nuw i8, ptr %.0.i4.i163, i64 8
-  %.not.i.i164 = icmp eq ptr %105, %102
-  br i1 %.not.i.i164, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i162
+36:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler17VisitDetachClauseERKN5clang19OpenACCDetachClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-106:                                              ; preds = %3
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i165 = load ptr, ptr %107, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i166 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i167 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i166, align 8, !tbaa !170
-  %108 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i165, i64 %.sroa.2.0.copyload.i.i.i167
-  %.not.i3.i168 = icmp eq i64 %.sroa.2.0.copyload.i.i.i167, 0
-  br i1 %.not.i3.i168, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i169
+37:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler17VisitDeviceClauseERKN5clang19OpenACCDeviceClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-.lr.ph.i169:                                      ; preds = %106, %.lr.ph.i169
-  %.0.i4.i170 = phi ptr [ %111, %.lr.ph.i169 ], [ %.sroa.0.0.copyload.i.i.i165, %106 ]
-  %109 = load ptr, ptr %.0.i4.i170, align 8, !tbaa !164
-  %110 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %110, ptr noundef %109)
-  %111 = getelementptr inbounds nuw i8, ptr %.0.i4.i170, i64 8
-  %.not.i.i171 = icmp eq ptr %111, %108
-  br i1 %.not.i.i171, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i169
-
-112:                                              ; preds = %3
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i172 = load ptr, ptr %113, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i173 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i174 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i173, align 8, !tbaa !170
-  %114 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i172, i64 %.sroa.2.0.copyload.i.i.i174
-  %.not.i3.i175 = icmp eq i64 %.sroa.2.0.copyload.i.i.i174, 0
-  br i1 %.not.i3.i175, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i176
-
-.lr.ph.i176:                                      ; preds = %112, %.lr.ph.i176
-  %.0.i4.i177 = phi ptr [ %117, %.lr.ph.i176 ], [ %.sroa.0.0.copyload.i.i.i172, %112 ]
-  %115 = load ptr, ptr %.0.i4.i177, align 8, !tbaa !164
-  %116 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %116, ptr noundef %115)
-  %117 = getelementptr inbounds nuw i8, ptr %.0.i4.i177, i64 8
-  %.not.i.i178 = icmp eq ptr %117, %114
-  br i1 %.not.i.i178, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i176
-
-118:                                              ; preds = %3
-  %119 = load ptr, ptr %0, align 8, !tbaa !402
+38:                                               ; preds = %3
+  %39 = load ptr, ptr %0, align 8, !tbaa !402
   %.sroa.2.0..sroa_idx.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i.i.i.i50 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i49, align 8, !tbaa !170
   %.not.i.i51 = icmp eq i64 %.sroa.2.0.copyload.i.i.i.i50, 0
-  br i1 %.not.i.i51, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler20VisitDeviceNumClauseERKN5clang22OpenACCDeviceNumClauseE.exit, label %120
+  br i1 %.not.i.i51, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler20VisitDeviceNumClauseERKN5clang22OpenACCDeviceNumClauseE.exit, label %40
 
-120:                                              ; preds = %118
-  %121 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i52 = load ptr, ptr %121, align 8, !tbaa !404
-  %122 = load ptr, ptr %.sroa.0.0.copyload.i.i.i52, align 8, !tbaa !164
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i.i52 = load ptr, ptr %41, align 8, !tbaa !404
+  %42 = load ptr, ptr %.sroa.0.0.copyload.i.i.i52, align 8, !tbaa !164
   br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler20VisitDeviceNumClauseERKN5clang22OpenACCDeviceNumClauseE.exit
 
-_ZN12_GLOBAL__N_121OpenACCClauseProfiler20VisitDeviceNumClauseERKN5clang22OpenACCDeviceNumClauseE.exit: ; preds = %118, %120
-  %123 = phi ptr [ %122, %120 ], [ null, %118 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %119, ptr noundef %123)
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler20VisitDeviceNumClauseERKN5clang22OpenACCDeviceNumClauseE.exit: ; preds = %38, %40
+  %43 = phi ptr [ %42, %40 ], [ null, %38 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %39, ptr noundef %43)
   br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-124:                                              ; preds = %3
-  %125 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i179 = load ptr, ptr %125, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i180 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i181 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i180, align 8, !tbaa !170
-  %126 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i179, i64 %.sroa.2.0.copyload.i.i.i181
-  %.not.i3.i182 = icmp eq i64 %.sroa.2.0.copyload.i.i.i181, 0
-  br i1 %.not.i3.i182, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i183
+44:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler20VisitDevicePtrClauseERKN5clang22OpenACCDevicePtrClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-.lr.ph.i183:                                      ; preds = %124, %.lr.ph.i183
-  %.0.i4.i184 = phi ptr [ %129, %.lr.ph.i183 ], [ %.sroa.0.0.copyload.i.i.i179, %124 ]
-  %127 = load ptr, ptr %.0.i4.i184, align 8, !tbaa !164
-  %128 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %128, ptr noundef %127)
-  %129 = getelementptr inbounds nuw i8, ptr %.0.i4.i184, i64 8
-  %.not.i.i185 = icmp eq ptr %129, %126
-  br i1 %.not.i.i185, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i183
+45:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler23VisitFirstPrivateClauseERKN5clang25OpenACCFirstPrivateClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-130:                                              ; preds = %3
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i186 = load ptr, ptr %131, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i187 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i188 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i187, align 8, !tbaa !170
-  %132 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i186, i64 %.sroa.2.0.copyload.i.i.i188
-  %.not.i3.i189 = icmp eq i64 %.sroa.2.0.copyload.i.i.i188, 0
-  br i1 %.not.i3.i189, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i190
-
-.lr.ph.i190:                                      ; preds = %130, %.lr.ph.i190
-  %.0.i4.i191 = phi ptr [ %135, %.lr.ph.i190 ], [ %.sroa.0.0.copyload.i.i.i186, %130 ]
-  %133 = load ptr, ptr %.0.i4.i191, align 8, !tbaa !164
-  %134 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %134, ptr noundef %133)
-  %135 = getelementptr inbounds nuw i8, ptr %.0.i4.i191, i64 8
-  %.not.i.i192 = icmp eq ptr %135, %132
-  br i1 %.not.i.i192, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i190
-
-136:                                              ; preds = %3
+46:                                               ; preds = %3
   tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler15VisitGangClauseERKN5clang17OpenACCGangClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-137:                                              ; preds = %3
-  %138 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i193 = load ptr, ptr %138, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i194 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i195 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i194, align 8, !tbaa !170
-  %139 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i193, i64 %.sroa.2.0.copyload.i.i.i195
-  %.not.i3.i196 = icmp eq i64 %.sroa.2.0.copyload.i.i.i195, 0
-  br i1 %.not.i3.i196, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i197
-
-.lr.ph.i197:                                      ; preds = %137, %.lr.ph.i197
-  %.0.i4.i198 = phi ptr [ %142, %.lr.ph.i197 ], [ %.sroa.0.0.copyload.i.i.i193, %137 ]
-  %140 = load ptr, ptr %.0.i4.i198, align 8, !tbaa !164
-  %141 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %141, ptr noundef %140)
-  %142 = getelementptr inbounds nuw i8, ptr %.0.i4.i198, i64 8
-  %.not.i.i199 = icmp eq ptr %142, %139
-  br i1 %.not.i.i199, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i197
-
-143:                                              ; preds = %3
-  %144 = load ptr, ptr %0, align 8, !tbaa !402
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %146 = load ptr, ptr %145, align 8, !tbaa !406
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %144, ptr noundef %146)
+47:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler15VisitHostClauseERKN5clang17OpenACCHostClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-147:                                              ; preds = %3
-  %148 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i200 = load ptr, ptr %148, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i201 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i202 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i201, align 8, !tbaa !170
-  %149 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i200, i64 %.sroa.2.0.copyload.i.i.i202
-  %.not.i3.i203 = icmp eq i64 %.sroa.2.0.copyload.i.i.i202, 0
-  br i1 %.not.i3.i203, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i204
+48:                                               ; preds = %3
+  %49 = load ptr, ptr %0, align 8, !tbaa !402
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %51 = load ptr, ptr %50, align 8, !tbaa !406
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %49, ptr noundef %51)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-.lr.ph.i204:                                      ; preds = %147, %.lr.ph.i204
-  %.0.i4.i205 = phi ptr [ %152, %.lr.ph.i204 ], [ %.sroa.0.0.copyload.i.i.i200, %147 ]
-  %150 = load ptr, ptr %.0.i4.i205, align 8, !tbaa !164
-  %151 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %151, ptr noundef %150)
-  %152 = getelementptr inbounds nuw i8, ptr %.0.i4.i205, i64 8
-  %.not.i.i206 = icmp eq ptr %152, %149
-  br i1 %.not.i.i206, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i204
+52:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler19VisitNoCreateClauseERKN5clang21OpenACCNoCreateClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-153:                                              ; preds = %3
-  %154 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i207 = load ptr, ptr %154, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i208 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i209 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i208, align 8, !tbaa !170
-  %155 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i207, i64 %.sroa.2.0.copyload.i.i.i209
-  %.not10.i = icmp eq i64 %.sroa.2.0.copyload.i.i.i209, 0
-  br i1 %.not10.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i210
+53:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler19VisitNumGangsClauseERKN5clang21OpenACCNumGangsClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-.lr.ph.i210:                                      ; preds = %153, %.lr.ph.i210
-  %.011.i = phi ptr [ %158, %.lr.ph.i210 ], [ %.sroa.0.0.copyload.i.i.i207, %153 ]
-  %156 = load ptr, ptr %.011.i, align 8, !tbaa !164
-  %157 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %157, ptr noundef %156)
-  %158 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
-  %.not.i211 = icmp eq ptr %158, %155
-  br i1 %.not.i211, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i210
-
-159:                                              ; preds = %3
-  %160 = load ptr, ptr %0, align 8, !tbaa !402
+54:                                               ; preds = %3
+  %55 = load ptr, ptr %0, align 8, !tbaa !402
   %.sroa.2.0..sroa_idx.i.i.i.i53 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i.i.i.i54 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i53, align 8, !tbaa !170
   %.not.i.i55 = icmp eq i64 %.sroa.2.0.copyload.i.i.i.i54, 0
-  br i1 %.not.i.i55, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler21VisitNumWorkersClauseERKN5clang23OpenACCNumWorkersClauseE.exit, label %161
+  br i1 %.not.i.i55, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler21VisitNumWorkersClauseERKN5clang23OpenACCNumWorkersClauseE.exit, label %56
 
-161:                                              ; preds = %159
-  %162 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i56 = load ptr, ptr %162, align 8, !tbaa !404
-  %163 = load ptr, ptr %.sroa.0.0.copyload.i.i.i56, align 8, !tbaa !164
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i.i56 = load ptr, ptr %57, align 8, !tbaa !404
+  %58 = load ptr, ptr %.sroa.0.0.copyload.i.i.i56, align 8, !tbaa !164
   br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler21VisitNumWorkersClauseERKN5clang23OpenACCNumWorkersClauseE.exit
 
-_ZN12_GLOBAL__N_121OpenACCClauseProfiler21VisitNumWorkersClauseERKN5clang23OpenACCNumWorkersClauseE.exit: ; preds = %159, %161
-  %164 = phi ptr [ %163, %161 ], [ null, %159 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %160, ptr noundef %164)
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler21VisitNumWorkersClauseERKN5clang23OpenACCNumWorkersClauseE.exit: ; preds = %54, %56
+  %59 = phi ptr [ %58, %56 ], [ null, %54 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %55, ptr noundef %59)
   br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-165:                                              ; preds = %3
-  %166 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i212 = load ptr, ptr %166, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i213 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i214 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i213, align 8, !tbaa !170
-  %167 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i212, i64 %.sroa.2.0.copyload.i.i.i214
-  %.not.i3.i215 = icmp eq i64 %.sroa.2.0.copyload.i.i.i214, 0
-  br i1 %.not.i3.i215, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i216
+60:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler18VisitPresentClauseERKN5clang20OpenACCPresentClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-.lr.ph.i216:                                      ; preds = %165, %.lr.ph.i216
-  %.0.i4.i217 = phi ptr [ %170, %.lr.ph.i216 ], [ %.sroa.0.0.copyload.i.i.i212, %165 ]
-  %168 = load ptr, ptr %.0.i4.i217, align 8, !tbaa !164
-  %169 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %169, ptr noundef %168)
-  %170 = getelementptr inbounds nuw i8, ptr %.0.i4.i217, i64 8
-  %.not.i.i218 = icmp eq ptr %170, %167
-  br i1 %.not.i.i218, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i216
+61:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler18VisitPrivateClauseERKN5clang20OpenACCPrivateClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-171:                                              ; preds = %3
-  %172 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i219 = load ptr, ptr %172, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i220 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i221 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i220, align 8, !tbaa !170
-  %173 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i219, i64 %.sroa.2.0.copyload.i.i.i221
-  %.not.i3.i222 = icmp eq i64 %.sroa.2.0.copyload.i.i.i221, 0
-  br i1 %.not.i3.i222, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i223
+62:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler20VisitReductionClauseERKN5clang22OpenACCReductionClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-.lr.ph.i223:                                      ; preds = %171, %.lr.ph.i223
-  %.0.i4.i224 = phi ptr [ %176, %.lr.ph.i223 ], [ %.sroa.0.0.copyload.i.i.i219, %171 ]
-  %174 = load ptr, ptr %.0.i4.i224, align 8, !tbaa !164
-  %175 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %175, ptr noundef %174)
-  %176 = getelementptr inbounds nuw i8, ptr %.0.i4.i224, i64 8
-  %.not.i.i225 = icmp eq ptr %176, %173
-  br i1 %.not.i.i225, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i223
-
-177:                                              ; preds = %3
-  %178 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i226 = load ptr, ptr %178, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i227 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i228 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i227, align 8, !tbaa !170
-  %179 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i226, i64 %.sroa.2.0.copyload.i.i.i228
-  %.not.i3.i229 = icmp eq i64 %.sroa.2.0.copyload.i.i.i228, 0
-  br i1 %.not.i3.i229, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i230
-
-.lr.ph.i230:                                      ; preds = %177, %.lr.ph.i230
-  %.0.i4.i231 = phi ptr [ %182, %.lr.ph.i230 ], [ %.sroa.0.0.copyload.i.i.i226, %177 ]
-  %180 = load ptr, ptr %.0.i4.i231, align 8, !tbaa !164
-  %181 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %181, ptr noundef %180)
-  %182 = getelementptr inbounds nuw i8, ptr %.0.i4.i231, i64 8
-  %.not.i.i232 = icmp eq ptr %182, %179
-  br i1 %.not.i.i232, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i230
-
-183:                                              ; preds = %3
+63:                                               ; preds = %3
   tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler15VisitSelfClauseERKN5clang17OpenACCSelfClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-184:                                              ; preds = %3
-  %185 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i233 = load ptr, ptr %185, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i234 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i235 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i234, align 8, !tbaa !170
-  %186 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i233, i64 %.sroa.2.0.copyload.i.i.i235
-  %.not10.i236 = icmp eq i64 %.sroa.2.0.copyload.i.i.i235, 0
-  br i1 %.not10.i236, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i237
-
-.lr.ph.i237:                                      ; preds = %184, %.lr.ph.i237
-  %.011.i238 = phi ptr [ %189, %.lr.ph.i237 ], [ %.sroa.0.0.copyload.i.i.i233, %184 ]
-  %187 = load ptr, ptr %.011.i238, align 8, !tbaa !164
-  %188 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %188, ptr noundef %187)
-  %189 = getelementptr inbounds nuw i8, ptr %.011.i238, i64 8
-  %.not.i239 = icmp eq ptr %189, %186
-  br i1 %.not.i239, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i237
-
-190:                                              ; preds = %3
-  %191 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i240 = load ptr, ptr %191, align 8, !tbaa !404
-  %.sroa.2.0..sroa_idx.i.i.i241 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i242 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i241, align 8, !tbaa !170
-  %192 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i240, i64 %.sroa.2.0.copyload.i.i.i242
-  %.not.i3.i243 = icmp eq i64 %.sroa.2.0.copyload.i.i.i242, 0
-  br i1 %.not.i3.i243, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i244
-
-.lr.ph.i244:                                      ; preds = %190, %.lr.ph.i244
-  %.0.i4.i245 = phi ptr [ %195, %.lr.ph.i244 ], [ %.sroa.0.0.copyload.i.i.i240, %190 ]
-  %193 = load ptr, ptr %.0.i4.i245, align 8, !tbaa !164
-  %194 = load ptr, ptr %0, align 8, !tbaa !402
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %194, ptr noundef %193)
-  %195 = getelementptr inbounds nuw i8, ptr %.0.i4.i245, i64 8
-  %.not.i.i246 = icmp eq ptr %195, %192
-  br i1 %.not.i.i246, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %.lr.ph.i244
-
-196:                                              ; preds = %3
-  %.sroa.2.0..sroa_idx.i.i.i247 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i248 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i247, align 8, !tbaa !170
-  %.not.i249 = icmp eq i64 %.sroa.2.0.copyload.i.i.i248, 0
-  br i1 %.not.i249, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %_ZNK5clang30OpenACCClauseWithSingleIntExpr10getIntExprEv.exit.i250
-
-_ZNK5clang30OpenACCClauseWithSingleIntExpr10getIntExprEv.exit.i250: ; preds = %196
-  %197 = load ptr, ptr %0, align 8, !tbaa !402
-  %198 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i251 = load ptr, ptr %198, align 8, !tbaa !404
-  %199 = load ptr, ptr %.sroa.0.0.copyload.i.i.i251, align 8, !tbaa !164
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %197, ptr noundef %199)
+64:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler15VisitTileClauseERKN5clang17OpenACCTileClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-200:                                              ; preds = %3
-  %201 = load ptr, ptr %0, align 8, !tbaa !402
+65:                                               ; preds = %3
+  tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler20VisitUseDeviceClauseERKN5clang22OpenACCUseDeviceClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
+
+66:                                               ; preds = %3
+  %.sroa.2.0..sroa_idx.i.i.i62 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i.i63 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i62, align 8, !tbaa !170
+  %.not.i64 = icmp eq i64 %.sroa.2.0.copyload.i.i.i63, 0
+  br i1 %.not.i64, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %_ZNK5clang30OpenACCClauseWithSingleIntExpr10getIntExprEv.exit.i65
+
+_ZNK5clang30OpenACCClauseWithSingleIntExpr10getIntExprEv.exit.i65: ; preds = %66
+  %67 = load ptr, ptr %0, align 8, !tbaa !402
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i.i66 = load ptr, ptr %68, align 8, !tbaa !404
+  %69 = load ptr, ptr %.sroa.0.0.copyload.i.i.i66, align 8, !tbaa !164
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %67, ptr noundef %69)
+  br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
+
+70:                                               ; preds = %3
+  %71 = load ptr, ptr %0, align 8, !tbaa !402
   %.sroa.2.0..sroa_idx.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i.i.i.i58 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i57, align 8, !tbaa !170
   %.not.i.i59 = icmp eq i64 %.sroa.2.0.copyload.i.i.i.i58, 0
-  br i1 %.not.i.i59, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler23VisitVectorLengthClauseERKN5clang25OpenACCVectorLengthClauseE.exit, label %202
+  br i1 %.not.i.i59, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler23VisitVectorLengthClauseERKN5clang25OpenACCVectorLengthClauseE.exit, label %72
 
-202:                                              ; preds = %200
-  %203 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i60 = load ptr, ptr %203, align 8, !tbaa !404
-  %204 = load ptr, ptr %.sroa.0.0.copyload.i.i.i60, align 8, !tbaa !164
+72:                                               ; preds = %70
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i.i60 = load ptr, ptr %73, align 8, !tbaa !404
+  %74 = load ptr, ptr %.sroa.0.0.copyload.i.i.i60, align 8, !tbaa !164
   br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler23VisitVectorLengthClauseERKN5clang25OpenACCVectorLengthClauseE.exit
 
-_ZN12_GLOBAL__N_121OpenACCClauseProfiler23VisitVectorLengthClauseERKN5clang25OpenACCVectorLengthClauseE.exit: ; preds = %200, %202
-  %205 = phi ptr [ %204, %202 ], [ null, %200 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %201, ptr noundef %205)
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler23VisitVectorLengthClauseERKN5clang25OpenACCVectorLengthClauseE.exit: ; preds = %70, %72
+  %75 = phi ptr [ %74, %72 ], [ null, %70 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %71, ptr noundef %75)
   br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-206:                                              ; preds = %3
+76:                                               ; preds = %3
   tail call fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler15VisitWaitClauseERKN5clang17OpenACCWaitClauseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-207:                                              ; preds = %3
-  %.sroa.2.0..sroa_idx.i.i.i252 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.2.0.copyload.i.i.i253 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i252, align 8, !tbaa !170
-  %.not.i254 = icmp eq i64 %.sroa.2.0.copyload.i.i.i253, 0
-  br i1 %.not.i254, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %_ZNK5clang30OpenACCClauseWithSingleIntExpr10getIntExprEv.exit.i255
+77:                                               ; preds = %3
+  %.sroa.2.0..sroa_idx.i.i.i67 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i.i68 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i67, align 8, !tbaa !170
+  %.not.i69 = icmp eq i64 %.sroa.2.0.copyload.i.i.i68, 0
+  br i1 %.not.i69, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit, label %_ZNK5clang30OpenACCClauseWithSingleIntExpr10getIntExprEv.exit.i70
 
-_ZNK5clang30OpenACCClauseWithSingleIntExpr10getIntExprEv.exit.i255: ; preds = %207
-  %208 = load ptr, ptr %0, align 8, !tbaa !402
-  %209 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i256 = load ptr, ptr %209, align 8, !tbaa !404
-  %210 = load ptr, ptr %.sroa.0.0.copyload.i.i.i256, align 8, !tbaa !164
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %208, ptr noundef %210)
+_ZNK5clang30OpenACCClauseWithSingleIntExpr10getIntExprEv.exit.i70: ; preds = %77
+  %78 = load ptr, ptr %0, align 8, !tbaa !402
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i.i71 = load ptr, ptr %79, align 8, !tbaa !404
+  %80 = load ptr, ptr %.sroa.0.0.copyload.i.i.i71, align 8, !tbaa !164
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %78, ptr noundef %80)
   br label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit
 
-211:                                              ; preds = %3
+81:                                               ; preds = %3
   unreachable
 
-_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit: ; preds = %.lr.ph.i244, %.lr.ph.i237, %.lr.ph.i230, %.lr.ph.i223, %.lr.ph.i216, %.lr.ph.i210, %.lr.ph.i204, %.lr.ph.i197, %.lr.ph.i190, %.lr.ph.i183, %.lr.ph.i176, %.lr.ph.i169, %.lr.ph.i162, %.lr.ph.i154, %.lr.ph.i146, %.lr.ph.i139, %.lr.ph.i131, %.lr.ph.i123, %.lr.ph.i116, %.lr.ph.i108, %.lr.ph.i100, %.lr.ph.i93, %.lr.ph.i85, %.lr.ph.i77, %.lr.ph.i70, %.lr.ph.i, %_ZNK5clang30OpenACCClauseWithSingleIntExpr10getIntExprEv.exit.i255, %207, %_ZNK5clang30OpenACCClauseWithSingleIntExpr10getIntExprEv.exit.i250, %196, %190, %184, %177, %171, %165, %153, %147, %137, %130, %124, %112, %106, %100, %88, %82, %76, %70, %64, %58, %52, %46, %40, %34, %28, %22, %10, %_ZNK5clang30OpenACCClauseWithSingleIntExpr10getIntExprEv.exit.i, %6, %3, %3, %3, %3, %3, %3, %3, %3, %2, %206, %_ZN12_GLOBAL__N_121OpenACCClauseProfiler23VisitVectorLengthClauseERKN5clang25OpenACCVectorLengthClauseE.exit, %183, %_ZN12_GLOBAL__N_121OpenACCClauseProfiler21VisitNumWorkersClauseERKN5clang23OpenACCNumWorkersClauseE.exit, %143, %136, %_ZN12_GLOBAL__N_121OpenACCClauseProfiler20VisitDeviceNumClauseERKN5clang22OpenACCDeviceNumClauseE.exit, %_ZN12_GLOBAL__N_121OpenACCClauseProfiler23VisitDefaultAsyncClauseERKN5clang25OpenACCDefaultAsyncClauseE.exit, %_ZN12_GLOBAL__N_121OpenACCClauseProfiler19VisitCollapseClauseERKN5clang21OpenACCCollapseClauseE.exit
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler16VisitAsyncClauseERKN5clang18OpenACCAsyncClauseE.exit: ; preds = %_ZNK5clang30OpenACCClauseWithSingleIntExpr10getIntExprEv.exit.i70, %77, %_ZNK5clang30OpenACCClauseWithSingleIntExpr10getIntExprEv.exit.i65, %66, %_ZNK5clang30OpenACCClauseWithSingleIntExpr10getIntExprEv.exit.i, %6, %3, %3, %3, %3, %3, %3, %3, %3, %2, %76, %_ZN12_GLOBAL__N_121OpenACCClauseProfiler23VisitVectorLengthClauseERKN5clang25OpenACCVectorLengthClauseE.exit, %65, %64, %63, %62, %61, %60, %_ZN12_GLOBAL__N_121OpenACCClauseProfiler21VisitNumWorkersClauseERKN5clang23OpenACCNumWorkersClauseE.exit, %53, %52, %48, %47, %46, %45, %44, %_ZN12_GLOBAL__N_121OpenACCClauseProfiler20VisitDeviceNumClauseERKN5clang22OpenACCDeviceNumClauseE.exit, %37, %36, %35, %_ZN12_GLOBAL__N_121OpenACCClauseProfiler23VisitDefaultAsyncClauseERKN5clang25OpenACCDefaultAsyncClauseE.exit, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %_ZN12_GLOBAL__N_121OpenACCClauseProfiler19VisitCollapseClauseERKN5clang21OpenACCCollapseClauseE.exit, %10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler17VisitAttachClauseERKN5clang19OpenACCAttachClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !404
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !170
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx
+  %.not.i3 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.0.i4 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.0.copyload.i.i, %2 ]
+  %5 = load ptr, ptr %.0.i4, align 8, !tbaa !164
+  %6 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef %5)
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 8
+  %.not.i = icmp eq ptr %7, %4
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit: ; preds = %.lr.ph, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler15VisitCopyClauseERKN5clang17OpenACCCopyClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !404
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !170
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx
+  %.not.i3 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.0.i4 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.0.copyload.i.i, %2 ]
+  %5 = load ptr, ptr %.0.i4, align 8, !tbaa !164
+  %6 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef %5)
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 8
+  %.not.i = icmp eq ptr %7, %4
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit: ; preds = %.lr.ph, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler17VisitCopyInClauseERKN5clang19OpenACCCopyInClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !404
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !170
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx
+  %.not.i3 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.0.i4 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.0.copyload.i.i, %2 ]
+  %5 = load ptr, ptr %.0.i4, align 8, !tbaa !164
+  %6 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef %5)
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 8
+  %.not.i = icmp eq ptr %7, %4
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit: ; preds = %.lr.ph, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler18VisitCopyOutClauseERKN5clang20OpenACCCopyOutClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !404
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !170
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx
+  %.not.i3 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.0.i4 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.0.copyload.i.i, %2 ]
+  %5 = load ptr, ptr %.0.i4, align 8, !tbaa !164
+  %6 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef %5)
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 8
+  %.not.i = icmp eq ptr %7, %4
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit: ; preds = %.lr.ph, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler17VisitCreateClauseERKN5clang19OpenACCCreateClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !404
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !170
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx
+  %.not.i3 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.0.i4 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.0.copyload.i.i, %2 ]
+  %5 = load ptr, ptr %.0.i4, align 8, !tbaa !164
+  %6 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef %5)
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 8
+  %.not.i = icmp eq ptr %7, %4
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit: ; preds = %.lr.ph, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler17VisitDeleteClauseERKN5clang19OpenACCDeleteClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !404
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !170
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx
+  %.not.i3 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.0.i4 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.0.copyload.i.i, %2 ]
+  %5 = load ptr, ptr %.0.i4, align 8, !tbaa !164
+  %6 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef %5)
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 8
+  %.not.i = icmp eq ptr %7, %4
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit: ; preds = %.lr.ph, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler17VisitDetachClauseERKN5clang19OpenACCDetachClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !404
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !170
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx
+  %.not.i3 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.0.i4 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.0.copyload.i.i, %2 ]
+  %5 = load ptr, ptr %.0.i4, align 8, !tbaa !164
+  %6 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef %5)
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 8
+  %.not.i = icmp eq ptr %7, %4
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit: ; preds = %.lr.ph, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler17VisitDeviceClauseERKN5clang19OpenACCDeviceClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !404
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !170
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx
+  %.not.i3 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.0.i4 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.0.copyload.i.i, %2 ]
+  %5 = load ptr, ptr %.0.i4, align 8, !tbaa !164
+  %6 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef %5)
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 8
+  %.not.i = icmp eq ptr %7, %4
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit: ; preds = %.lr.ph, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler20VisitDevicePtrClauseERKN5clang22OpenACCDevicePtrClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !404
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !170
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx
+  %.not.i3 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.0.i4 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.0.copyload.i.i, %2 ]
+  %5 = load ptr, ptr %.0.i4, align 8, !tbaa !164
+  %6 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef %5)
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 8
+  %.not.i = icmp eq ptr %7, %4
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit: ; preds = %.lr.ph, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler23VisitFirstPrivateClauseERKN5clang25OpenACCFirstPrivateClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !404
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !170
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx
+  %.not.i3 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.0.i4 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.0.copyload.i.i, %2 ]
+  %5 = load ptr, ptr %.0.i4, align 8, !tbaa !164
+  %6 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef %5)
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 8
+  %.not.i = icmp eq ptr %7, %4
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit: ; preds = %.lr.ph, %2
   ret void
 }
 
@@ -9849,6 +9741,150 @@ define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler15VisitGang
   %9 = and i64 %.sroa.2.0.copyload.i.i, 4294967295
   %10 = icmp samesign ult i64 %indvars.iv.next, %9
   br i1 %10, label %5, label %._crit_edge, !llvm.loop !409
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler15VisitHostClauseERKN5clang17OpenACCHostClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !404
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !170
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx
+  %.not.i3 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.0.i4 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.0.copyload.i.i, %2 ]
+  %5 = load ptr, ptr %.0.i4, align 8, !tbaa !164
+  %6 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef %5)
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 8
+  %.not.i = icmp eq ptr %7, %4
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit: ; preds = %.lr.ph, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler19VisitNoCreateClauseERKN5clang21OpenACCNoCreateClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !404
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !170
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx
+  %.not.i3 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.0.i4 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.0.copyload.i.i, %2 ]
+  %5 = load ptr, ptr %.0.i4, align 8, !tbaa !164
+  %6 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef %5)
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 8
+  %.not.i = icmp eq ptr %7, %4
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit: ; preds = %.lr.ph, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler19VisitNumGangsClauseERKN5clang21OpenACCNumGangsClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !404
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !170
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx
+  %.not10 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
+
+._crit_edge:                                      ; preds = %.lr.ph, %2
+  ret void
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.011 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.0.copyload.i.i, %2 ]
+  %5 = load ptr, ptr %.011, align 8, !tbaa !164
+  %6 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef %5)
+  %7 = getelementptr inbounds nuw i8, ptr %.011, i64 8
+  %.not = icmp eq ptr %7, %4
+  br i1 %.not, label %._crit_edge, label %.lr.ph
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler18VisitPresentClauseERKN5clang20OpenACCPresentClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !404
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !170
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx
+  %.not.i3 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.0.i4 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.0.copyload.i.i, %2 ]
+  %5 = load ptr, ptr %.0.i4, align 8, !tbaa !164
+  %6 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef %5)
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 8
+  %.not.i = icmp eq ptr %7, %4
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit: ; preds = %.lr.ph, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler18VisitPrivateClauseERKN5clang20OpenACCPrivateClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !404
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !170
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx
+  %.not.i3 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.0.i4 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.0.copyload.i.i, %2 ]
+  %5 = load ptr, ptr %.0.i4, align 8, !tbaa !164
+  %6 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef %5)
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 8
+  %.not.i = icmp eq ptr %7, %4
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit: ; preds = %.lr.ph, %2
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler20VisitReductionClauseERKN5clang22OpenACCReductionClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !404
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !170
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx
+  %.not.i3 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.0.i4 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.0.copyload.i.i, %2 ]
+  %5 = load ptr, ptr %.0.i4, align 8, !tbaa !164
+  %6 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef %5)
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 8
+  %.not.i = icmp eq ptr %7, %4
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit: ; preds = %.lr.ph, %2
+  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9895,6 +9931,54 @@ define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler15VisitSelf
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %14, %6, %10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler15VisitTileClauseERKN5clang17OpenACCTileClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !404
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !170
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx
+  %.not10 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
+
+._crit_edge:                                      ; preds = %.lr.ph, %2
+  ret void
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.011 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.0.copyload.i.i, %2 ]
+  %5 = load ptr, ptr %.011, align 8, !tbaa !164
+  %6 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef %5)
+  %7 = getelementptr inbounds nuw i8, ptr %.011, i64 8
+  %.not = icmp eq ptr %7, %4
+  br i1 %.not, label %._crit_edge, label %.lr.ph
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN12_GLOBAL__N_121OpenACCClauseProfiler20VisitUseDeviceClauseERKN5clang22OpenACCUseDeviceClauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !404
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !170
+  %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx
+  %.not.i3 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.0.i4 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.0.copyload.i.i, %2 ]
+  %5 = load ptr, ptr %.0.i4, align 8, !tbaa !164
+  %6 = load ptr, ptr %0, align 8, !tbaa !402
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %6, ptr noundef %5)
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 8
+  %.not.i = icmp eq ptr %7, %4
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit, label %.lr.ph
+
+_ZN12_GLOBAL__N_121OpenACCClauseProfiler22VisitClauseWithVarListERKN5clang24OpenACCClauseWithVarListE.exit: ; preds = %.lr.ph, %2
   ret void
 }
 
@@ -9953,27 +10037,28 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit: ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %5, align 8, !tbaa !344
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = shl nuw nsw i64 %8, 3
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %.not11 = icmp eq i32 %7, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %12, %2, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
+._crit_edge:                                      ; preds = %13, %2, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   ret void
 
-.lr.ph:                                           ; preds = %_ZNK5clang22OMPExecutableDirective7clausesEv.exit, %12
-  %.012 = phi ptr [ %13, %12 ], [ %6, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit ]
-  %10 = load ptr, ptr %.012, align 8, !tbaa !346
-  %.not9 = icmp eq ptr %10, null
-  br i1 %.not9, label %12, label %11
+.lr.ph:                                           ; preds = %_ZNK5clang22OMPExecutableDirective7clausesEv.exit, %13
+  %.012 = phi ptr [ %14, %13 ], [ %6, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit ]
+  %11 = load ptr, ptr %.012, align 8, !tbaa !346
+  %.not9 = icmp eq ptr %11, null
+  br i1 %.not9, label %13, label %12
 
-11:                                               ; preds = %.lr.ph
-  call fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OMPClauseProfilerENS_9const_ptrEvE5VisitEPKNS_9OMPClauseE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %10)
-  br label %12
+12:                                               ; preds = %.lr.ph
+  call fastcc void @_ZN5clang20OMPClauseVisitorBaseIN12_GLOBAL__N_117OMPClauseProfilerENS_9const_ptrEvE5VisitEPKNS_9OMPClauseE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %11)
+  br label %13
 
-12:                                               ; preds = %.lr.ph, %11
-  %13 = getelementptr inbounds nuw i8, ptr %.012, i64 8
-  %.not = icmp eq ptr %13, %9
+13:                                               ; preds = %.lr.ph, %12
+  %14 = getelementptr inbounds nuw i8, ptr %.012, i64 8
+  %.not = icmp eq ptr %14, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !348
 }
 

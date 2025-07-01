@@ -517,11 +517,11 @@ define void @_ZN3gmx19DensityFittingForceC2ERKS0_(ptr noundef nonnull writeonly 
 
 6:                                                ; preds = %9, %2
   %7 = phi i64 [ 0, %2 ], [ %10, %9 ]
-  %.idx6.i = shl nuw nsw i64 %7, 3
-  %.add7.i = add nuw nsw i64 %.idx6.i, 40
-  %.ptr10.i = getelementptr inbounds nuw i8, ptr %3, i64 %.add7.i
+  %.idx.i.i = shl nuw nsw i64 %7, 3
+  %.add6.i = add nuw nsw i64 %.idx.i.i, 40
+  %.ptr9.i = getelementptr inbounds nuw i8, ptr %3, i64 %.add6.i
   %8 = getelementptr inbounds nuw [3 x %"class.gmx::GaussianOn1DLattice"], ptr %5, i64 0, i64 %7
-  invoke void @_ZN3gmx19GaussianOn1DLatticeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %.ptr10.i, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  invoke void @_ZN3gmx19GaussianOn1DLatticeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %.ptr9.i, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %9 unwind label %12
 
 9:                                                ; preds = %6
@@ -536,10 +536,10 @@ define void @_ZN3gmx19DensityFittingForceC2ERKS0_(ptr noundef nonnull writeonly 
   br i1 %14, label %.body, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %12, %.preheader.i.i
-  %.idx.i = phi i64 [ %.add.i, %.preheader.i.i ], [ %.add7.i, %12 ]
+  %.idx.i = phi i64 [ %.add.i, %.preheader.i.i ], [ %.add6.i, %12 ]
   %.add.i = add nsw i64 %.idx.i, -8
-  %.ptr8.i = getelementptr inbounds i8, ptr %3, i64 %.add.i
-  tail call void @_ZN3gmx19GaussianOn1DLatticeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.ptr8.i) #13
+  %.ptr7.i = getelementptr inbounds i8, ptr %3, i64 %.add.i
+  tail call void @_ZN3gmx19GaussianOn1DLatticeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.ptr7.i) #13
   %15 = icmp eq i64 %.add.i, 40
   br i1 %15, label %.body, label %.preheader.i.i
 
@@ -595,11 +595,11 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %27
   br label %36
 
 36:                                               ; preds = %36, %34
-  %.idx11.i = phi i64 [ 64, %34 ], [ %.add12.i, %36 ]
-  %.add12.i = add nsw i64 %.idx11.i, -8
-  %.ptr13.i = getelementptr inbounds i8, ptr %3, i64 %.add12.i
-  tail call void @_ZN3gmx19GaussianOn1DLatticeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.ptr13.i) #13
-  %37 = icmp eq i64 %.add12.i, 40
+  %.idx10.i = phi i64 [ 64, %34 ], [ %.add11.i, %36 ]
+  %.add11.i = add nsw i64 %.idx10.i, -8
+  %.ptr12.i = getelementptr inbounds i8, ptr %3, i64 %.add11.i
+  tail call void @_ZN3gmx19GaussianOn1DLatticeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.ptr12.i) #13
+  %37 = icmp eq i64 %.add11.i, 40
   br i1 %37, label %.body, label %36
 
 38:                                               ; preds = %.noexc5.i.thread, %30

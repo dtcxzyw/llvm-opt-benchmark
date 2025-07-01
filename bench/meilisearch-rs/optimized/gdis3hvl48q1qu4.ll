@@ -17451,7 +17451,8 @@ define hidden void @_ZN23permissive_json_pointer15map_leaf_values17he1ff88fe7f8b
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @_ZN23permissive_json_pointer24map_leaf_values_in_array17h9326763f32ea8a76E(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 captures(none) %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6) unnamed_addr #4 {
-  %8 = getelementptr inbounds { i64, [8 x i64] }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 72
+  %8 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %9 = icmp eq i64 %1, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
@@ -17506,7 +17507,8 @@ define hidden void @_ZN23permissive_json_pointer25map_leaf_values_in_object17hdf
   %16 = load ptr, ptr %15, align 8, !nonnull !5, !noundef !5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !noundef !5
-  %19 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %16, i64 %18
+  %.idx = mul nsw i64 %18, 104
+  %19 = getelementptr inbounds i8, ptr %16, i64 %.idx
   %20 = icmp eq i64 %18, 0
   br i1 %20, label %._crit_edge, label %.lr.ph
 
@@ -67356,7 +67358,8 @@ define void @_ZN11meilisearch6option3Opt14get_ssl_config17h0fd7e77fd90c13f5E(ptr
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.475.0..sroa_idx, align 8
   %.sroa.576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i64 0, ptr %.sroa.576.0..sroa_idx, align 8
-  %86 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %81, i64 %.sroa.672.0.copyload
+  %.idx = mul nsw i64 %.sroa.672.0.copyload, 24
+  %86 = getelementptr inbounds i8, ptr %81, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %55)
   store ptr %81, ptr %55, align 8
   %.sroa.4171.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 8

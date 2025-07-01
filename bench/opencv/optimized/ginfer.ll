@@ -4,21 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.cv::gapi::GNetParam" = type { %"class.std::__cxx11::basic_string", %"class.cv::gapi::GBackend", %"class.cv::util::any" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.cv::gapi::GBackend" = type { %"class.std::shared_ptr" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.cv::util::any" = type { %"class.std::unique_ptr" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.14" }
-%"struct.std::_Head_base.14" = type { ptr }
 %"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
 %"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<cv::gapi::GBackend, std::allocator<cv::gapi::GBackend>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::gapi::GBackend, std::allocator<cv::gapi::GBackend>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::gapi::GBackend, std::allocator<cv::gapi::GBackend>>::_Vector_impl_data" }
@@ -28,6 +13,16 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"struct.std::__detail::_Hash_node_base" = type { ptr }
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
+%"class.cv::gapi::GBackend" = type { %"class.std::shared_ptr" }
+%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
+%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
+%"class.std::__shared_count" = type { ptr }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.14" }
+%"struct.std::_Head_base.14" = type { ptr }
 %"struct.std::_Hashtable<cv::gapi::GBackend, cv::gapi::GBackend, std::allocator<cv::gapi::GBackend>, std::__detail::_Identity, std::equal_to<cv::gapi::GBackend>, std::hash<cv::gapi::GBackend>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, true, true>>::_Scoped_node" = type { ptr, ptr }
 
 $_ZNSt10_HashtableIN2cv4gapi8GBackendES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEED2Ev = comdat any
@@ -72,8 +67,8 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv4gapi11GNetPackageC2ESt16initializer_listINS0_9GNetParamEE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr %1, i64 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %4 = getelementptr inbounds nuw %"struct.cv::gapi::GNetParam", ptr %1, i64 %2
-  %.idx.i = mul nuw nsw i64 %2, 56
+  %.idx7.i = mul nuw nsw i64 %2, 56
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx7.i
   %5 = icmp ugt i64 %2, 164703072086692425
   br i1 %5, label %6, label %_ZNSt6vectorIN2cv4gapi9GNetParamESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
 
@@ -89,13 +84,13 @@ _ZNSt6vectorIN2cv4gapi9GNetParamESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: ; 
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN2cv4gapi9GNetParamESaIS2_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIN2cv4gapi9GNetParamEEE8allocateERS3_m.exit.i.i.i
 
 _ZNSt16allocator_traitsISaIN2cv4gapi9GNetParamEEE8allocateERS3_m.exit.i.i.i: ; preds = %_ZNSt6vectorIN2cv4gapi9GNetParamESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #19
+  %7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx7.i) #19
           to label %_ZNSt12_Vector_baseIN2cv4gapi9GNetParamESaIS2_EE11_M_allocateEm.exit.i.i unwind label %12
 
 _ZNSt12_Vector_baseIN2cv4gapi9GNetParamESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIN2cv4gapi9GNetParamEEE8allocateERS3_m.exit.i.i.i, %_ZNSt6vectorIN2cv4gapi9GNetParamESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
   %8 = phi ptr [ null, %_ZNSt6vectorIN2cv4gapi9GNetParamESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %7, %_ZNSt16allocator_traitsISaIN2cv4gapi9GNetParamEEE8allocateERS3_m.exit.i.i.i ]
   store ptr %8, ptr %0, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx7.i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8, !tbaa !9
   %11 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN2cv4gapi9GNetParamEPS2_ET0_T_S7_S6_(ptr noundef %1, ptr noundef %4, ptr noundef %8)

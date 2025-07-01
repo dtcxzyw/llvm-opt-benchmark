@@ -38865,7 +38865,8 @@ define void @_ZN8wasmtime7runtime8instance8Instance17typecheck_externs17h8159f40
   %6 = alloca { { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} } }, align 8
   %7 = alloca { { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} } }, align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %9 = getelementptr inbounds { i64, [2 x i64] }, ptr %3, i64 %4
+  %.idx = mul nsw i64 %4, 24
+  %9 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %10 = icmp eq i64 %4, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -39893,7 +39894,8 @@ _ZN8wasmtime7runtime5store11StoreOpaque8instance17h4e7eb8a39e3c7112E.exit16: ; p
   %.val11 = load ptr, ptr %102, align 8, !nonnull !5, !noundef !5
   %103 = getelementptr i8, ptr %.val, i64 88
   %.val12 = load i64, ptr %103, align 8, !noundef !5
-  %104 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64 }, ptr %.val11, i64 %.val12
+  %.idx = mul nsw i64 %.val12, 40
+  %104 = getelementptr inbounds i8, ptr %.val11, i64 %.idx
   %105 = icmp eq i64 %.val12, 0
   br i1 %105, label %._crit_edge, label %.lr.ph
 

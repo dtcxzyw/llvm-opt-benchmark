@@ -1682,7 +1682,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hd6657c9b4ac76e70E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h2a3ab92c4d8238b0E.exit, label %.lr.ph.i
 
@@ -6712,7 +6713,8 @@ define noundef ptr @_ZN8settings11keymap_file10KeymapFile9add_to_cx17h3f17700f6d
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   %.sroa.523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.523.0.copyload = load i64, ptr %.sroa.523.0..sroa_idx, align 8
-  %12 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, [1 x i64] }, i64, { {} }, {} } }, ptr %.sroa.4.0.copyload, i64 %.sroa.523.0.copyload
+  %.idx = mul nsw i64 %.sroa.523.0.copyload, 48
+  %12 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   store ptr %.sroa.4.0.copyload, ptr %11, align 8
   %.sroa.5.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %11, i64 8

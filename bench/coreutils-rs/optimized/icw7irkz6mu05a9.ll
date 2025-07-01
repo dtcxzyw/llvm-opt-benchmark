@@ -6474,7 +6474,8 @@ define { ptr, ptr } @_ZN6uucore8features5perms13ChownExecutor4exec17he06bd294545
   %.val = load ptr, ptr %59, align 8, !nonnull !7, !noundef !7
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val4 = load i64, ptr %60, align 8, !noundef !7
-  %61 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.val4
+  %.idx = mul nsw i64 %.val4, 24
+  %61 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %62 = icmp eq i64 %.val4, 0
   br i1 %62, label %._crit_edge.thread, label %.lr.ph
 

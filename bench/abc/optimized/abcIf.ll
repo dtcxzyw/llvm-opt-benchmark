@@ -3380,7 +3380,8 @@ define internal fastcc void @Abc_TtFlip(ptr noundef captures(address) %0, i32 no
 
 34:                                               ; preds = %17
   %35 = sext i32 %1 to i64
-  %36 = getelementptr inbounds i64, ptr %0, i64 %35
+  %.idx = shl nsw i64 %35, 3
+  %36 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %37 = add nsw i32 %2, -6
   %38 = shl nuw i32 1, %37
   %39 = icmp sgt i32 %1, 0

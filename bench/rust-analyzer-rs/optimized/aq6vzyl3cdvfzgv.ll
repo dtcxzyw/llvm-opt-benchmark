@@ -2436,7 +2436,8 @@ define hidden void @"_ZN3hir11term_search7tactics11impl_method28_$u7b$$u7b$closu
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !289, !noalias !286, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !289, !noalias !286
-  %11 = getelementptr inbounds { i32, [15 x i32] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nsw i64 %.sroa.5.0.copyload.i, 6
+  %11 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   store ptr %.sroa.4.0.copyload.i, ptr %10, align 8, !alias.scope !286, !noalias !289
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %.sroa.0.0.copyload.i, ptr %12, align 8, !alias.scope !286, !noalias !289
@@ -5660,7 +5661,8 @@ define hidden void @"_ZN3hir11term_search7tactics7trivial28_$u7b$$u7b$closure$u7
   %56 = load ptr, ptr %55, align 8, !alias.scope !696, !noalias !699, !nonnull !4, !noundef !4
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %58 = load i64, ptr %57, align 8, !alias.scope !696, !noalias !699, !noundef !4
-  %59 = getelementptr inbounds { { i32, [1 x i32] }, ptr, i32, [1 x i32] }, ptr %56, i64 %58
+  %.idx.i.i = mul nsw i64 %58, 24
+  %59 = getelementptr inbounds i8, ptr %56, i64 %.idx.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !700)
   %.not.i.i.i = icmp eq i64 %58, 0
   br i1 %.not.i.i.i, label %"_ZN3hir11term_search7tactics7trivial28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17haef4bdc89116a86eE.exit.us.preheader.i.i.i", label %.lr.ph.i.i.i
@@ -5708,7 +5710,8 @@ define hidden void @"_ZN3hir11term_search7tactics7trivial28_$u7b$$u7b$closure$u7
   %77 = load ptr, ptr %76, align 8, !alias.scope !696, !noalias !699, !nonnull !4, !noundef !4
   %78 = getelementptr inbounds nuw i8, ptr %53, i64 88
   %79 = load i64, ptr %78, align 8, !alias.scope !696, !noalias !699, !noundef !4
-  %80 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i32, i8, [3 x i8] }, ptr %77, i64 %79
+  %.idx3.i.i = shl nsw i64 %79, 5
+  %80 = getelementptr inbounds i8, ptr %77, i64 %.idx3.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !710)
   %.not.i12.i.i = icmp eq i64 %79, 0
   br i1 %.not.i12.i.i, label %"_ZN3hir11term_search7tactics7trivial28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h654425a7f95554bbE.exit.i", label %.lr.ph.i13.i.i
@@ -5744,9 +5747,9 @@ define hidden void @"_ZN3hir11term_search7tactics7trivial28_$u7b$$u7b$closure$u7
   br i1 %spec.select.i.us27.i.i.i, label %.loopexit, label %.backedge.us18.i.i.i
 
 "_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h2ebcdc06c40bbd01E.exit.i.us.i22.i.i": ; preds = %.backedge.us18.i.i.i
-  %96 = getelementptr i8, ptr %.pn3.i.i, i64 56
+  %96 = getelementptr i8, ptr %.pn4.i.i, i64 56
   %.val4.us16.i.i.i = load i32, ptr %96, align 4, !noalias !717
-  %97 = getelementptr i8, ptr %.pn3.i.i, i64 60
+  %97 = getelementptr i8, ptr %.pn4.i.i, i64 60
   %.val5.us17.i.i.i = load i8, ptr %97, align 4, !noalias !717
   %98 = icmp eq i32 %.val4.us16.i.i.i, %91
   %99 = icmp ne i8 %.val5.us17.i.i.i, 3
@@ -5754,8 +5757,8 @@ define hidden void @"_ZN3hir11term_search7tactics7trivial28_$u7b$$u7b$closure$u7
   br i1 %spec.select.i.us.i.i.i, label %.loopexit, label %.backedge.us18.i.i.i
 
 .backedge.us18.i.i.i:                             ; preds = %.lr.ph.split.split.us.i21.i.i, %"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h2ebcdc06c40bbd01E.exit.i.us.i22.i.i"
-  %.pn3.i.i = phi ptr [ %100, %"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h2ebcdc06c40bbd01E.exit.i.us.i22.i.i" ], [ %77, %.lr.ph.split.split.us.i21.i.i ]
-  %100 = getelementptr inbounds nuw i8, ptr %.pn3.i.i, i64 32
+  %.pn4.i.i = phi ptr [ %100, %"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h2ebcdc06c40bbd01E.exit.i.us.i22.i.i" ], [ %77, %.lr.ph.split.split.us.i21.i.i ]
+  %100 = getelementptr inbounds nuw i8, ptr %.pn4.i.i, i64 32
   %.not30.i.not.i.i = icmp eq ptr %100, %80
   br i1 %.not30.i.not.i.i, label %"_ZN3hir11term_search7tactics7trivial28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h654425a7f95554bbE.exit.i", label %"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h2ebcdc06c40bbd01E.exit.i.us.i22.i.i"
 

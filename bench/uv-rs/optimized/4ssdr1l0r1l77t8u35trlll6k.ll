@@ -4753,7 +4753,7 @@ define internal fastcc void @_ZN12uv_workspace17dependency_groups20FlatDependenc
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14), !noalias !702
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hed572379ee4cf219E.exit.thread"
 
-default.unreachable153:                           ; preds = %98
+default.unreachable154:                           ; preds = %98
   unreachable
 
 35:                                               ; preds = %31
@@ -4881,7 +4881,8 @@ default.unreachable153:                           ; preds = %98
   %89 = load ptr, ptr %88, align 8, !nonnull !4, !noundef !4
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %91 = load i64, ptr %90, align 8, !noundef !4
-  %92 = getelementptr inbounds { i64, [3 x i64] }, ptr %89, i64 %91
+  %.idx147 = shl nsw i64 %91, 5
+  %92 = getelementptr inbounds i8, ptr %89, i64 %.idx147
   %93 = icmp eq i64 %91, 0
   br i1 %93, label %._crit_edge, label %.lr.ph
 
@@ -4908,7 +4909,7 @@ default.unreachable153:                           ; preds = %98
   %.sroa.0104.0146 = phi ptr [ %89, %.lr.ph ], [ %99, %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hd5b6df13c25f499cE.exit" ]
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0146, i64 32
   %100 = load i64, ptr %.sroa.0104.0146, align 8, !range !735, !noundef !4
-  switch i64 %100, label %default.unreachable153 [
+  switch i64 %100, label %default.unreachable154 [
     i64 0, label %134
     i64 1, label %139
     i64 2, label %141
@@ -5334,9 +5335,10 @@ default.unreachable153:                           ; preds = %98
   unreachable
 
 237:                                              ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hed572379ee4cf219E.exit.thread"
+  %.idx = shl nsw i64 %52, 3
   %238 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %239 = load ptr, ptr %238, align 8, !nonnull !4, !noundef !4
-  %240 = getelementptr inbounds ptr, ptr %239, i64 %52
+  %240 = getelementptr inbounds i8, ptr %239, i64 %.idx
   %241 = getelementptr inbounds i8, ptr %240, i64 -8
   %242 = load ptr, ptr %241, align 8, !nonnull !4, !align !12, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !777)
@@ -9069,7 +9071,8 @@ select.unfold.us.i:                               ; preds = %.split.us.preheader
 ".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd97e2a30c8468c4E.exit_crit_edge": ; preds = %.split.us.i
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.5.2124, i64 8
   %48 = load ptr, ptr %47, align 8, !alias.scope !1259, !noalias !1262, !nonnull !4, !noundef !4
-  %49 = getelementptr inbounds { { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, i8, [7 x i8] } }, ptr %48, i64 %44
+  %.idx = mul nsw i64 %44, 56
+  %49 = getelementptr inbounds i8, ptr %48, i64 %.idx
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd97e2a30c8468c4E.exit"
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd97e2a30c8468c4E.exit": ; preds = %".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd97e2a30c8468c4E.exit_crit_edge", %.split.us.preheader.i
@@ -9488,7 +9491,8 @@ select.unfold.us.i:                               ; preds = %.split.us.preheader
 ".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd97e2a30c8468c4E.exit_crit_edge": ; preds = %.split.us.i
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.5.2124, i64 8
   %47 = load ptr, ptr %46, align 8, !alias.scope !1361, !noalias !1364, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds { { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, i8, [7 x i8] } }, ptr %47, i64 %43
+  %.idx = mul nsw i64 %43, 56
+  %48 = getelementptr inbounds i8, ptr %47, i64 %.idx
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd97e2a30c8468c4E.exit"
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd97e2a30c8468c4E.exit": ; preds = %".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd97e2a30c8468c4E.exit_crit_edge", %.split.us.preheader.i

@@ -49347,7 +49347,8 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @_ZN4core4iter6trai
   %16 = load ptr, ptr %15, align 8, !noalias !14924, !nonnull !4, !align !55, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %.val.i, i64 64
   %18 = load i64, ptr %17, align 8, !noalias !14924, !noundef !4
-  %19 = getelementptr inbounds { i64, [6 x i64] }, ptr %16, i64 %18
+  %.idx.i.i = mul nsw i64 %18, 56
+  %19 = getelementptr inbounds i8, ptr %16, i64 %.idx.i.i
   store ptr %16, ptr %.val3.i.i, align 8, !alias.scope !14929, !noalias !14932
   store ptr %19, ptr %8, align 8, !alias.scope !14929, !noalias !14932
   %.val.i.i.i = load ptr, ptr %.val.i.i, align 8, !noalias !14932
@@ -49720,7 +49721,8 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN4core4iter8ada
   %8 = load ptr, ptr %7, align 8, !noalias !15103, !nonnull !4, !align !55, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   %10 = load i64, ptr %9, align 8, !noalias !15103, !noundef !4
-  %11 = getelementptr inbounds { i64, [6 x i64] }, ptr %8, i64 %10
+  %.idx.i = mul nsw i64 %10, 56
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx.i
   %.val.i = load ptr, ptr %6, align 8, !alias.scope !15100, !nonnull !4, !align !55, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val3.i = load ptr, ptr %12, align 8, !alias.scope !15100, !nonnull !4, !align !55, !noundef !4
@@ -80262,7 +80264,8 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %6, i64 %8
+  %.idx = mul nsw i64 %8, 24
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21319)
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17hbc5a0c0d8c4818b5E.exit, label %.lr.ph.i
@@ -85843,7 +85846,8 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN98_$LT$core..i
   %16 = load ptr, ptr %15, align 8, !noalias !23020, !nonnull !4, !align !55, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 64
   %18 = load i64, ptr %17, align 8, !noalias !23020, !noundef !4
-  %19 = getelementptr inbounds { i64, [6 x i64] }, ptr %16, i64 %18
+  %.idx.i.i.i = mul nsw i64 %18, 56
+  %19 = getelementptr inbounds i8, ptr %16, i64 %.idx.i.i.i
   store ptr %16, ptr %.val3.i.i.i, align 8, !alias.scope !23025, !noalias !23028
   store ptr %19, ptr %8, align 8, !alias.scope !23025, !noalias !23028
   %.val.i.i.i.i = load ptr, ptr %.val.i.i.i, align 8, !noalias !23028

@@ -163,7 +163,8 @@ _ZN18XArrayIteratorImplIP5XPageLb0EEC2EPK18GrowableArrayCHeapIS1_L8MEMFLAGS5EE.e
   %10 = load ptr, ptr %9, align 8
   %11 = select i1 %8, ptr null, ptr %10
   %12 = sext i32 %7 to i64
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %12
+  %.idx = shl nsw i64 %12, 3
+  %13 = getelementptr inbounds i8, ptr %11, i64 %.idx
   br i1 %8, label %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN18XArrayIteratorImplIP5XPageLb0EEC2EPK18GrowableArrayCHeapIS1_L8MEMFLAGS5EE.exit, %.lr.ph
@@ -215,7 +216,8 @@ _ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEC2EiiRKS1_.exit: ; preds = %.lr.ph.p
   %32 = load ptr, ptr %9, align 8
   %33 = select i1 %31, ptr null, ptr %32
   %34 = sext i32 %30 to i64
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  %.idx53 = shl nsw i64 %34, 3
+  %35 = getelementptr inbounds i8, ptr %33, i64 %.idx53
   br i1 %31, label %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit17, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %_ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEC2EiiRKS1_.exit, %.lr.ph52

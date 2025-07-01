@@ -6150,7 +6150,8 @@ _ZN11quinn_proto8endpoint8Endpoint14cids_exhausted17hc771a0d18a2ee089E.exit.thre
   %1529 = load ptr, ptr %1528, align 8, !nonnull !3, !noundef !3
   %1530 = getelementptr inbounds nuw i8, ptr %1527, i64 32
   %1531 = load i64, ptr %1530, align 8, !noundef !3
-  %1532 = getelementptr inbounds nuw i32, ptr %1529, i64 %1531
+  %.idx = shl nuw nsw i64 %1531, 2
+  %1532 = getelementptr inbounds nuw i8, ptr %1529, i64 %.idx
   %1533 = icmp eq i64 %1531, 0
   br i1 %1533, label %._crit_edge, label %.lr.ph
 
@@ -9264,7 +9265,8 @@ _ZN11quinn_proto8endpoint15ConnectionIndex14insert_initial17h2909e490670bc925E.e
   %.sroa.5552.0.copyload = load i64, ptr %.sroa.5552.0..sroa_idx, align 8
   %416 = icmp ult i64 %.sroa.5552.0.copyload, 44343134792571038
   call void @llvm.assume(i1 %416)
-  %417 = getelementptr inbounds nuw { { { { i64, i32, [1 x i32] } } }, { i16, [15 x i16] }, { { i8, [79 x i8] }, { { ptr, i64, i64, ptr }, i64 } }, { ptr, [3 x i64] }, i8, [7 x i8] }, ptr %.sroa.4551.0.copyload, i64 %.sroa.5552.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.5552.0.copyload, 208
+  %417 = getelementptr inbounds nuw i8, ptr %.sroa.4551.0.copyload, i64 %.idx
   %418 = icmp sgt i64 %.sroa.0550.0.copyload, -1
   call void @llvm.assume(i1 %418)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46)

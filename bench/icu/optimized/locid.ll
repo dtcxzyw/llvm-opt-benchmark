@@ -9,10 +9,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::StringPiece" = type <{ ptr, i32, [4 x i8] }>
 %"class.icu_77::CharString" = type { %"class.icu_77::MaybeStackArray", i32, [4 x i8] }
 %"class.icu_77::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
-%"class.icu_77::Locale" = type <{ %"class.icu_77::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
-%"class.icu_77::UObject" = type { ptr }
 %"class.icu_77::(anonymous namespace)::AliasReplacer" = type { ptr, ptr, ptr, ptr, %"class.icu_77::UVector", ptr }
 %"class.icu_77::UVector" = type { %"class.icu_77::UObject", i32, i32, ptr, ptr, ptr }
+%"class.icu_77::UObject" = type { ptr }
+%"class.icu_77::Locale" = type <{ %"class.icu_77::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
 %"class.icu_77::CheckedArrayByteSink" = type <{ %"class.icu_77::ByteSink", ptr, i32, i32, i32, i8, [3 x i8] }>
 %"class.icu_77::ByteSink" = type { ptr }
 %"class.icu_77::StringByteSink" = type { %"class.icu_77::CharStringByteSink" }
@@ -1063,7 +1063,8 @@ define internal noundef signext i8 @_ZN12_GLOBAL__N_114locale_cleanupEv() #1 per
   br i1 %6, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %3
-  %7 = getelementptr inbounds %"class.icu_77::Locale", ptr %1, i64 %5
+  %.idx = mul nsw i64 %5, 224
+  %7 = getelementptr inbounds i8, ptr %1, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader

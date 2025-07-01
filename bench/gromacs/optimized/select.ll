@@ -5023,7 +5023,8 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_16Select11writeOutput
   %83 = load i32, ptr %82, align 4, !tbaa !81
   %84 = sub nsw i32 %83, %79
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %81, i64 %85
+  %.idx = shl nuw nsw i64 %85, 2
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx
   %.not159 = icmp eq i32 %83, %79
   br i1 %.not159, label %._crit_edge, label %.lr.ph161.preheader
 

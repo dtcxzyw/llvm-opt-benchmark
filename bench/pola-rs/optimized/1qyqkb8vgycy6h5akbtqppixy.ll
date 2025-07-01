@@ -19571,7 +19571,8 @@ define void @"_ZN127_$LT$polars_arrow..array..boolean..builder..BooleanArrayBuil
   br label %13
 
 13:                                               ; preds = %5, %12
-  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %15 = icmp eq i64 %3, 0
   br i1 %15, label %._crit_edge, label %.lr.ph
 
@@ -19671,7 +19672,8 @@ define void @"_ZN127_$LT$polars_arrow..array..boolean..builder..BooleanArrayBuil
   br label %13
 
 13:                                               ; preds = %5, %12
-  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %15 = icmp eq i64 %3, 0
   br i1 %15, label %._crit_edge, label %.lr.ph
 
@@ -30369,7 +30371,8 @@ define void @"_ZN126_$LT$polars_arrow..array..struct_..builder..StructArrayBuild
   %4 = load ptr, ptr %3, align 8, !nonnull !10, !noundef !10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !10
-  %7 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -30582,7 +30585,8 @@ define void @"_ZN126_$LT$polars_arrow..array..struct_..builder..StructArrayBuild
   %4 = load ptr, ptr %3, align 8, !nonnull !10, !noundef !10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !10
-  %7 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -35000,7 +35004,8 @@ define hidden void @_ZN12polars_arrow2io3ipc5write9serialize4list10write_list17h
   %28 = load ptr, ptr %27, align 8, !nonnull !10, !noundef !10
   %29 = load i32, ptr %28, align 4, !noundef !10
   store i32 %29, ptr %18, align 4
-  %30 = getelementptr i32, ptr %28, i64 %24
+  %.idx34 = shl i64 %24, 2
+  %30 = getelementptr i8, ptr %28, i64 %.idx34
   %31 = getelementptr i8, ptr %30, i64 -4
   %32 = icmp ne ptr %31, null
   tail call void @llvm.assume(i1 %32)
@@ -35022,30 +35027,28 @@ define hidden void @_ZN12polars_arrow2io3ipc5write9serialize4list10write_list17h
   %40 = trunc nuw i8 %6 to i1
   %41 = icmp ne ptr %30, null
   tail call void @llvm.assume(i1 %41)
-  %.idx = shl i64 %24, 2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !2591
-  %42 = icmp slt i64 %.idx, 0
+  %42 = icmp slt i64 %.idx34, 0
   br i1 %42, label %48, label %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i.i: ; preds = %39
-  %.idx34.mask = and i64 %24, 4611686018427387903
-  %43 = icmp eq i64 %.idx34.mask, 0
+  %43 = icmp eq i64 %.idx34, 0
   br i1 %43, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hb6b75508fc365032E.exit.i.i", label %44
 
 44:                                               ; preds = %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i.i
   %45 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !2595
-  %46 = tail call noalias noundef ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 1, 0) %.idx, i64 noundef range(i64 1, -9223372036854775807) 1) #33, !noalias !2595
+  %46 = tail call noalias noundef ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 1, 0) %.idx34, i64 noundef range(i64 1, -9223372036854775807) 1) #33, !noalias !2595
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hb6b75508fc365032E.exit.i.i"
 
 48:                                               ; preds = %44, %39
   %.sroa.4.0.ph.i.i.i = phi i64 [ 1, %44 ], [ 0, %39 ]
-  tail call void @_ZN5alloc7raw_vec12handle_error17hd116ab85b3f6d03eE(i64 noundef %.sroa.4.0.ph.i.i.i, i64 %.idx, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5d9d3cf873c3267a8f7de4845b47373.323) #30, !noalias !2591
+  tail call void @_ZN5alloc7raw_vec12handle_error17hd116ab85b3f6d03eE(i64 noundef %.sroa.4.0.ph.i.i.i, i64 %.idx34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5d9d3cf873c3267a8f7de4845b47373.323) #30, !noalias !2591
   unreachable
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hb6b75508fc365032E.exit.i.i": ; preds = %44, %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i.i
   %.sroa.10.0.i.i.i = phi ptr [ %46, %44 ], [ inttoptr (i64 1 to ptr), %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i.i ]
-  store i64 %.idx, ptr %17, align 8, !noalias !2591
+  store i64 %.idx34, ptr %17, align 8, !noalias !2591
   %49 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %.sroa.10.0.i.i.i, ptr %49, align 8, !noalias !2591
   %50 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -35198,8 +35201,7 @@ _ZN12polars_arrow2io3ipc5write9serialize34_write_compressed_buffer_from_iter17h0
 86:                                               ; preds = %35
   %87 = icmp ne ptr %30, null
   tail call void @llvm.assume(i1 %87)
-  %.idx35 = shl i64 %24, 2
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdf22dc3c3b65886bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.idx35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5d9d3cf873c3267a8f7de4845b47373.322), !noalias !2616
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdf22dc3c3b65886bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.idx34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5d9d3cf873c3267a8f7de4845b47373.322), !noalias !2616
   br i1 %5, label %89, label %88
 
 88:                                               ; preds = %86
@@ -35364,7 +35366,8 @@ define hidden void @_ZN12polars_arrow2io3ipc5write9serialize4list10write_list17h
   %28 = load ptr, ptr %27, align 8, !nonnull !10, !noundef !10
   %29 = load i64, ptr %28, align 8, !noundef !10
   store i64 %29, ptr %18, align 8
-  %30 = getelementptr i64, ptr %28, i64 %24
+  %.idx34 = shl i64 %24, 3
+  %30 = getelementptr i8, ptr %28, i64 %.idx34
   %31 = getelementptr i8, ptr %30, i64 -8
   %32 = icmp ne ptr %31, null
   tail call void @llvm.assume(i1 %32)
@@ -35386,30 +35389,28 @@ define hidden void @_ZN12polars_arrow2io3ipc5write9serialize4list10write_list17h
   %40 = trunc nuw i8 %6 to i1
   %41 = icmp ne ptr %30, null
   tail call void @llvm.assume(i1 %41)
-  %.idx = shl i64 %24, 3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !2636
-  %42 = icmp slt i64 %.idx, 0
+  %42 = icmp slt i64 %.idx34, 0
   br i1 %42, label %48, label %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i.i: ; preds = %39
-  %.idx34.mask = and i64 %24, 2305843009213693951
-  %43 = icmp eq i64 %.idx34.mask, 0
+  %43 = icmp eq i64 %.idx34, 0
   br i1 %43, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hb6b75508fc365032E.exit.i.i", label %44
 
 44:                                               ; preds = %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i.i
   %45 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !2640
-  %46 = tail call noalias noundef ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 1, 0) %.idx, i64 noundef range(i64 1, -9223372036854775807) 1) #33, !noalias !2640
+  %46 = tail call noalias noundef ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 1, 0) %.idx34, i64 noundef range(i64 1, -9223372036854775807) 1) #33, !noalias !2640
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hb6b75508fc365032E.exit.i.i"
 
 48:                                               ; preds = %44, %39
   %.sroa.4.0.ph.i.i.i = phi i64 [ 1, %44 ], [ 0, %39 ]
-  tail call void @_ZN5alloc7raw_vec12handle_error17hd116ab85b3f6d03eE(i64 noundef %.sroa.4.0.ph.i.i.i, i64 %.idx, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5d9d3cf873c3267a8f7de4845b47373.323) #30, !noalias !2636
+  tail call void @_ZN5alloc7raw_vec12handle_error17hd116ab85b3f6d03eE(i64 noundef %.sroa.4.0.ph.i.i.i, i64 %.idx34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5d9d3cf873c3267a8f7de4845b47373.323) #30, !noalias !2636
   unreachable
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hb6b75508fc365032E.exit.i.i": ; preds = %44, %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i.i
   %.sroa.10.0.i.i.i = phi ptr [ %46, %44 ], [ inttoptr (i64 1 to ptr), %_ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i.i ]
-  store i64 %.idx, ptr %17, align 8, !noalias !2636
+  store i64 %.idx34, ptr %17, align 8, !noalias !2636
   %49 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %.sroa.10.0.i.i.i, ptr %49, align 8, !noalias !2636
   %50 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -35562,8 +35563,7 @@ _ZN12polars_arrow2io3ipc5write9serialize34_write_compressed_buffer_from_iter17h6
 86:                                               ; preds = %35
   %87 = icmp ne ptr %30, null
   tail call void @llvm.assume(i1 %87)
-  %.idx35 = shl i64 %24, 3
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdf22dc3c3b65886bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.idx35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5d9d3cf873c3267a8f7de4845b47373.322), !noalias !2661
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdf22dc3c3b65886bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.idx34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5d9d3cf873c3267a8f7de4845b47373.322), !noalias !2661
   br i1 %5, label %89, label %88
 
 88:                                               ; preds = %86

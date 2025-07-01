@@ -474,7 +474,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12LiveIntervalELb1EE28reserveForParamAndGe
   %100 = phi i32 [ %91, %92 ], [ %.pre.i.i.i.i.i.i, %99 ]
   %101 = load ptr, ptr %87, align 8, !tbaa !272
   %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %.pre-phi.i.i.i.i.i
-  %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %96
+  %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %96, 3
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12LiveIntervalELb1EE28reserveForParamAndGetAddressERS2_m.exit.i.i.i.i.i.i

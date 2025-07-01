@@ -31,11 +31,6 @@ module asm ".previous"
 %struct.QMetaObject = type { %struct.anon }
 %struct.anon = type { %"struct.QMetaObject::SuperData", ptr, ptr, ptr, ptr, ptr }
 %"struct.QMetaObject::SuperData" = type { ptr }
-%"struct.std::pair" = type { i32, %"class.std::vector.5" }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator.66" = type { i8 }
 %class.MeshLabPluginType = type { i32 }
 %class.QFileInfo = type { %class.QSharedDataPointer }
@@ -75,6 +70,11 @@ module asm ".previous"
 %"class.PluginManager::PluginRangeIterator" = type <{ ptr, i8, [7 x i8] }>
 %class.ConstPluginIterator.115 = type <{ ptr, %"class.__gnu_cxx::__normal_iterator.92", i8, [7 x i8] }>
 %"class.__gnu_cxx::__normal_iterator.92" = type { ptr }
+%"struct.std::pair" = type { i32, %"class.std::vector.5" }
+%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
+%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl" }
+%"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator.11" = type { i8 }
 
 $_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev = comdat any
@@ -306,7 +306,8 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
   store ptr %6, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.std::pair", ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 5
+  %11 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_insert_range_uniqueIPKS9_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESK_SK_.exit, label %.lr.ph.i
 
@@ -4637,7 +4638,8 @@ define linkonce_odr noundef ptr @_ZN5QListI7QStringE18detach_helper_growEii(ptr 
   %17 = getelementptr inbounds ptr, ptr %13, i64 %16
   %18 = load i32, ptr %4, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %.idx = shl nsw i64 %19, 3
+  %20 = getelementptr inbounds i8, ptr %17, i64 %.idx
   %.not8.i = icmp eq i32 %18, 0
   br i1 %.not8.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit, label %.lr.ph.i
 
@@ -6267,7 +6269,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i52:  ; preds = %_ZN9QtPrivate8RefCo
   %161 = getelementptr inbounds ptr, ptr %157, i64 %160
   %162 = load i32, ptr %4, align 4
   %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds ptr, ptr %161, i64 %163
+  %.idx.i = shl nsw i64 %163, 3
+  %164 = getelementptr inbounds i8, ptr %161, i64 %.idx.i
   %.not8.i.i = icmp eq i32 %162, 0
   br i1 %.not8.i.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i, label %.lr.ph.i.i
 
@@ -7439,7 +7442,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i39:  ; preds = %_ZN9QtPrivate8RefCo
   %159 = getelementptr inbounds ptr, ptr %155, i64 %158
   %160 = load i32, ptr %4, align 4
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds ptr, ptr %159, i64 %161
+  %.idx.i = shl nsw i64 %161, 3
+  %162 = getelementptr inbounds i8, ptr %159, i64 %.idx.i
   %.not8.i.i = icmp eq i32 %160, 0
   br i1 %.not8.i.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i, label %.lr.ph.i.i
 
@@ -8308,7 +8312,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i52:  ; preds = %_ZN9QtPrivate8RefCo
   %159 = getelementptr inbounds ptr, ptr %155, i64 %158
   %160 = load i32, ptr %4, align 4
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds ptr, ptr %159, i64 %161
+  %.idx.i = shl nsw i64 %161, 3
+  %162 = getelementptr inbounds i8, ptr %159, i64 %.idx.i
   %.not8.i.i = icmp eq i32 %160, 0
   br i1 %.not8.i.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i, label %.lr.ph.i.i
 
@@ -9316,7 +9321,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i52:  ; preds = %_ZN9QtPrivate8RefCo
   %159 = getelementptr inbounds ptr, ptr %155, i64 %158
   %160 = load i32, ptr %4, align 4
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds ptr, ptr %159, i64 %161
+  %.idx.i = shl nsw i64 %161, 3
+  %162 = getelementptr inbounds i8, ptr %159, i64 %.idx.i
   %.not8.i.i = icmp eq i32 %160, 0
   br i1 %.not8.i.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i, label %.lr.ph.i.i
 
@@ -10299,7 +10305,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i39:  ; preds = %_ZN9QtPrivate8RefCo
   %159 = getelementptr inbounds ptr, ptr %155, i64 %158
   %160 = load i32, ptr %4, align 4
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds ptr, ptr %159, i64 %161
+  %.idx.i = shl nsw i64 %161, 3
+  %162 = getelementptr inbounds i8, ptr %159, i64 %.idx.i
   %.not8.i.i = icmp eq i32 %160, 0
   br i1 %.not8.i.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.i, label %.lr.ph.i.i
 

@@ -3523,7 +3523,8 @@ define internal { ptr, ptr } @"_ZN109_$LT$settings..settings_store..SettingValue
   br i1 %17, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %8
-  %18 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } }, ptr %14, i64 %16
+  %.idx = mul nsw i64 %16, 88
+  %18 = getelementptr inbounds i8, ptr %14, i64 %.idx
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %26, %8, %2
@@ -27361,7 +27362,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h873358db261b5bfeE(p
   %.20 = select i1 %.not, ptr %13, ptr %0
   %15 = mul i64 %.sroa.0.0.sroa.speculated.i, 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20, i64 %15, i1 false)
-  %16 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %16 = getelementptr inbounds i8, ptr %2, i64 %15
   br i1 %.not, label %.preheader, label %.lr.ph.i
 
 .preheader:                                       ; preds = %12, %.preheader
@@ -27478,7 +27479,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17hc30d7bd0996e32f0E(p
   %.20 = select i1 %.not, ptr %17, ptr %0
   %19 = mul i64 %.sroa.0.0.sroa.speculated.i, 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20, i64 %19, i1 false)
-  %20 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %20 = getelementptr inbounds i8, ptr %2, i64 %19
   br i1 %.not, label %.preheader, label %.lr.ph.i
 
 .preheader:                                       ; preds = %16, %.noexc22
@@ -31930,7 +31931,8 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %118 = load ptr, ptr %117, align 8, !alias.scope !8271, !noalias !8279, !nonnull !5, !noundef !5
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %120 = load i64, ptr %119, align 8, !alias.scope !8271, !noalias !8279, !noundef !5
-  %121 = getelementptr inbounds { ptr, { ptr, ptr, { i64, i64, i64 } } }, ptr %118, i64 %120
+  %.idx.i = mul nsw i64 %120, 48
+  %121 = getelementptr inbounds i8, ptr %118, i64 %.idx.i
   %122 = icmp eq i64 %120, 0
   br i1 %122, label %._crit_edge.i, label %.lr.ph427.i
 

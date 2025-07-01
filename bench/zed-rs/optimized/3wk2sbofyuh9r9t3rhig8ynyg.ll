@@ -31933,7 +31933,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !6194, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !6194, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 
@@ -32379,7 +32380,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !6278, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !6278, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 
@@ -32825,7 +32827,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !6362, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !6362, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 
@@ -33271,7 +33274,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !6446, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !6446, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 
@@ -33717,7 +33721,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !6530, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !6530, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 
@@ -34163,7 +34168,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !6614, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !6614, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 
@@ -34609,7 +34615,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !6698, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !6698, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 
@@ -35055,7 +35062,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !6782, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !6782, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 
@@ -35501,7 +35509,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !6866, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !6866, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 
@@ -35947,7 +35956,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !6950, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !6950, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 
@@ -36393,7 +36403,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !7034, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !7034, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 
@@ -36839,7 +36850,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !7118, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !7118, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 
@@ -37285,7 +37297,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !7202, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !7202, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 
@@ -37731,7 +37744,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !7286, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !7286, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 
@@ -38177,7 +38191,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !7370, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !7370, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 
@@ -38623,7 +38638,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !7454, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !7454, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 
@@ -39069,7 +39085,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !7538, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !7538, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 
@@ -39515,7 +39532,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !7622, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !7622, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 
@@ -39961,7 +39979,8 @@ define hidden void @_ZN8language17language_registry16LanguageRegistry17register_
   %41 = load ptr, ptr %40, align 8, !alias.scope !7706, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8, !alias.scope !7706, !noundef !11
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, { { { { ptr, i64 } }, {}, {} } }, { { { ptr, ptr } }, {}, {} }, i64, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %41, i64 %43
+  %.idx = mul nsw i64 %43, 120
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = icmp eq i64 %43, 0
   br i1 %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit._crit_edge", label %.lr.ph
 

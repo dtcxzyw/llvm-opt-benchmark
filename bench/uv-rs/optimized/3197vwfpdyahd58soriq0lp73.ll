@@ -5481,7 +5481,8 @@ default.unreachable:                              ; preds = %.noexc358
   %480 = load ptr, ptr %479, align 8, !nonnull !4, !noundef !4
   %481 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %482 = load i64, ptr %481, align 8, !noundef !4
-  %483 = getelementptr inbounds { { { i64, [2 x i64] } }, { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i32, i32, i32, i8, [3 x i8] }, ptr %480, i64 %482
+  %.idx944 = mul nsw i64 %482, 776
+  %483 = getelementptr inbounds i8, ptr %480, i64 %.idx944
   %484 = icmp eq i64 %482, 0
   br i1 %484, label %673, label %485
 
@@ -6959,7 +6960,8 @@ default.unreachable:                              ; preds = %.noexc358
   %.sroa.0.0.copyload.i = load i64, ptr %98, align 8, !noalias !1049
   %989 = icmp ult i64 %792, 1152921504606846976
   call void @llvm.assume(i1 %989)
-  %990 = getelementptr inbounds nuw ptr, ptr %790, i64 %792
+  %.idx945 = shl nuw nsw i64 %792, 3
+  %990 = getelementptr inbounds nuw i8, ptr %790, i64 %.idx945
   %991 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   call void @llvm.assume(i1 %991)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %98), !noalias !1049
@@ -8348,7 +8350,8 @@ default.unreachable:                              ; preds = %.noexc358
 .lr.ph.preheader:                                 ; preds = %.critedge
   %1467 = getelementptr inbounds nuw i8, ptr %.sroa.0139.0920, i64 472
   %1468 = load ptr, ptr %1467, align 8, !nonnull !4, !noundef !4
-  %1469 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %1468, i64 %1464
+  %.idx1238 = mul nuw nsw i64 %1464, 24
+  %1469 = getelementptr inbounds nuw i8, ptr %1468, i64 %.idx1238
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %1520

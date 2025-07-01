@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.OopIterateClosure = type { %class.OopClosure, ptr }
 %class.OopClosure = type { ptr }
 %class.PatchNativePointers = type { %class.BitMapClosure, ptr }
-%class.OopMapBlock = type { i32, i32 }
 %class.AlwaysContains = type { i8 }
 %class.StackChunkOopIterateBitmapClosure = type { ptr, ptr }
 
@@ -1991,7 +1990,8 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI32VerifyLoadedHeapEm
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OopMapBlock, ptr %12, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %._crit_edge31, label %.lr.ph30
 
@@ -2013,9 +2013,10 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI32VerifyLoadedHeapEm
   %28 = getelementptr inbounds nuw i8, ptr %.02528, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %27, i64 %30
-  %.not32 = icmp eq i32 %29, 0
-  br i1 %.not32, label %._crit_edge, label %.lr.ph
+  %.idx32 = shl nuw nsw i64 %30, 2
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx32
+  %.not33 = icmp eq i32 %29, 0
+  br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %_ZN13Devirtualizer6do_oopI32VerifyLoadedHeapEmbeddedPointers9narrowOopEEvPT_PT0_.exit
   %.027 = phi ptr [ %56, %_ZN13Devirtualizer6do_oopI32VerifyLoadedHeapEmbeddedPointers9narrowOopEEvPT_PT0_.exit ], [ %27, %23 ]
@@ -2090,7 +2091,8 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI32VerifyLoadedHeapEm
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OopMapBlock, ptr %12, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   %.not27 = icmp eq i32 %14, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
@@ -2147,7 +2149,8 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI32VerifyLoadedHeapEm
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %class.OopMapBlock, ptr %13, i64 %16
+  %.idx.i = shl nuw nsw i64 %16, 3
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i
   %.not29.i = icmp eq i32 %15, 0
   br i1 %.not29.i, label %_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc32VerifyLoadedHeapEmbeddedPointersEEvS2_PT0_.exit, label %.lr.ph.i
 
@@ -2191,7 +2194,8 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateI9narrowO
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %class.OopMapBlock, ptr %13, i64 %16
+  %.idx = shl nuw nsw i64 %16, 3
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %._crit_edge33, label %.lr.ph32
 
@@ -2213,9 +2217,10 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateI9narrowO
   %29 = getelementptr inbounds nuw i8, ptr %.02730, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %28, i64 %31
-  %.not34 = icmp eq i32 %30, 0
-  br i1 %.not34, label %._crit_edge, label %.lr.ph
+  %.idx34 = shl nuw nsw i64 %31, 2
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx34
+  %.not35 = icmp eq i32 %30, 0
+  br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %_ZN13Devirtualizer6do_oopI32VerifyLoadedHeapEmbeddedPointers9narrowOopEEvPT_PT0_.exit
   %.029 = phi ptr [ %57, %_ZN13Devirtualizer6do_oopI32VerifyLoadedHeapEmbeddedPointers9narrowOopEEvPT_PT0_.exit ], [ %28, %24 ]
@@ -4194,7 +4199,8 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI32VerifyLoadedHeapEm
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OopMapBlock, ptr %12, i64 %15
+  %.idx.i = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %.not41.i = icmp eq i32 %14, 0
   br i1 %.not41.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -4245,7 +4251,8 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OopMapBlock, ptr %12, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   %.not = icmp eq i32 %14, 0
   %.pre = ptrtoint ptr %1 to i64
   br i1 %.not, label %._crit_edge46, label %.lr.ph45
@@ -4267,9 +4274,10 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   %27 = getelementptr inbounds nuw i8, ptr %.03743, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %26, i64 %29
-  %.not47 = icmp eq i32 %28, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph
+  %.idx47 = shl nuw nsw i64 %29, 2
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx47
+  %.not48 = icmp eq i32 %28, 0
+  br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22, %_ZN13Devirtualizer6do_oopI32VerifyLoadedHeapEmbeddedPointers9narrowOopEEvPT_PT0_.exit
   %.042 = phi ptr [ %55, %_ZN13Devirtualizer6do_oopI32VerifyLoadedHeapEmbeddedPointers9narrowOopEEvPT_PT0_.exit ], [ %26, %22 ]
@@ -4333,7 +4341,8 @@ _ZN13Devirtualizer6do_oopI32VerifyLoadedHeapEmbeddedPointers9narrowOopEEvPT_PT0_
   %62 = inttoptr i64 %61 to ptr
   %63 = tail call noundef i32 @_ZN15java_lang_Class22static_oop_field_countEP7oopDesc(ptr noundef %1) #12
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i32, ptr %62, i64 %64
+  %.idx.i = shl nsw i64 %64, 2
+  %65 = getelementptr inbounds i8, ptr %62, i64 %.idx.i
   %66 = icmp sgt i32 %63, 0
   br i1 %66, label %.lr.ph.i, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop32VerifyLoadedHeapEmbeddedPointersEEvP7oopDescPT0_.exit
 
@@ -4425,7 +4434,8 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI32VerifyLoadedHeapEm
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OopMapBlock, ptr %12, i64 %15
+  %.idx.i = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %_ZN24InstanceClassLoaderKlass15oop_oop_iterateI9narrowOop32VerifyLoadedHeapEmbeddedPointersEEvP7oopDescPT0_.exit, label %.lr.ph36.i
 
@@ -4447,9 +4457,10 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI32VerifyLoadedHeapEm
   %28 = getelementptr inbounds nuw i8, ptr %.03034.i, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %27, i64 %30
-  %.not38.i = icmp eq i32 %29, 0
-  br i1 %.not38.i, label %._crit_edge.i, label %.lr.ph.i
+  %.idx38.i = shl nuw nsw i64 %30, 2
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx38.i
+  %.not39.i = icmp eq i32 %29, 0
+  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %23, %_ZN13Devirtualizer6do_oopI32VerifyLoadedHeapEmbeddedPointers9narrowOopEEvPT_PT0_.exit.i
   %.033.i = phi ptr [ %56, %_ZN13Devirtualizer6do_oopI32VerifyLoadedHeapEmbeddedPointers9narrowOopEEvPT_PT0_.exit.i ], [ %27, %23 ]
@@ -4524,7 +4535,8 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI32VerifyLoadedHeapEm
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %class.OopMapBlock, ptr %12, i64 %15
+  %.idx.i = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %.not33.i = icmp eq i32 %14, 0
   br i1 %.not33.i, label %_ZN24InstanceClassLoaderKlass15oop_oop_iterateIP7oopDesc32VerifyLoadedHeapEmbeddedPointersEEvS2_PT0_.exit, label %.lr.ph.i
 
@@ -5187,7 +5199,8 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI32VerifyLoadedHeapEm
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %14, i64 %18
+  %.idx.i.i = shl nsw i64 %18, 2
+  %19 = getelementptr inbounds i8, ptr %14, i64 %.idx.i.i
   %20 = icmp sgt i32 %17, 0
   br i1 %20, label %.lr.ph.i.i, label %_ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop32VerifyLoadedHeapEmbeddedPointersEEvP7oopDescPT0_.exit
 

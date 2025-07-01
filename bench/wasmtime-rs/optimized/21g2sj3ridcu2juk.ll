@@ -3766,7 +3766,8 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
 70:                                               ; preds = %61
   %71 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %72 = load ptr, ptr %71, align 8, !nonnull !5, !noundef !5
-  %73 = getelementptr inbounds { i8, [3 x i8] }, ptr %72, i64 %65
+  %.idx = shl nsw i64 %65, 2
+  %73 = getelementptr inbounds i8, ptr %72, i64 %.idx
   %74 = icmp eq i64 %65, 0
   br i1 %74, label %._crit_edge, label %.lr.ph
 
@@ -4579,7 +4580,8 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3b738689b5727d91E.exit": ; preds = %2
-  %11 = getelementptr inbounds { i8, [3 x i8] }, ptr %4, i64 %8
+  %.idx = shl nsw i64 %8, 2
+  %11 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %12 = load ptr, ptr %0, align 8, !nonnull !5, !align !6
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 160
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 144
@@ -6290,7 +6292,8 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   br i1 %114, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %107
-  %115 = getelementptr inbounds { i8, [3 x i8] }, ptr %97, i64 %100
+  %.idx = shl nsw i64 %100, 2
+  %115 = getelementptr inbounds i8, ptr %97, i64 %.idx
   br label %120
 
 ._crit_edge:                                      ; preds = %.backedge, %107
@@ -8454,7 +8457,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   tail call void @llvm.assume(i1 %36)
   %37 = shl i64 %29, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %32, ptr nonnull align 4 %35, i64 %37, i1 false), !noalias !618
-  %38 = getelementptr inbounds i32, ptr %32, i64 %29
+  %38 = getelementptr inbounds i8, ptr %32, i64 %37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   store ptr %32, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -10975,7 +10978,8 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br i1 %62, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %54
-  %63 = getelementptr inbounds { i8, [3 x i8] }, ptr %44, i64 %47
+  %.idx = shl nsw i64 %47, 2
+  %63 = getelementptr inbounds i8, ptr %44, i64 %.idx
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.backedge.i, %54
@@ -22854,7 +22858,8 @@ default.unreachable.i:                            ; preds = %"_ZN103_$LT$alloc..
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2675, !noalias !2672, !nonnull !5, !noundef !5
   %.sroa.5531.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 16
   %.sroa.5531.0.copyload.i = load i64, ptr %.sroa.5531.0..sroa_idx.i, align 8, !alias.scope !2675, !noalias !2672
-  %119 = getelementptr inbounds { i32, [2 x i32] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5531.0.copyload.i
+  %.idx.i = mul nsw i64 %.sroa.5531.0.copyload.i, 12
+  %119 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31), !noalias !2677
   store ptr %.sroa.4.0.copyload.i, ptr %31, align 8, !noalias !2677
   %.sroa.5529.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -28514,7 +28519,8 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br i1 %58, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %47
-  %59 = getelementptr inbounds { i8, { i8, [3 x i8] } }, ptr %49, i64 %51
+  %.idx = mul nsw i64 %51, 5
+  %59 = getelementptr inbounds i8, ptr %49, i64 %.idx
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.backedge.i, %47
@@ -49600,7 +49606,8 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %51 = load ptr, ptr %50, align 8, !noalias !6871, !nonnull !5, !align !17, !noundef !5
   %52 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %53 = load i64, ptr %52, align 8, !noalias !6871, !noundef !5
-  %54 = getelementptr inbounds { i8, { i8, [3 x i8] } }, ptr %51, i64 %53
+  %.idx.i = mul nsw i64 %53, 5
+  %54 = getelementptr inbounds i8, ptr %51, i64 %.idx.i
   %55 = icmp eq i64 %53, 0
   br i1 %55, label %._crit_edge.i, label %.lr.ph.i
 

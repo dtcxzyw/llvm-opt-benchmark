@@ -37,7 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.4 = type { ptr }
 %union.anon.5 = type { %struct.anon.6 }
 %struct.anon.6 = type { ptr, i32, i32 }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @executor_globals = external global %struct._zend_executor_globals, align 8
 @.str = private unnamed_addr constant [4 x i8] c"dom\00", align 1
@@ -19308,7 +19307,8 @@ define internal ptr @dom_get_debug_info(ptr noundef %0, ptr noundef writeonly ca
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %19 = load i32, ptr %18, align 8, !tbaa !141
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct._Bucket, ptr %17, i64 %20
+  %.idx.i = shl nuw nsw i64 %20, 5
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !44
   %24 = and i32 %23, 4

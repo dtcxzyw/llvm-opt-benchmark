@@ -43,7 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_fcall_info_cache = type { ptr, ptr, ptr, ptr, ptr }
 %struct.sapi_request_parse_body_context = type { i8, [5 x %struct.anon.15] }
 %struct.anon.15 = type { i8, i64 }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct._zend_file_handle = type { %union.anon.14, ptr, ptr, i8, i8, i8, ptr, i64 }
 %union.anon.14 = type { %struct._zend_stream }
 %struct._zend_stream = type { ptr, i32, ptr, ptr, ptr }
@@ -1074,7 +1073,8 @@ define hidden void @zif_opcache_get_status(ptr noundef readonly captures(none) %
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 288
   %206 = load i32, ptr %205, align 8, !tbaa !139
   %207 = zext i32 %206 to i64
-  %208 = getelementptr inbounds nuw %struct._Bucket, ptr %204, i64 %207
+  %.idx = shl nuw nsw i64 %207, 5
+  %208 = getelementptr inbounds nuw i8, ptr %204, i64 %.idx
   %209 = getelementptr inbounds nuw i8, ptr %202, i64 272
   %210 = load i32, ptr %209, align 8, !tbaa !40
   %211 = and i32 %210, 4
@@ -1106,11 +1106,11 @@ define hidden void @zif_opcache_get_status(ptr noundef readonly captures(none) %
   call void @add_assoc_zval_ex(ptr noundef nonnull %5, ptr noundef nonnull @.str.70, i64 noundef 9, ptr noundef nonnull %6) #12
   %.pre = load ptr, ptr @accel_shared_globals, align 8, !tbaa !49
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 128
-  %.pre110 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !124
+  %.pre111 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !124
   br label %222
 
 222:                                              ; preds = %._crit_edge, %184
-  %223 = phi ptr [ %.pre110, %._crit_edge ], [ %194, %184 ]
+  %223 = phi ptr [ %.pre111, %._crit_edge ], [ %194, %184 ]
   %224 = phi ptr [ %.pre, %._crit_edge ], [ %192, %184 ]
   %225 = getelementptr inbounds nuw i8, ptr %223, i64 348
   %226 = load i32, ptr %225, align 4, !tbaa !138
@@ -1130,7 +1130,8 @@ define hidden void @zif_opcache_get_status(ptr noundef readonly captures(none) %
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 344
   %236 = load i32, ptr %235, align 8, !tbaa !139
   %237 = zext i32 %236 to i64
-  %238 = getelementptr inbounds nuw %struct._Bucket, ptr %234, i64 %237
+  %.idx110 = shl nuw nsw i64 %237, 5
+  %238 = getelementptr inbounds nuw i8, ptr %234, i64 %.idx110
   %239 = getelementptr inbounds nuw i8, ptr %232, i64 328
   %240 = load i32, ptr %239, align 8, !tbaa !40
   %241 = and i32 %240, 4
@@ -1170,11 +1171,11 @@ define hidden void @zif_opcache_get_status(ptr noundef readonly captures(none) %
 
 ._crit_edge104:                                   ; preds = %250, %227
   call void @add_assoc_zval_ex(ptr noundef nonnull %5, ptr noundef nonnull @.str.71, i64 noundef 7, ptr noundef nonnull %6) #12
-  %.pre111 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !49
+  %.pre112 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !49
   br label %252
 
 252:                                              ; preds = %._crit_edge104, %222
-  %253 = phi ptr [ %.pre111, %._crit_edge104 ], [ %224, %222 ]
+  %253 = phi ptr [ %.pre112, %._crit_edge104 ], [ %224, %222 ]
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 136
   %255 = load ptr, ptr %254, align 8, !tbaa !144
   %.not88 = icmp eq ptr %255, null

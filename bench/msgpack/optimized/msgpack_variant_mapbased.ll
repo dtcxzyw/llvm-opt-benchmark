@@ -95,7 +95,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"class.boost::variant<msgpack::v1::type::nil_t, bool, long, unsigned long, double, std::__cxx11::basic_string<char>, boost::basic_string_ref<char>, std::vector<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext, msgpack::v1::type::ext_ref, boost::recursive_wrapper<std::vector<msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>>>, boost::recursive_wrapper<std::map<msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>, msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>>>, boost::recursive_wrapper<std::multimap<msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>, msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>>>>::move_assigner" = type { %"class.boost::variant<msgpack::v1::type::nil_t, bool, long, unsigned long, double, std::__cxx11::basic_string<char>, boost::basic_string_ref<char>, std::vector<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext, msgpack::v1::type::ext_ref, boost::recursive_wrapper<std::vector<msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>>>, boost::recursive_wrapper<std::map<msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>, msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>>>, boost::recursive_wrapper<std::multimap<msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>, msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>>>>::assigner.base", [4 x i8] }
 %"class.boost::variant<msgpack::v1::type::nil_t, bool, long, unsigned long, double, std::__cxx11::basic_string<char>, boost::basic_string_ref<char>, std::vector<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext, msgpack::v1::type::ext_ref, boost::recursive_wrapper<std::vector<msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>>>, boost::recursive_wrapper<std::map<msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>, msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>>>, boost::recursive_wrapper<std::multimap<msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>, msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>>>>::assigner.base" = type <{ ptr, i32 }>
-%"struct.msgpack::v1::object_kv" = type { %"struct.msgpack::v2::object", %"struct.msgpack::v2::object" }
 %"class.boost::detail::variant::comparer" = type { ptr }
 %"struct.std::_Rb_tree<msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>, std::pair<const msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>, msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>>, std::_Select1st<std::pair<const msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>, msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>>>, std::less<msgpack::v1::type::basic_variant<boost::basic_string_ref<char>, msgpack::v1::type::raw_ref, msgpack::v1::type::ext_ref>>>::_Auto_node" = type { ptr, ptr }
 %"class.boost::bad_get" = type { %"class.std::exception" }
@@ -107,6 +106,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.msgpack::v1::adaptor::object_with_zone.189" = type { i8 }
 %"struct.msgpack::v1::adaptor::object_with_zone.179" = type { i8 }
 %"struct.msgpack::v1::adaptor::object_with_zone.174" = type { i8 }
+%"struct.msgpack::v1::object_kv" = type { %"struct.msgpack::v2::object", %"struct.msgpack::v2::object" }
 
 $_ZN5boost4noneE = comdat any
 
@@ -11902,7 +11902,8 @@ define linkonce_odr dso_local void @_ZNK7msgpack2v17adaptor2asISt8multimapINS0_4
   %16 = load ptr, ptr %15, align 8, !tbaa !13
   %17 = load i32, ptr %14, align 8, !tbaa !13
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.msgpack::v1::object_kv", ptr %16, i64 %18
+  %.idx = mul nuw nsw i64 %18, 48
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %20, align 8, !tbaa !276
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16

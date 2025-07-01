@@ -793,8 +793,8 @@ do.end:                                           ; preds = %entry
 
 _ZN8QuantLib5ArrayC2Em.exit.thread:               ; preds = %do.end
   store ptr null, ptr %agg.result, align 8, !tbaa !19
-  %n_.i3961 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %0, ptr %n_.i3961, align 8, !tbaa !15
+  %n_.i3962 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i64 %0, ptr %n_.i3962, align 8, !tbaa !15
   br label %_ZSt9transformIPKdS1_PdSt5minusIvEET1_T_S6_T0_S5_T2_.exit
 
 for.body.i.preheader:                             ; preds = %do.end
@@ -806,7 +806,7 @@ for.body.i.preheader:                             ; preds = %do.end
   %n_.i39 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %0, ptr %n_.i39, align 8, !tbaa !15
   %28 = load ptr, ptr %v1, align 8, !tbaa !19
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %28, i64 %0
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %28, i64 %26
   %29 = load ptr, ptr %v2, align 8, !tbaa !19
   br label %for.body.i
 

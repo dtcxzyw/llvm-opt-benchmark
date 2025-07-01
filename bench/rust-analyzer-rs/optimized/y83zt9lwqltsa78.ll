@@ -293,7 +293,8 @@ define void @_ZN9text_edit8TextEdit5apply17hfac62dd931182d45E(ptr noalias nounde
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val22 = load ptr, ptr %14, align 8, !nonnull !16, !noundef !16
-  %15 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %.val22, i64 %8
+  %.idx = shl nsw i64 %8, 5
+  %15 = getelementptr inbounds i8, ptr %.val22, i64 %.idx
   br label %.lr.ph
 
 16:                                               ; preds = %2
@@ -537,7 +538,8 @@ define { i32, i32 } @_ZN9text_edit8TextEdit15apply_to_offset17ha87deef8c32a5b56E
   %.val22 = load ptr, ptr %4, align 8, !nonnull !16, !noundef !16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val23 = load i64, ptr %5, align 8, !noundef !16
-  %6 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %.val22, i64 %.val23
+  %.idx = shl nsw i64 %.val23, 5
+  %6 = getelementptr inbounds i8, ptr %.val22, i64 %.idx
   %7 = icmp eq i64 %.val23, 0
   br i1 %7, label %.critedge, label %.lr.ph
 

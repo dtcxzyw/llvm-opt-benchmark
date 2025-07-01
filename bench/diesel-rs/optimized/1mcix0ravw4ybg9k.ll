@@ -5422,7 +5422,8 @@ common.resume:                                    ; preds = %.thread58, %202, %.
   %58 = load i64, ptr %57, align 8, !noundef !11
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.09.val = load ptr, ptr %59, align 8, !nonnull !11, !noundef !11
-  %60 = getelementptr inbounds i16, ptr %.09.val, i64 %58
+  %.idx = shl nsw i64 %58, 1
+  %60 = getelementptr inbounds i8, ptr %.09.val, i64 %.idx
   %61 = icmp eq i64 %58, 0
   br i1 %61, label %._crit_edge, label %.lr.ph
 

@@ -368,8 +368,9 @@ define hidden void @_ZN3egg8language8Language8for_each17h09f1a25c9e40ae37E.llvm.
   br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd8330d2ca1b0577aE.llvm.13994044477760586293.exit", label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %3
+  %.idx = and i64 %5, 4611686018427387903
   %.promoted.i = load i64, ptr %1, align 8, !alias.scope !148
-  %7 = add i64 %.promoted.i, %5
+  %7 = add i64 %.promoted.i, %.idx
   store i64 %7, ptr %1, align 8, !alias.scope !148
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd8330d2ca1b0577aE.llvm.13994044477760586293.exit"
 
@@ -382,7 +383,8 @@ define hidden noundef i64 @_ZN3egg8language8Language4fold17hfa704471984cbdf4E(pt
 _ZN3egg8language8Language8for_each17h09f1a25c9e40ae37E.llvm.13994044477760586293.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !alias.scope !151, !noalias !156, !noundef !16
-  %4 = add i64 %3, %1
+  %.idx.i = and i64 %3, 4611686018427387903
+  %4 = add i64 %.idx.i, %1
   ret i64 %4
 }
 

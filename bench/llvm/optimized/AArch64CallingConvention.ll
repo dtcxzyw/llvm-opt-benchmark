@@ -1642,7 +1642,7 @@ _ZNK4llvm3MVT13is32BitVectorEv.exit:              ; preds = %27
   switch i64 %.sroa.0.0.copyload.i.i.i, label %.thread58 [
     i64 32, label %32
     i64 64, label %.critedge
-    i64 128, label %.critedge.fold.split97
+    i64 128, label %.critedge.fold.split100
   ]
 
 32:                                               ; preds = %_ZNK4llvm3MVT13is32BitVectorEv.exit, %26
@@ -1668,12 +1668,12 @@ _ZNK4llvm3MVT13is32BitVectorEv.exit:              ; preds = %27
 .critedge.fold.split:                             ; preds = %33
   br label %.critedge
 
-.critedge.fold.split97:                           ; preds = %_ZNK4llvm3MVT13is32BitVectorEv.exit
+.critedge.fold.split100:                          ; preds = %_ZNK4llvm3MVT13is32BitVectorEv.exit
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK4llvm3MVT13is32BitVectorEv.exit, %.critedge.fold.split97, %36, %33, %.critedge.fold.split, %26, %21, %32
-  %.sroa.13.0 = phi i64 [ 8, %32 ], [ 8, %21 ], [ 8, %26 ], [ 8, %33 ], [ 8, %.critedge.fold.split ], [ %spec.select73, %36 ], [ 8, %_ZNK4llvm3MVT13is32BitVectorEv.exit ], [ 8, %.critedge.fold.split97 ]
-  %.sroa.048.0 = phi ptr [ @_ZL8SRegList, %32 ], [ @_ZL8XRegList, %21 ], [ @_ZL8HRegList, %26 ], [ @_ZL8DRegList, %33 ], [ @_ZL8QRegList, %.critedge.fold.split ], [ %spec.select74, %36 ], [ @_ZL8DRegList, %_ZNK4llvm3MVT13is32BitVectorEv.exit ], [ @_ZL8QRegList, %.critedge.fold.split97 ]
+.critedge:                                        ; preds = %_ZNK4llvm3MVT13is32BitVectorEv.exit, %.critedge.fold.split100, %36, %33, %.critedge.fold.split, %26, %21, %32
+  %.sroa.13.0 = phi i64 [ 8, %32 ], [ 8, %21 ], [ 8, %26 ], [ 8, %33 ], [ 8, %.critedge.fold.split ], [ %spec.select73, %36 ], [ 8, %_ZNK4llvm3MVT13is32BitVectorEv.exit ], [ 8, %.critedge.fold.split100 ]
+  %.sroa.048.0 = phi ptr [ @_ZL8SRegList, %32 ], [ @_ZL8XRegList, %21 ], [ @_ZL8HRegList, %26 ], [ @_ZL8DRegList, %33 ], [ @_ZL8QRegList, %.critedge.fold.split ], [ %spec.select74, %36 ], [ @_ZL8DRegList, %_ZNK4llvm3MVT13is32BitVectorEv.exit ], [ @_ZL8QRegList, %.critedge.fold.split100 ]
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 144
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
   %.sroa.034.0.copyload = load i16, ptr %0, align 2, !tbaa !26
@@ -1813,13 +1813,15 @@ _ZN4llvm7CCState16AllocateRegBlockENS_8ArrayRefItEEj.exit: ; preds = %.critedge.
   %113 = load ptr, ptr %37, align 8, !tbaa !3
   %114 = load i32, ptr %46, align 8, !tbaa !56
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw %"class.llvm::CCValAssign", ptr %113, i64 %115
+  %.idx93 = shl nuw nsw i64 %115, 5
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 %.idx93
   br i1 %76, label %157, label %117
 
 117:                                              ; preds = %_ZN4llvm7CCState16AllocateRegBlockENS_8ArrayRefItEEj.exit
-  %118 = getelementptr inbounds nuw i16, ptr %112, i64 %84
-  %.not94 = icmp eq i32 %114, 0
-  br i1 %.not94, label %._crit_edge, label %.lr.ph
+  %.idx92 = shl nuw nsw i64 %84, 1
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 %.idx92
+  %.not97 = icmp eq i32 %114, 0
+  br i1 %.not97, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %117
   %119 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1992,7 +1994,8 @@ _ZN4llvm7CCState6addLocERKNS_11CCValAssignE.exit101: ; preds = %165, %187, %189
   br i1 %spec.select.i102, label %.loopexit, label %.lr.ph91
 
 .lr.ph91:                                         ; preds = %.thread71
-  %205 = getelementptr inbounds nuw i16, ptr %.sroa.048.0, i64 %.sroa.13.0
+  %.idx94 = shl nuw nsw i64 %.sroa.13.0, 1
+  %205 = getelementptr inbounds nuw i8, ptr %.sroa.048.0, i64 %.idx94
   %206 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %207
 
@@ -2124,7 +2127,8 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %7, %._c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN4llvm7CCState13AllocateStackEjNS_5AlignENS_8ArrayRefItEE(ptr noundef nonnull align 8 dereferenceable(420) %0, i32 noundef %1, i8 %2, ptr %3, i64 %4) local_unnamed_addr #0 comdat align 2 {
-  %6 = getelementptr inbounds nuw i16, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not10 = icmp eq i64 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -11086,7 +11090,8 @@ _ZN4llvm7CCState11AllocateRegEt.exit69:           ; preds = %47, %62
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %87 = load i32, ptr %86, align 8, !tbaa !56
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw %"class.llvm::CCValAssign", ptr %85, i64 %88
+  %.idx = shl nuw nsw i64 %88, 5
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx
   %.not75 = icmp eq i32 %87, 0
   br i1 %.not75, label %._crit_edge, label %.lr.ph
 

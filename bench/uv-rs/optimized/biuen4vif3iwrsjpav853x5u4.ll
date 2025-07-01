@@ -666,7 +666,8 @@ _ZN9uv_pep4407version7Version5local17h0336e1695460c46cE.exit: ; preds = %.thread
   store i64 %145, ptr %1, align 8, !alias.scope !68
   call void @llvm.experimental.noalias.scope.decl(metadata !73)
   call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  %146 = getelementptr inbounds { i64, [2 x i64] }, ptr %137, i64 %143
+  %.idx.i = mul nsw i64 %143, 24
+  %146 = getelementptr inbounds i8, ptr %137, i64 %.idx.i
   %147 = icmp eq i64 %143, 0
   br i1 %147, label %_ZN4core4hash4Hash10hash_slice17h9dcc221eadb1c36bE.exit, label %.lr.ph.i
 

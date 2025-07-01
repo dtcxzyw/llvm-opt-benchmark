@@ -380,7 +380,8 @@ define hidden noundef ptr @_ZN13uv_virtualenv10virtualenv9write_cfg17hafab70ee1b
   %5 = alloca [48 x i8], align 8
   %6 = alloca [8 x i8], align 8
   %7 = alloca [8 x i8], align 8
-  %8 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 48
+  %8 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %9 = icmp eq i64 %2, 0
   br i1 %9, label %.loopexit, label %.lr.ph
 

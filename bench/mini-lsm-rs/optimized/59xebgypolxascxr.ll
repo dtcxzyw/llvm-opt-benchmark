@@ -11078,7 +11078,8 @@ define void @_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator24create_
   %7 = load ptr, ptr %6, align 8, !nonnull !14, !noundef !14
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !14
-  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  %.idx.i = shl nsw i64 %9, 3
+  %10 = getelementptr inbounds i8, ptr %7, i64 %.idx.i
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %.critedge, label %.lr.ph.i
 
@@ -11306,7 +11307,8 @@ define void @_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator22create_
   %12 = load ptr, ptr %11, align 8, !nonnull !14, !noundef !14
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !14
-  %15 = getelementptr inbounds ptr, ptr %12, i64 %14
+  %.idx.i = shl nsw i64 %14, 3
+  %15 = getelementptr inbounds i8, ptr %12, i64 %.idx.i
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator15check_sst_valid17h881e2eefecfbb48fE.exit, label %.lr.ph.i
 

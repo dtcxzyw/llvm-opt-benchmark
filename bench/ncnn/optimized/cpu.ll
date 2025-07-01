@@ -2080,47 +2080,48 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !38
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %14, i8 0, i64 %13, i1 false), !tbaa !10
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc11, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ], [ %15, %.noexc11 ]
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.0.i.i.i.i.i.i.i, ptr %17, align 8, !tbaa !39
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ], [ %17, %.noexc11 ]
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %.0.i.i.i.i.i.i.i, ptr %18, align 8, !tbaa !39
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %4, i32 %spec.select.i)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull @_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE.omp_outlined, ptr nonnull %2, ptr nonnull %3, ptr nonnull %0)
-  %18 = load i32, ptr %2, align 4, !tbaa !10
-  %.not1016 = icmp sgt i32 %18, 0
+  %19 = load i32, ptr %2, align 4, !tbaa !10
+  %.not1016 = icmp sgt i32 %19, 0
   %.pr.pre = load ptr, ptr %3, align 8, !tbaa !35
   br i1 %.not1016, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.loopexit
-  %wide.trip.count = zext nneg i32 %18 to i64
-  br label %20
+  %wide.trip.count = zext nneg i32 %19 to i64
+  br label %21
 
-19:                                               ; preds = %20
+20:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %20, !llvm.loop !40
+  br i1 %exitcond.not, label %.thread, label %21, !llvm.loop !40
 
-20:                                               ; preds = %.lr.ph, %19
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %21 = getelementptr inbounds nuw i32, ptr %.pr.pre, i64 %indvars.iv
-  %22 = load i32, ptr %21, align 4, !tbaa !10
-  %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %19, label %.thread
+21:                                               ; preds = %.lr.ph, %20
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
+  %22 = getelementptr inbounds nuw i32, ptr %.pr.pre, i64 %indvars.iv
+  %23 = load i32, ptr %22, align 4, !tbaa !10
+  %.not = icmp eq i32 %23, 0
+  br i1 %.not, label %20, label %.thread
 
 ._crit_edge:                                      ; preds = %.loopexit
   %.not.i.i.i = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.thread
 
-.thread:                                          ; preds = %19, %20, %._crit_edge
-  %spec.select14 = phi i32 [ 0, %._crit_edge ], [ 0, %19 ], [ -1, %20 ]
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !38
-  %25 = ptrtoint ptr %24 to i64
-  %26 = ptrtoint ptr %.pr.pre to i64
-  %27 = sub i64 %25, %26
-  call void @_ZdlPvm(ptr noundef nonnull %.pr.pre, i64 noundef %27) #25
+.thread:                                          ; preds = %20, %21, %._crit_edge
+  %spec.select14 = phi i32 [ 0, %._crit_edge ], [ 0, %20 ], [ -1, %21 ]
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %25 = load ptr, ptr %24, align 8, !tbaa !38
+  %26 = ptrtoint ptr %25 to i64
+  %27 = ptrtoint ptr %.pr.pre to i64
+  %28 = sub i64 %26, %27
+  call void @_ZdlPvm(ptr noundef nonnull %.pr.pre, i64 noundef %28) #25
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %.thread

@@ -33608,7 +33608,8 @@ _ZNSt11_Deque_baseIhSaIhEE15_M_allocate_mapEm.exit:
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIhSaIhEE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIhSaIhEE16_M_allocate_nodeEv.exit.i
@@ -35641,35 +35642,36 @@ _ZNSt5dequeIhSaIhEE5clearEv.exit:                 ; preds = %.lr.ph.i.i.i, %40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !861
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !861
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !858
-  %.pre99 = load ptr, ptr %27, align 8, !tbaa !181, !noalias !867
-  %.pre100 = load ptr, ptr %30, align 8, !tbaa !183, !noalias !867
-  %.pre101 = load ptr, ptr %31, align 8, !tbaa !180, !noalias !867
-  %.pre112 = ptrtoint ptr %.pre99 to i64
+  %.pre100 = load ptr, ptr %27, align 8, !tbaa !181, !noalias !867
+  %.pre101 = load ptr, ptr %30, align 8, !tbaa !183, !noalias !867
+  %.pre102 = load ptr, ptr %31, align 8, !tbaa !180, !noalias !867
+  %.pre113 = ptrtoint ptr %.pre100 to i64
   br label %125
 
 125:                                              ; preds = %112, %111
-  %.pre-phi113 = phi i64 [ %.pre112, %112 ], [ %87, %111 ]
-  %126 = phi ptr [ %.pre101, %112 ], [ %76, %111 ]
-  %127 = phi ptr [ %.pre100, %112 ], [ %75, %111 ]
-  %128 = phi ptr [ %.pre99, %112 ], [ %28, %111 ]
+  %.pre-phi114 = phi i64 [ %.pre113, %112 ], [ %87, %111 ]
+  %126 = phi ptr [ %.pre102, %112 ], [ %76, %111 ]
+  %127 = phi ptr [ %.pre101, %112 ], [ %75, %111 ]
+  %128 = phi ptr [ %.pre100, %112 ], [ %28, %111 ]
   %129 = load ptr, ptr %29, align 8, !tbaa !182, !noalias !867
   %130 = ptrtoint ptr %129 to i64
-  %131 = sub i64 %.pre-phi113, %130
+  %131 = sub i64 %.pre-phi114, %130
   %132 = add nsw i64 %131, %73
   %133 = icmp sgt i64 %132, -1
   br i1 %133, label %134, label %_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit
 
 134:                                              ; preds = %125
   %135 = icmp samesign ult i64 %132, 512
-  br i1 %135, label %_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread, label %_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread114
+  br i1 %135, label %_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread, label %_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread115
 
 _ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread:  ; preds = %134
   %136 = getelementptr inbounds i8, ptr %128, i64 %73
   br label %_ZNSt5dequeIhSaIhEE17_M_erase_at_beginESt15_Deque_iteratorIhRhPhE.exit
 
-_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread114: ; preds = %134
-  %137 = lshr i64 %132, 9
-  %138 = getelementptr inbounds nuw ptr, ptr %126, i64 %137
+_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread115: ; preds = %134
+  %137 = lshr i64 %132, 6
+  %.idx116 = and i64 %137, 144115188075855864
+  %138 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx116
   %139 = load ptr, ptr %138, align 8, !tbaa !72, !noalias !870
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 512
   %141 = and i64 %132, 511
@@ -35677,16 +35679,17 @@ _ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread114: ; preds = %134
   br label %.lr.ph.i.i
 
 _ZStplRKSt15_Deque_iteratorIhRhPhEl.exit:         ; preds = %125
-  %143 = ashr i64 %132, 9
-  %144 = getelementptr inbounds ptr, ptr %126, i64 %143
+  %143 = ashr i64 %132, 6
+  %.idx = and i64 %143, -8
+  %144 = getelementptr inbounds i8, ptr %126, i64 %.idx
   %145 = load ptr, ptr %144, align 8, !tbaa !72, !noalias !870
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 512
   %147 = and i64 %132, 511
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 %147
   br label %_ZNSt5dequeIhSaIhEE17_M_erase_at_beginESt15_Deque_iteratorIhRhPhE.exit
 
-.lr.ph.i.i:                                       ; preds = %_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread114, %.lr.ph.i.i
-  %.06.i.i = phi ptr [ %150, %.lr.ph.i.i ], [ %126, %_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread114 ]
+.lr.ph.i.i:                                       ; preds = %_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread115, %.lr.ph.i.i
+  %.06.i.i = phi ptr [ %150, %.lr.ph.i.i ], [ %126, %_ZStplRKSt15_Deque_iteratorIhRhPhEl.exit.thread115 ]
   %149 = load ptr, ptr %.06.i.i, align 8, !tbaa !72
   call void @_ZdlPv(ptr noundef %149) #31
   %150 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
@@ -35743,24 +35746,24 @@ _ZNSt5dequeIhSaIhEE17_M_erase_at_beginESt15_Deque_iteratorIhRhPhE.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !879
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !879
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !876
-  %.pre102 = load ptr, ptr %92, align 8, !tbaa !181, !noalias !885
-  %.pre103 = load ptr, ptr %101, align 8, !tbaa !182, !noalias !885
-  %.pre104 = load ptr, ptr %93, align 8, !tbaa !180, !noalias !885
-  %.pre109 = ptrtoint ptr %.pre102 to i64
+  %.pre103 = load ptr, ptr %92, align 8, !tbaa !181, !noalias !885
+  %.pre104 = load ptr, ptr %101, align 8, !tbaa !182, !noalias !885
+  %.pre105 = load ptr, ptr %93, align 8, !tbaa !180, !noalias !885
   %.pre110 = ptrtoint ptr %.pre103 to i64
+  %.pre111 = ptrtoint ptr %.pre104 to i64
   br label %167
 
 167:                                              ; preds = %154, %152
-  %.pre-phi111 = phi i64 [ %.pre110, %154 ], [ %104, %152 ]
-  %.pre-phi = phi i64 [ %.pre109, %154 ], [ %103, %152 ]
-  %168 = phi ptr [ %.pre104, %154 ], [ %94, %152 ]
-  %169 = phi ptr [ %.pre103, %154 ], [ %102, %152 ]
-  %170 = phi ptr [ %.pre102, %154 ], [ %34, %152 ]
+  %.pre-phi112 = phi i64 [ %.pre111, %154 ], [ %104, %152 ]
+  %.pre-phi = phi i64 [ %.pre110, %154 ], [ %103, %152 ]
+  %168 = phi ptr [ %.pre105, %154 ], [ %94, %152 ]
+  %169 = phi ptr [ %.pre104, %154 ], [ %102, %152 ]
+  %170 = phi ptr [ %.pre103, %154 ], [ %34, %152 ]
   %171 = load ptr, ptr %153, align 8, !tbaa !183, !noalias !885
-  %172 = add i64 %73, %.pre-phi111
+  %172 = add i64 %73, %.pre-phi112
   %173 = sub i64 %.pre-phi, %172
   %174 = icmp sgt i64 %173, -1
-  br i1 %174, label %175, label %_ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread115
+  br i1 %174, label %175, label %_ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread117
 
 175:                                              ; preds = %167
   %176 = icmp samesign ult i64 %173, 512
@@ -35770,9 +35773,10 @@ _ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread:  ; preds = %175
   %177 = getelementptr inbounds i8, ptr %170, i64 %74
   br label %_ZNSt5dequeIhSaIhEE15_M_erase_at_endESt15_Deque_iteratorIhRhPhE.exit
 
-_ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread115: ; preds = %167
-  %178 = ashr i64 %173, 9
-  %179 = getelementptr inbounds ptr, ptr %168, i64 %178
+_ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread117: ; preds = %167
+  %178 = ashr i64 %173, 6
+  %.idx92118 = and i64 %178, -8
+  %179 = getelementptr inbounds i8, ptr %168, i64 %.idx92118
   %180 = load ptr, ptr %179, align 8, !tbaa !72, !noalias !888
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 512
   %182 = and i64 %173, 511
@@ -35780,16 +35784,17 @@ _ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread115: ; preds = %167
   br label %.lr.ph.i.i6
 
 _ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit:         ; preds = %175
-  %184 = lshr i64 %173, 9
-  %185 = getelementptr inbounds nuw ptr, ptr %168, i64 %184
+  %184 = lshr i64 %173, 6
+  %.idx92 = and i64 %184, 144115188075855864
+  %185 = getelementptr inbounds nuw i8, ptr %168, i64 %.idx92
   %186 = load ptr, ptr %185, align 8, !tbaa !72, !noalias !888
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 512
   %188 = and i64 %173, 511
   %189 = getelementptr inbounds nuw i8, ptr %186, i64 %188
   br label %_ZNSt5dequeIhSaIhEE15_M_erase_at_endESt15_Deque_iteratorIhRhPhE.exit
 
-.lr.ph.i.i6:                                      ; preds = %_ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread115, %.lr.ph.i.i6
-  %.06.i.pn.i = phi ptr [ %.06.i.i7, %.lr.ph.i.i6 ], [ %179, %_ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread115 ]
+.lr.ph.i.i6:                                      ; preds = %_ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread117, %.lr.ph.i.i6
+  %.06.i.pn.i = phi ptr [ %.06.i.i7, %.lr.ph.i.i6 ], [ %179, %_ZStmiRKSt15_Deque_iteratorIhRhPhEl.exit.thread117 ]
   %.06.i.i7 = getelementptr inbounds nuw i8, ptr %.06.i.pn.i, i64 8
   %190 = load ptr, ptr %.06.i.i7, align 8, !tbaa !72
   call void @_ZdlPv(ptr noundef %190) #31
@@ -35805,17 +35810,17 @@ _ZNSt5dequeIhSaIhEE15_M_erase_at_endESt15_Deque_iteratorIhRhPhE.exit: ; preds = 
   store ptr %.sroa.2.086, ptr %101, align 8, !tbaa !72
   store ptr %.sroa.415.087, ptr %153, align 8, !tbaa !72
   store ptr %.sroa.616.088, ptr %93, align 8, !tbaa !296
-  %.pre105 = load ptr, ptr %27, align 8, !tbaa !181, !noalias !891
-  %.pre106 = load ptr, ptr %29, align 8, !tbaa !182, !noalias !891
-  %.pre107 = load ptr, ptr %30, align 8, !tbaa !183, !noalias !891
-  %.pre108 = load ptr, ptr %31, align 8, !tbaa !180, !noalias !891
+  %.pre106 = load ptr, ptr %27, align 8, !tbaa !181, !noalias !891
+  %.pre107 = load ptr, ptr %29, align 8, !tbaa !182, !noalias !891
+  %.pre108 = load ptr, ptr %30, align 8, !tbaa !183, !noalias !891
+  %.pre109 = load ptr, ptr %31, align 8, !tbaa !180, !noalias !891
   br label %192
 
 192:                                              ; preds = %_ZNSt5dequeIhSaIhEE15_M_erase_at_endESt15_Deque_iteratorIhRhPhE.exit, %_ZNSt5dequeIhSaIhEE17_M_erase_at_beginESt15_Deque_iteratorIhRhPhE.exit
-  %193 = phi ptr [ %.pre108, %_ZNSt5dequeIhSaIhEE15_M_erase_at_endESt15_Deque_iteratorIhRhPhE.exit ], [ %.sroa.642.080, %_ZNSt5dequeIhSaIhEE17_M_erase_at_beginESt15_Deque_iteratorIhRhPhE.exit ]
-  %194 = phi ptr [ %.pre107, %_ZNSt5dequeIhSaIhEE15_M_erase_at_endESt15_Deque_iteratorIhRhPhE.exit ], [ %.sroa.441.079, %_ZNSt5dequeIhSaIhEE17_M_erase_at_beginESt15_Deque_iteratorIhRhPhE.exit ]
-  %195 = phi ptr [ %.pre106, %_ZNSt5dequeIhSaIhEE15_M_erase_at_endESt15_Deque_iteratorIhRhPhE.exit ], [ %.sroa.240.078, %_ZNSt5dequeIhSaIhEE17_M_erase_at_beginESt15_Deque_iteratorIhRhPhE.exit ]
-  %196 = phi ptr [ %.pre105, %_ZNSt5dequeIhSaIhEE15_M_erase_at_endESt15_Deque_iteratorIhRhPhE.exit ], [ %storemerge.i.i81, %_ZNSt5dequeIhSaIhEE17_M_erase_at_beginESt15_Deque_iteratorIhRhPhE.exit ]
+  %193 = phi ptr [ %.pre109, %_ZNSt5dequeIhSaIhEE15_M_erase_at_endESt15_Deque_iteratorIhRhPhE.exit ], [ %.sroa.642.080, %_ZNSt5dequeIhSaIhEE17_M_erase_at_beginESt15_Deque_iteratorIhRhPhE.exit ]
+  %194 = phi ptr [ %.pre108, %_ZNSt5dequeIhSaIhEE15_M_erase_at_endESt15_Deque_iteratorIhRhPhE.exit ], [ %.sroa.441.079, %_ZNSt5dequeIhSaIhEE17_M_erase_at_beginESt15_Deque_iteratorIhRhPhE.exit ]
+  %195 = phi ptr [ %.pre107, %_ZNSt5dequeIhSaIhEE15_M_erase_at_endESt15_Deque_iteratorIhRhPhE.exit ], [ %.sroa.240.078, %_ZNSt5dequeIhSaIhEE17_M_erase_at_beginESt15_Deque_iteratorIhRhPhE.exit ]
+  %196 = phi ptr [ %.pre106, %_ZNSt5dequeIhSaIhEE15_M_erase_at_endESt15_Deque_iteratorIhRhPhE.exit ], [ %storemerge.i.i81, %_ZNSt5dequeIhSaIhEE17_M_erase_at_beginESt15_Deque_iteratorIhRhPhE.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !894)
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %195, ptr %197, align 8, !tbaa !182, !alias.scope !894

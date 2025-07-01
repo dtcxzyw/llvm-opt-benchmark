@@ -175,7 +175,8 @@ define void @_ZN12grep_printer4json10SubMatches3new17hc057495b62827390E(ptr noal
   store ptr inttoptr (i64 8 to ptr), ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %22, align 8
-  %23 = getelementptr inbounds { i64, i64 }, ptr %3, i64 %4
+  %.idx = shl nsw i64 %4, 4
+  %23 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %24 = icmp eq i64 %4, 0
   br i1 %24, label %._crit_edge, label %.lr.ph
 

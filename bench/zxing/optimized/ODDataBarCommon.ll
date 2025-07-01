@@ -16,7 +16,8 @@ $_ZN5ZXing4OneD7DataBar24NormalizedPatternFromE2EILi8EEESt5arrayIiXT_EERKNS_11Pa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZN5ZXing4OneD7DataBar8GetValueESt4spanIiLm18446744073709551615EEib(ptr readonly captures(address) %0, i64 %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = trunc i64 %1 to i32
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %1
+  %.idx.i = shl nuw nsw i64 %1, 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %._crit_edge128, label %.lr.ph.i.i.i
 

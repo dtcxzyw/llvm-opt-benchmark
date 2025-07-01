@@ -79,7 +79,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h6d79b4d12360f06dE(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -113,10 +114,10 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h9de5dcd0
 
 .loopexit.sink.split:                             ; preds = %2, %11, %12, %17, %._crit_edge
   %.sink = phi i64 [ 88, %._crit_edge ], [ 40, %17 ], [ 40, %12 ], [ 40, %11 ], [ 32, %2 ]
-  %.sink26 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
+  %.sink28 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink26
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink28
   %10 = load i64, ptr %9, align 8, !noundef !4
   tail call void @_ZN15ruff_python_ast17statement_visitor16StatementVisitor10visit_body17haa70ab4fb9807660E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 %8, i64 noundef %10)
   br label %.loopexit
@@ -153,7 +154,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h9de5dcd0
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %28, i64 %30
+  %.idx23 = mul nuw nsw i64 %30, 96
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx23
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %.loopexit, label %.lr.ph21
 
@@ -162,7 +164,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h9de5dcd0
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8, !noundef !4
-  %38 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %35, i64 %37
+  %.idx22 = shl nuw nsw i64 %37, 7
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx22
   %39 = icmp eq i64 %37, 0
   br i1 %39, label %.loopexit, label %.lr.ph18
 
@@ -176,7 +179,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h9de5dcd0
   %46 = load ptr, ptr %45, align 8, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load i64, ptr %47, align 8, !noundef !4
-  %49 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %46, i64 %48
+  %.idx = mul nuw nsw i64 %48, 72
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %._crit_edge, label %.lr.ph
 
@@ -1054,7 +1058,8 @@ define noundef range(i8 0, 16) i8 @_ZN20ruff_python_semantic7binding10Exceptions
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !100, !noalias !103
   %9 = icmp ult i64 %.sroa.5.0.copyload.i, 1152921504606846976
   tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds nuw ptr, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nuw nsw i64 %.sroa.5.0.copyload.i, 3
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   %11 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   tail call void @llvm.assume(i1 %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)

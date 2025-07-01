@@ -1379,7 +1379,8 @@ _ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15Fu
 .lr.ph:                                           ; preds = %_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.exit
   %.val = load ptr, ptr %12, align 8, !tbaa !25
   %271 = zext i32 %270 to i64
-  %272 = getelementptr inbounds nuw %"struct.(anonymous namespace)::X86InsertPrefetch::PrefetchInfo", ptr %.val, i64 %271
+  %.idx = shl nuw nsw i64 %271, 4
+  %272 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx
   %273 = add nsw i32 %119, 1
   %274 = zext i32 %273 to i64
   %275 = add nsw i32 %119, 3

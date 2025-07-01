@@ -57973,7 +57973,8 @@ _ZSt8_DestroyIPN3dap23DisassembledInstructionEEvT_S3_.exit.i.i.i.i.i: ; preds = 
 .body:                                            ; preds = %62
   %68 = extractvalue { ptr, i32 } %63, 0
   %69 = tail call ptr @__cxa_begin_catch(ptr %68) #22
-  %70 = getelementptr inbounds nuw %"struct.dap::DisassembledInstruction", ptr %39, i64 %1
+  %.idx = mul nuw nsw i64 %1, 560
+  %70 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
   br label %.lr.ph.i.i.i56
 
 .lr.ph.i.i.i56:                                   ; preds = %.body, %.lr.ph.i.i.i56
@@ -70199,7 +70200,8 @@ _ZSt8_DestroyIPN3dap6SourceEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.
 .body:                                            ; preds = %62
   %68 = extractvalue { ptr, i32 } %63, 0
   %69 = tail call ptr @__cxa_begin_catch(ptr %68) #22
-  %70 = getelementptr inbounds nuw %"struct.dap::Source", ptr %39, i64 %1
+  %.idx = mul nuw nsw i64 %1, 304
+  %70 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.body, %.lr.ph.i.i
@@ -71058,7 +71060,8 @@ _ZSt8_DestroyIPN3dap6ModuleEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.
 .body:                                            ; preds = %37
   %46 = extractvalue { ptr, i32 } %38, 0
   %47 = tail call ptr @__cxa_begin_catch(ptr %46) #22
-  %48 = getelementptr inbounds nuw %"struct.dap::Module", ptr %28, i64 %1
+  %.idx = mul nuw nsw i64 %1, 336
+  %48 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.body, %.lr.ph.i.i.i
@@ -76688,7 +76691,8 @@ _ZSt8_DestroyIPN3dap10StackFrameEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
 .body:                                            ; preds = %62
   %68 = extractvalue { ptr, i32 } %63, 0
   %69 = tail call ptr @__cxa_begin_catch(ptr %68) #22
-  %70 = getelementptr inbounds nuw %"struct.dap::StackFrame", ptr %39, i64 %1
+  %.idx = mul nuw nsw i64 %1, 552
+  %70 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
   br label %.lr.ph.i.i.i56
 
 .lr.ph.i.i.i56:                                   ; preds = %.body, %.lr.ph.i.i.i56
@@ -77606,7 +77610,8 @@ _ZSt27__uninitialized_default_n_aIPN3dap12StepInTargetEmS1_ET_S3_T0_RSaIT1_E.exi
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
   %39 = tail call ptr @__cxa_begin_catch(ptr %38) #22
-  %40 = getelementptr inbounds nuw %"struct.dap::StepInTarget", ptr %30, i64 %1
+  %.idx = mul nuw nsw i64 %1, 104
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx
   br label %.lr.ph.i.i.i46
 
 .lr.ph.i.i.i46:                                   ; preds = %36, %_ZSt8_DestroyIN3dap12StepInTargetEEvPT_.exit.i.i.i
@@ -79374,7 +79379,8 @@ _ZSt8_DestroyIPN3dap8VariableEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.
 .body:                                            ; preds = %70
   %76 = extractvalue { ptr, i32 } %71, 0
   %77 = tail call ptr @__cxa_begin_catch(ptr %76) #22
-  %78 = getelementptr inbounds nuw %"struct.dap::Variable", ptr %44, i64 %1
+  %.idx = mul nuw nsw i64 %1, 352
+  %78 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx
   br label %.lr.ph.i.i.i46
 
 .lr.ph.i.i.i46:                                   ; preds = %.body, %.lr.ph.i.i.i46

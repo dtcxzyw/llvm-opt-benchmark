@@ -7156,7 +7156,8 @@ define hidden void @_ZN5gimli5write3str11StringTable5write17hd89c33f4347e63ccE(p
   %.val = load ptr, ptr %7, align 8, !nonnull !34, !noundef !34
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val40 = load i64, ptr %8, align 8, !noundef !34
-  %9 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, {} }, ptr %.val, i64 %.val40
+  %.idx = shl nsw i64 %.val40, 5
+  %9 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %10 = icmp eq i64 %.val40, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -7275,7 +7276,8 @@ define hidden void @_ZN5gimli5write3str15LineStringTable5write17h55f333d0bbbcc95
   %.val = load ptr, ptr %7, align 8, !nonnull !34, !noundef !34
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val40 = load i64, ptr %8, align 8, !noundef !34
-  %9 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, {} }, ptr %.val, i64 %.val40
+  %.idx = shl nsw i64 %.val40, 5
+  %9 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %10 = icmp eq i64 %.val40, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -15286,7 +15288,8 @@ _ZN18wasmtime_cranelift5debug9transform5utils23get_function_frame_info17h0d4451c
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23), !noalias !2746
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %11), !noalias !2729
   %.sroa.094.0.copyload.i = load i64, ptr %36, align 8, !noalias !2729
-  %634 = getelementptr inbounds ptr, ptr %631, i64 %632
+  %.idx.i = shl nsw i64 %632, 3
+  %634 = getelementptr inbounds i8, ptr %631, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34), !noalias !2729
   store ptr %631, ptr %34, align 8, !noalias !2729
   store ptr %631, ptr %.sroa.5.0..sroa_idx.i199, align 8, !noalias !2729

@@ -22377,7 +22377,8 @@ _ZN4core4iter6traits8iterator8Iterator3nth17he471e0abdb384a7dE.exit: ; preds = %
 
 1706:                                             ; preds = %1703
   %1707 = extractvalue { ptr, i64 } %1702, 1
-  %1708 = getelementptr inbounds { { i32, [1 x i32] }, { { i8, [23 x i8] } }, i32, [1 x i32] }, ptr %1704, i64 %1707
+  %.idx = mul nsw i64 %1707, 40
+  %1708 = getelementptr inbounds i8, ptr %1704, i64 %.idx
   %1709 = icmp eq i64 %1707, 0
   br i1 %1709, label %.loopexit, label %.lr.ph.i
 

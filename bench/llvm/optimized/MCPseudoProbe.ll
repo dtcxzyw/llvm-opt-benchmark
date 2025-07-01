@@ -785,7 +785,8 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_8MCSymbolEPNS_23MCPseudoProbeInlineTreeEEE
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %24 = load i32, ptr %23, align 8, !tbaa !90, !noalias !194
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %22, i64 %25
+  %.idx = shl nuw nsw i64 %25, 3
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %.not7483 = icmp eq i32 %24, 0
   br i1 %.not7483, label %._crit_edge88, label %.lr.ph87
 
@@ -935,7 +936,8 @@ _ZNK4llvm8MCSymbol10getSectionEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %54, %52
   %.pr = load i32, ptr %12, align 8, !tbaa !90
   %86 = load ptr, ptr %5, align 8, !tbaa !89
   %87 = zext i32 %.pr to i64
-  %88 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %86, i64 %87
+  %.idx108 = shl nuw nsw i64 %87, 4
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx108
   %.not104 = icmp eq i32 %.pr, 0
   br i1 %.not104, label %._crit_edge107, label %.lr.ph106
 
@@ -1556,7 +1558,8 @@ define dso_local void @_ZNK4llvm20MCDecodedPseudoProbe19getInlineContextStrB5cxx
   %37 = load ptr, ptr %6, align 8, !tbaa !89
   %38 = load i32, ptr %35, align 8, !tbaa !90
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"struct.std::pair.281", ptr %37, i64 %39
+  %.idx = mul nuw nsw i64 %39, 24
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx
   %.not19 = icmp eq i32 %38, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 

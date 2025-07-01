@@ -6328,25 +6328,29 @@ define noundef i64 @_ZN21uv_distribution_types10resolution10Resolution3len17h713
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1068, !noundef !11
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcf19b89e6356190cE.exit", label %.preheader
+  br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcf19b89e6356190cE.exit", label %7
 
-.preheader:                                       ; preds = %1, %.preheader
-  %.sroa.07.0.i = phi i64 [ %spec.select.i.i, %.preheader ], [ 0, %1 ]
-  %.sroa.09.0.i = phi i64 [ %12, %.preheader ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { i64, [6 x i64] }, [2 x i32] }, ptr %3, i64 %.sroa.09.0.i
-  %8 = load i64, ptr %7, align 8, !range !810, !alias.scope !1071, !noundef !11
-  %.not.i.i = icmp eq i64 %8, 3
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %10 = load i8, ptr %9, align 8, !range !799, !alias.scope !1071
-  %11 = zext nneg i8 %10 to i64
-  %or.cond.i.i.i = select i1 %.not.i.i, i64 0, i64 %11
+7:                                                ; preds = %1
+  %.idx = and i64 %5, 288230376151711743
+  br label %8
+
+8:                                                ; preds = %8, %7
+  %.sroa.07.0.i = phi i64 [ 0, %7 ], [ %spec.select.i.i, %8 ]
+  %.sroa.09.0.i = phi i64 [ 0, %7 ], [ %14, %8 ]
+  %9 = getelementptr inbounds { { i64, [6 x i64] }, [2 x i32] }, ptr %3, i64 %.sroa.09.0.i
+  %10 = load i64, ptr %9, align 8, !range !810, !alias.scope !1071, !noundef !11
+  %.not.i.i = icmp eq i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %12 = load i8, ptr %11, align 8, !range !799, !alias.scope !1071
+  %13 = zext nneg i8 %12 to i64
+  %or.cond.i.i.i = select i1 %.not.i.i, i64 0, i64 %13
   %spec.select.i.i = add i64 %or.cond.i.i.i, %.sroa.07.0.i
-  %12 = add nuw i64 %.sroa.09.0.i, 1
-  %13 = icmp eq i64 %12, %5
-  br i1 %13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcf19b89e6356190cE.exit", label %.preheader
+  %14 = add nuw i64 %.sroa.09.0.i, 1
+  %15 = icmp eq i64 %14, %.idx
+  br i1 %15, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcf19b89e6356190cE.exit", label %8
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcf19b89e6356190cE.exit": ; preds = %.preheader, %1
-  %.sroa.04.0.i = phi i64 [ 0, %1 ], [ %spec.select.i.i, %.preheader ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcf19b89e6356190cE.exit": ; preds = %8, %1
+  %.sroa.04.0.i = phi i64 [ 0, %1 ], [ %spec.select.i.i, %8 ]
   ret i64 %.sroa.04.0.i
 }
 

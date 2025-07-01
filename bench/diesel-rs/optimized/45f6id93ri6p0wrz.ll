@@ -1363,7 +1363,8 @@ define hidden void @_ZN6diesel10connection19transaction_manager18TransactionMana
   %.val.i = load ptr, ptr %15, align 8, !noalias !158, !nonnull !5, !noundef !5
   %16 = getelementptr i8, ptr %.sroa.3.0.copyload, i64 16
   %.val16.i = load i64, ptr %16, align 8, !noalias !158, !noundef !5
-  %17 = getelementptr inbounds { ptr, ptr }, ptr %.val.i, i64 %.val16.i
+  %.idx.i = shl nsw i64 %.val16.i, 4
+  %17 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx.i
   %18 = icmp eq i64 %.val16.i, 0
   br i1 %18, label %.loopexit, label %.lr.ph.i
 
@@ -1572,7 +1573,8 @@ define hidden void @_ZN6diesel10connection19transaction_manager18TransactionMana
   %.val.i = load ptr, ptr %15, align 8, !noalias !185, !nonnull !5, !noundef !5
   %16 = getelementptr i8, ptr %.sroa.3.0.copyload, i64 16
   %.val16.i = load i64, ptr %16, align 8, !noalias !185, !noundef !5
-  %17 = getelementptr inbounds ptr, ptr %.val.i, i64 %.val16.i
+  %.idx.i = shl nsw i64 %.val16.i, 3
+  %17 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx.i
   %18 = icmp eq i64 %.val16.i, 0
   br i1 %18, label %.loopexit, label %.lr.ph.i
 
@@ -1988,7 +1990,8 @@ define hidden void @_ZN6diesel10connection19transaction_manager18TransactionMana
   %.val.i = load ptr, ptr %15, align 8, !noalias !238, !nonnull !5, !noundef !5
   %16 = getelementptr i8, ptr %.sroa.3.0.copyload, i64 16
   %.val16.i = load i64, ptr %16, align 8, !noalias !238, !noundef !5
-  %17 = getelementptr inbounds { ptr, ptr }, ptr %.val.i, i64 %.val16.i
+  %.idx.i = shl nsw i64 %.val16.i, 4
+  %17 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx.i
   %18 = icmp eq i64 %.val16.i, 0
   br i1 %18, label %.loopexit, label %.lr.ph.i
 

@@ -6325,7 +6325,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h227c7ecad0d471baE.exit: ; preds =
   %119 = mul i64 %.sroa.0.0.sroa.speculated.i.i33, 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %119, i1 false), !alias.scope !722
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !722
-  %120 = getelementptr inbounds nuw { ptr, i64, i8, [7 x i8] }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i33
+  %120 = getelementptr inbounds nuw i8, ptr %2, i64 %119
   store ptr %2, ptr %7, align 8, !noalias !722
   store ptr %120, ptr %21, align 8, !noalias !722
   br i1 %.not.i34, label %121, label %.lr.ph.i.preheader.i

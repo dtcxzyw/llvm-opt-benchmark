@@ -160,7 +160,8 @@ define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$sqlez..typed_state
   %4 = load ptr, ptr %3, align 8, !alias.scope !32, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !32, !noundef !4
-  %7 = getelementptr inbounds ptr, ptr %4, i64 %6
+  %.idx.i.i = shl nsw i64 %6, 3
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %"_ZN69_$LT$sqlez..statement..Statement$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc237b8f5b3e083cdE.exit.i", label %.lr.ph.i.i
 
@@ -1989,7 +1990,8 @@ _ZN5sqlez9statement9Statement4exec5logic17hbca7dc19ebc55687E.llvm.16744547508767
   call void @llvm.experimental.noalias.scope.decl(metadata !313)
   %268 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !316, !nonnull !4, !noundef !4
   %269 = load i64, ptr %.sroa.7135.0..sroa_idx, align 8, !alias.scope !316, !noundef !4
-  %270 = getelementptr inbounds ptr, ptr %268, i64 %269
+  %.idx.i.i = shl nsw i64 %269, 3
+  %270 = getelementptr inbounds i8, ptr %268, i64 %.idx.i.i
   %271 = icmp eq i64 %269, 0
   br i1 %271, label %.loopexit, label %.lr.ph.i.i
 
@@ -2043,7 +2045,8 @@ _ZN5sqlez9statement9Statement4exec5logic17hbca7dc19ebc55687E.llvm.16744547508767
   call void @llvm.experimental.noalias.scope.decl(metadata !323)
   %285 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !326, !nonnull !4, !noundef !4
   %286 = load i64, ptr %.sroa.7135.0..sroa_idx, align 8, !alias.scope !326, !noundef !4
-  %287 = getelementptr inbounds ptr, ptr %285, i64 %286
+  %.idx.i.i.i = shl nsw i64 %286, 3
+  %287 = getelementptr inbounds i8, ptr %285, i64 %.idx.i.i.i
   %288 = icmp eq i64 %286, 0
   br i1 %288, label %"_ZN69_$LT$sqlez..statement..Statement$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc237b8f5b3e083cdE.exit.i.i", label %.lr.ph.i.i.i
 

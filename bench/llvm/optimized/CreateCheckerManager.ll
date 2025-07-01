@@ -6,35 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::ArrayRef.0" = type { ptr, i64 }
 %"class.clang::ento::CheckerRegistry" = type { ptr, ptr, ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::greater<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
-%"struct.llvm::detail::DenseMapPair.565" = type { %"struct.std::pair.566" }
-%"struct.std::pair.566" = type { ptr, %"struct.clang::ento::CheckerManager::EventInfo" }
-%"struct.clang::ento::CheckerManager::EventInfo" = type <{ %"class.llvm::SmallVector.568", i8, [7 x i8] }>
-%"class.llvm::SmallVector.568" = type { %"class.llvm::SmallVectorImpl.569", %"struct.llvm::SmallVectorStorage.572" }
-%"class.llvm::SmallVectorImpl.569" = type { %"class.llvm::SmallVectorTemplateBase.570" }
-%"class.llvm::SmallVectorTemplateBase.570" = type { %"class.llvm::SmallVectorTemplateCommon.571" }
-%"class.llvm::SmallVectorTemplateCommon.571" = type { %"class.llvm::SmallVectorBase" }
-%"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvm::SmallVectorStorage.572" = type { [64 x i8] }
-%"struct.llvm::detail::DenseMapPair.557" = type { %"struct.std::pair.558" }
-%"struct.std::pair.558" = type { i32, %"class.llvm::SmallVector.560" }
-%"class.llvm::SmallVector.560" = type { %"class.llvm::SmallVectorImpl.561", %"struct.llvm::SmallVectorStorage.564" }
-%"class.llvm::SmallVectorImpl.561" = type { %"class.llvm::SmallVectorTemplateBase.562" }
-%"class.llvm::SmallVectorTemplateBase.562" = type { %"class.llvm::SmallVectorTemplateCommon.563" }
-%"class.llvm::SmallVectorTemplateCommon.563" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.564" = type { [64 x i8] }
-%"struct.llvm::detail::DenseMapPair.549" = type { %"struct.std::pair.550" }
-%"struct.std::pair.550" = type { i32, %"class.llvm::SmallVector.552" }
-%"class.llvm::SmallVector.552" = type { %"class.llvm::SmallVectorImpl.553", %"struct.llvm::SmallVectorStorage.556" }
-%"class.llvm::SmallVectorImpl.553" = type { %"class.llvm::SmallVectorTemplateBase.554" }
-%"class.llvm::SmallVectorTemplateBase.554" = type { %"class.llvm::SmallVectorTemplateCommon.555" }
-%"class.llvm::SmallVectorTemplateCommon.555" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.556" = type { [64 x i8] }
-%"struct.clang::ento::PackageInfo" = type { %"class.llvm::StringRef", %"class.llvm::SmallVector.542" }
-%"class.llvm::StringRef" = type { ptr, i64 }
-%"class.llvm::SmallVector.542" = type { %"class.llvm::SmallVectorImpl.543" }
-%"class.llvm::SmallVectorImpl.543" = type { %"class.llvm::SmallVectorTemplateBase.544" }
-%"class.llvm::SmallVectorTemplateBase.544" = type { %"class.llvm::SmallVectorTemplateCommon.545" }
-%"class.llvm::SmallVectorTemplateCommon.545" = type { %"class.llvm::SmallVectorBase" }
 
 $_ZN5clang11LangOptionsC2ERKS0_ = comdat any
 
@@ -692,8 +663,8 @@ define dso_local void @_ZN5clang4ento14CheckerManagerD2Ev(ptr noundef nonnull al
   %3 = load ptr, ptr %2, align 8, !tbaa !560
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %5 = load ptr, ptr %4, align 8, !tbaa !560
-  %.not46 = icmp eq ptr %3, %5
-  br i1 %.not46, label %._crit_edge, label %.lr.ph
+  %.not48 = icmp eq ptr %3, %5
+  br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1536
@@ -705,7 +676,8 @@ define dso_local void @_ZN5clang4ento14CheckerManagerD2Ev(ptr noundef nonnull al
 
 .lr.ph.preheader.i.i:                             ; preds = %._crit_edge
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.565", ptr %.pre1.i, i64 %10
+  %.idx.i.i = mul nuw nsw i64 %10, 96
+  %11 = getelementptr inbounds nuw i8, ptr %.pre1.i, i64 %.idx.i.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang4ento14CheckerManager9EventInfoD2Ev.exit.i.i, %.lr.ph.preheader.i.i
@@ -1038,16 +1010,17 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvRKNS1_14ObjCMethodCallERNS1_14CheckerConte
 
 .lr.ph.preheader.i.i26:                           ; preds = %_ZNSt6vectorIN5clang4ento9CheckerFnIFvRKNS1_14ObjCMethodCallERNS1_14CheckerContextEEEESaIS9_EED2Ev.exit24
   %180 = zext i32 %178 to i64
-  %181 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.557", ptr %.pre1.i25, i64 %180
-  br label %.lr.ph.i.i27
+  %.idx.i.i27 = mul nuw nsw i64 %180, 88
+  %181 = getelementptr inbounds nuw i8, ptr %.pre1.i25, i64 %.idx.i.i27
+  br label %.lr.ph.i.i28
 
-.lr.ph.i.i27:                                     ; preds = %_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4StmtERNS2_14CheckerContextEEEELj4EED2Ev.exit.i.i, %.lr.ph.preheader.i.i26
+.lr.ph.i.i28:                                     ; preds = %_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4StmtERNS2_14CheckerContextEEEELj4EED2Ev.exit.i.i, %.lr.ph.preheader.i.i26
   %.010.i.i = phi ptr [ %189, %_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4StmtERNS2_14CheckerContextEEEELj4EED2Ev.exit.i.i ], [ %.pre1.i25, %.lr.ph.preheader.i.i26 ]
   %182 = load i32, ptr %.010.i.i, align 4, !tbaa !599
   %switch.i.i = icmp ugt i32 %182, -3
   br i1 %switch.i.i, label %_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4StmtERNS2_14CheckerContextEEEELj4EED2Ev.exit.i.i, label %183
 
-183:                                              ; preds = %.lr.ph.i.i27
+183:                                              ; preds = %.lr.ph.i.i28
   %184 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 8
   %185 = load ptr, ptr %184, align 8, !tbaa !529
   %186 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 24
@@ -1058,26 +1031,26 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvRKNS1_14ObjCMethodCallERNS1_14CheckerConte
   tail call void @free(ptr noundef %185) #12
   br label %_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4StmtERNS2_14CheckerContextEEEELj4EED2Ev.exit.i.i
 
-_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4StmtERNS2_14CheckerContextEEEELj4EED2Ev.exit.i.i: ; preds = %188, %183, %.lr.ph.i.i27
+_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4StmtERNS2_14CheckerContextEEEELj4EED2Ev.exit.i.i: ; preds = %188, %183, %.lr.ph.i.i28
   %189 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 88
-  %.not.i.i28 = icmp eq ptr %189, %181
-  br i1 %.not.i.i28, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS3_4StmtERNS4_14CheckerContextEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_E10destroyAllEv.exit.loopexit.i, label %.lr.ph.i.i27, !llvm.loop !600
+  %.not.i.i29 = icmp eq ptr %189, %181
+  br i1 %.not.i.i29, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS3_4StmtERNS4_14CheckerContextEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_E10destroyAllEv.exit.loopexit.i, label %.lr.ph.i.i28, !llvm.loop !600
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS3_4StmtERNS4_14CheckerContextEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_E10destroyAllEv.exit.loopexit.i: ; preds = %_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4StmtERNS2_14CheckerContextEEEELj4EED2Ev.exit.i.i
-  %.pre.i29 = load ptr, ptr %176, align 8, !tbaa !598
-  %.pre2.i30 = load i32, ptr %177, align 8, !tbaa !597
-  %190 = zext i32 %.pre2.i30 to i64
+  %.pre.i30 = load ptr, ptr %176, align 8, !tbaa !598
+  %.pre2.i31 = load i32, ptr %177, align 8, !tbaa !597
+  %190 = zext i32 %.pre2.i31 to i64
   %191 = mul nuw nsw i64 %190, 88
   br label %_ZN4llvm8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS2_4StmtERNS3_14CheckerContextEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSC_EEED2Ev.exit
 
 _ZN4llvm8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS2_4StmtERNS3_14CheckerContextEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSC_EEED2Ev.exit: ; preds = %_ZNSt6vectorIN5clang4ento9CheckerFnIFvRKNS1_14ObjCMethodCallERNS1_14CheckerContextEEEESaIS9_EED2Ev.exit24, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS3_4StmtERNS4_14CheckerContextEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_E10destroyAllEv.exit.loopexit.i
   %192 = phi i64 [ %191, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS3_4StmtERNS4_14CheckerContextEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_E10destroyAllEv.exit.loopexit.i ], [ 0, %_ZNSt6vectorIN5clang4ento9CheckerFnIFvRKNS1_14ObjCMethodCallERNS1_14CheckerContextEEEESaIS9_EED2Ev.exit24 ]
-  %193 = phi ptr [ %.pre.i29, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS3_4StmtERNS4_14CheckerContextEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_E10destroyAllEv.exit.loopexit.i ], [ %.pre1.i25, %_ZNSt6vectorIN5clang4ento9CheckerFnIFvRKNS1_14ObjCMethodCallERNS1_14CheckerContextEEEESaIS9_EED2Ev.exit24 ]
+  %193 = phi ptr [ %.pre.i30, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS3_4StmtERNS4_14CheckerContextEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_E10destroyAllEv.exit.loopexit.i ], [ %.pre1.i25, %_ZNSt6vectorIN5clang4ento9CheckerFnIFvRKNS1_14ObjCMethodCallERNS1_14CheckerContextEEEESaIS9_EED2Ev.exit24 ]
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %193, i64 noundef %192, i64 noundef 8) #12
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %195 = load ptr, ptr %194, align 8, !tbaa !601
-  %.not.i.i.i31 = icmp eq ptr %195, null
-  br i1 %.not.i.i.i31, label %_ZNSt6vectorIN5clang4ento14CheckerManager15StmtCheckerInfoESaIS3_EED2Ev.exit, label %196
+  %.not.i.i.i32 = icmp eq ptr %195, null
+  br i1 %.not.i.i.i32, label %_ZNSt6vectorIN5clang4ento14CheckerManager15StmtCheckerInfoESaIS3_EED2Ev.exit, label %196
 
 196:                                              ; preds = %_ZN4llvm8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS2_4StmtERNS3_14CheckerContextEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSC_EEED2Ev.exit
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -1093,24 +1066,25 @@ _ZNSt6vectorIN5clang4ento14CheckerManager15StmtCheckerInfoESaIS3_EED2Ev.exit: ; 
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %204 = load i32, ptr %203, align 8, !tbaa !603
   %205 = icmp eq i32 %204, 0
-  %.pre1.i32 = load ptr, ptr %202, align 8, !tbaa !604
-  br i1 %205, label %_ZN4llvm8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS2_4DeclERNS3_15AnalysisManagerERNS3_11BugReporterEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSE_EEED2Ev.exit, label %.lr.ph.preheader.i.i33
+  %.pre1.i33 = load ptr, ptr %202, align 8, !tbaa !604
+  br i1 %205, label %_ZN4llvm8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS2_4DeclERNS3_15AnalysisManagerERNS3_11BugReporterEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSE_EEED2Ev.exit, label %.lr.ph.preheader.i.i34
 
-.lr.ph.preheader.i.i33:                           ; preds = %_ZNSt6vectorIN5clang4ento14CheckerManager15StmtCheckerInfoESaIS3_EED2Ev.exit
+.lr.ph.preheader.i.i34:                           ; preds = %_ZNSt6vectorIN5clang4ento14CheckerManager15StmtCheckerInfoESaIS3_EED2Ev.exit
   %206 = zext i32 %204 to i64
-  %207 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.549", ptr %.pre1.i32, i64 %206
-  br label %.lr.ph.i.i34
+  %.idx.i.i35 = mul nuw nsw i64 %206, 88
+  %207 = getelementptr inbounds nuw i8, ptr %.pre1.i33, i64 %.idx.i.i35
+  br label %.lr.ph.i.i36
 
-.lr.ph.i.i34:                                     ; preds = %_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4DeclERNS2_15AnalysisManagerERNS2_11BugReporterEEEELj4EED2Ev.exit.i.i, %.lr.ph.preheader.i.i33
-  %.010.i.i35 = phi ptr [ %215, %_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4DeclERNS2_15AnalysisManagerERNS2_11BugReporterEEEELj4EED2Ev.exit.i.i ], [ %.pre1.i32, %.lr.ph.preheader.i.i33 ]
-  %208 = load i32, ptr %.010.i.i35, align 4, !tbaa !599
-  %switch.i.i36 = icmp ugt i32 %208, -3
-  br i1 %switch.i.i36, label %_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4DeclERNS2_15AnalysisManagerERNS2_11BugReporterEEEELj4EED2Ev.exit.i.i, label %209
+.lr.ph.i.i36:                                     ; preds = %_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4DeclERNS2_15AnalysisManagerERNS2_11BugReporterEEEELj4EED2Ev.exit.i.i, %.lr.ph.preheader.i.i34
+  %.010.i.i37 = phi ptr [ %215, %_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4DeclERNS2_15AnalysisManagerERNS2_11BugReporterEEEELj4EED2Ev.exit.i.i ], [ %.pre1.i33, %.lr.ph.preheader.i.i34 ]
+  %208 = load i32, ptr %.010.i.i37, align 4, !tbaa !599
+  %switch.i.i38 = icmp ugt i32 %208, -3
+  br i1 %switch.i.i38, label %_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4DeclERNS2_15AnalysisManagerERNS2_11BugReporterEEEELj4EED2Ev.exit.i.i, label %209
 
-209:                                              ; preds = %.lr.ph.i.i34
-  %210 = getelementptr inbounds nuw i8, ptr %.010.i.i35, i64 8
+209:                                              ; preds = %.lr.ph.i.i36
+  %210 = getelementptr inbounds nuw i8, ptr %.010.i.i37, i64 8
   %211 = load ptr, ptr %210, align 8, !tbaa !529
-  %212 = getelementptr inbounds nuw i8, ptr %.010.i.i35, i64 24
+  %212 = getelementptr inbounds nuw i8, ptr %.010.i.i37, i64 24
   %213 = icmp eq ptr %211, %212
   br i1 %213, label %_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4DeclERNS2_15AnalysisManagerERNS2_11BugReporterEEEELj4EED2Ev.exit.i.i, label %214
 
@@ -1118,26 +1092,26 @@ _ZNSt6vectorIN5clang4ento14CheckerManager15StmtCheckerInfoESaIS3_EED2Ev.exit: ; 
   tail call void @free(ptr noundef %211) #12
   br label %_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4DeclERNS2_15AnalysisManagerERNS2_11BugReporterEEEELj4EED2Ev.exit.i.i
 
-_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4DeclERNS2_15AnalysisManagerERNS2_11BugReporterEEEELj4EED2Ev.exit.i.i: ; preds = %214, %209, %.lr.ph.i.i34
-  %215 = getelementptr inbounds nuw i8, ptr %.010.i.i35, i64 88
-  %.not.i.i37 = icmp eq ptr %215, %207
-  br i1 %.not.i.i37, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS3_4DeclERNS4_15AnalysisManagerERNS4_11BugReporterEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSF_EEEEjSF_SH_SK_E10destroyAllEv.exit.loopexit.i, label %.lr.ph.i.i34, !llvm.loop !605
+_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4DeclERNS2_15AnalysisManagerERNS2_11BugReporterEEEELj4EED2Ev.exit.i.i: ; preds = %214, %209, %.lr.ph.i.i36
+  %215 = getelementptr inbounds nuw i8, ptr %.010.i.i37, i64 88
+  %.not.i.i39 = icmp eq ptr %215, %207
+  br i1 %.not.i.i39, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS3_4DeclERNS4_15AnalysisManagerERNS4_11BugReporterEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSF_EEEEjSF_SH_SK_E10destroyAllEv.exit.loopexit.i, label %.lr.ph.i.i36, !llvm.loop !605
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS3_4DeclERNS4_15AnalysisManagerERNS4_11BugReporterEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSF_EEEEjSF_SH_SK_E10destroyAllEv.exit.loopexit.i: ; preds = %_ZN4llvm11SmallVectorIN5clang4ento9CheckerFnIFvPKNS1_4DeclERNS2_15AnalysisManagerERNS2_11BugReporterEEEELj4EED2Ev.exit.i.i
-  %.pre.i38 = load ptr, ptr %202, align 8, !tbaa !604
-  %.pre2.i39 = load i32, ptr %203, align 8, !tbaa !603
-  %216 = zext i32 %.pre2.i39 to i64
+  %.pre.i40 = load ptr, ptr %202, align 8, !tbaa !604
+  %.pre2.i41 = load i32, ptr %203, align 8, !tbaa !603
+  %216 = zext i32 %.pre2.i41 to i64
   %217 = mul nuw nsw i64 %216, 88
   br label %_ZN4llvm8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS2_4DeclERNS3_15AnalysisManagerERNS3_11BugReporterEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSE_EEED2Ev.exit
 
 _ZN4llvm8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS2_4DeclERNS3_15AnalysisManagerERNS3_11BugReporterEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSE_EEED2Ev.exit: ; preds = %_ZNSt6vectorIN5clang4ento14CheckerManager15StmtCheckerInfoESaIS3_EED2Ev.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS3_4DeclERNS4_15AnalysisManagerERNS4_11BugReporterEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSF_EEEEjSF_SH_SK_E10destroyAllEv.exit.loopexit.i
   %218 = phi i64 [ %217, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS3_4DeclERNS4_15AnalysisManagerERNS4_11BugReporterEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSF_EEEEjSF_SH_SK_E10destroyAllEv.exit.loopexit.i ], [ 0, %_ZNSt6vectorIN5clang4ento14CheckerManager15StmtCheckerInfoESaIS3_EED2Ev.exit ]
-  %219 = phi ptr [ %.pre.i38, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS3_4DeclERNS4_15AnalysisManagerERNS4_11BugReporterEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSF_EEEEjSF_SH_SK_E10destroyAllEv.exit.loopexit.i ], [ %.pre1.i32, %_ZNSt6vectorIN5clang4ento14CheckerManager15StmtCheckerInfoESaIS3_EED2Ev.exit ]
+  %219 = phi ptr [ %.pre.i40, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS3_4DeclERNS4_15AnalysisManagerERNS4_11BugReporterEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSF_EEEEjSF_SH_SK_E10destroyAllEv.exit.loopexit.i ], [ %.pre1.i33, %_ZNSt6vectorIN5clang4ento14CheckerManager15StmtCheckerInfoESaIS3_EED2Ev.exit ]
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %219, i64 noundef %218, i64 noundef 8) #12
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %221 = load ptr, ptr %220, align 8, !tbaa !606
-  %.not.i.i.i40 = icmp eq ptr %221, null
-  br i1 %.not.i.i.i40, label %_ZNSt6vectorIN5clang4ento9CheckerFnIFvPKNS0_4DeclERNS1_15AnalysisManagerERNS1_11BugReporterEEEESaISB_EED2Ev.exit, label %222
+  %.not.i.i.i42 = icmp eq ptr %221, null
+  br i1 %.not.i.i.i42, label %_ZNSt6vectorIN5clang4ento9CheckerFnIFvPKNS0_4DeclERNS1_15AnalysisManagerERNS1_11BugReporterEEEESaISB_EED2Ev.exit, label %222
 
 222:                                              ; preds = %_ZN4llvm8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS2_4DeclERNS3_15AnalysisManagerERNS3_11BugReporterEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSE_EEED2Ev.exit
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 1000
@@ -1151,8 +1125,8 @@ _ZN4llvm8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS2_4DeclERNS3_15
 _ZNSt6vectorIN5clang4ento9CheckerFnIFvPKNS0_4DeclERNS1_15AnalysisManagerERNS1_11BugReporterEEEESaISB_EED2Ev.exit: ; preds = %_ZN4llvm8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvPKNS2_4DeclERNS3_15AnalysisManagerERNS3_11BugReporterEEEELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSE_EEED2Ev.exit, %222
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %229 = load ptr, ptr %228, align 8, !tbaa !608
-  %.not.i.i.i41 = icmp eq ptr %229, null
-  br i1 %.not.i.i.i41, label %_ZNSt6vectorIN5clang4ento14CheckerManager15DeclCheckerInfoESaIS3_EED2Ev.exit, label %230
+  %.not.i.i.i43 = icmp eq ptr %229, null
+  br i1 %.not.i.i.i43, label %_ZNSt6vectorIN5clang4ento14CheckerManager15DeclCheckerInfoESaIS3_EED2Ev.exit, label %230
 
 230:                                              ; preds = %_ZNSt6vectorIN5clang4ento9CheckerFnIFvPKNS0_4DeclERNS1_15AnalysisManagerERNS1_11BugReporterEEEESaISB_EED2Ev.exit
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 976
@@ -1165,8 +1139,8 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvPKNS0_4DeclERNS1_15AnalysisManagerERNS1_11
 
 _ZNSt6vectorIN5clang4ento14CheckerManager15DeclCheckerInfoESaIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIN5clang4ento9CheckerFnIFvPKNS0_4DeclERNS1_15AnalysisManagerERNS1_11BugReporterEEEESaISB_EED2Ev.exit, %230
   %236 = load ptr, ptr %2, align 8, !tbaa !610
-  %.not.i.i.i42 = icmp eq ptr %236, null
-  br i1 %.not.i.i.i42, label %_ZNSt6vectorIN5clang4ento9CheckerFnIFvvEEESaIS4_EED2Ev.exit, label %237
+  %.not.i.i.i44 = icmp eq ptr %236, null
+  br i1 %.not.i.i.i44, label %_ZNSt6vectorIN5clang4ento9CheckerFnIFvvEEESaIS4_EED2Ev.exit, label %237
 
 237:                                              ; preds = %_ZNSt6vectorIN5clang4ento14CheckerManager15DeclCheckerInfoESaIS3_EED2Ev.exit
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 952
@@ -1202,12 +1176,12 @@ _ZNSt10unique_ptrIN5clang4ento19CheckerRegistryDataESt14default_deleteIS2_EED2Ev
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.sroa.043.047 = phi ptr [ %255, %.lr.ph ], [ %3, %1 ]
-  %252 = load ptr, ptr %.sroa.043.047, align 8, !tbaa !614
-  %253 = getelementptr inbounds nuw i8, ptr %.sroa.043.047, i64 8
+  %.sroa.045.049 = phi ptr [ %255, %.lr.ph ], [ %3, %1 ]
+  %252 = load ptr, ptr %.sroa.045.049, align 8, !tbaa !614
+  %253 = getelementptr inbounds nuw i8, ptr %.sroa.045.049, i64 8
   %254 = load ptr, ptr %253, align 8, !tbaa !617
   tail call void %252(ptr noundef %254) #12
-  %255 = getelementptr inbounds nuw i8, ptr %.sroa.043.047, i64 16
+  %255 = getelementptr inbounds nuw i8, ptr %.sroa.045.049, i64 16
   %.not = icmp eq ptr %255, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
@@ -2401,7 +2375,8 @@ _ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit: ; preds = %33, %_ZN4llvm11S
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"struct.clang::ento::PackageInfo", ptr %36, i64 %39
+  %.idx.i = shl nuw nsw i64 %39, 5
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang4ento11PackageInfoD2Ev.exit.i.i, %.lr.ph.i.preheader.i

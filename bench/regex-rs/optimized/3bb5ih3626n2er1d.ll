@@ -2445,7 +2445,8 @@ define noalias noundef nonnull ptr @_ZN14regex_automata4meta5regex9RegexInfo3new
   store ptr inttoptr (i64 8 to ptr), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 3
+  %9 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %10 = icmp eq i64 %2, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 

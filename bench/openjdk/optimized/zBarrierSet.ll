@@ -338,7 +338,8 @@ define hidden void @_ZN11ZBarrierSet15clone_obj_arrayEP15objArrayOopDescS1_(ptr 
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i64, ptr %13, i64 %17
+  %.idx = shl nsw i64 %17, 3
+  %18 = getelementptr inbounds i8, ptr %13, i64 %.idx
   %19 = icmp sgt i32 %16, 0
   br i1 %19, label %.lr.ph.preheader, label %._crit_edge
 

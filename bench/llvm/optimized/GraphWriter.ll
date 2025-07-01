@@ -1720,7 +1720,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112GraphSession14TryF
   %18 = load ptr, ptr %7, align 8, !tbaa !108
   %19 = load i32, ptr %16, align 8, !tbaa !110
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %18, i64 %20
+  %.idx = shl nuw nsw i64 %20, 4
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %.not34.not = icmp eq i32 %19, 0
   br i1 %.not34.not, label %.critedge22, label %.lr.ph
 

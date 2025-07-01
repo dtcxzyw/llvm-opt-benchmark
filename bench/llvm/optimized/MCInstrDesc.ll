@@ -194,7 +194,8 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit44: ; preds =
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %94 = load i8, ptr %93, align 1, !tbaa !52
   %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds nuw i16, ptr %92, i64 %95
+  %.idx.i = shl nuw nsw i64 %95, 1
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx.i
   %.not27.not.i = icmp eq i8 %94, 0
   br i1 %.not27.not.i, label %_ZNK4llvm11MCInstrDesc23hasImplicitDefOfPhysRegENS_10MCRegisterEPKNS_14MCRegisterInfoE.exit, label %.lr.ph.i
 
@@ -269,7 +270,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MCInstrDesc23hasImplicitDefOfPhy
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %17 = load i8, ptr %16, align 1, !tbaa !52
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr %15, i64 %18
+  %.idx = shl nuw nsw i64 %18, 1
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   %.not27.not = icmp eq i8 %17, 0
   br i1 %.not27.not, label %_ZNK4llvm14MCRegisterInfo13isSubRegisterENS_10MCRegisterES1_.exit, label %.lr.ph
 

@@ -2123,7 +2123,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit65:               ; preds = %418, %399, %437, %4
   %445 = getelementptr inbounds nuw i8, ptr %443, i64 8
   %446 = load i32, ptr %445, align 8, !tbaa !72
   %447 = zext i32 %446 to i64
-  %448 = getelementptr inbounds nuw ptr, ptr %444, i64 %447
+  %.idx.i.i = shl nuw nsw i64 %447, 3
+  %448 = getelementptr inbounds nuw i8, ptr %444, i64 %.idx.i.i
   %.not.i.i67 = icmp eq i32 %446, 0
   br i1 %.not.i.i67, label %_ZN4llvm11raw_ostreamlsEPKc.exit71, label %.lr.ph.i.i.i.i.i
 
@@ -3919,7 +3920,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %30, %28, %24, %22
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %46 = load i32, ptr %45, align 8, !tbaa !181
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %44, i64 %47
+  %.idx = shl nuw nsw i64 %47, 3
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx
   %.not67 = icmp eq i32 %46, 0
   br i1 %.not67, label %._crit_edge.thread, label %.lr.ph
 
@@ -4371,7 +4373,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit22:               ; preds = %61, %63
   %66 = load ptr, ptr %47, align 8, !tbaa !206
   %67 = load i32, ptr %48, align 8, !tbaa !205
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %66, i64 %68
+  %.idx = shl nuw nsw i64 %68, 3
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx
   %.not35 = icmp eq i32 %67, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
@@ -4803,7 +4806,8 @@ _ZNK5clang17ObjCInterfaceDecl22getReferencedProtocolsEv.exit: ; preds = %150, %1
 .lr.ph.preheader:                                 ; preds = %_ZNK5clang17ObjCInterfaceDecl22getReferencedProtocolsEv.exit
   %161 = load ptr, ptr %157, align 8, !tbaa !206
   %162 = zext i32 %159 to i64
-  %163 = getelementptr inbounds nuw ptr, ptr %161, i64 %162
+  %.idx = shl nuw nsw i64 %162, 3
+  %163 = getelementptr inbounds nuw i8, ptr %161, i64 %.idx
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
@@ -12785,7 +12789,8 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit: ; preds = %7
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !72
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %26, i64 %29
+  %.idx.i.i = shl nuw nsw i64 %29, 3
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i
   %.not.i.i = icmp eq i32 %28, 0
   br i1 %.not.i.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %.lr.ph.i.i.i.i.i
 
@@ -16211,7 +16216,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111DeclPrinter21prett
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !72
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %9, i64 %12
+  %.idx = shl nuw nsw i64 %12, 3
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   %.not33 = icmp eq i32 %11, 0
   br i1 %.not33, label %.loopexit, label %.lr.ph
 
@@ -17106,7 +17112,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DeclPrinter18prettyPrintPragmasE
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !72
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %12, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   %.not1214 = icmp eq i32 %14, 0
   br i1 %.not1214, label %.loopexit, label %.lr.ph
 

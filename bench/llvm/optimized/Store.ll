@@ -10,9 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.434" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.435" = type { [512 x i8] }
-%"struct.std::pair" = type { %"class.clang::ento::SVal", %"class.clang::ento::SVal" }
 %"class.clang::ento::SVal" = type <{ ptr, i8, [7 x i8] }>
-%"struct.clang::CXXBasePathElement" = type { ptr, ptr, i32 }
 %"class.std::optional.469" = type { %"struct.std::_Optional_base.470" }
 %"struct.std::_Optional_base.470" = type { %"struct.std::_Optional_payload.472" }
 %"struct.std::_Optional_payload.472" = type { %"struct.std::_Optional_payload_base.base.474", [7 x i8] }
@@ -131,7 +129,8 @@ _ZN5clang4ento8StoreRefC2EPKvRNS0_12StoreManagerE.exit: ; preds = %5, %9
   %19 = load ptr, ptr %6, align 8, !tbaa !67
   %20 = load i32, ptr %14, align 8, !tbaa !69
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.std::pair", ptr %19, i64 %21
+  %.idx = shl nuw nsw i64 %21, 5
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not17 = icmp eq i32 %20, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -659,7 +658,8 @@ define dso_local { ptr, i8 } @_ZN5clang4ento12StoreManager17evalDerivedToBaseENS
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !69
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"struct.clang::CXXBasePathElement", ptr %5, i64 %8
+  %.idx = mul nuw nsw i64 %8, 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %.not20 = icmp eq i32 %7, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
@@ -937,7 +937,8 @@ _ZN5clang12CXXBasePathsC2Ebbb.exit:               ; preds = %.lr.ph.i.i.i.i
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %115 = load i32, ptr %114, align 8, !tbaa !69
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw %"struct.clang::CXXBasePathElement", ptr %113, i64 %116
+  %.idx.i = mul nuw nsw i64 %116, 24
+  %117 = getelementptr inbounds nuw i8, ptr %113, i64 %.idx.i
   %.not20.i = icmp eq i32 %115, 0
   br i1 %.not20.i, label %_ZN5clang4ento12StoreManager17evalDerivedToBaseENS0_4SValERKNS_11CXXBasePathE.exit, label %.lr.ph.i
 

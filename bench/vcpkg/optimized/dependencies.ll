@@ -156277,7 +156277,8 @@ _ZN5Catch14MessageBuilderD2Ev.exit.i:             ; preds = %_ZNKSt7__cxx1112bas
 
 _ZN5Catch14MessageBuilderlsIA13_cEERS0_RKT_.exit.i: ; preds = %195
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33) #24
-  %199 = getelementptr inbounds nuw %"struct.vcpkg::StringLiteral", ptr %4, i64 %5
+  %.idx.i.i = shl nuw nsw i64 %5, 4
+  %199 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
   %200 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %200, ptr %33, align 8, !tbaa !19, !alias.scope !1411
   %201 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -170944,7 +170945,8 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   resume { ptr, i32 } %lpad.phi
 
 22:                                               ; preds = %20, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit
-  %23 = getelementptr inbounds nuw %"struct.std::pair.297", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 6
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8__detail12_Insert_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_ESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_insert_rangeIPKS9_NS_17_ReuseOrAllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEvT_SU_RKT0_St17integral_constantIbLb1EE.exit, label %.lr.ph.i
 

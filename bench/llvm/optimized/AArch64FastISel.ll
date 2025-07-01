@@ -28,15 +28,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.(anonymous namespace)::AArch64FastISel::Address" = type { i32, i32, %union.anon.411, i32, i32, i64, ptr }
 %union.anon.411 = type { i32 }
 %"struct.llvm::CallBase::BundleOpInfo" = type { ptr, i32, i32 }
-%"struct.llvm::ISD::ArgFlagsTy" = type { i64, i32, i32 }
 %"class.llvm::MCInstrDesc" = type { i16, i16, i8, i8, i16, i8, i8, i16, i16, i64, i64 }
-%"class.llvm::Register" = type { i32 }
 %"class.std::vector.476" = type { %"struct.std::_Vector_base.477" }
 %"struct.std::_Vector_base.477" = type { %"struct.std::_Vector_base<llvm::TargetLoweringBase::ArgListEntry, std::allocator<llvm::TargetLoweringBase::ArgListEntry>>::_Vector_impl" }
 %"struct.std::_Vector_base<llvm::TargetLoweringBase::ArgListEntry, std::allocator<llvm::TargetLoweringBase::ArgListEntry>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::TargetLoweringBase::ArgListEntry, std::allocator<llvm::TargetLoweringBase::ArgListEntry>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<llvm::TargetLoweringBase::ArgListEntry, std::allocator<llvm::TargetLoweringBase::ArgListEntry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.llvm::SDValue" = type <{ ptr, i32, [4 x i8] }>
 %"struct.llvm::FastISel::CallLoweringInfo" = type { ptr, i8, i8, i32, i32, ptr, ptr, %"class.std::vector.476", ptr, ptr, %"class.llvm::Register", i32, %"class.llvm::SmallVector.482", %"class.llvm::SmallVector.487", %"class.llvm::SmallVector.489", %"class.llvm::SmallVector.491", %"class.llvm::SmallVector.291" }
+%"class.llvm::Register" = type { i32 }
 %"class.llvm::SmallVector.482" = type { %"class.llvm::SmallVectorImpl.483", %"struct.llvm::SmallVectorStorage.486" }
 %"class.llvm::SmallVectorImpl.483" = type { %"class.llvm::SmallVectorTemplateBase.484" }
 %"class.llvm::SmallVectorTemplateBase.484" = type { %"class.llvm::SmallVectorTemplateCommon.485" }
@@ -2840,7 +2839,8 @@ _ZNK4llvm8CallBase16getOperandBundleEj.exit:      ; preds = %72, %_ZNK4llvm8Call
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %125 = load i32, ptr %124, align 8, !tbaa !360
   %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds nuw %"struct.llvm::ISD::ArgFlagsTy", ptr %123, i64 %126
+  %.idx = shl nuw nsw i64 %126, 4
+  %127 = getelementptr inbounds nuw i8, ptr %123, i64 %.idx
   %.not110233 = icmp eq i32 %125, 0
   br i1 %.not110233, label %.critedge123, label %.critedge121
 
@@ -2880,7 +2880,8 @@ _ZN4llvm15SmallVectorImplINS_3MVTEE7reserveEm.exit: ; preds = %.critedge123, %13
   %140 = phi i32 [ %136, %.critedge123 ], [ %.pre, %138 ]
   %141 = load ptr, ptr %134, align 8, !tbaa !261
   %142 = zext i32 %140 to i64
-  %143 = getelementptr inbounds nuw ptr, ptr %141, i64 %142
+  %.idx240 = shl nuw nsw i64 %142, 3
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 %.idx240
   %.not111235 = icmp eq i32 %140, 0
   br i1 %.not111235, label %.critedge129, label %.lr.ph
 
@@ -3274,7 +3275,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3MVTELb1EE9push_backES1_.exit: ; preds = %.
   %335 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %336 = load i32, ptr %335, align 8, !tbaa !360
   %337 = zext i32 %336 to i64
-  %338 = getelementptr inbounds nuw %"class.llvm::Register", ptr %334, i64 %337
+  %.idx241 = shl nuw nsw i64 %337, 2
+  %338 = getelementptr inbounds nuw i8, ptr %334, i64 %.idx241
   %.not119237 = icmp eq i32 %336, 0
   br i1 %.not119237, label %._crit_edge, label %.lr.ph239
 
@@ -10793,7 +10795,8 @@ _ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit86: ; preds = %214, %217
   %234 = load ptr, ptr %6, align 8, !tbaa !261
   %235 = load i32, ptr %47, align 8, !tbaa !360
   %236 = zext i32 %235 to i64
-  %237 = getelementptr inbounds nuw i32, ptr %234, i64 %236
+  %.idx = shl nuw nsw i64 %236, 2
+  %237 = getelementptr inbounds nuw i8, ptr %234, i64 %.idx
   %.not67124 = icmp eq i32 %235, 0
   br i1 %.not67124, label %.loopexit, label %.lr.ph
 
@@ -11058,7 +11061,8 @@ _ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE7reserveEm.exit: ;
 
 _ZNK4llvm4User8operandsEv.exit:                   ; preds = %49, %52
   %55 = phi ptr [ %51, %49 ], [ %54, %52 ]
-  %56 = getelementptr inbounds nuw %"class.llvm::Use", ptr %55, i64 %41
+  %.idx = shl nuw nsw i64 %41, 5
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx
   %.not50 = icmp eq i32 %40, 0
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
@@ -19625,7 +19629,8 @@ _ZNK12_GLOBAL__N_115AArch64FastISel17CCAssignFnForCallEj.exit: ; preds = %4, %28
   %60 = load ptr, ptr %8, align 8, !tbaa !261
   %61 = load i32, ptr %18, align 8, !tbaa !360
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw %"class.llvm::CCValAssign", ptr %60, i64 %62
+  %.idx = shl nuw nsw i64 %62, 5
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx
   %.not122 = icmp eq i32 %61, 0
   br i1 %.not122, label %.critedge, label %.lr.ph
 
@@ -58321,11 +58326,12 @@ define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 -8
   %6 = load i64, ptr %5, align 8
+  %.idx.i = mul i64 %6, 24
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %8 = getelementptr inbounds %"class.llvm::APFloat", ptr %3, i64 %6
+  %8 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %9 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #27
   br label %10
 
@@ -58349,9 +58355,8 @@ _ZN4llvm7APFloatD2Ev.exit.i:                      ; preds = %15, %14
   br i1 %16, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %10
 
 _ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit: ; preds = %_ZN4llvm7APFloatD2Ev.exit.i, %4
-  %17 = mul i64 %6, 24
-  %18 = add i64 %17, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %18) #24
+  %17 = add i64 %.idx.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %17) #24
   br label %_ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit

@@ -1048,10 +1048,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZN
   %.val38 = load ptr, ptr %76, align 8, !tbaa !66
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false), !alias.scope !67
   %77 = sext i32 %.val to i64
-  %.idx = shl nsw i64 %77, 2
+  %.idx59 = shl nsw i64 %77, 2
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.not61 = icmp eq i32 %.val, 0
-  br i1 %.not61, label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit, label %79
+  %.not60 = icmp eq i32 %.val, 0
+  br i1 %.not60, label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit, label %79
 
 79:                                               ; preds = %74
   %80 = icmp slt i32 %.val, 0
@@ -1065,14 +1065,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZN
   unreachable
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %79
-  %82 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #21
+  %82 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx59) #21
           to label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i unwind label %85
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %82, ptr align 4 %.val38, i64 %.idx, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %82, ptr align 4 %.val38, i64 %.idx59, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %82, ptr %12, align 8, !tbaa !72
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx59
   store ptr %84, ptr %83, align 8, !tbaa !74
   store ptr %84, ptr %78, align 8, !tbaa !75
   br label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit
@@ -2549,7 +2549,8 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPSt6vectorIiSaIiEES2_IS4_SaIS4_EEEES4_E
   br i1 %42, label %_ZSt6fill_nIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RKT1_.exit, label %43
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw %"class.std::vector.14", ptr %6, i64 %1
+  %.idx.i.i = mul nuw nsw i64 %1, 24
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
   br label %.lr.ph.i.i.i.i16
 
 .lr.ph.i.i.i.i16:                                 ; preds = %.lr.ph.i.i.i.i16, %43

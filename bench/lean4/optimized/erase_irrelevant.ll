@@ -609,7 +609,8 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %1, %10, %12, %13
   %18 = load ptr, ptr %17, align 8, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %20 = load i64, ptr %19, align 8, !tbaa !24
-  %21 = getelementptr inbounds nuw %"class.std::tuple", ptr %18, i64 %20
+  %.idx.i.i.i = mul nuw nsw i64 %20, 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i.i
   %.not4.i.i.i.i = icmp eq i64 %20, 0
   br i1 %.not4.i.i.i.i, label %_ZN4lean6bufferISt5tupleIJNS_4nameENS_4exprES3_EELm16EE16destroy_elementsEv.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -642,19 +643,20 @@ _ZN4lean6bufferISt5tupleIJNS_4nameENS_4exprES3_EELm16EED2Ev.exit: ; preds = %_ZN
   %30 = load ptr, ptr %29, align 8, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %32 = load i64, ptr %31, align 8, !tbaa !19
-  %33 = getelementptr inbounds nuw %"class.lean::expr", ptr %30, i64 %32
-  %.not4.i.i.i.i2 = icmp eq i64 %32, 0
-  br i1 %.not4.i.i.i.i2, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i, label %.lr.ph.i.i.i.i3
+  %.idx.i.i.i2 = shl nuw nsw i64 %32, 3
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i.i2
+  %.not4.i.i.i.i3 = icmp eq i64 %32, 0
+  br i1 %.not4.i.i.i.i3, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i, label %.lr.ph.i.i.i.i4
 
-.lr.ph.i.i.i.i3:                                  ; preds = %_ZN4lean6bufferISt5tupleIJNS_4nameENS_4exprES3_EELm16EED2Ev.exit, %_ZZN4lean6bufferINS_4exprELm16EE16destroy_elementsEvENKUlRS1_E_clES3_.exit.i.i.i.i
-  %.05.i.i.i.i4 = phi ptr [ %47, %_ZZN4lean6bufferINS_4exprELm16EE16destroy_elementsEvENKUlRS1_E_clES3_.exit.i.i.i.i ], [ %30, %_ZN4lean6bufferISt5tupleIJNS_4nameENS_4exprES3_EELm16EED2Ev.exit ]
-  %34 = load ptr, ptr %.05.i.i.i.i4, align 8, !tbaa !3
+.lr.ph.i.i.i.i4:                                  ; preds = %_ZN4lean6bufferISt5tupleIJNS_4nameENS_4exprES3_EELm16EED2Ev.exit, %_ZZN4lean6bufferINS_4exprELm16EE16destroy_elementsEvENKUlRS1_E_clES3_.exit.i.i.i.i
+  %.05.i.i.i.i5 = phi ptr [ %47, %_ZZN4lean6bufferINS_4exprELm16EE16destroy_elementsEvENKUlRS1_E_clES3_.exit.i.i.i.i ], [ %30, %_ZN4lean6bufferISt5tupleIJNS_4nameENS_4exprES3_EELm16EED2Ev.exit ]
+  %34 = load ptr, ptr %.05.i.i.i.i5, align 8, !tbaa !3
   %35 = ptrtoint ptr %34 to i64
   %36 = and i64 %35, 1
   %.not.i.i.i.i.i.i.i = icmp eq i64 %36, 0
   br i1 %.not.i.i.i.i.i.i.i, label %37, label %_ZZN4lean6bufferINS_4exprELm16EE16destroy_elementsEvENKUlRS1_E_clES3_.exit.i.i.i.i
 
-37:                                               ; preds = %.lr.ph.i.i.i.i3
+37:                                               ; preds = %.lr.ph.i.i.i.i4
   %38 = load i32, ptr %34, align 4, !tbaa !11
   %39 = icmp sgt i32 %38, 1
   br i1 %39, label %40, label %42, !prof !14
@@ -679,20 +681,20 @@ _ZN4lean6bufferISt5tupleIJNS_4nameENS_4exprES3_EELm16EED2Ev.exit: ; preds = %_ZN
   tail call void @__clang_call_terminate(ptr %46) #18
   unreachable
 
-_ZZN4lean6bufferINS_4exprELm16EE16destroy_elementsEvENKUlRS1_E_clES3_.exit.i.i.i.i: ; preds = %43, %42, %40, %.lr.ph.i.i.i.i3
-  %47 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i4, i64 8
-  %.not.i.i.i.i5 = icmp eq ptr %47, %33
-  br i1 %.not.i.i.i.i5, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.loopexit.i.i, label %.lr.ph.i.i.i.i3, !llvm.loop !60
+_ZZN4lean6bufferINS_4exprELm16EE16destroy_elementsEvENKUlRS1_E_clES3_.exit.i.i.i.i: ; preds = %43, %42, %40, %.lr.ph.i.i.i.i4
+  %47 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i5, i64 8
+  %.not.i.i.i.i6 = icmp eq ptr %47, %33
+  br i1 %.not.i.i.i.i6, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.loopexit.i.i, label %.lr.ph.i.i.i.i4, !llvm.loop !60
 
 _ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.loopexit.i.i: ; preds = %_ZZN4lean6bufferINS_4exprELm16EE16destroy_elementsEvENKUlRS1_E_clES3_.exit.i.i.i.i
-  %.pre.i.i6 = load ptr, ptr %29, align 8, !tbaa !15
+  %.pre.i.i7 = load ptr, ptr %29, align 8, !tbaa !15
   br label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i
 
 _ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i: ; preds = %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.loopexit.i.i, %_ZN4lean6bufferISt5tupleIJNS_4nameENS_4exprES3_EELm16EED2Ev.exit
-  %48 = phi ptr [ %.pre.i.i6, %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.loopexit.i.i ], [ %30, %_ZN4lean6bufferISt5tupleIJNS_4nameENS_4exprES3_EELm16EED2Ev.exit ]
+  %48 = phi ptr [ %.pre.i.i7, %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.loopexit.i.i ], [ %30, %_ZN4lean6bufferISt5tupleIJNS_4nameENS_4exprES3_EELm16EED2Ev.exit ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %.not.i.i.i7 = icmp eq ptr %48, %49
-  br i1 %.not.i.i.i7, label %_ZN4lean6bufferINS_4exprELm16EED2Ev.exit, label %50
+  %.not.i.i.i8 = icmp eq ptr %48, %49
+  br i1 %.not.i.i.i8, label %_ZN4lean6bufferINS_4exprELm16EED2Ev.exit, label %50
 
 50:                                               ; preds = %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -706,8 +708,8 @@ _ZN4lean6bufferINS_4exprELm16EED2Ev.exit:         ; preds = %_ZN4lean6bufferINS_
   %55 = load ptr, ptr %54, align 8, !tbaa !3
   %56 = ptrtoint ptr %55 to i64
   %57 = and i64 %56, 1
-  %.not.i.i8 = icmp eq i64 %57, 0
-  br i1 %.not.i.i8, label %58, label %_ZN4lean10object_refD2Ev.exit10
+  %.not.i.i9 = icmp eq i64 %57, 0
+  br i1 %.not.i.i9, label %58, label %_ZN4lean10object_refD2Ev.exit11
 
 58:                                               ; preds = %_ZN4lean6bufferINS_4exprELm16EED2Ev.exit
   %59 = load i32, ptr %55, align 4, !tbaa !11
@@ -717,15 +719,15 @@ _ZN4lean6bufferINS_4exprELm16EED2Ev.exit:         ; preds = %_ZN4lean6bufferINS_
 61:                                               ; preds = %58
   %62 = add nsw i32 %59, -1
   store i32 %62, ptr %55, align 4, !tbaa !11
-  br label %_ZN4lean10object_refD2Ev.exit10
+  br label %_ZN4lean10object_refD2Ev.exit11
 
 63:                                               ; preds = %58
-  %.not.i.i.i9 = icmp eq i32 %59, 0
-  br i1 %.not.i.i.i9, label %_ZN4lean10object_refD2Ev.exit10, label %64
+  %.not.i.i.i10 = icmp eq i32 %59, 0
+  br i1 %.not.i.i.i10, label %_ZN4lean10object_refD2Ev.exit11, label %64
 
 64:                                               ; preds = %63
   invoke void @lean_dec_ref_cold(ptr noundef nonnull %55)
-          to label %_ZN4lean10object_refD2Ev.exit10 unwind label %65
+          to label %_ZN4lean10object_refD2Ev.exit11 unwind label %65
 
 65:                                               ; preds = %64
   %66 = landingpad { ptr, i32 }
@@ -734,16 +736,16 @@ _ZN4lean6bufferINS_4exprELm16EED2Ev.exit:         ; preds = %_ZN4lean6bufferINS_
   tail call void @__clang_call_terminate(ptr %67) #18
   unreachable
 
-_ZN4lean10object_refD2Ev.exit10:                  ; preds = %_ZN4lean6bufferINS_4exprELm16EED2Ev.exit, %61, %63, %64
+_ZN4lean10object_refD2Ev.exit11:                  ; preds = %_ZN4lean6bufferINS_4exprELm16EED2Ev.exit, %61, %63, %64
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN4lean12type_checker5stateD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %68) #17
   %69 = load ptr, ptr %0, align 8, !tbaa !3
   %70 = ptrtoint ptr %69 to i64
   %71 = and i64 %70, 1
-  %.not.i.i11 = icmp eq i64 %71, 0
-  br i1 %.not.i.i11, label %72, label %_ZN4lean10object_refD2Ev.exit13
+  %.not.i.i12 = icmp eq i64 %71, 0
+  br i1 %.not.i.i12, label %72, label %_ZN4lean10object_refD2Ev.exit14
 
-72:                                               ; preds = %_ZN4lean10object_refD2Ev.exit10
+72:                                               ; preds = %_ZN4lean10object_refD2Ev.exit11
   %73 = load i32, ptr %69, align 4, !tbaa !11
   %74 = icmp sgt i32 %73, 1
   br i1 %74, label %75, label %77, !prof !14
@@ -751,15 +753,15 @@ _ZN4lean10object_refD2Ev.exit10:                  ; preds = %_ZN4lean6bufferINS_
 75:                                               ; preds = %72
   %76 = add nsw i32 %73, -1
   store i32 %76, ptr %69, align 4, !tbaa !11
-  br label %_ZN4lean10object_refD2Ev.exit13
+  br label %_ZN4lean10object_refD2Ev.exit14
 
 77:                                               ; preds = %72
-  %.not.i.i.i12 = icmp eq i32 %73, 0
-  br i1 %.not.i.i.i12, label %_ZN4lean10object_refD2Ev.exit13, label %78
+  %.not.i.i.i13 = icmp eq i32 %73, 0
+  br i1 %.not.i.i.i13, label %_ZN4lean10object_refD2Ev.exit14, label %78
 
 78:                                               ; preds = %77
   invoke void @lean_dec_ref_cold(ptr noundef nonnull %69)
-          to label %_ZN4lean10object_refD2Ev.exit13 unwind label %79
+          to label %_ZN4lean10object_refD2Ev.exit14 unwind label %79
 
 79:                                               ; preds = %78
   %80 = landingpad { ptr, i32 }
@@ -768,7 +770,7 @@ _ZN4lean10object_refD2Ev.exit10:                  ; preds = %_ZN4lean6bufferINS_
   tail call void @__clang_call_terminate(ptr %81) #18
   unreachable
 
-_ZN4lean10object_refD2Ev.exit13:                  ; preds = %_ZN4lean10object_refD2Ev.exit10, %75, %77, %78
+_ZN4lean10object_refD2Ev.exit14:                  ; preds = %_ZN4lean10object_refD2Ev.exit11, %75, %77, %78
   ret void
 }
 
@@ -782,7 +784,8 @@ define linkonce_odr hidden void @_ZN4lean6bufferISt5tupleIJNS_4nameENS_4exprES3_
   %2 = load ptr, ptr %0, align 8, !tbaa !21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !24
-  %5 = getelementptr inbounds nuw %"class.std::tuple", ptr %2, i64 %4
+  %.idx.i.i = mul nuw nsw i64 %4, 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i
   %.not4.i.i.i = icmp eq i64 %4, 0
   br i1 %.not4.i.i.i, label %_ZN4lean6bufferISt5tupleIJNS_4nameENS_4exprES3_EELm16EE16destroy_elementsEv.exit.i, label %.lr.ph.i.i.i
 
@@ -819,7 +822,8 @@ define linkonce_odr hidden void @_ZN4lean6bufferINS_4exprELm16EED2Ev(ptr noundef
   %2 = load ptr, ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !19
-  %5 = getelementptr inbounds nuw %"class.lean::expr", ptr %2, i64 %4
+  %.idx.i.i = shl nuw nsw i64 %4, 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i
   %.not4.i.i.i = icmp eq i64 %4, 0
   br i1 %.not4.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i, label %.lr.ph.i.i.i
 
@@ -3936,7 +3940,8 @@ _ZN4lean10object_refD2Ev.exit141:                 ; preds = %_ZN4lean10object_re
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
   %393 = load ptr, ptr %9, align 8, !tbaa !15
   %394 = load i64, ptr %24, align 8, !tbaa !19
-  %395 = getelementptr inbounds nuw %"class.lean::expr", ptr %393, i64 %394
+  %.idx.i.i.i = shl nuw nsw i64 %394, 3
+  %395 = getelementptr inbounds nuw i8, ptr %393, i64 %.idx.i.i.i
   %.not4.i.i.i.i = icmp eq i64 %394, 0
   br i1 %.not4.i.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -5004,7 +5009,8 @@ _ZN4lean10object_refD2Ev.exit84:                  ; preds = %316, %323, %325, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #17
   %330 = load ptr, ptr %4, align 8, !tbaa !15
   %331 = load i64, ptr %27, align 8, !tbaa !19
-  %332 = getelementptr inbounds nuw %"class.lean::expr", ptr %330, i64 %331
+  %.idx.i.i.i = shl nuw nsw i64 %331, 3
+  %332 = getelementptr inbounds nuw i8, ptr %330, i64 %.idx.i.i.i
   %.not4.i.i.i.i = icmp eq i64 %331, 0
   br i1 %.not4.i.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -7647,7 +7653,8 @@ _ZN4lean4exprC2ERKS0_.exit19:                     ; preds = %43, %41, %._crit_ed
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %77, %84, %86, %87
   %91 = load ptr, ptr %5, align 8, !tbaa !15
   %92 = load i64, ptr %75, align 8, !tbaa !19
-  %93 = getelementptr inbounds nuw %"class.lean::expr", ptr %91, i64 %92
+  %.idx.i.i.i = shl nuw nsw i64 %92, 3
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx.i.i.i
   %.not4.i.i.i.i = icmp eq i64 %92, 0
   br i1 %.not4.i.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -7801,7 +7808,8 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %17, %4, %14, %16
   %19 = load ptr, ptr %3, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !19
-  %22 = getelementptr inbounds nuw %"class.lean::expr", ptr %19, i64 %21
+  %.idx = shl nuw nsw i64 %21, 3
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not35 = icmp eq i64 %21, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
@@ -16107,7 +16115,8 @@ define linkonce_odr hidden void @_ZN4lean6bufferISt5tupleIJNS_4nameENS_4exprES3_
   %5 = load ptr, ptr %0, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !24
-  %8 = getelementptr inbounds nuw %"class.std::tuple", ptr %5, i64 %7
+  %.idx = mul nuw nsw i64 %7, 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %.not14.i.i.i = icmp eq i64 %7, 0
   br i1 %.not14.i.i.i, label %_ZN4lean6bufferISt5tupleIJNS_4nameENS_4exprES3_EELm16EE16destroy_elementsEv.exit.i, label %.lr.ph.i.i.i
 
@@ -16164,7 +16173,8 @@ _ZSt8_DestroyIPSt5tupleIJN4lean4nameENS1_4exprES3_EEEvT_S6_.exit.i.i.i: ; preds 
 _ZSt18uninitialized_copyIPSt5tupleIJN4lean4nameENS1_4exprES3_EES5_ET0_T_S7_S6_.exit: ; preds = %_ZSt10_ConstructISt5tupleIJN4lean4nameENS1_4exprES3_EEJRS4_EEvPT_DpOT0_.exit.i.i.i
   %.pr = load i64, ptr %6, align 8, !tbaa !24
   %.pre = load ptr, ptr %0, align 8, !tbaa !21
-  %23 = getelementptr inbounds nuw %"class.std::tuple", ptr %.pre, i64 %.pr
+  %.idx.i.i = mul nuw nsw i64 %.pr, 24
+  %23 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i.i
   %.not4.i.i.i = icmp eq i64 %.pr, 0
   br i1 %.not4.i.i.i, label %_ZN4lean6bufferISt5tupleIJNS_4nameENS_4exprES3_EELm16EE16destroy_elementsEv.exit.i, label %.lr.ph.i.i.i5
 
@@ -16933,7 +16943,8 @@ define linkonce_odr hidden void @_ZN4lean6bufferINS_4exprELm16EE12set_capacityEm
   %9 = tail call noundef ptr @_ZSt16__do_uninit_copyIPN4lean4exprES2_ET0_T_S4_S3_(ptr noundef %5, ptr noundef %8, ptr noundef nonnull %4)
   %10 = load ptr, ptr %0, align 8, !tbaa !15
   %11 = load i64, ptr %6, align 8, !tbaa !19
-  %12 = getelementptr inbounds nuw %"class.lean::expr", ptr %10, i64 %11
+  %.idx.i.i = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
   %.not4.i.i.i = icmp eq i64 %11, 0
   br i1 %.not4.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i, label %.lr.ph.i.i.i
 
@@ -18289,7 +18300,8 @@ _ZN4lean6bufferISt4pairINS_4nameENS_4exprEELm16EED2Ev.exit: ; preds = %.noexc.i,
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %9) #17
   %408 = load ptr, ptr %8, align 8, !tbaa !15
   %409 = load i64, ptr %25, align 8, !tbaa !19
-  %410 = getelementptr inbounds nuw %"class.lean::expr", ptr %408, i64 %409
+  %.idx.i.i.i = shl nuw nsw i64 %409, 3
+  %410 = getelementptr inbounds nuw i8, ptr %408, i64 %.idx.i.i.i
   %.not4.i.i.i.i = icmp eq i64 %409, 0
   br i1 %.not4.i.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -19007,7 +19019,8 @@ define linkonce_odr hidden void @_ZN4lean6bufferISt4pairINS_4nameENS_4exprEELm16
   %2 = load ptr, ptr %0, align 8, !tbaa !281
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !284
-  %5 = getelementptr inbounds nuw %"struct.std::pair.102", ptr %2, i64 %4
+  %.idx = shl nuw nsw i64 %4, 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not4.i = icmp eq i64 %4, 0
   br i1 %.not4.i, label %_ZSt8for_eachIPSt4pairIN4lean4nameENS1_4exprEEZNS1_6bufferIS4_Lm16EE16destroy_elementsEvEUlRS4_E_ET0_T_SB_SA_.exit, label %.lr.ph.i
 

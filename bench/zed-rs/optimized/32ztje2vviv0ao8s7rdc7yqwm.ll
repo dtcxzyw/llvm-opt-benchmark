@@ -1252,7 +1252,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h0851f0864ac364a4E.exit: ; preds =
   %.20.i = select i1 %.not.i34, ptr %177, ptr %149
   %178 = mul i64 %.sroa.0.0.sroa.speculated.i.i33, 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %178, i1 false), !alias.scope !426
-  %179 = getelementptr inbounds nuw { { { { ptr, i64 } }, {}, {} }, i64 }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i33
+  %179 = getelementptr inbounds nuw i8, ptr %2, i64 %178
   br i1 %.not.i34, label %.preheader.i36, label %.lr.ph.i.i
 
 .preheader.i36:                                   ; preds = %176, %_ZN4core3ops8function5FnMut8call_mut17h59bd18794c6dfda2E.llvm.13794414176721555843.exit.i.i

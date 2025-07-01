@@ -92,7 +92,8 @@ _ZN15form_urlencoded6string17h78bfd90bef359864E.llvm.10425186505008497002.exit.i
           to label %.noexc4 unwind label %.loopexit.split-lp
 
 .noexc4:                                          ; preds = %_ZN15form_urlencoded6string17h78bfd90bef359864E.llvm.10425186505008497002.exit.i
-  %22 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %3, i64 %4
+  %.idx.i = shl nsw i64 %4, 5
+  %22 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %23 = icmp eq i64 %4, 0
   br i1 %23, label %"_ZN15form_urlencoded19Serializer$LT$T$GT$12extend_pairs17hb856bb9d5dae4a61E.exit", label %.lr.ph.i
 
@@ -267,7 +268,8 @@ define internal noalias noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_o
   %.sroa.44.0.copyload.i = load ptr, ptr %.sroa.44.0..sroa_idx.i, align 8, !nonnull !5, !noundef !5
   %.sroa.55.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 40
   %.sroa.55.0.copyload.i = load i64, ptr %.sroa.55.0..sroa_idx.i, align 8
-  %21 = getelementptr inbounds { { i64, [3 x i64] }, { ptr, i64 } }, ptr %.sroa.44.0.copyload.i, i64 %.sroa.55.0.copyload.i
+  %.idx.i = mul nsw i64 %.sroa.55.0.copyload.i, 48
+  %21 = getelementptr inbounds i8, ptr %.sroa.44.0.copyload.i, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   store ptr %.sroa.44.0.copyload.i, ptr %12, align 8
   %.sroa.4.0..sroa_idx1.i = getelementptr inbounds nuw i8, ptr %12, i64 8

@@ -7493,7 +7493,8 @@ define hidden void @_ZN9elfshaker4repo6remote26update_remote_pack_indexes17h6073
   tail call void @llvm.assume(i1 %48)
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %50 = load ptr, ptr %49, align 8, !nonnull !3, !noundef !3
-  %51 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, [20 x i8], [20 x i8] }, ptr %50, i64 %47
+  %.idx = shl nuw nsw i64 %47, 6
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx
   %52 = icmp eq i64 %47, 0
   br i1 %52, label %._crit_edge, label %.lr.ph
 

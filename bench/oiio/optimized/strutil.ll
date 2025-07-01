@@ -15849,7 +15849,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %11
 .lr.ph.i.preheader:                               ; preds = %17, %19
   %.sroa.0.0 = phi ptr [ null, %17 ], [ %22, %19 ]
   %.036 = phi ptr [ %18, %17 ], [ %22, %19 ]
-  %23 = getelementptr inbounds nuw i64, ptr %.036, i64 %5
+  %23 = getelementptr inbounds nuw i8, ptr %.036, i64 %15
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i

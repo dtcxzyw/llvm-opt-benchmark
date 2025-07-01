@@ -19,11 +19,6 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
 %"struct.std::piecewise_construct_t" = type { i8 }
-%"struct.std::pair" = type { i8, %"struct.igl::tinyply::PropertyInfo" }
-%"struct.igl::tinyply::PropertyInfo" = type { i32, %"class.std::__cxx11::basic_string" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"class.Eigen::Matrix" = type { %"class.Eigen::PlainObjectBase" }
 %"class.Eigen::PlainObjectBase" = type { %"class.Eigen::DenseStorage" }
 %"class.Eigen::DenseStorage" = type { ptr, i64, i64 }
@@ -65,6 +60,9 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"class.std::set" = type { %"class.std::_Rb_tree.104" }
 %"class.std::_Rb_tree.104" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
@@ -125,6 +123,8 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"class.Eigen::CwiseUnaryOp.512" = type { %"class.Eigen::Map.191", [8 x i8] }
 %"class.Eigen::CwiseUnaryOp.498" = type { %"class.Eigen::Map.162", [8 x i8] }
 %"class.Eigen::CwiseUnaryOp.476" = type { %"class.Eigen::Map", [8 x i8] }
+%"struct.std::pair" = type { i8, %"struct.igl::tinyply::PropertyInfo" }
+%"struct.igl::tinyply::PropertyInfo" = type { i32, %"class.std::__cxx11::basic_string" }
 %"struct.std::less" = type { i8 }
 %"class.std::allocator.4" = type { i8 }
 
@@ -607,7 +607,8 @@ define linkonce_odr dso_local void @_ZNSt3mapIN3igl7tinyply4TypeENS1_12PropertyI
   store ptr %6, ptr %9, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !16
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN3igl7tinyply4TypeESt4pairIKS2_NS1_12PropertyInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE22_M_insert_range_uniqueIPKS6_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESH_SH_.exit, label %.lr.ph.i
 

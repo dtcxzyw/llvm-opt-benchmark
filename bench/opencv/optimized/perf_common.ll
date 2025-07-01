@@ -1972,11 +1972,11 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %.noexc.i.i122, %81,
   %97 = ptrtoint ptr %95 to i64
   %98 = ptrtoint ptr %96 to i64
   %99 = sub i64 %97, %98
-  %100 = ashr exact i64 %99, 5
   %.not.i.i = icmp eq ptr %95, %96
   br i1 %.not.i.i, label %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit, label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit
 
 _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %.critedge347
+  %100 = ashr exact i64 %99, 5
   %101 = add nsw i64 %100, 63
   %102 = lshr i64 %101, 3
   %103 = and i64 %102, 2305843009213693944
@@ -2001,7 +2001,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIb
           to label %.noexc123 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit216.thread
 
 .noexc123:                                        ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %111 = getelementptr inbounds nuw double, ptr %110, i64 %100
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %109
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc123

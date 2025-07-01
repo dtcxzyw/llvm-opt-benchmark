@@ -6450,7 +6450,8 @@ define void @_RNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB5_10RepetitionTjjEEINtNtB5_8
   %11 = load ptr, ptr %10, align 8, !nonnull !7, !noundef !7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load i64, ptr %12, align 8, !noundef !7
-  %14 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %11, i64 %13
+  %.idx = shl nsw i64 %13, 6
+  %14 = getelementptr inbounds i8, ptr %11, i64 %.idx
   %15 = icmp eq i64 %13, 0
   %spec.select.idx.i = select i1 %15, i64 0, i64 64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %11, i64 %spec.select.idx.i
@@ -6598,7 +6599,8 @@ define void @_RNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB5_10RepetitionTjjEEINtNtB5_8
   %12 = load ptr, ptr %11, align 8, !nonnull !7, !noundef !7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i64, ptr %13, align 8, !noundef !7
-  %15 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %12, i64 %14
+  %.idx = shl nsw i64 %14, 6
+  %15 = getelementptr inbounds i8, ptr %12, i64 %.idx
   %16 = icmp eq i64 %14, 0
   %spec.select.idx.i = select i1 %16, i64 0, i64 64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %12, i64 %spec.select.idx.i
@@ -6742,7 +6744,8 @@ define void @_RNvXsE_NtCseG2FYMysgNb_3wax5tokenRNtB5_10RepetitionINtNtB5_8varian
   %12 = load ptr, ptr %11, align 8, !nonnull !7, !noundef !7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i64, ptr %13, align 8, !noundef !7
-  %15 = getelementptr inbounds { { i64, [5 x i64] }, {} }, ptr %12, i64 %14
+  %.idx = mul nsw i64 %14, 48
+  %15 = getelementptr inbounds i8, ptr %12, i64 %.idx
   %16 = icmp eq i64 %14, 0
   %spec.select.idx.i = select i1 %16, i64 0, i64 48
   %spec.select.i = getelementptr inbounds nuw i8, ptr %12, i64 %spec.select.idx.i

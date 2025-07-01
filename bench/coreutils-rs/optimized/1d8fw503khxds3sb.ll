@@ -1806,7 +1806,8 @@ define { ptr, ptr } @_ZN8uu_paste5paste17h3c125ba8cb9c9689E(ptr noalias noundef 
   %.sroa.0285.0.copyload = load i64, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
-  %68 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.4.0.copyload, i64 %59
+  %.idx = mul nsw i64 %59, 24
+  %68 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53)
   store ptr %.sroa.4.0.copyload, ptr %53, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -2193,7 +2194,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %120
 
 .lr.ph.preheader.lr.ph:                           ; preds = %"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hdba7b44b84261a02E.exit"
   %199 = load ptr, ptr %66, align 8, !nonnull !4, !noundef !4
-  %200 = getelementptr inbounds { ptr, [5 x i64] }, ptr %199, i64 %197
+  %.idx451544 = mul nsw i64 %197, 48
+  %200 = getelementptr inbounds i8, ptr %199, i64 %.idx451544
   br label %.lr.ph.preheader
 
 .body229:                                         ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %468, %.body244, %.body201
@@ -2403,7 +2405,8 @@ select.unfold:                                    ; preds = %219
   store i64 0, ptr %172, align 8
   %238 = load ptr, ptr %66, align 8, !nonnull !4, !noundef !4
   %239 = load i64, ptr %67, align 8, !noundef !4
-  %240 = getelementptr inbounds { ptr, [5 x i64] }, ptr %238, i64 %239
+  %.idx451 = mul nsw i64 %239, 48
+  %240 = getelementptr inbounds i8, ptr %238, i64 %.idx451
   %241 = icmp eq i64 %239, 0
   br i1 %241, label %._crit_edge.thread, label %.lr.ph.preheader
 
@@ -2751,7 +2754,8 @@ split:                                            ; preds = %"_ZN5alloc3vec16Vec
 389:                                              ; preds = %170
   %.val169 = load ptr, ptr %66, align 8, !nonnull !4, !noundef !4
   %.val170 = load i64, ptr %67, align 8, !noundef !4
-  %390 = getelementptr inbounds { ptr, [5 x i64] }, ptr %.val169, i64 %.val170
+  %.idx452 = mul nsw i64 %.val170, 48
+  %390 = getelementptr inbounds i8, ptr %.val169, i64 %.idx452
   %391 = icmp eq i64 %.val170, 0
   br i1 %391, label %.loopexit367, label %.lr.ph450
 
@@ -2897,9 +2901,9 @@ split:                                            ; preds = %"_ZN5alloc3vec16Vec
   %451 = insertvalue { ptr, ptr } %450, ptr %.sroa.8.3, 1
   ret { ptr, ptr } %451
 
-452:                                              ; preds = %split486, %409
-  %.3136 = phi i64 [ %.2135447, %409 ], [ %567, %split486 ]
-  %.3 = phi i64 [ %.2132448, %409 ], [ %568, %split486 ]
+452:                                              ; preds = %split488, %409
+  %.3136 = phi i64 [ %.2135447, %409 ], [ %567, %split488 ]
+  %.3 = phi i64 [ %.2132448, %409 ], [ %568, %split488 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42)
   %453 = load ptr, ptr %.sroa.0301.0446, align 8, !noundef !4
   %454 = icmp eq ptr %453, null
@@ -3207,7 +3211,7 @@ select.unfold341:                                 ; preds = %485
   %567 = phi i64 [ 4, %551 ], [ 3, %540 ], [ 2, %533 ], [ 1, %531 ]
   br label %569
 
-split486:                                         ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9f60715d454e972cE.exit258"
+split488:                                         ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9f60715d454e972cE.exit258"
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42)
   %568 = add i64 %.3, 1
@@ -3242,7 +3246,7 @@ split486:                                         ; preds = %"_ZN5alloc3vec16Vec
   %580 = add i64 %579, 1
   store i64 %580, ptr %172, align 8, !alias.scope !669
   %581 = icmp eq i64 %571, 0
-  br i1 %581, label %split486, label %569
+  br i1 %581, label %split488, label %569
 
 582:                                              ; preds = %.noexc.i227
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %465, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)

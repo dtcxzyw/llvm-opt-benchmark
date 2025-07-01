@@ -18414,7 +18414,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %15 = load ptr, ptr %.val2.i.i, align 8, !noalias !3117, !nonnull !4, !align !91, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 8
   %17 = load i64, ptr %16, align 8, !noalias !3117, !noundef !4
-  %18 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %15, i64 %17
+  %.idx.i.i.i = shl nuw nsw i64 %17, 4
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %"_ZN12polars_arrow7compute11concatenate18concatenate_struct28_$u7b$$u7b$closure$u7d$$u7d$17h7d4a509427f89b17E.exit.i.i", label %.lr.ph.i.i.i
 
@@ -18583,7 +18584,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %15 = load ptr, ptr %.val2.i.i, align 8, !noalias !3166, !nonnull !4, !align !91, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 8
   %17 = load i64, ptr %16, align 8, !noalias !3166, !noundef !4
-  %18 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i64 %17
+  %.idx.i.i.i = shl nuw nsw i64 %17, 4
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %"_ZN12polars_arrow7compute11concatenate18concatenate_struct28_$u7b$$u7b$closure$u7d$$u7d$17h87794ac54e97fe8eE.exit.i.i", label %.lr.ph.i.i.i
 
@@ -19105,7 +19107,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %15 = load ptr, ptr %.val2.i.i, align 8, !noalias !3278, !nonnull !4, !align !91, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 8
   %17 = load i64, ptr %16, align 8, !noalias !3278, !noundef !4
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
+  %.idx.i.i.i = shl nuw nsw i64 %17, 3
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %"_ZN12polars_arrow7compute11concatenate18concatenate_struct28_$u7b$$u7b$closure$u7d$$u7d$17h4189935a059e79e2E.exit.i.i", label %.lr.ph.i.i.i
 

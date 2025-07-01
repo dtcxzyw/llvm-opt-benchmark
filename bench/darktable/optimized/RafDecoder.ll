@@ -3184,11 +3184,11 @@ define hidden void @_ZN8rawspeed10RafDecoder22decodeMetaDataInternalEPKNS_14Came
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   %.sroa.0.0.insert.insert.i = or disjoint i64 %21, 4294967296
   store i64 %.sroa.0.0.insert.insert.i, ptr %23, align 4
-  %.pre211 = load ptr, ptr %4, align 8, !tbaa !16
+  %.pre212 = load ptr, ptr %4, align 8, !tbaa !16
   br label %24
 
 24:                                               ; preds = %19, %9
-  %25 = phi ptr [ %.pre211, %19 ], [ %10, %9 ]
+  %25 = phi ptr [ %.pre212, %19 ], [ %10, %9 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #27
   call void @_ZNK8rawspeed11TiffRootIFD5getIDEv(ptr dead_on_unwind nonnull writable sret(%"struct.rawspeed::TiffID") align 8 %3, ptr noundef nonnull align 8 dereferenceable(120) %25)
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -3277,8 +3277,8 @@ define hidden void @_ZN8rawspeed10RafDecoder22decodeMetaDataInternalEPKNS_14Came
   %67 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
   store i32 %65, ptr %67, align 4, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond210.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond210.not, label %.loopexit, label %63, !llvm.loop !184
+  %exitcond211.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %exitcond211.not, label %.loopexit, label %63, !llvm.loop !184
 
 68:                                               ; preds = %63
   %69 = landingpad { ptr, i32 }
@@ -3287,7 +3287,7 @@ define hidden void @_ZN8rawspeed10RafDecoder22decodeMetaDataInternalEPKNS_14Came
 
 70:                                               ; preds = %47
   %71 = load ptr, ptr %11, align 8, !tbaa !64
-  %.ptr212 = getelementptr inbounds nuw i8, ptr %71, i64 100
+  %.ptr213 = getelementptr inbounds nuw i8, ptr %71, i64 100
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 120
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 152
   %74 = load i8, ptr %73, align 8, !tbaa !182, !range !80, !noundef !81
@@ -3299,7 +3299,7 @@ define hidden void @_ZN8rawspeed10RafDecoder22decodeMetaDataInternalEPKNS_14Came
   br label %.preheader194
 
 .preheader194:                                    ; preds = %70, %76
-  store ptr %.ptr212, ptr %72, align 8, !tbaa !183
+  store ptr %.ptr213, ptr %72, align 8, !tbaa !183
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 128
   store i32 4, ptr %77, align 8, !tbaa !66
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 136
@@ -3308,7 +3308,7 @@ define hidden void @_ZN8rawspeed10RafDecoder22decodeMetaDataInternalEPKNS_14Came
   store i32 2, ptr %79, align 4, !tbaa !66
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 144
   store i32 2, ptr %80, align 8, !tbaa !66
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.ptr212, i8 0, i64 16, i1 false), !tbaa !66
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.ptr213, i8 0, i64 16, i1 false), !tbaa !66
   br label %.preheader193
 
 .preheader193:                                    ; preds = %.preheader194, %84
@@ -3320,8 +3320,8 @@ define hidden void @_ZN8rawspeed10RafDecoder22decodeMetaDataInternalEPKNS_14Came
 
 84:                                               ; preds = %89
   %85 = add nuw nsw i32 %.078198, 1
-  %exitcond208.not = icmp eq i32 %85, 6
-  br i1 %exitcond208.not, label %.lr.ph201, label %.preheader193, !llvm.loop !185
+  %exitcond209.not = icmp eq i32 %85, 6
+  br i1 %exitcond209.not, label %.lr.ph201, label %.preheader193, !llvm.loop !185
 
 86:                                               ; preds = %.preheader193, %89
   %.080197 = phi i32 [ 0, %.preheader193 ], [ %96, %89 ]
@@ -3333,7 +3333,7 @@ define hidden void @_ZN8rawspeed10RafDecoder22decodeMetaDataInternalEPKNS_14Came
   %90 = and i32 %.080197, 1
   %91 = or disjoint i32 %90, %83
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds nuw i32, ptr %.ptr212, i64 %92
+  %93 = getelementptr inbounds nuw i32, ptr %.ptr213, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !66
   %95 = add i32 %94, %88
   store i32 %95, ptr %93, align 4, !tbaa !66
@@ -3397,7 +3397,8 @@ define hidden void @_ZN8rawspeed10RafDecoder22decodeMetaDataInternalEPKNS_14Came
   %128 = mul nuw nsw i32 %114, %111
   call void @llvm.assume(i1 %or.cond.i102)
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds nuw i32, ptr %106, i64 %129
+  %.idx207 = shl nuw nsw i64 %129, 2
+  %130 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx207
   %.not90203 = icmp eq i32 %128, 0
   br i1 %.not90203, label %._crit_edge, label %.lr.ph206
 

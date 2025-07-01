@@ -68,7 +68,8 @@ define hidden noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_buil
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %5, i64 %7
+  %.idx = shl nsw i64 %7, 4
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %.loopexit, label %.lr.ph
 
@@ -2558,7 +2559,8 @@ define { ptr, ptr } @_ZN7uu_tail7uu_tail17h3fecf2ee11269d0aE(ptr noalias noundef
   %.val62 = load ptr, ptr %43, align 8, !nonnull !4, !noundef !4
   %44 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %.val63 = load i64, ptr %44, align 8, !noundef !4
-  %45 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %.val62, i64 %.val63
+  %.idx = mul nsw i64 %.val63, 48
+  %45 = getelementptr inbounds i8, ptr %.val62, i64 %.idx
   %46 = icmp eq i64 %.val63, 0
   br i1 %46, label %._crit_edge, label %.lr.ph
 

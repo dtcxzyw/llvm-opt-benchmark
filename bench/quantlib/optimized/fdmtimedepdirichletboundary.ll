@@ -539,7 +539,8 @@ _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %entry
   %1 = load ptr, ptr %values_, align 8, !tbaa !16
   %n_.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %2 = load i64, ptr %n_.i, align 8, !tbaa !23
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %1, i64 %2
+  %add.ptr.i.idx = shl nuw nsw i64 %2, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
   store double %t, ptr %__args.addr.i, align 8, !tbaa !34
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %this, i64 56

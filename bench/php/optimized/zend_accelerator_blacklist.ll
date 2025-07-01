@@ -14,8 +14,8 @@ target triple = "x86_64-pc-linux-gnu"
 %union._zend_value = type { i64 }
 %union.anon.3 = type { i32 }
 %union.anon.6 = type { i32 }
-%struct._zend_blacklist_entry = type { ptr, i32, i32 }
 %struct.glob_t = type { i64, ptr, i64, i32, ptr, ptr, ptr, ptr, ptr }
+%struct._zend_blacklist_entry = type { ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [37 x i8] c"Blacklist initialization: no memory\0A\00", align 1
 @.str.1 = private unnamed_addr constant [38 x i8] c"No blacklist file found matching: %s\0A\00", align 1
@@ -85,7 +85,8 @@ define hidden void @zend_accel_blacklist_shutdown(ptr noundef captures(none) %0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct._zend_blacklist_entry, ptr %2, i64 %6
+  %.idx = shl nsw i64 %6, 4
+  %7 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %8 = icmp sgt i32 %5, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 

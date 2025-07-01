@@ -14,9 +14,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.MPEG4AudioConfig = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.AVRational = type { i32, i32 }
 %struct.mkv_track = type { i32, i32, i64, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, ptr }
-%struct.mkv_cuepoint = type { i64, i32, i64, i64, i64 }
 %struct.AVLFG = type { [64 x i32], i32 }
 %struct.mkv_seekhead_entry = type { i32, i64 }
+%struct.mkv_cuepoint = type { i64, i32, i64, i64, i64 }
 %struct.WvHeader = type { i32, i16, i32, i32, i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"matroska\00", align 1
@@ -4832,7 +4832,8 @@ put_ebml_void.exit.i:                             ; preds = %.lr.ph.i.i.i, %90
   %.val = load ptr, ptr %37, align 8, !tbaa !214
   %.val219 = load i32, ptr %38, align 8, !tbaa !215
   %100 = sext i32 %.val219 to i64
-  %101 = getelementptr inbounds %struct.mkv_cuepoint, ptr %.val, i64 %100
+  %.idx.i = mul nsw i64 %100, 40
+  %101 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i
   %.not215.i = icmp sgt i32 %.val219, 0
   br i1 %.not215.i, label %.lr.ph17.i, label %.loopexit315
 

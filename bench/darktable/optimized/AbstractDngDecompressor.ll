@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.39" = type { i8 }
-%"struct.rawspeed::DngSliceElement" = type <{ ptr, i32, [4 x i8], %"class.rawspeed::ByteStream", i32, i32, i8, i8, [2 x i8], i32, i32, i32, i32, [4 x i8] }>
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %"class.rawspeed::LJpegDecoder" = type { %"class.rawspeed::AbstractLJpegDecoder.base", i32, i32, i32, i32, %"class.rawspeed::iPoint2D", [4 x i8] }
 %"class.rawspeed::AbstractLJpegDecoder.base" = type <{ ptr, %"class.std::vector.47", %"class.std::vector.52", i32, [4 x i8], %"struct.std::array.57", i8, i8, [6 x i8], %"class.rawspeed::ByteStream", %"class.rawspeed::RawImage", %"class.rawspeed::SOFInfo", i16, [2 x i8], i32 }>
@@ -175,7 +174,8 @@ define hidden void @_ZNK8rawspeed23AbstractDngDecompressor16decompressThreadILi1
   %19 = icmp eq i64 %18, 0
   tail call void @llvm.assume(i1 %19)
   %20 = and i64 %17, 2147483647
-  %21 = getelementptr inbounds nuw %"struct.rawspeed::DngSliceElement", ptr %11, i64 %20
+  %.idx = mul nuw nsw i64 %20, 72
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %.not54 = icmp eq i64 %20, 0
   br i1 %.not54, label %._crit_edge, label %.lr.ph
 
@@ -818,7 +818,8 @@ define hidden void @_ZNK8rawspeed23AbstractDngDecompressor16decompressThreadILi7
   %16 = icmp eq i64 %15, 0
   tail call void @llvm.assume(i1 %16)
   %17 = and i64 %14, 2147483647
-  %18 = getelementptr inbounds nuw %"struct.rawspeed::DngSliceElement", ptr %8, i64 %17
+  %.idx = mul nuw nsw i64 %17, 72
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not29 = icmp eq i64 %17, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
@@ -1109,7 +1110,8 @@ define hidden void @_ZNK8rawspeed23AbstractDngDecompressor16decompressThreadILi8
   %18 = icmp eq i64 %17, 0
   tail call void @llvm.assume(i1 %18)
   %19 = and i64 %16, 2147483647
-  %20 = getelementptr inbounds nuw %"struct.rawspeed::DngSliceElement", ptr %10, i64 %19
+  %.idx = mul nuw nsw i64 %19, 72
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %.not39 = icmp eq i64 %19, 0
   br i1 %.not39, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit, label %.lr.ph
 
@@ -1543,7 +1545,8 @@ define hidden void @_ZNK8rawspeed23AbstractDngDecompressor16decompressThreadILi9
   %16 = icmp eq i64 %15, 0
   tail call void @llvm.assume(i1 %16)
   %17 = and i64 %14, 2147483647
-  %18 = getelementptr inbounds nuw %"struct.rawspeed::DngSliceElement", ptr %8, i64 %17
+  %.idx = mul nuw nsw i64 %17, 72
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not26 = icmp eq i64 %17, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
@@ -1869,7 +1872,8 @@ define hidden void @_ZNK8rawspeed23AbstractDngDecompressor16decompressThreadILi3
   %16 = icmp eq i64 %15, 0
   tail call void @llvm.assume(i1 %16)
   %17 = and i64 %14, 2147483647
-  %18 = getelementptr inbounds nuw %"struct.rawspeed::DngSliceElement", ptr %8, i64 %17
+  %.idx = mul nuw nsw i64 %17, 72
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not32 = icmp eq i64 %17, 0
   br i1 %.not32, label %._crit_edge, label %.lr.ph
 

@@ -1943,7 +1943,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
 150:                                              ; preds = %146
   %151 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %152 = load ptr, ptr %151, align 8, !nonnull !62, !align !230, !noundef !62
-  %153 = getelementptr inbounds nuw i32, ptr %152, i64 %148
+  %.idx = shl nuw nsw i64 %148, 2
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 %.idx
   %154 = icmp eq i64 %148, 0
   br i1 %154, label %.loopexit116, label %.lr.ph.preheader
 
@@ -1956,7 +1957,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
 158:                                              ; preds = %.loopexit116
   %159 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %160 = load ptr, ptr %159, align 8, !nonnull !62, !align !230, !noundef !62
-  %161 = getelementptr inbounds nuw i32, ptr %160, i64 %156
+  %.idx154 = shl nuw nsw i64 %156, 2
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 %.idx154
   %162 = icmp eq i64 %156, 0
   br i1 %162, label %.loopexit115, label %.lr.ph152.preheader
 
@@ -3452,14 +3454,14 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   unreachable
 
 .loopexit.split-lp99.thread:                      ; preds = %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp99.loopexit.split-lp.loopexit, %.loopexit.split-lp99.loopexit, %.loopexit98, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread, %.loopexit.split-lp99
-  %.pn198188 = phi { ptr, i32 } [ %.pn196, %.loopexit.split-lp99 ], [ %lpad.thr_comm, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread ], [ %lpad.loopexit112, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit110, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit107, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit105, %.loopexit.split-lp99.loopexit.split-lp.loopexit ], [ %lpad.loopexit102, %.loopexit.split-lp99.loopexit ], [ %lpad.loopexit100, %.loopexit98 ]
+  %.pn198189 = phi { ptr, i32 } [ %.pn196, %.loopexit.split-lp99 ], [ %lpad.thr_comm, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread ], [ %lpad.loopexit112, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit110, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit107, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit105, %.loopexit.split-lp99.loopexit.split-lp.loopexit ], [ %lpad.loopexit102, %.loopexit.split-lp99.loopexit ], [ %lpad.loopexit100, %.loopexit98 ]
   invoke void @"_ZN4core3ptr118drop_in_place$LT$brotli..enc..context_map_entropy..ContextMapEntropy$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h63388906616979a3E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %52) #21
           to label %712 unwind label %710
 
 712:                                              ; preds = %.loopexit.split-lp99.thread, %349, %345, %379
   %.sroa.012.1.ph = phi ptr [ %.sroa.012.4, %349 ], [ %.sroa.012.0, %.loopexit.split-lp99.thread ], [ %.sroa.012.2, %345 ], [ %360, %379 ]
   %.sroa.9.1.ph = phi i64 [ %.sroa.9.4, %349 ], [ %.sroa.9.0, %.loopexit.split-lp99.thread ], [ %.sroa.9.2, %345 ], [ %362, %379 ]
-  %.pn198.pn.ph = phi { ptr, i32 } [ %350, %349 ], [ %.pn198188, %.loopexit.split-lp99.thread ], [ %346, %345 ], [ %366, %379 ]
+  %.pn198.pn.ph = phi { ptr, i32 } [ %350, %349 ], [ %.pn198189, %.loopexit.split-lp99.thread ], [ %346, %345 ], [ %366, %379 ]
   %713 = icmp eq i64 %.sroa.9.1.ph, 0
   br i1 %713, label %.thread, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i331"
 
@@ -3774,7 +3776,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
 150:                                              ; preds = %146
   %151 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %152 = load ptr, ptr %151, align 8, !nonnull !62, !align !230, !noundef !62
-  %153 = getelementptr inbounds nuw i32, ptr %152, i64 %148
+  %.idx = shl nuw nsw i64 %148, 2
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 %.idx
   %154 = icmp eq i64 %148, 0
   br i1 %154, label %.loopexit116, label %.lr.ph.preheader
 
@@ -3787,7 +3790,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
 158:                                              ; preds = %.loopexit116
   %159 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %160 = load ptr, ptr %159, align 8, !nonnull !62, !align !230, !noundef !62
-  %161 = getelementptr inbounds nuw i32, ptr %160, i64 %156
+  %.idx154 = shl nuw nsw i64 %156, 2
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 %.idx154
   %162 = icmp eq i64 %156, 0
   br i1 %162, label %.loopexit115, label %.lr.ph152.preheader
 
@@ -5283,14 +5287,14 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   unreachable
 
 .loopexit.split-lp99.thread:                      ; preds = %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp99.loopexit.split-lp.loopexit, %.loopexit.split-lp99.loopexit, %.loopexit98, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread, %.loopexit.split-lp99
-  %.pn198188 = phi { ptr, i32 } [ %.pn196, %.loopexit.split-lp99 ], [ %lpad.thr_comm, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread ], [ %lpad.loopexit112, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit110, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit107, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit105, %.loopexit.split-lp99.loopexit.split-lp.loopexit ], [ %lpad.loopexit102, %.loopexit.split-lp99.loopexit ], [ %lpad.loopexit100, %.loopexit98 ]
+  %.pn198189 = phi { ptr, i32 } [ %.pn196, %.loopexit.split-lp99 ], [ %lpad.thr_comm, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread ], [ %lpad.loopexit112, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit110, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit107, %.loopexit.split-lp99.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit105, %.loopexit.split-lp99.loopexit.split-lp.loopexit ], [ %lpad.loopexit102, %.loopexit.split-lp99.loopexit ], [ %lpad.loopexit100, %.loopexit98 ]
   invoke void @"_ZN4core3ptr118drop_in_place$LT$brotli..enc..context_map_entropy..ContextMapEntropy$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h63388906616979a3E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %52) #21
           to label %712 unwind label %710
 
 712:                                              ; preds = %.loopexit.split-lp99.thread, %349, %345, %379
   %.sroa.012.1.ph = phi ptr [ %.sroa.012.4, %349 ], [ %.sroa.012.0, %.loopexit.split-lp99.thread ], [ %.sroa.012.2, %345 ], [ %360, %379 ]
   %.sroa.9.1.ph = phi i64 [ %.sroa.9.4, %349 ], [ %.sroa.9.0, %.loopexit.split-lp99.thread ], [ %.sroa.9.2, %345 ], [ %362, %379 ]
-  %.pn198.pn.ph = phi { ptr, i32 } [ %350, %349 ], [ %.pn198188, %.loopexit.split-lp99.thread ], [ %346, %345 ], [ %366, %379 ]
+  %.pn198.pn.ph = phi { ptr, i32 } [ %350, %349 ], [ %.pn198189, %.loopexit.split-lp99.thread ], [ %346, %345 ], [ %366, %379 ]
   %713 = icmp eq i64 %.sroa.9.1.ph, 0
   br i1 %713, label %.thread, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i331"
 
@@ -8575,7 +8579,8 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   store i8 4, ptr %26, align 8, !noalias !1429
   call void @_ZN6brotli3enc12ir_interpret9push_base17h34dcb387956f4c1dE(ptr noalias noundef nonnull align 8 dereferenceable(240) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %26)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %26), !noalias !1429
-  %82 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %2, i64 %3
+  %.idx = shl nsw i64 %3, 4
+  %82 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %83 = icmp eq i64 %3, 0
   br i1 %83, label %._crit_edge284, label %.lr.ph283
 
@@ -9518,7 +9523,8 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   store i8 4, ptr %26, align 8, !noalias !1492
   call void @_ZN6brotli3enc12ir_interpret9push_base17hb91b18d41a38573eE(ptr noalias noundef nonnull align 8 dereferenceable(296) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %26)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %26), !noalias !1492
-  %82 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %2, i64 %3
+  %.idx = shl nsw i64 %3, 4
+  %82 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %83 = icmp eq i64 %3, 0
   br i1 %83, label %._crit_edge284, label %.lr.ph283
 
@@ -10465,7 +10471,8 @@ define internal fastcc noundef i64 @_ZN6brotli3enc17brotli_bit_stream21process_c
   store i8 4, ptr %30, align 8, !noalias !1555
   call fastcc void @"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE"(ptr noalias noundef nonnull align 8 dereferenceable(1656) %0, ptr noalias noundef align 8 captures(none) dereferenceable(56) %30)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %30), !noalias !1555
-  %86 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %2, i64 %3
+  %.idx = shl nsw i64 %3, 4
+  %86 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %87 = icmp eq i64 %3, 0
   br i1 %87, label %._crit_edge470, label %.lr.ph469
 
@@ -11625,7 +11632,8 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   store i8 4, ptr %26, align 8, !noalias !1695
   call void @_ZN6brotli3enc12ir_interpret9push_base17hce9fa91c2ac0017cE(ptr noalias noundef nonnull align 8 dereferenceable(920) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %26)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %26), !noalias !1695
-  %82 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %2, i64 %3
+  %.idx = shl nsw i64 %3, 4
+  %82 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %83 = icmp eq i64 %3, 0
   br i1 %83, label %._crit_edge284, label %.lr.ph283
 

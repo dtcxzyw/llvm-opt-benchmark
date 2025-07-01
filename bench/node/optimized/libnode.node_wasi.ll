@@ -40,11 +40,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.uvwasi_preopen_s = type { ptr, ptr }
 %struct.uvwasi_fdstat_s = type { i8, i16, i64, i64 }
 %struct.uvwasi_filestat_s = type { i64, i64, i8, i64, i64, i64, i64, i64 }
-%struct.uvwasi_iovec_s = type { ptr, i32 }
 %struct.uvwasi_prestat_s = type { i8, %"union.uvwasi_prestat_s::uvwasi_prestat_u" }
 %"union.uvwasi_prestat_s::uvwasi_prestat_u" = type { %"struct.uvwasi_prestat_s::uvwasi_prestat_u::uvwasi_prestat_dir_t" }
 %"struct.uvwasi_prestat_s::uvwasi_prestat_u::uvwasi_prestat_dir_t" = type { i32 }
-%struct.uvwasi_ciovec_s = type { ptr, i32 }
 %struct.uvwasi_subscription_s = type { i64, i8, %union.anon.309 }
 %union.anon.309 = type { %struct.anon }
 %struct.anon = type { i32, i64, i64, i16 }
@@ -3421,20 +3419,22 @@ if.then.i.i.i.i.i:                                ; preds = %do.end9
   %conv10 = zext i32 %7 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv10, 4
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #25
-  %add.ptr.i.i.i = getelementptr %struct.uvwasi_iovec_s, ptr %call5.i.i.i.i.i.i, i64 %conv10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %7, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i.preheader
+  %sub.i.i.i.i.i = add nsw i64 %conv10, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit, label %if.end.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %if.then.i.i.i.i.i
+if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 16
+  %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 4
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.preheader ]
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 16
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !20
 
 _ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
@@ -3641,20 +3641,22 @@ if.then.i.i.i.i.i:                                ; preds = %do.end9
   %conv10 = zext i32 %7 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv10, 4
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #25
-  %add.ptr.i.i.i = getelementptr %struct.uvwasi_ciovec_s, ptr %call5.i.i.i.i.i.i, i64 %conv10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %7, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i.preheader
+  %sub.i.i.i.i.i = add nsw i64 %conv10, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit, label %if.end.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %if.then.i.i.i.i.i
+if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 16
+  %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 4
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.preheader ]
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 16
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !21
 
 _ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
@@ -3754,20 +3756,22 @@ if.then.i.i.i.i.i:                                ; preds = %do.end9
   %conv10 = zext i32 %7 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv10, 4
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #25
-  %add.ptr.i.i.i = getelementptr %struct.uvwasi_iovec_s, ptr %call5.i.i.i.i.i.i, i64 %conv10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %7, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i.preheader
+  %sub.i.i.i.i.i = add nsw i64 %conv10, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit, label %if.end.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %if.then.i.i.i.i.i
+if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 16
+  %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 4
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.preheader ]
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 16
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !20
 
 _ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
@@ -4114,20 +4118,22 @@ if.then.i.i.i.i.i:                                ; preds = %do.end9
   %conv10 = zext i32 %7 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv10, 4
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #25
-  %add.ptr.i.i.i = getelementptr %struct.uvwasi_ciovec_s, ptr %call5.i.i.i.i.i.i, i64 %conv10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %7, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i.preheader
+  %sub.i.i.i.i.i = add nsw i64 %conv10, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit, label %if.end.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %if.then.i.i.i.i.i
+if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 16
+  %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 4
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.preheader ]
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 16
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !21
 
 _ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i
@@ -4870,11 +4876,11 @@ if.end.i.i:                                       ; preds = %entry
   %3 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJRjS1_S1_S1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.82, ptr noundef nonnull align 4 dereferenceable(4) %in_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %out_ptr.addr, ptr noundef nonnull align 4 dereferenceable(4) %nsubscriptions.addr, ptr noundef nonnull align 4 dereferenceable(4) %nevents_ptr.addr) #27
   %.pre = load i32, ptr %in_ptr.addr, align 4
-  %.pre44 = load i32, ptr %nsubscriptions.addr, align 4
+  %.pre48 = load i32, ptr %nsubscriptions.addr, align 4
   br label %_ZN4node4wasi5DebugIJRA29_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
 
 _ZN4node4wasi5DebugIJRA29_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit: ; preds = %entry, %if.end.i.i
-  %4 = phi i32 [ %nsubscriptions, %entry ], [ %.pre44, %if.end.i.i ]
+  %4 = phi i32 [ %nsubscriptions, %entry ], [ %.pre48, %if.end.i.i ]
   %5 = phi i32 [ %in_ptr, %entry ], [ %.pre, %if.end.i.i ]
   %conv = zext i32 %5 to i64
   %mul = mul i32 %4, 48
@@ -4909,46 +4915,49 @@ do.end19:                                         ; preds = %do.body12
 if.then.i.i.i.i.i:                                ; preds = %do.end19
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %conv20, 48
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #25
-  %add.ptr.i.i.i = getelementptr %struct.uvwasi_subscription_s, ptr %call5.i.i.i.i.i.i, i64 %conv20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call5.i.i.i.i.i.i, i8 0, i64 48, i1 false)
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %9, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i12, label %for.body.i.i.i.i.i.i.i.i.i.preheader
+  %sub.i.i.i.i.i = add nsw i64 %conv20, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i12, label %if.end.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %if.then.i.i.i.i.i
+if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 48
+  %add.ptr.idx.i.i.i.i.i.i.i = mul nuw nsw i64 %sub.i.i.i.i.i, 48
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.preheader ]
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %call5.i.i.i.i.i.i, i64 48, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 48
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i12, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !22
 
 if.then.i.i.i.i.i12:                              ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %mul.i.i.i.i.i.i13 = shl nuw nsw i64 %conv20, 5
   %call5.i.i.i.i.i.i14 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i13) #25
-  %add.ptr.i.i.i15 = getelementptr %struct.uvwasi_event_s, ptr %call5.i.i.i.i.i.i14, i64 %conv20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i.i.i14, i8 0, i64 32, i1 false)
-  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %for.body.i.i.i.i.i.i.i.i.i19.preheader
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %if.end.i.i.i.i.i.i.i20
 
-for.body.i.i.i.i.i.i.i.i.i19.preheader:           ; preds = %if.then.i.i.i.i.i12
+if.end.i.i.i.i.i.i.i20:                           ; preds = %if.then.i.i.i.i.i12
   %incdec.ptr.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i14, i64 32
-  br label %for.body.i.i.i.i.i.i.i.i.i19
+  %add.ptr.idx.i.i.i.i.i.i.i21 = shl nuw nsw i64 %sub.i.i.i.i.i, 5
+  %add.ptr.i.i.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i17, i64 %add.ptr.idx.i.i.i.i.i.i.i21
+  br label %for.body.i.i.i.i.i.i.i.i.i23
 
-for.body.i.i.i.i.i.i.i.i.i19:                     ; preds = %for.body.i.i.i.i.i.i.i.i.i19.preheader, %for.body.i.i.i.i.i.i.i.i.i19
-  %__first.addr.04.i.i.i.i.i.i.i.i.i20 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i21, %for.body.i.i.i.i.i.i.i.i.i19 ], [ %incdec.ptr.i.i.i.i.i17, %for.body.i.i.i.i.i.i.i.i.i19.preheader ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i.i.i14, i64 32, i1 false)
-  %incdec.ptr.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i20, i64 32
-  %cmp.not.i.i.i.i.i.i.i.i.i22 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i21, %add.ptr.i.i.i15
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i22, label %for.body.preheader, label %for.body.i.i.i.i.i.i.i.i.i19, !llvm.loop !23
+for.body.i.i.i.i.i.i.i.i.i23:                     ; preds = %for.body.i.i.i.i.i.i.i.i.i23, %if.end.i.i.i.i.i.i.i20
+  %__first.addr.04.i.i.i.i.i.i.i.i.i24 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i25, %for.body.i.i.i.i.i.i.i.i.i23 ], [ %incdec.ptr.i.i.i.i.i17, %if.end.i.i.i.i.i.i.i20 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i.i.i24, ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i.i.i14, i64 32, i1 false)
+  %incdec.ptr.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i24, i64 32
+  %cmp.not.i.i.i.i.i.i.i.i.i26 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i25, %add.ptr.i.i.i.i.i.i.i22
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i26, label %for.body.preheader, label %for.body.i.i.i.i.i.i.i.i.i23, !llvm.loop !23
 
-for.body.preheader:                               ; preds = %for.body.i.i.i.i.i.i.i.i.i19, %if.then.i.i.i.i.i12
-  %.pre45 = load i32, ptr %in_ptr.addr, align 4
+for.body.preheader:                               ; preds = %for.body.i.i.i.i.i.i.i.i.i23, %if.then.i.i.i.i.i12
+  %.pre49 = load i32, ptr %in_ptr.addr, align 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %10 = phi i32 [ %.pre45, %for.body.preheader ], [ %add, %for.body ]
+  %10 = phi i32 [ %.pre49, %for.body.preheader ], [ %add, %for.body ]
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %conv23 = zext i32 %10 to i64
   %add.ptr.i = getelementptr inbounds nuw %struct.uvwasi_subscription_s, ptr %call5.i.i.i.i.i.i, i64 %indvars.iv
@@ -4963,11 +4972,11 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !24
 
 for.end:                                          ; preds = %for.body, %do.end19
-  %out.sroa.0.052 = phi ptr [ null, %do.end19 ], [ %call5.i.i.i.i.i.i14, %for.body ]
-  %in.sroa.0.03350 = phi ptr [ null, %do.end19 ], [ %call5.i.i.i.i.i.i, %for.body ]
+  %out.sroa.0.056 = phi ptr [ null, %do.end19 ], [ %call5.i.i.i.i.i.i14, %for.body ]
+  %in.sroa.0.03754 = phi ptr [ null, %do.end19 ], [ %call5.i.i.i.i.i.i, %for.body ]
   %.lcssa = phi i32 [ 0, %do.end19 ], [ %12, %for.body ]
   %uvw_ = getelementptr inbounds nuw i8, ptr %wasi, i64 40
-  %call28 = call zeroext i16 @uvwasi_poll_oneoff(ptr noundef nonnull %uvw_, ptr noundef %in.sroa.0.03350, ptr noundef %out.sroa.0.052, i32 noundef %.lcssa, ptr noundef nonnull %nevents) #22
+  %call28 = call zeroext i16 @uvwasi_poll_oneoff(ptr noundef nonnull %uvw_, ptr noundef %in.sroa.0.03754, ptr noundef %out.sroa.0.056, i32 noundef %.lcssa, ptr noundef nonnull %nevents) #22
   %cmp30 = icmp eq i16 %call28, 0
   br i1 %cmp30, label %if.then31, label %if.end46
 
@@ -4977,46 +4986,46 @@ if.then31:                                        ; preds = %for.end
   %15 = load i32, ptr %nevents, align 4
   call void @uvwasi_serdes_write_size_t(ptr noundef %memory.coerce0, i64 noundef %conv33, i32 noundef %15) #22
   %16 = load i32, ptr %nsubscriptions.addr, align 4
-  %cmp3637.not = icmp eq i32 %16, 0
-  br i1 %cmp3637.not, label %if.end46, label %for.body37.preheader
+  %cmp3641.not = icmp eq i32 %16, 0
+  br i1 %cmp3641.not, label %if.end46, label %for.body37.preheader
 
 for.body37.preheader:                             ; preds = %if.then31
-  %.pre46 = load i32, ptr %out_ptr.addr, align 4
+  %.pre50 = load i32, ptr %out_ptr.addr, align 4
   br label %for.body37
 
 for.body37:                                       ; preds = %for.body37.preheader, %for.body37
-  %17 = phi i32 [ %.pre46, %for.body37.preheader ], [ %add42, %for.body37 ]
-  %indvars.iv41 = phi i64 [ 0, %for.body37.preheader ], [ %indvars.iv.next42, %for.body37 ]
+  %17 = phi i32 [ %.pre50, %for.body37.preheader ], [ %add42, %for.body37 ]
+  %indvars.iv45 = phi i64 [ 0, %for.body37.preheader ], [ %indvars.iv.next46, %for.body37 ]
   %conv39 = zext i32 %17 to i64
-  %add.ptr.i25 = getelementptr inbounds nuw %struct.uvwasi_event_s, ptr %out.sroa.0.052, i64 %indvars.iv41
-  call void @uvwasi_serdes_write_event_t(ptr noundef %memory.coerce0, i64 noundef %conv39, ptr noundef nonnull %add.ptr.i25) #22
+  %add.ptr.i29 = getelementptr inbounds nuw %struct.uvwasi_event_s, ptr %out.sroa.0.056, i64 %indvars.iv45
+  call void @uvwasi_serdes_write_event_t(ptr noundef %memory.coerce0, i64 noundef %conv39, ptr noundef nonnull %add.ptr.i29) #22
   %18 = load i32, ptr %out_ptr.addr, align 4
   %add42 = add i32 %18, 32
   store i32 %add42, ptr %out_ptr.addr, align 4
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %19 = load i32, ptr %nsubscriptions.addr, align 4
   %20 = zext i32 %19 to i64
-  %cmp36 = icmp samesign ult i64 %indvars.iv.next42, %20
+  %cmp36 = icmp samesign ult i64 %indvars.iv.next46, %20
   br i1 %cmp36, label %for.body37, label %if.then.i.i.i, !llvm.loop !25
 
 if.end46:                                         ; preds = %if.then31, %for.end
-  %tobool.not.i.i.i = icmp eq ptr %out.sroa.0.052, null
+  %tobool.not.i.i.i = icmp eq ptr %out.sroa.0.056, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorI14uvwasi_event_sSaIS0_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body37, %if.end46
-  call void @_ZdlPv(ptr noundef nonnull %out.sroa.0.052) #24
+  call void @_ZdlPv(ptr noundef nonnull %out.sroa.0.056) #24
   br label %_ZNSt6vectorI14uvwasi_event_sSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI14uvwasi_event_sSaIS0_EED2Ev.exit:   ; preds = %if.end46, %if.then.i.i.i
-  %tobool.not.i.i.i26 = icmp eq ptr %in.sroa.0.03350, null
-  br i1 %tobool.not.i.i.i26, label %return, label %if.then.i.i.i27
+  %tobool.not.i.i.i30 = icmp eq ptr %in.sroa.0.03754, null
+  br i1 %tobool.not.i.i.i30, label %return, label %if.then.i.i.i31
 
-if.then.i.i.i27:                                  ; preds = %_ZNSt6vectorI14uvwasi_event_sSaIS0_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %in.sroa.0.03350) #24
+if.then.i.i.i31:                                  ; preds = %_ZNSt6vectorI14uvwasi_event_sSaIS0_EED2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %in.sroa.0.03754) #24
   br label %return
 
-return:                                           ; preds = %if.then.i.i.i27, %_ZNSt6vectorI14uvwasi_event_sSaIS0_EED2Ev.exit, %do.body12, %do.body2, %_ZN4node4wasi5DebugIJRA29_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.0.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA29_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ 61, %do.body12 ], [ %call28, %_ZNSt6vectorI14uvwasi_event_sSaIS0_EED2Ev.exit ], [ %call28, %if.then.i.i.i27 ]
+return:                                           ; preds = %if.then.i.i.i31, %_ZNSt6vectorI14uvwasi_event_sSaIS0_EED2Ev.exit, %do.body12, %do.body2, %_ZN4node4wasi5DebugIJRA29_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
+  %retval.0.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA29_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ 61, %do.body12 ], [ %call28, %_ZNSt6vectorI14uvwasi_event_sSaIS0_EED2Ev.exit ], [ %call28, %if.then.i.i.i31 ]
   %retval.0 = zext i16 %retval.0.shrunk to i32
   ret i32 %retval.0
 }
@@ -5281,20 +5290,22 @@ if.then.i.i.i.i.i:                                ; preds = %do.end17
   %conv18 = zext i32 %8 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv18, 4
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #25
-  %add.ptr.i.i.i = getelementptr %struct.uvwasi_iovec_s, ptr %call5.i.i.i.i.i.i, i64 %conv18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %8, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i.preheader
+  %sub.i.i.i.i.i = add nsw i64 %conv18, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit, label %if.end.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %if.then.i.i.i.i.i
+if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 16
+  %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 4
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.preheader ]
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 16
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !20
 
 _ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end17, %if.then.i.i.i.i.i
@@ -5401,20 +5412,22 @@ if.then.i.i.i.i.i:                                ; preds = %do.end9
   %conv10 = zext i32 %7 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv10, 4
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #25
-  %add.ptr.i.i.i = getelementptr %struct.uvwasi_ciovec_s, ptr %call5.i.i.i.i.i.i, i64 %conv10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %7, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i.preheader
+  %sub.i.i.i.i.i = add nsw i64 %conv10, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit, label %if.end.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %if.then.i.i.i.i.i
+if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 16
+  %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 4
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.preheader ]
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 16
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !21
 
 _ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %do.end9, %if.then.i.i.i.i.i

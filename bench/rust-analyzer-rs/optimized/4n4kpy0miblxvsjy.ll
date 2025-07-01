@@ -7194,7 +7194,8 @@ define hidden void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$9init_with17h2e1
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !align !398, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8, !noundef !5
-  %7 = getelementptr inbounds { { { { ptr, [1 x i64] } } }, { { i64 }, {} }, i64, i64 }, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 40
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -43312,7 +43313,8 @@ define hidden void @_ZN13rust_analyzer3lsp5utils22apply_document_changes17h605a9
   store i8 0, ptr %66, align 1
   %67 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i8 %1, ptr %67, align 8
-  %68 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [4 x i32] }, [1 x i32] }, ptr %.sroa.063.0, i64 %.sroa.364.0
+  %.idx = mul nsw i64 %.sroa.364.0, 56
+  %68 = getelementptr inbounds i8, ptr %.sroa.063.0, i64 %.idx
   %69 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16

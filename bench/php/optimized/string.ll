@@ -12939,7 +12939,7 @@ zend_string_alloc.exit126:                        ; preds = %8
   store i64 %1, ptr %15, align 8, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr align 1 %0, i64 %1, i1 false)
-  %17 = getelementptr inbounds nuw [1 x i8], ptr %16, i64 0, i64 %1
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %1
   store i8 0, ptr %17, align 1, !tbaa !10
   %18 = ptrtoint ptr %17 to i64
   %19 = icmp ult i64 %3, 9

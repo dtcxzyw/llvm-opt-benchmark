@@ -1231,7 +1231,8 @@ sw.epilog:                                        ; preds = %for.body.i, %while.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define dso_local noundef ptr @_ZN2EA4StdC8Memset16EPvtm(ptr noundef returned %pDest, i16 noundef zeroext %c, i64 noundef %count) local_unnamed_addr #2 {
 entry:
-  %add.ptr = getelementptr inbounds i16, ptr %pDest, i64 %count
+  %add.ptr.idx = shl nsw i64 %count, 1
+  %add.ptr = getelementptr inbounds i8, ptr %pDest, i64 %add.ptr.idx
   %cmp = icmp ult i64 %count, 33
   br i1 %cmp, label %while.cond.preheader, label %if.else
 
@@ -1290,7 +1291,8 @@ if.end14:                                         ; preds = %while.body, %while.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define dso_local noundef ptr @_ZN2EA4StdC8Memset32EPvjm(ptr noundef returned %pDest, i32 noundef %c, i64 noundef %count) local_unnamed_addr #2 {
 entry:
-  %add.ptr = getelementptr inbounds i32, ptr %pDest, i64 %count
+  %add.ptr.idx = shl nsw i64 %count, 2
+  %add.ptr = getelementptr inbounds i8, ptr %pDest, i64 %add.ptr.idx
   %cmp = icmp ult i64 %count, 17
   br i1 %cmp, label %while.cond.preheader, label %if.else
 
@@ -1349,7 +1351,8 @@ if.end15:                                         ; preds = %while.body, %while.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define dso_local noundef ptr @_ZN2EA4StdC8Memset64EPvmm(ptr noundef returned writeonly captures(address, ret: address, provenance) %pDest, i64 noundef %c, i64 noundef %count) local_unnamed_addr #2 {
 entry:
-  %add.ptr = getelementptr inbounds i64, ptr %pDest, i64 %count
+  %add.ptr.idx = shl nsw i64 %count, 3
+  %add.ptr = getelementptr inbounds i8, ptr %pDest, i64 %add.ptr.idx
   %cmp4 = icmp sgt i64 %count, 0
   br i1 %cmp4, label %while.body, label %while.end
 

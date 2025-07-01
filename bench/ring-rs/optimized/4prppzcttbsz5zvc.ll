@@ -2149,7 +2149,8 @@ define void @_ZN4ring6digest4sha116block_data_order17hcdd7d842b3d63616E(ptr noal
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.12.0.copyload = load i32, ptr %.sroa.12.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !189)
-  %5 = getelementptr inbounds [16 x [4 x i8]], ptr %1, i64 %2
+  %.idx.i = shl nsw i64 %2, 6
+  %5 = getelementptr inbounds i8, ptr %1, i64 %.idx.i
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %_ZN4ring6digest4sha117block_data_order_17hb9d1e648c365597dE.exit, label %.lr.ph.i
 

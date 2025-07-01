@@ -4432,7 +4432,8 @@ _ZN6arcstr7arc_str9ThinInner8allocate17hae5a9c214a5f843eE.exit: ; preds = %.noex
   %.sroa.5152.0.copyload = load i64, ptr %.sroa.5152.0..sroa_idx, align 8
   %61 = icmp ult i64 %.sroa.5152.0.copyload, 52405522936674863
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, ptr, ptr, { ptr, ptr, ptr, ptr, ptr }, ptr }, ptr %.sroa.4151.0.copyload, i64 %.sroa.5152.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.5152.0.copyload, 176
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.4151.0.copyload, i64 %.idx
   %63 = icmp sgt i64 %.sroa.0150.0.copyload, -1
   tail call void @llvm.assume(i1 %63)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34)

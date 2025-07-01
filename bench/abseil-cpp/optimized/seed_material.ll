@@ -85,12 +85,14 @@ _ZN4absl15random_internal12_GLOBAL__N_133ReadSeedMaterialFromOSEntropyImplENS_4S
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4absl15random_internal19MixIntoSeedMaterialENS_4SpanIKjEENS1_IjEE(ptr readonly captures(address) %0, i64 %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #1 {
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %1
+  %.idx = shl nuw nsw i64 %1, 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.not27 = icmp eq i64 %1, 0
   br i1 %.not27, label %._crit_edge32, label %.lr.ph31
 
 .lr.ph31:                                         ; preds = %4
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx33 = shl nuw nsw i64 %3, 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx33
   %.not1624 = icmp eq i64 %3, 0
   br i1 %.not1624, label %._crit_edge32, label %.lr.ph
 

@@ -5879,7 +5879,8 @@ define internal noundef ptr @lxb_html_tokenizer_state_char_ref_named(ptr noundef
   %.pn.in.in.i = getelementptr inbounds nuw i8, ptr %.0112.i, i64 %.pn.in.in.v.i
   %.pn.in.i = load i16, ptr %.pn.in.in.i, align 2, !tbaa !70
   %.pn.i = zext i16 %.pn.in.i to i64
-  %.1.i = getelementptr inbounds nuw %struct.lexbor_sbst_entry_static_t, ptr @lxb_html_tokenizer_res_entities_sbst, i64 %.pn.i
+  %.1.idx.i = mul nuw nsw i64 %.pn.i, 14
+  %.1.i = getelementptr inbounds nuw i8, ptr @lxb_html_tokenizer_res_entities_sbst, i64 %.1.idx.i
   %.not.i = icmp eq i16 %.pn.in.i, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 

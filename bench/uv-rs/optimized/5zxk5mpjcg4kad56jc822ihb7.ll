@@ -1072,7 +1072,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hb52e020ba072cadeE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 24
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hdebcd8b20fee304dE.llvm.25249479008257743.exit, label %.lr.ph.i
 
@@ -7795,7 +7796,8 @@ define void @"_ZN119_$LT$uv_workspace..pyproject..Project$u20$as$u20$core..conve
   %45 = load ptr, ptr %44, align 8, !nonnull !6, !noundef !6
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %47 = load i64, ptr %46, align 8, !noundef !6
-  %48 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %45, i64 %47
+  %.idx = mul nsw i64 %47, 24
+  %48 = getelementptr inbounds i8, ptr %45, i64 %.idx
   %.not.i = icmp eq i64 %47, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd52d121b7007d1e5E.exit.thread", label %.lr.ph.i
 

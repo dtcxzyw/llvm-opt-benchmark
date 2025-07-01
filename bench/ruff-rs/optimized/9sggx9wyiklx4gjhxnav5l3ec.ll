@@ -77,7 +77,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal { i64, ptr } @"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$14write_vectored17h9d6eb4b9327489bdE"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h98304fa0fb0a9638E.exit.thread", label %.preheader
 
@@ -128,7 +129,8 @@ define internal noundef zeroext i1 @"_ZN3std2io5impls74_$LT$impl$u20$std..io..Wr
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noalias noundef ptr @"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$18write_all_vectored17ha63a7927e67260bbE"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  %4 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %2
+  %.idx.i = shl nuw nsw i64 %2, 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h98304fa0fb0a9638E.exit.thread.i", label %.preheader.i
 
@@ -1002,7 +1004,8 @@ define void @_ZN13ruff_notebook8notebook8Notebook17from_raw_notebook17hab55f17c3
 67:                                               ; preds = %66
   %68 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %69 = load ptr, ptr %68, align 8, !nonnull !3, !noundef !3
-  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %45
+  %.idx = shl nuw nsw i64 %45, 2
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx
   %71 = icmp eq i64 %45, 0
   br i1 %71, label %._crit_edge, label %.lr.ph
 
@@ -1061,7 +1064,8 @@ define void @_ZN13ruff_notebook8notebook8Notebook17from_raw_notebook17hab55f17c3
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   %90 = load ptr, ptr %32, align 8, !nonnull !3, !noundef !3
   %91 = load i64, ptr %34, align 8, !noundef !3
-  %92 = getelementptr inbounds nuw { i64, [20 x i64] }, ptr %90, i64 %91
+  %.idx165 = mul nuw nsw i64 %91, 168
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx165
   %93 = icmp eq i64 %91, 0
   br i1 %93, label %._crit_edge164, label %.lr.ph156.preheader
 
@@ -1082,9 +1086,10 @@ define void @_ZN13ruff_notebook8notebook8Notebook17from_raw_notebook17hab55f17c3
 
 ._crit_edge157:                                   ; preds = %148
   %.pre = load ptr, ptr %32, align 8
-  %.pre184 = load i64, ptr %34, align 8
-  %97 = getelementptr inbounds nuw { i64, [20 x i64] }, ptr %.pre, i64 %.pre184
-  %98 = icmp eq i64 %.pre184, 0
+  %.pre186 = load i64, ptr %34, align 8
+  %.idx166 = mul nuw nsw i64 %.pre186, 168
+  %97 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx166
+  %98 = icmp eq i64 %.pre186, 0
   br i1 %98, label %._crit_edge164, label %.lr.ph163
 
 .lr.ph163:                                        ; preds = %._crit_edge157
@@ -1111,9 +1116,9 @@ define void @_ZN13ruff_notebook8notebook8Notebook17from_raw_notebook17hab55f17c3
   %.sroa.033.1161 = phi ptr [ %.sroa.033.1159, %.lr.ph163 ], [ %.sroa.033.1, %108 ]
   %.sroa.033.0160 = phi ptr [ %.pre, %.lr.ph163 ], [ %.sroa.033.1161, %108 ]
   %104 = load i64, ptr %.sroa.033.0160, align 8, !range !81, !noundef !3
-  %switch207 = icmp samesign ult i64 %104, 2
-  %.209 = select i1 %switch207, i64 72, i64 40
-  %105 = getelementptr inbounds nuw i8, ptr %.sroa.033.0160, i64 %.209
+  %switch210 = icmp samesign ult i64 %104, 2
+  %.212 = select i1 %switch210, i64 72, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.033.0160, i64 %.212
   %106 = load i64, ptr %105, align 8, !range !40, !noundef !3
   %.not54 = icmp eq i64 %106, -9223372036854775808
   br i1 %.not54, label %.preheader, label %108
@@ -1657,7 +1662,8 @@ define internal fastcc void @_ZN13ruff_notebook8notebook8Notebook19update_cell_c
   %13 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %15 = load i64, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw i32, ptr %13, i64 %15
+  %.idx = shl nuw nsw i64 %15, 2
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %18 = tail call { ptr, i64 } @"_ZN76_$LT$ruff_notebook..cell..CellOffsets$u20$as$u20$core..ops..deref..Deref$GT$5deref17h0291d8c43dd477d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17)
   %19 = extractvalue { ptr, i64 } %18, 0

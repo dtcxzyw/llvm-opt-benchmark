@@ -3756,7 +3756,8 @@ reverse_lut.exit:                                 ; preds = %80
   %121 = sub nsw i32 %102, %.095144.i
   %122 = mul nsw i32 %121, %111
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i16, ptr %117, i64 %123
+  %.idx.i = shl nsw i64 %123, 1
+  %124 = getelementptr inbounds i8, ptr %117, i64 %.idx.i
   %125 = shl nuw i32 %.1145.i, %110
   %126 = shl i32 %.095144.i, %110
   %.not99133.i = icmp slt i32 %122, 0
@@ -3774,12 +3775,13 @@ reverse_lut.exit:                                 ; preds = %80
   %135 = and i32 %.1145.i, %100
   %.not103.i = icmp eq i32 %135, 0
   %136 = sext i32 %127 to i64
+  %.idx149.i = shl nsw i64 %131, 1
   %.not102131.i = icmp slt i32 %130, 0
   br label %137
 
 137:                                              ; preds = %199, %.lr.ph137.i
   %.097134.i = phi ptr [ %117, %.lr.ph137.i ], [ %200, %199 ]
-  %138 = getelementptr inbounds i16, ptr %.097134.i, i64 %131
+  %138 = getelementptr inbounds i8, ptr %.097134.i, i64 %.idx149.i
   br i1 %.not102131.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %137
@@ -3820,7 +3822,7 @@ reverse_lut.exit:                                 ; preds = %80
   store i16 %165, ptr %141, align 2, !tbaa !41
   %166 = getelementptr inbounds i16, ptr %.098132.us.i, i64 %134
   %.not102.us.i = icmp ugt ptr %166, %138
-  br i1 %.not102.us.i, label %._crit_edge.thread159.i, label %.lr.ph.split.us.i, !llvm.loop !159
+  br i1 %.not102.us.i, label %._crit_edge.thread161.i, label %.lr.ph.split.us.i, !llvm.loop !159
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %.098132.i = phi ptr [ %178, %.lr.ph.split.i ], [ %.097134.i, %.lr.ph.i ]
@@ -3858,10 +3860,10 @@ reverse_lut.exit:                                 ; preds = %80
 ._crit_edge.i:                                    ; preds = %137
   br i1 %.not103.i, label %199, label %181
 
-._crit_edge.thread159.i:                          ; preds = %.lr.ph.split.us.i
-  br i1 %.not103.i, label %199, label %.thread161.i
+._crit_edge.thread161.i:                          ; preds = %.lr.ph.split.us.i
+  br i1 %.not103.i, label %199, label %.thread163.i
 
-.thread161.i:                                     ; preds = %._crit_edge.thread159.i
+.thread163.i:                                     ; preds = %._crit_edge.thread161.i
   %179 = getelementptr inbounds i16, ptr %166, i64 %133
   br label %183
 
@@ -3876,10 +3878,10 @@ reverse_lut.exit:                                 ; preds = %80
   %182 = getelementptr inbounds i16, ptr %.097134.i, i64 %133
   br i1 %104, label %183, label %192
 
-183:                                              ; preds = %181, %.thread161.i
-  %184 = phi ptr [ %179, %.thread161.i ], [ %182, %181 ]
-  %.098.lcssa155163.i = phi ptr [ %166, %.thread161.i ], [ %.097134.i, %181 ]
-  %185 = load i16, ptr %.098.lcssa155163.i, align 2, !tbaa !41
+183:                                              ; preds = %181, %.thread163.i
+  %184 = phi ptr [ %179, %.thread163.i ], [ %182, %181 ]
+  %.098.lcssa157165.i = phi ptr [ %166, %.thread163.i ], [ %.097134.i, %181 ]
+  %185 = load i16, ptr %.098.lcssa157165.i, align 2, !tbaa !41
   %186 = load i16, ptr %184, align 2, !tbaa !41
   %187 = and i16 %186, 1
   %188 = add i16 %187, %185
@@ -3890,8 +3892,8 @@ reverse_lut.exit:                                 ; preds = %80
 
 192:                                              ; preds = %181, %.thread.i
   %193 = phi ptr [ %180, %.thread.i ], [ %182, %181 ]
-  %.098.lcssa155158.i = phi ptr [ %178, %.thread.i ], [ %.097134.i, %181 ]
-  %194 = load i16, ptr %.098.lcssa155158.i, align 2, !tbaa !41
+  %.098.lcssa157160.i = phi ptr [ %178, %.thread.i ], [ %.097134.i, %181 ]
+  %194 = load i16, ptr %.098.lcssa157160.i, align 2, !tbaa !41
   %195 = load i16, ptr %193, align 2, !tbaa !41
   %.tr.i113.i = lshr i16 %195, 1
   %.narrow.i114.i = sub i16 %194, %.tr.i113.i
@@ -3901,14 +3903,14 @@ reverse_lut.exit:                                 ; preds = %80
 
 197:                                              ; preds = %192, %183
   %198 = phi ptr [ %193, %192 ], [ %184, %183 ]
-  %.098.lcssa155157.i = phi ptr [ %.098.lcssa155158.i, %192 ], [ %.098.lcssa155163.i, %183 ]
+  %.098.lcssa157159.i = phi ptr [ %.098.lcssa157160.i, %192 ], [ %.098.lcssa157165.i, %183 ]
   %storemerge.i = phi i16 [ %.narrow.i114.i, %192 ], [ %191, %183 ]
   %.0128.i = phi i16 [ %196, %192 ], [ %190, %183 ]
   store i16 %storemerge.i, ptr %198, align 2, !tbaa !41
-  store i16 %.0128.i, ptr %.098.lcssa155157.i, align 2, !tbaa !41
+  store i16 %.0128.i, ptr %.098.lcssa157159.i, align 2, !tbaa !41
   br label %199
 
-199:                                              ; preds = %197, %._crit_edge.thread.i, %._crit_edge.thread159.i, %._crit_edge.i
+199:                                              ; preds = %197, %._crit_edge.thread.i, %._crit_edge.thread161.i, %._crit_edge.i
   %200 = getelementptr inbounds i16, ptr %.097134.i, i64 %136
   %.not99.i = icmp ugt ptr %200, %124
   br i1 %.not99.i, label %._crit_edge138.i, label %137, !llvm.loop !160
@@ -3923,7 +3925,8 @@ reverse_lut.exit:                                 ; preds = %80
   %203 = sub nsw i32 %100, %.095144.i
   %204 = shl i32 %203, %110
   %205 = sext i32 %204 to i64
-  %206 = getelementptr inbounds i16, ptr %.097.lcssa.i, i64 %205
+  %.idx150.i = shl nsw i64 %205, 1
+  %206 = getelementptr inbounds i8, ptr %.097.lcssa.i, i64 %.idx150.i
   %.not101140.i = icmp slt i32 %204, 0
   br i1 %.not101140.i, label %.loopexit.i, label %.lr.ph143.i
 
@@ -3965,8 +3968,8 @@ reverse_lut.exit:                                 ; preds = %80
 
 .loopexit.i:                                      ; preds = %.lr.ph143.split.i, %.lr.ph143.split.us.i, %202, %._crit_edge138.i
   %223 = lshr i32 %.1145.i, 1
-  %.not149.i = icmp samesign ult i32 %.1145.i, 2
-  br i1 %.not149.i, label %wav_decode.exit, label %.lr.ph147.i, !llvm.loop !162
+  %.not151.i = icmp samesign ult i32 %.1145.i, 2
+  br i1 %.not151.i, label %wav_decode.exit, label %.lr.ph147.i, !llvm.loop !162
 
 wav_decode.exit:                                  ; preds = %.loopexit.i, %116
   %224 = and i1 %109, %113

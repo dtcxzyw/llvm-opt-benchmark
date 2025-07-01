@@ -11464,7 +11464,8 @@ define void @Gla_ManReportMemory(ptr noundef readonly captures(none) %0) local_u
   %24 = load ptr, ptr %23, align 8, !tbaa !23
   %25 = load i32, ptr %10, align 8, !tbaa !153
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.Gla_Obj_t_, ptr %24, i64 %26
+  %.idx = mul nsw i64 %26, 40
+  %27 = getelementptr inbounds i8, ptr %24, i64 %.idx
   %28 = icmp sgt i32 %25, 0
   br i1 %28, label %.lr.ph, label %._crit_edge
 

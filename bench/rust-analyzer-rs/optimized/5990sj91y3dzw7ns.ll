@@ -1516,7 +1516,8 @@ define hidden void @_ZN8flycheck12CargoOptions16apply_on_command17he90e4cd5329d5
   %.val = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val8 = load i64, ptr %8, align 8, !noundef !4
-  %9 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.val8
+  %.idx = mul nsw i64 %.val8, 24
+  %9 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %10 = icmp eq i64 %.val8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 

@@ -14,8 +14,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::ArrayRef.18" = type { ptr, i64 }
 %class.anon = type { ptr }
 %class.anon.20 = type { ptr, ptr, ptr, ptr }
-%"struct.llvm::pdb::BulkPublic" = type { ptr, i32, i32, i32, i16, i16 }
 %"struct.llvm::pdb::PSHashRecord" = type { %"struct.llvm::support::detail::packed_endian_specific_integral", %"struct.llvm::support::detail::packed_endian_specific_integral" }
+%"struct.llvm::pdb::BulkPublic" = type { ptr, i32, i32, i32, i16, i16 }
 %"class.llvm::Expected" = type { %union.anon, i8, [7 x i8] }
 %union.anon = type { %"struct.llvm::AlignedCharArrayUnion.31" }
 %"struct.llvm::AlignedCharArrayUnion.31" = type { [8 x i8] }
@@ -349,7 +349,8 @@ define dso_local void @_ZN4llvm3pdb20GSIHashStreamBuilder15finalizeBucketsEjNS_1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16384) %7, i8 0, i64 16384, i1 false)
   %12 = load ptr, ptr %5, align 8, !tbaa !29
   %13 = load i64, ptr %10, align 8, !tbaa !32
-  %14 = getelementptr inbounds nuw %"struct.llvm::pdb::BulkPublic", ptr %12, i64 %13
+  %.idx = mul nuw nsw i64 %13, 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   %.not54 = icmp eq i64 %13, 0
   br i1 %.not54, label %.preheader52.preheader, label %.lr.ph
 
@@ -3433,7 +3434,8 @@ _ZNSt6vectorImSaImEE7reserveEm.exit:              ; preds = %13, %_ZNSt12_Vector
   %32 = phi ptr [ %7, %13 ], [ %28, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i ]
   %33 = phi i64 [ %10, %13 ], [ %.pre, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i ]
   %34 = load ptr, ptr %8, align 8, !tbaa !216
-  %35 = getelementptr inbounds nuw %"class.llvm::codeview::CVRecord", ptr %34, i64 %33
+  %.idx = shl nuw nsw i64 %33, 4
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
   %.not11 = icmp eq i64 %33, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -5097,7 +5099,7 @@ declare noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr, i64) local_u
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #2 comdat align 2 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %46, label %3
+  br i1 %.not, label %48, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5118,89 +5120,93 @@ define linkonce_odr void @_ZNSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE17_M_def
   %18 = icmp ule i64 %15, %17
   tail call void @llvm.assume(i1 %18)
   %.not23 = icmp ult i64 %15, %1
-  br i1 %.not23, label %26, label %19
+  br i1 %.not23, label %27, label %19
 
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 1
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = icmp eq i64 %1, 1
-  br i1 %21, label %_ZSt27__uninitialized_default_n_aIPN4llvm3pdb12PSHashRecordEmS2_ET_S4_T0_RSaIT1_E.exit, label %22
+  %21 = add i64 %1, -1
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN4llvm3pdb12PSHashRecordEmS2_ET_S4_T0_RSaIT1_E.exit, label %23
 
-22:                                               ; preds = %19
-  %23 = getelementptr %"struct.llvm::pdb::PSHashRecord", ptr %5, i64 %1
+23:                                               ; preds = %19
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %22
-  %.06.i.i.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i.i.i ], [ %20, %22 ]
-  %24 = load i64, ptr %5, align 1
-  store i64 %24, ptr %.06.i.i.i.i.i.i.i, align 1
-  %25 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %25, %23
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %23
+  %.06.i.i.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i.i.i ], [ %20, %23 ]
+  %25 = load i64, ptr %5, align 1
+  store i64 %25, ptr %.06.i.i.i.i.i.i.i, align 1
+  %26 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %26, %24
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN4llvm3pdb12PSHashRecordEmS2_ET_S4_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !272
 
 _ZSt27__uninitialized_default_n_aIPN4llvm3pdb12PSHashRecordEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %19
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %.lr.ph.i.i.i.i.i.i.i ]
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %24, %.lr.ph.i.i.i.i.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !3
-  br label %46
+  br label %48
 
-26:                                               ; preds = %3
-  %27 = icmp ult i64 %17, %1
-  br i1 %27, label %28, label %_ZNKSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE12_M_check_lenEmPKc.exit
+27:                                               ; preds = %3
+  %28 = icmp ult i64 %17, %1
+  br i1 %28, label %29, label %_ZNKSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE12_M_check_lenEmPKc.exit
 
-28:                                               ; preds = %26
+29:                                               ; preds = %27
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #28
   unreachable
 
-_ZNKSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %26
+_ZNKSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %27
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %10, i64 %1)
-  %29 = add nuw nsw i64 %.sroa.speculated.i, %10
-  %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 1152921504606846975)
-  %31 = shl nuw nsw i64 %30, 3
-  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #27
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %9
-  store i64 0, ptr %33, align 1
-  %34 = icmp eq i64 %1, 1
-  br i1 %34, label %_ZSt27__uninitialized_default_n_aIPN4llvm3pdb12PSHashRecordEmS2_ET_S4_T0_RSaIT1_E.exit29, label %35
+  %30 = add nuw nsw i64 %.sroa.speculated.i, %10
+  %31 = tail call i64 @llvm.umin.i64(i64 %30, i64 1152921504606846975)
+  %32 = shl nuw nsw i64 %31, 3
+  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #27
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %9
+  store i64 0, ptr %34, align 1
+  %35 = add nsw i64 %1, -1
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %_ZSt27__uninitialized_default_n_aIPN4llvm3pdb12PSHashRecordEmS2_ET_S4_T0_RSaIT1_E.exit30, label %37
 
-35:                                               ; preds = %_ZNKSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE12_M_check_lenEmPKc.exit
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %37 = getelementptr %"struct.llvm::pdb::PSHashRecord", ptr %33, i64 %1
-  br label %.lr.ph.i.i.i.i.i.i.i25
+37:                                               ; preds = %_ZNKSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE12_M_check_lenEmPKc.exit
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %.idx.i.i.i.i.i25 = shl nuw nsw i64 %35, 3
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i.i.i.i25
+  br label %.lr.ph.i.i.i.i.i.i.i26
 
-.lr.ph.i.i.i.i.i.i.i25:                           ; preds = %.lr.ph.i.i.i.i.i.i.i25, %35
-  %.06.i.i.i.i.i.i.i26 = phi ptr [ %39, %.lr.ph.i.i.i.i.i.i.i25 ], [ %36, %35 ]
-  %38 = load i64, ptr %33, align 1
-  store i64 %38, ptr %.06.i.i.i.i.i.i.i26, align 1
-  %39 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i26, i64 8
-  %.not.i.i.i.i.i.i.i27 = icmp eq ptr %39, %37
-  br i1 %.not.i.i.i.i.i.i.i27, label %_ZSt27__uninitialized_default_n_aIPN4llvm3pdb12PSHashRecordEmS2_ET_S4_T0_RSaIT1_E.exit29, label %.lr.ph.i.i.i.i.i.i.i25, !llvm.loop !272
+.lr.ph.i.i.i.i.i.i.i26:                           ; preds = %.lr.ph.i.i.i.i.i.i.i26, %37
+  %.06.i.i.i.i.i.i.i27 = phi ptr [ %41, %.lr.ph.i.i.i.i.i.i.i26 ], [ %38, %37 ]
+  %40 = load i64, ptr %34, align 1
+  store i64 %40, ptr %.06.i.i.i.i.i.i.i27, align 1
+  %41 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i27, i64 8
+  %.not.i.i.i.i.i.i.i28 = icmp eq ptr %41, %39
+  br i1 %.not.i.i.i.i.i.i.i28, label %_ZSt27__uninitialized_default_n_aIPN4llvm3pdb12PSHashRecordEmS2_ET_S4_T0_RSaIT1_E.exit30, label %.lr.ph.i.i.i.i.i.i.i26, !llvm.loop !272
 
-_ZSt27__uninitialized_default_n_aIPN4llvm3pdb12PSHashRecordEmS2_ET_S4_T0_RSaIT1_E.exit29: ; preds = %.lr.ph.i.i.i.i.i.i.i25, %_ZNKSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE12_M_check_lenEmPKc.exit
-  %40 = icmp sgt i64 %9, 0
-  br i1 %40, label %41, label %_ZNSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
+_ZSt27__uninitialized_default_n_aIPN4llvm3pdb12PSHashRecordEmS2_ET_S4_T0_RSaIT1_E.exit30: ; preds = %.lr.ph.i.i.i.i.i.i.i26, %_ZNKSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE12_M_check_lenEmPKc.exit
+  %42 = icmp sgt i64 %9, 0
+  br i1 %42, label %43, label %_ZNSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 
-41:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN4llvm3pdb12PSHashRecordEmS2_ET_S4_T0_RSaIT1_E.exit29
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %6, i64 %9, i1 false)
+43:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN4llvm3pdb12PSHashRecordEmS2_ET_S4_T0_RSaIT1_E.exit30
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %6, i64 %9, i1 false)
   br label %_ZNSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 
-_ZNSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPN4llvm3pdb12PSHashRecordEmS2_ET_S4_T0_RSaIT1_E.exit29, %41
-  %.not.i30 = icmp eq ptr %6, null
-  br i1 %.not.i30, label %_ZNSt12_Vector_baseIN4llvm3pdb12PSHashRecordESaIS2_EE13_M_deallocateEPS2_m.exit, label %42
+_ZNSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPN4llvm3pdb12PSHashRecordEmS2_ET_S4_T0_RSaIT1_E.exit30, %43
+  %.not.i31 = icmp eq ptr %6, null
+  br i1 %.not.i31, label %_ZNSt12_Vector_baseIN4llvm3pdb12PSHashRecordESaIS2_EE13_M_deallocateEPS2_m.exit, label %44
 
-42:                                               ; preds = %_ZNSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
-  %43 = sub i64 %13, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %43) #29
+44:                                               ; preds = %_ZNSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
+  %45 = sub i64 %13, %8
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %45) #29
   br label %_ZNSt12_Vector_baseIN4llvm3pdb12PSHashRecordESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseIN4llvm3pdb12PSHashRecordESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %42
-  store ptr %32, ptr %0, align 8, !tbaa !9
-  %44 = getelementptr inbounds nuw %"struct.llvm::pdb::PSHashRecord", ptr %33, i64 %1
-  store ptr %44, ptr %4, align 8, !tbaa !3
-  %45 = getelementptr inbounds nuw %"struct.llvm::pdb::PSHashRecord", ptr %32, i64 %30
-  store ptr %45, ptr %11, align 8, !tbaa !93
-  br label %46
+_ZNSt12_Vector_baseIN4llvm3pdb12PSHashRecordESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4llvm3pdb12PSHashRecordESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %44
+  store ptr %33, ptr %0, align 8, !tbaa !9
+  %46 = getelementptr inbounds nuw %"struct.llvm::pdb::PSHashRecord", ptr %34, i64 %1
+  store ptr %46, ptr %4, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %"struct.llvm::pdb::PSHashRecord", ptr %33, i64 %31
+  store ptr %47, ptr %11, align 8, !tbaa !93
+  br label %48
 
-46:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN4llvm3pdb12PSHashRecordEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN4llvm3pdb12PSHashRecordESaIS2_EE13_M_deallocateEPS2_m.exit, %2
+48:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN4llvm3pdb12PSHashRecordEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN4llvm3pdb12PSHashRecordESaIS2_EE13_M_deallocateEPS2_m.exit, %2
   ret void
 }
 
@@ -8491,7 +8497,8 @@ _ZN4llvm8DenseMapINS_8codeview8CVRecordINS1_10SymbolKindEEENS_6detail13DenseSetE
   %.sroa.2.0.copyload.i.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm3pdb18SymbolDenseMapInfo11getEmptyKeyEvE5Empty, i64 8), align 8, !tbaa !51
   %25 = load i32, ptr %2, align 8, !tbaa !88
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %21, i64 %26
+  %.idx.i = shl nuw nsw i64 %26, 4
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i
   %.not5.i = icmp eq i32 %25, 0
   br i1 %.not5.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview8CVRecordINS2_10SymbolKindEEENS_6detail13DenseSetEmptyENS_3pdb18SymbolDenseMapInfoENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E9initEmptyEv.exit, label %.lr.ph.i
 
@@ -8529,7 +8536,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codevie
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !88
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %7, i64 %10
+  %.idx.i = shl nuw nsw i64 %10, 4
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
   %.not5.i = icmp eq i32 %9, 0
   br i1 %.not5.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview8CVRecordINS2_10SymbolKindEEENS_6detail13DenseSetEmptyENS_3pdb18SymbolDenseMapInfoENS6_12DenseSetPairIS5_EEEES5_S7_S9_SB_E9initEmptyEv.exit, label %.lr.ph.i
 

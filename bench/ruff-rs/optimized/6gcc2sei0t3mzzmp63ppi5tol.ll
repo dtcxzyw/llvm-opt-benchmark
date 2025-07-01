@@ -13616,7 +13616,8 @@ define noundef nonnull align 8 dereferenceable(2840) ptr @_ZN14ruff_workspace8re
   %164 = load ptr, ptr %163, align 8, !noalias !918, !nonnull !3, !noundef !3
   %165 = getelementptr i8, ptr %112, i64 -40
   %166 = load i64, ptr %165, align 8, !noalias !918, !noundef !3
-  %167 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i32, i8, i8, [2 x i8] }, ptr %164, i64 %166
+  %.idx.i = mul nuw nsw i64 %166, 144
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 %.idx.i
   %168 = icmp eq i64 %166, 0
   br i1 %168, label %._crit_edge312.i, label %.lr.ph311.i
 
@@ -14138,7 +14139,8 @@ define void @_ZN14ruff_workspace8resolver8Resolver13package_roots17h27a5b31c7dbe
   %49 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) @anon.1ef2000cb91be5a0adc7361c6504f42e.16, i64 32, i1 false)
-  %50 = getelementptr inbounds nuw { ptr, i64 }, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 4
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %51 = icmp eq i64 %3, 0
   br i1 %51, label %._crit_edge, label %.lr.ph.preheader
 
@@ -15126,7 +15128,8 @@ _ZN7matchit6params6Params4push17h4c90195610ac2372E.exit160: ; preds = %363, %370
   %380 = load ptr, ptr %379, align 8, !noalias !1018, !nonnull !3, !noundef !3
   %381 = getelementptr i8, ptr %262, i64 -40
   %382 = load i64, ptr %381, align 8, !noalias !1018, !noundef !3
-  %383 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i32, i8, i8, [2 x i8] }, ptr %380, i64 %382
+  %.idx.i = mul nuw nsw i64 %382, 152
+  %383 = getelementptr inbounds nuw i8, ptr %380, i64 %.idx.i
   %384 = icmp eq i64 %382, 0
   br i1 %384, label %._crit_edge312.i, label %.lr.ph311.i
 
@@ -17044,7 +17047,8 @@ define void @_ZN14ruff_workspace8resolver20python_files_in_path17h17cb09e0f2e908
   %67 = load ptr, ptr %66, align 8, !nonnull !3, !noundef !3
   %68 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %69 = load i64, ptr %68, align 8, !noundef !3
-  %70 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } } } }, ptr %67, i64 %69
+  %.idx = mul nuw nsw i64 %69, 24
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx
   %71 = icmp eq i64 %69, 0
   br i1 %71, label %.loopexit132, label %.lr.ph
 

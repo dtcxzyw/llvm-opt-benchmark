@@ -1190,7 +1190,8 @@ define void @_ZN20pingora_header_serde11HeaderSerde11deserialize17hbf751826684d1
   %.sroa.410.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %94, ptr %.sroa.410.0..sroa_idx.i.i, align 8, !noalias !82
   %99 = load ptr, ptr %71, align 8, !alias.scope !80, !noalias !84, !nonnull !7, !align !8, !noundef !7
-  %100 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr %99, i64 %90
+  %.idx.i.i = shl nuw nsw i64 %90, 5
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx.i.i
   %101 = icmp eq i64 %90, 0
   br i1 %101, label %._crit_edge.i.i, label %.lr.ph.i.i
 

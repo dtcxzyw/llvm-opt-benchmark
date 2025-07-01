@@ -1041,7 +1041,8 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %5 = load ptr, ptr %4, align 8, !alias.scope !211, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !211, !noundef !4
-  %8 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %5, i64 %7
+  %.idx = shl nsw i64 %7, 5
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 

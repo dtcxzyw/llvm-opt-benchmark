@@ -218,7 +218,8 @@ entry:
 
 while.body.i.preheader.i.i.i:                     ; preds = %entry
   %conv.i.i.i.i = zext i32 %7 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %6, i64 %conv.i.i.i.i
+  %add.ptr.i.idx.i.i.i = mul nuw nsw i64 %conv.i.i.i.i, 48
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %add.ptr.i.idx.i.i.i
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %while.body.i.preheader.i.i.i
@@ -497,7 +498,8 @@ if.then16:                                        ; preds = %if.end13
   br i1 %cmp.not3.i26, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit32, label %while.body.i27.preheader
 
 while.body.i27.preheader:                         ; preds = %if.then16
-  %add.ptr.i = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %6, i64 %conv.i19
+  %add.ptr.i.idx = mul nuw nsw i64 %conv.i19, 48
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 %add.ptr.i.idx
   br label %while.body.i27
 
 while.body.i27:                                   ; preds = %while.body.i27.preheader, %while.body.i27
@@ -617,7 +619,8 @@ _ZN4llvh11safe_mallocEm.exit:                     ; preds = %if.end, %if.then.i
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %Size.i, align 8
   %conv.i5 = zext i32 %2 to i64
-  %add.ptr.i30 = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %1, i64 %conv.i5
+  %add.ptr.i30.idx = mul nuw nsw i64 %conv.i5, 48
+  %add.ptr.i30 = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i30.idx
   %cmp.i.i.not5.i.i.i.i = icmp eq i32 %2, 0
   br i1 %cmp.i.i.not5.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit, label %for.body.i.i.i.i
 
@@ -641,7 +644,8 @@ _ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE18uninitialized_moveIPS1_S4_E
 
 while.body.i.preheader:                           ; preds = %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit
   %conv.i7 = zext i32 %.pre18 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %.pre, i64 %conv.i7
+  %add.ptr.i.idx = mul nuw nsw i64 %conv.i7, 48
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %.pre, i64 %add.ptr.i.idx
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %while.body.i

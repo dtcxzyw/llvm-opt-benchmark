@@ -53397,7 +53397,8 @@ define linkonce_odr void @_ZNSt3mapIN6duckdb13LogicalTypeIdENS0_5ValueESt4lessIS
   store ptr %7, ptr %10, align 8, !tbaa !79
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8, !tbaa !80
-  %12 = getelementptr inbounds nuw %"struct.std::pair.1049", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
   store ptr %0, ptr %6, align 8, !tbaa !1261
   %.not6.i = icmp eq i64 %2, 0
@@ -53493,7 +53494,8 @@ define linkonce_odr void @_ZNSt3mapIN6duckdb13LogicalTypeIdEbSt4lessIS1_ESaISt4p
   store ptr %6, ptr %9, align 8, !tbaa !79
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !80
-  %11 = getelementptr inbounds nuw %"struct.std::pair.1057", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN6duckdb13LogicalTypeIdESt4pairIKS1_bESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE22_M_insert_range_uniqueIPKS4_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESF_SF_.exit, label %.lr.ph.i
 
@@ -53870,7 +53872,8 @@ define linkonce_odr void @_ZNSt3mapIN6duckdb13LogicalTypeIdENS0_9CSVOptionINS0_1
   store ptr %7, ptr %10, align 8, !tbaa !79
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8, !tbaa !80
-  %12 = getelementptr inbounds nuw %"struct.std::pair.1063", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 136
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
   store ptr %0, ptr %6, align 8, !tbaa !1270
   %.not6.i = icmp eq i64 %2, 0

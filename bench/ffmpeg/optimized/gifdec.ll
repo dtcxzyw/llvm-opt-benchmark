@@ -835,6 +835,7 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
   %432 = sdiv i32 %419, 4
   %.sext298.i.i = sext i32 %432 to i64
   %.pre296.i.i = load ptr, ptr %428, align 8, !tbaa !59
+  %.idx290.i.i = shl nsw i64 %429, 2
   %433 = icmp sgt i32 %.0186.i.i, 0
   br label %434
 
@@ -859,7 +860,7 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
   br label %.loopexit
 
 441:                                              ; preds = %434
-  %442 = getelementptr inbounds i32, ptr %.0190286.i.i, i64 %429
+  %442 = getelementptr inbounds i8, ptr %.0190286.i.i, i64 %.idx290.i.i
   %443 = load ptr, ptr %428, align 8, !tbaa !59
   br i1 %433, label %.lr.ph.i.i54, label %._crit_edge.i.i
 

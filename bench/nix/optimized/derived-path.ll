@@ -26911,9 +26911,9 @@ define linkonce_odr void @_ZNK2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDer
   %6 = phi i1 [ true, %2 ], [ false, %_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEEC2ERKS8_.exit.i.i ]
   %7 = phi i1 [ false, %2 ], [ true, %_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEEC2ERKS8_.exit.i.i ]
   %8 = phi i64 [ 0, %2 ], [ 1, %_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEEC2ERKS8_.exit.i.i ]
-  %.idx4.i = shl nuw nsw i64 %8, 3
-  %.add5.i = add nuw nsw i64 %.idx4.i, 8
-  %.ptr8.i = getelementptr inbounds nuw i8, ptr %3, i64 %.add5.i
+  %.idx.i.i = shl nuw nsw i64 %8, 3
+  %.add4.i = add nuw nsw i64 %.idx.i.i, 8
+  %.ptr7.i = getelementptr inbounds nuw i8, ptr %3, i64 %.add4.i
   %9 = getelementptr inbounds nuw [2 x %"class.rc::Seq.495"], ptr %4, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %10, null
@@ -26923,11 +26923,11 @@ define linkonce_odr void @_ZNK2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDer
   %12 = load ptr, ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  invoke void %14(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.496") align 8 dereferenceable(8) %.ptr8.i, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke void %14(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.496") align 8 dereferenceable(8) %.ptr7.i, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEEC2ERKS8_.exit.i.i unwind label %16
 
 15:                                               ; preds = %5
-  store ptr null, ptr %.ptr8.i, align 8
+  store ptr null, ptr %.ptr7.i, align 8
   br label %_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEEC2ERKS8_.exit.i.i
 
 _ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEEC2ERKS8_.exit.i.i: ; preds = %15, %11
@@ -26939,10 +26939,10 @@ _ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePat
   br i1 %6, label %.body, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %16, %_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEED2Ev.exit.i.i
-  %.idx.i = phi i64 [ %.add.i, %_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEED2Ev.exit.i.i ], [ %.add5.i, %16 ]
+  %.idx.i = phi i64 [ %.add.i, %_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEED2Ev.exit.i.i ], [ %.add4.i, %16 ]
   %.add.i = add nsw i64 %.idx.i, -8
-  %.ptr6.i = getelementptr inbounds i8, ptr %3, i64 %.add.i
-  %18 = load ptr, ptr %.ptr6.i, align 8
+  %.ptr5.i = getelementptr inbounds i8, ptr %3, i64 %.add.i
+  %18 = load ptr, ptr %.ptr5.i, align 8
   %.not.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i, label %_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN2rc3SeqINS0_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS4_9StorePathEEEEEE8ISeqImplEEclEPSA_.exit.i.i.i.i
 
@@ -26954,7 +26954,7 @@ _ZNKSt14default_deleteIN2rc3SeqINS0_10ShrinkableISt5tupleIJN3nix22SingleDerivedP
   br label %_ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEED2Ev.exit.i.i
 
 _ZN2rc3SeqINS_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS3_9StorePathEEEEEED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN2rc3SeqINS0_10ShrinkableISt5tupleIJN3nix22SingleDerivedPathBuiltENS4_9StorePathEEEEEE8ISeqImplEEclEPSA_.exit.i.i.i.i, %.preheader.i.i
-  store ptr null, ptr %.ptr6.i, align 8
+  store ptr null, ptr %.ptr5.i, align 8
   %22 = icmp eq i64 %.add.i, 8
   br i1 %22, label %.body, label %.preheader.i.i
 

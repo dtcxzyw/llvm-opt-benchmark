@@ -769,7 +769,8 @@ define hidden { i64, i64 } @_ZN6rustls7anchors13RootCertStore25add_parsable_cert
   store i64 0, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   store i64 0, ptr %16, align 8
-  %18 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 24
+  %18 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %19 = icmp eq i64 %2, 0
   br i1 %19, label %._crit_edge, label %.lr.ph
 

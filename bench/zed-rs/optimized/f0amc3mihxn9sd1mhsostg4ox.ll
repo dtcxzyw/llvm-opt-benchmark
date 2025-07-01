@@ -24336,7 +24336,8 @@ define hidden void @"_ZN70_$LT$language..BracketPairConfig$u20$as$u20$serde..de.
   %.sroa.029.0.copyload = load i64, ptr %13, align 8
   %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.430.0.copyload = load ptr, ptr %.sroa.430.0..sroa_idx, align 8, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i8, i8, i8, [5 x i8] }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.430.0.copyload, i64 %19
+  %.idx = mul nsw i64 %19, 80
+  %50 = getelementptr inbounds i8, ptr %.sroa.430.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.430.0.copyload, ptr %9, align 8
   %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -24613,7 +24614,8 @@ define hidden void @"_ZN70_$LT$language..BracketPairConfig$u20$as$u20$serde..de.
   %.sroa.029.0.copyload = load i64, ptr %13, align 8
   %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.430.0.copyload = load ptr, ptr %.sroa.430.0..sroa_idx, align 8, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i8, i8, i8, [5 x i8] }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.430.0.copyload, i64 %19
+  %.idx = mul nsw i64 %19, 80
+  %50 = getelementptr inbounds i8, ptr %.sroa.430.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.430.0.copyload, ptr %9, align 8
   %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -46637,7 +46639,8 @@ default.unreachable65:                            ; preds = %2
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i64, [3 x i64] }, { i64, [6 x i64] }, { i64, [8 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, [1 x i32] }, i8, i8, [6 x i8] }, ptr %11, i64 %13
+  %.idx = mul nsw i64 %13, 504
+  %14 = getelementptr inbounds i8, ptr %11, i64 %.idx
   %15 = icmp eq i64 %13, 0
   br i1 %15, label %._crit_edge, label %.lr.ph
 

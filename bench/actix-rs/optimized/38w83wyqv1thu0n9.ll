@@ -7203,7 +7203,8 @@ define void @_ZN9actix_web4http6header15accept_encoding14AcceptEncoding10prefere
   store i64 -9223372036854775806, ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %13, align 8, !nonnull !13, !noundef !13
-  %14 = getelementptr inbounds { { i64, [2 x i64] }, i16, [3 x i16] }, ptr %.val, i64 %7
+  %.idx = shl nsw i64 %7, 5
+  %14 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7590,7 +7591,8 @@ define noundef zeroext i1 @_ZN9actix_web4http6header15accept_encoding22is_identi
   br i1 %3, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %4 = getelementptr inbounds { { i64, [2 x i64] }, i16, [3 x i16] }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 5
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   br label %.lr.ph
 
 .loopexit.sink.split:                             ; preds = %10, %.lr.ph
@@ -8235,7 +8237,8 @@ select.unfold.us.i:                               ; preds = %.split.us.preheader
 ".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16e8d89d5138b23cE.exit_crit_edge": ; preds = %.split.us.i
   %14 = getelementptr i8, ptr %.sroa.4.227, i64 8
   %.val.us.i = load ptr, ptr %14, align 8, !noalias !1979, !nonnull !13, !noundef !13
-  %15 = getelementptr inbounds ptr, ptr %.val.us.i, i64 %.val5.us.i
+  %.idx = shl nsw i64 %.val5.us.i, 3
+  %15 = getelementptr inbounds i8, ptr %.val.us.i, i64 %.idx
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16e8d89d5138b23cE.exit"
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16e8d89d5138b23cE.exit": ; preds = %".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16e8d89d5138b23cE.exit_crit_edge", %.split.us.preheader.i

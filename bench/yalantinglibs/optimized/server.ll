@@ -38742,13 +38742,18 @@ if.end:                                           ; preds = %entry, %cond.true.i
 land.rhs:                                         ; preds = %if.end
   %count.i.i.i = getelementptr inbounds nuw i8, ptr %buffers, i64 48
   %12 = load i64, ptr %count.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.asio::const_buffer", ptr %buffers, i64 %12
   %cmp4.i.i = icmp eq i64 %12, 0
-  br i1 %cmp4.i.i, label %if.end10.i, label %for.body.i.i
+  br i1 %cmp4.i.i, label %if.end10.i, label %for.body.i.preheader.i
 
-for.body.i.i:                                     ; preds = %land.rhs, %for.inc.i.i
-  %i.06.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %land.rhs ]
-  %iter.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %buffers, %land.rhs ]
+for.body.i.preheader.i:                           ; preds = %land.rhs
+  %13 = add i64 %12, 1152921504606846975
+  %14 = and i64 %13, 1152921504606846975
+  %umin.i = tail call i64 @llvm.umin.i64(i64 %14, i64 63)
+  br label %for.body.i.i
+
+for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.i.preheader.i
+  %i.06.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %for.body.i.preheader.i ]
+  %iter.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %buffers, %for.body.i.preheader.i ]
   %ref.tmp.sroa.1.0.iter.0.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %iter.05.i.i, i64 8
   %ref.tmp.sroa.1.0.copyload.i.i = load i64, ptr %ref.tmp.sroa.1.0.iter.0.sroa_idx.i.i, align 8
   %cmp2.not.i.i = icmp eq i64 %ref.tmp.sroa.1.0.copyload.i.i, 0
@@ -38757,36 +38762,34 @@ for.body.i.i:                                     ; preds = %land.rhs, %for.inc.
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %iter.05.i.i, i64 16
   %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
-  %cmp.i.i15 = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
-  %cmp1.i.i = icmp samesign ugt i64 %i.06.i.i, 62
-  %.not.i.i = select i1 %cmp.i.i15, i1 true, i1 %cmp1.i.i
-  br i1 %.not.i.i, label %if.end10.i, label %for.body.i.i, !llvm.loop !622
+  %exitcond.i = icmp eq i64 %i.06.i.i, %umin.i
+  br i1 %exitcond.i, label %if.end10.i, label %for.body.i.i, !llvm.loop !622
 
 if.then.i:                                        ; preds = %for.body.i.i, %if.end
-  %13 = and i8 %10, 3
-  %tobool4.not.i = icmp eq i8 %13, 0
+  %15 = and i8 %10, 3
+  %tobool4.not.i = icmp eq i8 %15, 0
   br i1 %tobool4.not.i, label %lor.lhs.false.i, label %if.then6.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %14 = load i32, ptr %impl, align 8
-  %call.i16 = invoke noundef zeroext i1 @_ZN4asio6detail10socket_ops25set_internal_non_blockingEiRhbRSt10error_code(i32 noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %state_, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ec_.i.i.i)
+  %16 = load i32, ptr %impl, align 8
+  %call.i15 = invoke noundef zeroext i1 @_ZN4asio6detail10socket_ops25set_internal_non_blockingEiRhbRSt10error_code(i32 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %state_, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ec_.i.i.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %lor.lhs.false.i
-  br i1 %call.i16, label %if.then6.i, label %if.end10.i
+  br i1 %call.i15, label %if.then6.i, label %if.end10.i
 
 if.then6.i:                                       ; preds = %call.i.noexc, %if.then.i
-  %15 = load ptr, ptr %this, align 8
-  %16 = load i32, ptr %impl, align 8
+  %17 = load ptr, ptr %this, align 8
+  %18 = load i32, ptr %impl, align 8
   %reactor_data_.i = getelementptr inbounds nuw i8, ptr %impl, i64 8
-  invoke void @_ZN4asio6detail13epoll_reactor8start_opEiiRPNS1_16descriptor_stateEPNS0_10reactor_opEbb(ptr noundef nonnull align 8 dereferenceable(216) %15, i32 noundef 1, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %reactor_data_.i, ptr noundef nonnull %call.i.i.i.i.i.i.i, i1 noundef zeroext %cmp.i.i, i1 noundef zeroext true)
+  invoke void @_ZN4asio6detail13epoll_reactor8start_opEiiRPNS1_16descriptor_stateEPNS0_10reactor_opEbb(ptr noundef nonnull align 8 dereferenceable(216) %17, i32 noundef 1, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %reactor_data_.i, ptr noundef nonnull %call.i.i.i.i.i.i.i, i1 noundef zeroext %cmp.i.i, i1 noundef zeroext true)
           to label %_ZN4asio6detail23reactive_socket_send_opINS0_16prepared_buffersINS_12const_bufferELm3EEENS0_8write_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEESt5arrayIS3_Lm3EEPKS3_NS0_14transfer_all_tEZZN7coro_io11async_writeISA_RSC_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_OT0_ENKUlSQ_E_clINSG_21callback_awaitor_baseISO_NSG_16callback_awaitorISO_EEE15awaitor_handlerEEEDaSQ_EUlRKSQ_SS_E_EES9_E3ptrD2Ev.exit unwind label %lpad
 
 if.end10.i:                                       ; preds = %for.inc.i.i, %land.rhs, %call.i.noexc
-  %17 = load ptr, ptr %this, align 8
-  %scheduler_.i.i = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %18 = load ptr, ptr %scheduler_.i.i, align 8
-  invoke void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(256) %18, ptr noundef nonnull %call.i.i.i.i.i.i.i, i1 noundef zeroext %cmp.i.i)
+  %19 = load ptr, ptr %this, align 8
+  %scheduler_.i.i = getelementptr inbounds nuw i8, ptr %19, i64 48
+  %20 = load ptr, ptr %scheduler_.i.i, align 8
+  invoke void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull %call.i.i.i.i.i.i.i, i1 noundef zeroext %cmp.i.i)
           to label %_ZN4asio6detail23reactive_socket_send_opINS0_16prepared_buffersINS_12const_bufferELm3EEENS0_8write_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEESt5arrayIS3_Lm3EEPKS3_NS0_14transfer_all_tEZZN7coro_io11async_writeISA_RSC_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_OT0_ENKUlSQ_E_clINSG_21callback_awaitor_baseISO_NSG_16callback_awaitorISO_EEE15awaitor_handlerEEEDaSQ_EUlRKSQ_SS_E_EES9_E3ptrD2Ev.exit unwind label %lpad
 
 _ZN4asio6detail23reactive_socket_send_opINS0_16prepared_buffersINS_12const_bufferELm3EEENS0_8write_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEESt5arrayIS3_Lm3EEPKS3_NS0_14transfer_all_tEZZN7coro_io11async_writeISA_RSC_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_OT0_ENKUlSQ_E_clINSG_21callback_awaitor_baseISO_NSG_16callback_awaitorISO_EEE15awaitor_handlerEEEDaSQ_EUlRKSQ_SS_E_EES9_E3ptrD2Ev.exit: ; preds = %if.then6.i, %if.end10.i
@@ -39422,7 +39425,8 @@ entry:
   %count.i.i.i = getelementptr inbounds nuw i8, ptr %base, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %count_.i, i8 0, i64 16, i1 false)
   %0 = load i64, ptr %count.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.asio::const_buffer", ptr %buffers_, i64 %0
+  %add.ptr.i.i.idx.i = shl nsw i64 %0, 4
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buffers_, i64 %add.ptr.i.i.idx.i
   %cmp.not4.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not4.i.i, label %_ZN4asio6detail23buffer_sequence_adapterINS_12const_bufferENS0_16prepared_buffersIS2_Lm3EEEEC2ERKS4_.exit, label %land.rhs.i.i
 
@@ -63040,7 +63044,8 @@ _ZNSt11_Deque_baseISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
   %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %div137
-  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
+  %add.ptr14.idx = shl nuw nsw i64 %add, 3
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt11_Deque_baseISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St8functionIFSt17basic_string_viewIcS4_EvEEEESaISC_EE15_M_allocate_mapEm.exit, %invoke.cont.i

@@ -2404,7 +2404,8 @@ define dso_local void @_ZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorIm
   %3 = tail call { ptr, i64 } @_ZN4llvm3omp23getLeafConstructsOrSelfENS0_9DirectiveE(i32 noundef %1) #6
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1
-  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 2
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not31 = icmp eq i64 %5, 0
   br i1 %.not31, label %._crit_edge.thread, label %.lr.ph
 

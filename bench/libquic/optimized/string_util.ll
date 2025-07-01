@@ -2274,7 +2274,8 @@ define linkonce_odr void @_ZN4base19CollapseWhitespaceTINSt7__cxx1112basic_strin
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6resizeEm.exit: ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !33
   %9 = load i64, ptr %6, align 8, !tbaa !29
-  %10 = getelementptr inbounds nuw i16, ptr %8, i64 %9
+  %.idx = shl nuw nsw i64 %9, 1
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not3437 = icmp eq i64 %9, 0
   br i1 %.not3437, label %._crit_edge, label %.lr.ph
 
@@ -2709,7 +2710,8 @@ define noundef zeroext i1 @_ZN4base13IsStringASCIIERKNS_16BasicStringPieceINSt7_
   %2 = load ptr, ptr %0, align 8, !tbaa !60
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !62
-  %5 = getelementptr inbounds nuw i16, ptr %2, i64 %4
+  %.idx.i = shl nuw nsw i64 %4, 1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %6 = ptrtoint ptr %2 to i64
   %7 = and i64 %6, 7
   %.not.i25.i = icmp eq i64 %7, 0
@@ -2777,7 +2779,8 @@ define noundef zeroext i1 @_ZN4base13IsStringASCIIERKNSt7__cxx1112basic_stringIt
   %2 = load ptr, ptr %0, align 8, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !29
-  %5 = getelementptr inbounds nuw i16, ptr %2, i64 %4
+  %.idx.i = shl nuw nsw i64 %4, 1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %6 = ptrtoint ptr %2 to i64
   %7 = and i64 %6, 7
   %.not.i25.i = icmp eq i64 %7, 0
@@ -2845,7 +2848,8 @@ define noundef zeroext i1 @_ZN4base13IsStringASCIIERKNSt7__cxx1112basic_stringIw
   %2 = load ptr, ptr %0, align 8, !tbaa !86
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !90
-  %5 = getelementptr inbounds nuw i32, ptr %2, i64 %4
+  %.idx.i = shl nuw nsw i64 %4, 2
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %6 = ptrtoint ptr %2 to i64
   %7 = and i64 %6, 7
   %.not.i25.i = icmp eq i64 %7, 0
@@ -3156,7 +3160,8 @@ define noundef zeroext i1 @_ZN4base10StartsWithENS_16BasicStringPieceINSt7__cxx1
   br label %_ZN4base11StartsWithTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEbNS_16BasicStringPieceIT_EES8_NS_11CompareCaseE.exit
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds nuw i16, ptr %2, i64 %3
+  %.idx.i = shl nuw nsw i64 %3, 1
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %.not9.i.i = icmp eq i64 %3, 0
   br i1 %.not9.i.i, label %_ZN4base11StartsWithTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEbNS_16BasicStringPieceIT_EES8_NS_11CompareCaseE.exit, label %.lr.ph.i.i
 
@@ -3287,7 +3292,8 @@ define noundef zeroext i1 @_ZN4base8EndsWithENS_16BasicStringPieceINSt7__cxx1112
   br label %_ZN4base9EndsWithTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEbNS_16BasicStringPieceIT_EES8_NS_11CompareCaseE.exit
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds nuw i16, ptr %12, i64 %13
+  %.idx.i = shl nuw nsw i64 %13, 1
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %.not9.i.i = icmp eq i64 %13, 0
   br i1 %.not9.i.i, label %_ZN4base9EndsWithTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEbNS_16BasicStringPieceIT_EES8_NS_11CompareCaseE.exit, label %.lr.ph.i.i
 
@@ -4205,8 +4211,9 @@ define linkonce_odr void @_ZN4base27DoReplaceStringPlaceholdersINSt7__cxx1112bas
   br i1 %.not93124, label %._crit_edge128, label %.lr.ph127
 
 .lr.ph127:                                        ; preds = %23
+  %.idx = shl nuw nsw i64 %24, 1
   %25 = load ptr, ptr %1, align 8, !tbaa !33
-  %26 = getelementptr inbounds nuw i16, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx
   %.not34 = icmp eq ptr %3, null
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8

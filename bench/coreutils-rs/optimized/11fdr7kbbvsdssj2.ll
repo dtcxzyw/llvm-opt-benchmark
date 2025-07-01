@@ -2188,7 +2188,8 @@ define { ptr, ptr } @_ZN7uu_head7uu_head17ha501382f45e26ba1E(ptr noalias noundef
   %.val = load ptr, ptr %45, align 8, !nonnull !5, !noundef !5
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val50 = load i64, ptr %46, align 8, !noundef !5
-  %47 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.val50
+  %.idx = mul nsw i64 %.val50, 24
+  %47 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %48 = icmp eq i64 %.val50, 0
   br i1 %48, label %.outer._crit_edge, label %.lr.ph.lr.ph
 

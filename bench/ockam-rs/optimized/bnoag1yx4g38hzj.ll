@@ -14119,7 +14119,8 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1849, !noalias !1846
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1849, !noalias !1846
-  %8 = getelementptr inbounds { { i16, [15 x i16] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { { ptr, i64 }, i64 } } }, i8, [7 x i8] }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nsw i64 %.sroa.5.0.copyload.i, 7
+  %8 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
   store ptr %.sroa.0.0.copyload.i, ptr %6, align 8, !alias.scope !1846, !noalias !1849
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.4.0.copyload.i, ptr %9, align 8, !alias.scope !1846, !noalias !1849
@@ -14376,7 +14377,8 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1911, !noalias !1908
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1911, !noalias !1908
-  %32 = getelementptr inbounds { { i16, [15 x i16] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { { ptr, i64 }, i64 } } }, i8, [7 x i8] }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nsw i64 %.sroa.5.0.copyload.i, 7
+  %32 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
   store ptr %.sroa.0.0.copyload.i, ptr %13, align 8, !alias.scope !1908, !noalias !1911
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %.sroa.4.0.copyload.i, ptr %33, align 8, !alias.scope !1908, !noalias !1911
@@ -14436,19 +14438,19 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
 
 49:                                               ; preds = %"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_transport_tcp..transport..TcpTransport$GT$15find_connection28_$u7b$$u7b$closure$u7d$$u7d$17h9fefe7ab636a0043E.exit.i.i.i", %45
   invoke void @"_ZN4core3ptr75drop_in_place$LT$ockam_transport_tcp..registry..common..TcpReceiverInfo$GT$17hedaaa2ec72c03f28E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %8)
-          to label %.noexc unwind label %.loopexit76
+          to label %.noexc unwind label %.loopexit77
 
 .noexc:                                           ; preds = %49
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8), !noalias !1934
   %50 = icmp eq ptr %44, %32
   br i1 %50, label %.loopexit, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb8bd6b510242a50E.exit.i.i"
 
-51:                                               ; preds = %.loopexit76, %.loopexit.split-lp, %52
-  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %lpad.loopexit, %.loopexit76 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+51:                                               ; preds = %.loopexit77, %.loopexit.split-lp, %52
+  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %lpad.loopexit, %.loopexit77 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr114drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_transport_tcp..registry..common..TcpReceiverInfo$GT$$GT$17h9d85086e8167e4b7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #19
           to label %.thread63 unwind label %67
 
-.loopexit76:                                      ; preds = %49
+.loopexit77:                                      ; preds = %49
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %51
@@ -14469,8 +14471,8 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(126) %.sroa.5, ptr noundef nonnull align 2 dereferenceable(126) %.sroa.9.0..sroa_idx9.i.i, i64 126, i1 false), !noalias !1953
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11)
   store i16 %.sroa.0.0.copyload8.i.i, ptr %11, align 8
-  %.sroa.5.0..sroa_idx93 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(126) %.sroa.5.0..sroa_idx93, ptr noundef nonnull align 2 dereferenceable(126) %.sroa.5, i64 126, i1 false)
+  %.sroa.5.0..sroa_idx94 = getelementptr inbounds nuw i8, ptr %11, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(126) %.sroa.5.0..sroa_idx94, ptr noundef nonnull align 2 dereferenceable(126) %.sroa.5, i64 126, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %56 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %57 = load i8, ptr %56, align 8, !noundef !7
@@ -14538,7 +14540,8 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
   %.sroa.4.0.copyload.i30 = load i64, ptr %.sroa.4.0..sroa_idx.i29, align 8, !alias.scope !1965, !noalias !1962
   %.sroa.5.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.5.0.copyload.i32 = load i64, ptr %.sroa.5.0..sroa_idx.i31, align 8, !alias.scope !1965, !noalias !1962
-  %74 = getelementptr inbounds { { i16, [15 x i16] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { { ptr, i64 }, i64 } } }, i8, [7 x i8] }, ptr %.sroa.0.0.copyload.i28, i64 %.sroa.5.0.copyload.i32
+  %.idx76 = shl nsw i64 %.sroa.5.0.copyload.i32, 7
+  %74 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i28, i64 %.idx76
   store ptr %.sroa.0.0.copyload.i28, ptr %10, align 8, !alias.scope !1962, !noalias !1965
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %.sroa.4.0.copyload.i30, ptr %75, align 8, !alias.scope !1962, !noalias !1965
@@ -14757,7 +14760,8 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2030, !noalias !2027
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2030, !noalias !2027
-  %8 = getelementptr inbounds { { i16, [15 x i16] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { { ptr, i64 }, i64 } } } }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nsw i64 %.sroa.5.0.copyload.i, 88
+  %8 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
   store ptr %.sroa.0.0.copyload.i, ptr %6, align 8, !alias.scope !2027, !noalias !2030
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.4.0.copyload.i, ptr %9, align 8, !alias.scope !2027, !noalias !2030
@@ -15003,7 +15007,8 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2091, !noalias !2088
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2091, !noalias !2088
-  %25 = getelementptr inbounds { { i16, [15 x i16] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { { ptr, i64 }, i64 } } } }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nsw i64 %.sroa.5.0.copyload.i, 88
+  %25 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
   store ptr %.sroa.0.0.copyload.i, ptr %8, align 8, !alias.scope !2088, !noalias !2091
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %.sroa.4.0.copyload.i, ptr %26, align 8, !alias.scope !2088, !noalias !2091

@@ -393,7 +393,8 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm13set_is_subsetINS_11SmallPtrSet
   %20 = load i32, ptr %19, align 8
   %.v.v.i4.i2.i = select i1 %18, i32 %4, i32 %20
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %15, i64 %.v.i5.i3.i
+  %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -406,117 +407,120 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm13set_is_subsetINS_11SmallPtrSet
 .critedge2.i7.i.i9.i11.i:                         ; preds = %.lr.ph.i5.i.i7.i5.i
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i6.i, i64 8
   %.not.i8.i.i10.i12.i = icmp eq ptr %23, %21
-  br i1 %.not.i8.i.i10.i12.i, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread, label %.lr.ph.i5.i.i7.i5.i, !llvm.loop !129
+  br i1 %.not.i8.i.i10.i12.i, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i, !llvm.loop !129
 
-_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5beginEv.exit: ; preds = %.lr.ph.i5.i.i7.i5.i, %14
-  %.sroa.0.4.i8.i = phi ptr [ %15, %14 ], [ %.sroa.0.3.i6.i, %.lr.ph.i5.i.i7.i5.i ]
-  %.not22 = icmp eq ptr %.sroa.0.4.i8.i, %21
+_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5beginEv.exit: ; preds = %.lr.ph.i5.i.i7.i5.i, %.critedge2.i7.i.i9.i11.i, %14
+  %.sroa.0.4.i8.i = phi ptr [ %15, %14 ], [ %.sroa.0.3.i6.i, %.lr.ph.i5.i.i7.i5.i ], [ %21, %.critedge2.i7.i.i9.i11.i ]
+  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %.v.i5.i3.i
+  %.not22 = icmp eq ptr %.sroa.0.4.i8.i, %24
   br i1 %.not22, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5beginEv.exit
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %25 = load i8, ptr %24, align 4, !tbaa !13, !range !126, !noundef !127
-  %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %.lr.ph.split.us, label %.lr.ph.split
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %26 = load i8, ptr %25, align 4, !tbaa !13, !range !126, !noundef !127
+  %27 = trunc nuw i8 %26 to i1
+  br i1 %27, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %27 = load ptr, ptr %1, align 8, !tbaa !3
-  %28 = zext i32 %9 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %28 = load ptr, ptr %1, align 8, !tbaa !3
+  %29 = zext i32 %9 to i64
+  %.idx.i.i.us = shl nuw nsw i64 %29, 3
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i.us
   %.not.not9.i.i.us = icmp eq i32 %9, 0
   br i1 %.not.not9.i.i.us, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread, label %.lr.ph.i.i.preheader.us
 
 .lr.ph.i.i.preheader.us:                          ; preds = %.lr.ph.split.us, %_ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit.us
   %.sroa.011.023.us = phi ptr [ %.sroa.011.2.us, %_ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit.us ], [ %.sroa.0.4.i8.i, %.lr.ph.split.us ]
-  %30 = load ptr, ptr %.sroa.011.023.us, align 8, !tbaa !128
+  %31 = load ptr, ptr %.sroa.011.023.us, align 8, !tbaa !128
   br label %.lr.ph.i.i.us
 
-.lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.i.preheader.us, %33
-  %.0810.i.i.us = phi ptr [ %34, %33 ], [ %27, %.lr.ph.i.i.preheader.us ]
-  %31 = load ptr, ptr %.0810.i.i.us, align 8, !tbaa !128
-  %32 = icmp eq ptr %31, %30
-  br i1 %32, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16.loopexit.us, label %33
+.lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.i.preheader.us, %34
+  %.0810.i.i.us = phi ptr [ %35, %34 ], [ %28, %.lr.ph.i.i.preheader.us ]
+  %32 = load ptr, ptr %.0810.i.i.us, align 8, !tbaa !128
+  %33 = icmp eq ptr %32, %31
+  br i1 %33, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16.loopexit.us, label %34
 
-33:                                               ; preds = %.lr.ph.i.i.us
-  %34 = getelementptr inbounds nuw i8, ptr %.0810.i.i.us, i64 8
-  %.not.not.i.i.us = icmp eq ptr %34, %29
+34:                                               ; preds = %.lr.ph.i.i.us
+  %35 = getelementptr inbounds nuw i8, ptr %.0810.i.i.us, i64 8
+  %.not.not.i.i.us = icmp eq ptr %35, %30
   br i1 %.not.not.i.i.us, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread, label %.lr.ph.i.i.us, !llvm.loop !131
 
 .lr.ph.i4.i.us:                                   ; preds = %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16.loopexit.us, %.critedge2.i6.i.us
-  %.sroa.011.1.us = phi ptr [ %36, %.critedge2.i6.i.us ], [ %37, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16.loopexit.us ]
-  %35 = load ptr, ptr %.sroa.011.1.us, align 8, !tbaa !128
-  %switch.i5.i.us = icmp ugt ptr %35, inttoptr (i64 -3 to ptr)
+  %.sroa.011.1.us = phi ptr [ %37, %.critedge2.i6.i.us ], [ %38, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16.loopexit.us ]
+  %36 = load ptr, ptr %.sroa.011.1.us, align 8, !tbaa !128
+  %switch.i5.i.us = icmp ugt ptr %36, inttoptr (i64 -3 to ptr)
   br i1 %switch.i5.i.us, label %.critedge2.i6.i.us, label %_ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit.us
 
 .critedge2.i6.i.us:                               ; preds = %.lr.ph.i4.i.us
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.011.1.us, i64 8
-  %.not.i7.i.us = icmp eq ptr %36, %21
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.011.1.us, i64 8
+  %.not.i7.i.us = icmp eq ptr %37, %21
   br i1 %.not.i7.i.us, label %_ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit.us, label %.lr.ph.i4.i.us, !llvm.loop !129
 
 _ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit.us: ; preds = %.lr.ph.i4.i.us, %.critedge2.i6.i.us, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16.loopexit.us
-  %.sroa.011.2.us = phi ptr [ %37, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16.loopexit.us ], [ %.sroa.011.1.us, %.lr.ph.i4.i.us ], [ %36, %.critedge2.i6.i.us ]
-  %.not.us = icmp eq ptr %.sroa.011.2.us, %21
+  %.sroa.011.2.us = phi ptr [ %38, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16.loopexit.us ], [ %.sroa.011.1.us, %.lr.ph.i4.i.us ], [ %37, %.critedge2.i6.i.us ]
+  %.not.us = icmp eq ptr %.sroa.011.2.us, %24
   br i1 %.not.us, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread, label %.lr.ph.i.i.preheader.us
 
 _ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16.loopexit.us: ; preds = %.lr.ph.i.i.us
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.011.023.us, i64 8
-  %.not3.i3.i.us = icmp eq ptr %37, %21
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.011.023.us, i64 8
+  %.not3.i3.i.us = icmp eq ptr %38, %21
   br i1 %.not3.i3.i.us, label %_ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit.us, label %.lr.ph.i4.i.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit
   %.sroa.011.023 = phi ptr [ %.sroa.011.2, %_ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit ], [ %.sroa.0.4.i8.i, %.lr.ph ]
-  %38 = load ptr, ptr %.sroa.011.023, align 8, !tbaa !128
-  %39 = load i8, ptr %24, align 4, !tbaa !13, !range !126, !noundef !127
-  %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %41, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit
+  %39 = load ptr, ptr %.sroa.011.023, align 8, !tbaa !128
+  %40 = load i8, ptr %25, align 4, !tbaa !13, !range !126, !noundef !127
+  %41 = trunc nuw i8 %40 to i1
+  br i1 %41, label %42, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit
 
-41:                                               ; preds = %.lr.ph.split
-  %42 = load ptr, ptr %1, align 8, !tbaa !3
-  %43 = load i32, ptr %8, align 4, !tbaa !11
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %44
-  %.not.not9.i.i = icmp eq i32 %43, 0
+42:                                               ; preds = %.lr.ph.split
+  %43 = load ptr, ptr %1, align 8, !tbaa !3
+  %44 = load i32, ptr %8, align 4, !tbaa !11
+  %45 = zext i32 %44 to i64
+  %.idx.i.i = shl nuw nsw i64 %45, 3
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i
+  %.not.not9.i.i = icmp eq i32 %44, 0
   br i1 %.not.not9.i.i, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread, label %.lr.ph.i.i
 
-46:                                               ; preds = %.lr.ph.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %.0810.i.i, i64 8
-  %.not.not.i.i = icmp eq ptr %47, %45
+47:                                               ; preds = %.lr.ph.i.i
+  %48 = getelementptr inbounds nuw i8, ptr %.0810.i.i, i64 8
+  %.not.not.i.i = icmp eq ptr %48, %46
   br i1 %.not.not.i.i, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread, label %.lr.ph.i.i, !llvm.loop !131
 
-.lr.ph.i.i:                                       ; preds = %41, %46
-  %.0810.i.i = phi ptr [ %47, %46 ], [ %42, %41 ]
-  %48 = load ptr, ptr %.0810.i.i, align 8, !tbaa !128
-  %49 = icmp eq ptr %48, %38
-  br i1 %49, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16, label %46
+.lr.ph.i.i:                                       ; preds = %42, %47
+  %.0810.i.i = phi ptr [ %48, %47 ], [ %43, %42 ]
+  %49 = load ptr, ptr %.0810.i.i, align 8, !tbaa !128
+  %50 = icmp eq ptr %49, %39
+  br i1 %50, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16, label %47
 
 _ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit: ; preds = %.lr.ph.split
-  %50 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %1, ptr noundef %38) #12
-  %.not19 = icmp eq ptr %50, null
+  %51 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %1, ptr noundef %39) #12
+  %.not19 = icmp eq ptr %51, null
   br i1 %.not19, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16
 
 _ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16: ; preds = %.lr.ph.i.i, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.011.023, i64 8
-  %.not3.i3.i = icmp eq ptr %51, %21
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.011.023, i64 8
+  %.not3.i3.i = icmp eq ptr %52, %21
   br i1 %.not3.i3.i, label %_ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit, label %.lr.ph.i4.i
 
 .lr.ph.i4.i:                                      ; preds = %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16, %.critedge2.i6.i
-  %.sroa.011.1 = phi ptr [ %53, %.critedge2.i6.i ], [ %51, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16 ]
-  %52 = load ptr, ptr %.sroa.011.1, align 8, !tbaa !128
-  %switch.i5.i = icmp ugt ptr %52, inttoptr (i64 -3 to ptr)
+  %.sroa.011.1 = phi ptr [ %54, %.critedge2.i6.i ], [ %52, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16 ]
+  %53 = load ptr, ptr %.sroa.011.1, align 8, !tbaa !128
+  %switch.i5.i = icmp ugt ptr %53, inttoptr (i64 -3 to ptr)
   br i1 %switch.i5.i, label %.critedge2.i6.i, label %_ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit
 
 .critedge2.i6.i:                                  ; preds = %.lr.ph.i4.i
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.011.1, i64 8
-  %.not.i7.i = icmp eq ptr %53, %21
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.011.1, i64 8
+  %.not.i7.i = icmp eq ptr %54, %21
   br i1 %.not.i7.i, label %_ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit, label %.lr.ph.i4.i, !llvm.loop !129
 
 _ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit: ; preds = %.lr.ph.i4.i, %.critedge2.i6.i, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16
-  %.sroa.011.2 = phi ptr [ %51, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16 ], [ %.sroa.011.1, %.lr.ph.i4.i ], [ %53, %.critedge2.i6.i ]
-  %.not = icmp eq ptr %.sroa.011.2, %21
+  %.sroa.011.2 = phi ptr [ %52, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread16 ], [ %.sroa.011.1, %.lr.ph.i4.i ], [ %54, %.critedge2.i6.i ]
+  %.not = icmp eq ptr %.sroa.011.2, %24
   br i1 %.not, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread, label %.lr.ph.split, !llvm.loop !132
 
-_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread: ; preds = %.critedge2.i7.i.i9.i11.i, %41, %_ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit, %46, %_ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit.us, %33, %.lr.ph.split.us, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5beginEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5beginEv.exit ], [ false, %.lr.ph.split.us ], [ false, %33 ], [ true, %_ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit.us ], [ false, %46 ], [ false, %41 ], [ true, %_ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit ], [ false, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit ], [ true, %.critedge2.i7.i.i9.i11.i ]
+_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit.thread: ; preds = %42, %_ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit, %47, %_ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit.us, %34, %.lr.ph.split.us, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5beginEv.exit, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5beginEv.exit ], [ false, %.lr.ph.split.us ], [ false, %34 ], [ true, %_ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit.us ], [ false, %47 ], [ false, %42 ], [ true, %_ZN4llvm19SmallPtrSetIteratorIPKN5clang4ento9MemRegionEEppEv.exit ], [ false, %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE5countES5_.exit ]
   ret i1 %.0
 }
 
@@ -784,7 +788,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124OwnershipBindingsHandler1
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %22 = load i32, ptr %21, align 4, !tbaa !11, !noalias !140
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %23
+  %.idx.i.i = shl nuw nsw i64 %23, 3
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i
   %.not36.i.i = icmp eq i32 %22, 0
   br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 

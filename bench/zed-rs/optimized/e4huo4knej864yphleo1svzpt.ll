@@ -6831,7 +6831,8 @@ thread-pre-split.preheader:                       ; preds = %20, %9
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h667a8d784607fc2fE.exit": ; preds = %.loopexit85
   %.sroa.0.0.v.i34 = select i1 %trunc.i31, i64 1600, i64 16
   %.sroa.0.0.i35 = getelementptr inbounds nuw i8, ptr %53, i64 %.sroa.0.0.v.i34
-  %58 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %.sroa.0.0.i35, i64 %50
+  %.idx = mul nuw nsw i64 %50, 48
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i35, i64 %.idx
   %59 = icmp eq i64 %50, 0
   %.pre155 = load i64, ptr %37, align 8, !alias.scope !2021
   br i1 %59, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd854589c8ba820baE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd854589c8ba820baE.exit"
@@ -7086,7 +7087,8 @@ thread-pre-split.preheader:                       ; preds = %20, %9
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h667a8d784607fc2fE.exit": ; preds = %.loopexit85
   %.sroa.0.0.v.i34 = select i1 %trunc.i31, i64 1600, i64 16
   %.sroa.0.0.i35 = getelementptr inbounds nuw i8, ptr %53, i64 %.sroa.0.0.v.i34
-  %58 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, ptr %.sroa.0.0.i35, i64 %50
+  %.idx = mul nuw nsw i64 %50, 48
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i35, i64 %.idx
   %59 = icmp eq i64 %50, 0
   %.pre155 = load i64, ptr %37, align 8, !alias.scope !2105
   br i1 %59, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd854589c8ba820baE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd854589c8ba820baE.exit"

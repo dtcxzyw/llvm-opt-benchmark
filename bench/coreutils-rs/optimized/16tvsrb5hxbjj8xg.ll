@@ -1441,8 +1441,8 @@ define hidden { ptr, ptr } @_ZN5uu_ls5dired18print_dired_output17h785e07112a4074
   br i1 %or.cond, label %55, label %.lr.ph.i
 
 "_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha584988c8577d0ebE.exit.thread": ; preds = %3, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha584988c8577d0ebE.exit"
-  %.0.i15 = phi ptr [ %23, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha584988c8577d0ebE.exit" ], [ %20, %3 ]
-  %32 = tail call { ptr, ptr } @"_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h5f3f9db19071e545E"(ptr noundef nonnull %.0.i15)
+  %.0.i16 = phi ptr [ %23, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5flush17ha584988c8577d0ebE.exit" ], [ %20, %3 ]
+  %32 = tail call { ptr, ptr } @"_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h5f3f9db19071e545E"(ptr noundef nonnull %.0.i16)
   %33 = extractvalue { ptr, ptr } %32, 0
   %34 = extractvalue { ptr, ptr } %32, 1
   br label %89
@@ -1472,7 +1472,8 @@ define hidden { ptr, ptr } @_ZN5uu_ls5dired18print_dired_output17h785e07112a4074
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !264
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %41, align 8, !alias.scope !261, !noalias !272, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds { i64, i64 }, ptr %.val.i, i64 %30
+  %.idx.i = shl nsw i64 %30, 4
+  %42 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx.i
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -1523,7 +1524,7 @@ _ZN5uu_ls5dired15print_positions17h9bc9c71684419454E.llvm.10078391086421553218.e
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %66, label %59
 
-59:                                               ; preds = %_ZN5uu_ls5dired15print_positions17h9bc9c71684419454E.llvm.10078391086421553218.exit13, %55
+59:                                               ; preds = %_ZN5uu_ls5dired15print_positions17h9bc9c71684419454E.llvm.10078391086421553218.exit14, %55
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 157
@@ -1571,11 +1572,12 @@ _ZN5uu_ls5dired15print_positions17h9bc9c71684419454E.llvm.10078391086421553218.e
   %.val.i9 = load ptr, ptr %73, align 8, !alias.scope !286, !noalias !297, !nonnull !5, !noundef !5
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val4.i10 = load i64, ptr %74, align 8, !alias.scope !286, !noalias !297, !noundef !5
-  %75 = getelementptr inbounds { i64, i64 }, ptr %.val.i9, i64 %.val4.i10
+  %.idx.i11 = shl nsw i64 %.val4.i10, 4
+  %75 = getelementptr inbounds i8, ptr %.val.i9, i64 %.idx.i11
   %76 = icmp eq i64 %.val4.i10, 0
-  br i1 %76, label %_ZN5uu_ls5dired15print_positions17h9bc9c71684419454E.llvm.10078391086421553218.exit13, label %.lr.ph.i11
+  br i1 %76, label %_ZN5uu_ls5dired15print_positions17h9bc9c71684419454E.llvm.10078391086421553218.exit14, label %.lr.ph.i12
 
-.lr.ph.i11:                                       ; preds = %66
+.lr.ph.i12:                                       ; preds = %66
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -1583,11 +1585,11 @@ _ZN5uu_ls5dired15print_positions17h9bc9c71684419454E.llvm.10078391086421553218.e
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %82
 
-82:                                               ; preds = %82, %.lr.ph.i11
-  %.sroa.0.07.i12 = phi ptr [ %.val.i9, %.lr.ph.i11 ], [ %83, %82 ]
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i12, i64 16
+82:                                               ; preds = %82, %.lr.ph.i12
+  %.sroa.0.07.i13 = phi ptr [ %.val.i9, %.lr.ph.i12 ], [ %83, %82 ]
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i13, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !289
-  store ptr %.sroa.0.07.i12, ptr %7, align 8, !noalias !289
+  store ptr %.sroa.0.07.i13, ptr %7, align 8, !noalias !289
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !289
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !289
   store ptr %7, ptr %5, align 8, !noalias !289
@@ -1602,9 +1604,9 @@ _ZN5uu_ls5dired15print_positions17h9bc9c71684419454E.llvm.10078391086421553218.e
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !289
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !289
   %84 = icmp eq ptr %83, %75
-  br i1 %84, label %_ZN5uu_ls5dired15print_positions17h9bc9c71684419454E.llvm.10078391086421553218.exit13, label %82
+  br i1 %84, label %_ZN5uu_ls5dired15print_positions17h9bc9c71684419454E.llvm.10078391086421553218.exit14, label %82
 
-_ZN5uu_ls5dired15print_positions17h9bc9c71684419454E.llvm.10078391086421553218.exit13: ; preds = %82, %66
+_ZN5uu_ls5dired15print_positions17h9bc9c71684419454E.llvm.10078391086421553218.exit14: ; preds = %82, %66
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !289
   store ptr @anon.52d7b4fddbbbe9714f07efd76ac0c6dd.29, ptr %4, align 8, !noalias !289
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1661,7 +1663,8 @@ define hidden void @_ZN5uu_ls5dired15print_positions17h9bc9c71684419454E.llvm.10
   %.val = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val4 = load i64, ptr %18, align 8, !noundef !5
-  %19 = getelementptr inbounds { i64, i64 }, ptr %.val, i64 %.val4
+  %.idx = shl nsw i64 %.val4, 4
+  %19 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %20 = icmp eq i64 %.val4, 0
   br i1 %20, label %._crit_edge, label %.lr.ph
 

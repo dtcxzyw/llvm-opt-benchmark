@@ -8156,7 +8156,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h4e
   %10 = icmp slt <16 x i8> %9, zeroinitializer
   %11 = bitcast <16 x i1> %10 to i16
   %12 = xor i16 %11, -1
-  %13 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %1, i64 %2
+  %.idx.i.i = mul nsw i64 %2, 24
+  %13 = getelementptr inbounds i8, ptr %1, i64 %.idx.i.i
   %.not.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -11844,7 +11845,8 @@ define hidden noundef zeroext i1 @"_ZN5theme8registry13ThemeRegistry18remove_use
   %6 = load i64, ptr %5, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3143)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3146)
-  %7 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %4, i64 %6
+  %.idx.i = mul nsw i64 %6, 24
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3148)
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h5163a13a189cd2e1E.exit", label %.lr.ph.i.i
@@ -11897,7 +11899,8 @@ define void @_ZN5theme6styles6syntax11SyntaxTheme3get17h4b3c3f8febd7fa41E(ptr de
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] } }, ptr %6, i64 %8
+  %.idx = mul nsw i64 %8, 136
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %.loopexit, label %.lr.ph.i
 
@@ -11962,7 +11965,8 @@ define void @_ZN5theme6styles6syntax11SyntaxTheme5color17h83ab7bed0739dae7E(ptr 
   %6 = load ptr, ptr %5, align 8, !alias.scope !3197, !noalias !3200, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !3197, !noalias !3200, !noundef !4
-  %9 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] } }, ptr %6, i64 %8
+  %.idx.i = mul nsw i64 %8, 136
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %_ZN5theme6styles6syntax11SyntaxTheme3get17h4b3c3f8febd7fa41E.exit.thread, label %.lr.ph.i.i
 
@@ -12014,7 +12018,8 @@ define { i32, i32 } @_ZN5theme6styles6syntax11SyntaxTheme12highlight_id17hb0ff9d
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] } }, ptr %5, i64 %7
+  %.idx = mul nsw i64 %7, 136
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %.loopexit, label %.lr.ph.i
 
@@ -12103,7 +12108,8 @@ define noundef nonnull ptr @_ZN5theme6styles6syntax11SyntaxTheme5merge17ha1fb357
   %.sroa.492.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.492.0.copyload = load ptr, ptr %.sroa.492.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.593.0.copyload = load i64, ptr %10, align 8
-  %20 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] } }, ptr %.sroa.492.0.copyload, i64 %.sroa.593.0.copyload
+  %.idx135 = mul nsw i64 %.sroa.593.0.copyload, 136
+  %20 = getelementptr inbounds i8, ptr %.sroa.492.0.copyload, i64 %.idx135
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   store ptr %.sroa.492.0.copyload, ptr %7, align 8
   %.sroa.4.0..sroa_idx86 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -12197,7 +12203,8 @@ define noundef nonnull ptr @_ZN5theme6styles6syntax11SyntaxTheme5merge17ha1fb357
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.9.sroa.3, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.18.0..sroa_idx, i64 20, i1 false)
   %34 = load ptr, ptr %22, align 8, !nonnull !4, !noundef !4
   %35 = load i64, ptr %23, align 8, !noundef !4
-  %36 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] } }, ptr %34, i64 %35
+  %.idx = mul nsw i64 %35, 136
+  %36 = getelementptr inbounds i8, ptr %34, i64 %.idx
   call void @llvm.experimental.noalias.scope.decl(metadata !3238)
   %37 = icmp eq i64 %35, 0
   br i1 %37, label %.loopexit, label %.lr.ph.i

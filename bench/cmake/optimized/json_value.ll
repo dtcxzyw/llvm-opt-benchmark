@@ -9770,7 +9770,8 @@ define internal fastcc void @_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_
 
 .preheader:                                       ; preds = %3, %19
   %5 = phi i64 [ %24, %19 ], [ 0, %3 ]
-  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 5
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %7 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %.0.val, i64 0, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %8, ptr %6, align 8, !tbaa !23

@@ -644,7 +644,8 @@ define hidden noundef zeroext i1 @"_ZN13fluent_bundle8resolver10expression111_$L
   br label %17
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, i8, [7 x i8] }, ptr %.val8, i64 %.val9
+  %.idx = mul nsw i64 %.val9, 56
+  %19 = getelementptr inbounds i8, ptr %.val8, i64 %.idx
   %20 = icmp eq i64 %.val9, 0
   br i1 %20, label %.loopexit, label %.lr.ph
 
@@ -1400,7 +1401,8 @@ define internal fastcc noundef zeroext i1 @"_ZN13fluent_bundle8resolver17inline_
   %183 = load ptr, ptr %182, align 8, !nonnull !9, !noundef !9
   %184 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %185 = load i64, ptr %184, align 8, !noundef !9
-  %186 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, i64 } }, ptr %183, i64 %185
+  %.idx = mul nsw i64 %185, 40
+  %186 = getelementptr inbounds i8, ptr %183, i64 %.idx
   %187 = icmp eq i64 %185, 0
   br i1 %187, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h6f3154d7b917381cE.exit.thread", label %.lr.ph.i
 
@@ -1582,7 +1584,8 @@ define internal fastcc noundef zeroext i1 @"_ZN13fluent_bundle8resolver17inline_
   %252 = load ptr, ptr %251, align 8, !alias.scope !349, !noalias !354, !nonnull !9, !noundef !9
   %253 = getelementptr inbounds nuw i8, ptr %246, i64 40
   %254 = load i64, ptr %253, align 8, !alias.scope !349, !noalias !354, !noundef !9
-  %255 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, i64 } }, ptr %252, i64 %254
+  %.idx.i = mul nsw i64 %254, 40
+  %255 = getelementptr inbounds i8, ptr %252, i64 %.idx.i
   %256 = icmp eq i64 %254, 0
   br i1 %256, label %.noexc104, label %.lr.ph.i.i
 
@@ -1997,7 +2000,8 @@ define hidden noundef zeroext i1 @"_ZN13fluent_bundle8resolver7pattern108_$LT$im
   %8 = load i64, ptr %7, align 8, !noundef !9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %9, align 8, !nonnull !9, !noundef !9
-  %10 = getelementptr inbounds { i64, [12 x i64] }, ptr %.val, i64 %8
+  %.idx = mul nsw i64 %8, 104
+  %10 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %11 = icmp eq i64 %8, 0
   br i1 %11, label %.loopexit, label %.lr.ph
 
@@ -2634,7 +2638,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h4a3fd0707e4ce2eaE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, i64 } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 40
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h00bbf90a443d565aE.exit, label %.lr.ph.i
 
@@ -2660,7 +2665,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h4a3fd0707e4ce2eaE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { i64, [9 x i64] }, { ptr, i64 } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 96
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hdfc9d7ebd09d3f02E.exit, label %.lr.ph.i
 
@@ -2686,7 +2692,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h4a3fd0707e4ce2eaE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, i8, [7 x i8] }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 56
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hee09800b417876e3E.exit, label %.lr.ph.i
 
@@ -2712,7 +2719,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h4a3fd0707e4ce2eaE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { i64, [12 x i64] }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 104
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h0eac1e9e5cefcbefE.exit, label %.lr.ph.i
 
@@ -2738,7 +2746,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h4a3fd0707e4ce2eaE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { i64, [9 x i64] }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 80
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hde968a4ca3e301c0E.exit, label %.lr.ph.i
 
@@ -2764,7 +2773,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h4a3fd0707e4ce2eaE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, i8, i8, [6 x i8] }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 80
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hb9077689728131d2E.exit, label %.lr.ph.i
 

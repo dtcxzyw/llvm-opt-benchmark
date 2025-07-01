@@ -558,7 +558,8 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
   %17 = load ptr, ptr %16, align 8, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8, !noundef !5
-  %20 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %17, i64 %19
+  %.idx = shl nsw i64 %19, 8
+  %20 = getelementptr inbounds i8, ptr %17, i64 %.idx
   %21 = icmp eq i64 %19, 0
   br i1 %21, label %.loopexit, label %.lr.ph.i
 
@@ -878,7 +879,8 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
   %17 = load ptr, ptr %16, align 8, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8, !noundef !5
-  %20 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %17, i64 %19
+  %.idx = shl nsw i64 %19, 8
+  %20 = getelementptr inbounds i8, ptr %17, i64 %.idx
   %21 = icmp eq i64 %19, 0
   br i1 %21, label %.loopexit, label %.lr.ph.i
 

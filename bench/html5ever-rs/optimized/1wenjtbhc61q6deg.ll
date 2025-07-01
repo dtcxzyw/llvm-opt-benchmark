@@ -3058,7 +3058,8 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
   %23 = load ptr, ptr %22, align 8, !nonnull !4, !noundef !4
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %25 = load i64, ptr %24, align 8, !noundef !4
-  %26 = getelementptr inbounds ptr, ptr %23, i64 %25
+  %.idx = shl nsw i64 %25, 3
+  %26 = getelementptr inbounds i8, ptr %23, i64 %.idx
   %27 = icmp eq i64 %25, 0
   br i1 %27, label %._crit_edge, label %.lr.ph
 

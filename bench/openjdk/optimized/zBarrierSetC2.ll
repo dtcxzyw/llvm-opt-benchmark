@@ -2222,7 +2222,8 @@ _ZL11block_indexPK5BlockPK4Node.exit:             ; preds = %_ZNK5Block8get_node
   %75 = getelementptr inbounds nuw i8, ptr %.020.i, i64 32
   %76 = load i32, ptr %75, align 8
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw ptr, ptr %74, i64 %77
+  %.idx.i = shl nuw nsw i64 %77, 3
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx.i
   %.not30.i = icmp eq i32 %76, 0
   br i1 %.not30.i, label %_ZL19block_has_safepointPK5Blockjj.exit, label %.lr.ph.i71
 

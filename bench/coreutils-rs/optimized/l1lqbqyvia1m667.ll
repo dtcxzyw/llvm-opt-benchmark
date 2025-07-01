@@ -4108,7 +4108,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   br label %.thread
 
 .lr.ph.preheader:                                 ; preds = %34
-  %39 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 24
+  %39 = getelementptr inbounds i8, ptr %1, i64 %.idx
   br label %.lr.ph
 
 40:                                               ; preds = %34
@@ -4170,7 +4171,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   %.sroa.5117.0.copyload = phi i64 [ %65, %.loopexit172.sink.split ], [ %59, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcd77d88f6f4a9ae4E.exit82" ]
   %.sroa.0116.0.copyload = load i64, ptr %20, align 8
   %.sroa.4.0.copyload = load ptr, ptr %30, align 8, !nonnull !5, !noundef !5
-  %66 = getelementptr inbounds { ptr, i64 }, ptr %.sroa.4.0.copyload, i64 %.sroa.5117.0.copyload
+  %.idx194 = shl nsw i64 %.sroa.5117.0.copyload, 4
+  %66 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload, i64 %.idx194
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
   store ptr %.sroa.4.0.copyload, ptr %19, align 8
   %.sroa.5115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -5008,7 +5010,8 @@ common.resume:                                    ; preds = %.noexc, %71, %185, 
   %.val = load ptr, ptr %199, align 8, !nonnull !5, !noundef !5
   %200 = getelementptr i8, ptr %168, i64 -40
   %.val59 = load i64, ptr %200, align 8, !noundef !5
-  %201 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.val59
+  %.idx = mul nsw i64 %.val59, 24
+  %201 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %202 = icmp eq i64 %.val59, 0
   br i1 %202, label %._crit_edge, label %.lr.ph
 

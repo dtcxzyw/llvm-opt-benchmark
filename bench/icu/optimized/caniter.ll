@@ -215,7 +215,7 @@ define void @_ZN6icu_7717CanonicalIterator9setSourceERKNS_13UnicodeStringER10UEr
   store i64 %58, ptr %63, align 8
   %.ptr74.ptr.ptr = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = icmp eq i32 %57, 0
-  br i1 %66, label %.loopexit116, label %67
+  br i1 %66, label %.loopexit114, label %67
 
 67:                                               ; preds = %65
   %68 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %.ptr74.ptr.ptr, i64 %58
@@ -230,13 +230,13 @@ define void @_ZN6icu_7717CanonicalIterator9setSourceERKNS_13UnicodeStringER10UEr
   %.add = add nuw nsw i64 %.idx, 64
   %.ptr73 = getelementptr inbounds nuw i8, ptr %63, i64 %.add
   %71 = icmp eq ptr %.ptr73, %68
-  br i1 %71, label %.loopexit116, label %69
+  br i1 %71, label %.loopexit114, label %69
 
 72:                                               ; preds = %49
   store i32 7, ptr %2, align 4, !tbaa !23
   br label %.thread99
 
-.loopexit116:                                     ; preds = %69, %65
+.loopexit114:                                     ; preds = %69, %65
   %73 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %6, i32 noundef 0)
   %74 = icmp ult i32 %73, 65536
   %75 = select i1 %74, i32 1, i32 2
@@ -249,24 +249,24 @@ define void @_ZN6icu_7717CanonicalIterator9setSourceERKNS_13UnicodeStringER10UEr
   %82 = icmp slt i32 %75, %81
   br i1 %82, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.loopexit116
+.lr.ph:                                           ; preds = %.loopexit114
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br label %84
 
 84:                                               ; preds = %.lr.ph, %102
-  %.0119 = phi i32 [ 0, %.lr.ph ], [ %.1, %102 ]
-  %.054118 = phi i32 [ 0, %.lr.ph ], [ %.155, %102 ]
-  %.056117 = phi i32 [ %75, %.lr.ph ], [ %105, %102 ]
-  %85 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %.056117)
+  %.0117 = phi i32 [ 0, %.lr.ph ], [ %.1, %102 ]
+  %.054116 = phi i32 [ 0, %.lr.ph ], [ %.155, %102 ]
+  %.056115 = phi i32 [ %75, %.lr.ph ], [ %105, %102 ]
+  %85 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %.056115)
   %86 = load ptr, ptr %83, align 8, !tbaa !22
   %87 = tail call noundef signext i8 @_ZNK6icu_7715Normalizer2Impl21isCanonSegmentStarterEi(ptr noundef nonnull align 8 dereferenceable(80) %86, i32 noundef %85)
   %.not80 = icmp eq i8 %87, 0
   br i1 %.not80, label %102, label %88
 
 88:                                               ; preds = %84
-  %89 = sub nsw i32 %.056117, %.054118
-  %90 = add nsw i32 %.0119, 1
-  %91 = sext i32 %.0119 to i64
+  %89 = sub nsw i32 %.056115, %.054116
+  %90 = add nsw i32 %.0117, 1
+  %91 = sext i32 %.0117 to i64
   %92 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %.ptr74.ptr.ptr, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load i16, ptr %93, align 8, !tbaa !6
@@ -276,15 +276,15 @@ define void @_ZN6icu_7717CanonicalIterator9setSourceERKNS_13UnicodeStringER10UEr
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 12
   %99 = load i32, ptr %98, align 4
   %100 = select i1 %95, i32 %99, i32 %97
-  %101 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %92, i32 noundef 0, i32 noundef %100, ptr noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %.054118, i32 noundef %89)
+  %101 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiRKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %92, i32 noundef 0, i32 noundef %100, ptr noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %.054116, i32 noundef %89)
   br label %102
 
 102:                                              ; preds = %84, %88
-  %.155 = phi i32 [ %.056117, %88 ], [ %.054118, %84 ]
-  %.1 = phi i32 [ %90, %88 ], [ %.0119, %84 ]
+  %.155 = phi i32 [ %.056115, %88 ], [ %.054116, %84 ]
+  %.1 = phi i32 [ %90, %88 ], [ %.0117, %84 ]
   %103 = icmp ult i32 %85, 65536
   %104 = select i1 %103, i32 1, i32 2
-  %105 = add nuw nsw i32 %104, %.056117
+  %105 = add nuw nsw i32 %104, %.056115
   %106 = load i16, ptr %50, align 8, !tbaa !6
   %107 = icmp slt i16 %106, 0
   %108 = ashr i16 %106, 5
@@ -294,10 +294,10 @@ define void @_ZN6icu_7717CanonicalIterator9setSourceERKNS_13UnicodeStringER10UEr
   %112 = icmp slt i32 %105, %111
   br i1 %112, label %84, label %._crit_edge, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %102, %.loopexit116
-  %.056.lcssa = phi i32 [ %75, %.loopexit116 ], [ %105, %102 ]
-  %.054.lcssa = phi i32 [ 0, %.loopexit116 ], [ %.155, %102 ]
-  %.0.lcssa = phi i32 [ 0, %.loopexit116 ], [ %.1, %102 ]
+._crit_edge:                                      ; preds = %102, %.loopexit114
+  %.056.lcssa = phi i32 [ %75, %.loopexit114 ], [ %105, %102 ]
+  %.054.lcssa = phi i32 [ 0, %.loopexit114 ], [ %.155, %102 ]
+  %.0.lcssa = phi i32 [ 0, %.loopexit114 ], [ %.1, %102 ]
   %113 = sub nsw i32 %.056.lcssa, %.054.lcssa
   %114 = add nsw i32 %.0.lcssa, 1
   %115 = sext i32 %.0.lcssa to i64
@@ -334,25 +334,25 @@ define void @_ZN6icu_7717CanonicalIterator9setSourceERKNS_13UnicodeStringER10UEr
   %or.cond94 = select i1 %138, i1 true, i1 %140
   %141 = icmp eq ptr %134, null
   %or.cond96 = select i1 %or.cond94, i1 true, i1 %141
-  br i1 %or.cond96, label %159, label %.preheader115
+  br i1 %or.cond96, label %159, label %.preheader113
 
-.preheader115:                                    ; preds = %._crit_edge
+.preheader113:                                    ; preds = %._crit_edge
   %142 = icmp sgt i32 %.0.lcssa, -1
-  br i1 %142, label %.lr.ph123.preheader, label %.preheader114
+  br i1 %142, label %.lr.ph121.preheader, label %.preheader112
 
-.lr.ph123.preheader:                              ; preds = %.preheader115
+.lr.ph121.preheader:                              ; preds = %.preheader113
   %143 = zext nneg i32 %114 to i64
   %144 = shl nuw nsw i64 %143, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %134, i8 0, i64 %144, i1 false), !tbaa !29
-  br label %.preheader114
+  br label %.preheader112
 
-.preheader114:                                    ; preds = %.lr.ph123.preheader, %.preheader115
+.preheader112:                                    ; preds = %.lr.ph121.preheader, %.preheader113
   %145 = load i32, ptr %130, align 8, !tbaa !20
   %146 = icmp sgt i32 %145, 0
-  br i1 %146, label %.lr.ph125, label %._crit_edge126
+  br i1 %146, label %.lr.ph123, label %._crit_edge124
 
-.lr.ph125:                                        ; preds = %.preheader114, %.lr.ph125
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph125 ], [ 0, %.preheader114 ]
+.lr.ph123:                                        ; preds = %.preheader112, %.lr.ph123
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph123 ], [ 0, %.preheader112 ]
   %147 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.ptr74.ptr.ptr, i64 %indvars.iv
   %148 = load ptr, ptr %133, align 8, !tbaa !26
   %149 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv
@@ -364,27 +364,27 @@ define void @_ZN6icu_7717CanonicalIterator9setSourceERKNS_13UnicodeStringER10UEr
   %153 = load i32, ptr %130, align 8, !tbaa !20
   %154 = sext i32 %153 to i64
   %155 = icmp slt i64 %indvars.iv.next, %154
-  br i1 %155, label %.lr.ph125, label %._crit_edge126, !llvm.loop !34
+  br i1 %155, label %.lr.ph123, label %._crit_edge124, !llvm.loop !34
 
-._crit_edge126:                                   ; preds = %.lr.ph125, %.preheader114
+._crit_edge124:                                   ; preds = %.lr.ph123, %.preheader112
   %156 = load i64, ptr %63, align 8
   %157 = icmp eq i64 %156, 0
-  br i1 %157, label %.loopexit113, label %.preheader112.preheader
+  br i1 %157, label %.loopexit111, label %.preheader110.preheader
 
-.preheader112.preheader:                          ; preds = %._crit_edge126
-  %.idx104 = shl nsw i64 %156, 6
-  %.ptr74.add = or disjoint i64 %.idx104, 8
-  br label %.preheader112
+.preheader110.preheader:                          ; preds = %._crit_edge124
+  %.idx79 = shl nsw i64 %156, 6
+  %.ptr74.add = or disjoint i64 %.idx79, 8
+  br label %.preheader110
 
-.preheader112:                                    ; preds = %.preheader112.preheader, %.preheader112
-  %.idx102 = phi i64 [ %.add103, %.preheader112 ], [ %.ptr74.add, %.preheader112.preheader ]
+.preheader110:                                    ; preds = %.preheader110.preheader, %.preheader110
+  %.idx102 = phi i64 [ %.add103, %.preheader110 ], [ %.ptr74.add, %.preheader110.preheader ]
   %.add103 = add nsw i64 %.idx102, -64
-  %.ptr105 = getelementptr inbounds i8, ptr %63, i64 %.add103
-  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ptr105) #13
+  %.ptr104 = getelementptr inbounds i8, ptr %63, i64 %.add103
+  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ptr104) #13
   %158 = icmp eq i64 %.add103, 8
-  br i1 %158, label %.loopexit113, label %.preheader112
+  br i1 %158, label %.loopexit111, label %.preheader110
 
-.loopexit113:                                     ; preds = %.preheader112, %._crit_edge126
+.loopexit111:                                     ; preds = %.preheader110, %._crit_edge124
   tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %63) #13
   br label %163
 
@@ -395,16 +395,16 @@ define void @_ZN6icu_7717CanonicalIterator9setSourceERKNS_13UnicodeStringER10UEr
   br i1 %161, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %159
-  %.idx109 = shl nsw i64 %160, 6
-  %.ptr74.ptr.add = or disjoint i64 %.idx109, 8
+  %.idx91 = shl nsw i64 %160, 6
+  %.ptr74.ptr.add = or disjoint i64 %.idx91, 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.idx107 = phi i64 [ %.add108, %.preheader ], [ %.ptr74.ptr.add, %.preheader.preheader ]
-  %.add108 = add nsw i64 %.idx107, -64
-  %.ptr110 = getelementptr inbounds i8, ptr %63, i64 %.add108
-  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ptr110) #13
-  %162 = icmp eq i64 %.add108, 8
+  %.idx106 = phi i64 [ %.add107, %.preheader ], [ %.ptr74.ptr.add, %.preheader.preheader ]
+  %.add107 = add nsw i64 %.idx106, -64
+  %.ptr108 = getelementptr inbounds i8, ptr %63, i64 %.add107
+  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ptr108) #13
+  %162 = icmp eq i64 %.add107, 8
   br i1 %162, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %159
@@ -415,7 +415,7 @@ define void @_ZN6icu_7717CanonicalIterator9setSourceERKNS_13UnicodeStringER10UEr
   tail call void @_ZN6icu_7717CanonicalIterator11cleanPiecesEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
   br label %163
 
-163:                                              ; preds = %42, %3, %.thread99, %.loopexit113
+163:                                              ; preds = %42, %3, %.thread99, %.loopexit111
   ret void
 }
 
@@ -475,7 +475,8 @@ define void @_ZN6icu_7717CanonicalIterator11cleanPiecesEv(ptr noundef nonnull al
   br i1 %14, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %11
-  %15 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %10, i64 %13
+  %.idx = shl nsw i64 %13, 6
+  %15 = getelementptr inbounds i8, ptr %10, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader

@@ -395,7 +395,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !207
   %16 = icmp ult i64 %.sroa.5.0.copyload.i.i, 64051194700380388
   tail call void @llvm.assume(i1 %16)
-  %17 = getelementptr inbounds nuw { i64, [17 x i64] }, ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
+  %.idx.i.i.i = mul nuw nsw i64 %.sroa.5.0.copyload.i.i, 144
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i.i, i64 %.idx.i.i.i
   %18 = icmp sgt i64 %.sroa.0.0.copyload.i.i, -1
   tail call void @llvm.assume(i1 %18)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
@@ -669,7 +670,8 @@ common.resume.i:                                  ; preds = %28, %18
   call void @llvm.assume(i1 %12)
   %22 = icmp ult i64 %.sroa.5.0.copyload.i, 64051194700380388
   call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds nuw { i64, [17 x i64] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx.i.i = mul nuw nsw i64 %.sroa.5.0.copyload.i, 144
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx.i.i
   %24 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   call void @llvm.assume(i1 %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !268)
@@ -875,7 +877,8 @@ common.resume.i:                                  ; preds = %28, %18
   call void @llvm.assume(i1 %12)
   %22 = icmp ult i64 %.sroa.5.0.copyload.i, 64051194700380388
   call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds nuw { i64, [17 x i64] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx.i.i = mul nuw nsw i64 %.sroa.5.0.copyload.i, 144
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx.i.i
   %24 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   call void @llvm.assume(i1 %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !311)
@@ -6069,7 +6072,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h584e839c76
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1294
   %17 = icmp ult i64 %.sroa.5.0.copyload.i, 64051194700380388
   tail call void @llvm.assume(i1 %17)
-  %18 = getelementptr inbounds nuw { i64, [17 x i64] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx.i.i = mul nuw nsw i64 %.sroa.5.0.copyload.i, 144
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx.i.i
   %19 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   tail call void @llvm.assume(i1 %19)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1308)
@@ -6353,7 +6357,8 @@ define hidden void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closur
   %10 = load ptr, ptr %9, align 8, !alias.scope !1428, !noalias !1430, !nonnull !17, !align !360, !noundef !17
   %11 = icmp ult i64 %.sroa.5.0.copyload, 64051194700380388
   tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds nuw { i64, [17 x i64] }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %.idx.i = mul nuw nsw i64 %.sroa.5.0.copyload, 144
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 %.idx.i
   %13 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1432)
@@ -6432,7 +6437,8 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1457, !noalias !1460
   %6 = icmp ult i64 %.sroa.5.0.copyload.i, 64051194700380388
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { i64, [17 x i64] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nuw nsw i64 %.sroa.5.0.copyload.i, 144
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   %8 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   tail call void @llvm.assume(i1 %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1462)

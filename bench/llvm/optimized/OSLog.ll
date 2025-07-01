@@ -15,6 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SmallVectorStorage" = type { [384 x i8] }
 %"class.llvm::ArrayRef" = type { ptr, i64 }
 %"class.clang::SourceLocation" = type { i32 }
+%"class.clang::analyze_os_log::OSLogBufferItem" = type { i32, ptr, %"class.clang::CharUnits", %"class.clang::CharUnits", i32, %"class.llvm::StringRef" }
 %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData" = type { ptr, %"class.std::optional.373", %"class.std::optional.381", %"class.std::optional.389", %"class.std::optional.389", %"class.std::optional.389", i8, %"class.llvm::StringRef" }
 %"class.std::optional.373" = type { %"struct.std::_Optional_base.374" }
 %"struct.std::_Optional_base.374" = type { %"struct.std::_Optional_payload.376" }
@@ -31,7 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.392" = type { %"struct.std::_Optional_payload_base.base.394", [7 x i8] }
 %"struct.std::_Optional_payload_base.base.394" = type <{ %"union.std::_Optional_payload_base<const clang::Expr *>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<const clang::Expr *>::_Storage" = type { ptr }
-%"class.clang::analyze_os_log::OSLogBufferItem" = type { i32, ptr, %"class.clang::CharUnits", %"class.clang::CharUnits", i32, %"class.llvm::StringRef" }
 
 $_ZN5clang21analyze_format_string19FormatStringHandler14HandleNullCharEPKc = comdat any
 
@@ -169,7 +169,8 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandlerC2EN4llvm8ArrayRefIPKN5clang4ExprEEE.
   %.val.i = load ptr, ptr %60, align 8, !tbaa !22
   %.val51.i = load i32, ptr %62, align 8, !tbaa !24
   %74 = zext i32 %.val51.i to i64
-  %75 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val.i, i64 %74
+  %.idx.i = mul nuw nsw i64 %74, 96
+  %75 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i
   %.not77.i = icmp eq i32 %.val51.i, 0
   br i1 %.not77.i, label %_ZNK12_GLOBAL__N_124OSLogFormatStringHandler13computeLayoutERN5clang10ASTContextERNS1_14analyze_os_log17OSLogBufferLayoutE.exit, label %.lr.ph.i
 

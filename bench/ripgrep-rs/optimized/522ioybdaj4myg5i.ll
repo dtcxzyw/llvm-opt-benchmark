@@ -1016,7 +1016,7 @@ define hidden void @_ZN10grep_regex3ast11AstAnalysis13from_ast_impl17h3abfddd255
 .lr.ph.split:                                     ; preds = %2, %tailrecurse.backedge
   %.tr2039 = phi ptr [ %.tr20.be, %tailrecurse.backedge ], [ %1, %2 ]
   %6 = load i64, ptr %.tr2039, align 8, !range !212, !noundef !16
-  switch i64 %6, label %default.unreachable66 [
+  switch i64 %6, label %default.unreachable67 [
     i64 0, label %.loopexit
     i64 1, label %.loopexit
     i64 2, label %.split
@@ -1031,7 +1031,7 @@ define hidden void @_ZN10grep_regex3ast11AstAnalysis13from_ast_impl17h3abfddd255
     i64 11, label %.split53
   ]
 
-default.unreachable66:                            ; preds = %.lr.ph.split
+default.unreachable67:                            ; preds = %.lr.ph.split
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph56, %.lr.ph58, %2, %.split53, %.split50, %.split47, %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit
@@ -1074,10 +1074,10 @@ _ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit: ; p
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %.lr.ph.split, %19
-  %.sink74 = phi i64 [ 48, %19 ], [ 88, %.lr.ph.split ]
+  %.sink75 = phi i64 [ 48, %19 ], [ 88, %.lr.ph.split ]
   %20 = getelementptr inbounds nuw i8, ptr %.tr2039, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !16, !align !213, !noundef !16
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink74
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink75
   %.tr20.be = load ptr, ptr %22, align 8, !nonnull !16, !align !213, !noundef !16
   br label %.lr.ph.split
 
@@ -1088,7 +1088,8 @@ tailrecurse.backedge:                             ; preds = %.lr.ph.split, %19
   %.val8 = load ptr, ptr %25, align 8, !nonnull !16, !noundef !16
   %26 = getelementptr i8, ptr %24, i64 16
   %.val9 = load i64, ptr %26, align 8, !noundef !16
-  %27 = getelementptr inbounds { i64, [1 x i64] }, ptr %.val8, i64 %.val9
+  %.idx59 = shl nsw i64 %.val9, 4
+  %27 = getelementptr inbounds i8, ptr %.val8, i64 %.idx59
   %28 = icmp eq i64 %.val9, 0
   br i1 %28, label %.loopexit, label %.lr.ph58
 
@@ -1099,7 +1100,8 @@ tailrecurse.backedge:                             ; preds = %.lr.ph.split, %19
   %.val6 = load ptr, ptr %31, align 8, !nonnull !16, !noundef !16
   %32 = getelementptr i8, ptr %30, i64 16
   %.val7 = load i64, ptr %32, align 8, !noundef !16
-  %33 = getelementptr inbounds { i64, [1 x i64] }, ptr %.val6, i64 %.val7
+  %.idx = shl nsw i64 %.val7, 4
+  %33 = getelementptr inbounds i8, ptr %.val6, i64 %.idx
   %34 = icmp eq i64 %.val7, 0
   br i1 %34, label %.loopexit, label %.lr.ph56
 
@@ -1267,7 +1269,8 @@ _ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit16: ;
   %.val6 = load ptr, ptr %39, align 8, !nonnull !16, !noundef !16
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %40, align 8, !noundef !16
-  %41 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %.val6, i64 %.val7
+  %.idx = mul nsw i64 %.val7, 160
+  %41 = getelementptr inbounds i8, ptr %.val6, i64 %.idx
   %42 = icmp eq i64 %.val7, 0
   br i1 %42, label %.loopexit, label %.lr.ph
 

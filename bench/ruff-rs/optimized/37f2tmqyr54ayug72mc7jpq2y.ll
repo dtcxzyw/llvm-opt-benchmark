@@ -9844,7 +9844,8 @@ _ZN4core3ops8function6FnOnce9call_once17hb9a2d4e1686efa66E.exit._ZN4core3ops8fun
   %.sroa.0.0.i.i.i.i = phi i64 [ %128, %.noexc6.i.i.i ], [ %122, %121 ], [ %.val.pre.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hb9a2d4e1686efa66E.exit._ZN4core3ops8function6FnOnce9call_once17hb9a2d4e1686efa66E.exit.thread_crit_edge.i.i.i.i.i ]
   %129 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %130 = load ptr, ptr %129, align 8, !alias.scope !300, !noalias !303, !nonnull !4, !noundef !4
-  %131 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %130, i64 %118
+  %.idx.i.i.i.i = mul nuw nsw i64 %118, 24
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 %.idx.i.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %"_ZN17crossbeam_channel5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h6856f0474df53290E.exit.i.i.i.i.i", %.lr.ph.i.preheader.i.i.i.i
@@ -10124,7 +10125,8 @@ common.resume.i:                                  ; preds = %48, %18
   %30 = load ptr, ptr %29, align 8, !alias.scope !339, !nonnull !4, !noundef !4
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %32 = load i64, ptr %31, align 8, !alias.scope !339, !noundef !4
-  %33 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %30, i64 %32
+  %.idx.i.i = mul nuw nsw i64 %32, 24
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i
   %34 = icmp eq i64 %32, 0
   br i1 %34, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -10826,7 +10828,8 @@ common.resume:                                    ; preds = %.body, %15
   %26 = load ptr, ptr %25, align 8, !alias.scope !351, !nonnull !4, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %28 = load i64, ptr %27, align 8, !alias.scope !351, !noundef !4
-  %29 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %26, i64 %28
+  %.idx.i = mul nuw nsw i64 %28, 24
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i
   %30 = icmp eq i64 %28, 0
   br i1 %30, label %._crit_edge.i, label %.lr.ph.i
 

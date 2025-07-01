@@ -18342,7 +18342,8 @@ define hidden void @_ZN14polars_compute4cast10decimal_to23decimal_to_utf8view_dy
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %39 = load ptr, ptr %38, align 8, !noalias !1336, !nonnull !4, !noundef !4
   %40 = load i64, ptr %36, align 8, !noalias !1336, !noundef !4
-  %41 = getelementptr inbounds nuw i128, ptr %39, i64 %40
+  %.idx.i = shl nuw nsw i64 %40, 4
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i
   %.not3438.i = icmp eq i64 %40, 0
   br i1 %.not3438.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -22215,7 +22216,8 @@ _ZN12polars_arrow5array5Array10null_count17h325ed47397b09285E.exit.thread: ; pre
   %526 = phi i64 [ %.pre282, %._ZN12polars_arrow5array5Array10null_count17h325ed47397b09285E.exit.thread_crit_edge ], [ %.pre283, %_ZN12polars_arrow5array5Array10null_count17h325ed47397b09285E.exit ]
   %527 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %528 = load ptr, ptr %527, align 8, !nonnull !4, !noundef !4
-  %529 = getelementptr inbounds nuw i32, ptr %528, i64 %526
+  %.idx = shl nuw nsw i64 %526, 2
+  %529 = getelementptr inbounds nuw i8, ptr %528, i64 %.idx
   %530 = icmp eq i64 %526, 0
   br i1 %530, label %._crit_edge, label %.lr.ph
 
@@ -23636,7 +23638,8 @@ define hidden void @_ZN14polars_compute12if_then_else6scalar40if_then_else_broad
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN14polars_compute12if_then_else6scalar39if_then_else_broadcast_both_scalar_rest17ha6d1744a49a0253dE(i64 noundef %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull writeonly align 4 captures(address) %3, i64 noundef %4) unnamed_addr #10 personality ptr @rust_eh_personality {
   %6 = alloca [16 x i8], align 4
-  %7 = getelementptr inbounds nuw { [4 x i32] }, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %8 = icmp eq i64 %4, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 

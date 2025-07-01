@@ -4095,7 +4095,8 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 ; Function Attrs: mustprogress uwtable
 define internal fastcc range(i16 0, 258) i16 @_ZN32pxrInternal_v0_24__pxrReserved__L27_CheckSymbolAgainstPatternsEPKcNS_6TfSpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef readonly captures(none) %0, ptr %1, i64 %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 5
+  %5 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not19 = icmp eq i64 %2, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 

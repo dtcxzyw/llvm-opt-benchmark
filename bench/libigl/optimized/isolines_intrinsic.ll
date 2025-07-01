@@ -357,7 +357,8 @@ _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS_14C
 
 116:                                              ; preds = %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIiEES3_EEiiEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.i
   %117 = load ptr, ptr %110, align 8, !tbaa !44
-  %118 = getelementptr inbounds nuw i32, ptr %117, i64 %114
+  %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %114, 2
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 %.idx.i.i.i.i.i.i.i.i.i
   %119 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 

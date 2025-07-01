@@ -7903,7 +7903,7 @@ define internal fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImE
   br label %6
 
 6:                                                ; preds = %"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold13rewrite_endbrERNS3_7ContextINS3_6X86_64EEEE3$_2E4callIRPNS3_10ObjectFileIS5_EENS1_11feeder_implIS8_SD_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKS8_OSH_PT0_.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
-  %.08.i.i.i.i.i = phi i64 [ %.8.val, %.lr.ph.i.i.i.i.i ], [ %195, %"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold13rewrite_endbrERNS3_7ContextINS3_6X86_64EEEE3$_2E4callIRPNS3_10ObjectFileIS5_EENS1_11feeder_implIS8_SD_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKS8_OSH_PT0_.exit.i.i.i.i.i" ]
+  %.08.i.i.i.i.i = phi i64 [ %.8.val, %.lr.ph.i.i.i.i.i ], [ %193, %"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold13rewrite_endbrERNS3_7ContextINS3_6X86_64EEEE3$_2E4callIRPNS3_10ObjectFileIS5_EENS1_11feeder_implIS8_SD_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKS8_OSH_PT0_.exit.i.i.i.i.i" ]
   %7 = load ptr, ptr %5, align 32, !tbaa !560
   %8 = load ptr, ptr %4, align 8, !tbaa !538
   %9 = getelementptr inbounds ptr, ptr %8, i64 %.08.i.i.i.i.i
@@ -7921,7 +7921,7 @@ define internal fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImE
   br label %17
 
 17:                                               ; preds = %.loopexit.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph46.i.i.i.i.i.i.i.i.i.i.i
-  %.sroa.038.045.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %11, %.lr.ph46.i.i.i.i.i.i.i.i.i.i.i ], [ %193, %.loopexit.i.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.038.045.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %11, %.lr.ph46.i.i.i.i.i.i.i.i.i.i.i ], [ %191, %.loopexit.i.i.i.i.i.i.i.i.i.i.i ]
   %18 = load ptr, ptr %.sroa.038.045.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !563
   %.not41.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not41.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i.i.i.i.i.i, label %19
@@ -7984,7 +7984,8 @@ _ZNK4mold12InputSectionINS_6X86_64EE8get_relsERNS_7ContextIS1_EE.exit.i.i.i.i.i.
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %60 = load i64, ptr %59, align 1
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %60
+  %.fr.i.i.i.i.i = freeze i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %.fr.i.i.i.i.i
   %62 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %63 = load i64, ptr %62, align 8, !tbaa !476
   %64 = getelementptr inbounds i8, ptr %55, i64 %63
@@ -8002,221 +8003,219 @@ _ZNK4mold12InputSectionINS_6X86_64EE8get_relsERNS_7ContextIS1_EE.exit.i.i.i.i.i.
   unreachable
 
 _ZN4mold9InputFileINS_6X86_64EE10get_stringERNS_7ContextIS1_EERKNS_7ElfShdrIS1_EE.exit.i.i.i.i.i.i: ; preds = %_ZNK4mold12InputSectionINS_6X86_64EE8get_relsERNS_7ContextIS1_EE.exit.i.i.i.i.i.i.i.i.i.i.i
-  %71 = urem i64 %60, 24
-  %72 = udiv i64 %60, 24
+  %71 = urem i64 %.fr.i.i.i.i.i, 24
   %.not.i.i.i.i.i.i = icmp eq i64 %71, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4mold9InputFileINS_6X86_64EE8get_dataINS_6ElfRelIS1_EEEESt4spanIT_Lm18446744073709551615EERNS_7ContextIS1_EERKNS_7ElfShdrIS1_EE.exit.i.i.i.i.i, label %73
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4mold9InputFileINS_6X86_64EE8get_dataINS_6ElfRelIS1_EEEESt4spanIT_Lm18446744073709551615EERNS_7ContextIS1_EERKNS_7ElfShdrIS1_EE.exit.i.i.i.i.i, label %72
 
-73:                                               ; preds = %_ZN4mold9InputFileINS_6X86_64EE10get_stringERNS_7ContextIS1_EERKNS_7ElfShdrIS1_EE.exit.i.i.i.i.i.i
+72:                                               ; preds = %_ZN4mold9InputFileINS_6X86_64EE10get_stringERNS_7ContextIS1_EERKNS_7ElfShdrIS1_EE.exit.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %3) #15
   call void @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEEC2ERS3_(ptr noundef nonnull align 8 dereferenceable(408) %3, ptr noundef nonnull align 8 dereferenceable(4520) %47)
-  %74 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRNS_9InputFileIS2_EEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %3, ptr noundef nonnull align 8 dereferenceable(296) %27)
-  %75 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRA20_KcEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %74, ptr noundef nonnull align 1 dereferenceable(20) @.str.22)
+  %73 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRNS_9InputFileIS2_EEEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %3, ptr noundef nonnull align 8 dereferenceable(296) %27)
+  %74 = call noundef nonnull align 8 dereferenceable(408) ptr @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEElsIRA20_KcEERS4_OT_(ptr noundef nonnull align 8 dereferenceable(408) %73, ptr noundef nonnull align 1 dereferenceable(20) @.str.22)
   call void @_ZN4mold5FatalINS_7ContextINS_6X86_64EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(408) %3) #24
   unreachable
 
 _ZN4mold9InputFileINS_6X86_64EE8get_dataINS_6ElfRelIS1_EEEESt4spanIT_Lm18446744073709551615EERNS_7ContextIS1_EERKNS_7ElfShdrIS1_EE.exit.i.i.i.i.i: ; preds = %_ZN4mold9InputFileINS_6X86_64EE10get_stringERNS_7ContextIS1_EERKNS_7ElfShdrIS1_EE.exit.i.i.i.i.i.i
-  %76 = getelementptr inbounds nuw %"struct.mold::ElfRel", ptr %58, i64 %72
-  %77 = icmp ult i64 %60, 24
-  br i1 %77, label %.loopexit.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
+  %75 = icmp ult i64 %.fr.i.i.i.i.i, 24
+  br i1 %75, label %.loopexit.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZN4mold9InputFileINS_6X86_64EE8get_dataINS_6ElfRelIS1_EEEESt4spanIT_Lm18446744073709551615EERNS_7ContextIS1_EERKNS_7ElfShdrIS1_EE.exit.i.i.i.i.i, %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i"
-  %.sroa.032.044.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %191, %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ %58, %_ZN4mold9InputFileINS_6X86_64EE8get_dataINS_6ElfRelIS1_EEEESt4spanIT_Lm18446744073709551615EERNS_7ContextIS1_EERKNS_7ElfShdrIS1_EE.exit.i.i.i.i.i ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.032.044.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  %79 = load i32, ptr %78, align 1
-  br label %80
+  %.sroa.032.044.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %189, %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ %58, %_ZN4mold9InputFileINS_6X86_64EE8get_dataINS_6ElfRelIS1_EEEESt4spanIT_Lm18446744073709551615EERNS_7ContextIS1_EERKNS_7ElfShdrIS1_EE.exit.i.i.i.i.i ]
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.032.044.i.i.i.i.i.i.i.i.i.i.i, i64 8
+  %77 = load i32, ptr %76, align 1
+  br label %78
 
-80:                                               ; preds = %80, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
-  %.010.idx12.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %.010.add.i.i.i.i.i.i.i.i.i.i.i.i, %80 ]
+78:                                               ; preds = %78, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
+  %.010.idx12.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %.010.add.i.i.i.i.i.i.i.i.i.i.i.i, %78 ]
   %.010.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN4mold6X86_649R_FUNCALLE, i64 %.010.idx12.i.i.i.i.i.i.i.i.i.i.i.i
-  %81 = load i32, ptr %.010.ptr.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !399
-  %.not11.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %79, %81
+  %79 = load i32, ptr %.010.ptr.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !399
+  %.not11.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %77, %79
   %.010.add.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %.010.idx12.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.010.add.i.i.i.i.i.i.i.i.i.i.i.i, 8
   %or.cond.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not11.i.i.i.i.i.i.i.i.i.i.i.i, i1 true, i1 %.not.not.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4mold16is_func_call_relINS_6X86_64EEEbRKNS_6ElfRelIT_EE.exit.i.i.i.i.i.i.i.i.i.i.i, label %80
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4mold16is_func_call_relINS_6X86_64EEEbRKNS_6ElfRelIT_EE.exit.i.i.i.i.i.i.i.i.i.i.i, label %78
 
-_ZN4mold16is_func_call_relINS_6X86_64EEEbRKNS_6ElfRelIT_EE.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %80
-  br i1 %.not11.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i", label %82
+_ZN4mold16is_func_call_relINS_6X86_64EEEbRKNS_6ElfRelIT_EE.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %78
+  br i1 %.not11.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i", label %80
 
-82:                                               ; preds = %_ZN4mold16is_func_call_relINS_6X86_64EEEbRKNS_6ElfRelIT_EE.exit.i.i.i.i.i.i.i.i.i.i.i
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.032.044.i.i.i.i.i.i.i.i.i.i.i, i64 12
-  %84 = load i32, ptr %83, align 1
-  %85 = zext i32 %84 to i64
-  %86 = load ptr, ptr %15, align 8, !tbaa !344
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %85
-  %88 = load ptr, ptr %87, align 8, !tbaa !345
-  %89 = load ptr, ptr %88, align 8, !tbaa !280
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  %91 = getelementptr inbounds nuw i8, ptr %88, i64 36
-  %92 = load i32, ptr %91, align 4, !tbaa !281
-  %93 = sext i32 %92 to i64
-  %94 = load ptr, ptr %90, align 8, !tbaa !282
-  %95 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %94, i64 %93, i32 1
-  %96 = load i8, ptr %95, align 1
-  %97 = and i8 %96, 15
-  %98 = icmp eq i8 %97, 3
-  %99 = load ptr, ptr %16, align 8, !tbaa !566
-  %100 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %101 = load i64, ptr %100, align 8, !tbaa !354
-  %102 = and i64 %101, 3
-  %103 = icmp ne i64 %102, 1
-  %104 = and i64 %101, -4
-  %105 = inttoptr i64 %104 to ptr
-  %.val19.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %99, align 8
-  %106 = getelementptr i8, ptr %99, i64 8
-  %.val20.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %106, align 8
-  %.not.i43.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %104, 0
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = or i1 %103, %.not.i43.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %98, label %107, label %144
+80:                                               ; preds = %_ZN4mold16is_func_call_relINS_6X86_64EEEbRKNS_6ElfRelIT_EE.exit.i.i.i.i.i.i.i.i.i.i.i
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.032.044.i.i.i.i.i.i.i.i.i.i.i, i64 12
+  %82 = load i32, ptr %81, align 1
+  %83 = zext i32 %82 to i64
+  %84 = load ptr, ptr %15, align 8, !tbaa !344
+  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %83
+  %86 = load ptr, ptr %85, align 8, !tbaa !345
+  %87 = load ptr, ptr %86, align 8, !tbaa !280
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 36
+  %90 = load i32, ptr %89, align 4, !tbaa !281
+  %91 = sext i32 %90 to i64
+  %92 = load ptr, ptr %88, align 8, !tbaa !282
+  %93 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %92, i64 %91, i32 1
+  %94 = load i8, ptr %93, align 1
+  %95 = and i8 %94, 15
+  %96 = icmp eq i8 %95, 3
+  %97 = load ptr, ptr %16, align 8, !tbaa !566
+  %98 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %99 = load i64, ptr %98, align 8, !tbaa !354
+  %100 = and i64 %99, 3
+  %101 = icmp ne i64 %100, 1
+  %102 = and i64 %99, -4
+  %103 = inttoptr i64 %102 to ptr
+  %.val19.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %97, align 8
+  %104 = getelementptr i8, ptr %97, i64 8
+  %.val20.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %104, align 8
+  %.not.i43.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %102, 0
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = or i1 %101, %.not.i43.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %96, label %105, label %142
 
-107:                                              ; preds = %82
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.032.044.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  %109 = load i64, ptr %108, align 1
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i", label %110
+105:                                              ; preds = %80
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.032.044.i.i.i.i.i.i.i.i.i.i.i, i64 16
+  %107 = load i64, ptr %106, align 1
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i", label %108
 
-110:                                              ; preds = %107
-  %111 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !352
-  %.not13.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %112, null
-  br i1 %.not13.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i", label %113
+108:                                              ; preds = %105
+  %109 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %110 = load ptr, ptr %109, align 8, !tbaa !352
+  %.not13.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %110, null
+  br i1 %.not13.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i", label %111
 
-113:                                              ; preds = %110
-  %114 = getelementptr inbounds nuw i8, ptr %105, i64 56
-  %115 = load i32, ptr %114, align 8, !tbaa !377
-  %116 = sext i32 %115 to i64
-  %117 = load ptr, ptr %105, align 8, !tbaa !342
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
-  %119 = load i64, ptr %118, align 8, !tbaa !376
-  %120 = icmp ugt i64 %119, %116
-  br i1 %120, label %121, label %125
+111:                                              ; preds = %108
+  %112 = getelementptr inbounds nuw i8, ptr %103, i64 56
+  %113 = load i32, ptr %112, align 8, !tbaa !377
+  %114 = sext i32 %113 to i64
+  %115 = load ptr, ptr %103, align 8, !tbaa !342
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
+  %117 = load i64, ptr %116, align 8, !tbaa !376
+  %118 = icmp ugt i64 %117, %114
+  br i1 %118, label %119, label %123
 
-121:                                              ; preds = %113
-  %122 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %123 = load ptr, ptr %122, align 8, !tbaa !343
-  %124 = getelementptr inbounds nuw %"struct.mold::ElfShdr", ptr %123, i64 %116
+119:                                              ; preds = %111
+  %120 = getelementptr inbounds nuw i8, ptr %115, i64 16
+  %121 = load ptr, ptr %120, align 8, !tbaa !343
+  %122 = getelementptr inbounds nuw %"struct.mold::ElfShdr", ptr %121, i64 %114
   br label %_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
-125:                                              ; preds = %113
-  %126 = getelementptr inbounds nuw i8, ptr %117, i64 376
-  %127 = sub nuw i64 %116, %119
-  %128 = load ptr, ptr %126, align 8, !tbaa !409
-  %129 = getelementptr inbounds nuw %"struct.mold::ElfShdr", ptr %128, i64 %127
+123:                                              ; preds = %111
+  %124 = getelementptr inbounds nuw i8, ptr %115, i64 376
+  %125 = sub nuw i64 %114, %117
+  %126 = load ptr, ptr %124, align 8, !tbaa !409
+  %127 = getelementptr inbounds nuw %"struct.mold::ElfShdr", ptr %126, i64 %125
   br label %_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %125, %121
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %124, %121 ], [ %129, %125 ]
-  %130 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  %131 = load i64, ptr %130, align 1
-  %132 = and i64 %131, 4
-  %133 = icmp ne i64 %132, 0
-  %134 = icmp sgt i64 %109, -1
-  %or.cond.i22.i.i.i.i.i.i.i.i.i.i.i = and i1 %134, %133
-  br i1 %or.cond.i22.i.i.i.i.i.i.i.i.i.i.i, label %135, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i"
+_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %123, %119
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %122, %119 ], [ %127, %123 ]
+  %128 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
+  %129 = load i64, ptr %128, align 1
+  %130 = and i64 %129, 4
+  %131 = icmp ne i64 %130, 0
+  %132 = icmp sgt i64 %107, -1
+  %or.cond.i22.i.i.i.i.i.i.i.i.i.i.i = and i1 %132, %131
+  br i1 %or.cond.i22.i.i.i.i.i.i.i.i.i.i.i, label %133, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i"
 
-135:                                              ; preds = %_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %136 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  %137 = load i64, ptr %136, align 8, !tbaa !447
-  %138 = add i64 %137, -4
-  %.not14.i.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %109, %138
-  br i1 %.not14.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i", label %139
+133:                                              ; preds = %_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  %134 = getelementptr inbounds nuw i8, ptr %103, i64 24
+  %135 = load i64, ptr %134, align 8, !tbaa !447
+  %136 = add i64 %135, -4
+  %.not14.i.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %107, %136
+  br i1 %.not14.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i", label %137
 
-139:                                              ; preds = %135
-  %140 = getelementptr inbounds nuw i8, ptr %105, i64 32
-  %141 = load ptr, ptr %140, align 8, !tbaa !378
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 %109
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %142, ptr noundef nonnull readonly dereferenceable(4) %.val19.i.i.i.i.i.i.i.i.i.i.i, i64 4)
-  %143 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %143, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i", label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i"
+137:                                              ; preds = %133
+  %138 = getelementptr inbounds nuw i8, ptr %103, i64 32
+  %139 = load ptr, ptr %138, align 8, !tbaa !378
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 %107
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %140, ptr noundef nonnull readonly dereferenceable(4) %.val19.i.i.i.i.i.i.i.i.i.i.i, i64 4)
+  %141 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i, 0
+  br i1 %141, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i", label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i"
 
-144:                                              ; preds = %82
-  %145 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %146 = load i64, ptr %145, align 8, !tbaa !372
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i", label %147
+142:                                              ; preds = %80
+  %143 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %144 = load i64, ptr %143, align 8, !tbaa !372
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i", label %145
 
-147:                                              ; preds = %144
-  %148 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %149 = load ptr, ptr %148, align 8, !tbaa !352
-  %.not13.i25.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %149, null
-  br i1 %.not13.i25.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i", label %150
+145:                                              ; preds = %142
+  %146 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %147 = load ptr, ptr %146, align 8, !tbaa !352
+  %.not13.i25.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %147, null
+  br i1 %.not13.i25.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i", label %148
 
-150:                                              ; preds = %147
-  %151 = getelementptr inbounds nuw i8, ptr %105, i64 56
-  %152 = load i32, ptr %151, align 8, !tbaa !377
-  %153 = sext i32 %152 to i64
-  %154 = load ptr, ptr %105, align 8, !tbaa !342
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 24
-  %156 = load i64, ptr %155, align 8, !tbaa !376
-  %157 = icmp ugt i64 %156, %153
-  br i1 %157, label %158, label %162
+148:                                              ; preds = %145
+  %149 = getelementptr inbounds nuw i8, ptr %103, i64 56
+  %150 = load i32, ptr %149, align 8, !tbaa !377
+  %151 = sext i32 %150 to i64
+  %152 = load ptr, ptr %103, align 8, !tbaa !342
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
+  %154 = load i64, ptr %153, align 8, !tbaa !376
+  %155 = icmp ugt i64 %154, %151
+  br i1 %155, label %156, label %160
 
-158:                                              ; preds = %150
-  %159 = getelementptr inbounds nuw i8, ptr %154, i64 16
-  %160 = load ptr, ptr %159, align 8, !tbaa !343
-  %161 = getelementptr inbounds nuw %"struct.mold::ElfShdr", ptr %160, i64 %153
+156:                                              ; preds = %148
+  %157 = getelementptr inbounds nuw i8, ptr %152, i64 16
+  %158 = load ptr, ptr %157, align 8, !tbaa !343
+  %159 = getelementptr inbounds nuw %"struct.mold::ElfShdr", ptr %158, i64 %151
   br label %_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit.i26.i.i.i.i.i.i.i.i.i.i.i
 
-162:                                              ; preds = %150
-  %163 = getelementptr inbounds nuw i8, ptr %154, i64 376
-  %164 = sub nuw i64 %153, %156
-  %165 = load ptr, ptr %163, align 8, !tbaa !409
-  %166 = getelementptr inbounds nuw %"struct.mold::ElfShdr", ptr %165, i64 %164
+160:                                              ; preds = %148
+  %161 = getelementptr inbounds nuw i8, ptr %152, i64 376
+  %162 = sub nuw i64 %151, %154
+  %163 = load ptr, ptr %161, align 8, !tbaa !409
+  %164 = getelementptr inbounds nuw %"struct.mold::ElfShdr", ptr %163, i64 %162
   br label %_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit.i26.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit.i26.i.i.i.i.i.i.i.i.i.i.i: ; preds = %162, %158
-  %.0.i.i27.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %161, %158 ], [ %166, %162 ]
-  %167 = getelementptr inbounds nuw i8, ptr %.0.i.i27.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  %168 = load i64, ptr %167, align 1
-  %169 = and i64 %168, 4
-  %170 = icmp ne i64 %169, 0
-  %171 = icmp sgt i64 %146, -1
-  %or.cond.i28.i.i.i.i.i.i.i.i.i.i.i = and i1 %171, %170
-  br i1 %or.cond.i28.i.i.i.i.i.i.i.i.i.i.i, label %172, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i"
+_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit.i26.i.i.i.i.i.i.i.i.i.i.i: ; preds = %160, %156
+  %.0.i.i27.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %159, %156 ], [ %164, %160 ]
+  %165 = getelementptr inbounds nuw i8, ptr %.0.i.i27.i.i.i.i.i.i.i.i.i.i.i, i64 8
+  %166 = load i64, ptr %165, align 1
+  %167 = and i64 %166, 4
+  %168 = icmp ne i64 %167, 0
+  %169 = icmp sgt i64 %144, -1
+  %or.cond.i28.i.i.i.i.i.i.i.i.i.i.i = and i1 %169, %168
+  br i1 %or.cond.i28.i.i.i.i.i.i.i.i.i.i.i, label %170, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i"
 
-172:                                              ; preds = %_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit.i26.i.i.i.i.i.i.i.i.i.i.i
-  %173 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  %174 = load i64, ptr %173, align 8, !tbaa !447
-  %175 = add i64 %174, -4
-  %.not14.i29.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %146, %175
-  br i1 %.not14.i29.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i", label %176
+170:                                              ; preds = %_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit.i26.i.i.i.i.i.i.i.i.i.i.i
+  %171 = getelementptr inbounds nuw i8, ptr %103, i64 24
+  %172 = load i64, ptr %171, align 8, !tbaa !447
+  %173 = add i64 %172, -4
+  %.not14.i29.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %144, %173
+  br i1 %.not14.i29.i.i.i.i.i.i.i.i.i.i.i, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i", label %174
 
-176:                                              ; preds = %172
-  %177 = getelementptr inbounds nuw i8, ptr %105, i64 32
-  %178 = load ptr, ptr %177, align 8, !tbaa !378
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 %146
-  %bcmp.i30.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %179, ptr noundef nonnull readonly dereferenceable(4) %.val19.i.i.i.i.i.i.i.i.i.i.i, i64 4)
-  %180 = icmp eq i32 %bcmp.i30.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %180, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i", label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i"
+174:                                              ; preds = %170
+  %175 = getelementptr inbounds nuw i8, ptr %103, i64 32
+  %176 = load ptr, ptr %175, align 8, !tbaa !378
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 %144
+  %bcmp.i30.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %177, ptr noundef nonnull readonly dereferenceable(4) %.val19.i.i.i.i.i.i.i.i.i.i.i, i64 4)
+  %178 = icmp eq i32 %bcmp.i30.i.i.i.i.i.i.i.i.i.i.i, 0
+  br i1 %178, label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i", label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i"
 
-"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i": ; preds = %176, %139
-  %.sink55.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %112, %139 ], [ %149, %176 ]
-  %.sink50.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %109, %139 ], [ %146, %176 ]
-  %181 = getelementptr inbounds nuw i8, ptr %.val20.i.i.i.i.i.i.i.i.i.i.i, i64 3280
-  %182 = load ptr, ptr %181, align 8, !tbaa !302
-  %183 = getelementptr inbounds nuw i8, ptr %.sink55.i.i.i.i.i.i.i.i.i.i.i, i64 48
-  %184 = load i64, ptr %183, align 1
-  %185 = getelementptr inbounds nuw i8, ptr %182, i64 %184
-  %186 = getelementptr inbounds nuw i8, ptr %105, i64 48
-  %187 = load i64, ptr %186, align 8, !tbaa !353
-  %188 = getelementptr inbounds i8, ptr %185, i64 %187
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 %.sink50.i.i.i.i.i.i.i.i.i.i.i
-  %190 = load i32, ptr %.val19.i.i.i.i.i.i.i.i.i.i.i, align 1
-  store i32 %190, ptr %189, align 1
+"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i": ; preds = %174, %137
+  %.sink55.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %110, %137 ], [ %147, %174 ]
+  %.sink50.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %107, %137 ], [ %144, %174 ]
+  %179 = getelementptr inbounds nuw i8, ptr %.val20.i.i.i.i.i.i.i.i.i.i.i, i64 3280
+  %180 = load ptr, ptr %179, align 8, !tbaa !302
+  %181 = getelementptr inbounds nuw i8, ptr %.sink55.i.i.i.i.i.i.i.i.i.i.i, i64 48
+  %182 = load i64, ptr %181, align 1
+  %183 = getelementptr inbounds nuw i8, ptr %180, i64 %182
+  %184 = getelementptr inbounds nuw i8, ptr %103, i64 48
+  %185 = load i64, ptr %184, align 8, !tbaa !353
+  %186 = getelementptr inbounds i8, ptr %183, i64 %185
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 %.sink50.i.i.i.i.i.i.i.i.i.i.i
+  %188 = load i32, ptr %.val19.i.i.i.i.i.i.i.i.i.i.i, align 1
+  store i32 %188, ptr %187, align 1
   br label %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i"
 
-"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i": ; preds = %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i", %176, %172, %_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit.i26.i.i.i.i.i.i.i.i.i.i.i, %147, %144, %139, %135, %_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit.i.i.i.i.i.i.i.i.i.i.i.i, %110, %107, %_ZN4mold16is_func_call_relINS_6X86_64EEEbRKNS_6ElfRelIT_EE.exit.i.i.i.i.i.i.i.i.i.i.i
-  %191 = getelementptr inbounds nuw i8, ptr %.sroa.032.044.i.i.i.i.i.i.i.i.i.i.i, i64 24
-  %192 = icmp eq ptr %191, %76
-  br i1 %192, label %.loopexit.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
+"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i": ; preds = %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i", %174, %170, %_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit.i26.i.i.i.i.i.i.i.i.i.i.i, %145, %142, %137, %133, %_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit.i.i.i.i.i.i.i.i.i.i.i.i, %108, %105, %_ZN4mold16is_func_call_relINS_6X86_64EEEbRKNS_6ElfRelIT_EE.exit.i.i.i.i.i.i.i.i.i.i.i
+  %189 = getelementptr inbounds nuw i8, ptr %.sroa.032.044.i.i.i.i.i.i.i.i.i.i.i, i64 24
+  %190 = icmp eq ptr %189, %61
+  br i1 %190, label %.loopexit.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 .loopexit.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %"_ZZN4mold13rewrite_endbrERNS_7ContextINS_6X86_64EEEENK3$_1clEPNS_12InputSectionIS1_EEl.exit.i.i.i.i.i.i.i.i.i.i.i", %_ZN4mold9InputFileINS_6X86_64EE8get_dataINS_6ElfRelIS1_EEEESt4spanIT_Lm18446744073709551615EERNS_7ContextIS1_EERKNS_7ElfShdrIS1_EE.exit.i.i.i.i.i, %43, %_ZNK4mold12InputSectionINS_6X86_64EE4shdrEv.exit.i.i.i.i.i.i.i.i.i.i.i, %19, %17
-  %193 = getelementptr inbounds nuw i8, ptr %.sroa.038.045.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  %194 = icmp eq ptr %193, %13
-  br i1 %194, label %"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold13rewrite_endbrERNS3_7ContextINS3_6X86_64EEEE3$_2E4callIRPNS3_10ObjectFileIS5_EENS1_11feeder_implIS8_SD_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKS8_OSH_PT0_.exit.i.i.i.i.i", label %17
+  %191 = getelementptr inbounds nuw i8, ptr %.sroa.038.045.i.i.i.i.i.i.i.i.i.i.i, i64 8
+  %192 = icmp eq ptr %191, %13
+  br i1 %192, label %"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold13rewrite_endbrERNS3_7ContextINS3_6X86_64EEEE3$_2E4callIRPNS3_10ObjectFileIS5_EENS1_11feeder_implIS8_SD_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKS8_OSH_PT0_.exit.i.i.i.i.i", label %17
 
 "_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold13rewrite_endbrERNS3_7ContextINS3_6X86_64EEEE3$_2E4callIRPNS3_10ObjectFileIS5_EENS1_11feeder_implIS8_SD_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKS8_OSH_PT0_.exit.i.i.i.i.i": ; preds = %.loopexit.i.i.i.i.i.i.i.i.i.i.i, %6
-  %195 = add i64 %.08.i.i.i.i.i, 1
-  %.not.i.i.i.i.i = icmp eq i64 %195, %.0.val
+  %193 = add i64 %.08.i.i.i.i.i, 1
+  %.not.i.i.i.i.i = icmp eq i64 %193, %.0.val
   br i1 %.not.i.i.i.i.i, label %"_ZN3tbb6detail2d06invokeIRKNS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS7_6X86_64EEESt6vectorISB_SaISB_EEEEZNS7_13rewrite_endbrERNS7_7ContextIS9_EEE3$_2SB_EEJRNS0_2d113blocked_rangeImEEEEENSt13invoke_resultIT_JDpT0_EE4typeEOST_DpOSU_.exit", label %6, !llvm.loop !567
 
 "_ZN3tbb6detail2d06invokeIRKNS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold10ObjectFileINS7_6X86_64EEESt6vectorISB_SaISB_EEEEZNS7_13rewrite_endbrERNS7_7ContextIS9_EEE3$_2SB_EEJRNS0_2d113blocked_rangeImEEEEENSt13invoke_resultIT_JDpT0_EE4typeEOST_DpOSU_.exit": ; preds = %"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold13rewrite_endbrERNS3_7ContextINS3_6X86_64EEEE3$_2E4callIRPNS3_10ObjectFileIS5_EENS1_11feeder_implIS8_SD_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKS8_OSH_PT0_.exit.i.i.i.i.i", %1

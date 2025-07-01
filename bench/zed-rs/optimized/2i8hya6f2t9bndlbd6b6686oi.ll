@@ -11656,7 +11656,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hd6657c9b4ac76e70E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { { i64 } }, i32, {}, [4 x i8] }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hafcaa7635778fcecE.exit, label %.lr.ph.i
 
@@ -11682,7 +11683,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hd6657c9b4ac76e70E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { { { i64 } }, i32, {}, [4 x i8] }, { { { i64, ptr, {} }, i64 } } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 40
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h27dfdbdf497d9f48E.exit, label %.lr.ph.i
 
@@ -11708,7 +11710,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hd6657c9b4ac76e70E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds i32, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 2
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h3919c9615c6355fcE.exit, label %.lr.ph.i
 
@@ -25651,7 +25654,8 @@ define hidden void @_ZN8wasmtime7runtime9component4func5typed10lower_list17h0e30
 
 27:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3367)
-  %28 = getelementptr inbounds { { { { i64 } }, i32, {}, [4 x i8] }, { { { i64, ptr, {} }, i64 } } }, ptr %4, i64 %5
+  %.idx.i = mul nsw i64 %5, 40
+  %28 = getelementptr inbounds i8, ptr %4, i64 %.idx.i
   %29 = icmp eq i64 %5, 0
   br i1 %29, label %.loopexit, label %.lr.ph.i
 
@@ -25852,7 +25856,8 @@ define hidden void @_ZN8wasmtime7runtime9component4func5typed10lower_list17h1d21
   br label %36
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] } }, ptr %4, i64 %5
+  %.idx.i = shl nsw i64 %5, 5
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %24 = icmp eq i64 %5, 0
   br i1 %24, label %.loopexit, label %.lr.ph.i
 
@@ -25926,7 +25931,8 @@ define hidden void @_ZN8wasmtime7runtime9component4func5typed10lower_list17h2373
   br label %37
 
 23:                                               ; preds = %10
-  %24 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i16, [15 x i16] } }, ptr %4, i64 %5
+  %.idx.i = mul nsw i64 %5, 56
+  %24 = getelementptr inbounds i8, ptr %4, i64 %.idx.i
   %25 = icmp eq i64 %5, 0
   br i1 %25, label %.loopexit, label %.lr.ph.i
 
@@ -26099,7 +26105,8 @@ define hidden void @_ZN8wasmtime7runtime9component4func5typed10lower_list17h405f
   br label %37
 
 23:                                               ; preds = %10
-  %24 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] } }, ptr %4, i64 %5
+  %.idx.i = shl nsw i64 %5, 6
+  %24 = getelementptr inbounds i8, ptr %4, i64 %.idx.i
   %25 = icmp eq i64 %5, 0
   br i1 %25, label %.loopexit, label %.lr.ph.i
 
@@ -26173,7 +26180,8 @@ define hidden void @_ZN8wasmtime7runtime9component4func5typed10lower_list17h55b0
 
 22:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3401)
-  %23 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %4, i64 %5
+  %.idx.i = mul nuw nsw i64 %5, 24
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %24 = icmp eq i64 %5, 0
   br i1 %24, label %.loopexit, label %.lr.ph.i
 
@@ -26251,7 +26259,8 @@ define hidden void @_ZN8wasmtime7runtime9component4func5typed10lower_list17h5ae6
   br label %36
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %4, i64 %5
+  %.idx.i = mul nuw nsw i64 %5, 48
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %24 = icmp eq i64 %5, 0
   br i1 %24, label %.loopexit, label %.lr.ph.i
 
@@ -26447,7 +26456,8 @@ define hidden void @_ZN8wasmtime7runtime9component4func5typed10lower_list17he930
   br label %36
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %4, i64 %5
+  %.idx.i = mul nuw nsw i64 %5, 48
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %24 = icmp eq i64 %5, 0
   br i1 %24, label %.loopexit, label %.lr.ph.i
 
@@ -51568,7 +51578,8 @@ _ZN4http7request7Builder8and_then17ha1e5f8a1a6a47e10E.exit: ; preds = %35, %36
   %44 = load ptr, ptr %43, align 8, !nonnull !5, !noundef !5
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %46 = load i64, ptr %45, align 8, !noundef !5
-  %47 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %44, i64 %46
+  %.idx = mul nsw i64 %46, 48
+  %47 = getelementptr inbounds i8, ptr %44, i64 %.idx
   %48 = icmp eq i64 %46, 0
   br i1 %48, label %._crit_edge, label %.lr.ph
 

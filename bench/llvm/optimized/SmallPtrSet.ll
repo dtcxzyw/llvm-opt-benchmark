@@ -175,7 +175,8 @@ define dso_local void @_ZN4llvm19SmallPtrSetImplBase4GrowEj(ptr noundef nonnull 
   %10 = load i32, ptr %9, align 8
   %.v.v.i = select i1 %6, i32 %8, i32 %10
   %.v.i = zext i32 %.v.v.i to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %3, i64 %.v.i
+  %.idx = shl nuw nsw i64 %.v.i, 3
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %12 = zext i32 %1 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #14
@@ -906,7 +907,8 @@ _ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit43:             ; preds = %49, %51
   %70 = tail call i32 @llvm.umin.i32(i32 %68, i32 %69)
   %71 = load ptr, ptr %0, align 8, !tbaa !3
   %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr %71, i64 %72
+  %.idx53 = shl nuw nsw i64 %72, 3
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx53
   %.not8.i = icmp eq i32 %70, 0
   br i1 %.not8.i, label %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit, label %.lr.ph.i.preheader
 
@@ -928,13 +930,12 @@ _ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit43:             ; preds = %49, %51
 
 _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit:       ; preds = %.lr.ph.i, %66
   %79 = icmp ult i32 %68, %69
-  %.idx57 = shl nuw nsw i64 %72, 3
   br i1 %79, label %80, label %87
 
 80:                                               ; preds = %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit
   %81 = zext i32 %69 to i64
   %82 = load ptr, ptr %0, align 8, !tbaa !3
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx57
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx53
   %84 = sub nsw i64 %81, %72
   %gepdiff58 = shl nsw i64 %84, 3
   %85 = load ptr, ptr %3, align 8, !tbaa !3
@@ -945,13 +946,13 @@ _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit:       ; preds = %.lr.ph.i, %66
 87:                                               ; preds = %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit
   %88 = zext i32 %68 to i64
   %.idx54 = shl nuw nsw i64 %88, 3
-  %.not.i.i.i.i.i46 = icmp samesign eq i64 %.idx54, %.idx57
+  %.not.i.i.i.i.i46 = icmp samesign eq i64 %.idx54, %.idx53
   br i1 %.not.i.i.i.i.i46, label %_ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit45, label %89
 
 89:                                               ; preds = %87
   %90 = load ptr, ptr %3, align 8, !tbaa !3
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx57
-  %gepdiff = sub nsw i64 %.idx54, %.idx57
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx53
+  %gepdiff = sub nsw i64 %.idx54, %.idx53
   %92 = load ptr, ptr %0, align 8, !tbaa !3
   %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %72
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %93, ptr align 8 %91, i64 %gepdiff, i1 false)

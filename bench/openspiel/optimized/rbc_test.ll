@@ -2533,9 +2533,10 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit.i.i:         ; preds = %_ZNSt6vectorIN10ope
   %810 = getelementptr inbounds nuw i8, ptr %92, i64 40
   %811 = load ptr, ptr %810, align 8
   %812 = select i1 %.not.i.i.i143.i, ptr %810, ptr %811
-  %813 = lshr i64 %808, 1
-  %814 = getelementptr inbounds nuw i32, ptr %812, i64 %813
-  %.not6.i.i.i = icmp ult i64 %808, 2
+  %813 = shl nuw nsw i64 %808, 1
+  %.idx.i.i = and i64 %813, 9223372036854775804
+  %814 = getelementptr inbounds nuw i8, ptr %812, i64 %.idx.i.i
+  %.not6.i.i.i = icmp samesign eq i64 %.idx.i.i, 0
   br i1 %.not6.i.i.i, label %_ZNK10open_spiel14SpanTensorInfo4sizeEv.exit.thread.i, label %.lr.ph.i.i.i
 
 _ZNK10open_spiel14SpanTensorInfo4sizeEv.exit.thread.i: ; preds = %806

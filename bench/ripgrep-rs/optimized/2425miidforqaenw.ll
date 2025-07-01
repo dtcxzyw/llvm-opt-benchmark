@@ -5084,7 +5084,8 @@ define internal fastcc void @_ZN7globset4glob6Tokens15tokens_to_regex17h00c69f50
   %16 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %17 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %18 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %19 = getelementptr inbounds { i64, [3 x i64] }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 5
+  %19 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %20 = icmp eq i64 %1, 0
   br i1 %20, label %._crit_edge22, label %.lr.ph21
 
@@ -5426,7 +5427,8 @@ _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit: ; preds = %118, %125
   %.val47 = load ptr, ptr %197, align 8, !nonnull !5, !noundef !5
   %198 = getelementptr i8, ptr %.sroa.0.019, i64 16
   %.val48 = load i64, ptr %198, align 8, !noundef !5
-  %199 = getelementptr inbounds { i32, i32 }, ptr %.val47, i64 %.val48
+  %.idx24 = shl nsw i64 %.val48, 3
+  %199 = getelementptr inbounds i8, ptr %.val47, i64 %.idx24
   %200 = icmp eq i64 %.val48, 0
   br i1 %200, label %._crit_edge18, label %.lr.ph17
 
@@ -5451,11 +5453,11 @@ _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit66: ; preds = %201, %204
   br label %195
 
 ._crit_edge18.loopexit:                           ; preds = %293
-  %.pre23 = load i64, ptr %26, align 8, !alias.scope !900
+  %.pre25 = load i64, ptr %26, align 8, !alias.scope !900
   br label %._crit_edge18
 
 ._crit_edge18:                                    ; preds = %._crit_edge18.loopexit, %195
-  %210 = phi i64 [ %.pre23, %._crit_edge18.loopexit ], [ %196, %195 ]
+  %210 = phi i64 [ %.pre25, %._crit_edge18.loopexit ], [ %196, %195 ]
   %211 = load i64, ptr %2, align 8, !alias.scope !900, !noundef !5
   %212 = icmp eq i64 %210, %211
   br i1 %212, label %213, label %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit69
@@ -5707,7 +5709,8 @@ _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit81: ; preds = %"_ZN4core3pt
   %.val = load ptr, ptr %310, align 8, !nonnull !5, !noundef !5
   %311 = getelementptr i8, ptr %.sroa.0.019, i64 24
   %.val46 = load i64, ptr %311, align 8, !noundef !5
-  %312 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.val46
+  %.idx23 = mul nsw i64 %.val46, 24
+  %312 = getelementptr inbounds i8, ptr %.val, i64 %.idx23
   %313 = icmp eq i64 %.val46, 0
   br i1 %313, label %._crit_edge.thread, label %.lr.ph
 

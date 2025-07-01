@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.WasmEdge::ValType" = type { %union.anon.1 }
 %union.anon.1 = type { %struct.anon.2 }
 %struct.anon.2 = type { i8, i8, i8, i8, i32 }
-%"struct.WasmEdge::AST::Instruction::JumpDescriptor" = type { i32, i32, i32, i32 }
 %"struct.spdlog::source_loc" = type { ptr, i32, ptr }
 %"struct.WasmEdge::ErrInfo::InfoProposal" = type { i8 }
 %"struct.WasmEdge::ErrInfo::InfoAST" = type { i8 }
@@ -2648,907 +2647,907 @@ define void @_ZNK8WasmEdge6Loader10Serializer20serializeInstructionERKNS_3AST11I
 
 806:                                              ; preds = %604
   store i8 -5, ptr %208, align 1
-  br label %.invoke1111
+  br label %.invoke1112
 
-.invoke1111:                                      ; preds = %1190, %886, %868, %806
+.invoke1112:                                      ; preds = %1190, %886, %868, %806
   %807 = phi ptr [ %208, %806 ], [ %239, %868 ], [ %257, %886 ], [ %513, %1190 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %807)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 808:                                              ; preds = %604
   store i8 -5, ptr %209, align 1
-  br label %.invoke1112
+  br label %.invoke1113
 
-.invoke1112:                                      ; preds = %1191, %887, %869, %808
+.invoke1113:                                      ; preds = %1191, %887, %869, %808
   %809 = phi ptr [ %209, %808 ], [ %240, %869 ], [ %258, %887 ], [ %514, %1191 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %809)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 810:                                              ; preds = %604
   store i8 -5, ptr %210, align 1
-  br label %.invoke1113
+  br label %.invoke1114
 
-.invoke1113:                                      ; preds = %1192, %888, %870, %810
+.invoke1114:                                      ; preds = %1192, %888, %870, %810
   %811 = phi ptr [ %210, %810 ], [ %241, %870 ], [ %259, %888 ], [ %515, %1192 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %811)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 812:                                              ; preds = %604
   store i8 -5, ptr %211, align 1
-  br label %.invoke1114
+  br label %.invoke1115
 
-.invoke1114:                                      ; preds = %1193, %889, %871, %812
+.invoke1115:                                      ; preds = %1193, %889, %871, %812
   %813 = phi ptr [ %211, %812 ], [ %242, %871 ], [ %260, %889 ], [ %516, %1193 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %813)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 814:                                              ; preds = %604
   store i8 -5, ptr %212, align 1
-  br label %.invoke1115
+  br label %.invoke1116
 
-.invoke1115:                                      ; preds = %890, %872, %814
+.invoke1116:                                      ; preds = %890, %872, %814
   %815 = phi ptr [ %212, %814 ], [ %243, %872 ], [ %261, %890 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %815)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 816:                                              ; preds = %604
   store i8 -5, ptr %213, align 1
-  br label %.invoke1116
+  br label %.invoke1117
 
-.invoke1116:                                      ; preds = %891, %873, %816
+.invoke1117:                                      ; preds = %891, %873, %816
   %817 = phi ptr [ %213, %816 ], [ %244, %873 ], [ %262, %891 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %817)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 818:                                              ; preds = %604
   store i8 -5, ptr %214, align 1
-  br label %.invoke1117
+  br label %.invoke1118
 
-.invoke1117:                                      ; preds = %892, %874, %818
+.invoke1118:                                      ; preds = %892, %874, %818
   %819 = phi ptr [ %214, %818 ], [ %245, %874 ], [ %263, %892 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %819)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 820:                                              ; preds = %604
   store i8 -5, ptr %215, align 1
-  br label %.invoke1118
+  br label %.invoke1119
 
-.invoke1118:                                      ; preds = %893, %875, %820
+.invoke1119:                                      ; preds = %893, %875, %820
   %821 = phi ptr [ %215, %820 ], [ %246, %875 ], [ %264, %893 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %821)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 822:                                              ; preds = %604
   store i8 -5, ptr %216, align 1
-  br label %.invoke1119
+  br label %.invoke1120
 
-.invoke1119:                                      ; preds = %894, %876, %822
+.invoke1120:                                      ; preds = %894, %876, %822
   %823 = phi ptr [ %216, %822 ], [ %247, %876 ], [ %265, %894 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %823)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 824:                                              ; preds = %604
   store i8 -5, ptr %217, align 1
-  br label %.invoke1120
+  br label %.invoke1121
 
-.invoke1120:                                      ; preds = %895, %877, %824
+.invoke1121:                                      ; preds = %895, %877, %824
   %825 = phi ptr [ %217, %824 ], [ %248, %877 ], [ %266, %895 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %825)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 826:                                              ; preds = %604
   store i8 -5, ptr %218, align 1
-  br label %.invoke1121
+  br label %.invoke1122
 
-.invoke1121:                                      ; preds = %896, %878, %826
+.invoke1122:                                      ; preds = %896, %878, %826
   %827 = phi ptr [ %218, %826 ], [ %249, %878 ], [ %267, %896 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %827)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 828:                                              ; preds = %604
   store i8 -5, ptr %219, align 1
-  br label %.invoke1122
+  br label %.invoke1123
 
-.invoke1122:                                      ; preds = %897, %879, %828
+.invoke1123:                                      ; preds = %897, %879, %828
   %829 = phi ptr [ %219, %828 ], [ %250, %879 ], [ %268, %897 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %829)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 830:                                              ; preds = %604
   store i8 -5, ptr %220, align 1
-  br label %.invoke1123
+  br label %.invoke1124
 
-.invoke1123:                                      ; preds = %898, %880, %830
+.invoke1124:                                      ; preds = %898, %880, %830
   %831 = phi ptr [ %220, %830 ], [ %251, %880 ], [ %269, %898 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %831)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 832:                                              ; preds = %604
   store i8 -5, ptr %221, align 1
-  br label %.invoke1124
+  br label %.invoke1125
 
-.invoke1124:                                      ; preds = %899, %881, %832
+.invoke1125:                                      ; preds = %899, %881, %832
   %833 = phi ptr [ %221, %832 ], [ %252, %881 ], [ %270, %899 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %833)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 834:                                              ; preds = %604
   store i8 -5, ptr %222, align 1
-  br label %.invoke1125
+  br label %.invoke1126
 
-.invoke1125:                                      ; preds = %900, %882, %834
+.invoke1126:                                      ; preds = %900, %882, %834
   %835 = phi ptr [ %222, %834 ], [ %253, %882 ], [ %271, %900 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %835)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 836:                                              ; preds = %604
   store i8 -5, ptr %223, align 1
-  br label %.invoke1126
+  br label %.invoke1127
 
-.invoke1126:                                      ; preds = %901, %883, %836
+.invoke1127:                                      ; preds = %901, %883, %836
   %837 = phi ptr [ %223, %836 ], [ %254, %883 ], [ %272, %901 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %837)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 838:                                              ; preds = %604
   store i8 -5, ptr %224, align 1
-  br label %.invoke1127
+  br label %.invoke1128
 
-.invoke1127:                                      ; preds = %1194, %902, %884, %838
+.invoke1128:                                      ; preds = %1194, %902, %884, %838
   %839 = phi ptr [ %224, %838 ], [ %255, %884 ], [ %273, %902 ], [ %517, %1194 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %839)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 840:                                              ; preds = %604
   store i8 -5, ptr %225, align 1
-  br label %.invoke1128
+  br label %.invoke1129
 
-.invoke1128:                                      ; preds = %1195, %903, %885, %840
+.invoke1129:                                      ; preds = %1195, %903, %885, %840
   %841 = phi ptr [ %225, %840 ], [ %256, %885 ], [ %274, %903 ], [ %518, %1195 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %841)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 842:                                              ; preds = %604
   store i8 -5, ptr %226, align 1
-  br label %.invoke1129
+  br label %.invoke1130
 
-.invoke1129:                                      ; preds = %1196, %904, %842
+.invoke1130:                                      ; preds = %1196, %904, %842
   %843 = phi ptr [ %226, %842 ], [ %275, %904 ], [ %519, %1196 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %843)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 844:                                              ; preds = %604
   store i8 -5, ptr %227, align 1
-  br label %.invoke1130
+  br label %.invoke1131
 
-.invoke1130:                                      ; preds = %1197, %905, %844
+.invoke1131:                                      ; preds = %1197, %905, %844
   %845 = phi ptr [ %227, %844 ], [ %276, %905 ], [ %520, %1197 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %845)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 846:                                              ; preds = %604
   store i8 -5, ptr %228, align 1
-  br label %.invoke1131
+  br label %.invoke1132
 
-.invoke1131:                                      ; preds = %1198, %906, %846
+.invoke1132:                                      ; preds = %1198, %906, %846
   %847 = phi ptr [ %228, %846 ], [ %277, %906 ], [ %521, %1198 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %847)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 848:                                              ; preds = %604
   store i8 -5, ptr %229, align 1
-  br label %.invoke1132
+  br label %.invoke1133
 
-.invoke1132:                                      ; preds = %1199, %907, %848
+.invoke1133:                                      ; preds = %1199, %907, %848
   %849 = phi ptr [ %229, %848 ], [ %278, %907 ], [ %522, %1199 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %849)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 850:                                              ; preds = %604
   store i8 -5, ptr %230, align 1
-  br label %.invoke1133
+  br label %.invoke1134
 
-.invoke1133:                                      ; preds = %1200, %908, %850
+.invoke1134:                                      ; preds = %1200, %908, %850
   %851 = phi ptr [ %230, %850 ], [ %279, %908 ], [ %523, %1200 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %851)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 852:                                              ; preds = %604
   store i8 -5, ptr %231, align 1
-  br label %.invoke1134
+  br label %.invoke1135
 
-.invoke1134:                                      ; preds = %1201, %909, %852
+.invoke1135:                                      ; preds = %1201, %909, %852
   %853 = phi ptr [ %231, %852 ], [ %280, %909 ], [ %524, %1201 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %853)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 854:                                              ; preds = %604
   store i8 -5, ptr %232, align 1
-  br label %.invoke1135
+  br label %.invoke1136
 
-.invoke1135:                                      ; preds = %1202, %910, %854
+.invoke1136:                                      ; preds = %1202, %910, %854
   %855 = phi ptr [ %232, %854 ], [ %281, %910 ], [ %525, %1202 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %855)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 856:                                              ; preds = %604
   store i8 -5, ptr %233, align 1
-  br label %.invoke1136
+  br label %.invoke1137
 
-.invoke1136:                                      ; preds = %1203, %911, %856
+.invoke1137:                                      ; preds = %1203, %911, %856
   %857 = phi ptr [ %233, %856 ], [ %282, %911 ], [ %526, %1203 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %857)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 858:                                              ; preds = %604
   store i8 -5, ptr %234, align 1
-  br label %.invoke1137
+  br label %.invoke1138
 
-.invoke1137:                                      ; preds = %1204, %912, %858
+.invoke1138:                                      ; preds = %1204, %912, %858
   %859 = phi ptr [ %234, %858 ], [ %283, %912 ], [ %527, %1204 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %859)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 860:                                              ; preds = %604
   store i8 -5, ptr %235, align 1
-  br label %.invoke1138
+  br label %.invoke1139
 
-.invoke1138:                                      ; preds = %1205, %913, %860
+.invoke1139:                                      ; preds = %1205, %913, %860
   %861 = phi ptr [ %235, %860 ], [ %284, %913 ], [ %528, %1205 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %861)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 862:                                              ; preds = %604
   store i8 -5, ptr %236, align 1
-  br label %.invoke1139
+  br label %.invoke1140
 
-.invoke1139:                                      ; preds = %1206, %914, %862
+.invoke1140:                                      ; preds = %1206, %914, %862
   %863 = phi ptr [ %236, %862 ], [ %285, %914 ], [ %529, %1206 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %863)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 864:                                              ; preds = %604
   store i8 -5, ptr %237, align 1
-  br label %.invoke1140
+  br label %.invoke1141
 
-.invoke1140:                                      ; preds = %1207, %915, %864
+.invoke1141:                                      ; preds = %1207, %915, %864
   %865 = phi ptr [ %237, %864 ], [ %286, %915 ], [ %530, %1207 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %865)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 866:                                              ; preds = %604
   store i8 -5, ptr %238, align 1
-  br label %.invoke1141
+  br label %.invoke1142
 
-.invoke1141:                                      ; preds = %1208, %916, %866
+.invoke1142:                                      ; preds = %1208, %916, %866
   %867 = phi ptr [ %238, %866 ], [ %287, %916 ], [ %531, %1208 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %867)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 868:                                              ; preds = %604
   store i8 -4, ptr %239, align 1
-  br label %.invoke1111
+  br label %.invoke1112
 
 869:                                              ; preds = %604
   store i8 -4, ptr %240, align 1
-  br label %.invoke1112
+  br label %.invoke1113
 
 870:                                              ; preds = %604
   store i8 -4, ptr %241, align 1
-  br label %.invoke1113
+  br label %.invoke1114
 
 871:                                              ; preds = %604
   store i8 -4, ptr %242, align 1
-  br label %.invoke1114
+  br label %.invoke1115
 
 872:                                              ; preds = %604
   store i8 -4, ptr %243, align 1
-  br label %.invoke1115
+  br label %.invoke1116
 
 873:                                              ; preds = %604
   store i8 -4, ptr %244, align 1
-  br label %.invoke1116
+  br label %.invoke1117
 
 874:                                              ; preds = %604
   store i8 -4, ptr %245, align 1
-  br label %.invoke1117
+  br label %.invoke1118
 
 875:                                              ; preds = %604
   store i8 -4, ptr %246, align 1
-  br label %.invoke1118
+  br label %.invoke1119
 
 876:                                              ; preds = %604
   store i8 -4, ptr %247, align 1
-  br label %.invoke1119
+  br label %.invoke1120
 
 877:                                              ; preds = %604
   store i8 -4, ptr %248, align 1
-  br label %.invoke1120
+  br label %.invoke1121
 
 878:                                              ; preds = %604
   store i8 -4, ptr %249, align 1
-  br label %.invoke1121
+  br label %.invoke1122
 
 879:                                              ; preds = %604
   store i8 -4, ptr %250, align 1
-  br label %.invoke1122
+  br label %.invoke1123
 
 880:                                              ; preds = %604
   store i8 -4, ptr %251, align 1
-  br label %.invoke1123
+  br label %.invoke1124
 
 881:                                              ; preds = %604
   store i8 -4, ptr %252, align 1
-  br label %.invoke1124
+  br label %.invoke1125
 
 882:                                              ; preds = %604
   store i8 -4, ptr %253, align 1
-  br label %.invoke1125
+  br label %.invoke1126
 
 883:                                              ; preds = %604
   store i8 -4, ptr %254, align 1
-  br label %.invoke1126
+  br label %.invoke1127
 
 884:                                              ; preds = %604
   store i8 -4, ptr %255, align 1
-  br label %.invoke1127
+  br label %.invoke1128
 
 885:                                              ; preds = %604
   store i8 -4, ptr %256, align 1
-  br label %.invoke1128
+  br label %.invoke1129
 
 886:                                              ; preds = %604
   store i8 -3, ptr %257, align 1
-  br label %.invoke1111
+  br label %.invoke1112
 
 887:                                              ; preds = %604
   store i8 -3, ptr %258, align 1
-  br label %.invoke1112
+  br label %.invoke1113
 
 888:                                              ; preds = %604
   store i8 -3, ptr %259, align 1
-  br label %.invoke1113
+  br label %.invoke1114
 
 889:                                              ; preds = %604
   store i8 -3, ptr %260, align 1
-  br label %.invoke1114
+  br label %.invoke1115
 
 890:                                              ; preds = %604
   store i8 -3, ptr %261, align 1
-  br label %.invoke1115
+  br label %.invoke1116
 
 891:                                              ; preds = %604
   store i8 -3, ptr %262, align 1
-  br label %.invoke1116
+  br label %.invoke1117
 
 892:                                              ; preds = %604
   store i8 -3, ptr %263, align 1
-  br label %.invoke1117
+  br label %.invoke1118
 
 893:                                              ; preds = %604
   store i8 -3, ptr %264, align 1
-  br label %.invoke1118
+  br label %.invoke1119
 
 894:                                              ; preds = %604
   store i8 -3, ptr %265, align 1
-  br label %.invoke1119
+  br label %.invoke1120
 
 895:                                              ; preds = %604
   store i8 -3, ptr %266, align 1
-  br label %.invoke1120
+  br label %.invoke1121
 
 896:                                              ; preds = %604
   store i8 -3, ptr %267, align 1
-  br label %.invoke1121
+  br label %.invoke1122
 
 897:                                              ; preds = %604
   store i8 -3, ptr %268, align 1
-  br label %.invoke1122
+  br label %.invoke1123
 
 898:                                              ; preds = %604
   store i8 -3, ptr %269, align 1
-  br label %.invoke1123
+  br label %.invoke1124
 
 899:                                              ; preds = %604
   store i8 -3, ptr %270, align 1
-  br label %.invoke1124
+  br label %.invoke1125
 
 900:                                              ; preds = %604
   store i8 -3, ptr %271, align 1
-  br label %.invoke1125
+  br label %.invoke1126
 
 901:                                              ; preds = %604
   store i8 -3, ptr %272, align 1
-  br label %.invoke1126
+  br label %.invoke1127
 
 902:                                              ; preds = %604
   store i8 -3, ptr %273, align 1
-  br label %.invoke1127
+  br label %.invoke1128
 
 903:                                              ; preds = %604
   store i8 -3, ptr %274, align 1
-  br label %.invoke1128
+  br label %.invoke1129
 
 904:                                              ; preds = %604
   store i8 -3, ptr %275, align 1
-  br label %.invoke1129
+  br label %.invoke1130
 
 905:                                              ; preds = %604
   store i8 -3, ptr %276, align 1
-  br label %.invoke1130
+  br label %.invoke1131
 
 906:                                              ; preds = %604
   store i8 -3, ptr %277, align 1
-  br label %.invoke1131
+  br label %.invoke1132
 
 907:                                              ; preds = %604
   store i8 -3, ptr %278, align 1
-  br label %.invoke1132
+  br label %.invoke1133
 
 908:                                              ; preds = %604
   store i8 -3, ptr %279, align 1
-  br label %.invoke1133
+  br label %.invoke1134
 
 909:                                              ; preds = %604
   store i8 -3, ptr %280, align 1
-  br label %.invoke1134
+  br label %.invoke1135
 
 910:                                              ; preds = %604
   store i8 -3, ptr %281, align 1
-  br label %.invoke1135
+  br label %.invoke1136
 
 911:                                              ; preds = %604
   store i8 -3, ptr %282, align 1
-  br label %.invoke1136
+  br label %.invoke1137
 
 912:                                              ; preds = %604
   store i8 -3, ptr %283, align 1
-  br label %.invoke1137
+  br label %.invoke1138
 
 913:                                              ; preds = %604
   store i8 -3, ptr %284, align 1
-  br label %.invoke1138
+  br label %.invoke1139
 
 914:                                              ; preds = %604
   store i8 -3, ptr %285, align 1
-  br label %.invoke1139
+  br label %.invoke1140
 
 915:                                              ; preds = %604
   store i8 -3, ptr %286, align 1
-  br label %.invoke1140
+  br label %.invoke1141
 
 916:                                              ; preds = %604
   store i8 -3, ptr %287, align 1
-  br label %.invoke1141
+  br label %.invoke1142
 
 917:                                              ; preds = %604
   store i8 -3, ptr %288, align 1
-  br label %.invoke1142
+  br label %.invoke1143
 
-.invoke1142:                                      ; preds = %1209, %917
+.invoke1143:                                      ; preds = %1209, %917
   %918 = phi ptr [ %288, %917 ], [ %532, %1209 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %918)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 919:                                              ; preds = %604
   store i8 -3, ptr %289, align 1
-  br label %.invoke1143
+  br label %.invoke1144
 
-.invoke1143:                                      ; preds = %1210, %919
+.invoke1144:                                      ; preds = %1210, %919
   %920 = phi ptr [ %289, %919 ], [ %533, %1210 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %920)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 921:                                              ; preds = %604
   store i8 -3, ptr %290, align 1
-  br label %.invoke1144
+  br label %.invoke1145
 
-.invoke1144:                                      ; preds = %1211, %921
+.invoke1145:                                      ; preds = %1211, %921
   %922 = phi ptr [ %290, %921 ], [ %534, %1211 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %922)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 923:                                              ; preds = %604
   store i8 -3, ptr %291, align 1
-  br label %.invoke1145
+  br label %.invoke1146
 
-.invoke1145:                                      ; preds = %1212, %923
+.invoke1146:                                      ; preds = %1212, %923
   %924 = phi ptr [ %291, %923 ], [ %535, %1212 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %924)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 925:                                              ; preds = %604
   store i8 -3, ptr %292, align 1
-  br label %.invoke1146
+  br label %.invoke1147
 
-.invoke1146:                                      ; preds = %1213, %925
+.invoke1147:                                      ; preds = %1213, %925
   %926 = phi ptr [ %292, %925 ], [ %536, %1213 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %926)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 927:                                              ; preds = %604
   store i8 -3, ptr %293, align 1
-  br label %.invoke1147
+  br label %.invoke1148
 
-.invoke1147:                                      ; preds = %1214, %927
+.invoke1148:                                      ; preds = %1214, %927
   %928 = phi ptr [ %293, %927 ], [ %537, %1214 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %928)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 929:                                              ; preds = %604
   store i8 -3, ptr %294, align 1
-  br label %.invoke1148
+  br label %.invoke1149
 
-.invoke1148:                                      ; preds = %1215, %929
+.invoke1149:                                      ; preds = %1215, %929
   %930 = phi ptr [ %294, %929 ], [ %538, %1215 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %930)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 931:                                              ; preds = %604
   store i8 -3, ptr %295, align 1
-  br label %.invoke1149
+  br label %.invoke1150
 
-.invoke1149:                                      ; preds = %1216, %931
+.invoke1150:                                      ; preds = %1216, %931
   %932 = phi ptr [ %295, %931 ], [ %539, %1216 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %932)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 933:                                              ; preds = %604
   store i8 -3, ptr %296, align 1
-  br label %.invoke1150
+  br label %.invoke1151
 
-.invoke1150:                                      ; preds = %1217, %933
+.invoke1151:                                      ; preds = %1217, %933
   %934 = phi ptr [ %296, %933 ], [ %540, %1217 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %934)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 935:                                              ; preds = %604
   store i8 -3, ptr %297, align 1
-  br label %.invoke1151
+  br label %.invoke1152
 
-.invoke1151:                                      ; preds = %1218, %935
+.invoke1152:                                      ; preds = %1218, %935
   %936 = phi ptr [ %297, %935 ], [ %541, %1218 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %936)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 937:                                              ; preds = %604
   store i8 -3, ptr %298, align 1
-  br label %.invoke1152
+  br label %.invoke1153
 
-.invoke1152:                                      ; preds = %1219, %937
+.invoke1153:                                      ; preds = %1219, %937
   %938 = phi ptr [ %298, %937 ], [ %542, %1219 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %938)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 939:                                              ; preds = %604
   store i8 -3, ptr %299, align 1
-  br label %.invoke1153
+  br label %.invoke1154
 
-.invoke1153:                                      ; preds = %1220, %939
+.invoke1154:                                      ; preds = %1220, %939
   %940 = phi ptr [ %299, %939 ], [ %543, %1220 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %940)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 941:                                              ; preds = %604
   store i8 -3, ptr %300, align 1
-  br label %.invoke1154
+  br label %.invoke1155
 
-.invoke1154:                                      ; preds = %1221, %941
+.invoke1155:                                      ; preds = %1221, %941
   %942 = phi ptr [ %300, %941 ], [ %544, %1221 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %942)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 943:                                              ; preds = %604
   store i8 -3, ptr %301, align 1
-  br label %.invoke1155
+  br label %.invoke1156
 
-.invoke1155:                                      ; preds = %1222, %943
+.invoke1156:                                      ; preds = %1222, %943
   %944 = phi ptr [ %301, %943 ], [ %545, %1222 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %944)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 945:                                              ; preds = %604
   store i8 -3, ptr %302, align 1
-  br label %.invoke1156
+  br label %.invoke1157
 
-.invoke1156:                                      ; preds = %1223, %945
+.invoke1157:                                      ; preds = %1223, %945
   %946 = phi ptr [ %302, %945 ], [ %546, %1223 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %946)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 947:                                              ; preds = %604
   store i8 -3, ptr %303, align 1
-  br label %.invoke1157
+  br label %.invoke1158
 
-.invoke1157:                                      ; preds = %1224, %947
+.invoke1158:                                      ; preds = %1224, %947
   %948 = phi ptr [ %303, %947 ], [ %547, %1224 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %948)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 949:                                              ; preds = %604
   store i8 -3, ptr %304, align 1
-  br label %.invoke1158
+  br label %.invoke1159
 
-.invoke1158:                                      ; preds = %1225, %949
+.invoke1159:                                      ; preds = %1225, %949
   %950 = phi ptr [ %304, %949 ], [ %548, %1225 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %950)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 951:                                              ; preds = %604
   store i8 -3, ptr %305, align 1
-  br label %.invoke1159
+  br label %.invoke1160
 
-.invoke1159:                                      ; preds = %1226, %951
+.invoke1160:                                      ; preds = %1226, %951
   %952 = phi ptr [ %305, %951 ], [ %549, %1226 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %952)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 953:                                              ; preds = %604
   store i8 -3, ptr %306, align 1
-  br label %.invoke1160
+  br label %.invoke1161
 
-.invoke1160:                                      ; preds = %1227, %953
+.invoke1161:                                      ; preds = %1227, %953
   %954 = phi ptr [ %306, %953 ], [ %550, %1227 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %954)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 955:                                              ; preds = %604
   store i8 -3, ptr %307, align 1
-  br label %.invoke1161
+  br label %.invoke1162
 
-.invoke1161:                                      ; preds = %1228, %955
+.invoke1162:                                      ; preds = %1228, %955
   %956 = phi ptr [ %307, %955 ], [ %551, %1228 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %956)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 957:                                              ; preds = %604
   store i8 -3, ptr %308, align 1
-  br label %.invoke1162
+  br label %.invoke1163
 
-.invoke1162:                                      ; preds = %1229, %957
+.invoke1163:                                      ; preds = %1229, %957
   %958 = phi ptr [ %308, %957 ], [ %552, %1229 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %958)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 959:                                              ; preds = %604
   store i8 -3, ptr %309, align 1
-  br label %.invoke1163
+  br label %.invoke1164
 
-.invoke1163:                                      ; preds = %1230, %959
+.invoke1164:                                      ; preds = %1230, %959
   %960 = phi ptr [ %309, %959 ], [ %553, %1230 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %960)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 961:                                              ; preds = %604
   store i8 -3, ptr %310, align 1
-  br label %.invoke1164
+  br label %.invoke1165
 
-.invoke1164:                                      ; preds = %1231, %961
+.invoke1165:                                      ; preds = %1231, %961
   %962 = phi ptr [ %310, %961 ], [ %554, %1231 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %962)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 963:                                              ; preds = %604
   store i8 -3, ptr %311, align 1
-  br label %.invoke1165
+  br label %.invoke1166
 
-.invoke1165:                                      ; preds = %1232, %963
+.invoke1166:                                      ; preds = %1232, %963
   %964 = phi ptr [ %311, %963 ], [ %555, %1232 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %964)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 965:                                              ; preds = %604
   store i8 -3, ptr %312, align 1
-  br label %.invoke1166
+  br label %.invoke1167
 
-.invoke1166:                                      ; preds = %1233, %965
+.invoke1167:                                      ; preds = %1233, %965
   %966 = phi ptr [ %312, %965 ], [ %556, %1233 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %966)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 967:                                              ; preds = %604
   store i8 -3, ptr %313, align 1
-  br label %.invoke1167
+  br label %.invoke1168
 
-.invoke1167:                                      ; preds = %1234, %967
+.invoke1168:                                      ; preds = %1234, %967
   %968 = phi ptr [ %313, %967 ], [ %557, %1234 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %968)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 969:                                              ; preds = %604
   store i8 -3, ptr %314, align 1
-  br label %.invoke1168
+  br label %.invoke1169
 
-.invoke1168:                                      ; preds = %1235, %969
+.invoke1169:                                      ; preds = %1235, %969
   %970 = phi ptr [ %314, %969 ], [ %558, %1235 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %970)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 971:                                              ; preds = %604
   store i8 -3, ptr %315, align 1
-  br label %.invoke1169
+  br label %.invoke1170
 
-.invoke1169:                                      ; preds = %1236, %971
+.invoke1170:                                      ; preds = %1236, %971
   %972 = phi ptr [ %315, %971 ], [ %559, %1236 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %972)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 973:                                              ; preds = %604
   store i8 -3, ptr %316, align 1
-  br label %.invoke1170
+  br label %.invoke1171
 
-.invoke1170:                                      ; preds = %1237, %973
+.invoke1171:                                      ; preds = %1237, %973
   %974 = phi ptr [ %316, %973 ], [ %560, %1237 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %974)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 975:                                              ; preds = %604
   store i8 -3, ptr %317, align 1
-  br label %.invoke1171
+  br label %.invoke1172
 
-.invoke1171:                                      ; preds = %1238, %975
+.invoke1172:                                      ; preds = %1238, %975
   %976 = phi ptr [ %317, %975 ], [ %561, %1238 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %976)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 977:                                              ; preds = %604
   store i8 -3, ptr %318, align 1
-  br label %.invoke1172
+  br label %.invoke1173
 
-.invoke1172:                                      ; preds = %1239, %977
+.invoke1173:                                      ; preds = %1239, %977
   %978 = phi ptr [ %318, %977 ], [ %562, %1239 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %978)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 979:                                              ; preds = %604
   store i8 -3, ptr %319, align 1
-  br label %.invoke1173
+  br label %.invoke1174
 
-.invoke1173:                                      ; preds = %1240, %979
+.invoke1174:                                      ; preds = %1240, %979
   %980 = phi ptr [ %319, %979 ], [ %563, %1240 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %980)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 981:                                              ; preds = %604
   store i8 -3, ptr %320, align 1
-  br label %.invoke1174
+  br label %.invoke1175
 
-.invoke1174:                                      ; preds = %1241, %981
+.invoke1175:                                      ; preds = %1241, %981
   %982 = phi ptr [ %320, %981 ], [ %564, %1241 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %982)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 983:                                              ; preds = %604
   store i8 -3, ptr %321, align 1
-  br label %.invoke1175
+  br label %.invoke1176
 
-.invoke1175:                                      ; preds = %1242, %983
+.invoke1176:                                      ; preds = %1242, %983
   %984 = phi ptr [ %321, %983 ], [ %565, %1242 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %984)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 985:                                              ; preds = %604
   store i8 -3, ptr %322, align 1
-  br label %.invoke1176
+  br label %.invoke1177
 
-.invoke1176:                                      ; preds = %1243, %985
+.invoke1177:                                      ; preds = %1243, %985
   %986 = phi ptr [ %322, %985 ], [ %566, %1243 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %986)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 987:                                              ; preds = %604
   store i8 -3, ptr %323, align 1
-  br label %.invoke1177
+  br label %.invoke1178
 
-.invoke1177:                                      ; preds = %1244, %987
+.invoke1178:                                      ; preds = %1244, %987
   %988 = phi ptr [ %323, %987 ], [ %567, %1244 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %988)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 989:                                              ; preds = %604
   store i8 -3, ptr %324, align 1
-  br label %.invoke1178
+  br label %.invoke1179
 
-.invoke1178:                                      ; preds = %1245, %989
+.invoke1179:                                      ; preds = %1245, %989
   %990 = phi ptr [ %324, %989 ], [ %568, %1245 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %990)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 991:                                              ; preds = %604
   store i8 -3, ptr %325, align 1
-  br label %.invoke1179
+  br label %.invoke1180
 
-.invoke1179:                                      ; preds = %1246, %991
+.invoke1180:                                      ; preds = %1246, %991
   %992 = phi ptr [ %325, %991 ], [ %569, %1246 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %992)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 993:                                              ; preds = %604
   store i8 -3, ptr %326, align 1
-  br label %.invoke1180
+  br label %.invoke1181
 
-.invoke1180:                                      ; preds = %1247, %993
+.invoke1181:                                      ; preds = %1247, %993
   %994 = phi ptr [ %326, %993 ], [ %570, %1247 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %994)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 995:                                              ; preds = %604
   store i8 -3, ptr %327, align 1
-  br label %.invoke1181
+  br label %.invoke1182
 
-.invoke1181:                                      ; preds = %1248, %995
+.invoke1182:                                      ; preds = %1248, %995
   %996 = phi ptr [ %327, %995 ], [ %571, %1248 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %996)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 997:                                              ; preds = %604
   store i8 -3, ptr %328, align 1
-  br label %.invoke1182
+  br label %.invoke1183
 
-.invoke1182:                                      ; preds = %1249, %997
+.invoke1183:                                      ; preds = %1249, %997
   %998 = phi ptr [ %328, %997 ], [ %572, %1249 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %998)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 999:                                              ; preds = %604
   store i8 -3, ptr %329, align 1
-  br label %.invoke1183
+  br label %.invoke1184
 
-.invoke1183:                                      ; preds = %1250, %999
+.invoke1184:                                      ; preds = %1250, %999
   %1000 = phi ptr [ %329, %999 ], [ %573, %1250 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %1000)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 1001:                                             ; preds = %604
   store i8 -3, ptr %330, align 1
-  br label %.invoke1184
+  br label %.invoke1185
 
-.invoke1184:                                      ; preds = %1251, %1001
+.invoke1185:                                      ; preds = %1251, %1001
   %1002 = phi ptr [ %330, %1001 ], [ %574, %1251 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %1002)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 1003:                                             ; preds = %604
   store i8 -3, ptr %331, align 1
-  br label %.invoke1185
+  br label %.invoke1186
 
-.invoke1185:                                      ; preds = %1252, %1003
+.invoke1186:                                      ; preds = %1252, %1003
   %1004 = phi ptr [ %331, %1003 ], [ %575, %1252 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %1004)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 1005:                                             ; preds = %604
   store i8 -3, ptr %332, align 1
-  br label %.invoke1186
+  br label %.invoke1187
 
-.invoke1186:                                      ; preds = %1253, %1005
+.invoke1187:                                      ; preds = %1253, %1005
   %1006 = phi ptr [ %332, %1005 ], [ %576, %1253 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %1006)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 1007:                                             ; preds = %604
   store i8 -3, ptr %333, align 1
-  br label %.invoke1187
+  br label %.invoke1188
 
-.invoke1187:                                      ; preds = %1254, %1007
+.invoke1188:                                      ; preds = %1254, %1007
   %1008 = phi ptr [ %333, %1007 ], [ %577, %1254 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %1008)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 1009:                                             ; preds = %604
   store i8 -3, ptr %334, align 1
-  br label %.invoke1188
+  br label %.invoke1189
 
-.invoke1188:                                      ; preds = %1255, %1009
+.invoke1189:                                      ; preds = %1255, %1009
   %1010 = phi ptr [ %334, %1009 ], [ %578, %1255 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %1010)
           to label %.sink.split unwind label %.loopexit.split-lp
 
 1011:                                             ; preds = %604
   store i8 -3, ptr %335, align 1
-  br label %.invoke1189
+  br label %.invoke1190
 
-.invoke1189:                                      ; preds = %1256, %1011
+.invoke1190:                                      ; preds = %1256, %1011
   %1012 = phi ptr [ %335, %1011 ], [ %579, %1256 ]
   invoke void @_ZNSt6vectorIhSaIhEE9push_backEOh(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %1012)
           to label %.sink.split unwind label %.loopexit.split-lp
@@ -4440,277 +4439,277 @@ define void @_ZNK8WasmEdge6Loader10Serializer20serializeInstructionERKNS_3AST11I
 
 1190:                                             ; preds = %604
   store i8 -2, ptr %513, align 1
-  br label %.invoke1111
+  br label %.invoke1112
 
 1191:                                             ; preds = %604
   store i8 -2, ptr %514, align 1
-  br label %.invoke1112
+  br label %.invoke1113
 
 1192:                                             ; preds = %604
   store i8 -2, ptr %515, align 1
-  br label %.invoke1113
+  br label %.invoke1114
 
 1193:                                             ; preds = %604
   store i8 -2, ptr %516, align 1
-  br label %.invoke1114
+  br label %.invoke1115
 
 1194:                                             ; preds = %604
   store i8 -2, ptr %517, align 1
-  br label %.invoke1127
+  br label %.invoke1128
 
 1195:                                             ; preds = %604
   store i8 -2, ptr %518, align 1
-  br label %.invoke1128
+  br label %.invoke1129
 
 1196:                                             ; preds = %604
   store i8 -2, ptr %519, align 1
-  br label %.invoke1129
+  br label %.invoke1130
 
 1197:                                             ; preds = %604
   store i8 -2, ptr %520, align 1
-  br label %.invoke1130
+  br label %.invoke1131
 
 1198:                                             ; preds = %604
   store i8 -2, ptr %521, align 1
-  br label %.invoke1131
+  br label %.invoke1132
 
 1199:                                             ; preds = %604
   store i8 -2, ptr %522, align 1
-  br label %.invoke1132
+  br label %.invoke1133
 
 1200:                                             ; preds = %604
   store i8 -2, ptr %523, align 1
-  br label %.invoke1133
+  br label %.invoke1134
 
 1201:                                             ; preds = %604
   store i8 -2, ptr %524, align 1
-  br label %.invoke1134
+  br label %.invoke1135
 
 1202:                                             ; preds = %604
   store i8 -2, ptr %525, align 1
-  br label %.invoke1135
+  br label %.invoke1136
 
 1203:                                             ; preds = %604
   store i8 -2, ptr %526, align 1
-  br label %.invoke1136
+  br label %.invoke1137
 
 1204:                                             ; preds = %604
   store i8 -2, ptr %527, align 1
-  br label %.invoke1137
+  br label %.invoke1138
 
 1205:                                             ; preds = %604
   store i8 -2, ptr %528, align 1
-  br label %.invoke1138
+  br label %.invoke1139
 
 1206:                                             ; preds = %604
   store i8 -2, ptr %529, align 1
-  br label %.invoke1139
+  br label %.invoke1140
 
 1207:                                             ; preds = %604
   store i8 -2, ptr %530, align 1
-  br label %.invoke1140
+  br label %.invoke1141
 
 1208:                                             ; preds = %604
   store i8 -2, ptr %531, align 1
-  br label %.invoke1141
+  br label %.invoke1142
 
 1209:                                             ; preds = %604
   store i8 -2, ptr %532, align 1
-  br label %.invoke1142
+  br label %.invoke1143
 
 1210:                                             ; preds = %604
   store i8 -2, ptr %533, align 1
-  br label %.invoke1143
+  br label %.invoke1144
 
 1211:                                             ; preds = %604
   store i8 -2, ptr %534, align 1
-  br label %.invoke1144
+  br label %.invoke1145
 
 1212:                                             ; preds = %604
   store i8 -2, ptr %535, align 1
-  br label %.invoke1145
+  br label %.invoke1146
 
 1213:                                             ; preds = %604
   store i8 -2, ptr %536, align 1
-  br label %.invoke1146
+  br label %.invoke1147
 
 1214:                                             ; preds = %604
   store i8 -2, ptr %537, align 1
-  br label %.invoke1147
+  br label %.invoke1148
 
 1215:                                             ; preds = %604
   store i8 -2, ptr %538, align 1
-  br label %.invoke1148
+  br label %.invoke1149
 
 1216:                                             ; preds = %604
   store i8 -2, ptr %539, align 1
-  br label %.invoke1149
+  br label %.invoke1150
 
 1217:                                             ; preds = %604
   store i8 -2, ptr %540, align 1
-  br label %.invoke1150
+  br label %.invoke1151
 
 1218:                                             ; preds = %604
   store i8 -2, ptr %541, align 1
-  br label %.invoke1151
+  br label %.invoke1152
 
 1219:                                             ; preds = %604
   store i8 -2, ptr %542, align 1
-  br label %.invoke1152
+  br label %.invoke1153
 
 1220:                                             ; preds = %604
   store i8 -2, ptr %543, align 1
-  br label %.invoke1153
+  br label %.invoke1154
 
 1221:                                             ; preds = %604
   store i8 -2, ptr %544, align 1
-  br label %.invoke1154
+  br label %.invoke1155
 
 1222:                                             ; preds = %604
   store i8 -2, ptr %545, align 1
-  br label %.invoke1155
+  br label %.invoke1156
 
 1223:                                             ; preds = %604
   store i8 -2, ptr %546, align 1
-  br label %.invoke1156
+  br label %.invoke1157
 
 1224:                                             ; preds = %604
   store i8 -2, ptr %547, align 1
-  br label %.invoke1157
+  br label %.invoke1158
 
 1225:                                             ; preds = %604
   store i8 -2, ptr %548, align 1
-  br label %.invoke1158
+  br label %.invoke1159
 
 1226:                                             ; preds = %604
   store i8 -2, ptr %549, align 1
-  br label %.invoke1159
+  br label %.invoke1160
 
 1227:                                             ; preds = %604
   store i8 -2, ptr %550, align 1
-  br label %.invoke1160
+  br label %.invoke1161
 
 1228:                                             ; preds = %604
   store i8 -2, ptr %551, align 1
-  br label %.invoke1161
+  br label %.invoke1162
 
 1229:                                             ; preds = %604
   store i8 -2, ptr %552, align 1
-  br label %.invoke1162
+  br label %.invoke1163
 
 1230:                                             ; preds = %604
   store i8 -2, ptr %553, align 1
-  br label %.invoke1163
+  br label %.invoke1164
 
 1231:                                             ; preds = %604
   store i8 -2, ptr %554, align 1
-  br label %.invoke1164
+  br label %.invoke1165
 
 1232:                                             ; preds = %604
   store i8 -2, ptr %555, align 1
-  br label %.invoke1165
+  br label %.invoke1166
 
 1233:                                             ; preds = %604
   store i8 -2, ptr %556, align 1
-  br label %.invoke1166
+  br label %.invoke1167
 
 1234:                                             ; preds = %604
   store i8 -2, ptr %557, align 1
-  br label %.invoke1167
+  br label %.invoke1168
 
 1235:                                             ; preds = %604
   store i8 -2, ptr %558, align 1
-  br label %.invoke1168
+  br label %.invoke1169
 
 1236:                                             ; preds = %604
   store i8 -2, ptr %559, align 1
-  br label %.invoke1169
+  br label %.invoke1170
 
 1237:                                             ; preds = %604
   store i8 -2, ptr %560, align 1
-  br label %.invoke1170
+  br label %.invoke1171
 
 1238:                                             ; preds = %604
   store i8 -2, ptr %561, align 1
-  br label %.invoke1171
+  br label %.invoke1172
 
 1239:                                             ; preds = %604
   store i8 -2, ptr %562, align 1
-  br label %.invoke1172
+  br label %.invoke1173
 
 1240:                                             ; preds = %604
   store i8 -2, ptr %563, align 1
-  br label %.invoke1173
+  br label %.invoke1174
 
 1241:                                             ; preds = %604
   store i8 -2, ptr %564, align 1
-  br label %.invoke1174
+  br label %.invoke1175
 
 1242:                                             ; preds = %604
   store i8 -2, ptr %565, align 1
-  br label %.invoke1175
+  br label %.invoke1176
 
 1243:                                             ; preds = %604
   store i8 -2, ptr %566, align 1
-  br label %.invoke1176
+  br label %.invoke1177
 
 1244:                                             ; preds = %604
   store i8 -2, ptr %567, align 1
-  br label %.invoke1177
+  br label %.invoke1178
 
 1245:                                             ; preds = %604
   store i8 -2, ptr %568, align 1
-  br label %.invoke1178
+  br label %.invoke1179
 
 1246:                                             ; preds = %604
   store i8 -2, ptr %569, align 1
-  br label %.invoke1179
+  br label %.invoke1180
 
 1247:                                             ; preds = %604
   store i8 -2, ptr %570, align 1
-  br label %.invoke1180
+  br label %.invoke1181
 
 1248:                                             ; preds = %604
   store i8 -2, ptr %571, align 1
-  br label %.invoke1181
+  br label %.invoke1182
 
 1249:                                             ; preds = %604
   store i8 -2, ptr %572, align 1
-  br label %.invoke1182
+  br label %.invoke1183
 
 1250:                                             ; preds = %604
   store i8 -2, ptr %573, align 1
-  br label %.invoke1183
+  br label %.invoke1184
 
 1251:                                             ; preds = %604
   store i8 -2, ptr %574, align 1
-  br label %.invoke1184
+  br label %.invoke1185
 
 1252:                                             ; preds = %604
   store i8 -2, ptr %575, align 1
-  br label %.invoke1185
+  br label %.invoke1186
 
 1253:                                             ; preds = %604
   store i8 -2, ptr %576, align 1
-  br label %.invoke1186
+  br label %.invoke1187
 
 1254:                                             ; preds = %604
   store i8 -2, ptr %577, align 1
-  br label %.invoke1187
+  br label %.invoke1188
 
 1255:                                             ; preds = %604
   store i8 -2, ptr %578, align 1
-  br label %.invoke1188
+  br label %.invoke1189
 
 1256:                                             ; preds = %604
   store i8 -2, ptr %579, align 1
-  br label %.invoke1189
+  br label %.invoke1190
 
 1257:                                             ; preds = %604
   unreachable
 
-.sink.split:                                      ; preds = %.invoke1189, %.invoke1188, %.invoke1187, %.invoke1186, %.invoke1185, %.invoke1184, %.invoke1183, %.invoke1182, %.invoke1181, %.invoke1180, %.invoke1179, %.invoke1178, %.invoke1177, %.invoke1176, %.invoke1175, %.invoke1174, %.invoke1173, %.invoke1172, %.invoke1171, %.invoke1170, %.invoke1169, %.invoke1168, %.invoke1167, %.invoke1166, %.invoke1165, %.invoke1164, %.invoke1163, %.invoke1162, %.invoke1161, %.invoke1160, %.invoke1159, %.invoke1158, %.invoke1157, %.invoke1156, %.invoke1155, %.invoke1154, %.invoke1153, %.invoke1152, %.invoke1151, %.invoke1150, %.invoke1149, %.invoke1148, %.invoke1147, %.invoke1146, %.invoke1145, %.invoke1144, %.invoke1143, %.invoke1142, %.invoke1141, %.invoke1140, %.invoke1139, %.invoke1138, %.invoke1137, %.invoke1136, %.invoke1135, %.invoke1134, %.invoke1133, %.invoke1132, %.invoke1131, %.invoke1130, %.invoke1129, %.invoke1128, %.invoke1127, %.invoke1126, %.invoke1125, %.invoke1124, %.invoke1123, %.invoke1122, %.invoke1121, %.invoke1120, %.invoke1119, %.invoke1118, %.invoke1117, %.invoke1116, %.invoke1115, %.invoke1114, %.invoke1113, %.invoke1112, %.invoke1111, %1189, %1188, %1187, %1186, %1185, %1184, %1183, %1182, %1181, %1180, %1179, %1178, %1177, %1176, %1175, %1174, %1173, %1172, %1171, %1170, %1169, %1168, %1167, %1166, %1165, %1164, %1163, %1162, %1161, %1160, %1159, %1158, %1157, %1156, %1155, %1154, %1153, %1152, %1151, %1150, %1149, %1148, %1147, %1146, %1145, %1144, %1143, %1142, %1141, %1140, %1139, %1138, %1137, %1136, %1135, %1134, %1133, %1132, %1131, %1130, %1129, %1128, %1127, %1126, %1125, %1124, %1123, %1122, %1121, %1120, %1119, %1118, %1117, %1116, %1115, %1114, %1113, %1112, %1111, %1110, %1109, %1108, %1107, %1106, %1105, %1104, %1103, %1102, %1101, %1100, %1099, %1098, %1097, %1096, %1095, %1094, %1093, %1092, %1091, %1090, %1089, %1088, %1087, %1086, %1085, %1084, %1083, %1082, %1081, %1080, %1079, %1078, %1077, %1076, %1075, %1074, %1073, %1072, %1071, %1070, %1069, %1068, %1067, %1066, %1065, %1064, %1063, %1062, %1061, %1060, %1059, %1058, %1057, %1056, %1055, %1054, %1053, %1052, %1051, %1050, %1049, %1048, %1047, %1046, %1045, %1044, %1043, %1042, %1041, %1040, %1039, %1038, %1037, %1036, %1035, %1034, %1033, %1032, %1031, %1030, %1029, %1028, %1027, %1026, %1025, %1024, %1023, %1022, %1021, %1020, %1019, %1018, %1017, %1016, %1015, %1014, %1013
-  %.sink = phi i32 [ 79, %1013 ], [ 80, %1014 ], [ 81, %1015 ], [ 82, %1016 ], [ 83, %1017 ], [ 84, %1018 ], [ 85, %1019 ], [ 86, %1020 ], [ 87, %1021 ], [ 88, %1022 ], [ 89, %1023 ], [ 90, %1024 ], [ 91, %1025 ], [ 92, %1026 ], [ 93, %1027 ], [ 94, %1028 ], [ 95, %1029 ], [ 96, %1030 ], [ 97, %1031 ], [ 98, %1032 ], [ 99, %1033 ], [ 100, %1034 ], [ 101, %1035 ], [ 102, %1036 ], [ 103, %1037 ], [ 104, %1038 ], [ 105, %1039 ], [ 106, %1040 ], [ 107, %1041 ], [ 108, %1042 ], [ 109, %1043 ], [ 110, %1044 ], [ 111, %1045 ], [ 112, %1046 ], [ 113, %1047 ], [ 114, %1048 ], [ 115, %1049 ], [ 116, %1050 ], [ 117, %1051 ], [ 118, %1052 ], [ 119, %1053 ], [ 120, %1054 ], [ 121, %1055 ], [ 122, %1056 ], [ 123, %1057 ], [ 124, %1058 ], [ 125, %1059 ], [ 126, %1060 ], [ 127, %1061 ], [ 128, %1062 ], [ 129, %1063 ], [ 130, %1064 ], [ 131, %1065 ], [ 132, %1066 ], [ 133, %1067 ], [ 134, %1068 ], [ 135, %1069 ], [ 136, %1070 ], [ 137, %1071 ], [ 138, %1072 ], [ 139, %1073 ], [ 140, %1074 ], [ 141, %1075 ], [ 142, %1076 ], [ 143, %1077 ], [ 144, %1078 ], [ 145, %1079 ], [ 146, %1080 ], [ 147, %1081 ], [ 148, %1082 ], [ 149, %1083 ], [ 150, %1084 ], [ 151, %1085 ], [ 152, %1086 ], [ 153, %1087 ], [ 155, %1088 ], [ 156, %1089 ], [ 157, %1090 ], [ 158, %1091 ], [ 159, %1092 ], [ 160, %1093 ], [ 161, %1094 ], [ 163, %1095 ], [ 164, %1096 ], [ 167, %1097 ], [ 168, %1098 ], [ 169, %1099 ], [ 170, %1100 ], [ 171, %1101 ], [ 172, %1102 ], [ 173, %1103 ], [ 174, %1104 ], [ 177, %1105 ], [ 181, %1106 ], [ 182, %1107 ], [ 183, %1108 ], [ 184, %1109 ], [ 185, %1110 ], [ 186, %1111 ], [ 188, %1112 ], [ 189, %1113 ], [ 190, %1114 ], [ 191, %1115 ], [ 192, %1116 ], [ 193, %1117 ], [ 195, %1118 ], [ 196, %1119 ], [ 199, %1120 ], [ 200, %1121 ], [ 201, %1122 ], [ 202, %1123 ], [ 203, %1124 ], [ 204, %1125 ], [ 205, %1126 ], [ 206, %1127 ], [ 209, %1128 ], [ 213, %1129 ], [ 214, %1130 ], [ 215, %1131 ], [ 216, %1132 ], [ 217, %1133 ], [ 218, %1134 ], [ 219, %1135 ], [ 220, %1136 ], [ 221, %1137 ], [ 222, %1138 ], [ 223, %1139 ], [ 224, %1140 ], [ 225, %1141 ], [ 227, %1142 ], [ 228, %1143 ], [ 229, %1144 ], [ 230, %1145 ], [ 231, %1146 ], [ 232, %1147 ], [ 233, %1148 ], [ 234, %1149 ], [ 235, %1150 ], [ 236, %1151 ], [ 237, %1152 ], [ 239, %1153 ], [ 240, %1154 ], [ 241, %1155 ], [ 242, %1156 ], [ 243, %1157 ], [ 244, %1158 ], [ 245, %1159 ], [ 246, %1160 ], [ 247, %1161 ], [ 248, %1162 ], [ 249, %1163 ], [ 250, %1164 ], [ 251, %1165 ], [ 252, %1166 ], [ 253, %1167 ], [ 254, %1168 ], [ 255, %1169 ], [ 256, %1170 ], [ 257, %1171 ], [ 258, %1172 ], [ 259, %1173 ], [ 260, %1174 ], [ 261, %1175 ], [ 262, %1176 ], [ 263, %1177 ], [ 264, %1178 ], [ 265, %1179 ], [ 266, %1180 ], [ 267, %1181 ], [ 268, %1182 ], [ 269, %1183 ], [ 270, %1184 ], [ 271, %1185 ], [ 272, %1186 ], [ 273, %1187 ], [ 274, %1188 ], [ 275, %1189 ], [ 0, %.invoke1111 ], [ 1, %.invoke1112 ], [ 2, %.invoke1113 ], [ 3, %.invoke1114 ], [ 4, %.invoke1115 ], [ 5, %.invoke1116 ], [ 6, %.invoke1117 ], [ 7, %.invoke1118 ], [ 8, %.invoke1119 ], [ 9, %.invoke1120 ], [ 10, %.invoke1121 ], [ 11, %.invoke1122 ], [ 12, %.invoke1123 ], [ 13, %.invoke1124 ], [ 14, %.invoke1125 ], [ 15, %.invoke1126 ], [ 16, %.invoke1127 ], [ 17, %.invoke1128 ], [ 18, %.invoke1129 ], [ 19, %.invoke1130 ], [ 20, %.invoke1131 ], [ 21, %.invoke1132 ], [ 22, %.invoke1133 ], [ 23, %.invoke1134 ], [ 24, %.invoke1135 ], [ 25, %.invoke1136 ], [ 26, %.invoke1137 ], [ 27, %.invoke1138 ], [ 28, %.invoke1139 ], [ 29, %.invoke1140 ], [ 30, %.invoke1141 ], [ 31, %.invoke1142 ], [ 32, %.invoke1143 ], [ 33, %.invoke1144 ], [ 34, %.invoke1145 ], [ 35, %.invoke1146 ], [ 36, %.invoke1147 ], [ 37, %.invoke1148 ], [ 38, %.invoke1149 ], [ 39, %.invoke1150 ], [ 40, %.invoke1151 ], [ 41, %.invoke1152 ], [ 42, %.invoke1153 ], [ 43, %.invoke1154 ], [ 44, %.invoke1155 ], [ 45, %.invoke1156 ], [ 46, %.invoke1157 ], [ 47, %.invoke1158 ], [ 48, %.invoke1159 ], [ 49, %.invoke1160 ], [ 50, %.invoke1161 ], [ 51, %.invoke1162 ], [ 52, %.invoke1163 ], [ 53, %.invoke1164 ], [ 54, %.invoke1165 ], [ 55, %.invoke1166 ], [ 56, %.invoke1167 ], [ 57, %.invoke1168 ], [ 58, %.invoke1169 ], [ 59, %.invoke1170 ], [ 60, %.invoke1171 ], [ 61, %.invoke1172 ], [ 62, %.invoke1173 ], [ 63, %.invoke1174 ], [ 64, %.invoke1175 ], [ 65, %.invoke1176 ], [ 66, %.invoke1177 ], [ 67, %.invoke1178 ], [ 68, %.invoke1179 ], [ 69, %.invoke1180 ], [ 70, %.invoke1181 ], [ 71, %.invoke1182 ], [ 72, %.invoke1183 ], [ 73, %.invoke1184 ], [ 74, %.invoke1185 ], [ 75, %.invoke1186 ], [ 76, %.invoke1187 ], [ 77, %.invoke1188 ], [ 78, %.invoke1189 ]
+.sink.split:                                      ; preds = %.invoke1190, %.invoke1189, %.invoke1188, %.invoke1187, %.invoke1186, %.invoke1185, %.invoke1184, %.invoke1183, %.invoke1182, %.invoke1181, %.invoke1180, %.invoke1179, %.invoke1178, %.invoke1177, %.invoke1176, %.invoke1175, %.invoke1174, %.invoke1173, %.invoke1172, %.invoke1171, %.invoke1170, %.invoke1169, %.invoke1168, %.invoke1167, %.invoke1166, %.invoke1165, %.invoke1164, %.invoke1163, %.invoke1162, %.invoke1161, %.invoke1160, %.invoke1159, %.invoke1158, %.invoke1157, %.invoke1156, %.invoke1155, %.invoke1154, %.invoke1153, %.invoke1152, %.invoke1151, %.invoke1150, %.invoke1149, %.invoke1148, %.invoke1147, %.invoke1146, %.invoke1145, %.invoke1144, %.invoke1143, %.invoke1142, %.invoke1141, %.invoke1140, %.invoke1139, %.invoke1138, %.invoke1137, %.invoke1136, %.invoke1135, %.invoke1134, %.invoke1133, %.invoke1132, %.invoke1131, %.invoke1130, %.invoke1129, %.invoke1128, %.invoke1127, %.invoke1126, %.invoke1125, %.invoke1124, %.invoke1123, %.invoke1122, %.invoke1121, %.invoke1120, %.invoke1119, %.invoke1118, %.invoke1117, %.invoke1116, %.invoke1115, %.invoke1114, %.invoke1113, %.invoke1112, %1189, %1188, %1187, %1186, %1185, %1184, %1183, %1182, %1181, %1180, %1179, %1178, %1177, %1176, %1175, %1174, %1173, %1172, %1171, %1170, %1169, %1168, %1167, %1166, %1165, %1164, %1163, %1162, %1161, %1160, %1159, %1158, %1157, %1156, %1155, %1154, %1153, %1152, %1151, %1150, %1149, %1148, %1147, %1146, %1145, %1144, %1143, %1142, %1141, %1140, %1139, %1138, %1137, %1136, %1135, %1134, %1133, %1132, %1131, %1130, %1129, %1128, %1127, %1126, %1125, %1124, %1123, %1122, %1121, %1120, %1119, %1118, %1117, %1116, %1115, %1114, %1113, %1112, %1111, %1110, %1109, %1108, %1107, %1106, %1105, %1104, %1103, %1102, %1101, %1100, %1099, %1098, %1097, %1096, %1095, %1094, %1093, %1092, %1091, %1090, %1089, %1088, %1087, %1086, %1085, %1084, %1083, %1082, %1081, %1080, %1079, %1078, %1077, %1076, %1075, %1074, %1073, %1072, %1071, %1070, %1069, %1068, %1067, %1066, %1065, %1064, %1063, %1062, %1061, %1060, %1059, %1058, %1057, %1056, %1055, %1054, %1053, %1052, %1051, %1050, %1049, %1048, %1047, %1046, %1045, %1044, %1043, %1042, %1041, %1040, %1039, %1038, %1037, %1036, %1035, %1034, %1033, %1032, %1031, %1030, %1029, %1028, %1027, %1026, %1025, %1024, %1023, %1022, %1021, %1020, %1019, %1018, %1017, %1016, %1015, %1014, %1013
+  %.sink = phi i32 [ 79, %1013 ], [ 80, %1014 ], [ 81, %1015 ], [ 82, %1016 ], [ 83, %1017 ], [ 84, %1018 ], [ 85, %1019 ], [ 86, %1020 ], [ 87, %1021 ], [ 88, %1022 ], [ 89, %1023 ], [ 90, %1024 ], [ 91, %1025 ], [ 92, %1026 ], [ 93, %1027 ], [ 94, %1028 ], [ 95, %1029 ], [ 96, %1030 ], [ 97, %1031 ], [ 98, %1032 ], [ 99, %1033 ], [ 100, %1034 ], [ 101, %1035 ], [ 102, %1036 ], [ 103, %1037 ], [ 104, %1038 ], [ 105, %1039 ], [ 106, %1040 ], [ 107, %1041 ], [ 108, %1042 ], [ 109, %1043 ], [ 110, %1044 ], [ 111, %1045 ], [ 112, %1046 ], [ 113, %1047 ], [ 114, %1048 ], [ 115, %1049 ], [ 116, %1050 ], [ 117, %1051 ], [ 118, %1052 ], [ 119, %1053 ], [ 120, %1054 ], [ 121, %1055 ], [ 122, %1056 ], [ 123, %1057 ], [ 124, %1058 ], [ 125, %1059 ], [ 126, %1060 ], [ 127, %1061 ], [ 128, %1062 ], [ 129, %1063 ], [ 130, %1064 ], [ 131, %1065 ], [ 132, %1066 ], [ 133, %1067 ], [ 134, %1068 ], [ 135, %1069 ], [ 136, %1070 ], [ 137, %1071 ], [ 138, %1072 ], [ 139, %1073 ], [ 140, %1074 ], [ 141, %1075 ], [ 142, %1076 ], [ 143, %1077 ], [ 144, %1078 ], [ 145, %1079 ], [ 146, %1080 ], [ 147, %1081 ], [ 148, %1082 ], [ 149, %1083 ], [ 150, %1084 ], [ 151, %1085 ], [ 152, %1086 ], [ 153, %1087 ], [ 155, %1088 ], [ 156, %1089 ], [ 157, %1090 ], [ 158, %1091 ], [ 159, %1092 ], [ 160, %1093 ], [ 161, %1094 ], [ 163, %1095 ], [ 164, %1096 ], [ 167, %1097 ], [ 168, %1098 ], [ 169, %1099 ], [ 170, %1100 ], [ 171, %1101 ], [ 172, %1102 ], [ 173, %1103 ], [ 174, %1104 ], [ 177, %1105 ], [ 181, %1106 ], [ 182, %1107 ], [ 183, %1108 ], [ 184, %1109 ], [ 185, %1110 ], [ 186, %1111 ], [ 188, %1112 ], [ 189, %1113 ], [ 190, %1114 ], [ 191, %1115 ], [ 192, %1116 ], [ 193, %1117 ], [ 195, %1118 ], [ 196, %1119 ], [ 199, %1120 ], [ 200, %1121 ], [ 201, %1122 ], [ 202, %1123 ], [ 203, %1124 ], [ 204, %1125 ], [ 205, %1126 ], [ 206, %1127 ], [ 209, %1128 ], [ 213, %1129 ], [ 214, %1130 ], [ 215, %1131 ], [ 216, %1132 ], [ 217, %1133 ], [ 218, %1134 ], [ 219, %1135 ], [ 220, %1136 ], [ 221, %1137 ], [ 222, %1138 ], [ 223, %1139 ], [ 224, %1140 ], [ 225, %1141 ], [ 227, %1142 ], [ 228, %1143 ], [ 229, %1144 ], [ 230, %1145 ], [ 231, %1146 ], [ 232, %1147 ], [ 233, %1148 ], [ 234, %1149 ], [ 235, %1150 ], [ 236, %1151 ], [ 237, %1152 ], [ 239, %1153 ], [ 240, %1154 ], [ 241, %1155 ], [ 242, %1156 ], [ 243, %1157 ], [ 244, %1158 ], [ 245, %1159 ], [ 246, %1160 ], [ 247, %1161 ], [ 248, %1162 ], [ 249, %1163 ], [ 250, %1164 ], [ 251, %1165 ], [ 252, %1166 ], [ 253, %1167 ], [ 254, %1168 ], [ 255, %1169 ], [ 256, %1170 ], [ 257, %1171 ], [ 258, %1172 ], [ 259, %1173 ], [ 260, %1174 ], [ 261, %1175 ], [ 262, %1176 ], [ 263, %1177 ], [ 264, %1178 ], [ 265, %1179 ], [ 266, %1180 ], [ 267, %1181 ], [ 268, %1182 ], [ 269, %1183 ], [ 270, %1184 ], [ 271, %1185 ], [ 272, %1186 ], [ 273, %1187 ], [ 274, %1188 ], [ 275, %1189 ], [ 0, %.invoke1112 ], [ 1, %.invoke1113 ], [ 2, %.invoke1114 ], [ 3, %.invoke1115 ], [ 4, %.invoke1116 ], [ 5, %.invoke1117 ], [ 6, %.invoke1118 ], [ 7, %.invoke1119 ], [ 8, %.invoke1120 ], [ 9, %.invoke1121 ], [ 10, %.invoke1122 ], [ 11, %.invoke1123 ], [ 12, %.invoke1124 ], [ 13, %.invoke1125 ], [ 14, %.invoke1126 ], [ 15, %.invoke1127 ], [ 16, %.invoke1128 ], [ 17, %.invoke1129 ], [ 18, %.invoke1130 ], [ 19, %.invoke1131 ], [ 20, %.invoke1132 ], [ 21, %.invoke1133 ], [ 22, %.invoke1134 ], [ 23, %.invoke1135 ], [ 24, %.invoke1136 ], [ 25, %.invoke1137 ], [ 26, %.invoke1138 ], [ 27, %.invoke1139 ], [ 28, %.invoke1140 ], [ 29, %.invoke1141 ], [ 30, %.invoke1142 ], [ 31, %.invoke1143 ], [ 32, %.invoke1144 ], [ 33, %.invoke1145 ], [ 34, %.invoke1146 ], [ 35, %.invoke1147 ], [ 36, %.invoke1148 ], [ 37, %.invoke1149 ], [ 38, %.invoke1150 ], [ 39, %.invoke1151 ], [ 40, %.invoke1152 ], [ 41, %.invoke1153 ], [ 42, %.invoke1154 ], [ 43, %.invoke1155 ], [ 44, %.invoke1156 ], [ 45, %.invoke1157 ], [ 46, %.invoke1158 ], [ 47, %.invoke1159 ], [ 48, %.invoke1160 ], [ 49, %.invoke1161 ], [ 50, %.invoke1162 ], [ 51, %.invoke1163 ], [ 52, %.invoke1164 ], [ 53, %.invoke1165 ], [ 54, %.invoke1166 ], [ 55, %.invoke1167 ], [ 56, %.invoke1168 ], [ 57, %.invoke1169 ], [ 58, %.invoke1170 ], [ 59, %.invoke1171 ], [ 60, %.invoke1172 ], [ 61, %.invoke1173 ], [ 62, %.invoke1174 ], [ 63, %.invoke1175 ], [ 64, %.invoke1176 ], [ 65, %.invoke1177 ], [ 66, %.invoke1178 ], [ 67, %.invoke1179 ], [ 68, %.invoke1180 ], [ 69, %.invoke1181 ], [ 70, %.invoke1182 ], [ 71, %.invoke1183 ], [ 72, %.invoke1184 ], [ 73, %.invoke1185 ], [ 74, %.invoke1186 ], [ 75, %.invoke1187 ], [ 76, %.invoke1188 ], [ 77, %.invoke1189 ], [ 78, %.invoke1190 ]
   call void @_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.sink, ptr noundef nonnull align 8 dereferenceable(24) %3) #17
   br label %1258
 
@@ -5323,9 +5322,10 @@ define void @_ZNK8WasmEdge6Loader10Serializer20serializeInstructionERKNS_3AST11I
   %1295 = trunc i8 %1294 to i1
   %1296 = load i32, ptr %2, align 16
   %1297 = zext i32 %1296 to i64
-  %1298 = select i1 %1295, i64 %1297, i64 0
-  %1299 = getelementptr inbounds nuw %"struct.WasmEdge::AST::Instruction::JumpDescriptor", ptr %1293, i64 %1298
-  %.not10341102 = icmp eq i64 %1298, 0
+  %1298 = shl nuw nsw i64 %1297, 4
+  %.idx1107 = select i1 %1295, i64 %1298, i64 0
+  %1299 = getelementptr inbounds nuw i8, ptr %1293, i64 %.idx1107
+  %.not10341102 = icmp samesign eq i64 %.idx1107, 0
   br i1 %.not10341102, label %._crit_edge1106, label %.lr.ph1105
 
 .lr.ph1105:                                       ; preds = %1285
@@ -5398,10 +5398,10 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEE.exit: ; preds
 1327:                                             ; preds = %1323
   %1328 = load ptr, ptr %1, align 8
   %1329 = call noundef zeroext i1 @_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE(ptr noundef nonnull align 8 dereferenceable(160) %1328, i8 noundef zeroext 5) #17
-  br i1 %1329, label %._crit_edge1108, label %1330
+  br i1 %1329, label %._crit_edge1109, label %1330
 
-._crit_edge1108:                                  ; preds = %1327
-  %.pre1109 = load i32, ptr %1325, align 4
+._crit_edge1109:                                  ; preds = %1327
+  %.pre1110 = load i32, ptr %1325, align 4
   br label %1333
 
 1330:                                             ; preds = %1327
@@ -5413,8 +5413,8 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEE.exit: ; preds
   store i32 %1332, ptr %1331, align 4
   br label %1466
 
-1333:                                             ; preds = %._crit_edge1108, %1323
-  %1334 = phi i32 [ %.pre1109, %._crit_edge1108 ], [ 0, %1323 ]
+1333:                                             ; preds = %._crit_edge1109, %1323
+  %1334 = phi i32 [ %.pre1110, %._crit_edge1109 ], [ 0, %1323 ]
   call void @_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %1334, ptr noundef nonnull align 8 dereferenceable(24) %3) #17
   store i64 1, ptr %0, align 4
   br label %1466
@@ -5458,7 +5458,8 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEE.exit: ; preds
   %1350 = load ptr, ptr %1348, align 8
   %1351 = load i32, ptr %2, align 16
   %1352 = zext i32 %1351 to i64
-  %1353 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %1350, i64 %1352
+  %.idx = shl nuw nsw i64 %1352, 3
+  %1353 = getelementptr inbounds nuw i8, ptr %1350, i64 %.idx
   %.not1100 = icmp eq i32 %1351, 0
   br i1 %.not1100, label %._crit_edge, label %.lr.ph
 
@@ -5517,7 +5518,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEE.exit: ; preds
   %1373 = load ptr, ptr %1, align 8
   %1374 = call noundef zeroext i1 @_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE(ptr noundef nonnull align 8 dereferenceable(160) %1373, i8 noundef zeroext 11) #17
   %1375 = load i32, ptr %2, align 16
-  br i1 %1374, label %1376, label %.invoke1110
+  br i1 %1374, label %1376, label %.invoke1111
 
 1376:                                             ; preds = %1372
   call void @_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %1375, ptr noundef nonnull align 8 dereferenceable(24) %3) #17
@@ -5557,7 +5558,7 @@ _ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEE.exit: ; preds
 
 1392:                                             ; preds = %1385
   %1393 = load i32, ptr %2, align 16
-  br label %.invoke1110
+  br label %.invoke1111
 
 1394:                                             ; preds = %1258
   %1395 = load i32, ptr %2, align 16
@@ -5740,9 +5741,9 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit:          ; preds = %_ZNSt6vectorIhSaIhE
 
 1461:                                             ; preds = %1258
   %1462 = load i32, ptr %2, align 16
-  br label %.invoke1110
+  br label %.invoke1111
 
-.invoke1110:                                      ; preds = %1372, %1392, %1461
+.invoke1111:                                      ; preds = %1372, %1392, %1461
   %1463 = phi i32 [ %1462, %1461 ], [ %1393, %1392 ], [ %1375, %1372 ]
   invoke fastcc void @"_ZZNK8WasmEdge6Loader10Serializer20serializeInstructionERKNS_3AST11InstructionERSt6vectorIhSaIhEEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %3, i32 noundef %1463)
           to label %1466 unwind label %.loopexit.split-lp
@@ -5754,7 +5755,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit:          ; preds = %_ZNSt6vectorIhSaIhE
 1465:                                             ; preds = %1258
   unreachable
 
-1466:                                             ; preds = %.invoke1110, %1464, %1460, %1459, %1458, %1454, %1418, %1411, %1407, %1406, %1403, %1400, %1398, %1396, %1394, %1388, %1381, %1376, %1369, %1367, %1362, %._crit_edge, %1358, %1346, %1344, %1343, %1342, %1338, %1333, %1330, %1321, %._crit_edge1106, %1283, %1282, %1275, %1268, %1260, %601
+1466:                                             ; preds = %.invoke1111, %1464, %1460, %1459, %1458, %1454, %1418, %1411, %1407, %1406, %1403, %1400, %1398, %1396, %1394, %1388, %1381, %1376, %1369, %1367, %1362, %._crit_edge, %1358, %1346, %1344, %1343, %1342, %1338, %1333, %1330, %1321, %._crit_edge1106, %1283, %1282, %1275, %1268, %1260, %601
   ret void
 
 .loopexit:                                        ; preds = %1443
@@ -5762,7 +5763,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit:          ; preds = %_ZNSt6vectorIhSaIhE
           catch ptr null
   br label %1467
 
-.loopexit.split-lp:                               ; preds = %.invoke1189, %.invoke1188, %.invoke1187, %.invoke1186, %.invoke1185, %.invoke1184, %.invoke1183, %.invoke1182, %.invoke1181, %.invoke1180, %.invoke1179, %.invoke1178, %.invoke1177, %.invoke1176, %.invoke1175, %.invoke1174, %.invoke1173, %.invoke1172, %.invoke1171, %.invoke1170, %.invoke1169, %.invoke1168, %.invoke1167, %.invoke1166, %.invoke1165, %.invoke1164, %.invoke1163, %.invoke1162, %.invoke1161, %.invoke1160, %.invoke1159, %.invoke1158, %.invoke1157, %.invoke1156, %.invoke1155, %.invoke1154, %.invoke1153, %.invoke1152, %.invoke1151, %.invoke1150, %.invoke1149, %.invoke1148, %.invoke1147, %.invoke1146, %.invoke1145, %.invoke1144, %.invoke1143, %.invoke1142, %.invoke1141, %.invoke1140, %.invoke1139, %.invoke1138, %.invoke1137, %.invoke1136, %.invoke1135, %.invoke1134, %.invoke1133, %.invoke1132, %.invoke1131, %.invoke1130, %.invoke1129, %.invoke1128, %.invoke1127, %.invoke1126, %.invoke1125, %.invoke1124, %.invoke1123, %.invoke1122, %.invoke1121, %.invoke1120, %.invoke1119, %.invoke1118, %.invoke1117, %.invoke1116, %.invoke1115, %.invoke1114, %.invoke1113, %.invoke1112, %.invoke1111, %.invoke1110, %.invoke, %1013, %1014, %1015, %1016, %1017, %1018, %1019, %1020, %1021, %1022, %1023, %1024, %1025, %1026, %1027, %1028, %1029, %1030, %1031, %1032, %1033, %1034, %1035, %1036, %1037, %1038, %1039, %1040, %1041, %1042, %1043, %1044, %1045, %1046, %1047, %1048, %1049, %1050, %1051, %1052, %1053, %1054, %1055, %1056, %1057, %1058, %1059, %1060, %1061, %1062, %1063, %1064, %1065, %1066, %1067, %1068, %1069, %1070, %1071, %1072, %1073, %1074, %1075, %1076, %1077, %1078, %1079, %1080, %1081, %1082, %1083, %1084, %1085, %1086, %1087, %1088, %1089, %1090, %1091, %1092, %1093, %1094, %1095, %1096, %1097, %1098, %1099, %1100, %1101, %1102, %1103, %1104, %1105, %1106, %1107, %1108, %1109, %1110, %1111, %1112, %1113, %1114, %1115, %1116, %1117, %1118, %1119, %1120, %1121, %1122, %1123, %1124, %1125, %1126, %1127, %1128, %1129, %1130, %1131, %1132, %1133, %1134, %1135, %1136, %1137, %1138, %1139, %1140, %1141, %1142, %1143, %1144, %1145, %1146, %1147, %1148, %1149, %1150, %1151, %1152, %1153, %1154, %1155, %1156, %1157, %1158, %1159, %1160, %1161, %1162, %1163, %1164, %1165, %1166, %1167, %1168, %1169, %1170, %1171, %1172, %1173, %1174, %1175, %1176, %1177, %1178, %1179, %1180, %1181, %1182, %1183, %1184, %1185, %1186, %1187, %1188, %1189, %1264, %1415, %1455, %1384, %1438
+.loopexit.split-lp:                               ; preds = %.invoke1190, %.invoke1189, %.invoke1188, %.invoke1187, %.invoke1186, %.invoke1185, %.invoke1184, %.invoke1183, %.invoke1182, %.invoke1181, %.invoke1180, %.invoke1179, %.invoke1178, %.invoke1177, %.invoke1176, %.invoke1175, %.invoke1174, %.invoke1173, %.invoke1172, %.invoke1171, %.invoke1170, %.invoke1169, %.invoke1168, %.invoke1167, %.invoke1166, %.invoke1165, %.invoke1164, %.invoke1163, %.invoke1162, %.invoke1161, %.invoke1160, %.invoke1159, %.invoke1158, %.invoke1157, %.invoke1156, %.invoke1155, %.invoke1154, %.invoke1153, %.invoke1152, %.invoke1151, %.invoke1150, %.invoke1149, %.invoke1148, %.invoke1147, %.invoke1146, %.invoke1145, %.invoke1144, %.invoke1143, %.invoke1142, %.invoke1141, %.invoke1140, %.invoke1139, %.invoke1138, %.invoke1137, %.invoke1136, %.invoke1135, %.invoke1134, %.invoke1133, %.invoke1132, %.invoke1131, %.invoke1130, %.invoke1129, %.invoke1128, %.invoke1127, %.invoke1126, %.invoke1125, %.invoke1124, %.invoke1123, %.invoke1122, %.invoke1121, %.invoke1120, %.invoke1119, %.invoke1118, %.invoke1117, %.invoke1116, %.invoke1115, %.invoke1114, %.invoke1113, %.invoke1112, %.invoke1111, %.invoke, %1013, %1014, %1015, %1016, %1017, %1018, %1019, %1020, %1021, %1022, %1023, %1024, %1025, %1026, %1027, %1028, %1029, %1030, %1031, %1032, %1033, %1034, %1035, %1036, %1037, %1038, %1039, %1040, %1041, %1042, %1043, %1044, %1045, %1046, %1047, %1048, %1049, %1050, %1051, %1052, %1053, %1054, %1055, %1056, %1057, %1058, %1059, %1060, %1061, %1062, %1063, %1064, %1065, %1066, %1067, %1068, %1069, %1070, %1071, %1072, %1073, %1074, %1075, %1076, %1077, %1078, %1079, %1080, %1081, %1082, %1083, %1084, %1085, %1086, %1087, %1088, %1089, %1090, %1091, %1092, %1093, %1094, %1095, %1096, %1097, %1098, %1099, %1100, %1101, %1102, %1103, %1104, %1105, %1106, %1107, %1108, %1109, %1110, %1111, %1112, %1113, %1114, %1115, %1116, %1117, %1118, %1119, %1120, %1121, %1122, %1123, %1124, %1125, %1126, %1127, %1128, %1129, %1130, %1131, %1132, %1133, %1134, %1135, %1136, %1137, %1138, %1139, %1140, %1141, %1142, %1143, %1144, %1145, %1146, %1147, %1148, %1149, %1150, %1151, %1152, %1153, %1154, %1155, %1156, %1157, %1158, %1159, %1160, %1161, %1162, %1163, %1164, %1165, %1166, %1167, %1168, %1169, %1170, %1171, %1172, %1173, %1174, %1175, %1176, %1177, %1178, %1179, %1180, %1181, %1182, %1183, %1184, %1185, %1186, %1187, %1188, %1189, %1264, %1415, %1455, %1384, %1438
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
   br label %1467

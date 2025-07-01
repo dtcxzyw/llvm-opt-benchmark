@@ -764,7 +764,7 @@ define hidden void @_ZN5zxing9Binarizer13getBlockArrayEi(ptr dead_on_unwind noal
 
 .noexc.i:                                         ; preds = %3
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #14
-          to label %.noexc unwind label %23
+          to label %.noexc unwind label %24
 
 .noexc:                                           ; preds = %.noexc.i
   unreachable
@@ -777,7 +777,7 @@ _ZNSt6vectorIN5zxing15BINARIZER_BLOCKESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.
 .noexc3.i:                                        ; preds = %_ZNSt6vectorIN5zxing15BINARIZER_BLOCKESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
   %9 = shl nuw nsw i64 %7, 4
   %10 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #13
-          to label %.noexc11 unwind label %23
+          to label %.noexc11 unwind label %24
 
 .noexc11:                                         ; preds = %.noexc3.i
   store ptr %10, ptr %6, align 8, !tbaa !31
@@ -785,45 +785,46 @@ _ZNSt6vectorIN5zxing15BINARIZER_BLOCKESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %11, ptr %12, align 8, !tbaa !34
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %10, i8 0, i64 %9, i1 false)
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc11, %_ZNSt6vectorIN5zxing15BINARIZER_BLOCKESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
-  %13 = phi ptr [ null, %_ZNSt6vectorIN5zxing15BINARIZER_BLOCKESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %10, %.noexc11 ]
-  %.0.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN5zxing15BINARIZER_BLOCKESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %11, %.noexc11 ]
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %.0.i.i.i.i.i.i.i.i, ptr %14, align 8, !tbaa !35
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %15, align 8, !tbaa !3
+  %14 = phi ptr [ null, %_ZNSt6vectorIN5zxing15BINARIZER_BLOCKESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %10, %.noexc11 ]
+  %.0.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN5zxing15BINARIZER_BLOCKESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %13, %.noexc11 ]
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %.0.i.i.i.i.i.i.i.i, ptr %15, align 8, !tbaa !35
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %16, align 8, !tbaa !3
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefINS_15BINARIZER_BLOCKEEE, i64 16), ptr %0, align 8, !tbaa !8
   store i32 1, ptr %5, align 8, !tbaa !3
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %16, align 8, !tbaa !36
-  %17 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i to i64
-  %18 = ptrtoint ptr %13 to i64
-  %19 = sub i64 %17, %18
-  %20 = lshr exact i64 %19, 4
-  %21 = trunc i64 %20 to i32
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph.preheader, label %._crit_edge
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %4, ptr %17, align 8, !tbaa !36
+  %18 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i to i64
+  %19 = ptrtoint ptr %14 to i64
+  %20 = sub i64 %18, %19
+  %21 = lshr exact i64 %20, 4
+  %22 = trunc i64 %21 to i32
+  %23 = icmp sgt i32 %22, 0
+  br i1 %23, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.loopexit
-  %wide.trip.count = and i64 %20, 2147483647
+  %wide.trip.count = and i64 %21, 2147483647
   br label %.lr.ph
 
-23:                                               ; preds = %.noexc3.i, %.noexc.i
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %.noexc3.i, %.noexc.i
+  %25 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %4) #12
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %25
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = getelementptr inbounds nuw %"struct.zxing::BINARIZER_BLOCK", ptr %13, i64 %indvars.iv
-  store i32 0, ptr %25, align 4, !tbaa !39
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  store i32 255, ptr %26, align 4, !tbaa !41
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i32 0, ptr %27, align 4, !tbaa !42
+  %26 = getelementptr inbounds nuw %"struct.zxing::BINARIZER_BLOCK", ptr %14, i64 %indvars.iv
+  store i32 0, ptr %26, align 4, !tbaa !39
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  store i32 255, ptr %27, align 4, !tbaa !41
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store i32 0, ptr %28, align 4, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43

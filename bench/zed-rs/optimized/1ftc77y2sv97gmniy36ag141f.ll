@@ -18304,7 +18304,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h2e92809743ac6e47E.exit: ; preds = %3
           to label %.thread103.i unwind label %280, !noalias !2949
 
 174:                                              ; preds = %150
-  %175 = getelementptr inbounds { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %.sroa.7.3.i, i64 %.sroa.9.0.i
+  %.idx.i = mul nsw i64 %.sroa.9.0.i, 40
+  %175 = getelementptr inbounds i8, ptr %.sroa.7.3.i, i64 %.idx.i
   %176 = icmp ne ptr %.sroa.7.3.i, null
   call void @llvm.assume(i1 %176)
   %.not164.i = icmp eq i64 %.sroa.9.0.i, 0
@@ -21048,7 +21049,8 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %.sroa.456.0.copyload.i = load ptr, ptr %.sroa.456.0..sroa_idx.i, align 8, !alias.scope !3492, !noalias !3499, !nonnull !5, !noundef !5
   %.sroa.557.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 40
   %.sroa.557.0.copyload.i = load i64, ptr %.sroa.557.0..sroa_idx.i, align 8, !alias.scope !3492, !noalias !3499
-  %86 = getelementptr inbounds i64, ptr %.sroa.456.0.copyload.i, i64 %.sroa.557.0.copyload.i
+  %.idx.i = shl nsw i64 %.sroa.557.0.copyload.i, 3
+  %86 = getelementptr inbounds i8, ptr %.sroa.456.0.copyload.i, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !3497
   store ptr %.sroa.456.0.copyload.i, ptr %10, align 8, !noalias !3497
   %.sroa.452.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8

@@ -1078,7 +1078,8 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
   %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %src.coerce0, i64 %src.coerce1
+  %add.ptr.i.i.i.idx = shl nsw i64 %src.coerce1, 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %src.coerce0, i64 %add.ptr.i.i.i.idx
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, i64 noundef %src.coerce1) #18
   store i32 0, ptr %sign, align 4

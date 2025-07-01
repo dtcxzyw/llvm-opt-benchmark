@@ -1709,7 +1709,8 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i64 0, -1) i64 @_ZN14regex_automata3nfa8thompson3map14Utf8BoundedMap4hash17hf6040ef2120f02d1E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 4 captures(address) %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds { i32, i8, i8, [2 x i8] }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 3
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -2963,7 +2964,8 @@ define hidden noalias noundef nonnull ptr @_ZN14regex_automata3nfa8thompson3nfa5
   %63 = load ptr, ptr %62, align 8, !nonnull !5, !noundef !5
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %65 = load i64, ptr %64, align 8, !noundef !5
-  %66 = getelementptr inbounds i32, ptr %63, i64 %65
+  %.idx137 = shl nsw i64 %65, 2
+  %66 = getelementptr inbounds i8, ptr %63, i64 %.idx137
   %.not = icmp eq i64 %65, 0
   br i1 %.not, label %._crit_edge135, label %.lr.ph134
 
@@ -3457,7 +3459,8 @@ _ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.ex
   %30 = load ptr, ptr %29, align 8, !nonnull !5, !align !36, !noundef !5
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i64, ptr %31, align 8, !noundef !5
-  %33 = getelementptr inbounds { i32, i8, i8, [2 x i8] }, ptr %30, i64 %32
+  %.idx = shl nsw i64 %32, 3
+  %33 = getelementptr inbounds i8, ptr %30, i64 %.idx
   %34 = icmp eq i64 %32, 0
   br i1 %34, label %.loopexit, label %.lr.ph
 
@@ -3891,7 +3894,8 @@ define hidden void @_ZN14regex_automata3nfa8thompson3nfa5Inner5remap17h2fa9e9322
   %.val = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val15 = load i64, ptr %5, align 8, !noundef !5
-  %6 = getelementptr inbounds { i32, [5 x i32] }, ptr %.val, i64 %.val15
+  %.idx = mul nsw i64 %.val15, 24
+  %6 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %7 = icmp eq i64 %.val15, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -3935,7 +3939,8 @@ default.unreachable:                              ; preds = %.lr.ph
   %21 = load ptr, ptr %20, align 8, !alias.scope !443, !noalias !446, !nonnull !5, !align !36, !noundef !5
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.037, i64 16
   %23 = load i64, ptr %22, align 8, !alias.scope !443, !noalias !446, !noundef !5
-  %24 = getelementptr inbounds { i32, i8, i8, [2 x i8] }, ptr %21, i64 %23
+  %.idx59.i = shl nsw i64 %23, 3
+  %24 = getelementptr inbounds i8, ptr %21, i64 %.idx59.i
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %_ZN14regex_automata3nfa8thompson3nfa5State5remap17h10850b185fbec710E.exit, label %.lr.ph57.i
 
@@ -3944,7 +3949,8 @@ default.unreachable:                              ; preds = %.lr.ph
   %28 = load ptr, ptr %27, align 8, !alias.scope !443, !noalias !446, !nonnull !5, !align !36, !noundef !5
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.037, i64 16
   %30 = load i64, ptr %29, align 8, !alias.scope !443, !noalias !446, !noundef !5
-  %31 = getelementptr inbounds i32, ptr %28, i64 %30
+  %.idx58.i = shl nsw i64 %30, 2
+  %31 = getelementptr inbounds i8, ptr %28, i64 %.idx58.i
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %_ZN14regex_automata3nfa8thompson3nfa5State5remap17h10850b185fbec710E.exit, label %.lr.ph55.i
 
@@ -3960,7 +3966,8 @@ default.unreachable:                              ; preds = %.lr.ph
   %40 = load ptr, ptr %39, align 8, !alias.scope !443, !noalias !446, !nonnull !5, !align !36, !noundef !5
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.037, i64 16
   %42 = load i64, ptr %41, align 8, !alias.scope !443, !noalias !446, !noundef !5
-  %43 = getelementptr inbounds i32, ptr %40, i64 %42
+  %.idx.i = shl nsw i64 %42, 2
+  %43 = getelementptr inbounds i8, ptr %40, i64 %.idx.i
   %44 = icmp eq i64 %42, 0
   br i1 %44, label %_ZN14regex_automata3nfa8thompson3nfa5State5remap17h10850b185fbec710E.exit, label %.lr.ph.i
 
@@ -4115,7 +4122,8 @@ _ZN14regex_automata3nfa8thompson3nfa5State5remap17h10850b185fbec710E.exit: ; pre
   %119 = load ptr, ptr %118, align 8, !nonnull !5, !noundef !5
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %121 = load i64, ptr %120, align 8, !noundef !5
-  %122 = getelementptr inbounds i32, ptr %119, i64 %121
+  %.idx42 = shl nsw i64 %121, 2
+  %122 = getelementptr inbounds i8, ptr %119, i64 %.idx42
   %123 = icmp eq i64 %121, 0
   br i1 %123, label %._crit_edge41, label %.lr.ph40
 
@@ -4186,7 +4194,8 @@ define noundef zeroext i1 @"_ZN78_$LT$regex_automata..nfa..thompson..nfa..Inner$
   %29 = load ptr, ptr %28, align 8, !nonnull !5, !noundef !5
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load i64, ptr %30, align 8, !noundef !5
-  %32 = getelementptr inbounds { i32, [5 x i32] }, ptr %29, i64 %31
+  %.idx = mul nsw i64 %31, 24
+  %32 = getelementptr inbounds i8, ptr %29, i64 %.idx
   %33 = icmp ult i64 %31, 2147483648
   br i1 %33, label %"_ZN14regex_automata4util10primitives24WithStateIDIter$LT$I$GT$3new17hcf8fef1a038b4fb2E.exit.preheader", label %51
 
@@ -6255,7 +6264,8 @@ _ZN14regex_automata4util11determinize5state19StateBuilderMatches13set_look_have1
 154:                                              ; preds = %142
   %155 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val = load ptr, ptr %155, align 8, !nonnull !5, !noundef !5
-  %156 = getelementptr inbounds i32, ptr %.val, i64 %143
+  %.idx = shl nsw i64 %143, 2
+  %156 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %157 = icmp eq i64 %143, 0
   br i1 %157, label %.thread315, label %.lr.ph
 
@@ -7001,7 +7011,8 @@ define hidden void @_ZN14regex_automata4util11determinize14add_nfa_states17h8e4b
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4ef7705dc82cbba5E.exit": ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds i32, ptr %.val, i64 %8
+  %.idx = shl nsw i64 %8, 2
+  %13 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %14 = icmp eq i64 %8, 0
   br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h60368f8169c1fa01E.exit.thread", label %.lr.ph
 

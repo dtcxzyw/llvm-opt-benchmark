@@ -38310,7 +38310,7 @@ define linkonce_odr void @_ZNSt6vectorIN6duckdb10shared_ptrINS0_8PipelineELb1EEE
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %.not = icmp ult i64 %16, %8
-  br i1 %.not, label %174, label %17
+  br i1 %.not, label %173, label %17
 
 17:                                               ; preds = %5
   %18 = ptrtoint ptr %1 to i64
@@ -38320,232 +38320,232 @@ define linkonce_odr void @_ZNSt6vectorIN6duckdb10shared_ptrINS0_8PipelineELb1EEE
   br i1 %21, label %22, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit
 
 22:                                               ; preds = %17
-  %23 = sub nsw i64 0, %9
-  %24 = getelementptr inbounds %"class.duckdb::shared_ptr", ptr %13, i64 %23
+  %.idx = sub i64 0, %8
+  %23 = getelementptr inbounds i8, ptr %13, i64 %.idx
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %22, %.lr.ph.i.i.i.i.i
-  %.013.i.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i.i ], [ %13, %22 ]
-  %.sroa.08.012.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i ], [ %24, %22 ]
-  %25 = load ptr, ptr %.sroa.08.012.i.i.i.i.i, align 8, !tbaa !56
-  store ptr %25, ptr %.013.i.i.i.i.i, align 8, !tbaa !56
-  %26 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
+  %.013.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i ], [ %13, %22 ]
+  %.sroa.08.012.i.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i.i ], [ %23, %22 ]
+  %24 = load ptr, ptr %.sroa.08.012.i.i.i.i.i, align 8, !tbaa !56
+  store ptr %24, ptr %.013.i.i.i.i.i, align 8, !tbaa !56
+  %25 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
+  store ptr null, ptr %25, align 8, !tbaa !59
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !59
   store ptr null, ptr %26, align 8, !tbaa !59
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !59
-  store ptr null, ptr %27, align 8, !tbaa !59
-  store ptr %28, ptr %26, align 8, !tbaa !59
+  store ptr %27, ptr %25, align 8, !tbaa !59
   store ptr null, ptr %.sroa.08.012.i.i.i.i.i, align 8, !tbaa !56
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 16
-  %30 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %29, %13
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %28, %13
   br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !1376
 
 _ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %31 = getelementptr inbounds nuw i8, ptr %13, i64 %8
-  store ptr %31, ptr %12, align 8, !tbaa !127
-  %32 = ptrtoint ptr %24 to i64
-  %33 = sub i64 %32, %18
-  %34 = ashr exact i64 %33, 4
-  %35 = icmp sgt i64 %34, 0
-  br i1 %35, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_ET0_T_S6_S5_.exit
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 %8
+  store ptr %30, ptr %12, align 8, !tbaa !127
+  %31 = ptrtoint ptr %23 to i64
+  %32 = sub i64 %31, %18
+  %33 = ashr exact i64 %32, 4
+  %34 = icmp sgt i64 %33, 0
+  br i1 %34, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_ET0_T_S6_S5_.exit
 
 .lr.ph.i.i.i.i.i51:                               ; preds = %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSEOS2_.exit.i.i.i.i.i
-  %.010.i.i.i.i.i = phi i64 [ %64, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSEOS2_.exit.i.i.i.i.i ], [ %34, %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
-  %.069.i.i.i.i.i = phi ptr [ %37, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSEOS2_.exit.i.i.i.i.i ], [ %13, %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
-  %.078.i.i.i.i.i = phi ptr [ %36, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSEOS2_.exit.i.i.i.i.i ], [ %24, %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
-  %36 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
-  %37 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
-  %38 = load ptr, ptr %36, align 8, !tbaa !56
-  %39 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
-  %40 = load ptr, ptr %39, align 8, !tbaa !59
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
-  store ptr %38, ptr %37, align 8, !tbaa !147
-  %41 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
-  %42 = load ptr, ptr %41, align 8, !tbaa !59
-  store ptr %40, ptr %41, align 8, !tbaa !59
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSEOS2_.exit.i.i.i.i.i, label %43
+  %.010.i.i.i.i.i = phi i64 [ %63, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSEOS2_.exit.i.i.i.i.i ], [ %33, %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
+  %.069.i.i.i.i.i = phi ptr [ %36, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSEOS2_.exit.i.i.i.i.i ], [ %13, %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
+  %.078.i.i.i.i.i = phi ptr [ %35, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSEOS2_.exit.i.i.i.i.i ], [ %23, %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
+  %35 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
+  %36 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
+  %37 = load ptr, ptr %35, align 8, !tbaa !56
+  %38 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
+  %39 = load ptr, ptr %38, align 8, !tbaa !59
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
+  store ptr %37, ptr %36, align 8, !tbaa !147
+  %40 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
+  %41 = load ptr, ptr %40, align 8, !tbaa !59
+  store ptr %39, ptr %40, align 8, !tbaa !59
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %41, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSEOS2_.exit.i.i.i.i.i, label %42
 
-43:                                               ; preds = %.lr.ph.i.i.i.i.i51
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %45 = load atomic i64, ptr %44 acquire, align 8
-  %46 = icmp eq i64 %45, 4294967297
-  %47 = trunc i64 %45 to i32
-  br i1 %46, label %48, label %56
+42:                                               ; preds = %.lr.ph.i.i.i.i.i51
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %44 = load atomic i64, ptr %43 acquire, align 8
+  %45 = icmp eq i64 %44, 4294967297
+  %46 = trunc i64 %44 to i32
+  br i1 %45, label %47, label %55
 
-48:                                               ; preds = %43
-  store i32 0, ptr %44, align 8, !tbaa !124
-  %49 = getelementptr inbounds nuw i8, ptr %42, i64 12
-  store i32 0, ptr %49, align 4, !tbaa !126
-  %50 = load ptr, ptr %42, align 8, !tbaa !54
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %52 = load ptr, ptr %51, align 8
-  tail call void %52(ptr noundef nonnull align 8 dereferenceable(16) %42) #35
-  %53 = load ptr, ptr %42, align 8, !tbaa !54
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %55 = load ptr, ptr %54, align 8
-  tail call void %55(ptr noundef nonnull align 8 dereferenceable(16) %42) #35
+47:                                               ; preds = %42
+  store i32 0, ptr %43, align 8, !tbaa !124
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 12
+  store i32 0, ptr %48, align 4, !tbaa !126
+  %49 = load ptr, ptr %41, align 8, !tbaa !54
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8
+  tail call void %51(ptr noundef nonnull align 8 dereferenceable(16) %41) #35
+  %52 = load ptr, ptr %41, align 8, !tbaa !54
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %54 = load ptr, ptr %53, align 8
+  tail call void %54(ptr noundef nonnull align 8 dereferenceable(16) %41) #35
   br label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSEOS2_.exit.i.i.i.i.i
 
-56:                                               ; preds = %43
-  %57 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %57, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %60, label %58
+55:                                               ; preds = %42
+  %56 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %56, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %59, label %57
 
-58:                                               ; preds = %56
-  %59 = add nsw i32 %47, -1
-  store i32 %59, ptr %44, align 4, !tbaa !69
+57:                                               ; preds = %55
+  %58 = add nsw i32 %46, -1
+  store i32 %58, ptr %43, align 4, !tbaa !69
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
 
-60:                                               ; preds = %56
-  %61 = atomicrmw volatile add ptr %44, i32 -1 acq_rel, align 4
+59:                                               ; preds = %55
+  %60 = atomicrmw volatile add ptr %43, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %60, %58
-  %.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %47, %58 ], [ %61, %60 ]
-  %62 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %62, label %63, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSEOS2_.exit.i.i.i.i.i, !prof !60
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %59, %57
+  %.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %46, %57 ], [ %60, %59 ]
+  %61 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %61, label %62, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSEOS2_.exit.i.i.i.i.i, !prof !60
 
-63:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %42) #35
+62:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #35
   br label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSEOS2_.exit.i.i.i.i.i
 
-_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSEOS2_.exit.i.i.i.i.i: ; preds = %63, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %48, %.lr.ph.i.i.i.i.i51
-  %64 = add nsw i64 %.010.i.i.i.i.i, -1
-  %65 = icmp sgt i64 %.010.i.i.i.i.i, 1
-  br i1 %65, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_ET0_T_S6_S5_.exit, !llvm.loop !1377
+_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSEOS2_.exit.i.i.i.i.i: ; preds = %62, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %47, %.lr.ph.i.i.i.i.i51
+  %63 = add nsw i64 %.010.i.i.i.i.i, -1
+  %64 = icmp sgt i64 %.010.i.i.i.i.i, 1
+  br i1 %64, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_ET0_T_S6_S5_.exit, !llvm.loop !1377
 
 _ZSt13move_backwardIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_ET0_T_S6_S5_.exit: ; preds = %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSEOS2_.exit.i.i.i.i.i, %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %66 = icmp sgt i64 %9, 0
-  br i1 %66, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
+  %65 = icmp sgt i64 %9, 0
+  br i1 %65, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
 .lr.ph.i.i.i.i.i52:                               ; preds = %_ZSt13move_backwardIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_ET0_T_S6_S5_.exit, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i
-  %.012.i.i.i.i.i = phi i64 [ %105, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i ], [ %9, %_ZSt13move_backwardIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_ET0_T_S6_S5_.exit ]
-  %.0811.i.i.i.i.i = phi ptr [ %104, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i ], [ %1, %_ZSt13move_backwardIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_ET0_T_S6_S5_.exit ]
-  %.0910.i.i.i.i.i = phi ptr [ %103, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i ], [ %2, %_ZSt13move_backwardIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_ET0_T_S6_S5_.exit ]
-  %67 = icmp eq ptr %.0811.i.i.i.i.i, %.0910.i.i.i.i.i
-  br i1 %67, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i, label %68
+  %.012.i.i.i.i.i = phi i64 [ %104, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i ], [ %9, %_ZSt13move_backwardIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_ET0_T_S6_S5_.exit ]
+  %.0811.i.i.i.i.i = phi ptr [ %103, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i ], [ %1, %_ZSt13move_backwardIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_ET0_T_S6_S5_.exit ]
+  %.0910.i.i.i.i.i = phi ptr [ %102, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i ], [ %2, %_ZSt13move_backwardIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_ET0_T_S6_S5_.exit ]
+  %66 = icmp eq ptr %.0811.i.i.i.i.i, %.0910.i.i.i.i.i
+  br i1 %66, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i, label %67
 
-68:                                               ; preds = %.lr.ph.i.i.i.i.i52
-  %69 = load ptr, ptr %.0910.i.i.i.i.i, align 8, !tbaa !56
-  %70 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !59
-  %.not.i.i.i.i.i.i.i.i.i.i53 = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i53, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i, label %72
+67:                                               ; preds = %.lr.ph.i.i.i.i.i52
+  %68 = load ptr, ptr %.0910.i.i.i.i.i, align 8, !tbaa !56
+  %69 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !59
+  %.not.i.i.i.i.i.i.i.i.i.i53 = icmp eq ptr %70, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i53, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i, label %71
 
-72:                                               ; preds = %68
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %74 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %74, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %78, label %75
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %73 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %73, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %77, label %74
 
-75:                                               ; preds = %72
-  %76 = load i32, ptr %73, align 4, !tbaa !69
-  %77 = add nsw i32 %76, 1
-  store i32 %77, ptr %73, align 4, !tbaa !69
+74:                                               ; preds = %71
+  %75 = load i32, ptr %72, align 4, !tbaa !69
+  %76 = add nsw i32 %75, 1
+  store i32 %76, ptr %72, align 4, !tbaa !69
   br label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i
 
-78:                                               ; preds = %72
-  %79 = atomicrmw volatile add ptr %73, i32 1 acq_rel, align 4
+77:                                               ; preds = %71
+  %78 = atomicrmw volatile add ptr %72, i32 1 acq_rel, align 4
   br label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i
 
-_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i: ; preds = %78, %75, %68
-  store ptr %69, ptr %.0811.i.i.i.i.i, align 8, !tbaa !147
-  %80 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
-  %81 = load ptr, ptr %80, align 8, !tbaa !59
-  store ptr %71, ptr %80, align 8, !tbaa !59
-  %.not.i.i.i.i.i.i.i.i.i54 = icmp eq ptr %81, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i54, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i, label %82
+_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i: ; preds = %77, %74, %67
+  store ptr %68, ptr %.0811.i.i.i.i.i, align 8, !tbaa !147
+  %79 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
+  %80 = load ptr, ptr %79, align 8, !tbaa !59
+  store ptr %70, ptr %79, align 8, !tbaa !59
+  %.not.i.i.i.i.i.i.i.i.i54 = icmp eq ptr %80, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i54, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i, label %81
 
-82:                                               ; preds = %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %84 = load atomic i64, ptr %83 acquire, align 8
-  %85 = icmp eq i64 %84, 4294967297
-  %86 = trunc i64 %84 to i32
-  br i1 %85, label %87, label %95
+81:                                               ; preds = %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %83 = load atomic i64, ptr %82 acquire, align 8
+  %84 = icmp eq i64 %83, 4294967297
+  %85 = trunc i64 %83 to i32
+  br i1 %84, label %86, label %94
 
-87:                                               ; preds = %82
-  store i32 0, ptr %83, align 8, !tbaa !124
-  %88 = getelementptr inbounds nuw i8, ptr %81, i64 12
-  store i32 0, ptr %88, align 4, !tbaa !126
-  %89 = load ptr, ptr %81, align 8, !tbaa !54
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %91 = load ptr, ptr %90, align 8
-  tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %81) #35
-  %92 = load ptr, ptr %81, align 8, !tbaa !54
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  %94 = load ptr, ptr %93, align 8
-  tail call void %94(ptr noundef nonnull align 8 dereferenceable(16) %81) #35
+86:                                               ; preds = %81
+  store i32 0, ptr %82, align 8, !tbaa !124
+  %87 = getelementptr inbounds nuw i8, ptr %80, i64 12
+  store i32 0, ptr %87, align 4, !tbaa !126
+  %88 = load ptr, ptr %80, align 8, !tbaa !54
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %90 = load ptr, ptr %89, align 8
+  tail call void %90(ptr noundef nonnull align 8 dereferenceable(16) %80) #35
+  %91 = load ptr, ptr %80, align 8, !tbaa !54
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
+  %93 = load ptr, ptr %92, align 8
+  tail call void %93(ptr noundef nonnull align 8 dereferenceable(16) %80) #35
   br label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i
 
-95:                                               ; preds = %82
-  %96 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
-  %.not.i.i.i.i5.i.i.i.i.i.i = icmp eq i8 %96, 0
-  br i1 %.not.i.i.i.i5.i.i.i.i.i.i, label %99, label %97
+94:                                               ; preds = %81
+  %95 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
+  %.not.i.i.i.i5.i.i.i.i.i.i = icmp eq i8 %95, 0
+  br i1 %.not.i.i.i.i5.i.i.i.i.i.i, label %98, label %96
 
-97:                                               ; preds = %95
-  %98 = add nsw i32 %86, -1
-  store i32 %98, ptr %83, align 4, !tbaa !69
+96:                                               ; preds = %94
+  %97 = add nsw i32 %85, -1
+  store i32 %97, ptr %82, align 4, !tbaa !69
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i55
 
-99:                                               ; preds = %95
-  %100 = atomicrmw volatile add ptr %83, i32 -1 acq_rel, align 4
+98:                                               ; preds = %94
+  %99 = atomicrmw volatile add ptr %82, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i55
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i55: ; preds = %99, %97
-  %.0.i.i.i.i.i.i.i.i.i.i.i56 = phi i32 [ %86, %97 ], [ %100, %99 ]
-  %101 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i56, 1
-  br i1 %101, label %102, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i, !prof !60
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i55: ; preds = %98, %96
+  %.0.i.i.i.i.i.i.i.i.i.i.i56 = phi i32 [ %85, %96 ], [ %99, %98 ]
+  %100 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i56, 1
+  br i1 %100, label %101, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i, !prof !60
 
-102:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i55
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %81) #35
+101:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i55
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %80) #35
   br label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i
 
-_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i: ; preds = %102, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i55, %87, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i52
-  %103 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
-  %104 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
-  %105 = add nsw i64 %.012.i.i.i.i.i, -1
-  %106 = icmp sgt i64 %.012.i.i.i.i.i, 1
-  br i1 %106, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !1378
+_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i: ; preds = %101, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i55, %86, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i52
+  %102 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
+  %104 = add nsw i64 %.012.i.i.i.i.i, -1
+  %105 = icmp sgt i64 %.012.i.i.i.i.i, 1
+  br i1 %105, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !1378
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit: ; preds = %17
-  %107 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not11.i.i.i.i = icmp eq ptr %107, %3
+  %106 = getelementptr inbounds i8, ptr %2, i64 %19
+  %.not11.i.i.i.i = icmp eq ptr %106, %3
   br i1 %.not11.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i
-  %.013.i.i.i.i = phi ptr [ %121, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
-  %.sroa.08.012.i.i.i.i = phi ptr [ %120, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %107, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
-  %108 = load ptr, ptr %.sroa.08.012.i.i.i.i, align 8, !tbaa !56
-  store ptr %108, ptr %.013.i.i.i.i, align 8, !tbaa !56
-  %109 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 8
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i, i64 8
-  %111 = load ptr, ptr %110, align 8, !tbaa !59
-  store ptr %111, ptr %109, align 8, !tbaa !59
-  %.not.i.i.i.i.i.i.i.i.i57 = icmp eq ptr %111, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i57, label %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i, label %112
+  %.013.i.i.i.i = phi ptr [ %120, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
+  %.sroa.08.012.i.i.i.i = phi ptr [ %119, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %106, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
+  %107 = load ptr, ptr %.sroa.08.012.i.i.i.i, align 8, !tbaa !56
+  store ptr %107, ptr %.013.i.i.i.i, align 8, !tbaa !56
+  %108 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i, i64 8
+  %110 = load ptr, ptr %109, align 8, !tbaa !59
+  store ptr %110, ptr %108, align 8, !tbaa !59
+  %.not.i.i.i.i.i.i.i.i.i57 = icmp eq ptr %110, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i57, label %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i, label %111
 
-112:                                              ; preds = %.lr.ph.i.i.i.i
-  %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %114 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
-  %.not.i.i.i.i.i.i.i.i.i.i58 = icmp eq i8 %114, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i58, label %118, label %115
+111:                                              ; preds = %.lr.ph.i.i.i.i
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %113 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
+  %.not.i.i.i.i.i.i.i.i.i.i58 = icmp eq i8 %113, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i58, label %117, label %114
 
-115:                                              ; preds = %112
-  %116 = load i32, ptr %113, align 4, !tbaa !69
-  %117 = add nsw i32 %116, 1
-  store i32 %117, ptr %113, align 4, !tbaa !69
+114:                                              ; preds = %111
+  %115 = load i32, ptr %112, align 4, !tbaa !69
+  %116 = add nsw i32 %115, 1
+  store i32 %116, ptr %112, align 4, !tbaa !69
   br label %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i
 
-118:                                              ; preds = %112
-  %119 = atomicrmw volatile add ptr %113, i32 1 acq_rel, align 4
+117:                                              ; preds = %111
+  %118 = atomicrmw volatile add ptr %112, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i
 
-_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %118, %115, %.lr.ph.i.i.i.i
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i, i64 16
-  %121 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %120, %3
+_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %117, %114, %.lr.ph.i.i.i.i
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %119, %3
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !1379
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit: ; preds = %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i
@@ -38553,230 +38553,230 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_pt
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit
-  %122 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
+  %121 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
   %.not11.i.i.i.i.i59 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i59, label %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit65, label %.lr.ph.i.i.i.i.i60.preheader
 
 .lr.ph.i.i.i.i.i60.preheader:                     ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit
-  %123 = sub nuw nsw i64 %9, %20
-  %124 = getelementptr inbounds nuw %"class.duckdb::shared_ptr", ptr %122, i64 %123
+  %122 = sub nuw nsw i64 %9, %20
+  %123 = getelementptr inbounds nuw %"class.duckdb::shared_ptr", ptr %121, i64 %122
   br label %.lr.ph.i.i.i.i.i60
 
 .lr.ph.i.i.i.i.i60:                               ; preds = %.lr.ph.i.i.i.i.i60.preheader, %.lr.ph.i.i.i.i.i60
-  %.013.i.i.i.i.i61 = phi ptr [ %130, %.lr.ph.i.i.i.i.i60 ], [ %124, %.lr.ph.i.i.i.i.i60.preheader ]
-  %.sroa.08.012.i.i.i.i.i62 = phi ptr [ %129, %.lr.ph.i.i.i.i.i60 ], [ %1, %.lr.ph.i.i.i.i.i60.preheader ]
-  %125 = load ptr, ptr %.sroa.08.012.i.i.i.i.i62, align 8, !tbaa !56
-  store ptr %125, ptr %.013.i.i.i.i.i61, align 8, !tbaa !56
-  %126 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i61, i64 8
+  %.013.i.i.i.i.i61 = phi ptr [ %129, %.lr.ph.i.i.i.i.i60 ], [ %123, %.lr.ph.i.i.i.i.i60.preheader ]
+  %.sroa.08.012.i.i.i.i.i62 = phi ptr [ %128, %.lr.ph.i.i.i.i.i60 ], [ %1, %.lr.ph.i.i.i.i.i60.preheader ]
+  %124 = load ptr, ptr %.sroa.08.012.i.i.i.i.i62, align 8, !tbaa !56
+  store ptr %124, ptr %.013.i.i.i.i.i61, align 8, !tbaa !56
+  %125 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i61, i64 8
+  store ptr null, ptr %125, align 8, !tbaa !59
+  %126 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i62, i64 8
+  %127 = load ptr, ptr %126, align 8, !tbaa !59
   store ptr null, ptr %126, align 8, !tbaa !59
-  %127 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i62, i64 8
-  %128 = load ptr, ptr %127, align 8, !tbaa !59
-  store ptr null, ptr %127, align 8, !tbaa !59
-  store ptr %128, ptr %126, align 8, !tbaa !59
+  store ptr %127, ptr %125, align 8, !tbaa !59
   store ptr null, ptr %.sroa.08.012.i.i.i.i.i62, align 8, !tbaa !56
-  %129 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i62, i64 16
-  %130 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i61, i64 16
-  %.not.i.i.i.i.i63 = icmp eq ptr %129, %13
+  %128 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i62, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i61, i64 16
+  %.not.i.i.i.i.i63 = icmp eq ptr %128, %13
   br i1 %.not.i.i.i.i.i63, label %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit65, label %.lr.ph.i.i.i.i.i60, !llvm.loop !1376
 
 _ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit65: ; preds = %.lr.ph.i.i.i.i.i60, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit
-  %131 = getelementptr inbounds nuw i8, ptr %122, i64 %8
-  store ptr %131, ptr %12, align 8, !tbaa !127
-  %132 = ashr exact i64 %19, 4
-  %133 = icmp sgt i64 %132, 0
-  br i1 %133, label %.lr.ph.i.i.i.i.i67, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
+  %130 = getelementptr inbounds nuw i8, ptr %121, i64 %8
+  store ptr %130, ptr %12, align 8, !tbaa !127
+  %131 = ashr exact i64 %19, 4
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %.lr.ph.i.i.i.i.i67, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
 .lr.ph.i.i.i.i.i67:                               ; preds = %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit65, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i78
-  %.012.i.i.i.i.i68 = phi i64 [ %172, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i78 ], [ %132, %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit65 ]
-  %.0811.i.i.i.i.i69 = phi ptr [ %171, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i78 ], [ %1, %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit65 ]
-  %.0910.i.i.i.i.i70 = phi ptr [ %170, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i78 ], [ %2, %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit65 ]
-  %134 = icmp eq ptr %.0811.i.i.i.i.i69, %.0910.i.i.i.i.i70
-  br i1 %134, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i78, label %135
+  %.012.i.i.i.i.i68 = phi i64 [ %171, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i78 ], [ %131, %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit65 ]
+  %.0811.i.i.i.i.i69 = phi ptr [ %170, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i78 ], [ %1, %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit65 ]
+  %.0910.i.i.i.i.i70 = phi ptr [ %169, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i78 ], [ %2, %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit65 ]
+  %133 = icmp eq ptr %.0811.i.i.i.i.i69, %.0910.i.i.i.i.i70
+  br i1 %133, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i78, label %134
 
-135:                                              ; preds = %.lr.ph.i.i.i.i.i67
-  %136 = load ptr, ptr %.0910.i.i.i.i.i70, align 8, !tbaa !56
-  %137 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i70, i64 8
-  %138 = load ptr, ptr %137, align 8, !tbaa !59
-  %.not.i.i.i.i.i.i.i.i.i.i71 = icmp eq ptr %138, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i71, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i73, label %139
+134:                                              ; preds = %.lr.ph.i.i.i.i.i67
+  %135 = load ptr, ptr %.0910.i.i.i.i.i70, align 8, !tbaa !56
+  %136 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i70, i64 8
+  %137 = load ptr, ptr %136, align 8, !tbaa !59
+  %.not.i.i.i.i.i.i.i.i.i.i71 = icmp eq ptr %137, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i71, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i73, label %138
 
-139:                                              ; preds = %135
-  %140 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  %141 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
-  %.not.i.i.i.i.i.i.i.i.i.i.i72 = icmp eq i8 %141, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i72, label %145, label %142
+138:                                              ; preds = %134
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  %140 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
+  %.not.i.i.i.i.i.i.i.i.i.i.i72 = icmp eq i8 %140, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i72, label %144, label %141
 
-142:                                              ; preds = %139
-  %143 = load i32, ptr %140, align 4, !tbaa !69
-  %144 = add nsw i32 %143, 1
-  store i32 %144, ptr %140, align 4, !tbaa !69
+141:                                              ; preds = %138
+  %142 = load i32, ptr %139, align 4, !tbaa !69
+  %143 = add nsw i32 %142, 1
+  store i32 %143, ptr %139, align 4, !tbaa !69
   br label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i73
 
-145:                                              ; preds = %139
-  %146 = atomicrmw volatile add ptr %140, i32 1 acq_rel, align 4
+144:                                              ; preds = %138
+  %145 = atomicrmw volatile add ptr %139, i32 1 acq_rel, align 4
   br label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i73
 
-_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i73: ; preds = %145, %142, %135
-  store ptr %136, ptr %.0811.i.i.i.i.i69, align 8, !tbaa !147
-  %147 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i69, i64 8
-  %148 = load ptr, ptr %147, align 8, !tbaa !59
-  store ptr %138, ptr %147, align 8, !tbaa !59
-  %.not.i.i.i.i.i.i.i.i.i74 = icmp eq ptr %148, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i74, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i78, label %149
+_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i73: ; preds = %144, %141, %134
+  store ptr %135, ptr %.0811.i.i.i.i.i69, align 8, !tbaa !147
+  %146 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i69, i64 8
+  %147 = load ptr, ptr %146, align 8, !tbaa !59
+  store ptr %137, ptr %146, align 8, !tbaa !59
+  %.not.i.i.i.i.i.i.i.i.i74 = icmp eq ptr %147, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i74, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i78, label %148
 
-149:                                              ; preds = %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i73
-  %150 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %151 = load atomic i64, ptr %150 acquire, align 8
-  %152 = icmp eq i64 %151, 4294967297
-  %153 = trunc i64 %151 to i32
-  br i1 %152, label %154, label %162
+148:                                              ; preds = %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i73
+  %149 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  %150 = load atomic i64, ptr %149 acquire, align 8
+  %151 = icmp eq i64 %150, 4294967297
+  %152 = trunc i64 %150 to i32
+  br i1 %151, label %153, label %161
 
-154:                                              ; preds = %149
-  store i32 0, ptr %150, align 8, !tbaa !124
-  %155 = getelementptr inbounds nuw i8, ptr %148, i64 12
-  store i32 0, ptr %155, align 4, !tbaa !126
-  %156 = load ptr, ptr %148, align 8, !tbaa !54
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
-  %158 = load ptr, ptr %157, align 8
-  tail call void %158(ptr noundef nonnull align 8 dereferenceable(16) %148) #35
-  %159 = load ptr, ptr %148, align 8, !tbaa !54
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 24
-  %161 = load ptr, ptr %160, align 8
-  tail call void %161(ptr noundef nonnull align 8 dereferenceable(16) %148) #35
+153:                                              ; preds = %148
+  store i32 0, ptr %149, align 8, !tbaa !124
+  %154 = getelementptr inbounds nuw i8, ptr %147, i64 12
+  store i32 0, ptr %154, align 4, !tbaa !126
+  %155 = load ptr, ptr %147, align 8, !tbaa !54
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
+  %157 = load ptr, ptr %156, align 8
+  tail call void %157(ptr noundef nonnull align 8 dereferenceable(16) %147) #35
+  %158 = load ptr, ptr %147, align 8, !tbaa !54
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
+  %160 = load ptr, ptr %159, align 8
+  tail call void %160(ptr noundef nonnull align 8 dereferenceable(16) %147) #35
   br label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i78
 
-162:                                              ; preds = %149
-  %163 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
-  %.not.i.i.i.i5.i.i.i.i.i.i75 = icmp eq i8 %163, 0
-  br i1 %.not.i.i.i.i5.i.i.i.i.i.i75, label %166, label %164
+161:                                              ; preds = %148
+  %162 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
+  %.not.i.i.i.i5.i.i.i.i.i.i75 = icmp eq i8 %162, 0
+  br i1 %.not.i.i.i.i5.i.i.i.i.i.i75, label %165, label %163
 
-164:                                              ; preds = %162
-  %165 = add nsw i32 %153, -1
-  store i32 %165, ptr %150, align 4, !tbaa !69
+163:                                              ; preds = %161
+  %164 = add nsw i32 %152, -1
+  store i32 %164, ptr %149, align 4, !tbaa !69
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i76
 
-166:                                              ; preds = %162
-  %167 = atomicrmw volatile add ptr %150, i32 -1 acq_rel, align 4
+165:                                              ; preds = %161
+  %166 = atomicrmw volatile add ptr %149, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i76
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i76: ; preds = %166, %164
-  %.0.i.i.i.i.i.i.i.i.i.i.i77 = phi i32 [ %153, %164 ], [ %167, %166 ]
-  %168 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i77, 1
-  br i1 %168, label %169, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i78, !prof !60
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i76: ; preds = %165, %163
+  %.0.i.i.i.i.i.i.i.i.i.i.i77 = phi i32 [ %152, %163 ], [ %166, %165 ]
+  %167 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i77, 1
+  br i1 %167, label %168, label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i78, !prof !60
 
-169:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i76
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %148) #35
+168:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i76
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %147) #35
   br label %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i78
 
-_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i78: ; preds = %169, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i76, %154, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i73, %.lr.ph.i.i.i.i.i67
-  %170 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i70, i64 16
-  %171 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i69, i64 16
-  %172 = add nsw i64 %.012.i.i.i.i.i68, -1
-  %173 = icmp sgt i64 %.012.i.i.i.i.i68, 1
-  br i1 %173, label %.lr.ph.i.i.i.i.i67, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !1378
+_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i78: ; preds = %168, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i76, %153, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEC2ERKS2_.exit.i.i.i.i.i.i73, %.lr.ph.i.i.i.i.i67
+  %169 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i70, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i69, i64 16
+  %171 = add nsw i64 %.012.i.i.i.i.i68, -1
+  %172 = icmp sgt i64 %.012.i.i.i.i.i68, 1
+  br i1 %172, label %.lr.ph.i.i.i.i.i67, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !1378
 
-174:                                              ; preds = %5
-  %175 = load ptr, ptr %0, align 8, !tbaa !144
-  %176 = ptrtoint ptr %175 to i64
-  %177 = sub i64 %15, %176
-  %178 = ashr exact i64 %177, 4
-  %179 = sub nsw i64 576460752303423487, %178
-  %180 = icmp ult i64 %179, %9
-  br i1 %180, label %181, label %_ZNKSt6vectorIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE12_M_check_lenEmPKc.exit
+173:                                              ; preds = %5
+  %174 = load ptr, ptr %0, align 8, !tbaa !144
+  %175 = ptrtoint ptr %174 to i64
+  %176 = sub i64 %15, %175
+  %177 = ashr exact i64 %176, 4
+  %178 = sub nsw i64 576460752303423487, %177
+  %179 = icmp ult i64 %178, %9
+  br i1 %179, label %180, label %_ZNKSt6vectorIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE12_M_check_lenEmPKc.exit
 
-181:                                              ; preds = %174
+180:                                              ; preds = %173
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.40) #36
   unreachable
 
-_ZNKSt6vectorIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %174
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %178, i64 %9)
-  %182 = add nsw i64 %.sroa.speculated.i, %178
-  %183 = icmp ult i64 %182, %178
-  %184 = tail call i64 @llvm.umin.i64(i64 %182, i64 576460752303423487)
-  %185 = select i1 %183, i64 576460752303423487, i64 %184
-  %.not.i = icmp eq i64 %185, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE11_M_allocateEm.exit, label %186
+_ZNKSt6vectorIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %173
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %177, i64 %9)
+  %181 = add nsw i64 %.sroa.speculated.i, %177
+  %182 = icmp ult i64 %181, %177
+  %183 = tail call i64 @llvm.umin.i64(i64 %181, i64 576460752303423487)
+  %184 = select i1 %182, i64 576460752303423487, i64 %183
+  %.not.i = icmp eq i64 %184, 0
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE11_M_allocateEm.exit, label %185
 
-186:                                              ; preds = %_ZNKSt6vectorIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE12_M_check_lenEmPKc.exit
-  %187 = shl nuw nsw i64 %185, 4
-  %188 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %187) #38
+185:                                              ; preds = %_ZNKSt6vectorIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE12_M_check_lenEmPKc.exit
+  %186 = shl nuw nsw i64 %184, 4
+  %187 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %186) #38
   br label %_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE12_M_check_lenEmPKc.exit, %186
-  %189 = phi ptr [ %188, %186 ], [ null, %_ZNKSt6vectorIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE12_M_check_lenEmPKc.exit ]
-  %.not13.i.i.i.i.i = icmp eq ptr %175, %1
+_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE12_M_check_lenEmPKc.exit, %185
+  %188 = phi ptr [ %187, %185 ], [ null, %_ZNKSt6vectorIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE12_M_check_lenEmPKc.exit ]
+  %.not13.i.i.i.i.i = icmp eq ptr %174, %1
   br i1 %.not13.i.i.i.i.i, label %.lr.ph.i.i.i.i86.preheader, label %.lr.ph.i.i.i.i.i80
 
 .lr.ph.i.i.i.i.i80:                               ; preds = %_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE11_M_allocateEm.exit, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %.015.i.i.i.i.i = phi ptr [ %203, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %189, %_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE11_M_allocateEm.exit ]
-  %.01214.i.i.i.i.i = phi ptr [ %202, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %175, %_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE11_M_allocateEm.exit ]
-  %190 = load ptr, ptr %.01214.i.i.i.i.i, align 8, !tbaa !56
-  store ptr %190, ptr %.015.i.i.i.i.i, align 8, !tbaa !56
-  %191 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 8
-  %192 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 8
-  %193 = load ptr, ptr %192, align 8, !tbaa !59
-  store ptr %193, ptr %191, align 8, !tbaa !59
-  %.not.i.i.i.i.i.i.i.i.i.i81 = icmp eq ptr %193, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i81, label %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, label %194
+  %.015.i.i.i.i.i = phi ptr [ %202, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %188, %_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE11_M_allocateEm.exit ]
+  %.01214.i.i.i.i.i = phi ptr [ %201, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %174, %_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE11_M_allocateEm.exit ]
+  %189 = load ptr, ptr %.01214.i.i.i.i.i, align 8, !tbaa !56
+  store ptr %189, ptr %.015.i.i.i.i.i, align 8, !tbaa !56
+  %190 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 8
+  %192 = load ptr, ptr %191, align 8, !tbaa !59
+  store ptr %192, ptr %190, align 8, !tbaa !59
+  %.not.i.i.i.i.i.i.i.i.i.i81 = icmp eq ptr %192, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i81, label %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, label %193
 
-194:                                              ; preds = %.lr.ph.i.i.i.i.i80
-  %195 = getelementptr inbounds nuw i8, ptr %193, i64 8
-  %196 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
-  %.not.i.i.i.i.i.i.i.i.i.i.i82 = icmp eq i8 %196, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i82, label %200, label %197
+193:                                              ; preds = %.lr.ph.i.i.i.i.i80
+  %194 = getelementptr inbounds nuw i8, ptr %192, i64 8
+  %195 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
+  %.not.i.i.i.i.i.i.i.i.i.i.i82 = icmp eq i8 %195, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i82, label %199, label %196
 
-197:                                              ; preds = %194
-  %198 = load i32, ptr %195, align 4, !tbaa !69
-  %199 = add nsw i32 %198, 1
-  store i32 %199, ptr %195, align 4, !tbaa !69
+196:                                              ; preds = %193
+  %197 = load i32, ptr %194, align 4, !tbaa !69
+  %198 = add nsw i32 %197, 1
+  store i32 %198, ptr %194, align 4, !tbaa !69
   br label %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-200:                                              ; preds = %194
-  %201 = atomicrmw volatile add ptr %195, i32 1 acq_rel, align 4
+199:                                              ; preds = %193
+  %200 = atomicrmw volatile add ptr %194, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %200, %197, %.lr.ph.i.i.i.i.i80
-  %202 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 16
-  %203 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i83 = icmp eq ptr %202, %1
+_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %199, %196, %.lr.ph.i.i.i.i.i80
+  %201 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i83 = icmp eq ptr %201, %1
   br i1 %.not.i.i.i.i.i83, label %.lr.ph.i.i.i.i86.preheader, label %.lr.ph.i.i.i.i.i80, !llvm.loop !1380
 
 .lr.ph.i.i.i.i86.preheader:                       ; preds = %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE11_M_allocateEm.exit
-  %.013.i.i.i.i87.ph = phi ptr [ %189, %_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE11_M_allocateEm.exit ], [ %203, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+  %.013.i.i.i.i87.ph = phi ptr [ %188, %_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE11_M_allocateEm.exit ], [ %202, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   br label %.lr.ph.i.i.i.i86
 
 .lr.ph.i.i.i.i86:                                 ; preds = %.lr.ph.i.i.i.i86.preheader, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i91
-  %.013.i.i.i.i87 = phi ptr [ %217, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i91 ], [ %.013.i.i.i.i87.ph, %.lr.ph.i.i.i.i86.preheader ]
-  %.sroa.08.012.i.i.i.i88 = phi ptr [ %216, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i91 ], [ %2, %.lr.ph.i.i.i.i86.preheader ]
-  %204 = load ptr, ptr %.sroa.08.012.i.i.i.i88, align 8, !tbaa !56
-  store ptr %204, ptr %.013.i.i.i.i87, align 8, !tbaa !56
-  %205 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i87, i64 8
-  %206 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i88, i64 8
-  %207 = load ptr, ptr %206, align 8, !tbaa !59
-  store ptr %207, ptr %205, align 8, !tbaa !59
-  %.not.i.i.i.i.i.i.i.i.i89 = icmp eq ptr %207, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i89, label %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i91, label %208
+  %.013.i.i.i.i87 = phi ptr [ %216, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i91 ], [ %.013.i.i.i.i87.ph, %.lr.ph.i.i.i.i86.preheader ]
+  %.sroa.08.012.i.i.i.i88 = phi ptr [ %215, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i91 ], [ %2, %.lr.ph.i.i.i.i86.preheader ]
+  %203 = load ptr, ptr %.sroa.08.012.i.i.i.i88, align 8, !tbaa !56
+  store ptr %203, ptr %.013.i.i.i.i87, align 8, !tbaa !56
+  %204 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i87, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i88, i64 8
+  %206 = load ptr, ptr %205, align 8, !tbaa !59
+  store ptr %206, ptr %204, align 8, !tbaa !59
+  %.not.i.i.i.i.i.i.i.i.i89 = icmp eq ptr %206, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i89, label %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i91, label %207
 
-208:                                              ; preds = %.lr.ph.i.i.i.i86
-  %209 = getelementptr inbounds nuw i8, ptr %207, i64 8
-  %210 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
-  %.not.i.i.i.i.i.i.i.i.i.i90 = icmp eq i8 %210, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i90, label %214, label %211
+207:                                              ; preds = %.lr.ph.i.i.i.i86
+  %208 = getelementptr inbounds nuw i8, ptr %206, i64 8
+  %209 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
+  %.not.i.i.i.i.i.i.i.i.i.i90 = icmp eq i8 %209, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i90, label %213, label %210
 
-211:                                              ; preds = %208
-  %212 = load i32, ptr %209, align 4, !tbaa !69
-  %213 = add nsw i32 %212, 1
-  store i32 %213, ptr %209, align 4, !tbaa !69
+210:                                              ; preds = %207
+  %211 = load i32, ptr %208, align 4, !tbaa !69
+  %212 = add nsw i32 %211, 1
+  store i32 %212, ptr %208, align 4, !tbaa !69
   br label %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i91
 
-214:                                              ; preds = %208
-  %215 = atomicrmw volatile add ptr %209, i32 1 acq_rel, align 4
+213:                                              ; preds = %207
+  %214 = atomicrmw volatile add ptr %208, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i91
 
-_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i91: ; preds = %214, %211, %.lr.ph.i.i.i.i86
-  %216 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i88, i64 16
-  %217 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i87, i64 16
-  %.not.i.i.i.i92 = icmp eq ptr %216, %3
+_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i91: ; preds = %213, %210, %.lr.ph.i.i.i.i86
+  %215 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i88, i64 16
+  %216 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i87, i64 16
+  %.not.i.i.i.i92 = icmp eq ptr %215, %3
   br i1 %.not.i.i.i.i92, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit94, label %.lr.ph.i.i.i.i86, !llvm.loop !1379
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit94: ; preds = %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i91
@@ -38784,113 +38784,113 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_pt
   br i1 %.not13.i.i.i.i.i95, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit104, label %.lr.ph.i.i.i.i.i96
 
 .lr.ph.i.i.i.i.i96:                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit94, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i101
-  %.015.i.i.i.i.i97 = phi ptr [ %231, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i101 ], [ %217, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit94 ]
-  %.01214.i.i.i.i.i98 = phi ptr [ %230, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i101 ], [ %1, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit94 ]
-  %218 = load ptr, ptr %.01214.i.i.i.i.i98, align 8, !tbaa !56
-  store ptr %218, ptr %.015.i.i.i.i.i97, align 8, !tbaa !56
-  %219 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i97, i64 8
-  %220 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i98, i64 8
-  %221 = load ptr, ptr %220, align 8, !tbaa !59
-  store ptr %221, ptr %219, align 8, !tbaa !59
-  %.not.i.i.i.i.i.i.i.i.i.i99 = icmp eq ptr %221, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i99, label %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i101, label %222
+  %.015.i.i.i.i.i97 = phi ptr [ %230, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i101 ], [ %216, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit94 ]
+  %.01214.i.i.i.i.i98 = phi ptr [ %229, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i101 ], [ %1, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit94 ]
+  %217 = load ptr, ptr %.01214.i.i.i.i.i98, align 8, !tbaa !56
+  store ptr %217, ptr %.015.i.i.i.i.i97, align 8, !tbaa !56
+  %218 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i97, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i98, i64 8
+  %220 = load ptr, ptr %219, align 8, !tbaa !59
+  store ptr %220, ptr %218, align 8, !tbaa !59
+  %.not.i.i.i.i.i.i.i.i.i.i99 = icmp eq ptr %220, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i99, label %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i101, label %221
 
-222:                                              ; preds = %.lr.ph.i.i.i.i.i96
-  %223 = getelementptr inbounds nuw i8, ptr %221, i64 8
-  %224 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
-  %.not.i.i.i.i.i.i.i.i.i.i.i100 = icmp eq i8 %224, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i100, label %228, label %225
+221:                                              ; preds = %.lr.ph.i.i.i.i.i96
+  %222 = getelementptr inbounds nuw i8, ptr %220, i64 8
+  %223 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
+  %.not.i.i.i.i.i.i.i.i.i.i.i100 = icmp eq i8 %223, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i100, label %227, label %224
 
-225:                                              ; preds = %222
-  %226 = load i32, ptr %223, align 4, !tbaa !69
-  %227 = add nsw i32 %226, 1
-  store i32 %227, ptr %223, align 4, !tbaa !69
+224:                                              ; preds = %221
+  %225 = load i32, ptr %222, align 4, !tbaa !69
+  %226 = add nsw i32 %225, 1
+  store i32 %226, ptr %222, align 4, !tbaa !69
   br label %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i101
 
-228:                                              ; preds = %222
-  %229 = atomicrmw volatile add ptr %223, i32 1 acq_rel, align 4
+227:                                              ; preds = %221
+  %228 = atomicrmw volatile add ptr %222, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i101
 
-_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i101: ; preds = %228, %225, %.lr.ph.i.i.i.i.i96
-  %230 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i98, i64 16
-  %231 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i97, i64 16
-  %.not.i.i.i.i.i102 = icmp eq ptr %230, %13
+_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i101: ; preds = %227, %224, %.lr.ph.i.i.i.i.i96
+  %229 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i98, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i97, i64 16
+  %.not.i.i.i.i.i102 = icmp eq ptr %229, %13
   br i1 %.not.i.i.i.i.i102, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit104, label %.lr.ph.i.i.i.i.i96, !llvm.loop !1380
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit104: ; preds = %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i101, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit94
-  %.0.lcssa.i.i.i.i.i103 = phi ptr [ %217, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit94 ], [ %231, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i101 ]
-  %.not4.i.i.i = icmp eq ptr %175, %13
+  %.0.lcssa.i.i.i.i.i103 = phi ptr [ %216, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit94 ], [ %230, %_ZSt10_ConstructIN6duckdb10shared_ptrINS0_8PipelineELb1EEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i101 ]
+  %.not4.i.i.i = icmp eq ptr %174, %13
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit104, %_ZSt8_DestroyIN6duckdb10shared_ptrINS0_8PipelineELb1EEEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %255, %_ZSt8_DestroyIN6duckdb10shared_ptrINS0_8PipelineELb1EEEEvPT_.exit.i.i.i ], [ %175, %_ZSt34__uninitialized_move_if_noexcept_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit104 ]
-  %232 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
-  %233 = load ptr, ptr %232, align 8, !tbaa !59
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %233, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6duckdb10shared_ptrINS0_8PipelineELb1EEEEvPT_.exit.i.i.i, label %234
+  %.05.i.i.i = phi ptr [ %254, %_ZSt8_DestroyIN6duckdb10shared_ptrINS0_8PipelineELb1EEEEvPT_.exit.i.i.i ], [ %174, %_ZSt34__uninitialized_move_if_noexcept_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit104 ]
+  %231 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
+  %232 = load ptr, ptr %231, align 8, !tbaa !59
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %232, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6duckdb10shared_ptrINS0_8PipelineELb1EEEEvPT_.exit.i.i.i, label %233
 
-234:                                              ; preds = %.lr.ph.i.i.i
-  %235 = getelementptr inbounds nuw i8, ptr %233, i64 8
-  %236 = load atomic i64, ptr %235 acquire, align 8
-  %237 = icmp eq i64 %236, 4294967297
-  %238 = trunc i64 %236 to i32
-  br i1 %237, label %239, label %247
+233:                                              ; preds = %.lr.ph.i.i.i
+  %234 = getelementptr inbounds nuw i8, ptr %232, i64 8
+  %235 = load atomic i64, ptr %234 acquire, align 8
+  %236 = icmp eq i64 %235, 4294967297
+  %237 = trunc i64 %235 to i32
+  br i1 %236, label %238, label %246
 
-239:                                              ; preds = %234
-  store i32 0, ptr %235, align 8, !tbaa !124
-  %240 = getelementptr inbounds nuw i8, ptr %233, i64 12
-  store i32 0, ptr %240, align 4, !tbaa !126
-  %241 = load ptr, ptr %233, align 8, !tbaa !54
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 16
-  %243 = load ptr, ptr %242, align 8
-  tail call void %243(ptr noundef nonnull align 8 dereferenceable(16) %233) #35
-  %244 = load ptr, ptr %233, align 8, !tbaa !54
-  %245 = getelementptr inbounds nuw i8, ptr %244, i64 24
-  %246 = load ptr, ptr %245, align 8
-  tail call void %246(ptr noundef nonnull align 8 dereferenceable(16) %233) #35
+238:                                              ; preds = %233
+  store i32 0, ptr %234, align 8, !tbaa !124
+  %239 = getelementptr inbounds nuw i8, ptr %232, i64 12
+  store i32 0, ptr %239, align 4, !tbaa !126
+  %240 = load ptr, ptr %232, align 8, !tbaa !54
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 16
+  %242 = load ptr, ptr %241, align 8
+  tail call void %242(ptr noundef nonnull align 8 dereferenceable(16) %232) #35
+  %243 = load ptr, ptr %232, align 8, !tbaa !54
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 24
+  %245 = load ptr, ptr %244, align 8
+  tail call void %245(ptr noundef nonnull align 8 dereferenceable(16) %232) #35
   br label %_ZSt8_DestroyIN6duckdb10shared_ptrINS0_8PipelineELb1EEEEvPT_.exit.i.i.i
 
-247:                                              ; preds = %234
-  %248 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %248, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %251, label %249
+246:                                              ; preds = %233
+  %247 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %247, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %250, label %248
 
-249:                                              ; preds = %247
-  %250 = add nsw i32 %238, -1
-  store i32 %250, ptr %235, align 4, !tbaa !69
+248:                                              ; preds = %246
+  %249 = add nsw i32 %237, -1
+  store i32 %249, ptr %234, align 4, !tbaa !69
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
-251:                                              ; preds = %247
-  %252 = atomicrmw volatile add ptr %235, i32 -1 acq_rel, align 4
+250:                                              ; preds = %246
+  %251 = atomicrmw volatile add ptr %234, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %251, %249
-  %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %238, %249 ], [ %252, %251 ]
-  %253 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %253, label %254, label %_ZSt8_DestroyIN6duckdb10shared_ptrINS0_8PipelineELb1EEEEvPT_.exit.i.i.i, !prof !60
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %250, %248
+  %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %237, %248 ], [ %251, %250 ]
+  %252 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
+  br i1 %252, label %253, label %_ZSt8_DestroyIN6duckdb10shared_ptrINS0_8PipelineELb1EEEEvPT_.exit.i.i.i, !prof !60
 
-254:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %233) #35
+253:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %232) #35
   br label %_ZSt8_DestroyIN6duckdb10shared_ptrINS0_8PipelineELb1EEEEvPT_.exit.i.i.i
 
-_ZSt8_DestroyIN6duckdb10shared_ptrINS0_8PipelineELb1EEEEvPT_.exit.i.i.i: ; preds = %254, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %239, %.lr.ph.i.i.i
-  %255 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
-  %.not.i.i.i = icmp eq ptr %255, %13
+_ZSt8_DestroyIN6duckdb10shared_ptrINS0_8PipelineELb1EEEEvPT_.exit.i.i.i: ; preds = %253, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %238, %.lr.ph.i.i.i
+  %254 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
+  %.not.i.i.i = icmp eq ptr %254, %13
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !145
 
 _ZSt8_DestroyIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES3_EvT_S5_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN6duckdb10shared_ptrINS0_8PipelineELb1EEEEvPT_.exit.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit104
-  %.not.i105 = icmp eq ptr %175, null
-  br i1 %.not.i105, label %_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE13_M_deallocateEPS3_m.exit, label %256
+  %.not.i105 = icmp eq ptr %174, null
+  br i1 %.not.i105, label %_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE13_M_deallocateEPS3_m.exit, label %255
 
-256:                                              ; preds = %_ZSt8_DestroyIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES3_EvT_S5_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %175) #37
+255:                                              ; preds = %_ZSt8_DestroyIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES3_EvT_S5_RSaIT0_E.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %174) #37
   br label %_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE13_M_deallocateEPS3_m.exit
 
-_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES3_EvT_S5_RSaIT0_E.exit, %256
-  store ptr %189, ptr %0, align 8, !tbaa !144
+_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES3_EvT_S5_RSaIT0_E.exit, %255
+  store ptr %188, ptr %0, align 8, !tbaa !144
   store ptr %.0.lcssa.i.i.i.i.i103, ptr %12, align 8, !tbaa !127
-  %257 = getelementptr inbounds nuw %"class.duckdb::shared_ptr", ptr %189, i64 %185
-  store ptr %257, ptr %10, align 8, !tbaa !128
+  %256 = getelementptr inbounds nuw %"class.duckdb::shared_ptr", ptr %188, i64 %184
+  store ptr %256, ptr %10, align 8, !tbaa !128
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6duckdb10shared_ptrINS2_8PipelineELb1EEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i78, %_ZN6duckdb10shared_ptrINS_8PipelineELb1EEaSERKS2_.exit.i.i.i.i.i, %_ZSt22__uninitialized_move_aIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit65, %_ZSt13move_backwardIPN6duckdb10shared_ptrINS0_8PipelineELb1EEES4_ET0_T_S6_S5_.exit, %_ZNSt12_Vector_baseIN6duckdb10shared_ptrINS0_8PipelineELb1EEESaIS3_EE13_M_deallocateEPS3_m.exit, %4
@@ -45559,7 +45559,8 @@ _ZNSt11_Deque_baseImSaImEE15_M_allocate_mapEm.exit:
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseImSaImEE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseImSaImEE16_M_allocate_nodeEv.exit.i

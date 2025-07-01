@@ -21266,7 +21266,7 @@ declare noundef i32 @_ZN5vcpkg18get_host_processorEv() local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %.idx = mul nuw nsw i64 %2, 24
+  %.idx6 = mul nuw nsw i64 %2, 24
   %5 = icmp ugt i64 %2, 384307168202282325
   br i1 %5, label %6, label %_ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
@@ -21282,21 +21282,21 @@ _ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EE11_M_allocateEm.exit.thread.i, label %.lr.ph.i.i.i.i.preheader.i
 
 _ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %7 = getelementptr inbounds nuw i8, ptr null, i64 %.idx
+  %7 = getelementptr inbounds nuw i8, ptr null, i64 %.idx6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8, !tbaa !510
   br label %16
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #33
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx6) #33
           to label %.noexc3 unwind label %18
 
 .noexc3:                                          ; preds = %.lr.ph.i.i.i.i.preheader.i
   store ptr %9, ptr %0, align 8, !tbaa !513
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8, !tbaa !510
-  %12 = add nsw i64 %.idx, -24
+  %12 = add nsw i64 %.idx6, -24
   %13 = urem i64 %12, 24
   %14 = sub nuw nsw i64 %12, %13
   %15 = add nsw i64 %14, 24

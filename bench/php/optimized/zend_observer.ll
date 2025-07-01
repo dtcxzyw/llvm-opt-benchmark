@@ -30,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_oparray_context = type { ptr, ptr, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i8 }
 %struct._zend_file_context = type { %struct._zend_declarables, ptr, i8, i8, ptr, ptr, ptr, %struct._zend_array }
 %struct._zend_declarables = type { i64 }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @zend_observers_fcall_list = internal global %struct._zend_llist zeroinitializer, align 8
 @zend_observer_function_declared_callbacks = internal global %struct._zend_llist zeroinitializer, align 8
@@ -141,7 +140,8 @@ define dso_local void @zend_observer_post_startup() local_unnamed_addr #0 {
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %38 = load i32, ptr %37, align 8, !tbaa !33
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %struct._Bucket, ptr %36, i64 %39
+  %.idx = shl nuw nsw i64 %39, 5
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %42 = load i32, ptr %41, align 8, !tbaa !34
   %43 = and i32 %42, 4
@@ -164,7 +164,8 @@ define dso_local void @zend_observer_post_startup() local_unnamed_addr #0 {
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 88
   %52 = load i32, ptr %51, align 8, !tbaa !33
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw %struct._Bucket, ptr %50, i64 %53
+  %.idx52 = shl nuw nsw i64 %53, 5
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx52
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 72
   %56 = load i32, ptr %55, align 8, !tbaa !34
   %57 = and i32 %56, 4

@@ -507,10 +507,11 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.end.i.i.i.i.i.i.
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   store ptr %add.ptr.i.i.i13, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !38
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i16, i8 0, i64 %mul.i.i.i.i.i.i, i1 false), !tbaa !39
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i16, i64 %mul.i.i.i.i.i.i
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %call5.i.i.i.i2.i.i.noexc
-  %retval.0.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i13, %call5.i.i.i.i2.i.i.noexc ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %retval.0.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %_M_finish.i.i7.i14 = getelementptr inbounds nuw i8, ptr %this, i64 128
   store ptr %retval.0.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i14, align 8, !tbaa !41
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvv(ptr noundef nonnull align 8 dereferenceable(144) %this)

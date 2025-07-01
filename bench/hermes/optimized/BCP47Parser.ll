@@ -790,7 +790,8 @@ for.body:                                         ; preds = %_ZSt7reverseIN9__gn
   %32 = load ptr, ptr %__begin2.sroa.0.017, align 8
   %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.017, i64 8
   %33 = load i64, ptr %_M_string_length.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i16, ptr %32, i64 %33
+  %add.ptr.i.idx = shl nsw i64 %33, 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %32, i64 %add.ptr.i.idx
   %cmp.i8.not14 = icmp eq i64 %33, 0
   br i1 %cmp.i8.not14, label %for.inc31, label %for.body24
 
@@ -4022,7 +4023,8 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEpLEDs.exit71: ; preds = 
   store i16 0, ptr %arrayidx.i.i.i48, align 2
   %32 = load ptr, ptr %regionSubtag, align 8
   %33 = load i64, ptr %_M_string_length.i.i40, align 8
-  %add.ptr.i = getelementptr inbounds i16, ptr %32, i64 %33
+  %add.ptr.i.idx = shl nsw i64 %33, 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %32, i64 %add.ptr.i.idx
   %cmp.i73.not1142 = icmp eq i64 %33, 0
   br i1 %cmp.i73.not1142, label %if.end29, label %for.body22
 

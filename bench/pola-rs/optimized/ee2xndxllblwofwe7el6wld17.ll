@@ -3783,7 +3783,8 @@ define hidden void @_ZN10polars_row5fixed7boolean11encode_bool17hf1666f11653cb1c
   %7 = tail call noundef i8 @_ZN10polars_row3row18RowEncodingOptions13null_sentinel17h7347bf126d040b63E(i8 noundef %3)
   %8 = tail call noundef i8 @_ZN10polars_row3row18RowEncodingOptions18bool_true_sentinel17h8d78c2602ba1da2aE(i8 noundef %3)
   %9 = tail call noundef i8 @_ZN10polars_row3row18RowEncodingOptions19bool_false_sentinel17h9426ed9515ab2935E(i8 noundef %3)
-  %10 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %11 = icmp eq i64 %5, 0
   br i1 %11, label %select.unfold, label %.lr.ph.preheader
 
@@ -4768,7 +4769,8 @@ define hidden void @_ZN10polars_row6widths9RowWidths13push_constant17h9f64e8f365
   %6 = load ptr, ptr %5, align 8, !nonnull !6, !noundef !6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !6
-  %9 = getelementptr inbounds nuw i64, ptr %6, i64 %8
+  %.idx = shl nuw nsw i64 %8, 3
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17ha2efa4bf9387d576E.exit", label %.lr.ph.i
 
@@ -4833,7 +4835,8 @@ define hidden void @_ZN10polars_row6widths9RowWidths4push17h564448d6852d98dcE(pt
 
 13:                                               ; preds = %9
   %14 = inttoptr i64 %.sroa.4.0.copyload to ptr
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %.sroa.5.0.copyload
+  %.idx.i = shl nuw nsw i64 %.sroa.5.0.copyload, 3
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i
   %16 = icmp eq i64 %.sroa.5.0.copyload, 0
   br i1 %16, label %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit", label %.lr.ph.i.i
 

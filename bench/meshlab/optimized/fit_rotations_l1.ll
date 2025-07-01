@@ -3091,8 +3091,8 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i.i: ; pre
   br i1 %210, label %213, label %211
 
 211:                                              ; preds = %_ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i.i
-  %212 = load ptr, ptr %197, align 8
   %.idx.i.i.i.i = shl nsw i64 %209, 3
+  %212 = load ptr, ptr %197, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i, ptr align 8 %212, i64 %.idx.i.i.i.i, i1 false)
   br label %213
 
@@ -4594,8 +4594,8 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit: ; preds = %2,
   br i1 %25, label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit, label %26
 
 26:                                               ; preds = %_ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit
-  %27 = load ptr, ptr %1, align 8
   %.idx = shl nsw i64 %24, 2
+  %27 = load ptr, ptr %1, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.0.i, ptr align 4 %27, i64 %.idx, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit
 
@@ -5288,8 +5288,8 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit: ; preds = %2,
   br i1 %25, label %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit, label %26
 
 26:                                               ; preds = %_ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit
-  %27 = load ptr, ptr %1, align 8
   %.idx = shl nsw i64 %24, 3
+  %27 = load ptr, ptr %1, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0.i, ptr align 8 %27, i64 %.idx, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit
 

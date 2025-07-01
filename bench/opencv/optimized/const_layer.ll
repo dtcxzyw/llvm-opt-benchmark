@@ -664,7 +664,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.val9 = load ptr, ptr %30, align 8, !tbaa !66
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !alias.scope !67
   %31 = sext i32 %.val to i64
-  %.idx = shl nsw i64 %31, 2
+  %.idx13 = shl nsw i64 %31, 2
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.not = icmp eq i32 %.val, 0
   br i1 %.not, label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit, label %33
@@ -678,11 +678,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   unreachable
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %33
-  %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %35, ptr align 4 %.val9, i64 %.idx, i1 false)
+  %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx13) #17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %35, ptr align 4 %.val9, i64 %.idx13, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %35, ptr %8, align 8, !tbaa !60
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx13
   store ptr %37, ptr %36, align 8, !tbaa !72
   store ptr %37, ptr %32, align 8, !tbaa !73
   br label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit
@@ -1049,7 +1049,8 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPSt6vectorIiSaIiEES2_IS4_SaIS4_EEEES4_E
   br i1 %42, label %_ZSt6fill_nIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RKT1_.exit, label %43
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw %"class.std::vector.25", ptr %6, i64 %1
+  %.idx.i.i = mul nuw nsw i64 %1, 24
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
   br label %.lr.ph.i.i.i.i16
 
 .lr.ph.i.i.i.i16:                                 ; preds = %.lr.ph.i.i.i.i16, %43

@@ -6435,7 +6435,8 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h05b925dd536f3e
   %.sroa.076.0.copyload = load i64, ptr %23, align 8
   %.sroa.477.0.copyload = load ptr, ptr %27, align 8, !nonnull !19, !noundef !19
   %.sroa.578.0.copyload = load i64, ptr %28, align 8
-  %160 = getelementptr inbounds i64, ptr %.sroa.477.0.copyload, i64 %.sroa.578.0.copyload
+  %.idx136 = shl nsw i64 %.sroa.578.0.copyload, 3
+  %160 = getelementptr inbounds i8, ptr %.sroa.477.0.copyload, i64 %.idx136
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   store ptr %.sroa.477.0.copyload, ptr %16, align 8
   %.sroa.473.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -8076,7 +8077,8 @@ define hidden void @_ZN6editor6Editor13unfold_ranges17h48c3b5bbe88965b9E(ptr noa
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12)
   %.sroa.065.0.copyload = load i64, ptr %19, align 8
   %.sroa.466.0.copyload = load ptr, ptr %22, align 8, !nonnull !19, !noundef !19
-  %49 = getelementptr inbounds { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %.sroa.466.0.copyload, i64 %.sroa.567.0.copyload
+  %.idx = mul nsw i64 %.sroa.567.0.copyload, 96
+  %49 = getelementptr inbounds i8, ptr %.sroa.466.0.copyload, i64 %.idx
   store ptr %.sroa.466.0.copyload, ptr %12, align 8
   %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.sroa.466.0.copyload, ptr %.sroa.462.0..sroa_idx, align 8

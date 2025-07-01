@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::list.3" = type { %"class.std::__cxx11::_List_base.4" }
 %"class.std::__cxx11::_List_base.4" = type { %"struct.std::__cxx11::_List_base<Assimp::STransformVecInfo, std::allocator<Assimp::STransformVecInfo>>::_List_impl" }
 %"struct.std::__cxx11::_List_base<Assimp::STransformVecInfo, std::allocator<Assimp::STransformVecInfo>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%class.aiVector3t = type { float, float, float }
 
 $_ZN6Assimp6Logger4infoIJRA29_KcRfRA23_S2_S5_EEEvDpOT_ = comdat any
 
@@ -1851,7 +1850,8 @@ _Z13UpdateUVIndexRKNSt7__cxx114listIN6Assimp12TTUpdateInfoESaIS2_EEEj.exit: ; pr
 498:                                              ; preds = %494, %486
   %499 = load i32, ptr %412, align 4
   %500 = zext i32 %499 to i64
-  %501 = getelementptr inbounds nuw %class.aiVector3t, ptr %487, i64 %500
+  %.idx = mul nuw nsw i64 %500, 12
+  %501 = getelementptr inbounds nuw i8, ptr %487, i64 %.idx
   %502 = getelementptr inbounds nuw i8, ptr %.sroa.0470.3661, i64 24
   %503 = load float, ptr %502, align 8
   %504 = fcmp oeq float %503, 1.000000e+00

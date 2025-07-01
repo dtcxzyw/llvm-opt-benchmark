@@ -629,8 +629,9 @@ define noundef ptr @u_strFromUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr 
   br label %27
 
 27:                                               ; preds = %26, %25
-  %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr inbounds nuw i16, ptr %0, i64 %28
+  %28 = shl nuw i32 %1, 1
+  %.idx = zext i32 %28 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %30 = icmp slt i32 %4, 0
   br i1 %30, label %31, label %176
 
@@ -2892,8 +2893,9 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %25, %24
-  %27 = zext nneg i32 %1 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %0, i64 %27
+  %27 = shl nuw i32 %1, 1
+  %.idx = zext i32 %27 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %29 = icmp slt i32 %4, 0
   br i1 %29, label %.preheader267, label %48
 

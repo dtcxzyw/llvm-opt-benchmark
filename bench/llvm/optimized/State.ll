@@ -3,10 +3,10 @@ source_filename = "bench/llvm/original/State.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.std::pair" = type { %"class.clang::SourceLocation", [4 x i8], %"class.clang::PartialDiagnostic" }
-%"class.clang::SourceLocation" = type { i32 }
 %"class.clang::PartialDiagnostic" = type <{ %"class.clang::StreamingDiagnostic", i32, [4 x i8] }>
 %"class.clang::StreamingDiagnostic" = type { ptr, ptr }
+%"struct.std::pair" = type { %"class.clang::SourceLocation", [4 x i8], %"class.clang::PartialDiagnostic" }
+%"class.clang::SourceLocation" = type { i32 }
 %"class.clang::DiagnosticBuilder" = type <{ %"class.clang::StreamingDiagnostic", ptr, %"class.clang::SourceLocation", i32, %"class.std::__cxx11::basic_string", i8, i8, [6 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.4 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -131,7 +131,8 @@ define dso_local ptr @_ZN5clang6interp5State4diagENS_14SourceLocationEjjb(ptr no
 
 .lr.ph.i.preheader.i:                             ; preds = %17
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %"struct.std::pair", ptr %43, i64 %46
+  %.idx.i = shl nuw nsw i64 %46, 5
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -595,18 +596,18 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplISt4pairIN5clan
   tail call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %19)
   %.pre.i = load i32, ptr %9, align 8, !tbaa !61
   %.pre9.i = zext i32 %.pre.i to i64
-  %.pre74.pre = load ptr, ptr %0, align 8, !tbaa !59
+  %.pre73.pre = load ptr, ptr %0, align 8, !tbaa !59
   br label %_ZN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEEE7reserveEm.exit.i
 
 _ZN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEEE7reserveEm.exit.i: ; preds = %24, %17
-  %.pre74 = phi ptr [ %5, %17 ], [ %.pre74.pre, %24 ]
+  %.pre73 = phi ptr [ %5, %17 ], [ %.pre73.pre, %24 ]
   %.pre-phi.i = phi i64 [ %11, %17 ], [ %.pre9.i, %24 ]
   %25 = phi i32 [ %10, %17 ], [ %.pre.i, %24 ]
   %.not9.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %.not9.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEEE6appendIPKS5_vEEvT_SA_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEEE7reserveEm.exit.i
-  %26 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre74, i64 %.pre-phi.i
+  %26 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre73, i64 %.pre-phi.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i
@@ -624,11 +625,11 @@ _ZN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosti
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEELb0EE18uninitialized_copyIPKS5_PS5_EEvT_SB_T0_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i
   %.pre8.i = load i32, ptr %9, align 8, !tbaa !61
-  %.pre73 = load ptr, ptr %0, align 8, !tbaa !59
+  %.pre72 = load ptr, ptr %0, align 8, !tbaa !59
   br label %_ZN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEEE6appendIPKS5_vEEvT_SA_.exit
 
 _ZN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEEE6appendIPKS5_vEEvT_SA_.exit: ; preds = %_ZN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEEE7reserveEm.exit.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEELb0EE18uninitialized_copyIPKS5_PS5_EEvT_SB_T0_.exit.loopexit.i
-  %32 = phi ptr [ %.pre73, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEELb0EE18uninitialized_copyIPKS5_PS5_EEvT_SB_T0_.exit.loopexit.i ], [ %.pre74, %_ZN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEEE7reserveEm.exit.i ]
+  %32 = phi ptr [ %.pre72, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEELb0EE18uninitialized_copyIPKS5_PS5_EEvT_SB_T0_.exit.loopexit.i ], [ %.pre73, %_ZN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEEE7reserveEm.exit.i ]
   %33 = phi i32 [ %.pre8.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEELb0EE18uninitialized_copyIPKS5_PS5_EEvT_SB_T0_.exit.loopexit.i ], [ %25, %_ZN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEEE7reserveEm.exit.i ]
   %34 = trunc i64 %18 to i32
   %35 = add i32 %33, %34
@@ -637,7 +638,7 @@ _ZN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosti
   br label %_ZSt4copyIPKSt4pairIN5clang14SourceLocationENS1_17PartialDiagnosticEEPS4_ET0_T_S9_S8_.exit
 
 37:                                               ; preds = %4
-  %.idx63 = sub i64 0, %16
+  %.idx62 = sub i64 0, %16
   %38 = ashr exact i64 %16, 5
   %39 = add nsw i64 %38, %11
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -649,13 +650,13 @@ _ZN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosti
 44:                                               ; preds = %37
   tail call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %39)
   %.pre = load ptr, ptr %0, align 8, !tbaa !59
-  %.pre72 = load i32, ptr %9, align 8, !tbaa !61
-  %.pre76 = zext i32 %.pre72 to i64
+  %.pre71 = load i32, ptr %9, align 8, !tbaa !61
+  %.pre75 = zext i32 %.pre71 to i64
   br label %_ZN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEEE7reserveEm.exit
 
 _ZN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEEE7reserveEm.exit: ; preds = %37, %44
-  %.pre-phi = phi i64 [ %11, %37 ], [ %.pre76, %44 ]
-  %45 = phi i32 [ %10, %37 ], [ %.pre72, %44 ]
+  %.pre-phi = phi i64 [ %11, %37 ], [ %.pre75, %44 ]
+  %45 = phi i32 [ %10, %37 ], [ %.pre71, %44 ]
   %46 = phi ptr [ %5, %37 ], [ %.pre, %44 ]
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 %8
   %.idx = shl nuw nsw i64 %.pre-phi, 5
@@ -666,7 +667,7 @@ _ZN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosti
   br i1 %.not, label %106, label %50
 
 50:                                               ; preds = %_ZN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEEE7reserveEm.exit
-  %51 = getelementptr inbounds i8, ptr %48, i64 %.idx63
+  %51 = getelementptr inbounds i8, ptr %48, i64 %.idx62
   %52 = add nsw i64 %38, %.pre-phi
   %53 = load i32, ptr %40, align 4, !tbaa !69
   %54 = zext i32 %53 to i64
@@ -724,8 +725,8 @@ _ZN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosti
   %74 = add i32 %72, %73
   store i32 %74, ptr %9, align 8, !tbaa !61
   %75 = add i64 %8, %16
-  %gepdiff64 = sub i64 %.idx, %75
-  %76 = ashr exact i64 %gepdiff64, 5
+  %gepdiff63 = sub i64 %.idx, %75
+  %76 = ashr exact i64 %gepdiff63, 5
   %77 = icmp sgt i64 %76, 0
   br i1 %77, label %.lr.ph.i.i.i.i.i52, label %_ZSt13move_backwardIPSt4pairIN5clang14SourceLocationENS1_17PartialDiagnosticEES5_ET0_T_S7_S6_.exit
 
@@ -846,17 +847,17 @@ _ZSt13move_backwardIPSt4pairIN5clang14SourceLocationENS1_17PartialDiagnosticEES5
   br i1 %.not.i.i.i.i, label %_ZSt4copyIPKSt4pairIN5clang14SourceLocationENS1_17PartialDiagnosticEEPS4_ET0_T_S9_S8_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !78
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i.i.i.i55, %.lr.ph
-  %.070 = phi ptr [ %134, %.lr.ph ], [ %47, %.lr.ph.i.i.i.i.i55 ]
-  %.04069 = phi i64 [ %136, %.lr.ph ], [ %49, %.lr.ph.i.i.i.i.i55 ]
-  %.04268 = phi ptr [ %135, %.lr.ph ], [ %2, %.lr.ph.i.i.i.i.i55 ]
-  %130 = load i32, ptr %.04268, align 8, !tbaa !72
-  store i32 %130, ptr %.070, align 8, !tbaa !72
-  %131 = getelementptr inbounds nuw i8, ptr %.04268, i64 8
-  %132 = getelementptr inbounds nuw i8, ptr %.070, i64 8
+  %.069 = phi ptr [ %134, %.lr.ph ], [ %47, %.lr.ph.i.i.i.i.i55 ]
+  %.04068 = phi i64 [ %136, %.lr.ph ], [ %49, %.lr.ph.i.i.i.i.i55 ]
+  %.04267 = phi ptr [ %135, %.lr.ph ], [ %2, %.lr.ph.i.i.i.i.i55 ]
+  %130 = load i32, ptr %.04267, align 8, !tbaa !72
+  store i32 %130, ptr %.069, align 8, !tbaa !72
+  %131 = getelementptr inbounds nuw i8, ptr %.04267, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %133 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang17PartialDiagnosticaSERKS0_(ptr noundef nonnull align 8 dereferenceable(20) %132, ptr noundef nonnull align 8 dereferenceable(20) %131)
-  %134 = getelementptr inbounds nuw i8, ptr %.070, i64 32
-  %135 = getelementptr inbounds nuw i8, ptr %.04268, i64 32
-  %136 = add i64 %.04069, -1
+  %134 = getelementptr inbounds nuw i8, ptr %.069, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %.04267, i64 32
+  %136 = add i64 %.04068, -1
   %.not44 = icmp eq i64 %136, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 
@@ -1151,7 +1152,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %16
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %28
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %36, i64 %39
+  %.idx.i7.i.i = shl nuw nsw i64 %39, 6
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i7.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -1399,7 +1401,8 @@ _ZN5clang9FixItHintD2Ev.exit.i:                   ; preds = %_ZNKSt7__cxx1112bas
   br i1 %.not4.i.i, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %43
-  %45 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %44, i64 %11
+  %.idx.i = shl nuw nsw i64 %11, 6
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -1549,7 +1552,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !61
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %6, i64 %9
+  %.idx.i = shl nuw nsw i64 %9, 6
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE19moveElementsForGrowEPS2_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -1600,13 +1604,14 @@ _ZSt10_ConstructIN5clang9FixItHintEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = 
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i: ; preds = %_ZSt10_ConstructIN5clang9FixItHintEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !59
-  %.pre2.i = load i32, ptr %7, align 8, !tbaa !61
-  %.not4.i.i = icmp eq i32 %.pre2.i, 0
+  %.pre3.i = load i32, ptr %7, align 8, !tbaa !61
+  %.not4.i.i = icmp eq i32 %.pre3.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE19moveElementsForGrowEPS2_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i
-  %31 = zext i32 %.pre2.i to i64
-  %32 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %.pre.i, i64 %31
+  %31 = zext i32 %.pre3.i to i64
+  %.idx2.i = shl nuw nsw i64 %31, 6
+  %32 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -1697,7 +1702,8 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
 
 .lr.ph.i.preheader.i.i:                           ; preds = %14
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %16, i64 %19
+  %.idx.i.i = shl nuw nsw i64 %19, 6
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -1861,7 +1867,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %15
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %27
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %35, i64 %38
+  %.idx.i7.i.i = shl nuw nsw i64 %38, 6
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i7.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -2146,7 +2153,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %17
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %29
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %37, i64 %40
+  %.idx.i7.i.i = shl nuw nsw i64 %40, 6
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i7.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -2308,7 +2316,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14Sou
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !61
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %9
+  %.idx.i = shl nuw nsw i64 %9, 5
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEELb0EE19moveElementsForGrowEPS5_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -2338,13 +2347,14 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14Sou
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEELb0EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !59
-  %.pre3.i = load i32, ptr %7, align 8, !tbaa !61
-  %.not4.i.i = icmp eq i32 %.pre3.i, 0
+  %.pre4.i = load i32, ptr %7, align 8, !tbaa !61
+  %.not4.i.i = icmp eq i32 %.pre4.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEELb0EE19moveElementsForGrowEPS5_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationENS2_17PartialDiagnosticEELb0EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit.i
-  %23 = zext i32 %.pre3.i to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre.i, i64 %23
+  %23 = zext i32 %.pre4.i to i64
+  %.idx3.i = shl nuw nsw i64 %23, 5
+  %24 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx3.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt4pairIN5clang14SourceLocationENS0_17PartialDiagnosticEED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -2460,7 +2470,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %13
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %25
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %33, i64 %36
+  %.idx.i7.i.i = shl nuw nsw i64 %36, 6
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i7.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -2584,7 +2595,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %12
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %24
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %32, i64 %35
+  %.idx.i7.i.i = shl nuw nsw i64 %35, 6
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i7.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i

@@ -1608,7 +1608,8 @@ _ZNK6vectorIN5nlsat14simple_checker3imp16Clause_Visit_TagELb1EjE4sizeEv.exit: ; 
   store i32 %53, ptr %54, align 4, !tbaa !19
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %56 = zext i32 %53 to i64
-  %57 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Clause_Visit_Tag", ptr %50, i64 %56
+  %.idx.i.i.i = shl nuw nsw i64 %56, 4
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i.i.i
   %58 = icmp eq i32 %53, 0
   br i1 %58, label %_ZNK6vectorIN5nlsat14simple_checker3imp16Clause_Visit_TagELb1EjE4sizeEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -1823,7 +1824,8 @@ _ZNK6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE4sizeE
   store i32 %57, ptr %58, align 4, !tbaa !19
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %60 = zext i32 %57 to i64
-  %61 = getelementptr inbounds nuw %class.vector.16, ptr %52, i64 %60
+  %.idx.i.i.i = shl nuw nsw i64 %60, 3
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i.i.i
   %62 = icmp eq i32 %57, 0
   br i1 %62, label %_ZNK6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE4sizeEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -1839,12 +1841,12 @@ _ZNK6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE4sizeE
   br i1 %66, label %_ZSt20uninitialized_move_nIP6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjEjS6_ESt4pairIT_T1_ES8_T0_S9_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !85
 
 _ZSt20uninitialized_move_nIP6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjEjS6_ESt4pairIT_T1_ES8_T0_S9_.exit: ; preds = %.lr.ph.i.i.i.i.i.i
-  %.pre39 = load ptr, ptr %0, align 8, !tbaa !30
-  %.not.i = icmp eq ptr %.pre39, null
+  %.pre40 = load ptr, ptr %0, align 8, !tbaa !30
+  %.not.i = icmp eq ptr %.pre40, null
   br i1 %.not.i, label %_ZN6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE7destroyEv.exit, label %_ZNK6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE4sizeEv.exit.i.i
 
 _ZNK6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE4sizeEv.exit.i.i: ; preds = %_ZNK6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE4sizeEv.exit, %_ZSt20uninitialized_move_nIP6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjEjS6_ESt4pairIT_T1_ES8_T0_S9_.exit
-  %67 = phi ptr [ %.pre39, %_ZSt20uninitialized_move_nIP6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjEjS6_ESt4pairIT_T1_ES8_T0_S9_.exit ], [ %52, %_ZNK6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE4sizeEv.exit ]
+  %67 = phi ptr [ %.pre40, %_ZSt20uninitialized_move_nIP6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjEjS6_ESt4pairIT_T1_ES8_T0_S9_.exit ], [ %52, %_ZNK6vectorIS_IN5nlsat14simple_checker3imp17special_ineq_kindELb1EjELb1EjE4sizeEv.exit ]
   %68 = getelementptr inbounds i8, ptr %67, i64 -4
   %69 = load i32, ptr %68, align 4, !tbaa !19
   %.not6.i.i.i.i.i = icmp eq i32 %69, 0
@@ -7464,7 +7466,8 @@ _ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit: 
   store i32 %55, ptr %56, align 4, !tbaa !19
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %58 = zext i32 %55 to i64
-  %59 = getelementptr inbounds nuw %class._scoped_numeral, ptr %50, i64 %58
+  %.idx.i.i.i = shl nuw nsw i64 %58, 4
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i.i.i
   %60 = icmp eq i32 %55, 0
   br i1 %60, label %_ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -7483,12 +7486,12 @@ _ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit: 
   br i1 %66, label %_ZSt20uninitialized_move_nIP15_scoped_numeralIN17algebraic_numbers7managerEEjS4_ESt4pairIT_T1_ES6_T0_S7_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !146
 
 _ZSt20uninitialized_move_nIP15_scoped_numeralIN17algebraic_numbers7managerEEjS4_ESt4pairIT_T1_ES6_T0_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i
-  %.pre39 = load ptr, ptr %0, align 8, !tbaa !113
-  %.not.i = icmp eq ptr %.pre39, null
+  %.pre40 = load ptr, ptr %0, align 8, !tbaa !113
+  %.not.i = icmp eq ptr %.pre40, null
   br i1 %.not.i, label %_ZN6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE7destroyEv.exit, label %_ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit.i.i
 
 _ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit.i.i: ; preds = %_ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit, %_ZSt20uninitialized_move_nIP15_scoped_numeralIN17algebraic_numbers7managerEEjS4_ESt4pairIT_T1_ES6_T0_S7_.exit
-  %67 = phi ptr [ %.pre39, %_ZSt20uninitialized_move_nIP15_scoped_numeralIN17algebraic_numbers7managerEEjS4_ESt4pairIT_T1_ES6_T0_S7_.exit ], [ %50, %_ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit ]
+  %67 = phi ptr [ %.pre40, %_ZSt20uninitialized_move_nIP15_scoped_numeralIN17algebraic_numbers7managerEEjS4_ESt4pairIT_T1_ES6_T0_S7_.exit ], [ %50, %_ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit ]
   %68 = getelementptr inbounds i8, ptr %67, i64 -4
   %69 = load i32, ptr %68, align 4, !tbaa !19
   %.not6.i.i.i.i.i = icmp eq i32 %69, 0

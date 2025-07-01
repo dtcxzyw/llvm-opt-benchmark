@@ -103,7 +103,8 @@ define noalias noundef nonnull ptr @ts_highlighter_new(ptr noundef nonnull %0, p
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !4
-  %18 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %15, i64 %17
+  %.idx = mul nsw i64 %17, 24
+  %18 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %.loopexit, label %.lr.ph.i
 

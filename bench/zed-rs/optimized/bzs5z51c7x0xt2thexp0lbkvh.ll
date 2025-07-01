@@ -40230,7 +40230,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr98drop
   %.sroa.5102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 208
   %.sroa.5102.0.copyload = load ptr, ptr %.sroa.5102.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.6103.0.copyload = load i64, ptr %98, align 8
-  %113 = getelementptr inbounds { i64, [6 x i64] }, ptr %.sroa.5102.0.copyload, i64 %.sroa.6103.0.copyload
+  %.idx = mul nsw i64 %.sroa.6103.0.copyload, 56
+  %113 = getelementptr inbounds i8, ptr %.sroa.5102.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   store ptr %.sroa.5102.0.copyload, ptr %13, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8

@@ -262,7 +262,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h8220d29e8fb1589fE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 48
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h22ea3a401d4cc243E.exit, label %.lr.ph.i
 
@@ -1913,7 +1914,7 @@ define noundef zeroext i1 @"_ZN10ockam_core5error5inner10formatting82_$LT$impl$u
   %35 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %26)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25)
-  br i1 %35, label %.loopexit135, label %36
+  br i1 %35, label %.loopexit136, label %36
 
 36:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24)
@@ -1928,7 +1929,7 @@ define noundef zeroext i1 @"_ZN10ockam_core5error5inner10formatting82_$LT$impl$u
   store i64 0, ptr %40, align 8
   %41 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %24)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24)
-  br i1 %41, label %.loopexit135, label %42
+  br i1 %41, label %.loopexit136, label %42
 
 42:                                               ; preds = %36
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1957,14 +1958,15 @@ define noundef zeroext i1 @"_ZN10ockam_core5error5inner10formatting82_$LT$impl$u
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
-  br i1 %51, label %.loopexit135, label %52
+  br i1 %51, label %.loopexit136, label %52
 
 52:                                               ; preds = %45, %42
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %54 = load ptr, ptr %53, align 8, !nonnull !7, !noundef !7
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %56 = load i64, ptr %55, align 8, !noundef !7
-  %57 = getelementptr inbounds { [6 x i64], ptr, [2 x i64] }, ptr %54, i64 %56
+  %.idx = mul nsw i64 %56, 72
+  %57 = getelementptr inbounds i8, ptr %54, i64 %.idx
   %58 = icmp eq i64 %56, 0
   br i1 %58, label %._crit_edge, label %.lr.ph121
 
@@ -2007,7 +2009,7 @@ define noundef zeroext i1 @"_ZN10ockam_core5error5inner10formatting82_$LT$impl$u
   %83 = getelementptr inbounds nuw i8, ptr %18, i64 24
   br label %87
 
-.loopexit135:                                     ; preds = %120, %45, %2, %.loopexit117, %.loopexit, %36, %.loopexit114
+.loopexit136:                                     ; preds = %120, %45, %2, %.loopexit117, %.loopexit, %36, %.loopexit114
   %.0 = phi i1 [ true, %.loopexit114 ], [ true, %36 ], [ %110, %.loopexit ], [ true, %.loopexit117 ], [ true, %2 ], [ true, %45 ], [ true, %120 ]
   ret i1 %.0
 
@@ -2028,7 +2030,8 @@ define noundef zeroext i1 @"_ZN10ockam_core5error5inner10formatting82_$LT$impl$u
 92:                                               ; preds = %._crit_edge
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %94 = load i64, ptr %93, align 8, !alias.scope !308, !noundef !7
-  %95 = getelementptr inbounds { { { { i64, [3 x i64] }, ptr } } }, ptr %85, i64 %94
+  %.idx125 = mul nsw i64 %94, 40
+  %95 = getelementptr inbounds i8, ptr %85, i64 %.idx125
   %96 = icmp eq i64 %94, 0
   br i1 %96, label %.loopexit, label %.lr.ph124
 
@@ -2057,7 +2060,7 @@ define noundef zeroext i1 @"_ZN10ockam_core5error5inner10formatting82_$LT$impl$u
   store i64 0, ptr %109, align 8
   %110 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  br label %.loopexit135
+  br label %.loopexit136
 
 111:                                              ; preds = %.lr.ph124, %116
   %.sroa.0104.0122 = phi ptr [ %85, %.lr.ph124 ], [ %112, %116 ]
@@ -2096,7 +2099,7 @@ define noundef zeroext i1 @"_ZN10ockam_core5error5inner10formatting82_$LT$impl$u
 
 .loopexit114:                                     ; preds = %111, %114
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %.loopexit135
+  br label %.loopexit136
 
 118:                                              ; preds = %87
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
@@ -2141,7 +2144,7 @@ define noundef zeroext i1 @"_ZN10ockam_core5error5inner10formatting82_$LT$impl$u
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
-  br i1 %122, label %.loopexit135, label %199
+  br i1 %122, label %.loopexit136, label %199
 
 123:                                              ; preds = %118
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
@@ -2392,7 +2395,7 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i.i.i: ; preds = 
 .loopexit117:                                     ; preds = %123, %118, %204
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  br label %.loopexit135
+  br label %.loopexit136
 }
 
 ; Function Attrs: cold nonlazybind uwtable

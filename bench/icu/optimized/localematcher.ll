@@ -2225,7 +2225,8 @@ define void @_ZN6icu_7713LocaleMatcherD2Ev(ptr noundef nonnull readonly align 8 
   br i1 %29, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %26
-  %30 = getelementptr inbounds %"struct.icu_77::LSR", ptr %24, i64 %28
+  %.idx = mul nsw i64 %28, 48
+  %30 = getelementptr inbounds i8, ptr %24, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN6icu_773LSRD2Ev.exit

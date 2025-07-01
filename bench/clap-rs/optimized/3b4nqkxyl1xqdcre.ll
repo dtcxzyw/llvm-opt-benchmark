@@ -1738,7 +1738,8 @@ define hidden void @_ZN12clap_builder6output13help_template8AutoHelp10write_help
   %7 = load ptr, ptr %6, align 8, !alias.scope !300, !nonnull !12, !noundef !12
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %9 = load i64, ptr %8, align 8, !alias.scope !300, !noundef !12
-  %10 = getelementptr inbounds { { i64, i64 }, { i64, [2 x i64] }, { i64, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i32, i32, i32, i8, i8, [2 x i8] }, ptr %7, i64 %9
+  %.idx = mul nsw i64 %9, 552
+  %10 = getelementptr inbounds i8, ptr %7, i64 %.idx
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 41
   tail call void @llvm.experimental.noalias.scope.decl(metadata !303)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !306)
@@ -1865,7 +1866,7 @@ define hidden void @_ZN12clap_builder6output13help_template8AutoHelp10write_help
   br i1 %or.cond.i31, label %.backedge.i.i26, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit34"
 
 "_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit34": ; preds = %45, %.backedge.us.i.i14, %56, %.backedge.i.i26, %1
-  %.lcssa.i.i3953 = phi i1 [ false, %1 ], [ %.lcssa.i.i39, %.backedge.i.i26 ], [ %.lcssa.i.i39, %56 ], [ %.lcssa.i.i39, %.backedge.us.i.i14 ], [ %.lcssa.i.i39, %45 ]
+  %.lcssa.i.i3954 = phi i1 [ false, %1 ], [ %.lcssa.i.i39, %.backedge.i.i26 ], [ %.lcssa.i.i39, %56 ], [ %.lcssa.i.i39, %.backedge.us.i.i14 ], [ %.lcssa.i.i39, %45 ]
   %.lcssa.i.i1941 = phi i1 [ false, %1 ], [ true, %56 ], [ false, %.backedge.i.i26 ], [ true, %45 ], [ false, %.backedge.us.i.i14 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !355)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !355
@@ -1897,7 +1898,7 @@ _ZN12clap_builder7builder7command7Command23has_visible_subcommands17h33da8fae85c
 _ZN12clap_builder7builder7command7Command23has_visible_subcommands17h33da8fae85ccf465E.exit: ; preds = %66
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !355
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !355
-  %brmerge = or i1 %.lcssa.i.i3953, %.lcssa.i.i1941
+  %brmerge = or i1 %.lcssa.i.i3954, %.lcssa.i.i1941
   br i1 %brmerge, label %.split6, label %.split
 
 .split6:                                          ; preds = %_ZN12clap_builder7builder7command7Command23has_visible_subcommands17h33da8fae85ccf465E.exit.thread, %_ZN12clap_builder7builder7command7Command23has_visible_subcommands17h33da8fae85ccf465E.exit
@@ -4296,7 +4297,8 @@ _ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exi
   %.sroa.043.sroa.0.0.copyload = load i64, ptr %71, align 8
   %.sroa.043.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 8
   %.sroa.043.sroa.4.0.copyload = load ptr, ptr %.sroa.043.sroa.4.0..sroa_idx, align 8, !nonnull !12, !noundef !12
-  %265 = getelementptr inbounds { ptr, i64 }, ptr %.sroa.043.sroa.4.0.copyload, i64 %224
+  %.idx = shl nsw i64 %224, 4
+  %265 = getelementptr inbounds i8, ptr %.sroa.043.sroa.4.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54)
   store ptr %.sroa.043.sroa.4.0.copyload, ptr %54, align 8
   %.sroa.4215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -5470,7 +5472,8 @@ define internal fastcc void @_ZN12clap_builder6output13help_template12HelpTempla
   store ptr inttoptr (i64 8 to ptr), ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i64 0, ptr %43, align 8
-  %44 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 3
+  %44 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %46 = icmp eq i64 %2, 0
   br i1 %46, label %.loopexit30, label %.lr.ph.i.lr.ph
@@ -5539,7 +5542,7 @@ define internal fastcc void @_ZN12clap_builder6output13help_template12HelpTempla
   invoke void @"_ZN4core3ptr127drop_in_place$LT$alloc..vec..Vec$LT$$LP$$LP$usize$C$alloc..string..String$RP$$C$$RF$clap_builder..builder..arg..Arg$RP$$GT$$GT$17h309115392a9f85f4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41) #18
           to label %437 unwind label %435
 
-.loopexit:                                        ; preds = %._crit_edge94, %371, %373, %383, %393
+.loopexit:                                        ; preds = %._crit_edge95, %371, %373, %383, %393
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -5818,7 +5821,8 @@ _ZN12clap_builder6output13help_template12HelpTemplate14will_args_wrap17h3c3e8e7d
   %.lcssa.i.i8.i = phi i1 [ false, %86 ], [ true, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit.sink.split.i" ], [ false, %.backedge.i.us.i.i ], [ false, %.backedge.i.us.i.us.i ], [ false, %.backedge.i.us10.i.i ], [ false, %.backedge.i.i.i ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h001f3bbeca8d20d6E.exit.i.i.i.i" ]
   %160 = load ptr, ptr %42, align 8, !nonnull !12, !noundef !12
   %161 = load i64, ptr %43, align 8, !noundef !12
-  %162 = getelementptr inbounds { { i64, { { { i64, ptr }, i64 } } }, ptr }, ptr %160, i64 %161
+  %.idx66 = mul nsw i64 %161, 40
+  %162 = getelementptr inbounds i8, ptr %160, i64 %.idx66
   %163 = icmp eq i64 %161, 0
   br i1 %163, label %._crit_edge, label %.lr.ph
 
@@ -5926,9 +5930,9 @@ _ZN12clap_builder6output13help_template12HelpTemplate14will_args_wrap17h3c3e8e7d
   %236 = getelementptr inbounds nuw i8, ptr %.sroa.01.064, i64 40
   %237 = add nuw nsw i64 %.sroa.73.065, 1
   %238 = icmp eq i64 %.sroa.73.065, 0
-  br i1 %238, label %._crit_edge94, label %379
+  br i1 %238, label %._crit_edge95, label %379
 
-._crit_edge94:                                    ; preds = %235, %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit51, %384
+._crit_edge95:                                    ; preds = %235, %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit51, %384
   %.val.i = phi i8 [ 1, %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit51 ], [ %227, %384 ], [ %.val.i.pre, %235 ]
   %239 = getelementptr inbounds nuw i8, ptr %.sroa.01.064, i64 32
   %240 = load ptr, ptr %239, align 8, !nonnull !12, !align !109, !noundef !12
@@ -5938,7 +5942,7 @@ _ZN12clap_builder6output13help_template12HelpTemplate14will_args_wrap17h3c3e8e7d
   invoke fastcc void @_ZN12clap_builder6output13help_template12HelpTemplate9spec_vals17h008b83ce80344a25E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %34, i8 %.val.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(552) %240)
           to label %.noexc43 unwind label %.loopexit
 
-.noexc43:                                         ; preds = %._crit_edge94
+.noexc43:                                         ; preds = %._crit_edge95
   %241 = load i64, ptr %230, align 8, !alias.scope !1263, !noalias !1272, !noundef !12
   %242 = load i64, ptr %229, align 8, !alias.scope !1263, !noalias !1272, !noundef !12
   %243 = sub i64 %242, %241
@@ -6480,7 +6484,7 @@ _ZN12clap_builder6output13help_template12HelpTemplate9write_arg17h3ce42201365da9
   %388 = load i64, ptr %225, align 8, !alias.scope !1416, !noalias !1413, !noundef !12
   %389 = add i64 %388, 1
   store i64 %389, ptr %225, align 8, !alias.scope !1416, !noalias !1413
-  br i1 %or.cond, label %390, label %._crit_edge94
+  br i1 %or.cond, label %390, label %._crit_edge95
 
 390:                                              ; preds = %384
   %391 = load i64, ptr %224, align 8, !alias.scope !1417, !noalias !1426, !noundef !12
@@ -6503,7 +6507,7 @@ _ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exi
   %397 = load i64, ptr %225, align 8, !alias.scope !1429, !noalias !1426, !noundef !12
   %398 = add i64 %397, 1
   store i64 %398, ptr %225, align 8, !alias.scope !1429, !noalias !1426
-  br label %._crit_edge94
+  br label %._crit_edge95
 
 _ZN12clap_builder6output13help_template14longest_filter17ha41fb5f3551b308eE.exit: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hc39154b209dabbbdE.exit"
   %399 = getelementptr inbounds nuw i8, ptr %80, i64 536
@@ -8675,7 +8679,8 @@ define internal fastcc void @_ZN12clap_builder6output13help_template12HelpTempla
   %.sroa.057.0.copyload = load i64, ptr %20, align 8
   %.sroa.458.0.copyload = load ptr, ptr %23, align 8, !nonnull !12, !noundef !12
   %.sroa.559.0.copyload = load i64, ptr %24, align 8
-  %47 = getelementptr inbounds { { ptr, i64 }, i64, ptr }, ptr %.sroa.458.0.copyload, i64 %.sroa.559.0.copyload
+  %.idx = shl nsw i64 %.sroa.559.0.copyload, 5
+  %47 = getelementptr inbounds i8, ptr %.sroa.458.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
   store ptr %.sroa.458.0.copyload, ptr %19, align 8
   %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -9211,7 +9216,8 @@ define internal fastcc void @_ZN12clap_builder6output13help_template12HelpTempla
   %.sroa.033.0.copyload = load i64, ptr %35, align 8
   %.sroa.434.0.copyload = load ptr, ptr %39, align 8, !nonnull !12, !noundef !12
   %.sroa.535.0.copyload = load i64, ptr %40, align 8
-  %98 = getelementptr inbounds { { { { { i64, ptr }, i64 } } }, i64, ptr }, ptr %.sroa.434.0.copyload, i64 %.sroa.535.0.copyload
+  %.idx = mul nsw i64 %.sroa.535.0.copyload, 40
+  %98 = getelementptr inbounds i8, ptr %.sroa.434.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17)
   store ptr %.sroa.434.0.copyload, ptr %17, align 8
   %.sroa.040.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8

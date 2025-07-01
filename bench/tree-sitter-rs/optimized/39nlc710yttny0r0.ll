@@ -491,7 +491,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
 75:                                               ; preds = %67
   %76 = extractvalue { ptr, i64 } %74, 0
   %77 = extractvalue { ptr, i64 } %74, 1
-  %78 = getelementptr inbounds { ptr, i64 }, ptr %76, i64 %77
+  %.idx520 = shl nsw i64 %77, 4
+  %78 = getelementptr inbounds i8, ptr %76, i64 %.idx520
   %79 = icmp ne ptr %76, null
   call void @llvm.assume(i1 %79)
   %80 = icmp eq i64 %77, 0
@@ -937,7 +938,8 @@ _ZN4core3str7pattern8Searcher11next_reject17h457c6773a69dcd14E.llvm.179485739290
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   %194 = load ptr, ptr %72, align 8, !nonnull !4, !noundef !4
   %195 = load i64, ptr %73, align 8, !noundef !4
-  %196 = getelementptr inbounds { ptr, i64 }, ptr %194, i64 %195
+  %.idx = shl nsw i64 %195, 4
+  %196 = getelementptr inbounds i8, ptr %194, i64 %.idx
   %197 = icmp eq i64 %195, 0
   br i1 %197, label %.loopexit, label %.lr.ph.i
 

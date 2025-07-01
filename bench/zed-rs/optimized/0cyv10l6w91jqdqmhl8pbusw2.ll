@@ -4532,7 +4532,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr93drop
 .lr.ph.preheader.i:                               ; preds = %132
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %136 = load ptr, ptr %135, align 8, !alias.scope !602, !noalias !581, !nonnull !5, !noundef !5
-  %137 = getelementptr inbounds { { i64, [4 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, i64, i8, i8, [6 x i8] }, ptr %136, i64 %.val.i
+  %.idx.i = mul nsw i64 %.val.i, 72
+  %137 = getelementptr inbounds i8, ptr %136, i64 %.idx.i
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %236

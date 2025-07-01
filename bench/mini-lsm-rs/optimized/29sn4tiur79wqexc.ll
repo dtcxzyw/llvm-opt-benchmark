@@ -5813,7 +5813,8 @@ define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$core..option..Opti
   store ptr @_ZN15crossbeam_epoch5guard11unprotected11UNPROTECTED17h13274a96c6b341acE, ptr %8, align 8
   store ptr %8, ptr %9, align 8
   fence acquire
-  %12 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %.0.val, i64 %.8.val
+  %.idx.i.i.i = shl nsw i64 %.8.val, 4
+  %12 = getelementptr inbounds i8, ptr %.0.val, i64 %.idx.i.i.i
   %13 = icmp eq i64 %.8.val, 0
   br i1 %13, label %.thread.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31950b02b6dfc0d2E.exit.lr.ph.i.i.i"
 
@@ -6164,14 +6165,12 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17h443c6f2be00d996bE.exit.i.i.i: ;
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i20.i.i": ; preds = %.loopexit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %110 = shl nsw i64 %.8.val, 4
-  call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %110, i64 noundef 8) #30
+  call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %.idx.i.i.i, i64 noundef 8) #30
   br label %"_ZN4core3ptr120drop_in_place$LT$moka..sync_base..key_lock..KeyLockMap$LT$$LP$usize$C$usize$RP$$C$std..hash..random..RandomState$GT$$GT$17he4ee32e79fb4ae8cE.exit"
 
 .loopexit.split-lp.i.i:                           ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit.i.i, %104, %82, %51
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %52, %51 ], [ %83, %82 ], [ %105, %104 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit1.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit4.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i ]
-  %111 = shl nsw i64 %.8.val, 4
-  call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %111, i64 noundef 8) #30
+  call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %.idx.i.i.i, i64 noundef 8) #30
   resume { ptr, i32 } %eh.lpad-body.i.i
 }
 
@@ -12127,7 +12126,8 @@ define internal fastcc void @"_ZN4core3ptr244drop_in_place$LT$moka..cht..segment
   store ptr @_ZN15crossbeam_epoch5guard11unprotected11UNPROTECTED17h13274a96c6b341acE, ptr %9, align 8
   store ptr %9, ptr %10, align 8
   fence acquire
-  %12 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %.val, i64 %.val1
+  %.idx.i = shl nsw i64 %.val1, 4
+  %12 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i
   %13 = icmp eq i64 %.val1, 0
   br i1 %13, label %.thread, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcb3f92a09798c482E.exit.lr.ph.i"
 
@@ -12478,8 +12478,7 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17hd082663b4fdfc5deE.exit.i: ; pre
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i20": ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %110 = shl nsw i64 %.val1, 4
-  call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %110, i64 noundef 8) #30
+  call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %.idx.i, i64 noundef 8) #30
   br label %"_ZN4core3ptr279drop_in_place$LT$alloc..boxed..Box$LT$$u5b$moka..cht..segment..Segment$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$u5d$$GT$$GT$17hfac65f3ed2cd3cafE.exit21"
 
 "_ZN4core3ptr279drop_in_place$LT$alloc..boxed..Box$LT$$u5b$moka..cht..segment..Segment$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$u5d$$GT$$GT$17hfac65f3ed2cd3cafE.exit21": ; preds = %.thread, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.1597650999041595525.exit.i.i20"
@@ -12487,8 +12486,7 @@ _ZN4moka3cht3map6bucket21defer_acquire_destroy17hd082663b4fdfc5deE.exit.i: ; pre
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %104, %82, %51
   %eh.lpad-body = phi { ptr, i32 } [ %52, %51 ], [ %83, %82 ], [ %105, %104 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit22, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit25, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %111 = shl nsw i64 %.val1, 4
-  call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %111, i64 noundef 8) #30
+  call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %.idx.i, i64 noundef 8) #30
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -27271,7 +27269,8 @@ define hidden void @"_ZN86_$LT$moka..cht..segment..HashMap$LT$K$C$V$C$S$GT$$u20$
   %11 = load ptr, ptr %0, align 8, !nonnull !4, !align !24, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %11, i64 %13
+  %.idx = shl nsw i64 %13, 4
+  %14 = getelementptr inbounds i8, ptr %11, i64 %.idx
   %15 = icmp eq i64 %13, 0
   br i1 %15, label %._crit_edge35, label %.lr.ph34
 

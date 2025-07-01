@@ -36,7 +36,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.zend_get_gc_buffer = type { ptr, ptr, ptr }
 %struct._zend_call_stack = type { ptr, i64 }
 %struct._zend_strtod_state = type { [8 x ptr], ptr, ptr }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 
 @.str = private unnamed_addr constant [5 x i8] c"exec\00", align 1
@@ -291,7 +290,8 @@ define hidden noundef i32 @phpdbg_do_print_class(ptr noundef readonly captures(n
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 88
   %35 = load i32, ptr %34, align 8, !tbaa !103
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %struct._Bucket, ptr %33, i64 %36
+  %.idx = shl nuw nsw i64 %36, 5
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %39 = load i32, ptr %38, align 8, !tbaa !61
   %40 = and i32 %39, 4
@@ -950,7 +950,8 @@ define internal fastcc void @phpdbg_print_opcodes_ce(ptr noundef readonly captur
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %25 = load i32, ptr %24, align 8, !tbaa !103
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %struct._Bucket, ptr %23, i64 %26
+  %.idx = shl nuw nsw i64 %26, 5
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %29 = load i32, ptr %28, align 8, !tbaa !61
   %30 = and i32 %29, 4
@@ -1006,7 +1007,8 @@ define internal fastcc void @phpdbg_print_opcodes_ce(ptr noundef readonly captur
   %54 = load ptr, ptr %22, align 8, !tbaa !61
   %55 = load i32, ptr %24, align 8, !tbaa !103
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw %struct._Bucket, ptr %54, i64 %56
+  %.idx46 = shl nuw nsw i64 %56, 5
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx46
   %58 = load i32, ptr %28, align 8, !tbaa !61
   %59 = and i32 %58, 4
   %.not37 = icmp eq i32 %59, 0
@@ -1066,7 +1068,8 @@ define hidden void @phpdbg_print_opcodes(ptr noundef %0) local_unnamed_addr #0 {
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %19 = load i32, ptr %18, align 8, !tbaa !103
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct._Bucket, ptr %17, i64 %20
+  %.idx = shl nuw nsw i64 %20, 5
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !61
   %24 = and i32 %23, 4
@@ -1121,7 +1124,8 @@ phpdbg_print_opcodes_function.exit:               ; preds = %43, %40, %28, %.lr.
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %50 = load i32, ptr %49, align 8, !tbaa !103
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %struct._Bucket, ptr %48, i64 %51
+  %.idx53 = shl nuw nsw i64 %51, 5
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx53
   %53 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %54 = load i32, ptr %53, align 8, !tbaa !61
   %55 = and i32 %54, 4

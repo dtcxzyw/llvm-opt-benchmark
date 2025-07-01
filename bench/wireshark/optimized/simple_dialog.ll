@@ -20,13 +20,13 @@ module asm ".previous"
 %struct.QMetaObject = type { %"struct.QMetaObject::Data" }
 %"struct.QMetaObject::Data" = type { %"struct.QMetaObject::SuperData", ptr, ptr, ptr, ptr, ptr, ptr }
 %"struct.QMetaObject::SuperData" = type { ptr }
-%"struct.std::pair" = type { %class.QString, %class.QString }
-%class.QString = type { %struct.QArrayDataPointer.4 }
-%struct.QArrayDataPointer.4 = type { ptr, ptr, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %class.SimpleDialog = type { %class.QString, %class.QString, ptr, ptr }
+%class.QString = type { %struct.QArrayDataPointer.4 }
+%struct.QArrayDataPointer.4 = type { ptr, ptr, i64 }
 %struct.VisibleAsyncMessage = type <{ ptr, i32, [4 x i8] }>
 %"class.QMetaObject::Connection" = type { ptr }
+%"struct.std::pair" = type { %class.QString, %class.QString }
 %class.QRegularExpression = type { %class.QExplicitlySharedDataPointer.25 }
 %class.QExplicitlySharedDataPointer.25 = type { ptr }
 %class.QMessageBox = type { %class.QDialog }
@@ -141,8 +141,8 @@ _ZN17QArrayDataPointerISt4pairI7QStringS1_EE5derefEv.exit.i: ; preds = %1
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr %"struct.std::pair", ptr %6, i64 %8
   %.idx.i.i = mul i64 %8, 48
+  %9 = getelementptr i8, ptr %6, i64 %.idx.i.i
   %.not4.i.i.i.i.i = icmp eq i64 %.idx.i.i, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsISt4pairI7QStringS2_EE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -2028,11 +2028,11 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListISt4pairI7QStringS3_EEEENS_17QForeac
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %75, ptr %76, align 8, !alias.scope !17
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %78 = getelementptr %"struct.std::pair", ptr %75, i64 %74
+  %.idx = mul i64 %74, 48
+  %78 = getelementptr i8, ptr %75, i64 %.idx
   store ptr %78, ptr %77, align 8, !alias.scope !17
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 1, ptr %79, align 8, !alias.scope !17
-  %.idx = mul i64 %74, 48
   %.not9193 = icmp eq i64 %.idx, 0
   br i1 %.not9193, label %._crit_edge, label %.lr.ph
 
@@ -2058,8 +2058,8 @@ _ZN17QArrayDataPointerISt4pairI7QStringS1_EE5derefEv.exit.i.i.i: ; preds = %._cr
 88:                                               ; preds = %_ZN17QArrayDataPointerISt4pairI7QStringS1_EE5derefEv.exit.i.i.i
   %89 = load ptr, ptr %68, align 8
   %90 = load i64, ptr %70, align 8
-  %91 = getelementptr %"struct.std::pair", ptr %89, i64 %90
   %.idx.i.i.i.i = mul i64 %90, 48
+  %91 = getelementptr i8, ptr %89, i64 %.idx.i.i.i.i
   %.not4.i.i.i.i.i.i.i = icmp eq i64 %.idx.i.i.i.i, 0
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsISt4pairI7QStringS2_EE10destroyAllEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -2323,8 +2323,8 @@ _ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i: ; preds = %_ZN7QStringD2Ev.ex
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %172 = load i64, ptr %171, align 8
-  %173 = getelementptr %class.QString, ptr %170, i64 %172
   %.idx.i.i.i = mul i64 %172, 24
+  %173 = getelementptr i8, ptr %170, i64 %.idx.i.i.i
   %.not4.i.i.i.i.i.i = icmp eq i64 %.idx.i.i.i, 0
   br i1 %.not4.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -2539,8 +2539,8 @@ _ZN17QArrayDataPointerISt4pairI7QStringS1_EE5derefEv.exit.i.i: ; preds = %1
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr %"struct.std::pair", ptr %6, i64 %8
   %.idx.i.i.i = mul i64 %8, 48
+  %9 = getelementptr i8, ptr %6, i64 %.idx.i.i.i
   %.not4.i.i.i.i.i.i = icmp eq i64 %.idx.i.i.i, 0
   br i1 %.not4.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsISt4pairI7QStringS2_EE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -2609,8 +2609,8 @@ _ZN17QArrayDataPointerI7QStringE5derefEv.exit.i:  ; preds = %1
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr %class.QString, ptr %6, i64 %8
   %.idx.i.i = mul i64 %8, 24
+  %9 = getelementptr i8, ptr %6, i64 %.idx.i.i
   %.not4.i.i.i.i.i = icmp eq i64 %.idx.i.i, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -2690,8 +2690,8 @@ _ZN17QArrayDataPointerISt4pairI7QStringS1_EE5derefEv.exit.i: ; preds = %_ZN17QAr
   br i1 %.not.i2, label %20, label %_ZN17QArrayDataPointerISt4pairI7QStringS1_EED2Ev.exit
 
 20:                                               ; preds = %_ZN17QArrayDataPointerISt4pairI7QStringS1_EE5derefEv.exit.i
-  %21 = getelementptr %"struct.std::pair", ptr %17, i64 %18
   %.idx.i.i = mul i64 %18, 48
+  %21 = getelementptr i8, ptr %17, i64 %.idx.i.i
   %.not4.i.i.i.i.i = icmp eq i64 %.idx.i.i, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsISt4pairI7QStringS2_EE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -3051,13 +3051,13 @@ _ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.thread.i.i.i:
 
 _ZN17QArrayDataPointerI19VisibleAsyncMessageE6detachEPS1_.exit.i.i: ; preds = %_ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.thread.i.i.i, %_ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit.i.i.i38
   %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16visible_messages, i64 8), align 8
-  %.idx3.i.i = shl nsw i64 %11, 4
-  %76 = getelementptr i8, ptr %75, i64 %.idx3.i.i
+  %.idx.i.i = shl nsw i64 %11, 4
+  %76 = getelementptr i8, ptr %75, i64 %.idx.i.i
   %77 = getelementptr i8, ptr %76, i64 16
   %78 = icmp ne i32 %.01042, 0
   %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16visible_messages, i64 16), align 8
-  %.idx.i.i = shl i64 %79, 4
-  %80 = getelementptr i8, ptr %75, i64 %.idx.i.i
+  %.idx3.i.i = shl i64 %79, 4
+  %80 = getelementptr i8, ptr %75, i64 %.idx3.i.i
   %.not.i.i.i39 = icmp eq ptr %77, %80
   %or.cond.i.i.i = select i1 %78, i1 true, i1 %.not.i.i.i39
   br i1 %or.cond.i.i.i, label %._crit_edge.i.i.i, label %81
@@ -3070,7 +3070,7 @@ _ZN17QArrayDataPointerI19VisibleAsyncMessageE6detachEPS1_.exit.i.i: ; preds = %_
   br i1 %.not.i.i.i39, label %_ZN5QListI19VisibleAsyncMessageE8removeAtEx.exit, label %82
 
 82:                                               ; preds = %._crit_edge.i.i.i
-  %reass.sub = sub i64 %.idx.i.i, %.idx3.i.i
+  %reass.sub = sub i64 %.idx3.i.i, %.idx.i.i
   %gepdiff.i.i = add i64 %reass.sub, -16
   call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %76, ptr noundef align 1 %77, i64 noundef %gepdiff.i.i, i1 noundef false) #25
   %.pre14.i.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16visible_messages, i64 16), align 8
@@ -3130,8 +3130,8 @@ _ZN17QArrayDataPointerISt4pairI7QStringS1_EE5derefEv.exit: ; preds = %1
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr %"struct.std::pair", ptr %6, i64 %8
   %.idx.i = mul i64 %8, 48
+  %9 = getelementptr i8, ptr %6, i64 %.idx.i
   %.not4.i.i.i.i = icmp eq i64 %.idx.i, 0
   br i1 %.not4.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsISt4pairI7QStringS2_EE10destroyAllEv.exit, label %.lr.ph.i.i.i.i
 
@@ -3236,8 +3236,8 @@ _ZN17QArrayDataPointerI7QStringE5derefEv.exit:    ; preds = %1
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr %class.QString, ptr %6, i64 %8
   %.idx.i = mul i64 %8, 24
+  %9 = getelementptr i8, ptr %6, i64 %.idx.i
   %.not4.i.i.i.i = icmp eq i64 %.idx.i, 0
   br i1 %.not4.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit, label %.lr.ph.i.i.i.i
 
@@ -3496,9 +3496,9 @@ _ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit31: ; preds = 
 _ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit31.thread: ; preds = %43, %_ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit31
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr %struct.VisibleAsyncMessage, ptr %49, i64 %spec.select
-  %.idx.mask43 = and i64 %spec.select, 1152921504606846975
-  %51 = icmp ne i64 %.idx.mask43, 0
+  %.idx43 = shl i64 %spec.select, 4
+  %50 = getelementptr i8, ptr %49, i64 %.idx43
+  %51 = icmp ne i64 %.idx43, 0
   %52 = icmp ult ptr %49, %50
   %or.cond47 = select i1 %51, i1 %52, i1 false
   br i1 %or.cond47, label %.lr.ph.i, label %_ZN9QtPrivate16QGenericArrayOpsI19VisibleAsyncMessageE10copyAppendEPKS1_S4_.exit
@@ -3523,9 +3523,9 @@ _ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit31.thread: ; p
 61:                                               ; preds = %_ZNK17QArrayDataPointerI19VisibleAsyncMessageE11needsDetachEv.exit31
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr %struct.VisibleAsyncMessage, ptr %63, i64 %spec.select
-  %.idx.mask = and i64 %spec.select, 1152921504606846975
-  %65 = icmp ne i64 %.idx.mask, 0
+  %.idx = shl i64 %spec.select, 4
+  %64 = getelementptr i8, ptr %63, i64 %.idx
+  %65 = icmp ne i64 %.idx, 0
   %66 = icmp ult ptr %63, %64
   %or.cond48 = select i1 %65, i1 %66, i1 false
   br i1 %or.cond48, label %.lr.ph.i32, label %_ZN9QtPrivate16QGenericArrayOpsI19VisibleAsyncMessageE10copyAppendEPKS1_S4_.exit
@@ -4055,7 +4055,8 @@ _ZNK17QArrayDataPointerISt4pairI7QStringS1_EE14freeSpaceAtEndEv.exit.i: ; preds 
 
 36:                                               ; preds = %32
   %37 = sub nsw i64 0, %31
-  %38 = getelementptr %"struct.std::pair", ptr %22, i64 %37
+  %.idx.i.i = sub i64 0, %27
+  %38 = getelementptr i8, ptr %22, i64 %.idx.i.i
   %39 = icmp eq i64 %29, 0
   br i1 %39, label %_ZN9QtPrivate20q_relocate_overlap_nISt4pairI7QStringS2_ExEEvPT_T0_S5_.exit.i.i, label %40
 
@@ -4175,13 +4176,13 @@ _ZNK17QArrayDataPointerISt4pairI7QStringS1_EE14freeSpaceAtEndEv.exit: ; preds = 
   %42 = sub i64 %.0, %.0.i24
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr %"struct.std::pair", ptr %44, i64 %42
+  %.idx.i = mul i64 %42, 48
+  %45 = getelementptr i8, ptr %44, i64 %.idx.i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = icmp eq i64 %41, 0
   br i1 %47, label %_ZN9QtPrivate20q_relocate_overlap_nISt4pairI7QStringS2_ExEEvPT_T0_S5_.exit.i, label %48
 
 48:                                               ; preds = %40
-  %.idx.i = mul i64 %42, 48
   %49 = icmp eq i64 %.idx.i, 0
   %50 = icmp eq ptr %44, null
   %or.cond.i.i = or i1 %50, %49
@@ -4316,8 +4317,8 @@ _ZNK17QArrayDataPointerISt4pairI7QStringS1_EE11needsDetachEv.exit30: ; preds = %
 _ZNK17QArrayDataPointerISt4pairI7QStringS1_EE11needsDetachEv.exit30.thread: ; preds = %38, %_ZNK17QArrayDataPointerISt4pairI7QStringS1_EE11needsDetachEv.exit30
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr %"struct.std::pair", ptr %44, i64 %spec.select
   %.idx40 = mul i64 %spec.select, 48
+  %45 = getelementptr i8, ptr %44, i64 %.idx40
   %46 = icmp ne i64 %.idx40, 0
   %47 = icmp ult ptr %44, %45
   %or.cond44 = select i1 %46, i1 %47, i1 false
@@ -4380,8 +4381,8 @@ _ZNSt4pairI7QStringS0_EC2ERKS1_.exit.i:           ; preds = %70, %_ZN7QStringC2E
 76:                                               ; preds = %_ZNK17QArrayDataPointerISt4pairI7QStringS1_EE11needsDetachEv.exit30
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr %"struct.std::pair", ptr %78, i64 %spec.select
   %.idx = mul i64 %spec.select, 48
+  %79 = getelementptr i8, ptr %78, i64 %.idx
   %80 = icmp ne i64 %.idx, 0
   %81 = icmp ult ptr %78, %79
   %or.cond45 = select i1 %80, i1 %81, i1 false
@@ -4481,8 +4482,8 @@ _ZN17QArrayDataPointerISt4pairI7QStringS1_EE5derefEv.exit.i: ; preds = %124
 127:                                              ; preds = %_ZN17QArrayDataPointerISt4pairI7QStringS1_EE5derefEv.exit.i
   %128 = load ptr, ptr %29, align 8
   %129 = load i64, ptr %115, align 8
-  %130 = getelementptr %"struct.std::pair", ptr %128, i64 %129
   %.idx.i.i = mul i64 %129, 48
+  %130 = getelementptr i8, ptr %128, i64 %.idx.i.i
   %.not4.i.i.i.i.i = icmp eq i64 %.idx.i.i, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsISt4pairI7QStringS2_EE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -4906,7 +4907,8 @@ _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit.i: ; preds = %_ZNK17QAr
 
 36:                                               ; preds = %32
   %37 = sub nsw i64 0, %31
-  %38 = getelementptr %class.QString, ptr %22, i64 %37
+  %.idx.i.i = sub i64 0, %27
+  %38 = getelementptr i8, ptr %22, i64 %.idx.i.i
   %39 = icmp eq i64 %29, 0
   br i1 %39, label %_ZN9QtPrivate20q_relocate_overlap_nI7QStringxEEvPT_T0_S3_.exit.i.i, label %40
 
@@ -5026,13 +5028,13 @@ _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit: ; preds = %4, %_ZNK17Q
   %42 = sub i64 %.0, %.0.i24
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr %class.QString, ptr %44, i64 %42
+  %.idx.i = mul i64 %42, 24
+  %45 = getelementptr i8, ptr %44, i64 %.idx.i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = icmp eq i64 %41, 0
   br i1 %47, label %_ZN9QtPrivate20q_relocate_overlap_nI7QStringxEEvPT_T0_S3_.exit.i, label %48
 
 48:                                               ; preds = %40
-  %.idx.i = mul i64 %42, 24
   %49 = icmp eq i64 %.idx.i, 0
   %50 = icmp eq ptr %44, null
   %or.cond.i.i = or i1 %50, %49
@@ -5167,8 +5169,8 @@ _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30: ; preds = %38
 _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30.thread: ; preds = %38, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr %class.QString, ptr %44, i64 %spec.select
   %.idx39 = mul i64 %spec.select, 24
+  %45 = getelementptr i8, ptr %44, i64 %.idx39
   %46 = icmp ne i64 %.idx39, 0
   %47 = icmp ult ptr %44, %45
   %or.cond43 = select i1 %46, i1 %47, i1 false
@@ -5211,8 +5213,8 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
 65:                                               ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr %class.QString, ptr %67, i64 %spec.select
   %.idx = mul i64 %spec.select, 24
+  %68 = getelementptr i8, ptr %67, i64 %.idx
   %69 = icmp ne i64 %.idx, 0
   %70 = icmp ult ptr %67, %68
   %or.cond44 = select i1 %69, i1 %70, i1 false
@@ -5294,8 +5296,8 @@ _ZN17QArrayDataPointerI7QStringE5derefEv.exit.i:  ; preds = %102
 105:                                              ; preds = %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i
   %106 = load ptr, ptr %29, align 8
   %107 = load i64, ptr %93, align 8
-  %108 = getelementptr %class.QString, ptr %106, i64 %107
   %.idx.i.i = mul i64 %107, 24
+  %108 = getelementptr i8, ptr %106, i64 %.idx.i.i
   %.not4.i.i.i.i.i = icmp eq i64 %.idx.i.i, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -5631,13 +5633,13 @@ _ZNK17QArrayDataPointerI19VisibleAsyncMessageE14freeSpaceAtEndEv.exit.i: ; preds
 
 37:                                               ; preds = %33
   %38 = sub nsw i64 0, %28
-  %39 = getelementptr %struct.VisibleAsyncMessage, ptr %22, i64 %38
+  %.idx.i.i = shl i64 %38, 4
+  %39 = getelementptr i8, ptr %22, i64 %.idx.i.i
   %40 = icmp eq i64 %30, 0
   br i1 %40, label %_ZN9QtPrivate20q_relocate_overlap_nI19VisibleAsyncMessagexEEvPT_T0_S3_.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  %.idx.mask.i.i = and i64 %38, 1152921504606846975
-  %42 = icmp eq i64 %.idx.mask.i.i, 0
+  %42 = icmp eq i64 %.idx.i.i, 0
   %43 = icmp eq ptr %22, null
   %or.cond.i.i.i = or i1 %42, %43
   %44 = icmp eq ptr %39, null
@@ -5751,14 +5753,14 @@ _ZNK17QArrayDataPointerI19VisibleAsyncMessageE14freeSpaceAtEndEv.exit: ; preds =
   %43 = sub i64 %.0, %.0.i24
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr %struct.VisibleAsyncMessage, ptr %45, i64 %43
+  %.idx.i = shl i64 %43, 4
+  %46 = getelementptr i8, ptr %45, i64 %.idx.i
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = icmp eq i64 %42, 0
   br i1 %48, label %_ZN9QtPrivate20q_relocate_overlap_nI19VisibleAsyncMessagexEEvPT_T0_S3_.exit.i, label %49
 
 49:                                               ; preds = %41
-  %.idx.mask.i = and i64 %43, 1152921504606846975
-  %50 = icmp eq i64 %.idx.mask.i, 0
+  %50 = icmp eq i64 %.idx.i, 0
   %51 = icmp eq ptr %45, null
   %or.cond.i.i = or i1 %51, %50
   %52 = icmp eq ptr %46, null

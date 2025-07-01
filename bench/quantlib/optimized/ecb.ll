@@ -258,7 +258,8 @@ invoke.cont:
   store ptr %0, ptr %_M_right.i.i.i.i, align 8, !tbaa !16
   %_M_node_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i, align 8, !tbaa !17
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %__l.coerce0, i64 %__l.coerce1
+  %add.ptr.i.idx = shl nuw nsw i64 %__l.coerce1, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %__l.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %__l.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont5, label %for.body.i
 

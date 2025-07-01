@@ -7549,7 +7549,8 @@ _ZNSt3__16fill_nB8ne190000IPNS_9sub_matchIPKcEEmS4_EET_S6_T0_RKT1_.exit: ; preds
 29:                                               ; preds = %_ZNSt3__16fill_nB8ne190000IPNS_9sub_matchIPKcEEmS4_EET_S6_T0_RKT1_.exit
   %30 = sub nuw i64 %1, %16
   %31 = load ptr, ptr %12, align 8
-  %32 = getelementptr inbounds %"class.std::__1::sub_match", ptr %31, i64 %30
+  %.idx.i = mul nsw i64 %30, 24
+  %32 = getelementptr inbounds i8, ptr %31, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %29, %.lr.ph.i
@@ -7611,21 +7612,22 @@ _ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE11__vallocateB8ne190000E
   store ptr %49, ptr %50, align 8
   %51 = getelementptr inbounds nuw %"class.std::__1::sub_match", ptr %49, i64 %.0.i
   store ptr %51, ptr %4, align 8
-  %52 = getelementptr inbounds nuw %"class.std::__1::sub_match", ptr %49, i64 %1
-  br label %.lr.ph.i8
+  %.idx.i7 = mul nuw nsw i64 %1, 24
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i7
+  br label %.lr.ph.i9
 
-.lr.ph.i8:                                        ; preds = %_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE11__vallocateB8ne190000Em.exit, %.lr.ph.i8
-  %.sroa.3.012.i9 = phi ptr [ %53, %.lr.ph.i8 ], [ %49, %_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE11__vallocateB8ne190000Em.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.012.i9, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.3.012.i9, i64 24
-  %.not.i10 = icmp eq ptr %53, %52
-  br i1 %.not.i10, label %_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE18__construct_at_endEmRKS4_.exit12, label %.lr.ph.i8, !llvm.loop !71
+.lr.ph.i9:                                        ; preds = %_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE11__vallocateB8ne190000Em.exit, %.lr.ph.i9
+  %.sroa.3.012.i10 = phi ptr [ %53, %.lr.ph.i9 ], [ %49, %_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE11__vallocateB8ne190000Em.exit ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.012.i10, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.3.012.i10, i64 24
+  %.not.i11 = icmp eq ptr %53, %52
+  br i1 %.not.i11, label %_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE18__construct_at_endEmRKS4_.exit13, label %.lr.ph.i9, !llvm.loop !71
 
-_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE18__construct_at_endEmRKS4_.exit12: ; preds = %.lr.ph.i8
+_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE18__construct_at_endEmRKS4_.exit13: ; preds = %.lr.ph.i9
   store ptr %52, ptr %50, align 8
   br label %54
 
-54:                                               ; preds = %_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE18__construct_at_endEmRKS4_.exit, %34, %_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE18__construct_at_endEmRKS4_.exit12
+54:                                               ; preds = %_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE18__construct_at_endEmRKS4_.exit, %34, %_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE18__construct_at_endEmRKS4_.exit13
   ret void
 }
 
@@ -8215,7 +8217,8 @@ define linkonce_odr hidden void @_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocat
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds %"class.std::__1::sub_match", ptr %7, i64 %1
+  %.idx.i = mul nsw i64 %1, 24
+  %13 = getelementptr inbounds i8, ptr %7, i64 %.idx.i
   %.not11.i = icmp eq i64 %1, 0
   br i1 %.not11.i, label %_ZNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE18__construct_at_endEmRKS4_.exit, label %.lr.ph.i
 
@@ -8270,17 +8273,18 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_9sub_matchIPKcEEEEEENS
 _ZNSt3__114__split_bufferINS_9sub_matchIPKcEERNS_9allocatorIS4_EEEC2EmmS7_.exit: ; preds = %_ZNKSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE11__recommendB8ne190000Em.exit, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_9sub_matchIPKcEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS9_m.exit.i
   %storemerge.i = phi ptr [ %31, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_9sub_matchIPKcEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS9_m.exit.i ], [ null, %_ZNKSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEE11__recommendB8ne190000Em.exit ]
   %32 = getelementptr inbounds i8, ptr %storemerge.i, i64 %18
-  %33 = getelementptr inbounds %"class.std::__1::sub_match", ptr %32, i64 %1
-  br label %.lr.ph.i10
+  %.idx.i10 = mul nsw i64 %1, 24
+  %33 = getelementptr inbounds i8, ptr %32, i64 %.idx.i10
+  br label %.lr.ph.i11
 
-.lr.ph.i10:                                       ; preds = %_ZNSt3__114__split_bufferINS_9sub_matchIPKcEERNS_9allocatorIS4_EEEC2EmmS7_.exit, %.lr.ph.i10
-  %.sroa.0.010.i = phi ptr [ %34, %.lr.ph.i10 ], [ %32, %_ZNSt3__114__split_bufferINS_9sub_matchIPKcEERNS_9allocatorIS4_EEEC2EmmS7_.exit ]
+.lr.ph.i11:                                       ; preds = %_ZNSt3__114__split_bufferINS_9sub_matchIPKcEERNS_9allocatorIS4_EEEC2EmmS7_.exit, %.lr.ph.i11
+  %.sroa.0.010.i = phi ptr [ %34, %.lr.ph.i11 ], [ %32, %_ZNSt3__114__split_bufferINS_9sub_matchIPKcEERNS_9allocatorIS4_EEEC2EmmS7_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.010.i, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 24
-  %.not.i11 = icmp eq ptr %34, %33
-  br i1 %.not.i11, label %_ZNSt3__114__split_bufferINS_9sub_matchIPKcEERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i10, !llvm.loop !74
+  %.not.i12 = icmp eq ptr %34, %33
+  br i1 %.not.i12, label %_ZNSt3__114__split_bufferINS_9sub_matchIPKcEERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i11, !llvm.loop !74
 
-_ZNSt3__114__split_bufferINS_9sub_matchIPKcEERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i: ; preds = %.lr.ph.i10
+_ZNSt3__114__split_bufferINS_9sub_matchIPKcEERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i: ; preds = %.lr.ph.i11
   %35 = getelementptr inbounds nuw %"class.std::__1::sub_match", ptr %storemerge.i, i64 %.0.i
   %36 = load ptr, ptr %0, align 8
   %.promoted.fr.i.i.i.i = freeze ptr %36
@@ -8292,8 +8296,8 @@ _ZNSt3__114__split_bufferINS_9sub_matchIPKcEERNS_9allocatorIS4_EEE5clearB8ne1900
   store ptr %39, ptr %0, align 8
   store ptr %33, ptr %6, align 8
   store ptr %35, ptr %4, align 8
-  %.not.i12 = icmp eq ptr %.promoted.fr.i.i.i.i, null
-  br i1 %.not.i12, label %_ZNSt3__114__split_bufferINS_9sub_matchIPKcEERNS_9allocatorIS4_EEED2Ev.exit, label %40
+  %.not.i13 = icmp eq ptr %.promoted.fr.i.i.i.i, null
+  br i1 %.not.i13, label %_ZNSt3__114__split_bufferINS_9sub_matchIPKcEERNS_9allocatorIS4_EEED2Ev.exit, label %40
 
 40:                                               ; preds = %_ZNSt3__114__split_bufferINS_9sub_matchIPKcEERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %.promoted.fr.i.i.i.i) #30
@@ -18702,7 +18706,7 @@ _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit: ; 
           to label %_ZNSt3__116allocator_traitsINS_9allocatorINS_7__stateIcEEEEE8allocateB8ne190000ERS4_m.exit unwind label %106
 
 _ZNSt3__116allocator_traitsINS_9allocatorINS_7__stateIcEEEEE8allocateB8ne190000ERS4_m.exit: ; preds = %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %.sroa.speculated
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 %59
   %63 = icmp eq i64 %.sroa.speculated, 0
   br i1 %63, label %_ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit.i, label %67
 
@@ -23398,7 +23402,8 @@ _ZNSt3__116allocator_traitsINS_9allocatorIiEEE8allocateB8ne190000ERS2_m.exit: ; 
   %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i32, ptr %16, i64 %20
+  %.idx = shl nsw i64 %20, 2
+  %21 = getelementptr inbounds i8, ptr %16, i64 %.idx
   %.not9.i.i = icmp eq i64 %20, 0
   br i1 %.not9.i.i, label %_ZNSt3__118uninitialized_copyB8ne190000IPiS1_EET0_T_S3_S2_.exit, label %.lr.ph.i.i
 
@@ -37472,7 +37477,8 @@ _ZNSt3__116allocator_traitsINS_9allocatorIjEEE8allocateB8ne190000ERS2_m.exit: ; 
   %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i32, ptr %16, i64 %20
+  %.idx = shl nsw i64 %20, 2
+  %21 = getelementptr inbounds i8, ptr %16, i64 %.idx
   %.not9.i.i = icmp eq i64 %20, 0
   br i1 %.not9.i.i, label %_ZNSt3__118uninitialized_copyB8ne190000IPjS1_EET0_T_S3_S2_.exit, label %.lr.ph.i.i
 

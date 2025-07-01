@@ -8339,7 +8339,8 @@ define hidden noundef zeroext i1 @_ZN16wasmtime_environ6module20MemoryInitializa
   br i1 %trunc, label %31, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds { { i32, [1 x i32] }, i64, { i32, i32 }, i32, [1 x i32] }, ptr %8, i64 %10
+  %.idx = shl nsw i64 %10, 5
+  %12 = getelementptr inbounds i8, ptr %8, i64 %.idx
   %13 = icmp eq i64 %10, 0
   br i1 %13, label %"_ZN16wasmtime_environ14module_environ17ModuleTranslation15try_static_init28_$u7b$$u7b$closure$u7d$$u7d$17hb8476224574ce9ebE.exit", label %.lr.ph
 
@@ -8939,7 +8940,8 @@ define void @_ZN16wasmtime_environ7compile11address_map17AddressMapSection4push1
   br i1 %22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h6bc565c6df39b577E.exit23.thread", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h6bc565c6df39b577E.exit23"
-  %23 = getelementptr inbounds { i32, i32 }, ptr %3, i64 %4
+  %.idx30.pn = shl nsw i64 %4, 3
+  %23 = getelementptr inbounds i8, ptr %3, i64 %.idx30.pn
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9299,7 +9301,8 @@ define void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuilder6appe
   %48 = load ptr, ptr %47, align 8, !nonnull !49, !noundef !49
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %50 = load i64, ptr %49, align 8, !noundef !49
-  %51 = getelementptr inbounds { i64, [2 x i64] }, ptr %48, i64 %50
+  %.idx = mul nsw i64 %50, 24
+  %51 = getelementptr inbounds i8, ptr %48, i64 %.idx
   %52 = icmp eq i64 %50, 0
   br i1 %52, label %._crit_edge, label %.lr.ph
 
@@ -9344,9 +9347,9 @@ define void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuilder6appe
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2846)
   %75 = load i64, ptr %74, align 8, !range !2758, !alias.scope !2846, !noalias !2849, !noundef !49
   %76 = icmp eq i64 %75, 0
-  br i1 %76, label %77, label %._crit_edge368
+  br i1 %76, label %77, label %._crit_edge370
 
-._crit_edge368:                                   ; preds = %73
+._crit_edge370:                                   ; preds = %73
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 280
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %99
@@ -9409,7 +9412,7 @@ define void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuilder6appe
   store i64 1, ptr %74, align 8, !alias.scope !2846, !noalias !2849
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i64 %93, ptr %94, align 8, !alias.scope !2846, !noalias !2849
-  %.pre369 = load i64, ptr %64, align 8, !alias.scope !2854, !noalias !2857
+  %.pre371 = load i64, ptr %64, align 8, !alias.scope !2854, !noalias !2857
   br label %99
 
 95:                                               ; preds = %60, %134
@@ -9442,14 +9445,14 @@ define void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuilder6appe
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke372, %.invoke, %99, %"_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuilder6append28_$u7b$$u7b$closure$u7d$$u7d$17h87c414bbfb075454E.exit.i", %.noexc156, %77
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke374, %.invoke, %99, %"_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuilder6append28_$u7b$$u7b$closure$u7d$$u7d$17h87c414bbfb075454E.exit.i", %.noexc156, %77
   %lpad.loopexit.split-lp343 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-99:                                               ; preds = %._crit_edge368, %.noexc158
-  %100 = phi i64 [ %65, %._crit_edge368 ], [ %.pre369, %.noexc158 ]
-  %101 = phi i64 [ %.pre, %._crit_edge368 ], [ %93, %.noexc158 ]
+99:                                               ; preds = %._crit_edge370, %.noexc158
+  %100 = phi i64 [ %65, %._crit_edge370 ], [ %.pre371, %.noexc158 ]
+  %101 = phi i64 [ %.pre, %._crit_edge370 ], [ %93, %.noexc158 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2854)
   %102 = load ptr, ptr %63, align 8, !alias.scope !2854, !noalias !2857, !nonnull !49, !noundef !49
@@ -9494,7 +9497,8 @@ define void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuilder6appe
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19), !noalias !2864
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6)
   %.sroa.0284.0.copyload = load i64, ptr %28, align 8
-  %117 = getelementptr inbounds { ptr, ptr }, ptr %113, i64 %115
+  %.idx368 = shl nsw i64 %115, 4
+  %117 = getelementptr inbounds i8, ptr %113, i64 %.idx368
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)
   store ptr %113, ptr %26, align 8
   %.sroa.5282.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -9574,7 +9578,8 @@ define void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuilder6appe
   br i1 %trunc107, label %159, label %141
 
 141:                                              ; preds = %135
-  %142 = getelementptr inbounds { { i32, [1 x i32] }, i64, { i32, i32 }, i32, [1 x i32] }, ptr %138, i64 %140
+  %.idx369 = shl nsw i64 %140, 5
+  %142 = getelementptr inbounds i8, ptr %138, i64 %.idx369
   %143 = icmp eq i64 %140, 0
   br i1 %143, label %.loopexit345, label %.lr.ph367
 
@@ -9585,7 +9590,7 @@ define void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuilder6appe
   %146 = load i32, ptr %145, align 8, !noundef !49
   %147 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %146, i32 %.sroa.517.0)
   %148 = extractvalue { i32, i1 } %147, 1
-  br i1 %148, label %.invoke372, label %150
+  br i1 %148, label %.invoke374, label %150
 
 .loopexit345:                                     ; preds = %156, %141, %164
   %149 = icmp ult i64 %.098.lcssa, 4294967296
@@ -9599,7 +9604,7 @@ define void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuilder6appe
   %153 = load i32, ptr %152, align 4, !noundef !49
   %154 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %153, i32 %.sroa.517.0)
   %155 = extractvalue { i32, i1 } %154, 1
-  br i1 %155, label %.invoke372, label %156
+  br i1 %155, label %.invoke374, label %156
 
 156:                                              ; preds = %150
   %157 = extractvalue { i32, i1 } %154, 0
@@ -9702,7 +9707,7 @@ define void @_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuilder6appe
   %193 = load i32, ptr %181, align 4, !noundef !49
   %194 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %193, i32 %170)
   %195 = extractvalue { i32, i1 } %194, 1
-  br i1 %195, label %.invoke372, label %495
+  br i1 %195, label %.invoke374, label %495
 
 _ZN16wasmtime_environ7compile16module_artifacts13ObjectBuilder10push_debug17h2ab77984475804b9E.exit: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h005c8563af8d36d4E.llvm.725258463910346102.exit.i231", %_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuilder10push_debug17h3d7f2216df680498E.exit, %183
   %196 = phi i64 [ %409, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h005c8563af8d36d4E.llvm.725258463910346102.exit.i231" ], [ %389, %_ZN16wasmtime_environ7compile16module_artifacts13ObjectBuilder10push_debug17h3d7f2216df680498E.exit ], [ 0, %183 ]
@@ -10476,7 +10481,7 @@ common.resume:                                    ; preds = %647, %468, %638, %6
   %498 = load i32, ptr %497, align 4, !noundef !49
   %499 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %498, i32 %170)
   %500 = extractvalue { i32, i1 } %499, 1
-  br i1 %500, label %.invoke372, label %501
+  br i1 %500, label %.invoke374, label %501
 
 501:                                              ; preds = %495
   %502 = extractvalue { i32, i1 } %499, 0
@@ -10488,7 +10493,7 @@ common.resume:                                    ; preds = %647, %468, %638, %6
   %505 = load i32, ptr %504, align 8, !noundef !49
   %506 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %505, i32 %.sroa.517.0)
   %507 = extractvalue { i32, i1 } %506, 1
-  br i1 %507, label %.invoke372, label %508
+  br i1 %507, label %.invoke374, label %508
 
 508:                                              ; preds = %503
   %509 = extractvalue { i32, i1 } %506, 0
@@ -10497,14 +10502,14 @@ common.resume:                                    ; preds = %647, %468, %638, %6
   %511 = load i32, ptr %510, align 4, !noundef !49
   %512 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %511, i32 %.sroa.517.0)
   %513 = extractvalue { i32, i1 } %512, 1
-  br i1 %513, label %.invoke372, label %515
+  br i1 %513, label %.invoke374, label %515
 
-.invoke372:                                       ; preds = %150, %.lr.ph367, %508, %503, %495, %191
+.invoke374:                                       ; preds = %150, %.lr.ph367, %508, %503, %495, %191
   %514 = phi ptr [ @anon.d85152804b0e6a658af4011f794a6e53.66, %191 ], [ @anon.d85152804b0e6a658af4011f794a6e53.67, %495 ], [ @anon.d85152804b0e6a658af4011f794a6e53.68, %503 ], [ @anon.d85152804b0e6a658af4011f794a6e53.69, %508 ], [ @anon.d85152804b0e6a658af4011f794a6e53.63, %.lr.ph367 ], [ @anon.d85152804b0e6a658af4011f794a6e53.64, %150 ]
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) %514) #44
-          to label %.cont373 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.cont375 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont373:                                         ; preds = %.invoke372
+.cont375:                                         ; preds = %.invoke374
   unreachable
 
 515:                                              ; preds = %508
@@ -10935,12 +10940,12 @@ common.resume:                                    ; preds = %647, %468, %638, %6
   br i1 %671, label %._crit_edge, label %.lr.ph
 
 672:                                              ; preds = %.thread, %434
-  %.pn122370 = phi { ptr, i32 } [ %.pn120, %434 ], [ %572, %.thread ]
+  %.pn122372 = phi { ptr, i32 } [ %.pn120, %434 ], [ %572, %.thread ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$wasmtime_environ..module..Module$GT$17h0ad42e60361336b6E"(ptr noalias noundef nonnull align 8 dereferenceable(464) %33) #43
           to label %673 unwind label %493
 
 673:                                              ; preds = %672, %574
-  %.pn122.pn.ph = phi { ptr, i32 } [ %575, %574 ], [ %.pn122370, %672 ]
+  %.pn122.pn.ph = phi { ptr, i32 } [ %575, %574 ], [ %.pn122372, %672 ]
   invoke void @"_ZN4core3ptr141drop_in_place$LT$alloc..vec..Vec$LT$$LP$wasmtime_types..ModuleInternedTypeIndex$C$wasmtime_environ..module_artifacts..FunctionLoc$RP$$GT$$GT$17h4efae011c518df7fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #43
           to label %674 unwind label %493
 
@@ -11158,7 +11163,8 @@ define void @_ZN16wasmtime_environ7compile13trap_encoding19TrapEncodingBuilder4p
   br i1 %26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2bd224d3305bf4e1E.exit.thread", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2bd224d3305bf4e1E.exit"
-  %27 = getelementptr inbounds { i32, i8, [3 x i8] }, ptr %3, i64 %4
+  %.idx23.pn = shl nsw i64 %4, 3
+  %27 = getelementptr inbounds i8, ptr %3, i64 %.idx23.pn
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load i32, ptr %10, align 8
@@ -12514,7 +12520,8 @@ define hidden void @_ZN16wasmtime_environ4fact5traps11TrapSection6finish17h15db9
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !49, !noundef !49
   %19 = load i64, ptr %14, align 8, !noundef !49
-  %20 = getelementptr inbounds { i64, [2 x i64] }, ptr %18, i64 %19
+  %.idx = mul nsw i64 %19, 24
+  %20 = getelementptr inbounds i8, ptr %18, i64 %.idx
   %21 = icmp eq i64 %19, 0
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -12597,7 +12604,8 @@ define hidden void @_ZN16wasmtime_environ4fact5traps11TrapSection6finish17h15db9
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load ptr, ptr %43, align 8, !nonnull !49, !noundef !49
   %45 = load i64, ptr %32, align 8, !noundef !49
-  %46 = getelementptr inbounds { i32, [1 x i32], { { i64, ptr, {} }, i64 } }, ptr %44, i64 %45
+  %.idx52 = shl nsw i64 %45, 5
+  %46 = getelementptr inbounds i8, ptr %44, i64 %.idx52
   %47 = icmp eq i64 %45, 0
   br i1 %47, label %._crit_edge51, label %.lr.ph50
 

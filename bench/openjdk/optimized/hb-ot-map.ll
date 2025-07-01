@@ -1786,7 +1786,8 @@ _ZN19hb_ot_map_builder_t11add_lookupsER11hb_ot_map_tjjjjbbbbj.exit: ; preds = %.
   %510 = load ptr, ptr %426, align 8
   %511 = load i32, ptr %427, align 4
   %512 = zext i32 %511 to i64
-  %513 = getelementptr inbounds nuw %"struct.hb_ot_map_t::feature_map_t", ptr %510, i64 %512
+  %.idx462 = mul nuw nsw i64 %512, 36
+  %513 = getelementptr inbounds nuw i8, ptr %510, i64 %.idx462
   %.not263442 = icmp eq i32 %511, 0
   br i1 %.not263442, label %._crit_edge446, label %.lr.ph445
 

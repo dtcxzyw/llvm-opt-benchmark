@@ -37162,7 +37162,8 @@ define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7
   %4 = load ptr, ptr %3, align 8, !alias.scope !6804, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !6804, !noundef !4
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 4
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -83234,7 +83235,8 @@ common.ret:                                       ; preds = %2110, %"_ZN4core3pt
   br i1 %921, label %2104, label %"_ZN4core3ptr55drop_in_place$LT$zbus..match_rule..builder..Builder$GT$17h280bb3207434e8c8E.exit356.i"
 
 922:                                              ; preds = %900, %889
-  %923 = getelementptr inbounds { i8, [7 x i8], { ptr, i64 } }, ptr %858, i64 %860
+  %.idx.i = mul nsw i64 %860, 24
+  %923 = getelementptr inbounds i8, ptr %858, i64 %.idx.i
   %924 = icmp eq i64 %860, 0
   br i1 %924, label %._crit_edge.i41, label %.lr.ph.i
 
@@ -138095,7 +138097,8 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$6add_fd17h5c4e41
   %12 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = getelementptr inbounds i32, ptr %12, i64 %14
+  %.idx = shl nsw i64 %14, 2
+  %15 = getelementptr inbounds i8, ptr %12, i64 %.idx
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %.loopexit, label %.lr.ph.i
 
@@ -138206,7 +138209,8 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$6add_fd17h6350d7
   %12 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = getelementptr inbounds i32, ptr %12, i64 %14
+  %.idx = shl nsw i64 %14, 2
+  %15 = getelementptr inbounds i8, ptr %12, i64 %.idx
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %.loopexit, label %.lr.ph.i
 

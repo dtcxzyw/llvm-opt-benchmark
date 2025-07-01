@@ -252,7 +252,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h6d35c138e0d8eb64E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %6 = getelementptr inbounds nuw { [16 x i8], i8, [7 x i8] }, ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hc69ca7eb6802e669E.exit, label %.lr.ph.i
 
@@ -1543,7 +1544,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h735837d698f3100dE.exit: ; preds =
   %130 = mul i64 %.sroa.0.0.sroa.speculated.i.i33, 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %130, i1 false), !alias.scope !54
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !54
-  %131 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} }, { i32, [1 x i32] } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i33
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 %130
   store ptr %2, ptr %7, align 8, !noalias !54
   store ptr %131, ptr %21, align 8, !noalias !54
   br i1 %.not.i34, label %132, label %.lr.ph.i.preheader.i
@@ -4253,7 +4254,8 @@ define void @_ZN5wasmi6engine10translator5stack8provider13ProviderStack15sync_lo
 .lr.ph.preheader:                                 ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
-  %12 = getelementptr inbounds nuw { [16 x i8], i8, [7 x i8] }, ptr %11, i64 %7
+  %.idx = mul nuw nsw i64 %7, 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.backedge
@@ -4319,7 +4321,8 @@ define void @_ZN5wasmi6engine10translator5stack8provider13ProviderStack15preserv
 .lr.ph.preheader.i:                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %26 = load ptr, ptr %25, align 8, !alias.scope !374, !nonnull !3, !noundef !3
-  %27 = getelementptr inbounds nuw { [16 x i8], i8, [7 x i8] }, ptr %26, i64 %22
+  %.idx.i = mul nuw nsw i64 %22, 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.backedge.i, %.lr.ph.preheader.i
@@ -4532,7 +4535,8 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator5stack8provider13
 .lr.ph.preheader.i:                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load ptr, ptr %22, align 8, !alias.scope !396, !nonnull !3, !noundef !3
-  %24 = getelementptr inbounds nuw { [16 x i8], i8, [7 x i8] }, ptr %23, i64 %19
+  %.idx.i = mul nuw nsw i64 %19, 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.backedge.i, %.lr.ph.preheader.i
@@ -4576,7 +4580,8 @@ _ZN5wasmi6engine10translator5stack8provider13ProviderStack15sync_local_refs17h0c
   br i1 %39, label %_ZN5wasmi6engine10translator5stack8provider13ProviderStack27preserve_all_locals_inplace17h7af952c9676edf62E.exit, label %.lr.ph.i3
 
 .lr.ph.i3:                                        ; preds = %_ZN5wasmi6engine10translator5stack8provider13ProviderStack15sync_local_refs17h0c61659c48eaf188E.exit
-  %40 = getelementptr inbounds nuw { [16 x i8], i8, [7 x i8] }, ptr %36, i64 %38
+  %.idx.i4 = mul nuw nsw i64 %38, 24
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i4
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4598,16 +4603,16 @@ _ZN5wasmi6engine10translator5stack8provider13ProviderStack15sync_local_refs17h0c
   invoke void @"_ZN4core3ptr109drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$wasmi..engine..translator..PreservedLocal$C$16_usize$GT$$GT$17h49b05e1c508e7274E"(ptr noalias noundef nonnull align 4 dereferenceable(68) %9) #25
           to label %101 unwind label %104, !noalias !399
 
-45:                                               ; preds = %.backedge.i4, %.lr.ph.i3
-  %46 = phi i64 [ %.promoted.i, %.lr.ph.i3 ], [ %51, %.backedge.i4 ]
-  %.sroa.5.047.i = phi ptr [ %40, %.lr.ph.i3 ], [ %47, %.backedge.i4 ]
+45:                                               ; preds = %.backedge.i5, %.lr.ph.i3
+  %46 = phi i64 [ %.promoted.i, %.lr.ph.i3 ], [ %51, %.backedge.i5 ]
+  %.sroa.5.047.i = phi ptr [ %40, %.lr.ph.i3 ], [ %47, %.backedge.i5 ]
   %47 = getelementptr inbounds i8, ptr %.sroa.5.047.i, i64 -24
   %48 = getelementptr inbounds i8, ptr %.sroa.5.047.i, i64 -8
   %49 = load i8, ptr %48, align 8, !range !10, !noalias !399, !noundef !3
   %50 = icmp eq i8 %49, 8
-  br i1 %50, label %53, label %.backedge.i4
+  br i1 %50, label %53, label %.backedge.i5
 
-.backedge.i4:                                     ; preds = %98, %45
+.backedge.i5:                                     ; preds = %98, %45
   %51 = phi i64 [ %46, %45 ], [ %99, %98 ]
   %52 = icmp eq ptr %36, %47
   br i1 %52, label %_ZN5wasmi6engine10translator5stack8provider13ProviderStack27preserve_all_locals_inplace17h7af952c9676edf62E.exit, label %45
@@ -4716,7 +4721,7 @@ _ZN5wasmi6engine10translator5stack8provider13ProviderStack15sync_local_refs17h0c
 98:                                               ; preds = %102, %"_ZN5wasmi6engine10translator14FuncTranslator15preserve_locals28_$u7b$$u7b$closure$u7d$$u7d$17h1290354c73bd65e4E.exit.i"
   %99 = phi i64 [ %85, %"_ZN5wasmi6engine10translator14FuncTranslator15preserve_locals28_$u7b$$u7b$closure$u7d$$u7d$17h1290354c73bd65e4E.exit.i" ], [ %103, %102 ]
   %100 = icmp eq i64 %99, 0
-  br i1 %100, label %_ZN5wasmi6engine10translator5stack8provider13ProviderStack27preserve_all_locals_inplace17h7af952c9676edf62E.exit, label %.backedge.i4
+  br i1 %100, label %_ZN5wasmi6engine10translator5stack8provider13ProviderStack27preserve_all_locals_inplace17h7af952c9676edf62E.exit, label %.backedge.i5
 
 101:                                              ; preds = %44
   resume { ptr, i32 } %lpad.phi.i
@@ -4734,8 +4739,8 @@ _ZN5wasmi6engine10translator5stack8provider13ProviderStack15sync_local_refs17h0c
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #26, !noalias !399
   unreachable
 
-_ZN5wasmi6engine10translator5stack8provider13ProviderStack27preserve_all_locals_inplace17h7af952c9676edf62E.exit: ; preds = %.backedge.i4, %98, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack15sync_local_refs17h0c61659c48eaf188E.exit, %71
-  %.sroa.0.1.i = phi ptr [ %73, %71 ], [ null, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack15sync_local_refs17h0c61659c48eaf188E.exit ], [ null, %98 ], [ null, %.backedge.i4 ]
+_ZN5wasmi6engine10translator5stack8provider13ProviderStack27preserve_all_locals_inplace17h7af952c9676edf62E.exit: ; preds = %.backedge.i5, %98, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack15sync_local_refs17h0c61659c48eaf188E.exit, %71
+  %.sroa.0.1.i = phi ptr [ %73, %71 ], [ null, %_ZN5wasmi6engine10translator5stack8provider13ProviderStack15sync_local_refs17h0c61659c48eaf188E.exit ], [ null, %98 ], [ null, %.backedge.i5 ]
   call void @"_ZN4core3ptr109drop_in_place$LT$arrayvec..arrayvec..ArrayVec$LT$wasmi..engine..translator..PreservedLocal$C$16_usize$GT$$GT$17h49b05e1c508e7274E"(ptr noalias noundef nonnull align 4 dereferenceable(68) %9), !noalias !399
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %9), !noalias !404
   br label %33
@@ -6215,7 +6220,8 @@ _ZN5wasmi6engine10translator5stack8provider13ProviderStack6peek_n17h166e57f3105e
 
 ; Function Attrs: nonlazybind uwtable
 define noundef align 8 ptr @_ZN5wasmi6engine10translator5stack10ValueStack6push_n17h1254cfb704e3ce3aE(ptr noalias noundef align 8 dereferenceable(248) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw { [16 x i8], i8, [7 x i8] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 

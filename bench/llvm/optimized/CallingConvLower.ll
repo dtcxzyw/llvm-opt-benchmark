@@ -369,7 +369,8 @@ define dso_local void @_ZN4llvm7CCState13MarkAllocatedEt(ptr noundef nonnull rea
   %6 = tail call { ptr, i64 } @_ZNK4llvm14MCRegisterInfo18getCachedAliasesOfENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(232) %5, i32 %3) #12
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
-  %9 = getelementptr inbounds nuw i16, ptr %7, i64 %8
+  %.idx = shl nuw nsw i64 %8, 1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not7 = icmp eq i64 %8, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -406,7 +407,8 @@ define dso_local void @_ZN4llvm7CCState15MarkUnallocatedEt(ptr noundef nonnull r
   %6 = tail call { ptr, i64 } @_ZNK4llvm14MCRegisterInfo18getCachedAliasesOfENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(232) %5, i32 %3) #12
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
-  %9 = getelementptr inbounds nuw i16, ptr %7, i64 %8
+  %.idx = shl nuw nsw i64 %8, 1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not7 = icmp eq i64 %8, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -458,7 +460,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm7CCState20IsShadowAllocatedRegENS_
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !162
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::CCValAssign", ptr %15, i64 %18
+  %.idx = shl nuw nsw i64 %18, 5
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   %.not23 = icmp eq i32 %17, 0
   br i1 %.not23, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread, label %.lr.ph
 
@@ -1075,7 +1078,8 @@ define dso_local void @_ZN4llvm7CCState33analyzeMustTailForwardedRegistersERNS_1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %10 = load i8, ptr %9, align 1, !tbaa !216, !range !184, !noundef !185
   store i8 1, ptr %9, align 1, !tbaa !216
-  %11 = getelementptr inbounds nuw %"class.llvm::MVT", ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 1
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not38 = icmp eq i64 %3, 0
   br i1 %.not38, label %._crit_edge42, label %.lr.ph41
 
@@ -1115,7 +1119,8 @@ define dso_local void @_ZN4llvm7CCState33analyzeMustTailForwardedRegistersERNS_1
   %30 = call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(412423) %26, i16 %.sroa.013.0.copyload, i1 noundef zeroext false) #12
   %31 = load ptr, ptr %6, align 8, !tbaa !233
   %32 = load i64, ptr %13, align 8, !tbaa !231
-  %33 = getelementptr inbounds nuw i16, ptr %31, i64 %32
+  %.idx43 = shl nuw nsw i64 %32, 1
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx43
   %.not2636 = icmp eq i64 %32, 0
   br i1 %.not2636, label %._crit_edge, label %.lr.ph
 
@@ -1266,7 +1271,8 @@ _ZN4llvm7CCState17AnalyzeCallResultERKNS_15SmallVectorImplINS_3ISD8InputArgEEEPF
   %37 = load ptr, ptr %8, align 8, !tbaa !161
   %38 = load i32, ptr %15, align 8, !tbaa !162
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"class.llvm::CCValAssign", ptr %37, i64 %39
+  %.idx = shl nuw nsw i64 %39, 5
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx
   %41 = load i32, ptr %27, align 8, !tbaa !162
   %.not.i.i = icmp eq i32 %38, %41
   br i1 %.not.i.i, label %42, label %"_ZSt5equalIPN4llvm11CCValAssignES2_ZNS0_7CCState17resultsCompatibleEjjRNS0_15MachineFunctionERNS0_11LLVMContextERKNS0_15SmallVectorImplINS0_3ISD8InputArgEEEPFbjNS0_3MVTESE_NS1_7LocInfoENS9_10ArgFlagsTyERS3_ESJ_E3$_0EbT_SL_T0_SM_T1_.exit"

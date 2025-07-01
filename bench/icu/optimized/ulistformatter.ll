@@ -827,7 +827,8 @@ define noundef i32 @ulistfmt_format_77(ptr noundef %0, ptr noundef readonly capt
   br i1 %54, label %.loopexit.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %51
-  %55 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %49, i64 %53
+  %.idx.i = shl nsw i64 %53, 6
+  %55 = getelementptr inbounds i8, ptr %49, i64 %.idx.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
@@ -943,24 +944,25 @@ define internal fastcc noundef ptr @_ZL17getUnicodeStringsPKPKDsPKiiPN6icu_7713U
   %36 = getelementptr inbounds i8, ptr %33, i64 -8
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %.loopexit10.i, label %.preheader9.preheader.i
+  br i1 %38, label %.loopexit11.i, label %.preheader10.preheader.i
 
-.preheader9.preheader.i:                          ; preds = %35
-  %39 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %33, i64 %37
-  br label %.preheader9.i
+.preheader10.preheader.i:                         ; preds = %35
+  %.idx9.i = shl nsw i64 %37, 6
+  %39 = getelementptr inbounds i8, ptr %33, i64 %.idx9.i
+  br label %.preheader10.i
 
-.preheader9.i:                                    ; preds = %.preheader9.i, %.preheader9.preheader.i
-  %40 = phi ptr [ %41, %.preheader9.i ], [ %39, %.preheader9.preheader.i ]
+.preheader10.i:                                   ; preds = %.preheader10.i, %.preheader10.preheader.i
+  %40 = phi ptr [ %41, %.preheader10.i ], [ %39, %.preheader10.preheader.i ]
   %41 = getelementptr inbounds i8, ptr %40, i64 -64
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %41) #14
   %42 = icmp eq ptr %41, %33
-  br i1 %42, label %.loopexit10.i, label %.preheader9.i
+  br i1 %42, label %.loopexit11.i, label %.preheader10.i
 
-.loopexit10.i:                                    ; preds = %.preheader9.i, %35
+.loopexit11.i:                                    ; preds = %.preheader10.i, %35
   tail call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %36) #14
   br label %43
 
-43:                                               ; preds = %.loopexit10.i, %31
+43:                                               ; preds = %.loopexit11.i, %31
   store ptr %32, ptr %4, align 8, !tbaa !30
   %44 = icmp eq ptr %32, null
   br i1 %44, label %.loopexit.sink.split, label %_ZN6icu_7710LocalArrayINS_13UnicodeStringEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit
@@ -971,15 +973,15 @@ define internal fastcc noundef ptr @_ZL17getUnicodeStringsPKPKDsPKiiPN6icu_7713U
   br i1 %47, label %.loopexit.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %45
-  %.idx59 = shl nsw i64 %46, 6
-  %.ptr50.add = or disjoint i64 %.idx59, 8
+  %.idx.i = shl nsw i64 %46, 6
+  %.ptr50.add = or disjoint i64 %.idx.i, 8
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %.idx57 = phi i64 [ %.add58, %.preheader.i ], [ %.ptr50.add, %.preheader.preheader.i ]
   %.add58 = add nsw i64 %.idx57, -64
-  %.ptr60 = getelementptr inbounds i8, ptr %19, i64 %.add58
-  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ptr60) #14
+  %.ptr59 = getelementptr inbounds i8, ptr %19, i64 %.add58
+  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ptr59) #14
   %48 = icmp eq i64 %.add58, 8
   br i1 %48, label %.loopexit.i, label %.preheader.i
 
@@ -999,40 +1001,40 @@ _ZN6icu_7710LocalArrayINS_13UnicodeStringEE29adoptInsteadAndCheckErrorCodeEPS1_R
 52:                                               ; preds = %50, %13
   %.043 = phi ptr [ %51, %50 ], [ %3, %13 ]
   %53 = icmp eq ptr %1, null
-  %.not67 = icmp eq i32 %2, 0
-  br i1 %53, label %.preheader, label %.preheader62
+  %.not66 = icmp eq i32 %2, 0
+  br i1 %53, label %.preheader, label %.preheader61
 
-.preheader62:                                     ; preds = %52
-  br i1 %.not67, label %.loopexit, label %.lr.ph.preheader
+.preheader61:                                     ; preds = %52
+  br i1 %.not66, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader62
+.lr.ph.preheader:                                 ; preds = %.preheader61
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
 .preheader:                                       ; preds = %52
-  br i1 %.not67, label %.loopexit, label %.lr.ph66.preheader
+  br i1 %.not66, label %.loopexit, label %.lr.ph65.preheader
 
-.lr.ph66.preheader:                               ; preds = %.preheader
-  %wide.trip.count74 = zext nneg i32 %2 to i64
-  br label %.lr.ph66
+.lr.ph65.preheader:                               ; preds = %.preheader
+  %wide.trip.count73 = zext nneg i32 %2 to i64
+  br label %.lr.ph65
 
-.lr.ph66:                                         ; preds = %.lr.ph66.preheader, %58
-  %indvars.iv70 = phi i64 [ 0, %.lr.ph66.preheader ], [ %indvars.iv.next71, %58 ]
-  %54 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.043, i64 %indvars.iv70
-  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv70
+.lr.ph65:                                         ; preds = %.lr.ph65.preheader, %58
+  %indvars.iv69 = phi i64 [ 0, %.lr.ph65.preheader ], [ %indvars.iv.next70, %58 ]
+  %54 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.043, i64 %indvars.iv69
+  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv69
   %56 = load ptr, ptr %55, align 8, !tbaa !37
   store ptr %56, ptr %7, align 8, !tbaa !38
   %57 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %54, i8 noundef signext 1, ptr noundef nonnull %7, i32 noundef -1)
           to label %58 unwind label %60
 
-58:                                               ; preds = %.lr.ph66
+58:                                               ; preds = %.lr.ph65
   %59 = load ptr, ptr %7, align 8, !tbaa !38
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %59) #14, !srcloc !40
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %exitcond75.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count74
-  br i1 %exitcond75.not, label %.loopexit, label %.lr.ph66, !llvm.loop !41
+  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
+  %exitcond74.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count73
+  br i1 %exitcond74.not, label %.loopexit, label %.lr.ph65, !llvm.loop !41
 
-60:                                               ; preds = %.lr.ph66
+60:                                               ; preds = %.lr.ph65
   %61 = landingpad { ptr, i32 }
           cleanup
   %62 = load ptr, ptr %7, align 8, !tbaa !38
@@ -1075,8 +1077,8 @@ _ZN6icu_7710LocalArrayINS_13UnicodeStringEE29adoptInsteadAndCheckErrorCodeEPS1_R
   store i32 %.sink, ptr %5, align 4, !tbaa !13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %70, %58, %.loopexit.sink.split, %.thread, %.preheader62, %.preheader, %_ZN6icu_7710LocalArrayINS_13UnicodeStringEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit
-  %.042 = phi ptr [ null, %_ZN6icu_7710LocalArrayINS_13UnicodeStringEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit ], [ %.043, %.preheader ], [ %.043, %.preheader62 ], [ null, %.thread ], [ null, %.loopexit.sink.split ], [ %.043, %58 ], [ %.043, %70 ]
+.loopexit:                                        ; preds = %70, %58, %.loopexit.sink.split, %.thread, %.preheader61, %.preheader, %_ZN6icu_7710LocalArrayINS_13UnicodeStringEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit
+  %.042 = phi ptr [ null, %_ZN6icu_7710LocalArrayINS_13UnicodeStringEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit ], [ %.043, %.preheader ], [ %.043, %.preheader61 ], [ null, %.thread ], [ null, %.loopexit.sink.split ], [ %.043, %58 ], [ %.043, %70 ]
   ret ptr %.042
 }
 
@@ -1099,7 +1101,8 @@ define linkonce_odr void @_ZN6icu_7710LocalArrayINS_13UnicodeStringEED2Ev(ptr no
   br i1 %7, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %4
-  %8 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %2, i64 %6
+  %.idx = shl nsw i64 %6, 6
+  %8 = getelementptr inbounds i8, ptr %2, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -1196,7 +1199,8 @@ _ZN6icu_7713IcuCApiHelperI14UFormattedListNS_18UFormattedListImplELi1179407188EE
   br i1 %38, label %.loopexit.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %35
-  %39 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %33, i64 %37
+  %.idx.i = shl nsw i64 %37, 6
+  %39 = getelementptr inbounds i8, ptr %33, i64 %.idx.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i

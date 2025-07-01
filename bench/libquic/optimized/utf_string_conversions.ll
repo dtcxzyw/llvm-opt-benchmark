@@ -192,7 +192,8 @@ define void @_ZN4base10WideToUTF8ERKNSt7__cxx1112basic_stringIwSt11char_traitsIw
   %8 = load ptr, ptr %1, align 8, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !16
-  %11 = getelementptr inbounds nuw i32, ptr %8, i64 %10
+  %.idx = shl nuw nsw i64 %10, 2
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %0, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1077,7 +1078,8 @@ define void @_ZN4base11UTF16ToUTF8ENS_16BasicStringPieceINSt7__cxx1112basic_stri
 8:                                                ; preds = %3
   %9 = load ptr, ptr %5, align 8, !tbaa !45
   %10 = load i64, ptr %6, align 8, !tbaa !47
-  %11 = getelementptr inbounds nuw i16, ptr %9, i64 %10
+  %.idx = shl nuw nsw i64 %10, 1
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %0, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1215,7 +1217,8 @@ define void @_ZN4base12ASCIIToUTF16ENS_16BasicStringPieceINSt7__cxx1112basic_str
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4base12UTF16ToASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.0") align 8 %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw i16, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 1
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %0, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8

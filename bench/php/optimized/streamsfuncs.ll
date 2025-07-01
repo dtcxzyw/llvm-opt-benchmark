@@ -29,7 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_strtod_state = type { [8 x ptr], ptr, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct.fd_set = type { [16 x i64] }
 
 @.str = private unnamed_addr constant [35 x i8] c"Failed to create sockets: [%d]: %s\00", align 1
@@ -2303,7 +2302,8 @@ define hidden void @zif_stream_get_transports(ptr noundef readonly captures(none
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !99
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %struct._Bucket, ptr %11, i64 %14
+  %.idx = shl nuw nsw i64 %14, 5
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !4
   %18 = and i32 %17, 4
@@ -2375,7 +2375,8 @@ define hidden void @zif_stream_get_wrappers(ptr noundef readonly captures(none) 
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !99
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %struct._Bucket, ptr %11, i64 %14
+  %.idx = shl nuw nsw i64 %14, 5
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !4
   %18 = and i32 %17, 4
@@ -3564,7 +3565,8 @@ define internal fastcc range(i32 -1, 1) i32 @parse_context_options(ptr noundef %
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %36 = load i32, ptr %35, align 8, !tbaa !99
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %struct._Bucket, ptr %34, i64 %37
+  %.idx = shl nuw nsw i64 %37, 5
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
   %.not6067 = icmp eq i32 %36, 0
   br i1 %.not6067, label %.loopexit, label %.lr.ph
 

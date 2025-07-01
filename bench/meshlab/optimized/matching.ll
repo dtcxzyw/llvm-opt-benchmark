@@ -10746,7 +10746,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IllEERKT_RKT0_.exit: ; preds = %_ZN
   store i64 %.sroa.5.0.copyload, ptr %46, align 16
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i64 %.sroa.838.56.copyload, ptr %47, align 8
-  %48 = mul i64 %.sroa.838.56.copyload, %.sroa.5.0.copyload
+  %48 = mul nsw i64 %.sroa.838.56.copyload, %.sroa.5.0.copyload
   %49 = icmp slt i64 %48, 1
   br i1 %49, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELi2ELi2EEEEC2INS_7ProductINS_14TriangularViewIKNS_9TransposeIKNS_5BlockINS1_IdLi2ELi2ELi0ELi2ELi2EEELin1ELin1ELb0EEEEELj6EEESA_Li0EEEEERKNS_9DenseBaseIT_EE.exit.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELi2ELi2EEEE11setConstantERKd.exit.loopexit.i.i.i.i.i.i.i
 
@@ -14707,7 +14707,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELi2EEEE6resizeEll.exit
   %27 = phi i64 [ %7, %3 ], [ %.pre13, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELi2EEEE6resizeEll.exit ]
   %28 = phi ptr [ %9, %3 ], [ %.pre, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELi2EEEE6resizeEll.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %29 = mul i64 %26, %27
+  %29 = mul nsw i64 %26, %27
   %30 = icmp slt i64 %29, 1
   br i1 %30, label %_ZN5Eigen8internal25generic_product_impl_baseINS_14TriangularViewINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELj2EEENS3_IdLin1ELin1ELi0ELi2ELi2EEENS0_20generic_product_implIS5_S6_NS_15TriangularShapeENS_10DenseShapeELi3EEEE6evalToINS3_IdLin1ELin1ELi0ELin1ELi2EEEEEvRT_RKS5_RKS6_.exit, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELi2EEEE11setConstantERKd.exit.loopexit.i.i
 
@@ -16104,7 +16104,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELi2EEEE6resizeEll.exit
   %27 = phi i64 [ %7, %3 ], [ %.pre13, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELi2EEEE6resizeEll.exit ]
   %28 = phi ptr [ %9, %3 ], [ %.pre, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELi2EEEE6resizeEll.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %29 = mul i64 %26, %27
+  %29 = mul nsw i64 %26, %27
   %30 = icmp slt i64 %29, 1
   br i1 %30, label %_ZN5Eigen8internal25generic_product_impl_baseINS_14TriangularViewIKNS_9TransposeIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEELj1EEENS4_IdLin1ELin1ELi0ELi2ELi2EEENS0_20generic_product_implIS9_SA_NS_15TriangularShapeENS_10DenseShapeELi3EEEE6evalToINS4_IdLin1ELin1ELi0ELin1ELi2EEEEEvRT_RKS9_RKSA_.exit, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELi2EEEE11setConstantERKd.exit.loopexit.i.i
 

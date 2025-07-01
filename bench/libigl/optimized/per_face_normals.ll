@@ -3554,7 +3554,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %.pre13.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !219
   %.pre14.i.i.i.i = load i64, ptr %11, align 8, !tbaa !48
   %.pre15.i.i.i.i = load i64, ptr %12, align 8, !tbaa !34
-  %21 = mul i64 %.pre14.i.i.i.i, %.pre15.i.i.i.i
+  %21 = mul nsw i64 %.pre14.i.i.i.i, %.pre15.i.i.i.i
   %22 = icmp slt i64 %21, 1
   br i1 %22, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE12_set_noaliasINS_7ProductINS_12SparseMatrixIdLi0EiEES2_Li0EEEEERS2_RKNS_9DenseBaseIT_EE.exit.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.i.i.i.i.i
 

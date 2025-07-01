@@ -5887,7 +5887,8 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %_ZN4Node8init_re
   %88 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %89 = load i32, ptr %88, align 8
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw ptr, ptr %87, i64 %90
+  %.idx = shl nuw nsw i64 %90, 3
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 %.idx
   %.not172 = icmp eq i32 %89, 0
   br i1 %.not172, label %.loopexit137, label %.lr.ph
 

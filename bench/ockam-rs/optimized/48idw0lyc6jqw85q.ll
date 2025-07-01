@@ -73594,7 +73594,8 @@ common.ret:                                       ; preds = %757, %599, %246, %2
   br label %400
 
 400:                                              ; preds = %"_ZN19ockam_transport_tcp9transport6common20create_tls_connector28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17heb9657d7a2a84a70E.exit.i", %332, %305, %.thread115.i
-  %401 = getelementptr inbounds { { { ptr, [2 x i64] } } }, ptr %268, i64 %.sroa.109.0.copyload.i
+  %.idx.i = mul nsw i64 %.sroa.109.0.copyload.i, 24
+  %401 = getelementptr inbounds i8, ptr %268, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45), !noalias !9555
   store ptr %268, ptr %45, align 8, !noalias !9555
   %.sroa.540.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %45, i64 8

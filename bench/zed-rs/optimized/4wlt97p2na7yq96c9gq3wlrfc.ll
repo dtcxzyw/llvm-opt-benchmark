@@ -12721,7 +12721,8 @@ _ZN5prost8encoding4bool6encode17h583ad4e0e427f01dE.exit: ; preds = %_ZN5prost8en
   %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %33 = load i64, ptr %32, align 8, !noundef !4
-  %34 = getelementptr inbounds { { i64, [4 x i64] }, { i64, [4 x i64] }, { i64, [4 x i64] }, { i64, [4 x i64] }, i64, i64 }, ptr %31, i64 %33
+  %.idx = mul nsw i64 %33, 176
+  %34 = getelementptr inbounds i8, ptr %31, i64 %.idx
   %35 = icmp eq i64 %33, 0
   br i1 %35, label %._crit_edge, label %.lr.ph
 
@@ -12730,7 +12731,8 @@ _ZN5prost8encoding4bool6encode17h583ad4e0e427f01dE.exit: ; preds = %_ZN5prost8en
   %37 = load ptr, ptr %36, align 8, !nonnull !4, !noundef !4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %39 = load i64, ptr %38, align 8, !noundef !4
-  %40 = getelementptr inbounds { { i64, [5 x i64] }, { i64, [5 x i64] }, i64, i8, [7 x i8] }, ptr %37, i64 %39
+  %.idx24 = mul nsw i64 %39, 112
+  %40 = getelementptr inbounds i8, ptr %37, i64 %.idx24
   %41 = icmp eq i64 %39, 0
   br i1 %41, label %._crit_edge23, label %.lr.ph22
 
@@ -13549,7 +13551,8 @@ define hidden void @"_ZN66_$LT$proto..operation..Edit$u20$as$u20$prost..message.
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds { i32, i32 }, ptr %14, i64 %16
+  %.idx = shl nsw i64 %16, 3
+  %17 = getelementptr inbounds i8, ptr %14, i64 %.idx
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 
@@ -13558,7 +13561,8 @@ define hidden void @"_ZN66_$LT$proto..operation..Edit$u20$as$u20$prost..message.
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i64, ptr %21, align 8, !noundef !4
-  %23 = getelementptr inbounds { i64, i64 }, ptr %20, i64 %22
+  %.idx16 = shl nsw i64 %22, 4
+  %23 = getelementptr inbounds i8, ptr %20, i64 %.idx16
   %24 = icmp eq i64 %22, 0
   br i1 %24, label %._crit_edge15, label %.lr.ph14
 
@@ -13574,7 +13578,8 @@ define hidden void @"_ZN66_$LT$proto..operation..Edit$u20$as$u20$prost..message.
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %28, i64 %30
+  %.idx.i = mul nsw i64 %30, 24
+  %31 = getelementptr inbounds i8, ptr %28, i64 %.idx.i
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %_ZN5prost8encoding6string15encode_repeated17h113ec65469a9ebf3E.exit, label %.lr.ph.i
 
@@ -13912,7 +13917,8 @@ define hidden void @"_ZN66_$LT$proto..operation..Undo$u20$as$u20$prost..message.
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds { i32, i32 }, ptr %14, i64 %16
+  %.idx = shl nsw i64 %16, 3
+  %17 = getelementptr inbounds i8, ptr %14, i64 %.idx
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 
@@ -13921,7 +13927,8 @@ define hidden void @"_ZN66_$LT$proto..operation..Undo$u20$as$u20$prost..message.
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i64, ptr %21, align 8, !noundef !4
-  %23 = getelementptr inbounds { i32, i32, i32 }, ptr %20, i64 %22
+  %.idx16 = mul nsw i64 %22, 12
+  %23 = getelementptr inbounds i8, ptr %20, i64 %.idx16
   %24 = icmp eq i64 %22, 0
   br i1 %24, label %._crit_edge15, label %.lr.ph14
 
@@ -14633,7 +14640,8 @@ define hidden void @"_ZN70_$LT$proto..update_view..Editor$u20$as$u20$prost..mess
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [21 x i64] } }, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 192
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -14647,7 +14655,8 @@ define hidden void @"_ZN70_$LT$proto..update_view..Editor$u20$as$u20$prost..mess
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds { { i64, [5 x i64] }, { i64, [5 x i64] }, i64, i8, [7 x i8] }, ptr %14, i64 %16
+  %.idx23 = mul nsw i64 %16, 112
+  %17 = getelementptr inbounds i8, ptr %14, i64 %.idx23
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %._crit_edge22, label %.lr.ph21
 
@@ -16672,7 +16681,8 @@ define hidden void @"_ZN78_$LT$proto..operation..UpdateSelections$u20$as$u20$pro
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds { { i64, [5 x i64] }, { i64, [5 x i64] }, i64, i8, [7 x i8] }, ptr %14, i64 %16
+  %.idx = mul nsw i64 %16, 112
+  %17 = getelementptr inbounds i8, ptr %14, i64 %.idx
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 
@@ -18096,7 +18106,8 @@ define hidden void @"_ZN86_$LT$proto..operation..UpdateCompletionTriggers$u20$as
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %14, i64 %16
+  %.idx.i = mul nsw i64 %16, 24
+  %17 = getelementptr inbounds i8, ptr %14, i64 %.idx.i
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %_ZN5prost8encoding6string15encode_repeated17h113ec65469a9ebf3E.exit, label %.lr.ph.i
 

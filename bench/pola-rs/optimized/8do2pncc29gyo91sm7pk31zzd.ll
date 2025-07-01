@@ -3065,20 +3065,21 @@ define hidden void @_ZN11polars_json4json12infer_schema12coerce_dtype17h0d150b78
   ret void
 
 .lr.ph.preheader:                                 ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h0d88ec23c8f55632E.exit.us.i"
-  %42 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.02.0161 = phi i1 [ %45, %.lr.ph ], [ true, %.lr.ph.preheader ]
-  %.sroa.04.0160 = phi i1 [ %47, %.lr.ph ], [ true, %.lr.ph.preheader ]
-  %.sroa.014.0159 = phi ptr [ %.sroa.014.1, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %.sroa.014.1 = getelementptr inbounds nuw i8, ptr %.sroa.014.0159, i64 8
-  %.sroa.0.0.val36 = load ptr, ptr %.sroa.014.0159, align 8, !nonnull !4, !align !176, !noundef !4
+  %.sroa.02.0162 = phi i1 [ %45, %.lr.ph ], [ true, %.lr.ph.preheader ]
+  %.sroa.04.0161 = phi i1 [ %47, %.lr.ph ], [ true, %.lr.ph.preheader ]
+  %.sroa.014.0160 = phi ptr [ %.sroa.014.1, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.sroa.014.1 = getelementptr inbounds nuw i8, ptr %.sroa.014.0160, i64 8
+  %.sroa.0.0.val36 = load ptr, ptr %.sroa.014.0160, align 8, !nonnull !4, !align !176, !noundef !4
   %43 = load i8, ptr %.sroa.0.0.val36, align 8, !range !3, !noundef !4
   %44 = icmp eq i8 %43, 29
-  %45 = and i1 %.sroa.02.0161, %44
+  %45 = and i1 %.sroa.02.0162, %44
   %46 = icmp eq i8 %43, 28
-  %47 = and i1 %.sroa.04.0160, %46
+  %47 = and i1 %.sroa.04.0161, %46
   %48 = icmp eq ptr %.sroa.014.1, %42
   br i1 %48, label %._crit_edge, label %.lr.ph
 
@@ -3124,9 +3125,9 @@ define hidden void @_ZN11polars_json4json12infer_schema12coerce_dtype17h0d150b78
   %62 = load i64, ptr %61, align 8, !noalias !340, !noundef !4
   %63 = getelementptr inbounds nuw { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] }, ptr %60, i64 %62
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hcb9273b7628ab37aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull %60, ptr noundef nonnull %63, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ba8001a1705ffd4cd04d88704b17e2cd.68)
-          to label %._crit_edge164 unwind label %56, !noalias !344
+          to label %._crit_edge165 unwind label %56, !noalias !344
 
-._crit_edge164:                                   ; preds = %58
+._crit_edge165:                                   ; preds = %58
   %.sroa.0129.0.copyload130.pre = load i64, ptr %14, align 8, !noalias !336
   %.sroa.6132.0.copyload134.pre = load ptr, ptr %.sroa.6132.0..sroa_idx, align 8, !noalias !336
   %.sroa.7137.0.copyload139.pre = load i64, ptr %.sroa.7137.0..sroa_idx, align 8, !noalias !336
@@ -3138,10 +3139,10 @@ define hidden void @_ZN11polars_json4json12infer_schema12coerce_dtype17h0d150b78
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #20, !noalias !344
   unreachable
 
-66:                                               ; preds = %._crit_edge164, %52
-  %.sroa.7137.0.copyload139 = phi i64 [ %.sroa.7137.0.copyload139.pre, %._crit_edge164 ], [ %.sroa.7137.0, %52 ]
-  %.sroa.6132.0.copyload134 = phi ptr [ %.sroa.6132.0.copyload134.pre, %._crit_edge164 ], [ %.sroa.6132.0, %52 ]
-  %.sroa.0129.0.copyload130 = phi i64 [ %.sroa.0129.0.copyload130.pre, %._crit_edge164 ], [ %.sroa.0129.0, %52 ]
+66:                                               ; preds = %._crit_edge165, %52
+  %.sroa.7137.0.copyload139 = phi i64 [ %.sroa.7137.0.copyload139.pre, %._crit_edge165 ], [ %.sroa.7137.0, %52 ]
+  %.sroa.6132.0.copyload134 = phi ptr [ %.sroa.6132.0.copyload134.pre, %._crit_edge165 ], [ %.sroa.6132.0, %52 ]
+  %.sroa.0129.0.copyload130 = phi i64 [ %.sroa.0129.0.copyload130.pre, %._crit_edge165 ], [ %.sroa.0129.0, %52 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14), !noalias !336
   %67 = add nuw i64 %.sroa.06.0.i, 1
   %68 = icmp eq i64 %67, %2
@@ -3778,19 +3779,20 @@ define hidden void @_ZN11polars_json4json12infer_schema12coerce_dtype17h137e79a1
   ret void
 
 .lr.ph.preheader:                                 ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h65222cc24344ac2aE.exit.us.i"
-  %42 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 5
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.02.0157 = phi i1 [ %45, %.lr.ph ], [ true, %.lr.ph.preheader ]
-  %.sroa.04.0156 = phi i1 [ %47, %.lr.ph ], [ true, %.lr.ph.preheader ]
-  %.sroa.014.0155 = phi ptr [ %.sroa.014.1, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %.sroa.014.1 = getelementptr inbounds nuw i8, ptr %.sroa.014.0155, i64 32
-  %43 = load i8, ptr %.sroa.014.0155, align 8, !range !3, !noundef !4
+  %.sroa.02.0158 = phi i1 [ %45, %.lr.ph ], [ true, %.lr.ph.preheader ]
+  %.sroa.04.0157 = phi i1 [ %47, %.lr.ph ], [ true, %.lr.ph.preheader ]
+  %.sroa.014.0156 = phi ptr [ %.sroa.014.1, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.sroa.014.1 = getelementptr inbounds nuw i8, ptr %.sroa.014.0156, i64 32
+  %43 = load i8, ptr %.sroa.014.0156, align 8, !range !3, !noundef !4
   %44 = icmp eq i8 %43, 29
-  %45 = and i1 %.sroa.02.0157, %44
+  %45 = and i1 %.sroa.02.0158, %44
   %46 = icmp eq i8 %43, 28
-  %47 = and i1 %.sroa.04.0156, %46
+  %47 = and i1 %.sroa.04.0157, %46
   %48 = icmp eq ptr %.sroa.014.1, %42
   br i1 %48, label %._crit_edge, label %.lr.ph
 
@@ -3836,9 +3838,9 @@ define hidden void @_ZN11polars_json4json12infer_schema12coerce_dtype17h137e79a1
   %62 = load i64, ptr %61, align 8, !alias.scope !402, !noalias !405, !noundef !4
   %63 = getelementptr inbounds nuw { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] }, ptr %60, i64 %62
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hcb9273b7628ab37aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull %60, ptr noundef nonnull %63, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ba8001a1705ffd4cd04d88704b17e2cd.68)
-          to label %._crit_edge160 unwind label %56, !noalias !408
+          to label %._crit_edge161 unwind label %56, !noalias !408
 
-._crit_edge160:                                   ; preds = %58
+._crit_edge161:                                   ; preds = %58
   %.sroa.0125.0.copyload126.pre = load i64, ptr %14, align 8, !noalias !398
   %.sroa.6128.0.copyload130.pre = load ptr, ptr %.sroa.6128.0..sroa_idx, align 8, !noalias !398
   %.sroa.7133.0.copyload135.pre = load i64, ptr %.sroa.7133.0..sroa_idx, align 8, !noalias !398
@@ -3850,10 +3852,10 @@ define hidden void @_ZN11polars_json4json12infer_schema12coerce_dtype17h137e79a1
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #20, !noalias !408
   unreachable
 
-66:                                               ; preds = %._crit_edge160, %52
-  %.sroa.7133.0.copyload135 = phi i64 [ %.sroa.7133.0.copyload135.pre, %._crit_edge160 ], [ %.sroa.7133.0, %52 ]
-  %.sroa.6128.0.copyload130 = phi ptr [ %.sroa.6128.0.copyload130.pre, %._crit_edge160 ], [ %.sroa.6128.0, %52 ]
-  %.sroa.0125.0.copyload126 = phi i64 [ %.sroa.0125.0.copyload126.pre, %._crit_edge160 ], [ %.sroa.0125.0, %52 ]
+66:                                               ; preds = %._crit_edge161, %52
+  %.sroa.7133.0.copyload135 = phi i64 [ %.sroa.7133.0.copyload135.pre, %._crit_edge161 ], [ %.sroa.7133.0, %52 ]
+  %.sroa.6128.0.copyload130 = phi ptr [ %.sroa.6128.0.copyload130.pre, %._crit_edge161 ], [ %.sroa.6128.0, %52 ]
+  %.sroa.0125.0.copyload126 = phi i64 [ %.sroa.0125.0.copyload126.pre, %._crit_edge161 ], [ %.sroa.0125.0, %52 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14), !noalias !398
   %67 = add nuw i64 %.sroa.06.0.i, 1
   %68 = icmp eq i64 %67, %2

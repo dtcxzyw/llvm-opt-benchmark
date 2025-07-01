@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.zend_get_gc_buffer = type { ptr, ptr, ptr }
 %struct._zend_call_stack = type { ptr, i64 }
 %struct._zend_strtod_state = type { [8 x ptr], ptr, ptr }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @zend_string_init_interned = external local_unnamed_addr global ptr, align 8
 @php_password_algos = internal global %struct._zend_array zeroinitializer, align 8
@@ -1615,7 +1614,8 @@ define hidden void @zif_password_algos(ptr noundef readonly captures(none) %0, p
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_password_algos, i64 16), align 8, !tbaa !8
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @php_password_algos, i64 24), align 8, !tbaa !62
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct._Bucket, ptr %9, i64 %11
+  %.idx = shl nuw nsw i64 %11, 5
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @php_password_algos, i64 8), align 8, !tbaa !8
   %14 = and i32 %13, 4
   %.not17 = icmp eq i32 %14, 0

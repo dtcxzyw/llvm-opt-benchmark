@@ -2776,7 +2776,8 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17h624ba57fdd1d2861E.exit.i: ;
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he89d21fd60215172E.exit.i": ; preds = %._crit_edge108.i
   %.sroa.0.0.v.i32.i = select i1 %trunc.i29.i, i64 7328, i64 120
   %.sroa.0.0.i33.i = getelementptr inbounds nuw i8, ptr %281, i64 %.sroa.0.0.v.i32.i
-  %284 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] }, ptr %.sroa.0.0.i33.i, i64 %277
+  %.idx.i = mul nuw nsw i64 %277, 104
+  %284 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i33.i, i64 %.idx.i
   %285 = icmp eq i64 %277, 0
   br i1 %285, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5305efcde34f28d8E.exit.thread.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5305efcde34f28d8E.exit.i"
 
@@ -15041,7 +15042,8 @@ thread-pre-split._crit_edge:                      ; preds = %_ZN8arrayvec13array
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he89d21fd60215172E.exit": ; preds = %._crit_edge139
   %.sroa.0.0.v.i32 = select i1 %trunc.i29, i64 7328, i64 120
   %.sroa.0.0.i33 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.0.v.i32
-  %67 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] }, ptr %.sroa.0.0.i33, i64 %59
+  %.idx = mul nuw nsw i64 %59, 104
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i33, i64 %.idx
   %68 = icmp eq i64 %59, 0
   br i1 %68, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5305efcde34f28d8E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5305efcde34f28d8E.exit"
 

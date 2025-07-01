@@ -6100,7 +6100,8 @@ define internal fastcc void @internal_bulk_free(ptr noundef %0, ptr noundef capt
   br label %.preheader, !llvm.loop !14
 
 spin_acquire_lock.exit:                           ; preds = %11, %3, %7
-  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not4551 = icmp eq i64 %2, 0
   br i1 %.not4551, label %._crit_edge, label %.lr.ph
 

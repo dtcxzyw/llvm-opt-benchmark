@@ -959,7 +959,8 @@ define dso_local void @_ZN4llvm21SandboxVectorizerPassD2Ev(ptr noundef nonnull a
 
 .lr.ph.i.preheader.i.i:                           ; preds = %1
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %4, i64 %7
+  %.idx.i.i = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -1044,7 +1045,8 @@ define linkonce_odr hidden void @_ZN4llvm9sandboxir11PassManagerINS0_12FunctionP
 
 .lr.ph.i.preheader.i:                             ; preds = %1
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %3, i64 %6
+  %.idx.i = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -1232,7 +1234,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %38, %36
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %45 = load i32, ptr %44, align 8, !tbaa !26
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %43, i64 %46
+  %.idx.i = shl nuw nsw i64 %46, 3
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i
   %.not10.i = icmp eq i32 %45, 0
   br i1 %.not10.i, label %_ZNK4llvm9sandboxir11PassManagerINS0_12FunctionPassES2_E13printPipelineERNS_11raw_ostreamE.exit, label %.lr.ph.i
 
@@ -1345,7 +1348,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %25, %27
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load i32, ptr %33, align 8, !tbaa !26
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %32, i64 %35
+  %.idx = shl nuw nsw i64 %35, 3
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx
   %.not10 = icmp eq i32 %34, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1621,7 +1625,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
 
 .lr.ph.i.preheader.i:                             ; preds = %9
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %10, i64 %13
+  %.idx.i = shl nuw nsw i64 %13, 3
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -1714,12 +1719,12 @@ _ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EEaSEOS5_
 
 _ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.loopexit: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !25
-  %.pre76 = load i32, ptr %34, align 8, !tbaa !26
-  %.pre79 = zext i32 %.pre76 to i64
+  %.pre79 = load i32, ptr %34, align 8, !tbaa !26
+  %.pre82 = zext i32 %.pre79 to i64
   br label %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit
 
 _ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit: ; preds = %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.loopexit, %37
-  %.pre-phi = phi i64 [ %.pre79, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.loopexit ], [ %36, %37 ]
+  %.pre-phi = phi i64 [ %.pre82, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.loopexit ], [ %36, %37 ]
   %48 = phi ptr [ %.pre, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.loopexit ], [ %38, %37 ]
   %.0 = phi ptr [ %45, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.loopexit ], [ %38, %37 ]
   %49 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %48, i64 %.pre-phi
@@ -1754,29 +1759,30 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt1
 
 .lr.ph.i.preheader.i36:                           ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %55, i64 %57
-  br label %.lr.ph.i.i37
+  %.idx.i37 = shl nuw nsw i64 %57, 3
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i37
+  br label %.lr.ph.i.i38
 
-.lr.ph.i.i37:                                     ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i41, %.lr.ph.i.preheader.i36
-  %.05.i.i38 = phi ptr [ %59, %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i41 ], [ %58, %.lr.ph.i.preheader.i36 ]
-  %59 = getelementptr inbounds i8, ptr %.05.i.i38, i64 -8
+.lr.ph.i.i38:                                     ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i42, %.lr.ph.i.preheader.i36
+  %.05.i.i39 = phi ptr [ %59, %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i42 ], [ %58, %.lr.ph.i.preheader.i36 ]
+  %59 = getelementptr inbounds i8, ptr %.05.i.i39, i64 -8
   %60 = load ptr, ptr %59, align 8, !tbaa !77
-  %.not.i.i.i39 = icmp eq ptr %60, null
-  br i1 %.not.i.i.i39, label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i41, label %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i40
+  %.not.i.i.i40 = icmp eq ptr %60, null
+  br i1 %.not.i.i.i40, label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i42, label %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i41
 
-_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i40: ; preds = %.lr.ph.i.i37
+_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i41: ; preds = %.lr.ph.i.i38
   %61 = load ptr, ptr %60, align 8, !tbaa !3
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(40) %60) #20
-  br label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i41
+  br label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i42
 
-_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i41: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i40, %.lr.ph.i.i37
+_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i42: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i41, %.lr.ph.i.i38
   store ptr null, ptr %59, align 8, !tbaa !77
-  %.not.i.i42 = icmp eq ptr %55, %59
-  br i1 %.not.i.i42, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit, label %.lr.ph.i.i37, !llvm.loop !79
+  %.not.i.i43 = icmp eq ptr %55, %59
+  br i1 %.not.i.i43, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit, label %.lr.ph.i.i38, !llvm.loop !79
 
-_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i41, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit
+_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i42, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit
   store i32 0, ptr %31, align 8, !tbaa !26
   br label %123
 
@@ -1788,33 +1794,34 @@ _ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr %0, align 8, !tbaa !25
-  %.not4.i.i44 = icmp eq i32 %35, 0
-  br i1 %.not4.i.i44, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit53, label %.lr.ph.i.preheader.i45
+  %.not4.i.i45 = icmp eq i32 %35, 0
+  br i1 %.not4.i.i45, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit55, label %.lr.ph.i.preheader.i46
 
-.lr.ph.i.preheader.i45:                           ; preds = %68
-  %70 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %69, i64 %36
-  br label %.lr.ph.i.i46
+.lr.ph.i.preheader.i46:                           ; preds = %68
+  %.idx.i47 = shl nuw nsw i64 %36, 3
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i47
+  br label %.lr.ph.i.i48
 
-.lr.ph.i.i46:                                     ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i50, %.lr.ph.i.preheader.i45
-  %.05.i.i47 = phi ptr [ %71, %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i50 ], [ %70, %.lr.ph.i.preheader.i45 ]
-  %71 = getelementptr inbounds i8, ptr %.05.i.i47, i64 -8
+.lr.ph.i.i48:                                     ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i52, %.lr.ph.i.preheader.i46
+  %.05.i.i49 = phi ptr [ %71, %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i52 ], [ %70, %.lr.ph.i.preheader.i46 ]
+  %71 = getelementptr inbounds i8, ptr %.05.i.i49, i64 -8
   %72 = load ptr, ptr %71, align 8, !tbaa !77
-  %.not.i.i.i48 = icmp eq ptr %72, null
-  br i1 %.not.i.i.i48, label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i50, label %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i49
+  %.not.i.i.i50 = icmp eq ptr %72, null
+  br i1 %.not.i.i.i50, label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i52, label %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i51
 
-_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i49: ; preds = %.lr.ph.i.i46
+_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i51: ; preds = %.lr.ph.i.i48
   %73 = load ptr, ptr %72, align 8, !tbaa !3
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   tail call void %75(ptr noundef nonnull align 8 dereferenceable(40) %72) #20
-  br label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i50
+  br label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i52
 
-_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i50: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i49, %.lr.ph.i.i46
+_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i52: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i51, %.lr.ph.i.i48
   store ptr null, ptr %71, align 8, !tbaa !77
-  %.not.i.i51 = icmp eq ptr %69, %71
-  br i1 %.not.i.i51, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit53, label %.lr.ph.i.i46, !llvm.loop !79
+  %.not.i.i53 = icmp eq ptr %69, %71
+  br i1 %.not.i.i53, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit55, label %.lr.ph.i.i48, !llvm.loop !79
 
-_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit53: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i50, %68
+_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit55: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i52, %68
   store i32 0, ptr %34, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1822,13 +1829,14 @@ _ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default
   %78 = load ptr, ptr %0, align 8, !tbaa !25
   %79 = load i32, ptr %34, align 8, !tbaa !26
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %78, i64 %80
+  %.idx.i.i = shl nuw nsw i64 %80, 3
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx.i.i
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %79, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i, label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit53, %.lr.ph.i.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i.i = phi ptr [ %84, %.lr.ph.i.i.i.i.i.i.i ], [ %77, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit53 ]
-  %.sroa.04.08.i.i.i.i.i.i.i = phi ptr [ %83, %.lr.ph.i.i.i.i.i.i.i ], [ %78, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit53 ]
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit55, %.lr.ph.i.i.i.i.i.i.i
+  %.09.i.i.i.i.i.i.i = phi ptr [ %84, %.lr.ph.i.i.i.i.i.i.i ], [ %77, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit55 ]
+  %.sroa.04.08.i.i.i.i.i.i.i = phi ptr [ %83, %.lr.ph.i.i.i.i.i.i.i ], [ %78, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit55 ]
   %82 = load i64, ptr %.sroa.04.08.i.i.i.i.i.i.i, align 8, !tbaa !77
   store i64 %82, ptr %.09.i.i.i.i.i.i.i, align 8, !tbaa !77
   store ptr null, ptr %.sroa.04.08.i.i.i.i.i.i.i, align 8, !tbaa !77
@@ -1853,15 +1861,15 @@ _ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i.i: ; p
 
 _ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i.i, %.lr.ph.i.i.i
   store ptr null, ptr %85, align 8, !tbaa !77
-  %.not.i.i.i54 = icmp eq ptr %78, %85
-  br i1 %.not.i.i.i54, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !79
+  %.not.i.i.i56 = icmp eq ptr %78, %85
+  br i1 %.not.i.i.i56, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !79
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i.i
-  %.pre.i55 = load ptr, ptr %0, align 8, !tbaa !25
+  %.pre.i57 = load ptr, ptr %0, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit53
-  %90 = phi ptr [ %.pre.i55, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i ], [ %78, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit53 ]
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit55
+  %90 = phi ptr [ %.pre.i57, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i ], [ %78, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit55 ]
   %91 = load i64, ptr %3, align 8, !tbaa !55
   %92 = icmp eq ptr %90, %76
   br i1 %92, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE4growEm.exit, label %93
@@ -1875,103 +1883,104 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt1
   %94 = trunc i64 %91 to i32
   store i32 %94, ptr %65, align 4, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
-  br label %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64
+  br label %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66
 
 95:                                               ; preds = %64
   %.not32 = icmp eq i32 %35, 0
-  %.pre78 = load ptr, ptr %0, align 8, !tbaa !25
-  br i1 %.not32, label %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64, label %.lr.ph.i.i.i.i.i57
+  %.pre81 = load ptr, ptr %0, align 8, !tbaa !25
+  br i1 %.not32, label %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66, label %.lr.ph.i.i.i.i.i59
 
-.lr.ph.i.i.i.i.i57:                               ; preds = %95, %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63
-  %.012.i.i.i.i.i58 = phi i64 [ %103, %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63 ], [ %36, %95 ]
-  %.0811.i.i.i.i.i59 = phi ptr [ %102, %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63 ], [ %.pre78, %95 ]
-  %.0910.i.i.i.i.i60 = phi ptr [ %101, %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63 ], [ %6, %95 ]
-  %96 = load ptr, ptr %.0910.i.i.i.i.i60, align 8, !tbaa !77
-  store ptr null, ptr %.0910.i.i.i.i.i60, align 8, !tbaa !77
-  %97 = load ptr, ptr %.0811.i.i.i.i.i59, align 8, !tbaa !77
-  store ptr %96, ptr %.0811.i.i.i.i.i59, align 8, !tbaa !77
-  %.not.i.i.i.i.i.i.i.i.i61 = icmp eq ptr %97, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i61, label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63, label %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i.i.i.i.i.i.i62
+.lr.ph.i.i.i.i.i59:                               ; preds = %95, %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i65
+  %.012.i.i.i.i.i60 = phi i64 [ %103, %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i65 ], [ %36, %95 ]
+  %.0811.i.i.i.i.i61 = phi ptr [ %102, %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i65 ], [ %.pre81, %95 ]
+  %.0910.i.i.i.i.i62 = phi ptr [ %101, %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i65 ], [ %6, %95 ]
+  %96 = load ptr, ptr %.0910.i.i.i.i.i62, align 8, !tbaa !77
+  store ptr null, ptr %.0910.i.i.i.i.i62, align 8, !tbaa !77
+  %97 = load ptr, ptr %.0811.i.i.i.i.i61, align 8, !tbaa !77
+  store ptr %96, ptr %.0811.i.i.i.i.i61, align 8, !tbaa !77
+  %.not.i.i.i.i.i.i.i.i.i63 = icmp eq ptr %97, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i63, label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i65, label %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i.i.i.i.i.i.i64
 
-_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i.i.i.i.i.i.i62: ; preds = %.lr.ph.i.i.i.i.i57
+_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i.i.i.i.i.i.i64: ; preds = %.lr.ph.i.i.i.i.i59
   %98 = load ptr, ptr %97, align 8, !tbaa !3
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8
   tail call void %100(ptr noundef nonnull align 8 dereferenceable(40) %97) #20
-  br label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63
+  br label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i65
 
-_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i.i.i.i.i.i.i62, %.lr.ph.i.i.i.i.i57
-  %101 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i60, i64 8
-  %102 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i59, i64 8
-  %103 = add nsw i64 %.012.i.i.i.i.i58, -1
-  %104 = icmp sgt i64 %.012.i.i.i.i.i58, 1
-  br i1 %104, label %.lr.ph.i.i.i.i.i57, label %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64.loopexit, !llvm.loop !115
+_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i65: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i.i.i.i.i.i.i64, %.lr.ph.i.i.i.i.i59
+  %101 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i62, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i61, i64 8
+  %103 = add nsw i64 %.012.i.i.i.i.i60, -1
+  %104 = icmp sgt i64 %.012.i.i.i.i.i60, 1
+  br i1 %104, label %.lr.ph.i.i.i.i.i59, label %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66.loopexit, !llvm.loop !115
 
-_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64.loopexit: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i63
-  %.pre77 = load ptr, ptr %0, align 8, !tbaa !25
-  br label %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64
+_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66.loopexit: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i65
+  %.pre80 = load ptr, ptr %0, align 8, !tbaa !25
+  br label %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66
 
-_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64: ; preds = %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64.loopexit, %95, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE4growEm.exit
-  %105 = phi ptr [ %77, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE4growEm.exit ], [ %.pre78, %95 ], [ %.pre77, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64.loopexit ]
-  %.026 = phi i64 [ 0, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE4growEm.exit ], [ 0, %95 ], [ %36, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64.loopexit ]
+_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66: ; preds = %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66.loopexit, %95, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE4growEm.exit
+  %105 = phi ptr [ %77, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE4growEm.exit ], [ %.pre81, %95 ], [ %.pre80, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66.loopexit ]
+  %.026 = phi i64 [ 0, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE4growEm.exit ], [ 0, %95 ], [ %36, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66.loopexit ]
   %106 = load ptr, ptr %1, align 8, !tbaa !25
   %107 = load i32, ptr %31, align 8, !tbaa !26
   %108 = zext i32 %107 to i64
   %109 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %106, i64 %108
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %108
-  br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i65.preheader
+  br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i67.preheader
 
-.lr.ph.i.i.i.i.i65.preheader:                     ; preds = %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64
+.lr.ph.i.i.i.i.i67.preheader:                     ; preds = %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66
   %110 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %105, i64 %.026
   %111 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %106, i64 %.026
-  br label %.lr.ph.i.i.i.i.i65
+  br label %.lr.ph.i.i.i.i.i67
 
-.lr.ph.i.i.i.i.i65:                               ; preds = %.lr.ph.i.i.i.i.i65.preheader, %.lr.ph.i.i.i.i.i65
-  %.09.i.i.i.i.i = phi ptr [ %114, %.lr.ph.i.i.i.i.i65 ], [ %110, %.lr.ph.i.i.i.i.i65.preheader ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %113, %.lr.ph.i.i.i.i.i65 ], [ %111, %.lr.ph.i.i.i.i.i65.preheader ]
+.lr.ph.i.i.i.i.i67:                               ; preds = %.lr.ph.i.i.i.i.i67.preheader, %.lr.ph.i.i.i.i.i67
+  %.09.i.i.i.i.i = phi ptr [ %114, %.lr.ph.i.i.i.i.i67 ], [ %110, %.lr.ph.i.i.i.i.i67.preheader ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %113, %.lr.ph.i.i.i.i.i67 ], [ %111, %.lr.ph.i.i.i.i.i67.preheader ]
   %112 = load i64, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !77
   store i64 %112, ptr %.09.i.i.i.i.i, align 8, !tbaa !77
   store ptr null, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !77
   %113 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
   %114 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %113, %109
-  br i1 %.not.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i65, !llvm.loop !116
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i67, !llvm.loop !116
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i65, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit64
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i67, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66
   store i32 %32, ptr %34, align 8, !tbaa !26
   %115 = load i32, ptr %31, align 8, !tbaa !26
-  %.not4.i.i66 = icmp eq i32 %115, 0
-  br i1 %.not4.i.i66, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit75, label %.lr.ph.i.preheader.i67
+  %.not4.i.i68 = icmp eq i32 %115, 0
+  br i1 %.not4.i.i68, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit78, label %.lr.ph.i.preheader.i69
 
-.lr.ph.i.preheader.i67:                           ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit
+.lr.ph.i.preheader.i69:                           ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %106, i64 %116
-  br label %.lr.ph.i.i68
+  %.idx.i70 = shl nuw nsw i64 %116, 3
+  %117 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx.i70
+  br label %.lr.ph.i.i71
 
-.lr.ph.i.i68:                                     ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i72, %.lr.ph.i.preheader.i67
-  %.05.i.i69 = phi ptr [ %118, %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i72 ], [ %117, %.lr.ph.i.preheader.i67 ]
-  %118 = getelementptr inbounds i8, ptr %.05.i.i69, i64 -8
+.lr.ph.i.i71:                                     ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i75, %.lr.ph.i.preheader.i69
+  %.05.i.i72 = phi ptr [ %118, %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i75 ], [ %117, %.lr.ph.i.preheader.i69 ]
+  %118 = getelementptr inbounds i8, ptr %.05.i.i72, i64 -8
   %119 = load ptr, ptr %118, align 8, !tbaa !77
-  %.not.i.i.i70 = icmp eq ptr %119, null
-  br i1 %.not.i.i.i70, label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i72, label %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i71
+  %.not.i.i.i73 = icmp eq ptr %119, null
+  br i1 %.not.i.i.i73, label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i75, label %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i74
 
-_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i71: ; preds = %.lr.ph.i.i68
+_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i74: ; preds = %.lr.ph.i.i71
   %120 = load ptr, ptr %119, align 8, !tbaa !3
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8
   call void %122(ptr noundef nonnull align 8 dereferenceable(40) %119) #20
-  br label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i72
+  br label %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i75
 
-_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i72: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i71, %.lr.ph.i.i68
+_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i75: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir12FunctionPassEEclEPS2_.exit.i.i.i74, %.lr.ph.i.i71
   store ptr null, ptr %118, align 8, !tbaa !77
-  %.not.i.i73 = icmp eq ptr %106, %118
-  br i1 %.not.i.i73, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit75, label %.lr.ph.i.i68, !llvm.loop !79
+  %.not.i.i76 = icmp eq ptr %106, %118
+  br i1 %.not.i.i76, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit78, label %.lr.ph.i.i71, !llvm.loop !79
 
-_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit75: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i72, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit
+_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit78: ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS2_EED2Ev.exit.i.i75, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit
   store i32 0, ptr %31, align 8, !tbaa !26
   br label %123
 
-123:                                              ; preds = %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit75, %2, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE12assignRemoteEOS7_.exit
+123:                                              ; preds = %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE5clearEv.exit78, %2, %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EEE12assignRemoteEOS7_.exit
   ret ptr %0
 }
 
@@ -1985,7 +1994,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9s
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !26
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %6, i64 %9
+  %.idx.i = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit, label %.lr.ph.i.i.i.i.i.i
 

@@ -2028,11 +2028,13 @@ define noalias noundef ptr @Dtc_ManFindCommonCuts(ptr readnone captures(none) %0
   %6 = getelementptr i8, ptr %1, i64 4
   %.val41 = load i32, ptr %6, align 4, !tbaa !3
   %7 = sext i32 %.val41 to i64
-  %8 = getelementptr inbounds i32, ptr %.val40, i64 %7
+  %.idx = shl nsw i64 %7, 2
+  %8 = getelementptr inbounds i8, ptr %.val40, i64 %.idx
   %9 = getelementptr i8, ptr %2, i64 4
   %.val43 = load i32, ptr %9, align 4, !tbaa !3
   %10 = sext i32 %.val43 to i64
-  %11 = getelementptr inbounds i32, ptr %.val, i64 %10
+  %.idx59 = shl nsw i64 %10, 2
+  %11 = getelementptr inbounds i8, ptr %.val, i64 %.idx59
   %12 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #29
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %13, align 4, !tbaa !3
@@ -2046,8 +2048,8 @@ define noalias noundef ptr @Dtc_ManFindCommonCuts(ptr readnone captures(none) %0
   br i1 %18, label %.preheader52, label %._crit_edge
 
 .preheader52:                                     ; preds = %3, %86
-  %.pre.i4769 = phi ptr [ %.pre.i4770, %86 ], [ %14, %3 ]
-  %.pre.i68 = phi ptr [ %.pre.i67, %86 ], [ %14, %3 ]
+  %.pre.i4770 = phi ptr [ %.pre.i4771, %86 ], [ %14, %3 ]
+  %.pre.i69 = phi ptr [ %.pre.i68, %86 ], [ %14, %3 ]
   %.058 = phi ptr [ %.1, %86 ], [ %.val40, %3 ]
   %.03657 = phi ptr [ %.137, %86 ], [ %.val, %3 ]
   br label %19
@@ -2067,10 +2069,10 @@ define noalias noundef ptr @Dtc_ManFindCommonCuts(ptr readnone captures(none) %0
   br i1 %exitcond.not, label %.preheader, label %19, !llvm.loop !64
 
 .preheader:                                       ; preds = %24, %Vec_IntPush.exit
-  %.pre.i4772 = phi ptr [ %46, %Vec_IntPush.exit ], [ %.pre.i4769, %24 ]
-  %25 = phi ptr [ %.pre.i66, %Vec_IntPush.exit ], [ %.pre.i68, %24 ]
-  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %Vec_IntPush.exit ], [ 0, %24 ]
-  %26 = getelementptr inbounds nuw i32, ptr %.058, i64 %indvars.iv61
+  %.pre.i4773 = phi ptr [ %46, %Vec_IntPush.exit ], [ %.pre.i4770, %24 ]
+  %25 = phi ptr [ %.pre.i67, %Vec_IntPush.exit ], [ %.pre.i69, %24 ]
+  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %Vec_IntPush.exit ], [ 0, %24 ]
+  %26 = getelementptr inbounds nuw i32, ptr %.058, i64 %indvars.iv62
   %27 = load i32, ptr %26, align 4, !tbaa !33
   %28 = load i32, ptr %13, align 4, !tbaa !3
   %29 = load i32, ptr %12, align 8, !tbaa !10
@@ -2109,23 +2111,23 @@ define noalias noundef ptr @Dtc_ManFindCommonCuts(ptr readnone captures(none) %0
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %42, %44, %34, %36
-  %.sink75 = phi ptr [ %35, %34 ], [ %37, %36 ], [ %43, %42 ], [ %45, %44 ]
+  %.sink76 = phi ptr [ %35, %34 ], [ %37, %36 ], [ %43, %42 ], [ %45, %44 ]
   %.sink = phi i32 [ 16, %34 ], [ 16, %36 ], [ %39, %42 ], [ %39, %44 ]
-  store ptr %.sink75, ptr %15, align 8, !tbaa !11
+  store ptr %.sink76, ptr %15, align 8, !tbaa !11
   store i32 %.sink, ptr %12, align 8, !tbaa !10
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %.preheader
-  %46 = phi ptr [ %.pre.i4772, %.preheader ], [ %.sink75, %Vec_IntPush.exit.sink.split ]
-  %.pre.i66 = phi ptr [ %25, %.preheader ], [ %.sink75, %Vec_IntPush.exit.sink.split ]
+  %46 = phi ptr [ %.pre.i4773, %.preheader ], [ %.sink76, %Vec_IntPush.exit.sink.split ]
+  %.pre.i67 = phi ptr [ %25, %.preheader ], [ %.sink76, %Vec_IntPush.exit.sink.split ]
   %47 = add nsw i32 %28, 1
   store i32 %47, ptr %13, align 4, !tbaa !3
   %48 = sext i32 %28 to i64
-  %49 = getelementptr inbounds i32, ptr %.pre.i66, i64 %48
+  %49 = getelementptr inbounds i32, ptr %.pre.i67, i64 %48
   store i32 %27, ptr %49, align 4, !tbaa !33
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %exitcond64.not = icmp eq i64 %indvars.iv.next62, 4
-  br i1 %exitcond64.not, label %50, label %.preheader, !llvm.loop !65
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %exitcond65.not = icmp eq i64 %indvars.iv.next63, 4
+  br i1 %exitcond65.not, label %50, label %.preheader, !llvm.loop !65
 
 50:                                               ; preds = %Vec_IntPush.exit
   %51 = getelementptr inbounds nuw i8, ptr %.03657, i64 12
@@ -2167,18 +2169,18 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit51.sink.split
 
 Vec_IntPush.exit51.sink.split:                    ; preds = %67, %69, %59, %61
-  %.sink77 = phi ptr [ %60, %59 ], [ %62, %61 ], [ %68, %67 ], [ %70, %69 ]
-  %.sink76 = phi i32 [ 16, %59 ], [ 16, %61 ], [ %64, %67 ], [ %64, %69 ]
-  store ptr %.sink77, ptr %15, align 8, !tbaa !11
-  store i32 %.sink76, ptr %12, align 8, !tbaa !10
+  %.sink78 = phi ptr [ %60, %59 ], [ %62, %61 ], [ %68, %67 ], [ %70, %69 ]
+  %.sink77 = phi i32 [ 16, %59 ], [ 16, %61 ], [ %64, %67 ], [ %64, %69 ]
+  store ptr %.sink78, ptr %15, align 8, !tbaa !11
+  store i32 %.sink77, ptr %12, align 8, !tbaa !10
   br label %Vec_IntPush.exit51
 
 Vec_IntPush.exit51:                               ; preds = %Vec_IntPush.exit51.sink.split, %50
-  %.pre.i4771 = phi ptr [ %46, %50 ], [ %.sink77, %Vec_IntPush.exit51.sink.split ]
+  %.pre.i4772 = phi ptr [ %46, %50 ], [ %.sink78, %Vec_IntPush.exit51.sink.split ]
   %71 = add nsw i32 %53, 1
   store i32 %71, ptr %13, align 4, !tbaa !3
   %72 = sext i32 %53 to i64
-  %73 = getelementptr inbounds i32, ptr %.pre.i4771, i64 %72
+  %73 = getelementptr inbounds i32, ptr %.pre.i4772, i64 %72
   store i32 %52, ptr %73, align 4, !tbaa !33
   %74 = getelementptr inbounds nuw i8, ptr %.058, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %.03657, i64 16
@@ -2204,8 +2206,8 @@ Vec_IntPush.exit51:                               ; preds = %Vec_IntPush.exit51.
   br label %86
 
 86:                                               ; preds = %84, %82, %Vec_IntPush.exit51
-  %.pre.i4770 = phi ptr [ %.pre.i4771, %Vec_IntPush.exit51 ], [ %.pre.i4769, %82 ], [ %.pre.i4769, %84 ]
-  %.pre.i67 = phi ptr [ %.pre.i4771, %Vec_IntPush.exit51 ], [ %.pre.i68, %82 ], [ %.pre.i68, %84 ]
+  %.pre.i4771 = phi ptr [ %.pre.i4772, %Vec_IntPush.exit51 ], [ %.pre.i4770, %82 ], [ %.pre.i4770, %84 ]
+  %.pre.i68 = phi ptr [ %.pre.i4772, %Vec_IntPush.exit51 ], [ %.pre.i69, %82 ], [ %.pre.i69, %84 ]
   %.137 = phi ptr [ %75, %Vec_IntPush.exit51 ], [ %.03657, %82 ], [ %spec.select, %84 ]
   %.1 = phi ptr [ %74, %Vec_IntPush.exit51 ], [ %83, %82 ], [ %.058, %84 ]
   %87 = icmp ult ptr %.1, %8

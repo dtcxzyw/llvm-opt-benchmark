@@ -292,7 +292,8 @@ define dso_local void @_ZN5clang7CodeGen17SanitizerMetadata12reportGlobalEPN4llv
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load i32, ptr %29, align 8, !tbaa !371
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %28, i64 %31
+  %.idx.i.i.i = shl nuw nsw i64 %31, 3
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i.i
   %.not.i.i.i9 = icmp eq i32 %30, 0
   br i1 %.not.i.i.i9, label %_ZNK5clang4Decl7hasAttrINS_35DisableSanitizerInstrumentationAttrEEEbv.exit.thread.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -415,7 +416,8 @@ _ZNK5clang22specific_attr_iteratorINS_14NoSanitizeAttrEN4llvm11SmallVectorIPNS_4
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 36
   %88 = load i32, ptr %87, align 4, !tbaa !387
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %86, i64 %89
+  %.idx.i.i = shl nuw nsw i64 %89, 4
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx.i.i
   %.not19.i.i = icmp eq i32 %88, 0
   br i1 %.not19.i.i, label %_ZNK5clang14NoSanitizeAttr7getMaskEv.exit.i, label %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge.i.i
 

@@ -1377,7 +1377,8 @@ default.unreachable:                              ; preds = %._crit_edge
   %13 = load ptr, ptr %12, align 8, !nonnull !36, !noundef !36
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !36
-  %16 = getelementptr inbounds { i64, [17 x i64] }, ptr %13, i64 %15
+  %.idx = mul nsw i64 %15, 144
+  %16 = getelementptr inbounds i8, ptr %13, i64 %.idx
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %._crit_edge.thread, label %.lr.ph
 
@@ -1387,13 +1388,13 @@ default.unreachable:                              ; preds = %._crit_edge
 
 19:                                               ; preds = %3
   tail call void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..TryCollect$LT$St$C$C$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h320a86c820d467b7E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(88) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
-  br label %50
+  br label %51
 
-"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit": ; preds = %.loopexit, %.loopexit.split-lp, %41
-  %.pn.ph = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %42, %41 ]
+"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit": ; preds = %.loopexit, %.loopexit.split-lp, %42
+  %.pn.ph = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %43, %42 ]
   %.pr44 = load i64, ptr %8, align 8
   %20 = icmp eq i64 %.pr44, 2
-  br i1 %20, label %51, label %.thread
+  br i1 %20, label %52, label %.thread
 
 .loopexit:                                        ; preds = %21
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1416,7 +1417,7 @@ default.unreachable:                              ; preds = %._crit_edge
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %47
+  br label %48
 
 21:                                               ; preds = %.lr.ph, %35
   %.sroa.0.042 = phi ptr [ %13, %.lr.ph ], [ %22, %35 ]
@@ -1461,12 +1462,12 @@ default.unreachable:                              ; preds = %._crit_edge
           cleanup
   store i64 2, ptr %8, align 8
   store ptr %27, ptr %18, align 8
-  br label %51
+  br label %52
 
 .thread40:                                        ; preds = %34, %32
   store i64 2, ptr %8, align 8
   store ptr %27, ptr %18, align 8
-  br label %47
+  br label %48
 
 38:                                               ; preds = %._crit_edge
   store i64 -9223372036854775807, ptr %0, align 8
@@ -1474,7 +1475,7 @@ default.unreachable:                              ; preds = %._crit_edge
 
 39:                                               ; preds = %"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit31", %"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit28", %38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %50
+  br label %51
 
 ._crit_edge.thread:                               ; preds = %11, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -1483,14 +1484,15 @@ default.unreachable:                              ; preds = %._crit_edge
   store i64 %15, ptr %40, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %12, align 8
   store i64 0, ptr %14, align 8
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4ceac5e3286e3794E.llvm.8254616640591518752"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull %13, ptr noundef nonnull %16)
-          to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h1a99b29ae24364c8E.exit" unwind label %41
+  %41 = getelementptr inbounds { i64, [17 x i64] }, ptr %13, i64 %15
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4ceac5e3286e3794E.llvm.8254616640591518752"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull %13, ptr noundef nonnull %41)
+          to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h1a99b29ae24364c8E.exit" unwind label %42
 
-41:                                               ; preds = %._crit_edge.thread
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %._crit_edge.thread
+  %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr366drop_in_place$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$17h4545ceb333e9d6e4E.llvm.5026109878215741006"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-          to label %"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit" unwind label %43
+          to label %"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit" unwind label %44
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h1a99b29ae24364c8E.exit": ; preds = %._crit_edge.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
@@ -1501,55 +1503,55 @@ default.unreachable:                              ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %39
 
-43:                                               ; preds = %51, %45, %41
-  %44 = landingpad { ptr, i32 }
+44:                                               ; preds = %52, %46, %42
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #46
   unreachable
 
-45:                                               ; preds = %47
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %48
+  %47 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-          to label %.thread unwind label %43
+          to label %.thread unwind label %44
 
-47:                                               ; preds = %._crit_edge._crit_edge, %.thread40
-  %48 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %27, %.thread40 ]
+48:                                               ; preds = %._crit_edge._crit_edge, %.thread40
+  %49 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %27, %.thread40 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr %48, ptr %5, align 8
+  store ptr %49, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %13, ptr %4, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %15, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %15, ptr %50, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %12, align 8
   store i64 0, ptr %14, align 8
   invoke void @"_ZN4core3ptr366drop_in_place$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$17h4545ceb333e9d6e4E.llvm.5026109878215741006"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-          to label %"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit31" unwind label %45
+          to label %"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit31" unwind label %46
 
-"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit31": ; preds = %47
+"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit31": ; preds = %48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   store i64 -9223372036854775808, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %48, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %49, ptr %.sroa.4.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %39
 
-50:                                               ; preds = %39, %19
+51:                                               ; preds = %39, %19
   ret void
 
 "_ZN4core3ptr88drop_in_place$LT$futures_util..future..try_join_all..FinalState$LT$anyhow..Error$GT$$GT$17h1ac6a0ec508db1e2E.exit": ; preds = %31, %29
   store i64 0, ptr %8, align 8
   br label %35
 
-.thread:                                          ; preds = %51, %45, %"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit"
-  %.pn37 = phi { ptr, i32 } [ %.pn.ph, %"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit" ], [ %46, %45 ], [ %.pn46, %51 ]
+.thread:                                          ; preds = %52, %46, %"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit"
+  %.pn37 = phi { ptr, i32 } [ %.pn.ph, %"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit" ], [ %47, %46 ], [ %.pn46, %52 ]
   resume { ptr, i32 } %.pn37
 
-51:                                               ; preds = %"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit.thread", %"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit"
+52:                                               ; preds = %"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit.thread", %"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit"
   %.pn46 = phi { ptr, i32 } [ %37, %"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit.thread" ], [ %.pn.ph, %"_ZN4core3ptr388drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..try_maybe_done..TryMaybeDone$LT$futures_util..future..try_future..into_future..IntoFuture$LT$$LT$semantic_index..embedding..ollama..OllamaEmbeddingProvider$u20$as$u20$semantic_index..embedding..EmbeddingProvider$GT$..embed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$u5d$$GT$$GT$$GT$17h49cd5783653b9d7eE.exit" ]
-  %52 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %52)
-          to label %.thread unwind label %43
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
+          to label %.thread unwind label %44
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -1962,7 +1964,8 @@ define hidden noundef zeroext i1 @_ZN13feature_flags12FeatureFlags8has_flag17h14
   %7 = load ptr, ptr %6, align 8, !nonnull !36, !noundef !36
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !36
-  %10 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %7, i64 %9
+  %.idx = mul nsw i64 %9, 24
+  %10 = getelementptr inbounds i8, ptr %7, i64 %.idx
   %.not.i = icmp eq i64 %9, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hcb04416de01c1e1aE.llvm.7674728272632859446.exit", label %.lr.ph.i
 
@@ -7949,7 +7952,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h5a8d
   %4 = load ptr, ptr %3, align 8, !alias.scope !2207, !nonnull !36, !noundef !36
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !2207, !noundef !36
-  %7 = getelementptr inbounds float, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 2
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = tail call fastcc { i64, ptr } @"_ZN92_$LT$$RF$mut$u20$bincode..ser..Serializer$LT$W$C$O$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h91ef53a1079fda3aE"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %6)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -8171,7 +8175,8 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$s
   %4 = load ptr, ptr %3, align 8, !alias.scope !2335, !noalias !2338, !nonnull !36, !noundef !36
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !2335, !noalias !2338, !noundef !36
-  %7 = getelementptr inbounds float, ptr %4, i64 %6
+  %.idx.i = shl nsw i64 %6, 2
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2340)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2343), !noalias !2332
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2346), !noalias !2332
@@ -13644,7 +13649,8 @@ define hidden noalias noundef align 8 ptr @"_ZN92_$LT$$RF$mut$u20$bincode..ser..
   %6 = load ptr, ptr %5, align 8, !alias.scope !4111, !noalias !4114, !nonnull !36, !noundef !36
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !4111, !noalias !4114, !noundef !36
-  %9 = getelementptr inbounds float, ptr %6, i64 %8
+  %.idx.i.i = shl nsw i64 %8, 2
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4116)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4119), !noalias !4108
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4122), !noalias !4108
@@ -14405,7 +14411,8 @@ define void @_ZN14semantic_index9embedding9Embedding3new17h532d29fb7ef4f67eE(ptr
 
 .lr.ph16.preheader:                               ; preds = %13
   %7 = tail call float @llvm.sqrt.f32(float %18)
-  %8 = getelementptr inbounds float, ptr %6, i64 %4
+  %.idx = shl nsw i64 %4, 2
+  %8 = getelementptr inbounds i8, ptr %6, i64 %.idx
   br label %.lr.ph16
 
 ._crit_edge17:                                    ; preds = %.lr.ph16, %2
@@ -14440,7 +14447,8 @@ define { float, i64 } @_ZN14semantic_index9embedding9Embedding10similarity17h6db
   br i1 %.not, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h9dcd59189b31cc0aE.llvm.7674728272632859446.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 24
+  %6 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4406)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4409)

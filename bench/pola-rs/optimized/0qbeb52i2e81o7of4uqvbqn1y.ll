@@ -60137,7 +60137,8 @@ define hidden void @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$4iter17h4b799755e3f3
   %3 = load ptr, ptr %2, align 8, !nonnull !7, !noundef !7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !7
-  %6 = getelementptr inbounds nuw { { [8 x i64] }, i32, [1 x i32] }, ptr %3, i64 %5
+  %.idx = mul nuw nsw i64 %5, 72
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %7 = icmp ne i64 %5, 0
   %.sroa.8.0 = zext i1 %7 to i64
   %.sroa.0.0.idx = select i1 %7, i64 72, i64 0
@@ -60162,7 +60163,8 @@ define hidden void @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$4iter17h6cc5267eac83
   %3 = load ptr, ptr %2, align 8, !nonnull !7, !noundef !7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !7
-  %6 = getelementptr inbounds nuw { { [5 x i64] }, i32, [1 x i32] }, ptr %3, i64 %5
+  %.idx = mul nuw nsw i64 %5, 48
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %7 = icmp ne i64 %5, 0
   %.sroa.8.0 = zext i1 %7 to i64
   %.sroa.0.0.idx = select i1 %7, i64 48, i64 0
@@ -60412,7 +60414,8 @@ define hidden void @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$8iter_mut17h085d1b83
   %6 = load ptr, ptr %5, align 8, !nonnull !7, !noundef !7
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !7
-  %9 = getelementptr inbounds nuw { { [8 x i64] }, i32, [1 x i32] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 72
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp ne i64 %8, 0
   %.sroa.8.0 = zext i1 %10 to i64
   %.sroa.0.0.idx = select i1 %10, i64 72, i64 0

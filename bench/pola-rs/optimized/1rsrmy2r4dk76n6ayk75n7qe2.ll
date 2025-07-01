@@ -24339,7 +24339,8 @@ define hidden void @"_ZN19brotli_decompressor7huffman42HuffmanTreeGroup$LT$Alloc
   %.val = load ptr, ptr %1, align 8, !nonnull !6, !align !1942, !noundef !6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val10 = load i64, ptr %9, align 8, !noundef !6
-  %10 = getelementptr inbounds nuw i32, ptr %.val, i64 %.val10
+  %.idx = shl nuw nsw i64 %.val10, 2
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx
   %11 = icmp eq i64 %.val10, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 
@@ -42038,7 +42039,8 @@ define internal fastcc void @_ZN14polars_parquet5arrow4read6schema8metadata13con
   %16 = load ptr, ptr %15, align 8, !nonnull !6, !noundef !6
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i64, ptr %17, align 8, !noundef !6
-  %19 = getelementptr inbounds nuw { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] }, ptr %16, i64 %18
+  %.idx = mul nuw nsw i64 %18, 72
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   %20 = icmp eq i64 %18, 0
   br i1 %20, label %.loopexit, label %.lr.ph
 
@@ -51361,7 +51363,7 @@ define void @_ZN14polars_parquet5arrow4read10statistics15deserialize_all17haf076
   ret void
 
 600:                                              ; preds = %.thread3622
-  br i1 %.sroa.01630.13626, label %3865, label %.thread6481
+  br i1 %.sroa.01630.13626, label %3865, label %.thread6511
 
 .thread:                                          ; preds = %594, %602, %753
   %601 = landingpad { ptr, i32 }
@@ -51378,7 +51380,7 @@ define void @_ZN14polars_parquet5arrow4read10statistics15deserialize_all17haf076
           to label %609 unwind label %606
 
 605:                                              ; preds = %3787
-  br i1 %.sroa.01629.1, label %.thread3622, label %.thread6481
+  br i1 %.sroa.01629.1, label %.thread3622, label %.thread6511
 
 606:                                              ; preds = %3559, %3269, %3861, %3737, %3652, %3560, %3558, %3555, %3466, %3463, %3374, %3369, %3368, %3363, %3270, %3268, %3265, %3179, %3176, %3090, %3085, %3084, %3081, %2965, %2849, %2766, %2670, %2587, %2505, %2502, %2420, %2419, %2418, %2415, %2414, %2413, %2410, %2409, %2408, %2407, %2401, %2398, %2305, %2304, %2295, %2175, %2172, %2057, %2056, %2055, %2052, %1949, %1946, %1843, %1840, %1733, %1732, %1729, %1635, %1632, %1518, %1516, %1515, %1512, %1409, %1406, %1299, %1296, %1193, %1192, %1191, %1188, %1081, %1078, %973, %970, %863, %860, %755, %751, %662, %632, %629, %628, %627, %626, %625, %624, %623, %622, %616, %612, %603
   %607 = landingpad { ptr, i32 }
@@ -51512,7 +51514,7 @@ thread-pre-split:                                 ; preds = %617, %637
 637:                                              ; preds = %617
   %638 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %639 = load i8, ptr %638, align 1, !range !2121, !noundef !6
-  switch i8 %639, label %default.unreachable6480 [
+  switch i8 %639, label %default.unreachable6510 [
     i8 0, label %2055
     i8 1, label %2056
     i8 2, label %thread-pre-split
@@ -51646,7 +51648,8 @@ thread-pre-split:                                 ; preds = %617, %637
   br label %754
 
 .lr.ph5947:                                       ; preds = %668
-  %671 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6112 = mul nuw nsw i64 %3, 104
+  %671 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6112
   %.sroa.02354.15943 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.41636.0..sroa_idx = getelementptr inbounds nuw i8, ptr %212, i64 8
   %.sroa.51637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %212, i64 40
@@ -51799,8 +51802,8 @@ thread-pre-split:                                 ; preds = %617, %637
 
 701:                                              ; preds = %673
   %702 = extractvalue { ptr, i64 } %674, 1
-  %.not7094.not.not = icmp uge i64 %4, %702
-  br i1 %.not7094.not.not, label %706, label %703
+  %.not7124.not.not = icmp uge i64 %4, %702
+  br i1 %.not7124.not.not, label %706, label %703
 
 703:                                              ; preds = %701
   %704 = extractvalue { ptr, i64 } %674, 0
@@ -51983,10 +51986,10 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 750:                                              ; preds = %749
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %581)
-  %.not6099 = icmp eq ptr %.sroa.02354.15945, %671
-  %.sroa.02354.1.idx = select i1 %.not6099, i64 0, i64 104
+  %.not6113 = icmp eq ptr %.sroa.02354.15945, %671
+  %.sroa.02354.1.idx = select i1 %.not6113, i64 0, i64 104
   %.sroa.02354.1 = getelementptr inbounds nuw i8, ptr %.sroa.02354.15945, i64 %.sroa.02354.1.idx
-  br i1 %.not6099, label %._crit_edge5948, label %673
+  br i1 %.not6113, label %._crit_edge5948, label %673
 
 751:                                              ; preds = %.loopexit5204
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %582)
@@ -52003,7 +52006,7 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .thread3633:                                      ; preds = %.body3401, %.thread3640.loopexit, %.thread3640.loopexit.split-lp, %726, %.body3401.thread3661, %675
   %.pn29283638 = phi { ptr, i32 } [ %.pn2923.pn, %675 ], [ %740, %.body3401 ], [ %723, %.body3401.thread3661 ], [ %727, %726 ], [ %lpad.loopexit5201, %.thread3640.loopexit ], [ %lpad.loopexit.split-lp5202, %.thread3640.loopexit.split-lp ]
-  %.sroa.01628.23637 = phi i1 [ false, %675 ], [ true, %.body3401 ], [ true, %.body3401.thread3661 ], [ true, %726 ], [ true, %.thread3640.loopexit ], [ %.not7094.not.not, %.thread3640.loopexit.split-lp ]
+  %.sroa.01628.23637 = phi i1 [ false, %675 ], [ true, %.body3401 ], [ true, %.body3401.thread3661 ], [ true, %726 ], [ true, %.thread3640.loopexit ], [ %.not7124.not.not, %.thread3640.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$polars_arrow..array..boolean..mutable..MutableBooleanArray$GT$17h737fc8a5436e095dE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %582) #29
           to label %669 unwind label %665
 
@@ -52037,7 +52040,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .lr.ph5939:                                       ; preds = %759
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %208)
-  %760 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6110 = mul nuw nsw i64 %3, 104
+  %760 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6110
   %.sroa.02361.15935 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.41651.0..sroa_idx = getelementptr inbounds nuw i8, ptr %207, i64 8
   %.sroa.51652.0..sroa_idx = getelementptr inbounds nuw i8, ptr %207, i64 40
@@ -52192,8 +52196,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 797:                                              ; preds = %769
   %798 = extractvalue { ptr, i64 } %770, 1
-  %.not7093.not.not = icmp uge i64 %4, %798
-  br i1 %.not7093.not.not, label %802, label %799
+  %.not7123.not.not = icmp uge i64 %4, %798
+  br i1 %.not7123.not.not, label %802, label %799
 
 799:                                              ; preds = %797
   %800 = extractvalue { ptr, i64 } %770, 0
@@ -52387,10 +52391,10 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 859:                                              ; preds = %858
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %572)
-  %.not6098 = icmp eq ptr %.sroa.02361.15937, %760
-  %.sroa.02361.1.idx = select i1 %.not6098, i64 0, i64 104
+  %.not6111 = icmp eq ptr %.sroa.02361.15937, %760
+  %.sroa.02361.1.idx = select i1 %.not6111, i64 0, i64 104
   %.sroa.02361.1 = getelementptr inbounds nuw i8, ptr %.sroa.02361.15937, i64 %.sroa.02361.1.idx
-  br i1 %.not6098, label %._crit_edge5940, label %769
+  br i1 %.not6111, label %._crit_edge5940, label %769
 
 860:                                              ; preds = %.loopexit5208
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %573)
@@ -52403,7 +52407,7 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .thread3669:                                      ; preds = %.body3404, %.thread3679.loopexit, %.thread3679.loopexit.split-lp, %820, %.body3404.thread3700, %771
   %.pn29183674 = phi { ptr, i32 } [ %.pn2913.pn, %771 ], [ %834, %.body3404 ], [ %844, %.body3404.thread3700 ], [ %821, %820 ], [ %lpad.loopexit5205, %.thread3679.loopexit ], [ %lpad.loopexit.split-lp5206, %.thread3679.loopexit.split-lp ]
-  %.sroa.01624.23673 = phi i1 [ false, %771 ], [ true, %.body3404 ], [ true, %.body3404.thread3700 ], [ true, %820 ], [ true, %.thread3679.loopexit ], [ %.not7093.not.not, %.thread3679.loopexit.split-lp ]
+  %.sroa.01624.23673 = phi i1 [ false, %771 ], [ true, %.body3404 ], [ true, %.body3404.thread3700 ], [ true, %820 ], [ true, %.thread3679.loopexit ], [ %.not7123.not.not, %.thread3679.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$i8$GT$$GT$17hc7d8d4469261ffbeE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %573) #29
           to label %757 unwind label %665
 
@@ -52437,7 +52441,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .lr.ph5931:                                       ; preds = %867
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %203)
-  %868 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6108 = mul nuw nsw i64 %3, 104
+  %868 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6108
   %.sroa.02370.15927 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.41672.0..sroa_idx = getelementptr inbounds nuw i8, ptr %202, i64 8
   %.sroa.51673.0..sroa_idx = getelementptr inbounds nuw i8, ptr %202, i64 40
@@ -52592,8 +52597,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 905:                                              ; preds = %877
   %906 = extractvalue { ptr, i64 } %878, 1
-  %.not7092.not.not = icmp uge i64 %4, %906
-  br i1 %.not7092.not.not, label %910, label %907
+  %.not7122.not.not = icmp uge i64 %4, %906
+  br i1 %.not7122.not.not, label %910, label %907
 
 907:                                              ; preds = %905
   %908 = extractvalue { ptr, i64 } %878, 0
@@ -52789,10 +52794,10 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 969:                                              ; preds = %968
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %562)
-  %.not6097 = icmp eq ptr %.sroa.02370.15929, %868
-  %.sroa.02370.1.idx = select i1 %.not6097, i64 0, i64 104
+  %.not6109 = icmp eq ptr %.sroa.02370.15929, %868
+  %.sroa.02370.1.idx = select i1 %.not6109, i64 0, i64 104
   %.sroa.02370.1 = getelementptr inbounds nuw i8, ptr %.sroa.02370.15929, i64 %.sroa.02370.1.idx
-  br i1 %.not6097, label %._crit_edge5932, label %877
+  br i1 %.not6109, label %._crit_edge5932, label %877
 
 970:                                              ; preds = %.loopexit5212
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %563)
@@ -52805,7 +52810,7 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .thread3708:                                      ; preds = %.body3407, %.thread3718.loopexit, %.thread3718.loopexit.split-lp, %928, %.body3407.thread3739, %879
   %.pn29083713 = phi { ptr, i32 } [ %.pn2903.pn, %879 ], [ %942, %.body3407 ], [ %952, %.body3407.thread3739 ], [ %929, %928 ], [ %lpad.loopexit5209, %.thread3718.loopexit ], [ %lpad.loopexit.split-lp5210, %.thread3718.loopexit.split-lp ]
-  %.sroa.01620.23712 = phi i1 [ false, %879 ], [ true, %.body3407 ], [ true, %.body3407.thread3739 ], [ true, %928 ], [ true, %.thread3718.loopexit ], [ %.not7092.not.not, %.thread3718.loopexit.split-lp ]
+  %.sroa.01620.23712 = phi i1 [ false, %879 ], [ true, %.body3407 ], [ true, %.body3407.thread3739 ], [ true, %928 ], [ true, %.thread3718.loopexit ], [ %.not7122.not.not, %.thread3718.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$i16$GT$$GT$17h110e0ea2c30aca39E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %563) #29
           to label %865 unwind label %665
 
@@ -52839,7 +52844,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .lr.ph5907:                                       ; preds = %977
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %169)
-  %978 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6102 = mul nuw nsw i64 %3, 104
+  %978 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6102
   %.sroa.02420.15903 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.41826.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 8
   %.sroa.51827.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 40
@@ -52994,8 +53000,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1015:                                             ; preds = %987
   %1016 = extractvalue { ptr, i64 } %988, 1
-  %.not7089.not.not = icmp uge i64 %4, %1016
-  br i1 %.not7089.not.not, label %1020, label %1017
+  %.not7119.not.not = icmp uge i64 %4, %1016
+  br i1 %.not7119.not.not, label %1020, label %1017
 
 1017:                                             ; preds = %1015
   %1018 = extractvalue { ptr, i64 } %988, 0
@@ -53189,10 +53195,10 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1077:                                             ; preds = %1076
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %500)
-  %.not6094 = icmp eq ptr %.sroa.02420.15905, %978
-  %.sroa.02420.1.idx = select i1 %.not6094, i64 0, i64 104
+  %.not6103 = icmp eq ptr %.sroa.02420.15905, %978
+  %.sroa.02420.1.idx = select i1 %.not6103, i64 0, i64 104
   %.sroa.02420.1 = getelementptr inbounds nuw i8, ptr %.sroa.02420.15905, i64 %.sroa.02420.1.idx
-  br i1 %.not6094, label %._crit_edge5908, label %987
+  br i1 %.not6103, label %._crit_edge5908, label %987
 
 1078:                                             ; preds = %.loopexit5224
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %501)
@@ -53205,7 +53211,7 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .thread3747:                                      ; preds = %.body3411, %.thread3757.loopexit, %.thread3757.loopexit.split-lp, %1038, %.body3411.thread3778, %989
   %.pn28783752 = phi { ptr, i32 } [ %.pn2873.pn, %989 ], [ %1052, %.body3411 ], [ %1062, %.body3411.thread3778 ], [ %1039, %1038 ], [ %lpad.loopexit5221, %.thread3757.loopexit ], [ %lpad.loopexit.split-lp5222, %.thread3757.loopexit.split-lp ]
-  %.sroa.01596.23751 = phi i1 [ false, %989 ], [ true, %.body3411 ], [ true, %.body3411.thread3778 ], [ true, %1038 ], [ true, %.thread3757.loopexit ], [ %.not7089.not.not, %.thread3757.loopexit.split-lp ]
+  %.sroa.01596.23751 = phi i1 [ false, %989 ], [ true, %.body3411 ], [ true, %.body3411.thread3778 ], [ true, %1038 ], [ true, %.thread3757.loopexit ], [ %.not7119.not.not, %.thread3757.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$u8$GT$$GT$17hb8fedea24bec8c45E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %501) #29
           to label %975 unwind label %665
 
@@ -53239,7 +53245,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .lr.ph5899:                                       ; preds = %1085
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %164)
-  %1086 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6100 = mul nuw nsw i64 %3, 104
+  %1086 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6100
   %.sroa.02429.15895 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.41847.0..sroa_idx = getelementptr inbounds nuw i8, ptr %163, i64 8
   %.sroa.51848.0..sroa_idx = getelementptr inbounds nuw i8, ptr %163, i64 40
@@ -53394,8 +53401,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1123:                                             ; preds = %1095
   %1124 = extractvalue { ptr, i64 } %1096, 1
-  %.not7088.not.not = icmp uge i64 %4, %1124
-  br i1 %.not7088.not.not, label %1128, label %1125
+  %.not7118.not.not = icmp uge i64 %4, %1124
+  br i1 %.not7118.not.not, label %1128, label %1125
 
 1125:                                             ; preds = %1123
   %1126 = extractvalue { ptr, i64 } %1096, 0
@@ -53591,10 +53598,10 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1187:                                             ; preds = %1186
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %490)
-  %.not6093 = icmp eq ptr %.sroa.02429.15897, %1086
-  %.sroa.02429.1.idx = select i1 %.not6093, i64 0, i64 104
+  %.not6101 = icmp eq ptr %.sroa.02429.15897, %1086
+  %.sroa.02429.1.idx = select i1 %.not6101, i64 0, i64 104
   %.sroa.02429.1 = getelementptr inbounds nuw i8, ptr %.sroa.02429.15897, i64 %.sroa.02429.1.idx
-  br i1 %.not6093, label %._crit_edge5900, label %1095
+  br i1 %.not6101, label %._crit_edge5900, label %1095
 
 1188:                                             ; preds = %.loopexit5228
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %491)
@@ -53607,7 +53614,7 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .thread3786:                                      ; preds = %.body3415, %.thread3796.loopexit, %.thread3796.loopexit.split-lp, %1146, %.body3415.thread3817, %1097
   %.pn28683791 = phi { ptr, i32 } [ %.pn2863.pn, %1097 ], [ %1160, %.body3415 ], [ %1170, %.body3415.thread3817 ], [ %1147, %1146 ], [ %lpad.loopexit5225, %.thread3796.loopexit ], [ %lpad.loopexit.split-lp5226, %.thread3796.loopexit.split-lp ]
-  %.sroa.01592.23790 = phi i1 [ false, %1097 ], [ true, %.body3415 ], [ true, %.body3415.thread3817 ], [ true, %1146 ], [ true, %.thread3796.loopexit ], [ %.not7088.not.not, %.thread3796.loopexit.split-lp ]
+  %.sroa.01592.23790 = phi i1 [ false, %1097 ], [ true, %.body3415 ], [ true, %.body3415.thread3817 ], [ true, %1146 ], [ true, %.thread3796.loopexit ], [ %.not7118.not.not, %.thread3796.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$u16$GT$$GT$17h615a11d3645dc88bE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %491) #29
           to label %1083 unwind label %665
 
@@ -53653,7 +53660,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .lr.ph5891:                                       ; preds = %1197
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %159)
-  %1198 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6098 = mul nuw nsw i64 %3, 104
+  %1198 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6098
   %.sroa.02438.15887 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.41868.0..sroa_idx = getelementptr inbounds nuw i8, ptr %158, i64 8
   %.sroa.51869.0..sroa_idx = getelementptr inbounds nuw i8, ptr %158, i64 40
@@ -53808,8 +53816,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1235:                                             ; preds = %1207
   %1236 = extractvalue { ptr, i64 } %1208, 1
-  %.not7087.not.not = icmp uge i64 %4, %1236
-  br i1 %.not7087.not.not, label %1240, label %1237
+  %.not7117.not.not = icmp uge i64 %4, %1236
+  br i1 %.not7117.not.not, label %1240, label %1237
 
 1237:                                             ; preds = %1235
   %1238 = extractvalue { ptr, i64 } %1208, 0
@@ -54001,10 +54009,10 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1295:                                             ; preds = %1294
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %480)
-  %.not6092 = icmp eq ptr %.sroa.02438.15889, %1198
-  %.sroa.02438.1.idx = select i1 %.not6092, i64 0, i64 104
+  %.not6099 = icmp eq ptr %.sroa.02438.15889, %1198
+  %.sroa.02438.1.idx = select i1 %.not6099, i64 0, i64 104
   %.sroa.02438.1 = getelementptr inbounds nuw i8, ptr %.sroa.02438.15889, i64 %.sroa.02438.1.idx
-  br i1 %.not6092, label %._crit_edge5892, label %1207
+  br i1 %.not6099, label %._crit_edge5892, label %1207
 
 1296:                                             ; preds = %.loopexit5232
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %481)
@@ -54017,7 +54025,7 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .thread3825:                                      ; preds = %.body3419, %.thread3835.loopexit, %.thread3835.loopexit.split-lp, %1258, %.body3419.thread3856, %1209
   %.pn28583830 = phi { ptr, i32 } [ %.pn2853.pn, %1209 ], [ %1272, %.body3419 ], [ %1282, %.body3419.thread3856 ], [ %1259, %1258 ], [ %lpad.loopexit5229, %.thread3835.loopexit ], [ %lpad.loopexit.split-lp5230, %.thread3835.loopexit.split-lp ]
-  %.sroa.01588.23829 = phi i1 [ false, %1209 ], [ true, %.body3419 ], [ true, %.body3419.thread3856 ], [ true, %1258 ], [ true, %.thread3835.loopexit ], [ %.not7087.not.not, %.thread3835.loopexit.split-lp ]
+  %.sroa.01588.23829 = phi i1 [ false, %1209 ], [ true, %.body3419 ], [ true, %.body3419.thread3856 ], [ true, %1258 ], [ true, %.thread3835.loopexit ], [ %.not7117.not.not, %.thread3835.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$u32$GT$$GT$17h515954298085a9f6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %481) #29
           to label %1195 unwind label %665
 
@@ -54051,7 +54059,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .lr.ph5883:                                       ; preds = %1303
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %154)
-  %1304 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6096 = mul nuw nsw i64 %3, 104
+  %1304 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6096
   %.sroa.02447.15879 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.41889.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 8
   %.sroa.51890.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 40
@@ -54206,8 +54215,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1341:                                             ; preds = %1313
   %1342 = extractvalue { ptr, i64 } %1314, 1
-  %.not7086.not.not = icmp uge i64 %4, %1342
-  br i1 %.not7086.not.not, label %1346, label %1343
+  %.not7116.not.not = icmp uge i64 %4, %1342
+  br i1 %.not7116.not.not, label %1346, label %1343
 
 1343:                                             ; preds = %1341
   %1344 = extractvalue { ptr, i64 } %1314, 0
@@ -54403,10 +54412,10 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1405:                                             ; preds = %1404
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %470)
-  %.not6091 = icmp eq ptr %.sroa.02447.15881, %1304
-  %.sroa.02447.1.idx = select i1 %.not6091, i64 0, i64 104
+  %.not6097 = icmp eq ptr %.sroa.02447.15881, %1304
+  %.sroa.02447.1.idx = select i1 %.not6097, i64 0, i64 104
   %.sroa.02447.1 = getelementptr inbounds nuw i8, ptr %.sroa.02447.15881, i64 %.sroa.02447.1.idx
-  br i1 %.not6091, label %._crit_edge5884, label %1313
+  br i1 %.not6097, label %._crit_edge5884, label %1313
 
 1406:                                             ; preds = %.loopexit5236
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %471)
@@ -54419,7 +54428,7 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .thread3864:                                      ; preds = %.body3423, %.thread3874.loopexit, %.thread3874.loopexit.split-lp, %1364, %.body3423.thread3895, %1315
   %.pn28483869 = phi { ptr, i32 } [ %.pn2843.pn, %1315 ], [ %1378, %.body3423 ], [ %1388, %.body3423.thread3895 ], [ %1365, %1364 ], [ %lpad.loopexit5233, %.thread3874.loopexit ], [ %lpad.loopexit.split-lp5234, %.thread3874.loopexit.split-lp ]
-  %.sroa.01584.23868 = phi i1 [ false, %1315 ], [ true, %.body3423 ], [ true, %.body3423.thread3895 ], [ true, %1364 ], [ true, %.thread3874.loopexit ], [ %.not7086.not.not, %.thread3874.loopexit.split-lp ]
+  %.sroa.01584.23868 = phi i1 [ false, %1315 ], [ true, %.body3423 ], [ true, %.body3423.thread3895 ], [ true, %1364 ], [ true, %.thread3874.loopexit ], [ %.not7116.not.not, %.thread3874.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$u32$GT$$GT$17h515954298085a9f6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %471) #29
           to label %1301 unwind label %665
 
@@ -54453,7 +54462,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .lr.ph5875:                                       ; preds = %1413
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %149)
-  %1414 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6094 = mul nuw nsw i64 %3, 104
+  %1414 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6094
   %.sroa.02456.15871 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.41910.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 8
   %.sroa.51911.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 40
@@ -54608,8 +54618,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1451:                                             ; preds = %1423
   %1452 = extractvalue { ptr, i64 } %1424, 1
-  %.not7085.not.not = icmp uge i64 %4, %1452
-  br i1 %.not7085.not.not, label %1456, label %1453
+  %.not7115.not.not = icmp uge i64 %4, %1452
+  br i1 %.not7115.not.not, label %1456, label %1453
 
 1453:                                             ; preds = %1451
   %1454 = extractvalue { ptr, i64 } %1424, 0
@@ -54801,10 +54811,10 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1511:                                             ; preds = %1510
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %460)
-  %.not6090 = icmp eq ptr %.sroa.02456.15873, %1414
-  %.sroa.02456.1.idx = select i1 %.not6090, i64 0, i64 104
+  %.not6095 = icmp eq ptr %.sroa.02456.15873, %1414
+  %.sroa.02456.1.idx = select i1 %.not6095, i64 0, i64 104
   %.sroa.02456.1 = getelementptr inbounds nuw i8, ptr %.sroa.02456.15873, i64 %.sroa.02456.1.idx
-  br i1 %.not6090, label %._crit_edge5876, label %1423
+  br i1 %.not6095, label %._crit_edge5876, label %1423
 
 1512:                                             ; preds = %.loopexit5240
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %461)
@@ -54817,7 +54827,7 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .thread3903:                                      ; preds = %.body3426, %.thread3913.loopexit, %.thread3913.loopexit.split-lp, %1474, %.body3426.thread3934, %1425
   %.pn28383908 = phi { ptr, i32 } [ %.pn2833.pn, %1425 ], [ %1488, %.body3426 ], [ %1498, %.body3426.thread3934 ], [ %1475, %1474 ], [ %lpad.loopexit5237, %.thread3913.loopexit ], [ %lpad.loopexit.split-lp5238, %.thread3913.loopexit.split-lp ]
-  %.sroa.01580.23907 = phi i1 [ false, %1425 ], [ true, %.body3426 ], [ true, %.body3426.thread3934 ], [ true, %1474 ], [ true, %.thread3913.loopexit ], [ %.not7085.not.not, %.thread3913.loopexit.split-lp ]
+  %.sroa.01580.23907 = phi i1 [ false, %1425 ], [ true, %.body3426 ], [ true, %.body3426.thread3934 ], [ true, %1474 ], [ true, %.thread3913.loopexit ], [ %.not7115.not.not, %.thread3913.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$u64$GT$$GT$17h75658c7c10153aebE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %461) #29
           to label %1411 unwind label %665
 
@@ -54864,7 +54874,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .lr.ph5867:                                       ; preds = %1522
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %139)
-  %1523 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6092 = mul nuw nsw i64 %3, 104
+  %1523 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6092
   %.sroa.02474.15863 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.41964.0..sroa_idx = getelementptr inbounds nuw i8, ptr %138, i64 8
   %.sroa.51965.0..sroa_idx = getelementptr inbounds nuw i8, ptr %138, i64 40
@@ -55021,8 +55032,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1562:                                             ; preds = %1534
   %1563 = extractvalue { ptr, i64 } %1535, 1
-  %.not7084.not.not = icmp uge i64 %4, %1563
-  br i1 %.not7084.not.not, label %1567, label %1564
+  %.not7114.not.not = icmp uge i64 %4, %1563
+  br i1 %.not7114.not.not, label %1567, label %1564
 
 1564:                                             ; preds = %1562
   %1565 = extractvalue { ptr, i64 } %1535, 0
@@ -55236,10 +55247,10 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1631:                                             ; preds = %1630
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %438)
-  %.not6089 = icmp eq ptr %.sroa.02474.15865, %1523
-  %.sroa.02474.1.idx = select i1 %.not6089, i64 0, i64 104
+  %.not6093 = icmp eq ptr %.sroa.02474.15865, %1523
+  %.sroa.02474.1.idx = select i1 %.not6093, i64 0, i64 104
   %.sroa.02474.1 = getelementptr inbounds nuw i8, ptr %.sroa.02474.15865, i64 %.sroa.02474.1.idx
-  br i1 %.not6089, label %._crit_edge5868, label %1534
+  br i1 %.not6093, label %._crit_edge5868, label %1534
 
 1632:                                             ; preds = %.loopexit5244
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %439)
@@ -55252,7 +55263,7 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .thread3942:                                      ; preds = %1599, %.thread3952.loopexit, %.thread3952.loopexit.split-lp, %1585, %.thread3978, %1536
   %.pn2827.pn3947 = phi { ptr, i32 } [ %.pn2820.pn, %1536 ], [ %1600, %1599 ], [ %1620, %.thread3978 ], [ %1586, %1585 ], [ %lpad.loopexit5241, %.thread3952.loopexit ], [ %lpad.loopexit.split-lp5242, %.thread3952.loopexit.split-lp ]
-  %.sroa.01572.23946 = phi i1 [ false, %1536 ], [ true, %1599 ], [ true, %.thread3978 ], [ true, %1585 ], [ true, %.thread3952.loopexit ], [ %.not7084.not.not, %.thread3952.loopexit.split-lp ]
+  %.sroa.01572.23946 = phi i1 [ false, %1536 ], [ true, %1599 ], [ true, %.thread3978 ], [ true, %1585 ], [ true, %.thread3952.loopexit ], [ %.not7114.not.not, %.thread3952.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$i64$GT$$GT$17ha0a62a979fd7dd25E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %439) #29
           to label %1520 unwind label %665
 
@@ -55286,7 +55297,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .lr.ph5859:                                       ; preds = %1639
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %144)
-  %1640 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6090 = mul nuw nsw i64 %3, 104
+  %1640 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6090
   %.sroa.02465.15855 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.41931.0..sroa_idx = getelementptr inbounds nuw i8, ptr %143, i64 8
   %.sroa.51932.0..sroa_idx = getelementptr inbounds nuw i8, ptr %143, i64 40
@@ -55442,8 +55454,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1678:                                             ; preds = %1650
   %1679 = extractvalue { ptr, i64 } %1651, 1
-  %.not7083.not.not = icmp uge i64 %4, %1679
-  br i1 %.not7083.not.not, label %1683, label %1680
+  %.not7113.not.not = icmp uge i64 %4, %1679
+  br i1 %.not7113.not.not, label %1683, label %1680
 
 1680:                                             ; preds = %1678
   %1681 = extractvalue { ptr, i64 } %1651, 0
@@ -55615,18 +55627,18 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1724:                                             ; preds = %1723
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %450)
-  %.not6088 = icmp eq ptr %.sroa.02465.15857, %1640
-  %.sroa.02465.1.idx = select i1 %.not6088, i64 0, i64 104
+  %.not6091 = icmp eq ptr %.sroa.02465.15857, %1640
+  %.sroa.02465.1.idx = select i1 %.not6091, i64 0, i64 104
   %.sroa.02465.1 = getelementptr inbounds nuw i8, ptr %.sroa.02465.15857, i64 %.sroa.02465.1.idx
-  br i1 %.not6088, label %._crit_edge5860, label %1650
+  br i1 %.not6091, label %._crit_edge5860, label %1650
 
 1725:                                             ; preds = %1708, %1703
-  %.lcssa7013.sink = phi i64 [ %1705, %1708 ], [ %1700, %1703 ]
+  %.lcssa7043.sink = phi i64 [ %1705, %1708 ], [ %1700, %1703 ]
   %.sroa.41956.0.copyload.sink = phi i64 [ %1706, %1708 ], [ %1701, %1703 ]
   %.sroa.51957.0.copyload.sink = phi i64 [ %1707, %1708 ], [ %1702, %1703 ]
   %.sroa.61958.0.copyload.sink = phi i64 [ %.sroa.61958.0.copyload, %1708 ], [ %.sroa.61946.0.copyload, %1703 ]
   %1726 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.lcssa7013.sink, ptr %1726, align 8
+  store i64 %.lcssa7043.sink, ptr %1726, align 8
   %.sroa.21960.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.41956.0.copyload.sink, ptr %.sroa.21960.0..sroa_idx, align 8
   %.sroa.31961.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -55657,7 +55669,7 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .thread3986:                                      ; preds = %1698, %.thread4022.loopexit, %.thread4022.loopexit.split-lp, %.thread3996.loopexit, %.thread3996.loopexit.split-lp, %1652
   %.pn2814.pn3991 = phi { ptr, i32 } [ %.pn2805.pn, %1652 ], [ %lpad.thr_comm.split-lp4021, %1698 ], [ %lpad.loopexit5245, %.thread3996.loopexit ], [ %lpad.loopexit.split-lp5246, %.thread3996.loopexit.split-lp ], [ %lpad.loopexit5249, %.thread4022.loopexit ], [ %lpad.loopexit.split-lp5250, %.thread4022.loopexit.split-lp ]
-  %.sroa.01576.23990 = phi i1 [ false, %1652 ], [ true, %1698 ], [ true, %.thread3996.loopexit ], [ %.not7083.not.not, %.thread3996.loopexit.split-lp ], [ true, %.thread4022.loopexit ], [ true, %.thread4022.loopexit.split-lp ]
+  %.sroa.01576.23990 = phi i1 [ false, %1652 ], [ true, %1698 ], [ true, %.thread3996.loopexit ], [ %.not7113.not.not, %.thread3996.loopexit.split-lp ], [ true, %.thread4022.loopexit ], [ true, %.thread4022.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$i64$GT$$GT$17ha0a62a979fd7dd25E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %451) #29
           to label %1637 unwind label %665
 
@@ -55697,7 +55709,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .lr.ph5851:                                       ; preds = %1737
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %193)
-  %1738 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6088 = mul nuw nsw i64 %3, 104
+  %1738 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6088
   %.sroa.02388.15847 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.41716.0..sroa_idx = getelementptr inbounds nuw i8, ptr %192, i64 8
   %.sroa.51717.0..sroa_idx = getelementptr inbounds nuw i8, ptr %192, i64 40
@@ -55852,8 +55865,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1775:                                             ; preds = %1747
   %1776 = extractvalue { ptr, i64 } %1748, 1
-  %.not7082.not.not = icmp uge i64 %4, %1776
-  br i1 %.not7082.not.not, label %1780, label %1777
+  %.not7112.not.not = icmp uge i64 %4, %1776
+  br i1 %.not7112.not.not, label %1780, label %1777
 
 1777:                                             ; preds = %1775
   %1778 = extractvalue { ptr, i64 } %1748, 0
@@ -56051,10 +56064,10 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1839:                                             ; preds = %1838
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %542)
-  %.not6087 = icmp eq ptr %.sroa.02388.15849, %1738
-  %.sroa.02388.1.idx = select i1 %.not6087, i64 0, i64 104
+  %.not6089 = icmp eq ptr %.sroa.02388.15849, %1738
+  %.sroa.02388.1.idx = select i1 %.not6089, i64 0, i64 104
   %.sroa.02388.1 = getelementptr inbounds nuw i8, ptr %.sroa.02388.15849, i64 %.sroa.02388.1.idx
-  br i1 %.not6087, label %._crit_edge5852, label %1747
+  br i1 %.not6089, label %._crit_edge5852, label %1747
 
 1840:                                             ; preds = %.loopexit5255
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %543)
@@ -56067,7 +56080,7 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .thread4049:                                      ; preds = %.body3434, %.thread4059.loopexit, %.thread4059.loopexit.split-lp, %1798, %.body3434.thread4080, %1749
   %.pn28004054 = phi { ptr, i32 } [ %.pn2795.pn, %1749 ], [ %1812, %.body3434 ], [ %1822, %.body3434.thread4080 ], [ %1799, %1798 ], [ %lpad.loopexit5252, %.thread4059.loopexit ], [ %lpad.loopexit.split-lp5253, %.thread4059.loopexit.split-lp ]
-  %.sroa.01612.24053 = phi i1 [ false, %1749 ], [ true, %.body3434 ], [ true, %.body3434.thread4080 ], [ true, %1798 ], [ true, %.thread4059.loopexit ], [ %.not7082.not.not, %.thread4059.loopexit.split-lp ]
+  %.sroa.01612.24053 = phi i1 [ false, %1749 ], [ true, %.body3434 ], [ true, %.body3434.thread4080 ], [ true, %1798 ], [ true, %.thread4059.loopexit ], [ %.not7112.not.not, %.thread4059.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$i64$GT$$GT$17ha0a62a979fd7dd25E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %543) #29
           to label %1735 unwind label %665
 
@@ -56101,7 +56114,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .lr.ph5923:                                       ; preds = %1847
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %198)
-  %1848 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6106 = mul nuw nsw i64 %3, 104
+  %1848 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6106
   %.sroa.02379.15919 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.41693.0..sroa_idx = getelementptr inbounds nuw i8, ptr %197, i64 8
   %.sroa.51694.0..sroa_idx = getelementptr inbounds nuw i8, ptr %197, i64 40
@@ -56256,8 +56270,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1885:                                             ; preds = %1857
   %1886 = extractvalue { ptr, i64 } %1858, 1
-  %.not7091.not.not = icmp uge i64 %4, %1886
-  br i1 %.not7091.not.not, label %1890, label %1887
+  %.not7121.not.not = icmp uge i64 %4, %1886
+  br i1 %.not7121.not.not, label %1890, label %1887
 
 1887:                                             ; preds = %1885
   %1888 = extractvalue { ptr, i64 } %1858, 0
@@ -56449,10 +56463,10 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1945:                                             ; preds = %1944
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %552)
-  %.not6096 = icmp eq ptr %.sroa.02379.15921, %1848
-  %.sroa.02379.1.idx = select i1 %.not6096, i64 0, i64 104
+  %.not6107 = icmp eq ptr %.sroa.02379.15921, %1848
+  %.sroa.02379.1.idx = select i1 %.not6107, i64 0, i64 104
   %.sroa.02379.1 = getelementptr inbounds nuw i8, ptr %.sroa.02379.15921, i64 %.sroa.02379.1.idx
-  br i1 %.not6096, label %._crit_edge5924, label %1857
+  br i1 %.not6107, label %._crit_edge5924, label %1857
 
 1946:                                             ; preds = %.loopexit5216
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %553)
@@ -56465,7 +56479,7 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .thread4088:                                      ; preds = %.body3438, %.thread4098.loopexit, %.thread4098.loopexit.split-lp, %1908, %.body3438.thread4119, %1859
   %.pn28984093 = phi { ptr, i32 } [ %.pn2893.pn, %1859 ], [ %1922, %.body3438 ], [ %1932, %.body3438.thread4119 ], [ %1909, %1908 ], [ %lpad.loopexit5213, %.thread4098.loopexit ], [ %lpad.loopexit.split-lp5214, %.thread4098.loopexit.split-lp ]
-  %.sroa.01616.24092 = phi i1 [ false, %1859 ], [ true, %.body3438 ], [ true, %.body3438.thread4119 ], [ true, %1908 ], [ true, %.thread4098.loopexit ], [ %.not7091.not.not, %.thread4098.loopexit.split-lp ]
+  %.sroa.01616.24092 = phi i1 [ false, %1859 ], [ true, %.body3438 ], [ true, %.body3438.thread4119 ], [ true, %1908 ], [ true, %.thread4098.loopexit ], [ %.not7121.not.not, %.thread4098.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$i32$GT$$GT$17h1469425b2629d69fE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %553) #29
           to label %1845 unwind label %665
 
@@ -56499,7 +56513,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .lr.ph5915:                                       ; preds = %1953
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %188)
-  %1954 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6104 = mul nuw nsw i64 %3, 104
+  %1954 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6104
   %.sroa.02397.15911 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.41737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %187, i64 8
   %.sroa.51738.0..sroa_idx = getelementptr inbounds nuw i8, ptr %187, i64 40
@@ -56654,8 +56669,8 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 1991:                                             ; preds = %1963
   %1992 = extractvalue { ptr, i64 } %1964, 1
-  %.not7090.not.not = icmp uge i64 %4, %1992
-  br i1 %.not7090.not.not, label %1996, label %1993
+  %.not7120.not.not = icmp uge i64 %4, %1992
+  br i1 %.not7120.not.not, label %1996, label %1993
 
 1993:                                             ; preds = %1991
   %1994 = extractvalue { ptr, i64 } %1964, 0
@@ -56847,10 +56862,10 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 2051:                                             ; preds = %2050
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %532)
-  %.not6095 = icmp eq ptr %.sroa.02397.15913, %1954
-  %.sroa.02397.1.idx = select i1 %.not6095, i64 0, i64 104
+  %.not6105 = icmp eq ptr %.sroa.02397.15913, %1954
+  %.sroa.02397.1.idx = select i1 %.not6105, i64 0, i64 104
   %.sroa.02397.1 = getelementptr inbounds nuw i8, ptr %.sroa.02397.15913, i64 %.sroa.02397.1.idx
-  br i1 %.not6095, label %._crit_edge5916, label %1963
+  br i1 %.not6105, label %._crit_edge5916, label %1963
 
 2052:                                             ; preds = %.loopexit5220
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %533)
@@ -56863,7 +56878,7 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
 
 .thread4127:                                      ; preds = %.body3442, %.thread4137.loopexit, %.thread4137.loopexit.split-lp, %2014, %.body3442.thread4158, %1965
   %.pn28884132 = phi { ptr, i32 } [ %.pn2883.pn, %1965 ], [ %2028, %.body3442 ], [ %2038, %.body3442.thread4158 ], [ %2015, %2014 ], [ %lpad.loopexit5217, %.thread4137.loopexit ], [ %lpad.loopexit.split-lp5218, %.thread4137.loopexit.split-lp ]
-  %.sroa.01608.24131 = phi i1 [ false, %1965 ], [ true, %.body3442 ], [ true, %.body3442.thread4158 ], [ true, %2014 ], [ true, %.thread4137.loopexit ], [ %.not7090.not.not, %.thread4137.loopexit.split-lp ]
+  %.sroa.01608.24131 = phi i1 [ false, %1965 ], [ true, %.body3442 ], [ true, %.body3442.thread4158 ], [ true, %2014 ], [ true, %.thread4137.loopexit ], [ %.not7120.not.not, %.thread4137.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$i64$GT$$GT$17ha0a62a979fd7dd25E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %533) #29
           to label %1951 unwind label %665
 
@@ -56872,7 +56887,7 @@ _ZN14polars_parquet7parquet10statistics10Statistics14expect_boolean17h1cea83c3aa
   invoke void @"_ZN4core3ptr94drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$i64$GT$$GT$17ha0a62a979fd7dd25E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %534) #29
           to label %.thread3622 unwind label %665
 
-default.unreachable6480:                          ; preds = %637
+default.unreachable6510:                          ; preds = %637
   unreachable
 
 2055:                                             ; preds = %637
@@ -56912,7 +56927,8 @@ default.unreachable6480:                          ; preds = %637
 
 .lr.ph5843:                                       ; preds = %2061
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %183)
-  %2062 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6086 = mul nuw nsw i64 %3, 104
+  %2062 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6086
   %.sroa.02406.15839 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.41760.0..sroa_idx = getelementptr inbounds nuw i8, ptr %182, i64 8
   %.sroa.51761.0..sroa_idx = getelementptr inbounds nuw i8, ptr %182, i64 40
@@ -57070,8 +57086,8 @@ default.unreachable6480:                          ; preds = %637
 
 2100:                                             ; preds = %2072
   %2101 = extractvalue { ptr, i64 } %2073, 1
-  %.not7081.not.not = icmp uge i64 %4, %2101
-  br i1 %.not7081.not.not, label %2105, label %2102
+  %.not7111.not.not = icmp uge i64 %4, %2101
+  br i1 %.not7111.not.not, label %2105, label %2102
 
 2102:                                             ; preds = %2100
   %2103 = extractvalue { ptr, i64 } %2073, 0
@@ -57299,10 +57315,10 @@ default.unreachable6480:                          ; preds = %637
 
 2165:                                             ; preds = %2164
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %522)
-  %.not6086 = icmp eq ptr %.sroa.02406.15841, %2062
-  %.sroa.02406.1.idx = select i1 %.not6086, i64 0, i64 104
+  %.not6087 = icmp eq ptr %.sroa.02406.15841, %2062
+  %.sroa.02406.1.idx = select i1 %.not6087, i64 0, i64 104
   %.sroa.02406.1 = getelementptr inbounds nuw i8, ptr %.sroa.02406.15841, i64 %.sroa.02406.1.idx
-  br i1 %.not6086, label %._crit_edge5844, label %2072
+  br i1 %.not6087, label %._crit_edge5844, label %2072
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit": ; preds = %2167, %2171, %2143
   %2166 = phi { ptr, i32 } [ %2144, %2143 ], [ %2168, %2171 ], [ %2168, %2167 ]
@@ -57331,7 +57347,7 @@ default.unreachable6480:                          ; preds = %637
 
 .thread4166:                                      ; preds = %2137, %.thread4176.loopexit, %.thread4176.loopexit.split-lp, %2123, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit", %.thread4202, %2074
   %.pn2789.pn4171 = phi { ptr, i32 } [ %.pn2782.pn, %2074 ], [ %2138, %2137 ], [ %2153, %.thread4202 ], [ %2166, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit" ], [ %2124, %2123 ], [ %lpad.loopexit5256, %.thread4176.loopexit ], [ %lpad.loopexit.split-lp5257, %.thread4176.loopexit.split-lp ]
-  %.sroa.01604.24170 = phi i1 [ false, %2074 ], [ true, %2137 ], [ true, %.thread4202 ], [ true, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit" ], [ true, %2123 ], [ true, %.thread4176.loopexit ], [ %.not7081.not.not, %.thread4176.loopexit.split-lp ]
+  %.sroa.01604.24170 = phi i1 [ false, %2074 ], [ true, %2137 ], [ true, %.thread4202 ], [ true, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit" ], [ true, %2123 ], [ true, %.thread4176.loopexit ], [ %.not7111.not.not, %.thread4176.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$i32$GT$$GT$17h1469425b2629d69fE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %523) #29
           to label %2059 unwind label %665
 
@@ -57365,7 +57381,8 @@ default.unreachable6480:                          ; preds = %637
 
 .lr.ph:                                           ; preds = %2179
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %176)
-  %2180 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx = mul nuw nsw i64 %3, 104
+  %2180 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.sroa.02415.15831 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.41785.0..sroa_idx = getelementptr inbounds nuw i8, ptr %175, i64 8
   %.sroa.51786.0..sroa_idx = getelementptr inbounds nuw i8, ptr %175, i64 40
@@ -57531,8 +57548,8 @@ default.unreachable6480:                          ; preds = %637
 
 2218:                                             ; preds = %2190
   %2219 = extractvalue { ptr, i64 } %2191, 1
-  %.not7080.not.not = icmp uge i64 %4, %2219
-  br i1 %.not7080.not.not, label %2223, label %2220
+  %.not7110.not.not = icmp uge i64 %4, %2219
+  br i1 %.not7110.not.not, label %2223, label %2220
 
 2220:                                             ; preds = %2218
   %2221 = extractvalue { ptr, i64 } %2191, 0
@@ -57809,7 +57826,7 @@ default.unreachable6480:                          ; preds = %637
 
 .thread4212:                                      ; preds = %2256, %.thread4222.loopexit, %.thread4222.loopexit.split-lp, %2241, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3453", %.thread4248, %2192
   %.pn2776.pn4217 = phi { ptr, i32 } [ %.pn.pn, %2192 ], [ %2257, %2256 ], [ %2274, %.thread4248 ], [ %2289, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3453" ], [ %2242, %2241 ], [ %lpad.loopexit5260, %.thread4222.loopexit ], [ %lpad.loopexit.split-lp5261, %.thread4222.loopexit.split-lp ]
-  %.sroa.01600.24216 = phi i1 [ false, %2192 ], [ true, %2256 ], [ true, %.thread4248 ], [ true, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3453" ], [ true, %2241 ], [ true, %.thread4222.loopexit ], [ %.not7080.not.not, %.thread4222.loopexit.split-lp ]
+  %.sroa.01600.24216 = phi i1 [ false, %2192 ], [ true, %2256 ], [ true, %.thread4248 ], [ true, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3453" ], [ true, %2241 ], [ true, %.thread4222.loopexit ], [ %.not7110.not.not, %.thread4222.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr127drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$polars_arrow..types..native..days_ms$GT$$GT$17hf46e4b5506529d22E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %512) #29
           to label %2177 unwind label %665
 
@@ -57875,7 +57892,8 @@ default.unreachable6480:                          ; preds = %637
 
 .lr.ph5955:                                       ; preds = %2309
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %134)
-  %2310 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6114 = mul nuw nsw i64 %3, 104
+  %2310 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6114
   %.sroa.02483.15951 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.41987.0..sroa_idx = getelementptr inbounds nuw i8, ptr %133, i64 8
   %.sroa.51988.0..sroa_idx = getelementptr inbounds nuw i8, ptr %133, i64 40
@@ -58032,8 +58050,8 @@ default.unreachable6480:                          ; preds = %637
 
 2345:                                             ; preds = %2317
   %2346 = extractvalue { ptr, i64 } %2318, 1
-  %.not7110.not.not = icmp uge i64 %4, %2346
-  br i1 %.not7110.not.not, label %2350, label %2347
+  %.not7140.not.not = icmp uge i64 %4, %2346
+  br i1 %.not7140.not.not, label %2350, label %2347
 
 2347:                                             ; preds = %2345
   %2348 = extractvalue { ptr, i64 } %2318, 0
@@ -58214,10 +58232,10 @@ default.unreachable6480:                          ; preds = %637
 
 2391:                                             ; preds = %2390
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %428)
-  %.not6100 = icmp eq ptr %.sroa.02483.15953, %2310
-  %.sroa.02483.1.idx = select i1 %.not6100, i64 0, i64 104
+  %.not6115 = icmp eq ptr %.sroa.02483.15953, %2310
+  %.sroa.02483.1.idx = select i1 %.not6115, i64 0, i64 104
   %.sroa.02483.1 = getelementptr inbounds nuw i8, ptr %.sroa.02483.15953, i64 %.sroa.02483.1.idx
-  br i1 %.not6100, label %._crit_edge5956, label %2317
+  br i1 %.not6115, label %._crit_edge5956, label %2317
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3455": ; preds = %2393, %2397, %2370
   %2392 = phi { ptr, i32 } [ %2371, %2370 ], [ %2394, %2397 ], [ %2394, %2393 ]
@@ -58246,7 +58264,7 @@ default.unreachable6480:                          ; preds = %637
 
 .thread4258:                                      ; preds = %2365, %.thread4268.loopexit, %.thread4268.loopexit.split-lp, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3455", %.thread4294, %2319
   %.pn3133.pn4263 = phi { ptr, i32 } [ %.pn3124.pn, %2319 ], [ %lpad.thr_comm.split-lp4293, %2365 ], [ %lpad.thr_comm4292, %.thread4294 ], [ %2392, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3455" ], [ %lpad.loopexit5197, %.thread4268.loopexit ], [ %lpad.loopexit.split-lp5198, %.thread4268.loopexit.split-lp ]
-  %.sroa.01568.24262 = phi i1 [ false, %2319 ], [ true, %2365 ], [ true, %.thread4294 ], [ true, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3455" ], [ true, %.thread4268.loopexit ], [ %.not7110.not.not, %.thread4268.loopexit.split-lp ]
+  %.sroa.01568.24262 = phi i1 [ false, %2319 ], [ true, %2365 ], [ true, %.thread4294 ], [ true, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3455" ], [ true, %.thread4268.loopexit ], [ %.not7140.not.not, %.thread4268.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$f32$GT$$GT$17h41e69e5f2681481eE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %429) #29
           to label %2307 unwind label %665
 
@@ -58365,7 +58383,8 @@ default.unreachable6480:                          ; preds = %637
 
 .lr.ph6083:                                       ; preds = %2424
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %127)
-  %2425 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6144 = mul nuw nsw i64 %3, 104
+  %2425 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6144
   %.sroa.02492.16079 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.42012.0..sroa_idx = getelementptr inbounds nuw i8, ptr %126, i64 8
   %.sroa.52013.0..sroa_idx = getelementptr inbounds nuw i8, ptr %126, i64 40
@@ -58519,8 +58538,8 @@ default.unreachable6480:                          ; preds = %637
 
 2461:                                             ; preds = %2433
   %2462 = extractvalue { ptr, i64 } %2434, 1
-  %.not7109.not.not = icmp uge i64 %4, %2462
-  br i1 %.not7109.not.not, label %2466, label %2463
+  %.not7139.not.not = icmp uge i64 %4, %2462
+  br i1 %.not7139.not.not, label %2466, label %2463
 
 2463:                                             ; preds = %2461
   %2464 = extractvalue { ptr, i64 } %2434, 0
@@ -58661,10 +58680,10 @@ default.unreachable6480:                          ; preds = %637
 
 2501:                                             ; preds = %2500
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %417)
-  %.not6115 = icmp eq ptr %.sroa.02492.16081, %2425
-  %.sroa.02492.1.idx = select i1 %.not6115, i64 0, i64 104
+  %.not6145 = icmp eq ptr %.sroa.02492.16081, %2425
+  %.sroa.02492.1.idx = select i1 %.not6145, i64 0, i64 104
   %.sroa.02492.1 = getelementptr inbounds nuw i8, ptr %.sroa.02492.16081, i64 %.sroa.02492.1.idx
-  br i1 %.not6115, label %._crit_edge6084, label %2433
+  br i1 %.not6145, label %._crit_edge6084, label %2433
 
 2502:                                             ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %418)
@@ -58677,7 +58696,7 @@ default.unreachable6480:                          ; preds = %637
 
 .thread4305:                                      ; preds = %2481, %.thread4315.loopexit, %.thread4315.loopexit.split-lp, %.thread4336, %2435
   %.pn31194310 = phi { ptr, i32 } [ %.pn3114.pn, %2435 ], [ %lpad.thr_comm4334, %.thread4336 ], [ %lpad.thr_comm.split-lp4335, %2481 ], [ %lpad.loopexit, %.thread4315.loopexit ], [ %lpad.loopexit.split-lp, %.thread4315.loopexit.split-lp ]
-  %.sroa.01564.24309 = phi i1 [ false, %2435 ], [ true, %.thread4336 ], [ true, %2481 ], [ true, %.thread4315.loopexit ], [ %.not7109.not.not, %.thread4315.loopexit.split-lp ]
+  %.sroa.01564.24309 = phi i1 [ false, %2435 ], [ true, %.thread4336 ], [ true, %2481 ], [ true, %.thread4315.loopexit ], [ %.not7139.not.not, %.thread4315.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$f32$GT$$GT$17h41e69e5f2681481eE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %418) #29
           to label %2422 unwind label %665
 
@@ -58711,7 +58730,8 @@ default.unreachable6480:                          ; preds = %637
 
 .lr.ph6075:                                       ; preds = %2509
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %122)
-  %2510 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6142 = mul nuw nsw i64 %3, 104
+  %2510 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6142
   %.sroa.02501.16071 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.42029.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 8
   %.sroa.52030.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 40
@@ -58865,8 +58885,8 @@ default.unreachable6480:                          ; preds = %637
 
 2546:                                             ; preds = %2518
   %2547 = extractvalue { ptr, i64 } %2519, 1
-  %.not7108.not.not = icmp uge i64 %4, %2547
-  br i1 %.not7108.not.not, label %2551, label %2548
+  %.not7138.not.not = icmp uge i64 %4, %2547
+  br i1 %.not7138.not.not, label %2551, label %2548
 
 2548:                                             ; preds = %2546
   %2549 = extractvalue { ptr, i64 } %2519, 0
@@ -59007,10 +59027,10 @@ default.unreachable6480:                          ; preds = %637
 
 2586:                                             ; preds = %2585
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %407)
-  %.not6114 = icmp eq ptr %.sroa.02501.16073, %2510
-  %.sroa.02501.1.idx = select i1 %.not6114, i64 0, i64 104
+  %.not6143 = icmp eq ptr %.sroa.02501.16073, %2510
+  %.sroa.02501.1.idx = select i1 %.not6143, i64 0, i64 104
   %.sroa.02501.1 = getelementptr inbounds nuw i8, ptr %.sroa.02501.16073, i64 %.sroa.02501.1.idx
-  br i1 %.not6114, label %._crit_edge6076, label %2518
+  br i1 %.not6143, label %._crit_edge6076, label %2518
 
 2587:                                             ; preds = %.loopexit5130
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %408)
@@ -59023,7 +59043,7 @@ default.unreachable6480:                          ; preds = %637
 
 .thread4346:                                      ; preds = %2566, %.thread4356.loopexit, %.thread4356.loopexit.split-lp, %.thread4377, %2520
   %.pn31094351 = phi { ptr, i32 } [ %.pn3104.pn, %2520 ], [ %lpad.thr_comm4375, %.thread4377 ], [ %lpad.thr_comm.split-lp4376, %2566 ], [ %lpad.loopexit5127, %.thread4356.loopexit ], [ %lpad.loopexit.split-lp5128, %.thread4356.loopexit.split-lp ]
-  %.sroa.01560.24350 = phi i1 [ false, %2520 ], [ true, %.thread4377 ], [ true, %2566 ], [ true, %.thread4356.loopexit ], [ %.not7108.not.not, %.thread4356.loopexit.split-lp ]
+  %.sroa.01560.24350 = phi i1 [ false, %2520 ], [ true, %.thread4377 ], [ true, %2566 ], [ true, %.thread4356.loopexit ], [ %.not7138.not.not, %.thread4356.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$f64$GT$$GT$17hc44dfdce335a2a25E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %408) #29
           to label %2507 unwind label %665
 
@@ -59046,7 +59066,8 @@ default.unreachable6480:                          ; preds = %637
   br label %2672
 
 .lr.ph6067:                                       ; preds = %2590
-  %2593 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6140 = mul nuw nsw i64 %3, 104
+  %2593 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6140
   %.sroa.02552.16063 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.42238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 8
   %.sroa.52239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 40
@@ -59203,8 +59224,8 @@ default.unreachable6480:                          ; preds = %637
 
 2628:                                             ; preds = %2600
   %2629 = extractvalue { ptr, i64 } %2601, 1
-  %.not7107.not.not = icmp uge i64 %4, %2629
-  br i1 %.not7107.not.not, label %2633, label %2630
+  %.not7137.not.not = icmp uge i64 %4, %2629
+  br i1 %.not7137.not.not, label %2633, label %2630
 
 2630:                                             ; preds = %2628
   %2631 = extractvalue { ptr, i64 } %2601, 0
@@ -59356,10 +59377,10 @@ default.unreachable6480:                          ; preds = %637
 2666:                                             ; preds = %2665
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %326)
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %329)
-  %.not6113 = icmp eq ptr %.sroa.02552.16065, %2593
-  %.sroa.02552.1.idx = select i1 %.not6113, i64 0, i64 104
+  %.not6141 = icmp eq ptr %.sroa.02552.16065, %2593
+  %.sroa.02552.1.idx = select i1 %.not6141, i64 0, i64 104
   %.sroa.02552.1 = getelementptr inbounds nuw i8, ptr %.sroa.02552.16065, i64 %.sroa.02552.1.idx
-  br i1 %.not6113, label %._crit_edge6068, label %2600
+  br i1 %.not6141, label %._crit_edge6068, label %2600
 
 2667:                                             ; preds = %2648
   %lpad.thr_comm.split-lp4422 = landingpad { ptr, i32 }
@@ -59382,7 +59403,7 @@ default.unreachable6480:                          ; preds = %637
 
 .thread4387:                                      ; preds = %.thread4423, %2669, %2667, %.thread4397.loopexit, %.thread4397.loopexit.split-lp, %.thread4414, %2602
   %.pn3098.pn4392 = phi { ptr, i32 } [ %.pn3093.pn, %2602 ], [ %2650, %.thread4414 ], [ %lpad.loopexit5131, %.thread4397.loopexit ], [ %lpad.loopexit.split-lp5132, %.thread4397.loopexit.split-lp ], [ %lpad.thr_comm4421, %.thread4423 ], [ %lpad.thr_comm.split-lp4422, %2669 ], [ %lpad.thr_comm.split-lp4422, %2667 ]
-  %.sroa.01532.24391 = phi i1 [ false, %2602 ], [ true, %.thread4414 ], [ true, %.thread4397.loopexit ], [ %.not7107.not.not, %.thread4397.loopexit.split-lp ], [ true, %.thread4423 ], [ true, %2669 ], [ true, %2667 ]
+  %.sroa.01532.24391 = phi i1 [ false, %2602 ], [ true, %.thread4414 ], [ true, %.thread4397.loopexit ], [ %.not7137.not.not, %.thread4397.loopexit.split-lp ], [ true, %.thread4423 ], [ true, %2669 ], [ true, %2667 ]
   invoke void @"_ZN4core3ptr102drop_in_place$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$$u5b$u8$u5d$$GT$$GT$17hb0b3e731fa847668E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %330) #29
           to label %2591 unwind label %665
 
@@ -59405,7 +59426,8 @@ default.unreachable6480:                          ; preds = %637
   br label %2768
 
 .lr.ph6059:                                       ; preds = %2673
-  %2676 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6138 = mul nuw nsw i64 %3, 104
+  %2676 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6138
   %.sroa.02657.16055 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.42340.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 8
   %.sroa.52341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 40
@@ -59562,8 +59584,8 @@ default.unreachable6480:                          ; preds = %637
 
 2711:                                             ; preds = %2683
   %2712 = extractvalue { ptr, i64 } %2684, 1
-  %.not7106.not.not = icmp uge i64 %4, %2712
-  br i1 %.not7106.not.not, label %2716, label %2713
+  %.not7136.not.not = icmp uge i64 %4, %2712
+  br i1 %.not7136.not.not, label %2716, label %2713
 
 2713:                                             ; preds = %2711
   %2714 = extractvalue { ptr, i64 } %2684, 0
@@ -59775,10 +59797,10 @@ default.unreachable6480:                          ; preds = %637
 2763:                                             ; preds = %2762
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %230)
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %233)
-  %.not6112 = icmp eq ptr %.sroa.02657.16057, %2676
-  %.sroa.02657.1.idx = select i1 %.not6112, i64 0, i64 104
+  %.not6139 = icmp eq ptr %.sroa.02657.16057, %2676
+  %.sroa.02657.1.idx = select i1 %.not6139, i64 0, i64 104
   %.sroa.02657.1 = getelementptr inbounds nuw i8, ptr %.sroa.02657.16057, i64 %.sroa.02657.1.idx
-  br i1 %.not6112, label %._crit_edge6060, label %2683
+  br i1 %.not6139, label %._crit_edge6060, label %2683
 
 .body.thread:                                     ; preds = %2749, %.body
   %eh.lpad-body4465 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp4470, %.body ], [ %2750, %2749 ]
@@ -59800,7 +59822,7 @@ default.unreachable6480:                          ; preds = %637
 
 .thread4431:                                      ; preds = %.body.thread4471, %2757, %2765, %.body.thread, %.thread4441.loopexit, %.thread4441.loopexit.split-lp, %.thread4458, %2685
   %.pn3087.pn4436 = phi { ptr, i32 } [ %.pn3082.pn, %2685 ], [ %2733, %.thread4458 ], [ %lpad.loopexit5135, %.thread4441.loopexit ], [ %lpad.loopexit.split-lp5136, %.thread4441.loopexit.split-lp ], [ %lpad.thr_comm4469, %.body.thread4471 ], [ %2758, %2757 ], [ %eh.lpad-body4465, %2765 ], [ %eh.lpad-body4465, %.body.thread ]
-  %.sroa.01502.24435 = phi i1 [ false, %2685 ], [ true, %.thread4458 ], [ true, %.thread4441.loopexit ], [ %.not7106.not.not, %.thread4441.loopexit.split-lp ], [ true, %.body.thread4471 ], [ true, %2757 ], [ true, %2765 ], [ true, %.body.thread ]
+  %.sroa.01502.24435 = phi i1 [ false, %2685 ], [ true, %.thread4458 ], [ true, %.thread4441.loopexit ], [ %.not7136.not.not, %.thread4441.loopexit.split-lp ], [ true, %.body.thread4471 ], [ true, %2757 ], [ true, %2765 ], [ true, %.body.thread ]
   invoke void @"_ZN4core3ptr97drop_in_place$LT$polars_arrow..array..fixed_size_binary..mutable..MutableFixedSizeBinaryArray$GT$17hff480677e8cc39abE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %234) #29
           to label %2674 unwind label %665
 
@@ -59823,7 +59845,8 @@ default.unreachable6480:                          ; preds = %637
   br label %2851
 
 .lr.ph6051:                                       ; preds = %2769
-  %2772 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6136 = mul nuw nsw i64 %3, 104
+  %2772 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6136
   %.sroa.02569.16047 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.42251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.sroa.52252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 40
@@ -59980,8 +60003,8 @@ default.unreachable6480:                          ; preds = %637
 
 2807:                                             ; preds = %2779
   %2808 = extractvalue { ptr, i64 } %2780, 1
-  %.not7105.not.not = icmp uge i64 %4, %2808
-  br i1 %.not7105.not.not, label %2812, label %2809
+  %.not7135.not.not = icmp uge i64 %4, %2808
+  br i1 %.not7135.not.not, label %2812, label %2809
 
 2809:                                             ; preds = %2807
   %2810 = extractvalue { ptr, i64 } %2780, 0
@@ -60133,10 +60156,10 @@ default.unreachable6480:                          ; preds = %637
 2845:                                             ; preds = %2844
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %313)
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %316)
-  %.not6111 = icmp eq ptr %.sroa.02569.16049, %2772
-  %.sroa.02569.1.idx = select i1 %.not6111, i64 0, i64 104
+  %.not6137 = icmp eq ptr %.sroa.02569.16049, %2772
+  %.sroa.02569.1.idx = select i1 %.not6137, i64 0, i64 104
   %.sroa.02569.1 = getelementptr inbounds nuw i8, ptr %.sroa.02569.16049, i64 %.sroa.02569.1.idx
-  br i1 %.not6111, label %._crit_edge6052, label %2779
+  br i1 %.not6137, label %._crit_edge6052, label %2779
 
 2846:                                             ; preds = %2827
   %lpad.thr_comm.split-lp4514 = landingpad { ptr, i32 }
@@ -60159,7 +60182,7 @@ default.unreachable6480:                          ; preds = %637
 
 .thread4479:                                      ; preds = %.thread4515, %2848, %2846, %.thread4489.loopexit, %.thread4489.loopexit.split-lp, %.thread4506, %2781
   %.pn3076.pn4484 = phi { ptr, i32 } [ %.pn3071.pn, %2781 ], [ %2829, %.thread4506 ], [ %lpad.loopexit5139, %.thread4489.loopexit ], [ %lpad.loopexit.split-lp5140, %.thread4489.loopexit.split-lp ], [ %lpad.thr_comm4513, %.thread4515 ], [ %lpad.thr_comm.split-lp4514, %2848 ], [ %lpad.thr_comm.split-lp4514, %2846 ]
-  %.sroa.01527.24483 = phi i1 [ false, %2781 ], [ true, %.thread4506 ], [ true, %.thread4489.loopexit ], [ %.not7105.not.not, %.thread4489.loopexit.split-lp ], [ true, %.thread4515 ], [ true, %2848 ], [ true, %2846 ]
+  %.sroa.01527.24483 = phi i1 [ false, %2781 ], [ true, %.thread4506 ], [ true, %.thread4489.loopexit ], [ %.not7135.not.not, %.thread4489.loopexit.split-lp ], [ true, %.thread4515 ], [ true, %2848 ], [ true, %2846 ]
   invoke void @"_ZN4core3ptr102drop_in_place$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$$u5b$u8$u5d$$GT$$GT$17hb0b3e731fa847668E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %317) #29
           to label %2770 unwind label %665
 
@@ -60182,7 +60205,8 @@ default.unreachable6480:                          ; preds = %637
   br label %2967
 
 .lr.ph6043:                                       ; preds = %2852
-  %2855 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6134 = mul nuw nsw i64 %3, 104
+  %2855 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6134
   %.sroa.02586.16039 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.42264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 8
   %.sroa.52265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 40
@@ -60341,8 +60365,8 @@ default.unreachable6480:                          ; preds = %637
 
 2892:                                             ; preds = %2864
   %2893 = extractvalue { ptr, i64 } %2865, 1
-  %.not7104.not.not = icmp uge i64 %4, %2893
-  br i1 %.not7104.not.not, label %2897, label %2894
+  %.not7134.not.not = icmp uge i64 %4, %2893
+  br i1 %.not7134.not.not, label %2897, label %2894
 
 2894:                                             ; preds = %2892
   %2895 = extractvalue { ptr, i64 } %2865, 0
@@ -60570,10 +60594,10 @@ default.unreachable6480:                          ; preds = %637
 2947:                                             ; preds = %2946
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %300)
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %303)
-  %.not6110 = icmp eq ptr %.sroa.02586.16041, %2855
-  %.sroa.02586.1.idx = select i1 %.not6110, i64 0, i64 104
+  %.not6135 = icmp eq ptr %.sroa.02586.16041, %2855
+  %.sroa.02586.1.idx = select i1 %.not6135, i64 0, i64 104
   %.sroa.02586.1 = getelementptr inbounds nuw i8, ptr %.sroa.02586.16041, i64 %.sroa.02586.1.idx
-  br i1 %.not6110, label %._crit_edge6044, label %2864
+  br i1 %.not6135, label %._crit_edge6044, label %2864
 
 2948:                                             ; preds = %2912
   %lpad.thr_comm.split-lp4574 = landingpad { ptr, i32 }
@@ -60651,7 +60675,7 @@ default.unreachable6480:                          ; preds = %637
 
 .thread4523:                                      ; preds = %.thread4575, %2950, %2948, %.loopexit5147, %.loopexit.split-lp, %.thread4533.loopexit, %.thread4533.loopexit.split-lp, %.thread4556, %2866
   %.pn3065.pn4528 = phi { ptr, i32 } [ %.pn3052.pn, %2866 ], [ %.pn3063, %.thread4556 ], [ %lpad.loopexit5143, %.thread4533.loopexit ], [ %lpad.loopexit.split-lp5144, %.thread4533.loopexit.split-lp ], [ %lpad.loopexit5148, %.loopexit5147 ], [ %lpad.loopexit.split-lp5149, %.loopexit.split-lp ], [ %lpad.thr_comm4573, %.thread4575 ], [ %lpad.thr_comm.split-lp4574, %2950 ], [ %lpad.thr_comm.split-lp4574, %2948 ]
-  %.sroa.01522.24527 = phi i1 [ false, %2866 ], [ true, %.thread4556 ], [ true, %.thread4533.loopexit ], [ %.not7104.not.not, %.thread4533.loopexit.split-lp ], [ true, %.loopexit5147 ], [ true, %.loopexit.split-lp ], [ true, %.thread4575 ], [ true, %2950 ], [ true, %2948 ]
+  %.sroa.01522.24527 = phi i1 [ false, %2866 ], [ true, %.thread4556 ], [ true, %.thread4533.loopexit ], [ %.not7134.not.not, %.thread4533.loopexit.split-lp ], [ true, %.loopexit5147 ], [ true, %.loopexit.split-lp ], [ true, %.thread4575 ], [ true, %2950 ], [ true, %2948 ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$str$GT$$GT$17hbc914635b65ddf9fE"(ptr noalias noundef nonnull align 8 dereferenceable(160) %304) #29
           to label %2853 unwind label %665
 
@@ -60674,7 +60698,8 @@ default.unreachable6480:                          ; preds = %637
   br label %3083
 
 .lr.ph6035:                                       ; preds = %2968
-  %2971 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6132 = mul nuw nsw i64 %3, 104
+  %2971 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6132
   %.sroa.02604.16031 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.42285.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 8
   %.sroa.52286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 40
@@ -60833,8 +60858,8 @@ default.unreachable6480:                          ; preds = %637
 
 3008:                                             ; preds = %2980
   %3009 = extractvalue { ptr, i64 } %2981, 1
-  %.not7103.not.not = icmp uge i64 %4, %3009
-  br i1 %.not7103.not.not, label %3013, label %3010
+  %.not7133.not.not = icmp uge i64 %4, %3009
+  br i1 %.not7133.not.not, label %3013, label %3010
 
 3010:                                             ; preds = %3008
   %3011 = extractvalue { ptr, i64 } %2981, 0
@@ -61062,10 +61087,10 @@ default.unreachable6480:                          ; preds = %637
 3063:                                             ; preds = %3062
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %281)
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %284)
-  %.not6109 = icmp eq ptr %.sroa.02604.16033, %2971
-  %.sroa.02604.1.idx = select i1 %.not6109, i64 0, i64 104
+  %.not6133 = icmp eq ptr %.sroa.02604.16033, %2971
+  %.sroa.02604.1.idx = select i1 %.not6133, i64 0, i64 104
   %.sroa.02604.1 = getelementptr inbounds nuw i8, ptr %.sroa.02604.16033, i64 %.sroa.02604.1.idx
-  br i1 %.not6109, label %._crit_edge6036, label %2980
+  br i1 %.not6133, label %._crit_edge6036, label %2980
 
 3064:                                             ; preds = %3028
   %lpad.thr_comm.split-lp4635 = landingpad { ptr, i32 }
@@ -61143,7 +61168,7 @@ default.unreachable6480:                          ; preds = %637
 
 .thread4584:                                      ; preds = %.thread4636, %3066, %3064, %.loopexit5155, %.loopexit.split-lp5156, %.thread4594.loopexit, %.thread4594.loopexit.split-lp, %.thread4617, %2982
   %.pn3046.pn4589 = phi { ptr, i32 } [ %.pn3033.pn, %2982 ], [ %.pn3044, %.thread4617 ], [ %lpad.loopexit5151, %.thread4594.loopexit ], [ %lpad.loopexit.split-lp5152, %.thread4594.loopexit.split-lp ], [ %lpad.loopexit5157, %.loopexit5155 ], [ %lpad.loopexit.split-lp5158, %.loopexit.split-lp5156 ], [ %lpad.thr_comm4634, %.thread4636 ], [ %lpad.thr_comm.split-lp4635, %3066 ], [ %lpad.thr_comm.split-lp4635, %3064 ]
-  %.sroa.01517.24588 = phi i1 [ false, %2982 ], [ true, %.thread4617 ], [ true, %.thread4594.loopexit ], [ %.not7103.not.not, %.thread4594.loopexit.split-lp ], [ true, %.loopexit5155 ], [ true, %.loopexit.split-lp5156 ], [ true, %.thread4636 ], [ true, %3066 ], [ true, %3064 ]
+  %.sroa.01517.24588 = phi i1 [ false, %2982 ], [ true, %.thread4617 ], [ true, %.thread4594.loopexit ], [ %.not7133.not.not, %.thread4594.loopexit.split-lp ], [ true, %.loopexit5155 ], [ true, %.loopexit.split-lp5156 ], [ true, %.thread4636 ], [ true, %3066 ], [ true, %3064 ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$str$GT$$GT$17hbc914635b65ddf9fE"(ptr noalias noundef nonnull align 8 dereferenceable(160) %285) #29
           to label %2969 unwind label %665
 
@@ -61197,7 +61222,8 @@ default.unreachable6480:                          ; preds = %637
 
 .lr.ph6027:                                       ; preds = %3094
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %117)
-  %3095 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6130 = mul nuw nsw i64 %3, 104
+  %3095 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6130
   %.sroa.02510.16023 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.42046.0..sroa_idx = getelementptr inbounds nuw i8, ptr %116, i64 8
   %.sroa.52047.0..sroa_idx = getelementptr inbounds nuw i8, ptr %116, i64 40
@@ -61351,8 +61377,8 @@ default.unreachable6480:                          ; preds = %637
 
 3131:                                             ; preds = %3103
   %3132 = extractvalue { ptr, i64 } %3104, 1
-  %.not7102.not.not = icmp uge i64 %4, %3132
-  br i1 %.not7102.not.not, label %3136, label %3133
+  %.not7132.not.not = icmp uge i64 %4, %3132
+  br i1 %.not7132.not.not, label %3136, label %3133
 
 3133:                                             ; preds = %3131
   %3134 = extractvalue { ptr, i64 } %3104, 0
@@ -61501,10 +61527,10 @@ default.unreachable6480:                          ; preds = %637
 
 3175:                                             ; preds = %3174
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %397)
-  %.not6108 = icmp eq ptr %.sroa.02510.16025, %3095
-  %.sroa.02510.1.idx = select i1 %.not6108, i64 0, i64 104
+  %.not6131 = icmp eq ptr %.sroa.02510.16025, %3095
+  %.sroa.02510.1.idx = select i1 %.not6131, i64 0, i64 104
   %.sroa.02510.1 = getelementptr inbounds nuw i8, ptr %.sroa.02510.16025, i64 %.sroa.02510.1.idx
-  br i1 %.not6108, label %._crit_edge6028, label %3103
+  br i1 %.not6131, label %._crit_edge6028, label %3103
 
 3176:                                             ; preds = %.loopexit5163
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %398)
@@ -61517,7 +61543,7 @@ default.unreachable6480:                          ; preds = %637
 
 .thread4645:                                      ; preds = %3151, %.thread4655.loopexit, %.thread4655.loopexit.split-lp, %.thread4676, %3105
   %.pn30284650 = phi { ptr, i32 } [ %.pn3023.pn, %3105 ], [ %lpad.thr_comm4674, %.thread4676 ], [ %lpad.thr_comm.split-lp4675, %3151 ], [ %lpad.loopexit5160, %.thread4655.loopexit ], [ %lpad.loopexit.split-lp5161, %.thread4655.loopexit.split-lp ]
-  %.sroa.01556.24649 = phi i1 [ false, %3105 ], [ true, %.thread4676 ], [ true, %3151 ], [ true, %.thread4655.loopexit ], [ %.not7102.not.not, %.thread4655.loopexit.split-lp ]
+  %.sroa.01556.24649 = phi i1 [ false, %3105 ], [ true, %.thread4676 ], [ true, %3151 ], [ true, %.thread4655.loopexit ], [ %.not7132.not.not, %.thread4655.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr95drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$i128$GT$$GT$17hbfafff0406185525E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %398) #29
           to label %3092 unwind label %665
 
@@ -61551,7 +61577,8 @@ default.unreachable6480:                          ; preds = %637
 
 .lr.ph6019:                                       ; preds = %3183
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %112)
-  %3184 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6128 = mul nuw nsw i64 %3, 104
+  %3184 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6128
   %.sroa.02519.16015 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.42065.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 8
   %.sroa.52066.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 40
@@ -61705,8 +61732,8 @@ default.unreachable6480:                          ; preds = %637
 
 3220:                                             ; preds = %3192
   %3221 = extractvalue { ptr, i64 } %3193, 1
-  %.not7101.not.not = icmp uge i64 %4, %3221
-  br i1 %.not7101.not.not, label %3225, label %3222
+  %.not7131.not.not = icmp uge i64 %4, %3221
+  br i1 %.not7131.not.not, label %3225, label %3222
 
 3222:                                             ; preds = %3220
   %3223 = extractvalue { ptr, i64 } %3193, 0
@@ -61855,10 +61882,10 @@ default.unreachable6480:                          ; preds = %637
 
 3264:                                             ; preds = %3263
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %387)
-  %.not6107 = icmp eq ptr %.sroa.02519.16017, %3184
-  %.sroa.02519.1.idx = select i1 %.not6107, i64 0, i64 104
+  %.not6129 = icmp eq ptr %.sroa.02519.16017, %3184
+  %.sroa.02519.1.idx = select i1 %.not6129, i64 0, i64 104
   %.sroa.02519.1 = getelementptr inbounds nuw i8, ptr %.sroa.02519.16017, i64 %.sroa.02519.1.idx
-  br i1 %.not6107, label %._crit_edge6020, label %3192
+  br i1 %.not6129, label %._crit_edge6020, label %3192
 
 3265:                                             ; preds = %.loopexit5167
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %388)
@@ -61871,7 +61898,7 @@ default.unreachable6480:                          ; preds = %637
 
 .thread4686:                                      ; preds = %3240, %.thread4696.loopexit, %.thread4696.loopexit.split-lp, %.thread4717, %3194
   %.pn30184691 = phi { ptr, i32 } [ %.pn3013.pn, %3194 ], [ %lpad.thr_comm4715, %.thread4717 ], [ %lpad.thr_comm.split-lp4716, %3240 ], [ %lpad.loopexit5164, %.thread4696.loopexit ], [ %lpad.loopexit.split-lp5165, %.thread4696.loopexit.split-lp ]
-  %.sroa.01552.24690 = phi i1 [ false, %3194 ], [ true, %.thread4717 ], [ true, %3240 ], [ true, %.thread4696.loopexit ], [ %.not7101.not.not, %.thread4696.loopexit.split-lp ]
+  %.sroa.01552.24690 = phi i1 [ false, %3194 ], [ true, %.thread4717 ], [ true, %3240 ], [ true, %.thread4696.loopexit ], [ %.not7131.not.not, %.thread4696.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr95drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$i128$GT$$GT$17hbfafff0406185525E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %388) #29
           to label %3181 unwind label %665
 
@@ -61930,7 +61957,8 @@ default.unreachable6480:                          ; preds = %637
 
 .lr.ph6011:                                       ; preds = %3274
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %107)
-  %3275 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6126 = mul nuw nsw i64 %3, 104
+  %3275 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6126
   %.sroa.02528.16007 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.42090.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 8
   %.sroa.52091.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 40
@@ -62087,8 +62115,8 @@ default.unreachable6480:                          ; preds = %637
 
 3310:                                             ; preds = %3282
   %3311 = extractvalue { ptr, i64 } %3283, 1
-  %.not7100.not.not = icmp uge i64 %4, %3311
-  br i1 %.not7100.not.not, label %3315, label %3312
+  %.not7130.not.not = icmp uge i64 %4, %3311
+  br i1 %.not7130.not.not, label %3315, label %3312
 
 3312:                                             ; preds = %3310
   %3313 = extractvalue { ptr, i64 } %3283, 0
@@ -62271,10 +62299,10 @@ default.unreachable6480:                          ; preds = %637
 
 3356:                                             ; preds = %3355
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %374)
-  %.not6106 = icmp eq ptr %.sroa.02528.16009, %3275
-  %.sroa.02528.1.idx = select i1 %.not6106, i64 0, i64 104
+  %.not6127 = icmp eq ptr %.sroa.02528.16009, %3275
+  %.sroa.02528.1.idx = select i1 %.not6127, i64 0, i64 104
   %.sroa.02528.1 = getelementptr inbounds nuw i8, ptr %.sroa.02528.16009, i64 %.sroa.02528.1.idx
-  br i1 %.not6106, label %._crit_edge6012, label %3282
+  br i1 %.not6127, label %._crit_edge6012, label %3282
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3483": ; preds = %3358, %3362, %3335
   %3357 = phi { ptr, i32 } [ %3336, %3335 ], [ %3359, %3362 ], [ %3359, %3358 ]
@@ -62303,7 +62331,7 @@ default.unreachable6480:                          ; preds = %637
 
 .thread4727:                                      ; preds = %3330, %.thread4737.loopexit, %.thread4737.loopexit.split-lp, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3483", %.thread4763, %3284
   %.pn3007.pn4732 = phi { ptr, i32 } [ %.pn3000.pn, %3284 ], [ %lpad.thr_comm.split-lp4762, %3330 ], [ %lpad.thr_comm4761, %.thread4763 ], [ %3357, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3483" ], [ %lpad.loopexit5168, %.thread4737.loopexit ], [ %lpad.loopexit.split-lp5169, %.thread4737.loopexit.split-lp ]
-  %.sroa.01548.24731 = phi i1 [ false, %3284 ], [ true, %3330 ], [ true, %.thread4763 ], [ true, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3483" ], [ true, %.thread4737.loopexit ], [ %.not7100.not.not, %.thread4737.loopexit.split-lp ]
+  %.sroa.01548.24731 = phi i1 [ false, %3284 ], [ true, %3330 ], [ true, %.thread4763 ], [ true, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3483" ], [ true, %.thread4737.loopexit ], [ %.not7130.not.not, %.thread4737.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr95drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$i128$GT$$GT$17hbfafff0406185525E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %375) #29
           to label %3272 unwind label %665
 
@@ -62368,7 +62396,8 @@ default.unreachable6480:                          ; preds = %637
 
 .lr.ph6003:                                       ; preds = %3378
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %100)
-  %3379 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6124 = mul nuw nsw i64 %3, 104
+  %3379 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6124
   %.sroa.02537.15995 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.42113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 8
   %.sroa.52114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 40
@@ -62530,8 +62559,8 @@ default.unreachable6480:                          ; preds = %637
 
 3415:                                             ; preds = %3387
   %3416 = extractvalue { ptr, i64 } %3388, 1
-  %.not7099.not.not = icmp uge i64 %4, %3416
-  br i1 %.not7099.not.not, label %3420, label %3417
+  %.not7129.not.not = icmp uge i64 %4, %3416
+  br i1 %.not7129.not.not, label %3420, label %3417
 
 3417:                                             ; preds = %3415
   %3418 = extractvalue { ptr, i64 } %3388, 0
@@ -62695,10 +62724,10 @@ default.unreachable6480:                          ; preds = %637
 
 3462:                                             ; preds = %3461
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %363)
-  %.not6105 = icmp eq ptr %.sroa.02537.16001, %3379
-  %.sroa.02537.1.idx = select i1 %.not6105, i64 0, i64 104
+  %.not6125 = icmp eq ptr %.sroa.02537.16001, %3379
+  %.sroa.02537.1.idx = select i1 %.not6125, i64 0, i64 104
   %.sroa.02537.1 = getelementptr inbounds nuw i8, ptr %.sroa.02537.16001, i64 %.sroa.02537.1.idx
-  br i1 %.not6105, label %._crit_edge6004, label %3387
+  br i1 %.not6125, label %._crit_edge6004, label %3387
 
 3463:                                             ; preds = %.loopexit5175
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %364)
@@ -62711,7 +62740,7 @@ default.unreachable6480:                          ; preds = %637
 
 .thread4774:                                      ; preds = %3436, %.thread4784.loopexit, %.thread4784.loopexit.split-lp, %.thread4805, %3389
   %.pn29954779 = phi { ptr, i32 } [ %.pn2990.pn, %3389 ], [ %lpad.thr_comm4803, %.thread4805 ], [ %lpad.thr_comm.split-lp4804, %3436 ], [ %lpad.loopexit5172, %.thread4784.loopexit ], [ %lpad.loopexit.split-lp5173, %.thread4784.loopexit.split-lp ]
-  %.sroa.01544.24778 = phi i1 [ false, %3389 ], [ true, %.thread4805 ], [ true, %3436 ], [ true, %.thread4784.loopexit ], [ %.not7099.not.not, %.thread4784.loopexit.split-lp ]
+  %.sroa.01544.24778 = phi i1 [ false, %3389 ], [ true, %.thread4805 ], [ true, %3436 ], [ true, %.thread4784.loopexit ], [ %.not7129.not.not, %.thread4784.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr124drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$polars_arrow..types..native..i256$GT$$GT$17h230f50834b7d1c21E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %364) #29
           to label %3376 unwind label %665
 
@@ -62745,7 +62774,8 @@ default.unreachable6480:                          ; preds = %637
 
 .lr.ph5991:                                       ; preds = %3470
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %95)
-  %3471 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6122 = mul nuw nsw i64 %3, 104
+  %3471 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6122
   %.sroa.02542.15983 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.42160.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 8
   %.sroa.52161.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 40
@@ -62907,8 +62937,8 @@ default.unreachable6480:                          ; preds = %637
 
 3507:                                             ; preds = %3479
   %3508 = extractvalue { ptr, i64 } %3480, 1
-  %.not7098.not.not = icmp uge i64 %4, %3508
-  br i1 %.not7098.not.not, label %3512, label %3509
+  %.not7128.not.not = icmp uge i64 %4, %3508
+  br i1 %.not7128.not.not, label %3512, label %3509
 
 3509:                                             ; preds = %3507
   %3510 = extractvalue { ptr, i64 } %3480, 0
@@ -63072,10 +63102,10 @@ default.unreachable6480:                          ; preds = %637
 
 3554:                                             ; preds = %3553
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %353)
-  %.not6104 = icmp eq ptr %.sroa.02542.15989, %3471
-  %.sroa.02542.1.idx = select i1 %.not6104, i64 0, i64 104
+  %.not6123 = icmp eq ptr %.sroa.02542.15989, %3471
+  %.sroa.02542.1.idx = select i1 %.not6123, i64 0, i64 104
   %.sroa.02542.1 = getelementptr inbounds nuw i8, ptr %.sroa.02542.15989, i64 %.sroa.02542.1.idx
-  br i1 %.not6104, label %._crit_edge5992, label %3479
+  br i1 %.not6123, label %._crit_edge5992, label %3479
 
 3555:                                             ; preds = %.loopexit5179
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %354)
@@ -63088,7 +63118,7 @@ default.unreachable6480:                          ; preds = %637
 
 .thread4815:                                      ; preds = %3528, %.thread4825.loopexit, %.thread4825.loopexit.split-lp, %.thread4846, %3481
   %.pn29854820 = phi { ptr, i32 } [ %.pn2980.pn, %3481 ], [ %lpad.thr_comm4844, %.thread4846 ], [ %lpad.thr_comm.split-lp4845, %3528 ], [ %lpad.loopexit5176, %.thread4825.loopexit ], [ %lpad.loopexit.split-lp5177, %.thread4825.loopexit.split-lp ]
-  %.sroa.01540.24819 = phi i1 [ false, %3481 ], [ true, %.thread4846 ], [ true, %3528 ], [ true, %.thread4825.loopexit ], [ %.not7098.not.not, %.thread4825.loopexit.split-lp ]
+  %.sroa.01540.24819 = phi i1 [ false, %3481 ], [ true, %.thread4846 ], [ true, %3528 ], [ true, %.thread4825.loopexit ], [ %.not7128.not.not, %.thread4825.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr124drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$polars_arrow..types..native..i256$GT$$GT$17h230f50834b7d1c21E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %354) #29
           to label %3468 unwind label %665
 
@@ -63147,7 +63177,8 @@ default.unreachable6480:                          ; preds = %637
 
 .lr.ph5979:                                       ; preds = %3564
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %90)
-  %3565 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6120 = mul nuw nsw i64 %3, 104
+  %3565 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6120
   %.sroa.02547.15975 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.42213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 8
   %.sroa.52214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 40
@@ -63306,8 +63337,8 @@ default.unreachable6480:                          ; preds = %637
 
 3600:                                             ; preds = %3572
   %3601 = extractvalue { ptr, i64 } %3573, 1
-  %.not7097.not.not = icmp uge i64 %4, %3601
-  br i1 %.not7097.not.not, label %3605, label %3602
+  %.not7127.not.not = icmp uge i64 %4, %3601
+  br i1 %.not7127.not.not, label %3605, label %3602
 
 3602:                                             ; preds = %3600
   %3603 = extractvalue { ptr, i64 } %3573, 0
@@ -63501,10 +63532,10 @@ default.unreachable6480:                          ; preds = %637
 
 3645:                                             ; preds = %3644
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %340)
-  %.not6103 = icmp eq ptr %.sroa.02547.15977, %3565
-  %.sroa.02547.1.idx = select i1 %.not6103, i64 0, i64 104
+  %.not6121 = icmp eq ptr %.sroa.02547.15977, %3565
+  %.sroa.02547.1.idx = select i1 %.not6121, i64 0, i64 104
   %.sroa.02547.1 = getelementptr inbounds nuw i8, ptr %.sroa.02547.15977, i64 %.sroa.02547.1.idx
-  br i1 %.not6103, label %._crit_edge5980, label %3572
+  br i1 %.not6121, label %._crit_edge5980, label %3572
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3487": ; preds = %3647, %3651, %3625
   %3646 = phi { ptr, i32 } [ %3626, %3625 ], [ %3648, %3651 ], [ %3648, %3647 ]
@@ -63533,7 +63564,7 @@ default.unreachable6480:                          ; preds = %637
 
 .thread4856:                                      ; preds = %3621, %.thread4866.loopexit, %.thread4866.loopexit.split-lp, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3487", %.thread4892, %3574
   %.pn2974.pn4861 = phi { ptr, i32 } [ %.pn2967.pn, %3574 ], [ %lpad.thr_comm.split-lp4891, %3621 ], [ %lpad.thr_comm4890, %.thread4892 ], [ %3646, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3487" ], [ %lpad.loopexit5180, %.thread4866.loopexit ], [ %lpad.loopexit.split-lp5181, %.thread4866.loopexit.split-lp ]
-  %.sroa.01536.24860 = phi i1 [ false, %3574 ], [ true, %3621 ], [ true, %.thread4892 ], [ true, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3487" ], [ true, %.thread4866.loopexit ], [ %.not7097.not.not, %.thread4866.loopexit.split-lp ]
+  %.sroa.01536.24860 = phi i1 [ false, %3574 ], [ true, %3621 ], [ true, %.thread4892 ], [ true, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h09c885101973d3a9E.exit3487" ], [ true, %.thread4866.loopexit ], [ %.not7127.not.not, %.thread4866.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr124drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$polars_arrow..types..native..i256$GT$$GT$17h230f50834b7d1c21E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %341) #29
           to label %3562 unwind label %665
 
@@ -63567,7 +63598,8 @@ default.unreachable6480:                          ; preds = %637
   br label %3739
 
 .lr.ph5971:                                       ; preds = %3657
-  %3660 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6118 = mul nuw nsw i64 %3, 104
+  %3660 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6118
   %.sroa.02622.15967 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.42306.0..sroa_idx = getelementptr inbounds nuw i8, ptr %70, i64 8
   %.sroa.52307.0..sroa_idx = getelementptr inbounds nuw i8, ptr %70, i64 40
@@ -63724,8 +63756,8 @@ default.unreachable6480:                          ; preds = %637
 
 3695:                                             ; preds = %3667
   %3696 = extractvalue { ptr, i64 } %3668, 1
-  %.not7096.not.not = icmp uge i64 %4, %3696
-  br i1 %.not7096.not.not, label %3700, label %3697
+  %.not7126.not.not = icmp uge i64 %4, %3696
+  br i1 %.not7126.not.not, label %3700, label %3697
 
 3697:                                             ; preds = %3695
   %3698 = extractvalue { ptr, i64 } %3668, 0
@@ -63877,10 +63909,10 @@ default.unreachable6480:                          ; preds = %637
 3733:                                             ; preds = %3732
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %262)
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %265)
-  %.not6102 = icmp eq ptr %.sroa.02622.15969, %3660
-  %.sroa.02622.1.idx = select i1 %.not6102, i64 0, i64 104
+  %.not6119 = icmp eq ptr %.sroa.02622.15969, %3660
+  %.sroa.02622.1.idx = select i1 %.not6119, i64 0, i64 104
   %.sroa.02622.1 = getelementptr inbounds nuw i8, ptr %.sroa.02622.15969, i64 %.sroa.02622.1.idx
-  br i1 %.not6102, label %._crit_edge5972, label %3667
+  br i1 %.not6119, label %._crit_edge5972, label %3667
 
 3734:                                             ; preds = %3715
   %lpad.thr_comm.split-lp4938 = landingpad { ptr, i32 }
@@ -63903,7 +63935,7 @@ default.unreachable6480:                          ; preds = %637
 
 .thread4903:                                      ; preds = %.thread4939, %3736, %3734, %.thread4913.loopexit, %.thread4913.loopexit.split-lp, %.thread4930, %3669
   %.pn2961.pn4908 = phi { ptr, i32 } [ %.pn2956.pn, %3669 ], [ %3717, %.thread4930 ], [ %lpad.loopexit5184, %.thread4913.loopexit ], [ %lpad.loopexit.split-lp5185, %.thread4913.loopexit.split-lp ], [ %lpad.thr_comm4937, %.thread4939 ], [ %lpad.thr_comm.split-lp4938, %3736 ], [ %lpad.thr_comm.split-lp4938, %3734 ]
-  %.sroa.01512.24907 = phi i1 [ false, %3669 ], [ true, %.thread4930 ], [ true, %.thread4913.loopexit ], [ %.not7096.not.not, %.thread4913.loopexit.split-lp ], [ true, %.thread4939 ], [ true, %3736 ], [ true, %3734 ]
+  %.sroa.01512.24907 = phi i1 [ false, %3669 ], [ true, %.thread4930 ], [ true, %.thread4913.loopexit ], [ %.not7126.not.not, %.thread4913.loopexit.split-lp ], [ true, %.thread4939 ], [ true, %3736 ], [ true, %3734 ]
   invoke void @"_ZN4core3ptr102drop_in_place$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$$u5b$u8$u5d$$GT$$GT$17hb0b3e731fa847668E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %266) #29
           to label %3658 unwind label %665
 
@@ -63926,7 +63958,8 @@ default.unreachable6480:                          ; preds = %637
   br label %3864
 
 .lr.ph5963:                                       ; preds = %3740
-  %3743 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, { { { ptr, i64, i64, i64 }, {}, {} }, i64 }, i64, i64, { i64, i64 } }, ptr %2, i64 %3
+  %.idx6116 = mul nuw nsw i64 %3, 104
+  %3743 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx6116
   %.sroa.02639.15959 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.sroa.42319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 8
   %.sroa.52320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 40
@@ -64134,8 +64167,8 @@ default.unreachable6480:                          ; preds = %637
 
 3788:                                             ; preds = %3752
   %3789 = extractvalue { ptr, i64 } %3753, 1
-  %.not7095.not.not = icmp uge i64 %4, %3789
-  br i1 %.not7095.not.not, label %3793, label %3790
+  %.not7125.not.not = icmp uge i64 %4, %3789
+  br i1 %.not7125.not.not, label %3793, label %3790
 
 3790:                                             ; preds = %3788
   %3791 = extractvalue { ptr, i64 } %3753, 0
@@ -64363,10 +64396,10 @@ default.unreachable6480:                          ; preds = %637
 3843:                                             ; preds = %3842
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %249)
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %252)
-  %.not6101 = icmp eq ptr %.sroa.02639.15961, %3743
-  %.sroa.02639.1.idx = select i1 %.not6101, i64 0, i64 104
+  %.not6117 = icmp eq ptr %.sroa.02639.15961, %3743
+  %.sroa.02639.1.idx = select i1 %.not6117, i64 0, i64 104
   %.sroa.02639.1 = getelementptr inbounds nuw i8, ptr %.sroa.02639.15961, i64 %.sroa.02639.1.idx
-  br i1 %.not6101, label %._crit_edge5964, label %3752
+  br i1 %.not6117, label %._crit_edge5964, label %3752
 
 3844:                                             ; preds = %3808
   %lpad.thr_comm.split-lp4998 = landingpad { ptr, i32 }
@@ -64450,7 +64483,7 @@ default.unreachable6480:                          ; preds = %637
 
 .thread4947:                                      ; preds = %.thread4999, %3846, %3844, %.loopexit5192, %.loopexit.split-lp5193, %.thread4957.loopexit, %.thread4957.loopexit.split-lp, %.thread4980, %3754
   %.pn2950.pn4952 = phi { ptr, i32 } [ %.pn2937.pn, %3754 ], [ %.pn2948, %.thread4980 ], [ %lpad.loopexit5188, %.thread4957.loopexit ], [ %lpad.loopexit.split-lp5189, %.thread4957.loopexit.split-lp ], [ %lpad.loopexit5194, %.loopexit5192 ], [ %lpad.loopexit.split-lp5195, %.loopexit.split-lp5193 ], [ %lpad.thr_comm4997, %.thread4999 ], [ %lpad.thr_comm.split-lp4998, %3846 ], [ %lpad.thr_comm.split-lp4998, %3844 ]
-  %.sroa.01507.24951 = phi i1 [ false, %3754 ], [ true, %.thread4980 ], [ true, %.thread4957.loopexit ], [ %.not7095.not.not, %.thread4957.loopexit.split-lp ], [ true, %.loopexit5192 ], [ true, %.loopexit.split-lp5193 ], [ true, %.thread4999 ], [ true, %3846 ], [ true, %3844 ]
+  %.sroa.01507.24951 = phi i1 [ false, %3754 ], [ true, %.thread4980 ], [ true, %.thread4957.loopexit ], [ %.not7125.not.not, %.thread4957.loopexit.split-lp ], [ true, %.loopexit5192 ], [ true, %.loopexit.split-lp5193 ], [ true, %.thread4999 ], [ true, %3846 ], [ true, %3844 ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$str$GT$$GT$17hbc914635b65ddf9fE"(ptr noalias noundef nonnull align 8 dereferenceable(160) %253) #29
           to label %3741 unwind label %665
 
@@ -64465,14 +64498,14 @@ default.unreachable6480:                          ; preds = %637
   invoke void @"_ZN4core3ptr94drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$u32$GT$$GT$17h515954298085a9f6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %588) #29
           to label %600 unwind label %665
 
-.thread6481:                                      ; preds = %605, %3865, %600
+.thread6511:                                      ; preds = %605, %3865, %600
   %.pn31403620 = phi { ptr, i32 } [ %.pn31403621, %3865 ], [ %.pn31383627, %600 ], [ %.pn3127, %605 ]
   resume { ptr, i32 } %.pn31403620
 
 3865:                                             ; preds = %.thread, %600
   %.pn31403621 = phi { ptr, i32 } [ %601, %.thread ], [ %.pn31383627, %600 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$polars_arrow..array..primitive..mutable..MutablePrimitiveArray$LT$u32$GT$$GT$17h515954298085a9f6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %589) #29
-          to label %.thread6481 unwind label %665
+          to label %.thread6511 unwind label %665
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -68637,7 +68670,8 @@ common.resume:                                    ; preds = %153, %118, %92, %16
   store i64 %160, ptr %148, align 8, !alias.scope !4247, !noalias !4250
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %162 = load ptr, ptr %161, align 8, !nonnull !6, !noundef !6
-  %163 = getelementptr inbounds nuw { i64, [12 x i64] }, ptr %162, i64 %124
+  %.idx = mul nuw nsw i64 %124, 104
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 %.idx
   %164 = icmp eq i64 %124, 0
   br i1 %164, label %.loopexit, label %.lr.ph
 

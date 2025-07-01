@@ -231,11 +231,12 @@ determine_bitrate.exit:                           ; preds = %52
   %73 = getelementptr inbounds nuw [5 x i16], ptr @qcelp_unpacking_bitmaps_lengths, i64 0, i64 %70
   %74 = load i16, ptr %73, align 2, !tbaa !53
   %75 = zext i16 %74 to i64
-  %76 = getelementptr inbounds nuw %struct.QCELPBitmap, ptr %72, i64 %75
+  %.idx = mul nuw nsw i64 %75, 3
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 36
   %78 = shl nuw nsw i32 %19, 3
-  %.not131 = icmp eq ptr %.099, null
-  %.018.i.i = select i1 %.not131, i32 0, i32 %78
+  %.not132 = icmp eq ptr %.099, null
+  %.018.i.i = select i1 %.not132, i32 0, i32 %78
   %79 = lshr exact i32 %.018.i.i, 3
   store ptr %.099, ptr %21, align 8, !tbaa !54
   %80 = getelementptr inbounds nuw i8, ptr %21, i64 20
@@ -249,7 +250,7 @@ determine_bitrate.exit:                           ; preds = %52
   store ptr %84, ptr %85, align 8, !tbaa !57
   %86 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 0, ptr %86, align 8, !tbaa !58
-  br i1 %.not131, label %263, label %.lr.ph
+  br i1 %.not132, label %263, label %.lr.ph
 
 .lr.ph:                                           ; preds = %69
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(71) %77, i8 0, i64 71, i1 false)
@@ -572,8 +573,8 @@ lspf2lpc.exit41.i:                                ; preds = %232
 
 interpolate_lpc.exit:                             ; preds = %lspf2lpc.exit.i, %lspf2lpc.exit33.i, %220, %lspf2lpc.exit41.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #9
-  %.idx = mul nuw nsw i64 %indvars.iv127, 160
-  %239 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
+  %.idx131 = mul nuw nsw i64 %indvars.iv127, 160
+  %239 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx131
   call void @ff_celp_lp_synthesis_filterf(ptr noundef nonnull %.085122, ptr noundef nonnull %14, ptr noundef %239, i32 noundef 40, i32 noundef 10) #9
   %240 = getelementptr inbounds nuw i8, ptr %.085122, i64 160
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1

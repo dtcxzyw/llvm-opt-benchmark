@@ -381,7 +381,8 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %1, %9, %11, %12
   %17 = load ptr, ptr %16, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %19 = load i64, ptr %18, align 8, !tbaa !19
-  %20 = getelementptr inbounds nuw %"class.lean::expr", ptr %17, i64 %19
+  %.idx.i.i.i = shl nuw nsw i64 %19, 3
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i.i
   %.not4.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not4.i.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -523,7 +524,8 @@ define linkonce_odr hidden void @_ZN4lean6bufferINS_4exprELm16EED2Ev(ptr noundef
   %2 = load ptr, ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !19
-  %5 = getelementptr inbounds nuw %"class.lean::expr", ptr %2, i64 %4
+  %.idx.i.i = shl nuw nsw i64 %4, 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i
   %.not4.i.i.i = icmp eq i64 %4, 0
   br i1 %.not4.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i, label %.lr.ph.i.i.i
 
@@ -1855,7 +1857,8 @@ _ZN4lean15is_cases_on_appERKNS_16elab_environmentERKNS_4exprE.exit.thread: ; pre
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
   %147 = load ptr, ptr %5, align 8, !tbaa !15
   %148 = load i64, ptr %12, align 8, !tbaa !19
-  %149 = getelementptr inbounds nuw %"class.lean::expr", ptr %147, i64 %148
+  %.idx = shl nuw nsw i64 %148, 3
+  %149 = getelementptr inbounds nuw i8, ptr %147, i64 %.idx
   %.not82 = icmp eq i64 %148, 0
   br i1 %.not82, label %.loopexit, label %.lr.ph
 
@@ -1928,7 +1931,8 @@ _ZN4lean10object_refD2Ev.exit77:                  ; preds = %160, %150, %157, %1
 _ZN4lean4exprC2ERKS0_.exit:                       ; preds = %.loopexit, %144, %142, %136, %145
   %171 = load ptr, ptr %5, align 8, !tbaa !15
   %172 = load i64, ptr %12, align 8, !tbaa !19
-  %173 = getelementptr inbounds nuw %"class.lean::expr", ptr %171, i64 %172
+  %.idx.i.i.i = shl nuw nsw i64 %172, 3
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 %.idx.i.i.i
   %.not4.i.i.i.i = icmp eq i64 %172, 0
   br i1 %.not4.i.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -2334,7 +2338,8 @@ _ZN4lean10object_refD2Ev.exit31:                  ; preds = %_ZNK4lean9local_ctx
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
   %138 = load ptr, ptr %4, align 8, !tbaa !15
   %139 = load i64, ptr %10, align 8, !tbaa !19
-  %140 = getelementptr inbounds nuw %"class.lean::expr", ptr %138, i64 %139
+  %.idx.i.i.i = shl nuw nsw i64 %139, 3
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx.i.i.i
   %.not4.i.i.i.i = icmp eq i64 %139, 0
   br i1 %.not4.i.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -3089,7 +3094,8 @@ _ZN4lean10object_refD2Ev.exit67:                  ; preds = %243, %250, %252, %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
   %257 = load ptr, ptr %4, align 8, !tbaa !15
   %258 = load i64, ptr %13, align 8, !tbaa !19
-  %259 = getelementptr inbounds nuw %"class.lean::expr", ptr %257, i64 %258
+  %.idx.i.i.i = shl nuw nsw i64 %258, 3
+  %259 = getelementptr inbounds nuw i8, ptr %257, i64 %.idx.i.i.i
   %.not4.i.i.i.i = icmp eq i64 %258, 0
   br i1 %.not4.i.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -3767,7 +3773,8 @@ define linkonce_odr hidden void @_ZN4lean6bufferINS_4exprELm16EE12set_capacityEm
   %9 = tail call noundef ptr @_ZSt16__do_uninit_copyIPN4lean4exprES2_ET0_T_S4_S3_(ptr noundef %5, ptr noundef %8, ptr noundef nonnull %4)
   %10 = load ptr, ptr %0, align 8, !tbaa !15
   %11 = load i64, ptr %6, align 8, !tbaa !19
-  %12 = getelementptr inbounds nuw %"class.lean::expr", ptr %10, i64 %11
+  %.idx.i.i = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
   %.not4.i.i.i = icmp eq i64 %11, 0
   br i1 %.not4.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i, label %.lr.ph.i.i.i
 

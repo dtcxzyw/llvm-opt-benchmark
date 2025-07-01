@@ -11955,7 +11955,8 @@ define linkonce_odr dso_local void @_ZNSt3mapISt17basic_string_viewIcSt11char_tr
   store ptr %7, ptr %10, align 8, !tbaa !157
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8, !tbaa !158
-  %12 = getelementptr inbounds nuw %"struct.std::pair.13", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 48
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
   store ptr %0, ptr %6, align 8, !tbaa !292
   %.not6.i = icmp eq i64 %2, 0
@@ -20401,7 +20402,8 @@ define linkonce_odr dso_local void @_ZNSt3mapISt17basic_string_viewIcSt11char_tr
   store ptr %7, ptr %10, align 8, !tbaa !157
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8, !tbaa !158
-  %12 = getelementptr inbounds nuw %"struct.std::pair.302", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 48
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
   store ptr %0, ptr %6, align 8, !tbaa !453
   %.not6.i = icmp eq i64 %2, 0

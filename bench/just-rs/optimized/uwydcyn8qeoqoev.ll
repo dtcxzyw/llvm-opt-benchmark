@@ -2983,7 +2983,8 @@ define hidden void @_ZN7similar10algorithms5myers13diff_deadline17h403de52384559
   %31 = load ptr, ptr %30, align 8, !alias.scope !546, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %33 = load i64, ptr %32, align 8, !alias.scope !546, !noundef !4
-  %34 = getelementptr inbounds { i64, [4 x i64] }, ptr %31, i64 %33
+  %.idx.i = mul nsw i64 %33, 40
+  %34 = getelementptr inbounds i8, ptr %31, i64 %.idx.i
   %35 = icmp eq i64 %33, 0
   br i1 %35, label %._crit_edge.i, label %.lr.ph.i
 

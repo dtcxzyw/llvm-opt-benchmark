@@ -30805,7 +30805,8 @@ define void @"_ZN125_$LT$language_model..provider..anthropic..AnthropicLanguageM
   %51 = load ptr, ptr %50, align 8, !nonnull !5, !noundef !5
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %53 = load i64, ptr %52, align 8, !noundef !5
-  %54 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { [16 x i8], i8, [7 x i8] }, i64 }, ptr %51, i64 %53
+  %.idx = mul nsw i64 %53, 120
+  %54 = getelementptr inbounds i8, ptr %51, i64 %.idx
   %55 = icmp eq i64 %53, 0
   br i1 %55, label %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h2df91f50779b6b2bE.exit", label %.lr.ph
 
@@ -31644,13 +31645,13 @@ define internal { i64, ptr } @"_ZN14language_model8provider9anthropic22count_ant
   %15 = alloca [24 x i8], align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i8, ptr %16, align 8, !range !518, !noundef !5
-  switch i8 %17, label %default.unreachable236 [
+  switch i8 %17, label %default.unreachable237 [
     i8 0, label %19
     i8 1, label %209
     i8 2, label %210
   ]
 
-default.unreachable236:                           ; preds = %2
+default.unreachable237:                           ; preds = %2
   unreachable
 
 default.unreachable:                              ; preds = %104
@@ -31704,7 +31705,8 @@ default.unreachable:                              ; preds = %104
   %.sroa.099.0.copyload = load i64, ptr %15, align 8
   %.sroa.5100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.5100.0.copyload = load ptr, ptr %.sroa.5100.0..sroa_idx, align 8, !nonnull !5, !noundef !5
-  %33 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, i8, [6 x i8] }, ptr %.sroa.5100.0.copyload, i64 %.val45
+  %.idx = shl nsw i64 %.val45, 5
+  %33 = getelementptr inbounds i8, ptr %.sroa.5100.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   store ptr %.sroa.5100.0.copyload, ptr %13, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -31896,7 +31898,8 @@ default.unreachable:                              ; preds = %104
   store i64 0, ptr %12, align 8, !alias.scope !8620
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i52, align 8, !alias.scope !8620
   store i64 0, ptr %.sroa.5.0..sroa_idx.i53, align 8, !alias.scope !8620
-  %91 = getelementptr inbounds { i64, [14 x i64] }, ptr %.sroa.8.sroa.0.0.copyload, i64 %.sroa.8.sroa.7.0.copyload
+  %.idx219 = mul nsw i64 %.sroa.8.sroa.7.0.copyload, 120
+  %91 = getelementptr inbounds i8, ptr %.sroa.8.sroa.0.0.copyload, i64 %.idx219
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   store ptr %.sroa.8.sroa.0.0.copyload, ptr %11, align 8
   store ptr %.sroa.8.sroa.0.0.copyload, ptr %.sroa.5106.0..sroa_idx, align 8
@@ -63374,7 +63377,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17he5b3ddc6cb126c03E.exit: ; preds = %.no
   %40 = load ptr, ptr %39, align 8, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %42 = load i64, ptr %41, align 8, !noundef !5
-  %43 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, i64 }, ptr %40, i64 %42
+  %.idx = mul nsw i64 %42, 80
+  %43 = getelementptr inbounds i8, ptr %40, i64 %.idx
   %44 = icmp eq i64 %42, 0
   br i1 %44, label %._crit_edge, label %.lr.ph
 
@@ -63421,7 +63425,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17he5b3ddc6cb126c03E.exit: ; preds = %.no
   %60 = load ptr, ptr %59, align 8, !nonnull !5, !noundef !5
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 112
   %62 = load i64, ptr %61, align 8, !noundef !5
-  %63 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, i64 }, ptr %60, i64 %62
+  %.idx110 = mul nsw i64 %62, 80
+  %63 = getelementptr inbounds i8, ptr %60, i64 %.idx110
   %64 = icmp eq i64 %62, 0
   br i1 %64, label %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h632b5cb6f90c01eeE.exit", label %.lr.ph109
 
@@ -68831,6 +68836,7 @@ define { ptr, ptr } @"_ZN103_$LT$language_model..provider..ollama..OllamaLanguag
   br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h09e3ba988c9ddb4fE.exit", label %10
 
 10:                                               ; preds = %3
+  %.idx = and i64 %8, 576460752303423487
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %13
@@ -68890,7 +68896,7 @@ define { ptr, ptr } @"_ZN103_$LT$language_model..provider..ollama..OllamaLanguag
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !18724
   %28 = add i64 %.sroa.0.0.i.i.i.i, %.sroa.07.0.i
   %29 = add nuw i64 %.sroa.09.0.i, 1
-  %30 = icmp eq i64 %29, %8
+  %30 = icmp eq i64 %29, %.idx
   br i1 %30, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h09e3ba988c9ddb4fE.exit.loopexit", label %13
 
 31:                                               ; preds = %13
@@ -78265,7 +78271,8 @@ common.ret:                                       ; preds = %229, %201, %33
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he411f73a1dc735fbE.exit.lr.ph.i": ; preds = %96
   %101 = icmp ne ptr %.sroa.391.0.copyload.i, null
   tail call void @llvm.assume(i1 %101)
-  %102 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { { { { ptr, i64 } }, {} }, {} } } }, ptr %.sroa.391.0.copyload.i, i64 %.sroa.494.0.copyload.i
+  %.idx.i = mul nsw i64 %.sroa.494.0.copyload.i, 40
+  %102 = getelementptr inbounds i8, ptr %.sroa.391.0.copyload.i, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !20867
   store ptr %.sroa.391.0.copyload.i, ptr %8, align 8, !noalias !20867
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -80475,7 +80482,8 @@ _ZN10serde_json3ser6to_vec17h214dee172cea73c7E.exit.i.i: ; preds = %99
 308:                                              ; preds = %305
   %309 = icmp ne ptr %.sroa.7135.0.copyload.i.i, null
   call void @llvm.assume(i1 %309)
-  %310 = getelementptr inbounds { { { i64, [2 x i64] }, { i64, [2 x i64] }, i8, [7 x i8] }, { i64, [2 x i64] }, i32, [1 x i32] }, ptr %.sroa.7135.0.copyload.i.i, i64 %.sroa.8.0.copyload.i.i
+  %.idx.i.i = mul nsw i64 %.sroa.8.0.copyload.i.i, 88
+  %310 = getelementptr inbounds i8, ptr %.sroa.7135.0.copyload.i.i, i64 %.idx.i.i
   store ptr %.sroa.7135.0.copyload.i.i, ptr %9, align 8, !alias.scope !21636, !noalias !21639
   %311 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %.sroa.6.0.copyload.i.i, ptr %311, align 8, !alias.scope !21636, !noalias !21639

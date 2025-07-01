@@ -39,11 +39,6 @@ module asm ".previous"
 %"struct.std::_Vector_base<vcg::Point3<float>, std::allocator<vcg::Point3<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<vcg::Point3<float>, std::allocator<vcg::Point3<float>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<vcg::Point3<float>, std::allocator<vcg::Point3<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %struct.QArrayData = type { %"class.QtPrivate::RefCount", i32, i32, i64 }
-%"struct.std::pair" = type { i32, %"class.std::vector.5" }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.QString = type { ptr }
 %"class.vcg::GLMeshAttributesInfo::RenderingAtts" = type { [7 x i8] }
 %struct.MLPerViewGLOptions = type { %"struct.vcg::RenderingModalityGLOptions.base", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %"class.vcg::Color4", %"class.vcg::Color4", %"class.vcg::Color4", i8, %"class.vcg::Color4", %"class.vcg::Color4", i8, i8, i8, [6 x i8] }
@@ -184,6 +179,11 @@ module asm ".previous"
 %"class.vcg::face::InfoOcf" = type { ptr }
 %"class.vcg::Segment3" = type { %"class.vcg::Point3", %"class.vcg::Point3" }
 %"class.vcg::Line3" = type { %"class.vcg::Point3", %"class.vcg::Point3" }
+%"struct.std::pair" = type { i32, %"class.std::vector.5" }
+%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
+%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl" }
+%"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator.11" = type { i8 }
 
 $_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev = comdat any
@@ -555,7 +555,8 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
   store ptr %6, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.std::pair", ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 5
+  %11 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_insert_range_uniqueIPKS9_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESK_SK_.exit, label %.lr.ph.i
 
@@ -4497,10 +4498,10 @@ _ZN3vcg8Matrix44IdEC2EPKd.exit:
 
 .lr.ph.preheader.i.i:                             ; preds = %82
   %88 = sext i32 %87 to i64
+  %.idx.i = shl nsw i64 %88, 4
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %90 = load i64, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %85, i64 %90
-  %.idx.i = shl nsw i64 %88, 4
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %91, i8 0, i64 %.idx.i, i1 false)
   br label %_ZN7QVectorI7QPointFEC2Ei.exit
 
@@ -16480,7 +16481,8 @@ define linkonce_odr void @_ZN7QVectorI7QPointFE7reallocEi6QFlagsIN10QArrayData16
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds %class.QPointF, ptr %22, i64 %25
+  %.idx42 = shl nsw i64 %25, 4
+  %26 = getelementptr inbounds i8, ptr %22, i64 %.idx42
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %8, i64 %28
@@ -16500,8 +16502,7 @@ define linkonce_odr void @_ZN7QVectorI7QPointFE7reallocEi6QFlagsIN10QArrayData16
   br i1 %.not34, label %.loopexit, label %.lr.ph, !llvm.loop !193
 
 32:                                               ; preds = %14
-  %.idx = shl nsw i64 %25, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull align 1 %22, i64 %.idx, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull align 1 %22, i64 %.idx42, i1 false)
   br label %.loopexit
 
 33:                                               ; preds = %10
@@ -16862,7 +16863,8 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit58: ; preds = %97, %_ZNSt6vect
 ._crit_edge108:                                   ; preds = %.loopexit, %._crit_edge.thread
   %122 = load ptr, ptr %0, align 8
   %123 = sext i32 %1 to i64
-  %124 = getelementptr inbounds %class.QPointF, ptr %122, i64 %123
+  %.idx = shl nsw i64 %123, 4
+  %124 = getelementptr inbounds i8, ptr %122, i64 %.idx
   %125 = ptrtoint ptr %124 to i64
   %.not.i.i59 = icmp eq i32 %1, 0
   br i1 %.not.i.i59, label %_ZNSt6vectorI7QPointFSaIS0_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS0_S2_EES7_.exit, label %126

@@ -1898,7 +1898,8 @@ define internal { ptr, ptr } @"_ZN109_$LT$settings..settings_store..SettingValue
   br i1 %17, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %8
-  %18 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, { { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { [2 x i32], i32, [1 x i32] }, i8, [7 x i8] }, { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { [2 x i32], i32, [1 x i32] } }, { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { [2 x i32], i32, [1 x i32] }, i8, [7 x i8] }, { { { i64, ptr, {} }, i64 }, { [2 x i32], i32, [1 x i32] } }, { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { [2 x i32], i32, [1 x i32] } }, { { [2 x i32], i32, [1 x i32] } } } }, ptr %14, i64 %16
+  %.idx = mul nsw i64 %16, 352
+  %18 = getelementptr inbounds i8, ptr %14, i64 %.idx
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %26, %8, %2
@@ -13509,7 +13510,8 @@ _ZN4gpui3app10AppContext6global17h651e9cf1ce67c07bE.exit.i: ; preds = %"_ZN9hash
   %73 = load ptr, ptr %72, align 8, !alias.scope !4513, !nonnull !4, !noundef !4
   %74 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %75 = load i64, ptr %74, align 8, !alias.scope !4513, !noundef !4
-  %76 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %73, i64 %75
+  %.idx.i.i = mul nsw i64 %75, 24
+  %76 = getelementptr inbounds i8, ptr %73, i64 %.idx.i.i
   %.not.i.i.i = icmp eq i64 %75, 0
   br i1 %.not.i.i.i, label %_ZN13feature_flags12FeatureFlags8has_flag17hf7dc5f0787da2036E.exit.i, label %.lr.ph.i.i.i
 
@@ -47299,7 +47301,8 @@ _ZN4gpui3app10AppContext10try_global17h1bcedd323b91fb28E.llvm.636452128024578718
   %50 = load ptr, ptr %49, align 8, !alias.scope !12593, !nonnull !4, !noundef !4
   %51 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %52 = load i64, ptr %51, align 8, !alias.scope !12593, !noundef !4
-  %53 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %50, i64 %52
+  %.idx.i = mul nsw i64 %52, 24
+  %53 = getelementptr inbounds i8, ptr %50, i64 %.idx.i
   %.not.i.i = icmp eq i64 %52, 0
   br i1 %.not.i.i, label %_ZN13feature_flags12FeatureFlags8has_flag17h4e9865b2d4c608bcE.exit, label %.lr.ph.i.i
 
@@ -47425,7 +47428,8 @@ _ZN4gpui3app10AppContext10try_global17h1bcedd323b91fb28E.llvm.636452128024578718
   %50 = load ptr, ptr %49, align 8, !alias.scope !12650, !nonnull !4, !noundef !4
   %51 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %52 = load i64, ptr %51, align 8, !alias.scope !12650, !noundef !4
-  %53 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %50, i64 %52
+  %.idx.i = mul nsw i64 %52, 24
+  %53 = getelementptr inbounds i8, ptr %50, i64 %.idx.i
   %.not.i.i = icmp eq i64 %52, 0
   br i1 %.not.i.i, label %_ZN13feature_flags12FeatureFlags8has_flag17h40cbb723dafcf11eE.exit, label %.lr.ph.i.i
 
@@ -49997,7 +50001,8 @@ _ZN10serde_json5value8to_value17h8c4b1b3665f9f906E.exit.i: ; preds = %"_ZN8setti
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %297 = icmp ne ptr %.sroa.2.0.copyload, null
   call void @llvm.assume(i1 %297)
-  %298 = getelementptr inbounds { { i64, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %.idx = mul nsw i64 %.sroa.3.0.copyload, 40
+  %298 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35)
   store ptr %.sroa.2.0.copyload, ptr %35, align 8
   %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -51053,7 +51058,8 @@ _ZN10serde_json5value8to_value17h8c4b1b3665f9f906E.exit.i: ; preds = %"_ZN8setti
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %298 = icmp ne ptr %.sroa.2.0.copyload, null
   call void @llvm.assume(i1 %298)
-  %299 = getelementptr inbounds { { i64, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %.idx = mul nsw i64 %.sroa.3.0.copyload, 40
+  %299 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35)
   store ptr %.sroa.2.0.copyload, ptr %35, align 8
   %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -57058,7 +57064,8 @@ define void @"_ZN119_$LT$language_model..provider..google..GoogleLanguageModelPr
   %46 = load ptr, ptr %45, align 8, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 288
   %48 = load i64, ptr %47, align 8, !noundef !4
-  %49 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, i64 }, ptr %46, i64 %48
+  %.idx = mul nsw i64 %48, 56
+  %49 = getelementptr inbounds i8, ptr %46, i64 %.idx
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hea0f7524aaf2799cE.exit", label %.lr.ph
 

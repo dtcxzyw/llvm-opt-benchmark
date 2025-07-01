@@ -23401,7 +23401,8 @@ common.resume:                                    ; preds = %55, %26
   %38 = load ptr, ptr %37, align 8, !alias.scope !3162, !nonnull !3, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %40 = load i64, ptr %39, align 8, !alias.scope !3162, !noundef !3
-  %41 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %38, i64 %40
+  %.idx.i = mul nuw nsw i64 %40, 24
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i
   %42 = icmp eq i64 %40, 0
   br i1 %42, label %._crit_edge.i, label %.lr.ph.i
 
@@ -23822,7 +23823,8 @@ _ZN4core3ops8function6FnOnce9call_once17h7f251b77a82062f2E.exit._ZN4core3ops8fun
   %.sroa.0.0.i = phi i64 [ %60, %.noexc6 ], [ %54, %53 ], [ %.val.pre.i.i, %_ZN4core3ops8function6FnOnce9call_once17h7f251b77a82062f2E.exit._ZN4core3ops8function6FnOnce9call_once17h7f251b77a82062f2E.exit.thread_crit_edge.i.i ]
   %61 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %62 = load ptr, ptr %61, align 8, !alias.scope !3198, !noalias !3201, !nonnull !3, !noundef !3
-  %63 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %62, i64 %50
+  %.idx.i = mul nuw nsw i64 %50, 24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZN17crossbeam_channel5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h91e06025edabdaeaE.exit.i.i", %.lr.ph.i.preheader.i
@@ -48532,7 +48534,8 @@ define { ptr, i32 } @"_ZN159_$LT$ruff_server..server..api..notifications..did_ch
   %.sroa.548.0.copyload = load i64, ptr %.sroa.548.0..sroa_idx, align 8
   %12 = icmp ult i64 %.sroa.548.0.copyload, 82351536043346213
   tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.sroa.4.0.copyload, i64 %.sroa.548.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.548.0.copyload, 112
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 %.idx
   %14 = icmp sgt i64 %.sroa.047.0.copyload, -1
   tail call void @llvm.assume(i1 %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
@@ -48606,7 +48609,8 @@ define { ptr, i32 } @"_ZN159_$LT$ruff_server..server..api..notifications..did_ch
   %.sroa.555.0.copyload = load i64, ptr %.sroa.555.0..sroa_idx, align 8
   %25 = icmp ult i64 %.sroa.555.0.copyload, 82351536043346213
   call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.sroa.454.0.copyload, i64 %.sroa.555.0.copyload
+  %.idx101 = mul nuw nsw i64 %.sroa.555.0.copyload, 112
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.454.0.copyload, i64 %.idx101
   %27 = icmp sgt i64 %.sroa.053.0.copyload, -1
   call void @llvm.assume(i1 %27)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)

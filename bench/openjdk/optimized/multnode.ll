@@ -42,7 +42,8 @@ define hidden noundef ptr @_ZNK9MultiNode16proj_out_or_nullEj(ptr noundef nonnul
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -78,7 +79,8 @@ define hidden noundef ptr @_ZNK9MultiNode16proj_out_or_nullEjb(ptr noundef nonnu
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
+  %.idx = shl nuw nsw i64 %8, 3
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %.not16 = icmp eq i32 %7, 0
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
@@ -123,7 +125,8 @@ define hidden noundef ptr @_ZNK9MultiNode8proj_outEj(ptr noundef nonnull readonl
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %.idx.i = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %_ZNK9MultiNode16proj_out_or_nullEj.exit, label %.lr.ph.i
 
@@ -636,7 +639,8 @@ define hidden noundef ptr @_ZNK8ProjNode27is_uncommon_trap_if_patternEN14Deoptim
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = zext i32 %12 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %.idx.i.i.i = shl nuw nsw i64 %20, 3
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %31, %14
@@ -721,7 +725,8 @@ define hidden noundef ptr @_ZNK8ProjNode13other_if_projEv(ptr noundef nonnull re
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %9, i64 %12
+  %.idx.i.i = shl nuw nsw i64 %12, 3
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i
   %.not.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i, label %_ZNK9MultiNode8proj_outEj.exit, label %.lr.ph.i.i
 

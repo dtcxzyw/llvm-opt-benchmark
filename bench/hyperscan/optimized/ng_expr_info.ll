@@ -756,7 +756,8 @@ _ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit: ; preds = %9
   %18 = load ptr, ptr %17, align 8, !noalias !29
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %20 = load i64, ptr %19, align 8, !noalias !36
-  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %20
+  %.idx = shl nuw nsw i64 %20, 2
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %.not2829 = icmp eq i64 %20, 0
   br i1 %.not2829, label %.loopexit, label %.lr.ph
 

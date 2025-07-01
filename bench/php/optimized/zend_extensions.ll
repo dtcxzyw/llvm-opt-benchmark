@@ -15,11 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.1 = type { ptr }
 %struct._zend_stack = type { i32, i32, i32, ptr }
 %struct._zend_extension = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
-%struct._zval_struct = type { %union._zend_value, %union.anon.3, %union.anon.6 }
-%union._zend_value = type { i64 }
-%union.anon.3 = type { i32 }
-%union.anon.6 = type { i32 }
 %struct._zend_extension_persist_data = type { ptr, i64, ptr }
 
 @zend_extension_flags = dso_local local_unnamed_addr global i32 0, align 4
@@ -645,7 +640,8 @@ define dso_local void @zend_init_internal_run_time_cache() local_unnamed_addr #0
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !59
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %struct._Bucket, ptr %11, i64 %14
+  %.idx = shl nuw nsw i64 %14, 5
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !58
   %18 = and i32 %17, 4
@@ -689,7 +685,8 @@ define dso_local void @zend_init_internal_run_time_cache() local_unnamed_addr #0
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %37 = load i32, ptr %36, align 8, !tbaa !59
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %struct._Bucket, ptr %35, i64 %38
+  %.idx118 = shl nuw nsw i64 %38, 5
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx118
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %41 = load i32, ptr %40, align 8, !tbaa !58
   %42 = and i32 %41, 4
@@ -757,7 +754,8 @@ define dso_local void @zend_init_internal_run_time_cache() local_unnamed_addr #0
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %70 = load i32, ptr %69, align 8, !tbaa !59
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw %struct._Bucket, ptr %68, i64 %71
+  %.idx119 = shl nuw nsw i64 %71, 5
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx119
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %74 = load i32, ptr %73, align 8, !tbaa !58
   %75 = and i32 %74, 4
@@ -781,7 +779,8 @@ define dso_local void @zend_init_internal_run_time_cache() local_unnamed_addr #0
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 88
   %84 = load i32, ptr %83, align 8, !tbaa !59
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %struct._Bucket, ptr %82, i64 %85
+  %.idx120 = shl nuw nsw i64 %85, 5
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx120
   %87 = getelementptr inbounds nuw i8, ptr %80, i64 72
   %88 = load i32, ptr %87, align 8, !tbaa !58
   %89 = and i32 %88, 4

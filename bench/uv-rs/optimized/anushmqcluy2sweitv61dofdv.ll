@@ -24287,7 +24287,8 @@ define hidden void @_ZN5serde9__private2de7content17visit_content_seq17ha8b13a9a
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !4288, !noalias !4291
   %21 = icmp ult i64 %.sroa.5.0.copyload.i, 288230376151711744
   tail call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nuw nsw i64 %.sroa.5.0.copyload.i, 5
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   %23 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   tail call void @llvm.assume(i1 %23)
   store ptr %.sroa.4.0.copyload.i, ptr %20, align 8

@@ -84,7 +84,8 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb0ELb0ELb1ELb
   %32 = load ptr, ptr %20, align 8, !tbaa !25, !noalias !21
   %33 = load i32, ptr %22, align 4, !tbaa !26, !noalias !21
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %32, i64 %34
+  %.idx.i.i = shl nuw nsw i64 %34, 3
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i
   %.not36.i.i = icmp eq i32 %33, 0
   br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -154,7 +155,8 @@ define dso_local void @_ZN4llvm19GISelChangeObserver28finishedChangingAllUsesOfR
   %10 = load i32, ptr %9, align 8
   %.v.v.i4.i2.i = select i1 %6, i32 %8, i32 %10
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %3, i64 %.v.i5.i3.i
+  %.idx.i = shl nuw nsw i64 %.v.i5.i3.i, 3
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -167,79 +169,80 @@ define dso_local void @_ZN4llvm19GISelChangeObserver28finishedChangingAllUsesOfR
 .critedge2.i7.i.i9.i11.i:                         ; preds = %.lr.ph.i5.i.i7.i5.i
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i6.i, i64 8
   %.not.i8.i.i10.i12.i = icmp eq ptr %13, %11
-  br i1 %.not.i8.i.i10.i12.i, label %._crit_edge, label %.lr.ph.i5.i.i7.i5.i, !llvm.loop !31
+  br i1 %.not.i8.i.i10.i12.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i, !llvm.loop !31
 
-_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit: ; preds = %.lr.ph.i5.i.i7.i5.i, %1
-  %.sroa.0.4.i8.i = phi ptr [ %3, %1 ], [ %.sroa.0.3.i6.i, %.lr.ph.i5.i.i7.i5.i ]
-  %.not7 = icmp eq ptr %.sroa.0.4.i8.i, %11
+_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit: ; preds = %.lr.ph.i5.i.i7.i5.i, %.critedge2.i7.i.i9.i11.i, %1
+  %.sroa.0.4.i8.i = phi ptr [ %3, %1 ], [ %.sroa.0.3.i6.i, %.lr.ph.i5.i.i7.i5.i ], [ %11, %.critedge2.i7.i.i9.i11.i ]
+  %14 = getelementptr inbounds nuw ptr, ptr %3, i64 %.v.i5.i3.i
+  %.not7 = icmp eq ptr %.sroa.0.4.i8.i, %14
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4llvm19SmallPtrSetIteratorIPNS_12MachineInstrEEppEv.exit
   %.pre = load i8, ptr %4, align 4, !tbaa !17, !range !20
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.critedge2.i7.i.i9.i11.i, %._crit_edge.loopexit, %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit
-  %14 = phi i8 [ %.pre, %._crit_edge.loopexit ], [ %5, %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit ], [ %5, %.critedge2.i7.i.i9.i11.i ]
-  %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %30, label %16
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit
+  %15 = phi i8 [ %.pre, %._crit_edge.loopexit ], [ %5, %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit ]
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %31, label %17
 
-16:                                               ; preds = %._crit_edge
-  %17 = load i32, ptr %7, align 4, !tbaa !26
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load i32, ptr %18, align 8, !tbaa !32
-  %20 = sub i32 %17, %19
-  %21 = shl i32 %20, 2
-  %22 = load i32, ptr %9, align 8, !tbaa !29
-  %23 = icmp ult i32 %21, %22
-  %24 = icmp ugt i32 %22, 32
-  %or.cond.i = and i1 %24, %23
-  br i1 %or.cond.i, label %25, label %26
+17:                                               ; preds = %._crit_edge
+  %18 = load i32, ptr %7, align 4, !tbaa !26
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %20 = load i32, ptr %19, align 8, !tbaa !32
+  %21 = sub i32 %18, %20
+  %22 = shl i32 %21, 2
+  %23 = load i32, ptr %9, align 8, !tbaa !29
+  %24 = icmp ult i32 %22, %23
+  %25 = icmp ugt i32 %23, 32
+  %or.cond.i = and i1 %25, %24
+  br i1 %or.cond.i, label %26, label %27
 
-25:                                               ; preds = %16
+26:                                               ; preds = %17
   tail call void @_ZN4llvm19SmallPtrSetImplBase16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(21) %2) #7
   br label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit
 
-26:                                               ; preds = %16
-  %27 = load ptr, ptr %2, align 8, !tbaa !25
-  %28 = zext i32 %22 to i64
-  %29 = shl nuw nsw i64 %28, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %27, i8 -1, i64 %29, i1 false)
-  br label %30
+27:                                               ; preds = %17
+  %28 = load ptr, ptr %2, align 8, !tbaa !25
+  %29 = zext i32 %23 to i64
+  %30 = shl nuw nsw i64 %29, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %28, i8 -1, i64 %30, i1 false)
+  br label %31
 
-30:                                               ; preds = %26, %._crit_edge
+31:                                               ; preds = %27, %._crit_edge
   store i32 0, ptr %7, align 4, !tbaa !26
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %31, align 8, !tbaa !32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %32, align 8, !tbaa !32
   br label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit
 
-_ZN4llvm19SmallPtrSetImplBase5clearEv.exit:       ; preds = %25, %30
+_ZN4llvm19SmallPtrSetImplBase5clearEv.exit:       ; preds = %26, %31
   ret void
 
 .lr.ph:                                           ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit, %_ZN4llvm19SmallPtrSetIteratorIPNS_12MachineInstrEEppEv.exit
   %.sroa.04.08 = phi ptr [ %.sroa.04.2, %_ZN4llvm19SmallPtrSetIteratorIPNS_12MachineInstrEEppEv.exit ], [ %.sroa.0.4.i8.i, %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit ]
-  %32 = load ptr, ptr %.sroa.04.08, align 8, !tbaa !27
-  %33 = load ptr, ptr %0, align 8, !tbaa !15
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(70) %32) #7
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
-  %.not3.i3.i = icmp eq ptr %36, %11
+  %33 = load ptr, ptr %.sroa.04.08, align 8, !tbaa !27
+  %34 = load ptr, ptr %0, align 8, !tbaa !15
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  %36 = load ptr, ptr %35, align 8
+  tail call void %36(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(70) %33) #7
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
+  %.not3.i3.i = icmp eq ptr %37, %11
   br i1 %.not3.i3.i, label %_ZN4llvm19SmallPtrSetIteratorIPNS_12MachineInstrEEppEv.exit, label %.lr.ph.i4.i
 
 .lr.ph.i4.i:                                      ; preds = %.lr.ph, %.critedge2.i6.i
-  %.sroa.04.1 = phi ptr [ %38, %.critedge2.i6.i ], [ %36, %.lr.ph ]
-  %37 = load ptr, ptr %.sroa.04.1, align 8, !tbaa !27
-  %switch.i5.i = icmp ugt ptr %37, inttoptr (i64 -3 to ptr)
+  %.sroa.04.1 = phi ptr [ %39, %.critedge2.i6.i ], [ %37, %.lr.ph ]
+  %38 = load ptr, ptr %.sroa.04.1, align 8, !tbaa !27
+  %switch.i5.i = icmp ugt ptr %38, inttoptr (i64 -3 to ptr)
   br i1 %switch.i5.i, label %.critedge2.i6.i, label %_ZN4llvm19SmallPtrSetIteratorIPNS_12MachineInstrEEppEv.exit
 
 .critedge2.i6.i:                                  ; preds = %.lr.ph.i4.i
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.04.1, i64 8
-  %.not.i7.i = icmp eq ptr %38, %11
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.04.1, i64 8
+  %.not.i7.i = icmp eq ptr %39, %11
   br i1 %.not.i7.i, label %_ZN4llvm19SmallPtrSetIteratorIPNS_12MachineInstrEEppEv.exit, label %.lr.ph.i4.i, !llvm.loop !31
 
 _ZN4llvm19SmallPtrSetIteratorIPNS_12MachineInstrEEppEv.exit: ; preds = %.lr.ph.i4.i, %.critedge2.i6.i, %.lr.ph
-  %.sroa.04.2 = phi ptr [ %36, %.lr.ph ], [ %.sroa.04.1, %.lr.ph.i4.i ], [ %38, %.critedge2.i6.i ]
-  %.not = icmp eq ptr %.sroa.04.2, %11
+  %.sroa.04.2 = phi ptr [ %37, %.lr.ph ], [ %.sroa.04.1, %.lr.ph.i4.i ], [ %39, %.critedge2.i6.i ]
+  %.not = icmp eq ptr %.sroa.04.2, %14
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 

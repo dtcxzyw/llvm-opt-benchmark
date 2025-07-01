@@ -104,7 +104,8 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h7752d11
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.33.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i64 0, ptr %.sroa.33.0..sroa_idx, align 8
-  %31 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %2, i64 %3
+  %.idx = mul nsw i64 %3, 24
+  %31 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %32 = invoke { i64, i64 } @_ZN14regex_automata4util10primitives9PatternID4iter17hcacf2e37c073f5e5E(i64 noundef %3)
           to label %33 unwind label %.loopexit.split-lp.loopexit.split-lp
 

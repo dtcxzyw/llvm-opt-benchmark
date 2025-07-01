@@ -999,7 +999,8 @@ define hidden void @"_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$cl
 13:                                               ; preds = %3
   %14 = extractvalue { ptr, i64 } %11, 0
   %15 = extractvalue { ptr, i64 } %11, 1
-  %16 = getelementptr inbounds { { { i64, i64 }, { ptr, i64 }, { ptr, i64 } }, i8, [7 x i8] }, ptr %14, i64 %15
+  %.idx = mul nsw i64 %15, 56
+  %16 = getelementptr inbounds i8, ptr %14, i64 %.idx
   %17 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %17)
   %18 = icmp eq i64 %15, 0
@@ -1021,7 +1022,8 @@ define hidden void @"_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$cl
 24:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee702f925ab486a5E.exit.thread"
   %25 = extractvalue { ptr, i64 } %23, 0
   %26 = extractvalue { ptr, i64 } %23, 1
-  %27 = getelementptr inbounds { { i64, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %25, i64 %26
+  %.idx154 = mul nsw i64 %26, 48
+  %27 = getelementptr inbounds i8, ptr %25, i64 %.idx154
   %28 = icmp ne ptr %25, null
   tail call void @llvm.assume(i1 %28)
   %29 = icmp eq i64 %26, 0
@@ -1057,7 +1059,8 @@ define hidden void @"_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$cl
 41:                                               ; preds = %36
   %42 = extractvalue { ptr, i64 } %39, 0
   %43 = extractvalue { ptr, i64 } %39, 1
-  %44 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %42, i64 %43
+  %.idx155 = shl nsw i64 %43, 5
+  %44 = getelementptr inbounds i8, ptr %42, i64 %.idx155
   %45 = icmp ne ptr %42, null
   tail call void @llvm.assume(i1 %45)
   %46 = icmp eq i64 %43, 0
@@ -1103,7 +1106,7 @@ define hidden void @"_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$cl
   %62 = load ptr, ptr %.sroa.0108.0152, align 8, !nonnull !12, !align !16, !noundef !12
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.0108.0152, i64 8
   %64 = load i64, ptr %63, align 8, !noundef !12
-  %.not156 = icmp eq i64 %50, 1
+  %.not158 = icmp eq i64 %50, 1
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 16
   switch i64 %64, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit100.thread" [
     i64 16, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit96"
@@ -1113,7 +1116,7 @@ define hidden void @"_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$cl
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit96": ; preds = %61
   %bcmp.i95 = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(16) %62, ptr noundef nonnull dereferenceable(16) @anon.5280992684f6cd27e9fffdcd074c562e.3, i64 16), !alias.scope !219
   %66 = icmp ne i32 %bcmp.i95, 0
-  %or.cond = or i1 %66, %.not156
+  %or.cond = or i1 %66, %.not158
   br i1 %or.cond, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit100.thread", label %67
 
 67:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit96"
@@ -1131,7 +1134,7 @@ define hidden void @"_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$cl
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit100": ; preds = %61
   %bcmp.i99 = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(6) %62, ptr noundef nonnull dereferenceable(6) @anon.5280992684f6cd27e9fffdcd074c562e.4, i64 6), !alias.scope !223
   %73 = icmp ne i32 %bcmp.i99, 0
-  %or.cond80 = or i1 %73, %.not156
+  %or.cond80 = or i1 %73, %.not158
   br i1 %or.cond80, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit100.thread", label %74
 
 74:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit100"

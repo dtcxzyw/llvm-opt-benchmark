@@ -11692,13 +11692,13 @@ _ZNSt12__shared_ptrIN2cv3dnn14dnn4_v202412235LayerELN9__gnu_cxx12_Lock_policyE2E
   br i1 %.not.i.i.i99, label %.body, label %.thread
 
 .thread:                                          ; preds = %191, %195, %196, %270
-  %.pn49155 = phi { ptr, i32 } [ %.pn49, %270 ], [ %192, %191 ], [ %138, %195 ], [ %.pn46133, %196 ]
-  %.sroa.0108.0119154 = phi ptr [ %.sroa.0108.0119, %270 ], [ %118, %191 ], [ %118, %195 ], [ %118, %196 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0108.0119154) #26
+  %.pn49154 = phi { ptr, i32 } [ %.pn49, %270 ], [ %192, %191 ], [ %138, %195 ], [ %.pn46133, %196 ]
+  %.sroa.0108.0119153 = phi ptr [ %.sroa.0108.0119, %270 ], [ %118, %191 ], [ %118, %195 ], [ %118, %196 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0108.0119153) #26
   br label %.body
 
 .body:                                            ; preds = %.thread, %270, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i
-  %.pn49.pn = phi { ptr, i32 } [ %120, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %.pn49, %270 ], [ %.pn49155, %.thread ]
+  %.pn49.pn = phi { ptr, i32 } [ %120, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %.pn49, %270 ], [ %.pn49154, %.thread ]
   call void @_ZNSt12__shared_ptrIN2cv3dnn14dnn4_v202412235LayerELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   br label %271
 
@@ -13788,7 +13788,8 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v202412239DictValue7releaseEv(
   br i1 %24, label %.loopexit.i.i, label %.preheader.preheader.i.i
 
 .preheader.preheader.i.i:                         ; preds = %21
-  %25 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %17, i64 %23
+  %.idx.i.i = shl nsw i64 %23, 5
+  %25 = getelementptr inbounds i8, ptr %17, i64 %.idx.i.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %.preheader.preheader.i.i

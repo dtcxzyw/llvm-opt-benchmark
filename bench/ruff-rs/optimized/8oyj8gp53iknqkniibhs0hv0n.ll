@@ -701,7 +701,8 @@ common.resume:                                    ; preds = %109, %44, %56
   %79 = load ptr, ptr %78, align 8, !alias.scope !62, !noalias !65, !nonnull !8, !align !48, !noundef !8
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i.i, i64 24
   %81 = load i64, ptr %80, align 8, !alias.scope !62, !noalias !65, !noundef !8
-  %82 = getelementptr inbounds nuw { { { { ptr, [1 x i64] } } }, { { i64 }, {} }, i64, i64 }, ptr %79, i64 %81
+  %.idx.i.i = mul nuw nsw i64 %81, 40
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx.i.i
   %83 = icmp eq i64 %81, 0
   br i1 %83, label %.loopexit, label %.lr.ph.i.i
 

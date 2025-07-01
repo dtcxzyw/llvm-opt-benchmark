@@ -8550,9 +8550,9 @@ if.then4:                                         ; preds = %if.then
   br i1 %cmp10, label %if.then11, label %_ZSt7advanceIPPcmEvRT_T0_.exit
 
 if.then11:                                        ; preds = %if.then4
-  %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i
-  %add.ptr = getelementptr inbounds ptr, ptr %1, i64 %idx.neg
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %add.ptr, i64 %sub.ptr.sub.i.i, i1 false)
+  %add.ptr.idx = sub i64 0, %sub.ptr.sub.i.i
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr nonnull align 8 %add.ptr, i64 %sub.ptr.sub.i.i, i1 false)
   %2 = load ptr, ptr %_M_finish, align 8
   %add.ptr22 = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr22, ptr %_M_finish, align 8

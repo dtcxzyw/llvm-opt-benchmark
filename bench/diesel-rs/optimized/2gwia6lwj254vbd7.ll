@@ -3262,7 +3262,8 @@ define hidden void @_ZN6diesel5mysql10connection4bind11OutputBinds24populate_dyn
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !4
-  %12 = getelementptr inbounds { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }, ptr %9, i64 %11
+  %.idx = mul nsw i64 %11, 40
+  %12 = getelementptr inbounds i8, ptr %9, i64 %.idx
   %13 = icmp eq i64 %11, 0
   br i1 %13, label %._crit_edge, label %.lr.ph
 
@@ -3535,7 +3536,8 @@ define hidden void @_ZN6diesel5mysql10connection4bind11OutputBinds21update_buffe
   %3 = load ptr, ptr %2, align 8, !alias.scope !604, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !604, !noundef !4
-  %6 = getelementptr inbounds { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }, ptr %3, i64 %5
+  %.idx = mul nsw i64 %5, 40
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 

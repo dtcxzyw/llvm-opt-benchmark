@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.llvm::MCValue" = type <{ ptr, ptr, i64, i32, [4 x i8] }>
-%"class.llvm::MCFixup" = type { ptr, i32, i32, %"class.llvm::SMLoc" }
-%"class.llvm::SMLoc" = type { ptr }
 %"struct.std::pair" = type { ptr, i64 }
 
 $_ZN4llvm12MCTargetExprD2Ev = comdat any
@@ -303,7 +301,8 @@ _ZN4llvm16dyn_cast_or_nullINS_14MCDataFragmentENS_10MCFragmentEEEDaPT0_.exit45: 
   %37 = getelementptr inbounds nuw i8, ptr %.030, i64 104
   %38 = load i32, ptr %37, align 8, !tbaa !61
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %36, i64 %39
+  %.idx = mul nuw nsw i64 %39, 24
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx
   %.not3961 = icmp eq i32 %38, 0
   br i1 %.not3961, label %_ZN4llvm16dyn_cast_or_nullINS_14MCDataFragmentENS_10MCFragmentEEEDaPT0_.exit.thread, label %.lr.ph
 

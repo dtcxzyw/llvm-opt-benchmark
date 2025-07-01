@@ -44852,7 +44852,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %84, align 8, !noalias !8793, !nonnull !4, !noundef !4
   %85 = getelementptr i8, ptr %62, i64 16
   %.val6.i.i.i.i = load i64, ptr %85, align 8, !noalias !8793, !noundef !4
-  %86 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %86 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %87 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %87, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h1f9b432e19e70871E.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -45465,7 +45466,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %87, align 8, !noalias !8930, !nonnull !4, !noundef !4
   %88 = getelementptr i8, ptr %63, i64 16
   %.val6.i.i.i.i = load i64, ptr %88, align 8, !noalias !8930, !noundef !4
-  %89 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %89 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %90 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %90, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17ha46925b0e1067647E.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -46077,7 +46079,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %87, align 8, !noalias !9062, !nonnull !4, !noundef !4
   %88 = getelementptr i8, ptr %63, i64 16
   %.val6.i.i.i.i = load i64, ptr %88, align 8, !noalias !9062, !noundef !4
-  %89 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %89 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %90 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %90, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h78165d9231e12d77E.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -46781,7 +46784,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %87, align 8, !noalias !9217, !nonnull !4, !noundef !4
   %88 = getelementptr i8, ptr %63, i64 16
   %.val6.i.i.i.i = load i64, ptr %88, align 8, !noalias !9217, !noundef !4
-  %89 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %89 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %90 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %90, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h94eb7e92897d2ea3E.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -47500,7 +47504,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %84, align 8, !noalias !9373, !nonnull !4, !noundef !4
   %85 = getelementptr i8, ptr %62, i64 16
   %.val6.i.i.i.i = load i64, ptr %85, align 8, !noalias !9373, !noundef !4
-  %86 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %86 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %87 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %87, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17hfa6dd17da2664ae5E.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -48106,7 +48111,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %84, align 8, !noalias !9510, !nonnull !4, !noundef !4
   %85 = getelementptr i8, ptr %62, i64 16
   %.val6.i.i.i.i = load i64, ptr %85, align 8, !noalias !9510, !noundef !4
-  %86 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %86 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %87 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %87, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h51207814ab5897a7E.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -48712,7 +48718,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %84, align 8, !noalias !9647, !nonnull !4, !noundef !4
   %85 = getelementptr i8, ptr %62, i64 16
   %.val6.i.i.i.i = load i64, ptr %85, align 8, !noalias !9647, !noundef !4
-  %86 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %86 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %87 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %87, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h36591aee00f54684E.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -49318,7 +49325,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %84, align 8, !noalias !9784, !nonnull !4, !noundef !4
   %85 = getelementptr i8, ptr %62, i64 16
   %.val6.i.i.i.i = load i64, ptr %85, align 8, !noalias !9784, !noundef !4
-  %86 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %86 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %87 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %87, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h32ef386857a50b81E.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -49931,7 +49939,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %87, align 8, !noalias !9921, !nonnull !4, !noundef !4
   %88 = getelementptr i8, ptr %63, i64 16
   %.val6.i.i.i.i = load i64, ptr %88, align 8, !noalias !9921, !noundef !4
-  %89 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %89 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %90 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %90, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h66e66b2a8f80dfcbE.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -50551,7 +50560,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %87, align 8, !noalias !10056, !nonnull !4, !noundef !4
   %88 = getelementptr i8, ptr %63, i64 16
   %.val6.i.i.i.i = load i64, ptr %88, align 8, !noalias !10056, !noundef !4
-  %89 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %89 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %90 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %90, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h32274314893a3524E.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -51171,7 +51181,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %87, align 8, !noalias !10191, !nonnull !4, !noundef !4
   %88 = getelementptr i8, ptr %63, i64 16
   %.val6.i.i.i.i = load i64, ptr %88, align 8, !noalias !10191, !noundef !4
-  %89 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %89 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %90 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %90, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h86a93f19266c6c93E.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -51791,7 +51802,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %87, align 8, !noalias !10326, !nonnull !4, !noundef !4
   %88 = getelementptr i8, ptr %63, i64 16
   %.val6.i.i.i.i = load i64, ptr %88, align 8, !noalias !10326, !noundef !4
-  %89 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %89 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %90 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %90, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h0ed3234a73a9cc3eE.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -52396,7 +52408,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %84, align 8, !noalias !10458, !nonnull !4, !noundef !4
   %85 = getelementptr i8, ptr %62, i64 16
   %.val6.i.i.i.i = load i64, ptr %85, align 8, !noalias !10458, !noundef !4
-  %86 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %86 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %87 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %87, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h7ce1d768587a27ebE.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -53002,7 +53015,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %84, align 8, !noalias !10595, !nonnull !4, !noundef !4
   %85 = getelementptr i8, ptr %62, i64 16
   %.val6.i.i.i.i = load i64, ptr %85, align 8, !noalias !10595, !noundef !4
-  %86 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %86 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %87 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %87, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17ha16e762f96fee636E.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -53534,7 +53548,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h91e38fc5fc15621fE.exit.i: ; preds = %.
   %55 = load ptr, ptr %54, align 8, !noalias !10701, !nonnull !4, !noundef !4
   %56 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %57 = load i64, ptr %56, align 8, !noalias !10701, !noundef !4
-  %58 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %55, i64 %57
+  %.idx.i = mul nsw i64 %57, 24
+  %58 = getelementptr inbounds i8, ptr %55, i64 %.idx.i
   %59 = icmp eq i64 %57, 0
   br i1 %59, label %.invoke30, label %.lr.ph.i.i
 
@@ -54040,7 +54055,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %87, align 8, !noalias !10829, !nonnull !4, !noundef !4
   %88 = getelementptr i8, ptr %63, i64 16
   %.val6.i.i.i.i = load i64, ptr %88, align 8, !noalias !10829, !noundef !4
-  %89 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %89 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %90 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %90, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h46d49f95dda0db28E.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -54653,7 +54669,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %84, align 8, !noalias !10964, !nonnull !4, !noundef !4
   %85 = getelementptr i8, ptr %62, i64 16
   %.val6.i.i.i.i = load i64, ptr %85, align 8, !noalias !10964, !noundef !4
-  %86 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %86 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %87 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %87, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h6c394541681d6d85E.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -55266,7 +55283,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %87, align 8, !noalias !11101, !nonnull !4, !noundef !4
   %88 = getelementptr i8, ptr %63, i64 16
   %.val6.i.i.i.i = load i64, ptr %88, align 8, !noalias !11101, !noundef !4
-  %89 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %89 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %90 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %90, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17hcda07c8ee34d40d2E.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -55879,7 +55897,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %87, align 8, !noalias !11236, !nonnull !4, !noundef !4
   %88 = getelementptr i8, ptr %63, i64 16
   %.val6.i.i.i.i = load i64, ptr %88, align 8, !noalias !11236, !noundef !4
-  %89 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %89 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %90 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %90, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h7ad5dc020a0ca3a9E.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
@@ -56499,7 +56518,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82579850ef948ea0E.exit.i.i.i.i: ; pre
   %.val.i.i.i.i = load ptr, ptr %87, align 8, !noalias !11371, !nonnull !4, !noundef !4
   %88 = getelementptr i8, ptr %63, i64 16
   %.val6.i.i.i.i = load i64, ptr %88, align 8, !noalias !11371, !noundef !4
-  %89 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %.val.i.i.i.i, i64 %.val6.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.val6.i.i.i.i, 24
+  %89 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i.i
   %90 = icmp eq i64 %.val6.i.i.i.i, 0
   br i1 %90, label %"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17hc30d5f1d1971e995E.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i
 

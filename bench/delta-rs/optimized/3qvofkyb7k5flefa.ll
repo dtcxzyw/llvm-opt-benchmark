@@ -24993,7 +24993,8 @@ select.unfold.i.i.i.i:                            ; preds = %48, %59
   %.val.i.i.i.i = load ptr, ptr %61, align 8, !noalias !7014, !nonnull !5, !noundef !5
   %62 = getelementptr i8, ptr %53, i64 16
   %.val5.i.i.i.i = load i64, ptr %62, align 8, !noalias !7014, !noundef !5
-  %63 = getelementptr inbounds { i128, [32 x i64] }, ptr %.val.i.i.i.i, i64 %.val5.i.i.i.i
+  %.idx = mul nsw i64 %.val5.i.i.i.i, 272
+  %63 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx
   %64 = icmp eq i64 %.val5.i.i.i.i, 0
   br i1 %64, label %select.unfold.i.i.i.i, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedc7ea2d51f0df55E.exit.i.i"
 
@@ -40245,7 +40246,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %.val1 = load i64, ptr %7, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !11304
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !11310
-  %8 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.val, i64 %.val1
+  %.idx.i.i = mul nsw i64 %.val1, 24
+  %8 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i.i
   %9 = icmp eq i64 %.val1, 0
   br i1 %9, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hd168a317f3d531fdE.exit", label %.lr.ph.i.i.i
 
@@ -40774,7 +40776,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %.val1 = load i64, ptr %7, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !11467
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !11473
-  %8 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.val, i64 %.val1
+  %.idx.i.i = mul nsw i64 %.val1, 24
+  %8 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i.i
   %9 = icmp eq i64 %.val1, 0
   br i1 %9, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h65cb61543653954aE.exit", label %.lr.ph.i.i.i
 
@@ -41190,7 +41193,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %9 = load i64, ptr %8, align 8, !alias.scope !11599, !noalias !11602, !noundef !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !11604
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !11608
-  %10 = getelementptr inbounds { i128, [32 x i64] }, ptr %7, i64 %9
+  %.idx.i.i = mul nsw i64 %9, 272
+  %10 = getelementptr inbounds i8, ptr %7, i64 %.idx.i.i
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h849c542e444ccd19E.exit", label %.lr.ph.i.i.i
 
@@ -58456,7 +58460,8 @@ define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Optio
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17h7f72ac184cc56108E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(16) %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 24
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -58482,7 +58487,8 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h7f72ac184cc56108E(ptr noali
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 136
   %16 = load ptr, ptr %15, align 8, !invariant.load !5, !noalias !15359, !nonnull !5
   tail call void %16(ptr noundef nonnull align 1 %13, i64 noundef %12), !noalias !15359
-  %17 = getelementptr inbounds { i128, [32 x i64] }, ptr %10, i64 %12
+  %.idx.i.i = mul nsw i64 %12, 272
+  %17 = getelementptr inbounds i8, ptr %10, i64 %.idx.i.i
   %18 = icmp eq i64 %12, 0
   br i1 %18, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hd0418a5ab90a6881E.llvm.6826332220492402883.exit", label %.lr.ph.i.i
 
@@ -101647,7 +101653,8 @@ define hidden void @"_ZN5serde2de5impls77_$LT$impl$u20$serde..de..Deserialize$u2
 define hidden void @"_ZN61_$LT$$u5b$V$u5d$$u20$as$u20$alloc..slice..Concat$LT$T$GT$$GT$6concat17h9cae6ae2d064d344E.llvm.6826332220492402883"(ptr noalias noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { { { ptr, i64 }, ptr } }, {} }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
-  %6 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %7 = icmp eq i64 %2, 0
   br i1 %7, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h61d203a56055dfe5E.exit", label %.preheader
 
@@ -108851,7 +108858,8 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as
   %8 = load i64, ptr %7, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !22977
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !22981
-  %9 = getelementptr inbounds { i128, [32 x i64] }, ptr %6, i64 %8
+  %.idx.i = mul nsw i64 %8, 272
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h3572a9be0a84df27E.exit", label %.lr.ph.i.i
 
@@ -109439,7 +109447,8 @@ define hidden void @"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..has
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = load ptr, ptr %10, align 8, !invariant.load !5, !noalias !23120, !nonnull !5
   tail call void %11(ptr noundef nonnull align 1 %7, i64 noundef %6), !noalias !23120
-  %12 = getelementptr inbounds { i128, [32 x i64] }, ptr %4, i64 %6
+  %.idx.i = mul nsw i64 %6, 272
+  %12 = getelementptr inbounds i8, ptr %4, i64 %.idx.i
   %13 = icmp eq i64 %6, 0
   br i1 %13, label %_ZN4core4hash4Hash10hash_slice17hf1b90d556e495bbfE.exit, label %.lr.ph.i
 

@@ -1512,7 +1512,8 @@ common.resume:                                    ; preds = %28, %62
   unreachable
 
 "_ZN4core3ptr65drop_in_place$LT$$u5b$raft_proto..protos..eraftpb..Entry$u5d$$GT$17heec60092ff53537aE.exit12": ; preds = %57, %"_ZN4core3ptr65drop_in_place$LT$$u5b$raft_proto..protos..eraftpb..Entry$u5d$$GT$17heec60092ff53537aE.exit", %4
-  %71 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 104
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hf48e264dd71889a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef nonnull %71, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.405696f00169ec64be3b53d97337bf05.59)
   br label %72
 

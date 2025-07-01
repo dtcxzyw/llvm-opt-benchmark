@@ -293,7 +293,8 @@ define internal fastcc noundef i32 @_ZN11polars_pipe9executors5sinks8group_by9pr
   call fastcc void @"_ZN9hashbrown9raw_entry38RawVacantEntryMut$LT$K$C$V$C$S$C$A$GT$6insert17h68773ec0bbf91d73E"(ptr noalias noundef align 8 dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 1 %60, ptr noalias noundef align 16 captures(none) dereferenceable(48) %8, i32 noundef %64)
   %67 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %.8.val, i64 %.16.val
+  %.idx = shl nuw nsw i64 %.16.val, 7
+  %68 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %69 = icmp eq i64 %.16.val, 0
   br i1 %69, label %.loopexit, label %.lr.ph
 
@@ -478,7 +479,8 @@ define internal fastcc noundef i32 @_ZN11polars_pipe9executors5sinks8group_by9pr
   call fastcc void @"_ZN9hashbrown9raw_entry38RawVacantEntryMut$LT$K$C$V$C$S$C$A$GT$6insert17h4115a3bc5e7a7899E"(ptr noalias noundef align 8 dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 1 %60, ptr noalias noundef align 8 captures(none) dereferenceable(24) %8, i32 noundef %64)
   %67 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %.8.val, i64 %.16.val
+  %.idx = shl nuw nsw i64 %.16.val, 7
+  %68 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %69 = icmp eq i64 %.16.val, 0
   br i1 %69, label %.loopexit, label %.lr.ph
 
@@ -663,7 +665,8 @@ define internal fastcc noundef i32 @_ZN11polars_pipe9executors5sinks8group_by9pr
   call fastcc void @"_ZN9hashbrown9raw_entry38RawVacantEntryMut$LT$K$C$V$C$S$C$A$GT$6insert17hba5822a4fff501bcE"(ptr noalias noundef align 8 dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 1 %60, ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, i32 noundef %64)
   %67 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %.8.val, i64 %.16.val
+  %.idx = shl nuw nsw i64 %.16.val, 7
+  %68 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %69 = icmp eq i64 %.16.val, 0
   br i1 %69, label %.loopexit, label %.lr.ph
 
@@ -848,7 +851,8 @@ define internal fastcc noundef i32 @_ZN11polars_pipe9executors5sinks8group_by9pr
   call fastcc void @"_ZN9hashbrown9raw_entry38RawVacantEntryMut$LT$K$C$V$C$S$C$A$GT$6insert17hd7b9756e6ea2729bE"(ptr noalias noundef align 8 dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 1 %60, ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, i32 noundef %64)
   %67 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %.8.val, i64 %.16.val
+  %.idx = shl nuw nsw i64 %.16.val, 7
+  %68 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %69 = icmp eq i64 %.16.val, 0
   br i1 %69, label %.loopexit, label %.lr.ph
 
@@ -1033,7 +1037,8 @@ define internal fastcc noundef i32 @_ZN11polars_pipe9executors5sinks8group_by9pr
   call fastcc void @"_ZN9hashbrown9raw_entry38RawVacantEntryMut$LT$K$C$V$C$S$C$A$GT$6insert17h1fcfff3cb05eee07E"(ptr noalias noundef align 8 dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 1 %60, ptr noalias noundef align 8 captures(none) dereferenceable(24) %8, i32 noundef %64)
   %67 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %.8.val, i64 %.16.val
+  %.idx = shl nuw nsw i64 %.16.val, 7
+  %68 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %69 = icmp eq i64 %.16.val, 0
   br i1 %69, label %.loopexit, label %.lr.ph
 
@@ -1218,7 +1223,8 @@ define internal fastcc noundef i32 @_ZN11polars_pipe9executors5sinks8group_by9pr
   call fastcc void @"_ZN9hashbrown9raw_entry38RawVacantEntryMut$LT$K$C$V$C$S$C$A$GT$6insert17h4deff8e455f7b8f4E"(ptr noalias noundef align 8 dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 1 %60, ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, i32 noundef %64)
   %67 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %.8.val, i64 %.16.val
+  %.idx = shl nuw nsw i64 %.16.val, 7
+  %68 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %69 = icmp eq i64 %.16.val, 0
   br i1 %69, label %.loopexit, label %.lr.ph
 
@@ -1403,7 +1409,8 @@ define internal fastcc noundef i32 @_ZN11polars_pipe9executors5sinks8group_by9pr
   call fastcc void @"_ZN9hashbrown9raw_entry38RawVacantEntryMut$LT$K$C$V$C$S$C$A$GT$6insert17he12bbd058732bc33E"(ptr noalias noundef align 8 dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 1 %60, ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, i32 noundef %64)
   %67 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %.8.val, i64 %.16.val
+  %.idx = shl nuw nsw i64 %.16.val, 7
+  %68 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %69 = icmp eq i64 %.16.val, 0
   br i1 %69, label %.loopexit, label %.lr.ph
 
@@ -1588,7 +1595,8 @@ define internal fastcc noundef i32 @_ZN11polars_pipe9executors5sinks8group_by9pr
   call fastcc void @"_ZN9hashbrown9raw_entry38RawVacantEntryMut$LT$K$C$V$C$S$C$A$GT$6insert17hae49c4075ef71235E"(ptr noalias noundef align 8 dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 1 %60, ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, i32 noundef %64)
   %67 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %.8.val, i64 %.16.val
+  %.idx = shl nuw nsw i64 %.16.val, 7
+  %68 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %69 = icmp eq i64 %.16.val, 0
   br i1 %69, label %.loopexit, label %.lr.ph
 
@@ -1773,7 +1781,8 @@ define internal fastcc noundef i32 @_ZN11polars_pipe9executors5sinks8group_by9pr
   call fastcc void @"_ZN9hashbrown9raw_entry38RawVacantEntryMut$LT$K$C$V$C$S$C$A$GT$6insert17h6d7f591d7deb3786E"(ptr noalias noundef align 8 dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 1 %60, ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, i32 noundef %64)
   %67 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %.8.val, i64 %.16.val
+  %.idx = shl nuw nsw i64 %.16.val, 7
+  %68 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %69 = icmp eq i64 %.16.val, 0
   br i1 %69, label %.loopexit, label %.lr.ph
 
@@ -1933,7 +1942,8 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by9primitiv
   %53 = load ptr, ptr %52, align 8, !nonnull !3, !noundef !3
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %55 = load i64, ptr %54, align 8, !noundef !3
-  %56 = getelementptr inbounds nuw { { { ptr, ptr } }, {}, {} }, ptr %53, i64 %55
+  %.idx = shl nuw nsw i64 %55, 4
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   %57 = icmp eq i64 %55, 0
   br i1 %57, label %._crit_edge, label %.lr.ph
 
@@ -2259,7 +2269,8 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by9primitiv
   %53 = load ptr, ptr %52, align 8, !nonnull !3, !noundef !3
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %55 = load i64, ptr %54, align 8, !noundef !3
-  %56 = getelementptr inbounds nuw { { { ptr, ptr } }, {}, {} }, ptr %53, i64 %55
+  %.idx = shl nuw nsw i64 %55, 4
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   %57 = icmp eq i64 %55, 0
   br i1 %57, label %._crit_edge, label %.lr.ph
 
@@ -2585,7 +2596,8 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by9primitiv
   %53 = load ptr, ptr %52, align 8, !nonnull !3, !noundef !3
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %55 = load i64, ptr %54, align 8, !noundef !3
-  %56 = getelementptr inbounds nuw { { { ptr, ptr } }, {}, {} }, ptr %53, i64 %55
+  %.idx = shl nuw nsw i64 %55, 4
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   %57 = icmp eq i64 %55, 0
   br i1 %57, label %._crit_edge, label %.lr.ph
 
@@ -2911,7 +2923,8 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by9primitiv
   %53 = load ptr, ptr %52, align 8, !nonnull !3, !noundef !3
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %55 = load i64, ptr %54, align 8, !noundef !3
-  %56 = getelementptr inbounds nuw { { { ptr, ptr } }, {}, {} }, ptr %53, i64 %55
+  %.idx = shl nuw nsw i64 %55, 4
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   %57 = icmp eq i64 %55, 0
   br i1 %57, label %._crit_edge, label %.lr.ph
 
@@ -3237,7 +3250,8 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by9primitiv
   %53 = load ptr, ptr %52, align 8, !nonnull !3, !noundef !3
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %55 = load i64, ptr %54, align 8, !noundef !3
-  %56 = getelementptr inbounds nuw { { { ptr, ptr } }, {}, {} }, ptr %53, i64 %55
+  %.idx = shl nuw nsw i64 %55, 4
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   %57 = icmp eq i64 %55, 0
   br i1 %57, label %._crit_edge, label %.lr.ph
 
@@ -3563,7 +3577,8 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by9primitiv
   %53 = load ptr, ptr %52, align 8, !nonnull !3, !noundef !3
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %55 = load i64, ptr %54, align 8, !noundef !3
-  %56 = getelementptr inbounds nuw { { { ptr, ptr } }, {}, {} }, ptr %53, i64 %55
+  %.idx = shl nuw nsw i64 %55, 4
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   %57 = icmp eq i64 %55, 0
   br i1 %57, label %._crit_edge, label %.lr.ph
 
@@ -3889,7 +3904,8 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by9primitiv
   %53 = load ptr, ptr %52, align 8, !nonnull !3, !noundef !3
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %55 = load i64, ptr %54, align 8, !noundef !3
-  %56 = getelementptr inbounds nuw { { { ptr, ptr } }, {}, {} }, ptr %53, i64 %55
+  %.idx = shl nuw nsw i64 %55, 4
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   %57 = icmp eq i64 %55, 0
   br i1 %57, label %._crit_edge, label %.lr.ph
 
@@ -4215,7 +4231,8 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by9primitiv
   %53 = load ptr, ptr %52, align 8, !nonnull !3, !noundef !3
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %55 = load i64, ptr %54, align 8, !noundef !3
-  %56 = getelementptr inbounds nuw { { { ptr, ptr } }, {}, {} }, ptr %53, i64 %55
+  %.idx = shl nuw nsw i64 %55, 4
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   %57 = icmp eq i64 %55, 0
   br i1 %57, label %._crit_edge, label %.lr.ph
 
@@ -4541,7 +4558,8 @@ define internal fastcc void @"_ZN11polars_pipe9executors5sinks8group_by9primitiv
   %53 = load ptr, ptr %52, align 8, !nonnull !3, !noundef !3
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %55 = load i64, ptr %54, align 8, !noundef !3
-  %56 = getelementptr inbounds nuw { { { ptr, ptr } }, {}, {} }, ptr %53, i64 %55
+  %.idx = shl nuw nsw i64 %55, 4
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   %57 = icmp eq i64 %55, 0
   br i1 %57, label %._crit_edge, label %.lr.ph
 
@@ -9426,7 +9444,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %256 = load ptr, ptr %255, align 8, !alias.scope !1142, !noalias !1149, !nonnull !3, !noundef !3
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %258 = load i64, ptr %257, align 8, !alias.scope !1142, !noalias !1149, !noundef !3
-  %259 = getelementptr inbounds nuw [2 x i32], ptr %256, i64 %258
+  %.idx.i = shl nuw nsw i64 %258, 3
+  %259 = getelementptr inbounds nuw i8, ptr %256, i64 %.idx.i
   %260 = icmp eq i64 %258, 0
   br i1 %260, label %.thread52._crit_edge.i, label %.lr.ph.i
 
@@ -10627,7 +10646,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %256 = load ptr, ptr %255, align 8, !alias.scope !1241, !noalias !1248, !nonnull !3, !noundef !3
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %258 = load i64, ptr %257, align 8, !alias.scope !1241, !noalias !1248, !noundef !3
-  %259 = getelementptr inbounds nuw [2 x i32], ptr %256, i64 %258
+  %.idx.i = shl nuw nsw i64 %258, 3
+  %259 = getelementptr inbounds nuw i8, ptr %256, i64 %.idx.i
   %260 = icmp eq i64 %258, 0
   br i1 %260, label %.thread50._crit_edge.i, label %.lr.ph.i
 
@@ -11829,7 +11849,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %256 = load ptr, ptr %255, align 8, !alias.scope !1340, !noalias !1347, !nonnull !3, !noundef !3
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %258 = load i64, ptr %257, align 8, !alias.scope !1340, !noalias !1347, !noundef !3
-  %259 = getelementptr inbounds nuw [2 x i32], ptr %256, i64 %258
+  %.idx.i = shl nuw nsw i64 %258, 3
+  %259 = getelementptr inbounds nuw i8, ptr %256, i64 %.idx.i
   %260 = icmp eq i64 %258, 0
   br i1 %260, label %.thread50._crit_edge.i, label %.lr.ph.i
 
@@ -13031,7 +13052,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %256 = load ptr, ptr %255, align 8, !alias.scope !1439, !noalias !1446, !nonnull !3, !noundef !3
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %258 = load i64, ptr %257, align 8, !alias.scope !1439, !noalias !1446, !noundef !3
-  %259 = getelementptr inbounds nuw [2 x i32], ptr %256, i64 %258
+  %.idx.i = shl nuw nsw i64 %258, 3
+  %259 = getelementptr inbounds nuw i8, ptr %256, i64 %.idx.i
   %260 = icmp eq i64 %258, 0
   br i1 %260, label %.thread50._crit_edge.i, label %.lr.ph.i
 
@@ -14233,7 +14255,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %256 = load ptr, ptr %255, align 8, !alias.scope !1538, !noalias !1545, !nonnull !3, !noundef !3
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %258 = load i64, ptr %257, align 8, !alias.scope !1538, !noalias !1545, !noundef !3
-  %259 = getelementptr inbounds nuw [2 x i32], ptr %256, i64 %258
+  %.idx.i = shl nuw nsw i64 %258, 3
+  %259 = getelementptr inbounds nuw i8, ptr %256, i64 %.idx.i
   %260 = icmp eq i64 %258, 0
   br i1 %260, label %.thread50._crit_edge.i, label %.lr.ph.i
 
@@ -15435,7 +15458,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %256 = load ptr, ptr %255, align 8, !alias.scope !1637, !noalias !1644, !nonnull !3, !noundef !3
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %258 = load i64, ptr %257, align 8, !alias.scope !1637, !noalias !1644, !noundef !3
-  %259 = getelementptr inbounds nuw [2 x i32], ptr %256, i64 %258
+  %.idx.i = shl nuw nsw i64 %258, 3
+  %259 = getelementptr inbounds nuw i8, ptr %256, i64 %.idx.i
   %260 = icmp eq i64 %258, 0
   br i1 %260, label %.thread52._crit_edge.i, label %.lr.ph.i
 
@@ -16636,7 +16660,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %256 = load ptr, ptr %255, align 8, !alias.scope !1736, !noalias !1743, !nonnull !3, !noundef !3
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %258 = load i64, ptr %257, align 8, !alias.scope !1736, !noalias !1743, !noundef !3
-  %259 = getelementptr inbounds nuw [2 x i32], ptr %256, i64 %258
+  %.idx.i = shl nuw nsw i64 %258, 3
+  %259 = getelementptr inbounds nuw i8, ptr %256, i64 %.idx.i
   %260 = icmp eq i64 %258, 0
   br i1 %260, label %.thread50._crit_edge.i, label %.lr.ph.i
 
@@ -17838,7 +17863,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %256 = load ptr, ptr %255, align 8, !alias.scope !1835, !noalias !1842, !nonnull !3, !noundef !3
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %258 = load i64, ptr %257, align 8, !alias.scope !1835, !noalias !1842, !noundef !3
-  %259 = getelementptr inbounds nuw [2 x i32], ptr %256, i64 %258
+  %.idx.i = shl nuw nsw i64 %258, 3
+  %259 = getelementptr inbounds nuw i8, ptr %256, i64 %.idx.i
   %260 = icmp eq i64 %258, 0
   br i1 %260, label %.thread50._crit_edge.i, label %.lr.ph.i
 
@@ -19040,7 +19066,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   %256 = load ptr, ptr %255, align 8, !alias.scope !1934, !noalias !1941, !nonnull !3, !noundef !3
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %258 = load i64, ptr %257, align 8, !alias.scope !1934, !noalias !1941, !noundef !3
-  %259 = getelementptr inbounds nuw [2 x i32], ptr %256, i64 %258
+  %.idx.i = shl nuw nsw i64 %258, 3
+  %259 = getelementptr inbounds nuw i8, ptr %256, i64 %.idx.i
   %260 = icmp eq i64 %258, 0
   br i1 %260, label %.thread50._crit_edge.i, label %.lr.ph.i
 
@@ -21421,7 +21448,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !2171
   %162 = load ptr, ptr %38, align 8, !noalias !2142, !nonnull !3, !noundef !3
   %163 = load i64, ptr %39, align 8, !noalias !2142, !noundef !3
-  %164 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %162, i64 %163
+  %.idx.i.i.i = shl nuw nsw i64 %163, 7
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 %.idx.i.i.i
   %165 = icmp eq i64 %163, 0
   br i1 %165, label %.loopexit45.i.i.i, label %.lr.ph.preheader.i.i.i
 
@@ -21994,7 +22022,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !2250
   %162 = load ptr, ptr %38, align 8, !noalias !2221, !nonnull !3, !noundef !3
   %163 = load i64, ptr %39, align 8, !noalias !2221, !noundef !3
-  %164 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %162, i64 %163
+  %.idx.i.i.i = shl nuw nsw i64 %163, 7
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 %.idx.i.i.i
   %165 = icmp eq i64 %163, 0
   br i1 %165, label %.loopexit45.i.i.i, label %.lr.ph.preheader.i.i.i
 
@@ -22567,7 +22596,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !2328
   %162 = load ptr, ptr %38, align 8, !noalias !2299, !nonnull !3, !noundef !3
   %163 = load i64, ptr %39, align 8, !noalias !2299, !noundef !3
-  %164 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %162, i64 %163
+  %.idx.i.i.i = shl nuw nsw i64 %163, 7
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 %.idx.i.i.i
   %165 = icmp eq i64 %163, 0
   br i1 %165, label %.loopexit45.i.i.i, label %.lr.ph.preheader.i.i.i
 
@@ -23140,7 +23170,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !2406
   %162 = load ptr, ptr %38, align 8, !noalias !2377, !nonnull !3, !noundef !3
   %163 = load i64, ptr %39, align 8, !noalias !2377, !noundef !3
-  %164 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %162, i64 %163
+  %.idx.i.i.i = shl nuw nsw i64 %163, 7
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 %.idx.i.i.i
   %165 = icmp eq i64 %163, 0
   br i1 %165, label %.loopexit45.i.i.i, label %.lr.ph.preheader.i.i.i
 
@@ -23713,7 +23744,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2484
   %162 = load ptr, ptr %38, align 8, !noalias !2455, !nonnull !3, !noundef !3
   %163 = load i64, ptr %39, align 8, !noalias !2455, !noundef !3
-  %164 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %162, i64 %163
+  %.idx.i.i.i = shl nuw nsw i64 %163, 7
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 %.idx.i.i.i
   %165 = icmp eq i64 %163, 0
   br i1 %165, label %.loopexit45.i.i.i, label %.lr.ph.preheader.i.i.i
 
@@ -24286,7 +24318,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !2562
   %162 = load ptr, ptr %38, align 8, !noalias !2533, !nonnull !3, !noundef !3
   %163 = load i64, ptr %39, align 8, !noalias !2533, !noundef !3
-  %164 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %162, i64 %163
+  %.idx.i.i.i = shl nuw nsw i64 %163, 7
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 %.idx.i.i.i
   %165 = icmp eq i64 %163, 0
   br i1 %165, label %.loopexit45.i.i.i, label %.lr.ph.preheader.i.i.i
 
@@ -24859,7 +24892,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !2640
   %162 = load ptr, ptr %38, align 8, !noalias !2611, !nonnull !3, !noundef !3
   %163 = load i64, ptr %39, align 8, !noalias !2611, !noundef !3
-  %164 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %162, i64 %163
+  %.idx.i.i.i = shl nuw nsw i64 %163, 7
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 %.idx.i.i.i
   %165 = icmp eq i64 %163, 0
   br i1 %165, label %.loopexit45.i.i.i, label %.lr.ph.preheader.i.i.i
 
@@ -25432,7 +25466,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2718
   %162 = load ptr, ptr %38, align 8, !noalias !2689, !nonnull !3, !noundef !3
   %163 = load i64, ptr %39, align 8, !noalias !2689, !noundef !3
-  %164 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %162, i64 %163
+  %.idx.i.i.i = shl nuw nsw i64 %163, 7
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 %.idx.i.i.i
   %165 = icmp eq i64 %163, 0
   br i1 %165, label %.loopexit45.i.i.i, label %.lr.ph.preheader.i.i.i
 
@@ -26005,7 +26040,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !2796
   %162 = load ptr, ptr %38, align 8, !noalias !2767, !nonnull !3, !noundef !3
   %163 = load i64, ptr %39, align 8, !noalias !2767, !noundef !3
-  %164 = getelementptr inbounds nuw { i32, [31 x i32] }, ptr %162, i64 %163
+  %.idx.i.i.i = shl nuw nsw i64 %163, 7
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 %.idx.i.i.i
   %165 = icmp eq i64 %163, 0
   br i1 %165, label %.loopexit45.i.i.i, label %.lr.ph.preheader.i.i.i
 

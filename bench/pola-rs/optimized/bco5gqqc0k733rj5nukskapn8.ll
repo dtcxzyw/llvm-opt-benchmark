@@ -219,7 +219,8 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %5 = load i64, ptr %.val, align 8, !noalias !22, !noundef !3
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds nuw { i32, i32 }, ptr %1, i64 %2
+  %.idx.i = shl nuw nsw i64 %2, 3
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
   %8 = icmp eq i64 %2, 0
   br i1 %8, label %"_ZN12polars_utils4sort12perfect_sort28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h228ddbd53d9475bcE.exit", label %.lr.ph.i
 

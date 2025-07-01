@@ -937,7 +937,8 @@ _ZN4ncnn3MatD2Ev.exit117:                         ; preds = %.preheader.lr.ph, %
   %121 = load i32, ptr %32, align 8, !tbaa !41
   %122 = mul nsw i32 %121, %74
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds float, ptr %120, i64 %123
+  %.idx = shl nsw i64 %123, 2
+  %124 = getelementptr inbounds i8, ptr %120, i64 %.idx
   %125 = icmp sgt i32 %122, 0
   br i1 %125, label %.lr.ph, label %._crit_edge
 

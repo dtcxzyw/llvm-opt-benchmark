@@ -272,7 +272,8 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN91_$LT$core..s
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #4 {
-  %4 = getelementptr inbounds double, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 3
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 

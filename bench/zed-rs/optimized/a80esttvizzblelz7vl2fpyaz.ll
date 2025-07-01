@@ -139658,7 +139658,8 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %.sroa.4127.0.copyload.i = load ptr, ptr %.sroa.4127.0..sroa_idx.i, align 8, !alias.scope !29319, !noalias !29324, !nonnull !4, !noundef !4
   %.sroa.5128.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %54, i64 16
   %.sroa.5128.0.copyload.i = load i64, ptr %.sroa.5128.0..sroa_idx.i, align 8, !alias.scope !29319, !noalias !29324
-  %88 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i64, i8, [7 x i8] }, ptr %.sroa.4127.0.copyload.i, i64 %.sroa.5128.0.copyload.i
+  %.idx.i = shl nsw i64 %.sroa.5128.0.copyload.i, 6
+  %88 = getelementptr inbounds i8, ptr %.sroa.4127.0.copyload.i, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45), !noalias !29326
   store ptr %.sroa.4127.0.copyload.i, ptr %45, align 8, !noalias !29326
   %.sroa.4.0..sroa_idx123.i = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -139997,11 +139998,11 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   invoke void @"_ZN70_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..clone..Clone$GT$5clone17h13db8591b4f63891E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %208)
           to label %216 unwind label %214, !noalias !29327
 
-209:                                              ; preds = %._crit_edge228.i, %214
-  %210 = phi ptr [ %.pre229.i, %._crit_edge228.i ], [ %206, %214 ]
-  %.sroa.016.6.i = phi i1 [ %.sroa.016.7238.i, %._crit_edge228.i ], [ true, %214 ]
-  %.sroa.017.7.i = phi i1 [ false, %._crit_edge228.i ], [ true, %214 ]
-  %.pn62.pn.pn.i = phi { ptr, i32 } [ %.pn62.pn239.i, %._crit_edge228.i ], [ %215, %214 ]
+209:                                              ; preds = %._crit_edge229.i, %214
+  %210 = phi ptr [ %.pre230.i, %._crit_edge229.i ], [ %206, %214 ]
+  %.sroa.016.6.i = phi i1 [ %.sroa.016.7239.i, %._crit_edge229.i ], [ true, %214 ]
+  %.sroa.017.7.i = phi i1 [ false, %._crit_edge229.i ], [ true, %214 ]
+  %.pn62.pn.pn.i = phi { ptr, i32 } [ %.pn62.pn240.i, %._crit_edge229.i ], [ %215, %214 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !29382)
   call void @llvm.experimental.noalias.scope.decl(metadata !29385)
   %211 = atomicrmw sub ptr %210, i64 1 release, align 8, !noalias !29388
@@ -140032,7 +140033,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29), !noalias !29326
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !29326
   invoke void @"_ZN70_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..clone..Clone$GT$5clone17h13db8591b4f63891E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %172)
-          to label %228 unwind label %.thread235.i, !noalias !29327
+          to label %228 unwind label %.thread236.i, !noalias !29327
 
 218:                                              ; preds = %380
   %.pre.i = load ptr, ptr %30, align 8, !alias.scope !29389, !noalias !29326
@@ -140050,7 +140051,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h950c21eb970a56f6E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
           to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$remote..ssh_session..SshRemoteClient$GT$$GT$$GT$17h7aecfd7dd51daa27E.exit.i" unwind label %367, !noalias !29327
 
-.thread235.i:                                     ; preds = %216
+.thread236.i:                                     ; preds = %216
   %224 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$remote..ssh_session..SshRemoteClient$GT$$GT$$GT$17h7aecfd7dd51daa27E.exit.i"
@@ -140400,7 +140401,8 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %.sroa.0139.0.copyload.i = load i64, ptr %46, align 8, !noalias !29326
   %.sroa.4140.0.copyload.i = load ptr, ptr %86, align 8, !noalias !29326, !nonnull !4, !noundef !4
   %.sroa.5141.0.copyload.i = load i64, ptr %87, align 8, !noalias !29326
-  %335 = getelementptr inbounds { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, ptr %.sroa.4140.0.copyload.i, i64 %.sroa.5141.0.copyload.i
+  %.idx228.i = shl nsw i64 %.sroa.5141.0.copyload.i, 5
+  %335 = getelementptr inbounds i8, ptr %.sroa.4140.0.copyload.i, i64 %.idx228.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !29326
   store ptr %.sroa.4140.0.copyload.i, ptr %15, align 8, !noalias !29326
   %.sroa.4136.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -140551,9 +140553,9 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   invoke void @"_ZN4core3ptr100drop_in_place$LT$gpui..app..entity_map..Model$LT$project..project_settings..SettingsObserver$GT$$GT$17h0ead830e0ea9d0d5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #32
           to label %218 unwind label %367, !noalias !29327
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$remote..ssh_session..SshRemoteClient$GT$$GT$$GT$17h7aecfd7dd51daa27E.exit.i": ; preds = %.thread235.i, %223, %220, %218
-  %.pn62.pn239.i = phi { ptr, i32 } [ %224, %.thread235.i ], [ %.pn62.i, %220 ], [ %.pn62.i, %218 ], [ %.pn62.i, %223 ]
-  %.sroa.016.7238.i = phi i1 [ true, %.thread235.i ], [ %.sroa.016.8.i, %220 ], [ %.sroa.016.8.i, %218 ], [ %.sroa.016.8.i, %223 ]
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$remote..ssh_session..SshRemoteClient$GT$$GT$$GT$17h7aecfd7dd51daa27E.exit.i": ; preds = %.thread236.i, %223, %220, %218
+  %.pn62.pn240.i = phi { ptr, i32 } [ %224, %.thread236.i ], [ %.pn62.i, %220 ], [ %.pn62.i, %218 ], [ %.pn62.i, %223 ]
+  %.sroa.016.7239.i = phi i1 [ true, %.thread236.i ], [ %.sroa.016.8.i, %220 ], [ %.sroa.016.8.i, %218 ], [ %.sroa.016.8.i, %223 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !29454)
   call void @llvm.experimental.noalias.scope.decl(metadata !29457)
   %381 = load ptr, ptr %31, align 8, !alias.scope !29460, !noalias !29326, !nonnull !4, !noundef !4
@@ -140572,10 +140574,10 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
 
 385:                                              ; preds = %"_ZN4core3ptr59drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$fs..Fs$GT$$GT$17h36fc7f64d6220dcbE.llvm.12982194851600844284.exit.i"
   invoke void @"_ZN4core3ptr80drop_in_place$LT$gpui..app..entity_map..Model$LT$client..user..UserStore$GT$$GT$17hcffc41f791372839E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %33) #32
-          to label %._crit_edge228.i unwind label %367, !noalias !29327
+          to label %._crit_edge229.i unwind label %367, !noalias !29327
 
-._crit_edge228.i:                                 ; preds = %385
-  %.pre229.i = load ptr, ptr %34, align 8, !alias.scope !29462, !noalias !29326
+._crit_edge229.i:                                 ; preds = %385
+  %.pre230.i = load ptr, ptr %34, align 8, !alias.scope !29462, !noalias !29326
   br label %209
 
 "_ZN4core3ptr90drop_in_place$LT$alloc..sync..Arc$LT$language..language_registry..LanguageRegistry$GT$$GT$17hc24d627433b949dbE.exit.i": ; preds = %213, %209

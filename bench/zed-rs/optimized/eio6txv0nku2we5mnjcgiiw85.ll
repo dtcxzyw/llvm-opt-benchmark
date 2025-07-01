@@ -17877,7 +17877,8 @@ define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2703, !noalias !2706, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2703, !noalias !2706
-  %4 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nsw i64 %.sroa.5.0.copyload.i, 24
+  %4 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store ptr %.sroa.4.0.copyload.i, ptr %3, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -42568,7 +42569,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hd45b8ed7053684f5E.exit.i: ; pre
   %315 = load ptr, ptr %314, align 8, !noalias !10120, !nonnull !4, !noundef !4
   %316 = getelementptr inbounds nuw i8, ptr %.sroa.035.0.copyload.i.i, i64 16
   %317 = load i64, ptr %316, align 8, !noalias !10120, !noundef !4
-  %318 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %315, i64 %317
+  %.idx.i.i.i = mul nsw i64 %317, 24
+  %318 = getelementptr inbounds i8, ptr %315, i64 %.idx.i.i.i
   %319 = icmp eq i64 %317, 0
   br i1 %319, label %..loopexit.i.i_crit_edge, label %.lr.ph.i.i.i
 
@@ -43280,7 +43282,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hd45b8ed7053684f5E.exit.i: ; pre
   %.sroa.079.0.copyload.i = load i64, ptr %131, align 8, !noalias !10016
   %.sroa.580.0.copyload.i = load ptr, ptr %.sroa.580.0..sroa_idx.i, align 8, !noalias !10016, !nonnull !4, !noundef !4
   %.sroa.681.0.copyload.i = load i64, ptr %.sroa.681.0..sroa_idx.i, align 8, !noalias !10016
-  %536 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.sroa.580.0.copyload.i, i64 %.sroa.681.0.copyload.i
+  %.idx.i = mul nsw i64 %.sroa.681.0.copyload.i, 24
+  %536 = getelementptr inbounds i8, ptr %.sroa.580.0.copyload.i, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17), !noalias !10016
   store ptr %.sroa.580.0.copyload.i, ptr %17, align 8, !noalias !10016
   store ptr %.sroa.580.0.copyload.i, ptr %.sroa.576.0..sroa_idx.i, align 8, !noalias !10016

@@ -2195,8 +2195,8 @@ do.end:                                           ; preds = %entry
 
 _ZN8QuantLib5ArrayC2Em.exit.thread:               ; preds = %do.end
   store ptr null, ptr %agg.result, align 8, !tbaa !53
-  %n_.i3961 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %0, ptr %n_.i3961, align 8, !tbaa !61
+  %n_.i3962 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i64 %0, ptr %n_.i3962, align 8, !tbaa !61
   br label %_ZSt9transformIPKdS1_PdSt5minusIvEET1_T_S6_T0_S5_T2_.exit
 
 for.body.i.preheader:                             ; preds = %do.end
@@ -2208,7 +2208,7 @@ for.body.i.preheader:                             ; preds = %do.end
   %n_.i39 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %0, ptr %n_.i39, align 8, !tbaa !61
   %28 = load ptr, ptr %v1, align 8, !tbaa !53
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %28, i64 %0
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %28, i64 %26
   %29 = load ptr, ptr %v2, align 8, !tbaa !53
   br label %for.body.i
 
@@ -3512,7 +3512,8 @@ _ZNK8QuantLib16FireflyAlgorithm9Intensity8distanceERKNS_5ArrayES4_.exit: ; preds
   %36 = load i64, ptr %n_3.i.i.i, align 8, !tbaa !42, !noalias !157
   store i64 %36, ptr %n_.i.i, align 8, !tbaa !42, !alias.scope !157
   store i64 0, ptr %n_3.i.i.i, align 8, !tbaa !42, !noalias !157
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %35, i64 %36
+  %add.ptr.i.idx.i = shl nuw nsw i64 %36, 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %35, i64 %add.ptr.i.idx.i
   %cmp.not5.i.i = icmp eq i64 %36, 0
   br i1 %cmp.not5.i.i, label %invoke.cont, label %for.body.i.i
 
@@ -3774,7 +3775,8 @@ ehcleanup34:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 do.end:                                           ; preds = %entry
   %25 = load ptr, ptr %this, align 8, !tbaa !53
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %25, i64 %0
+  %add.ptr.i.idx = shl nuw nsw i64 %0, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %25, i64 %add.ptr.i.idx
   %cmp.not6.i = icmp eq i64 %0, 0
   br i1 %cmp.not6.i, label %_ZSt9transformIPdPKdS0_St4plusIvEET1_T_S6_T0_S5_T2_.exit, label %for.body.i.preheader
 
@@ -4167,7 +4169,7 @@ call.i.i.i.noexc:                                 ; preds = %for.body.i.i.i.preh
   store ptr %call.i.i.i18, ptr %add.ptr, align 8, !tbaa !53
   %n_.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i64 %3, ptr %n_.i.i.i, align 8, !tbaa !61
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw double, ptr %call.i.i.i18, i64 %3
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i18, i64 %6
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %call.i.i.i.noexc

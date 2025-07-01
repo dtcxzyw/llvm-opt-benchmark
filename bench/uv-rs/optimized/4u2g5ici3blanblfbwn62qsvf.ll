@@ -547,7 +547,8 @@ define internal fastcc void @_ZN12uv_workspace9pyproject21deserialize_index_vec1
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %37 = load ptr, ptr %36, align 8, !nonnull !3, !noundef !3
   %38 = load i64, ptr %23, align 8, !noundef !3
-  %39 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, [3 x i8] }, ptr %37, i64 %38
+  %.idx = mul nsw i64 %38, 144
+  %39 = getelementptr inbounds i8, ptr %37, i64 %.idx
   %40 = icmp eq i64 %38, 0
   br i1 %40, label %._crit_edge, label %.lr.ph
 
@@ -820,7 +821,8 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17hc3dcaca
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !3, !noundef !3
   %39 = load i64, ptr %24, align 8, !noundef !3
-  %40 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, [3 x i8] }, ptr %38, i64 %39
+  %.idx = mul nsw i64 %39, 144
+  %40 = getelementptr inbounds i8, ptr %38, i64 %.idx
   %41 = icmp eq i64 %39, 0
   br i1 %41, label %._crit_edge, label %.lr.ph
 
@@ -1097,7 +1099,8 @@ define internal fastcc void @_ZN12uv_workspace9pyproject21deserialize_index_vec1
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %39 = load ptr, ptr %38, align 8, !nonnull !3, !noundef !3
   %40 = load i64, ptr %25, align 8, !noundef !3
-  %41 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, [3 x i8] }, ptr %39, i64 %40
+  %.idx = mul nsw i64 %40, 144
+  %41 = getelementptr inbounds i8, ptr %39, i64 %.idx
   %42 = icmp eq i64 %40, 0
   br i1 %42, label %._crit_edge, label %.lr.ph
 

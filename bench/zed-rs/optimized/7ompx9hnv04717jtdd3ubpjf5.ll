@@ -5851,7 +5851,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h59397ac9ef91ff36E(p
   %.20 = select i1 %.not, ptr %17, ptr %0
   %19 = mul i64 %.sroa.0.0.sroa.speculated.i, 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20, i64 %19, i1 false)
-  %20 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %20 = getelementptr inbounds i8, ptr %2, i64 %19
   br i1 %.not, label %21, label %.lr.ph.i
 
 21:                                               ; preds = %16
@@ -6013,7 +6013,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h6a295e939d466006E(p
   %.20 = select i1 %.not, ptr %13, ptr %0
   %15 = shl i64 %.sroa.0.0.sroa.speculated.i, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20, i64 %15, i1 false)
-  %16 = getelementptr inbounds i64, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %16 = getelementptr inbounds i8, ptr %2, i64 %15
   %.val = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %17 = load ptr, ptr %.val, align 8, !noalias !4, !nonnull !4, !align !452, !noundef !4
   %18 = load i64, ptr %17, align 8, !range !1323, !noalias !4, !noundef !4
@@ -8295,7 +8295,8 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17h06702378d22c7629E.llvm.1
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %7), !noalias !2657
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %91), !noalias !2657
   %.sroa.01.0.copyload.i = load i64, ptr %104, align 8, !alias.scope !2635, !noalias !2637
-  %532 = getelementptr inbounds { i64, [7 x i64] }, ptr %478, i64 %467
+  %.idx.i = shl nsw i64 %467, 6
+  %532 = getelementptr inbounds i8, ptr %478, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %90), !noalias !2657
   store ptr %478, ptr %90, align 8, !noalias !2657
   %.sroa.4.0..sroa_idx.i157 = getelementptr inbounds nuw i8, ptr %90, i64 8

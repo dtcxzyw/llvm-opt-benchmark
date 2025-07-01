@@ -5168,7 +5168,8 @@ define hidden void @_ZN10polars_row5fixed7boolean11decode_bool17h5be0900ecda8e59
   %27 = tail call noundef i8 @_ZN10polars_row3row18RowEncodingOptions13null_sentinel17h7347bf126d040b63E(i8 noundef %3)
   %28 = tail call noundef i8 @_ZN10polars_row3row18RowEncodingOptions18bool_true_sentinel17h8d78c2602ba1da2aE(i8 noundef %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)
-  %29 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !354
   store i64 0, ptr %15, align 8, !noalias !354
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 8

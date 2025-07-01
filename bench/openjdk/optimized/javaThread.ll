@@ -959,7 +959,8 @@ define hidden void @_ZN10JavaThread16collect_countersEPli(ptr noundef captures(n
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %.idx = shl nuw nsw i64 %17, 3
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %.not24 = icmp eq i32 %16, 0
   br i1 %.not24, label %._crit_edge28, label %.lr.ph27
 
@@ -8082,7 +8083,8 @@ _ZL21resize_counters_arrayPlii.exit:              ; preds = %1
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %38
+  %.idx = shl nuw nsw i64 %38, 3
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx
   %.not12 = icmp eq i32 %37, 0
   br i1 %.not12, label %.loopexit, label %.lr.ph
 

@@ -1102,7 +1102,8 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Er
   %24 = load ptr, ptr %23, align 8, !nonnull !35, !noundef !35
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i64, ptr %25, align 8, !noundef !35
-  %27 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %2, i64 %3
+  %.idx95 = mul nuw nsw i64 %3, 24
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx95
   invoke void @_ZN12clap_builder6parser8features11suggestions12did_you_mean17h9f8dda25d8bf3565E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 1 %24, i64 noundef %26, ptr noundef nonnull %2, ptr noundef nonnull %27)
           to label %30 unwind label %.thread
 
@@ -1449,7 +1450,6 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i: ; pred
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.48)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !283
-  %.idx = mul nuw nsw i64 %3, 24
   %132 = icmp eq i64 %3, 0
   br i1 %132, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5f9401023d34a0f1E.exit.i.i.thread.i.i.i.i", label %135
 
@@ -1462,12 +1462,12 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i: ; pred
 
 135:                                              ; preds = %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i.i
   %136 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !292
-  %137 = call noalias noundef align 8 ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 0) %.idx, i64 noundef range(i64 1, -9223372036854775807) 8) #25, !noalias !292
+  %137 = call noalias noundef align 8 ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 0) %.idx95, i64 noundef range(i64 1, -9223372036854775807) 8) #25, !noalias !292
   %138 = icmp eq ptr %137, null
   br i1 %138, label %139, label %.preheader.i.i.preheader.i.i.i.i
 
 139:                                              ; preds = %135
-  invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef 8, i64 %.idx, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cd1479d10af0883e1743273425bfa8f7.37) #26
+  invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef 8, i64 %.idx95, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.cd1479d10af0883e1743273425bfa8f7.37) #26
           to label %.noexc80 unwind label %150
 
 .noexc80:                                         ; preds = %139
@@ -7719,7 +7719,8 @@ define void @_ZN21ruff_python_formatter3cli22format_and_debug_print17had0cc4a816
   %.sroa.0114.0.copyload = load i64, ptr %28, align 8
   %.sroa.4115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.4115.0.copyload = load ptr, ptr %.sroa.4115.0..sroa_idx, align 8, !nonnull !35, !noundef !35
-  %111 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [1 x i64] }, { { i32, i32 } }, i8, [7 x i8] }, ptr %.sroa.4115.0.copyload, i64 %101
+  %.idx = mul nuw nsw i64 %101, 80
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.4115.0.copyload, i64 %.idx
   %112 = icmp sgt i64 %.sroa.0114.0.copyload, -1
   call void @llvm.assume(i1 %112)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)

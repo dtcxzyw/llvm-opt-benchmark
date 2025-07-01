@@ -28214,7 +28214,8 @@ default.unreachable:                              ; preds = %2
   %.val.i = load ptr, ptr %82, align 8, !noalias !6043, !nonnull !9, !noundef !9
   %83 = getelementptr i8, ptr %0, i64 48
   %.val52.i = load i64, ptr %83, align 8, !noalias !6043, !noundef !9
-  %84 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %.val.i, i64 %.val52.i
+  %.idx.i = shl nsw i64 %.val52.i, 4
+  %84 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx.i
   call void @llvm.experimental.noalias.scope.decl(metadata !6109)
   %85 = icmp eq i64 %.val52.i, 0
   br i1 %85, label %.thread.i, label %.lr.ph.i.i

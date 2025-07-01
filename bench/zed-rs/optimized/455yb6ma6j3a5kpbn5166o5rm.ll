@@ -402,7 +402,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %11 = load i64, ptr %10, align 8, !alias.scope !95, !noalias !98
   %.sink12.i.i = select i1 %8, ptr %9, ptr %5
   %.sink11.i.i = select i1 %8, i64 %11, i64 %7
-  %12 = getelementptr inbounds i64, ptr %.sink12.i.i, i64 %.sink11.i.i
+  %.idx.i = shl nsw i64 %.sink11.i.i, 3
+  %12 = getelementptr inbounds i8, ptr %.sink12.i.i, i64 %.idx.i
   %13 = icmp eq i64 %.sink11.i.i, 0
   br i1 %13, label %"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h4488414ac28c0667E.exit", label %.lr.ph.i.i
 

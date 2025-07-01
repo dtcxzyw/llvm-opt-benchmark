@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SmallVectorStorage.91" = type { [20 x i8] }
 %"class.clang::SourceLocation" = type { i32 }
 %"struct.clang::edit::EditedSource::MacroArgUse" = type { ptr, %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
-%"struct.std::pair" = type { %"class.clang::SourceLocation", %"struct.clang::edit::EditedSource::MacroArgUse" }
 %"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.126" }
 %"struct.std::pair.126" = type { %"class.clang::SourceLocation", %"class.llvm::SmallVector.116" }
 %"class.llvm::SmallVector.116" = type { %"class.llvm::SmallVectorImpl.117", %"struct.llvm::SmallVectorStorage.120" }
@@ -29,8 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"struct.clang::edit::Commit::Edit" = type <{ i32, [4 x i8], %"class.llvm::StringRef", %"class.clang::SourceLocation", %"class.clang::edit::FileOffset", %"class.clang::edit::FileOffset", i32, i8, [7 x i8] }>
-%"class.llvm::StringRef" = type { ptr, i64 }
+%"struct.std::pair" = type { %"class.clang::SourceLocation", %"struct.clang::edit::EditedSource::MacroArgUse" }
 %"struct.std::pair.137" = type { ptr, i64 }
 %"class.clang::SrcMgr::SLocEntry" = type { i32, [4 x i8], %union.anon.144 }
 %union.anon.144 = type { %"class.clang::SrcMgr::FileInfo" }
@@ -284,7 +282,8 @@ define dso_local void @_ZN5clang4edit12EditedSource14finishedCommitEv(ptr nounde
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load i32, ptr %6, align 8, !tbaa !72
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"struct.std::pair", ptr %5, i64 %8
+  %.idx = mul nuw nsw i64 %8, 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %.not11 = icmp eq i32 %7, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -2050,7 +2049,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit12EditedSource6commitERKNS0_6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load i32, ptr %9, align 8, !tbaa !72
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %8, i64 %11
+  %.idx = mul nuw nsw i64 %11, 56
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not30 = icmp eq i32 %10, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
@@ -2502,7 +2502,8 @@ define dso_local void @_ZN5clang4edit12EditedSource13clearRewritesEv(ptr noundef
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %13 = load i32, ptr %12, align 8, !tbaa !72
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.std::pair.137", ptr %11, i64 %14
+  %.idx.i.i = shl nuw nsw i64 %14, 4
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i
   %.not10.i.i = icmp eq i32 %13, 0
   br i1 %.not10.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.i, label %.lr.ph.i.i
 
@@ -3062,7 +3063,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang14So
   store i32 0, ptr %25, align 4, !tbaa !82
   %26 = load i32, ptr %3, align 8, !tbaa !76
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %22, i64 %27
+  %.idx.i.i = mul nuw nsw i64 %27, 56
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i
   %.not5.i.i = icmp eq i32 %26, 0
   br i1 %.not5.i.i, label %_ZN4llvm8DenseMapIN5clang14SourceLocationENS_11SmallVectorINS1_4edit12EditedSource11MacroArgUseELj2EEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S7_EEE4growEj.exit, label %.lr.ph.i.i
 
@@ -3096,7 +3098,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang14So
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !76
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %10
+  %.idx.i = mul nuw nsw i64 %10, 56
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
   %.not5.i = icmp eq i32 %9, 0
   br i1 %.not5.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationENS_11SmallVectorINS2_4edit12EditedSource11MacroArgUseELj2EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E9initEmptyEv.exit, label %.lr.ph.i
 

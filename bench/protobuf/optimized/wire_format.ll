@@ -17986,15 +17986,41 @@ entry:
   br i1 %cmp.not66, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %cmp.i418.i.not = icmp ne i64 %__step_size, 0
-  tail call void @llvm.assume(i1 %cmp.i418.i.not)
-  br label %while.body
+  %add.ptr.i.idx = shl i64 %__step_size, 3
+  %add.ptr.i5.idx = shl i64 %__step_size, 4
+  %cmp.i418.i.not = icmp eq i64 %add.ptr.i.idx, %add.ptr.i5.idx
+  br i1 %cmp.i418.i.not, label %while.body.us.preheader, label %while.body
+
+while.body.us.preheader:                          ; preds = %while.body.lr.ph
+  %tobool.not.i.i.i.i.i.i.us = icmp eq i64 %add.ptr.i.idx, 0
+  br label %while.body.us
+
+while.body.us:                                    ; preds = %while.body.us.preheader, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us
+  %__result.addr.068.us = phi ptr [ %add.ptr.i.i.i.i.i11.i.us, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us ], [ %__result, %while.body.us.preheader ]
+  %__first.sroa.0.067.us = phi ptr [ %add.ptr.i.us, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us ], [ %__first.coerce, %while.body.us.preheader ]
+  %add.ptr.i.us = getelementptr inbounds i8, ptr %__first.sroa.0.067.us, i64 %add.ptr.i.idx
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i)
+  br i1 %tobool.not.i.i.i.i.i.i.us, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us, label %if.then.i.i.i.i.i.i.us
+
+if.then.i.i.i.i.i.i.us:                           ; preds = %while.body.us
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__result.addr.068.us, ptr align 8 %__first.sroa.0.067.us, i64 %add.ptr.i.idx, i1 false)
+  br label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us
+
+_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us: ; preds = %while.body.us, %if.then.i.i.i.i.i.i.us
+  %add.ptr.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %__result.addr.068.us, i64 %add.ptr.i.idx
+  %add.ptr.i.i.i.i.i11.i.us = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.us, i64 %add.ptr.i.idx
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i)
+  %sub.ptr.rhs.cast.i.us = ptrtoint ptr %add.ptr.i.us to i64
+  %sub.ptr.sub.i.us = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.us
+  %sub.ptr.div.i.us = ashr exact i64 %sub.ptr.sub.i.us, 3
+  %cmp.not.us = icmp slt i64 %sub.ptr.div.i.us, %mul
+  br i1 %cmp.not.us, label %while.end, label %while.body.us, !llvm.loop !119
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit
   %__result.addr.068 = phi ptr [ %add.ptr.i.i.i.i.i11.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ], [ %__result, %while.body.lr.ph ]
   %__first.sroa.0.067 = phi ptr [ %add.ptr.i5, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ], [ %__first.coerce, %while.body.lr.ph ]
-  %add.ptr.i = getelementptr inbounds ptr, ptr %__first.sroa.0.067, i64 %__step_size
-  %add.ptr.i5 = getelementptr inbounds ptr, ptr %__first.sroa.0.067, i64 %mul
+  %add.ptr.i = getelementptr inbounds i8, ptr %__first.sroa.0.067, i64 %add.ptr.i.idx
+  %add.ptr.i5 = getelementptr inbounds i8, ptr %__first.sroa.0.067, i64 %add.ptr.i5.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i)
   store ptr %__comp.coerce, ptr %__comp.i, align 8
   br label %while.body.i
@@ -18017,7 +18043,7 @@ while.body.i:                                     ; preds = %while.body, %while.
   %cmp.i.i = icmp ne ptr %__first1.sroa.0.1.i, %add.ptr.i
   %cmp.i4.i = icmp ne ptr %__first2.sroa.0.1.i, %add.ptr.i5
   %or.cond.i = select i1 %cmp.i.i, i1 %cmp.i4.i, i1 false
-  br i1 %or.cond.i, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !119
+  br i1 %or.cond.i, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !120
 
 while.end.i.loopexit:                             ; preds = %while.body.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
@@ -18048,14 +18074,15 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageES
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.lhs.cast.i.i.i.i.i6.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.not = icmp slt i64 %sub.ptr.div.i, %mul
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !120
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !119
 
-while.end:                                        ; preds = %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit, %entry
-  %__first.sroa.0.0.lcssa = phi ptr [ %__first.coerce, %entry ], [ %add.ptr.i5, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ]
-  %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %add.ptr.i.i.i.i.i11.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ]
-  %sub.ptr.div.i.lcssa = phi i64 [ %sub.ptr.div.i65, %entry ], [ %sub.ptr.div.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ]
+while.end:                                        ; preds = %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us, %entry
+  %__first.sroa.0.0.lcssa = phi ptr [ %__first.coerce, %entry ], [ %add.ptr.i.us, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us ], [ %add.ptr.i5, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ]
+  %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %add.ptr.i.i.i.i.i11.i.us, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us ], [ %add.ptr.i.i.i.i.i11.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ]
+  %sub.ptr.div.i.lcssa = phi i64 [ %sub.ptr.div.i65, %entry ], [ %sub.ptr.div.i.us, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us ], [ %sub.ptr.div.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ]
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %__step_size, i64 %sub.ptr.div.i.lcssa)
-  %add.ptr.i11 = getelementptr inbounds ptr, ptr %__first.sroa.0.0.lcssa, i64 %.sroa.speculated
+  %add.ptr.i11.idx = shl nsw i64 %.sroa.speculated, 3
+  %add.ptr.i11 = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa, i64 %add.ptr.i11.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i13)
   store ptr %__comp.coerce, ptr %__comp.i13, align 8
   %cmp.i17.i14 = icmp ne i64 %.sroa.speculated, 0
@@ -18081,7 +18108,7 @@ while.body.i34:                                   ; preds = %while.end, %while.b
   %cmp.i.i46 = icmp ne ptr %__first1.sroa.0.1.i43, %add.ptr.i11
   %cmp.i4.i47 = icmp ne ptr %__first2.sroa.0.1.i41, %__last.coerce
   %or.cond.i48 = select i1 %cmp.i.i46, i1 %cmp.i4.i47, i1 false
-  br i1 %or.cond.i48, label %while.body.i34, label %while.end.i17, !llvm.loop !119
+  br i1 %or.cond.i48, label %while.body.i34, label %while.end.i17, !llvm.loop !120
 
 while.end.i17:                                    ; preds = %while.body.i34, %while.end
   %__first2.sroa.0.0.lcssa.i18 = phi ptr [ %add.ptr.i11, %while.end ], [ %__first2.sroa.0.1.i41, %while.body.i34 ]
@@ -18127,15 +18154,41 @@ entry:
   br i1 %cmp.not56, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %cmp321.i.not = icmp ne i64 %__step_size, 0
-  tail call void @llvm.assume(i1 %cmp321.i.not)
-  br label %while.body
+  %add.ptr.idx = shl i64 %__step_size, 3
+  %add.ptr4.idx = shl nsw i64 %__step_size, 4
+  %cmp321.i.not = icmp eq i64 %add.ptr.idx, %add.ptr4.idx
+  br i1 %cmp321.i.not, label %while.body.us.preheader, label %while.body
+
+while.body.us.preheader:                          ; preds = %while.body.lr.ph
+  %tobool.not.i.i.i.i.i.i.us = icmp eq i64 %__step_size, 0
+  br label %while.body.us
+
+while.body.us:                                    ; preds = %while.body.us.preheader, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us
+  %__result.sroa.0.058.us = phi ptr [ %add.ptr.i.i.i.i.i16.i.us, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us ], [ %__result.coerce, %while.body.us.preheader ]
+  %__first.addr.057.us = phi ptr [ %add.ptr.us, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us ], [ %__first, %while.body.us.preheader ]
+  %add.ptr.us = getelementptr inbounds i8, ptr %__first.addr.057.us, i64 %add.ptr.idx
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i)
+  br i1 %tobool.not.i.i.i.i.i.i.us, label %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us, label %if.then.i.i.i.i.i.i.us
+
+if.then.i.i.i.i.i.i.us:                           ; preds = %while.body.us
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__result.sroa.0.058.us, ptr align 8 %__first.addr.057.us, i64 %add.ptr.idx, i1 false)
+  br label %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us
+
+_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us: ; preds = %while.body.us, %if.then.i.i.i.i.i.i.us
+  %add.ptr.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %__result.sroa.0.058.us, i64 %add.ptr.idx
+  %add.ptr.i.i.i.i.i16.i.us = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.us, i64 %add.ptr.idx
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i)
+  %sub.ptr.rhs.cast.us = ptrtoint ptr %add.ptr.us to i64
+  %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.us
+  %sub.ptr.div.us = ashr exact i64 %sub.ptr.sub.us, 3
+  %cmp.not.us = icmp slt i64 %sub.ptr.div.us, %mul
+  br i1 %cmp.not.us, label %while.end, label %while.body.us, !llvm.loop !121
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit
   %__result.sroa.0.058 = phi ptr [ %add.ptr.i.i.i.i.i16.i, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ], [ %__result.coerce, %while.body.lr.ph ]
   %__first.addr.057 = phi ptr [ %add.ptr4, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ], [ %__first, %while.body.lr.ph ]
-  %add.ptr = getelementptr inbounds ptr, ptr %__first.addr.057, i64 %__step_size
-  %add.ptr4 = getelementptr inbounds ptr, ptr %__first.addr.057, i64 %mul
+  %add.ptr = getelementptr inbounds i8, ptr %__first.addr.057, i64 %add.ptr.idx
+  %add.ptr4 = getelementptr inbounds i8, ptr %__first.addr.057, i64 %add.ptr4.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i)
   store ptr %__comp.coerce, ptr %__comp.i, align 8
   br label %while.body.i
@@ -18158,7 +18211,7 @@ while.body.i:                                     ; preds = %while.body, %while.
   %cmp.i = icmp ne ptr %__first1.addr.1.i, %add.ptr
   %cmp3.i = icmp ne ptr %__first2.addr.1.i, %add.ptr4
   %2 = select i1 %cmp.i, i1 %cmp3.i, i1 false
-  br i1 %2, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !121
+  br i1 %2, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !122
 
 while.end.i.loopexit:                             ; preds = %while.body.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
@@ -18189,14 +18242,15 @@ _ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i.i.i.i.i11.i
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %cmp.not = icmp slt i64 %sub.ptr.div, %mul
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !122
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !121
 
-while.end:                                        ; preds = %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit, %entry
-  %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr4, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ]
-  %__result.sroa.0.0.lcssa = phi ptr [ %__result.coerce, %entry ], [ %add.ptr.i.i.i.i.i16.i, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ]
-  %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div55, %entry ], [ %sub.ptr.div, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ]
+while.end:                                        ; preds = %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us, %entry
+  %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr.us, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us ], [ %add.ptr4, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ]
+  %__result.sroa.0.0.lcssa = phi ptr [ %__result.coerce, %entry ], [ %add.ptr.i.i.i.i.i16.i.us, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us ], [ %add.ptr.i.i.i.i.i16.i, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ]
+  %sub.ptr.div.lcssa = phi i64 [ %sub.ptr.div55, %entry ], [ %sub.ptr.div.us, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us ], [ %sub.ptr.div, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ]
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %__step_size, i64 %sub.ptr.div.lcssa)
-  %add.ptr17 = getelementptr inbounds ptr, ptr %__first.addr.0.lcssa, i64 %.sroa.speculated
+  %add.ptr17.idx = shl nsw i64 %.sroa.speculated, 3
+  %add.ptr17 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 %add.ptr17.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i15)
   store ptr %__comp.coerce, ptr %__comp.i15, align 8
   %cmp20.i16 = icmp ne i64 %.sroa.speculated, 0
@@ -18222,7 +18276,7 @@ while.body.i35:                                   ; preds = %while.end, %while.b
   %cmp.i47 = icmp ne ptr %__first1.addr.1.i44, %add.ptr17
   %cmp3.i48 = icmp ne ptr %__first2.addr.1.i42, %__last
   %6 = select i1 %cmp.i47, i1 %cmp3.i48, i1 false
-  br i1 %6, label %while.body.i35, label %while.end.i18, !llvm.loop !121
+  br i1 %6, label %while.body.i35, label %while.end.i18, !llvm.loop !122
 
 while.end.i18:                                    ; preds = %while.body.i35, %while.end
   %__result.sroa.0.0.lcssa.i19 = phi ptr [ %__result.sroa.0.0.lcssa, %while.end ], [ %incdec.ptr.i.i46, %while.body.i35 ]

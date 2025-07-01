@@ -1292,7 +1292,8 @@ common.resume:                                    ; preds = %107, %44, %56
   %77 = load ptr, ptr %76, align 8, !alias.scope !70, !noalias !73, !nonnull !3, !align !4, !noundef !3
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i.i, i64 24
   %79 = load i64, ptr %78, align 8, !alias.scope !70, !noalias !73, !noundef !3
-  %80 = getelementptr inbounds nuw { { { { ptr, [1 x i64] } } }, { { i64 }, {} }, i64, i64 }, ptr %77, i64 %79
+  %.idx.i.i = mul nuw nsw i64 %79, 40
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx.i.i
   %81 = icmp eq i64 %79, 0
   br i1 %81, label %.loopexit, label %.lr.ph.i.i
 
@@ -1926,7 +1927,8 @@ common.resume:                                    ; preds = %41, %12
   %24 = load ptr, ptr %23, align 8, !alias.scope !103, !nonnull !3, !noundef !3
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %26 = load i64, ptr %25, align 8, !alias.scope !103, !noundef !3
-  %27 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %24, i64 %26
+  %.idx.i = mul nuw nsw i64 %26, 24
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i
   %28 = icmp eq i64 %26, 0
   br i1 %28, label %._crit_edge.i, label %.lr.ph.i
 
@@ -2297,7 +2299,8 @@ _ZN4core3ops8function6FnOnce9call_once17h0dca2e5b8bb802c3E.exit._ZN4core3ops8fun
   %.sroa.0.0.i = phi i64 [ %46, %.noexc6 ], [ %40, %39 ], [ %.val.pre.i.i, %_ZN4core3ops8function6FnOnce9call_once17h0dca2e5b8bb802c3E.exit._ZN4core3ops8function6FnOnce9call_once17h0dca2e5b8bb802c3E.exit.thread_crit_edge.i.i ]
   %47 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %48 = load ptr, ptr %47, align 8, !alias.scope !133, !noalias !136, !nonnull !3, !noundef !3
-  %49 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %48, i64 %36
+  %.idx.i = mul nuw nsw i64 %36, 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZN17crossbeam_channel5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h2f2c6803454b5e51E.exit.i.i", %.lr.ph.i.preheader.i

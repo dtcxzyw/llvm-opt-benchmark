@@ -61715,7 +61715,8 @@ default.unreachable24.i:                          ; preds = %240
 _ZN3vim7command8commands17h84d7746bc2459339E.exit: ; preds = %.thread278, %433
   %481 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN3vim7command8commands8COMMANDS17hcfb81db8447f8f1cE, i64 8), align 8, !nonnull !5, !noundef !5
   %482 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN3vim7command8commands8COMMANDS17hcfb81db8447f8f1cE, i64 16), align 8, !noundef !5
-  %483 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %481, i64 %482
+  %.idx358 = mul nsw i64 %482, 104
+  %483 = getelementptr inbounds i8, ptr %481, i64 %.idx358
   %484 = icmp eq i64 %482, 0
   br i1 %484, label %._crit_edge, label %.lr.ph
 

@@ -6014,7 +6014,8 @@ _ZN5tokio7runtime8blocking8shutdown8Receiver4wait17h101aeaf89099d561E.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !656
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   %.sroa.078.0.copyload = load i64, ptr %15, align 8
-  %128 = getelementptr inbounds { i64, { { ptr, ptr, i64 } } }, ptr %124, i64 %126
+  %.idx = shl nsw i64 %126, 5
+  %128 = getelementptr inbounds i8, ptr %124, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   store ptr %124, ptr %13, align 8
   %.sroa.475.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8

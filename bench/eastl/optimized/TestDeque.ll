@@ -1040,7 +1040,8 @@ entry:
   %sub.i.i = sub i64 %1, %add.i.i
   %div79.i.i = lshr i64 %sub.i.i, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -1222,7 +1223,8 @@ entry:
   %sub.i.i = sub i64 %1, %add.i.i
   %div79.i.i = lshr i64 %sub.i.i, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -1338,7 +1340,8 @@ entry:
   %sub.i.i6 = sub i64 %7, %add.i.i5
   %div79.i.i = lshr i64 %sub.i.i6, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i5
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i5, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -7290,7 +7293,8 @@ entry:
   %sub.i.i = sub i64 %1, %add.i.i
   %div79.i.i = lshr i64 %sub.i.i, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -7581,7 +7585,8 @@ entry:
   %sub.i.i = sub i64 %1, %add.i.i
   %div79.i.i = lshr i64 %sub.i.i, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -7752,7 +7757,8 @@ entry:
   %sub.i.i = sub i64 %7, %add.i.i5
   %div79.i.i = lshr i64 %sub.i.i, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i5
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i5, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -63476,7 +63482,8 @@ entry:
   %sub.i.i = sub i64 %4, %add.i.i
   %div79.i.i = lshr i64 %sub.i.i, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -66056,7 +66063,8 @@ entry:
   %sub.i.i6 = sub i64 %7, %add.i.i5
   %div79.i.i = lshr i64 %sub.i.i6, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i5
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i5, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -66288,7 +66296,8 @@ entry:
   %sub.i.i6 = sub i64 %7, %add.i.i5
   %div79.i.i = lshr i64 %sub.i.i6, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i5
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i5, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -66552,7 +66561,8 @@ entry:
   %sub.i = sub i64 %1, %add.i
   %div79.i = lshr i64 %sub.i, 1
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i, i64 %div79.i
-  %add.ptr8.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i, i64 %add.i
+  %add.ptr8.idx.i = shl nuw nsw i64 %add.i, 3
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %add.ptr8.idx.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %entry
@@ -67811,7 +67821,8 @@ entry:
   %sub.i = sub i64 %7, %add.i
   %div79.i = lshr i64 %sub.i, 1
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i, i64 %div79.i
-  %add.ptr8.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i, i64 %add.i
+  %add.ptr8.idx.i = shl nuw nsw i64 %add.i, 3
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %add.ptr8.idx.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %entry
@@ -68472,7 +68483,8 @@ _ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i195: ; preds = %if.then.i.i
 if.else37:                                        ; preds = %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit
   %51 = load ptr, ptr %first, align 8
   %sub = sub nsw i64 %sub.ptr.div.i.i, %add11.i
-  %add.ptr.i.i203 = getelementptr inbounds nuw i32, ptr %51, i64 %sub
+  %add.ptr.i.i203.idx = shl nuw nsw i64 %sub, 2
+  %add.ptr.i.i203 = getelementptr inbounds nuw i8, ptr %51, i64 %add.ptr.i.i203.idx
   %52 = load ptr, ptr %itNewBegin21, align 8
   %mpEnd4.i219 = getelementptr inbounds nuw i8, ptr %itNewBegin21, i64 16
   %53 = load ptr, ptr %mpEnd4.i219, align 8
@@ -68989,7 +69001,8 @@ entry:
   %sub.i = sub i64 %1, %add.i
   %div79.i = lshr i64 %sub.i, 1
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i, i64 %div79.i
-  %add.ptr8.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i, i64 %add.i
+  %add.ptr8.idx.i = shl nuw nsw i64 %add.i, 3
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %add.ptr8.idx.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %entry
@@ -70611,7 +70624,8 @@ entry:
   %sub.i = sub i64 %7, %add.i
   %div79.i = lshr i64 %sub.i, 1
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i, i64 %div79.i
-  %add.ptr8.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i, i64 %add.i
+  %add.ptr8.idx.i = shl nuw nsw i64 %add.i, 3
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %add.ptr8.idx.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %entry
@@ -71421,7 +71435,8 @@ _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit.i.i.i.i212: ; preds 
 if.else37:                                        ; preds = %_ZNK5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEplEl.exit
   %92 = load ptr, ptr %first, align 8
   %sub = sub nsw i64 %sub.ptr.div.i.i, %add11.i
-  %add.ptr.i.i219 = getelementptr inbounds nuw %struct.TestObject, ptr %92, i64 %sub
+  %add.ptr.i.i219.idx = mul nuw nsw i64 %sub, 24
+  %add.ptr.i.i219 = getelementptr inbounds nuw i8, ptr %92, i64 %add.ptr.i.i219.idx
   %93 = load ptr, ptr %itNewBegin21, align 8
   %mpEnd4.i235 = getelementptr inbounds nuw i8, ptr %itNewBegin21, i64 16
   %94 = load ptr, ptr %mpEnd4.i235, align 8
@@ -72160,7 +72175,8 @@ entry:
   %sub.i = sub i64 %7, %add.i
   %div79.i = lshr i64 %sub.i, 1
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i, i64 %div79.i
-  %add.ptr8.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i, i64 %add.i
+  %add.ptr8.idx.i = shl nuw nsw i64 %add.i, 3
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %add.ptr8.idx.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %entry
@@ -72371,7 +72387,8 @@ entry:
   %sub.i.i6 = sub i64 %6, %add.i.i5
   %div78.i.i = lshr i64 %sub.i.i6, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div78.i.i
-  %add.ptr8.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 %add.i.i5
+  %add.ptr8.idx.i.i = shl nsw i64 %add.i.i5, 3
+  %add.ptr8.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   %cmp14.i.i = icmp ult i64 %add11.i.i, 9223372036854775807
   br i1 %cmp14.i.i, label %while.body.i.i, label %_ZN5eastl9DequeBaseIiNS_9allocatorELj1EEC2EmRKS1_.exit
 
@@ -72597,7 +72614,8 @@ entry:
   %sub.i = sub i64 %6, %add.i
   %div78.i = lshr i64 %sub.i, 1
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i, i64 %div78.i
-  %add.ptr8.i = getelementptr inbounds ptr, ptr %add.ptr.i, i64 %add.i
+  %add.ptr8.idx.i = shl nsw i64 %add.i, 3
+  %add.ptr8.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %add.ptr8.idx.i
   %cmp14.i = icmp ult i64 %add11.i.i.i, 9223372036854775807
   br i1 %cmp14.i, label %while.body.i, label %_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE6DoInitEm.exit
 
@@ -74983,7 +75001,8 @@ entry:
   %sub.i.i6 = sub i64 %7, %add.i.i5
   %div79.i.i = lshr i64 %sub.i.i6, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i5
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i5, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -75210,7 +75229,8 @@ entry:
   %sub.i = sub i64 %7, %add.i
   %div79.i = lshr i64 %sub.i, 1
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i, i64 %div79.i
-  %add.ptr8.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i, i64 %add.i
+  %add.ptr8.idx.i = shl nuw nsw i64 %add.i, 3
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %add.ptr8.idx.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %entry
@@ -77586,7 +77606,8 @@ entry:
   %sub.i = sub i64 %7, %add.i
   %div79.i = lshr i64 %sub.i, 1
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i, i64 %div79.i
-  %add.ptr8.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i, i64 %add.i
+  %add.ptr8.idx.i = shl nuw nsw i64 %add.i, 3
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %add.ptr8.idx.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %entry
@@ -77810,7 +77831,8 @@ entry:
   %sub.i.i = sub i64 %0, %add.i.i
   %div78.i.i = lshr i64 %sub.i.i, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div78.i.i
-  %add.ptr8.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 %add.i.i
+  %add.ptr8.idx.i.i = shl nsw i64 %add.i.i, 3
+  %add.ptr8.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   %cmp14.i.i = icmp ult i64 %n, 9223372036854775807
   br i1 %cmp14.i.i, label %while.body.i.i, label %_ZN5eastl9DequeBaseI10TestObjectNS_9allocatorELj1EEC2EmRKS2_.exit
 
@@ -77934,7 +77956,8 @@ entry:
   %sub.i.i = sub i64 %0, %add.i.i
   %div78.i.i = lshr i64 %sub.i.i, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div78.i.i
-  %add.ptr8.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 %add.i.i
+  %add.ptr8.idx.i.i = shl nsw i64 %add.i.i, 3
+  %add.ptr8.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   %cmp14.i.i = icmp ult i64 %n, 9223372036854775807
   br i1 %cmp14.i.i, label %while.body.i.i, label %_ZN5eastl9DequeBaseI10TestObjectNS_9allocatorELj1EEC2EmRKS2_.exit
 
@@ -78089,7 +78112,8 @@ entry:
   %sub.i.i6 = sub i64 %6, %add.i.i5
   %div78.i.i = lshr i64 %sub.i.i6, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div78.i.i
-  %add.ptr8.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 %add.i.i5
+  %add.ptr8.idx.i.i = shl nsw i64 %add.i.i5, 3
+  %add.ptr8.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   %cmp14.i.i = icmp ult i64 %add11.i.i, 9223372036854775807
   br i1 %cmp14.i.i, label %while.body.i.i, label %_ZN5eastl9DequeBaseI10TestObjectNS_9allocatorELj1EEC2EmRKS2_.exit
 
@@ -78588,7 +78612,8 @@ entry:
   %sub.i = sub i64 %6, %add.i
   %div78.i = lshr i64 %sub.i, 1
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i, i64 %div78.i
-  %add.ptr8.i = getelementptr inbounds ptr, ptr %add.ptr.i, i64 %add.i
+  %add.ptr8.idx.i = shl nsw i64 %add.i, 3
+  %add.ptr8.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %add.ptr8.idx.i
   %cmp14.i = icmp ult i64 %add11.i.i.i, 9223372036854775807
   br i1 %cmp14.i, label %while.body.i, label %_ZN5eastl9DequeBaseI10TestObjectNS_9allocatorELj1EE6DoInitEm.exit
 
@@ -81425,7 +81450,8 @@ entry:
   %sub.i.i = sub i64 %1, %add.i.i
   %div79.i.i = lshr i64 %sub.i.i, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -81571,7 +81597,8 @@ entry:
   %sub.i.i = sub i64 %1, %add.i.i
   %div79.i.i = lshr i64 %sub.i.i, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -81743,7 +81770,8 @@ entry:
   %sub.i.i6 = sub i64 %7, %add.i.i5
   %div79.i.i = lshr i64 %sub.i.i6, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i5
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i5, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -82253,7 +82281,8 @@ entry:
   %sub.i = sub i64 %7, %add.i
   %div79.i = lshr i64 %sub.i, 1
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i, i64 %div79.i
-  %add.ptr8.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i, i64 %add.i
+  %add.ptr8.idx.i = shl nuw nsw i64 %add.i, 3
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %add.ptr8.idx.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %entry
@@ -92525,7 +92554,8 @@ _ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i195: ; preds = %if.then.i.i
 if.else37:                                        ; preds = %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit
   %51 = load ptr, ptr %first, align 8
   %sub = sub nsw i64 %sub.ptr.div.i.i, %add11.i
-  %add.ptr.i.i203 = getelementptr inbounds nuw i32, ptr %51, i64 %sub
+  %add.ptr.i.i203.idx = shl nuw nsw i64 %sub, 2
+  %add.ptr.i.i203 = getelementptr inbounds nuw i8, ptr %51, i64 %add.ptr.i.i203.idx
   %52 = load ptr, ptr %itNewBegin21, align 8
   %mpEnd4.i219 = getelementptr inbounds nuw i8, ptr %itNewBegin21, i64 16
   %53 = load ptr, ptr %mpEnd4.i219, align 8
@@ -96358,7 +96388,8 @@ _ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit.i.i.i.i260: ; preds = %if.then.i.i.
 if.else37:                                        ; preds = %_ZNK5eastl13DequeIteratorIiPiRiLj1EEplEl.exit
   %68 = load ptr, ptr %first, align 8
   %sub = sub nsw i64 %sub.ptr.div.i.i, %add11.i
-  %add.ptr.i.i268 = getelementptr inbounds nuw i32, ptr %68, i64 %sub
+  %add.ptr.i.i268.idx = shl nuw nsw i64 %sub, 2
+  %add.ptr.i.i268 = getelementptr inbounds nuw i8, ptr %68, i64 %add.ptr.i.i268.idx
   %cmp.i.not14.i.i.i = icmp eq ptr %48, %storemerge.i.i
   br i1 %cmp.i.not14.i.i.i, label %_ZN5eastl18uninitialized_copyINS_13DequeIteratorIiPiRiLj1EEES4_EET0_T_S6_S5_.exit.i, label %for.body.i.i.i
 
@@ -99865,7 +99896,8 @@ _ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit.i.i.i.i195: ; preds = %if.then.
 if.else37:                                        ; preds = %_ZNK5eastl13DequeIteratorIiPiRiLj32768EEplEl.exit
   %51 = load ptr, ptr %first, align 8
   %sub = sub nsw i64 %sub.ptr.div.i.i, %add11.i
-  %add.ptr.i.i203 = getelementptr inbounds nuw i32, ptr %51, i64 %sub
+  %add.ptr.i.i203.idx = shl nuw nsw i64 %sub, 2
+  %add.ptr.i.i203 = getelementptr inbounds nuw i8, ptr %51, i64 %add.ptr.i.i203.idx
   %52 = load ptr, ptr %itNewBegin21, align 8
   %mpEnd4.i219 = getelementptr inbounds nuw i8, ptr %itNewBegin21, i64 16
   %53 = load ptr, ptr %mpEnd4.i219, align 8
@@ -102772,7 +102804,8 @@ _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit.i.i.i.i212: ; preds 
 if.else37:                                        ; preds = %_ZNK5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEplEl.exit
   %92 = load ptr, ptr %first, align 8
   %sub = sub nsw i64 %sub.ptr.div.i.i, %add11.i
-  %add.ptr.i.i219 = getelementptr inbounds nuw %struct.TestObject, ptr %92, i64 %sub
+  %add.ptr.i.i219.idx = mul nuw nsw i64 %sub, 24
+  %add.ptr.i.i219 = getelementptr inbounds nuw i8, ptr %92, i64 %add.ptr.i.i219.idx
   %93 = load ptr, ptr %itNewBegin21, align 8
   %mpEnd4.i235 = getelementptr inbounds nuw i8, ptr %itNewBegin21, i64 16
   %94 = load ptr, ptr %mpEnd4.i235, align 8
@@ -107702,7 +107735,8 @@ _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit.i.i.i.i278: ; preds 
 if.else37:                                        ; preds = %_ZNK5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEplEl.exit
   %109 = load ptr, ptr %first, align 8
   %sub = sub nsw i64 %sub.ptr.div.i.i, %add11.i
-  %add.ptr.i.i285 = getelementptr inbounds nuw %struct.TestObject, ptr %109, i64 %sub
+  %add.ptr.i.i285.idx = mul nuw nsw i64 %sub, 24
+  %add.ptr.i.i285 = getelementptr inbounds nuw i8, ptr %109, i64 %add.ptr.i.i285.idx
   %cmp.i.not14.i.i.i = icmp eq ptr %70, %storemerge.i.i
   br i1 %cmp.i.not14.i.i.i, label %_ZN5eastl18uninitialized_copyINS_13DequeIteratorI10TestObjectPS2_RS2_Lj1EEES5_EET0_T_S7_S6_.exit.i, label %for.body.i.i.i
 
@@ -112295,7 +112329,8 @@ _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit.i.i.i.i213: ; pr
 if.else37:                                        ; preds = %_ZNK5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEplEl.exit
   %92 = load ptr, ptr %first, align 8
   %sub = sub nsw i64 %sub.ptr.div.i.i, %add11.i
-  %add.ptr.i.i220 = getelementptr inbounds nuw %struct.TestObject, ptr %92, i64 %sub
+  %add.ptr.i.i220.idx = mul nuw nsw i64 %sub, 24
+  %add.ptr.i.i220 = getelementptr inbounds nuw i8, ptr %92, i64 %add.ptr.i.i220.idx
   %93 = load ptr, ptr %itNewBegin21, align 8
   %mpEnd4.i236 = getelementptr inbounds nuw i8, ptr %itNewBegin21, i64 16
   %94 = load ptr, ptr %mpEnd4.i236, align 8
@@ -119700,7 +119735,8 @@ entry:
   %sub.i = sub i64 %8, %add.i
   %div79.i = lshr i64 %sub.i, 1
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i, i64 %div79.i
-  %add.ptr8.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i, i64 %add.i
+  %add.ptr8.idx.i = shl nuw nsw i64 %add.i, 3
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %add.ptr8.idx.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %entry

@@ -478,7 +478,8 @@ _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %57
   store i8 0, ptr %60, align 1, !tbaa !55
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #34
-  %61 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::TagInfo", ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 5
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not41 = icmp eq i64 %3, 0
   br i1 %.not41, label %._crit_edge, label %.lr.ph
 

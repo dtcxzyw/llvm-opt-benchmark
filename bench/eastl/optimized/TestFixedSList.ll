@@ -1361,7 +1361,8 @@ for.end.i.i:
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 0, ptr %mSize.i.i, align 8
   store ptr null, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp4.i.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp4.i.i, label %invoke.cont, label %for.body.lr.ph.i.i.i.i
 
@@ -1528,7 +1529,8 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 for.end.i.i:                                      ; preds = %while.body.i.i, %entry
   store ptr null, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp4.i.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp4.i.i, label %_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb0ENS_9allocatorEEEE6assignIPKiEEvT_S8_.exit, label %for.body.lr.ph.i.i.i.i
 

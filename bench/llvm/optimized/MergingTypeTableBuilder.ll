@@ -6,17 +6,17 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::codeview::LocallyHashedType" = type { %"class.llvm::hash_code", %"class.llvm::ArrayRef" }
 %"class.llvm::hash_code" = type { i64 }
 %"class.llvm::ArrayRef" = type { ptr, i64 }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.base.14", [4 x i8] }
-%"struct.std::pair.base.14" = type <{ %"struct.llvm::codeview::LocallyHashedType", %"class.llvm::codeview::TypeIndex" }>
-%"class.llvm::codeview::TypeIndex" = type { %"struct.llvm::support::detail::packed_endian_specific_integral" }
-%"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon }
-%struct.anon = type { [4 x i8] }
 %"class.std::vector.15" = type { %"struct.std::_Vector_base.16" }
 %"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>, std::allocator<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>>>::_Vector_impl" }
 %"struct.std::_Vector_base<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>, std::allocator<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>, std::allocator<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>, std::allocator<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.llvm::codeview::CVRecord" = type { %"class.llvm::ArrayRef" }
 %"struct.std::pair.52" = type { ptr, i64 }
+%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.base.14", [4 x i8] }
+%"struct.std::pair.base.14" = type <{ %"struct.llvm::codeview::LocallyHashedType", %"class.llvm::codeview::TypeIndex" }>
+%"class.llvm::codeview::TypeIndex" = type { %"struct.llvm::support::detail::packed_endian_specific_integral" }
+%"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon }
+%struct.anon = type { [4 x i8] }
 
 $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE = comdat any
 
@@ -236,7 +236,8 @@ define dso_local void @_ZN4llvm8codeview23MergingTypeTableBuilder5resetEv(ptr no
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE5EmptyE, i64 24, i1 false), !tbaa.struct !24
   %18 = load ptr, ptr %3, align 8, !tbaa !15
   %19 = zext i32 %13 to i64
-  %20 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %18, i64 %19
+  %.idx.i = shl nuw nsw i64 %19, 5
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i
   %.not5.i = icmp eq i32 %13, 0
   br i1 %.not5.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -667,7 +668,8 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapINS_8codeview17LocallyHashedTy
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE5EmptyE, i64 24, i1 false), !tbaa.struct !24
   %16 = load ptr, ptr %0, align 8, !tbaa !15
   %17 = zext nneg i32 %4 to i64
-  %18 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %16, i64 %17
+  %.idx.i = shl nuw nsw i64 %17, 5
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
   %.not5.i = icmp eq i32 %4, 0
   br i1 %.not5.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E9initEmptyEv.exit, label %.lr.ph.i
 
@@ -717,7 +719,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeInd
   store i32 0, ptr %45, align 4, !tbaa !25
   %46 = load i32, ptr %3, align 8, !tbaa !18
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %44, i64 %47
+  %.idx.i.i = shl nuw nsw i64 %47, 5
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i.i
   %.not5.i.i = icmp eq i32 %46, 0
   br i1 %.not5.i.i, label %_ZN4llvm8DenseMapINS_8codeview17LocallyHashedTypeENS1_9TypeIndexENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEE4initEj.exit, label %.lr.ph.i.i
 
@@ -1019,7 +1022,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codevie
   store i32 0, ptr %25, align 4, !tbaa !25
   %26 = load i32, ptr %3, align 8, !tbaa !18
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %22, i64 %27
+  %.idx.i.i = shl nuw nsw i64 %27, 5
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i
   %.not5.i.i = icmp eq i32 %26, 0
   br i1 %.not5.i.i, label %_ZN4llvm8DenseMapINS_8codeview17LocallyHashedTypeENS1_9TypeIndexENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEE4growEj.exit, label %.lr.ph.i.i
 
@@ -1056,7 +1060,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codevie
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !18
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %11
+  %.idx.i = shl nuw nsw i64 %11, 5
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
   %.not5.i = icmp eq i32 %10, 0
   br i1 %.not5.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E9initEmptyEv.exit, label %.lr.ph.i
 

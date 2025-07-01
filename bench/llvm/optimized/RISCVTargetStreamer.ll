@@ -34,7 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.llvm::RISCVOptionArchArg" = type { i32, %"class.std::__cxx11::basic_string" }
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
@@ -764,7 +763,8 @@ define dso_local void @_ZN4llvm22RISCVTargetAsmStreamer23emitDirectiveOptionArch
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
-  %19 = getelementptr inbounds nuw %"struct.llvm::RISCVOptionArchArg", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 40
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not22 = icmp eq i64 %2, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 

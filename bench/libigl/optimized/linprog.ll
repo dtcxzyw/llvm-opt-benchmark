@@ -821,7 +821,8 @@ _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS_14C
 
 247:                                              ; preds = %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES3_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.i
   %248 = load ptr, ptr %44, align 8, !tbaa !23
-  %249 = getelementptr inbounds nuw double, ptr %248, i64 %.pr.i.i.i.i.i.i.i
+  %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.pr.i.i.i.i.i.i.i, 3
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 %.idx.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i340
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i340:                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i340, %247
@@ -7000,7 +7001,8 @@ _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS_14C
 
 427:                                              ; preds = %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES3_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i
   %428 = load ptr, ptr %71, align 8, !tbaa !23
-  %429 = getelementptr inbounds nuw double, ptr %428, i64 %425
+  %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %425, 3
+  %429 = getelementptr inbounds nuw i8, ptr %428, i64 %.idx.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %427
@@ -7951,7 +7953,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 19:                                               ; preds = %3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
   %20 = phi i64 [ %6, %3 ], [ %.pre13, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit ]
   %21 = phi i64 [ %6, %3 ], [ %.pre, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit ]
-  %22 = mul i64 %20, %21
+  %22 = mul nsw i64 %20, %21
   %23 = icmp slt i64 %22, 1
   %.pre14 = load ptr, ptr %0, align 8, !tbaa !35
   br i1 %23, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i
@@ -8532,8 +8534,8 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i: ; preds
   br i1 %20, label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit, label %21
 
 21:                                               ; preds = %_ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i
-  %22 = load ptr, ptr %5, align 8, !tbaa !82
   %.idx.i.i.i = shl nsw i64 %19, 2
+  %22 = load ptr, ptr %5, align 8, !tbaa !82
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.0.i.i.i.i, ptr align 4 %22, i64 %.idx.i.i.i, i1 false)
   br label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit
 
@@ -11525,7 +11527,7 @@ _ZN5Eigen8internal20generic_product_implINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEES
   br label %53
 
 48:                                               ; preds = %3
-  %49 = mul i64 %15, %12
+  %49 = mul nsw i64 %15, %12
   %50 = icmp slt i64 %49, 1
   br i1 %50, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i
 

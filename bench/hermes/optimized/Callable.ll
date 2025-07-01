@@ -1420,7 +1420,8 @@ _ZN6hermes2vm12SmallXStringIDsLj32EE6appendINS0_10StringView14const_iteratorEEER
   %identifierTable_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9264
   %42 = load ptr, ptr %boundName, align 8
   %conv.i.i = zext i32 %conv.i10.i.i to i64
-  %add.ptr.i.i.i101 = getelementptr inbounds nuw i16, ptr %42, i64 %conv.i.i
+  %add.ptr.i.idx.i.i = shl nuw nsw i64 %conv.i.i, 1
+  %add.ptr.i.i.i101 = getelementptr inbounds nuw i8, ptr %42, i64 %add.ptr.i.idx.i.i
   %cmp.not6.i.i = icmp eq i32 %conv.i10.i.i, 0
   br i1 %cmp.not6.i.i, label %_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit, label %for.body.i.i
 
@@ -3310,7 +3311,8 @@ if.end17:                                         ; preds = %for.cond
   %add.i.i.i.i56 = add i64 %conv.i.i.i.i55, %4
   %9 = inttoptr i64 %add.i.i.i.i56 to ptr
   %add.ptr = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr, i64 %idx.ext.i
+  %add.ptr.idx.i.i = shl nuw nsw i64 %idx.ext.i, 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr.idx.i.i
   %cmp.not4.i.i.i.i.i = icmp eq i32 %sub, 0
   br i1 %cmp.not4.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIPN6hermes2vm17GCHermesValueBaseINS1_11HermesValueEEEjSt16reverse_iteratorIPNS1_17PinnedHermesValueEEET1_T_T0_SA_.exit, label %for.body.i.i.i.i.i
 
@@ -4737,7 +4739,8 @@ entry:
   %currentFrame_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9496
   %retval.sroa.0.0.copyload.i = load ptr, ptr %currentFrame_.i, align 8
   %idx.ext = zext i32 %sub.i to i64
-  %add.ptr = getelementptr inbounds nuw %"class.hermes::vm::PinnedHermesValue", ptr %retval.sroa.0.0.copyload.i, i64 %idx.ext
+  %add.ptr.idx = shl nuw nsw i64 %idx.ext, 3
+  %add.ptr = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i, i64 %add.ptr.idx
   %heapStorage_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %cmp.not5.i = icmp eq i32 %sub.i, 0
   br i1 %cmp.not5.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4copyIPNS0_17PinnedHermesValueEPS3_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.lr.ph.i

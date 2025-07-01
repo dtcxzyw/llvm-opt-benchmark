@@ -998,7 +998,8 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i: ; preds = %110, %8
 _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i: ; preds = %192, %166
   %194 = phi i64 [ %.0.i.i.i12.i, %166 ], [ %164, %192 ]
   %195 = phi i64 [ %152, %166 ], [ %193, %192 ]
-  %196 = getelementptr inbounds { { double, double }, { i64, [21 x i64] } }, ptr %157, i64 %159
+  %.idx.i.i = mul nsw i64 %159, 192
+  %196 = getelementptr inbounds i8, ptr %157, i64 %.idx.i.i
   %197 = icmp eq i64 %159, 0
   br i1 %197, label %_ZN4core4hash4Hash10hash_slice17h429873bb422b6957E.exit.i, label %.lr.ph.i.i
 
@@ -1202,7 +1203,8 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit: ; preds = %258, %284
   br label %_ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit
 
 _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit: ; preds = %299, %325
-  %327 = getelementptr inbounds { i64, [6 x i64] }, ptr %290, i64 %292
+  %.idx.i = mul nsw i64 %292, 56
+  %327 = getelementptr inbounds i8, ptr %290, i64 %.idx.i
   %328 = icmp eq i64 %292, 0
   br i1 %328, label %_ZN4core4hash4Hash10hash_slice17h486159383c444ab0E.exit, label %.lr.ph.i
 

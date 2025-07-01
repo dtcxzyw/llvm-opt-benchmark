@@ -6252,7 +6252,8 @@ define hidden noundef ptr @_ZN5sqlez10connection10Connection10with_write17hff07a
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx47.i.i, align 8, !alias.scope !1481, !noalias !1478, !nonnull !4, !noundef !4
   %.sroa.548.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 40
   %.sroa.548.0.copyload.i.i = load i64, ptr %.sroa.548.0..sroa_idx.i.i, align 8, !alias.scope !1481, !noalias !1478
-  %42 = getelementptr inbounds i64, ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.548.0.copyload.i.i
+  %.idx.i.i = shl nsw i64 %.sroa.548.0.copyload.i.i, 3
+  %42 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %.idx.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !1484
   store ptr %.sroa.4.0.copyload.i.i, ptr %7, align 8, !noalias !1484
   %.sroa.545.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8

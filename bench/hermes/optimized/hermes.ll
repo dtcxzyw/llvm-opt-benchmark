@@ -18462,8 +18462,8 @@ entry:
   %argCount_.i = getelementptr inbounds nuw i8, ptr %hvArgs, i64 8
   %2 = load i32, ptr %argCount_.i, align 8, !noalias !218
   %conv.i = zext i32 %2 to i64
-  %idx.neg.i.i = sub nsw i64 0, %conv.i
-  %add.ptr.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %1, i64 %idx.neg.i.i
+  %.neg = mul nsw i64 %conv.i, -8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %.neg
   %cmp.i.i.not52 = icmp eq i32 %2, 0
   br i1 %cmp.i.i.not52, label %invoke.cont10, label %for.body
 
@@ -18773,7 +18773,8 @@ cleanup:                                          ; preds = %invoke.cont28, %if.
 
 while.body.i.preheader.i:                         ; preds = %cleanup
   %conv.i.i44 = zext i32 %43 to i64
-  %add.ptr.i.i45 = getelementptr inbounds nuw %"class.facebook::jsi::Value", ptr %42, i64 %conv.i.i44
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i.i44, 4
+  %add.ptr.i.i45 = getelementptr inbounds nuw i8, ptr %42, i64 %add.ptr.i.idx.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.i.preheader.i
@@ -18861,7 +18862,8 @@ entry:
 
 while.body.i.preheader:                           ; preds = %entry
   %conv.i = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.facebook::jsi::Value", ptr %0, i64 %conv.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.i.idx
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %while.body.i
@@ -18935,7 +18937,8 @@ _ZN4llvh11safe_mallocEm.exit:                     ; preds = %if.end, %if.then.i
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %Size.i, align 8
   %conv.i5 = zext i32 %2 to i64
-  %add.ptr.i23 = getelementptr inbounds nuw %"class.facebook::jsi::Value", ptr %1, i64 %conv.i5
+  %add.ptr.i23.idx = shl nuw nsw i64 %conv.i5, 4
+  %add.ptr.i23 = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i23.idx
   %cmp.i.i.not8.i.i.i.i = icmp eq i32 %2, 0
   br i1 %cmp.i.i.not8.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIN8facebook3jsi5ValueELb0EE13destroy_rangeEPS3_S5_.exit, label %for.body.i.i.i.i
 
@@ -18997,7 +19000,8 @@ _ZN4llvh23SmallVectorTemplateBaseIN8facebook3jsi5ValueELb0EE18uninitialized_move
 
 while.body.i.preheader:                           ; preds = %_ZN4llvh23SmallVectorTemplateBaseIN8facebook3jsi5ValueELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
   %conv.i7 = zext i32 %.pre20 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.facebook::jsi::Value", ptr %.pre, i64 %conv.i7
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i7, 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %.pre, i64 %add.ptr.i.idx
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %while.body.i

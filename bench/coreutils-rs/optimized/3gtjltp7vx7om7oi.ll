@@ -967,7 +967,8 @@ define noundef ptr @_ZN7uu_echo7execute17h10569a384cbd0620E(i1 noundef zeroext %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   %20 = call noundef nonnull align 8 ptr @_ZN3std2io5stdio6Stdout4lock17h553f24c29d1e7b1aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %18)
   store ptr %20, ptr %17, align 8
-  %21 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %2, i64 %3
+  %.idx = mul nsw i64 %3, 24
+  %21 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %22 = icmp eq i64 %3, 0
   br i1 %22, label %._crit_edge, label %.lr.ph
 

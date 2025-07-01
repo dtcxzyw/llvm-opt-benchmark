@@ -990,7 +990,8 @@ _ZN4llvm8DebugLocD2Ev.exit108:                    ; preds = %_ZN4llvm10MIMetadat
   %348 = load ptr, ptr %10, align 8, !tbaa !278
   %349 = load i32, ptr %42, align 8, !tbaa !279
   %350 = zext i32 %349 to i64
-  %351 = getelementptr inbounds nuw ptr, ptr %348, i64 %350
+  %.idx = shl nuw nsw i64 %350, 3
+  %351 = getelementptr inbounds nuw i8, ptr %348, i64 %.idx
   %.not62174 = icmp eq i32 %349, 0
   br i1 %.not62174, label %_ZL23analyzeCompressibleUsesRN4llvm12MachineInstrENS_10RegImmPairERNS_15SmallVectorImplIPS0_EE.exit.thread, label %.lr.ph
 

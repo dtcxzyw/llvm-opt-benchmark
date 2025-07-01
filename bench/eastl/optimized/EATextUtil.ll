@@ -2066,7 +2066,8 @@ while.end:                                        ; preds = %for.end, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC29ConvertASCIIArrayToBinaryDataEPKDsmPv(ptr noundef readonly captures(address) %pASCIIArray, i64 noundef %nASCIIArrayLength, ptr noundef writeonly captures(none) %pBinaryData) local_unnamed_addr #8 {
 entry:
-  %add.ptr = getelementptr inbounds i16, ptr %pASCIIArray, i64 %nASCIIArrayLength
+  %add.ptr.idx = shl nsw i64 %nASCIIArrayLength, 1
+  %add.ptr = getelementptr inbounds i8, ptr %pASCIIArray, i64 %add.ptr.idx
   %cmp26 = icmp sgt i64 %nASCIIArrayLength, 0
   br i1 %cmp26, label %while.body, label %while.end
 
@@ -2136,7 +2137,8 @@ while.end:                                        ; preds = %for.end, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN2EA4StdC29ConvertASCIIArrayToBinaryDataEPKDimPv(ptr noundef readonly captures(address) %pASCIIArray, i64 noundef %nASCIIArrayLength, ptr noundef writeonly captures(none) %pBinaryData) local_unnamed_addr #8 {
 entry:
-  %add.ptr = getelementptr inbounds i32, ptr %pASCIIArray, i64 %nASCIIArrayLength
+  %add.ptr.idx = shl nsw i64 %nASCIIArrayLength, 2
+  %add.ptr = getelementptr inbounds i8, ptr %pASCIIArray, i64 %add.ptr.idx
   %cmp26 = icmp sgt i64 %nASCIIArrayLength, 0
   br i1 %cmp26, label %while.body, label %while.end
 

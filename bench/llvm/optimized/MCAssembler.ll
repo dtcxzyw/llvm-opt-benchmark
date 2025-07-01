@@ -24,9 +24,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::MCFragment.base" = type <{ ptr, ptr, i64, i32, i8, i8 }>
 %"struct.std::pair.195" = type { i32, %"struct.llvm::MCSection::FragList" }
 %"struct.llvm::MCSection::FragList" = type { ptr, ptr }
-%"class.llvm::MCFixup" = type { ptr, i32, i32, %"class.llvm::SMLoc" }
-%"class.llvm::SMLoc" = type { ptr }
 %"class.llvm::MCInst" = type { i32, i32, %"class.llvm::SMLoc", %"class.llvm::SmallVector.173" }
+%"class.llvm::SMLoc" = type { ptr }
 %"class.llvm::SmallVector.173" = type { %"class.llvm::SmallVectorImpl.174", %"struct.llvm::SmallVectorStorage.177" }
 %"class.llvm::SmallVectorImpl.174" = type { %"class.llvm::SmallVectorTemplateBase.175" }
 %"class.llvm::SmallVectorTemplateBase.175" = type { %"class.llvm::SmallVectorTemplateCommon.176" }
@@ -295,7 +294,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MCAssembler11isThumbFuncEPKNS_8M
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %12 = load i32, ptr %11, align 4, !tbaa !58
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %13
+  %.idx.i.i = shl nuw nsw i64 %13, 3
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
   %.not.not9.i.i = icmp eq i32 %12, 0
   br i1 %.not.not9.i.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_8MCSymbolEE5countES3_.exit.thread, label %.lr.ph.i.i
 
@@ -391,7 +391,8 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPKNS_8MCSymbolEE6inse
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !58
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
+  %.idx.i = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
   %.not36.i = icmp eq i32 %10, 0
   br i1 %.not36.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -3683,7 +3684,8 @@ define dso_local void @_ZN4llvm11MCAssembler6layoutEv(ptr noundef nonnull align 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i32, ptr %9, align 8, !tbaa !51
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
+  %.idx = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not141158 = icmp eq i32 %10, 0
   br i1 %.not141158, label %._crit_edge163.thread, label %.lr.ph162
 
@@ -3693,16 +3695,17 @@ define dso_local void @_ZN4llvm11MCAssembler6layoutEv(ptr noundef nonnull align 
   br label %_ZN4llvm11MCAssembler10layoutOnceEv.exit.thread
 
 ._crit_edge163:                                   ; preds = %50
-  %.pre184 = load ptr, ptr %7, align 8, !tbaa !50
-  %.pre185 = load i32, ptr %9, align 8, !tbaa !51
+  %.pre189 = load ptr, ptr %7, align 8, !tbaa !50
+  %.pre190 = load i32, ptr %9, align 8, !tbaa !51
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %14, align 8, !tbaa !14
-  %.not19.i168 = icmp eq i32 %.pre185, 0
-  br i1 %.not19.i168, label %_ZN4llvm11MCAssembler10layoutOnceEv.exit.thread, label %.lr.ph23.i.preheader.preheader
+  %.not19.i169 = icmp eq i32 %.pre190, 0
+  br i1 %.not19.i169, label %_ZN4llvm11MCAssembler10layoutOnceEv.exit.thread, label %.lr.ph23.i.preheader.preheader
 
 .lr.ph23.i.preheader.preheader:                   ; preds = %._crit_edge163
-  %15 = zext i32 %.pre185 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %.pre184, i64 %15
+  %15 = zext i32 %.pre190 to i64
+  %.idx.i168 = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %.pre189, i64 %.idx.i168
   br label %.lr.ph23.i.preheader
 
 .lr.ph162:                                        ; preds = %1, %50
@@ -3724,7 +3727,8 @@ define dso_local void @_ZN4llvm11MCAssembler6layoutEv(ptr noundef nonnull align 
   %25 = load ptr, ptr %20, align 8, !tbaa !50
   %26 = load i32, ptr %21, align 8, !tbaa !51
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"struct.std::pair.195", ptr %25, i64 %27
+  %.idx183 = mul nuw nsw i64 %27, 24
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx183
   %.not81149 = icmp eq i32 %26, 0
   br i1 %.not81149, label %._crit_edge, label %.lr.ph
 
@@ -3750,8 +3754,8 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_9MCSection8FragListEELb1EE9push_ba
   %36 = phi ptr [ %25, %._crit_edge ], [ %.pre.i, %32 ]
   %37 = getelementptr inbounds nuw %"struct.std::pair.195", ptr %36, i64 %35
   store i32 0, ptr %37, align 1
-  %.sroa.4183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %29, ptr %.sroa.4183.0..sroa_idx, align 1
+  %.sroa.4188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store ptr %29, ptr %.sroa.4188.0..sroa_idx, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %.076.lcssa, ptr %.sroa.5.0..sroa_idx, align 1
   %38 = load i32, ptr %21, align 8, !tbaa !51
@@ -3797,16 +3801,17 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_9MCSection8FragListEELb1EE9push_ba
   br i1 %.not141, label %._crit_edge163, label %.lr.ph162
 
 .loopexit147:                                     ; preds = %.lr.ph167
-  %.pre186 = load ptr, ptr %7, align 8, !tbaa !50
-  %.pre187 = load i32, ptr %9, align 8, !tbaa !51
-  %52 = zext i32 %.pre187 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %.pre186, i64 %52
-  %.not19.i = icmp eq i32 %.pre187, 0
+  %.pre191 = load ptr, ptr %7, align 8, !tbaa !50
+  %.pre192 = load i32, ptr %9, align 8, !tbaa !51
+  %52 = zext i32 %.pre192 to i64
+  %.idx.i = shl nuw nsw i64 %52, 3
+  %53 = getelementptr inbounds nuw i8, ptr %.pre191, i64 %.idx.i
+  %.not19.i = icmp eq i32 %.pre192, 0
   br i1 %.not19.i, label %_ZN4llvm11MCAssembler10layoutOnceEv.exit.thread, label %.lr.ph23.i.preheader, !llvm.loop !281
 
 .lr.ph23.i.preheader:                             ; preds = %.lr.ph23.i.preheader.preheader, %.loopexit147
   %54 = phi ptr [ %53, %.loopexit147 ], [ %16, %.lr.ph23.i.preheader.preheader ]
-  %55 = phi ptr [ %.pre186, %.loopexit147 ], [ %.pre184, %.lr.ph23.i.preheader.preheader ]
+  %55 = phi ptr [ %.pre191, %.loopexit147 ], [ %.pre189, %.lr.ph23.i.preheader.preheader ]
   br label %.lr.ph23.i
 
 .lr.ph23.i:                                       ; preds = %.lr.ph23.i.preheader, %._crit_edge.i
@@ -3848,7 +3853,8 @@ _ZN4llvm11MCAssembler10layoutOnceEv.exit:         ; preds = %._crit_edge.i
   %67 = load ptr, ptr %7, align 8, !tbaa !50
   %68 = load i32, ptr %9, align 8, !tbaa !51
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw ptr, ptr %67, i64 %69
+  %.idx184 = shl nuw nsw i64 %69, 3
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx184
   %.not142164 = icmp eq i32 %68, 0
   br i1 %.not142164, label %_ZN4llvm11MCAssembler10layoutOnceEv.exit.thread, label %.lr.ph167
 
@@ -3879,27 +3885,28 @@ _ZN4llvm11MCAssembler10layoutOnceEv.exit.thread:  ; preds = %_ZN4llvm11MCAssembl
   %86 = load ptr, ptr %7, align 8, !tbaa !50
   %87 = load i32, ptr %9, align 8, !tbaa !51
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr %86, i64 %88
-  %.not143179 = icmp eq i32 %87, 0
-  br i1 %.not143179, label %.loopexit146, label %.lr.ph181
+  %.idx185 = shl nuw nsw i64 %88, 3
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx185
+  %.not143180 = icmp eq i32 %87, 0
+  br i1 %.not143180, label %.loopexit146, label %.lr.ph182
 
-.lr.ph181:                                        ; preds = %_ZN4llvm11MCAssembler10layoutOnceEv.exit.thread, %._crit_edge178
-  %.sroa.0122.0180 = phi ptr [ %93, %._crit_edge178 ], [ %86, %_ZN4llvm11MCAssembler10layoutOnceEv.exit.thread ]
-  %90 = load ptr, ptr %.sroa.0122.0180, align 8, !tbaa !275
+.lr.ph182:                                        ; preds = %_ZN4llvm11MCAssembler10layoutOnceEv.exit.thread, %._crit_edge179
+  %.sroa.0122.0181 = phi ptr [ %93, %._crit_edge179 ], [ %86, %_ZN4llvm11MCAssembler10layoutOnceEv.exit.thread ]
+  %90 = load ptr, ptr %.sroa.0122.0181, align 8, !tbaa !275
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !115
-  %.sroa.0118.0173 = load ptr, ptr %92, align 8, !tbaa !128
-  %.not144174 = icmp eq ptr %.sroa.0118.0173, null
-  br i1 %.not144174, label %._crit_edge178, label %.lr.ph177
+  %.sroa.0118.0174 = load ptr, ptr %92, align 8, !tbaa !128
+  %.not144175 = icmp eq ptr %.sroa.0118.0174, null
+  br i1 %.not144175, label %._crit_edge179, label %.lr.ph178
 
-._crit_edge178:                                   ; preds = %.loopexit, %.lr.ph181
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0180, i64 8
+._crit_edge179:                                   ; preds = %.loopexit, %.lr.ph182
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0181, i64 8
   %.not143 = icmp eq ptr %93, %89
-  br i1 %.not143, label %.loopexit146, label %.lr.ph181
+  br i1 %.not143, label %.loopexit146, label %.lr.ph182
 
-.lr.ph177:                                        ; preds = %.lr.ph181, %.loopexit
-  %.sroa.0118.0175 = phi ptr [ %.sroa.0118.0, %.loopexit ], [ %.sroa.0118.0173, %.lr.ph181 ]
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 28
+.lr.ph178:                                        ; preds = %.lr.ph182, %.loopexit
+  %.sroa.0118.0176 = phi ptr [ %.sroa.0118.0, %.loopexit ], [ %.sroa.0118.0174, %.lr.ph182 ]
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 28
   %95 = load i8, ptr %94, align 4, !tbaa !131
   switch i8 %95, label %.loopexit [
     i8 0, label %96
@@ -3912,7 +3919,7 @@ _ZN4llvm11MCAssembler10layoutOnceEv.exit.thread:  ; preds = %_ZN4llvm11MCAssembl
     i8 13, label %133
   ]
 
-96:                                               ; preds = %.lr.ph177
+96:                                               ; preds = %.lr.ph178
   %97 = load ptr, ptr %90, align 8, !tbaa !64
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8
@@ -3920,7 +3927,7 @@ _ZN4llvm11MCAssembler10layoutOnceEv.exit.thread:  ; preds = %_ZN4llvm11MCAssembl
   br i1 %100, label %101, label %.loopexit
 
 101:                                              ; preds = %96
-  %102 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 31
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 31
   %103 = load i8, ptr %102, align 1
   %104 = trunc i8 %103 to i1
   br i1 %104, label %105, label %.loopexit
@@ -3930,46 +3937,46 @@ _ZN4llvm11MCAssembler10layoutOnceEv.exit.thread:  ; preds = %_ZN4llvm11MCAssembl
   %107 = load ptr, ptr %106, align 8, !tbaa !64
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 88
   %109 = load ptr, ptr %108, align 8
-  %110 = call noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0118.0175) #15
+  %110 = call noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0118.0176) #15
   br label %.loopexit
 
-111:                                              ; preds = %.lr.ph177
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 96
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 104
-  %114 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 32
+111:                                              ; preds = %.lr.ph178
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 96
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 104
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 32
   %115 = load ptr, ptr %114, align 8, !tbaa !185
   br label %136
 
-116:                                              ; preds = %.lr.ph177
-  %117 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 72
-  %118 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 80
-  %119 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 32
+116:                                              ; preds = %.lr.ph178
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 72
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 80
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 32
   %120 = load ptr, ptr %119, align 8, !tbaa !185
   br label %136
 
-121:                                              ; preds = %.lr.ph177
-  %122 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 96
-  %123 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 104
+121:                                              ; preds = %.lr.ph178
+  %122 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 96
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 104
   br label %136
 
-124:                                              ; preds = %.lr.ph177
-  %125 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 72
-  %126 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 80
+124:                                              ; preds = %.lr.ph178
+  %125 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 72
+  %126 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 80
   br label %136
 
-127:                                              ; preds = %.lr.ph177
-  %128 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 72
-  %129 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 80
+127:                                              ; preds = %.lr.ph178
+  %128 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 72
+  %129 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 80
   br label %136
 
-130:                                              ; preds = %.lr.ph177
-  %131 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 72
-  %132 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 80
+130:                                              ; preds = %.lr.ph178
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 72
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 80
   br label %136
 
-133:                                              ; preds = %.lr.ph177
-  %134 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 72
-  %135 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 80
+133:                                              ; preds = %.lr.ph178
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 72
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 80
   br label %136
 
 136:                                              ; preds = %133, %130, %127, %124, %121, %116, %111
@@ -3979,16 +3986,17 @@ _ZN4llvm11MCAssembler10layoutOnceEv.exit.thread:  ; preds = %_ZN4llvm11MCAssembl
   %.sroa.0115.3 = load ptr, ptr %.sroa.0115.3.in, align 8, !tbaa !50
   %.sroa.12.3.in = load i32, ptr %.sroa.12.3.in.in, align 8, !tbaa !51
   %.sroa.12.3 = zext i32 %.sroa.12.3.in to i64
-  %.sroa.0114.3.in = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 40
+  %.sroa.0114.3.in = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 40
   %.sroa.0114.3 = load ptr, ptr %.sroa.0114.3.in, align 8, !tbaa !199
-  %.sroa.11.3.in = getelementptr inbounds nuw i8, ptr %.sroa.0118.0175, i64 48
+  %.sroa.11.3.in = getelementptr inbounds nuw i8, ptr %.sroa.0118.0176, i64 48
   %.sroa.11.3 = load i64, ptr %.sroa.11.3.in, align 8, !tbaa !132
-  %137 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %.sroa.0115.3, i64 %.sroa.12.3
-  %.not169 = icmp eq i32 %.sroa.12.3.in, 0
-  br i1 %.not169, label %.loopexit, label %.lr.ph172
+  %.idx186 = mul nuw nsw i64 %.sroa.12.3, 24
+  %137 = getelementptr inbounds nuw i8, ptr %.sroa.0115.3, i64 %.idx186
+  %.not170 = icmp eq i32 %.sroa.12.3.in, 0
+  br i1 %.not170, label %.loopexit, label %.lr.ph173
 
-.lr.ph172:                                        ; preds = %136, %_ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE.exit
-  %.078170 = phi ptr [ %149, %_ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE.exit ], [ %.sroa.0115.3, %136 ]
+.lr.ph173:                                        ; preds = %136, %_ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE.exit
+  %.078171 = phi ptr [ %149, %_ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE.exit ], [ %.sroa.0115.3, %136 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, i8 0, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.685)
@@ -3996,18 +4004,18 @@ _ZN4llvm11MCAssembler10layoutOnceEv.exit.thread:  ; preds = %_ZN4llvm11MCAssembl
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false), !noalias !426
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15, !noalias !426
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15, !noalias !426
-  %138 = call noundef zeroext i1 @_ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull align 8 dereferenceable(24) %.078170, ptr noundef nonnull align 8 dereferenceable(30) %.sroa.0118.0175, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %.080, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4), !noalias !426
+  %138 = call noundef zeroext i1 @_ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull align 8 dereferenceable(24) %.078171, ptr noundef nonnull align 8 dereferenceable(30) %.sroa.0118.0176, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %.080, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4), !noalias !426
   br i1 %138, label %_ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE.exit, label %139
 
-139:                                              ; preds = %.lr.ph172
+139:                                              ; preds = %.lr.ph173
   %140 = load ptr, ptr %81, align 8, !tbaa !12, !noalias !426
   %141 = load ptr, ptr %140, align 8, !tbaa !64, !noalias !426
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 32
   %143 = load ptr, ptr %142, align 8, !noalias !426
-  call void %143(ptr noundef nonnull align 8 dereferenceable(104) %140, ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull align 8 dereferenceable(30) %.sroa.0118.0175, ptr noundef nonnull align 8 dereferenceable(24) %.078170, ptr noundef nonnull byval(%"class.llvm::MCValue") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #15, !noalias !426
+  call void %143(ptr noundef nonnull align 8 dereferenceable(104) %140, ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull align 8 dereferenceable(30) %.sroa.0118.0176, ptr noundef nonnull align 8 dereferenceable(24) %.078171, ptr noundef nonnull byval(%"class.llvm::MCValue") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #15, !noalias !426
   br label %_ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE.exit
 
-_ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE.exit: ; preds = %.lr.ph172, %139
+_ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE.exit: ; preds = %.lr.ph173, %139
   %144 = load i64, ptr %3, align 8, !tbaa !96, !noalias !429
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.685, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !273
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15, !noalias !426
@@ -4019,18 +4027,18 @@ _ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubta
   %146 = load ptr, ptr %145, align 8, !tbaa !64
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 112
   %148 = load ptr, ptr %147, align 8
-  call void %148(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull align 8 dereferenceable(24) %.078170, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr %.sroa.0114.3, i64 %.sroa.11.3, i64 noundef %144, i1 noundef zeroext %138, ptr noundef %.080) #15
+  call void %148(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull align 8 dereferenceable(24) %.078171, ptr noundef nonnull align 8 dereferenceable(28) %6, ptr %.sroa.0114.3, i64 %.sroa.11.3, i64 noundef %144, i1 noundef zeroext %138, ptr noundef %.080) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
-  %149 = getelementptr inbounds nuw i8, ptr %.078170, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %.078171, i64 24
   %.not = icmp eq ptr %149, %137
-  br i1 %.not, label %.loopexit, label %.lr.ph172
+  br i1 %.not, label %.loopexit, label %.lr.ph173
 
-.loopexit:                                        ; preds = %_ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE.exit, %136, %96, %101, %105, %.lr.ph177
-  %.sroa.0118.0 = load ptr, ptr %.sroa.0118.0175, align 8, !tbaa !128
+.loopexit:                                        ; preds = %_ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE.exit, %136, %96, %101, %105, %.lr.ph178
+  %.sroa.0118.0 = load ptr, ptr %.sroa.0118.0176, align 8, !tbaa !128
   %.not144 = icmp eq ptr %.sroa.0118.0, null
-  br i1 %.not144, label %._crit_edge178, label %.lr.ph177
+  br i1 %.not144, label %._crit_edge179, label %.lr.ph178
 
-.loopexit146:                                     ; preds = %61, %._crit_edge178, %_ZN4llvm11MCAssembler10layoutOnceEv.exit.thread
+.loopexit146:                                     ; preds = %61, %._crit_edge179, %_ZN4llvm11MCAssembler10layoutOnceEv.exit.thread
   ret void
 }
 
@@ -4041,7 +4049,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm11MCAssembler10layoutOnceEv(ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8, !tbaa !51
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not19 = icmp eq i32 %5, 0
   br i1 %.not19, label %._crit_edge24, label %.lr.ph23
 
@@ -4158,7 +4167,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MCAssembler23fragmentNeedsRelaxa
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %19 = load i32, ptr %18, align 8, !tbaa !51
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %17, i64 %20
+  %.idx = mul nuw nsw i64 %20, 24
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %.not18.not = icmp eq i32 %19, 0
   br i1 %.not18.not, label %.loopexit, label %.lr.ph
 

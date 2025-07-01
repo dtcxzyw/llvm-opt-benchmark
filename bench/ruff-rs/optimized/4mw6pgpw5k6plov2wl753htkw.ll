@@ -5587,7 +5587,8 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
   %.sroa.596.0.copyload.i.i.i = load i64, ptr %.sroa.596.0..sroa_idx.i.i.i, align 8, !noalias !469
   %86 = icmp ult i64 %.sroa.596.0.copyload.i.i.i, 288230376151711744
   call void @llvm.assume(i1 %86)
-  %87 = getelementptr inbounds nuw { ptr, { { { ptr, i64 } } }, i8, {}, [7 x i8] }, ptr %.sroa.495.0.copyload.i.i.i, i64 %.sroa.596.0.copyload.i.i.i
+  %.idx.i.i.i = shl nuw nsw i64 %.sroa.596.0.copyload.i.i.i, 5
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.495.0.copyload.i.i.i, i64 %.idx.i.i.i
   %88 = icmp sgt i64 %.sroa.094.0.copyload.i.i.i, -1
   call void @llvm.assume(i1 %88)
   %.sroa.097.0.copyload.i.i.i = load i64, ptr %22, align 8, !noalias !469

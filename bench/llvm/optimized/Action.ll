@@ -198,7 +198,8 @@ define dso_local void @_ZN5clang6driver6Action26propagateDeviceOffloadInfoENS1_1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !25
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %12, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   %.not13 = icmp eq i32 %14, 0
   br i1 %.not13, label %.loopexit, label %.lr.ph
 
@@ -240,7 +241,8 @@ define dso_local void @_ZN5clang6driver6Action24propagateHostOffloadInfoEjPKc(pt
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8, !tbaa !25
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %13, i64 %16
+  %.idx = shl nuw nsw i64 %16, 3
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %.not10 = icmp eq i32 %15, 0
   br i1 %.not10, label %.loopexit, label %.lr.ph
 
@@ -1585,7 +1587,8 @@ define dso_local void @_ZN5clang6driver13OffloadAction14HostDependenceC2ERNS0_6A
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %12 = load i32, ptr %11, align 8, !tbaa !25
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %13
+  %.idx = shl nuw nsw i64 %13, 2
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %.not11 = icmp eq i32 %12, 0
   br i1 %.not11, label %15, label %.lr.ph
 

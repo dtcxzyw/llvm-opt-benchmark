@@ -17353,7 +17353,8 @@ default.unreachable122:                           ; preds = %114, %64, %2
   %263 = load ptr, ptr %262, align 8, !alias.scope !2748, !nonnull !25, !noundef !25
   %264 = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 -96
   %265 = load i64, ptr %264, align 8, !alias.scope !2748, !noundef !25
-  %266 = getelementptr inbounds ptr, ptr %263, i64 %265
+  %.idx.i.i = shl nsw i64 %265, 3
+  %266 = getelementptr inbounds i8, ptr %263, i64 %.idx.i.i
   %267 = icmp eq i64 %265, 0
   br i1 %267, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -17369,7 +17370,8 @@ default.unreachable122:                           ; preds = %114, %64, %2
   %273 = load ptr, ptr %272, align 8, !alias.scope !2751, !nonnull !25, !noundef !25
   %274 = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 -72
   %275 = load i64, ptr %274, align 8, !alias.scope !2751, !noundef !25
-  %276 = getelementptr inbounds ptr, ptr %273, i64 %275
+  %.idx99.i.i = shl nsw i64 %275, 3
+  %276 = getelementptr inbounds i8, ptr %273, i64 %.idx99.i.i
   %277 = icmp eq i64 %275, 0
   br i1 %277, label %._crit_edge98.i.i, label %.lr.ph97.i.i
 

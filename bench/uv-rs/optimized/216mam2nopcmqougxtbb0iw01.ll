@@ -6026,7 +6026,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hb52e020ba072cadeE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 24
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hb7a38accce74c275E.llvm.6365418748554714068.exit, label %.lr.ph.i
 
@@ -22604,7 +22605,8 @@ define void @_ZN2uv8commands11cache_clean11cache_clean17he4f15c7f9a7e5e0dE(ptr d
   call void @_ZN2uv8commands9reporters23CleaningPackageReporter3new17h510337a6a0ae820bE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %54, i8 noundef %4, i64 noundef %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %53)
   %109 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %110 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 3
+  %110 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %111 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.sroa.465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 16
   %.sroa.1014.8..sroa_idx15 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -31032,7 +31034,8 @@ _ZN3std4sync6poison4once4Once9call_once17he252aeae449dc4c8E.exit: ; preds = %.no
   %39 = load ptr, ptr %38, align 8, !nonnull !6, !noundef !6
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 672
   %41 = load i64, ptr %40, align 8, !noundef !6
-  %42 = getelementptr inbounds ptr, ptr %39, i64 %41
+  %.idx = shl nsw i64 %41, 3
+  %42 = getelementptr inbounds i8, ptr %39, i64 %.idx
   %43 = load i64, ptr %1, align 8, !range !115
   %.fr = freeze i64 %43
   %trunc = trunc i64 %.fr to i1
@@ -32492,7 +32495,8 @@ define void @_ZN2uv8commands7project32warn_on_requirements_txt_setting17h77fc57a
   %137 = load ptr, ptr %136, align 8, !nonnull !6, !noundef !6
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %139 = load i64, ptr %138, align 8, !noundef !6
-  %140 = getelementptr inbounds { i64, [1 x i64] }, ptr %137, i64 %139
+  %.idx = shl nsw i64 %139, 4
+  %140 = getelementptr inbounds i8, ptr %137, i64 %.idx
   %141 = icmp eq i64 %139, 0
   br i1 %141, label %._crit_edge, label %.lr.ph
 
@@ -32836,7 +32840,8 @@ _ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.exit.i.i: ; preds = %243, %.no
   %252 = load ptr, ptr %251, align 8, !nonnull !6, !noundef !6
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %254 = load i64, ptr %253, align 8, !noundef !6
-  %255 = getelementptr inbounds { i64, [1 x i64] }, ptr %252, i64 %254
+  %.idx687 = shl nsw i64 %254, 4
+  %255 = getelementptr inbounds i8, ptr %252, i64 %.idx687
   %256 = icmp eq i64 %254, 0
   br i1 %256, label %"_ZN4core3ptr364drop_in_place$LT$core..result..Result$LT$std..sync..poison..mutex..MutexGuard$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$rustc_hash..FxBuildHasher$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$$GT$$GT$17h2eccacfa14e00fcdE.exit409", label %.lr.ph686
 
@@ -34703,7 +34708,8 @@ define void @_ZN2uv8commands4tool6common18remove_entrypoints17h14dca4ee3f51dd76E
   %16 = tail call { ptr, i64 } @_ZN7uv_tool4tool4Tool11entrypoints17h2ed287d05ee8d12aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(528) %0)
   %17 = extractvalue { ptr, i64 } %16, 0
   %18 = extractvalue { ptr, i64 } %16, 1
-  %19 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { { { i64, ptr, {} }, {} }, i64 } } } } }, ptr %17, i64 %18
+  %.idx = mul nsw i64 %18, 48
+  %19 = getelementptr inbounds i8, ptr %17, i64 %.idx
   %20 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i64 %18, 0
@@ -37903,7 +37909,8 @@ common.resume:                                    ; preds = %57, %93, %44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20)
-  %109 = getelementptr inbounds { i64, [32 x i64] }, ptr %38, i64 %40
+  %.idx = mul nsw i64 %40, 264
+  %109 = getelementptr inbounds i8, ptr %38, i64 %.idx
   %.sroa.435.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.592.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.793.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16

@@ -7764,7 +7764,8 @@ define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl
   %15 = load ptr, ptr %14, align 8, !nonnull !55, !align !137, !noundef !55
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = load i64, ptr %16, align 8, !noundef !55
-  %18 = getelementptr inbounds { ptr, ptr }, ptr %15, i64 %17
+  %.idx.i = shl nsw i64 %17, 4
+  %18 = getelementptr inbounds i8, ptr %15, i64 %.idx.i
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$10notify_all17hccc6e21e6227f182E.llvm.9340333246167201960.exit", label %.lr.ph.i
 
@@ -7838,7 +7839,8 @@ define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl
   %3 = load ptr, ptr %2, align 8, !nonnull !55, !align !137, !noundef !55
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i64, ptr %4, align 8, !noundef !55
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 %5
+  %.idx = shl nsw i64 %5, 4
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 

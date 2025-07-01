@@ -8740,7 +8740,8 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %235, %242
   %252 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %253 = load i32, ptr %252, align 8
   %254 = zext i32 %253 to i64
-  %255 = getelementptr inbounds nuw ptr, ptr %251, i64 %254
+  %.idx = shl nuw nsw i64 %254, 3
+  %255 = getelementptr inbounds nuw i8, ptr %251, i64 %.idx
   %.not103 = icmp eq i32 %253, 0
   br i1 %.not103, label %.loopexit, label %.lr.ph101
 
@@ -9339,7 +9340,8 @@ _ZN15RegMaskIterator4nextEv.exit:                 ; preds = %69, %79
   %118 = load ptr, ptr %117, align 8
   %119 = load i32, ptr %35, align 8
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw ptr, ptr %118, i64 %120
+  %.idx = shl nuw nsw i64 %120, 3
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 %.idx
   %.not183 = icmp eq i32 %119, 0
   br i1 %.not183, label %.loopexit144, label %.lr.ph167
 

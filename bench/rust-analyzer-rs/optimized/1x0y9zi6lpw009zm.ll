@@ -3052,7 +3052,8 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$core..ops..control_flow..Co
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17h05a84796adaf9a60E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds { i64, [6 x i64] }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 56
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -3069,7 +3070,8 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h05a84796adaf9a60E(ptr noali
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17h0c5d001534d75142E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(8) %2) unnamed_addr #6 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { { { i8, [23 x i8] } } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 24
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3221,7 +3223,8 @@ _ZN4core4hash6Hasher9write_str17h2fa84d2c908ea84eE.llvm.17050508828239973313.exi
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17h42482e9adc09f200E(ptr noalias noundef nonnull readonly align 16 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(8) %2) unnamed_addr #6 {
-  %4 = getelementptr inbounds { i8, [63 x i8] }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 6
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -7217,7 +7220,8 @@ _ZN4core4hash6Hasher9write_str17h2fa84d2c908ea84eE.llvm.17050508828239973313.exi
   %156 = mul i64 %155, 5871781006564002453
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2049)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2052)
-  %157 = getelementptr inbounds { { i8, [23 x i8] } }, ptr %151, i64 %153
+  %.idx.i = mul nsw i64 %153, 24
+  %157 = getelementptr inbounds i8, ptr %151, i64 %.idx.i
   %158 = icmp eq i64 %153, 0
   br i1 %158, label %_ZN4core4hash4Hash10hash_slice17h1fe7ab736ec2e69aE.exit, label %.lr.ph.i
 

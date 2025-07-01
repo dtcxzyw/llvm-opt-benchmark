@@ -1303,7 +1303,8 @@ _ZNK4llvm3MVT19getScalarSizeInBitsEv.exit:        ; preds = %577, %586
   %.not310624698 = phi i1 [ true, %.thread629.thread ], [ false, %.thread629 ]
   %606 = load ptr, ptr %495, align 8, !tbaa !280
   %607 = zext i32 %603 to i64
-  %608 = getelementptr inbounds nuw %"class.llvm::CCValAssign", ptr %606, i64 %607
+  %.idx = shl nuw nsw i64 %607, 5
+  %608 = getelementptr inbounds nuw i8, ptr %606, i64 %.idx
   %609 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %611
 

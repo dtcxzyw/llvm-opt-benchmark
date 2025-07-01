@@ -91,7 +91,7 @@ for.body.i.preheader.i:                           ; preds = %_ZNK5boost10shared_
   %n_.i3.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 %3, ptr %n_.i3.i, align 8, !tbaa !13, !alias.scope !10
   %7 = load ptr, ptr %gradient_.i, align 8, !tbaa !22, !noalias !10
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %7, i64 %3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %5
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
@@ -134,7 +134,7 @@ call.i.i9.noexc:                                  ; preds = %for.body.i.preheade
   %n_.i3.i10 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   store i64 %11, ptr %n_.i3.i10, align 8, !tbaa !13, !alias.scope !30
   %15 = load ptr, ptr %searchDirection_.i, align 8, !tbaa !22, !noalias !30
-  %add.ptr.i.i11 = getelementptr inbounds nuw double, ptr %15, i64 %11
+  %add.ptr.i.i11 = getelementptr inbounds nuw i8, ptr %15, i64 %13
   br label %for.body.i.i12
 
 for.body.i.i12:                                   ; preds = %for.body.i.i12, %call.i.i9.noexc
@@ -410,7 +410,8 @@ do.end:                                           ; preds = %entry
   store i64 0, ptr %n_.i10, align 8, !tbaa !39
   %26 = load ptr, ptr %v1, align 8, !tbaa !22
   %27 = load i64, ptr %n_.i, align 8, !tbaa !13
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %26, i64 %27
+  %add.ptr.i.idx = shl nuw nsw i64 %27, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %26, i64 %add.ptr.i.idx
   %cmp.not6.i = icmp eq i64 %27, 0
   br i1 %cmp.not6.i, label %_ZSt9transformIPdS0_S0_St4plusIvEET1_T_S4_T0_S3_T2_.exit, label %for.body.i
 

@@ -2992,7 +2992,8 @@ define void @_ZN20ruff_python_semantic10definition11Definitions7resolve17hd3c6ce
   %.sroa.439.0.copyload = load ptr, ptr %9, align 8, !nonnull !7, !noundef !7
   %25 = icmp ult i64 %11, 144115188075855872
   tail call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %.sroa.439.0.copyload, i64 %11
+  %.idx = shl nuw nsw i64 %11, 6
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.439.0.copyload, i64 %.idx
   %27 = icmp sgt i64 %.sroa.038.0.copyload, -1
   tail call void @llvm.assume(i1 %27)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)

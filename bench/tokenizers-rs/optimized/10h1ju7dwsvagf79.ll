@@ -29892,7 +29892,8 @@ define { ptr, ptr } @_ZN10tokenizers5utils7padding13pad_encodings17h8d5a86c09f0b
   br label %"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$8for_each17h99d7d96a70b9ef8fE.exit"
 
 .lr.ph.i.i:                                       ; preds = %36
-  %41 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 240
+  %41 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 40

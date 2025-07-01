@@ -11748,7 +11748,8 @@ _ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.llvm.1345224760452287
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h772cad47a88d6040E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #21 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 24
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4505)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h144e1688a96a1be8E.llvm.13452247604522872897.exit", label %.lr.ph.i
@@ -18300,7 +18301,8 @@ _ZN3std4sync6poison4once4Once9call_once17h8144dcf9445df8e8E.exit.i: ; preds = %.
   %773 = load ptr, ptr %772, align 8, !noalias !5675, !nonnull !3, !noundef !3
   %774 = getelementptr inbounds nuw i8, ptr %771, i64 16
   %775 = load i64, ptr %774, align 8, !noalias !5675, !noundef !3
-  %776 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %773, i64 %775
+  %.idx.i = mul nsw i64 %775, 48
+  %776 = getelementptr inbounds i8, ptr %773, i64 %.idx.i
   %777 = icmp eq i64 %775, 0
   br i1 %777, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hbdb26a88011a2cebE.exit.thread.i", label %.lr.ph.i
 

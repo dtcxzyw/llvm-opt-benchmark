@@ -5634,7 +5634,8 @@ define hidden noundef zeroext i1 @"_ZN157_$LT$brotli..enc..backward_references..
   %.val = load ptr, ptr %0, align 8, !nonnull !3, !align !620, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3 = load i64, ptr %12, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %.val, i64 %.val3
+  %.idx = shl nuw nsw i64 %.val3, 2
+  %13 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx
   %14 = icmp eq i64 %.val3, 0
   br i1 %14, label %._crit_edge, label %.lr.ph
 
@@ -9631,7 +9632,8 @@ define hidden void @_ZN6brotli3enc19backward_references19hash_to_binary_tree14in
   %14 = tail call { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h4202d9e018a04d55E"(ptr noalias noundef nonnull align 1 %1, i64 noundef 131072)
   %15 = extractvalue { ptr, i64 } %14, 0
   %16 = extractvalue { ptr, i64 } %14, 1
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %.idx.i = shl nuw nsw i64 %16, 2
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %"_ZN188_$LT$brotli..enc..backward_references..hash_to_binary_tree..H10Buckets$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..hash_to_binary_tree..Allocable$LT$u32$C$AllocU32$GT$$GT$3new17he91bc05e44c428edE.exit", label %.lr.ph.i
 
@@ -16207,7 +16209,8 @@ default.unreachable:                              ; preds = %192, %6
   %151 = load ptr, ptr %150, align 8, !nonnull !3, !noundef !3
   %152 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %153 = load i64, ptr %152, align 8, !noundef !3
-  %154 = getelementptr inbounds nuw i64, ptr %151, i64 %153
+  %.idx = shl nuw nsw i64 %153, 3
+  %154 = getelementptr inbounds nuw i8, ptr %151, i64 %.idx
   %155 = icmp eq i64 %153, 0
   br i1 %155, label %.thread101, label %.lr.ph.preheader
 
@@ -30126,7 +30129,8 @@ define hidden void @_ZN14polars_parquet5arrow5write7binview5basic13array_to_page
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %70 = load ptr, ptr %69, align 8, !noalias !2499, !noundef !3
   %71 = load i64, ptr %51, align 8, !noalias !2499, !noundef !3
-  %72 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %70, i64 %71
+  %.idx61.i = shl nuw nsw i64 %71, 4
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx61.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2502)
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %24), !noalias !2505
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %24, i8 0, i64 10, i1 false), !noalias !2505
@@ -33796,7 +33800,8 @@ define hidden void @_ZN14polars_parquet5arrow5write6nested6dremel18BufferedDreme
   store ptr %17, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %20, align 8
-  %21 = getelementptr inbounds nuw { i64, [8 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 72
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %22 = icmp eq i64 %2, 0
   br i1 %22, label %._crit_edge, label %.lr.ph.preheader
 

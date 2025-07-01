@@ -3140,7 +3140,8 @@ common.resume:                                    ; preds = %110, %142, %15, %20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !1068
   %107 = icmp ne ptr %.sroa.6.sroa.0.0, null
   call void @llvm.assume(i1 %107)
-  %108 = getelementptr inbounds { { i32, [5 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %.sroa.6.sroa.0.0, i64 %.sroa.6.sroa.4.0
+  %.idx.i = mul nsw i64 %.sroa.6.sroa.4.0, 40
+  %108 = getelementptr inbounds i8, ptr %.sroa.6.sroa.0.0, i64 %.idx.i
   store ptr %.sroa.6.sroa.0.0, ptr %5, align 8, !noalias !1068
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.sroa.6.sroa.0.0, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1068

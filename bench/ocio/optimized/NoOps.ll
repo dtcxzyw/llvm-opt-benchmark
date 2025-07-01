@@ -678,7 +678,7 @@ _ZSt11make_sharedIN19OpenColorIO_v2_5dev11Lut3DOpDataEJRKjEESt10shared_ptrINSt9e
           to label %.noexc unwind label %36
 
 .noexc:                                           ; preds = %22
-  %25 = getelementptr float, ptr %24, i64 %21
+  %25 = getelementptr inbounds nuw float, ptr %24, i64 %21
   store float 0.000000e+00, ptr %24, align 4, !tbaa !45
   %26 = getelementptr i8, ptr %24, i64 4
   %27 = add nsw i64 %23, -4

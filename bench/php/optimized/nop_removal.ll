@@ -30,7 +30,8 @@ define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr noundef readn
   %15 = load ptr, ptr %14, align 8, !tbaa !24
   %16 = load i32, ptr %3, align 8, !tbaa !4
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct._zend_op, ptr %15, i64 %17
+  %.idx = shl nuw nsw i64 %17, 5
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   %.not133 = icmp eq i32 %16, 0
   br i1 %.not133, label %.loopexit, label %.lr.ph
 
@@ -126,9 +127,10 @@ thread-pre-split:                                 ; preds = %.lr.ph
   store i32 %.1109, ptr %3, align 8, !tbaa !4
   %60 = load ptr, ptr %14, align 8, !tbaa !24
   %61 = zext i32 %.1109 to i64
-  %62 = getelementptr inbounds nuw %struct._zend_op, ptr %60, i64 %61
-  %.not134 = icmp eq i32 %.1109, 0
-  br i1 %.not134, label %.preheader, label %.lr.ph130
+  %.idx134 = shl nuw nsw i64 %61, 5
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx134
+  %.not135 = icmp eq i32 %.1109, 0
+  br i1 %.not135, label %.preheader, label %.lr.ph130
 
 .preheader:                                       ; preds = %.lr.ph130, %59
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 148

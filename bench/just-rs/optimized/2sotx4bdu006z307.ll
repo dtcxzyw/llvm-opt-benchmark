@@ -15041,7 +15041,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %79
   %.val = load ptr, ptr %339, align 8, !nonnull !4, !noundef !4
   %340 = getelementptr inbounds nuw i8, ptr %.tr732, i64 120
   %.val590 = load i64, ptr %340, align 8, !noundef !4
-  %341 = getelementptr inbounds { i64, [15 x i64] }, ptr %.val, i64 %.val590
+  %.idx = shl nsw i64 %.val590, 7
+  %341 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %342 = icmp eq i64 %.val590, 0
   br i1 %342, label %._crit_edge, label %.lr.ph
 
@@ -16256,7 +16257,8 @@ define hidden void @_ZN4just9evaluator9Evaluator13evaluate_line17hc8a7c1efe9423e
   %18 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !4
-  %21 = getelementptr inbounds { i64, [15 x i64] }, ptr %18, i64 %20
+  %.idx = shl nsw i64 %20, 7
+  %21 = getelementptr inbounds i8, ptr %18, i64 %.idx
   %22 = icmp eq i64 %20, 0
   br i1 %22, label %._crit_edge, label %.lr.ph
 
@@ -17090,7 +17092,8 @@ define hidden void @_ZN4just9evaluator9Evaluator19evaluate_parameters17hc8c52dbe
   store ptr inttoptr (i64 8 to ptr), ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 0, ptr %40, align 8
-  %41 = getelementptr inbounds { { i64, [15 x i64] }, { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } }, i8, i8, [6 x i8] }, ptr %3, i64 %4
+  %.idx = mul nsw i64 %4, 208
+  %41 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %42 = icmp eq i64 %4, 0
   br i1 %42, label %._crit_edge, label %.lr.ph
 
@@ -17368,7 +17371,8 @@ define hidden void @_ZN4just9evaluator9Evaluator19evaluate_parameters17hc8c52dbe
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2d8786dda15a178E.exit.preheader": ; preds = %106
   %111 = icmp ne ptr %.sroa.0.0117, null
   call void @llvm.assume(i1 %111)
-  %112 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0117, i64 %.sroa.7.0116
+  %.idx118 = mul nsw i64 %.sroa.7.0116, 24
+  %112 = getelementptr inbounds i8, ptr %.sroa.0.0117, i64 %.idx118
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2d8786dda15a178E.exit"
 
 113:                                              ; preds = %109

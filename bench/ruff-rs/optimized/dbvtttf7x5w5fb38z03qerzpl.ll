@@ -1309,7 +1309,8 @@ define { i32, i32 } @"_ZN104_$LT$ruff_python_semantic..model..all..DunderAllDefi
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN20ruff_python_semantic5model3all60_$LT$impl$u20$ruff_python_semantic..model..SemanticModel$GT$24extract_dunder_all_names12add_to_names17h699f1b054be23650E"(ptr noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(24) %2, ptr noalias noundef align 1 captures(none) dereferenceable(1) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %5 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %0, i64 %1
+  %.idx = shl nuw nsw i64 %1, 6
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %6 = icmp eq i64 %1, 0
   br i1 %6, label %._crit_edge, label %.lr.ph
 

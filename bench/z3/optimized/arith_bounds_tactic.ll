@@ -3979,7 +3979,8 @@ define linkonce_odr hidden noundef ptr @_ZNK7obj_mapI4exprN19arith_bounds_tactic
   %14 = and i32 %13, %10
   %15 = load ptr, ptr %0, align 8, !tbaa !50
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"class.obj_map<expr, arith_bounds_tactic::info>::obj_map_entry", ptr %15, i64 %16
+  %.idx.i = mul nuw nsw i64 %16, 48
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
   %18 = zext i32 %12 to i64
   %19 = getelementptr inbounds nuw %"class.obj_map<expr, arith_bounds_tactic::info>::obj_map_entry", ptr %15, i64 %18
   %.not35.i = icmp eq i32 %14, %12
@@ -4093,7 +4094,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprN19arith_bou
   %20 = and i32 %19, %18
   %21 = load ptr, ptr %0, align 8, !tbaa !50
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw %"class.obj_map<expr, arith_bounds_tactic::info>::obj_map_entry", ptr %21, i64 %22
+  %.idx = mul nuw nsw i64 %22, 48
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %24 = zext i32 %15 to i64
   %25 = getelementptr inbounds nuw %"class.obj_map<expr, arith_bounds_tactic::info>::obj_map_entry", ptr %21, i64 %24
   %.not63 = icmp eq i32 %20, %15
@@ -4580,7 +4582,8 @@ _ZN14core_hashtableIN7obj_mapI4exprN19arith_bounds_tactic4infoEE13obj_map_entryE
 define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprN19arith_bounds_tactic4infoEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE10move_tableEPS5_jSC_j(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 comdat align 2 {
   %5 = add i32 %3, -1
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"class.obj_map<expr, arith_bounds_tactic::info>::obj_map_entry", ptr %0, i64 %6
+  %.idx = mul nuw nsw i64 %6, 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %8 = zext i32 %3 to i64
   %9 = getelementptr inbounds nuw %"class.obj_map<expr, arith_bounds_tactic::info>::obj_map_entry", ptr %2, i64 %8
   %.not38 = icmp eq i32 %1, 0
@@ -4600,7 +4603,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprN19arith_bou
   %13 = load i32, ptr %12, align 4, !tbaa !183
   %14 = and i32 %13, %5
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %"class.obj_map<expr, arith_bounds_tactic::info>::obj_map_entry", ptr %2, i64 %15
+  %.idx44 = mul nuw nsw i64 %15, 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx44
   %.not2933 = icmp eq i32 %14, %3
   br i1 %.not2933, label %.preheader, label %.lr.ph
 

@@ -30,7 +30,8 @@ define internal fastcc void @_ZN8indexmap3map4core19insert_bulk_no_grow17he16783
   unreachable
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw { i64, { i32, [2 x i32] }, {}, [4 x i8] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %10 = icmp eq i64 %2, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 

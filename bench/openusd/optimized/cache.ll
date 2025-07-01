@@ -7419,7 +7419,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRangeD2Ev.exit: ; preds = %1059, %
   fence acquire
   %1088 = load ptr, ptr %1078, align 8
   %1089 = load i64, ptr %16, align 8
-  %1090 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery", ptr %1088, i64 %1089
+  %.idx.i.i = mul nsw i64 %1089, 400
+  %1090 = getelementptr inbounds i8, ptr %1088, i64 %.idx.i.i
   %.not2829.i.i = icmp eq i64 %1089, 0
   br i1 %.not2829.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -7576,7 +7577,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZN32pxrInt
   fence acquire
   %18 = load ptr, ptr %8, align 8
   %19 = load i64, ptr %4, align 8
-  %20 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery", ptr %18, i64 %19
+  %.idx.i.i = mul nsw i64 %19, 400
+  %20 = getelementptr inbounds i8, ptr %18, i64 %.idx.i.i
   %.not2829.i.i = icmp eq i64 %19, 0
   br i1 %.not2829.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -7655,7 +7657,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingD
   fence acquire
   %13 = load ptr, ptr %3, align 8
   %14 = load i64, ptr %2, align 8
-  %15 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery", ptr %13, i64 %14
+  %.idx.i.i = mul nsw i64 %14, 400
+  %15 = getelementptr inbounds i8, ptr %13, i64 %.idx.i.i
   %.not2829.i.i = icmp eq i64 %14, 0
   br i1 %.not2829.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -7732,7 +7735,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20Usd
   fence acquire
   %12 = load ptr, ptr %2, align 8
   %13 = load i64, ptr %0, align 8
-  %14 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery", ptr %12, i64 %13
+  %.idx.i = mul nsw i64 %13, 400
+  %14 = getelementptr inbounds i8, ptr %12, i64 %.idx.i
   %.not2829.i = icmp eq i64 %13, 0
   br i1 %.not2829.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -9495,7 +9499,8 @@ define linkonce_odr void @_ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__15UsdSk
   fence acquire
   %13 = load ptr, ptr %3, align 8
   %14 = load i64, ptr %2, align 8
-  %15 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery", ptr %13, i64 %14
+  %.idx.i.i = mul nsw i64 %14, 400
+  %15 = getelementptr inbounds i8, ptr %13, i64 %.idx.i.i
   %.not2829.i.i = icmp eq i64 %14, 0
   br i1 %.not2829.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -10496,7 +10501,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE16_Cap
   fence acquire
   %54 = load ptr, ptr %38, align 8
   %55 = load i64, ptr %0, align 8
-  %56 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery", ptr %54, i64 %55
+  %.idx.i = mul nsw i64 %55, 400
+  %56 = getelementptr inbounds i8, ptr %54, i64 %.idx.i
   %.not2829.i = icmp eq i64 %55, 0
   br i1 %.not2829.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -10560,7 +10566,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE7_DecRe
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE13_AllocateCopyEPS1_mm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %2)
-  %6 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery", ptr %1, i64 %3
+  %.idx = mul nsw i64 %3, 400
+  %6 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not14.i.i.i = icmp eq i64 %3, 0
   br i1 %.not14.i.i.i, label %_ZSt18uninitialized_copyIPN32pxrInternal_v0_24__pxrReserved__20UsdSkelSkinningQueryES2_ET0_T_S4_S3_.exit, label %.lr.ph.i.i.i
 

@@ -26099,7 +26099,8 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit47: ; preds = %_ZN4llvm
   %127 = load ptr, ptr %126, align 8, !tbaa !246
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %129 = load i64, ptr %128, align 8, !tbaa !245
-  %130 = getelementptr inbounds nuw ptr, ptr %127, i64 %129
+  %.idx = shl nuw nsw i64 %129, 3
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 %.idx
   %.not64 = icmp eq i64 %129, 0
   br i1 %.not64, label %._crit_edge, label %.lr.ph
 
@@ -35996,7 +35997,8 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit: ; preds = %2, %._ZN4llvm16ita
   %18 = load ptr, ptr %0, align 8, !tbaa !246
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !245
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %.idx = shl nuw nsw i64 %20, 3
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %.not263 = icmp eq i64 %20, 0
   br i1 %.not263, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit107.thread252, label %.lr.ph266
 

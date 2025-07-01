@@ -1923,7 +1923,8 @@ define hidden noundef align 8 ptr @"_ZN118_$LT$serde_yaml..ser..ThenWrite$LT$W$C
   store ptr %.sroa.623.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !250
   %22 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val, i64 %.val1
+  %.idx.i.i.i.i.i = mul nuw nsw i64 %.val1, 24
+  %23 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !257
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !257
   invoke void @"_ZN76_$LT$serde_yaml..ser..SerializerToYaml$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17ha07c25c4fd07d683E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i64 noundef 1, i64 %.val1)
@@ -8084,7 +8085,8 @@ define hidden void @_ZN5serde2de7Visitor9visit_u6417ha8fa379eec77a239E(ptr dead_
 define hidden void @"_ZN61_$LT$$u5b$V$u5d$$u20$as$u20$alloc..slice..Concat$LT$T$GT$$GT$6concat17h6ce4eb6990d0b3c2E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  %6 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %7 = icmp eq i64 %2, 0
   br i1 %7, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9063d53e3fd9e7afE.exit", label %.preheader
 

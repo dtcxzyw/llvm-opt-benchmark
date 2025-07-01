@@ -4976,7 +4976,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_119MakeFrameTypeStringB5cxx11ESt17b
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %26
   store i8 0, ptr %29, align 1, !tbaa !228
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #33
-  %30 = getelementptr inbounds nuw %"struct.(anonymous namespace)::KnownFlag", ptr %4, i64 %5
+  %.idx = mul nuw nsw i64 %5, 24
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not43 = icmp eq i64 %5, 0
   br i1 %.not43, label %._crit_edge, label %.lr.ph
 

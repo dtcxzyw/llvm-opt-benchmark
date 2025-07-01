@@ -105,7 +105,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::IntervalMapImpl::NodeRef" = type { %"class.llvm::PointerIntPair.195" }
 %"class.llvm::PointerIntPair.195" = type { %"struct.llvm::detail::PunnedPointer.196" }
 %"struct.llvm::detail::PunnedPointer.196" = type { [8 x i8] }
-%"struct.std::pair.244" = type { ptr, i64 }
 
 $_ZN4llvm13LiveRegMatrixD2Ev = comdat any
 
@@ -365,11 +364,12 @@ define dso_local void @_ZN4llvm13LiveRegMatrix4initERNS_15MachineFunctionERNS_13
 45:                                               ; preds = %.loopexit
   %46 = getelementptr inbounds i8, ptr %44, i64 -8
   %47 = load i64, ptr %46, align 8
+  %.idx.i.i.i = mul i64 %47, 176
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %_ZNKSt14default_deleteIA_N4llvm17LiveIntervalUnion5QueryEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %.preheader.preheader.i.i.i
 
 .preheader.preheader.i.i.i:                       ; preds = %45
-  %49 = getelementptr inbounds %"class.llvm::LiveIntervalUnion::Query", ptr %44, i64 %47
+  %49 = getelementptr inbounds i8, ptr %44, i64 %.idx.i.i.i
   br label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %_ZN4llvm17LiveIntervalUnion5QueryD2Ev.exit.i.i.i, %.preheader.preheader.i.i.i
@@ -401,19 +401,18 @@ _ZN4llvm17LiveIntervalUnion5QueryD2Ev.exit.i.i.i: ; preds = %61, %_ZN4llvm11Smal
   br i1 %62, label %_ZNKSt14default_deleteIA_N4llvm17LiveIntervalUnion5QueryEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %.preheader.i.i.i
 
 _ZNKSt14default_deleteIA_N4llvm17LiveIntervalUnion5QueryEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %_ZN4llvm17LiveIntervalUnion5QueryD2Ev.exit.i.i.i, %45
-  %63 = mul i64 %47, 176
-  %64 = or disjoint i64 %63, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %46, i64 noundef %64) #20
+  %63 = or disjoint i64 %.idx.i.i.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %46, i64 noundef %63) #20
   br label %_ZNSt10unique_ptrIA_N4llvm17LiveIntervalUnion5QueryESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit
 
 _ZNSt10unique_ptrIA_N4llvm17LiveIntervalUnion5QueryESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit: ; preds = %_ZNKSt14default_deleteIA_N4llvm17LiveIntervalUnion5QueryEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, %.loopexit, %4
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %66 = load ptr, ptr %65, align 8, !tbaa !227
-  tail call void @_ZN4llvm17LiveIntervalUnion5Array4initERNS_18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEcLm192ELm64EEEj(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(104) %66, i32 noundef %14) #17
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %68 = load i32, ptr %67, align 8, !tbaa !228
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %67, align 8, !tbaa !228
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %65 = load ptr, ptr %64, align 8, !tbaa !227
+  tail call void @_ZN4llvm17LiveIntervalUnion5Array4initERNS_18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEcLm192ELm64EEEj(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(104) %65, i32 noundef %14) #17
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %67 = load i32, ptr %66, align 8, !tbaa !228
+  %68 = add i32 %67, 1
+  store i32 %68, ptr %66, align 8, !tbaa !228
   ret void
 }
 
@@ -1822,11 +1821,12 @@ _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %1, %6
 9:                                                ; preds = %_ZN4llvm9BitVectorD2Ev.exit
   %10 = getelementptr inbounds i8, ptr %8, i64 -8
   %11 = load i64, ptr %10, align 8
+  %.idx.i.i = mul i64 %11, 176
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %_ZNKSt14default_deleteIA_N4llvm17LiveIntervalUnion5QueryEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i, label %.preheader.preheader.i.i
 
 .preheader.preheader.i.i:                         ; preds = %9
-  %13 = getelementptr inbounds %"class.llvm::LiveIntervalUnion::Query", ptr %8, i64 %11
+  %13 = getelementptr inbounds i8, ptr %8, i64 %.idx.i.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN4llvm17LiveIntervalUnion5QueryD2Ev.exit.i.i, %.preheader.preheader.i.i
@@ -1858,29 +1858,28 @@ _ZN4llvm17LiveIntervalUnion5QueryD2Ev.exit.i.i:   ; preds = %25, %_ZN4llvm11Smal
   br i1 %26, label %_ZNKSt14default_deleteIA_N4llvm17LiveIntervalUnion5QueryEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i, label %.preheader.i.i
 
 _ZNKSt14default_deleteIA_N4llvm17LiveIntervalUnion5QueryEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i: ; preds = %_ZN4llvm17LiveIntervalUnion5QueryD2Ev.exit.i.i, %9
-  %27 = mul i64 %11, 176
-  %28 = or disjoint i64 %27, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %10, i64 noundef %28) #20
+  %27 = or disjoint i64 %.idx.i.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %10, i64 noundef %27) #20
   br label %_ZNSt10unique_ptrIA_N4llvm17LiveIntervalUnion5QueryESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N4llvm17LiveIntervalUnion5QueryESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4llvm9BitVectorD2Ev.exit, %_ZNKSt14default_deleteIA_N4llvm17LiveIntervalUnion5QueryEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i
   store ptr null, ptr %7, align 8, !tbaa !226
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN4llvm17LiveIntervalUnion5Array5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #17
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !227
-  %.not.i1 = icmp eq ptr %31, null
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN4llvm17LiveIntervalUnion5Array5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #17
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %30 = load ptr, ptr %29, align 8, !tbaa !227
+  %.not.i1 = icmp eq ptr %30, null
   br i1 %.not.i1, label %_ZNSt10unique_ptrIN4llvm18RecyclingAllocatorINS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEcLm192ELm64EEESt14default_deleteIS5_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm18RecyclingAllocatorINS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEcLm192ELm64EEEEclEPS5_.exit.i
 
 _ZNKSt14default_deleteIN4llvm18RecyclingAllocatorINS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEcLm192ELm64EEEEclEPS5_.exit.i: ; preds = %_ZNSt10unique_ptrIA_N4llvm17LiveIntervalUnion5QueryESt14default_deleteIS3_EED2Ev.exit
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr null, ptr %31, align 8, !tbaa !384
-  tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %32) #17
-  tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef 104) #20
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store ptr null, ptr %30, align 8, !tbaa !384
+  tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef 104) #20
   br label %_ZNSt10unique_ptrIN4llvm18RecyclingAllocatorINS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEcLm192ELm64EEESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm18RecyclingAllocatorINS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEcLm192ELm64EEESt14default_deleteIS5_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_N4llvm17LiveIntervalUnion5QueryESt14default_deleteIS3_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm18RecyclingAllocatorINS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEcLm192ELm64EEEEclEPS5_.exit.i
-  store ptr null, ptr %30, align 8, !tbaa !227
+  store ptr null, ptr %29, align 8, !tbaa !227
   ret void
 }
 
@@ -2524,7 +2523,8 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !212
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not6.i = icmp eq i32 %5, 0
   br i1 %.not6.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, label %.lr.ph.i
 
@@ -2552,7 +2552,8 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load i32, ptr %20, align 8, !tbaa !212
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.std::pair.244", ptr %19, i64 %22
+  %.idx.i = shl nuw nsw i64 %22, 4
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
   %.not10.i = icmp eq i32 %21, 0
   br i1 %.not10.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit, label %.lr.ph.i1
 

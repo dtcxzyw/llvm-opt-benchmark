@@ -1462,7 +1462,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
   br label %273
 
 273:                                              ; preds = %345, %269
-  %274 = phi ptr [ %.pre587, %345 ], [ %271, %269 ]
+  %274 = phi ptr [ %.pre588, %345 ], [ %271, %269 ]
   %275 = phi ptr [ %.pre, %345 ], [ %270, %269 ]
   %276 = getelementptr inbounds nuw i8, ptr %274, i64 24
   %277 = load ptr, ptr %276, align 8, !invariant.load !10, !nonnull !10
@@ -1507,7 +1507,8 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
 293:                                              ; preds = %"_ZN4core3ptr66drop_in_place$LT$syn..punctuated..Iter$LT$syn..item..FnArg$GT$$GT$17h4281245465748a68E.exit305"
   %294 = getelementptr i8, ptr %287, i64 8
   %.val274 = load ptr, ptr %294, align 8, !nonnull !10, !noundef !10
-  %295 = getelementptr inbounds { i64, [44 x i64] }, ptr %.val274, i64 %290
+  %.idx = mul nsw i64 %290, 360
+  %295 = getelementptr inbounds i8, ptr %.val274, i64 %.idx
   %296 = icmp eq i64 %290, 0
   br i1 %296, label %._crit_edge, label %.lr.ph
 
@@ -1669,7 +1670,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
 
 345:                                              ; preds = %349, %284
   %.pre = load ptr, ptr %52, align 8
-  %.pre587 = load ptr, ptr %272, align 8
+  %.pre588 = load ptr, ptr %272, align 8
   br label %273
 
 346:                                              ; preds = %340
@@ -1982,7 +1983,8 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
 413:                                              ; preds = %410
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31)
-  %414 = getelementptr inbounds ptr, ptr %.sroa.4395.0.copyload, i64 %.sroa.5396.0.copyload
+  %.idx584 = shl nsw i64 %.sroa.5396.0.copyload, 3
+  %414 = getelementptr inbounds i8, ptr %.sroa.4395.0.copyload, i64 %.idx584
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
   store ptr %.sroa.4395.0.copyload, ptr %30, align 8
   %.sroa.4391.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -2956,7 +2958,8 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.444.0..sroa_idx, align 8
   %.sroa.545.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 16
   store i64 0, ptr %.sroa.545.0..sroa_idx, align 8
-  %90 = getelementptr inbounds { i64, [28 x i64] }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 232
+  %90 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %91 = icmp eq i64 %2, 0
   br i1 %91, label %._crit_edge.thread, label %.lr.ph
 

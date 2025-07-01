@@ -42,7 +42,8 @@ define ptr @_ZN32pxrInternal_v0_24__pxrReserved__13TsKeyFrameMap11lower_boundEd(
   br i1 %24, label %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEET_S9_NSt15iterator_traitsIS9_E15difference_typeE.exit.i, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i
 
 _ZSt4nextIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEET_S9_NSt15iterator_traitsIS9_E15difference_typeE.exit.i: ; preds = %13
-  %25 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %3, i64 %23
+  %.idx = mul nsw i64 %23, 72
+  %25 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %26 = getelementptr i8, ptr %25, i64 8
   %.val48.i = load double, ptr %26, align 8
   %27 = fcmp olt double %.val48.i, %1
@@ -199,7 +200,8 @@ define ptr @_ZNK32pxrInternal_v0_24__pxrReserved__13TsKeyFrameMap11lower_boundEd
   br i1 %24, label %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEET_SA_NSt15iterator_traitsISA_E15difference_typeE.exit.i, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i
 
 _ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEET_SA_NSt15iterator_traitsISA_E15difference_typeE.exit.i: ; preds = %13
-  %25 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %3, i64 %23
+  %.idx = mul nsw i64 %23, 72
+  %25 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %26 = getelementptr i8, ptr %25, i64 8
   %.val48.i = load double, ptr %26, align 8
   %27 = fcmp olt double %.val48.i, %1
@@ -356,7 +358,8 @@ define ptr @_ZN32pxrInternal_v0_24__pxrReserved__13TsKeyFrameMap11upper_boundEd(
   br i1 %24, label %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEET_S9_NSt15iterator_traitsIS9_E15difference_typeE.exit.i, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i
 
 _ZSt4nextIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEET_S9_NSt15iterator_traitsIS9_E15difference_typeE.exit.i: ; preds = %13
-  %25 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %3, i64 %23
+  %.idx = mul nsw i64 %23, 72
+  %25 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %26 = getelementptr i8, ptr %25, i64 8
   %.val48.i = load double, ptr %26, align 8
   %27 = fcmp ugt double %.val48.i, %1
@@ -513,7 +516,8 @@ define ptr @_ZNK32pxrInternal_v0_24__pxrReserved__13TsKeyFrameMap11upper_boundEd
   br i1 %24, label %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEET_SA_NSt15iterator_traitsISA_E15difference_typeE.exit.i, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i
 
 _ZSt4nextIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEET_SA_NSt15iterator_traitsISA_E15difference_typeE.exit.i: ; preds = %13
-  %25 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %3, i64 %23
+  %.idx = mul nsw i64 %23, 72
+  %25 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %26 = getelementptr i8, ptr %25, i64 8
   %.val48.i = load double, ptr %26, align 8
   %27 = fcmp ugt double %.val48.i, %1

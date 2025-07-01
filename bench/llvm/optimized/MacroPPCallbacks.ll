@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i64, i64 }
 %"struct.llvm::SmallVectorStorage" = type { [128 x i8] }
-%"class.clang::Token" = type <{ i32, i32, ptr, i16, i16, [4 x i8] }>
 %"class.clang::PresumedLoc" = type { ptr, %"class.clang::FileID", i32, i32, %"class.clang::SourceLocation" }
 %"class.clang::FileID" = type { i32 }
 %"class.clang::SourceLocation" = type { i32 }
@@ -371,7 +370,8 @@ _ZN4llvm11raw_ostreamlsEc.exit68:                 ; preds = %119, %117, %_ZN4llv
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %127 = load i32, ptr %126, align 4, !tbaa !36
   %128 = zext i32 %127 to i64
-  %129 = getelementptr inbounds nuw %"class.clang::Token", ptr %125, i64 %128
+  %.idx92 = mul nuw nsw i64 %128, 24
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 %.idx92
   %.not4387 = icmp eq i32 %127, 0
   br i1 %.not4387, label %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit, label %.lr.ph90
 

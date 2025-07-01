@@ -6536,7 +6536,8 @@ define hidden void @"_ZN5gimli4read4addr18DebugAddr$LT$R$GT$11get_address17h0e8c
 define internal fastcc void @_ZN5gimli4read4line13parse_file_v517h951f0453c9bdd4ebE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 range(i32 327680, 393216) %2, ptr noalias noundef nonnull readonly align 2 captures(address) %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca [16 x i8], align 16
   %7 = alloca { i64, [2 x i64] }, align 8
-  %8 = getelementptr inbounds { i16, i16 }, ptr %3, i64 %4
+  %.idx = shl nsw i64 %4, 2
+  %8 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %9 = icmp eq i64 %4, 0
   br i1 %9, label %._crit_edge.thread, label %.lr.ph
 
@@ -9521,7 +9522,8 @@ define internal fastcc void @_ZN5gimli4read4line18parse_directory_v517h7e555dc92
   %6 = alloca { i64, [2 x i64] }, align 8
   %.sroa.7 = alloca [2 x i64], align 8
   %.sroa.6 = alloca [2 x i64], align 8
-  %7 = getelementptr inbounds { i16, i16 }, ptr %3, i64 %4
+  %.idx = shl nsw i64 %4, 2
+  %7 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %8 = icmp eq i64 %4, 0
   br i1 %8, label %._crit_edge.thread, label %.lr.ph
 
@@ -14769,7 +14771,8 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
   br i1 %15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %16 = getelementptr inbounds { i32, i32, i64, i64, i64, i64, i32, i32, i64, i64 }, ptr %14, i64 %8
+  %.idx = shl nsw i64 %8, 6
+  %16 = getelementptr inbounds i8, ptr %14, i64 %.idx
   %17 = ptrtoint ptr %14 to i64
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -14960,7 +14963,8 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
   br i1 %15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %16 = getelementptr inbounds { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }, ptr %14, i64 %8
+  %.idx = mul nsw i64 %8, 40
+  %16 = getelementptr inbounds i8, ptr %14, i64 %.idx
   %17 = ptrtoint ptr %14 to i64
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -16751,7 +16755,8 @@ _ZN6object4read3elf7section13SectionHeader13data_as_array17hc69e613740e8e167E.ex
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfded73e08ae1436eE.exit.lr.ph": ; preds = %39
   %50 = extractvalue { i64, i1 } %46, 0
-  %51 = getelementptr inbounds { i32, i32, i64, i64, i64, i64, i32, i32, i64, i64 }, ptr %.val67, i64 %.val68
+  %.idx = shl nsw i64 %.val68, 6
+  %51 = getelementptr inbounds i8, ptr %.val67, i64 %.idx
   br i1 %1, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfded73e08ae1436eE.exit.us", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfded73e08ae1436eE.exit"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfded73e08ae1436eE.exit.us": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfded73e08ae1436eE.exit.lr.ph", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h923dd4d0a5a59ffaE.exit.thread.us"
@@ -16982,7 +16987,8 @@ _ZN6object4read3elf7section13SectionHeader13data_as_array17h0131c7f4abbdba89E.ex
   %.0.i.i22.i.i = select i1 %1, i32 %46, i32 %45
   %47 = zext i32 %.0.i.i22.i.i to i64
   %48 = add nuw nsw i64 %47, %43
-  %49 = getelementptr inbounds { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }, ptr %.val69, i64 %.val70
+  %.idx = mul nsw i64 %.val70, 40
+  %49 = getelementptr inbounds i8, ptr %.val69, i64 %.idx
   br i1 %1, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75ad425ed3bbf822E.exit.us", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75ad425ed3bbf822E.exit"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75ad425ed3bbf822E.exit.us": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75ad425ed3bbf822E.exit.lr.ph", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h923dd4d0a5a59ffaE.exit.thread.us"

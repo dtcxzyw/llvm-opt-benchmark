@@ -75,7 +75,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SmallVectorStorage.445" = type { [32 x i8] }
 %"class.(anonymous namespace)::ThunksSet" = type { i32, i32, i32, [32 x i32], [32 x i32] }
 %"class.llvm::MCInstrDesc" = type { i16, i16, i8, i8, i16, i8, i8, i16, i16, i64, i64 }
-%"struct.std::pair.513" = type { i32, ptr }
 %"struct.llvm::MachineBasicBlock::RegisterMaskPair" = type { %"class.llvm::MCRegister", %"struct.llvm::LaneBitmask" }
 %"class.llvm::MCRegister" = type { i32 }
 
@@ -1154,7 +1153,8 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread10.i.i.i.i.i.i: ; preds = %_ZN4llvmneENS
   %376 = load ptr, ptr %24, align 8, !tbaa !646, !noalias !296
   %377 = load i32, ptr %133, align 8, !tbaa !647, !noalias !296
   %378 = zext i32 %377 to i64
-  %379 = getelementptr inbounds nuw %"struct.std::pair.513", ptr %376, i64 %378
+  %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %378, 4
+  %379 = getelementptr inbounds nuw i8, ptr %376, i64 %.idx.i.i.i.i.i.i.i.i.i
   %.not10.i.i.i.i.i.i.i.i.i = icmp eq i32 %377, 0
   br i1 %.not10.i.i.i.i.i.i.i.i.i, label %_ZN4llvm13IRBuilderBase13CreateRetVoidEv.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 

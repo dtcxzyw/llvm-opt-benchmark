@@ -214,7 +214,8 @@ define void @_ZN13sentencepiece12pretokenizer32PretokenizerForTrainingInterface1
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %14 = load i32, ptr %13, align 8, !tbaa !29
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %15
+  %.idx = shl nsw i64 %15, 3
+  %16 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not6062 = icmp eq i32 %14, 0
   br i1 %.not6062, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit40, label %.lr.ph
 

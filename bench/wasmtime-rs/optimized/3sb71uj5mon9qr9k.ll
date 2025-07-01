@@ -6053,7 +6053,8 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN73_$LT$wasmtime_types..F
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: write) uwtable
 define hidden void @"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17h306a920140e6aedaE"(ptr noalias noundef nonnull writeonly align 8 captures(address) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #10 {
-  %4 = getelementptr inbounds ptr, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 3
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 

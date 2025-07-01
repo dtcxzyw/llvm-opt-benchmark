@@ -2012,7 +2012,8 @@ _ZNK5clang12RedeclarableINS_24RedeclarableTemplateDeclEE15getPreviousDeclEv.exit
   %38 = load ptr, ptr %2, align 8, !tbaa !79
   %39 = load i32, ptr %7, align 8, !tbaa !77
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %40
+  %.idx = shl nuw nsw i64 %40, 3
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx
   %.not2129 = icmp eq i32 %39, 0
   br i1 %.not2129, label %._crit_edge33, label %.lr.ph32
 
@@ -2527,7 +2528,8 @@ _ZN5clang20FunctionTemplateDecl15getPreviousDeclEv.exit: ; preds = %_ZN4llvm23Sm
   %.pre33 = phi i32 [ %.pre33.pr, %._crit_edgethread-pre-split ], [ %24, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang20FunctionTemplateDeclELb1EE9push_backES3_.exit ]
   %.pre = load ptr, ptr %3, align 8, !tbaa !79
   %28 = zext i32 %.pre33 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %28
+  %.idx = shl nuw nsw i64 %28, 3
+  %29 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
   %.not2328 = icmp eq i32 %.pre33, 0
   br i1 %.not2328, label %.loopexit, label %.lr.ph31
 
@@ -3018,7 +3020,8 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit:    ; preds = %_ZN4llvm16FoldingSe
   %32 = load i32, ptr %7, align 8, !tbaa !77
   %33 = add i32 %32, 1
   store i32 %33, ptr %7, align 8, !tbaa !77
-  %34 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not15 = icmp eq i64 %2, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -3204,7 +3207,8 @@ _ZN4llvm15SmallVectorImplIPN5clang38ClassTemplatePartialSpecializationDeclEE7res
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %26 = load i32, ptr %25, align 8, !tbaa !77
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %24, i64 %27
+  %.idx = shl nuw nsw i64 %27, 3
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx
   %.not14 = icmp eq i32 %26, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -3291,7 +3295,8 @@ _ZNK5clang17ClassTemplateDecl25getPartialSpecializationsEv.exit: ; preds = %2, %
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %17 = load i32, ptr %16, align 8, !tbaa !77
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %18
+  %.idx = shl nuw nsw i64 %18, 3
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   %.not24 = icmp eq i32 %17, 0
   br i1 %.not24, label %_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit.thread, label %_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit.thread20.lr.ph
 
@@ -3379,7 +3384,8 @@ _ZNK5clang17ClassTemplateDecl25getPartialSpecializationsEv.exit: ; preds = %2, %
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %21 = load i32, ptr %20, align 8, !tbaa !77
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
+  %.idx = shl nuw nsw i64 %22, 3
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not2124 = icmp eq i32 %21, 0
   br i1 %.not2124, label %_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit.thread, label %_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit.thread18
 
@@ -4553,7 +4559,8 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %22, %25
 define dso_local void @_ZN5clang20TemplateArgumentListC2EN4llvm8ArrayRefINS_16TemplateArgumentEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 4)) %0, ptr readonly captures(address) %1, i64 %2) unnamed_addr #12 align 2 {
   %4 = trunc i64 %2 to i32
   store i32 %4, ptr %0, align 8, !tbaa !520
-  %5 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not9.i.i.i = icmp eq i64 %2, 0
   br i1 %.not9.i.i.i, label %_ZSt18uninitialized_copyIPKN5clang16TemplateArgumentEPS1_ET0_T_S6_S5_.exit, label %.lr.ph.i.i.i.preheader
 
@@ -5342,7 +5349,8 @@ define dso_local void @_ZN5clang33ImplicitConceptSpecializationDeclC2EPNS_11Decl
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = trunc i64 %4 to i32
   store i32 %7, ptr %6, align 4, !tbaa !575
-  %8 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %3, i64 %4
+  %.idx.i = mul nuw nsw i64 %4, 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not9.i.i.i.i, label %_ZN5clang33ImplicitConceptSpecializationDecl20setTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit, label %.lr.ph.i.i.i.preheader.i
 
@@ -5433,7 +5441,8 @@ _ZN5clang4Decl32getModuleOwnershipKindForChildOfEPNS_11DeclContextE.exit: ; pred
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN5clang33ImplicitConceptSpecializationDecl20setTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #12 align 2 {
-  %4 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not9.i.i.i = icmp eq i64 %2, 0
   br i1 %.not9.i.i.i, label %_ZSt18uninitialized_copyIPKN5clang16TemplateArgumentEPS1_ET0_T_S6_S5_.exit, label %.lr.ph.i.i.i.preheader
 
@@ -6464,7 +6473,8 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit:    ; preds = %_ZN4llvm16FoldingSe
   %32 = load i32, ptr %7, align 8, !tbaa !77
   %33 = add i32 %32, 1
   store i32 %33, ptr %7, align 8, !tbaa !77
-  %34 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not15 = icmp eq i64 %2, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -6646,7 +6656,8 @@ _ZN4llvm15SmallVectorImplIPN5clang36VarTemplatePartialSpecializationDeclEE7reser
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %26 = load i32, ptr %25, align 8, !tbaa !77
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %24, i64 %27
+  %.idx = shl nuw nsw i64 %27, 3
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx
   %.not12 = icmp eq i32 %26, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -6719,7 +6730,8 @@ _ZNK5clang15VarTemplateDecl25getPartialSpecializationsEv.exit: ; preds = %2, %10
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %21 = load i32, ptr %20, align 8, !tbaa !77
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
+  %.idx = shl nuw nsw i64 %22, 3
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not1618 = icmp eq i32 %21, 0
   br i1 %.not1618, label %.loopexit, label %.lr.ph
 
@@ -9741,7 +9753,8 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit.i:
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %11, ptr %12, align 4
   store i32 2, ptr %6, align 8, !tbaa !77
-  %13 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
+  %.idx.i = mul nuw nsw i64 %.sroa.2.0.copyload, 24
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.idx.i
   %.not12.i = icmp eq i64 %.sroa.2.0.copyload, 0
   br i1 %.not12.i, label %_ZN5clang34FunctionTemplateSpecializationInfo7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEERKNS_10ASTContextE.exit, label %.lr.ph.i
 
@@ -9868,7 +9881,8 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit.i:  ; preds = %27, %_ZN4llvm16Fold
   %35 = load i32, ptr %12, align 8, !tbaa !77
   %36 = add i32 %35, 1
   store i32 %36, ptr %12, align 8, !tbaa !77
-  %37 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %5, i64 %7
+  %.idx.i = mul nuw nsw i64 %7, 24
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
   %.not12.i = icmp eq i32 %6, 0
   br i1 %.not12.i, label %_ZN5clang34FunctionTemplateSpecializationInfo7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEERKNS_10ASTContextE.exit, label %.lr.ph.i
 
@@ -10502,7 +10516,8 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit.i:
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %11, ptr %12, align 4
   store i32 2, ptr %6, align 8, !tbaa !77
-  %13 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
+  %.idx.i = mul nuw nsw i64 %.sroa.2.0.copyload, 24
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.idx.i
   %.not12.i = icmp eq i64 %.sroa.2.0.copyload, 0
   br i1 %.not12.i, label %_ZN5clang31ClassTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEERKNS_10ASTContextE.exit, label %.lr.ph.i
 
@@ -10634,7 +10649,8 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit.i:  ; preds = %24, %_ZN4llvm16Fold
   %32 = load i32, ptr %9, align 8, !tbaa !77
   %33 = add i32 %32, 1
   store i32 %33, ptr %9, align 8, !tbaa !77
-  %34 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %5, i64 %7
+  %.idx.i = mul nuw nsw i64 %7, 24
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
   %.not12.i = icmp eq i32 %6, 0
   br i1 %.not12.i, label %_ZN5clang31ClassTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEERKNS_10ASTContextE.exit, label %.lr.ph.i
 
@@ -10815,7 +10831,8 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit.i:
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %11, ptr %12, align 4
   store i32 2, ptr %6, align 8, !tbaa !77
-  %13 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
+  %.idx.i = mul nuw nsw i64 %.sroa.2.0.copyload, 24
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.idx.i
   %.not12.i = icmp eq i64 %.sroa.2.0.copyload, 0
   br i1 %.not12.i, label %_ZN5clang29VarTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEERKNS_10ASTContextE.exit, label %.lr.ph.i
 
@@ -10935,7 +10952,8 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit.i:  ; preds = %24, %_ZN4llvm16Fold
   %32 = load i32, ptr %9, align 8, !tbaa !77
   %33 = add i32 %32, 1
   store i32 %33, ptr %9, align 8, !tbaa !77
-  %34 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %5, i64 %7
+  %.idx.i = mul nuw nsw i64 %7, 24
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
   %.not12.i = icmp eq i32 %6, 0
   br i1 %.not12.i, label %_ZN5clang29VarTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEERKNS_10ASTContextE.exit, label %.lr.ph.i
 

@@ -4496,7 +4496,8 @@ define internal fastcc void @_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112b
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8, !tbaa !83
   store i8 0, ptr %2, align 8, !tbaa !84
-  %4 = getelementptr inbounds nuw i32, ptr %.0.val, i64 %.8.val
+  %.idx.i = shl nuw nsw i64 %.8.val, 2
+  %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx.i
   %.not4.i = icmp eq i64 %.8.val, 0
   br i1 %.not4.i, label %_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEERNS2_IcS3_IcESaIcEEE.exit, label %.lr.ph.i
 

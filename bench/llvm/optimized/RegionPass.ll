@@ -2074,7 +2074,8 @@ _ZN4llvm11GraphTraitsIPNS_10BasicBlockEE9child_endES2_.exit: ; preds = %.critedg
   %42 = load ptr, ptr %0, align 8, !tbaa !208, !noalias !213
   %43 = load i32, ptr %5, align 4, !tbaa !218, !noalias !213
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %44
+  %.idx.i.i.i = shl nuw nsw i64 %44, 3
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i.i.i
   %.not36.i.i.i = icmp eq i32 %43, 0
   br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 

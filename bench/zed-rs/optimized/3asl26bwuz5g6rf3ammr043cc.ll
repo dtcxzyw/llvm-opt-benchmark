@@ -1154,7 +1154,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hd6657c9b4ac76e70E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds float, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 2
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hfcd26fde1b186b61E.exit, label %.lr.ph.i
 
@@ -22752,7 +22753,8 @@ common.ret:                                       ; preds = %397, %373, %"_ZN4co
   %253 = load ptr, ptr %252, align 8, !noalias !4043, !nonnull !5, !noundef !5
   %254 = getelementptr inbounds nuw i8, ptr %.sroa.033.0.copyload.i, i64 16
   %255 = load i64, ptr %254, align 8, !noalias !4043, !noundef !5
-  %256 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %253, i64 %255
+  %.idx.i.i = mul nsw i64 %255, 24
+  %256 = getelementptr inbounds i8, ptr %253, i64 %.idx.i.i
   %257 = icmp eq i64 %255, 0
   br i1 %257, label %..loopexit_crit_edge.i, label %.lr.ph.i.i
 
@@ -23315,7 +23317,8 @@ _ZN4gpui8executor5Scope5spawn17hc54fb4a1c0512c30E.exit.i.i: ; preds = %293, %289
 400:                                              ; preds = %396
   %401 = icmp ne ptr %.sroa.2.0.copyload, null
   call void @llvm.assume(i1 %401)
-  %402 = getelementptr inbounds ptr, ptr %.sroa.2.0.copyload, i64 %.sroa.3160.0.copyload
+  %.idx = shl nsw i64 %.sroa.3160.0.copyload, 3
+  %402 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
   store ptr %.sroa.2.0.copyload, ptr %18, align 8
   %.sroa.7140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -24393,7 +24396,8 @@ default.unreachable106:                           ; preds = %65, %3
   %89 = getelementptr i8, ptr %75, i64 16
   %.val21.i = load i64, ptr %89, align 8, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4305)
-  %90 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.val20.i, i64 %.val21.i
+  %.idx.i.i = mul nsw i64 %.val21.i, 24
+  %90 = getelementptr inbounds i8, ptr %.val20.i, i64 %.idx.i.i
   %91 = icmp eq i64 %.val21.i, 0
   br i1 %91, label %..loopexit_crit_edge.i, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h22a495334f62b36cE.exit.lr.ph.i.i"
 
@@ -24956,7 +24960,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr77drop
 229:                                              ; preds = %225
   %230 = icmp ne ptr %.sroa.2.0.copyload, null
   call void @llvm.assume(i1 %230)
-  %231 = getelementptr inbounds ptr, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %.idx = shl nsw i64 %.sroa.3.0.copyload, 3
+  %231 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
   store ptr %.sroa.2.0.copyload, ptr %18, align 8
   %.sroa.766.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8

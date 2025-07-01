@@ -18694,7 +18694,8 @@ define hidden void @"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$$LP$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17h7fb4c812c58373c2E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #7 {
-  %4 = getelementptr inbounds { i64, [3 x i64] }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 5
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -54653,7 +54654,8 @@ _ZN9collab_ui12collab_panel11CollabPanel18take_editing_state17ha694caf9b9fa8b81E
   %65 = load ptr, ptr %64, align 8, !alias.scope !9617, !noalias !9618, !nonnull !4, !noundef !4
   %66 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %67 = load i64, ptr %66, align 8, !alias.scope !9617, !noalias !9618, !noundef !4
-  %68 = getelementptr inbounds { i64, [5 x i64] }, ptr %65, i64 %67
+  %.idx.i.i = mul nsw i64 %67, 48
+  %68 = getelementptr inbounds i8, ptr %65, i64 %.idx.i.i
   %69 = icmp eq i64 %67, 0
   br i1 %69, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
@@ -73114,7 +73116,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17hb5f1af11121b2975E.exit.i: ; preds = %.
   %114 = load ptr, ptr %113, align 8, !alias.scope !12881, !noalias !12903, !nonnull !4, !noundef !4
   %115 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %116 = load i64, ptr %115, align 8, !alias.scope !12881, !noalias !12903, !noundef !4
-  %117 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %114, i64 %116
+  %.idx.i = shl nsw i64 %116, 4
+  %117 = getelementptr inbounds i8, ptr %114, i64 %.idx.i
   %118 = icmp eq i64 %116, 0
   br i1 %118, label %"_ZN4core3ptr81drop_in_place$LT$gpui..view..View$LT$collab_ui..channel_view..ChannelView$GT$$GT$17hd9149973597184c7E.exit114.thread.i", label %.lr.ph.i.i
 
@@ -80268,7 +80271,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h8b140c0aff8f98d1E.exit.i.i.i: ; preds 
   %.sroa.453.0.copyload.i.i.i = load ptr, ptr %.sroa.453.0..sroa_idx.i.i.i, align 8, !alias.scope !14071, !noalias !14087, !nonnull !4, !noundef !4
   %.sroa.554.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   %.sroa.554.0.copyload.i.i.i = load i64, ptr %.sroa.554.0..sroa_idx.i.i.i, align 8, !alias.scope !14071, !noalias !14087
-  %129 = getelementptr inbounds { i64, i64 }, ptr %.sroa.453.0.copyload.i.i.i, i64 %.sroa.554.0.copyload.i.i.i
+  %.idx.i.i.i = shl nsw i64 %.sroa.554.0.copyload.i.i.i, 4
+  %129 = getelementptr inbounds i8, ptr %.sroa.453.0.copyload.i.i.i, i64 %.idx.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !14076
   store ptr %.sroa.453.0.copyload.i.i.i, ptr %14, align 8, !noalias !14076
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -92278,7 +92282,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h78f8ff721963195aE.exit.i.i: ; preds = 
   %97 = load ptr, ptr %96, align 8, !alias.scope !16367, !noalias !16368, !nonnull !4, !noundef !4
   %98 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %99 = load i64, ptr %98, align 8, !alias.scope !16367, !noalias !16368, !noundef !4
-  %100 = getelementptr inbounds { i64, [5 x i64] }, ptr %97, i64 %99
+  %.idx.i.i = mul nsw i64 %99, 48
+  %100 = getelementptr inbounds i8, ptr %97, i64 %.idx.i.i
   %101 = icmp eq i64 %99, 0
   br i1 %101, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
@@ -112838,7 +112843,8 @@ define hidden void @"_ZN9collab_ui12collab_panel13channel_modal20ChannelModalDel
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = getelementptr inbounds { ptr, i32, i32 }, ptr %6, i64 %8
+  %.idx = shl nsw i64 %8, 4
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19033)
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h18e0fb3fa9c9e12eE.llvm.6079290144281833942.exit.thread", label %.lr.ph.i

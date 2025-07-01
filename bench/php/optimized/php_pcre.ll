@@ -38,7 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_strtod_state = type { [8 x ptr], ptr, ptr }
 %struct._zend_function_entry = type { ptr, ptr, ptr, i32, i32, ptr, ptr }
 %struct._pcre_cache_entry = type { ptr, ptr, i32, i32, i32, i32, i32 }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @basic_globals = external local_unnamed_addr global %struct._php_basic_globals, align 8
 @pcre_globals = dso_local global %struct._zend_pcre_globals zeroinitializer, align 8
@@ -6907,7 +6906,8 @@ define internal noundef i32 @zm_deactivate_pcre(i32 %0, i32 %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 16), align 8, !tbaa !11
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 24), align 8, !tbaa !107
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %struct._Bucket, ptr %3, i64 %5
+  %.idx = shl nuw nsw i64 %5, 5
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 8), align 8, !tbaa !11
   %8 = and i32 %7, 4
   %.not = icmp eq i32 %8, 0

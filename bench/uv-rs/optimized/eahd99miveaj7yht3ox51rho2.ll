@@ -22,7 +22,8 @@ define internal fastcc void @"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$L
   store i64 %7, ptr %5, align 8, !alias.scope !5, !noalias !8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  %8 = getelementptr inbounds [64 x i8], ptr %0, i64 %1
+  %.idx.i.i = shl nsw i64 %1, 6
+  %8 = getelementptr inbounds i8, ptr %0, i64 %.idx.i.i
   %.promoted.i.i = load i32, ptr %4, align 8, !alias.scope !15, !noalias !16
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -749,7 +750,7 @@ default.unreachable25:                            ; preds = %3
   %storemerge.i.i.i = trunc nuw nsw i64 %storemerge.in.i.i.i to i8
   store i8 %storemerge.i.i.i, ptr %9, align 16, !alias.scope !42, !noalias !43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !36
-  br label %151
+  br label %150
 
 29:                                               ; preds = %3
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -815,7 +816,7 @@ default.unreachable25:                            ; preds = %3
   %storemerge.in.i.i.i5 = phi i64 [ %42, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit13.i.i.i4" ], [ %57, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit16.i.i.i7" ]
   %storemerge.i.i.i6 = trunc nuw nsw i64 %storemerge.in.i.i.i5 to i8
   store i8 %storemerge.i.i.i6, ptr %32, align 16, !alias.scope !75, !noalias !78
-  br label %151
+  br label %150
 
 58:                                               ; preds = %3
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -882,7 +883,7 @@ default.unreachable25:                            ; preds = %3
   %storemerge.in.i.i.i12 = phi i64 [ %71, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit13.i.i.i11" ], [ %87, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit16.i.i.i14" ]
   %storemerge.i.i.i13 = trunc nuw i64 %storemerge.in.i.i.i12 to i8
   store i8 %storemerge.i.i.i13, ptr %61, align 16, !alias.scope !130, !noalias !133
-  br label %151
+  br label %150
 
 88:                                               ; preds = %3
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -949,7 +950,7 @@ default.unreachable25:                            ; preds = %3
   %storemerge.in.i.i.i19 = phi i64 [ %101, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit13.i.i.i18" ], [ %117, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit16.i.i.i21" ]
   %storemerge.i.i.i20 = trunc nuw i64 %storemerge.in.i.i.i19 to i8
   store i8 %storemerge.i.i.i20, ptr %91, align 16, !alias.scope !185, !noalias !188
-  br label %151
+  br label %150
 
 118:                                              ; preds = %3
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -998,37 +999,36 @@ default.unreachable25:                            ; preds = %3
   br label %"_ZN67_$LT$block_buffer..Lazy$u20$as$u20$block_buffer..sealed..Sealed$GT$12split_blocks17hd2e32e5dddcdfd34E.exit.i.i.i"
 
 141:                                              ; preds = %"_ZN67_$LT$block_buffer..Lazy$u20$as$u20$block_buffer..sealed..Sealed$GT$12split_blocks17hd2e32e5dddcdfd34E.exit.i.i.i"
-  %142 = getelementptr inbounds { { { { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, {} }, { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, {} }, {} }, { { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, {} }, { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} }, {} }, {} }, {} } }, ptr %.sroa.0.025.i.i.i, i64 %.sroa.0.0.i.i.i.i
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %144
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  br label %143
 
-144:                                              ; preds = %144, %141
-  %.sroa.0.04.i.i.i12.i.i.i = phi ptr [ %.sroa.0.025.i.i.i, %141 ], [ %145, %144 ]
-  %145 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i.i12.i.i.i, i64 128
-  %146 = load i64, ptr %143, align 8, !alias.scope !259, !noalias !264, !noundef !3
-  %147 = add i64 %146, 128
-  store i64 %147, ptr %143, align 8, !alias.scope !259, !noalias !264
+143:                                              ; preds = %143, %141
+  %.sroa.0.04.i.i.i12.i.i.i = phi ptr [ %.sroa.0.025.i.i.i, %141 ], [ %144, %143 ]
+  %144 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i.i12.i.i.i, i64 128
+  %145 = load i64, ptr %142, align 8, !alias.scope !259, !noalias !264, !noundef !3
+  %146 = add i64 %145, 128
+  store i64 %146, ptr %142, align 8, !alias.scope !259, !noalias !264
   tail call void @_ZN6blake214Blake2bVarCore8compress17h41bb26dc3cdf0c51E(ptr noalias noundef nonnull align 8 dereferenceable(208) %119, ptr noalias noundef nonnull readonly align 1 dereferenceable(128) %.sroa.0.04.i.i.i12.i.i.i, i64 noundef 0, i64 noundef 0), !noalias !267
-  %148 = icmp eq ptr %145, %142
-  br i1 %148, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit15.i.i.i", label %144
+  %147 = icmp eq ptr %144, %133
+  br i1 %147, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit15.i.i.i", label %143
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit15.i.i.i": ; preds = %144, %"_ZN67_$LT$block_buffer..Lazy$u20$as$u20$block_buffer..sealed..Sealed$GT$12split_blocks17hd2e32e5dddcdfd34E.exit.i.i.i"
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit15.i.i.i": ; preds = %143, %"_ZN67_$LT$block_buffer..Lazy$u20$as$u20$block_buffer..sealed..Sealed$GT$12split_blocks17hd2e32e5dddcdfd34E.exit.i.i.i"
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(129) %120, ptr noundef nonnull readonly align 1 dereferenceable(1) %133, i64 %.sroa.03.0.i.i.i.i, i1 false), !alias.scope !268, !noalias !272
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17hb7edd6e6507af60bE.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit18.i.i.i": ; preds = %118
-  %149 = getelementptr inbounds nuw i8, ptr %120, i64 %123
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %149, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !274, !noalias !278
-  %150 = add nuw nsw i64 %2, %123
+  %148 = getelementptr inbounds nuw i8, ptr %120, i64 %123
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %148, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !274, !noalias !278
+  %149 = add nuw nsw i64 %2, %123
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17hb7edd6e6507af60bE.exit"
 
 "_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17hb7edd6e6507af60bE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit15.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit18.i.i.i"
-  %storemerge.in.i.i.i22 = phi i64 [ %.sroa.03.0.i.i.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit15.i.i.i" ], [ %150, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit18.i.i.i" ]
+  %storemerge.in.i.i.i22 = phi i64 [ %.sroa.03.0.i.i.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit15.i.i.i" ], [ %149, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit18.i.i.i" ]
   %storemerge.i.i.i23 = trunc i64 %storemerge.in.i.i.i22 to i8
   store i8 %storemerge.i.i.i23, ptr %121, align 16, !alias.scope !240, !noalias !243
-  br label %151
+  br label %150
 
-151:                                              ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17hb7edd6e6507af60bE.exit", %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h7e937d8c3e273310E.exit", %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h4541d6ac86ca73f6E.exit", %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h230cf5b767e71954E.exit", %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17ha08b631ccda62ae4E.exit"
+150:                                              ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17hb7edd6e6507af60bE.exit", %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h7e937d8c3e273310E.exit", %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h4541d6ac86ca73f6E.exit", %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h230cf5b767e71954E.exit", %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17ha08b631ccda62ae4E.exit"
   ret void
 }
 

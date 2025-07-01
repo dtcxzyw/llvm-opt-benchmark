@@ -13561,7 +13561,8 @@ _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7
   %22 = load ptr, ptr %6, align 8, !tbaa !34
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %9
   store i8 0, ptr %23, align 1, !tbaa !27
-  %24 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 2
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not19 = icmp eq i64 %2, 0
   br i1 %.not19, label %.loopexit, label %.lr.ph
 

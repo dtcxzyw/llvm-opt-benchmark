@@ -114,16 +114,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.143" = type { %"struct.std::_Vector_base<llvm::CGIOperandList::ConstraintInfo, std::allocator<llvm::CGIOperandList::ConstraintInfo>>::_Vector_impl" }
 %"struct.std::_Vector_base<llvm::CGIOperandList::ConstraintInfo, std::allocator<llvm::CGIOperandList::ConstraintInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::CGIOperandList::ConstraintInfo, std::allocator<llvm::CGIOperandList::ConstraintInfo>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<llvm::CGIOperandList::ConstraintInfo, std::allocator<llvm::CGIOperandList::ConstraintInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvm::RecordVal" = type { ptr, %"class.llvm::SMLoc", %"class.llvm::PointerIntPair", ptr, i8, %"class.llvm::SmallVector.94" }
-%"class.llvm::SMLoc" = type { ptr }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
-%"class.llvm::SmallVector.94" = type { %"class.llvm::SmallVectorImpl.95" }
-%"class.llvm::SmallVectorImpl.95" = type { %"class.llvm::SmallVectorTemplateBase.96" }
-%"class.llvm::SmallVectorTemplateBase.96" = type { %"class.llvm::SmallVectorTemplateCommon.97" }
-%"class.llvm::SmallVectorTemplateCommon.97" = type { %"class.llvm::SmallVectorBase" }
-%"struct.std::pair" = type { ptr, %"class.llvm::SMRange" }
-%"class.llvm::SMRange" = type { %"class.llvm::SMLoc", %"class.llvm::SMLoc" }
 
 $_ZN4llvmplERKNS_5TwineES2_ = comdat any
 
@@ -469,7 +459,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit90.i.i:           ; preds = %153, %151
   %.val.i.i = load ptr, ptr %50, align 8, !tbaa !8
   %.val74.i.i = load i32, ptr %52, align 8, !tbaa !11
   %157 = zext i32 %.val74.i.i to i64
-  %158 = getelementptr inbounds nuw %"struct.(anonymous namespace)::PseudoLoweringEmitter::PseudoExpansion", ptr %.val.i.i, i64 %157
+  %.idx.i.i = mul nuw nsw i64 %157, 520
+  %158 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 %.idx.i.i
   %.not228.i.i = icmp eq i32 %.val74.i.i, 0
   br i1 %.not228.i.i, label %._crit_edge231.i.i, label %.lr.ph230.i.i
 
@@ -1702,7 +1693,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121PseudoLoweringEmitter6OpDataE
   %.pre6.pre.i.i.i.i.i.i = load i32, ptr %65, align 8, !tbaa !11
   %.pre.i.i.i.i.i = zext i32 %.pre6.pre.i.i.i.i.i.i to i64
   %741 = getelementptr inbounds nuw %"struct.(anonymous namespace)::PseudoLoweringEmitter::OpData", ptr %.val.i.i.i.i.pre.i.i, i64 %.pre.i.i.i.i.i
-  %742 = getelementptr inbounds nuw %"struct.(anonymous namespace)::PseudoLoweringEmitter::OpData", ptr %741, i64 %740
+  %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %740, 4
+  %742 = getelementptr inbounds nuw i8, ptr %741, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121PseudoLoweringEmitter6OpDataELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i.i.i.i
@@ -2129,10 +2121,11 @@ _ZN12_GLOBAL__N_121PseudoLoweringEmitter3runERN4llvm11raw_ostreamE.exit: ; preds
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN12_GLOBAL__N_121PseudoLoweringEmitter3runERN4llvm11raw_ostreamE.exit
   %893 = zext i32 %.val2.i.i to i64
-  %894 = getelementptr inbounds nuw %"struct.(anonymous namespace)::PseudoLoweringEmitter::PseudoExpansion", ptr %.val.i.i2, i64 %893
-  br label %.lr.ph.i.i.i3
+  %.idx.i.i3 = mul nuw nsw i64 %893, 520
+  %894 = getelementptr inbounds nuw i8, ptr %.val.i.i2, i64 %.idx.i.i3
+  br label %.lr.ph.i.i.i4
 
-.lr.ph.i.i.i3:                                    ; preds = %_ZN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
+.lr.ph.i.i.i4:                                    ; preds = %_ZN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
   %.05.i.i.i = phi ptr [ %895, %_ZN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionD2Ev.exit.i.i.i ], [ %894, %.lr.ph.i.preheader.i.i ]
   %895 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -520
   %896 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -40
@@ -2141,23 +2134,23 @@ _ZN12_GLOBAL__N_121PseudoLoweringEmitter3runERN4llvm11raw_ostreamE.exit: ; preds
   %899 = icmp eq ptr %897, %898
   br i1 %899, label %_ZN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionD2Ev.exit.i.i.i, label %900
 
-900:                                              ; preds = %.lr.ph.i.i.i3
+900:                                              ; preds = %.lr.ph.i.i.i4
   call void @free(ptr noundef %897) #15
   br label %_ZN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionD2Ev.exit.i.i.i
 
-_ZN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionD2Ev.exit.i.i.i: ; preds = %900, %.lr.ph.i.i.i3
+_ZN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionD2Ev.exit.i.i.i: ; preds = %900, %.lr.ph.i.i.i4
   %901 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -280
   call void @_ZN4llvm18CodeGenInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(236) %901) #15
   call void @_ZN4llvm18CodeGenInstructionD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %895) #15
-  %.not.i.i.i4 = icmp eq ptr %.val.i.i2, %895
-  br i1 %.not.i.i.i4, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i, label %.lr.ph.i.i.i3, !llvm.loop !238
+  %.not.i.i.i5 = icmp eq ptr %.val.i.i2, %895
+  br i1 %.not.i.i.i5, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i, label %.lr.ph.i.i.i4, !llvm.loop !238
 
 _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i: ; preds = %_ZN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionD2Ev.exit.i.i.i
-  %.pre.i.i5 = load ptr, ptr %50, align 8, !tbaa !8
+  %.pre.i.i6 = load ptr, ptr %50, align 8, !tbaa !8
   br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionELb0EE13destroy_rangeEPS3_S5_.exit.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionELb0EE13destroy_rangeEPS3_S5_.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i, %_ZN12_GLOBAL__N_121PseudoLoweringEmitter3runERN4llvm11raw_ostreamE.exit
-  %902 = phi ptr [ %.pre.i.i5, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i ], [ %.val.i.i2, %_ZN12_GLOBAL__N_121PseudoLoweringEmitter3runERN4llvm11raw_ostreamE.exit ]
+  %902 = phi ptr [ %.pre.i.i6, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i ], [ %.val.i.i2, %_ZN12_GLOBAL__N_121PseudoLoweringEmitter3runERN4llvm11raw_ostreamE.exit ]
   %903 = icmp eq ptr %902, %51
   br i1 %903, label %_ZN12_GLOBAL__N_121PseudoLoweringEmitterD2Ev.exit, label %904
 
@@ -2275,7 +2268,8 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm6Record8getValueENS_9StringRefE
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load i32, ptr %9, align 8, !tbaa !11
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"class.llvm::RecordVal", ptr %8, i64 %11
+  %.idx.i = mul nuw nsw i64 %11, 56
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
   %.not16.i = icmp eq i32 %10, 0
   br i1 %.not16.i, label %_ZNK4llvm6Record8getValueEPKNS_4InitE.exit, label %.lr.ph.i
 
@@ -2303,7 +2297,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load i32, ptr %7, align 8, !tbaa !11
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %9
+  %.idx = mul nuw nsw i64 %9, 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %.not36.not = icmp eq i32 %8, 0
   br i1 %.not36.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph
 
@@ -3207,7 +3202,8 @@ define internal fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val6.i = load i32, ptr %6, align 8, !tbaa !11
   %7 = zext i32 %.val6.i to i64
-  %8 = getelementptr inbounds nuw %"struct.(anonymous namespace)::PseudoLoweringEmitter::PseudoExpansion", ptr %.val2.i, i64 %7
+  %.idx.i = mul nuw nsw i64 %7, 520
+  %8 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %.val6.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionELb0EE19moveElementsForGrowEPS3_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -3228,7 +3224,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121PseudoLoweringEmitter15Pseudo
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
   %11 = zext i32 %.val4.pre.i to i64
-  %12 = getelementptr inbounds nuw %"struct.(anonymous namespace)::PseudoLoweringEmitter::PseudoExpansion", ptr %.val.pre.i, i64 %11
+  %.idx7.i = mul nuw nsw i64 %11, 520
+  %12 = getelementptr inbounds nuw i8, ptr %.val.pre.i, i64 %.idx7.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN12_GLOBAL__N_121PseudoLoweringEmitter15PseudoExpansionD2Ev.exit.i.i, %.lr.ph.i.preheader.i

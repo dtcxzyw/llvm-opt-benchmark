@@ -6,14 +6,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::UMutex" = type { [40 x i8], %"struct.std::atomic.0", ptr }
 %"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
 %"struct.std::__atomic_base.1" = type { ptr }
-%"class.icu_77::GenderInfo" = type <{ %"class.icu_77::UObject", i32, [4 x i8] }>
-%"class.icu_77::UObject" = type { ptr }
 %"class.icu_77::internal::LocalOpenPointer" = type { %"class.icu_77::LocalPointerBase" }
 %"class.icu_77::LocalPointerBase" = type { ptr }
 %"class.icu_77::CharString" = type { %"class.icu_77::MaybeStackArray", i32, [4 x i8] }
 %"class.icu_77::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 %"class.icu_77::StringPiece" = type <{ ptr, i32, [4 x i8] }>
 %"class.icu_77::Locale" = type <{ %"class.icu_77::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
+%"class.icu_77::UObject" = type { ptr }
 
 $_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ev = comdat any
 
@@ -581,7 +580,8 @@ define void @_ZN6icu_7720GenderInfo_initCacheER10UErrorCode(ptr noundef nonnull 
   br i1 %30, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %27
-  %31 = getelementptr inbounds %"class.icu_77::GenderInfo", ptr %25, i64 %29
+  %.idx26 = shl nsw i64 %29, 4
+  %31 = getelementptr inbounds i8, ptr %25, i64 %.idx26
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -625,7 +625,8 @@ define internal noundef signext i8 @_ZL14gender_cleanupv() #1 personality ptr @_
   br i1 %8, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %5
-  %9 = getelementptr inbounds %"class.icu_77::GenderInfo", ptr %3, i64 %7
+  %.idx = shl nsw i64 %7, 4
+  %9 = getelementptr inbounds i8, ptr %3, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader

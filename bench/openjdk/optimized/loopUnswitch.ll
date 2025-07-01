@@ -530,7 +530,8 @@ define hidden void @_ZN14PhaseIdealLoop27hoist_invariant_check_castsEPK13IdealLo
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %26
+  %.idx = shl nuw nsw i64 %26, 3
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   %.not90 = icmp eq i32 %25, 0
   br i1 %.not90, label %_ZN13GrowableArrayIP15CheckCastPPNodeED2Ev.exit, label %.lr.ph89
 
@@ -542,8 +543,8 @@ define hidden void @_ZN14PhaseIdealLoop27hoist_invariant_check_castsEPK13IdealLo
 
 31:                                               ; preds = %.lr.ph89, %._crit_edge82
   %.087 = phi ptr [ %23, %.lr.ph89 ], [ %202, %._crit_edge82 ]
-  %.sroa.18.086 = phi ptr [ %21, %.lr.ph89 ], [ %.sroa.18.1.lcssa98, %._crit_edge82 ]
-  %.sroa.11.085 = phi i32 [ 2, %.lr.ph89 ], [ %.sroa.11.1.lcssa97, %._crit_edge82 ]
+  %.sroa.18.086 = phi ptr [ %21, %.lr.ph89 ], [ %.sroa.18.1.lcssa99, %._crit_edge82 ]
+  %.sroa.11.085 = phi i32 [ 2, %.lr.ph89 ], [ %.sroa.11.1.lcssa98, %._crit_edge82 ]
   %.sroa.0.084 = phi i32 [ 0, %.lr.ph89 ], [ %.sroa.0.3.lcssa, %._crit_edge82 ]
   %32 = load ptr, ptr %.087, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -551,9 +552,10 @@ define hidden void @_ZN14PhaseIdealLoop27hoist_invariant_check_castsEPK13IdealLo
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %34, i64 %37
-  %.not91 = icmp eq i32 %36, 0
-  br i1 %.not91, label %._crit_edge.thread, label %.lr.ph
+  %.idx91 = shl nuw nsw i64 %37, 3
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx91
+  %.not92 = icmp eq i32 %36, 0
+  br i1 %.not92, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 52
@@ -868,8 +870,8 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35: ; preds = %_ZN9VectorSet8
   br i1 %201, label %90, label %._crit_edge82, !llvm.loop !12
 
 ._crit_edge82:                                    ; preds = %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35, %._crit_edge.thread, %._crit_edge
-  %.sroa.18.1.lcssa98 = phi ptr [ %.sroa.18.2, %._crit_edge ], [ %.sroa.18.086, %._crit_edge.thread ], [ %.sroa.18.2, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35 ]
-  %.sroa.11.1.lcssa97 = phi i32 [ %.sroa.11.2, %._crit_edge ], [ %.sroa.11.085, %._crit_edge.thread ], [ %.sroa.11.2, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35 ]
+  %.sroa.18.1.lcssa99 = phi ptr [ %.sroa.18.2, %._crit_edge ], [ %.sroa.18.086, %._crit_edge.thread ], [ %.sroa.18.2, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35 ]
+  %.sroa.11.1.lcssa98 = phi i32 [ %.sroa.11.2, %._crit_edge ], [ %.sroa.11.085, %._crit_edge.thread ], [ %.sroa.11.2, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35 ]
   %.sroa.0.3.lcssa = phi i32 [ %.sroa.0.2, %._crit_edge ], [ %.sroa.0.084, %._crit_edge.thread ], [ 0, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35 ]
   %202 = getelementptr inbounds nuw i8, ptr %.087, i64 8
   %203 = icmp ult ptr %202, %27

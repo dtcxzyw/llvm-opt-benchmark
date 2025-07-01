@@ -52949,7 +52949,8 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   %33 = load ptr, ptr %32, align 8, !noalias !2978, !nonnull !4, !noundef !4
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %35 = load i64, ptr %34, align 8, !noalias !2978, !noundef !4
-  %36 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %33, i64 %35
+  %.idx.i.i = shl nuw nsw i64 %35, 4
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i.i
   %37 = icmp eq i64 %35, 0
   br i1 %37, label %"_ZN11polars_core13chunked_array6binary67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$15to_bytes_hashes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4d5916fadf1d56d4E.exit", label %.lr.ph98.i.i
 
@@ -53324,7 +53325,8 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   %33 = load ptr, ptr %32, align 8, !noalias !3029, !nonnull !4, !noundef !4
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %35 = load i64, ptr %34, align 8, !noalias !3029, !noundef !4
-  %36 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %33, i64 %35
+  %.idx.i.i = shl nuw nsw i64 %35, 4
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i.i
   %37 = icmp eq i64 %35, 0
   br i1 %37, label %"_ZN11polars_core13chunked_array6binary67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$15to_bytes_hashes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6dd02f2a1c613fceE.exit", label %.lr.ph92.i.i
 
@@ -60523,7 +60525,8 @@ define hidden { i64, i64 } @"_ZN11polars_time12chunkedarray6string5infer22Dateti
   %21 = load ptr, ptr %20, align 16, !nonnull !4, !align !10, !noundef !4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i64, ptr %22, align 8, !noundef !4
-  %24 = getelementptr inbounds nuw { ptr, i64 }, ptr %21, i64 %23
+  %.idx = shl nuw nsw i64 %23, 4
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %37, label %.lr.ph
 
@@ -60598,7 +60601,8 @@ define hidden { i32, i32 } @"_ZN11polars_time12chunkedarray6string5infer22Dateti
   %21 = load ptr, ptr %20, align 16, !nonnull !4, !align !10, !noundef !4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i64, ptr %22, align 8, !noundef !4
-  %24 = getelementptr inbounds nuw { ptr, i64 }, ptr %21, i64 %23
+  %.idx = shl nuw nsw i64 %23, 4
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %37, label %.lr.ph
 

@@ -408,7 +408,8 @@ define hidden { i64, ptr } @"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$12build_
   %11 = load ptr, ptr %10, align 8, !alias.scope !53, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 520
   %13 = load i64, ptr %12, align 8, !alias.scope !53, !noundef !5
-  %14 = getelementptr inbounds { { ptr, i8 }, { { { i64 } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } }, { { { { i32 } }, { { i8 } }, i8, [2 x i8] }, { { { i32 } } } } }, ptr %11, i64 %13
+  %.idx.i = mul nsw i64 %13, 48
+  %14 = getelementptr inbounds i8, ptr %11, i64 %.idx.i
   %15 = icmp eq i64 %13, 0
   br i1 %15, label %_ZN10rayon_core8registry8Registry17wait_until_primed17he3defff33130b5e6E.exit, label %.lr.ph.i
 

@@ -48,8 +48,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.hermes::hbc::DebugTextifiedCallee" = type { i32, %"class.hermes::Identifier" }
-%"class.hermes::Identifier" = type { ptr }
 %"class.hermes::hbc::DebugInfo" = type { %"class.std::vector.0", %"class.std::vector", %"class.llvh::SmallVector", i32, i32, i32, %"class.hermes::hbc::StreamVector" }
 %"class.llvh::SmallVector" = type <{ %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage", [4 x i8] }>
 %"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
@@ -590,7 +588,8 @@ entry:
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %0, i64 %conv.i
+  %add.ptr.i.idx = mul nuw nsw i64 %conv.i, 12
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not51 = icmp eq i32 %1, 0
   br i1 %cmp.not51, label %if.then9, label %for.body.lr.ph
 
@@ -2938,7 +2937,8 @@ for.body.lr.ph:                                   ; preds = %lor.lhs.false, %_ZN
   %13 = load i32, ptr %column, align 4
   %conv18 = zext i32 %13 to i64
   tail call void @_ZN6hermes18appendSignedLEB128ERSt6vectorIhSaIhEEl(ptr noundef nonnull align 8 dereferenceable(24) %sourcesData_, i64 noundef %conv18) #16
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::DebugSourceLocation", ptr %offsets.coerce0, i64 %offsets.coerce1
+  %add.ptr.i.idx = shl nsw i64 %offsets.coerce1, 5
+  %add.ptr.i = getelementptr inbounds i8, ptr %offsets.coerce0, i64 %add.ptr.i.idx
   %sourceMappingUrlId35 = getelementptr inbounds nuw i8, ptr %start, i64 8
   %Capacity.i.i34 = getelementptr inbounds nuw i8, ptr %this, i64 100
   %add.ptr.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -3169,7 +3169,8 @@ for.body.preheader:                               ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv = trunc i64 %sub.ptr.sub.i to i32
   tail call void @_ZN6hermes18appendSignedLEB128ERSt6vectorIhSaIhEEl(ptr noundef nonnull align 8 dereferenceable(24) %textifiedCallees_, i64 noundef %textifiedCallees.coerce1) #16
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::DebugTextifiedCallee", ptr %textifiedCallees.coerce0, i64 %textifiedCallees.coerce1
+  %add.ptr.i.idx = shl nsw i64 %textifiedCallees.coerce1, 4
+  %add.ptr.i = getelementptr inbounds i8, ptr %textifiedCallees.coerce0, i64 %add.ptr.i.idx
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -3234,7 +3235,8 @@ cond.end:                                         ; preds = %if.end, %cond.false
   %conv10 = zext nneg i16 %or7.i22 to i64
   tail call void @_ZN6hermes18appendSignedLEB128ERSt6vectorIhSaIhEEl(ptr noundef nonnull align 8 dereferenceable(24) %scopeDescData_18, i64 noundef %conv10) #16
   tail call void @_ZN6hermes18appendSignedLEB128ERSt6vectorIhSaIhEEl(ptr noundef nonnull align 8 dereferenceable(24) %scopeDescData_18, i64 noundef %names.coerce1) #16
-  %add.ptr.i = getelementptr inbounds %"class.hermes::Identifier", ptr %names.coerce0, i64 %names.coerce1
+  %add.ptr.i.idx = shl nsw i64 %names.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %names.coerce0, i64 %add.ptr.i.idx
   %cmp.not23 = icmp eq i64 %names.coerce1, 0
   br i1 %cmp.not23, label %return, label %for.body
 
@@ -3888,7 +3890,8 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIP
   store i32 0, ptr %NumTombstones.i.i.i, align 4
   %3 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i = zext i32 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %call.i, i64 %idx.ext.i.i
+  %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 4
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %add.ptr.i.idx.i
   %cmp.not3.i = icmp eq i32 %3, 0
   br i1 %cmp.not3.i, label %return, label %for.body.i
 
@@ -3901,14 +3904,16 @@ for.body.i:                                       ; preds = %if.then, %for.body.
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapIPN6hermes12UniqueStringEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %1, i64 %idx.ext
+  %add.ptr.idx = shl nuw nsw i64 %idx.ext, 4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.idx
   %NumEntries.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i.i, align 8
   %NumTombstones.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i.i, align 4
   %4 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %call.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.idx.i.i = shl nuw nsw i64 %idx.ext.i.i.i, 4
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %add.ptr.i.idx.i.i
   %cmp.not3.i.i = icmp eq i32 %4, 0
   br i1 %cmp.not3.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E9initEmptyEv.exit.i, label %for.body.i.i
 

@@ -1201,7 +1201,8 @@ if.then:                                          ; preds = %_ZN4llvh11raw_ostre
   %Size.i = getelementptr inbounds nuw i8, ptr %F, i64 104
   %8 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %8 to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %7, i64 %conv.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %7, i64 %add.ptr.i.idx
   %cmp14.not54 = icmp eq i32 %8, 0
   br i1 %cmp14.not54, label %if.end28, label %for.body
 
@@ -2467,7 +2468,8 @@ _ZN4llvh11raw_ostreamlsEPKc.exit302:              ; preds = %if.then.i.i300, %if
   %Size.i303 = getelementptr inbounds nuw i8, ptr %call85, i64 8
   %97 = load i32, ptr %Size.i303, align 8
   %conv.i = zext i32 %97 to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %96, i64 %conv.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %96, i64 %add.ptr.i.idx
   %cmp89.not408 = icmp eq i32 %97, 0
   br i1 %cmp89.not408, label %for.end108, label %for.body90.lr.ph
 
@@ -3830,7 +3832,8 @@ _ZN6hermes16InstructionNamer9getNumberEPNS_5ValueE.exit: ; preds = %_ZNSt3mapIPN
   %Size.i = getelementptr inbounds nuw i8, ptr %S, i64 56
   %6 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %6 to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %5, i64 %conv.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 %add.ptr.i.idx
   %cmp.not5 = icmp eq i32 %6, 0
   br i1 %cmp.not5, label %for.end, label %for.body
 
@@ -5737,7 +5740,8 @@ _ZN4llvh11raw_ostreamlsEPKc.exit20.i:             ; preds = %if.then4.i.i15.i, %
   %Size.i.i = getelementptr inbounds nuw i8, ptr %scopeDesc, i64 160
   %22 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %22 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %21, i64 %conv.i.i
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i.i, 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %21, i64 %add.ptr.i.idx.i
   %cmp.not1.i = icmp eq i32 %22, 0
   br i1 %cmp.not1.i, label %for.end.i, label %for.body.i
 
@@ -5808,7 +5812,8 @@ if.then4.i.i45.i:                                 ; preds = %for.end.i
   %Size.i = getelementptr inbounds nuw i8, ptr %scopeDesc, i64 56
   %34 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %34 to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %33, i64 %conv.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %33, i64 %add.ptr.i.idx
   %cmp5.not1 = icmp eq i32 %34, 0
   br i1 %cmp5.not1, label %for.end, label %for.body
 
@@ -6004,7 +6009,8 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIP
   store i32 0, ptr %NumTombstones.i.i.i, align 4
   %3 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i = zext i32 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair.202", ptr %call.i, i64 %idx.ext.i.i
+  %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %add.ptr.i.idx.i
   %cmp.not3.i = icmp eq i32 %3, 0
   br i1 %cmp.not3.i, label %return, label %for.body.i
 
@@ -6017,14 +6023,16 @@ for.body.i:                                       ; preds = %if.then, %for.body.
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapIPN6hermes11InstructionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair.202", ptr %1, i64 %idx.ext
+  %add.ptr.idx = shl nuw nsw i64 %idx.ext, 3
+  %add.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.idx
   %NumEntries.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i.i, align 8
   %NumTombstones.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i.i, align 4
   %4 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair.202", ptr %call.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.idx.i.i = shl nuw nsw i64 %idx.ext.i.i.i, 3
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %add.ptr.i.idx.i.i
   %cmp.not3.i.i = icmp eq i32 %4, 0
   br i1 %cmp.not3.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes11InstructionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E9initEmptyEv.exit.i, label %for.body.i.i
 

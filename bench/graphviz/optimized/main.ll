@@ -1174,7 +1174,8 @@ _ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i: ; preds = %333
   %338 = load ptr, ptr %337, align 8, !tbaa !21
   %339 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %340 = load i64, ptr %339, align 8, !tbaa !22
-  %341 = getelementptr inbounds %class.QString, ptr %338, i64 %340
+  %.idx.i.i.i = mul nsw i64 %340, 24
+  %341 = getelementptr inbounds i8, ptr %338, i64 %.idx.i.i.i
   %.not4.i.i.i.i.i.i = icmp eq i64 %340, 0
   br i1 %.not4.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -1266,7 +1267,8 @@ define linkonce_odr void @_ZN5QListI7QStringEC2ESt16initializer_listIS0_E(ptr no
   br i1 %.not, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw %class.QString, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %_ZN7QStringC2ERKS_.exit.i
@@ -1321,7 +1323,8 @@ _ZN17QArrayDataPointerI7QStringE5derefEv.exit.i:  ; preds = %1
   %6 = load ptr, ptr %5, align 8, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !22
-  %9 = getelementptr inbounds %class.QString, ptr %6, i64 %8
+  %.idx.i.i = mul nsw i64 %8, 24
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i.i
   %.not4.i.i.i.i.i = icmp eq i64 %8, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -1393,7 +1396,8 @@ _ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i: ; preds = %2
   br i1 %.not.i.i, label %14, label %_ZN17QArrayDataPointerI7QStringEaSEOS1_.exit
 
 14:                                               ; preds = %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i
-  %15 = getelementptr inbounds %class.QString, ptr %10, i64 %12
+  %.idx.i.i.i = mul nsw i64 %12, 24
+  %15 = getelementptr inbounds i8, ptr %10, i64 %.idx.i.i.i
   %.not4.i.i.i.i.i.i = icmp eq i64 %12, 0
   br i1 %.not4.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 

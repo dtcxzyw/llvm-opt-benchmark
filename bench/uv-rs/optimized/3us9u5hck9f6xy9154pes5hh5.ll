@@ -3240,7 +3240,8 @@ define void @_ZN16uv_install_wheel6script16scripts_from_ini17hd1d4fb2360f9439bE(
   %98 = load ptr, ptr %97, align 8, !nonnull !8, !noundef !8
   %99 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %100 = load i64, ptr %99, align 8, !noundef !8
-  %101 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %98, i64 %100
+  %.idx = mul nsw i64 %100, 72
+  %101 = getelementptr inbounds i8, ptr %98, i64 %.idx
   %102 = icmp eq i64 %100, 0
   br i1 %102, label %"_ZN4core3ptr206drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$$GT$17hdc271997ffdfead4E.exit88", label %.lr.ph.i
 

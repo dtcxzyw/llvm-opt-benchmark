@@ -4472,7 +4472,8 @@ define void @_ZN9uv_client4html10SimpleHtml5parse17h7e6cda729b6336feE(ptr dead_o
   %74 = load ptr, ptr %73, align 8, !nonnull !4, !noundef !4
   %75 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %76 = load i64, ptr %75, align 8, !noundef !4
-  %77 = getelementptr inbounds { i64, [20 x i64] }, ptr %74, i64 %76
+  %.idx = mul nsw i64 %76, 168
+  %77 = getelementptr inbounds i8, ptr %74, i64 %.idx
   %78 = icmp eq i64 %76, 0
   br i1 %78, label %.thread222, label %.lr.ph.i.i.i
 

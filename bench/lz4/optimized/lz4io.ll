@@ -8929,7 +8929,8 @@ declare i64 @LZ4F_decompress_usingDict(ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @LZ4IO_fwriteSparse(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #11 {
   %6 = lshr i64 %2, 3
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %6
+  %.idx = and i64 %2, -8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %8 = load ptr, ptr @stdout, align 8, !tbaa !8
   %9 = icmp eq ptr %0, %8
   %.neg = sext i1 %9 to i32
@@ -9073,7 +9074,7 @@ thread-pre-split101:                              ; preds = %70, %65
 
 86:                                               ; preds = %84, %47
   %.075 = phi i32 [ %85, %84 ], [ %4, %47 ]
-  %.not141 = icmp ult i64 %2, 8
+  %.not141 = icmp eq i64 %.idx, 0
   br i1 %.not141, label %._crit_edge, label %.lr.ph133
 
 .lr.ph133:                                        ; preds = %86, %173

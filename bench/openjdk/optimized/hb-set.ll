@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.hb_bit_set_invertible_t::iter_t" = type { ptr, i32, i32 }
 %struct.hb_reference_wrapper = type { %class.anon }
 %class.anon = type { i8 }
-%struct.packed_uint64_t = type { i64 }
 %struct.hb_map_iter_t.69 = type { %"struct.hb_bit_set_t::iter_t", %struct.hb_reference_wrapper.74 }
 %"struct.hb_bit_set_t::iter_t" = type { ptr, i32, i32 }
 %struct.hb_reference_wrapper.74 = type { ptr }
@@ -646,7 +645,8 @@ define hidden i32 @hb_set_hash(ptr noundef readonly captures(none) %0) local_unn
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %4, i64 %7
+  %.idx.i.i.i = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i
   %.not16.i.i.i = icmp eq i32 %6, 0
   br i1 %.not16.i.i.i, label %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE4hashEv.exit, label %.lr.ph.i.i.i
 
@@ -4639,15 +4639,15 @@ define linkonce_odr hidden noundef i32 @_ZNK10hb_array_tIKcE4hashEv(ptr noundef 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = lshr i64 %5, 3
-  %7 = getelementptr inbounds nuw %struct.packed_uint64_t, ptr %2, i64 %6
-  %8 = mul i64 %5, -8645972361240307355
-  %9 = xor i64 %8, 4097310694
-  %10 = ptrtoint ptr %2 to i64
-  %11 = and i64 %10, 7
-  %12 = icmp eq i64 %11, 0
-  %.not6067.i.i = icmp ult i32 %4, 8
-  br i1 %12, label %.preheader.i.i, label %.preheader61.i.i
+  %.idx.i.i = and i64 %5, 4294967288
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i
+  %7 = mul i64 %5, -8645972361240307355
+  %8 = xor i64 %7, 4097310694
+  %9 = ptrtoint ptr %2 to i64
+  %10 = and i64 %9, 7
+  %11 = icmp eq i64 %10, 0
+  %.not6067.i.i = icmp samesign eq i64 %.idx.i.i, 0
+  br i1 %11, label %.preheader.i.i, label %.preheader61.i.i
 
 .preheader61.i.i:                                 ; preds = %1
   br i1 %.not6067.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
@@ -4656,130 +4656,130 @@ define linkonce_odr hidden noundef i32 @_ZNK10hb_array_tIKcE4hashEv(ptr noundef 
   br i1 %.not6067.i.i, label %.loopexit.i.i, label %.lr.ph70.i.i
 
 .lr.ph70.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph70.i.i
-  %.05369.i.i = phi i64 [ %21, %.lr.ph70.i.i ], [ %9, %.preheader.i.i ]
-  %.05768.i.i = phi ptr [ %13, %.lr.ph70.i.i ], [ %2, %.preheader.i.i ]
-  %13 = getelementptr inbounds nuw i8, ptr %.05768.i.i, i64 8
-  %14 = load i64, ptr %.05768.i.i, align 8
-  %15 = lshr i64 %14, 23
-  %16 = xor i64 %15, %14
-  %17 = mul i64 %16, 2388976653695081527
-  %18 = lshr i64 %17, 47
-  %19 = xor i64 %.05369.i.i, %18
-  %20 = xor i64 %19, %17
-  %21 = mul i64 %20, -8645972361240307355
-  %.not60.i.i = icmp eq ptr %13, %7
+  %.05369.i.i = phi i64 [ %20, %.lr.ph70.i.i ], [ %8, %.preheader.i.i ]
+  %.05768.i.i = phi ptr [ %12, %.lr.ph70.i.i ], [ %2, %.preheader.i.i ]
+  %12 = getelementptr inbounds nuw i8, ptr %.05768.i.i, i64 8
+  %13 = load i64, ptr %.05768.i.i, align 8
+  %14 = lshr i64 %13, 23
+  %15 = xor i64 %14, %13
+  %16 = mul i64 %15, 2388976653695081527
+  %17 = lshr i64 %16, 47
+  %18 = xor i64 %.05369.i.i, %17
+  %19 = xor i64 %18, %16
+  %20 = mul i64 %19, -8645972361240307355
+  %.not60.i.i = icmp eq ptr %12, %6
   br i1 %.not60.i.i, label %.loopexit.i.i, label %.lr.ph70.i.i, !llvm.loop !42
 
 .lr.ph.i.i:                                       ; preds = %.preheader61.i.i, %.lr.ph.i.i
-  %.25565.i.i = phi i64 [ %30, %.lr.ph.i.i ], [ %9, %.preheader61.i.i ]
-  %.25964.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %2, %.preheader61.i.i ]
-  %22 = getelementptr inbounds nuw i8, ptr %.25964.i.i, i64 8
-  %23 = load i64, ptr %.25964.i.i, align 1
-  %24 = lshr i64 %23, 23
-  %25 = xor i64 %24, %23
-  %26 = mul i64 %25, 2388976653695081527
-  %27 = lshr i64 %26, 47
-  %28 = xor i64 %.25565.i.i, %27
-  %29 = xor i64 %28, %26
-  %30 = mul i64 %29, -8645972361240307355
-  %.not.i.i = icmp eq ptr %22, %7
+  %.25565.i.i = phi i64 [ %29, %.lr.ph.i.i ], [ %8, %.preheader61.i.i ]
+  %.25964.i.i = phi ptr [ %21, %.lr.ph.i.i ], [ %2, %.preheader61.i.i ]
+  %21 = getelementptr inbounds nuw i8, ptr %.25964.i.i, i64 8
+  %22 = load i64, ptr %.25964.i.i, align 1
+  %23 = lshr i64 %22, 23
+  %24 = xor i64 %23, %22
+  %25 = mul i64 %24, 2388976653695081527
+  %26 = lshr i64 %25, 47
+  %27 = xor i64 %.25565.i.i, %26
+  %28 = xor i64 %27, %25
+  %29 = mul i64 %28, -8645972361240307355
+  %.not.i.i = icmp eq ptr %21, %6
   br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !43
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %.lr.ph70.i.i, %.preheader.i.i, %.preheader61.i.i
-  %.158.i.i = phi ptr [ %2, %.preheader.i.i ], [ %2, %.preheader61.i.i ], [ %7, %.lr.ph70.i.i ], [ %7, %.lr.ph.i.i ]
-  %.154.i.i = phi i64 [ %9, %.preheader.i.i ], [ %9, %.preheader61.i.i ], [ %21, %.lr.ph70.i.i ], [ %30, %.lr.ph.i.i ]
-  %31 = and i64 %5, 7
-  switch i64 %31, label %default.unreachable [
-    i64 7, label %32
-    i64 6, label %37
-    i64 5, label %43
-    i64 4, label %49
-    i64 3, label %55
-    i64 2, label %61
-    i64 1, label %67
+  %.158.i.i = phi ptr [ %2, %.preheader.i.i ], [ %2, %.preheader61.i.i ], [ %6, %.lr.ph70.i.i ], [ %6, %.lr.ph.i.i ]
+  %.154.i.i = phi i64 [ %8, %.preheader.i.i ], [ %8, %.preheader61.i.i ], [ %20, %.lr.ph70.i.i ], [ %29, %.lr.ph.i.i ]
+  %30 = and i64 %5, 7
+  switch i64 %30, label %default.unreachable [
+    i64 7, label %31
+    i64 6, label %36
+    i64 5, label %42
+    i64 4, label %48
+    i64 3, label %54
+    i64 2, label %60
+    i64 1, label %66
     i64 0, label %_ZL10fasthash32PKvmj.exit
   ]
 
-32:                                               ; preds = %.loopexit.i.i
-  %33 = getelementptr inbounds nuw i8, ptr %.158.i.i, i64 6
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i64
-  %36 = shl nuw nsw i64 %35, 48
-  br label %37
+31:                                               ; preds = %.loopexit.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %.158.i.i, i64 6
+  %33 = load i8, ptr %32, align 1
+  %34 = zext i8 %33 to i64
+  %35 = shl nuw nsw i64 %34, 48
+  br label %36
 
-37:                                               ; preds = %32, %.loopexit.i.i
-  %.0.i.i = phi i64 [ %36, %32 ], [ 0, %.loopexit.i.i ]
-  %38 = getelementptr inbounds nuw i8, ptr %.158.i.i, i64 5
-  %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i64
-  %41 = shl nuw nsw i64 %40, 40
-  %42 = or disjoint i64 %41, %.0.i.i
-  br label %43
+36:                                               ; preds = %31, %.loopexit.i.i
+  %.0.i.i = phi i64 [ %35, %31 ], [ 0, %.loopexit.i.i ]
+  %37 = getelementptr inbounds nuw i8, ptr %.158.i.i, i64 5
+  %38 = load i8, ptr %37, align 1
+  %39 = zext i8 %38 to i64
+  %40 = shl nuw nsw i64 %39, 40
+  %41 = or disjoint i64 %40, %.0.i.i
+  br label %42
 
-43:                                               ; preds = %37, %.loopexit.i.i
-  %.1.i.i = phi i64 [ %42, %37 ], [ 0, %.loopexit.i.i ]
-  %44 = getelementptr inbounds nuw i8, ptr %.158.i.i, i64 4
-  %45 = load i8, ptr %44, align 1
-  %46 = zext i8 %45 to i64
-  %47 = shl nuw nsw i64 %46, 32
-  %48 = xor i64 %47, %.1.i.i
-  br label %49
+42:                                               ; preds = %36, %.loopexit.i.i
+  %.1.i.i = phi i64 [ %41, %36 ], [ 0, %.loopexit.i.i ]
+  %43 = getelementptr inbounds nuw i8, ptr %.158.i.i, i64 4
+  %44 = load i8, ptr %43, align 1
+  %45 = zext i8 %44 to i64
+  %46 = shl nuw nsw i64 %45, 32
+  %47 = xor i64 %46, %.1.i.i
+  br label %48
 
-49:                                               ; preds = %43, %.loopexit.i.i
-  %.2.i.i = phi i64 [ %48, %43 ], [ 0, %.loopexit.i.i ]
-  %50 = getelementptr inbounds nuw i8, ptr %.158.i.i, i64 3
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i64
-  %53 = shl nuw nsw i64 %52, 24
-  %54 = xor i64 %53, %.2.i.i
-  br label %55
+48:                                               ; preds = %42, %.loopexit.i.i
+  %.2.i.i = phi i64 [ %47, %42 ], [ 0, %.loopexit.i.i ]
+  %49 = getelementptr inbounds nuw i8, ptr %.158.i.i, i64 3
+  %50 = load i8, ptr %49, align 1
+  %51 = zext i8 %50 to i64
+  %52 = shl nuw nsw i64 %51, 24
+  %53 = xor i64 %52, %.2.i.i
+  br label %54
 
-55:                                               ; preds = %49, %.loopexit.i.i
-  %.3.i.i = phi i64 [ %54, %49 ], [ 0, %.loopexit.i.i ]
-  %56 = getelementptr inbounds nuw i8, ptr %.158.i.i, i64 2
-  %57 = load i8, ptr %56, align 1
-  %58 = zext i8 %57 to i64
-  %59 = shl nuw nsw i64 %58, 16
-  %60 = xor i64 %59, %.3.i.i
-  br label %61
+54:                                               ; preds = %48, %.loopexit.i.i
+  %.3.i.i = phi i64 [ %53, %48 ], [ 0, %.loopexit.i.i ]
+  %55 = getelementptr inbounds nuw i8, ptr %.158.i.i, i64 2
+  %56 = load i8, ptr %55, align 1
+  %57 = zext i8 %56 to i64
+  %58 = shl nuw nsw i64 %57, 16
+  %59 = xor i64 %58, %.3.i.i
+  br label %60
 
-61:                                               ; preds = %55, %.loopexit.i.i
-  %.4.i.i = phi i64 [ %60, %55 ], [ 0, %.loopexit.i.i ]
-  %62 = getelementptr inbounds nuw i8, ptr %.158.i.i, i64 1
-  %63 = load i8, ptr %62, align 1
-  %64 = zext i8 %63 to i64
-  %65 = shl nuw nsw i64 %64, 8
-  %66 = xor i64 %65, %.4.i.i
-  br label %67
+60:                                               ; preds = %54, %.loopexit.i.i
+  %.4.i.i = phi i64 [ %59, %54 ], [ 0, %.loopexit.i.i ]
+  %61 = getelementptr inbounds nuw i8, ptr %.158.i.i, i64 1
+  %62 = load i8, ptr %61, align 1
+  %63 = zext i8 %62 to i64
+  %64 = shl nuw nsw i64 %63, 8
+  %65 = xor i64 %64, %.4.i.i
+  br label %66
 
-67:                                               ; preds = %61, %.loopexit.i.i
-  %.5.i.i = phi i64 [ %66, %61 ], [ 0, %.loopexit.i.i ]
-  %68 = load i8, ptr %.158.i.i, align 1
-  %69 = zext i8 %68 to i64
-  %70 = lshr i64 %.5.i.i, 23
-  %71 = xor i64 %70, %69
-  %72 = xor i64 %71, %.5.i.i
-  %73 = mul i64 %72, 2388976653695081527
-  %74 = lshr i64 %73, 47
-  %75 = xor i64 %.154.i.i, %74
-  %76 = xor i64 %75, %73
-  %77 = mul i64 %76, -8645972361240307355
+66:                                               ; preds = %60, %.loopexit.i.i
+  %.5.i.i = phi i64 [ %65, %60 ], [ 0, %.loopexit.i.i ]
+  %67 = load i8, ptr %.158.i.i, align 1
+  %68 = zext i8 %67 to i64
+  %69 = lshr i64 %.5.i.i, 23
+  %70 = xor i64 %69, %68
+  %71 = xor i64 %70, %.5.i.i
+  %72 = mul i64 %71, 2388976653695081527
+  %73 = lshr i64 %72, 47
+  %74 = xor i64 %.154.i.i, %73
+  %75 = xor i64 %74, %72
+  %76 = mul i64 %75, -8645972361240307355
   br label %_ZL10fasthash32PKvmj.exit
 
 default.unreachable:                              ; preds = %.loopexit.i.i
   unreachable
 
-_ZL10fasthash32PKvmj.exit:                        ; preds = %.loopexit.i.i, %67
-  %.356.i.i = phi i64 [ %77, %67 ], [ %.154.i.i, %.loopexit.i.i ]
-  %78 = lshr i64 %.356.i.i, 23
-  %79 = xor i64 %78, %.356.i.i
-  %80 = mul i64 %79, 2388976653695081527
-  %81 = lshr i64 %80, 47
-  %82 = xor i64 %81, %80
-  %83 = lshr i64 %80, 32
-  %84 = sub i64 %82, %83
-  %85 = trunc i64 %84 to i32
-  ret i32 %85
+_ZL10fasthash32PKvmj.exit:                        ; preds = %.loopexit.i.i, %66
+  %.356.i.i = phi i64 [ %76, %66 ], [ %.154.i.i, %.loopexit.i.i ]
+  %77 = lshr i64 %.356.i.i, 23
+  %78 = xor i64 %77, %.356.i.i
+  %79 = mul i64 %78, 2388976653695081527
+  %80 = lshr i64 %79, 47
+  %81 = xor i64 %80, %79
+  %82 = lshr i64 %79, 32
+  %83 = sub i64 %81, %82
+  %84 = trunc i64 %83 to i32
+  ret i32 %84
 }
 
 ; Function Attrs: mustprogress uwtable

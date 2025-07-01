@@ -32209,9 +32209,9 @@ entry:
   %1 = load ptr, ptr %u.i.i, align 8
   %tobool.not1.i.i = icmp slt i64 %0, 0
   %cond.i.i = select i1 %tobool.not1.i.i, ptr %1, ptr %u.i.i
-  %and.i.i.i = and i64 %0, 4611686018427387903
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::shared_ptr.629", ptr %cond.i.i, i64 %and.i.i.i
-  %cmp.not8 = icmp eq i64 %and.i.i.i, 0
+  %and.i.i.i = shl i64 %0, 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %and.i.i.i
+  %cmp.not8 = icmp samesign eq i64 %and.i.i.i, 0
   br i1 %cmp.not8, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit
@@ -34216,7 +34216,8 @@ invoke.cont:                                      ; preds = %_ZN5folly13checkedM
   br i1 %tobool.not.i21, label %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS7_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS8_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISF_Lm2EvE12emplace_backIJSF_EEERSF_DpOT_EUlPvE_EEvPT_SQ_SQ_mOT0_EUlvE_Lb1EED2Ev.exit.i, label %if.then.i22
 
 if.then.i22:                                      ; preds = %invoke.cont
-  %add.ptr2.i = getelementptr inbounds %"class.std::shared_ptr.629", ptr %cond.i.i, i64 %pos
+  %add.ptr2.idx.i = shl nsw i64 %pos, 4
+  %add.ptr2.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr2.idx.i
   %cmp.not8.i.i = icmp eq i64 %pos, 0
   br i1 %cmp.not8.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS7_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS8_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISF_Lm2EvE12emplace_backIJSF_EEERSF_DpOT_EUlPvE_EEvPT_SQ_SQ_mOT0_EUlvE_Lb1EED2Ev.exit.i, label %for.body.i.i
 
@@ -34269,9 +34270,9 @@ if.else:                                          ; preds = %_ZN5folly13checkedM
   br i1 %tobool23.not, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS5_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS6_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSE_12emplace_backIJSD_EEERSD_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, label %invoke.cont26
 
 invoke.cont26:                                    ; preds = %if.else
-  %and.i.i.i31 = and i64 %13, 4611686018427387903
-  %add.ptr.i32 = getelementptr inbounds nuw %"class.std::shared_ptr.629", ptr %cond.i.i, i64 %and.i.i.i31
-  %cmp.not8.i = icmp eq i64 %and.i.i.i31, 0
+  %and.i.i.i31 = shl i64 %13, 4
+  %add.ptr.i32 = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %and.i.i.i31
+  %cmp.not8.i = icmp samesign eq i64 %and.i.i.i31, 0
   br i1 %cmp.not8.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS5_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS6_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSE_12emplace_backIJSD_EEERSD_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont26, %for.body.i
@@ -34297,9 +34298,9 @@ _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21Observer
   %25 = load ptr, ptr %u.i.i35, align 8
   %tobool.not1.i.i36 = icmp slt i64 %24, 0
   %cond.i.i37 = select i1 %tobool.not1.i.i36, ptr %25, ptr %u.i.i35
-  %and.i.i.i41 = and i64 %24, 4611686018427387903
-  %add.ptr.i42 = getelementptr inbounds nuw %"class.std::shared_ptr.629", ptr %cond.i.i37, i64 %and.i.i.i41
-  %cmp32.not57 = icmp eq i64 %and.i.i.i41, 0
+  %and.i.i.i41 = shl i64 %24, 4
+  %add.ptr.i42 = getelementptr inbounds nuw i8, ptr %cond.i.i37, i64 %and.i.i.i41
+  %cmp32.not57 = icmp samesign eq i64 %and.i.i.i41, 0
   br i1 %cmp32.not57, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS5_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS6_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSE_12emplace_backIJSD_EEERSD_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit
@@ -34548,7 +34549,8 @@ invoke.cont:                                      ; preds = %_ZN5folly13checkedM
   br i1 %tobool.not.i21, label %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS7_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS8_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISF_Lm2EvE6insertEPKSF_OSF_EUlPvE_EEvPT_SO_SO_mOT0_EUlvE_Lb1EED2Ev.exit.i, label %if.then.i22
 
 if.then.i22:                                      ; preds = %invoke.cont
-  %add.ptr2.i = getelementptr inbounds %"class.std::shared_ptr.629", ptr %cond.i.i, i64 %pos
+  %add.ptr2.idx.i = shl nsw i64 %pos, 4
+  %add.ptr2.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr2.idx.i
   %cmp.not8.i.i = icmp eq i64 %pos, 0
   br i1 %cmp.not8.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS0_18IntegralSizePolicyImLb1ELb0EE26moveToUninitializedEmplaceISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS7_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS8_6EventsELm32EEEE8ObserverEEZNS_12small_vectorISF_Lm2EvE6insertEPKSF_OSF_EUlPvE_EEvPT_SO_SO_mOT0_EUlvE_Lb1EED2Ev.exit.i, label %for.body.i.i
 
@@ -34601,9 +34603,9 @@ if.else:                                          ; preds = %_ZN5folly13checkedM
   br i1 %tobool23.not, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS5_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS6_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSE_6insertEPKSD_OSD_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, label %invoke.cont26
 
 invoke.cont26:                                    ; preds = %if.else
-  %and.i.i.i31 = and i64 %13, 4611686018427387903
-  %add.ptr.i32 = getelementptr inbounds nuw %"class.std::shared_ptr.629", ptr %cond.i.i, i64 %and.i.i.i31
-  %cmp.not8.i = icmp eq i64 %and.i.i.i31, 0
+  %and.i.i.i31 = shl i64 %13, 4
+  %add.ptr.i32 = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %and.i.i.i31
+  %cmp.not8.i = icmp samesign eq i64 %and.i.i.i31, 0
   br i1 %cmp.not8.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS5_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS6_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSE_6insertEPKSD_OSD_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont26, %for.body.i
@@ -34629,9 +34631,9 @@ _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21Observer
   %25 = load ptr, ptr %u.i.i35, align 8
   %tobool.not1.i.i36 = icmp slt i64 %24, 0
   %cond.i.i37 = select i1 %tobool.not1.i.i36, ptr %25, ptr %u.i.i35
-  %and.i.i.i41 = and i64 %24, 4611686018427387903
-  %add.ptr.i42 = getelementptr inbounds nuw %"class.std::shared_ptr.629", ptr %cond.i.i37, i64 %and.i.i.i41
-  %cmp32.not57 = icmp eq i64 %and.i.i.i41, 0
+  %and.i.i.i41 = shl i64 %24, 4
+  %add.ptr.i42 = getelementptr inbounds nuw i8, ptr %cond.i.i37, i64 %and.i.i.i41
+  %cmp32.not57 = icmp samesign eq i64 %and.i.i.i41, 0
   br i1 %cmp32.not57, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS5_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS6_6EventsELm32EEEE8ObserverEELm2EvE16makeSizeInternalIZNSE_6insertEPKSD_OSD_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit

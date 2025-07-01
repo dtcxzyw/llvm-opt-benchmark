@@ -2361,7 +2361,8 @@ if.else:                                          ; preds = %for.body
 if.then.i.i:                                      ; preds = %if.else
   %15 = load i32, ptr %NumNonEmpty.i.i.i, align 4, !noalias !6
   %idx.ext.i.i = zext i32 %15 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %14, i64 %idx.ext.i.i
+  %add.ptr.idx.i.i = shl nuw nsw i64 %idx.ext.i.i, 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %14, i64 %add.ptr.idx.i.i
   %cmp.not26.i.i = icmp eq i32 %15, 0
   br i1 %cmp.not26.i.i, label %if.end16.i.i, label %for.body.i.i
 

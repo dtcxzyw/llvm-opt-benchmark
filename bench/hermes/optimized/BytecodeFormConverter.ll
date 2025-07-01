@@ -44,8 +44,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.hermes::hbc::SmallFuncHeader" = type { [15 x i8], %"union.hermes::hbc::FunctionHeaderFlag" }
 %"union.hermes::hbc::FunctionHeaderFlag" = type { %struct.anon.60 }
 %struct.anon.60 = type { i8 }
-%"struct.hermes::hbc::SmallStringTableEntry" = type { i32 }
-%"struct.hermes::hbc::OverflowStringTableEntry" = type { i32, i32 }
 
 $_ZN6hermes3hbc20BCProviderFromBufferD2Ev = comdat any
 
@@ -795,7 +793,8 @@ entry:
   %0 = load ptr, ptr %functionHeaders, align 8
   %Length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load i64, ptr %Length.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %1
+  %add.ptr.i.idx = shl nsw i64 %1, 4
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not5 = icmp eq i64 %1, 0
   br i1 %cmp.not5, label %for.end, label %for.body
 
@@ -840,7 +839,8 @@ entry:
   %0 = load ptr, ptr %functionHeaders, align 8
   %Length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load i64, ptr %Length.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %1
+  %add.ptr.i.idx = shl nsw i64 %1, 4
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not5 = icmp eq i64 %1, 0
   br i1 %cmp.not5, label %for.end, label %for.body
 
@@ -870,7 +870,8 @@ entry:
   %0 = load ptr, ptr %stringTableEntries, align 8
   %Length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load i64, ptr %Length.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::SmallStringTableEntry", ptr %0, i64 %1
+  %add.ptr.i.idx = shl nsw i64 %1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not5 = icmp eq i64 %1, 0
   br i1 %cmp.not5, label %for.end, label %for.body
 
@@ -901,7 +902,8 @@ entry:
   %0 = load ptr, ptr %stringTableOverflowEntries, align 8
   %Length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %1 = load i64, ptr %Length.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::OverflowStringTableEntry", ptr %0, i64 %1
+  %add.ptr.i.idx = shl nsw i64 %1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not5 = icmp eq i64 %1, 0
   br i1 %cmp.not5, label %for.end, label %for.body
 
@@ -1099,7 +1101,8 @@ entry:
   %0 = load ptr, ptr %functionHeaders, align 8
   %Length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load i64, ptr %Length.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %1
+  %add.ptr.i.idx = shl nsw i64 %1, 4
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not5 = icmp eq i64 %1, 0
   br i1 %cmp.not5, label %for.end, label %for.body
 
@@ -1144,7 +1147,8 @@ entry:
   %0 = load ptr, ptr %functionHeaders, align 8
   %Length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load i64, ptr %Length.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %1
+  %add.ptr.i.idx = shl nsw i64 %1, 4
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not5 = icmp eq i64 %1, 0
   br i1 %cmp.not5, label %for.end, label %for.body
 
@@ -1174,7 +1178,8 @@ entry:
   %0 = load ptr, ptr %stringTableEntries, align 8
   %Length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load i64, ptr %Length.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::SmallStringTableEntry", ptr %0, i64 %1
+  %add.ptr.i.idx = shl nsw i64 %1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not5 = icmp eq i64 %1, 0
   br i1 %cmp.not5, label %for.end, label %for.body
 
@@ -1204,7 +1209,8 @@ entry:
   %0 = load ptr, ptr %stringTableOverflowEntries, align 8
   %Length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %1 = load i64, ptr %Length.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::OverflowStringTableEntry", ptr %0, i64 %1
+  %add.ptr.i.idx = shl nsw i64 %1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not5 = icmp eq i64 %1, 0
   br i1 %cmp.not5, label %for.end, label %for.body
 

@@ -266,7 +266,8 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$ropey..tree..node..Node$GT$1
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h435e5dd35a2eaf23E.llvm.10316259052761615454.exit.i.i.i": ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %18
+  %.idx.i.i.i = shl nuw nsw i64 %18, 3
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i
   %23 = icmp eq i8 %17, 0
   br i1 %23, label %"_ZN4core3ptr53drop_in_place$LT$ropey..tree..node_text..NodeText$GT$17h06903e8b80578e21E.exit", label %.lr.ph.i.i.i
 
@@ -417,7 +418,8 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$ropey..tree..node_children..
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h435e5dd35a2eaf23E.llvm.10316259052761615454.exit.i.i": ; preds = %1
-  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %4
+  %.idx.i.i = shl nuw nsw i64 %4, 3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i.i
   %8 = icmp eq i8 %3, 0
   br i1 %8, label %"_ZN4core3ptr76drop_in_place$LT$ropey..tree..node_children..inner..NodeChildrenInternal$GT$17haf21cb8a7decc8feE.exit", label %.lr.ph.i.i
 
@@ -561,7 +563,8 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$alloc..sync..ArcInner$LT$rop
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h435e5dd35a2eaf23E.llvm.10316259052761615454.exit.i.i.i.i": ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %19
+  %.idx.i.i.i.i = shl nuw nsw i64 %19, 3
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i.i.i
   %24 = icmp eq i8 %18, 0
   br i1 %24, label %"_ZN4core3ptr44drop_in_place$LT$ropey..tree..node..Node$GT$17h20cd6a5fa0832ca3E.llvm.10316259052761615454.exit", label %.lr.ph.i.i.i.i
 
@@ -600,7 +603,8 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$ropey..tree..node_children..
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h435e5dd35a2eaf23E.llvm.10316259052761615454.exit.i": ; preds = %1
-  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %4
+  %.idx.i = shl nuw nsw i64 %4, 3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
   %8 = icmp eq i8 %3, 0
   br i1 %8, label %"_ZN97_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0810109c904f8a5fE.exit", label %.lr.ph.i
 
@@ -1338,7 +1342,8 @@ define void @"_ZN97_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h435e5dd35a2eaf23E.llvm.10316259052761615454.exit": ; preds = %1
-  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %4
+  %.idx = shl nuw nsw i64 %4, 3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %8 = icmp eq i8 %3, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 

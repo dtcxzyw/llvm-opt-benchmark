@@ -7,9 +7,9 @@ target triple = "x86_64-pc-linux-gnu"
 %union._zend_value = type { i64 }
 %union.anon = type { i32 }
 %union.anon.2 = type { i32 }
+%struct._optimizer_call_info = type { ptr, ptr, ptr, i8, i8, i32 }
 %struct._zend_op = type { ptr, %union._znode_op, %union._znode_op, %union._znode_op, i32, i32, i8, i8, i8, i8 }
 %union._znode_op = type { i32 }
-%struct._optimizer_call_info = type { ptr, ptr, ptr, i8, i8, i32 }
 %struct._zend_arg_info = type { ptr, %struct.zend_type, ptr }
 %struct.zend_type = type { ptr, i32 }
 
@@ -23,7 +23,8 @@ define hidden void @zend_optimize_func_calls(ptr noundef %0, ptr noundef capture
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i32, ptr %6, align 8, !tbaa !23
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %struct._zend_op, ptr %5, i64 %8
+  %.idx = shl nuw nsw i64 %8, 5
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %10 = icmp ult i32 %7, 2
   br i1 %10, label %525, label %11
 

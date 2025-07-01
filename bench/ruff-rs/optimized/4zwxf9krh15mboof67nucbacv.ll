@@ -1613,7 +1613,8 @@ define hidden void @"_ZN102_$LT$bincode..features..serde..ser..SerdeEncoder$LT$E
   tail call void @llvm.experimental.noalias.scope.decl(metadata !281)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !286)
-  %10 = getelementptr inbounds nuw i64, ptr %.val, i64 %.val1
+  %.idx.i.i = shl nuw nsw i64 %.val1, 3
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i
   %11 = icmp samesign ult i64 %.val1, 251
   br i1 %11, label %24, label %12
 
@@ -1693,7 +1694,8 @@ define hidden void @"_ZN102_$LT$bincode..features..serde..ser..SerdeEncoder$LT$E
   tail call void @llvm.experimental.noalias.scope.decl(metadata !328)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !330)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !333)
-  %10 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %.val, i64 %.val1
+  %.idx.i.i = mul nuw nsw i64 %.val1, 24
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i
   %11 = icmp samesign ult i64 %.val1, 251
   br i1 %11, label %24, label %12
 
@@ -1930,7 +1932,8 @@ define hidden void @"_ZN102_$LT$bincode..features..serde..ser..SerdeEncoder$LT$E
   %.val1 = load i64, ptr %10, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !483)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !486)
-  %11 = getelementptr inbounds nuw i64, ptr %.val, i64 %.val1
+  %.idx.i.i = shl nuw nsw i64 %.val1, 3
+  %11 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !489
   call fastcc void @_ZN7bincode6varint15encode_unsigned17varint_encode_u6417hca1247a4362b20c2E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %.val1)
   %12 = load i64, ptr %7, align 8, !range !317, !noalias !489, !noundef !4
@@ -1995,7 +1998,8 @@ define hidden void @"_ZN102_$LT$bincode..features..serde..ser..SerdeEncoder$LT$E
   %.val1 = load i64, ptr %10, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !515)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !518)
-  %11 = getelementptr inbounds nuw { { ptr, [1 x i64] }, { i32, i32 } }, ptr %.val, i64 %.val1
+  %.idx.i.i = mul nuw nsw i64 %.val1, 24
+  %11 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !521
   call fastcc void @_ZN7bincode6varint15encode_unsigned17varint_encode_u6417hca1247a4362b20c2E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %.val1)
   %12 = load i64, ptr %7, align 8, !range !317, !noalias !521, !noundef !4
@@ -17595,7 +17599,8 @@ define hidden void @"_ZN7bincode8features10impl_alloc75_$LT$impl$u20$bincode..en
   br i1 %12, label %18, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, i32 }, i16, [3 x i16] }, ptr %14, i64 %7
+  %.idx = mul nuw nsw i64 %7, 120
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %17 = icmp eq i64 %7, 0
   br i1 %17, label %._crit_edge, label %.lr.ph
 
@@ -17699,7 +17704,8 @@ define hidden void @"_ZN7bincode8features10impl_alloc75_$LT$impl$u20$bincode..en
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !nonnull !4, !noundef !4
-  %30 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, i32 }, i16, [3 x i16] }, ptr %29, i64 %6
+  %.idx = mul nuw nsw i64 %6, 120
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx
   %31 = icmp eq i64 %6, 0
   br i1 %31, label %._crit_edge, label %.lr.ph
 

@@ -5283,7 +5283,8 @@ _ZN5clang12ast_matchers8internal7MatcherINS_8CallExprEED2Ev.exit: ; preds = %_ZN
   br label %_ZN5clang12ast_matchers8internal15BindableMatcherINS_8CallExprEEC2ERKNS1_7MatcherIS3_EE.exit3
 
 41:                                               ; preds = %3
-  %42 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %43 = icmp ugt i64 %2, 384307168202282325
   br i1 %43, label %44, label %.lr.ph.i.i.i.i.preheader.i.i
 
@@ -6227,7 +6228,8 @@ _ZN5clang12ast_matchers8internal7MatcherINS_13CXXMethodDeclEED2Ev.exit: ; preds 
   br label %_ZN5clang12ast_matchers8internal15BindableMatcherINS_13CXXMethodDeclEEC2ERKNS1_7MatcherIS3_EE.exit3
 
 41:                                               ; preds = %3
-  %42 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %43 = icmp ugt i64 %2, 384307168202282325
   br i1 %43, label %44, label %.lr.ph.i.i.i.i.preheader.i.i
 
@@ -7400,7 +7402,8 @@ _ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit: ; 
   br label %_ZN5clang12ast_matchers8internal15BindableMatcherINS_19CXXOperatorCallExprEEC2ERKNS1_7MatcherIS3_EE.exit3
 
 41:                                               ; preds = %3
-  %42 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %43 = icmp ugt i64 %2, 384307168202282325
   br i1 %43, label %44, label %.lr.ph.i.i.i.i.preheader.i.i
 
@@ -8177,7 +8180,8 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit: ; preds = %_ZNK5cl
   br label %_ZN5clang12ast_matchers8internal15BindableMatcherINS_4ExprEEC2ERKNS1_7MatcherIS3_EE.exit3
 
 41:                                               ; preds = %3
-  %42 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %43 = icmp ugt i64 %2, 384307168202282325
   br i1 %43, label %44, label %.lr.ph.i.i.i.i.preheader.i.i
 
@@ -8698,7 +8702,8 @@ _ZN5clang12ast_matchers8internal7MatcherINS_17CXXMemberCallExprEED2Ev.exit: ; pr
   br label %_ZN5clang12ast_matchers8internal15BindableMatcherINS_17CXXMemberCallExprEEC2ERKNS1_7MatcherIS3_EE.exit3
 
 41:                                               ; preds = %3
-  %42 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %43 = icmp ugt i64 %2, 384307168202282325
   br i1 %43, label %44, label %.lr.ph.i.i.i.i.preheader.i.i
 

@@ -292,7 +292,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80: ; preds = %_ZN
   %86 = zext i8 %85 to i64
   %87 = shl nuw nsw i64 %86, 2
   %88 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %87) #18
-  %89 = getelementptr float, ptr %88, i64 %86
+  %89 = getelementptr inbounds nuw float, ptr %88, i64 %86
   store float 0.000000e+00, ptr %88, align 4, !tbaa !57
   %90 = icmp eq i8 %85, 1
   br i1 %90, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i

@@ -2805,7 +2805,8 @@ common.resume:                                    ; preds = %37, %179, %197, %"_
 159:                                              ; preds = %"_ZN3ide15goto_definition15goto_definition28_$u7b$$u7b$closure$u7d$$u7d$17hd6b602812ebefafbE.exit.i.i.i.i"
   %160 = icmp ne ptr %.sroa.9.4.i.i.i.i, null
   call void @llvm.assume(i1 %160)
-  %161 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] }, { { i8, [23 x i8] } }, { i8, [23 x i8] }, { i8, [23 x i8] }, { i32, i32 }, { i32, [2 x i32] }, i32, i8, [7 x i8] }, ptr %.sroa.9.4.i.i.i.i, i64 %.sroa.11.4.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.sroa.11.4.i.i.i.i, 152
+  %161 = getelementptr inbounds i8, ptr %.sroa.9.4.i.i.i.i, i64 %.idx.i.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !882)
   %162 = load ptr, ptr %21, align 8, !alias.scope !885, !noalias !889, !noundef !9
   %163 = icmp eq ptr %162, null
@@ -3736,7 +3737,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i.i.i.i.i: ; preds = %
   %.sroa.12.2.i19.i.i.i = phi i64 [ 1, %"_ZN3ide5hover12hover_simple28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h679243436e88cd4cE.exit.i.thread15.i.i.i" ], [ %.sroa.12.0.copyload5.i.i.i.i, %"_ZN3ide5hover12hover_simple28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h679243436e88cd4cE.exit.i.i.i.i" ]
   %254 = icmp ne ptr %.sroa.10.2.i20.i.i.i, null
   call void @llvm.assume(i1 %254)
-  %255 = getelementptr inbounds { { i32, [1 x i32] }, { i8, [19 x i8] }, [1 x i32], ptr }, ptr %.sroa.10.2.i20.i.i.i, i64 %.sroa.12.2.i19.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.sroa.12.2.i19.i.i.i, 40
+  %255 = getelementptr inbounds i8, ptr %.sroa.10.2.i20.i.i.i, i64 %.idx.i.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1277)
   %256 = load ptr, ptr %1, align 8, !alias.scope !1280, !noalias !1284, !noundef !9
   %257 = icmp eq ptr %256, null

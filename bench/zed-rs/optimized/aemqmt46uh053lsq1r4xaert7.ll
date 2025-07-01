@@ -3918,7 +3918,8 @@ define hidden void @_ZN8language6buffer6Buffer4edit17h66608a2828d3d9ecE(ptr dead
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !802, !noalias !805, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !802, !noalias !805
-  %38 = getelementptr inbounds { { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { { { ptr, i64 } }, {}, {} } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nsw i64 %.sroa.5.0.copyload.i, 80
+  %38 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34)
   store ptr %.sroa.4.0.copyload.i, ptr %34, align 8
   %.sroa.4.0..sroa_idx133 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -4935,7 +4936,8 @@ define hidden void @"_ZN8language7outline16Outline$LT$T$GT$3new17h2e616817b1c494
   %24 = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i64, ptr %25, align 8, !noundef !4
-  %27 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, { [88 x i8], i8, [7 x i8] }, { [88 x i8], i8, [7 x i8] }, i64 }, ptr %24, i64 %26
+  %.idx94 = mul nsw i64 %26, 368
+  %27 = getelementptr inbounds i8, ptr %24, i64 %.idx94
   %28 = icmp eq i64 %26, 0
   br i1 %28, label %._crit_edge, label %.lr.ph
 
@@ -5200,6 +5202,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %81, %78
           to label %.body unwind label %169, !noalias !1046
 
 123:                                              ; preds = %114
+  %.idx = and i64 %121, 1152921504606846975
   %124 = load ptr, ptr %95, align 8, !alias.scope !1059, !noalias !1061, !nonnull !4, !noundef !4
   %125 = load i64, ptr %97, align 8, !alias.scope !1059, !noalias !1061, !noundef !4
   br label %126
@@ -5295,7 +5298,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %81, %78
   %166 = add i64 %165, %151
   store i64 %166, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1069, !noalias !1072
   %167 = add nuw i64 %.sroa.06.0.i.i.i.i, 1
-  %168 = icmp eq i64 %167, %121
+  %168 = icmp eq i64 %167, %.idx
   br i1 %168, label %.loopexit, label %126
 
 169:                                              ; preds = %.loopexit.i

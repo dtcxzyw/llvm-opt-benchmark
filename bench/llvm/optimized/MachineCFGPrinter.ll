@@ -2069,7 +2069,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit78:               ; preds = %93, %95
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %104 = load i32, ptr %103, align 8, !tbaa !26
   %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds nuw ptr, ptr %102, i64 %105
+  %.idx = shl nuw nsw i64 %105, 3
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 %.idx
   %.not223 = icmp eq i32 %104, 0
   br i1 %.not223, label %._crit_edge, label %.lr.ph
 
@@ -2443,7 +2444,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit198:              ; preds = %289, %291
   %294 = load ptr, ptr %238, align 8, !tbaa !25
   %295 = load i32, ptr %239, align 8, !tbaa !26
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds nuw ptr, ptr %294, i64 %296
+  %.idx225 = shl nuw nsw i64 %296, 3
+  %297 = getelementptr inbounds nuw i8, ptr %294, i64 %.idx225
   %.not224 = icmp eq i32 %295, 0
   br i1 %.not224, label %.preheader, label %.lr.ph217
 

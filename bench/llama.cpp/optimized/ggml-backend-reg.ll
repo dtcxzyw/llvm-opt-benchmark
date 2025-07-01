@@ -4919,7 +4919,8 @@ _ZNKSt10filesystem7__cxx114path7wstringEv.exit311: ; preds = %1003, %_ZSt16__do_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %655, i8 0, i64 10, i1 false), !noalias !177
   %1074 = load ptr, ptr %58, align 8, !tbaa !46, !noalias !180
   %1075 = load i64, ptr %643, align 8, !tbaa !50, !noalias !180
-  %1076 = getelementptr inbounds nuw i32, ptr %1074, i64 %1075
+  %.idx = shl nuw nsw i64 %1075, 2
+  %1076 = getelementptr inbounds nuw i8, ptr %1074, i64 %.idx
   call void @llvm.experimental.noalias.scope.decl(metadata !183)
   store i64 0, ptr %652, align 8, !noalias !183
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #26, !noalias !183

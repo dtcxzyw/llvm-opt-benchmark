@@ -100,7 +100,7 @@ _ZNSt6vectorIZN5Yosys3AST8dpi_callERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 .noexc159:                                        ; preds = %_ZNSt6vectorIZN5Yosys3AST8dpi_callERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_RKS_IS7_SaIS7_EERKS_IPNS1_7AstNodeESaISF_EEE5valueSaISK_EE17_S_check_init_lenEmRKSL_.exit.i
   %22 = shl nuw nsw i64 %20, 3
   %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #17
-  %24 = getelementptr %union.value, ptr %23, i64 %20
+  %24 = getelementptr inbounds nuw %union.value, ptr %23, i64 %20
   store i64 0, ptr %23, align 8
   %25 = icmp eq ptr %14, %15
   br i1 %25, label %28, label %_ZSt6fill_nIPZN5Yosys3AST8dpi_callERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_RKSt6vectorIS7_SaIS7_EERKSA_IPNS1_7AstNodeESaISG_EEE5valuemSL_ET_SN_T0_RKT1_.exit.loopexit.i.i.i.i.i
@@ -116,7 +116,7 @@ _ZSt6fill_nIPZN5Yosys3AST8dpi_callERKNSt7__cxx1112basic_stringIcSt11char_traitsI
           to label %.noexc163 unwind label %_ZNSt6vectorIP9_ffi_typeSaIS1_EED2Ev.exit188.thread
 
 .noexc163:                                        ; preds = %28
-  %30 = getelementptr ptr, ptr %29, i64 %20
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %20
   store ptr null, ptr %29, align 8, !tbaa !15
   br i1 %25, label %33, label %_ZSt6fill_nIPP9_ffi_typemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
@@ -131,7 +131,7 @@ _ZSt6fill_nIPP9_ffi_typemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.
           to label %.noexc167 unwind label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit186.thread
 
 .noexc167:                                        ; preds = %33
-  %35 = getelementptr ptr, ptr %34, i64 %20
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %20
   store ptr null, ptr %34, align 8, !tbaa !17
   br i1 %25, label %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit, label %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i
 

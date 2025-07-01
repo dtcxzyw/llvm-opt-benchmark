@@ -1449,7 +1449,8 @@ define hidden void @"_ZN15ruff_python_ast4node51_$LT$impl$u20$ruff_python_ast..n
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !3
-  %12 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %9, i64 %11
+  %.idx.i.i = mul nuw nsw i64 %11, 120
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i
   %13 = icmp eq i64 %11, 0
   br i1 %13, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_body17h6d249ea4e8006a0cE.exit, label %.lr.ph.i.i
 
@@ -1835,7 +1836,8 @@ define hidden void @"_ZN15ruff_python_ast4node52_$LT$impl$u20$ruff_python_ast..n
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { [55 x i8], i8 }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 56
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -1867,7 +1869,8 @@ define hidden void @"_ZN15ruff_python_ast4node52_$LT$impl$u20$ruff_python_ast..n
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { [55 x i8], i8 }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 56
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -1900,7 +1903,8 @@ define hidden void @"_ZN15ruff_python_ast4node52_$LT$impl$u20$ruff_python_ast..n
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { [55 x i8], i8 }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 56
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -1933,7 +1937,8 @@ define hidden void @"_ZN15ruff_python_ast4node52_$LT$impl$u20$ruff_python_ast..n
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { [55 x i8], i8 }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 56
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -1970,7 +1975,8 @@ define hidden void @"_ZN15ruff_python_ast4node55_$LT$impl$u20$ruff_python_ast..n
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %6, i64 %8
+  %.idx = shl nuw nsw i64 %8, 6
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -1995,7 +2001,8 @@ define hidden void @"_ZN15ruff_python_ast4node55_$LT$impl$u20$ruff_python_ast..n
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %6, i64 %8
+  %.idx = shl nuw nsw i64 %8, 6
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -2020,7 +2027,8 @@ define hidden void @"_ZN15ruff_python_ast4node55_$LT$impl$u20$ruff_python_ast..n
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %6, i64 %8
+  %.idx = shl nuw nsw i64 %8, 6
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -2045,7 +2053,8 @@ define hidden void @"_ZN15ruff_python_ast4node55_$LT$impl$u20$ruff_python_ast..n
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %6, i64 %8
+  %.idx = shl nuw nsw i64 %8, 6
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -2076,7 +2085,8 @@ define hidden void @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..n
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %8, i64 %10
+  %.idx.i.i = mul nuw nsw i64 %10, 120
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_body17h6d249ea4e8006a0cE.exit, label %.lr.ph.i.i
 
@@ -2286,7 +2296,8 @@ define hidden void @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..n
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 88
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -2307,7 +2318,8 @@ define hidden void @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..n
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 88
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -2328,7 +2340,8 @@ define hidden void @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..n
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 88
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -2349,7 +2362,8 @@ define hidden void @"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..n
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 88
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -2370,7 +2384,8 @@ define hidden void @"_ZN15ruff_python_ast4node58_$LT$impl$u20$ruff_python_ast..n
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 88
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -2386,7 +2401,8 @@ define hidden void @"_ZN15ruff_python_ast4node58_$LT$impl$u20$ruff_python_ast..n
   %12 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i64, ptr %13, align 8, !noundef !3
-  %15 = getelementptr inbounds nuw { { i64, [10 x i64] }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, { i32, i32 } }, ptr %12, i64 %14
+  %.idx9 = shl nuw nsw i64 %14, 7
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx9
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %._crit_edge8, label %.lr.ph7
 
@@ -2419,7 +2435,8 @@ define hidden void @"_ZN15ruff_python_ast4node58_$LT$impl$u20$ruff_python_ast..n
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 88
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -2435,7 +2452,8 @@ define hidden void @"_ZN15ruff_python_ast4node58_$LT$impl$u20$ruff_python_ast..n
   %12 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i64, ptr %13, align 8, !noundef !3
-  %15 = getelementptr inbounds nuw { { i64, [10 x i64] }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, { i32, i32 } }, ptr %12, i64 %14
+  %.idx9 = shl nuw nsw i64 %14, 7
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx9
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %._crit_edge8, label %.lr.ph7
 
@@ -2468,7 +2486,8 @@ define hidden void @"_ZN15ruff_python_ast4node58_$LT$impl$u20$ruff_python_ast..n
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 88
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -2484,7 +2503,8 @@ define hidden void @"_ZN15ruff_python_ast4node58_$LT$impl$u20$ruff_python_ast..n
   %12 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i64, ptr %13, align 8, !noundef !3
-  %15 = getelementptr inbounds nuw { { i64, [10 x i64] }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, { i32, i32 } }, ptr %12, i64 %14
+  %.idx9 = shl nuw nsw i64 %14, 7
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx9
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %._crit_edge8, label %.lr.ph7
 
@@ -2516,7 +2536,8 @@ define hidden void @"_ZN15ruff_python_ast4node58_$LT$impl$u20$ruff_python_ast..n
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 88
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -2532,7 +2553,8 @@ define hidden void @"_ZN15ruff_python_ast4node58_$LT$impl$u20$ruff_python_ast..n
   %12 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i64, ptr %13, align 8, !noundef !3
-  %15 = getelementptr inbounds nuw { { i64, [10 x i64] }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, { i32, i32 } }, ptr %12, i64 %14
+  %.idx9 = shl nuw nsw i64 %14, 7
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx9
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %._crit_edge8, label %.lr.ph7
 
@@ -2849,7 +2871,8 @@ define hidden void @"_ZN15ruff_python_ast4node59_$LT$impl$u20$ruff_python_ast..n
   %12 = load ptr, ptr %11, align 8, !alias.scope !315, !noalias !310, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !315, !noalias !310, !noundef !3
-  %15 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %12, i64 %14
+  %.idx.i = mul nuw nsw i64 %14, 88
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %._crit_edge.i, label %.lr.ph.i
 
@@ -2865,7 +2888,8 @@ define hidden void @"_ZN15ruff_python_ast4node59_$LT$impl$u20$ruff_python_ast..n
   %20 = load ptr, ptr %19, align 8, !alias.scope !315, !noalias !310, !nonnull !3, !noundef !3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i64, ptr %21, align 8, !alias.scope !315, !noalias !310, !noundef !3
-  %23 = getelementptr inbounds nuw { { i64, [10 x i64] }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, { i32, i32 } }, ptr %20, i64 %22
+  %.idx5.i = shl nuw nsw i64 %22, 7
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx5.i
   %24 = icmp eq i64 %22, 0
   br i1 %24, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor23visit_pattern_arguments17h40c2e2da429018ddE.exit, label %.lr.ph4.i
 
@@ -2908,7 +2932,8 @@ define hidden void @"_ZN15ruff_python_ast4node59_$LT$impl$u20$ruff_python_ast..n
   %12 = load ptr, ptr %11, align 8, !alias.scope !328, !noalias !323, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !328, !noalias !323, !noundef !3
-  %15 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %12, i64 %14
+  %.idx.i = mul nuw nsw i64 %14, 88
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %._crit_edge.i, label %.lr.ph.i
 
@@ -2924,7 +2949,8 @@ define hidden void @"_ZN15ruff_python_ast4node59_$LT$impl$u20$ruff_python_ast..n
   %20 = load ptr, ptr %19, align 8, !alias.scope !328, !noalias !323, !nonnull !3, !noundef !3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i64, ptr %21, align 8, !alias.scope !328, !noalias !323, !noundef !3
-  %23 = getelementptr inbounds nuw { { i64, [10 x i64] }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, { i32, i32 } }, ptr %20, i64 %22
+  %.idx5.i = shl nuw nsw i64 %22, 7
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx5.i
   %24 = icmp eq i64 %22, 0
   br i1 %24, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor23visit_pattern_arguments17h230bed871ffdf63bE.exit, label %.lr.ph4.i
 
@@ -2969,7 +2995,8 @@ define hidden void @"_ZN15ruff_python_ast4node59_$LT$impl$u20$ruff_python_ast..n
   %12 = load ptr, ptr %11, align 8, !alias.scope !341, !noalias !336, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !341, !noalias !336, !noundef !3
-  %15 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %12, i64 %14
+  %.idx.i = mul nuw nsw i64 %14, 88
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %._crit_edge.i, label %.lr.ph.i
 
@@ -2985,7 +3012,8 @@ define hidden void @"_ZN15ruff_python_ast4node59_$LT$impl$u20$ruff_python_ast..n
   %20 = load ptr, ptr %19, align 8, !alias.scope !341, !noalias !336, !nonnull !3, !noundef !3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i64, ptr %21, align 8, !alias.scope !341, !noalias !336, !noundef !3
-  %23 = getelementptr inbounds nuw { { i64, [10 x i64] }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, { i32, i32 } }, ptr %20, i64 %22
+  %.idx5.i = shl nuw nsw i64 %22, 7
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx5.i
   %24 = icmp eq i64 %22, 0
   br i1 %24, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor23visit_pattern_arguments17hc688c92e1d31fe7bE.exit, label %.lr.ph4.i
 
@@ -3030,7 +3058,8 @@ define hidden void @"_ZN15ruff_python_ast4node59_$LT$impl$u20$ruff_python_ast..n
   %12 = load ptr, ptr %11, align 8, !alias.scope !354, !noalias !349, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !354, !noalias !349, !noundef !3
-  %15 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %12, i64 %14
+  %.idx.i = mul nuw nsw i64 %14, 88
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %._crit_edge.i, label %.lr.ph.i
 
@@ -3046,7 +3075,8 @@ define hidden void @"_ZN15ruff_python_ast4node59_$LT$impl$u20$ruff_python_ast..n
   %20 = load ptr, ptr %19, align 8, !alias.scope !354, !noalias !349, !nonnull !3, !noundef !3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i64, ptr %21, align 8, !alias.scope !354, !noalias !349, !noundef !3
-  %23 = getelementptr inbounds nuw { { i64, [10 x i64] }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, { i32, i32 } }, ptr %20, i64 %22
+  %.idx5.i = shl nuw nsw i64 %22, 7
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx5.i
   %24 = icmp eq i64 %22, 0
   br i1 %24, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor23visit_pattern_arguments17h6c29b9e62b373b38E.exit, label %.lr.ph4.i
 
@@ -3515,7 +3545,8 @@ define hidden void @"_ZN15ruff_python_ast4node62_$LT$impl$u20$ruff_python_ast..n
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 88
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -3536,7 +3567,8 @@ define hidden void @"_ZN15ruff_python_ast4node62_$LT$impl$u20$ruff_python_ast..n
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 88
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -3557,7 +3589,8 @@ define hidden void @"_ZN15ruff_python_ast4node62_$LT$impl$u20$ruff_python_ast..n
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 88
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -3578,7 +3611,8 @@ define hidden void @"_ZN15ruff_python_ast4node62_$LT$impl$u20$ruff_python_ast..n
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 88
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -3933,7 +3967,8 @@ define hidden void @"_ZN15ruff_python_ast4node68_$LT$impl$u20$ruff_python_ast..n
   %18 = load ptr, ptr %17, align 8, !nonnull !3, !noundef !3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !3
-  %21 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %18, i64 %20
+  %.idx.i.i = mul nuw nsw i64 %20, 120
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i
   %22 = icmp eq i64 %20, 0
   br i1 %22, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_body17h6d249ea4e8006a0cE.exit, label %.lr.ph.i.i
 
@@ -4069,7 +4104,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order12walk_pattern17h2
   %19 = load ptr, ptr %18, align 8, !alias.scope !488, !noalias !491, !nonnull !3, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i64, ptr %20, align 8, !alias.scope !488, !noalias !491, !noundef !3
-  %22 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %19, i64 %21
+  %.idx15 = mul nuw nsw i64 %21, 88
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx15
   %23 = icmp eq i64 %21, 0
   br i1 %23, label %"_ZN15ruff_python_ast4node62_$LT$impl$u20$ruff_python_ast..nodes..PatternMatchSequence$GT$18visit_source_order17h97a9815f71ea124bE.exit", label %.lr.ph12
 
@@ -4102,7 +4138,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order12walk_pattern17h2
   %38 = load ptr, ptr %37, align 8, !alias.scope !503, !noalias !498, !nonnull !3, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load i64, ptr %39, align 8, !alias.scope !503, !noalias !498, !noundef !3
-  %41 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %38, i64 %40
+  %.idx13 = mul nuw nsw i64 %40, 88
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx13
   %42 = icmp eq i64 %40, 0
   br i1 %42, label %._crit_edge, label %.lr.ph6
 
@@ -4118,7 +4155,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order12walk_pattern17h2
   %46 = load ptr, ptr %45, align 8, !alias.scope !503, !noalias !498, !nonnull !3, !noundef !3
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load i64, ptr %47, align 8, !alias.scope !503, !noalias !498, !noundef !3
-  %49 = getelementptr inbounds nuw { { i64, [10 x i64] }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, { i32, i32 } }, ptr %46, i64 %48
+  %.idx14 = shl nuw nsw i64 %48, 7
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx14
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %"_ZN15ruff_python_ast4node62_$LT$impl$u20$ruff_python_ast..nodes..PatternMatchSequence$GT$18visit_source_order17h97a9815f71ea124bE.exit", label %.lr.ph9
 
@@ -4178,7 +4216,8 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_ke
   %78 = load ptr, ptr %77, align 8, !alias.scope !521, !noalias !524, !nonnull !3, !noundef !3
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %80 = load i64, ptr %79, align 8, !alias.scope !521, !noalias !524, !noundef !3
-  %81 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %78, i64 %80
+  %.idx = mul nuw nsw i64 %80, 88
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx
   %82 = icmp eq i64 %80, 0
   br i1 %82, label %"_ZN15ruff_python_ast4node62_$LT$impl$u20$ruff_python_ast..nodes..PatternMatchSequence$GT$18visit_source_order17h97a9815f71ea124bE.exit", label %.lr.ph
 
@@ -4243,7 +4282,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order12walk_pattern17h3
   %19 = load ptr, ptr %18, align 8, !alias.scope !531, !noalias !534, !nonnull !3, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i64, ptr %20, align 8, !alias.scope !531, !noalias !534, !noundef !3
-  %22 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %19, i64 %21
+  %.idx14 = mul nuw nsw i64 %21, 88
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx14
   %23 = icmp eq i64 %21, 0
   br i1 %23, label %"_ZN15ruff_python_ast4node62_$LT$impl$u20$ruff_python_ast..nodes..PatternMatchSequence$GT$18visit_source_order17h0ba72e64479fcbe8E.exit", label %.lr.ph11
 
@@ -4276,7 +4316,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order12walk_pattern17h3
   %38 = load ptr, ptr %37, align 8, !alias.scope !546, !noalias !541, !nonnull !3, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load i64, ptr %39, align 8, !alias.scope !546, !noalias !541, !noundef !3
-  %41 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %38, i64 %40
+  %.idx12 = mul nuw nsw i64 %40, 88
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx12
   %42 = icmp eq i64 %40, 0
   br i1 %42, label %._crit_edge, label %.lr.ph5
 
@@ -4292,7 +4333,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order12walk_pattern17h3
   %46 = load ptr, ptr %45, align 8, !alias.scope !546, !noalias !541, !nonnull !3, !noundef !3
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load i64, ptr %47, align 8, !alias.scope !546, !noalias !541, !noundef !3
-  %49 = getelementptr inbounds nuw { { i64, [10 x i64] }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, { i32, i32 } }, ptr %46, i64 %48
+  %.idx13 = shl nuw nsw i64 %48, 7
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx13
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor23visit_pattern_arguments17hc688c92e1d31fe7bE.exit, label %.lr.ph8
 
@@ -4358,7 +4400,8 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor23visit_pattern_ar
   %78 = load ptr, ptr %77, align 8, !alias.scope !564, !noalias !567, !nonnull !3, !noundef !3
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %80 = load i64, ptr %79, align 8, !alias.scope !564, !noalias !567, !noundef !3
-  %81 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %78, i64 %80
+  %.idx = mul nuw nsw i64 %80, 88
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx
   %82 = icmp eq i64 %80, 0
   br i1 %82, label %"_ZN15ruff_python_ast4node62_$LT$impl$u20$ruff_python_ast..nodes..PatternMatchSequence$GT$18visit_source_order17h0ba72e64479fcbe8E.exit", label %.lr.ph
 
@@ -4424,7 +4467,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order12walk_pattern17h5
   %19 = load ptr, ptr %18, align 8, !alias.scope !574, !noalias !577, !nonnull !3, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i64, ptr %20, align 8, !alias.scope !574, !noalias !577, !noundef !3
-  %22 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %19, i64 %21
+  %.idx14 = mul nuw nsw i64 %21, 88
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx14
   %23 = icmp eq i64 %21, 0
   br i1 %23, label %"_ZN15ruff_python_ast4node62_$LT$impl$u20$ruff_python_ast..nodes..PatternMatchSequence$GT$18visit_source_order17h1248ecbbfbafa407E.exit", label %.lr.ph11
 
@@ -4457,7 +4501,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order12walk_pattern17h5
   %38 = load ptr, ptr %37, align 8, !alias.scope !589, !noalias !584, !nonnull !3, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load i64, ptr %39, align 8, !alias.scope !589, !noalias !584, !noundef !3
-  %41 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %38, i64 %40
+  %.idx12 = mul nuw nsw i64 %40, 88
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx12
   %42 = icmp eq i64 %40, 0
   br i1 %42, label %._crit_edge, label %.lr.ph5
 
@@ -4473,7 +4518,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order12walk_pattern17h5
   %46 = load ptr, ptr %45, align 8, !alias.scope !589, !noalias !584, !nonnull !3, !noundef !3
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load i64, ptr %47, align 8, !alias.scope !589, !noalias !584, !noundef !3
-  %49 = getelementptr inbounds nuw { { i64, [10 x i64] }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, { i32, i32 } }, ptr %46, i64 %48
+  %.idx13 = shl nuw nsw i64 %48, 7
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx13
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor23visit_pattern_arguments17h6c29b9e62b373b38E.exit, label %.lr.ph8
 
@@ -4534,7 +4580,8 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor23visit_pattern_ar
   %73 = load ptr, ptr %72, align 8, !alias.scope !602, !noalias !605, !nonnull !3, !noundef !3
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %75 = load i64, ptr %74, align 8, !alias.scope !602, !noalias !605, !noundef !3
-  %76 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %73, i64 %75
+  %.idx = mul nuw nsw i64 %75, 88
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx
   %77 = icmp eq i64 %75, 0
   br i1 %77, label %"_ZN15ruff_python_ast4node62_$LT$impl$u20$ruff_python_ast..nodes..PatternMatchSequence$GT$18visit_source_order17h1248ecbbfbafa407E.exit", label %.lr.ph
 
@@ -4595,7 +4642,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order12walk_pattern17h5
   %19 = load ptr, ptr %18, align 8, !alias.scope !607, !noalias !610, !nonnull !3, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i64, ptr %20, align 8, !alias.scope !607, !noalias !610, !noundef !3
-  %22 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %19, i64 %21
+  %.idx14 = mul nuw nsw i64 %21, 88
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx14
   %23 = icmp eq i64 %21, 0
   br i1 %23, label %"_ZN15ruff_python_ast4node62_$LT$impl$u20$ruff_python_ast..nodes..PatternMatchSequence$GT$18visit_source_order17hcdd7d7aa09c398daE.exit", label %.lr.ph11
 
@@ -4628,7 +4676,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order12walk_pattern17h5
   %38 = load ptr, ptr %37, align 8, !alias.scope !622, !noalias !617, !nonnull !3, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load i64, ptr %39, align 8, !alias.scope !622, !noalias !617, !noundef !3
-  %41 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %38, i64 %40
+  %.idx12 = mul nuw nsw i64 %40, 88
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx12
   %42 = icmp eq i64 %40, 0
   br i1 %42, label %._crit_edge, label %.lr.ph5
 
@@ -4644,7 +4693,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order12walk_pattern17h5
   %46 = load ptr, ptr %45, align 8, !alias.scope !622, !noalias !617, !nonnull !3, !noundef !3
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load i64, ptr %47, align 8, !alias.scope !622, !noalias !617, !noundef !3
-  %49 = getelementptr inbounds nuw { { i64, [10 x i64] }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, { i32, i32 } }, ptr %46, i64 %48
+  %.idx13 = shl nuw nsw i64 %48, 7
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx13
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor23visit_pattern_arguments17h230bed871ffdf63bE.exit, label %.lr.ph8
 
@@ -4710,7 +4760,8 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor23visit_pattern_ar
   %78 = load ptr, ptr %77, align 8, !alias.scope !640, !noalias !643, !nonnull !3, !noundef !3
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %80 = load i64, ptr %79, align 8, !alias.scope !640, !noalias !643, !noundef !3
-  %81 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %78, i64 %80
+  %.idx = mul nuw nsw i64 %80, 88
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx
   %82 = icmp eq i64 %80, 0
   br i1 %82, label %"_ZN15ruff_python_ast4node62_$LT$impl$u20$ruff_python_ast..nodes..PatternMatchSequence$GT$18visit_source_order17hcdd7d7aa09c398daE.exit", label %.lr.ph
 
@@ -5529,7 +5580,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order16walk_type_params
   %10 = load ptr, ptr %9, align 8, !alias.scope !752, !noalias !755, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !752, !noalias !755, !noundef !3
-  %13 = getelementptr inbounds nuw { [55 x i8], i8 }, ptr %10, i64 %12
+  %.idx.i = mul nuw nsw i64 %12, 56
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %"_ZN15ruff_python_ast4node52_$LT$impl$u20$ruff_python_ast..nodes..TypeParams$GT$18visit_source_order17h988b0c8942aaccefE.exit", label %.lr.ph.i
 
@@ -5572,7 +5624,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order16walk_type_params
   %10 = load ptr, ptr %9, align 8, !alias.scope !762, !noalias !765, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !762, !noalias !765, !noundef !3
-  %13 = getelementptr inbounds nuw { [55 x i8], i8 }, ptr %10, i64 %12
+  %.idx.i = mul nuw nsw i64 %12, 56
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %"_ZN15ruff_python_ast4node52_$LT$impl$u20$ruff_python_ast..nodes..TypeParams$GT$18visit_source_order17ha8f924aa22da4c55E.exit", label %.lr.ph.i
 
@@ -5615,7 +5668,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order16walk_type_params
   %10 = load ptr, ptr %9, align 8, !alias.scope !772, !noalias !775, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !772, !noalias !775, !noundef !3
-  %13 = getelementptr inbounds nuw { [55 x i8], i8 }, ptr %10, i64 %12
+  %.idx.i = mul nuw nsw i64 %12, 56
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %"_ZN15ruff_python_ast4node52_$LT$impl$u20$ruff_python_ast..nodes..TypeParams$GT$18visit_source_order17h468303bac8ea5aecE.exit", label %.lr.ph.i
 
@@ -5656,7 +5710,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order16walk_type_params
   %10 = load ptr, ptr %9, align 8, !alias.scope !782, !noalias !785, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !782, !noalias !785, !noundef !3
-  %13 = getelementptr inbounds nuw { [55 x i8], i8 }, ptr %10, i64 %12
+  %.idx.i = mul nuw nsw i64 %12, 56
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %"_ZN15ruff_python_ast4node52_$LT$impl$u20$ruff_python_ast..nodes..TypeParams$GT$18visit_source_order17hbe3aed8efbbd8657E.exit", label %.lr.ph.i
 
@@ -5740,7 +5795,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order18walk_comprehensi
   %12 = load ptr, ptr %11, align 8, !noalias !806, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !noalias !806, !noundef !3
-  %15 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %12, i64 %14
+  %.idx.i = shl nuw nsw i64 %14, 6
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %"_ZN15ruff_python_ast4node55_$LT$impl$u20$ruff_python_ast..nodes..Comprehension$GT$18visit_source_order17h741417ad2e4abe80E.exit", label %.lr.ph.i
 
@@ -5774,7 +5830,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order18walk_comprehensi
   %12 = load ptr, ptr %11, align 8, !noalias !809, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !noalias !809, !noundef !3
-  %15 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %12, i64 %14
+  %.idx.i = shl nuw nsw i64 %14, 6
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %"_ZN15ruff_python_ast4node55_$LT$impl$u20$ruff_python_ast..nodes..Comprehension$GT$18visit_source_order17h1a17be95a3f47d68E.exit", label %.lr.ph.i
 
@@ -5808,7 +5865,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order18walk_comprehensi
   %12 = load ptr, ptr %11, align 8, !noalias !812, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !noalias !812, !noundef !3
-  %15 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %12, i64 %14
+  %.idx.i = shl nuw nsw i64 %14, 6
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %"_ZN15ruff_python_ast4node55_$LT$impl$u20$ruff_python_ast..nodes..Comprehension$GT$18visit_source_order17h558dfce85c3a25fdE.exit", label %.lr.ph.i
 
@@ -5839,7 +5897,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order18walk_comprehensi
   %9 = load ptr, ptr %8, align 8, !noalias !815, !nonnull !3, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !noalias !815, !noundef !3
-  %12 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %9, i64 %11
+  %.idx.i = shl nuw nsw i64 %11, 6
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
   %13 = icmp eq i64 %11, 0
   br i1 %13, label %"_ZN15ruff_python_ast4node55_$LT$impl$u20$ruff_python_ast..nodes..Comprehension$GT$18visit_source_order17h516126fd7b634c1fE.exit", label %.lr.ph.i
 
@@ -5869,7 +5928,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order18walk_comprehensi
   %9 = load ptr, ptr %8, align 8, !noalias !818, !nonnull !3, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !noalias !818, !noundef !3
-  %12 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %9, i64 %11
+  %.idx.i = shl nuw nsw i64 %11, 6
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
   %13 = icmp eq i64 %11, 0
   br i1 %13, label %"_ZN15ruff_python_ast4node55_$LT$impl$u20$ruff_python_ast..nodes..Comprehension$GT$18visit_source_order17h1d1544d7488aff87E.exit", label %.lr.ph.i
 
@@ -5902,7 +5962,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order18walk_comprehensi
   %12 = load ptr, ptr %11, align 8, !noalias !821, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !noalias !821, !noundef !3
-  %15 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %12, i64 %14
+  %.idx.i = shl nuw nsw i64 %14, 6
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %"_ZN15ruff_python_ast4node55_$LT$impl$u20$ruff_python_ast..nodes..Comprehension$GT$18visit_source_order17ha81f3f6f013ab877E.exit", label %.lr.ph.i
 
@@ -6164,7 +6225,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order21walk_elif_else_c
   %14 = load ptr, ptr %13, align 8, !noalias !855, !nonnull !3, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noalias !855, !noundef !3
-  %17 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %14, i64 %16
+  %.idx.i.i.i = mul nuw nsw i64 %16, 120
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i.i
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %"_ZN15ruff_python_ast4node56_$LT$impl$u20$ruff_python_ast..nodes..ElifElseClause$GT$18visit_source_order17h3a65819e2f92b593E.exit", label %.lr.ph.i.i.i
 
@@ -6450,7 +6512,8 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor15visit_parameter1
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h0424eb31f9c53a60E(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -6478,7 +6541,8 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17h4d6
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast7visitor12source_order9walk_body17ha9db9522c04f7bebE(ptr noalias noundef align 8 dereferenceable(104) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -6507,7 +6571,8 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17h123
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast7visitor12source_order9walk_body17hb60814b866837309E(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -6536,7 +6601,8 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17hedd
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast7visitor12source_order9walk_body17he0591a62f845fccdE(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 

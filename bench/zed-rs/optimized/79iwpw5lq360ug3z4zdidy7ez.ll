@@ -647,7 +647,8 @@ define internal { ptr, ptr } @"_ZN109_$LT$settings..settings_store..SettingValue
   br i1 %17, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %8
-  %18 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, i8, [7 x i8] }, ptr %14, i64 %16
+  %.idx = shl nsw i64 %16, 5
+  %18 = getelementptr inbounds i8, ptr %14, i64 %.idx
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %26, %8, %2

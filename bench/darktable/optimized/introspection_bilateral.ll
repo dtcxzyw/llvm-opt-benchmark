@@ -1972,16 +1972,17 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EED2Ev(ptr nou
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8, !tbaa !105
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %43, label %20
+  br i1 %19, label %42, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %18, i64 -8
   %22 = load i64, ptr %21, align 8
+  %.idx = mul i64 %22, 80
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %20
-  %24 = getelementptr inbounds %class.HashTablePermutohedral, ptr %18, i64 %22
+  %24 = getelementptr inbounds i8, ptr %18, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN22HashTablePermutohedralILi5ELi4EED2Ev.exit
@@ -2020,12 +2021,11 @@ _ZN22HashTablePermutohedralILi5ELi4EED2Ev.exit:   ; preds = %35, %39
   br i1 %40, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %_ZN22HashTablePermutohedralILi5ELi4EED2Ev.exit, %20
-  %41 = mul i64 %22, 80
-  %42 = or disjoint i64 %41, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %21, i64 noundef %42) #26
-  br label %43
+  %41 = or disjoint i64 %.idx, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %21, i64 noundef %41) #26
+  br label %42
 
-43:                                               ; preds = %.loopexit, %16
+42:                                               ; preds = %.loopexit, %16
   ret void
 }
 

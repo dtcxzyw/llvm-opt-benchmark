@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.llvm::FoldingSetBase::FoldingSetInfo" = type { ptr, ptr, ptr }
-%"class.llvm::DIEAbbrevData" = type { i16, i16, i64 }
 %"class.llvm::format_object" = type { %"class.llvm::format_object_base", %"class.std::tuple.97" }
 %"class.llvm::format_object_base" = type { ptr, ptr }
 %"class.std::tuple.97" = type { %"struct.std::_Tuple_impl.98" }
@@ -24,6 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.2" = type { %"class.llvm::SmallVectorTemplateCommon.3" }
 %"class.llvm::SmallVectorTemplateCommon.3" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.4" = type { [192 x i8] }
+%"class.llvm::DIEAbbrevData" = type { i16, i16, i64 }
 %"class.llvm::DIEValue" = type { i32, i16, i16, %"struct.llvm::AlignedCharArrayUnion" }
 %"struct.llvm::AlignedCharArrayUnion" = type { [8 x i8] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
@@ -268,7 +268,8 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit13:  ; preds = %_ZN4llvm16FoldingSe
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i32, ptr %36, align 8, !tbaa !10
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::DIEAbbrevData", ptr %35, i64 %38
+  %.idx = shl nuw nsw i64 %38, 4
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx
   %.not14 = icmp eq i32 %37, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -310,7 +311,8 @@ define dso_local void @_ZNK4llvm9DIEAbbrev4EmitEPKNS_10AsmPrinterE(ptr noundef n
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8, !tbaa !10
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"class.llvm::DIEAbbrevData", ptr %16, i64 %19
+  %.idx = shl nuw nsw i64 %19, 4
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   %.not26 = icmp eq i32 %18, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
@@ -533,7 +535,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %87, %89
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %95 = load i32, ptr %94, align 8, !tbaa !10
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %"class.llvm::DIEAbbrevData", ptr %93, i64 %96
+  %.idx = shl nuw nsw i64 %96, 4
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx
   %.not50 = icmp eq i32 %95, 0
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
@@ -826,7 +829,8 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit13.i: ; preds = %27, %_ZN4llvm16Fol
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %39 = load i32, ptr %38, align 8, !tbaa !10
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"class.llvm::DIEAbbrevData", ptr %37, i64 %40
+  %.idx.i = shl nuw nsw i64 %40, 4
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i
   %.not14.i = icmp eq i32 %39, 0
   br i1 %.not14.i, label %_ZNK4llvm9DIEAbbrev7ProfileERNS_16FoldingSetNodeIDE.exit, label %.lr.ph.i
 
@@ -924,15 +928,15 @@ _ZN4llvm15SmallVectorImplINS_13DIEAbbrevDataEE12assignRemoteEOS2_.exit.i: ; pred
 _ZSt4moveIPN4llvm13DIEAbbrevDataES2_ET0_T_S4_S3_.exit35.i: ; preds = %83
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(208) %71, ptr noundef nonnull %72, i64 noundef %84, i64 noundef 16) #21
   %.pre = load i32, ptr %38, align 8, !tbaa !10
-  %.pre20 = zext i32 %.pre to i64
-  %.not.i.i.i14 = icmp eq i32 %.pre, 0
-  br i1 %.not.i.i.i14, label %_ZN4llvm23SmallVectorTemplateBaseINS_13DIEAbbrevDataELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i, label %_ZSt4moveIPN4llvm13DIEAbbrevDataES2_ET0_T_S4_S3_.exit35.i.thread
+  %.pre21 = zext i32 %.pre to i64
+  %.not.i.i.i15 = icmp eq i32 %.pre, 0
+  br i1 %.not.i.i.i15, label %_ZN4llvm23SmallVectorTemplateBaseINS_13DIEAbbrevDataELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i, label %_ZSt4moveIPN4llvm13DIEAbbrevDataES2_ET0_T_S4_S3_.exit35.i.thread
 
 _ZSt4moveIPN4llvm13DIEAbbrevDataES2_ET0_T_S4_S3_.exit35.i.thread: ; preds = %83, %_ZSt4moveIPN4llvm13DIEAbbrevDataES2_ET0_T_S4_S3_.exit35.i
-  %.pre-phi23 = phi i64 [ %.pre20, %_ZSt4moveIPN4llvm13DIEAbbrevDataES2_ET0_T_S4_S3_.exit35.i ], [ %84, %83 ]
+  %.pre-phi24 = phi i64 [ %.pre21, %_ZSt4moveIPN4llvm13DIEAbbrevDataES2_ET0_T_S4_S3_.exit35.i ], [ %84, %83 ]
   %86 = load ptr, ptr %36, align 8, !tbaa !16
   %87 = load ptr, ptr %71, align 8, !tbaa !16
-  %gepdiff.i = shl nuw nsw i64 %.pre-phi23, 4
+  %gepdiff.i = shl nuw nsw i64 %.pre-phi24, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %87, ptr align 8 %86, i64 %gepdiff.i, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_13DIEAbbrevDataELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i
 
@@ -957,7 +961,7 @@ _ZN4llvm9DIEAbbrevC2EOS0_.exit:                   ; preds = %_ZN4llvm9DIEAbbrevC
   store ptr %.0.i.i.i, ptr %90, align 8, !tbaa !53
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store ptr %94, ptr %89, align 8, !tbaa !95
-  %.pre19 = load ptr, ptr %88, align 8, !tbaa !50
+  %.pre20 = load ptr, ptr %88, align 8, !tbaa !50
   br label %_ZNSt6vectorIPN4llvm9DIEAbbrevESaIS2_EE9push_backERKS2_.exit
 
 95:                                               ; preds = %_ZN4llvm9DIEAbbrevC2EOS0_.exit
@@ -1009,7 +1013,7 @@ _ZNSt6vectorIPN4llvm9DIEAbbrevESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx
   br label %_ZNSt6vectorIPN4llvm9DIEAbbrevESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPN4llvm9DIEAbbrevESaIS2_EE9push_backERKS2_.exit: ; preds = %93, %_ZNSt6vectorIPN4llvm9DIEAbbrevESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %115 = phi ptr [ %.pre19, %93 ], [ %108, %_ZNSt6vectorIPN4llvm9DIEAbbrevESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
+  %115 = phi ptr [ %.pre20, %93 ], [ %108, %_ZNSt6vectorIPN4llvm9DIEAbbrevESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   %116 = phi ptr [ %94, %93 ], [ %112, %_ZNSt6vectorIPN4llvm9DIEAbbrevESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   %117 = ptrtoint ptr %116 to i64
   %118 = ptrtoint ptr %115 to i64

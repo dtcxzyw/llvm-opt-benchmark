@@ -47909,7 +47909,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h14e84330fbd171efE.exit.thread:
   %.sroa.0.0.copyload.i = load i64, ptr %11, align 8, !alias.scope !12235, !noalias !12232
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i35, align 8, !alias.scope !12235, !noalias !12232, !nonnull !4, !noundef !4
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i36, align 8, !alias.scope !12235, !noalias !12232
-  %126 = getelementptr inbounds { [2 x i64], i64, [1 x i64] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nsw i64 %.sroa.5.0.copyload.i, 5
+  %126 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   store ptr %.sroa.4.0.copyload.i, ptr %9, align 8, !alias.scope !12232, !noalias !12235
   store i64 %.sroa.0.0.copyload.i, ptr %92, align 8, !alias.scope !12232, !noalias !12235
   store ptr %.sroa.4.0.copyload.i, ptr %93, align 8, !alias.scope !12232, !noalias !12235
@@ -49455,7 +49456,8 @@ define hidden noundef zeroext i1 @_ZN11ide_assists8handlers14fix_visibility14fix
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !12634, !noalias !12636, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %63, i64 16
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !12634, !noalias !12636
-  %147 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, [4 x i32] }, [1 x i32] }, ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
+  %.idx.i = mul nsw i64 %.sroa.5.0.copyload.i.i, 48
+  %147 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %.idx.i
   store ptr %.sroa.4.0.copyload.i.i, ptr %64, align 8, !alias.scope !12631, !noalias !12637
   %148 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store i64 %.sroa.0.0.copyload.i.i, ptr %148, align 8, !alias.scope !12631, !noalias !12637
@@ -59050,7 +59052,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr84drop
   %.sroa.0212.0.copyload = load i64, ptr %34, align 8
   %.sroa.4213.0.copyload = load ptr, ptr %339, align 8, !nonnull !4, !noundef !4
   %.sroa.5214.0.copyload = load i64, ptr %59, align 8
-  %403 = getelementptr inbounds { { { i8, [7 x i8] }, { i64, { [3 x i64] } } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %.sroa.4213.0.copyload, i64 %.sroa.5214.0.copyload
+  %.idx = mul nsw i64 %.sroa.5214.0.copyload, 80
+  %403 = getelementptr inbounds i8, ptr %.sroa.4213.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
   store ptr %.sroa.4213.0.copyload, ptr %22, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8

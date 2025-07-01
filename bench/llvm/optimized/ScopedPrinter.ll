@@ -34,15 +34,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.38" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.39" = type { [48 x i8] }
 %"struct.llvm::HexNumber" = type { i64 }
-%"struct.llvm::FlagEntry" = type { %"class.llvm::StringRef", i64 }
 %"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::json::Value" = type { i16, [6 x i8], %"struct.llvm::AlignedCharArrayUnion" }
 %"struct.llvm::AlignedCharArrayUnion" = type { [32 x i8] }
 %class.anon.42 = type { ptr, ptr }
 %"class.llvm::ArrayRef.8" = type { ptr, i64 }
-%"class.llvm::APSInt" = type { %"class.llvm::APInt.base", i8, [3 x i8] }
-%"class.llvm::APInt.base" = type <{ %union.anon.19, i32 }>
-%union.anon.19 = type { i64 }
 %"struct.llvm::JSONScopedPrinter::ScopeContext" = type { i32, i32 }
 %class.anon.52 = type { ptr, ptr, ptr, ptr }
 %class.anon.56 = type { ptr, ptr }
@@ -2985,7 +2981,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %34, %36
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit15
 
 _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %49, %51
-  %54 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %4, i64 %5
+  %.idx = mul nuw nsw i64 %5, 24
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not32 = icmp eq i64 %5, 0
   br i1 %.not32, label %._crit_edge, label %.lr.ph
 
@@ -3220,7 +3217,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %33, %35
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit12
 
 _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %48, %50
-  %53 = getelementptr inbounds nuw %"struct.llvm::HexNumber", ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not22 = icmp eq i64 %5, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
@@ -3364,7 +3362,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %19, %21, %22
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %32, %34
-  %38 = getelementptr inbounds nuw %"struct.llvm::HexNumber", ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 3
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not36 = icmp eq i64 %4, 0
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
@@ -4440,7 +4439,8 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9printListENS_9Strin
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr %1, i64 %2) #12
   tail call void @_ZN4llvm4json7OStream10arrayBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %7) #12
-  %8 = getelementptr inbounds nuw i64, ptr %3, i64 %4
+  %.idx.i.i.i = shl nuw nsw i64 %4, 3
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i.i
   %.not8.i.i.i = icmp eq i64 %4, 0
   br i1 %.not8.i.i.i, label %_ZN4llvm17JSONScopedPrinter13printListImplINS_8ArrayRefImEEEEvNS_9StringRefERKT_.exit, label %.lr.ph.i.i.i
 
@@ -4473,7 +4473,8 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9printListENS_9Strin
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr %1, i64 %2) #12
   tail call void @_ZN4llvm4json7OStream10arrayBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %7) #12
-  %8 = getelementptr inbounds nuw i32, ptr %3, i64 %4
+  %.idx.i.i.i = shl nuw nsw i64 %4, 2
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i.i
   %.not8.i.i.i = icmp eq i64 %4, 0
   br i1 %.not8.i.i.i, label %_ZN4llvm17JSONScopedPrinter13printListImplINS_8ArrayRefIjEEEEvNS_9StringRefERKT_.exit, label %.lr.ph.i.i.i
 
@@ -4507,7 +4508,8 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9printListENS_9Strin
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr %1, i64 %2) #12
   tail call void @_ZN4llvm4json7OStream10arrayBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %7) #12
-  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %4
+  %.idx.i.i.i = shl nuw nsw i64 %4, 1
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i.i
   %.not8.i.i.i = icmp eq i64 %4, 0
   br i1 %.not8.i.i.i, label %_ZN4llvm17JSONScopedPrinter13printListImplINS_8ArrayRefItEEEEvNS_9StringRefERKT_.exit, label %.lr.ph.i.i.i
 
@@ -4575,7 +4577,8 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9printListENS_9Strin
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr %1, i64 %2) #12
   tail call void @_ZN4llvm4json7OStream10arrayBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %7) #12
-  %8 = getelementptr inbounds nuw i64, ptr %3, i64 %4
+  %.idx.i.i.i = shl nuw nsw i64 %4, 3
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i.i
   %.not8.i.i.i = icmp eq i64 %4, 0
   br i1 %.not8.i.i.i, label %_ZN4llvm17JSONScopedPrinter13printListImplINS_8ArrayRefIlEEEEvNS_9StringRefERKT_.exit, label %.lr.ph.i.i.i
 
@@ -4608,7 +4611,8 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9printListENS_9Strin
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr %1, i64 %2) #12
   tail call void @_ZN4llvm4json7OStream10arrayBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %7) #12
-  %8 = getelementptr inbounds nuw i32, ptr %3, i64 %4
+  %.idx.i.i.i = shl nuw nsw i64 %4, 2
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i.i
   %.not8.i.i.i = icmp eq i64 %4, 0
   br i1 %.not8.i.i.i, label %_ZN4llvm17JSONScopedPrinter13printListImplINS_8ArrayRefIiEEEEvNS_9StringRefERKT_.exit, label %.lr.ph.i.i.i
 
@@ -4642,7 +4646,8 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9printListENS_9Strin
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr %1, i64 %2) #12
   tail call void @_ZN4llvm4json7OStream10arrayBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %7) #12
-  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %4
+  %.idx.i.i.i = shl nuw nsw i64 %4, 1
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i.i
   %.not8.i.i.i = icmp eq i64 %4, 0
   br i1 %.not8.i.i.i, label %_ZN4llvm17JSONScopedPrinter13printListImplINS_8ArrayRefIsEEEEvNS_9StringRefERKT_.exit, label %.lr.ph.i.i.i
 
@@ -4709,7 +4714,8 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9printListENS_9Strin
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr %1, i64 %2) #12
   tail call void @_ZN4llvm4json7OStream10arrayBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %6) #12
-  %7 = getelementptr inbounds nuw %"class.llvm::APSInt", ptr %3, i64 %4
+  %.idx.i.i = shl nuw nsw i64 %4, 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
   %.not8.i.i = icmp eq i64 %4, 0
   br i1 %.not8.i.i, label %_ZN4llvm12function_refIFvvEE11callback_fnIZNS_17JSONScopedPrinter9printListENS_9StringRefENS_8ArrayRefINS_6APSIntEEEEUlvE_EEvl.exit, label %.lr.ph.i.i
 
@@ -5119,7 +5125,8 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter16printHexListImplEN
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr %1, i64 %2) #12
   tail call void @_ZN4llvm4json7OStream10arrayBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %7) #12
-  %8 = getelementptr inbounds nuw %"struct.llvm::HexNumber", ptr %3, i64 %4
+  %.idx.i.i = shl nuw nsw i64 %4, 3
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
   %.not8.i.i = icmp eq i64 %4, 0
   br i1 %.not8.i.i, label %_ZN4llvm12function_refIFvvEE11callback_fnIZNS_17JSONScopedPrinter16printHexListImplENS_9StringRefENS_8ArrayRefINS_9HexNumberEEEEUlvE_EEvl.exit, label %.lr.ph.i.i
 
@@ -5482,7 +5489,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %18, %20, %21
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
-  %37 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 5
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not35 = icmp eq i64 %4, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
@@ -5613,7 +5621,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %18, %20, %21
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
-  %37 = getelementptr inbounds nuw i64, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 3
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not35 = icmp eq i64 %4, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
@@ -5742,7 +5751,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %18, %20, %21
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
-  %37 = getelementptr inbounds nuw i32, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 2
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not35 = icmp eq i64 %4, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
@@ -5872,7 +5882,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %18, %20, %21
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
-  %37 = getelementptr inbounds nuw i16, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 1
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not35 = icmp eq i64 %4, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
@@ -6006,7 +6017,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %30, %32
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load i32, ptr %37, align 8, !tbaa !60
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %36, i64 %39
+  %.idx = shl nuw nsw i64 %39, 2
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx
   %.not33 = icmp eq i32 %38, 0
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
@@ -6174,7 +6186,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %18, %20, %21
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
-  %37 = getelementptr inbounds nuw i64, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 3
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not35 = icmp eq i64 %4, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
@@ -6303,7 +6316,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %18, %20, %21
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
-  %37 = getelementptr inbounds nuw i32, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 2
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not35 = icmp eq i64 %4, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
@@ -6433,7 +6447,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %18, %20, %21
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
-  %37 = getelementptr inbounds nuw i16, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 1
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not35 = icmp eq i64 %4, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
@@ -6567,7 +6582,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %30, %32
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load i32, ptr %37, align 8, !tbaa !60
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %36, i64 %39
+  %.idx = shl nuw nsw i64 %39, 2
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx
   %.not33 = icmp eq i32 %38, 0
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
@@ -6732,7 +6748,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %18, %20, %21
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
-  %37 = getelementptr inbounds nuw %"class.llvm::APSInt", ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 4
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not35 = icmp eq i64 %4, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
@@ -6933,7 +6950,8 @@ define linkonce_odr hidden void @_ZZN4llvm17JSONScopedPrinter13printListImplINS_
   %7 = load ptr, ptr %6, align 8, !tbaa !137
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !140
-  %10 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %9
+  %.idx = shl nuw nsw i64 %9, 5
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not8 = icmp eq i64 %9, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -7291,7 +7309,8 @@ define linkonce_odr hidden void @_ZZZN4llvm17JSONScopedPrinter14printFlagsImplEN
   %5 = load ptr, ptr %4, align 8, !tbaa !147
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !150
-  %8 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %5, i64 %7
+  %.idx = mul nuw nsw i64 %7, 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %.not11 = icmp eq i64 %7, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -7359,7 +7378,8 @@ define linkonce_odr hidden void @_ZZN4llvm17JSONScopedPrinter14printFlagsImplENS
   %11 = load ptr, ptr %10, align 8, !tbaa !153
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !155
-  %14 = getelementptr inbounds nuw %"struct.llvm::HexNumber", ptr %11, i64 %13
+  %.idx.i.i = shl nuw nsw i64 %13, 3
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i
   %.not8.i.i = icmp eq i64 %13, 0
   br i1 %.not8.i.i, label %_ZN4llvm12function_refIFvvEE11callback_fnIZZNS_17JSONScopedPrinter14printFlagsImplENS_9StringRefENS_9HexNumberENS_8ArrayRefIS6_EEENKUlvE_clEvEUlvE_EEvl.exit, label %.lr.ph.i.i
 

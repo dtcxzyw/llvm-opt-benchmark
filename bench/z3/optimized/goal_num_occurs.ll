@@ -120,7 +120,8 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %15, %19, %23
   %.pre = load ptr, ptr %3, align 8, !tbaa !3
   %.pre47 = load i32, ptr %5, align 8, !tbaa !11
   %28 = zext i32 %.pre47 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %28
+  %.idx.i.i = shl nuw nsw i64 %28, 3
+  %29 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i.i
   %.not8.i.i = icmp eq i32 %.pre47, 0
   br i1 %.not8.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -366,7 +367,8 @@ define linkonce_odr hidden void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnul
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !11
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 3
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %.not8.i = icmp eq i32 %4, 0
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
 

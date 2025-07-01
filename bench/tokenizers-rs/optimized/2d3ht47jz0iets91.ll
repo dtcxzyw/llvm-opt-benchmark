@@ -20404,7 +20404,8 @@ define void @"_ZN99_$LT$tokenizers..processors..sequence..Sequence$u20$as$u20$to
   %8 = load ptr, ptr %7, align 8, !alias.scope !4321, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !4321, !noundef !4
-  %11 = getelementptr inbounds { i64, [13 x i64] }, ptr %8, i64 %10
+  %.idx = mul nsw i64 %10, 112
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 

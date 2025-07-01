@@ -6501,7 +6501,8 @@ define void @_ZN6quiche6ranges13BTreeRangeSet12remove_until17h3e1c7141ca26b466E(
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !767, !noalias !770
   %11 = icmp ult i64 %.sroa.5.0.copyload.i, 576460752303423488
   call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds nuw { i64, i64 }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nuw nsw i64 %.sroa.5.0.copyload.i, 4
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   %13 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   call void @llvm.assume(i1 %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)

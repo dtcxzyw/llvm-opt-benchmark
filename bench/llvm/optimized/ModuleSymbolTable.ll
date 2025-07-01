@@ -204,11 +204,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.112 = type { ptr }
 %"struct.llvm::SourceMgr::SrcBuffer" = type { %"class.std::unique_ptr.60", ptr, %"class.llvm::SMLoc" }
 %"class.llvm::SMLoc" = type { ptr }
-%"struct.std::pair.389" = type { ptr, %"class.std::vector.391" }
-%"class.std::vector.391" = type { %"struct.std::_Vector_base.392" }
-%"struct.std::_Vector_base.392" = type { %"struct.std::_Vector_base<llvm::StringRef, std::allocator<llvm::StringRef>>::_Vector_impl" }
-%"struct.std::_Vector_base<llvm::StringRef, std::allocator<llvm::StringRef>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::StringRef, std::allocator<llvm::StringRef>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<llvm::StringRef, std::allocator<llvm::StringRef>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.llvm::DiagnosticInfoSrcMgr" = type { %"class.llvm::DiagnosticInfo.base", ptr, %"class.llvm::StringRef", i8, i64 }
 %"class.llvm::DiagnosticInfo.base" = type <{ ptr, i32, i8 }>
 %"struct.std::pair.412" = type { ptr, i64 }
@@ -1384,7 +1379,8 @@ define linkonce_odr hidden void @_ZN4llvm14RecordStreamerD2Ev(ptr noundef nonnul
 
 .lr.ph.i.preheader.i.i:                           ; preds = %1
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"struct.std::pair.389", ptr %4, i64 %7
+  %.idx.i.i = shl nuw nsw i64 %7, 5
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt4pairIPKN4llvm8MCSymbolESt6vectorINS0_9StringRefESaIS5_EEED2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i

@@ -30,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_llist = type { ptr, ptr, i64, i64, ptr, i8, ptr }
 %struct._php_core_globals = type { i64, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct._arg_separators, ptr, %struct._zend_array, i16, i8, i8, %struct._zend_llist, [6 x %struct._zval_struct], i8, i8, i8, i8, i8, ptr, ptr, i64, [8 x i8], i8, i8, i8, i8, i8, i8, i32, i32, ptr, ptr, ptr, ptr, i64, i64, ptr, i64, ptr, ptr, i8, i8, i8, i8, i8, i8, i64, ptr, i64, i64 }
 %struct._arg_separators = type { ptr, ptr }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct._zend_file_handle = type { %union.anon.8, ptr, ptr, i8, i8, i8, ptr, i64 }
@@ -101,7 +100,8 @@ define dso_local void @display_ini_entries(ptr noundef readonly captures(address
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load i32, ptr %9, align 8, !tbaa !48
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct._Bucket, ptr %8, i64 %11
+  %.idx = shl nuw nsw i64 %11, 5
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !47
   %15 = and i32 %14, 4
@@ -1702,7 +1702,8 @@ define dso_local void @php_ini_activate_config(ptr noundef readonly captures(non
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8, !tbaa !48
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %struct._Bucket, ptr %5, i64 %8
+  %.idx = shl nuw nsw i64 %8, 5
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !47
   %12 = and i32 %11, 4

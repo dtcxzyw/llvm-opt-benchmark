@@ -1094,7 +1094,8 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17hc00c3a6db74c0ff
   br i1 %.not48, label %17, label %.loopexit101
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %2, i64 %3
+  %.idx = mul nuw nsw i64 %3, 48
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %19 = icmp eq i64 %3, 0
   br i1 %19, label %._crit_edge, label %.lr.ph
 
@@ -1128,7 +1129,8 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17hc00c3a6db74c0ff
   %37 = load ptr, ptr %36, align 8, !noalias !76, !nonnull !3, !align !20, !noundef !3
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load i64, ptr %38, align 8, !noalias !76, !noundef !3
-  %40 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr %37, i64 %39
+  %.idx.i = shl nuw nsw i64 %39, 5
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i
   %41 = icmp eq i64 %39, 0
   br i1 %41, label %.loopexit99, label %.lr.ph34.i
 
@@ -1180,7 +1182,8 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17hc00c3a6db74c0ff
   %62 = load ptr, ptr %61, align 8, !nonnull !3, !align !20, !noundef !3
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.013.032.i, i64 24
   %64 = load i64, ptr %63, align 8, !noundef !3
-  %65 = getelementptr inbounds nuw { { ptr, i64 }, i64 }, ptr %62, i64 %64
+  %.idx41.i = mul nuw nsw i64 %64, 24
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx41.i
   %66 = icmp eq i64 %64, 0
   br i1 %66, label %.loopexit99, label %.lr.ph40.preheader.i
 

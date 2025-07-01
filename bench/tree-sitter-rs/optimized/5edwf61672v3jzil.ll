@@ -249,7 +249,7 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17h82b
           to label %150 unwind label %27
 
 .noexc149:                                        ; preds = %83, %80
-  br i1 %.0123.lcssa303, label %.thread187, label %149
+  br i1 %.0123.lcssa304, label %.thread187, label %149
 
 .thread207:                                       ; preds = %.lr.ph268, %.loopexit, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h1ce14f4ee48849ffE.exit"
   %73 = landingpad { ptr, i32 }
@@ -276,7 +276,7 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17h82b
   br label %78
 
 78:                                               ; preds = %77, %76
-  %.0123.lcssa303 = phi i1 [ true, %77 ], [ false, %76 ]
+  %.0123.lcssa304 = phi i1 [ true, %77 ], [ false, %76 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   %79 = invoke noundef i64 @_ZN11tree_sitter5Query13pattern_count17he6ab95e1b01de91aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %22)
           to label %86 unwind label %84
@@ -324,7 +324,8 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17h82b
 92:                                               ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17he88159a218337b7eE.exit"
   %93 = extractvalue { ptr, i64 } %89, 0
   %94 = extractvalue { ptr, i64 } %89, 1
-  %95 = getelementptr inbounds { ptr, i64 }, ptr %93, i64 %94
+  %.idx301 = shl nsw i64 %94, 4
+  %95 = getelementptr inbounds i8, ptr %93, i64 %.idx301
   %96 = icmp ne ptr %93, null
   call void @llvm.assume(i1 %96)
   %97 = icmp eq i64 %94, 0
@@ -469,7 +470,7 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17h82b
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %18)
-  br i1 %.0123.lcssa303, label %.noexc154, label %125
+  br i1 %.0123.lcssa304, label %.noexc154, label %125
 
 .noexc154:                                        ; preds = %125, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h4503a515130a529dE.exit"
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %20)
@@ -572,7 +573,8 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17h82b
 137:                                              ; preds = %.lr.ph268
   %138 = extractvalue { ptr, i64 } %75, 0
   %139 = extractvalue { ptr, i64 } %75, 1
-  %140 = getelementptr inbounds { { i64, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %138, i64 %139
+  %.idx = mul nsw i64 %139, 48
+  %140 = getelementptr inbounds i8, ptr %138, i64 %.idx
   %141 = icmp ne ptr %138, null
   call void @llvm.assume(i1 %141)
   %.not.i176 = icmp eq i64 %139, 0
@@ -607,8 +609,8 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17h82b
 
 148:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h1ce14f4ee48849ffE.exit", %.loopexit
   %.1124 = phi i1 [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h1ce14f4ee48849ffE.exit" ], [ %.0123265, %.loopexit ]
-  %exitcond301.not = icmp eq i64 %74, %.0127.lcssa
-  br i1 %exitcond301.not, label %._crit_edge269, label %.lr.ph268
+  %exitcond302.not = icmp eq i64 %74, %.0127.lcssa
+  br i1 %exitcond302.not, label %._crit_edge269, label %.lr.ph268
 
 149:                                              ; preds = %.thread207, %.noexc149
   %.pn.pn.pn214 = phi { ptr, i32 } [ %73, %.thread207 ], [ %.pn.pn, %.noexc149 ]
@@ -663,11 +665,11 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17h82b
   br i1 %.0, label %164, label %"_ZN4core3ptr42drop_in_place$LT$tree_sitter..Language$GT$17h6d919a6eb1ceba29E.exit182"
 
 "_ZN4core3ptr42drop_in_place$LT$tree_sitter..Language$GT$17h6d919a6eb1ceba29E.exit182": ; preds = %164, %163
-  %.pn137305 = phi { ptr, i32 } [ %.pn137306, %164 ], [ %.pn135, %163 ]
-  resume { ptr, i32 } %.pn137305
+  %.pn137306 = phi { ptr, i32 } [ %.pn137307, %164 ], [ %.pn135, %163 ]
+  resume { ptr, i32 } %.pn137306
 
 164:                                              ; preds = %.thread, %163
-  %.pn137306 = phi { ptr, i32 } [ %.pn135, %163 ], [ %lpad.thr_comm, %.thread ]
+  %.pn137307 = phi { ptr, i32 } [ %.pn135, %163 ], [ %lpad.thr_comm, %.thread ]
   invoke void @"_ZN63_$LT$tree_sitter..Language$u20$as$u20$core..ops..drop..Drop$GT$4drop17h16817d4e8c1c3e09E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %24)
           to label %"_ZN4core3ptr42drop_in_place$LT$tree_sitter..Language$GT$17h6d919a6eb1ceba29E.exit182" unwind label %128
 }

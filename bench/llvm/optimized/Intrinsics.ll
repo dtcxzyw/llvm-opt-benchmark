@@ -252,7 +252,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %27
   store i8 0, ptr %30, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
-  %31 = getelementptr inbounds nuw ptr, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not29 = icmp eq i64 %3, 0
   br i1 %.not29, label %._crit_edge.thread, label %.lr.ph
 
@@ -11220,7 +11221,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit118: ; preds = %
   %246 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %247 = load i32, ptr %246, align 4, !tbaa !192
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds nuw ptr, ptr %245, i64 %248
+  %.idx = shl nuw nsw i64 %248, 3
+  %249 = getelementptr inbounds nuw i8, ptr %245, i64 %.idx
   %.not82226 = icmp eq i32 %247, 0
   br i1 %.not82226, label %.loopexit, label %.lr.ph
 
@@ -11583,7 +11585,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit157: ; preds = %_Z
   %400 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %401 = load i32, ptr %400, align 4, !tbaa !192
   %402 = zext i32 %401 to i64
-  %403 = getelementptr inbounds nuw ptr, ptr %399, i64 %402
+  %.idx241 = shl nuw nsw i64 %402, 3
+  %403 = getelementptr inbounds nuw i8, ptr %399, i64 %.idx241
   %.not80230 = icmp eq i32 %401, 0
   br i1 %.not80230, label %._crit_edge234, label %.lr.ph233
 
@@ -11598,10 +11601,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit157: ; preds = %_Z
   %408 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %409 = load ptr, ptr %408, align 8, !tbaa !241
   %410 = load i32, ptr %32, align 8
-  %411 = lshr i32 %410, 8
-  %412 = zext nneg i32 %411 to i64
-  %413 = getelementptr inbounds nuw i32, ptr %409, i64 %412
-  %.not81235 = icmp ult i32 %410, 256
+  %411 = lshr i32 %410, 6
+  %412 = and i32 %411, 67108860
+  %.idx242 = zext nneg i32 %412 to i64
+  %413 = getelementptr inbounds nuw i8, ptr %409, i64 %.idx242
+  %.not81235 = icmp eq i32 %412, 0
   br i1 %.not81235, label %._crit_edge239, label %.lr.ph238
 
 .lr.ph238:                                        ; preds = %._crit_edge234

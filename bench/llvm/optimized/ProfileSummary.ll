@@ -1451,7 +1451,8 @@ _ZNK4llvm6MDNode10getOperandEj.exit59:            ; preds = %25, %28
 _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %40, %46
   %.sroa.3.0.i.i = phi i64 [ %52, %46 ], [ %45, %40 ]
   %.sroa.0.0.i.i62 = phi ptr [ %50, %46 ], [ %42, %40 ]
-  %53 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i62, i64 %.sroa.3.0.i.i
+  %.idx = shl nuw nsw i64 %.sroa.3.0.i.i, 3
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i62, i64 %.idx
   %.not49118 = icmp eq i64 %.sroa.3.0.i.i, 0
   br i1 %.not49118, label %.critedge, label %.lr.ph
 

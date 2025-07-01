@@ -4131,9 +4131,9 @@ _ZNK10open_spiel10TensorViewILi3EE4sizeEv.exit.i: ; preds = %.lr.ph.i.i.i
 50:                                               ; preds = %49
   unreachable
 
-common.resume:                                    ; preds = %28, %36, %63, %83, %51
-  %.sink = phi ptr [ %11, %28 ], [ %15, %36 ], [ %18, %63 ], [ %23, %83 ], [ %7, %51 ]
-  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %37, %36 ], [ %64, %63 ], [ %84, %83 ], [ %52, %51 ]
+common.resume:                                    ; preds = %28, %36, %63, %86, %51
+  %.sink = phi ptr [ %11, %28 ], [ %15, %36 ], [ %18, %63 ], [ %23, %86 ], [ %7, %51 ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %37, %36 ], [ %64, %63 ], [ %87, %86 ], [ %52, %51 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #28
   resume { ptr, i32 } %common.resume.op
 
@@ -4232,31 +4232,31 @@ _ZN10open_spiel10TensorViewILi3EEixERKSt5arrayIiLm3EE.exit: ; preds = %_ZNK10ope
   store i64 %3, ptr %21, align 8
   store i32 5, ptr %22, align 4
   %80 = icmp eq i64 %3, 5
-  br i1 %80, label %_ZSt4fillIPfiEvT_S1_RKT0_.exit, label %81
+  br i1 %80, label %.lr.ph.i.i.i13.preheader, label %84
 
-81:                                               ; preds = %79
+.lr.ph.i.i.i13.preheader:                         ; preds = %79
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, i8 0, i64 20, i1 false)
+  %81 = tail call noundef i32 @_ZNK10open_spiel16coop_box_pushing19CoopBoxPushingState18PartialObservationEi(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 noundef %1)
+  %82 = zext nneg i32 %81 to i64
+  %83 = getelementptr inbounds nuw float, ptr %2, i64 %82
+  store float 1.000000e+00, ptr %83, align 4
+  br label %.loopexit
+
+84:                                               ; preds = %79
   store i32 533, ptr %24, align 4
   call void @_ZN10open_spiel8internal11SpielStrCatIJRA152_KcRA2_S2_iS6_RA34_S2_RA15_S2_RA4_S2_RmRA22_S2_RiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr noundef nonnull align 1 dereferenceable(152) @.str.7, ptr noundef nonnull align 1 dereferenceable(2) @.str.8, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 1 dereferenceable(2) @.str.9, ptr noundef nonnull align 1 dereferenceable(34) @.str.46, ptr noundef nonnull align 1 dereferenceable(15) @.str.47, ptr noundef nonnull align 1 dereferenceable(4) @.str.12, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 1 dereferenceable(22) @.str.48, ptr noundef nonnull align 4 dereferenceable(4) %22)
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %23) #27
-          to label %82 unwind label %83
+          to label %85 unwind label %86
 
-82:                                               ; preds = %81
+85:                                               ; preds = %84
   unreachable
 
-83:                                               ; preds = %81
-  %84 = landingpad { ptr, i32 }
+86:                                               ; preds = %84
+  %87 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZSt4fillIPfiEvT_S1_RKT0_.exit:                   ; preds = %79
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, i8 0, i64 20, i1 false)
-  %85 = tail call noundef i32 @_ZNK10open_spiel16coop_box_pushing19CoopBoxPushingState18PartialObservationEi(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 noundef %1)
-  %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw float, ptr %2, i64 %86
-  store float 1.000000e+00, ptr %87, align 4
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %78, %_ZSt4fillIPfiEvT_S1_RKT0_.exit
+.loopexit:                                        ; preds = %78, %.lr.ph.i.i.i13.preheader
   ret void
 }
 
@@ -7973,7 +7973,7 @@ define linkonce_odr void @_ZNK10open_spiel5State7RewardsEv(ptr dead_on_unwind no
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr dead_on_unwind writable sret(%"class.std::vector.31") align 8 %0, ptr noundef nonnull align 8 dereferenceable(60) %1)
-  br label %33
+  br label %34
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
@@ -8026,15 +8026,16 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %27
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc4, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i
-  %32 = phi ptr [ %26, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %29, %.noexc4 ]
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %30, %.noexc4 ]
-  store ptr %.0.i.i.i.i.i.i.i, ptr %32, align 8
-  br label %33
+  %33 = phi ptr [ %26, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %29, %.noexc4 ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %32, %.noexc4 ]
+  store ptr %.0.i.i.i.i.i.i.i, ptr %33, align 8
+  br label %34
 
-33:                                               ; preds = %.loopexit, %10
+34:                                               ; preds = %.loopexit, %10
   ret void
 }
 

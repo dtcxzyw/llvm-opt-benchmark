@@ -753,7 +753,8 @@ define dso_local ptr @TypeNameListToString(ptr noundef readonly captures(address
 list_head.exit:                                   ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %10 = load ptr, ptr %9, align 8
   %.not11 = icmp eq i64 %indvars.iv, 0
   br i1 %.not11, label %12, label %11

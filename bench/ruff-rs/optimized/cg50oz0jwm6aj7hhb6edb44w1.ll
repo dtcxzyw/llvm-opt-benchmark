@@ -106678,7 +106678,8 @@ define hidden void @_ZN11ruff_linter5rules7airflow5rules12removal_in_330airflow_
   %34 = tail call { ptr, i64 } @"_ZN15ruff_python_ast5nodes58_$LT$impl$u20$ruff_python_ast..generated..StmtClassDef$GT$5bases17h9fff4bd4f5982a89E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %33)
   %35 = extractvalue { ptr, i64 } %34, 0
   %36 = extractvalue { ptr, i64 } %34, 1
-  %37 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %35, i64 %36
+  %.idx.i.i = shl nuw nsw i64 %36, 6
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i.i
   %38 = icmp ne ptr %35, null
   tail call void @llvm.assume(i1 %38)
   %.not.i.i.i = icmp eq i64 %36, 0
@@ -110205,7 +110206,8 @@ define internal fastcc void @_ZN11ruff_linter5rules7airflow5rules12removal_in_33
   %19 = tail call { ptr, i64 } @"_ZN15ruff_python_ast5nodes58_$LT$impl$u20$ruff_python_ast..generated..StmtClassDef$GT$5bases17h9fff4bd4f5982a89E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %4)
   %20 = extractvalue { ptr, i64 } %19, 0
   %21 = extractvalue { ptr, i64 } %19, 1
-  %22 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %20, i64 %21
+  %.idx = shl nuw nsw i64 %21, 6
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %23 = icmp ne ptr %20, null
   tail call void @llvm.assume(i1 %23)
   %.not.i = icmp eq i64 %21, 0
@@ -110800,7 +110802,8 @@ define internal fastcc noundef zeroext i1 @_ZN11ruff_linter5rules7airflow5rules1
   %3 = alloca [144 x i8], align 8
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
-  %5 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %.8.val, i64 %.16.val
+  %.idx = mul nuw nsw i64 %.16.val, 72
+  %5 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %.not.i = icmp eq i64 %.16.val, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h45b297a14f3bd243E.exit", label %.lr.ph.i
 
@@ -114310,7 +114313,8 @@ define internal fastcc noundef zeroext i1 @_ZN11ruff_linter5rules18flake8_annota
   %.val = load ptr, ptr %3, align 8, !nonnull !9, !noundef !9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val1 = load i64, ptr %4, align 8, !noundef !9
-  %5 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %.val, i64 %.val1
+  %.idx.i = mul nuw nsw i64 %.val1, 120
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %6 = icmp eq i64 %.val1, 0
   br i1 %6, label %.loopexit, label %.lr.ph.i.i
 
@@ -115123,7 +115127,8 @@ _ZN4core3ops8function6FnOnce9call_once17h66d080db07b8d0deE.exit.i: ; preds = %se
   %.sroa.519.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i272, align 8, !noalias !13964
   %373 = icmp ult i64 %.sroa.519.0.copyload.i, 1152921504606846976
   call void @llvm.assume(i1 %373)
-  %374 = getelementptr inbounds nuw ptr, ptr %.sroa.4.0.copyload.i, i64 %.sroa.519.0.copyload.i
+  %.idx.i = shl nuw nsw i64 %.sroa.519.0.copyload.i, 3
+  %374 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx.i
   %375 = icmp sgt i64 %.sroa.017.0.copyload.i, -1
   call void @llvm.assume(i1 %375)
   %376 = icmp eq i64 %.sroa.519.0.copyload.i, 0
@@ -118407,7 +118412,8 @@ define hidden void @_ZN11ruff_linter5rules19flake8_boolean_trap5rules37boolean_t
   %24 = extractvalue { ptr, ptr } %23, 0
   %25 = extractvalue { ptr, ptr } %23, 1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %27 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %3, i64 %4
+  %.idx = mul nuw nsw i64 %4, 72
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not.i7 = icmp eq i64 %4, 0
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -118781,7 +118787,8 @@ define hidden void @_ZN11ruff_linter5rules14flake8_bugbear5rules23class_as_data_
   %22 = load ptr, ptr %21, align 8, !nonnull !9, !noundef !9
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = load i64, ptr %23, align 8, !noundef !9
-  %25 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %22, i64 %24
+  %.idx = mul nuw nsw i64 %24, 120
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %.thread, label %.lr.ph
 
@@ -119871,7 +119878,8 @@ define hidden void @_ZN11ruff_linter5rules14flake8_bugbear5rules24mutable_argume
   %48 = load ptr, ptr %47, align 8, !nonnull !9
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %48, i64 %50
+  %.idx.i = mul nuw nsw i64 %50, 120
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i
   %52 = icmp eq i64 %50, 0
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 120
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -120937,7 +120945,8 @@ define hidden void @_ZN11ruff_linter5rules14flake8_bugbear5rules36star_arg_unpac
   br i1 %.not, label %.loopexit, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 6
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %9 = icmp eq i64 %2, 0
   br i1 %9, label %.loopexit, label %.lr.ph
 
@@ -121877,7 +121886,8 @@ define hidden void @_ZN11ruff_linter5rules10flake8_pie5rules16non_unique_enums16
   %19 = tail call { ptr, i64 } @"_ZN15ruff_python_ast5nodes58_$LT$impl$u20$ruff_python_ast..generated..StmtClassDef$GT$5bases17h9fff4bd4f5982a89E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %18)
   %20 = extractvalue { ptr, i64 } %19, 0
   %21 = extractvalue { ptr, i64 } %19, 1
-  %22 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %20, i64 %21
+  %.idx = shl nuw nsw i64 %21, 6
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %23 = icmp ne ptr %20, null
   tail call void @llvm.assume(i1 %23)
   %.not.i = icmp eq i64 %21, 0
@@ -121995,7 +122005,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr92drop
   call void @"_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17h6055c495eb0fd14dE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %64 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %2, i64 %3
+  %.idx20 = mul nuw nsw i64 %3, 120
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx20
   %65 = icmp eq i64 %3, 0
   br i1 %65, label %._crit_edge, label %.lr.ph
 
@@ -123185,7 +123196,8 @@ define hidden void @_ZN11ruff_linter5rules12flake8_todos5rules5todos5todos17h8c7
   %46 = alloca [48 x i8], align 8
   %47 = alloca [120 x i8], align 8
   %48 = alloca [32 x i8], align 8
-  %49 = getelementptr inbounds nuw { { ptr, i64 }, { i32, i32 }, i64, { { ptr, i64 }, { i32, i32 }, i8, [7 x i8] } }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 6
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %50 = icmp eq i64 %2, 0
   br i1 %50, label %._crit_edge, label %.lr.ph
 
@@ -124772,7 +124784,8 @@ _ZN11ruff_linter5rules5flynt5rules22static_join_to_fstring16is_static_length17ha
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  %68 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %66, i64 %65
+  %.idx.i = shl nuw nsw i64 %65, 6
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i
   br label %69
 
 69:                                               ; preds = %72, %_ZN11ruff_linter5rules5flynt5rules22static_join_to_fstring16is_static_length17had9138e4482f6e3fE.exit.thread
@@ -125270,7 +125283,8 @@ define hidden void @_ZN11ruff_linter5rules5isort5rules20add_required_imports19ad
   %32 = load ptr, ptr %31, align 8, !nonnull !9, !noundef !9
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %34 = load i64, ptr %33, align 8, !noundef !9
-  %35 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %32, i64 %34
+  %.idx = mul nuw nsw i64 %34, 120
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14809)
   %.not.i = icmp eq i64 %34, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
@@ -125280,8 +125294,8 @@ define hidden void @_ZN11ruff_linter5rules5isort5rules20add_required_imports19ad
   %.not.i.i.i = icmp eq i64 %36, -9223372036854775808
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %38 = load i64, ptr %37, align 8, !alias.scope !14809, !noalias !14820
-  %.fr37.i = freeze i64 %38
-  %.not31.i.i.i = icmp eq i64 %.fr37.i, -9223372036854775808
+  %.fr38.i = freeze i64 %38
+  %.not31.i.i.i = icmp eq i64 %.fr38.i, -9223372036854775808
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %40 = load i64, ptr %39, align 8, !alias.scope !14809, !noalias !14820
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -125323,7 +125337,8 @@ define hidden void @_ZN11ruff_linter5rules5isort5rules20add_required_imports19ad
   %62 = load ptr, ptr %61, align 8, !alias.scope !14824, !noalias !14825, !nonnull !9, !noundef !9
   %63 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %64 = load i64, ptr %63, align 8, !alias.scope !14824, !noalias !14825, !noundef !9
-  %65 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %62, i64 %64
+  %.idx47.i.i.us.us.i = mul nuw nsw i64 %64, 72
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx47.i.i.us.us.i
   %.not.i.i.i.us.us.i = icmp eq i64 %64, 0
   br i1 %.not.i.i.i.us.us.i, label %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us.us.i", label %.lr.ph.split.us.split.us.i.i.i.us.us.i
 
@@ -125353,8 +125368,8 @@ define hidden void @_ZN11ruff_linter5rules5isort5rules20add_required_imports19ad
   br i1 %.not34.i.i.i.us.us.i, label %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us.us.i", label %.lr.ph.split.us.split.us.i.i.i.us.us.i
 
 "_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us.us.i": ; preds = %"_ZN11ruff_linter5rules5isort5rules20add_required_imports15includes_import28_$u7b$$u7b$closure$u7d$$u7d$17h3783fa38c0b2c694E.exit.us.us.i.i.i.us.us.i", %60, %.lr.ph.split.us.split.us.i
-  %.not44.i = icmp eq ptr %57, %35
-  br i1 %.not44.i, label %.loopexit, label %.lr.ph.split.us.split.us.i
+  %.not45.i = icmp eq ptr %57, %35
+  br i1 %.not45.i, label %.loopexit, label %.lr.ph.split.us.split.us.i
 
 .lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.i, %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us.i"
   %79 = phi ptr [ %80, %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us.i" ], [ %32, %.lr.ph.split.us.i ]
@@ -125371,7 +125386,8 @@ define hidden void @_ZN11ruff_linter5rules5isort5rules20add_required_imports19ad
   %85 = load ptr, ptr %84, align 8, !alias.scope !14824, !noalias !14825, !nonnull !9, !noundef !9
   %86 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %87 = load i64, ptr %86, align 8, !alias.scope !14824, !noalias !14825, !noundef !9
-  %88 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %85, i64 %87
+  %.idx47.i.i.us.i = mul nuw nsw i64 %87, 72
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx47.i.i.us.i
   %.not.i.i.i.us.i = icmp eq i64 %87, 0
   br i1 %.not.i.i.i.us.i, label %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us.i", label %.lr.ph.split.split.i.i.i.us.i
 
@@ -125398,7 +125414,7 @@ define hidden void @_ZN11ruff_linter5rules5isort5rules20add_required_imports19ad
   %103 = extractvalue { ptr, i64 } %101, 0
   %104 = icmp ne ptr %103, null
   tail call void @llvm.assume(i1 %104)
-  %105 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE"(ptr noalias noundef nonnull readonly align 1 %103, i64 noundef %102, ptr noalias noundef nonnull readonly align 1 %55, i64 noundef %.fr37.i), !noalias !14826
+  %105 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE"(ptr noalias noundef nonnull readonly align 1 %103, i64 noundef %102, ptr noalias noundef nonnull readonly align 1 %55, i64 noundef %.fr38.i), !noalias !14826
   br i1 %105, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfc3edaedf40726d1E.exit", label %.backedge.i.i.i.us.i
 
 .backedge.i.i.i.us.i:                             ; preds = %99, %96, %.lr.ph.split.split.i.i.i.us.i
@@ -125406,8 +125422,8 @@ define hidden void @_ZN11ruff_linter5rules5isort5rules20add_required_imports19ad
   br i1 %.not31.i.i.i.us.i, label %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us.i", label %.lr.ph.split.split.i.i.i.us.i
 
 "_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us.i": ; preds = %.backedge.i.i.i.us.i, %83, %.lr.ph.split.us.split.i
-  %.not43.i = icmp eq ptr %80, %35
-  br i1 %.not43.i, label %.loopexit, label %.lr.ph.split.us.split.i
+  %.not44.i = icmp eq ptr %80, %35
+  br i1 %.not44.i, label %.loopexit, label %.lr.ph.split.us.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %.not33.i.i36.i.i.i = icmp eq i64 %.fr.i35.i.i.i, -9223372036854775808
@@ -125456,7 +125472,8 @@ define hidden void @_ZN11ruff_linter5rules5isort5rules20add_required_imports19ad
   %128 = load ptr, ptr %127, align 8, !alias.scope !14824, !noalias !14825, !nonnull !9, !noundef !9
   %129 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %130 = load i64, ptr %129, align 8, !alias.scope !14824, !noalias !14825, !noundef !9
-  %131 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %128, i64 %130
+  %.idx.i.i.us.i = mul nuw nsw i64 %130, 72
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 %.idx.i.i.us.i
   %.not.i33.i.i.us.i = icmp eq i64 %130, 0
   br i1 %.not.i33.i.i.us.i, label %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us23.i", label %.lr.ph.split.us.split.us.i42.i.i.us.i
 
@@ -125486,21 +125503,21 @@ define hidden void @_ZN11ruff_linter5rules5isort5rules20add_required_imports19ad
   br i1 %.not34.i43.i.i.us.i, label %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us23.i", label %.lr.ph.split.us.split.us.i42.i.i.us.i
 
 "_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us23.i": ; preds = %"_ZN11ruff_linter5rules5isort5rules20add_required_imports15includes_import28_$u7b$$u7b$closure$u7d$$u7d$17h966fe7754a6ba87cE.exit.us.us.i.i.i.us.i", %126, %122, %121, %116, %113, %.lr.ph.split.split.us.i
-  %.not42.i = icmp eq ptr %107, %35
-  br i1 %.not42.i, label %.loopexit, label %.lr.ph.split.split.us.i
+  %.not43.i = icmp eq ptr %107, %35
+  br i1 %.not43.i, label %.loopexit, label %.lr.ph.split.split.us.i
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i
   br i1 %.not31.i.i.i, label %.lr.ph.split.split.split.us.split.us.i, label %.lr.ph.split.split.split.i
 
-.lr.ph.split.split.split.us.split.us.i:           ; preds = %.lr.ph.split.split.i, %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us29.us.i"
-  %145 = phi ptr [ %146, %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us29.us.i" ], [ %32, %.lr.ph.split.split.i ]
+.lr.ph.split.split.split.us.split.us.i:           ; preds = %.lr.ph.split.split.i, %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us30.us.i"
+  %145 = phi ptr [ %146, %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us30.us.i" ], [ %32, %.lr.ph.split.split.i ]
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 120
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14821)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14822)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14823)
   %147 = load i64, ptr %145, align 8, !range !5914, !alias.scope !14824, !noalias !14825, !noundef !9
   %148 = icmp eq i64 %147, -9223372036854775792
-  br i1 %148, label %149, label %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us29.us.i"
+  br i1 %148, label %149, label %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us30.us.i"
 
 149:                                              ; preds = %.lr.ph.split.split.split.us.split.us.i
   %150 = getelementptr inbounds nuw i8, ptr %145, i64 63
@@ -125511,22 +125528,23 @@ define hidden void @_ZN11ruff_linter5rules5isort5rules20add_required_imports19ad
 152:                                              ; preds = %149
   %153 = getelementptr inbounds nuw i8, ptr %145, i64 40
   %154 = tail call { ptr, i64 } @_ZN15ruff_python_ast4name4Name6as_str17hea18ebf34490796bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %153), !noalias !14825
-  br label %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us29.us.i"
+  br label %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us30.us.i"
 
 155:                                              ; preds = %149
   %156 = getelementptr inbounds nuw i8, ptr %145, i64 72
   %157 = load i32, ptr %156, align 8, !alias.scope !14824, !noalias !14825, !noundef !9
   %158 = icmp eq i32 %157, %44
-  br i1 %158, label %159, label %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us29.us.i"
+  br i1 %158, label %159, label %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us30.us.i"
 
 159:                                              ; preds = %155
   %160 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %161 = load ptr, ptr %160, align 8, !alias.scope !14824, !noalias !14825, !nonnull !9, !noundef !9
   %162 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %163 = load i64, ptr %162, align 8, !alias.scope !14824, !noalias !14825, !noundef !9
-  %164 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %161, i64 %163
-  %.not.i33.i.i.us27.us.i = icmp eq i64 %163, 0
-  br i1 %.not.i33.i.i.us27.us.i, label %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us29.us.i", label %.lr.ph.split.split.i37.i.i.us.us.i
+  %.idx.i.i.us27.us.i = mul nuw nsw i64 %163, 72
+  %164 = getelementptr inbounds nuw i8, ptr %161, i64 %.idx.i.i.us27.us.i
+  %.not.i33.i.i.us28.us.i = icmp eq i64 %163, 0
+  br i1 %.not.i33.i.i.us28.us.i, label %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us30.us.i", label %.lr.ph.split.split.i37.i.i.us.us.i
 
 .lr.ph.split.split.i37.i.i.us.us.i:               ; preds = %159, %.backedge.i38.i.i.us.us.i
   %165 = phi ptr [ %166, %.backedge.i38.i.i.us.us.i ], [ %161, %159 ]
@@ -125556,11 +125574,11 @@ define hidden void @_ZN11ruff_linter5rules5isort5rules20add_required_imports19ad
 
 .backedge.i38.i.i.us.us.i:                        ; preds = %175, %172, %.lr.ph.split.split.i37.i.i.us.us.i
   %.not31.i39.i.i.us.us.i = icmp eq ptr %166, %164
-  br i1 %.not31.i39.i.i.us.us.i, label %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us29.us.i", label %.lr.ph.split.split.i37.i.i.us.us.i
+  br i1 %.not31.i39.i.i.us.us.i, label %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us30.us.i", label %.lr.ph.split.split.i37.i.i.us.us.i
 
-"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us29.us.i": ; preds = %.backedge.i38.i.i.us.us.i, %159, %155, %152, %.lr.ph.split.split.split.us.split.us.i
-  %.not41.i = icmp eq ptr %146, %35
-  br i1 %.not41.i, label %.loopexit, label %.lr.ph.split.split.split.us.split.us.i
+"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us30.us.i": ; preds = %.backedge.i38.i.i.us.us.i, %159, %155, %152, %.lr.ph.split.split.split.us.split.us.i
+  %.not42.i = icmp eq ptr %146, %35
+  br i1 %.not42.i, label %.loopexit, label %.lr.ph.split.split.split.us.split.us.i
 
 .lr.ph.split.split.split.i:                       ; preds = %.lr.ph.split.split.i, %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.i"
   %182 = phi ptr [ %183, %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.i" ], [ %32, %.lr.ph.split.split.i ]
@@ -125599,7 +125617,8 @@ define hidden void @_ZN11ruff_linter5rules5isort5rules20add_required_imports19ad
   %202 = load ptr, ptr %201, align 8, !alias.scope !14824, !noalias !14825, !nonnull !9, !noundef !9
   %203 = getelementptr inbounds nuw i8, ptr %182, i64 24
   %204 = load i64, ptr %203, align 8, !alias.scope !14824, !noalias !14825, !noundef !9
-  %205 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %202, i64 %204
+  %.idx.i.i.i = mul nuw nsw i64 %204, 72
+  %205 = getelementptr inbounds nuw i8, ptr %202, i64 %.idx.i.i.i
   %.not.i33.i.i.i = icmp eq i64 %204, 0
   br i1 %.not.i33.i.i.i, label %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.i", label %.lr.ph.split.split.i37.i.i.i
 
@@ -125634,8 +125653,8 @@ define hidden void @_ZN11ruff_linter5rules5isort5rules20add_required_imports19ad
   br i1 %.not31.i39.i.i.i, label %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.i", label %.lr.ph.split.split.i37.i.i.i
 
 "_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.i": ; preds = %.backedge.i38.i.i.i, %200, %196, %189, %186, %.lr.ph.split.split.split.i
-  %.not38.i = icmp eq ptr %183, %35
-  br i1 %.not38.i, label %.loopexit, label %.lr.ph.split.split.split.i
+  %.not39.i = icmp eq ptr %183, %35
+  br i1 %.not39.i, label %.loopexit, label %.lr.ph.split.split.split.i
 
 223:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hb30b1a077c4272e8E.exit"
   %224 = tail call noundef zeroext i1 @"_ZN105_$LT$ruff_python_semantic..imports..NameImport$u20$as$u20$ruff_python_semantic..imports..FutureImport$GT$16is_future_import17hf2e0eec88774a814E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1)
@@ -125645,7 +125664,7 @@ define hidden void @_ZN11ruff_linter5rules5isort5rules20add_required_imports19ad
   store i64 -9223372036854775808, ptr %0, align 8
   br label %264
 
-.loopexit:                                        ; preds = %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.i", %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us29.us.i", %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us23.i", %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us.i", %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us.us.i", %29
+.loopexit:                                        ; preds = %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.i", %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us30.us.i", %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us23.i", %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us.i", %"_ZN11ruff_linter5rules5isort5rules20add_required_imports19add_required_import28_$u7b$$u7b$closure$u7d$$u7d$17h7c05ebf175f8de4bE.exit.us.us.i", %29
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !14841
@@ -126355,7 +126374,8 @@ define void @"_ZN148_$LT$ruff_linter..rules..perflint..rules..unnecessary_list_c
   %12 = load ptr, ptr %11, align 8, !alias.scope !14911, !noalias !14914, !nonnull !9, !noundef !9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load i64, ptr %13, align 8, !alias.scope !14911, !noalias !14914, !noundef !9
-  %15 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %12, i64 %14
+  %.idx38.i = shl nuw nsw i64 %14, 6
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx38.i
   %.not.i.i = icmp eq i64 %14, 0
   br i1 %.not.i.i, label %_ZN11ruff_linter5rules8perflint5rules21unnecessary_list_cast14match_mutation17h969abf70a60d0c35E.exit.thread, label %.lr.ph.i.i
 
@@ -126390,7 +126410,8 @@ define void @"_ZN148_$LT$ruff_linter..rules..perflint..rules..unnecessary_list_c
   %33 = load ptr, ptr %32, align 8, !alias.scope !14911, !noalias !14914, !nonnull !9, !noundef !9
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load i64, ptr %34, align 8, !alias.scope !14911, !noalias !14914, !noundef !9
-  %36 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %33, i64 %35
+  %.idx.i = shl nuw nsw i64 %35, 6
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i
   %.not.i18.i = icmp eq i64 %35, 0
   br i1 %.not.i18.i, label %_ZN11ruff_linter5rules8perflint5rules21unnecessary_list_cast14match_mutation17h969abf70a60d0c35E.exit.thread, label %.lr.ph.i19.i
 
@@ -126499,8 +126520,8 @@ define void @"_ZN148_$LT$ruff_linter..rules..perflint..rules..unnecessary_list_c
   br i1 %.not34.i, label %_ZN11ruff_linter5rules8perflint5rules21unnecessary_list_cast14match_mutation17h969abf70a60d0c35E.exit, label %_ZN11ruff_linter5rules8perflint5rules21unnecessary_list_cast14match_mutation17h969abf70a60d0c35E.exit.thread
 
 _ZN11ruff_linter5rules8perflint5rules21unnecessary_list_cast14match_mutation17h969abf70a60d0c35E.exit: ; preds = %52, %65, %93
-  %.sink47.i = phi ptr [ %54, %52 ], [ %67, %65 ], [ %95, %93 ]
-  %97 = getelementptr inbounds nuw i8, ptr %.sink47.i, i64 8
+  %.sink48.i = phi ptr [ %54, %52 ], [ %67, %65 ], [ %95, %93 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.sink48.i, i64 8
   %98 = tail call { ptr, i64 } @_ZN15ruff_python_ast4name4Name6as_str17hea18ebf34490796bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %97), !noalias !14924
   %99 = extractvalue { ptr, i64 } %98, 0
   %100 = extractvalue { ptr, i64 } %98, 1
@@ -127466,7 +127487,8 @@ define hidden void @_ZN11ruff_linter5rules6pylint5rules19invalid_bool_return19in
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %39 = icmp ult i64 %.sroa.3.0.copyload, 1152921504606846976
   call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds nuw ptr, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.3.0.copyload, 3
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload, i64 %.idx
   %41 = icmp sgt i64 %.sroa.0.0.copyload, -1
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %.sroa.3.0.copyload, 0
@@ -127672,7 +127694,8 @@ define hidden void @_ZN11ruff_linter5rules6pylint5rules20invalid_bytes_return20i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %39 = icmp ult i64 %.sroa.3.0.copyload, 1152921504606846976
   call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds nuw ptr, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.3.0.copyload, 3
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload, i64 %.idx
   %41 = icmp sgt i64 %.sroa.0.0.copyload, -1
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %.sroa.3.0.copyload, 0
@@ -128035,7 +128058,8 @@ define hidden void @_ZN11ruff_linter5rules6pylint5rules19invalid_hash_return19in
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %39 = icmp ult i64 %.sroa.3.0.copyload, 1152921504606846976
   call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds nuw ptr, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.3.0.copyload, 3
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload, i64 %.idx
   %41 = icmp sgt i64 %.sroa.0.0.copyload, -1
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %.sroa.3.0.copyload, 0
@@ -128241,7 +128265,8 @@ define hidden void @_ZN11ruff_linter5rules6pylint5rules20invalid_index_return20i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %39 = icmp ult i64 %.sroa.3.0.copyload, 1152921504606846976
   call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds nuw ptr, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.3.0.copyload, 3
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload, i64 %.idx
   %41 = icmp sgt i64 %.sroa.0.0.copyload, -1
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %.sroa.3.0.copyload, 0
@@ -128447,7 +128472,8 @@ define hidden void @_ZN11ruff_linter5rules6pylint5rules21invalid_length_return21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %39 = icmp ult i64 %.sroa.3.0.copyload, 1152921504606846976
   call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds nuw ptr, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.3.0.copyload, 3
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload, i64 %.idx
   %41 = icmp sgt i64 %.sroa.0.0.copyload, -1
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %.sroa.3.0.copyload, 0
@@ -128667,7 +128693,8 @@ define hidden void @_ZN11ruff_linter5rules6pylint5rules18invalid_str_return18inv
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %39 = icmp ult i64 %.sroa.3.0.copyload, 1152921504606846976
   call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds nuw ptr, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.3.0.copyload, 3
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload, i64 %.idx
   %41 = icmp sgt i64 %.sroa.0.0.copyload, -1
   call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %.sroa.3.0.copyload, 0
@@ -134794,7 +134821,8 @@ define hidden void @_ZN11ruff_linter5rules4ruff5rules34function_call_in_dataclas
   %23 = load ptr, ptr %22, align 8, !nonnull !9, !noundef !9
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load i64, ptr %24, align 8, !noundef !9
-  %26 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %23, i64 %25
+  %.idx = mul nuw nsw i64 %25, 120
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   %27 = icmp eq i64 %25, 0
   br i1 %27, label %._crit_edge, label %.lr.ph
 

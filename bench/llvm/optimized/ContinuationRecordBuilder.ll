@@ -554,7 +554,8 @@ _ZN4llvm5ErrorD2Ev.exit:
   %21 = getelementptr inbounds nuw %"class.llvm::codeview::CVRecord", ptr %19, i64 %17
   store ptr %21, ptr %16, align 8, !tbaa !83
   %22 = load ptr, ptr %1, align 8, !tbaa !3
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %17
+  %.idx = shl nuw nsw i64 %17, 2
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %25 = load i64, ptr %24, align 8, !tbaa !52
   %26 = trunc i64 %25 to i32

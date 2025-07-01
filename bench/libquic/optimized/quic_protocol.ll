@@ -983,7 +983,7 @@ _ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; pre
 .noexc10:                                         ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #28
   store ptr %10, ptr %0, align 8, !tbaa !31
-  %11 = getelementptr i8, ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8, !tbaa !33
   store i32 0, ptr %10, align 4, !tbaa !66

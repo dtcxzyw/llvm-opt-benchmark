@@ -2736,6 +2736,7 @@ Mini_LutStart.exit:                               ; preds = %Vec_IntStart.exit, 
   %wide.trip.count.i = zext nneg i32 %28 to i64
   %79 = icmp eq i32 %28, 1
   %80 = sext i32 %28 to i64
+  %.idx.i = shl nsw i64 %80, 3
   %81 = getelementptr inbounds nuw i8, ptr %29, i64 4
   br label %82
 
@@ -2987,7 +2988,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i180, %.crit
 
 .lr.ph214:                                        ; preds = %Abc_TtNot.exit
   %.val141 = load ptr, ptr %10, align 8, !tbaa !11
-  %187 = getelementptr inbounds i64, ptr %174, i64 %80
+  %187 = getelementptr inbounds i8, ptr %174, i64 %.idx.i
   %wide.trip.count244 = zext nneg i32 %.val145 to i64
   br label %188
 

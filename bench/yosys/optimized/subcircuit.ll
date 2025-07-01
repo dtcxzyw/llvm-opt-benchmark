@@ -47774,7 +47774,7 @@ define linkonce_odr void @_ZNSt6vectorIN10SubCircuit5Graph7PortBitESaIS2_EE14_M_
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 2
   %.not65 = icmp ult i64 %13, %2
-  br i1 %.not65, label %45, label %14
+  br i1 %.not65, label %44, label %14
 
 14:                                               ; preds = %5
   %15 = load i32, ptr %3, align 4, !tbaa !43
@@ -47782,184 +47782,186 @@ define linkonce_odr void @_ZNSt6vectorIN10SubCircuit5Graph7PortBitESaIS2_EE14_M_
   %17 = sub i64 %11, %16
   %18 = ashr exact i64 %17, 2
   %19 = icmp ugt i64 %18, %2
-  br i1 %19, label %20, label %35
+  br i1 %19, label %20, label %34
 
 20:                                               ; preds = %14
-  %21 = sub i64 0, %2
-  %22 = getelementptr inbounds %"struct.SubCircuit::Graph::PortBit", ptr %9, i64 %21
-  br label %.lr.ph.i.i.i.i.i
+  %.neg = mul i64 %2, -4
+  %21 = getelementptr inbounds i8, ptr %9, i64 %.neg
+  %.not11.i.i.i.i.i = icmp eq i64 %.neg, 0
+  br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %20, %.lr.ph.i.i.i.i.i
-  %.013.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i ], [ %9, %20 ]
-  %.sroa.08.012.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i ], [ %22, %20 ]
-  %23 = load i32, ptr %.sroa.08.012.i.i.i.i.i, align 4, !tbaa !43
-  store i32 %23, ptr %.013.i.i.i.i.i, align 4, !tbaa !43
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 4
-  %25 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i = icmp eq ptr %24, %9
+  %.013.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i ], [ %9, %20 ]
+  %.sroa.08.012.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i ], [ %21, %20 ]
+  %22 = load i32, ptr %.sroa.08.012.i.i.i.i.i, align 4, !tbaa !43
+  store i32 %22, ptr %.013.i.i.i.i.i, align 4, !tbaa !43
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i = icmp eq ptr %23, %9
   br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !663
 
-_ZSt22__uninitialized_move_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %26 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %9, i64 %2
-  store ptr %26, ptr %8, align 8, !tbaa !113
-  %.not.i.i.i.i.i68 = icmp eq ptr %22, %1
-  br i1 %.not.i.i.i.i.i68, label %_ZSt13move_backwardIPN10SubCircuit5Graph7PortBitES3_ET0_T_S5_S4_.exit, label %27
+_ZSt22__uninitialized_move_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i, %20
+  %25 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %9, i64 %2
+  store ptr %25, ptr %8, align 8, !tbaa !113
+  %.not.i.i.i.i.i68 = icmp eq ptr %21, %1
+  br i1 %.not.i.i.i.i.i68, label %_ZSt13move_backwardIPN10SubCircuit5Graph7PortBitES3_ET0_T_S5_S4_.exit, label %26
 
-27:                                               ; preds = %_ZSt22__uninitialized_move_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit
-  %28 = ptrtoint ptr %22 to i64
-  %29 = sub i64 %28, %16
-  %30 = ashr exact i64 %29, 2
-  %31 = sub nsw i64 0, %30
-  %32 = getelementptr inbounds %"struct.SubCircuit::Graph::PortBit", ptr %9, i64 %31
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %32, ptr align 4 %1, i64 %29, i1 false)
+26:                                               ; preds = %_ZSt22__uninitialized_move_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit
+  %27 = ptrtoint ptr %21 to i64
+  %28 = sub i64 %27, %16
+  %29 = ashr exact i64 %28, 2
+  %30 = sub nsw i64 0, %29
+  %31 = getelementptr inbounds %"struct.SubCircuit::Graph::PortBit", ptr %9, i64 %30
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %31, ptr align 4 %1, i64 %28, i1 false)
   br label %_ZSt13move_backwardIPN10SubCircuit5Graph7PortBitES3_ET0_T_S5_S4_.exit
 
-_ZSt13move_backwardIPN10SubCircuit5Graph7PortBitES3_ET0_T_S5_S4_.exit: ; preds = %27, %_ZSt22__uninitialized_move_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit
-  %33 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %1, i64 %2
+_ZSt13move_backwardIPN10SubCircuit5Graph7PortBitES3_ET0_T_S5_S4_.exit: ; preds = %26, %_ZSt22__uninitialized_move_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit
+  %.idx = shl nuw nsw i64 %2, 2
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt13move_backwardIPN10SubCircuit5Graph7PortBitES3_ET0_T_S5_S4_.exit, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %1, %_ZSt13move_backwardIPN10SubCircuit5Graph7PortBitES3_ET0_T_S5_S4_.exit ]
+  %.06.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %1, %_ZSt13move_backwardIPN10SubCircuit5Graph7PortBitES3_ET0_T_S5_S4_.exit ]
   store i32 %15, ptr %.06.i.i.i, align 4, !tbaa !43
-  %34 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 4
-  %.not.i.i.i = icmp eq ptr %34, %33
+  %33 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 4
+  %.not.i.i.i = icmp eq ptr %33, %32
   br i1 %.not.i.i.i, label %_ZSt4fillIPN10SubCircuit5Graph7PortBitES2_EvT_S4_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !664
 
-35:                                               ; preds = %14
-  %36 = sub nuw i64 %2, %18
-  %.not7.i.i.i.i = icmp eq i64 %36, 0
+34:                                               ; preds = %14
+  %35 = sub nuw i64 %2, %18
+  %.not7.i.i.i.i = icmp eq i64 %35, 0
   br i1 %.not7.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %35, %.lr.ph.i.i.i.i
-  %.09.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i ], [ %9, %35 ]
-  %.068.i.i.i.i = phi i64 [ %37, %.lr.ph.i.i.i.i ], [ %36, %35 ]
+.lr.ph.i.i.i.i:                                   ; preds = %34, %.lr.ph.i.i.i.i
+  %.09.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i ], [ %9, %34 ]
+  %.068.i.i.i.i = phi i64 [ %36, %.lr.ph.i.i.i.i ], [ %35, %34 ]
   store i32 %15, ptr %.09.i.i.i.i, align 4, !tbaa !43
-  %37 = add i64 %.068.i.i.i.i, -1
-  %38 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 4
-  %.not.i.i.i.i = icmp eq i64 %37, 0
+  %36 = add i64 %.068.i.i.i.i, -1
+  %37 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 4
+  %.not.i.i.i.i = icmp eq i64 %36, 0
   br i1 %.not.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !665
 
-_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i, %35
-  %.0.lcssa.i.i.i.i = phi ptr [ %9, %35 ], [ %38, %.lr.ph.i.i.i.i ]
+_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i, %34
+  %.0.lcssa.i.i.i.i = phi ptr [ %9, %34 ], [ %37, %.lr.ph.i.i.i.i ]
   %.not11.i.i.i.i.i69 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i69, label %_ZSt22__uninitialized_move_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit75.thread, label %.lr.ph.i.i.i.i.i70
 
 _ZSt22__uninitialized_move_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit75.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit
-  %39 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 %17
-  store ptr %39, ptr %8, align 8, !tbaa !113
+  %38 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 %17
+  store ptr %38, ptr %8, align 8, !tbaa !113
   br label %_ZSt4fillIPN10SubCircuit5Graph7PortBitES2_EvT_S4_RKT0_.exit
 
 .lr.ph.i.i.i.i.i70:                               ; preds = %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit, %.lr.ph.i.i.i.i.i70
-  %.013.i.i.i.i.i71 = phi ptr [ %42, %.lr.ph.i.i.i.i.i70 ], [ %.0.lcssa.i.i.i.i, %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit ]
-  %.sroa.08.012.i.i.i.i.i72 = phi ptr [ %41, %.lr.ph.i.i.i.i.i70 ], [ %1, %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit ]
-  %40 = load i32, ptr %.sroa.08.012.i.i.i.i.i72, align 4, !tbaa !43
-  store i32 %40, ptr %.013.i.i.i.i.i71, align 4, !tbaa !43
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i72, i64 4
-  %42 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i71, i64 4
-  %.not.i.i.i.i.i73 = icmp eq ptr %41, %9
+  %.013.i.i.i.i.i71 = phi ptr [ %41, %.lr.ph.i.i.i.i.i70 ], [ %.0.lcssa.i.i.i.i, %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit ]
+  %.sroa.08.012.i.i.i.i.i72 = phi ptr [ %40, %.lr.ph.i.i.i.i.i70 ], [ %1, %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit ]
+  %39 = load i32, ptr %.sroa.08.012.i.i.i.i.i72, align 4, !tbaa !43
+  store i32 %39, ptr %.013.i.i.i.i.i71, align 4, !tbaa !43
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i72, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i71, i64 4
+  %.not.i.i.i.i.i73 = icmp eq ptr %40, %9
   br i1 %.not.i.i.i.i.i73, label %.lr.ph.preheader.i.i.i77, label %.lr.ph.i.i.i.i.i70, !llvm.loop !663
 
 .lr.ph.preheader.i.i.i77:                         ; preds = %.lr.ph.i.i.i.i.i70
-  %43 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 %17
-  store ptr %43, ptr %8, align 8, !tbaa !113
+  %42 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 %17
+  store ptr %42, ptr %8, align 8, !tbaa !113
   br label %.lr.ph.i.i.i79
 
 .lr.ph.i.i.i79:                                   ; preds = %.lr.ph.i.i.i79, %.lr.ph.preheader.i.i.i77
-  %.06.i.i.i80 = phi ptr [ %44, %.lr.ph.i.i.i79 ], [ %1, %.lr.ph.preheader.i.i.i77 ]
+  %.06.i.i.i80 = phi ptr [ %43, %.lr.ph.i.i.i79 ], [ %1, %.lr.ph.preheader.i.i.i77 ]
   store i32 %15, ptr %.06.i.i.i80, align 4, !tbaa !43
-  %44 = getelementptr inbounds nuw i8, ptr %.06.i.i.i80, i64 4
-  %.not.i.i.i81 = icmp eq ptr %44, %9
+  %43 = getelementptr inbounds nuw i8, ptr %.06.i.i.i80, i64 4
+  %.not.i.i.i81 = icmp eq ptr %43, %9
   br i1 %.not.i.i.i81, label %_ZSt4fillIPN10SubCircuit5Graph7PortBitES2_EvT_S4_RKT0_.exit, label %.lr.ph.i.i.i79, !llvm.loop !664
 
-45:                                               ; preds = %5
-  %46 = load ptr, ptr %0, align 8, !tbaa !104
-  %47 = ptrtoint ptr %46 to i64
-  %48 = sub i64 %11, %47
-  %49 = ashr exact i64 %48, 2
-  %50 = sub nsw i64 2305843009213693951, %49
-  %51 = icmp ult i64 %50, %2
-  br i1 %51, label %52, label %_ZNKSt6vectorIN10SubCircuit5Graph7PortBitESaIS2_EE12_M_check_lenEmPKc.exit
+44:                                               ; preds = %5
+  %45 = load ptr, ptr %0, align 8, !tbaa !104
+  %46 = ptrtoint ptr %45 to i64
+  %47 = sub i64 %11, %46
+  %48 = ashr exact i64 %47, 2
+  %49 = sub nsw i64 2305843009213693951, %48
+  %50 = icmp ult i64 %49, %2
+  br i1 %50, label %51, label %_ZNKSt6vectorIN10SubCircuit5Graph7PortBitESaIS2_EE12_M_check_lenEmPKc.exit
 
-52:                                               ; preds = %45
+51:                                               ; preds = %44
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.55) #35
   unreachable
 
-_ZNKSt6vectorIN10SubCircuit5Graph7PortBitESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %45
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %49, i64 %2)
-  %53 = add nsw i64 %.sroa.speculated.i, %49
-  %54 = icmp ult i64 %53, %49
-  %55 = tail call i64 @llvm.umin.i64(i64 %53, i64 2305843009213693951)
-  %56 = select i1 %54, i64 2305843009213693951, i64 %55
-  %57 = ptrtoint ptr %1 to i64
-  %58 = sub i64 %57, %47
-  %.not.i = icmp eq i64 %56, 0
-  br i1 %.not.i, label %.lr.ph.preheader.i.i.i.i84, label %59
+_ZNKSt6vectorIN10SubCircuit5Graph7PortBitESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %44
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %48, i64 %2)
+  %52 = add nsw i64 %.sroa.speculated.i, %48
+  %53 = icmp ult i64 %52, %48
+  %54 = tail call i64 @llvm.umin.i64(i64 %52, i64 2305843009213693951)
+  %55 = select i1 %53, i64 2305843009213693951, i64 %54
+  %56 = ptrtoint ptr %1 to i64
+  %57 = sub i64 %56, %46
+  %.not.i = icmp eq i64 %55, 0
+  br i1 %.not.i, label %.lr.ph.preheader.i.i.i.i84, label %58
 
-59:                                               ; preds = %_ZNKSt6vectorIN10SubCircuit5Graph7PortBitESaIS2_EE12_M_check_lenEmPKc.exit
-  %60 = shl nuw nsw i64 %56, 2
-  %61 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %60) #33
+58:                                               ; preds = %_ZNKSt6vectorIN10SubCircuit5Graph7PortBitESaIS2_EE12_M_check_lenEmPKc.exit
+  %59 = shl nuw nsw i64 %55, 2
+  %60 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #33
   br label %.lr.ph.preheader.i.i.i.i84
 
-.lr.ph.preheader.i.i.i.i84:                       ; preds = %59, %_ZNKSt6vectorIN10SubCircuit5Graph7PortBitESaIS2_EE12_M_check_lenEmPKc.exit
-  %62 = phi ptr [ %61, %59 ], [ null, %_ZNKSt6vectorIN10SubCircuit5Graph7PortBitESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %58
+.lr.ph.preheader.i.i.i.i84:                       ; preds = %58, %_ZNKSt6vectorIN10SubCircuit5Graph7PortBitESaIS2_EE12_M_check_lenEmPKc.exit
+  %61 = phi ptr [ %60, %58 ], [ null, %_ZNKSt6vectorIN10SubCircuit5Graph7PortBitESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %57
   %.pre.i.i.i.i85 = load i32, ptr %3, align 4, !tbaa !43
   br label %.lr.ph.i.i.i.i86
 
 .lr.ph.i.i.i.i86:                                 ; preds = %.lr.ph.i.i.i.i86, %.lr.ph.preheader.i.i.i.i84
-  %.09.i.i.i.i87 = phi ptr [ %65, %.lr.ph.i.i.i.i86 ], [ %63, %.lr.ph.preheader.i.i.i.i84 ]
-  %.068.i.i.i.i88 = phi i64 [ %64, %.lr.ph.i.i.i.i86 ], [ %2, %.lr.ph.preheader.i.i.i.i84 ]
+  %.09.i.i.i.i87 = phi ptr [ %64, %.lr.ph.i.i.i.i86 ], [ %62, %.lr.ph.preheader.i.i.i.i84 ]
+  %.068.i.i.i.i88 = phi i64 [ %63, %.lr.ph.i.i.i.i86 ], [ %2, %.lr.ph.preheader.i.i.i.i84 ]
   store i32 %.pre.i.i.i.i85, ptr %.09.i.i.i.i87, align 4, !tbaa !43
-  %64 = add i64 %.068.i.i.i.i88, -1
-  %65 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i87, i64 4
-  %.not.i.i.i.i89 = icmp eq i64 %64, 0
+  %63 = add i64 %.068.i.i.i.i88, -1
+  %64 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i87, i64 4
+  %.not.i.i.i.i89 = icmp eq i64 %63, 0
   br i1 %.not.i.i.i.i89, label %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit91, label %.lr.ph.i.i.i.i86, !llvm.loop !665
 
 _ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit91: ; preds = %.lr.ph.i.i.i.i86
-  %.not11.i.i.i.i.i92 = icmp eq ptr %46, %1
+  %.not11.i.i.i.i.i92 = icmp eq ptr %45, %1
   br i1 %.not11.i.i.i.i.i92, label %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i.i.i.i93
 
 .lr.ph.i.i.i.i.i93:                               ; preds = %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit91, %.lr.ph.i.i.i.i.i93
-  %.013.i.i.i.i.i94 = phi ptr [ %68, %.lr.ph.i.i.i.i.i93 ], [ %62, %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit91 ]
-  %.sroa.08.012.i.i.i.i.i95 = phi ptr [ %67, %.lr.ph.i.i.i.i.i93 ], [ %46, %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit91 ]
-  %66 = load i32, ptr %.sroa.08.012.i.i.i.i.i95, align 4, !tbaa !43
-  store i32 %66, ptr %.013.i.i.i.i.i94, align 4, !tbaa !43
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i95, i64 4
-  %68 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i94, i64 4
-  %.not.i.i.i.i.i96 = icmp eq ptr %67, %1
+  %.013.i.i.i.i.i94 = phi ptr [ %67, %.lr.ph.i.i.i.i.i93 ], [ %61, %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit91 ]
+  %.sroa.08.012.i.i.i.i.i95 = phi ptr [ %66, %.lr.ph.i.i.i.i.i93 ], [ %45, %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit91 ]
+  %65 = load i32, ptr %.sroa.08.012.i.i.i.i.i95, align 4, !tbaa !43
+  store i32 %65, ptr %.013.i.i.i.i.i94, align 4, !tbaa !43
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i95, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i94, i64 4
+  %.not.i.i.i.i.i96 = icmp eq ptr %66, %1
   br i1 %.not.i.i.i.i.i96, label %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i.i.i.i93, !llvm.loop !663
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i93, %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit91
-  %.0.lcssa.i.i.i.i.i97 = phi ptr [ %62, %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit91 ], [ %68, %.lr.ph.i.i.i.i.i93 ]
-  %69 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %.0.lcssa.i.i.i.i.i97, i64 %2
+  %.0.lcssa.i.i.i.i.i97 = phi ptr [ %61, %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit91 ], [ %67, %.lr.ph.i.i.i.i.i93 ]
+  %68 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %.0.lcssa.i.i.i.i.i97, i64 %2
   %.not11.i.i.i.i.i98 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i98, label %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit104, label %.lr.ph.i.i.i.i.i99
 
 .lr.ph.i.i.i.i.i99:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %.lr.ph.i.i.i.i.i99
-  %.013.i.i.i.i.i100 = phi ptr [ %72, %.lr.ph.i.i.i.i.i99 ], [ %69, %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
-  %.sroa.08.012.i.i.i.i.i101 = phi ptr [ %71, %.lr.ph.i.i.i.i.i99 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
-  %70 = load i32, ptr %.sroa.08.012.i.i.i.i.i101, align 4, !tbaa !43
-  store i32 %70, ptr %.013.i.i.i.i.i100, align 4, !tbaa !43
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i101, i64 4
-  %72 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i100, i64 4
-  %.not.i.i.i.i.i102 = icmp eq ptr %71, %9
+  %.013.i.i.i.i.i100 = phi ptr [ %71, %.lr.ph.i.i.i.i.i99 ], [ %68, %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
+  %.sroa.08.012.i.i.i.i.i101 = phi ptr [ %70, %.lr.ph.i.i.i.i.i99 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
+  %69 = load i32, ptr %.sroa.08.012.i.i.i.i.i101, align 4, !tbaa !43
+  store i32 %69, ptr %.013.i.i.i.i.i100, align 4, !tbaa !43
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i101, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i100, i64 4
+  %.not.i.i.i.i.i102 = icmp eq ptr %70, %9
   br i1 %.not.i.i.i.i.i102, label %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit104, label %.lr.ph.i.i.i.i.i99, !llvm.loop !663
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit104: ; preds = %.lr.ph.i.i.i.i.i99, %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit
-  %.0.lcssa.i.i.i.i.i103 = phi ptr [ %69, %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit ], [ %72, %.lr.ph.i.i.i.i.i99 ]
-  %.not.i105 = icmp eq ptr %46, null
-  br i1 %.not.i105, label %_ZNSt12_Vector_baseIN10SubCircuit5Graph7PortBitESaIS2_EE13_M_deallocateEPS2_m.exit, label %73
+  %.0.lcssa.i.i.i.i.i103 = phi ptr [ %68, %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit ], [ %71, %.lr.ph.i.i.i.i.i99 ]
+  %.not.i105 = icmp eq ptr %45, null
+  br i1 %.not.i105, label %_ZNSt12_Vector_baseIN10SubCircuit5Graph7PortBitESaIS2_EE13_M_deallocateEPS2_m.exit, label %72
 
-73:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit104
-  %74 = sub i64 %10, %47
-  tail call void @_ZdlPvm(ptr noundef nonnull %46, i64 noundef %74) #34
+72:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit104
+  %73 = sub i64 %10, %46
+  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %73) #34
   br label %_ZNSt12_Vector_baseIN10SubCircuit5Graph7PortBitESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseIN10SubCircuit5Graph7PortBitESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit104, %73
-  store ptr %62, ptr %0, align 8, !tbaa !104
+_ZNSt12_Vector_baseIN10SubCircuit5Graph7PortBitESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit104, %72
+  store ptr %61, ptr %0, align 8, !tbaa !104
   store ptr %.0.lcssa.i.i.i.i.i103, ptr %8, align 8, !tbaa !113
-  %75 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %62, i64 %56
-  store ptr %75, ptr %6, align 8, !tbaa !106
+  %74 = getelementptr inbounds nuw %"struct.SubCircuit::Graph::PortBit", ptr %61, i64 %55
+  store ptr %74, ptr %6, align 8, !tbaa !106
   br label %_ZSt4fillIPN10SubCircuit5Graph7PortBitES2_EvT_S4_RKT0_.exit
 
 _ZSt4fillIPN10SubCircuit5Graph7PortBitES2_EvT_S4_RKT0_.exit: ; preds = %.lr.ph.i.i.i79, %.lr.ph.i.i.i, %_ZSt22__uninitialized_move_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit75.thread, %_ZNSt12_Vector_baseIN10SubCircuit5Graph7PortBitESaIS2_EE13_M_deallocateEPS2_m.exit, %4

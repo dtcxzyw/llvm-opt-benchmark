@@ -7303,7 +7303,8 @@ define { ptr, i32 } @"_ZN162_$LT$ty_server..server..api..notifications..did_chan
   %.sroa.5460.0.copyload = load i64, ptr %.sroa.5460.0..sroa_idx, align 8
   %89 = icmp ult i64 %.sroa.5460.0.copyload, 96076792050570582
   tail call void @llvm.assume(i1 %89)
-  %90 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, i32, [1 x i32] }, ptr %.sroa.4459.0.copyload, i64 %.sroa.5460.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.5460.0.copyload, 96
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.4459.0.copyload, i64 %.idx
   %91 = icmp sgt i64 %.sroa.0458.0.copyload, -1
   tail call void @llvm.assume(i1 %91)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %86)

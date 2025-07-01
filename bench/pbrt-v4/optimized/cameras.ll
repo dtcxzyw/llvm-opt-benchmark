@@ -11123,7 +11123,8 @@ define dso_local void @_ZNK4pbrt15RealisticCamera29ComputeThickLensApproximation
   %12 = load ptr, ptr %11, align 8, !tbaa !336
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %14 = load i64, ptr %13, align 8, !tbaa !334
-  %15 = getelementptr inbounds nuw %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %12, i64 %14
+  %.idx.i = shl nuw nsw i64 %14, 4
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %.not11.i = icmp eq i64 %14, 0
   br i1 %.not11.i, label %_ZNK4pbrt15RealisticCamera10LensFrontZEv.exit, label %.lr.ph.i
 
@@ -11243,7 +11244,8 @@ define dso_local noundef float @_ZNK4pbrt15RealisticCamera20TraceLensesFromScene
   %11 = load ptr, ptr %10, align 8, !tbaa !336
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %13 = load i64, ptr %12, align 8, !tbaa !334
-  %14 = getelementptr inbounds nuw %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %11, i64 %13
+  %.idx.i = shl nuw nsw i64 %13, 4
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   %.not11.i = icmp eq i64 %13, 0
   br i1 %.not11.i, label %_ZNK4pbrt15RealisticCamera10LensFrontZEv.exit, label %.lr.ph.i
 
@@ -12436,7 +12438,8 @@ define dso_local void @_ZNK4pbrt15RealisticCamera14DrawLensSystemEv(ptr noundef 
   %5 = load ptr, ptr %4, align 8, !tbaa !336
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %7 = load i64, ptr %6, align 8, !tbaa !334
-  %8 = getelementptr inbounds nuw %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %5, i64 %7
+  %.idx.i = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
   %.not11.i = icmp eq i64 %7, 0
   br i1 %.not11.i, label %._crit_edge, label %.lr.ph.i
 
@@ -13244,7 +13247,8 @@ define dso_local void @_ZNK4pbrt15RealisticCamera20DrawRayPathFromSceneERKNS_3Ra
   %13 = load ptr, ptr %12, align 8, !tbaa !336
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %15 = load i64, ptr %14, align 8, !tbaa !334
-  %16 = getelementptr inbounds nuw %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %13, i64 %15
+  %.idx.i = shl nuw nsw i64 %15, 4
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i
   %.not11.i = icmp eq i64 %15, 0
   br i1 %.not11.i, label %_ZNK4pbrt15RealisticCamera10LensFrontZEv.exit, label %.lr.ph.i
 

@@ -626,14 +626,16 @@ _ZNK10hb_array_tIKN2OT22MathGlyphVariantRecordEE9sub_arrayEjPj.exit.i: ; preds =
   store i32 %.sroa.speculated.i.i, ptr %5, align 4
   %66 = zext i32 %4 to i64
   %67 = getelementptr inbounds nuw %"struct.OT::MathGlyphVariantRecord", ptr %58, i64 %66
-  %68 = zext nneg i32 %.sroa.speculated.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.OT::MathGlyphVariantRecord", ptr %67, i64 %68
-  %70 = getelementptr inbounds nuw %struct.hb_ot_math_glyph_variant_t, ptr %6, i64 %68
+  %68 = shl nuw nsw i32 %.sroa.speculated.i.i, 2
+  %.idx.i = zext nneg i32 %68 to i64
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i
+  %70 = zext nneg i32 %.sroa.speculated.i.i to i64
+  %71 = getelementptr inbounds nuw %struct.hb_ot_math_glyph_variant_t, ptr %6, i64 %70
   %.not.i.i43.not.i = icmp eq i32 %.sroa.speculated.i.i, 0
   br i1 %.not.i.i43.not.i, label %_ZNK2OT21MathGlyphConstruction12get_variantsE14hb_direction_tP9hb_font_tjPjP26hb_ot_math_glyph_variant_t.exit, label %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES0_I26hb_ot_math_glyph_variant_tEEneERKS7_.exit.lr.ph.i
 
 _ZNK13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES0_I26hb_ot_math_glyph_variant_tEEneERKS7_.exit.lr.ph.i: ; preds = %_ZNK10hb_array_tIKN2OT22MathGlyphVariantRecordEE9sub_arrayEjPj.exit.i
-  %71 = load i64, ptr @_hb_NullPool, align 16
+  %72 = load i64, ptr @_hb_NullPool, align 16
   br label %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES0_I26hb_ot_math_glyph_variant_tEEneERKS7_.exit.i
 
 _ZNK13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES0_I26hb_ot_math_glyph_variant_tEEneERKS7_.exit.i: ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES1_I26hb_ot_math_glyph_variant_tEE9hb_pair_tIRS4_RS6_EEdeEv.exit.i, %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES0_I26hb_ot_math_glyph_variant_tEEneERKS7_.exit.lr.ph.i
@@ -641,67 +643,67 @@ _ZNK13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES0_I26hb_ot_math
   %.sroa.11.046.i = phi ptr [ %6, %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES0_I26hb_ot_math_glyph_variant_tEEneERKS7_.exit.lr.ph.i ], [ %.sroa.11.1.i, %_ZN9hb_iter_tI13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES1_I26hb_ot_math_glyph_variant_tEE9hb_pair_tIRS4_RS6_EEdeEv.exit.i ]
   %.sroa.5.045.i = phi i32 [ %.sroa.speculated.i.i, %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES0_I26hb_ot_math_glyph_variant_tEEneERKS7_.exit.lr.ph.i ], [ %.sroa.5.1.i, %_ZN9hb_iter_tI13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES1_I26hb_ot_math_glyph_variant_tEE9hb_pair_tIRS4_RS6_EEdeEv.exit.i ]
   %.sroa.023.044.i = phi ptr [ %67, %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES0_I26hb_ot_math_glyph_variant_tEEneERKS7_.exit.lr.ph.i ], [ %.sroa.023.1.i, %_ZN9hb_iter_tI13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES1_I26hb_ot_math_glyph_variant_tEE9hb_pair_tIRS4_RS6_EEdeEv.exit.i ]
-  %.not.i3.i.i = icmp ne ptr %.sroa.11.046.i, %70
-  %72 = icmp ne i32 %.sroa.15.047.i, 0
-  %73 = select i1 %.not.i3.i.i, i1 true, i1 %72
-  br i1 %73, label %74, label %_ZNK2OT21MathGlyphConstruction12get_variantsE14hb_direction_tP9hb_font_tjPjP26hb_ot_math_glyph_variant_t.exit
+  %.not.i3.i.i = icmp ne ptr %.sroa.11.046.i, %71
+  %73 = icmp ne i32 %.sroa.15.047.i, 0
+  %74 = select i1 %.not.i3.i.i, i1 true, i1 %73
+  br i1 %74, label %75, label %_ZNK2OT21MathGlyphConstruction12get_variantsE14hb_direction_tP9hb_font_tjPjP26hb_ot_math_glyph_variant_t.exit
 
-74:                                               ; preds = %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES0_I26hb_ot_math_glyph_variant_tEEneERKS7_.exit.i
+75:                                               ; preds = %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES0_I26hb_ot_math_glyph_variant_tEEneERKS7_.exit.i
   %.not.i.i1.i.i.not.i = icmp eq i32 %.sroa.15.047.i, 0
-  br i1 %.not.i.i1.i.i.not.i, label %75, label %_ZN9hb_iter_tI13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES1_I26hb_ot_math_glyph_variant_tEE9hb_pair_tIRS4_RS6_EEdeEv.exit.i
+  br i1 %.not.i.i1.i.i.not.i, label %76, label %_ZN9hb_iter_tI13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES1_I26hb_ot_math_glyph_variant_tEE9hb_pair_tIRS4_RS6_EEdeEv.exit.i
 
-75:                                               ; preds = %74
-  store i64 %71, ptr @_hb_CrapPool, align 16
+76:                                               ; preds = %75
+  store i64 %72, ptr @_hb_CrapPool, align 16
   br label %_ZN9hb_iter_tI13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES1_I26hb_ot_math_glyph_variant_tEE9hb_pair_tIRS4_RS6_EEdeEv.exit.i
 
-_ZN9hb_iter_tI13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES1_I26hb_ot_math_glyph_variant_tEE9hb_pair_tIRS4_RS6_EEdeEv.exit.i: ; preds = %75, %74
-  %.sroa.11.1.idx.i = phi i64 [ 0, %75 ], [ 8, %74 ]
-  %.0.i.i.i.i.i = phi ptr [ @_hb_CrapPool, %75 ], [ %.sroa.11.046.i, %74 ]
+_ZN9hb_iter_tI13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES1_I26hb_ot_math_glyph_variant_tEE9hb_pair_tIRS4_RS6_EEdeEv.exit.i: ; preds = %76, %75
+  %.sroa.11.1.idx.i = phi i64 [ 0, %76 ], [ 8, %75 ]
+  %.0.i.i.i.i.i = phi ptr [ @_hb_CrapPool, %76 ], [ %.sroa.11.046.i, %75 ]
   %.not.i.i.i.i.not.i = icmp eq i32 %.sroa.5.045.i, 0
   %spec.select.i.i.i.i.i = select i1 %.not.i.i.i.i.not.i, ptr @_hb_NullPool, ptr %.sroa.023.044.i
-  %76 = load i8, ptr %spec.select.i.i.i.i.i, align 1
-  %77 = zext i8 %76 to i32
-  %78 = shl nuw nsw i32 %77, 8
-  %79 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 1
-  %80 = load i8, ptr %79, align 1
-  %81 = zext i8 %80 to i32
-  %82 = or disjoint i32 %78, %81
-  %83 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 2
-  %84 = load i8, ptr %83, align 1
-  %85 = zext i8 %84 to i16
-  %86 = shl nuw i16 %85, 8
-  %87 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 3
-  %88 = load i8, ptr %87, align 1
-  %89 = zext i8 %88 to i16
-  %90 = or disjoint i16 %86, %89
-  %91 = sext i16 %90 to i64
-  %92 = mul nsw i64 %56, %91
-  %93 = add nsw i64 %92, 32768
-  %94 = lshr i64 %93, 16
-  %95 = trunc i64 %94 to i32
-  store i32 %82, ptr %.0.i.i.i.i.i, align 4
+  %77 = load i8, ptr %spec.select.i.i.i.i.i, align 1
+  %78 = zext i8 %77 to i32
+  %79 = shl nuw nsw i32 %78, 8
+  %80 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 1
+  %81 = load i8, ptr %80, align 1
+  %82 = zext i8 %81 to i32
+  %83 = or disjoint i32 %79, %82
+  %84 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 2
+  %85 = load i8, ptr %84, align 1
+  %86 = zext i8 %85 to i16
+  %87 = shl nuw i16 %86, 8
+  %88 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 3
+  %89 = load i8, ptr %88, align 1
+  %90 = zext i8 %89 to i16
+  %91 = or disjoint i16 %87, %90
+  %92 = sext i16 %91 to i64
+  %93 = mul nsw i64 %56, %92
+  %94 = add nsw i64 %93, 32768
+  %95 = lshr i64 %94, 16
+  %96 = trunc i64 %95 to i32
+  store i32 %83, ptr %.0.i.i.i.i.i, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 4
-  store i32 %95, ptr %.sroa.2.0..sroa_idx.i, align 4
+  store i32 %96, ptr %.sroa.2.0..sroa_idx.i, align 4
   %.sroa.023.1.idx.i = select i1 %.not.i.i.i.i.not.i, i64 0, i64 4
   %.sroa.023.1.i = getelementptr inbounds nuw i8, ptr %.sroa.023.044.i, i64 %.sroa.023.1.idx.i
   %.sroa.5.1.i = tail call i32 @llvm.usub.sat.i32(i32 %.sroa.5.045.i, i32 1)
   %.sroa.11.1.i = getelementptr inbounds nuw i8, ptr %.sroa.11.046.i, i64 %.sroa.11.1.idx.i
   %.sroa.15.1.i = tail call i32 @llvm.usub.sat.i32(i32 %.sroa.15.047.i, i32 1)
   %.not.i.i.i = icmp ne ptr %.sroa.023.1.i, %69
-  %96 = icmp ugt i32 %.sroa.5.045.i, 1
-  %97 = select i1 %.not.i.i.i, i1 true, i1 %96
-  br i1 %97, label %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES0_I26hb_ot_math_glyph_variant_tEEneERKS7_.exit.i, label %_ZNK2OT21MathGlyphConstruction12get_variantsE14hb_direction_tP9hb_font_tjPjP26hb_ot_math_glyph_variant_t.exit
+  %97 = icmp ugt i32 %.sroa.5.045.i, 1
+  %98 = select i1 %.not.i.i.i, i1 true, i1 %97
+  br i1 %98, label %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES0_I26hb_ot_math_glyph_variant_tEEneERKS7_.exit.i, label %_ZNK2OT21MathGlyphConstruction12get_variantsE14hb_direction_tP9hb_font_tjPjP26hb_ot_math_glyph_variant_t.exit
 
 _ZNK2OT21MathGlyphConstruction12get_variantsE14hb_direction_tP9hb_font_tjPjP26hb_ot_math_glyph_variant_t.exit: ; preds = %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES0_I26hb_ot_math_glyph_variant_tEEneERKS7_.exit.i, %_ZN9hb_iter_tI13hb_zip_iter_tI10hb_array_tIKN2OT22MathGlyphVariantRecordEES1_I26hb_ot_math_glyph_variant_tEE9hb_pair_tIRS4_RS6_EEdeEv.exit.i, %_ZNK2OT12MathVariants22get_glyph_constructionEj14hb_direction_tP9hb_font_t.exit, %_ZNK10hb_array_tIKN2OT22MathGlyphVariantRecordEE9sub_arrayEjPj.exit.i
-  %98 = getelementptr inbounds nuw i8, ptr %.011.i, i64 2
-  %99 = load i8, ptr %98, align 1
-  %100 = zext i8 %99 to i32
-  %101 = shl nuw nsw i32 %100, 8
-  %102 = getelementptr inbounds nuw i8, ptr %.011.i, i64 3
-  %103 = load i8, ptr %102, align 1
-  %104 = zext i8 %103 to i32
-  %105 = or disjoint i32 %101, %104
-  ret i32 %105
+  %99 = getelementptr inbounds nuw i8, ptr %.011.i, i64 2
+  %100 = load i8, ptr %99, align 1
+  %101 = zext i8 %100 to i32
+  %102 = shl nuw nsw i32 %101, 8
+  %103 = getelementptr inbounds nuw i8, ptr %.011.i, i64 3
+  %104 = load i8, ptr %103, align 1
+  %105 = zext i8 %104 to i32
+  %106 = or disjoint i32 %102, %105
+  ret i32 %106
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2267,9 +2269,11 @@ _ZNK10hb_array_tIKN2OT19MathGlyphPartRecordEE9sub_arrayEjPj.exit: ; preds = %7
   store i32 %.sroa.speculated.i, ptr %4, align 4
   %20 = zext i32 %3 to i64
   %21 = getelementptr inbounds nuw %"struct.OT::MathGlyphPartRecord", ptr %12, i64 %20
-  %22 = zext nneg i32 %.sroa.speculated.i to i64
-  %23 = getelementptr inbounds nuw %"struct.OT::MathGlyphPartRecord", ptr %21, i64 %22
-  %24 = getelementptr inbounds nuw %struct.hb_ot_math_glyph_part_t, ptr %5, i64 %22
+  %narrow = mul nuw nsw i32 %.sroa.speculated.i, 10
+  %.idx = zext nneg i32 %narrow to i64
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
+  %23 = zext nneg i32 %.sroa.speculated.i to i64
+  %24 = getelementptr inbounds nuw %struct.hb_ot_math_glyph_part_t, ptr %5, i64 %23
   %.not.i.i46.not = icmp eq i32 %.sroa.speculated.i, 0
   br i1 %.not.i.i46.not, label %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT19MathGlyphPartRecordEES0_I23hb_ot_math_glyph_part_tEEneERKS7_.exit.thread, label %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT19MathGlyphPartRecordEES0_I23hb_ot_math_glyph_part_tEEneERKS7_.exit
 
@@ -2360,7 +2364,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI10hb_array_tIKN2OT19MathGlyphPartRecordEES1_I23hb_
   %.sroa.5.1 = tail call i32 @llvm.usub.sat.i32(i32 %.sroa.5.048, i32 1)
   %.sroa.11.1 = getelementptr inbounds nuw i8, ptr %.sroa.11.049, i64 %.sroa.11.1.idx
   %.sroa.15.1 = tail call i32 @llvm.usub.sat.i32(i32 %.sroa.15.050, i32 1)
-  %.not.i.i = icmp ne ptr %.sroa.026.1, %23
+  %.not.i.i = icmp ne ptr %.sroa.026.1, %22
   %83 = icmp ugt i32 %.sroa.5.048, 1
   %84 = select i1 %.not.i.i, i1 true, i1 %83
   br i1 %84, label %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT19MathGlyphPartRecordEES0_I23hb_ot_math_glyph_part_tEEneERKS7_.exit, label %_ZNK13hb_zip_iter_tI10hb_array_tIKN2OT19MathGlyphPartRecordEES0_I23hb_ot_math_glyph_part_tEEneERKS7_.exit.thread

@@ -479,7 +479,8 @@ define internal { ptr, ptr } @"_ZN109_$LT$settings..settings_store..SettingValue
   br i1 %17, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %8
-  %18 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, { { { i64, ptr, {} }, i64 } } }, ptr %14, i64 %16
+  %.idx = mul nsw i64 %16, 48
+  %18 = getelementptr inbounds i8, ptr %14, i64 %.idx
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %26, %8, %2
@@ -4161,7 +4162,8 @@ _ZN8settings14settings_store13SettingsStore3get17h32f515b5bbd591eaE.exit.i.i.i.i
   %.sroa.470.0.copyload.i.i.i.i = load ptr, ptr %.sroa.470.0..sroa_idx.i.i.i.i, align 8, !noalias !775, !nonnull !4, !noundef !4
   %.sroa.571.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 16
   %.sroa.571.0.copyload.i.i.i.i = load i64, ptr %.sroa.571.0..sroa_idx.i.i.i.i, align 8, !noalias !775
-  %244 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { ptr, [3 x i64] } }, ptr %.sroa.470.0.copyload.i.i.i.i, i64 %.sroa.571.0.copyload.i.i.i.i
+  %.idx.i.i.i.i = mul nsw i64 %.sroa.571.0.copyload.i.i.i.i, 104
+  %244 = getelementptr inbounds i8, ptr %.sroa.470.0.copyload.i.i.i.i, i64 %.idx.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24), !noalias !775
   store ptr %.sroa.470.0.copyload.i.i.i.i, ptr %24, align 8, !noalias !775
   %.sroa.466.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -4211,7 +4213,8 @@ _ZN8settings14settings_store13SettingsStore3get17h32f515b5bbd591eaE.exit.i.i.i.i
   %.sroa.480.0.copyload.i.i.i.i = load ptr, ptr %.sroa.480.0..sroa_idx.i.i.i.i, align 8, !noalias !775, !nonnull !4, !noundef !4
   %.sroa.581.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 16
   %.sroa.581.0.copyload.i.i.i.i = load i64, ptr %.sroa.581.0..sroa_idx.i.i.i.i, align 8, !noalias !775
-  %253 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.480.0.copyload.i.i.i.i, i64 %.sroa.581.0.copyload.i.i.i.i
+  %.idx153.i.i.i.i = mul nsw i64 %.sroa.581.0.copyload.i.i.i.i, 24
+  %253 = getelementptr inbounds i8, ptr %.sroa.480.0.copyload.i.i.i.i, i64 %.idx153.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21), !noalias !775
   store ptr %.sroa.480.0.copyload.i.i.i.i, ptr %21, align 8, !noalias !775
   %.sroa.476.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8

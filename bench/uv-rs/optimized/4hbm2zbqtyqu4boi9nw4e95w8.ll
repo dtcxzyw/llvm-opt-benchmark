@@ -127,7 +127,8 @@ define void @_ZN13uv_globfilter15glob_dir_filter13GlobDirFilter10from_globs17he2
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.443.0..sroa_idx, align 8
   %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 0, ptr %.sroa.544.0..sroa_idx, align 8
-  %23 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { i8, i8, i8, i8 }, [4 x i8] }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 80
+  %23 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %24 = icmp eq i64 %2, 0
   br i1 %24, label %._crit_edge, label %.lr.ph
 

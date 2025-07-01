@@ -3,8 +3,6 @@ source_filename = "bench/hyperscan/original/accelcompile.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.std::pair" = type { i8, i8 }
-
 @_ZTIN3ue218ResourceLimitErrorE = external constant ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -12,7 +10,8 @@ define hidden noundef zeroext i1 @_ZN3ue214buildDvermMaskERKNS_8flat_setISt4pair
   %4 = load ptr, ptr %0, align 8, !noalias !5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noalias !12
-  %7 = getelementptr inbounds nuw %"struct.std::pair", ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 1
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not3740 = icmp eq i64 %6, 0
   br i1 %.not3740, label %._crit_edge, label %.lr.ph
 
@@ -224,7 +223,8 @@ _ZN3ue2L16isCaselessDoubleERKNS_8flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEE.exit.
   br label %_ZN3ue2L16buildAccelSingleERKNS_9AccelInfoEP8AccelAux.exit
 
 .loopexit.i:                                      ; preds = %59, %.lr.ph.i.i, %51
-  %74 = getelementptr inbounds nuw %"struct.std::pair", ptr %.val.i, i64 %29
+  %.idx.i.i = shl nuw nsw i64 %29, 1
+  %74 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i.i
   br label %.lr.ph.i53.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i53.i

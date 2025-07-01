@@ -1090,7 +1090,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang10CXXNewExpr25shouldNullCheckAllo
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !160
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %.idx.i.i = shl nuw nsw i64 %17, 3
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i
   %.not.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_18ReturnsNonNullAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i
 
@@ -7547,7 +7548,7 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   store i32 %45, ptr %46, align 4, !tbaa !603
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i15, i64 32
   store ptr %2, ptr %47, align 8, !tbaa !605
-  %48 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %.sroa.013.0.copyload, i64 %9
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.copyload, i64 %10
   %.not9.i.i.i.i = icmp eq i64 %9, 0
   br i1 %.not9.i.i.i.i, label %_ZN5clang14SizeOfPackExprC2ENS_8QualTypeENS_14SourceLocationEPNS_9NamedDeclES2_S2_St8optionalIjEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit, label %.lr.ph.i.i.i.preheader.i
 

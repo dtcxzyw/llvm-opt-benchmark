@@ -825,6 +825,7 @@ define noundef i64 @_ZN11duckdb_zstd21HUF_readDTableX2_wkspEPjPKvmPvmi(ptr nound
 .lr.ph119.i.i:                                    ; preds = %.preheader.i60.i
   %164 = shl i32 %148, 16
   %165 = zext i32 %159 to i64
+  %.idx.i.i = shl nuw nsw i64 %165, 2
   %invariant.op136.reass = add i32 %164, %invariant.op137
   br label %.lr.ph115.preheader.i.i
 
@@ -903,7 +904,7 @@ define noundef i64 @_ZN11duckdb_zstd21HUF_readDTableX2_wkspEPjPKvmPvmi(ptr nound
   %.reass.i.reass = or disjoint i32 %201, %invariant.op136.reass
   %202 = zext i32 %.reass.i.reass to i64
   %203 = mul nuw i64 %202, 4294967297
-  %204 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %.4118.i.i, i64 %165
+  %204 = getelementptr inbounds nuw i8, ptr %.4118.i.i, i64 %.idx.i.i
   br label %.lr.ph115.i.i
 
 .lr.ph115.i.i:                                    ; preds = %.lr.ph115.i.i, %.lr.ph115.preheader.i.i
@@ -1053,6 +1054,7 @@ _ZN11duckdb_zstdL22HUF_fillDTableX2Level2EPNS_10HUF_DEltX2EjjPKjiiPKNS_14sortedS
   %258 = shl i32 %83, 16
   %259 = add i32 %258, 16777216
   %260 = zext i32 %220 to i64
+  %.idx.i = shl nuw nsw i64 %260, 2
   br label %.lr.ph115.preheader.i
 
 .lr.ph115.preheader.i:                            ; preds = %._crit_edge.i, %.lr.ph119.i
@@ -1063,7 +1065,7 @@ _ZN11duckdb_zstdL22HUF_fillDTableX2Level2EPNS_10HUF_DEltX2EjjPKjiiPKNS_14sortedS
   %263 = or disjoint i32 %259, %262
   %264 = zext i32 %263 to i64
   %265 = mul nuw i64 %264, 4294967297
-  %266 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %.4118.i, i64 %260
+  %266 = getelementptr inbounds nuw i8, ptr %.4118.i, i64 %.idx.i
   br label %.lr.ph115.i
 
 .lr.ph115.i:                                      ; preds = %.lr.ph115.i, %.lr.ph115.preheader.i

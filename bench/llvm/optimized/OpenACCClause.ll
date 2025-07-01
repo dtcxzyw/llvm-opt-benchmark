@@ -9,8 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::StmtIteratorBase" = type { %union.anon.344, i64, ptr }
 %union.anon.344 = type { ptr }
 %"class.llvm::ArrayRef" = type { ptr, i64 }
-%"struct.std::pair.473" = type <{ ptr, %"class.clang::SourceLocation", [4 x i8] }>
-%"class.clang::SourceLocation" = type { i32 }
 %"class.llvm::StringRef" = type { ptr, i64 }
 %"struct.std::pair.453" = type { ptr, i64 }
 
@@ -2912,7 +2910,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %24, %27
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   %34 = trunc i64 %5 to i32
   store i32 %34, ptr %33, align 8, !tbaa !180
-  %35 = getelementptr inbounds nuw %"struct.std::pair.473", ptr %4, i64 %5
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 %8
   %.not9.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not9.i.i.i.i, label %_ZN5clang23OpenACCDeviceTypeClauseC2ENS_17OpenACCClauseKindENS_14SourceLocationES2_N4llvm8ArrayRefISt4pairIPNS_14IdentifierInfoES2_EEES2_.exit, label %.lr.ph.i.i.i.preheader.i
 

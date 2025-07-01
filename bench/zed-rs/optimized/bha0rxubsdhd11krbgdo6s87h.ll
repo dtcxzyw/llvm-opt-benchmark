@@ -20479,7 +20479,8 @@ define hidden void @"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash
   %11 = xor i64 %10, %.sink11.i
   %12 = mul i64 %11, 5871781006564002453
   store i64 %12, ptr %1, align 8, !alias.scope !4665
-  %13 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sink12.i, i64 %.sink11.i
+  %.idx.i = shl nsw i64 %.sink11.i, 5
+  %13 = getelementptr inbounds i8, ptr %.sink12.i, i64 %.idx.i
   %14 = icmp eq i64 %.sink11.i, 0
   br i1 %14, label %_ZN4core4hash4Hash10hash_slice17h68235f58375a320aE.exit, label %.lr.ph.i
 
@@ -31508,7 +31509,8 @@ common.resume:                                    ; preds = %802, %803, %75, %79
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62)
   %.sroa.0138.0.copyload = load i64, ptr %2, align 8
-  %142 = getelementptr inbounds { i64, [7 x i64] }, ptr %88, i64 %68
+  %.idx = shl nsw i64 %68, 6
+  %142 = getelementptr inbounds i8, ptr %88, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %61)
   store ptr %88, ptr %61, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 8

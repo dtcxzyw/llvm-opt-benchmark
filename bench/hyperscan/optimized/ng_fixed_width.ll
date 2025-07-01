@@ -270,7 +270,8 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS
   %80 = load ptr, ptr %79, align 8, !noalias !28
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.lcssa.i, i64 56
   %82 = load i64, ptr %81, align 8, !noalias !35
-  %83 = getelementptr inbounds nuw i32, ptr %80, i64 %82
+  %.idx.i.i = shl nuw nsw i64 %82, 2
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx.i.i
   %.not1.i.i.i = icmp eq i64 %82, 0
   br i1 %.not1.i.i.i, label %_ZN3ue26insertINS_8flat_setIjSt4lessIjESaIjEEES5_EEvPT_RKT0_.exit.i, label %.lr.ph.i.i.i
 
@@ -1057,8 +1058,8 @@ _ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RK
 39:                                               ; preds = %.critedge.thread
   %40 = ptrtoint ptr %23 to i64
   %41 = getelementptr inbounds i8, ptr %9, i64 -4
-  %.not46.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not46.i.i.i.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i.i.i, label %42, !prof !87
+  %.not.i.i = icmp eq ptr %6, null
+  br i1 %.not.i.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i.i.i, label %42, !prof !87
 
 42:                                               ; preds = %39
   %43 = load i32, ptr %41, align 4, !noalias !76

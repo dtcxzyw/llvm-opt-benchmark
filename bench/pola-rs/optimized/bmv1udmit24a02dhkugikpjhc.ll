@@ -14803,7 +14803,8 @@ define internal void @"_ZN64_$LT$T$u20$as$u20$polars_arrow..array..builder..Arra
   tail call void @llvm.experimental.noalias.scope.decl(metadata !877)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !880, !noundef !6
-  %22 = getelementptr inbounds nuw i32, ptr %3, i64 %4
+  %.idx.i = shl nuw nsw i64 %4, 2
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !882)
   %23 = icmp eq i64 %4, 0
   br i1 %23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h72ba248a4a1292f5E.exit.thread.i", label %25
@@ -15419,7 +15420,8 @@ define internal void @"_ZN64_$LT$T$u20$as$u20$polars_arrow..array..builder..Arra
   tail call void @llvm.experimental.noalias.scope.decl(metadata !888)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !891, !noundef !6
-  %22 = getelementptr inbounds nuw i32, ptr %3, i64 %4
+  %.idx.i = shl nuw nsw i64 %4, 2
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !893)
   %23 = icmp eq i64 %4, 0
   br i1 %23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha18a2d9c171aada9E.exit.thread.i", label %25
@@ -27564,7 +27566,8 @@ define noundef i64 @_ZN12polars_arrow6bitmap5utils13leading_zeros17hb4b01f419148
   %21 = load ptr, ptr %5, align 8, !nonnull !6, !align !274, !noundef !6
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %23 = load i64, ptr %22, align 8, !noundef !6
-  %24 = getelementptr inbounds nuw i64, ptr %21, i64 %23
+  %.idx = shl nuw nsw i64 %23, 3
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %.loopexit, label %.lr.ph.i
 
@@ -27654,7 +27657,8 @@ define noundef i64 @_ZN12polars_arrow6bitmap5utils12leading_ones17hd145dabaf22ad
   %22 = load ptr, ptr %5, align 8, !nonnull !6, !align !274, !noundef !6
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load i64, ptr %23, align 8, !noundef !6
-  %25 = getelementptr inbounds nuw i64, ptr %22, i64 %24
+  %.idx = shl nuw nsw i64 %24, 3
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %.loopexit, label %.lr.ph.i
 
@@ -27749,7 +27753,8 @@ define noundef i64 @_ZN12polars_arrow6bitmap5utils14trailing_zeros17hd10b08b2bf6
   br i1 %27, label %.loopexit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %23
-  %28 = getelementptr inbounds nuw i64, ptr %24, i64 %26
+  %.idx = shl nuw nsw i64 %26, 3
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5dcf26e0fb571256E.exit.i"
@@ -27850,7 +27855,8 @@ define noundef i64 @_ZN12polars_arrow6bitmap5utils13trailing_ones17ha864864f7c44
   br i1 %28, label %.loopexit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %24
-  %29 = getelementptr inbounds nuw i64, ptr %25, i64 %27
+  %.idx = shl nuw nsw i64 %27, 3
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8fdb2c68a8ed5bcaE.exit.i"
@@ -32299,7 +32305,8 @@ define hidden void @_ZN12polars_arrow3ffi6schema16c_release_schema17h259d238b723
   %7 = load ptr, ptr %6, align 8, !nonnull !6, !align !274, !noundef !6
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %9 = load i64, ptr %8, align 8, !noundef !6
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %.idx = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 

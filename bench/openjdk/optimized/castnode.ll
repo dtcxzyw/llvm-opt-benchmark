@@ -160,7 +160,8 @@ define hidden noundef ptr @_ZNK18ConstraintCastNode15dominating_castEP8PhaseGVNP
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %51 = load i32, ptr %50, align 8
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %49, i64 %52
+  %.idx = shl nuw nsw i64 %52, 3
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx
   %.not44 = icmp eq i32 %51, 0
   br i1 %.not44, label %.loopexit, label %.lr.ph
 

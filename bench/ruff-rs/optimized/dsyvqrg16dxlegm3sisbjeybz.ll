@@ -1676,7 +1676,8 @@ define void @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$23lookup_cu
   br i1 %18, label %"_ZN4core3ptr253drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h90ff822f0347f526E.exit", label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %9
-  %19 = getelementptr inbounds nuw { i64, i8, [7 x i8] }, ptr %15, i64 %17
+  %.idx = shl nuw nsw i64 %17, 4
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i64, ptr %20, align 8
   br label %.lr.ph.i
@@ -3141,7 +3142,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h2a78bf5d37e72829E(p
   %16 = mul i64 %.sroa.0.0.sroa.speculated.i, 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16, i64 %16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %17 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, i64, i32, i8, [3 x i8] } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   store ptr %2, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %18, align 8
@@ -3261,7 +3262,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h37727bffa88e52acE(p
   %16 = mul i64 %.sroa.0.0.sroa.speculated.i, 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16, i64 %16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %17 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { ptr, i64 }, i8, [7 x i8] }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   store ptr %2, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %18, align 8
@@ -3365,7 +3366,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h44b13140e6041b00E(p
   %16 = mul i64 %.sroa.0.0.sroa.speculated.i, 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16, i64 %16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %17 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { ptr, i64 }, i64, i8, [7 x i8] }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   store ptr %2, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %18, align 8
@@ -3469,7 +3470,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17hfd8f6773049f555dE(p
   %16 = shl i64 %.sroa.0.0.sroa.speculated.i, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16, i64 %16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %17 = getelementptr inbounds nuw ptr, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   store ptr %2, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %18, align 8

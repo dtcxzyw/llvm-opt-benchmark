@@ -10621,7 +10621,8 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder4load17h7aece662bcf97013E.exit: ; 
   %.sroa.0137.0.copyload = load i64, ptr %30, align 8
   %.sroa.4138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.sroa.4138.0.copyload = load ptr, ptr %.sroa.4138.0..sroa_idx, align 8, !nonnull !4, !noundef !4
-  %248 = getelementptr inbounds { i32, i16, [1 x i16] }, ptr %.sroa.4138.0.copyload, i64 %240
+  %.idx = shl nsw i64 %240, 3
+  %248 = getelementptr inbounds i8, ptr %.sroa.4138.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)
   store ptr %.sroa.4138.0.copyload, ptr %26, align 8
   %.sroa.4.0..sroa_idx135 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -11194,7 +11195,8 @@ _ZN18wasmtime_cranelift3obj17ModuleTextBuilder13force_veneers17ha73ca25511f6822f
   store ptr %56, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 0, ptr %58, align 8
-  %59 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %3, i64 %4
+  %.idx = mul nsw i64 %4, 40
+  %59 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %60 = icmp eq i64 %4, 0
   br i1 %60, label %._crit_edge, label %.lr.ph
 
@@ -12954,8 +12956,8 @@ define noundef ptr @"_ZN94_$LT$wasmtime_cranelift..compiler..Compiler$u20$as$u20
   %46 = tail call noundef align 8 dereferenceable(40) ptr %45(ptr noundef align 1 %43)
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load i8, ptr %47, align 8, !range !2754, !noundef !4
-  %.sink197.sroa.gep = getelementptr inbounds nuw i8, ptr %33, i64 84
-  %.sink197.sroa.gep202 = getelementptr inbounds nuw i8, ptr %33, i64 100
+  %.sink198.sroa.gep = getelementptr inbounds nuw i8, ptr %33, i64 84
+  %.sink198.sroa.gep203 = getelementptr inbounds nuw i8, ptr %33, i64 100
   switch i8 %48, label %default.unreachable [
     i8 0, label %49
     i8 1, label %50
@@ -13038,9 +13040,9 @@ default.unreachable:                              ; preds = %4
   unreachable
 
 .sink.split:                                      ; preds = %57, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3217426b2716343dE.exit"
-  %.sink197.sroa.phi = phi ptr [ %.sink197.sroa.gep, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3217426b2716343dE.exit" ], [ %.sink197.sroa.gep202, %57 ]
+  %.sink198.sroa.phi = phi ptr [ %.sink198.sroa.gep, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3217426b2716343dE.exit" ], [ %.sink198.sroa.gep203, %57 ]
   %.sink.ph = phi i32 [ 2, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3217426b2716343dE.exit" ], [ 1, %57 ]
-  %62 = load i32, ptr %.sink197.sroa.phi, align 4, !noundef !4
+  %62 = load i32, ptr %.sink198.sroa.phi, align 4, !noundef !4
   %63 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 %62, ptr %63, align 4
   br label %64
@@ -13288,7 +13290,8 @@ default.unreachable:                              ; preds = %4
   %.sroa.4147.0.copyload = load ptr, ptr %.sroa.4147.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5148.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5148.0.copyload = load i64, ptr %.sroa.5148.0..sroa_idx, align 8
-  %132 = getelementptr inbounds { { ptr, i64 }, ptr }, ptr %.sroa.4147.0.copyload, i64 %.sroa.5148.0.copyload
+  %.idx = mul nsw i64 %.sroa.5148.0.copyload, 24
+  %132 = getelementptr inbounds i8, ptr %.sroa.4147.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
   store ptr %.sroa.4147.0.copyload, ptr %19, align 8
   %.sroa.5143.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -13485,7 +13488,8 @@ default.unreachable:                              ; preds = %4
   %.val = load ptr, ptr %186, align 8, !nonnull !4, !noundef !4
   %187 = getelementptr i8, ptr %.sroa.8151.0.copyload, i64 16
   %.val87 = load i64, ptr %187, align 8, !noundef !4
-  %188 = getelementptr inbounds { { ptr, [1 x i64] }, i32, i32, i8, [7 x i8] }, ptr %.val, i64 %.val87
+  %.idx190 = shl nsw i64 %.val87, 5
+  %188 = getelementptr inbounds i8, ptr %.val, i64 %.idx190
   %189 = icmp eq i64 %.val87, 0
   br i1 %189, label %.loopexit, label %.lr.ph
 
@@ -14788,7 +14792,8 @@ define hidden void @_ZN18wasmtime_cranelift8compiler8Compiler22load_values_from_
   store ptr inttoptr (i64 4 to ptr), ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %20, align 8
-  %21 = getelementptr inbounds { i32, [2 x i32] }, ptr %2, i64 %3
+  %.idx = mul nsw i64 %3, 12
+  %21 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %22 = icmp eq i64 %3, 0
   br i1 %22, label %._crit_edge, label %.lr.ph
 
@@ -16322,7 +16327,8 @@ _ZN18wasmtime_cranelift17compiled_function16CompiledFunction19set_cfa_unwind_inf
   store ptr inttoptr (i64 8 to ptr), ptr %350, align 8, !noalias !3332
   %351 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %351, align 8, !noalias !3332
-  %352 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, i32, [1 x i32] }, i32, i32 }, ptr %.sink5.i.i, i64 %.sink4.i.i
+  %.idx.i = mul nsw i64 %.sink4.i.i, 40
+  %352 = getelementptr inbounds i8, ptr %.sink5.i.i, i64 %.idx.i
   %353 = icmp eq i64 %.sink4.i.i, 0
   br i1 %353, label %._crit_edge.i, label %.lr.ph.i
 

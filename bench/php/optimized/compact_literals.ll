@@ -12,8 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.3 = type { i32 }
 %union.anon.4 = type { i32 }
 %union.anon.6 = type { ptr }
-%struct._zend_op = type { ptr, %union._znode_op, %union._znode_op, %union._znode_op, i32, i32, i8, i8, i8, i8 }
-%union._znode_op = type { i32 }
 %struct._literal_info = type { i8 }
 %struct._zend_arg_info = type { ptr, %struct.zend_type, ptr }
 %struct.zend_type = type { ptr, i32 }
@@ -91,7 +89,8 @@ zend_arena_alloc.exit:                            ; preds = %26, %28
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %41 = load i32, ptr %40, align 8, !tbaa !38
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %struct._zend_op, ptr %39, i64 %42
+  %.idx = shl nuw nsw i64 %42, 5
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
   %.not788 = icmp eq i32 %41, 0
   br i1 %.not788, label %._crit_edge, label %.lr.ph
 
@@ -467,14 +466,14 @@ zend_arena_alloc.exit:                            ; preds = %26, %28
   store ptr %230, ptr %250, align 8, !tbaa !35
   store ptr %245, ptr %1, align 8, !tbaa !36
   %.pre = load i32, ptr %11, align 8, !tbaa !16
-  %.pre802 = sext i32 %.pre to i64
-  %.pre803 = shl nsw i64 %.pre802, 2
+  %.pre803 = sext i32 %.pre to i64
+  %.pre804 = shl nsw i64 %.pre803, 2
   br label %zend_arena_alloc.exit636
 
 zend_arena_alloc.exit636:                         ; preds = %239, %241
-  %.pre-phi804 = phi i64 [ %229, %239 ], [ %.pre803, %241 ]
+  %.pre-phi805 = phi i64 [ %229, %239 ], [ %.pre804, %241 ]
   %.0.i634 = phi ptr [ %231, %239 ], [ %246, %241 ]
-  call void @llvm.memset.p0.i64(ptr align 4 %.0.i634, i8 0, i64 %.pre-phi804, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %.0.i634, i8 0, i64 %.pre-phi805, i1 false)
   %251 = load i32, ptr %11, align 8, !tbaa !16
   %252 = icmp sgt i32 %251, 0
   br i1 %252, label %.lr.ph776, label %._crit_edge777
@@ -1024,7 +1023,7 @@ zval_ptr_dtor_nogc.exit647:                       ; preds = %zend_string_release
 zval_ptr_dtor_nogc.exit650:                       ; preds = %.lr.ph760, %520, %525
   %527 = add nsw i32 %.0575758, -1
   %528 = icmp sgt i32 %.0575758, 2
-  br i1 %528, label %.lr.ph760, label %zval_ptr_dtor_nogc.exit.loopexit790
+  br i1 %528, label %.lr.ph760, label %zval_ptr_dtor_nogc.exit.loopexit791
 
 529:                                              ; preds = %create_str_cache_key.exit
   %530 = getelementptr inbounds i32, ptr %.0.i634, i64 %256
@@ -1057,7 +1056,7 @@ zend_string_release_ex.exit660:                   ; preds = %529, %536, %541
   br i1 %.not620, label %zend_string_release_ex.exit660._crit_edge, label %542
 
 zend_string_release_ex.exit660._crit_edge:        ; preds = %zend_string_release_ex.exit660
-  %.pre801 = load i8, ptr %257, align 1, !tbaa !42
+  %.pre802 = load i8, ptr %257, align 1, !tbaa !42
   br label %548
 
 542:                                              ; preds = %zend_string_release_ex.exit660
@@ -1071,7 +1070,7 @@ zend_string_release_ex.exit660._crit_edge:        ; preds = %zend_string_release
   br label %548
 
 548:                                              ; preds = %zend_string_release_ex.exit660._crit_edge, %542
-  %549 = phi i8 [ %.pre801, %zend_string_release_ex.exit660._crit_edge ], [ %547, %542 ]
+  %549 = phi i8 [ %.pre802, %zend_string_release_ex.exit660._crit_edge ], [ %547, %542 ]
   %.7761 = add i32 %.0571774, 1
   %550 = icmp ugt i8 %549, 1
   br i1 %550, label %.lr.ph767.preheader, label %zval_ptr_dtor_nogc.exit
@@ -1082,27 +1081,27 @@ zend_string_release_ex.exit660._crit_edge:        ; preds = %zend_string_release
   br label %.lr.ph767
 
 .lr.ph767:                                        ; preds = %.lr.ph767.preheader, %558
-  %indvars.iv796 = phi i64 [ %256, %.lr.ph767.preheader ], [ %indvars.iv.next797, %558 ]
-  %indvars.iv794 = phi i64 [ %552, %.lr.ph767.preheader ], [ %indvars.iv.next795, %558 ]
+  %indvars.iv797 = phi i64 [ %256, %.lr.ph767.preheader ], [ %indvars.iv.next798, %558 ]
+  %indvars.iv795 = phi i64 [ %552, %.lr.ph767.preheader ], [ %indvars.iv.next796, %558 ]
   %.7.in763 = phi i32 [ %.0571774, %.lr.ph767.preheader ], [ %561, %558 ]
   %.1576762 = phi i32 [ %551, %.lr.ph767.preheader ], [ %559, %558 ]
-  %indvars.iv.next797 = add nsw i64 %indvars.iv796, 1
-  %553 = trunc nsw i64 %indvars.iv796 to i32
+  %indvars.iv.next798 = add nsw i64 %indvars.iv797, 1
+  %553 = trunc nsw i64 %indvars.iv797 to i32
   %.not621 = icmp eq i32 %.7.in763, %553
   br i1 %.not621, label %558, label %554
 
 554:                                              ; preds = %.lr.ph767
   %555 = load ptr, ptr %253, align 8, !tbaa !46
-  %556 = getelementptr inbounds %struct._zval_struct, ptr %555, i64 %indvars.iv794
-  %557 = getelementptr inbounds %struct._zval_struct, ptr %555, i64 %indvars.iv.next797
+  %556 = getelementptr inbounds %struct._zval_struct, ptr %555, i64 %indvars.iv795
+  %557 = getelementptr inbounds %struct._zval_struct, ptr %555, i64 %indvars.iv.next798
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %556, ptr noundef nonnull align 8 dereferenceable(16) %557, i64 16, i1 false), !tbaa.struct !49
   br label %558
 
 558:                                              ; preds = %554, %.lr.ph767
   %559 = add nsw i32 %.1576762, -1
-  %indvars.iv.next795 = add nsw i64 %indvars.iv794, 1
+  %indvars.iv.next796 = add nsw i64 %indvars.iv795, 1
   %560 = icmp sgt i32 %.1576762, 2
-  %561 = trunc nsw i64 %indvars.iv794 to i32
+  %561 = trunc nsw i64 %indvars.iv795 to i32
   br i1 %560, label %.lr.ph767, label %zval_ptr_dtor_nogc.exit.loopexit
 
 562:                                              ; preds = %271
@@ -1184,21 +1183,21 @@ zval_ptr_dtor_nogc.exit653:                       ; preds = %585, %581, %578, %5
   br label %zval_ptr_dtor_nogc.exit
 
 zval_ptr_dtor_nogc.exit.loopexit:                 ; preds = %558
-  %598 = trunc nsw i64 %indvars.iv.next797 to i32
-  %599 = trunc nsw i64 %indvars.iv.next795 to i32
+  %598 = trunc nsw i64 %indvars.iv.next798 to i32
+  %599 = trunc nsw i64 %indvars.iv.next796 to i32
   br label %zval_ptr_dtor_nogc.exit
 
-zval_ptr_dtor_nogc.exit.loopexit790:              ; preds = %zval_ptr_dtor_nogc.exit650
+zval_ptr_dtor_nogc.exit.loopexit791:              ; preds = %zval_ptr_dtor_nogc.exit650
   %600 = trunc nsw i64 %indvars.iv.next to i32
   br label %zval_ptr_dtor_nogc.exit
 
-zval_ptr_dtor_nogc.exit:                          ; preds = %zval_ptr_dtor_nogc.exit.loopexit790, %zval_ptr_dtor_nogc.exit.loopexit, %zval_ptr_dtor_nogc.exit647, %548, %440, %435, %432, %404, %399, %zval_ptr_dtor_nogc.exit644, %269, %264, %261, %285, %298, %311, %zval_ptr_dtor_nogc.exit653, %596, %318, %335
-  %.1587 = phi i32 [ %.0586770, %596 ], [ %.0586770, %285 ], [ %.0586770, %298 ], [ %.0586770, %311 ], [ %.0586770, %318 ], [ %.0586770, %335 ], [ %.2588, %zval_ptr_dtor_nogc.exit653 ], [ %.0586770, %261 ], [ %.0586770, %264 ], [ %.0586770, %269 ], [ %.0586770, %zval_ptr_dtor_nogc.exit644 ], [ %.0586770, %399 ], [ %.0586770, %404 ], [ %.0586770, %432 ], [ %.0586770, %435 ], [ %.0586770, %440 ], [ %.0586770, %548 ], [ %.0586770, %zval_ptr_dtor_nogc.exit647 ], [ %.0586770, %zval_ptr_dtor_nogc.exit.loopexit ], [ %.0586770, %zval_ptr_dtor_nogc.exit.loopexit790 ]
-  %.1584 = phi i32 [ %.0583771, %596 ], [ %.0583771, %285 ], [ %.0583771, %298 ], [ %.2585, %311 ], [ %.0583771, %318 ], [ %.0583771, %335 ], [ %.0583771, %zval_ptr_dtor_nogc.exit653 ], [ %.0583771, %261 ], [ %.0583771, %264 ], [ %.0583771, %269 ], [ %.0583771, %zval_ptr_dtor_nogc.exit644 ], [ %.0583771, %399 ], [ %.0583771, %404 ], [ %.0583771, %432 ], [ %.0583771, %435 ], [ %.0583771, %440 ], [ %.0583771, %548 ], [ %.0583771, %zval_ptr_dtor_nogc.exit647 ], [ %.0583771, %zval_ptr_dtor_nogc.exit.loopexit ], [ %.0583771, %zval_ptr_dtor_nogc.exit.loopexit790 ]
-  %.1581 = phi i32 [ %.0580772, %596 ], [ %.0580772, %285 ], [ %.2582, %298 ], [ %.0580772, %311 ], [ %.0580772, %318 ], [ %.0580772, %335 ], [ %.0580772, %zval_ptr_dtor_nogc.exit653 ], [ %.0580772, %261 ], [ %.0580772, %264 ], [ %.0580772, %269 ], [ %.0580772, %zval_ptr_dtor_nogc.exit644 ], [ %.0580772, %399 ], [ %.0580772, %404 ], [ %.0580772, %432 ], [ %.0580772, %435 ], [ %.0580772, %440 ], [ %.0580772, %548 ], [ %.0580772, %zval_ptr_dtor_nogc.exit647 ], [ %.0580772, %zval_ptr_dtor_nogc.exit.loopexit ], [ %.0580772, %zval_ptr_dtor_nogc.exit.loopexit790 ]
-  %.1578 = phi i32 [ %.0577773, %596 ], [ %.2579, %285 ], [ %.0577773, %298 ], [ %.0577773, %311 ], [ %.0577773, %318 ], [ %.0577773, %335 ], [ %.0577773, %zval_ptr_dtor_nogc.exit653 ], [ %.0577773, %261 ], [ %.0577773, %264 ], [ %.0577773, %269 ], [ %.0577773, %zval_ptr_dtor_nogc.exit644 ], [ %.0577773, %399 ], [ %.0577773, %404 ], [ %.0577773, %432 ], [ %.0577773, %435 ], [ %.0577773, %440 ], [ %.0577773, %548 ], [ %.0577773, %zval_ptr_dtor_nogc.exit647 ], [ %.0577773, %zval_ptr_dtor_nogc.exit.loopexit ], [ %.0577773, %zval_ptr_dtor_nogc.exit.loopexit790 ]
-  %.1572 = phi i32 [ %597, %596 ], [ %.2573, %285 ], [ %.3574, %298 ], [ %.4, %311 ], [ %.0571774, %318 ], [ %336, %335 ], [ %.8, %zval_ptr_dtor_nogc.exit653 ], [ %.0571774, %261 ], [ %.0571774, %264 ], [ %.0571774, %269 ], [ %.5, %zval_ptr_dtor_nogc.exit644 ], [ %.5, %399 ], [ %.5, %404 ], [ %.6, %432 ], [ %.6, %435 ], [ %.6, %440 ], [ %.7761, %548 ], [ %.0571774, %zval_ptr_dtor_nogc.exit647 ], [ %599, %zval_ptr_dtor_nogc.exit.loopexit ], [ %.0571774, %zval_ptr_dtor_nogc.exit.loopexit790 ]
-  %.1569 = phi i32 [ %.0568775, %596 ], [ %.0568775, %285 ], [ %.0568775, %298 ], [ %.0568775, %311 ], [ %.0568775, %318 ], [ %.0568775, %335 ], [ %.0568775, %zval_ptr_dtor_nogc.exit653 ], [ %.0568775, %261 ], [ %.0568775, %264 ], [ %.0568775, %269 ], [ %338, %zval_ptr_dtor_nogc.exit644 ], [ %338, %399 ], [ %338, %404 ], [ %.0568775, %432 ], [ %.0568775, %435 ], [ %.0568775, %440 ], [ %.0568775, %548 ], [ %.0568775, %zval_ptr_dtor_nogc.exit647 ], [ %598, %zval_ptr_dtor_nogc.exit.loopexit ], [ %600, %zval_ptr_dtor_nogc.exit.loopexit790 ]
+zval_ptr_dtor_nogc.exit:                          ; preds = %zval_ptr_dtor_nogc.exit.loopexit791, %zval_ptr_dtor_nogc.exit.loopexit, %zval_ptr_dtor_nogc.exit647, %548, %440, %435, %432, %404, %399, %zval_ptr_dtor_nogc.exit644, %269, %264, %261, %285, %298, %311, %zval_ptr_dtor_nogc.exit653, %596, %318, %335
+  %.1587 = phi i32 [ %.0586770, %596 ], [ %.0586770, %285 ], [ %.0586770, %298 ], [ %.0586770, %311 ], [ %.0586770, %318 ], [ %.0586770, %335 ], [ %.2588, %zval_ptr_dtor_nogc.exit653 ], [ %.0586770, %261 ], [ %.0586770, %264 ], [ %.0586770, %269 ], [ %.0586770, %zval_ptr_dtor_nogc.exit644 ], [ %.0586770, %399 ], [ %.0586770, %404 ], [ %.0586770, %432 ], [ %.0586770, %435 ], [ %.0586770, %440 ], [ %.0586770, %548 ], [ %.0586770, %zval_ptr_dtor_nogc.exit647 ], [ %.0586770, %zval_ptr_dtor_nogc.exit.loopexit ], [ %.0586770, %zval_ptr_dtor_nogc.exit.loopexit791 ]
+  %.1584 = phi i32 [ %.0583771, %596 ], [ %.0583771, %285 ], [ %.0583771, %298 ], [ %.2585, %311 ], [ %.0583771, %318 ], [ %.0583771, %335 ], [ %.0583771, %zval_ptr_dtor_nogc.exit653 ], [ %.0583771, %261 ], [ %.0583771, %264 ], [ %.0583771, %269 ], [ %.0583771, %zval_ptr_dtor_nogc.exit644 ], [ %.0583771, %399 ], [ %.0583771, %404 ], [ %.0583771, %432 ], [ %.0583771, %435 ], [ %.0583771, %440 ], [ %.0583771, %548 ], [ %.0583771, %zval_ptr_dtor_nogc.exit647 ], [ %.0583771, %zval_ptr_dtor_nogc.exit.loopexit ], [ %.0583771, %zval_ptr_dtor_nogc.exit.loopexit791 ]
+  %.1581 = phi i32 [ %.0580772, %596 ], [ %.0580772, %285 ], [ %.2582, %298 ], [ %.0580772, %311 ], [ %.0580772, %318 ], [ %.0580772, %335 ], [ %.0580772, %zval_ptr_dtor_nogc.exit653 ], [ %.0580772, %261 ], [ %.0580772, %264 ], [ %.0580772, %269 ], [ %.0580772, %zval_ptr_dtor_nogc.exit644 ], [ %.0580772, %399 ], [ %.0580772, %404 ], [ %.0580772, %432 ], [ %.0580772, %435 ], [ %.0580772, %440 ], [ %.0580772, %548 ], [ %.0580772, %zval_ptr_dtor_nogc.exit647 ], [ %.0580772, %zval_ptr_dtor_nogc.exit.loopexit ], [ %.0580772, %zval_ptr_dtor_nogc.exit.loopexit791 ]
+  %.1578 = phi i32 [ %.0577773, %596 ], [ %.2579, %285 ], [ %.0577773, %298 ], [ %.0577773, %311 ], [ %.0577773, %318 ], [ %.0577773, %335 ], [ %.0577773, %zval_ptr_dtor_nogc.exit653 ], [ %.0577773, %261 ], [ %.0577773, %264 ], [ %.0577773, %269 ], [ %.0577773, %zval_ptr_dtor_nogc.exit644 ], [ %.0577773, %399 ], [ %.0577773, %404 ], [ %.0577773, %432 ], [ %.0577773, %435 ], [ %.0577773, %440 ], [ %.0577773, %548 ], [ %.0577773, %zval_ptr_dtor_nogc.exit647 ], [ %.0577773, %zval_ptr_dtor_nogc.exit.loopexit ], [ %.0577773, %zval_ptr_dtor_nogc.exit.loopexit791 ]
+  %.1572 = phi i32 [ %597, %596 ], [ %.2573, %285 ], [ %.3574, %298 ], [ %.4, %311 ], [ %.0571774, %318 ], [ %336, %335 ], [ %.8, %zval_ptr_dtor_nogc.exit653 ], [ %.0571774, %261 ], [ %.0571774, %264 ], [ %.0571774, %269 ], [ %.5, %zval_ptr_dtor_nogc.exit644 ], [ %.5, %399 ], [ %.5, %404 ], [ %.6, %432 ], [ %.6, %435 ], [ %.6, %440 ], [ %.7761, %548 ], [ %.0571774, %zval_ptr_dtor_nogc.exit647 ], [ %599, %zval_ptr_dtor_nogc.exit.loopexit ], [ %.0571774, %zval_ptr_dtor_nogc.exit.loopexit791 ]
+  %.1569 = phi i32 [ %.0568775, %596 ], [ %.0568775, %285 ], [ %.0568775, %298 ], [ %.0568775, %311 ], [ %.0568775, %318 ], [ %.0568775, %335 ], [ %.0568775, %zval_ptr_dtor_nogc.exit653 ], [ %.0568775, %261 ], [ %.0568775, %264 ], [ %.0568775, %269 ], [ %338, %zval_ptr_dtor_nogc.exit644 ], [ %338, %399 ], [ %338, %404 ], [ %.0568775, %432 ], [ %.0568775, %435 ], [ %.0568775, %440 ], [ %.0568775, %548 ], [ %.0568775, %zval_ptr_dtor_nogc.exit647 ], [ %598, %zval_ptr_dtor_nogc.exit.loopexit ], [ %600, %zval_ptr_dtor_nogc.exit.loopexit791 ]
   %601 = add nsw i32 %.1569, 1
   %602 = load i32, ptr %11, align 8, !tbaa !16
   %603 = icmp slt i32 %601, %602
@@ -1257,9 +1256,10 @@ zend_arena_alloc.exit640:                         ; preds = %614, %616
   %634 = load ptr, ptr %38, align 8, !tbaa !37
   %635 = load i32, ptr %40, align 8, !tbaa !38
   %636 = zext i32 %635 to i64
-  %637 = getelementptr inbounds nuw %struct._zend_op, ptr %634, i64 %636
-  %.not789 = icmp eq i32 %635, 0
-  br i1 %.not789, label %._crit_edge782, label %.lr.ph781
+  %.idx789 = shl nuw nsw i64 %636, 5
+  %637 = getelementptr inbounds nuw i8, ptr %634, i64 %.idx789
+  %.not790 = icmp eq i32 %635, 0
+  br i1 %.not790, label %._crit_edge782, label %.lr.ph781
 
 .lr.ph781:                                        ; preds = %zend_arena_alloc.exit640
   %638 = getelementptr i8, ptr %0, i64 192

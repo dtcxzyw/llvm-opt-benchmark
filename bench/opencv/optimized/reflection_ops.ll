@@ -1382,7 +1382,8 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf8internal13ReflectionOps13I
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !53
   %20 = sext i32 %16 to i64
-  %21 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %19, i64 %20
+  %.idx = mul nsw i64 %20, 72
+  %21 = getelementptr inbounds i8, ptr %19, i64 %.idx
   br i1 %1, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %17, %28

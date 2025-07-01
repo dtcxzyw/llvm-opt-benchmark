@@ -435,53 +435,54 @@ define hidden void @_ZN3ade20MemoryDescriptorView8retargetERNS_16MemoryDescripto
   %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !38
-  %.not45 = icmp eq ptr %10, %12
-  br i1 %.not45, label %._crit_edge49, label %.lr.ph48
+  %.not46 = icmp eq ptr %10, %12
+  br i1 %.not46, label %._crit_edge50, label %.lr.ph49
 
-.lr.ph48:                                         ; preds = %3
+.lr.ph49:                                         ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 48
   br label %20
 
-._crit_edge49.loopexit:                           ; preds = %._crit_edge
+._crit_edge50.loopexit:                           ; preds = %._crit_edge
   %.pre = load ptr, ptr %8, align 8, !tbaa !35
-  br label %._crit_edge49
+  br label %._crit_edge50
 
-._crit_edge49:                                    ; preds = %._crit_edge49.loopexit, %3
-  %15 = phi ptr [ %.pre, %._crit_edge49.loopexit ], [ %9, %3 ]
+._crit_edge50:                                    ; preds = %._crit_edge50.loopexit, %3
+  %15 = phi ptr [ %.pre, %._crit_edge50.loopexit ], [ %9, %3 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false), !tbaa.struct !21
   store ptr %1, ptr %0, align 8, !tbaa !19
   %17 = load ptr, ptr %15, align 8, !tbaa !38
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !38
-  %.not4055 = icmp eq ptr %17, %19
-  br i1 %.not4055, label %._crit_edge59, label %.lr.ph58
+  %.not4156 = icmp eq ptr %17, %19
+  br i1 %.not4156, label %._crit_edge60, label %.lr.ph59
 
-20:                                               ; preds = %.lr.ph48, %._crit_edge
-  %.sroa.037.046 = phi ptr [ %10, %.lr.ph48 ], [ %26, %._crit_edge ]
-  %21 = load ptr, ptr %.sroa.037.046, align 8, !tbaa !40
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.037.046, i64 8
+20:                                               ; preds = %.lr.ph49, %._crit_edge
+  %.sroa.038.047 = phi ptr [ %10, %.lr.ph49 ], [ %26, %._crit_edge ]
+  %21 = load ptr, ptr %.sroa.038.047, align 8, !tbaa !40
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.038.047, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !50
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.037.046, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.038.047, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !50
-  %.not4243 = icmp eq ptr %23, %25
-  br i1 %.not4243, label %._crit_edge, label %.lr.ph
+  %.not4344 = icmp eq ptr %23, %25
+  br i1 %.not4344, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN3ade4util9make_spanILm6EEENS0_9DynMdSpanIXT_EEERKNS0_9DynMdSizeIXT_EEES7_.exit, %20
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.037.046, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.038.047, i64 32
   %.not = icmp eq ptr %26, %12
-  br i1 %.not, label %._crit_edge49.loopexit, label %20
+  br i1 %.not, label %._crit_edge50.loopexit, label %20
 
 .lr.ph:                                           ; preds = %20, %_ZN3ade4util9make_spanILm6EEENS0_9DynMdSpanIXT_EEERKNS0_9DynMdSizeIXT_EEES7_.exit
-  %.sroa.033.044 = phi ptr [ %50, %_ZN3ade4util9make_spanILm6EEENS0_9DynMdSpanIXT_EEERKNS0_9DynMdSizeIXT_EEES7_.exit ], [ %23, %20 ]
-  %27 = load ptr, ptr %.sroa.033.044, align 8, !tbaa !56
+  %.sroa.034.045 = phi ptr [ %50, %_ZN3ade4util9make_spanILm6EEENS0_9DynMdSpanIXT_EEERKNS0_9DynMdSizeIXT_EEES7_.exit ], [ %23, %20 ]
+  %27 = load ptr, ptr %.sroa.034.045, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26
   call void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdSpan") align 8 %4, ptr noundef nonnull align 8 dereferenceable(96) %21)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #26
   call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %28 = load i64, ptr %13, align 8, !tbaa !61, !noalias !58
-  %29 = getelementptr inbounds nuw %"struct.ade::util::Span", ptr %4, i64 %28
+  %.idx.i = shl nuw nsw i64 %28, 3
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %.not8.i.i = icmp eq i64 %28, 0
   br i1 %.not8.i.i, label %_ZNK3ade4util9DynMdSpanILm6EE4sizeEv.exit.thread, label %.lr.ph.i.i
 
@@ -505,22 +506,22 @@ _ZNK3ade4util9DynMdSpanILm6EE6originEv.exit:      ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  br label %.lr.ph.i.i21
+  br label %.lr.ph.i.i22
 
-.lr.ph.i.i21:                                     ; preds = %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit, %.lr.ph.i.i21
-  %.010.i.i22 = phi ptr [ %38, %.lr.ph.i.i21 ], [ %7, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit ]
-  %.079.i.i23 = phi ptr [ %37, %.lr.ph.i.i21 ], [ %4, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit ]
-  %33 = getelementptr inbounds nuw i8, ptr %.079.i.i23, i64 4
+.lr.ph.i.i22:                                     ; preds = %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit, %.lr.ph.i.i22
+  %.010.i.i23 = phi ptr [ %38, %.lr.ph.i.i22 ], [ %7, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit ]
+  %.079.i.i24 = phi ptr [ %37, %.lr.ph.i.i22 ], [ %4, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit ]
+  %33 = getelementptr inbounds nuw i8, ptr %.079.i.i24, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !68, !noalias !65
-  %35 = load i32, ptr %.079.i.i23, align 4, !tbaa !62, !noalias !65
+  %35 = load i32, ptr %.079.i.i24, align 4, !tbaa !62, !noalias !65
   %36 = sub nsw i32 %34, %35
-  store i32 %36, ptr %.010.i.i22, align 4, !tbaa !36, !alias.scope !65
-  %37 = getelementptr inbounds nuw i8, ptr %.079.i.i23, i64 8
-  %38 = getelementptr inbounds nuw i8, ptr %.010.i.i22, i64 4
-  %.not.i.i24 = icmp eq ptr %37, %29
-  br i1 %.not.i.i24, label %_ZNK3ade4util9DynMdSpanILm6EE4sizeEv.exit, label %.lr.ph.i.i21, !llvm.loop !69
+  store i32 %36, ptr %.010.i.i23, align 4, !tbaa !36, !alias.scope !65
+  %37 = getelementptr inbounds nuw i8, ptr %.079.i.i24, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.010.i.i23, i64 4
+  %.not.i.i25 = icmp eq ptr %37, %29
+  br i1 %.not.i.i25, label %_ZNK3ade4util9DynMdSpanILm6EE4sizeEv.exit, label %.lr.ph.i.i22, !llvm.loop !69
 
-_ZNK3ade4util9DynMdSpanILm6EE4sizeEv.exit:        ; preds = %.lr.ph.i.i21
+_ZNK3ade4util9DynMdSpanILm6EE4sizeEv.exit:        ; preds = %.lr.ph.i.i22
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 48, i1 false), !alias.scope !70
   store i64 %28, ptr %14, align 8, !tbaa !61, !alias.scope !70
@@ -553,37 +554,37 @@ _ZN3ade4util9make_spanILm6EEENS0_9DynMdSpanIXT_EEERKNS0_9DynMdSizeIXT_EEES7_.exi
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.033.044, i64 8
-  %.not42 = icmp eq ptr %50, %25
-  br i1 %.not42, label %._crit_edge, label %.lr.ph
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.034.045, i64 8
+  %.not43 = icmp eq ptr %50, %25
+  br i1 %.not43, label %._crit_edge, label %.lr.ph
 
-._crit_edge59:                                    ; preds = %._crit_edge54, %._crit_edge49
+._crit_edge60:                                    ; preds = %._crit_edge55, %._crit_edge50
   ret void
 
-.lr.ph58:                                         ; preds = %._crit_edge49, %._crit_edge54
-  %.sroa.029.056 = phi ptr [ %55, %._crit_edge54 ], [ %17, %._crit_edge49 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.029.056, i64 8
+.lr.ph59:                                         ; preds = %._crit_edge50, %._crit_edge55
+  %.sroa.030.057 = phi ptr [ %55, %._crit_edge55 ], [ %17, %._crit_edge50 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.030.057, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !50
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.029.056, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.030.057, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !50
-  %.not4150 = icmp eq ptr %52, %54
-  br i1 %.not4150, label %._crit_edge54, label %.lr.ph53
+  %.not4251 = icmp eq ptr %52, %54
+  br i1 %.not4251, label %._crit_edge55, label %.lr.ph54
 
-._crit_edge54:                                    ; preds = %.lr.ph53, %.lr.ph58
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.029.056, i64 32
-  %.not40 = icmp eq ptr %55, %19
-  br i1 %.not40, label %._crit_edge59, label %.lr.ph58
+._crit_edge55:                                    ; preds = %.lr.ph54, %.lr.ph59
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.030.057, i64 32
+  %.not41 = icmp eq ptr %55, %19
+  br i1 %.not41, label %._crit_edge60, label %.lr.ph59
 
-.lr.ph53:                                         ; preds = %.lr.ph58, %.lr.ph53
-  %.sroa.025.051 = phi ptr [ %60, %.lr.ph53 ], [ %52, %.lr.ph58 ]
-  %56 = load ptr, ptr %.sroa.025.051, align 8, !tbaa !56
+.lr.ph54:                                         ; preds = %.lr.ph59, %.lr.ph54
+  %.sroa.026.052 = phi ptr [ %60, %.lr.ph54 ], [ %52, %.lr.ph59 ]
+  %56 = load ptr, ptr %.sroa.026.052, align 8, !tbaa !56
   %57 = load ptr, ptr %56, align 8, !tbaa !31
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(8) %56)
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.025.051, i64 8
-  %.not41 = icmp eq ptr %60, %54
-  br i1 %.not41, label %._crit_edge54, label %.lr.ph53
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.026.052, i64 8
+  %.not42 = icmp eq ptr %60, %54
+  br i1 %.not42, label %._crit_edge55, label %.lr.ph54
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -609,7 +610,8 @@ define hidden void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind noa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %10 = load i64, ptr %9, align 8, !tbaa !61, !noalias !73
-  %11 = getelementptr inbounds nuw %"struct.ade::util::Span", ptr %4, i64 %10
+  %.idx.i = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %.not8.i.i = icmp eq i64 %10, 0
   br i1 %.not8.i.i, label %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit, label %.lr.ph.i.i
 
@@ -865,7 +867,8 @@ define hidden void @_ZNK3ade20MemoryDescriptorView4sizeEv(ptr dead_on_unwind noa
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load i64, ptr %5, align 8, !tbaa !61, !noalias !80
   store i64 %6, ptr %4, align 8, !tbaa !83, !alias.scope !80
-  %7 = getelementptr inbounds nuw %"struct.ade::util::Span", ptr %3, i64 %6
+  %.idx.i = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   %.not8.i.i = icmp eq i64 %6, 0
   br i1 %.not8.i.i, label %_ZNK3ade4util9DynMdSpanILm6EE4sizeEv.exit, label %.lr.ph.i.i
 
@@ -1072,7 +1075,8 @@ _ZN3ade20MemoryDescriptorView13getDescriptorEv.exit: ; preds = %tailrecurse.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %11 = load i64, ptr %10, align 8, !tbaa !61, !noalias !98
-  %12 = getelementptr inbounds nuw %"struct.ade::util::Span", ptr %6, i64 %11
+  %.idx.i = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not8.i.i = icmp eq i64 %11, 0
   br i1 %.not8.i.i, label %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit, label %.lr.ph.i.i
 

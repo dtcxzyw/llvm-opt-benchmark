@@ -1940,7 +1940,8 @@ _ZN8simdjson8internalL30detect_supported_architecturesEv.exit: ; preds = %27, %1
 _ZN8simdjson8internalL37get_available_implementation_pointersEv.exit: ; preds = %47, %45, %_ZN8simdjson8internalL30detect_supported_architecturesEv.exit
   %49 = load ptr, ptr @_ZZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers, align 8, !tbaa !57
   %50 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8simdjson8internalL37get_available_implementation_pointersEvE33available_implementation_pointers, i64 8), align 8, !tbaa !61
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %.idx = shl nuw nsw i64 %50, 3
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx
   %.not24 = icmp eq i64 %50, 0
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 

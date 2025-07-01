@@ -8104,7 +8104,8 @@ define dso_local noundef i64 @_ZNK5caffe15BlobProtoVector12ByteSizeLongEv(ptr no
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not17 = icmp eq i32 %3, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -14627,7 +14628,8 @@ define dso_local noundef i64 @_ZNK5caffe12NetParameter12ByteSizeLongEv(ptr nound
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not6771 = icmp eq i32 %3, 0
   br i1 %.not6771, label %._crit_edge, label %.lr.ph
 
@@ -14682,7 +14684,8 @@ define dso_local noundef i64 @_ZNK5caffe12NetParameter12ByteSizeLongEv(ptr nound
   %.not.i.i47 = icmp eq ptr %41, null
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %spec.select.i.i48 = select i1 %.not.i.i47, ptr null, ptr %42
-  %43 = getelementptr inbounds ptr, ptr %spec.select.i.i48, i64 %36
+  %.idx94 = shl nsw i64 %36, 3
+  %43 = getelementptr inbounds i8, ptr %spec.select.i.i48, i64 %.idx94
   %.not6880 = icmp eq i32 %35, 0
   br i1 %.not6880, label %._crit_edge85, label %.lr.ph84
 
@@ -14719,7 +14722,8 @@ define dso_local noundef i64 @_ZNK5caffe12NetParameter12ByteSizeLongEv(ptr nound
   %.not.i.i51 = icmp eq ptr %65, null
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %spec.select.i.i52 = select i1 %.not.i.i51, ptr null, ptr %66
-  %67 = getelementptr inbounds ptr, ptr %spec.select.i.i52, i64 %61
+  %.idx95 = shl nsw i64 %61, 3
+  %67 = getelementptr inbounds i8, ptr %spec.select.i.i52, i64 %.idx95
   %.not6987 = icmp eq i32 %60, 0
   br i1 %.not6987, label %._crit_edge92, label %.lr.ph91
 
@@ -21724,7 +21728,8 @@ define dso_local noundef i64 @_ZNK5caffe15SolverParameter12ByteSizeLongEv(ptr no
   %.not.i.i = icmp eq ptr %21, null
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %22
-  %23 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %15
+  %.idx = shl nsw i64 %15, 3
+  %23 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not183199 = icmp eq i32 %14, 0
   br i1 %.not183199, label %._crit_edge204, label %.lr.ph203
 
@@ -21761,7 +21766,8 @@ define dso_local noundef i64 @_ZNK5caffe15SolverParameter12ByteSizeLongEv(ptr no
   %.not.i.i153 = icmp eq ptr %45, null
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %spec.select.i.i154 = select i1 %.not.i.i153, ptr null, ptr %46
-  %47 = getelementptr inbounds ptr, ptr %spec.select.i.i154, i64 %41
+  %.idx213 = shl nsw i64 %41, 3
+  %47 = getelementptr inbounds i8, ptr %spec.select.i.i154, i64 %.idx213
   %.not184206 = icmp eq i32 %40, 0
   br i1 %.not184206, label %._crit_edge211, label %.lr.ph210
 
@@ -25136,7 +25142,8 @@ define dso_local noundef i64 @_ZNK5caffe11SolverState12ByteSizeLongEv(ptr nounde
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not2831 = icmp eq i32 %3, 0
   br i1 %.not2831, label %._crit_edge, label %.lr.ph
 
@@ -57607,14 +57614,15 @@ define dso_local noundef i64 @_ZNK5caffe14LayerParameter12ByteSizeLongEv(ptr nou
   %.not.i.i = icmp eq ptr %43, null
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %44
-  %45 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %40
+  %.idx = shl nsw i64 %40, 3
+  %45 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not622635 = icmp eq i32 %39, 0
   br i1 %.not622635, label %._crit_edge640, label %.lr.ph639
 
 46:                                               ; preds = %.lr.ph632, %46
-  %indvars.iv669 = phi i64 [ 0, %.lr.ph632 ], [ %indvars.iv.next670, %46 ]
+  %indvars.iv672 = phi i64 [ 0, %.lr.ph632 ], [ %indvars.iv.next673, %46 ]
   %.1630 = phi i64 [ %12, %.lr.ph632 ], [ %60, %46 ]
-  %47 = getelementptr inbounds nuw [1 x ptr], ptr %16, i64 0, i64 %indvars.iv669
+  %47 = getelementptr inbounds nuw [1 x ptr], ptr %16, i64 0, i64 %indvars.iv672
   %48 = load ptr, ptr %47, align 8, !tbaa !483
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !91
@@ -57628,9 +57636,9 @@ define dso_local noundef i64 @_ZNK5caffe14LayerParameter12ByteSizeLongEv(ptr nou
   %58 = zext nneg i32 %57 to i64
   %59 = add i64 %50, %.1630
   %60 = add i64 %59, %58
-  %indvars.iv.next670 = add nuw nsw i64 %indvars.iv669, 1
-  %exitcond673.not = icmp eq i64 %indvars.iv.next670, %11
-  br i1 %exitcond673.not, label %._crit_edge633, label %46, !llvm.loop !666
+  %indvars.iv.next673 = add nuw nsw i64 %indvars.iv672, 1
+  %exitcond676.not = icmp eq i64 %indvars.iv.next673, %11
+  br i1 %exitcond676.not, label %._crit_edge633, label %46, !llvm.loop !666
 
 ._crit_edge640:                                   ; preds = %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN5caffe9ParamSpecEEEmRKT_.exit, %._crit_edge633
   %.2.lcssa = phi i64 [ %41, %._crit_edge633 ], [ %129, %_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN5caffe9ParamSpecEEEmRKT_.exit ]
@@ -57643,7 +57651,8 @@ define dso_local noundef i64 @_ZNK5caffe14LayerParameter12ByteSizeLongEv(ptr nou
   %.not.i.i254 = icmp eq ptr %66, null
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %spec.select.i.i255 = select i1 %.not.i.i254, ptr null, ptr %67
-  %68 = getelementptr inbounds ptr, ptr %spec.select.i.i255, i64 %63
+  %.idx663 = shl nsw i64 %63, 3
+  %68 = getelementptr inbounds i8, ptr %spec.select.i.i255, i64 %.idx663
   %.not623642 = icmp eq i32 %62, 0
   br i1 %.not623642, label %._crit_edge647, label %.lr.ph646
 
@@ -57767,7 +57776,8 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN5caffe9ParamSpecEEEmR
   %.not.i.i260 = icmp eq ptr %136, null
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %spec.select.i.i261 = select i1 %.not.i.i260, ptr null, ptr %137
-  %138 = getelementptr inbounds ptr, ptr %spec.select.i.i261, i64 %133
+  %.idx664 = shl nsw i64 %133, 3
+  %138 = getelementptr inbounds i8, ptr %spec.select.i.i261, i64 %.idx664
   %.not624649 = icmp eq i32 %132, 0
   br i1 %.not624649, label %._crit_edge654, label %.lr.ph653
 
@@ -57801,7 +57811,8 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN5caffe9ParamSpecEEEmR
   %.not.i.i264 = icmp eq ptr %157, null
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %spec.select.i.i265 = select i1 %.not.i.i264, ptr null, ptr %158
-  %159 = getelementptr inbounds ptr, ptr %spec.select.i.i265, i64 %154
+  %.idx665 = shl nsw i64 %154, 3
+  %159 = getelementptr inbounds i8, ptr %spec.select.i.i265, i64 %.idx665
   %.not625656 = icmp eq i32 %153, 0
   br i1 %.not625656, label %._crit_edge661, label %.lr.ph660
 
@@ -104937,7 +104948,8 @@ define dso_local noundef i64 @_ZNK5caffe18DummyDataParameter12ByteSizeLongEv(ptr
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not44 = icmp eq i32 %3, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph
 
@@ -104976,7 +104988,8 @@ define dso_local noundef i64 @_ZNK5caffe18DummyDataParameter12ByteSizeLongEv(ptr
   %.not.i.i30 = icmp eq ptr %38, null
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %spec.select.i.i31 = select i1 %.not.i.i30, ptr null, ptr %39
-  %40 = getelementptr inbounds ptr, ptr %spec.select.i.i31, i64 %27
+  %.idx54 = shl nsw i64 %27, 3
+  %40 = getelementptr inbounds i8, ptr %spec.select.i.i31, i64 %.idx54
   %.not4247 = icmp eq i32 %26, 0
   br i1 %.not4247, label %._crit_edge52, label %.lr.ph51
 
@@ -118027,7 +118040,8 @@ define dso_local noundef i64 @_ZNK5caffe14InputParameter12ByteSizeLongEv(ptr nou
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not18 = icmp eq i32 %3, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -168023,14 +168037,15 @@ define dso_local noundef i64 @_ZNK5caffe16V1LayerParameter12ByteSizeLongEv(ptr n
   %.not.i.i = icmp eq ptr %37, null
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %38
-  %39 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %34
+  %.idx = shl nsw i64 %34, 3
+  %39 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not363377 = icmp eq i32 %33, 0
   br i1 %.not363377, label %._crit_edge382, label %.lr.ph381
 
 40:                                               ; preds = %.lr.ph374, %40
-  %indvars.iv418 = phi i64 [ 0, %.lr.ph374 ], [ %indvars.iv.next419, %40 ]
+  %indvars.iv420 = phi i64 [ 0, %.lr.ph374 ], [ %indvars.iv.next421, %40 ]
   %.1372 = phi i64 [ %12, %.lr.ph374 ], [ %54, %40 ]
-  %41 = getelementptr inbounds nuw [1 x ptr], ptr %16, i64 0, i64 %indvars.iv418
+  %41 = getelementptr inbounds nuw [1 x ptr], ptr %16, i64 0, i64 %indvars.iv420
   %42 = load ptr, ptr %41, align 8, !tbaa !483
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !91
@@ -168044,9 +168059,9 @@ define dso_local noundef i64 @_ZNK5caffe16V1LayerParameter12ByteSizeLongEv(ptr n
   %52 = zext nneg i32 %51 to i64
   %53 = add i64 %44, %.1372
   %54 = add i64 %53, %52
-  %indvars.iv.next419 = add nuw nsw i64 %indvars.iv418, 1
-  %exitcond422.not = icmp eq i64 %indvars.iv.next419, %11
-  br i1 %exitcond422.not, label %._crit_edge375, label %40, !llvm.loop !898
+  %indvars.iv.next421 = add nuw nsw i64 %indvars.iv420, 1
+  %exitcond424.not = icmp eq i64 %indvars.iv.next421, %11
+  br i1 %exitcond424.not, label %._crit_edge375, label %40, !llvm.loop !898
 
 ._crit_edge382:                                   ; preds = %.lr.ph381, %._crit_edge375
   %.2.lcssa = phi i64 [ %35, %._crit_edge375 ], [ %84, %.lr.ph381 ]
@@ -168071,7 +168086,8 @@ define dso_local noundef i64 @_ZNK5caffe16V1LayerParameter12ByteSizeLongEv(ptr n
   %.not.i.i173 = icmp eq ptr %70, null
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %spec.select.i.i174 = select i1 %.not.i.i173, ptr null, ptr %71
-  %72 = getelementptr inbounds ptr, ptr %spec.select.i.i174, i64 %63
+  %.idx410 = shl nsw i64 %63, 3
+  %72 = getelementptr inbounds i8, ptr %spec.select.i.i174, i64 %.idx410
   %.not364384 = icmp eq i32 %62, 0
   br i1 %.not364384, label %._crit_edge389, label %.lr.ph388
 
@@ -168106,7 +168122,8 @@ define dso_local noundef i64 @_ZNK5caffe16V1LayerParameter12ByteSizeLongEv(ptr n
   %.not.i.i177 = icmp eq ptr %92, null
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %spec.select.i.i178 = select i1 %.not.i.i177, ptr null, ptr %93
-  %94 = getelementptr inbounds ptr, ptr %spec.select.i.i178, i64 %88
+  %.idx411 = shl nsw i64 %88, 3
+  %94 = getelementptr inbounds i8, ptr %spec.select.i.i178, i64 %.idx411
   %.not365391 = icmp eq i32 %87, 0
   br i1 %.not365391, label %._crit_edge396, label %.lr.ph395
 
@@ -168174,8 +168191,8 @@ define dso_local noundef i64 @_ZNK5caffe16V1LayerParameter12ByteSizeLongEv(ptr n
   %.5.lcssa = phi i64 [ %116, %._crit_edge396 ], [ %152, %138 ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %135 = load i32, ptr %134, align 8, !tbaa !518
-  %.not410 = icmp eq i32 %135, 0
-  br i1 %.not410, label %._crit_edge408, label %.lr.ph407
+  %.not412 = icmp eq i32 %135, 0
+  br i1 %.not412, label %._crit_edge408, label %.lr.ph407
 
 .lr.ph407:                                        ; preds = %._crit_edge402
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -168183,9 +168200,9 @@ define dso_local noundef i64 @_ZNK5caffe16V1LayerParameter12ByteSizeLongEv(ptr n
   br label %160
 
 138:                                              ; preds = %.lr.ph401, %138
-  %indvars.iv423 = phi i64 [ 0, %.lr.ph401 ], [ %indvars.iv.next424, %138 ]
+  %indvars.iv425 = phi i64 [ 0, %.lr.ph401 ], [ %indvars.iv.next426, %138 ]
   %.5399 = phi i64 [ %116, %.lr.ph401 ], [ %152, %138 ]
-  %139 = getelementptr inbounds nuw [1 x ptr], ptr %120, i64 0, i64 %indvars.iv423
+  %139 = getelementptr inbounds nuw [1 x ptr], ptr %120, i64 0, i64 %indvars.iv425
   %140 = load ptr, ptr %139, align 8, !tbaa !483
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load i64, ptr %141, align 8, !tbaa !91
@@ -168199,9 +168216,9 @@ define dso_local noundef i64 @_ZNK5caffe16V1LayerParameter12ByteSizeLongEv(ptr n
   %150 = zext nneg i32 %149 to i64
   %151 = add i64 %142, %.5399
   %152 = add i64 %151, %150
-  %indvars.iv.next424 = add nuw nsw i64 %indvars.iv423, 1
-  %exitcond427.not = icmp eq i64 %indvars.iv.next424, %114
-  br i1 %exitcond427.not, label %._crit_edge402, label %138, !llvm.loop !899
+  %indvars.iv.next426 = add nuw nsw i64 %indvars.iv425, 1
+  %exitcond429.not = icmp eq i64 %indvars.iv.next426, %114
+  br i1 %exitcond429.not, label %._crit_edge402, label %138, !llvm.loop !899
 
 ._crit_edge408:                                   ; preds = %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit, %._crit_edge402
   %.0130.lcssa = phi i64 [ 0, %._crit_edge402 ], [ %173, %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit ]
@@ -168238,8 +168255,8 @@ _ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit: ; preds = %160, %1
   %.0.i.i = phi i64 [ %172, %165 ], [ 10, %160 ]
   %173 = add i64 %.0.i.i, %.0130404
   %174 = add nuw i32 %.0128405, 1
-  %exitcond428.not = icmp eq i32 %174, %135
-  br i1 %exitcond428.not, label %._crit_edge408, label %160, !llvm.loop !900
+  %exitcond430.not = icmp eq i32 %174, %135
+  br i1 %exitcond430.not, label %._crit_edge408, label %160, !llvm.loop !900
 
 175:                                              ; preds = %._crit_edge408
   %176 = and i32 %158, 1
@@ -179206,7 +179223,8 @@ define dso_local noundef i64 @_ZNK5caffe16V0LayerParameter12ByteSizeLongEv(ptr n
   %.not.i.i = icmp eq ptr %7, null
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %8
-  %9 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %9 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not154172 = icmp eq i32 %3, 0
   br i1 %.not154172, label %._crit_edge, label %.lr.ph
 

@@ -984,7 +984,8 @@ _ZN12regex_syntax3hir12ClassUnicode5empty17h26d5991a0702163dE.exit: ; preds = %4
   %.val13 = load i64, ptr %60, align 8, !noundef !5
   %61 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %.sroa.0.0.copyload.i.i = load i48, ptr %61, align 1, !noalias !194
-  %62 = getelementptr inbounds { { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] }, ptr %.val12, i64 %.val13
+  %.idx.i.i = mul nsw i64 %.val13, 56
+  %62 = getelementptr inbounds i8, ptr %.val12, i64 %.idx.i.i
   %63 = icmp eq i64 %.val13, 0
   br i1 %63, label %.thread137.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h046fea223349a6f1E.exit.i.i"
 
@@ -1419,7 +1420,8 @@ _ZN12regex_syntax3hir10Properties5empty17heee6dc2d9f67e22bE.exit: ; preds = %143
   %.val230 = load i64, ptr %151, align 8, !noundef !5
   %152 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %.sroa.0.0.copyload.i.i = load i48, ptr %152, align 8, !noalias !207
-  %153 = getelementptr inbounds { { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] }, ptr %.val229, i64 %.val230
+  %.idx.i.i = mul nsw i64 %.val230, 56
+  %153 = getelementptr inbounds i8, ptr %.val229, i64 %.idx.i.i
   %154 = icmp eq i64 %.val230, 0
   br i1 %154, label %.thread137.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h046fea223349a6f1E.exit.i.i"
 

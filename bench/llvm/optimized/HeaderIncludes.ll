@@ -1175,7 +1175,8 @@ _ZN5clang7tooling12_GLOBAL__N_137getOffsetAfterHeaderGuardsAndCommentsEN4llvm9St
   %118 = load ptr, ptr %16, align 8, !tbaa !15
   %119 = load i32, ptr %107, align 8, !tbaa !18
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %118, i64 %120
+  %.idx = shl nuw nsw i64 %120, 4
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 %.idx
   %.not109 = icmp eq i32 %119, 0
   br i1 %.not109, label %._crit_edge114, label %.lr.ph113
 
@@ -2019,7 +2020,8 @@ _ZNKSt13unordered_mapIiN4llvm11SmallVectorIPKN5clang7tooling14HeaderIncludes7Inc
   %156 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i53, i64 24
   %157 = load i32, ptr %156, align 8, !tbaa !18
   %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds nuw ptr, ptr %155, i64 %158
+  %.idx = shl nuw nsw i64 %158, 3
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 %.idx
   %.not120 = icmp eq i32 %157, 0
   br i1 %.not120, label %_ZNKSt13unordered_mapIiN4llvm11SmallVectorIPKN5clang7tooling14HeaderIncludes7IncludeELj8EEESt4hashIiESt8equal_toIiESaISt4pairIKiS8_EEE4findERSE_.exit.thread, label %.lr.ph122
 
@@ -4743,7 +4745,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4
   %15 = load ptr, ptr %0, align 8, !tbaa !15
   %16 = load i32, ptr %7, align 8, !tbaa !18
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::Regex", ptr %15, i64 %17
+  %.idx.i = shl nuw nsw i64 %17, 4
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %16, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_5RegexELb0EE19moveElementsForGrowEPS1_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -4758,13 +4761,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4
 
 _ZN4llvm23SmallVectorTemplateBaseINS_5RegexELb0EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !15
-  %.pre2.i = load i32, ptr %7, align 8, !tbaa !18
-  %.not4.i.i = icmp eq i32 %.pre2.i, 0
+  %.pre3.i = load i32, ptr %7, align 8, !tbaa !18
+  %.not4.i.i = icmp eq i32 %.pre3.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_5RegexELb0EE19moveElementsForGrowEPS1_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_5RegexELb0EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i
-  %21 = zext i32 %.pre2.i to i64
-  %22 = getelementptr inbounds nuw %"class.llvm::Regex", ptr %.pre.i, i64 %21
+  %21 = zext i32 %.pre3.i to i64
+  %.idx2.i = shl nuw nsw i64 %21, 4
+  %22 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i

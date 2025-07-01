@@ -28609,7 +28609,8 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   %.val754 = load ptr, ptr %1169, align 8, !nonnull !4, !noundef !4
   %1170 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.val755 = load i64, ptr %1170, align 8, !noundef !4
-  %1171 = getelementptr inbounds { { i64, [15 x i64] }, { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } }, i8, i8, [6 x i8] }, ptr %.val754, i64 %.val755
+  %.idx = mul nsw i64 %.val755, 208
+  %1171 = getelementptr inbounds i8, ptr %.val754, i64 %.idx
   %1172 = icmp eq i64 %.val755, 0
   br i1 %1172, label %._crit_edge, label %.lr.ph
 

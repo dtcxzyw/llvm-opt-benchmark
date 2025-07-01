@@ -8431,7 +8431,8 @@ common.ret:                                       ; preds = %750, %753
   %.sroa.5355.0.copyload.i = load ptr, ptr %.sroa.5355.0..sroa_idx.i, align 8, !noalias !1965, !nonnull !4, !noundef !4
   %.sroa.6356.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 328
   %.sroa.6356.0.copyload.i = load i64, ptr %.sroa.6356.0..sroa_idx.i, align 8, !noalias !1965
-  %313 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { ptr, i64 } }, {}, {} }, i8, [7 x i8] }, ptr %.sroa.5355.0.copyload.i, i64 %.sroa.6356.0.copyload.i
+  %.idx.i = mul nsw i64 %.sroa.6356.0.copyload.i, 48
+  %313 = getelementptr inbounds i8, ptr %.sroa.5355.0.copyload.i, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29), !noalias !1965
   store ptr %.sroa.5355.0.copyload.i, ptr %29, align 8, !noalias !1965
   %.sroa.5351.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -12321,7 +12322,8 @@ common.ret:                                       ; preds = %820, %823
   %.sroa.5370.0.copyload.i = load ptr, ptr %.sroa.5370.0..sroa_idx.i, align 8, !noalias !3182, !nonnull !4, !noundef !4
   %.sroa.6371.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 328
   %.sroa.6371.0.copyload.i = load i64, ptr %.sroa.6371.0..sroa_idx.i, align 8, !noalias !3182
-  %337 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { ptr, i64 } }, {}, {} }, i8, [7 x i8] }, ptr %.sroa.5370.0.copyload.i, i64 %.sroa.6371.0.copyload.i
+  %.idx.i = mul nsw i64 %.sroa.6371.0.copyload.i, 48
+  %337 = getelementptr inbounds i8, ptr %.sroa.5370.0.copyload.i, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34), !noalias !3182
   store ptr %.sroa.5370.0.copyload.i, ptr %34, align 8, !noalias !3182
   %.sroa.5366.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 8

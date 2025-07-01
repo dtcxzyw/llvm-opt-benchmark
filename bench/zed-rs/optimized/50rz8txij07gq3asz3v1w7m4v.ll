@@ -5803,7 +5803,8 @@ _ZN3std7process7Command3new17h3f8640f901fc3ffeE.exit: ; preds = %82
   %94 = load ptr, ptr %93, align 8, !alias.scope !1109, !noalias !1112, !nonnull !4, !noundef !4
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %96 = load i64, ptr %95, align 8, !alias.scope !1109, !noalias !1112, !noundef !4
-  %97 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %94, i64 %96
+  %.idx.i = mul nsw i64 %96, 24
+  %97 = getelementptr inbounds i8, ptr %94, i64 %.idx.i
   %98 = icmp eq i64 %96, 0
   br i1 %98, label %_ZN3std7process7Command4args17h0566c44a6e075e3bE.exit, label %.lr.ph.i
 

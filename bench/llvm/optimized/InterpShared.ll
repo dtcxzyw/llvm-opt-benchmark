@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage" = type { [48 x i8] }
-%"class.clang::ParamIdx" = type { i32 }
 
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
@@ -181,28 +180,28 @@ _ZNK5clang22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4Att
   %80 = load ptr, ptr %0, align 8, !tbaa !3
   %81 = load i32, ptr %5, align 8, !tbaa !9
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw i64, ptr %80, i64 %82
   %.not5.i.i.i.i.i = icmp eq i32 %81, 0
   br i1 %.not5.i.i.i.i.i, label %_ZN4llvm9BitVector10init_wordsEb.exit.i, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %79
-  %84 = shl nuw nsw i64 %82, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %80, i8 -1, i64 %84, i1 false), !tbaa !23
+  %83 = shl nuw nsw i64 %82, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %80, i8 -1, i64 %83, i1 false), !tbaa !23
   br label %_ZN4llvm9BitVector10init_wordsEb.exit.i
 
 _ZN4llvm9BitVector10init_wordsEb.exit.i:          ; preds = %.lr.ph.i.i.i.i.preheader.i, %79
-  %85 = load i32, ptr %7, align 8, !tbaa !11
-  %86 = and i32 %85, 63
-  %.not.i.i.i32 = icmp eq i32 %86, 0
-  br i1 %.not.i.i.i32, label %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.thread, label %87
+  %84 = load i32, ptr %7, align 8, !tbaa !11
+  %85 = and i32 %84, 63
+  %.not.i.i.i32 = icmp eq i32 %85, 0
+  br i1 %.not.i.i.i32, label %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.thread, label %86
 
-87:                                               ; preds = %_ZN4llvm9BitVector10init_wordsEb.exit.i
-  %88 = zext nneg i32 %86 to i64
-  %89 = shl nsw i64 -1, %88
-  %90 = xor i64 %89, -1
-  %91 = getelementptr inbounds i8, ptr %83, i64 -8
+86:                                               ; preds = %_ZN4llvm9BitVector10init_wordsEb.exit.i
+  %87 = zext nneg i32 %85 to i64
+  %88 = shl nsw i64 -1, %87
+  %89 = xor i64 %88, -1
+  %90 = getelementptr inbounds nuw i64, ptr %80, i64 %82
+  %91 = getelementptr inbounds i8, ptr %90, i64 -8
   %92 = load i64, ptr %91, align 8, !tbaa !23
-  %93 = and i64 %92, %90
+  %93 = and i64 %92, %89
   store i64 %93, ptr %91, align 8, !tbaa !23
   br label %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.thread
 
@@ -210,7 +209,8 @@ _ZN4llvm9BitVector10init_wordsEb.exit.i:          ; preds = %.lr.ph.i.i.i.i.preh
   %94 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %95 = load ptr, ptr %94, align 8, !tbaa !39
   %96 = zext i32 %78 to i64
-  %97 = getelementptr inbounds nuw %"class.clang::ParamIdx", ptr %95, i64 %96
+  %.idx = shl nuw nsw i64 %96, 2
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx
   %98 = load ptr, ptr %0, align 8
   br label %99
 
@@ -248,7 +248,7 @@ _ZN4llvm9BitVector3setEv.exit:                    ; preds = %117
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.038.1, i64 8
   br label %50
 
-_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.thread: ; preds = %58, %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit, %63, %56, %_ZN4llvm9BitVector10init_wordsEb.exit.i, %87, %3
+_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.thread: ; preds = %58, %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit, %63, %56, %_ZN4llvm9BitVector10init_wordsEb.exit.i, %86, %3
   ret void
 }
 

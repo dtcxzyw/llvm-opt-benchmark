@@ -293,7 +293,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang8comments16ParagraphComment19isWh
   %3 = load ptr, ptr %2, align 8, !tbaa !10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa !17
-  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not16 = icmp eq i64 %5, 0
   br i1 %.not16, label %.critedge, label %.lr.ph
 

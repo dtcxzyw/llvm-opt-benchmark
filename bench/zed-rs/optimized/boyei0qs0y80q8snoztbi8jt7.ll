@@ -2060,7 +2060,8 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.1153853593753490015
   br label %89
 
 89:                                               ; preds = %88, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit5
-  %90 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %47, i64 %49
+  %.idx.i.i = mul nsw i64 %49, 24
+  %90 = getelementptr inbounds i8, ptr %47, i64 %.idx.i.i
   br i1 %50, label %"_ZN80_$LT$live_kit_server..proto..StreamOutput$u20$as$u20$prost..message..Message$GT$10encode_raw17hf9c401867d511e1dE.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %89, %.lr.ph.i.i

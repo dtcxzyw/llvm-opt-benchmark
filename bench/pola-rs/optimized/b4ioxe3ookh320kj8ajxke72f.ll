@@ -28673,7 +28673,8 @@ define void @_ZN14polars_parquet7parquet8metadata17schema_descriptor16SchemaDesc
   %11 = load ptr, ptr %10, align 8, !nonnull !12, !noundef !12
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !12
-  %14 = getelementptr inbounds nuw { i64, [12 x i64] }, ptr %11, i64 %13
+  %.idx = mul nuw nsw i64 %13, 104
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %15 = icmp eq i64 %13, 0
   br i1 %15, label %._crit_edge, label %.lr.ph
 
@@ -29168,7 +29169,8 @@ default.unreachable48:                            ; preds = %36
   %49 = load ptr, ptr %48, align 8, !nonnull !12, !noundef !12
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load i64, ptr %50, align 8, !noundef !12
-  %52 = getelementptr inbounds nuw { i64, [12 x i64] }, ptr %49, i64 %51
+  %.idx = mul nuw nsw i64 %51, 104
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx
   %53 = icmp eq i64 %51, 0
   br i1 %53, label %._crit_edge, label %.lr.ph
 

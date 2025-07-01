@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.zend_get_gc_buffer = type { ptr, ptr, ptr }
 %struct._zend_call_stack = type { ptr, i64 }
 %struct._zend_strtod_state = type { [8 x ptr], ptr, ptr }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @.str = private unnamed_addr constant [6 x i8] c"xmlns\00", align 1
 @zend_empty_string = external local_unnamed_addr global ptr, align 8
@@ -5742,7 +5741,8 @@ zend_hash_find_deref.exit:                        ; preds = %53
   %100 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %101 = load i32, ptr %100, align 8, !tbaa !137
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %struct._Bucket, ptr %99, i64 %102
+  %.idx = shl nuw nsw i64 %102, 5
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx
   %.not151181 = icmp eq i32 %101, 0
   br i1 %.not151181, label %zend_hash_str_find_deref.exit, label %.lr.ph
 

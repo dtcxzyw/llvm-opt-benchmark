@@ -6174,7 +6174,7 @@ _ZNSt15__new_allocatorIN5Eigen6MatrixIdLi4ELi1ELi0ELi4ELi1EEEE8allocateEmPKv.exi
           to label %.noexc328 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit489.thread
 
 .noexc328:                                        ; preds = %130
-  %134 = getelementptr double, ptr %133, i64 %101
+  %134 = getelementptr inbounds nuw double, ptr %133, i64 %101
   store double 0.000000e+00, ptr %133, align 8, !tbaa !40
   %135 = icmp eq i64 %100, 12
   br i1 %135, label %.lr.ph.preheader, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i

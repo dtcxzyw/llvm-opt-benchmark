@@ -15346,7 +15346,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %14, %16
   %18 = load ptr, ptr %0, align 8, !tbaa !441
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !444
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %.idx = shl i64 %20, 3
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %invariant.gep = getelementptr i8, ptr %1, i64 16
   %.not44 = icmp eq i64 %20, 0
   br i1 %.not44, label %._crit_edge.thread, label %.lr.ph
@@ -31543,7 +31544,8 @@ _ZNSt11_Deque_baseIPN4absl13cord_internal7CordRepESaIS3_EE15_M_allocate_mapEm.ex
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIPN4absl13cord_internal7CordRepESaIS3_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIPN4absl13cord_internal7CordRepESaIS3_EE16_M_allocate_nodeEv.exit.i

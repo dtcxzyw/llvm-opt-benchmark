@@ -950,7 +950,8 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.._crit_edge_crit_edge: 
   br label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.thread, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %1
+  %.idx14.pn = shl nuw nsw i64 %1, 3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx14.pn
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.._crit_edge_crit_edge
@@ -1137,7 +1138,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm7memprof18hasSingleAllocTypeEh(i8 n
 define dso_local void @_ZN4llvm7memprof13CallStackTrie12addCallStackENS_14AllocationTypeENS_8ArrayRefImEESt6vectorINS_16ContextTotalSizeESaIS6_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i8 noundef zeroext %1, ptr readonly captures(address) %2, i64 %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #1 align 2 {
 .lr.ph:
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not39 = icmp ne i64 %3, 0
   tail call void @llvm.assume(i1 %.not39)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1436,7 +1438,8 @@ _ZNSt6vectorImSaImEE7reserveEm.exit:              ; preds = %_ZNK4llvm6MDNode14g
 _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %32, %38
   %.sroa.3.0.i.i = phi i64 [ %44, %38 ], [ %37, %32 ]
   %.sroa.0.0.i.i = phi ptr [ %42, %38 ], [ %34, %32 ]
-  %45 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i, i64 %.sroa.3.0.i.i
+  %.idx = shl nuw nsw i64 %.sroa.3.0.i.i, 3
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %.idx
   %.not100 = icmp eq i64 %.sroa.3.0.i.i, 0
   br i1 %.not100, label %._crit_edge, label %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit
 
@@ -2309,7 +2312,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %36, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %37 = getelementptr inbounds nuw %"struct.llvm::ContextTotalSize", ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %39
 
@@ -3540,7 +3544,7 @@ define linkonce_odr void @_ZNSt6vectorIN4llvm16ContextTotalSizeESaIS1_EE15_M_ran
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %.not = icmp ult i64 %16, %8
-  br i1 %.not, label %43, label %17
+  br i1 %.not, label %42, label %17
 
 17:                                               ; preds = %5
   %18 = ptrtoint ptr %1 to i64
@@ -3550,132 +3554,132 @@ define linkonce_odr void @_ZNSt6vectorIN4llvm16ContextTotalSizeESaIS1_EE15_M_ran
   br i1 %21, label %_ZSt22__uninitialized_move_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
 
 _ZSt22__uninitialized_move_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %17
-  %22 = sub nsw i64 0, %9
-  %23 = getelementptr inbounds %"struct.llvm::ContextTotalSize", ptr %13, i64 %22
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr align 8 %23, i64 %8, i1 false)
-  %24 = load ptr, ptr %12, align 8, !tbaa !143
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %8
-  store ptr %25, ptr %12, align 8, !tbaa !143
-  %.not.i.i.i.i.i = icmp eq ptr %23, %1
-  br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPN4llvm16ContextTotalSizeES2_ET0_T_S4_S3_.exit, label %26
+  %.idx = sub i64 0, %8
+  %22 = getelementptr inbounds i8, ptr %13, i64 %.idx
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %22, i64 %8, i1 false)
+  %23 = load ptr, ptr %12, align 8, !tbaa !143
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %8
+  store ptr %24, ptr %12, align 8, !tbaa !143
+  %.not.i.i.i.i.i = icmp eq ptr %22, %1
+  br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPN4llvm16ContextTotalSizeES2_ET0_T_S4_S3_.exit, label %25
 
-26:                                               ; preds = %_ZSt22__uninitialized_move_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %27 = ptrtoint ptr %23 to i64
-  %28 = sub i64 %27, %18
-  %29 = ashr exact i64 %28, 4
-  %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds %"struct.llvm::ContextTotalSize", ptr %13, i64 %30
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %31, ptr align 8 %1, i64 %28, i1 false)
+25:                                               ; preds = %_ZSt22__uninitialized_move_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit
+  %26 = ptrtoint ptr %22 to i64
+  %27 = sub i64 %26, %18
+  %28 = ashr exact i64 %27, 4
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds %"struct.llvm::ContextTotalSize", ptr %13, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPN4llvm16ContextTotalSizeES2_ET0_T_S4_S3_.exit
 
-_ZSt13move_backwardIPN4llvm16ContextTotalSizeES2_ET0_T_S4_S3_.exit: ; preds = %26, %_ZSt22__uninitialized_move_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit
+_ZSt13move_backwardIPN4llvm16ContextTotalSizeES2_ET0_T_S4_S3_.exit: ; preds = %25, %_ZSt22__uninitialized_move_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %2, i64 %8, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %17
-  %32 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %32
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit, label %33
+  %31 = getelementptr inbounds i8, ptr %2, i64 %19
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, %31
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit, label %32
 
-33:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
-  %34 = ptrtoint ptr %32 to i64
-  %35 = sub i64 %6, %34
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr align 8 %32, i64 %35, i1 false)
+32:                                               ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
+  %33 = ptrtoint ptr %31 to i64
+  %34 = sub i64 %6, %33
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr align 8 %31, i64 %34, i1 false)
   %.pre = load ptr, ptr %12, align 8, !tbaa !143
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit
 
-_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit, %33
-  %36 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ], [ %.pre, %33 ]
-  %37 = sub nuw nsw i64 %9, %20
-  %38 = getelementptr inbounds nuw %"struct.llvm::ContextTotalSize", ptr %36, i64 %37
-  store ptr %38, ptr %12, align 8, !tbaa !143
+_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit, %32
+  %35 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ], [ %.pre, %32 ]
+  %36 = sub nuw nsw i64 %9, %20
+  %37 = getelementptr inbounds nuw %"struct.llvm::ContextTotalSize", ptr %35, i64 %36
+  store ptr %37, ptr %12, align 8, !tbaa !143
   %.not.i.i.i.i.i.i.i.i.i44 = icmp eq ptr %13, %1
-  br i1 %.not.i.i.i.i.i.i.i.i.i44, label %_ZSt22__uninitialized_move_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit45, label %39
+  br i1 %.not.i.i.i.i.i.i.i.i.i44, label %_ZSt22__uninitialized_move_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit45, label %38
 
-39:                                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %1, i64 %19, i1 false)
+38:                                               ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %37, ptr align 8 %1, i64 %19, i1 false)
   %.pre64 = load ptr, ptr %12, align 8, !tbaa !143
   br label %_ZSt22__uninitialized_move_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit45
 
-_ZSt22__uninitialized_move_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit45: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit, %39
-  %40 = phi ptr [ %38, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit ], [ %.pre64, %39 ]
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %19
-  store ptr %41, ptr %12, align 8, !tbaa !143
+_ZSt22__uninitialized_move_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit45: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit, %38
+  %39 = phi ptr [ %37, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit ], [ %.pre64, %38 ]
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %19
+  store ptr %40, ptr %12, align 8, !tbaa !143
   %.not.i.i.i.i.i46 = icmp eq ptr %13, %1
-  br i1 %.not.i.i.i.i.i46, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %42
+  br i1 %.not.i.i.i.i.i46, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %41
 
-42:                                               ; preds = %_ZSt22__uninitialized_move_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit45
+41:                                               ; preds = %_ZSt22__uninitialized_move_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit45
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %2, i64 %19, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
 
-43:                                               ; preds = %5
-  %44 = load ptr, ptr %0, align 8, !tbaa !142
-  %45 = ptrtoint ptr %44 to i64
-  %46 = sub i64 %15, %45
-  %47 = ashr exact i64 %46, 4
-  %48 = sub nsw i64 576460752303423487, %47
-  %49 = icmp ult i64 %48, %9
-  br i1 %49, label %50, label %_ZNKSt6vectorIN4llvm16ContextTotalSizeESaIS1_EE12_M_check_lenEmPKc.exit
+42:                                               ; preds = %5
+  %43 = load ptr, ptr %0, align 8, !tbaa !142
+  %44 = ptrtoint ptr %43 to i64
+  %45 = sub i64 %15, %44
+  %46 = ashr exact i64 %45, 4
+  %47 = sub nsw i64 576460752303423487, %46
+  %48 = icmp ult i64 %47, %9
+  br i1 %48, label %49, label %_ZNKSt6vectorIN4llvm16ContextTotalSizeESaIS1_EE12_M_check_lenEmPKc.exit
 
-50:                                               ; preds = %43
+49:                                               ; preds = %42
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.30) #27
   unreachable
 
-_ZNKSt6vectorIN4llvm16ContextTotalSizeESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %43
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %47, i64 %9)
-  %51 = add nsw i64 %.sroa.speculated.i, %47
-  %52 = icmp ult i64 %51, %47
-  %53 = tail call i64 @llvm.umin.i64(i64 %51, i64 576460752303423487)
-  %54 = select i1 %52, i64 576460752303423487, i64 %53
-  %.not.i = icmp eq i64 %54, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN4llvm16ContextTotalSizeESaIS1_EE11_M_allocateEm.exit, label %55
+_ZNKSt6vectorIN4llvm16ContextTotalSizeESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %42
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %46, i64 %9)
+  %50 = add nsw i64 %.sroa.speculated.i, %46
+  %51 = icmp ult i64 %50, %46
+  %52 = tail call i64 @llvm.umin.i64(i64 %50, i64 576460752303423487)
+  %53 = select i1 %51, i64 576460752303423487, i64 %52
+  %.not.i = icmp eq i64 %53, 0
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN4llvm16ContextTotalSizeESaIS1_EE11_M_allocateEm.exit, label %54
 
-55:                                               ; preds = %_ZNKSt6vectorIN4llvm16ContextTotalSizeESaIS1_EE12_M_check_lenEmPKc.exit
-  %56 = shl nuw nsw i64 %54, 4
-  %57 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %56) #25
+54:                                               ; preds = %_ZNKSt6vectorIN4llvm16ContextTotalSizeESaIS1_EE12_M_check_lenEmPKc.exit
+  %55 = shl nuw nsw i64 %53, 4
+  %56 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %55) #25
   br label %_ZNSt12_Vector_baseIN4llvm16ContextTotalSizeESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN4llvm16ContextTotalSizeESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm16ContextTotalSizeESaIS1_EE12_M_check_lenEmPKc.exit, %55
-  %58 = phi ptr [ %57, %55 ], [ null, %_ZNKSt6vectorIN4llvm16ContextTotalSizeESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %59 = ptrtoint ptr %1 to i64
-  %60 = sub i64 %59, %45
-  %.not.i.i.i.i.i.i.i.i.i48 = icmp eq ptr %1, %44
-  br i1 %.not.i.i.i.i.i.i.i.i.i48, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %61
+_ZNSt12_Vector_baseIN4llvm16ContextTotalSizeESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4llvm16ContextTotalSizeESaIS1_EE12_M_check_lenEmPKc.exit, %54
+  %57 = phi ptr [ %56, %54 ], [ null, %_ZNKSt6vectorIN4llvm16ContextTotalSizeESaIS1_EE12_M_check_lenEmPKc.exit ]
+  %58 = ptrtoint ptr %1 to i64
+  %59 = sub i64 %58, %44
+  %.not.i.i.i.i.i.i.i.i.i48 = icmp eq ptr %1, %43
+  br i1 %.not.i.i.i.i.i.i.i.i.i48, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %60
 
-61:                                               ; preds = %_ZNSt12_Vector_baseIN4llvm16ContextTotalSizeESaIS1_EE11_M_allocateEm.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %58, ptr align 8 %44, i64 %60, i1 false)
+60:                                               ; preds = %_ZNSt12_Vector_baseIN4llvm16ContextTotalSizeESaIS1_EE11_M_allocateEm.exit
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr align 8 %43, i64 %59, i1 false)
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit
 
-_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZNSt12_Vector_baseIN4llvm16ContextTotalSizeESaIS1_EE11_M_allocateEm.exit, %61
-  %62 = getelementptr inbounds i8, ptr %58, i64 %60
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %62, ptr align 8 %2, i64 %8, i1 false)
-  %63 = getelementptr inbounds i8, ptr %62, i64 %8
-  %64 = sub i64 %15, %59
+_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZNSt12_Vector_baseIN4llvm16ContextTotalSizeESaIS1_EE11_M_allocateEm.exit, %60
+  %61 = getelementptr inbounds i8, ptr %57, i64 %59
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %61, ptr align 8 %2, i64 %8, i1 false)
+  %62 = getelementptr inbounds i8, ptr %61, i64 %8
+  %63 = sub i64 %15, %58
   %.not.i.i.i.i.i.i.i.i.i51 = icmp eq ptr %13, %1
-  br i1 %.not.i.i.i.i.i.i.i.i.i51, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit52, label %65
+  br i1 %.not.i.i.i.i.i.i.i.i.i51, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit52, label %64
 
-65:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %63, ptr align 8 %1, i64 %64, i1 false)
+64:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %62, ptr align 8 %1, i64 %63, i1 false)
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit52
 
-_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit52: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %65
-  %66 = getelementptr inbounds i8, ptr %63, i64 %64
-  %.not.i53 = icmp eq ptr %44, null
-  br i1 %.not.i53, label %_ZNSt12_Vector_baseIN4llvm16ContextTotalSizeESaIS1_EE13_M_deallocateEPS1_m.exit, label %67
+_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit52: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %64
+  %65 = getelementptr inbounds i8, ptr %62, i64 %63
+  %.not.i53 = icmp eq ptr %43, null
+  br i1 %.not.i53, label %_ZNSt12_Vector_baseIN4llvm16ContextTotalSizeESaIS1_EE13_M_deallocateEPS1_m.exit, label %66
 
-67:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit52
-  %68 = sub i64 %14, %45
-  tail call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef %68) #26
+66:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit52
+  %67 = sub i64 %14, %44
+  tail call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %67) #26
   br label %_ZNSt12_Vector_baseIN4llvm16ContextTotalSizeESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN4llvm16ContextTotalSizeESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit52, %67
-  store ptr %58, ptr %0, align 8, !tbaa !142
-  store ptr %66, ptr %12, align 8, !tbaa !143
-  %69 = getelementptr inbounds nuw %"struct.llvm::ContextTotalSize", ptr %58, i64 %54
-  store ptr %69, ptr %10, align 8, !tbaa !144
+_ZNSt12_Vector_baseIN4llvm16ContextTotalSizeESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit52, %66
+  store ptr %57, ptr %0, align 8, !tbaa !142
+  store ptr %65, ptr %12, align 8, !tbaa !143
+  %68 = getelementptr inbounds nuw %"struct.llvm::ContextTotalSize", ptr %57, i64 %53
+  store ptr %68, ptr %10, align 8, !tbaa !144
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %42, %_ZSt22__uninitialized_move_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit45, %_ZSt13move_backwardIPN4llvm16ContextTotalSizeES2_ET0_T_S4_S3_.exit, %_ZNSt12_Vector_baseIN4llvm16ContextTotalSizeESaIS1_EE13_M_deallocateEPS1_m.exit, %4
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN4llvm16ContextTotalSizeESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %41, %_ZSt22__uninitialized_move_aIPN4llvm16ContextTotalSizeES2_SaIS1_EET0_T_S5_S4_RT1_.exit45, %_ZSt13move_backwardIPN4llvm16ContextTotalSizeES2_ET0_T_S4_S3_.exit, %_ZNSt12_Vector_baseIN4llvm16ContextTotalSizeESaIS1_EE13_M_deallocateEPS1_m.exit, %4
   ret void
 }
 

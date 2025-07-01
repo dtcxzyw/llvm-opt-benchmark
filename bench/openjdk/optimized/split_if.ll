@@ -922,7 +922,8 @@ _ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit98:    ; preds = %_ZN14PhaseIdealLoop
   %206 = getelementptr inbounds nuw i8, ptr %203, i64 32
   %207 = load i32, ptr %206, align 8
   %208 = zext i32 %207 to i64
-  %209 = getelementptr inbounds nuw ptr, ptr %205, i64 %208
+  %.idx = shl nuw nsw i64 %208, 3
+  %209 = getelementptr inbounds nuw i8, ptr %205, i64 %.idx
   %.not136 = icmp eq i32 %207, 0
   br i1 %.not136, label %.loopexit, label %.lr.ph128
 
@@ -1643,7 +1644,8 @@ _ZN9Node_ListC2Ej.exit:                           ; preds = %100, %102
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %113 = load i32, ptr %112, align 8
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds nuw ptr, ptr %111, i64 %114
+  %.idx = shl nuw nsw i64 %114, 3
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 %.idx
   %.not255 = icmp eq i32 %113, 0
   br i1 %.not255, label %._crit_edge254.thread, label %.lr.ph251
 
@@ -1800,9 +1802,10 @@ _ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit111.thread: ; preds = %
   %201 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %202 = load i32, ptr %201, align 8
   %203 = zext i32 %202 to i64
-  %204 = getelementptr inbounds nuw ptr, ptr %200, i64 %203
-  %.not258 = icmp eq i32 %202, 0
-  br i1 %.not258, label %.loopexit210, label %.lr.ph249
+  %.idx259 = shl nuw nsw i64 %203, 3
+  %204 = getelementptr inbounds nuw i8, ptr %200, i64 %.idx259
+  %.not260 = icmp eq i32 %202, 0
+  br i1 %.not260, label %.loopexit210, label %.lr.ph249
 
 .lr.ph249:                                        ; preds = %_ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit111.thread, %.loopexit
   %.080248 = phi ptr [ %391, %.loopexit ], [ %200, %_ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit111.thread ]
@@ -1945,8 +1948,8 @@ _ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit134: ; preds = %248, %_
 _ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit134.thread: ; preds = %_ZN14PhaseIdealLoop12ctrl_or_selfEP4Node.exit.i112, %_ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit134
   %285 = getelementptr inbounds nuw i8, ptr %205, i64 32
   %286 = load i32, ptr %285, align 8
-  %.not259 = icmp eq i32 %286, 0
-  br i1 %.not259, label %.loopexit, label %.lr.ph242
+  %.not261 = icmp eq i32 %286, 0
+  br i1 %.not261, label %.loopexit, label %.lr.ph242
 
 .lr.ph242:                                        ; preds = %_ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit134.thread
   %287 = getelementptr inbounds nuw i8, ptr %205, i64 16
@@ -2103,9 +2106,10 @@ _ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit157.thread: ; preds = %
   %373 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %374 = load ptr, ptr %373, align 8
   %375 = zext i32 %371 to i64
-  %376 = getelementptr inbounds nuw ptr, ptr %374, i64 %375
-  %.not260 = icmp eq i32 %371, 0
-  br i1 %.not260, label %.loopexit, label %.lr.ph247
+  %.idx262 = shl nuw nsw i64 %375, 3
+  %376 = getelementptr inbounds nuw i8, ptr %374, i64 %.idx262
+  %.not263 = icmp eq i32 %371, 0
+  br i1 %.not263, label %.loopexit, label %.lr.ph247
 
 .lr.ph247:                                        ; preds = %._crit_edge243, %388
   %.084245 = phi ptr [ %389, %388 ], [ %374, %._crit_edge243 ]
@@ -2441,9 +2445,10 @@ _ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit204.thread: ; preds = %
   %561 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %562 = load ptr, ptr %561, align 8
   %563 = zext i32 %559 to i64
-  %564 = getelementptr inbounds nuw ptr, ptr %562, i64 %563
-  %.not257 = icmp eq i32 %559, 0
-  br i1 %.not257, label %.loopexit210, label %.lr.ph240
+  %.idx257 = shl nuw nsw i64 %563, 3
+  %564 = getelementptr inbounds nuw i8, ptr %562, i64 %.idx257
+  %.not258 = icmp eq i32 %559, 0
+  br i1 %.not258, label %.loopexit210, label %.lr.ph240
 
 .lr.ph240:                                        ; preds = %._crit_edge, %576
   %.079238 = phi ptr [ %577, %576 ], [ %562, %._crit_edge ]
@@ -3813,7 +3818,8 @@ _ZN9Node_List4pushEP4Node.exit.i.i.i.i.i:         ; preds = %94, %88
   %102 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %103 = load i32, ptr %102, align 8
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw ptr, ptr %101, i64 %104
+  %.idx.i.i = shl nuw nsw i64 %104, 3
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx.i.i
   %.not.i7.i = icmp eq i32 %103, 0
   br i1 %.not.i7.i, label %_ZN16Unique_Node_List15push_outputs_ofEPK4Node.exit.i, label %.lr.ph.i.i
 

@@ -3707,7 +3707,8 @@ define linkonce_odr void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   store i8 0, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.nlohmann::detail::json_ref", ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 24
+  %13 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %14 = tail call noundef ptr @_ZSt9__find_ifIPKN8nlohmann6detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEEEEEN9__gnu_cxx5__ops12_Iter_negateIZNSF_C1ESt16initializer_listISG_EbNS1_7value_tEEUlRSH_E_EEET_SS_SS_T0_St26random_access_iterator_tag(ptr noundef %1, ptr noundef %13)
   %15 = icmp eq ptr %13, %14
   br i1 %3, label %28, label %16
@@ -14013,7 +14014,8 @@ _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stri
   %22 = load ptr, ptr %6, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 %9
   store i8 0, ptr %23, align 1
-  %24 = getelementptr inbounds i32, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 2
+  %24 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not17 = icmp eq i64 %2, 0
   br i1 %.not17, label %.loopexit, label %.lr.ph
 

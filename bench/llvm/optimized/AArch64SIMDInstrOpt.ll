@@ -2502,7 +2502,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.us.us: ; p
   %.pr = load i32, ptr %138, align 8, !tbaa !42
   %778 = load ptr, ptr %103, align 8, !tbaa !40
   %779 = zext i32 %.pr to i64
-  %780 = getelementptr inbounds nuw ptr, ptr %778, i64 %779
+  %.idx = shl nuw nsw i64 %779, 3
+  %780 = getelementptr inbounds nuw i8, ptr %778, i64 %.idx
   %.not41189 = icmp eq i32 %.pr, 0
   br i1 %.not41189, label %._crit_edge, label %.lr.ph191
 
@@ -4049,7 +4050,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge186.thread, %._crit_edge.loopexit, %._crit_edge186
-  %.2.lcssa205 = phi i1 [ %.2.lcssa.ph, %._crit_edge.loopexit ], [ %.2.lcssa.ph, %._crit_edge186 ], [ %.036193, %._crit_edge186.thread ]
+  %.2.lcssa206 = phi i1 [ %.2.lcssa.ph, %._crit_edge.loopexit ], [ %.2.lcssa.ph, %._crit_edge186 ], [ %.036193, %._crit_edge186.thread ]
   %1294 = phi ptr [ %.pre202, %._crit_edge.loopexit ], [ %778, %._crit_edge186 ], [ %409, %._crit_edge186.thread ]
   %1295 = icmp eq ptr %1294, %137
   br i1 %1295, label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit, label %1296
@@ -4071,7 +4072,7 @@ _ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit: ; preds = %._crit_edge,
   br i1 %.not41, label %._crit_edge.loopexit, label %.lr.ph191
 
 1299:                                             ; preds = %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit, %_ZN12_GLOBAL__N_119AArch64SIMDInstrOpt15shouldExitEarlyEPN4llvm15MachineFunctionENS0_7SubpassE.exit
-  %.137 = phi i1 [ %.036193, %_ZN12_GLOBAL__N_119AArch64SIMDInstrOpt15shouldExitEarlyEPN4llvm15MachineFunctionENS0_7SubpassE.exit ], [ %.2.lcssa205, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit ]
+  %.137 = phi i1 [ %.036193, %_ZN12_GLOBAL__N_119AArch64SIMDInstrOpt15shouldExitEarlyEPN4llvm15MachineFunctionENS0_7SubpassE.exit ], [ %.2.lcssa206, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit ]
   %.039.add = add nuw nsw i64 %.039.idx192, 4
   %.not40 = icmp eq i64 %.039.add, 8
   br i1 %.not40, label %319, label %320
@@ -4307,7 +4308,8 @@ _ZSt9make_pairIjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairINS
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %71 = load i32, ptr %70, align 8, !tbaa !42
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr %69, i64 %72
+  %.idx = shl nuw nsw i64 %72, 3
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx
   %.not8 = icmp eq i32 %71, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 

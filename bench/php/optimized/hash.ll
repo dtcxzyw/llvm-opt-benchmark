@@ -37,7 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_declarables = type { i64 }
 %struct._zend_internal_arg_info = type { ptr, %struct.zend_type, ptr }
 %struct.zend_type = type { ptr, i32 }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct._zend_class_entry = type { i8, ptr, %union.anon.8, i32, i32, i32, i32, ptr, ptr, ptr, %struct._zend_array, %struct._zend_array, %struct._zend_array, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %union.anon.9, ptr, ptr, ptr, ptr, i32, i32, i32, i32, %union.anon.10, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.11 }
 %union.anon.8 = type { ptr }
 %union.anon.9 = type { ptr }
@@ -2611,7 +2610,8 @@ define hidden void @zif_hash_algos(ptr noundef readonly captures(none) %0, ptr n
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_hash_hashtable, i64 16), align 8, !tbaa !4
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @php_hash_hashtable, i64 24), align 8, !tbaa !92
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct._Bucket, ptr %10, i64 %12
+  %.idx = shl nuw nsw i64 %12, 5
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @php_hash_hashtable, i64 8), align 8, !tbaa !4
   %15 = and i32 %14, 4
   %.not17 = icmp eq i32 %15, 0
@@ -2680,7 +2680,8 @@ define hidden void @zif_hash_hmac_algos(ptr noundef readonly captures(none) %0, 
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_hash_hashtable, i64 16), align 8, !tbaa !4
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @php_hash_hashtable, i64 24), align 8, !tbaa !92
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct._Bucket, ptr %10, i64 %12
+  %.idx = shl nuw nsw i64 %12, 5
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @php_hash_hashtable, i64 8), align 8, !tbaa !4
   %15 = and i32 %14, 4
   %.not19 = icmp eq i32 %15, 0
@@ -4980,7 +4981,8 @@ define hidden void @zm_info_hash(ptr readnone captures(none) %0) #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_hash_hashtable, i64 16), align 8, !tbaa !4
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @php_hash_hashtable, i64 24), align 8, !tbaa !92
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %struct._Bucket, ptr %3, i64 %5
+  %.idx = shl nuw nsw i64 %5, 5
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @php_hash_hashtable, i64 8), align 8, !tbaa !4
   %8 = and i32 %7, 4
   %.not = icmp eq i32 %8, 0

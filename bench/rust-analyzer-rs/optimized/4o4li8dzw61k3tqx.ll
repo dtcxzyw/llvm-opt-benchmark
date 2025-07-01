@@ -6134,7 +6134,8 @@ define hidden noundef i32 @_ZN6hir_ty5utils20all_super_trait_refs17he2a49502f69e
   %.val.i.i.i.i = load ptr, ptr %55, align 8, !noalias !1483, !nonnull !9, !noundef !9
   %56 = getelementptr i8, ptr %45, i64 24
   %.val7.i.i.i.i = load i64, ptr %56, align 8, !noalias !1483, !noundef !9
-  %57 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, [1 x i32] } }, ptr %.val.i.i.i.i, i64 %.val7.i.i.i.i
+  %.idx.i.i.i.i = shl nsw i64 %.val7.i.i.i.i, 5
+  %57 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i
   %58 = icmp eq i64 %.val7.i.i.i.i, 0
   br i1 %58, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -6509,7 +6510,8 @@ define hidden noundef i32 @_ZN6hir_ty5utils20all_super_trait_refs17hf3208a5857ab
   %.val.i.i.i.i = load ptr, ptr %55, align 8, !noalias !1591, !nonnull !9, !noundef !9
   %56 = getelementptr i8, ptr %45, i64 24
   %.val7.i.i.i.i = load i64, ptr %56, align 8, !noalias !1591, !noundef !9
-  %57 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, [1 x i32] } }, ptr %.val.i.i.i.i, i64 %.val7.i.i.i.i
+  %.idx.i.i.i.i = shl nsw i64 %.val7.i.i.i.i, 5
+  %57 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.idx.i.i.i.i
   %58 = icmp eq i64 %.val7.i.i.i.i, 0
   br i1 %58, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -20087,7 +20089,8 @@ _ZN3hir3Adt2ty17h0ad737db2b0eed3dE.exit.i:        ; preds = %314, %312, %295, %2
   %384 = load ptr, ptr %383, align 8, !noalias !5305, !nonnull !9, !noundef !9
   %385 = getelementptr inbounds nuw i8, ptr %279, i64 24
   %386 = load i64, ptr %385, align 8, !noalias !5305, !noundef !9
-  %387 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, [1 x i32] } }, ptr %384, i64 %386
+  %.idx.i = shl nsw i64 %386, 5
+  %387 = getelementptr inbounds i8, ptr %384, i64 %.idx.i
   %388 = icmp eq i64 %386, 0
   br i1 %388, label %.loopexit.i, label %.lr.ph.i.i65
 
@@ -20421,7 +20424,8 @@ define internal fastcc void @_ZN3hir5attrs13resolve_field17h48ee1213f39c025aE(pt
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !5450, !noalias !5447, !nonnull !9, !noundef !9
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !5450, !noalias !5447
-  %32 = getelementptr inbounds { { i32, [1 x i32] }, i32 }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nsw i64 %.sroa.5.0.copyload.i, 12
+  %32 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   store ptr %.sroa.4.0.copyload.i, ptr %13, align 8, !alias.scope !5447, !noalias !5450
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %.sroa.0.0.copyload.i, ptr %33, align 8, !alias.scope !5447, !noalias !5450

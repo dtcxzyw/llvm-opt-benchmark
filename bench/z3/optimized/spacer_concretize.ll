@@ -93,7 +93,8 @@ define hidden void @_ZN6spacer15pob_concretizer17mark_pattern_varsEv(ptr noundef
   %13 = load ptr, ptr %2, align 8, !tbaa !23
   %14 = load i32, ptr %10, align 8, !tbaa !24
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
+  %.idx.i.i.i = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i.i
   %.not8.i.i.i = icmp eq i32 %14, 0
   br i1 %.not8.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
@@ -283,41 +284,43 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   %7 = getelementptr inbounds i8, ptr %5, i64 -4
   %8 = load i32, ptr %7, align 4, !tbaa !37
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %9
+  %10 = shl nuw nsw i64 %9, 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %10
   %.not16 = icmp eq i32 %8, 0
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit, %.lr.ph
-  %.01517 = phi ptr [ %13, %.lr.ph ], [ %5, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
-  %11 = load ptr, ptr %.01517, align 8, !tbaa !38
-  %12 = tail call noundef zeroext i1 @_ZN6spacer15pob_concretizer9apply_litEP4exprR10ref_vectorIS1_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(16) %2)
-  %13 = getelementptr inbounds nuw i8, ptr %.01517, i64 8
-  %.not = icmp eq ptr %13, %10
+  %.01517 = phi ptr [ %14, %.lr.ph ], [ %5, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
+  %12 = load ptr, ptr %.01517, align 8, !tbaa !38
+  %13 = tail call noundef zeroext i1 @_ZN6spacer15pob_concretizer9apply_litEP4exprR10ref_vectorIS1_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %14 = getelementptr inbounds nuw i8, ptr %.01517, i64 8
+  %.not = icmp eq ptr %14, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !23
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load i32, ptr %16, align 8, !tbaa !24
-  %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %18
-  %.not8.i = icmp eq i32 %17, 0
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %16 = load ptr, ptr %15, align 8, !tbaa !23
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %18 = load i32, ptr %17, align 8, !tbaa !24
+  %19 = zext i32 %18 to i64
+  %.idx.i = shl nuw nsw i64 %19, 3
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
+  %.not8.i = icmp eq i32 %18, 0
   br i1 %.not8.i, label %_ZN13ast_fast_markILj2EE5resetEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
-  %.09.i = phi ptr [ %24, %.lr.ph.i ], [ %15, %._crit_edge ]
-  %20 = load ptr, ptr %.09.i, align 8, !tbaa !26
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %22 = load i32, ptr %21, align 4
-  %23 = and i32 %22, -131073
-  store i32 %23, ptr %21, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
-  %.not.i = icmp eq ptr %24, %19
+  %.09.i = phi ptr [ %25, %.lr.ph.i ], [ %16, %._crit_edge ]
+  %21 = load ptr, ptr %.09.i, align 8, !tbaa !26
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %23 = load i32, ptr %22, align 4
+  %24 = and i32 %23, -131073
+  store i32 %24, ptr %22, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
+  %.not.i = icmp eq ptr %25, %20
   br i1 %.not.i, label %_ZN13ast_fast_markILj2EE5resetEv.exit, label %.lr.ph.i
 
 _ZN13ast_fast_markILj2EE5resetEv.exit:            ; preds = %.lr.ph.i, %._crit_edge
-  store i32 0, ptr %16, align 8, !tbaa !24
+  store i32 0, ptr %17, align 8, !tbaa !24
   ret i1 true
 }
 
@@ -3025,7 +3028,8 @@ define linkonce_odr hidden void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnul
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !24
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 3
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %.not8.i = icmp eq i32 %4, 0
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
 

@@ -3,10 +3,10 @@ source_filename = "bench/llvm/original/CodeGenDataWriter.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.llvm::CGDataPatchItem" = type { i64, ptr, i32 }
 %"class.llvm::Error" = type { ptr }
 %"class.llvm::CGDataOStream" = type { i8, ptr, %"struct.llvm::support::endian::Writer" }
 %"struct.llvm::support::endian::Writer" = type <{ ptr, i32, [4 x i8] }>
+%"struct.llvm::CGDataPatchItem" = type { i64, ptr, i32 }
 %"class.llvm::yaml::Output" = type { %"class.llvm::yaml::IO", ptr, i32, %"class.llvm::SmallVector", i32, i32, i32, i8, i8, i8, i8, %"class.llvm::StringRef", %"class.llvm::StringRef" }
 %"class.llvm::yaml::IO" = type { ptr, ptr }
 %"class.llvm::SmallVector" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage" }
@@ -16,22 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage" = type { [32 x i8] }
 %"class.llvm::StringRef" = type { ptr, i64 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.41" }
-%"struct.std::pair.41" = type { i64, %"class.llvm::SmallVector.43" }
-%"class.llvm::SmallVector.43" = type { %"class.llvm::SmallVectorImpl.44", %"struct.llvm::SmallVectorStorage.47" }
-%"class.llvm::SmallVectorImpl.44" = type { %"class.llvm::SmallVectorTemplateBase.45" }
-%"class.llvm::SmallVectorTemplateBase.45" = type { %"class.llvm::SmallVectorTemplateCommon.46" }
-%"class.llvm::SmallVectorTemplateCommon.46" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.47" = type { [48 x i8] }
-%"class.std::unique_ptr.48" = type { %"struct.std::__uniq_ptr_data.49" }
-%"struct.std::__uniq_ptr_data.49" = type { %"class.std::__uniq_ptr_impl.50" }
-%"class.std::__uniq_ptr_impl.50" = type { %"class.std::tuple.51" }
-%"class.std::tuple.51" = type { %"struct.std::_Tuple_impl.52" }
-%"struct.std::_Tuple_impl.52" = type { %"struct.std::_Head_base.55" }
-%"struct.std::_Head_base.55" = type { ptr }
 
 $_ZNKSt14default_deleteIN4llvm8HashNodeEEclEPS1_ = comdat any
 
@@ -69,7 +53,8 @@ define dso_local void @_ZN4llvm13CGDataOStream5patchENS_8ArrayRefINS_15CGDataPat
   %20 = ptrtoint ptr %18 to i64
   %21 = add i64 %14, %19
   %22 = sub i64 %21, %20
-  %23 = getelementptr inbounds nuw %"struct.llvm::CGDataPatchItem", ptr %1, i64 %2
+  %.idx52 = mul nuw nsw i64 %2, 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx52
   %.not3447 = icmp eq i64 %2, 0
   br i1 %.not3447, label %._crit_edge51, label %.lr.ph50
 
@@ -101,9 +86,9 @@ define dso_local void @_ZN4llvm13CGDataOStream5patchENS_8ArrayRefINS_15CGDataPat
   br i1 %.not34, label %._crit_edge51, label %27
 
 35:                                               ; preds = %.lr.ph45, %35
-  %indvars.iv56 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next57, %35 ]
+  %indvars.iv57 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next58, %35 ]
   %36 = load ptr, ptr %33, align 8, !tbaa !29
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv56
+  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv57
   %38 = load i64, ptr %37, align 8, !tbaa !30
   %39 = load ptr, ptr %24, align 8, !tbaa !31
   %40 = load i32, ptr %25, align 8, !tbaa !32
@@ -114,16 +99,17 @@ define dso_local void @_ZN4llvm13CGDataOStream5patchENS_8ArrayRefINS_15CGDataPat
   store i64 %spec.select.i.i.i.i, ptr %4, align 8, !tbaa !30
   %42 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull %4, i64 noundef 8) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %43 = load i32, ptr %30, align 8, !tbaa !28
   %44 = sext i32 %43 to i64
-  %45 = icmp slt i64 %indvars.iv.next57, %44
+  %45 = icmp slt i64 %indvars.iv.next58, %44
   br i1 %45, label %35, label %._crit_edge46, !llvm.loop !33
 
 46:                                               ; preds = %3
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %48 = load ptr, ptr %47, align 8, !tbaa !35
-  %49 = getelementptr inbounds nuw %"struct.llvm::CGDataPatchItem", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 24
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not41 = icmp eq i64 %2, 0
   br i1 %.not41, label %.loopexit, label %.preheader.lr.ph
 
@@ -751,7 +737,8 @@ _ZN4llvm9StringMapIjNS_15MallocAllocatorEED2Ev.exit: ; preds = %16, %1, %6
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm9StringMapIjNS_15MallocAllocatorEED2Ev.exit
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %22
+  %.idx.i = shl nuw nsw i64 %22, 5
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -819,7 +806,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11Small
 .lr.ph.preheader:                                 ; preds = %1
   %5 = load ptr, ptr %0, align 8, !tbaa !104
   %6 = zext i32 %3 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %6
+  %.idx = mul nuw nsw i64 %6, 72
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm11SmallVectorISt10unique_ptrINS_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS3_EELj6EED2Ev.exit
@@ -838,7 +826,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11Small
 
 .lr.ph.i.preheader.i:                             ; preds = %9
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"class.std::unique_ptr.48", ptr %11, i64 %14
+  %.idx.i = shl nuw nsw i64 %14, 3
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt10unique_ptrIN4llvm17StableFunctionMap19StableFunctionEntryESt14default_deleteIS2_EED2Ev.exit.i.i, %.lr.ph.i.preheader.i

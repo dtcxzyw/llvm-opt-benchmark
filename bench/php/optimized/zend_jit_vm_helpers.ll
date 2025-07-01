@@ -492,7 +492,8 @@ define hidden void @zend_jit_copy_extra_args_helper(ptr noundef captures(address
 .preheader52.preheader.i:                         ; preds = %18
   %30 = sub i32 %29, %9
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %struct._zval_struct, ptr %24, i64 %31
+  %.idx.i = shl nuw nsw i64 %31, 4
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i
   br label %.preheader52.i
 
 .preheader52.i:                                   ; preds = %.preheader52.i, %.preheader52.preheader.i
@@ -572,7 +573,8 @@ define hidden void @zend_jit_copy_extra_args_helper_no_skip_recv(ptr noundef cap
 .preheader52.preheader.i:                         ; preds = %7
   %23 = sub i32 %22, %9
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %struct._zval_struct, ptr %17, i64 %24
+  %.idx.i = shl nuw nsw i64 %24, 4
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
   br label %.preheader52.i
 
 .preheader52.i:                                   ; preds = %.preheader52.i, %.preheader52.preheader.i

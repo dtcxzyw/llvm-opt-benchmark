@@ -380,7 +380,8 @@ define noundef i32 @_ZNK15dtProximityGrid10queryItemsEffffPti(ptr noundef nonnul
 
 47:                                               ; preds = %42
   %48 = sext i32 %.259 to i64
-  %49 = getelementptr inbounds i16, ptr %5, i64 %48
+  %.idx = shl nsw i64 %48, 1
+  %49 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %.not4855 = icmp eq i32 %.259, 0
   br i1 %.not4855, label %._crit_edge, label %.lr.ph
 

@@ -156,7 +156,8 @@ define void @_ZN14ruff_formatter14format_element8document8Document16propagate_ex
 define internal fastcc noundef zeroext i1 @_ZN14ruff_formatter14format_element8document8Document16propagate_expand17propagate_expands17hd7dca174c1c6de0eE(ptr noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [1 x i8], align 1
   %6 = alloca [1 x i8], align 1
-  %7 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %8 = icmp eq i64 %1, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -1490,7 +1491,8 @@ define hidden noundef align 8 ptr @"_ZN14ruff_formatter14format_element8document
   br i1 %5, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
-  %6 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.backedge, %.lr.ph.preheader

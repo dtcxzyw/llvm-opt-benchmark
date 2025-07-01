@@ -3409,7 +3409,8 @@ _ZNSt11_Deque_baseIN4absl12AnyInvocableIFvvEEESaIS3_EE15_M_allocate_mapEm.exit: 
   %10 = sub nsw i64 %.sroa.speculated, %7
   %11 = lshr i64 %10, 1
   %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIN4absl12AnyInvocableIFvvEEESaIS3_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIN4absl12AnyInvocableIFvvEEESaIS3_EE16_M_allocate_nodeEv.exit.i
@@ -8150,50 +8151,50 @@ define internal void @_ZN12_GLOBAL__N_136Mutex_LockedMutexDestructionBug_Test8Te
   ret void
 
 3:                                                ; preds = %1, %_ZNKSt14default_deleteIA_N4absl5MutexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
-  %.017 = phi i32 [ 0, %1 ], [ %9, %_ZNKSt14default_deleteIA_N4absl5MutexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i ]
+  %.018 = phi i32 [ 0, %1 ], [ %8, %_ZNKSt14default_deleteIA_N4absl5MutexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i ]
   %4 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znam(i64 noundef 88) #48, !noalias !368
   store i64 10, ptr %4, align 8, !noalias !368
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false), !tbaa !80, !noalias !368
-  br label %10
+  br label %9
 
 _ZNKSt14default_deleteIA_N4absl5MutexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i: ; preds = %_ZN4absl5Mutex10WriterLockEv.exit
   %6 = load i64, ptr %4, align 8
-  %7 = shl i64 %6, 3
-  %8 = add i64 %7, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %4, i64 noundef %8) #49
-  %9 = add nuw nsw i32 %.017, 1
-  %.not = icmp eq i32 %9, 10
+  %.idx.i.i = shl i64 %6, 3
+  %7 = add i64 %.idx.i.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %4, i64 noundef %7) #49
+  %8 = add nuw nsw i32 %.018, 1
+  %.not = icmp eq i32 %8, 10
   br i1 %.not, label %2, label %3, !llvm.loop !371
 
-10:                                               ; preds = %3, %_ZN4absl5Mutex10WriterLockEv.exit
+9:                                                ; preds = %3, %_ZN4absl5Mutex10WriterLockEv.exit
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %_ZN4absl5Mutex10WriterLockEv.exit ]
-  %11 = and i64 %indvars.iv, 1
-  %12 = icmp eq i64 %11, 0
-  %13 = getelementptr inbounds nuw %"class.absl::Mutex", ptr %5, i64 %indvars.iv
-  br i1 %12, label %14, label %19
+  %10 = and i64 %indvars.iv, 1
+  %11 = icmp eq i64 %10, 0
+  %12 = getelementptr inbounds nuw %"class.absl::Mutex", ptr %5, i64 %indvars.iv
+  br i1 %11, label %13, label %17
 
-14:                                               ; preds = %10
-  invoke void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %_ZN4absl5Mutex10WriterLockEv.exit unwind label %_ZNSt10unique_ptrIA_N4absl5MutexESt14default_deleteIS2_EED2Ev.exit12
+13:                                               ; preds = %9
+  invoke void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %_ZN4absl5Mutex10WriterLockEv.exit unwind label %_ZNSt10unique_ptrIA_N4absl5MutexESt14default_deleteIS2_EED2Ev.exit13
 
-_ZNSt10unique_ptrIA_N4absl5MutexESt14default_deleteIS2_EED2Ev.exit12: ; preds = %14, %19
-  %15 = landingpad { ptr, i32 }
+_ZNSt10unique_ptrIA_N4absl5MutexESt14default_deleteIS2_EED2Ev.exit13: ; preds = %13, %17
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %16 = load i64, ptr %4, align 8
-  %17 = shl i64 %16, 3
-  %18 = add i64 %17, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %4, i64 noundef %18) #49
-  resume { ptr, i32 } %15
+  %15 = load i64, ptr %4, align 8
+  %.idx.i.i12 = shl i64 %15, 3
+  %16 = add i64 %.idx.i.i12, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %4, i64 noundef %16) #49
+  resume { ptr, i32 } %14
 
-19:                                               ; preds = %10
-  invoke void @_ZN4absl5Mutex10ReaderLockEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %_ZN4absl5Mutex10WriterLockEv.exit unwind label %_ZNSt10unique_ptrIA_N4absl5MutexESt14default_deleteIS2_EED2Ev.exit12
+17:                                               ; preds = %9
+  invoke void @_ZN4absl5Mutex10ReaderLockEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %_ZN4absl5Mutex10WriterLockEv.exit unwind label %_ZNSt10unique_ptrIA_N4absl5MutexESt14default_deleteIS2_EED2Ev.exit13
 
-_ZN4absl5Mutex10WriterLockEv.exit:                ; preds = %14, %19
+_ZN4absl5Mutex10WriterLockEv.exit:                ; preds = %13, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not9 = icmp eq i64 %indvars.iv.next, 10
-  br i1 %.not9, label %_ZNKSt14default_deleteIA_N4absl5MutexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i, label %10, !llvm.loop !372
+  br i1 %.not9, label %_ZNKSt14default_deleteIA_N4absl5MutexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i, label %9, !llvm.loop !372
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -15564,74 +15565,74 @@ define internal void @_ZN12_GLOBAL__N_137Mutex_DeadlockDetectorStressTest_Test8T
   store i64 131072, ptr %2, align 8, !noalias !447
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1048576) %3, i8 0, i64 1048576, i1 false), !tbaa !80, !noalias !447
-  br label %7
+  br label %6
 
 _ZNKSt14default_deleteIA_N4absl5MutexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i: ; preds = %._crit_edge
   %4 = load i64, ptr %2, align 8
-  %5 = shl i64 %4, 3
-  %6 = add i64 %5, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %2, i64 noundef %6) #49
+  %.idx.i.i = shl i64 %4, 3
+  %5 = add i64 %.idx.i.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %2, i64 noundef %5) #49
   ret void
 
-7:                                                ; preds = %1, %._crit_edge
+6:                                                ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
-  %indvars39 = trunc i64 %indvars.iv to i32
-  %8 = tail call i32 @llvm.umin.i32(i32 %indvars39, i32 131067)
-  %.sroa.speculated = add nuw nsw i32 %8, 5
-  %9 = icmp samesign ugt i32 %.sroa.speculated, %indvars39
-  br i1 %9, label %.lr.ph.preheader, label %._crit_edge
+  %indvars40 = trunc i64 %indvars.iv to i32
+  %7 = tail call i32 @llvm.umin.i32(i32 %indvars40, i32 131067)
+  %.sroa.speculated = add nuw nsw i32 %7, 5
+  %8 = icmp samesign ugt i32 %.sroa.speculated, %indvars40
+  br i1 %8, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %7
-  %10 = zext nneg i32 %.sroa.speculated to i64
+.lr.ph.preheader:                                 ; preds = %6
+  %9 = zext nneg i32 %.sroa.speculated to i64
   br label %.lr.ph
 
-.lr.ph31.preheader:                               ; preds = %13
-  %11 = zext nneg i32 %.sroa.speculated to i64
-  br label %.lr.ph31
+.lr.ph32.preheader:                               ; preds = %12
+  %10 = zext nneg i32 %.sroa.speculated to i64
+  br label %.lr.ph32
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %13
-  %indvars.iv33 = phi i64 [ %indvars.iv, %.lr.ph.preheader ], [ %indvars.iv.next34, %13 ]
-  %12 = getelementptr inbounds nuw %"class.absl::Mutex", ptr %3, i64 %indvars.iv33
-  invoke void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %13 unwind label %15
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %12
+  %indvars.iv34 = phi i64 [ %indvars.iv, %.lr.ph.preheader ], [ %indvars.iv.next35, %12 ]
+  %11 = getelementptr inbounds nuw %"class.absl::Mutex", ptr %3, i64 %indvars.iv34
+  invoke void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %12 unwind label %14
 
-13:                                               ; preds = %.lr.ph
-  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
-  %14 = icmp samesign ult i64 %indvars.iv.next34, %10
-  br i1 %14, label %.lr.ph, label %.lr.ph31.preheader, !llvm.loop !450
+12:                                               ; preds = %.lr.ph
+  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
+  %13 = icmp samesign ult i64 %indvars.iv.next35, %9
+  br i1 %13, label %.lr.ph, label %.lr.ph32.preheader, !llvm.loop !450
 
-15:                                               ; preds = %.lr.ph
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %.lr.ph
+  %15 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt10unique_ptrIA_N4absl5MutexESt14default_deleteIS2_EED2Ev.exit22
+  br label %_ZNSt10unique_ptrIA_N4absl5MutexESt14default_deleteIS2_EED2Ev.exit23
 
-._crit_edge:                                      ; preds = %18, %7
+._crit_edge:                                      ; preds = %17, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 131072
-  br i1 %exitcond.not, label %_ZNKSt14default_deleteIA_N4absl5MutexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i, label %7, !llvm.loop !451
+  br i1 %exitcond.not, label %_ZNKSt14default_deleteIA_N4absl5MutexEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i, label %6, !llvm.loop !451
 
-.lr.ph31:                                         ; preds = %.lr.ph31.preheader, %18
-  %indvars.iv36 = phi i64 [ %indvars.iv, %.lr.ph31.preheader ], [ %indvars.iv.next37, %18 ]
-  %17 = getelementptr inbounds nuw %"class.absl::Mutex", ptr %3, i64 %indvars.iv36
-  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %18 unwind label %20
+.lr.ph32:                                         ; preds = %.lr.ph32.preheader, %17
+  %indvars.iv37 = phi i64 [ %indvars.iv, %.lr.ph32.preheader ], [ %indvars.iv.next38, %17 ]
+  %16 = getelementptr inbounds nuw %"class.absl::Mutex", ptr %3, i64 %indvars.iv37
+  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %17 unwind label %19
 
-18:                                               ; preds = %.lr.ph31
-  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %19 = icmp samesign ult i64 %indvars.iv.next37, %11
-  br i1 %19, label %.lr.ph31, label %._crit_edge, !llvm.loop !452
+17:                                               ; preds = %.lr.ph32
+  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
+  %18 = icmp samesign ult i64 %indvars.iv.next38, %10
+  br i1 %18, label %.lr.ph32, label %._crit_edge, !llvm.loop !452
 
-20:                                               ; preds = %.lr.ph31
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %.lr.ph32
+  %20 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt10unique_ptrIA_N4absl5MutexESt14default_deleteIS2_EED2Ev.exit22
+  br label %_ZNSt10unique_ptrIA_N4absl5MutexESt14default_deleteIS2_EED2Ev.exit23
 
-_ZNSt10unique_ptrIA_N4absl5MutexESt14default_deleteIS2_EED2Ev.exit22: ; preds = %20, %15
-  %.pn = phi { ptr, i32 } [ %16, %15 ], [ %21, %20 ]
-  %22 = load i64, ptr %2, align 8
-  %23 = shl i64 %22, 3
-  %24 = add i64 %23, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %2, i64 noundef %24) #49
+_ZNSt10unique_ptrIA_N4absl5MutexESt14default_deleteIS2_EED2Ev.exit23: ; preds = %19, %14
+  %.pn = phi { ptr, i32 } [ %15, %14 ], [ %20, %19 ]
+  %21 = load i64, ptr %2, align 8
+  %.idx.i.i22 = shl i64 %21, 3
+  %22 = add i64 %.idx.i.i22, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %2, i64 noundef %22) #49
   resume { ptr, i32 } %.pn
 }
 

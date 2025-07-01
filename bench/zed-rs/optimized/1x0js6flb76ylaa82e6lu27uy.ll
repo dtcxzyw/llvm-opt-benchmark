@@ -8139,7 +8139,8 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$gpui
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17hfb251acd4bb95315E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #6 {
-  %4 = getelementptr inbounds { i64, [3 x i64] }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 5
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -36183,7 +36184,8 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %.sroa.42.0.copyload.i.i = load ptr, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !alias.scope !5655, !noalias !5659, !nonnull !13, !noundef !13
   %.sroa.53.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %29, i64 32
   %.sroa.53.0.copyload.i.i = load i64, ptr %.sroa.53.0..sroa_idx.i.i, align 8, !alias.scope !5655, !noalias !5659
-  %105 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, i64 } }, i64, i8, i8, i8, [5 x i8] }, ptr %.sroa.42.0.copyload.i.i, i64 %.sroa.53.0.copyload.i.i
+  %.idx.i.i = shl nsw i64 %.sroa.53.0.copyload.i.i, 6
+  %105 = getelementptr inbounds i8, ptr %.sroa.42.0.copyload.i.i, i64 %.idx.i.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22), !noalias !5660
   store ptr %.sroa.42.0.copyload.i.i, ptr %22, align 8, !noalias !5660
   %.sroa.0.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8

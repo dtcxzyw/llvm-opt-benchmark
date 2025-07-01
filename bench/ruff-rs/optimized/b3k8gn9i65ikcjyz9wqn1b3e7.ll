@@ -5276,7 +5276,8 @@ define internal fastcc void @"_ZN7matchit4tree13Node$LT$T$GT$2at17h06c57f4ab513e
   %157 = load ptr, ptr %156, align 8, !nonnull !6, !noundef !6
   %158 = getelementptr i8, ptr %100, i64 -48
   %159 = load i64, ptr %158, align 8, !noundef !6
-  %160 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i32, [1 x i32] }, i32, i8, i8, [2 x i8] }, ptr %157, i64 %159
+  %.idx = mul nuw nsw i64 %159, 136
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 %.idx
   %161 = icmp eq i64 %159, 0
   br i1 %161, label %._crit_edge310, label %.lr.ph309
 

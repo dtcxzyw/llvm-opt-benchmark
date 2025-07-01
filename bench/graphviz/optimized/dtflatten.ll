@@ -27,7 +27,8 @@ define ptr @dtflatten(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8, !tbaa !15
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %12, i64 %15
+  %.idx = shl nsw i64 %15, 3
+  %16 = getelementptr inbounds i8, ptr %12, i64 %.idx
   %17 = icmp sgt i32 %14, 0
   br i1 %17, label %.lr.ph, label %.loopexit
 

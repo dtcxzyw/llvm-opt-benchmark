@@ -10079,7 +10079,8 @@ define void @_ZN9ty_server7session7Session3new17hbc202282398f40a2E(ptr dead_on_u
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %20)
   store ptr %44, ptr %35, align 8
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %34)
-  %52 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { i64, [2 x i64] }, i8, [7 x i8] }, i8, [7 x i8] } }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 7
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %53 = icmp eq i64 %5, 0
   br i1 %53, label %._crit_edge, label %.lr.ph
 

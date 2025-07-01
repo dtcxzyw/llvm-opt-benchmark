@@ -86,10 +86,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::pointer_union_detail::PointerUnionMembers.371" = type { %"class.llvm::PointerIntPair.372" }
 %"class.llvm::PointerIntPair.372" = type { %"struct.llvm::detail::PunnedPointer.352" }
 %"struct.std::pair" = type { ptr, i64 }
-%"class.clang::FixItHint" = type <{ %"class.clang::CharSourceRange", %"class.clang::CharSourceRange", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
-%"class.clang::CharSourceRange" = type <{ %"class.clang::SourceRange", i8, [3 x i8] }>
-%"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
-%"class.clang::SourceLocation" = type { i32 }
 
 $_ZN4llvm11raw_ostreamlsEPKc = comdat any
 
@@ -722,7 +718,7 @@ define dso_local void @_ZN5clang16TemplateArgument14CreatePackCopyERNS_10ASTCont
 
 _ZNK5clang10ASTContext8AllocateINS_16TemplateArgumentEEEPT_m.exit.i: ; preds = %27, %24
   %.0.i.i.i.i.i = phi ptr [ %26, %24 ], [ %28, %27 ]
-  %29 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %2, i64 %3
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %9
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK5clang10ASTContext8AllocateINS_16TemplateArgumentEEEPT_m.exit.i, %.lr.ph.i.i.i.i
@@ -855,7 +851,8 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %39, %_ZN4llvm8dyn_c
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !3
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %59, i64 %62
+  %.idx = mul nuw nsw i64 %62, 24
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx
   %.not1328 = icmp eq i32 %61, 0
   br i1 %.not1328, label %.loopexit, label %.lr.ph
 
@@ -2931,7 +2928,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit68:               ; preds = %490, %492
   %497 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %498 = load i32, ptr %497, align 4, !tbaa !3
   %499 = zext i32 %498 to i64
-  %500 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %496, i64 %499
+  %.idx = mul nuw nsw i64 %499, 24
+  %500 = getelementptr inbounds nuw i8, ptr %496, i64 %.idx
   %.not84 = icmp eq i32 %498, 0
   br i1 %.not84, label %._crit_edge, label %.lr.ph
 
@@ -5261,7 +5259,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %13
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %25
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %33, i64 %36
+  %.idx.i7.i.i = shl nuw nsw i64 %36, 6
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i7.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -5390,7 +5389,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %15
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %27
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %35, i64 %38
+  %.idx.i7.i.i = shl nuw nsw i64 %38, 6
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i7.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i

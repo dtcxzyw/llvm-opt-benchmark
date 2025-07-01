@@ -24,7 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::raw_svector_ostream" = type { %"class.llvm::raw_pwrite_stream", ptr }
 %"class.llvm::raw_pwrite_stream" = type { %"class.llvm::raw_ostream" }
 %"class.llvm::raw_ostream" = type { ptr, i32, ptr, ptr, ptr, i8, i32 }
-%"struct.std::pair" = type { %"class.llvm::StringRef", %"class.llvm::StringRef" }
 %"class.llvm::fallible_iterator" = type { %"class.llvm::object::Archive::ChildFallibleIterator", %"class.llvm::PointerIntPair.218" }
 %"class.llvm::object::Archive::ChildFallibleIterator" = type { %"class.llvm::object::Archive::Child" }
 %"class.llvm::object::Archive::Child" = type <{ ptr, %"class.std::unique_ptr.210", %"class.llvm::StringRef", i16, [6 x i8] }>
@@ -89,8 +88,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.36 = type { %"struct.llvm::AlignedCharArrayUnion.37" }
 %"struct.llvm::AlignedCharArrayUnion.37" = type { [8 x i8] }
 %"class.llvm::MDOperand" = type { ptr }
-%"class.llvm::SMFixIt" = type { %"class.llvm::SMRange", %"class.std::__cxx11::basic_string" }
-%"class.llvm::SMRange" = type { %"class.llvm::SMLoc", %"class.llvm::SMLoc" }
 %"class.llvm::object::OffloadFile" = type { %"class.llvm::object::OwningBinary" }
 %"class.llvm::object::OwningBinary" = type { %"class.std::unique_ptr", %"class.std::unique_ptr.12" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
@@ -103,6 +100,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.61" = type <{ %"class.llvm::StringRef", i32, [4 x i8] }>
 %"struct.std::pair.66" = type <{ %"class.llvm::DenseMapIterator", i8, [7 x i8] }>
 %"class.llvm::DenseMapIterator" = type { ptr, ptr }
+%"struct.std::pair" = type { %"class.llvm::StringRef", %"class.llvm::StringRef" }
 %"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.base", [4 x i8] }
 %"struct.std::pair.base" = type <{ %"class.llvm::StringRef", i32 }>
 
@@ -441,7 +439,8 @@ define dso_local void @_ZN4llvm6object13OffloadBinary5writeERKNS1_15OffloadingIm
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load i32, ptr %10, align 8, !tbaa !53
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %"struct.std::pair", ptr %9, i64 %12
+  %.idx = shl nuw nsw i64 %12, 5
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   %.not77 = icmp eq i32 %11, 0
   br i1 %.not77, label %._crit_edge, label %.lr.ph
 
@@ -515,8 +514,8 @@ define dso_local void @_ZN4llvm6object13OffloadBinary5writeERKNS1_15OffloadingIm
   store ptr %59, ptr %0, align 8, !tbaa !105
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
-  %.not83 = icmp eq i64 %44, 0
-  br i1 %.not83, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit, label %61
+  %.not84 = icmp eq i64 %44, 0
+  br i1 %.not84, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit, label %61
 
 61:                                               ; preds = %._crit_edge
   call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %59, i64 noundef %44, i64 noundef 1) #17
@@ -582,7 +581,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit44:    ; preds = %86, %88
   %91 = load ptr, ptr %8, align 8, !tbaa !51
   %92 = load i32, ptr %10, align 8, !tbaa !53
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw %"struct.std::pair", ptr %91, i64 %93
+  %.idx83 = shl nuw nsw i64 %93, 5
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx83
   %.not4179 = icmp eq i32 %92, 0
   br i1 %.not4179, label %._crit_edge82, label %.lr.ph81
 
@@ -1058,7 +1058,8 @@ _ZNSt10unique_ptrIN4llvm6ModuleESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZNSt10unique_ptrIN4llvm6ModuleESt14default_deleteIS1_EED2Ev.exit.i
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw %"class.llvm::SMFixIt", ptr %132, i64 %134
+  %.idx.i.i.i = mul nuw nsw i64 %134, 48
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm7SMFixItD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -2831,7 +2832,8 @@ _ZN4llvm8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPai
   store i32 0, ptr %25, align 4, !tbaa !285
   %26 = load i32, ptr %3, align 8, !tbaa !282
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %22, i64 %27
+  %.idx.i = mul nuw nsw i64 %27, 24
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i
   %.not5.i = icmp eq i32 %26, 0
   br i1 %.not5.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E9initEmptyEv.exit, label %.lr.ph.i
 
@@ -2846,14 +2848,16 @@ _ZN4llvm8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPai
 
 30:                                               ; preds = %_ZN4llvm8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEE15allocateBucketsEj.exit
   %31 = zext i32 %4 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %31
+  %.idx = mul nuw nsw i64 %31, 24
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %33, align 8, !tbaa !284
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %34, align 4, !tbaa !285
   %35 = load i32, ptr %3, align 8, !tbaa !282
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %22, i64 %36
+  %.idx.i.i = mul nuw nsw i64 %36, 24
+  %37 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i
   %.not5.i.i = icmp eq i32 %35, 0
   br i1 %.not5.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E9initEmptyEv.exit.i, label %.lr.ph.i.i
 
@@ -2897,8 +2901,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i: ; preds = %_ZN4ll
   br i1 %.not.i7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E18moveFromOldBucketsEPS7_SA_.exit, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i, !llvm.loop !290
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E18moveFromOldBucketsEPS7_SA_.exit: ; preds = %47, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E9initEmptyEv.exit.i
-  %49 = mul nuw nsw i64 %31, 24
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %5, i64 noundef %49, i64 noundef 8) #17
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %5, i64 noundef %.idx, i64 noundef 8) #17
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E9initEmptyEv.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E9initEmptyEv.exit: ; preds = %.lr.ph.i, %23, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E18moveFromOldBucketsEPS7_SA_.exit
@@ -2994,7 +2997,8 @@ _ZNSt10unique_ptrIN4llvm6object13OffloadBinaryESt14default_deleteIS2_EED2Ev.exit
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %11, ptr %12, align 8, !tbaa !86
   %13 = load ptr, ptr %0, align 8, !tbaa !51
-  %14 = getelementptr inbounds nuw %"class.llvm::object::OffloadFile", ptr %13, i64 %8
+  %.idx.i = shl nuw nsw i64 %8, 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_6object11OffloadFileELb0EE19moveElementsForGrowEPS2_.exit, label %.lr.ph.i.i.i.i.i.i
 

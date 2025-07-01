@@ -1081,7 +1081,8 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %21, %25, %29
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %104 = load i32, ptr %103, align 8, !tbaa !66
   %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds nuw ptr, ptr %102, i64 %105
+  %.idx.i = shl nuw nsw i64 %105, 3
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 %.idx.i
   %.not.i34 = icmp eq i32 %104, 0
   br i1 %.not.i34, label %.loopexit69, label %.lr.ph.i.i
 

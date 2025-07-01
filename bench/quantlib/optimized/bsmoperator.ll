@@ -833,7 +833,8 @@ invoke.cont10:                                    ; preds = %invoke.cont7, %cond
   store ptr %cond.i48, ptr %dx_, align 8, !tbaa !28
   %n_.i49 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i64 %21, ptr %n_.i49, align 8, !tbaa !33
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %11, i64 %10
+  %add.ptr.i.idx = shl nuw nsw i64 %10, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %11, i64 %add.ptr.i.idx
   %cmp.not5.i = icmp eq i64 %10, 0
   br i1 %cmp.not5.i, label %_ZSt9transformIPdS0_ZN8QuantLib7LogGridC1ERKNS1_5ArrayEEUldE_ET0_T_S8_S7_T1_.exit, label %for.body.i
 

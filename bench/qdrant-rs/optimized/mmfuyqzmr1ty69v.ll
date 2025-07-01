@@ -1006,7 +1006,8 @@ define void @_ZN6sparse5index14inverted_index26inverted_index_ram_builder20Inver
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %5 = getelementptr inbounds i32, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %.idx = shl nsw i64 %.sroa.5.0.copyload, 2
+  %5 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload, i64 %.idx
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.026.0.copyload = load i64, ptr %6, align 8
   %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1187,7 +1188,8 @@ define void @_ZN6sparse5index14inverted_index26inverted_index_ram_builder20Inver
   %.sroa.04.0.copyload = load i64, ptr %1, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.45.0.copyload = load ptr, ptr %.sroa.45.0..sroa_idx, align 8, !nonnull !5, !noundef !5
-  %17 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.45.0.copyload, i64 %8
+  %.idx = mul nsw i64 %8, 24
+  %17 = getelementptr inbounds i8, ptr %.sroa.45.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %.sroa.45.0.copyload, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1336,7 +1338,7 @@ define void @_ZN6sparse5index14search_context13SearchContext12plain_search17h411
 
 24:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5)
-  %25 = getelementptr inbounds i32, ptr %18, i64 %3
+  %25 = getelementptr inbounds i8, ptr %18, i64 %20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   store ptr %18, ptr %14, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1457,7 +1459,8 @@ define void @_ZN6sparse5index14search_context13SearchContext12plain_search17h411
   store i64 0, ptr %34, align 8
   %73 = load ptr, ptr %35, align 8, !nonnull !5, !noundef !5
   %74 = load i64, ptr %36, align 8, !noundef !5
-  %75 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, float }, ptr %73, i64 %74
+  %.idx95 = shl nsw i64 %74, 5
+  %75 = getelementptr inbounds i8, ptr %73, i64 %.idx95
   %76 = icmp eq i64 %74, 0
   br i1 %76, label %._crit_edge, label %.lr.ph
 
@@ -1640,7 +1643,8 @@ define void @_ZN6sparse5index14search_context13SearchContext12plain_search17h411
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define { i32, i32 } @_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1) unnamed_addr #10 {
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, float }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 5
+  %3 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -1778,102 +1782,101 @@ define noundef zeroext i1 @_ZN6sparse5index14search_context13SearchContext26prun
   %14 = getelementptr inbounds { i32, float, float }, ptr %13, i64 %12
   br i1 %.not, label %16, label %15
 
-15:                                               ; preds = %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45, %45, %55, %44, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread ], [ true, %44 ], [ %58, %55 ], [ false, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45 ], [ false, %45 ]
+15:                                               ; preds = %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45, %46, %56, %45, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread, %6, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread ], [ true, %45 ], [ %59, %56 ], [ false, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45 ], [ false, %46 ]
   ret i1 %.0
 
 16:                                               ; preds = %6
+  %17 = add i64 %4, -1
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
-  %17 = getelementptr { { { ptr, i64 }, i64 }, i32, float }, ptr %8, i64 %4
-  %18 = icmp eq i64 %4, 1
-  br i1 %18, label %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread, label %.lr.ph.i.preheader
+  %.idx.i = shl nsw i64 %17, 5
+  %19 = getelementptr inbounds i8, ptr %18, i64 %.idx.i
+  %20 = icmp eq i64 %17, 0
+  br i1 %20, label %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread, label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %16
-  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  br label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %16, %.lr.ph.i.backedge
+  %.sroa.0.016.i = phi i32 [ %.sroa.0.016.i.be, %.lr.ph.i.backedge ], [ 0, %16 ]
+  %.sroa.5.015.i = phi i32 [ %.sroa.5.015.i.be, %.lr.ph.i.backedge ], [ undef, %16 ]
+  %.sroa.0.01014.i = phi ptr [ %21, %.lr.ph.i.backedge ], [ %18, %16 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.01014.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.01014.i, i64 8
+  %23 = load i64, ptr %22, align 8, !alias.scope !203, !noundef !5
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.01014.i, i64 16
+  %25 = load i64, ptr %24, align 8, !alias.scope !203, !noundef !5
+  %.not.i = icmp ult i64 %25, %23
+  br i1 %.not.i, label %26, label %30
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.preheader
-  %.sroa.0.016.i = phi i32 [ 0, %.lr.ph.i.preheader ], [ %.sroa.0.016.i.be, %.lr.ph.i.backedge ]
-  %.sroa.5.015.i = phi i32 [ undef, %.lr.ph.i.preheader ], [ %.sroa.5.015.i.be, %.lr.ph.i.backedge ]
-  %.sroa.0.01014.i = phi ptr [ %19, %.lr.ph.i.preheader ], [ %20, %.lr.ph.i.backedge ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.01014.i, i64 32
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.01014.i, i64 8
-  %22 = load i64, ptr %21, align 8, !alias.scope !203, !noundef !5
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.01014.i, i64 16
-  %24 = load i64, ptr %23, align 8, !alias.scope !203, !noundef !5
-  %.not.i = icmp ult i64 %24, %22
-  br i1 %.not.i, label %25, label %29
-
-25:                                               ; preds = %.lr.ph.i
-  %26 = load ptr, ptr %.sroa.0.01014.i, align 8, !alias.scope !203, !nonnull !5, !align !156
-  %27 = getelementptr inbounds { i32, float, float }, ptr %26, i64 %24
+26:                                               ; preds = %.lr.ph.i
+  %27 = load ptr, ptr %.sroa.0.01014.i, align 8, !alias.scope !203, !nonnull !5, !align !156
+  %28 = getelementptr inbounds { i32, float, float }, ptr %27, i64 %25
   %switch.i = icmp eq i32 %.sroa.0.016.i, 0
-  %28 = load i32, ptr %27, align 4, !noalias !200, !noundef !5
-  br i1 %switch.i, label %.thread, label %32
+  %29 = load i32, ptr %28, align 4, !noalias !200, !noundef !5
+  br i1 %switch.i, label %.thread, label %33
 
-29:                                               ; preds = %32, %.lr.ph.i
-  %.sroa.5.1.i = phi i32 [ %.sroa.5.015.i, %.lr.ph.i ], [ %spec.select.i, %32 ]
-  %.sroa.0.1.i = phi i32 [ %.sroa.0.016.i, %.lr.ph.i ], [ %spec.select8.i, %32 ]
-  %30 = icmp eq ptr %20, %17
-  br i1 %30, label %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit, label %.lr.ph.i.backedge
+30:                                               ; preds = %33, %.lr.ph.i
+  %.sroa.5.1.i = phi i32 [ %.sroa.5.015.i, %.lr.ph.i ], [ %spec.select.i, %33 ]
+  %.sroa.0.1.i = phi i32 [ %.sroa.0.016.i, %.lr.ph.i ], [ %spec.select8.i, %33 ]
+  %31 = icmp eq ptr %21, %19
+  br i1 %31, label %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit, label %.lr.ph.i.backedge
 
-.lr.ph.i.backedge:                                ; preds = %29, %.thread
-  %.sroa.0.016.i.be = phi i32 [ %.sroa.0.1.i, %29 ], [ 1, %.thread ]
-  %.sroa.5.015.i.be = phi i32 [ %.sroa.5.1.i, %29 ], [ %28, %.thread ]
+.lr.ph.i.backedge:                                ; preds = %30, %.thread
+  %.sroa.0.016.i.be = phi i32 [ %.sroa.0.1.i, %30 ], [ 1, %.thread ]
+  %.sroa.5.015.i.be = phi i32 [ %.sroa.5.1.i, %30 ], [ %29, %.thread ]
   br label %.lr.ph.i
 
-.thread:                                          ; preds = %25
-  %31 = icmp eq ptr %20, %17
-  br i1 %31, label %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45, label %.lr.ph.i.backedge
+.thread:                                          ; preds = %26
+  %32 = icmp eq ptr %21, %19
+  br i1 %32, label %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45, label %.lr.ph.i.backedge
 
-32:                                               ; preds = %25
-  %33 = icmp ult i32 %28, %.sroa.5.015.i
-  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %28, i32 %.sroa.5.015.i)
-  %spec.select8.i = select i1 %33, i32 1, i32 %.sroa.0.016.i
-  br label %29
+33:                                               ; preds = %26
+  %34 = icmp ult i32 %29, %.sroa.5.015.i
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %29, i32 %.sroa.5.015.i)
+  %spec.select8.i = select i1 %34, i32 1, i32 %.sroa.0.016.i
+  br label %30
 
-_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit: ; preds = %29
+_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit: ; preds = %30
   %switch = icmp eq i32 %.sroa.0.1.i, 0
   br i1 %switch, label %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread, label %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45
 
 _ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread: ; preds = %16, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit
-  %34 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %35 = load float, ptr %34, align 4, !noundef !5
-  %36 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %37 = load float, ptr %36, align 4, !noundef !5
-  %38 = tail call float @llvm.maxnum.f32(float %35, float %37)
-  %39 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  %40 = load float, ptr %39, align 4, !noundef !5
-  %41 = fmul float %38, %40
-  %42 = fcmp ugt float %41, %1
-  br i1 %42, label %15, label %44
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %36 = load float, ptr %35, align 4, !noundef !5
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %38 = load float, ptr %37, align 4, !noundef !5
+  %39 = tail call float @llvm.maxnum.f32(float %36, float %38)
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 28
+  %41 = load float, ptr %40, align 4, !noundef !5
+  %42 = fmul float %39, %41
+  %43 = fcmp ugt float %42, %1
+  br i1 %43, label %15, label %45
 
 _ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45: ; preds = %.thread, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit
-  %.sroa.5.1.i4349 = phi i32 [ %.sroa.5.1.i, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit ], [ %28, %.thread ]
-  %43 = load i32, ptr %14, align 4, !noundef !5
-  %switch37 = icmp ugt i32 %.sroa.5.1.i4349, %43
-  br i1 %switch37, label %45, label %15
+  %.sroa.5.1.i4349 = phi i32 [ %.sroa.5.1.i, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit ], [ %29, %.thread ]
+  %44 = load i32, ptr %14, align 4, !noundef !5
+  %switch37 = icmp ugt i32 %.sroa.5.1.i4349, %44
+  br i1 %switch37, label %46, label %15
 
-44:                                               ; preds = %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread
+45:                                               ; preds = %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread
   store i64 %10, ptr %11, align 8, !alias.scope !206
   br label %15
 
-45:                                               ; preds = %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45
-  %46 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %47 = load float, ptr %46, align 4, !noundef !5
-  %48 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %49 = load float, ptr %48, align 4, !noundef !5
-  %50 = tail call float @llvm.maxnum.f32(float %47, float %49)
-  %51 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  %52 = load float, ptr %51, align 4, !noundef !5
-  %53 = fmul float %50, %52
-  %54 = fcmp ugt float %53, %1
-  br i1 %54, label %15, label %55
+46:                                               ; preds = %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %48 = load float, ptr %47, align 4, !noundef !5
+  %49 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %50 = load float, ptr %49, align 4, !noundef !5
+  %51 = tail call float @llvm.maxnum.f32(float %48, float %50)
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 28
+  %53 = load float, ptr %52, align 4, !noundef !5
+  %54 = fmul float %51, %53
+  %55 = fcmp ugt float %54, %1
+  br i1 %55, label %15, label %56
 
-55:                                               ; preds = %45
-  %56 = tail call noundef align 4 dereferenceable_or_null(12) ptr @_ZN6sparse5index12posting_list19PostingListIterator7skip_to17h1f932048eaf675dcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %.sroa.5.1.i4349)
-  %57 = load i64, ptr %11, align 8, !noundef !5
-  %58 = icmp ne i64 %12, %57
+56:                                               ; preds = %46
+  %57 = tail call noundef align 4 dereferenceable_or_null(12) ptr @_ZN6sparse5index12posting_list19PostingListIterator7skip_to17h1f932048eaf675dcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %.sroa.5.1.i4349)
+  %58 = load i64, ptr %11, align 8, !noundef !5
+  %59 = icmp ne i64 %12, %58
   br label %15
 }
 

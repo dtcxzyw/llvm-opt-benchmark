@@ -25,8 +25,6 @@ module asm ".previous"
 %class.QItemSelection = type { %class.QList }
 %class.QList = type { %struct.QArrayDataPointer.4 }
 %struct.QArrayDataPointer.4 = type { ptr, ptr, i64 }
-%class.QItemSelectionRange = type { %class.QPersistentModelIndex, %class.QPersistentModelIndex }
-%class.QPersistentModelIndex = type { ptr }
 %class.QFontMetrics = type { %class.QExplicitlySharedDataPointer }
 %class.QExplicitlySharedDataPointer = type { ptr }
 
@@ -645,9 +643,9 @@ _ZN17QArrayDataPointerI19QItemSelectionRangeE5derefEv.exit.i.i: ; preds = %43
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr %class.QItemSelectionRange, ptr %48, i64 %50
-  %.idx.mask.i.i.i = and i64 %50, 1152921504606846975
-  %.not4.i.i.i.i.i.i = icmp eq i64 %.idx.mask.i.i.i, 0
+  %.idx.i.i.i = shl i64 %50, 4
+  %51 = getelementptr i8, ptr %48, i64 %.idx.i.i.i
+  %.not4.i.i.i.i.i.i = icmp eq i64 %.idx.i.i.i, 0
   br i1 %.not4.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI19QItemSelectionRangeE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %46, %.lr.ph.i.i.i.i.i.i
@@ -714,9 +712,9 @@ _ZN17QArrayDataPointerI19QItemSelectionRangeE5derefEv.exit.i: ; preds = %1
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr %class.QItemSelectionRange, ptr %6, i64 %8
-  %.idx.mask.i.i = and i64 %8, 1152921504606846975
-  %.not4.i.i.i.i.i = icmp eq i64 %.idx.mask.i.i, 0
+  %.idx.i.i = shl i64 %8, 4
+  %9 = getelementptr i8, ptr %6, i64 %.idx.i.i
+  %.not4.i.i.i.i.i = icmp eq i64 %.idx.i.i, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI19QItemSelectionRangeE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %4, %.lr.ph.i.i.i.i.i

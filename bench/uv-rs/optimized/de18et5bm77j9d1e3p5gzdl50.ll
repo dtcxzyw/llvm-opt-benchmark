@@ -3188,7 +3188,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h0419f977d53b8325E(p
   %7 = alloca [32 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [24 x i8], align 8
-  %10 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 360
+  %10 = getelementptr inbounds i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h12a5e399cf33ac23E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, i64 noundef 1, i64 %2)
@@ -3355,7 +3356,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hcd55c438a27cc500E(p
   %5 = alloca [32 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
-  %8 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 3
+  %8 = getelementptr inbounds i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h12a5e399cf33ac23E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i64 noundef 1, i64 %2)
@@ -3492,7 +3494,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hecc99b8619a084d2E(p
   %7 = load ptr, ptr %6, align 8, !alias.scope !688, !nonnull !3, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !688, !noundef !3
-  %10 = getelementptr inbounds i16, ptr %7, i64 %9
+  %.idx = shl nsw i64 %9, 1
+  %10 = getelementptr inbounds i8, ptr %7, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h12a5e399cf33ac23E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef 1, i64 %9)

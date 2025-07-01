@@ -11999,7 +11999,8 @@ define linkonce_odr dso_local void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11cha
   store ptr %7, ptr %10, align 8, !tbaa !287
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8, !tbaa !288
-  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #29
   store ptr %0, ptr %6, align 8, !tbaa !289
   %.not6.i = icmp eq i64 %2, 0
@@ -19050,7 +19051,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFNSt7__cxx1112basic_stringIcS2_SaIcEEEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentRN12_GLOBAL__N_15RangeISt6vectorIS8_SaIS8_EEEEEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_SM_EEEC2ESt16initializer_listIST_EmRKSO_RKSQ_RKSU_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nonnull %1, i64 range(i64 17, 30) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds nuw %"struct.std::pair.455", ptr %1, i64 %2
+  %.idx.i = mul nuw nsw i64 %2, 48
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %5, ptr %0, align 8, !tbaa !465
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -45339,7 +45341,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_ch
           to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i.i.i.i unwind label %.thread.i.i.i
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i.i.i.i
-  %534 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %463, i64 %471
+  %534 = getelementptr inbounds nuw i8, ptr %463, i64 %.idx.i.i.i
   %535 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_ET0_T_SG_SF_(ptr nonnull %463, ptr nonnull %534, ptr noundef nonnull %533)
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2IN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEvEET_SE_RKS6_.exit.i.i.i unwind label %536
 

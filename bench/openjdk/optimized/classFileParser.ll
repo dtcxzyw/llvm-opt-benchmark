@@ -14238,7 +14238,8 @@ define hidden void @_ZNK19OopMapBlocksBuilder8print_onEP12outputStream(ptr nound
   %8 = load ptr, ptr %0, align 8
   %9 = add i32 %7, -1
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %class.OopMapBlock, ptr %8, i64 %10
+  %.idx = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -14276,7 +14277,8 @@ define hidden void @_ZNK19OopMapBlocksBuilder14print_value_onEP12outputStream(pt
   %8 = load ptr, ptr %0, align 8
   %9 = add i32 %7, -1
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %class.OopMapBlock, ptr %8, i64 %10
+  %.idx.i = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i

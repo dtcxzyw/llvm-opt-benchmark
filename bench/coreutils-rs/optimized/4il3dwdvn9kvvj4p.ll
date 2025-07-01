@@ -551,7 +551,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { i64, [1 x i64] }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h6768f767810189f4E.exit, label %.lr.ph.i
 
@@ -577,7 +578,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 24
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hd38b4d294de17884E.exit, label %.lr.ph.i
 
@@ -3121,7 +3123,8 @@ select.unfold:                                    ; preds = %54
   %.val = load ptr, ptr %71, align 8, !nonnull !4, !noundef !4
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val173 = load i64, ptr %72, align 8, !noundef !4
-  %73 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { i64, i64, i8, [7 x i8] }, { i8, i8, i8, i8, i8, i8 }, i8, i8 }, ptr %.val, i64 %.val173
+  %.idx = mul nsw i64 %.val173, 56
+  %73 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %74 = icmp eq i64 %.val173, 0
   br i1 %74, label %._crit_edge626, label %.lr.ph625
 
@@ -5242,7 +5245,8 @@ select.unfold:                                    ; preds = %54
   %.val = load ptr, ptr %71, align 8, !nonnull !4, !noundef !4
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val173 = load i64, ptr %72, align 8, !noundef !4
-  %73 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { i64, i64, i8, [7 x i8] }, { i8, i8, i8, i8, i8, i8 }, i8, i8 }, ptr %.val, i64 %.val173
+  %.idx = mul nsw i64 %.val173, 56
+  %73 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %74 = icmp eq i64 %.val173, 0
   br i1 %74, label %._crit_edge626, label %.lr.ph625
 
@@ -7363,7 +7367,8 @@ select.unfold:                                    ; preds = %54
   %.val = load ptr, ptr %71, align 8, !nonnull !4, !noundef !4
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val173 = load i64, ptr %72, align 8, !noundef !4
-  %73 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { i64, i64, i8, [7 x i8] }, { i8, i8, i8, i8, i8, i8 }, i8, i8 }, ptr %.val, i64 %.val173
+  %.idx = mul nsw i64 %.val173, 56
+  %73 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %74 = icmp eq i64 %.val173, 0
   br i1 %74, label %._crit_edge626, label %.lr.ph625
 

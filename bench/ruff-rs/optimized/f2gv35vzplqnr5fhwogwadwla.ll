@@ -4082,7 +4082,8 @@ _ZN4core3ops8function2Fn4call17hb7620c4feccfe915E.exit: ; preds = %61
 69:                                               ; preds = %_ZN4core3ops8function2Fn4call17hb7620c4feccfe915E.exit
   %.sroa.041.0.copyload = load i64, ptr %8, align 8
   %.sroa.442.0.copyload = load ptr, ptr %.sroa.442.0..sroa_idx, align 8, !nonnull !3, !noundef !3
-  %70 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.sroa.442.0.copyload, i64 %65
+  %.idx = shl nuw nsw i64 %65, 5
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.442.0.copyload, i64 %.idx
   %71 = icmp sgt i64 %.sroa.041.0.copyload, -1
   call void @llvm.assume(i1 %71)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)

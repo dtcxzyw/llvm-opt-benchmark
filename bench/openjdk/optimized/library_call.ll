@@ -46399,7 +46399,8 @@ _ZN17AllocateArrayNode22Ideal_array_allocationEP4Node.exit: ; preds = %13
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %46 = load i32, ptr %45, align 8
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %44, i64 %47
+  %.idx = shl nuw nsw i64 %47, 3
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx
   %.not44 = icmp eq i32 %46, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pn32.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -46441,7 +46442,8 @@ _ZN17AllocateArrayNode22Ideal_array_allocationEP4Node.exit: ; preds = %13
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %65 = load i32, ptr %64, align 8
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %63, i64 %66
+  %.idx.i = shl nuw nsw i64 %66, 3
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx.i
   %.not.i = icmp eq i32 %65, 0
   br i1 %.not.i, label %_ZN17AllocateArrayNode22Ideal_array_allocationEP4Node.exit.thread, label %.lr.ph.i
 
@@ -55781,7 +55783,8 @@ define hidden void @_ZN14LibraryCallKit49replace_unrelated_uncommon_traps_with_a
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %48 = load i32, ptr %47, align 8
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %49
+  %.idx.i.i = shl nuw nsw i64 %49, 3
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i.i
   %.not.i.i = icmp eq i32 %48, 0
   br i1 %.not.i.i, label %_ZN14LibraryCallKit35get_uncommon_trap_from_success_projEP4Node.exit.thread.i, label %.lr.ph.i.i
 
@@ -55890,7 +55893,8 @@ define hidden void @_ZN14LibraryCallKit49replace_unrelated_uncommon_traps_with_a
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %13
+  %.idx.i = shl nuw nsw i64 %13, 3
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %_ZN14LibraryCallKit35get_uncommon_trap_from_success_projEP4Node.exit.thread, label %.lr.ph.i
 
@@ -55965,7 +55969,8 @@ define hidden noundef ptr @_ZN14LibraryCallKit35get_uncommon_trap_from_success_p
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %9, i64 %12
+  %.idx = shl nuw nsw i64 %12, 3
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 

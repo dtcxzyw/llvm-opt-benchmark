@@ -1008,7 +1008,8 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$14choose_
   %.val = load ptr, ptr %4, align 8, !nonnull !12, !align !268, !noundef !12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %.val22 = load i64, ptr %5, align 8, !noundef !12
-  %6 = getelementptr inbounds { [8 x float] }, ptr %.val, i64 %.val22
+  %.idx = shl nsw i64 %.val22, 5
+  %6 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %7 = icmp eq i64 %.val22, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 

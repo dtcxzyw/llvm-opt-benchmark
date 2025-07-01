@@ -3375,7 +3375,8 @@ define hidden noundef i64 @_ZNK11opencv_onnx14AttributeProto12ByteSizeLongEv(ptr
   %.not.i.i = icmp eq ptr %25, null
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %26
-  %27 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %22
+  %.idx = shl nsw i64 %22, 3
+  %27 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not6670 = icmp eq i32 %21, 0
   br i1 %.not6670, label %._crit_edge75, label %.lr.ph74
 
@@ -3411,7 +3412,8 @@ define hidden noundef i64 @_ZNK11opencv_onnx14AttributeProto12ByteSizeLongEv(ptr
   %.not.i.i55 = icmp eq ptr %48, null
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %spec.select.i.i56 = select i1 %.not.i.i55, ptr null, ptr %49
-  %50 = getelementptr inbounds ptr, ptr %spec.select.i.i56, i64 %45
+  %.idx84 = shl nsw i64 %45, 3
+  %50 = getelementptr inbounds i8, ptr %spec.select.i.i56, i64 %.idx84
   %.not6777 = icmp eq i32 %44, 0
   br i1 %.not6777, label %._crit_edge82, label %.lr.ph81
 
@@ -7790,7 +7792,8 @@ define hidden noundef i64 @_ZNK11opencv_onnx9NodeProto12ByteSizeLongEv(ptr nound
   %.not.i.i = icmp eq ptr %37, null
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %38
-  %39 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %34
+  %.idx = shl nsw i64 %34, 3
+  %39 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not3847 = icmp eq i32 %33, 0
   br i1 %.not3847, label %._crit_edge52, label %.lr.ph51
 
@@ -10139,7 +10142,8 @@ define hidden noundef i64 @_ZNK11opencv_onnx10ModelProto12ByteSizeLongEv(ptr nou
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not5254 = icmp eq i32 %3, 0
   br i1 %.not5254, label %._crit_edge, label %.lr.ph
 
@@ -10154,7 +10158,8 @@ define hidden noundef i64 @_ZNK11opencv_onnx10ModelProto12ByteSizeLongEv(ptr nou
   %.not.i.i35 = icmp eq ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %spec.select.i.i36 = select i1 %.not.i.i35, ptr null, ptr %15
-  %16 = getelementptr inbounds ptr, ptr %spec.select.i.i36, i64 %11
+  %.idx64 = shl nsw i64 %11, 3
+  %16 = getelementptr inbounds i8, ptr %spec.select.i.i36, i64 %.idx64
   %.not5357 = icmp eq i32 %10, 0
   br i1 %.not5357, label %._crit_edge62, label %.lr.ph61
 
@@ -13261,7 +13266,8 @@ define hidden noundef i64 @_ZNK11opencv_onnx10GraphProto12ByteSizeLongEv(ptr nou
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not7075 = icmp eq i32 %3, 0
   br i1 %.not7075, label %._crit_edge, label %.lr.ph
 
@@ -13276,7 +13282,8 @@ define hidden noundef i64 @_ZNK11opencv_onnx10GraphProto12ByteSizeLongEv(ptr nou
   %.not.i.i35 = icmp eq ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %spec.select.i.i36 = select i1 %.not.i.i35, ptr null, ptr %15
-  %16 = getelementptr inbounds ptr, ptr %spec.select.i.i36, i64 %11
+  %.idx106 = shl nsw i64 %11, 3
+  %16 = getelementptr inbounds i8, ptr %spec.select.i.i36, i64 %.idx106
   %.not7178 = icmp eq i32 %10, 0
   br i1 %.not7178, label %._crit_edge83, label %.lr.ph82
 
@@ -13310,7 +13317,8 @@ define hidden noundef i64 @_ZNK11opencv_onnx10GraphProto12ByteSizeLongEv(ptr nou
   %.not.i.i39 = icmp eq ptr %35, null
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %spec.select.i.i40 = select i1 %.not.i.i39, ptr null, ptr %36
-  %37 = getelementptr inbounds ptr, ptr %spec.select.i.i40, i64 %32
+  %.idx107 = shl nsw i64 %32, 3
+  %37 = getelementptr inbounds i8, ptr %spec.select.i.i40, i64 %.idx107
   %.not7285 = icmp eq i32 %31, 0
   br i1 %.not7285, label %._crit_edge90, label %.lr.ph89
 
@@ -13344,7 +13352,8 @@ define hidden noundef i64 @_ZNK11opencv_onnx10GraphProto12ByteSizeLongEv(ptr nou
   %.not.i.i43 = icmp eq ptr %56, null
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %spec.select.i.i44 = select i1 %.not.i.i43, ptr null, ptr %57
-  %58 = getelementptr inbounds ptr, ptr %spec.select.i.i44, i64 %53
+  %.idx108 = shl nsw i64 %53, 3
+  %58 = getelementptr inbounds i8, ptr %spec.select.i.i44, i64 %.idx108
   %.not7392 = icmp eq i32 %52, 0
   br i1 %.not7392, label %._crit_edge97, label %.lr.ph96
 
@@ -13378,7 +13387,8 @@ define hidden noundef i64 @_ZNK11opencv_onnx10GraphProto12ByteSizeLongEv(ptr nou
   %.not.i.i47 = icmp eq ptr %77, null
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %spec.select.i.i48 = select i1 %.not.i.i47, ptr null, ptr %78
-  %79 = getelementptr inbounds ptr, ptr %spec.select.i.i48, i64 %74
+  %.idx109 = shl nsw i64 %74, 3
+  %79 = getelementptr inbounds i8, ptr %spec.select.i.i48, i64 %.idx109
   %.not7499 = icmp eq i32 %73, 0
   br i1 %.not7499, label %._crit_edge104, label %.lr.ph103
 
@@ -19163,7 +19173,8 @@ define hidden noundef i64 @_ZNK11opencv_onnx16TensorShapeProto12ByteSizeLongEv(p
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not12 = icmp eq i32 %3, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 

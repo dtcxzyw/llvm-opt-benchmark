@@ -989,7 +989,8 @@ define hidden void @_ZN8PSOldGen6shrinkEm(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8PSOldGen29complete_loaded_archive_spaceE9MemRegion(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 3
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %5 = icmp sgt i64 %2, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 

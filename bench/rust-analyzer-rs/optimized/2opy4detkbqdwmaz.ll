@@ -8959,7 +8959,8 @@ define hidden void @_ZN15ide_diagnostics8handlers17mutability_errors8need_mut17h
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !2363, !noalias !2366, !nonnull !49, !noundef !49
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 16
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !2363, !noalias !2366
-  %46 = getelementptr inbounds { { { i64, [1 x i64] }, i32, [1 x i32] }, { { i32, [1 x i32] }, i32 }, [1 x i32] }, ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
+  %.idx.i = mul nsw i64 %.sroa.5.0.copyload.i.i, 40
+  %46 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %.idx.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !2360
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19), !noalias !2360
   store ptr %.sroa.4.0.copyload.i.i, ptr %19, align 8, !noalias !2360
@@ -9654,7 +9655,8 @@ define hidden void @_ZN15ide_diagnostics8handlers17mutability_errors10unused_mut
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !2562, !noalias !2565, !nonnull !49, !noundef !49
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !2562, !noalias !2565
-  %41 = getelementptr inbounds { { { i64, [1 x i64] }, i32, [1 x i32] }, { { i32, [1 x i32] }, i32 }, [1 x i32] }, ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
+  %.idx.i = mul nsw i64 %.sroa.5.0.copyload.i.i, 40
+  %41 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %.idx.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !2560
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16), !noalias !2560
   store ptr %.sroa.4.0.copyload.i.i, ptr %16, align 8, !noalias !2560
@@ -20416,7 +20418,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h0a44167e9bb50e60E.exit.i.i.i.i
 
 .lr.ph444.i:                                      ; preds = %635
   %640 = load ptr, ptr %199, align 8, !noalias !4643, !nonnull !49, !noundef !49
-  %641 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %640, i64 %636
+  %.idx456.i = mul nsw i64 %636, 24
+  %641 = getelementptr inbounds i8, ptr %640, i64 %.idx456.i
   %642 = getelementptr inbounds nuw i8, ptr %625, i64 552
   %643 = getelementptr inbounds nuw i8, ptr %625, i64 560
   %644 = getelementptr inbounds nuw i8, ptr %625, i64 576

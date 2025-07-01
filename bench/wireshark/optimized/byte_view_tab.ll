@@ -512,9 +512,9 @@ _ZNK7QObject12findChildrenIP12ByteViewTextEE5QListIT_ERK7QString6QFlagsIN2Qt15Fi
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr ptr, ptr %12, i64 %14
-  %.idx.mask.i = and i64 %14, 2305843009213693951
-  %.not4.i.i = icmp eq i64 %.idx.mask.i, 0
+  %.idx.i = shl i64 %14, 3
+  %15 = getelementptr i8, ptr %12, i64 %.idx.i
+  %.not4.i.i = icmp eq i64 %.idx.i, 0
   br i1 %.not4.i.i, label %_Z10qDeleteAllI5QListIP12ByteViewTextEEvRKT_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7QObject12findChildrenIP12ByteViewTextEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE.exit, %22

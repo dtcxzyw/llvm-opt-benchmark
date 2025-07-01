@@ -344,19 +344,19 @@ _ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i.i: ; preds = 
 
 93:                                               ; preds = %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i.i
   %94 = icmp eq i32 %42, 15
-  br i1 %94, label %_ZN5ZXing4OneDL9IsL2RPairERKNS_11PatternViewE.exit.thread174.i, label %.lr.ph.i.i.i.i10.i.i.i
+  br i1 %94, label %_ZN5ZXing4OneDL9IsL2RPairERKNS_11PatternViewE.exit.thread174.i, label %.lr.ph.i.i.i.i11.i.i.i
 
-.lr.ph.i.i.i.i10.i.i.i:                           ; preds = %93, %.lr.ph.i.i.i.i10.i.i.i
-  %.08.i.i.i.i11.idx.i.i.i = phi i64 [ %.08.i.i.i.i11.add.i.i.i, %.lr.ph.i.i.i.i10.i.i.i ], [ 26, %93 ]
-  %.057.i.i.i.i12.i.i.i = phi i16 [ %96, %.lr.ph.i.i.i.i10.i.i.i ], [ 0, %93 ]
-  %.08.i.i.i.i11.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 %.08.i.i.i.i11.idx.i.i.i
-  %95 = load i16, ptr %.08.i.i.i.i11.ptr.i.i.i, align 2, !tbaa !34, !noalias !26
-  %96 = add i16 %95, %.057.i.i.i.i12.i.i.i
-  %.08.i.i.i.i11.add.i.i.i = add nuw nsw i64 %.08.i.i.i.i11.idx.i.i.i, 2
-  %.not.i.i.i.i13.i.i.i = icmp eq i64 %.08.i.i.i.i11.add.i.i.i, 42
-  br i1 %.not.i.i.i.i13.i.i.i, label %_ZN5ZXing4OneDL9IsL2RPairERKNS_11PatternViewE.exit.i, label %.lr.ph.i.i.i.i10.i.i.i, !llvm.loop !36
+.lr.ph.i.i.i.i11.i.i.i:                           ; preds = %93, %.lr.ph.i.i.i.i11.i.i.i
+  %.08.i.i.i.i12.idx.i.i.i = phi i64 [ %.08.i.i.i.i12.add.i.i.i, %.lr.ph.i.i.i.i11.i.i.i ], [ 26, %93 ]
+  %.057.i.i.i.i13.i.i.i = phi i16 [ %96, %.lr.ph.i.i.i.i11.i.i.i ], [ 0, %93 ]
+  %.08.i.i.i.i12.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 %.08.i.i.i.i12.idx.i.i.i
+  %95 = load i16, ptr %.08.i.i.i.i12.ptr.i.i.i, align 2, !tbaa !34, !noalias !26
+  %96 = add i16 %95, %.057.i.i.i.i13.i.i.i
+  %.08.i.i.i.i12.add.i.i.i = add nuw nsw i64 %.08.i.i.i.i12.idx.i.i.i, 2
+  %.not.i.i.i.i14.i.i.i = icmp eq i64 %.08.i.i.i.i12.add.i.i.i, 42
+  br i1 %.not.i.i.i.i14.i.i.i, label %_ZN5ZXing4OneDL9IsL2RPairERKNS_11PatternViewE.exit.i, label %.lr.ph.i.i.i.i11.i.i.i, !llvm.loop !36
 
-_ZN5ZXing4OneDL9IsL2RPairERKNS_11PatternViewE.exit.i: ; preds = %.lr.ph.i.i.i.i10.i.i.i
+_ZN5ZXing4OneDL9IsL2RPairERKNS_11PatternViewE.exit.i: ; preds = %.lr.ph.i.i.i.i11.i.i.i
   %97 = uitofp i16 %96 to float
   %98 = fdiv float %97, 1.700000e+01
   %99 = fdiv float %98, %86
@@ -535,19 +535,19 @@ _ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i49.i: ; preds 
 
 173:                                              ; preds = %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i49.i
   %174 = icmp eq i32 %122, 15
-  br i1 %174, label %_ZN5ZXing4OneDL9IsR2LPairERKNS_11PatternViewE.exit.thread175.i, label %.lr.ph.i.i.i.i10.i.i50.i
+  br i1 %174, label %_ZN5ZXing4OneDL9IsR2LPairERKNS_11PatternViewE.exit.thread175.i, label %.lr.ph.i.i.i.i11.i.i50.i
 
-.lr.ph.i.i.i.i10.i.i50.i:                         ; preds = %173, %.lr.ph.i.i.i.i10.i.i50.i
-  %.08.i.i.i.i11.idx.i.i51.i = phi i64 [ %.08.i.i.i.i11.add.i.i54.i, %.lr.ph.i.i.i.i10.i.i50.i ], [ 26, %173 ]
-  %.057.i.i.i.i12.i.i52.i = phi i16 [ %176, %.lr.ph.i.i.i.i10.i.i50.i ], [ 0, %173 ]
-  %.08.i.i.i.i11.ptr.i.i53.i = getelementptr inbounds nuw i8, ptr %121, i64 %.08.i.i.i.i11.idx.i.i51.i
-  %175 = load i16, ptr %.08.i.i.i.i11.ptr.i.i53.i, align 2, !tbaa !34, !noalias !26
-  %176 = add i16 %175, %.057.i.i.i.i12.i.i52.i
-  %.08.i.i.i.i11.add.i.i54.i = add nuw nsw i64 %.08.i.i.i.i11.idx.i.i51.i, 2
-  %.not.i.i.i.i13.i.i55.i = icmp eq i64 %.08.i.i.i.i11.add.i.i54.i, 42
-  br i1 %.not.i.i.i.i13.i.i55.i, label %_ZN5ZXing4OneDL9IsR2LPairERKNS_11PatternViewE.exit.i, label %.lr.ph.i.i.i.i10.i.i50.i, !llvm.loop !36
+.lr.ph.i.i.i.i11.i.i50.i:                         ; preds = %173, %.lr.ph.i.i.i.i11.i.i50.i
+  %.08.i.i.i.i12.idx.i.i51.i = phi i64 [ %.08.i.i.i.i12.add.i.i54.i, %.lr.ph.i.i.i.i11.i.i50.i ], [ 26, %173 ]
+  %.057.i.i.i.i13.i.i52.i = phi i16 [ %176, %.lr.ph.i.i.i.i11.i.i50.i ], [ 0, %173 ]
+  %.08.i.i.i.i12.ptr.i.i53.i = getelementptr inbounds nuw i8, ptr %121, i64 %.08.i.i.i.i12.idx.i.i51.i
+  %175 = load i16, ptr %.08.i.i.i.i12.ptr.i.i53.i, align 2, !tbaa !34, !noalias !26
+  %176 = add i16 %175, %.057.i.i.i.i13.i.i52.i
+  %.08.i.i.i.i12.add.i.i54.i = add nuw nsw i64 %.08.i.i.i.i12.idx.i.i51.i, 2
+  %.not.i.i.i.i14.i.i55.i = icmp eq i64 %.08.i.i.i.i12.add.i.i54.i, 42
+  br i1 %.not.i.i.i.i14.i.i55.i, label %_ZN5ZXing4OneDL9IsR2LPairERKNS_11PatternViewE.exit.i, label %.lr.ph.i.i.i.i11.i.i50.i, !llvm.loop !36
 
-_ZN5ZXing4OneDL9IsR2LPairERKNS_11PatternViewE.exit.i: ; preds = %.lr.ph.i.i.i.i10.i.i50.i
+_ZN5ZXing4OneDL9IsR2LPairERKNS_11PatternViewE.exit.i: ; preds = %.lr.ph.i.i.i.i11.i.i50.i
   %177 = uitofp i16 %176 to float
   %178 = fdiv float %177, 1.700000e+01
   %179 = fdiv float %178, %166

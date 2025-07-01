@@ -67,78 +67,79 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i32, ptr %17, align 8, !tbaa !15
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %21 = shl nuw nsw i64 %20, 3
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %21
   %.not44 = icmp eq i32 %19, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61, %_ZNK4llvm12MachineInstr11memoperandsEv.exit
-  %22 = phi ptr [ %15, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61 ], [ %21, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ]
+  %23 = phi ptr [ %15, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61 ], [ %22, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ]
   %.sroa.0.0.i65 = phi ptr [ %9, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61 ], [ %18, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ]
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %45, %12, %.lr.ph50, %_ZNK4llvm12MachineInstr11memoperandsEv.exit
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.033.048, i64 8
-  %.sroa.033.0 = load ptr, ptr %23, align 8, !tbaa !9
+._crit_edge:                                      ; preds = %46, %12, %.lr.ph50, %_ZNK4llvm12MachineInstr11memoperandsEv.exit
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.033.048, i64 8
+  %.sroa.033.0 = load ptr, ptr %24, align 8, !tbaa !9
   %.not43 = icmp eq ptr %.sroa.033.0, %7
   br i1 %.not43, label %._crit_edge51, label %.lr.ph50
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %45
-  %.045 = phi ptr [ %46, %45 ], [ %.sroa.0.0.i65, %.lr.ph.preheader ]
-  %24 = load ptr, ptr %.045, align 8, !tbaa !19
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %.sroa.0.0.copyload = load ptr, ptr %25, align 8, !tbaa !21
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 48
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %46
+  %.045 = phi ptr [ %47, %46 ], [ %.sroa.0.0.i65, %.lr.ph.preheader ]
+  %25 = load ptr, ptr %.045, align 8, !tbaa !19
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %.sroa.0.0.copyload = load ptr, ptr %26, align 8, !tbaa !21
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 48
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !21
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 56
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !21
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 64
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 64
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !21
   %.not22 = icmp eq ptr %.sroa.0.0.copyload, null
-  br i1 %.not22, label %30, label %26
+  br i1 %.not22, label %31, label %27
 
-26:                                               ; preds = %.lr.ph
-  %27 = load ptr, ptr %1, align 8, !tbaa !23
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %29 = load ptr, ptr %28, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.0.0.copyload) #5
-  br label %30
+27:                                               ; preds = %.lr.ph
+  %28 = load ptr, ptr %1, align 8, !tbaa !23
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %30 = load ptr, ptr %29, align 8
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.0.0.copyload) #5
+  br label %31
 
-30:                                               ; preds = %26, %.lr.ph
+31:                                               ; preds = %27, %.lr.ph
   %.not23 = icmp eq ptr %.sroa.4.0.copyload, null
-  br i1 %.not23, label %35, label %31
+  br i1 %.not23, label %36, label %32
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %1, align 8, !tbaa !23
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.4.0.copyload) #5
-  br label %35
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %1, align 8, !tbaa !23
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %35 = load ptr, ptr %34, align 8
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.4.0.copyload) #5
+  br label %36
 
-35:                                               ; preds = %31, %30
+36:                                               ; preds = %32, %31
   %.not24 = icmp eq ptr %.sroa.5.0.copyload, null
-  br i1 %.not24, label %40, label %36
+  br i1 %.not24, label %41, label %37
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %1, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.5.0.copyload) #5
-  br label %40
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %1, align 8, !tbaa !23
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %40 = load ptr, ptr %39, align 8
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.5.0.copyload) #5
+  br label %41
 
-40:                                               ; preds = %36, %35
+41:                                               ; preds = %37, %36
   %.not25 = icmp eq ptr %.sroa.6.0.copyload, null
-  br i1 %.not25, label %45, label %41
+  br i1 %.not25, label %46, label %42
 
-41:                                               ; preds = %40
-  %42 = load ptr, ptr %1, align 8, !tbaa !23
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.6.0.copyload) #5
-  br label %45
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %1, align 8, !tbaa !23
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %45 = load ptr, ptr %44, align 8
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.6.0.copyload) #5
+  br label %46
 
-45:                                               ; preds = %41, %40
-  %46 = getelementptr inbounds nuw i8, ptr %.045, i64 8
-  %.not = icmp eq ptr %46, %22
+46:                                               ; preds = %42, %41
+  %47 = getelementptr inbounds nuw i8, ptr %.045, i64 8
+  %.not = icmp eq ptr %47, %23
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

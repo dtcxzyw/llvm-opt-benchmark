@@ -41,7 +41,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.75" = type { %"struct.re2::PODArray<re2::SparseArray<int>::IndexValue>::Deleter" }
 %"struct.re2::PODArray<re2::SparseArray<int>::IndexValue>::Deleter" = type { i32 }
 %"struct.std::_Head_base.76" = type { ptr }
-%"class.re2::SparseArray<int>::IndexValue" = type { i32, i32 }
 %"class.absl::debian2::FixedArray" = type { %"class.absl::debian2::FixedArray<absl::debian2::string_view, 17>::Storage" }
 %"class.absl::debian2::FixedArray<absl::debian2::string_view, 17>::Storage" = type { %"class.absl::debian2::FixedArray<absl::debian2::string_view, 17>::NonEmptyInlinedStorage", %"class.absl::debian2::container_internal::CompressedTuple", ptr }
 %"class.absl::debian2::FixedArray<absl::debian2::string_view, 17>::NonEmptyInlinedStorage" = type { [272 x i8] }
@@ -1620,7 +1619,8 @@ invoke.cont:                                      ; preds = %_ZN3re211SparseArra
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %fanout, align 8
   %idx.ext.i = sext i32 %5 to i64
-  %add.ptr.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %4, i64 %idx.ext.i
+  %add.ptr.i.idx = shl nsw i64 %idx.ext.i, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %add.ptr.i.idx
   %cmp.not18 = icmp eq i32 %5, 0
   br i1 %cmp.not18, label %for.end, label %for.body
 

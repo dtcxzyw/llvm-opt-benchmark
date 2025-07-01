@@ -1541,7 +1541,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i45.
   %597 = getelementptr inbounds nuw i8, ptr %.sroa.055.078.i.i, i64 40
   %598 = load i24, ptr %597, align 8
   %599 = zext i24 %598 to i64
-  %600 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %596, i64 %599
+  %.idx.i.i = shl nuw nsw i64 %599, 5
+  %600 = getelementptr inbounds nuw i8, ptr %596, i64 %.idx.i.i
   %.not75.i.i = icmp eq i24 %598, 0
   br i1 %.not75.i.i, label %._crit_edge.i.i, label %.lr.ph.i47.i
 
@@ -4400,7 +4401,8 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i: ; preds = %48
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.0.051.i, i64 40
   %71 = load i24, ptr %70, align 8
   %72 = zext i24 %71 to i64
-  %73 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %69, i64 %72
+  %.idx.i.i = shl nuw nsw i64 %72, 5
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i.i
   %.not8.i.i = icmp eq i24 %71, 0
   br i1 %.not8.i.i, label %.loopexit.i, label %.lr.ph.i.i
 

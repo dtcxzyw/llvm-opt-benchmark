@@ -3646,7 +3646,8 @@ define hidden void @_ZN9typst_pdf4extg30write_external_graphics_states17h85f57a9
   %5 = load ptr, ptr %4, align 8, !alias.scope !629, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %7 = load i64, ptr %6, align 8, !alias.scope !629, !noundef !4
-  %8 = getelementptr inbounds { i8, i8 }, ptr %5, i64 %7
+  %.idx = shl nsw i64 %7, 1
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
@@ -3779,7 +3780,8 @@ define hidden void @_ZN9typst_pdf8gradient15write_gradients17hc81779d87afeb169E(
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !639, !noalias !642, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !639, !noalias !642
-  %30 = getelementptr inbounds { { i64, [1 x i64] }, { double, double, double, double, double, double }, double, double }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nsw i64 %.sroa.5.0.copyload.i, 80
+  %30 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
   store ptr %.sroa.4.0.copyload.i, ptr %25, align 8
@@ -7368,7 +7370,8 @@ define hidden void @_ZN9typst_pdf5image12write_images17habacb3ce58dd39c3E(ptr no
   %.val = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %.val32 = load i64, ptr %25, align 8, !noundef !4
-  %26 = getelementptr inbounds ptr, ptr %.val, i64 %.val32
+  %.idx = shl nsw i64 %.val32, 3
+  %26 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %27 = icmp eq i64 %.val32, 0
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sink.sroa.gep164 = getelementptr inbounds nuw i8, ptr %7, i64 8

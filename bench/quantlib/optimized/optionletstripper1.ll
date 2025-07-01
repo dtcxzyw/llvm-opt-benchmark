@@ -1197,7 +1197,7 @@ for.body.i.i.i.preheader.i:                       ; preds = %cond.true.i53
           to label %call.i.noexc71 unwind label %lpad51
 
 call.i.noexc71:                                   ; preds = %for.body.i.i.i.preheader.i
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %call.i72, i64 %mul.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i72, i64 %41
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %call.i.noexc71
@@ -1981,7 +1981,7 @@ for.body.i.i.i.preheader.i:                       ; preds = %cond.true.i57
           to label %call.i.noexc75 unwind label %lpad47
 
 call.i.noexc75:                                   ; preds = %for.body.i.i.i.preheader.i
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %call.i76, i64 %mul.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i76, i64 %39
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %call.i.noexc75

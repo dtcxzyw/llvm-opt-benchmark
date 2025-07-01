@@ -324,7 +324,8 @@ define internal void @"_ZN4core3ptr58drop_in_place$LT$$RF$core..option..Option$L
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17h83e3a6caa1342b53E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(72) %2) unnamed_addr #8 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { { { [2 x i64] } } }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -1759,7 +1760,8 @@ common.resume:                                    ; preds = %67, %.thread, %26
   store i64 %30, ptr %32, align 8
   %33 = load ptr, ptr %0, align 8, !nonnull !13, !noundef !13
   %34 = load i64, ptr %8, align 8, !noundef !13
-  %35 = getelementptr inbounds { { { [2 x i64] } } }, ptr %33, i64 %34
+  %.idx = shl nsw i64 %34, 4
+  %35 = getelementptr inbounds i8, ptr %33, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %.not.i23 = icmp eq i64 %34, 0
   br i1 %.not.i23, label %.noexc24.._crit_edge_crit_edge, label %36

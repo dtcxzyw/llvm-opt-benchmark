@@ -4499,10 +4499,10 @@ thread-pre-split:                                 ; preds = %164
   br label %.thread251.sink.split
 
 .thread251.sink.split:                            ; preds = %.thread, %169
-  %.sink276 = phi i64 [ 45, %169 ], [ 93, %.thread ]
+  %.sink277 = phi i64 [ 45, %169 ], [ 93, %.thread ]
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 1
   store ptr %170, ptr %0, align 8, !tbaa !17
-  %171 = getelementptr inbounds nuw i8, ptr %148, i64 %.sink276
+  %171 = getelementptr inbounds nuw i8, ptr %148, i64 %.sink277
   %172 = load i8, ptr %171, align 1, !tbaa !36
   %173 = or i8 %172, %151
   store i8 %173, ptr %171, align 1, !tbaa !36
@@ -5688,8 +5688,9 @@ nch.exit.thread:                                  ; preds = %624
   %744 = load ptr, ptr %743, align 8, !tbaa !67
   %745 = getelementptr inbounds nuw i8, ptr %.val, i64 20
   %746 = load i32, ptr %745, align 4, !tbaa !40
-  %747 = zext nneg i32 %746 to i64
-  %748 = getelementptr inbounds nuw %struct.cset, ptr %744, i64 %747
+  %747 = sext i32 %746 to i64
+  %.idx.i = shl nsw i64 %747, 5
+  %748 = getelementptr inbounds i8, ptr %744, i64 %.idx.i
   %749 = icmp sgt i32 %746, 0
   br i1 %749, label %.lr.ph39.split.split.us.i, label %freezeset.exit
 
@@ -5700,7 +5701,8 @@ nch.exit.thread.thread:                           ; preds = %nch.exit
   %753 = getelementptr inbounds nuw i8, ptr %.val, i64 20
   %754 = load i32, ptr %753, align 4, !tbaa !40
   %755 = sext i32 %754 to i64
-  %756 = getelementptr inbounds %struct.cset, ptr %752, i64 %755
+  %.idx.i256 = shl nsw i64 %755, 5
+  %756 = getelementptr inbounds i8, ptr %752, i64 %.idx.i256
   %757 = icmp sgt i32 %754, 0
   br i1 %757, label %.lr.ph39.split.us.i, label %freezeset.exit
 

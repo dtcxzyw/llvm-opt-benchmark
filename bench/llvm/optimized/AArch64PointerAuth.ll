@@ -304,7 +304,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_118AArch64PointerAuth20runOn
 ._crit_edge55:                                    ; preds = %._crit_edge
   %.pre = load ptr, ptr %45, align 8, !tbaa !151
   %56 = zext i32 %96 to i64
-  %57 = getelementptr inbounds nuw %"class.llvm::ilist_iterator.203", ptr %.pre, i64 %56
+  %.idx = shl nuw nsw i64 %56, 3
+  %57 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
   %.not56.not = icmp ne i32 %96, 0
   br i1 %.not56.not, label %.lr.ph59, label %._crit_edge60
 
@@ -440,9 +441,9 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   br label %_ZN4llvm11SmallVectorINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEELj6EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEELj6EED2Ev.exit: ; preds = %2, %._crit_edge60, %128
-  %.not566668 = phi i1 [ %.not56.not, %._crit_edge60 ], [ %.not56.not, %128 ], [ false, %2 ]
+  %.not566769 = phi i1 [ %.not56.not, %._crit_edge60 ], [ %.not56.not, %128 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %45) #13
-  ret i1 %.not566668
+  ret i1 %.not566769
 
 129:                                              ; preds = %.lr.ph59, %473
   %.02157 = phi ptr [ %.pre, %.lr.ph59 ], [ %474, %473 ]

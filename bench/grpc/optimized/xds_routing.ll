@@ -61,7 +61,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.grpc_core::Slice" = type { %"class.grpc_core::slice_detail::BaseSlice" }
 %"class.grpc_core::CompressionAlgorithmSet" = type { %"class.grpc_core::BitSet.248" }
 %"class.grpc_core::BitSet.248" = type { [1 x i8] }
-%"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
 
 $_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = comdat any
 
@@ -6118,7 +6117,8 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail20GetStringValueHelperI1
   %16 = load ptr, ptr %15, align 8
   %17 = select i1 %.not.i.i, ptr %15, ptr %16
   %18 = lshr i64 %13, 1
-  %19 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %17, i64 %18
+  %.idx = mul nuw nsw i64 %18, 40
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %.not14 = icmp ult i64 %13, 2
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 

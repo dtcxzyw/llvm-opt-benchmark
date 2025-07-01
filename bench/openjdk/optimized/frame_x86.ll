@@ -589,7 +589,8 @@ define hidden noundef zeroext i1 @_ZNK5frame26is_interpreted_frame_validEP10Java
   %44 = load ptr, ptr %3, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 -56
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i64, ptr %44, i64 %46
+  %.idx = shl nsw i64 %46, 3
+  %47 = getelementptr inbounds i8, ptr %44, i64 %.idx
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 824
   %49 = load ptr, ptr %48, align 8
   %50 = icmp ugt ptr %49, %47

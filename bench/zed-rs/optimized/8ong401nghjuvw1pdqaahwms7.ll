@@ -18022,7 +18022,8 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h5d2110e86032334dE.exit: ; pr
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val9 = load i64, ptr %20, align 8, !alias.scope !4519, !noundef !4
   %.val10 = load ptr, ptr %7, align 8, !alias.scope !4522, !noalias !4527, !nonnull !4, !align !54, !noundef !4
-  %21 = getelementptr inbounds i64, ptr %.val8, i64 %.val9
+  %.idx.i.i = shl nsw i64 %.val9, 3
+  %21 = getelementptr inbounds i8, ptr %.val8, i64 %.idx.i.i
   %22 = getelementptr inbounds nuw i8, ptr %.val10, i64 16
   %23 = load i64, ptr %22, align 8, !alias.scope !4529, !noalias !4538, !noundef !4
   %24 = load i64, ptr %.val10, align 8, !alias.scope !4529, !noalias !4538, !noundef !4
@@ -24038,7 +24039,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h2703cfc2acf74dedE.exit: ; preds = %"_Z
   br i1 %40, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hf5bf1f7496a64e23E.exit.thread", label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %35
-  %41 = getelementptr inbounds { { i64, i32, [1 x i32] }, { ptr, { i8, [3 x i8] }, { i8, [3 x i8] }, i32, i16, [1 x i16] } }, ptr %37, i64 %39
+  %.idx = mul nsw i64 %39, 40
+  %41 = getelementptr inbounds i8, ptr %37, i64 %.idx
   br label %.lr.ph
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hf5bf1f7496a64e23E.exit.thread": ; preds = %_ZN13terminal_view16terminal_element8is_blank17h90bb1fea25db741cE.exit, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h1b42139e31025588E.exit", %.lr.ph, %54, %35, %80, %76, %73, %68, %25
@@ -30876,7 +30878,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h5ace0ed6f5e683e5E.exit.thread:
   %33 = load i64, ptr %32, align 8, !noundef !4
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 8880
   %35 = load i32, ptr %34, align 8, !noundef !4
-  %36 = getelementptr inbounds { { i64, i32, [1 x i32] }, { i64, i32, [1 x i32] }, i8, [7 x i8] }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 40
+  %36 = getelementptr inbounds i8, ptr %1, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hbcb8565d672dc570E.exit.i"

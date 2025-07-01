@@ -43100,7 +43100,8 @@ _ZN10polars_sql7context10SQLContext15execute_explain17hc568b0079877d016E.exit: ;
   %577 = load ptr, ptr %576, align 8, !alias.scope !3272, !noalias !3275, !nonnull !4, !noundef !4
   %578 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %579 = load i64, ptr %578, align 8, !alias.scope !3272, !noalias !3275, !noundef !4
-  %580 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %577, i64 %579
+  %.idx.i = mul nuw nsw i64 %579, 24
+  %580 = getelementptr inbounds nuw i8, ptr %577, i64 %.idx.i
   %581 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %582 = icmp eq i64 %579, 0
   br i1 %582, label %_ZN10polars_sql7context10SQLContext18execute_drop_table17h0fbbd35a65baab93E.exit, label %.lr.ph.i.i
@@ -43377,7 +43378,8 @@ define internal fastcc void @_ZN10polars_sql7context10SQLContext13execute_query1
   %24 = load ptr, ptr %23, align 8, !alias.scope !3296, !noalias !3299, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 1128
   %26 = load i64, ptr %25, align 8, !alias.scope !3296, !noalias !3299, !noundef !4
-  %27 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, i64 }, { i64, i64 } }, i32, [1 x i32] }, { { { i64, ptr, {} }, {} }, i64 } }, { i64, [7 x i64] }, { { { i8, [55 x i8] }, { { i64, i64 }, { i64, i64 } } } }, ptr, i8, [7 x i8] }, ptr %24, i64 %26
+  %.idx = shl nuw nsw i64 %26, 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx
   %28 = icmp eq i64 %26, 0
   br i1 %28, label %_ZN10polars_sql7context10SQLContext13register_ctes17hea05df7f1630b6b0E.exit.thread, label %.lr.ph
 
@@ -46489,7 +46491,8 @@ _ZN10polars_sql7context10SQLContext16get_frame_schema17h686b7e7c99fa94daE.exit86
   %465 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %466 = load ptr, ptr %465, align 8, !noalias !3561, !nonnull !4, !noundef !4
   %467 = load i64, ptr %439, align 8, !noalias !3561, !noundef !4
-  %468 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %466, i64 %467
+  %.idx = mul nuw nsw i64 %467, 192
+  %468 = getelementptr inbounds nuw i8, ptr %466, i64 %.idx
   %469 = icmp eq i64 %467, 0
   br i1 %469, label %._crit_edge, label %.lr.ph
 
@@ -49244,7 +49247,8 @@ define internal fastcc void @_ZN10polars_sql7context10SQLContext22execute_from_s
 .lr.ph:                                           ; preds = %105
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 576
   %111 = load ptr, ptr %110, align 8, !nonnull !4, !noundef !4
-  %112 = getelementptr inbounds nuw { { i64, [70 x i64] }, { i64, [81 x i64] }, i8, [7 x i8] }, ptr %111, i64 %107
+  %.idx = mul nuw nsw i64 %107, 1232
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 %.idx
   %.sroa.0104.1536 = getelementptr inbounds nuw i8, ptr %111, i64 1232
   %113 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 40
@@ -54184,7 +54188,8 @@ _ZN10polars_sql7context10SQLContext16get_frame_schema17h686b7e7c99fa94daE.exit: 
   %.sroa.5102.0.copyload = load i64, ptr %63, align 8
   %187 = icmp ult i64 %.sroa.5102.0.copyload, 6987403058223316
   call void @llvm.assume(i1 %187)
-  %188 = getelementptr inbounds nuw { { i64, [40 x i64] }, { i64, [122 x i64] }, i8, i8, [6 x i8] }, ptr %.sroa.4.0.copyload, i64 %.sroa.5102.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.5102.0.copyload, 1320
+  %188 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 %.idx
   %189 = icmp sgt i64 %.sroa.0101.0.copyload, -1
   call void @llvm.assume(i1 %189)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
@@ -54807,7 +54812,8 @@ _ZN10polars_sql7context10SQLContext16get_frame_schema17h686b7e7c99fa94daE.exit: 
   store i64 %108, ptr %115, align 8, !alias.scope !4564
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
-  %116 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %5, i64 %6
+  %.idx = mul nuw nsw i64 %6, 192
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %117 = icmp eq i64 %6, 0
   br i1 %117, label %._crit_edge, label %.lr.ph
 
@@ -56553,9 +56559,9 @@ define hidden void @_ZN10polars_sql7context10SQLContext35process_wildcard_additi
   %196 = load i64, ptr %195, align 8, !noundef !4
   %197 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, i64 }, { i64, i64 } }, i32, [1 x i32] }, { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, i64 }, { i64, i64 } }, i32, [1 x i32] } }, ptr %194, i64 %196
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h3109cbf7f3d1b780E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %28, ptr noundef nonnull %194, ptr noundef nonnull %197, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.98595e719cf4f2ab01b8c6a106f1921e.51)
-          to label %._crit_edge204 unwind label %.loopexit.split-lp
+          to label %._crit_edge205 unwind label %.loopexit.split-lp
 
-._crit_edge204:                                   ; preds = %192
+._crit_edge205:                                   ; preds = %192
   %.sroa.0.0.copyload.i.pre = load i64, ptr %28, align 8, !alias.scope !4822, !noalias !4825
   %.sroa.4.0..sroa_idx.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.4.0.copyload.i.pre = load ptr, ptr %.sroa.4.0..sroa_idx.i.phi.trans.insert, align 8, !alias.scope !4822, !noalias !4825
@@ -56585,13 +56591,14 @@ define hidden void @_ZN10polars_sql7context10SQLContext35process_wildcard_additi
 206:                                              ; preds = %275, %254, %202
   unreachable
 
-207:                                              ; preds = %._crit_edge204, %203
-  %.sroa.5.0.copyload.i = phi i64 [ %.sroa.5.0.copyload.i.pre, %._crit_edge204 ], [ 1, %203 ]
-  %.sroa.4.0.copyload.i = phi ptr [ %.sroa.4.0.copyload.i.pre, %._crit_edge204 ], [ %200, %203 ]
-  %.sroa.0.0.copyload.i = phi i64 [ %.sroa.0.0.copyload.i.pre, %._crit_edge204 ], [ 1, %203 ]
+207:                                              ; preds = %._crit_edge205, %203
+  %.sroa.5.0.copyload.i = phi i64 [ %.sroa.5.0.copyload.i.pre, %._crit_edge205 ], [ 1, %203 ]
+  %.sroa.4.0.copyload.i = phi ptr [ %.sroa.4.0.copyload.i.pre, %._crit_edge205 ], [ %200, %203 ]
+  %.sroa.0.0.copyload.i = phi i64 [ %.sroa.0.0.copyload.i.pre, %._crit_edge205 ], [ 1, %203 ]
   %208 = icmp ult i64 %.sroa.5.0.copyload.i, 1152921504606846976
   call void @llvm.assume(i1 %208)
-  %209 = getelementptr inbounds nuw ptr, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nuw nsw i64 %.sroa.5.0.copyload.i, 3
+  %209 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   %210 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   call void @llvm.assume(i1 %210)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27)
@@ -56630,9 +56637,9 @@ define hidden void @_ZN10polars_sql7context10SQLContext35process_wildcard_additi
   %.23..23..23..23..23..23..23..23..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 23
   %.8..8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.16..16..16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.23..23..23..23..23..23..23..23..sroa_idx213 = getelementptr inbounds nuw i8, ptr %9, i64 23
-  %.8..8..8..8..8..sroa_idx211 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.16..16..16..16..16..sroa_idx212 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.23..23..23..23..23..23..23..23..sroa_idx214 = getelementptr inbounds nuw i8, ptr %9, i64 23
+  %.8..8..8..8..8..sroa_idx212 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.16..16..16..16..16..sroa_idx213 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %223
 
 .body97.thread:                                   ; preds = %.loopexit177, %.loopexit.split-lp178, %.body97.thread167, %409, %419, %273
@@ -56801,11 +56808,11 @@ _ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.thread.i82: ; preds = %_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %9, i8 0, i64 23, i1 false), !noalias !4839
   %268 = trunc nuw nsw i64 %234 to i8
   %269 = or disjoint i8 %268, -64
-  store i8 %269, ptr %.23..23..23..23..23..23..23..23..sroa_idx213, align 1, !noalias !4839
+  store i8 %269, ptr %.23..23..23..23..23..23..23..23..sroa_idx214, align 1, !noalias !4839
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull readonly align 1 %232, i64 %234, i1 false), !noalias !4846
   %.0..0..0..0..0..sroa.02.0.copyload3.i84 = load ptr, ptr %9, align 8, !noalias !4847
-  %.8..8..8..8..8..sroa.6.0.copyload6.i86 = load i64, ptr %.8..8..8..8..8..sroa_idx211, align 8, !noalias !4847
-  %.16..16..16..16..16..sroa.7.0.copyload9.i88 = load i64, ptr %.16..16..16..16..16..sroa_idx212, align 8, !noalias !4847
+  %.8..8..8..8..8..sroa.6.0.copyload6.i86 = load i64, ptr %.8..8..8..8..8..sroa_idx212, align 8, !noalias !4847
+  %.16..16..16..16..16..sroa.7.0.copyload9.i88 = load i64, ptr %.16..16..16..16..16..sroa_idx213, align 8, !noalias !4847
   br label %_ZN11compact_str4repr4Repr3new17h9ba9cd93d8af9c19E.exit.i72
 
 270:                                              ; preds = %_ZN11compact_str4repr4heap12allocate_ptr17hd2ddcf19b538a23eE.exit.i.i70
@@ -57196,7 +57203,8 @@ _ZN11compact_str13CompactString7try_new17h2c6eedffb6e2b2f3E.exit92: ; preds = %2
   %422 = load ptr, ptr %421, align 8, !nonnull !4, !noundef !4
   %423 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %424 = load i64, ptr %423, align 8, !noundef !4
-  %425 = getelementptr inbounds nuw ptr, ptr %422, i64 %424
+  %.idx200 = shl nuw nsw i64 %424, 3
+  %425 = getelementptr inbounds nuw i8, ptr %422, i64 %.idx200
   %426 = icmp eq i64 %424, 0
   br i1 %426, label %.loopexit, label %.lr.ph199
 

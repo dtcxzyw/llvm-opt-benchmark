@@ -404,25 +404,30 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIdSaIdE
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad51
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.end.i.i.i.i.i.i.i
-  %add.ptr.i.i.i47 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i52, i64 %steps
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i52, i64 %mul.i.i.i.i.i.i46
   br label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc
   %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i52, %call5.i.i.i.i2.i.i.noexc ]
   store double %div, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, align 8, !tbaa !16
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i47
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont52, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !20
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont52.loopexit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !20
 
-invoke.cont52:                                    ; preds = %for.body.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %ref.tmp49.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %call5.i.i.i.i2.i.i52, %for.body.i.i.i.i.i.i.i.i.i ]
-  %ref.tmp49.sroa.11.0 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %add.ptr.i.i.i47, %for.body.i.i.i.i.i.i.i.i.i ]
+invoke.cont52.loopexit:                           ; preds = %for.body.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i47 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i52, i64 %steps
+  br label %invoke.cont52
+
+invoke.cont52:                                    ; preds = %invoke.cont52.loopexit, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
+  %ref.tmp49.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %call5.i.i.i.i2.i.i52, %invoke.cont52.loopexit ]
+  %ref.tmp49.sroa.11.0 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %add.ptr.i.i.i47, %invoke.cont52.loopexit ]
+  %retval.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %add.ptr.i.i.i.i.i.i.i, %invoke.cont52.loopexit ]
   %35 = load ptr, ptr %dt_, align 8, !tbaa !12
   %_M_finish.i.i.i.i53 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %_M_end_of_storage.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %36 = load ptr, ptr %_M_end_of_storage.i.i.i.i54, align 8, !tbaa !15
   store ptr %ref.tmp49.sroa.0.0, ptr %dt_, align 8, !tbaa !12
-  store ptr %ref.tmp49.sroa.11.0, ptr %_M_finish.i.i.i.i53, align 8, !tbaa !14
+  store ptr %retval.0.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i53, align 8, !tbaa !14
   store ptr %ref.tmp49.sroa.11.0, ptr %_M_end_of_storage.i.i.i.i54, align 8, !tbaa !15
   %tobool.not.i.i.i.i.i57 = icmp eq ptr %35, null
   br i1 %tobool.not.i.i.i.i.i57, label %_ZNSt6vectorIdSaIdEED2Ev.exit69, label %if.then.i.i.i.i.i58

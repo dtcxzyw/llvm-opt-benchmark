@@ -338,7 +338,8 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
   %180 = zext i32 %179 to i64
   %181 = getelementptr inbounds nuw i32, ptr %133, i64 %180
   %182 = zext i32 %162 to i64
-  %183 = getelementptr inbounds nuw i32, ptr %181, i64 %182
+  %.idx243 = shl nuw nsw i64 %182, 2
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 %.idx243
   br label %.lr.ph223
 
 .lr.ph223:                                        ; preds = %.lr.ph223.preheader, %.lr.ph223
@@ -740,7 +741,8 @@ define dso_local void @meshopt_optimizeVertexCacheFifo(ptr noundef writeonly cap
   %67 = getelementptr inbounds nuw i32, ptr %35, i64 %62
   %68 = load i32, ptr %67, align 4, !tbaa !14
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %66, i64 %69
+  %.idx = shl nuw nsw i64 %69, 2
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx
   %.not127152 = icmp eq i32 %68, 0
   br i1 %.not127152, label %._crit_edge, label %.lr.ph
 

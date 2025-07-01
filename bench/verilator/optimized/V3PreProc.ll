@@ -47267,7 +47267,8 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
   %10 = sub nsw i64 %.sroa.speculated, %7
   %11 = lshr i64 %10, 1
   %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE16_M_allocate_nodeEv.exit.i
@@ -47399,7 +47400,8 @@ _ZNSt11_Deque_baseI10V3LangCodeSaIS0_EE15_M_allocate_mapEm.exit:
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseI10V3LangCodeSaIS0_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseI10V3LangCodeSaIS0_EE16_M_allocate_nodeEv.exit.i
@@ -47916,7 +47918,8 @@ _ZNSt11_Deque_baseIP10VPreStreamSaIS1_EE15_M_allocate_mapEm.exit:
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIP10VPreStreamSaIS1_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIP10VPreStreamSaIS1_EE16_M_allocate_nodeEv.exit.i
@@ -48062,13 +48065,13 @@ define linkonce_odr dso_local void @_ZSt15__copy_move_ditILb0EP10VPreStreamRKS1_
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 3
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %28, i64 %storemerge13.i)
-  %29 = getelementptr inbounds ptr, ptr %.014.i, i64 %.sroa.speculated.i
+  %.idx12.i = shl nsw i64 %.sroa.speculated.i, 3
+  %29 = getelementptr inbounds i8, ptr %.014.i, i64 %.idx12.i
   %.not.i.i.i.i = icmp eq ptr %.sroa.872.0, %.sroa.070.0
   br i1 %.not.i.i.i.i, label %_ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i, label %30
 
 30:                                               ; preds = %.lr.ph.i
-  %.idx.i = shl nsw i64 %.sroa.speculated.i, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.070.0, ptr align 8 %.014.i, i64 %.idx.i, i1 false), !noalias !1474
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.070.0, ptr align 8 %.014.i, i64 %.idx12.i, i1 false), !noalias !1474
   br label %_ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i
 
 _ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i: ; preds = %30, %.lr.ph.i
@@ -48156,13 +48159,13 @@ _ZSt14__copy_move_a1ILb0EPP10VPreStreamS1_EN9__gnu_cxx11__enable_ifIXsr23__is_ra
   %72 = sub i64 %70, %71
   %73 = ashr exact i64 %72, 3
   %.sroa.speculated.i12 = tail call i64 @llvm.smin.i64(i64 %73, i64 %storemerge13.i11)
-  %74 = getelementptr inbounds ptr, ptr %.014.i10, i64 %.sroa.speculated.i12
-  %.not.i.i.i.i13 = icmp eq ptr %.sroa.860.0, %.sroa.058.0
-  br i1 %.not.i.i.i.i13, label %_ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i17, label %75
+  %.idx12.i13 = shl nsw i64 %.sroa.speculated.i12, 3
+  %74 = getelementptr inbounds i8, ptr %.014.i10, i64 %.idx12.i13
+  %.not.i.i.i.i14 = icmp eq ptr %.sroa.860.0, %.sroa.058.0
+  br i1 %.not.i.i.i.i14, label %_ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i17, label %75
 
 75:                                               ; preds = %.lr.ph.i9
-  %.idx.i14 = shl nsw i64 %.sroa.speculated.i12, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.058.0, ptr align 8 %.014.i10, i64 %.idx.i14, i1 false), !noalias !1479
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.058.0, ptr align 8 %.014.i10, i64 %.idx12.i13, i1 false), !noalias !1479
   br label %_ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i17
 
 _ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i17: ; preds = %75, %.lr.ph.i9
@@ -48229,13 +48232,13 @@ _ZNSt15_Deque_iteratorIP10VPreStreamRS1_PS1_EpLEl.exit.i19: ; preds = %89, %83
   %107 = sub i64 %105, %106
   %108 = ashr exact i64 %107, 3
   %.sroa.speculated.i29 = tail call i64 @llvm.smin.i64(i64 %108, i64 %storemerge13.i28)
-  %109 = getelementptr inbounds ptr, ptr %.014.i27, i64 %.sroa.speculated.i29
-  %.not.i.i.i.i30 = icmp eq ptr %.sroa.7.0, %.sroa.064.0
-  br i1 %.not.i.i.i.i30, label %_ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i34, label %110
+  %.idx12.i30 = shl nsw i64 %.sroa.speculated.i29, 3
+  %109 = getelementptr inbounds i8, ptr %.014.i27, i64 %.idx12.i30
+  %.not.i.i.i.i31 = icmp eq ptr %.sroa.7.0, %.sroa.064.0
+  br i1 %.not.i.i.i.i31, label %_ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i34, label %110
 
 110:                                              ; preds = %104
-  %.idx.i31 = shl nsw i64 %.sroa.speculated.i29, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.064.0, ptr align 8 %.014.i27, i64 %.idx.i31, i1 false), !noalias !1482
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.064.0, ptr align 8 %.014.i27, i64 %.idx12.i30, i1 false), !noalias !1482
   br label %_ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i34
 
 _ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i34: ; preds = %110, %104
@@ -48318,13 +48321,13 @@ _ZSt14__copy_move_a1ILb0EPP10VPreStreamS1_EN9__gnu_cxx11__enable_ifIXsr23__is_ra
   %150 = sub i64 %148, %149
   %151 = ashr exact i64 %150, 3
   %.sroa.speculated.i46 = tail call i64 @llvm.smin.i64(i64 %151, i64 %storemerge13.i45)
-  %152 = getelementptr inbounds ptr, ptr %.014.i44, i64 %.sroa.speculated.i46
-  %.not.i.i.i.i47 = icmp eq ptr %.sroa.8.0, %.sroa.0.0
-  br i1 %.not.i.i.i.i47, label %_ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i51, label %153
+  %.idx12.i47 = shl nsw i64 %.sroa.speculated.i46, 3
+  %152 = getelementptr inbounds i8, ptr %.014.i44, i64 %.idx12.i47
+  %.not.i.i.i.i48 = icmp eq ptr %.sroa.8.0, %.sroa.0.0
+  br i1 %.not.i.i.i.i48, label %_ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i51, label %153
 
 153:                                              ; preds = %.lr.ph.i43
-  %.idx.i48 = shl nsw i64 %.sroa.speculated.i46, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.0.0, ptr align 8 %.014.i44, i64 %.idx.i48, i1 false), !noalias !1486
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.0.0, ptr align 8 %.014.i44, i64 %.idx12.i47, i1 false), !noalias !1486
   br label %_ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i51
 
 _ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i51: ; preds = %153, %.lr.ph.i43
@@ -48647,7 +48650,8 @@ _ZNSt11_Deque_baseIP8V3PreLexSaIS1_EE15_M_allocate_mapEm.exit:
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIP8V3PreLexSaIS1_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIP8V3PreLexSaIS1_EE16_M_allocate_nodeEv.exit.i
@@ -48769,7 +48773,8 @@ _ZNSt11_Deque_baseIN12V3PreProcImp9ProcStateESaIS1_EE15_M_allocate_mapEm.exit:
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIN12V3PreProcImp9ProcStateESaIS1_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIN12V3PreProcImp9ProcStateESaIS1_EE16_M_allocate_nodeEv.exit.i
@@ -48906,7 +48911,8 @@ _ZNSt11_Deque_baseI10VDefineRefSaIS0_EE15_M_allocate_mapEm.exit: ; preds = %2
   %12 = sub nsw i64 %.sroa.speculated, %9
   %13 = lshr i64 %12, 1
   %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %9
+  %.idx = shl nuw nsw i64 %9, 3
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseI10VDefineRefSaIS0_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseI10VDefineRefSaIS0_EE16_M_allocate_nodeEv.exit.i
@@ -49028,7 +49034,8 @@ _ZNSt11_Deque_baseI11VPreIfEntrySaIS0_EE15_M_allocate_mapEm.exit:
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseI11VPreIfEntrySaIS0_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseI11VPreIfEntrySaIS0_EE16_M_allocate_nodeEv.exit.i
@@ -49189,7 +49196,8 @@ _ZNSt11_Deque_baseI14V3PreExprTokenSaIS0_EE15_M_allocate_mapEm.exit:
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseI14V3PreExprTokenSaIS0_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseI14V3PreExprTokenSaIS0_EE16_M_allocate_nodeEv.exit.i
@@ -50050,7 +50058,8 @@ _ZNSt11_Deque_baseI8FileLineSaIS0_EE15_M_allocate_mapEm.exit: ; preds = %2
   %11 = sub nsw i64 %.sroa.speculated, %8
   %12 = lshr i64 %11, 1
   %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %8
+  %.idx = shl nuw nsw i64 %8, 3
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseI8FileLineSaIS0_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseI8FileLineSaIS0_EE16_M_allocate_nodeEv.exit.i

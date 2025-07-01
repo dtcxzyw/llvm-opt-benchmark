@@ -34,14 +34,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.710" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.761" = type { [224 x i8] }
-%"class.clang::GCCAsmStmt::AsmStringPiece" = type { i32, %"class.std::__cxx11::basic_string", i32, %"class.clang::CharSourceRange" }
-%"class.clang::CharSourceRange" = type <{ %"class.clang::SourceRange", i8, [3 x i8] }>
 %"class.llvm::SmallVector.762" = type { %"class.llvm::SmallVectorImpl.763", %"struct.llvm::SmallVectorStorage.766" }
 %"class.llvm::SmallVectorImpl.763" = type { %"class.llvm::SmallVectorTemplateBase.764" }
 %"class.llvm::SmallVectorTemplateBase.764" = type { %"class.llvm::SmallVectorTemplateCommon.765" }
 %"class.llvm::SmallVectorTemplateCommon.765" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.766" = type { [128 x i8] }
 %"class.llvm::StringRef" = type { ptr, i64 }
+%"class.clang::GCCAsmStmt::AsmStringPiece" = type { i32, %"class.std::__cxx11::basic_string", i32, %"class.clang::CharSourceRange" }
+%"class.clang::CharSourceRange" = type <{ %"class.clang::SourceRange", i8, [3 x i8] }>
 %"class.std::optional.729" = type { %"struct.std::_Optional_base.730" }
 %"struct.std::_Optional_base.730" = type { %"struct.std::_Optional_payload.732" }
 %"struct.std::_Optional_payload.732" = type { %"struct.std::_Optional_payload.base.736", [7 x i8] }
@@ -58,9 +58,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::iterator_range.807" = type { %"struct.clang::ConstStmtIterator", %"struct.clang::ConstStmtIterator" }
 %"struct.clang::ConstStmtIterator" = type { %"class.clang::StmtIteratorImpl.808" }
 %"class.clang::StmtIteratorImpl.808" = type { %"class.clang::StmtIteratorBase" }
-%"class.clang::CapturedStmt::Capture" = type { %"class.llvm::PointerIntPair.804", %"class.clang::SourceLocation", [4 x i8] }
-%"class.llvm::PointerIntPair.804" = type { %"struct.llvm::detail::PunnedPointer.805" }
-%"struct.llvm::detail::PunnedPointer.805" = type { [8 x i8] }
 
 $_ZN5clang27CXXDependentScopeMemberExpr8childrenEv = comdat any
 
@@ -1356,7 +1353,8 @@ define dso_local void @_ZN5clang4Stmt16EnableStatisticsEv() local_unnamed_addr #
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef range(i32 -1, 2) i32 @_ZN5clang4Stmt13getLikelihoodEN4llvm8ArrayRefIPKNS_4AttrEEE(ptr readonly captures(address) %0, i64 %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds nuw ptr, ptr %0, i64 %1
+  %.idx.i = shl nuw nsw i64 %1, 3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
   %.not25.i = icmp eq i64 %1, 0
   br i1 %.not25.i, label %_ZL13getLikelihoodN4llvm8ArrayRefIPKN5clang4AttrEEE.exit, label %.lr.ph.i
 
@@ -1400,9 +1398,10 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZN5clang4Stmt13getLikelihoodEPKS
 _ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i: ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %0, align 8
-  %8 = lshr i32 %7, 9
-  %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %9
+  %8 = lshr i32 %7, 6
+  %9 = and i32 %8, 67108856
+  %.idx.i.i = zext nneg i32 %9 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
   %.not25.i.i = icmp ult i32 %7, 512
   br i1 %.not25.i.i, label %_ZL13getLikelihoodPKN5clang4StmtE.exit, label %.lr.ph.i.i
 
@@ -1443,9 +1442,10 @@ define dso_local noundef ptr @_ZN5clang4Stmt17getLikelihoodAttrEPKS0_(ptr nounde
 _ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i: ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %0, align 8
-  %8 = lshr i32 %7, 9
-  %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %9
+  %8 = lshr i32 %7, 6
+  %9 = and i32 %8, 67108856
+  %.idx.i.i = zext nneg i32 %9 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
   %.not25.i.i = icmp ult i32 %7, 512
   br i1 %.not25.i.i, label %_ZL13getLikelihoodPKN5clang4StmtE.exit, label %.lr.ph.i.i
 
@@ -1483,9 +1483,10 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZN5clang4Stmt13getLikelihoodEPKS
 _ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i: ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %0, align 8
-  %9 = lshr i32 %8, 9
-  %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %9 = lshr i32 %8, 6
+  %10 = and i32 %9, 67108856
+  %.idx.i.i = zext nneg i32 %10 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i.i
   %.not25.i.i = icmp ult i32 %8, 512
   br i1 %.not25.i.i, label %_ZL13getLikelihoodPKN5clang4StmtE.exit, label %.lr.ph.i.i
 
@@ -1511,53 +1512,54 @@ _ZL13getLikelihoodPKN5clang4StmtE.exit:           ; preds = %15, %.lr.ph.i.i, %_
   %.not = phi i1 [ true, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i ], [ true, %3 ], [ true, %2 ], [ false, %.lr.ph.i.i ], [ true, %15 ], [ false, %_ZL13getLikelihoodPKN5clang4StmtE.exit.loopexit ]
   %.sroa.07.1.i = phi i32 [ 0, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i ], [ 0, %3 ], [ 0, %2 ], [ -1, %.lr.ph.i.i ], [ 0, %15 ], [ 1, %_ZL13getLikelihoodPKN5clang4StmtE.exit.loopexit ]
   %.not.i.i.i15 = icmp eq ptr %1, null
-  br i1 %.not.i.i.i15, label %_ZL13getLikelihoodPKN5clang4StmtE.exit26.thread, label %17
+  br i1 %.not.i.i.i15, label %_ZL13getLikelihoodPKN5clang4StmtE.exit27.thread, label %17
 
 17:                                               ; preds = %_ZL13getLikelihoodPKN5clang4StmtE.exit
   %18 = load i16, ptr %1, align 8
   %19 = and i16 %18, 511
   %20 = icmp eq i16 %19, 132
-  br i1 %20, label %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20, label %_ZL13getLikelihoodPKN5clang4StmtE.exit26.thread
+  br i1 %20, label %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20, label %_ZL13getLikelihoodPKN5clang4StmtE.exit27.thread
 
 _ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20: ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i32, ptr %1, align 8
-  %23 = lshr i32 %22, 9
-  %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %24
-  %.not25.i.i21 = icmp ult i32 %22, 512
-  br i1 %.not25.i.i21, label %_ZL13getLikelihoodPKN5clang4StmtE.exit26.thread, label %.lr.ph.i.i22
+  %23 = lshr i32 %22, 6
+  %24 = and i32 %23, 67108856
+  %.idx.i.i21 = zext nneg i32 %24 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i21
+  %.not25.i.i22 = icmp ult i32 %22, 512
+  br i1 %.not25.i.i22, label %_ZL13getLikelihoodPKN5clang4StmtE.exit27.thread, label %.lr.ph.i.i23
 
-.lr.ph.i.i22:                                     ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20, %29
-  %.0726.i.i23 = phi ptr [ %30, %29 ], [ %21, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20 ]
-  %26 = load ptr, ptr %.0726.i.i23, align 8, !tbaa !38
+.lr.ph.i.i23:                                     ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20, %29
+  %.0726.i.i24 = phi ptr [ %30, %29 ], [ %21, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20 ]
+  %26 = load ptr, ptr %.0726.i.i24, align 8, !tbaa !38
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load i16, ptr %27, align 8
   switch i16 %28, label %29 [
-    i16 45, label %.critedge.thread.loopexit.i.loopexit17.i24.loopexit34
-    i16 48, label %.critedge.thread.loopexit.i.loopexit17.i24
+    i16 45, label %.critedge.thread.loopexit.i.loopexit17.i25.loopexit35
+    i16 48, label %.critedge.thread.loopexit.i.loopexit17.i25
   ]
 
-29:                                               ; preds = %.lr.ph.i.i22
-  %30 = getelementptr inbounds nuw i8, ptr %.0726.i.i23, i64 8
-  %.not.i.i25 = icmp eq ptr %30, %25
-  br i1 %.not.i.i25, label %_ZL13getLikelihoodPKN5clang4StmtE.exit26.thread, label %.lr.ph.i.i22
+29:                                               ; preds = %.lr.ph.i.i23
+  %30 = getelementptr inbounds nuw i8, ptr %.0726.i.i24, i64 8
+  %.not.i.i26 = icmp eq ptr %30, %25
+  br i1 %.not.i.i26, label %_ZL13getLikelihoodPKN5clang4StmtE.exit27.thread, label %.lr.ph.i.i23
 
-.critedge.thread.loopexit.i.loopexit17.i24.loopexit34: ; preds = %.lr.ph.i.i22
-  br label %.critedge.thread.loopexit.i.loopexit17.i24
+.critedge.thread.loopexit.i.loopexit17.i25.loopexit35: ; preds = %.lr.ph.i.i23
+  br label %.critedge.thread.loopexit.i.loopexit17.i25
 
-.critedge.thread.loopexit.i.loopexit17.i24:       ; preds = %.lr.ph.i.i22, %.critedge.thread.loopexit.i.loopexit17.i24.loopexit34
-  %31 = phi i32 [ -1, %.critedge.thread.loopexit.i.loopexit17.i24.loopexit34 ], [ 1, %.lr.ph.i.i22 ]
-  %.sroa.07.1.i16 = phi i32 [ 1, %.critedge.thread.loopexit.i.loopexit17.i24.loopexit34 ], [ -1, %.lr.ph.i.i22 ]
+.critedge.thread.loopexit.i.loopexit17.i25:       ; preds = %.lr.ph.i.i23, %.critedge.thread.loopexit.i.loopexit17.i25.loopexit35
+  %31 = phi i32 [ -1, %.critedge.thread.loopexit.i.loopexit17.i25.loopexit35 ], [ 1, %.lr.ph.i.i23 ]
+  %.sroa.07.1.i16 = phi i32 [ 1, %.critedge.thread.loopexit.i.loopexit17.i25.loopexit35 ], [ -1, %.lr.ph.i.i23 ]
   %32 = icmp eq i32 %.sroa.07.1.i, %.sroa.07.1.i16
-  br i1 %32, label %_ZL13getLikelihoodPKN5clang4StmtE.exit26.thread, label %33
+  br i1 %32, label %_ZL13getLikelihoodPKN5clang4StmtE.exit27.thread, label %33
 
-33:                                               ; preds = %.critedge.thread.loopexit.i.loopexit17.i24
+33:                                               ; preds = %.critedge.thread.loopexit.i.loopexit17.i25
   %spec.select = select i1 %.not, i32 %31, i32 %.sroa.07.1.i
-  br label %_ZL13getLikelihoodPKN5clang4StmtE.exit26.thread
+  br label %_ZL13getLikelihoodPKN5clang4StmtE.exit27.thread
 
-_ZL13getLikelihoodPKN5clang4StmtE.exit26.thread:  ; preds = %29, %33, %_ZL13getLikelihoodPKN5clang4StmtE.exit, %17, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20, %.critedge.thread.loopexit.i.loopexit17.i24
-  %.0 = phi i32 [ 0, %.critedge.thread.loopexit.i.loopexit17.i24 ], [ %.sroa.07.1.i, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20 ], [ %.sroa.07.1.i, %17 ], [ %.sroa.07.1.i, %_ZL13getLikelihoodPKN5clang4StmtE.exit ], [ %spec.select, %33 ], [ %.sroa.07.1.i, %29 ]
+_ZL13getLikelihoodPKN5clang4StmtE.exit27.thread:  ; preds = %29, %33, %_ZL13getLikelihoodPKN5clang4StmtE.exit, %17, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20, %.critedge.thread.loopexit.i.loopexit17.i25
+  %.0 = phi i32 [ 0, %.critedge.thread.loopexit.i.loopexit17.i25 ], [ %.sroa.07.1.i, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i20 ], [ %.sroa.07.1.i, %17 ], [ %.sroa.07.1.i, %_ZL13getLikelihoodPKN5clang4StmtE.exit ], [ %spec.select, %33 ], [ %.sroa.07.1.i, %29 ]
   ret i32 %.0
 }
 
@@ -1575,9 +1577,10 @@ define dso_local void @_ZN5clang4Stmt27determineLikelihoodConflictEPKS0_S2_(ptr 
 _ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i: ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %1, align 8
-  %10 = lshr i32 %9, 9
-  %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
+  %10 = lshr i32 %9, 6
+  %11 = and i32 %10, 67108856
+  %.idx.i.i = zext nneg i32 %11 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i
   %.not25.i.i = icmp ult i32 %9, 512
   br i1 %.not25.i.i, label %_ZL13getLikelihoodPKN5clang4StmtE.exit, label %.lr.ph.i.i
 
@@ -1604,55 +1607,56 @@ _ZL13getLikelihoodPKN5clang4StmtE.exit:           ; preds = %16, %.lr.ph.i.i, %_
   %.sroa.07.1.i = phi i32 [ 0, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i ], [ 0, %4 ], [ 0, %3 ], [ -1, %.lr.ph.i.i ], [ 0, %16 ], [ 1, %_ZL13getLikelihoodPKN5clang4StmtE.exit.loopexit ]
   %.sroa.3.1.i = phi ptr [ null, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i ], [ null, %4 ], [ null, %3 ], [ %13, %.lr.ph.i.i ], [ null, %16 ], [ %13, %_ZL13getLikelihoodPKN5clang4StmtE.exit.loopexit ]
   %.not.i.i.i3 = icmp eq ptr %2, null
-  br i1 %.not.i.i.i3, label %_ZL13getLikelihoodPKN5clang4StmtE.exit14, label %18
+  br i1 %.not.i.i.i3, label %_ZL13getLikelihoodPKN5clang4StmtE.exit15, label %18
 
 18:                                               ; preds = %_ZL13getLikelihoodPKN5clang4StmtE.exit
   %19 = load i16, ptr %2, align 8
   %20 = and i16 %19, 511
   %21 = icmp eq i16 %20, 132
-  br i1 %21, label %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i8, label %_ZL13getLikelihoodPKN5clang4StmtE.exit14
+  br i1 %21, label %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i8, label %_ZL13getLikelihoodPKN5clang4StmtE.exit15
 
 _ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i8: ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load i32, ptr %2, align 8
-  %24 = lshr i32 %23, 9
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %22, i64 %25
-  %.not25.i.i9 = icmp ult i32 %23, 512
-  br i1 %.not25.i.i9, label %_ZL13getLikelihoodPKN5clang4StmtE.exit14, label %.lr.ph.i.i10
+  %24 = lshr i32 %23, 6
+  %25 = and i32 %24, 67108856
+  %.idx.i.i9 = zext nneg i32 %25 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i9
+  %.not25.i.i10 = icmp ult i32 %23, 512
+  br i1 %.not25.i.i10, label %_ZL13getLikelihoodPKN5clang4StmtE.exit15, label %.lr.ph.i.i11
 
-.lr.ph.i.i10:                                     ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i8, %30
-  %.0726.i.i11 = phi ptr [ %31, %30 ], [ %22, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i8 ]
-  %27 = load ptr, ptr %.0726.i.i11, align 8, !tbaa !38
+.lr.ph.i.i11:                                     ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i8, %30
+  %.0726.i.i12 = phi ptr [ %31, %30 ], [ %22, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i8 ]
+  %27 = load ptr, ptr %.0726.i.i12, align 8, !tbaa !38
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load i16, ptr %28, align 8
   switch i16 %29, label %30 [
-    i16 45, label %_ZL13getLikelihoodPKN5clang4StmtE.exit14.loopexit
-    i16 48, label %_ZL13getLikelihoodPKN5clang4StmtE.exit14
+    i16 45, label %_ZL13getLikelihoodPKN5clang4StmtE.exit15.loopexit
+    i16 48, label %_ZL13getLikelihoodPKN5clang4StmtE.exit15
   ]
 
-30:                                               ; preds = %.lr.ph.i.i10
-  %31 = getelementptr inbounds nuw i8, ptr %.0726.i.i11, i64 8
-  %.not.i.i13 = icmp eq ptr %31, %26
-  br i1 %.not.i.i13, label %_ZL13getLikelihoodPKN5clang4StmtE.exit14, label %.lr.ph.i.i10
+30:                                               ; preds = %.lr.ph.i.i11
+  %31 = getelementptr inbounds nuw i8, ptr %.0726.i.i12, i64 8
+  %.not.i.i14 = icmp eq ptr %31, %26
+  br i1 %.not.i.i14, label %_ZL13getLikelihoodPKN5clang4StmtE.exit15, label %.lr.ph.i.i11
 
-_ZL13getLikelihoodPKN5clang4StmtE.exit14.loopexit: ; preds = %.lr.ph.i.i10
-  br label %_ZL13getLikelihoodPKN5clang4StmtE.exit14
+_ZL13getLikelihoodPKN5clang4StmtE.exit15.loopexit: ; preds = %.lr.ph.i.i11
+  br label %_ZL13getLikelihoodPKN5clang4StmtE.exit15
 
-_ZL13getLikelihoodPKN5clang4StmtE.exit14:         ; preds = %30, %.lr.ph.i.i10, %_ZL13getLikelihoodPKN5clang4StmtE.exit14.loopexit, %_ZL13getLikelihoodPKN5clang4StmtE.exit, %18, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i8
-  %.sroa.07.1.i4 = phi i32 [ 0, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i8 ], [ 0, %18 ], [ 0, %_ZL13getLikelihoodPKN5clang4StmtE.exit ], [ -1, %.lr.ph.i.i10 ], [ 0, %30 ], [ 1, %_ZL13getLikelihoodPKN5clang4StmtE.exit14.loopexit ]
-  %.sroa.3.1.i5 = phi ptr [ null, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i8 ], [ null, %18 ], [ null, %_ZL13getLikelihoodPKN5clang4StmtE.exit ], [ %27, %.lr.ph.i.i10 ], [ null, %30 ], [ %27, %_ZL13getLikelihoodPKN5clang4StmtE.exit14.loopexit ]
+_ZL13getLikelihoodPKN5clang4StmtE.exit15:         ; preds = %30, %.lr.ph.i.i11, %_ZL13getLikelihoodPKN5clang4StmtE.exit15.loopexit, %_ZL13getLikelihoodPKN5clang4StmtE.exit, %18, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i8
+  %.sroa.07.1.i4 = phi i32 [ 0, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i8 ], [ 0, %18 ], [ 0, %_ZL13getLikelihoodPKN5clang4StmtE.exit ], [ -1, %.lr.ph.i.i11 ], [ 0, %30 ], [ 1, %_ZL13getLikelihoodPKN5clang4StmtE.exit15.loopexit ]
+  %.sroa.3.1.i5 = phi ptr [ null, %_ZN4llvm16dyn_cast_or_nullIN5clang14AttributedStmtEKNS1_4StmtEEEDaPT0_.exit.i8 ], [ null, %18 ], [ null, %_ZL13getLikelihoodPKN5clang4StmtE.exit ], [ %27, %.lr.ph.i.i11 ], [ null, %30 ], [ %27, %_ZL13getLikelihoodPKN5clang4StmtE.exit15.loopexit ]
   %32 = icmp eq i32 %.sroa.07.1.i, %.sroa.07.1.i4
   %or.cond = and i1 %.not, %32
   br i1 %or.cond, label %33, label %35
 
-33:                                               ; preds = %_ZL13getLikelihoodPKN5clang4StmtE.exit14
+33:                                               ; preds = %_ZL13getLikelihoodPKN5clang4StmtE.exit15
   store ptr %.sroa.3.1.i5, ptr %0, align 8, !tbaa !40, !alias.scope !42
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.3.1.i, ptr %34, align 8, !tbaa !45, !alias.scope !42
   br label %36
 
-35:                                               ; preds = %_ZL13getLikelihoodPKN5clang4StmtE.exit14
+35:                                               ; preds = %_ZL13getLikelihoodPKN5clang4StmtE.exit15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 16, i1 false)
   br label %36
 
@@ -14837,7 +14841,8 @@ define dso_local void @_ZNK5clang10GCCAsmStmt17generateAsmStringB5cxx11ERKNS_10A
   %23 = load ptr, ptr %8, align 8, !tbaa !1171
   %24 = load i32, ptr %18, align 8, !tbaa !1170
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %"class.clang::GCCAsmStmt::AsmStringPiece", ptr %23, i64 %25
+  %.idx = mul nuw nsw i64 %25, 56
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   %.not64 = icmp eq i32 %24, 0
   br i1 %.not64, label %._crit_edge.thread, label %.lr.ph
 
@@ -15393,7 +15398,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
 
 .lr.ph.i.preheader.i:                             ; preds = %._crit_edge
   %243 = zext i32 %.pre67 to i64
-  %244 = getelementptr inbounds nuw %"class.clang::GCCAsmStmt::AsmStringPiece", ptr %.pre, i64 %243
+  %.idx.i = mul nuw nsw i64 %243, 56
+  %244 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang10GCCAsmStmt14AsmStringPieceD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -19001,7 +19007,8 @@ _ZnamRKN5clang10ASTContextEm.exit19:              ; preds = %96, %99
   %103 = load ptr, ptr %6, align 8, !tbaa !1672
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %105 = load i64, ptr %104, align 8, !tbaa !1660
-  %106 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %103, i64 %105
+  %.idx41 = shl nuw nsw i64 %105, 4
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx41
   %.not9.i = icmp eq i64 %105, 0
   br i1 %.not9.i, label %"_ZSt9transformIPKN4llvm9StringRefEPS1_ZN5clang9MSAsmStmt10initializeERKNS5_10ASTContextES1_NS0_8ArrayRefINS5_5TokenEEENSA_IS1_EENSA_IPNS5_4ExprEEESD_E3$_0ET0_T_SJ_SI_T1_.exit", label %.lr.ph.i
 
@@ -19097,7 +19104,8 @@ _ZnamRKN5clang10ASTContextEm.exit22:              ; preds = %138, %141
   %145 = load ptr, ptr %8, align 8, !tbaa !1672
   %146 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %147 = load i64, ptr %146, align 8, !tbaa !1660
-  %148 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %145, i64 %147
+  %.idx42 = shl nuw nsw i64 %147, 4
+  %148 = getelementptr inbounds nuw i8, ptr %145, i64 %.idx42
   %.not9.i23 = icmp eq i64 %147, 0
   br i1 %.not9.i23, label %"_ZSt9transformIPKN4llvm9StringRefEPS1_ZN5clang9MSAsmStmt10initializeERKNS5_10ASTContextES1_NS0_8ArrayRefINS5_5TokenEEENSA_IS1_EENSA_IPNS5_4ExprEEESD_E3$_1ET0_T_SJ_SI_T1_.exit", label %.lr.ph.i24
 
@@ -21507,7 +21515,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang12CapturedStmt16capturesVariableE
   %12 = and i64 %11, 4294967288
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   %14 = zext i32 %4 to i64
-  %15 = getelementptr inbounds nuw %"class.clang::CapturedStmt::Capture", ptr %13, i64 %14
+  %.idx = shl nuw nsw i64 %14, 4
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %.not18.not = icmp eq i32 %4, 0
   br i1 %.not18.not, label %._crit_edge, label %.lr.ph
 
@@ -21707,7 +21716,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseIN5clang10GCCAsmStmt1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !1170
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"class.clang::GCCAsmStmt::AsmStringPiece", ptr %6, i64 %9
+  %.idx.i = mul nuw nsw i64 %9, 56
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang10GCCAsmStmt14AsmStringPieceELb0EE19moveElementsForGrowEPS3_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -21758,13 +21768,14 @@ _ZSt10_ConstructIN5clang10GCCAsmStmt14AsmStringPieceEJS2_EEvPT_DpOT0_.exit.i.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang10GCCAsmStmt14AsmStringPieceELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i: ; preds = %_ZSt10_ConstructIN5clang10GCCAsmStmt14AsmStringPieceEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !1171
-  %.pre2.i = load i32, ptr %7, align 8, !tbaa !1170
-  %.not4.i.i = icmp eq i32 %.pre2.i, 0
+  %.pre3.i = load i32, ptr %7, align 8, !tbaa !1170
+  %.not4.i.i = icmp eq i32 %.pre3.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang10GCCAsmStmt14AsmStringPieceELb0EE19moveElementsForGrowEPS3_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang10GCCAsmStmt14AsmStringPieceELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
-  %31 = zext i32 %.pre2.i to i64
-  %32 = getelementptr inbounds nuw %"class.clang::GCCAsmStmt::AsmStringPiece", ptr %.pre.i, i64 %31
+  %31 = zext i32 %.pre3.i to i64
+  %.idx2.i = mul nuw nsw i64 %31, 56
+  %32 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang10GCCAsmStmt14AsmStringPieceD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -21891,7 +21902,8 @@ _ZN5clang10GCCAsmStmt14AsmStringPieceC2EjRKNSt7__cxx1112basic_stringIcSt11char_t
   %34 = load ptr, ptr %0, align 8, !tbaa !1171
   %35 = load i32, ptr %10, align 8, !tbaa !1170
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.clang::GCCAsmStmt::AsmStringPiece", ptr %34, i64 %36
+  %.idx.i = mul nuw nsw i64 %36, 56
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %35, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang10GCCAsmStmt14AsmStringPieceELb0EE19moveElementsForGrowEPS3_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -21942,13 +21954,14 @@ _ZSt10_ConstructIN5clang10GCCAsmStmt14AsmStringPieceEJS2_EEvPT_DpOT0_.exit.i.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang10GCCAsmStmt14AsmStringPieceELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i: ; preds = %_ZSt10_ConstructIN5clang10GCCAsmStmt14AsmStringPieceEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !1171
-  %.pre2.i = load i32, ptr %10, align 8, !tbaa !1170
-  %.not4.i.i = icmp eq i32 %.pre2.i, 0
+  %.pre3.i = load i32, ptr %10, align 8, !tbaa !1170
+  %.not4.i.i = icmp eq i32 %.pre3.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang10GCCAsmStmt14AsmStringPieceELb0EE19moveElementsForGrowEPS3_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang10GCCAsmStmt14AsmStringPieceELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
-  %58 = zext i32 %.pre2.i to i64
-  %59 = getelementptr inbounds nuw %"class.clang::GCCAsmStmt::AsmStringPiece", ptr %.pre.i, i64 %58
+  %58 = zext i32 %.pre3.i to i64
+  %.idx2.i = mul nuw nsw i64 %58, 56
+  %59 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang10GCCAsmStmt14AsmStringPieceD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -22076,7 +22089,8 @@ _ZN5clang10GCCAsmStmt14AsmStringPieceC2EjRKNSt7__cxx1112basic_stringIcSt11char_t
   %34 = load ptr, ptr %0, align 8, !tbaa !1171
   %35 = load i32, ptr %10, align 8, !tbaa !1170
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.clang::GCCAsmStmt::AsmStringPiece", ptr %34, i64 %36
+  %.idx.i = mul nuw nsw i64 %36, 56
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %35, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang10GCCAsmStmt14AsmStringPieceELb0EE19moveElementsForGrowEPS3_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -22127,13 +22141,14 @@ _ZSt10_ConstructIN5clang10GCCAsmStmt14AsmStringPieceEJS2_EEvPT_DpOT0_.exit.i.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang10GCCAsmStmt14AsmStringPieceELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i: ; preds = %_ZSt10_ConstructIN5clang10GCCAsmStmt14AsmStringPieceEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !1171
-  %.pre2.i = load i32, ptr %10, align 8, !tbaa !1170
-  %.not4.i.i = icmp eq i32 %.pre2.i, 0
+  %.pre3.i = load i32, ptr %10, align 8, !tbaa !1170
+  %.not4.i.i = icmp eq i32 %.pre3.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang10GCCAsmStmt14AsmStringPieceELb0EE19moveElementsForGrowEPS3_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang10GCCAsmStmt14AsmStringPieceELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
-  %58 = zext i32 %.pre2.i to i64
-  %59 = getelementptr inbounds nuw %"class.clang::GCCAsmStmt::AsmStringPiece", ptr %.pre.i, i64 %58
+  %58 = zext i32 %.pre3.i to i64
+  %.idx2.i = mul nuw nsw i64 %58, 56
+  %59 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang10GCCAsmStmt14AsmStringPieceD2Ev.exit.i.i, %.lr.ph.i.preheader.i

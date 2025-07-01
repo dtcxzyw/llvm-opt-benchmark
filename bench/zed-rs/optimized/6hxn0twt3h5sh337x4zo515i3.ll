@@ -1745,7 +1745,8 @@ common.resume:                                    ; preds = %44, %18
   %26 = load ptr, ptr %25, align 8, !alias.scope !193, !nonnull !7, !noundef !7
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load i64, ptr %27, align 8, !alias.scope !193, !noundef !7
-  %29 = getelementptr inbounds { ptr, i64, ptr }, ptr %26, i64 %28
+  %.idx.i = mul nsw i64 %28, 24
+  %29 = getelementptr inbounds i8, ptr %26, i64 %.idx.i
   %30 = icmp eq i64 %28, 0
   br i1 %30, label %._crit_edge.i, label %.lr.ph.i
 
@@ -1958,7 +1959,8 @@ _ZN4core3ops8function6FnOnce9call_once17h8edefb68a81ea3d3E.exit.i.i: ; preds = %
   %45 = ptrtoint ptr %.sroa.0.0.i.i.i2.i.i to i64
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8, !alias.scope !204, !noalias !207, !nonnull !7, !noundef !7
-  %48 = getelementptr inbounds { ptr, i64, ptr }, ptr %47, i64 %38
+  %.idx.i = mul nsw i64 %38, 24
+  %48 = getelementptr inbounds i8, ptr %47, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZN3std4sync4mpmc5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h623f1d61b34887b2E.exit.i.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h24d8f7399e107b6fE.exit.i"

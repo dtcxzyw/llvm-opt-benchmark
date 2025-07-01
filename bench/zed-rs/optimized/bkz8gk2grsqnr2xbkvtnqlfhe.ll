@@ -4617,7 +4617,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hd6657c9b4ac76e70E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] } } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 144
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h927944433eb4310aE.exit, label %.lr.ph.i
 
@@ -18373,7 +18374,8 @@ default.unreachable:                              ; preds = %30, %10
   %73 = load ptr, ptr %72, align 8, !alias.scope !7356, !noalias !7359, !nonnull !4, !noundef !4
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %75 = load i64, ptr %74, align 8, !alias.scope !7356, !noalias !7359, !noundef !4
-  %76 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %73, i64 %75
+  %.idx = mul nsw i64 %75, 104
+  %76 = getelementptr inbounds i8, ptr %73, i64 %.idx
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %78 = load i64, ptr %77, align 8
   %.fr = freeze i64 %78
@@ -46042,7 +46044,8 @@ common.ret:                                       ; preds = %410, %"_ZN4core3ptr
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27), !noalias !14112
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %17), !noalias !14112
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16), !noalias !14112
-  %220 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, ptr %.sroa.2.0.copyload.i, i64 %.sroa.3185.0.copyload.i
+  %.idx.i = mul nsw i64 %.sroa.3185.0.copyload.i, 104
+  %220 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 %.idx.i
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 232
   call void @llvm.experimental.noalias.scope.decl(metadata !14255)
   store ptr %.sroa.2.0.copyload.i, ptr %16, align 8, !alias.scope !14258, !noalias !14260
@@ -46820,7 +46823,8 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit132.i: ; preds = %320
   %.val = load ptr, ptr %421, align 8, !nonnull !4, !noundef !4
   %422 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %.val26 = load i64, ptr %422, align 8, !noundef !4
-  %423 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %.val, i64 %.val26
+  %.idx = mul nsw i64 %.val26, 48
+  %423 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   call void @llvm.experimental.noalias.scope.decl(metadata !14571)
   %424 = icmp eq i64 %.val26, 0
   br i1 %424, label %.loopexit, label %.lr.ph.i

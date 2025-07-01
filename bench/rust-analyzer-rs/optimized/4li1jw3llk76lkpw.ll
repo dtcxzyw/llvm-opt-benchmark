@@ -7609,7 +7609,8 @@ define hidden void @"_ZN46_$LT$hir..Type$u20$as$u20$core..hash..Hash$GT$4hash17h
   %26 = tail call i64 @llvm.fshl.i64(i64 %storemerge.i, i64 %storemerge.i, i64 5)
   %27 = xor i64 %26, %25
   %28 = mul i64 %27, 5871781006564002453
-  %29 = getelementptr inbounds { ptr, i32, [1 x i32] }, ptr %23, i64 %25
+  %.idx.i.i = shl nsw i64 %25, 4
+  %29 = getelementptr inbounds i8, ptr %23, i64 %.idx.i.i
   %30 = icmp eq i64 %25, 0
   br i1 %30, label %"_ZN69_$LT$hir_ty..traits..TraitEnvironment$u20$as$u20$core..hash..Hash$GT$4hash17hcfb3007ad5bb8d1bE.llvm.1779260972481129599.exit", label %.lr.ph.i.i
 
@@ -9465,7 +9466,8 @@ define hidden void @"_ZN4core3ptr79drop_in_place$LT$triomphe..arc..Arc$LT$hir_ty
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17hb468b5b2917db82cE(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(8) %2) unnamed_addr #8 {
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %6, label %.lr.ph.preheader
 
@@ -9514,7 +9516,8 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17hb468b5b2917db82cE(ptr noali
   %31 = tail call i64 @llvm.fshl.i64(i64 %storemerge.i.i, i64 %storemerge.i.i, i64 5)
   %32 = xor i64 %31, %30
   %33 = mul i64 %32, 5871781006564002453
-  %34 = getelementptr inbounds { ptr, i32, [1 x i32] }, ptr %28, i64 %30
+  %.idx.i.i.i = shl nsw i64 %30, 4
+  %34 = getelementptr inbounds i8, ptr %28, i64 %.idx.i.i.i
   %35 = icmp eq i64 %30, 0
   br i1 %35, label %"_ZN46_$LT$hir..Type$u20$as$u20$core..hash..Hash$GT$4hash17hb48b8d72c520eaaeE.llvm.1779260972481129599.exit", label %.lr.ph.i.i.i
 
@@ -9562,7 +9565,8 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17hb468b5b2917db82cE(ptr noali
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17hba051c3c6275f5bdE(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #3 {
   %4 = alloca [8 x i8], align 8
-  %5 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %6 = icmp eq i64 %1, 0
   br i1 %6, label %._crit_edge, label %.lr.ph
 
@@ -10517,7 +10521,8 @@ common.resume:                                    ; preds = %37, %188
   call void @llvm.experimental.noalias.scope.decl(metadata !1817)
   %183 = icmp ne ptr %.sroa.8.sroa.0.0.copyload, null
   call void @llvm.assume(i1 %183)
-  %184 = getelementptr inbounds { { ptr, ptr }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.8.sroa.0.0.copyload, i64 %.sroa.8.sroa.4.0.copyload
+  %.idx.i = mul nsw i64 %.sroa.8.sroa.4.0.copyload, 40
+  %184 = getelementptr inbounds i8, ptr %.sroa.8.sroa.0.0.copyload, i64 %.idx.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1820)
   %185 = load ptr, ptr %.val1, align 8, !alias.scope !1823, !noalias !1827, !noundef !12
   %186 = icmp eq ptr %185, null
@@ -11623,7 +11628,8 @@ common.resume:                                    ; preds = %38, %213
   call void @llvm.experimental.noalias.scope.decl(metadata !2142)
   %208 = icmp ne ptr %.sroa.8.sroa.0.0.copyload, null
   call void @llvm.assume(i1 %208)
-  %209 = getelementptr inbounds { { ptr, ptr }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.8.sroa.0.0.copyload, i64 %.sroa.8.sroa.4.0.copyload
+  %.idx.i = mul nsw i64 %.sroa.8.sroa.4.0.copyload, 40
+  %209 = getelementptr inbounds i8, ptr %.sroa.8.sroa.0.0.copyload, i64 %.idx.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2145)
   %210 = load ptr, ptr %.val1, align 8, !alias.scope !2148, !noalias !2152, !noundef !12
   %211 = icmp eq ptr %210, null
@@ -14042,7 +14048,8 @@ define hidden void @"_ZN69_$LT$hir_ty..traits..TraitEnvironment$u20$as$u20$core.
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h7f8b085d6326c141E.llvm.1779260972481129599"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !2751
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2756)
-  %21 = getelementptr inbounds { ptr, i32, [1 x i32] }, ptr %18, i64 %20
+  %.idx.i = shl nsw i64 %20, 4
+  %21 = getelementptr inbounds i8, ptr %18, i64 %.idx.i
   %22 = icmp eq i64 %20, 0
   br i1 %22, label %_ZN4core4hash4Hash10hash_slice17he4283b698ff06b66E.exit, label %.lr.ph.i
 
@@ -14110,7 +14117,8 @@ define hidden void @"_ZN69_$LT$hir_ty..traits..TraitEnvironment$u20$as$u20$core.
   %24 = tail call i64 @llvm.fshl.i64(i64 %storemerge, i64 %storemerge, i64 5)
   %25 = xor i64 %24, %23
   %26 = mul i64 %25, 5871781006564002453
-  %27 = getelementptr inbounds { ptr, i32, [1 x i32] }, ptr %21, i64 %23
+  %.idx.i = shl nsw i64 %23, 4
+  %27 = getelementptr inbounds i8, ptr %21, i64 %.idx.i
   %28 = icmp eq i64 %23, 0
   br i1 %28, label %_ZN4core4hash4Hash10hash_slice17h33157d5e10d28c30E.exit, label %.lr.ph.i
 

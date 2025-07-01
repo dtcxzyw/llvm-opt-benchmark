@@ -3,10 +3,13 @@ source_filename = "bench/llvm/original/Descriptor.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.clang::interp::Record::Base" = type { ptr, i32, ptr, ptr }
-%"struct.clang::interp::Record::Field" = type { ptr, i32, ptr }
 %"class.llvm::detail::IEEEFloat" = type <{ ptr, %"union.llvm::detail::IEEEFloat::Significand", i32, i8, [3 x i8] }>
 %"union.llvm::detail::IEEEFloat::Significand" = type { i64 }
+%"class.clang::interp::IntegralAP" = type { %"class.llvm::APInt" }
+%"class.llvm::APInt" = type <{ %union.anon.59, i32, [4 x i8] }>
+%union.anon.59 = type { i64 }
+%"class.clang::interp::IntegralAP.60" = type { %"class.llvm::APInt" }
+%"class.clang::interp::Floating" = type { %"class.llvm::APFloat" }
 %"class.llvm::APFloat" = type { %"union.llvm::APFloat::Storage" }
 %"union.llvm::APFloat::Storage" = type { %"class.llvm::detail::DoubleAPFloat", [8 x i8] }
 %"class.llvm::detail::DoubleAPFloat" = type { ptr, %"class.std::unique_ptr.51" }
@@ -16,11 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.54" = type { %"struct.std::_Tuple_impl.55" }
 %"struct.std::_Tuple_impl.55" = type { %"struct.std::_Head_base.58" }
 %"struct.std::_Head_base.58" = type { ptr }
-%"class.clang::interp::IntegralAP" = type { %"class.llvm::APInt" }
-%"class.llvm::APInt" = type <{ %union.anon.59, i32, [4 x i8] }>
-%union.anon.59 = type { i64 }
-%"class.clang::interp::IntegralAP.60" = type { %"class.llvm::APInt" }
-%"class.clang::interp::Floating" = type { %"class.llvm::APFloat" }
 %"class.clang::interp::Pointer" = type <{ i64, ptr, ptr, %union.anon.61, i32, [4 x i8] }>
 %union.anon.61 = type { %"struct.clang::interp::BlockPointer", [8 x i8] }
 %"struct.clang::interp::BlockPointer" = type { ptr, i32 }
@@ -811,7 +809,8 @@ define internal void @_ZL10ctorRecordPN5clang6interp5BlockEPSt4bytebbbbPKNS0_10D
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !75
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.clang::interp::Record::Base", ptr %11, i64 %14
+  %.idx = shl nuw nsw i64 %14, 5
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %.not59 = icmp eq i32 %13, 0
   br i1 %.not59, label %._crit_edge, label %.lr.ph
 
@@ -826,7 +825,8 @@ define internal void @_ZL10ctorRecordPN5clang6interp5BlockEPSt4bytebbbbPKNS0_10D
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 288
   %20 = load i32, ptr %19, align 8, !tbaa !75
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.clang::interp::Record::Field", ptr %18, i64 %21
+  %.idx71 = mul nuw nsw i64 %21, 24
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx71
   %.not4961 = icmp eq i32 %20, 0
   br i1 %.not4961, label %._crit_edge65, label %.lr.ph64
 
@@ -846,17 +846,18 @@ define internal void @_ZL10ctorRecordPN5clang6interp5BlockEPSt4bytebbbbPKNS0_10D
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge65.loopexit:                           ; preds = %_ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit
-  %.pre71 = load ptr, ptr %8, align 8, !tbaa !35
+  %.pre73 = load ptr, ptr %8, align 8, !tbaa !35
   br label %._crit_edge65
 
 ._crit_edge65:                                    ; preds = %._crit_edge65.loopexit, %._crit_edge
-  %29 = phi ptr [ %.pre71, %._crit_edge65.loopexit ], [ %16, %._crit_edge ]
+  %29 = phi ptr [ %.pre73, %._crit_edge65.loopexit ], [ %16, %._crit_edge ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 488
   %31 = load ptr, ptr %30, align 8, !tbaa !74
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 496
   %33 = load i32, ptr %32, align 8, !tbaa !75
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %"struct.clang::interp::Record::Base", ptr %31, i64 %34
+  %.idx72 = shl nuw nsw i64 %34, 5
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx72
   %.not5066 = icmp eq i32 %33, 0
   br i1 %.not5066, label %._crit_edge70, label %.lr.ph69
 
@@ -986,7 +987,8 @@ define internal void @_ZL10dtorRecordPN5clang6interp5BlockEPSt4bytePKNS0_10Descr
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !75
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.clang::interp::Record::Base", ptr %7, i64 %10
+  %.idx = shl nuw nsw i64 %10, 5
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not45 = icmp eq i32 %9, 0
   br i1 %.not45, label %._crit_edge, label %.lr.ph
 
@@ -1001,7 +1003,8 @@ define internal void @_ZL10dtorRecordPN5clang6interp5BlockEPSt4bytePKNS0_10Descr
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 288
   %16 = load i32, ptr %15, align 8, !tbaa !75
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %"struct.clang::interp::Record::Field", ptr %14, i64 %17
+  %.idx57 = mul nuw nsw i64 %17, 24
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx57
   %.not3547 = icmp eq i32 %16, 0
   br i1 %.not3547, label %._crit_edge51, label %.lr.ph50
 
@@ -1017,17 +1020,18 @@ define internal void @_ZL10dtorRecordPN5clang6interp5BlockEPSt4bytePKNS0_10Descr
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge51.loopexit:                           ; preds = %_ZL12destroyFieldPN5clang6interp5BlockEPSt4bytePKNS0_10DescriptorEj.exit
-  %.pre57 = load ptr, ptr %4, align 8, !tbaa !35
+  %.pre59 = load ptr, ptr %4, align 8, !tbaa !35
   br label %._crit_edge51
 
 ._crit_edge51:                                    ; preds = %._crit_edge51.loopexit, %._crit_edge
-  %24 = phi ptr [ %.pre57, %._crit_edge51.loopexit ], [ %12, %._crit_edge ]
+  %24 = phi ptr [ %.pre59, %._crit_edge51.loopexit ], [ %12, %._crit_edge ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 488
   %26 = load ptr, ptr %25, align 8, !tbaa !74
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 496
   %28 = load i32, ptr %27, align 8, !tbaa !75
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"struct.clang::interp::Record::Base", ptr %26, i64 %29
+  %.idx58 = shl nuw nsw i64 %29, 5
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx58
   %.not3652 = icmp eq i32 %28, 0
   br i1 %.not3652, label %._crit_edge56, label %.lr.ph55
 
@@ -1077,7 +1081,8 @@ define internal void @_ZL10moveRecordPN5clang6interp5BlockEPSt4byteS4_PKNS0_10De
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 288
   %10 = load i32, ptr %9, align 8, !tbaa !75
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.clang::interp::Record::Field", ptr %8, i64 %11
+  %.idx = mul nuw nsw i64 %11, 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not24 = icmp eq i32 %10, 0
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
@@ -1731,11 +1736,12 @@ define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 -8
   %6 = load i64, ptr %5, align 8
+  %.idx.i = mul i64 %6, 24
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %8 = getelementptr inbounds %"class.llvm::APFloat", ptr %3, i64 %6
+  %8 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %9 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #24
   br label %10
 
@@ -1759,9 +1765,8 @@ _ZN4llvm7APFloatD2Ev.exit.i:                      ; preds = %15, %14
   br i1 %16, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %10
 
 _ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit: ; preds = %_ZN4llvm7APFloatD2Ev.exit.i, %4
-  %17 = mul i64 %6, 24
-  %18 = add i64 %17, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %18) #25
+  %17 = add i64 %.idx.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %17) #25
   br label %_ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit
@@ -5124,7 +5129,8 @@ define internal fastcc void @_ZL8initBasePN5clang6interp5BlockEPSt4bytebbbbPKNS0
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %50 = load i32, ptr %49, align 8, !tbaa !75
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.clang::interp::Record::Base", ptr %48, i64 %51
+  %.idx = shl nuw nsw i64 %51, 5
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx
   %.not60 = icmp eq i32 %50, 0
   br i1 %.not60, label %._crit_edge, label %.lr.ph
 
@@ -5139,7 +5145,8 @@ define internal fastcc void @_ZL8initBasePN5clang6interp5BlockEPSt4bytebbbbPKNS0
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 288
   %57 = load i32, ptr %56, align 8, !tbaa !75
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw %"struct.clang::interp::Record::Field", ptr %55, i64 %58
+  %.idx73 = mul nuw nsw i64 %58, 24
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx73
   %invariant.op = or disjoint i8 %42, %25
   %.not5562 = icmp eq i32 %57, 0
   br i1 %.not5562, label %._crit_edge66, label %.lr.ph65
@@ -5372,7 +5379,8 @@ define internal fastcc void @_ZL11destroyBasePN5clang6interp5BlockEPSt4bytePKNS0
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !75
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.clang::interp::Record::Base", ptr %8, i64 %11
+  %.idx = shl nuw nsw i64 %11, 5
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not29 = icmp eq i32 %10, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
@@ -5392,7 +5400,8 @@ define internal fastcc void @_ZL11destroyBasePN5clang6interp5BlockEPSt4bytePKNS0
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 288
   %19 = load i32, ptr %18, align 8, !tbaa !75
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %"struct.clang::interp::Record::Field", ptr %17, i64 %20
+  %.idx36 = mul nuw nsw i64 %20, 24
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx36
   %.not2431 = icmp eq i32 %19, 0
   br i1 %.not2431, label %._crit_edge35, label %.lr.ph34
 

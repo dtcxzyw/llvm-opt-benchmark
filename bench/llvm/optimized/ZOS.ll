@@ -1897,7 +1897,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179: ; preds = %_Z
   %508 = load ptr, ptr %37, align 8, !tbaa !9
   %509 = load i32, ptr %506, align 8, !tbaa !22
   %510 = zext i32 %509 to i64
-  %511 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %508, i64 %510
+  %.idx = shl nuw nsw i64 %510, 4
+  %511 = getelementptr inbounds nuw i8, ptr %508, i64 %.idx
   %.not232 = icmp eq i32 %509, 0
   br i1 %.not232, label %._crit_edge, label %.lr.ph
 
@@ -4572,7 +4573,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5cla
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !22
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %6, i64 %9
+  %.idx.i = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6driver7CommandESt14default_deleteIS4_EELb0EE19moveElementsForGrowEPS7_.exit, label %.lr.ph.i.i.i.i.i.i
 

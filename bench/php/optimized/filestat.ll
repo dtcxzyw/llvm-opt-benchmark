@@ -3639,7 +3639,8 @@ define hidden void @zif_realpath_cache_get(ptr noundef readonly captures(none) %
   %3 = alloca %struct._zval_struct, align 8
   %4 = tail call ptr @realpath_cache_get_buckets() #16
   %5 = tail call i64 @realpath_cache_max_buckets() #16
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %.idx = shl nsw i64 %5, 3
+  %6 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !34
   %.not = icmp eq i32 %8, 0

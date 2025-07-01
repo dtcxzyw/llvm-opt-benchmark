@@ -63173,7 +63173,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h8eb5ab825eef597bE.exit: ; preds = %.no
   %83 = load ptr, ptr %82, align 8, !nonnull !5, !noundef !5
   %84 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %85 = load i64, ptr %84, align 8, !noundef !5
-  %86 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} }, [3 x { { ptr, [1 x i64] } }] }, ptr %83, i64 %85
+  %.idx = shl nsw i64 %85, 6
+  %86 = getelementptr inbounds i8, ptr %83, i64 %.idx
   %87 = icmp eq i64 %85, 0
   br i1 %87, label %.loopexit55, label %.lr.ph.i
 

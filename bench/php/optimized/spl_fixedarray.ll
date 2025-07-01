@@ -34,7 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.10 = type { ptr }
 %union.anon.11 = type { %struct.anon.12 }
 %struct.anon.12 = type { ptr, i32, i32 }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @.str = private unnamed_addr constant [3 x i8] c"|l\00", align 1
 @executor_globals = external global %struct._zend_executor_globals, align 8
@@ -1216,7 +1215,8 @@ tailrecurse.i:                                    ; preds = %61, %18
   %40 = icmp sgt i64 %23, 0
   call void @llvm.assume(i1 %40)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  %41 = getelementptr inbounds nuw %struct._zval_struct, ptr %39, i64 %23
+  %.idx.i.i = shl nsw i64 %23, 4
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -2376,7 +2376,8 @@ define internal ptr @spl_fixedarray_object_get_properties_for(ptr noundef %0, i3
   %48 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %49 = load i32, ptr %48, align 8, !tbaa !55
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw %struct._Bucket, ptr %47, i64 %50
+  %.idx = shl nuw nsw i64 %50, 5
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx
   %52 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !8
   %54 = and i32 %53, 4
@@ -2474,7 +2475,8 @@ define internal void @spl_fixedarray_object_free_storage(ptr noundef %0) #0 {
   br i1 %6, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %8
-  %9 = getelementptr inbounds %struct._zval_struct, ptr %4, i64 %5
+  %.idx.i = shl nsw i64 %5, 4
+  %9 = getelementptr inbounds i8, ptr %4, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -2705,7 +2707,8 @@ spl_fixedarray_init.exit.i:                       ; preds = %17
   %.val9.i = phi ptr [ null, %spl_fixedarray_init.exit.i ], [ %21, %.lr.ph.i.i.i ]
   %28 = getelementptr inbounds i8, ptr %1, i64 -24
   %29 = load ptr, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i64 %19
+  %.idx.i = shl nsw i64 %19, 4
+  %30 = getelementptr inbounds i8, ptr %29, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %41, %.lr.ph.i.preheader.i

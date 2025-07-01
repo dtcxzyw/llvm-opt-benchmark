@@ -552,21 +552,24 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i42, ptr %times_, align 8, !tbaa !42
-  %add.ptr.i.i.i38 = getelementptr double, ptr %call5.i.i.i.i2.i.i42, i64 %cond
+  %add.ptr.i.i.i38 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i42, i64 %cond
   %_M_end_of_storage.i.i.i39 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr %add.ptr.i.i.i38, ptr %_M_end_of_storage.i.i.i39, align 8, !tbaa !44
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i42, align 8, !tbaa !45
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i42, i64 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %cond, 1
+  %sub.i.i.i.i.i = add nsw i64 %cond, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont7, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
   %15 = add nsw i64 %mul.i.i.i.i.i.i, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %15, i1 false), !tbaa !45
+  %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i38, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !41
   %correlations_ = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -1281,10 +1284,10 @@ entry:
 
 cond.end.thread.i:                                ; preds = %entry
   store ptr null, ptr %ref.tmp, align 8, !tbaa !21
-  %rows_6.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store i64 %0, ptr %rows_6.i, align 8, !tbaa !39
-  %columns_7.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  store i64 %0, ptr %columns_7.i, align 8, !tbaa !40
+  %rows_7.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
+  store i64 %0, ptr %rows_7.i, align 8, !tbaa !39
+  %columns_8.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  store i64 %0, ptr %columns_8.i, align 8, !tbaa !40
   br label %_ZN8QuantLib6MatrixC2Emmd.exit
 
 for.body.i.i.i.preheader.i:                       ; preds = %entry

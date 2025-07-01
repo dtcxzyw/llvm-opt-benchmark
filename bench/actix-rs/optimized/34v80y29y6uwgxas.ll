@@ -7076,7 +7076,8 @@ define { ptr, ptr } @"_ZN121_$LT$actix_web..resource..ResourceService$u20$as$u20
   %7 = load ptr, ptr %6, align 8, !alias.scope !1331, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !1331, !noundef !4
-  %10 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, ptr }, ptr %7, i64 %9
+  %.idx = mul nsw i64 %9, 24
+  %10 = getelementptr inbounds i8, ptr %7, i64 %.idx
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 

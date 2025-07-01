@@ -32,8 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.63" = type { %"struct.std::_Tuple_impl.64", %"struct.std::_Head_base.68" }
 %"struct.std::_Tuple_impl.64" = type { %"struct.std::_Tuple_impl.65", %"struct.std::_Head_base.67" }
 %"struct.std::_Tuple_impl.65" = type { %"struct.std::_Head_base.66" }
-%"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec" = type { i16, i16, %union.anon.53 }
-%union.anon.53 = type { i64 }
 %"class.llvm::DataExtractor" = type <{ %"class.llvm::StringRef", i8, i8, [6 x i8] }>
 %"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::format_object.113" = type { %"class.llvm::format_object_base", %"class.std::tuple.114" }
@@ -477,7 +475,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %188 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %189 = load i32, ptr %188, align 8, !tbaa !149
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %187, i64 %190
+  %.idx = shl nuw nsw i64 %190, 4
+  %191 = getelementptr inbounds nuw i8, ptr %187, i64 %.idx
   %.not57109 = icmp eq i32 %189, 0
   br i1 %.not57109, label %.loopexit, label %.lr.ph
 

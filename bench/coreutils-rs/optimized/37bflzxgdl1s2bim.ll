@@ -997,7 +997,8 @@ _ZN3std4path4Path4join17h84cb66cb90994f4fE.exit:  ; preds = %211
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i160, align 8, !alias.scope !195, !noalias !198, !nonnull !5, !noundef !5
   %.sroa.5.0..sroa_idx.i161 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i161, align 8, !alias.scope !195, !noalias !198
-  %220 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nsw i64 %.sroa.5.0.copyload.i, 5
+  %220 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %107)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %105)
   store ptr %.sroa.4.0.copyload.i, ptr %105, align 8
@@ -1640,7 +1641,8 @@ _ZN3std4path4Path4join17hfe4f79f45298948eE.exit:  ; preds = %424
   %.sroa.4.0.copyload.i175 = load ptr, ptr %.sroa.4.0..sroa_idx.i174, align 8, !alias.scope !273, !noalias !276, !nonnull !5, !noundef !5
   %.sroa.5.0..sroa_idx.i176 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %.sroa.5.0.copyload.i177 = load i64, ptr %.sroa.5.0..sroa_idx.i176, align 8, !alias.scope !273, !noalias !276
-  %443 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %.sroa.4.0.copyload.i175, i64 %.sroa.5.0.copyload.i177
+  %.idx427 = shl nsw i64 %.sroa.5.0.copyload.i177, 5
+  %443 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i175, i64 %.idx427
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %84)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %83)
   store ptr %.sroa.4.0.copyload.i175, ptr %83, align 8

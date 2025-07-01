@@ -7744,6 +7744,7 @@ define internal void @"_ZZN2cv3Mat12forEach_implINS_3VecIdLi4EEEZNS_8ximgproc8qu
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %wide.trip.count.i.i.i = zext nneg i32 %7 to i64
   %25 = sext i32 %13 to i64
+  %.idx.i = shl nsw i64 %25, 5
   %26 = icmp sgt i32 %13, 0
   br i1 %26, label %.lr.ph71.split.us, label %.loopexit
 
@@ -7774,7 +7775,7 @@ define internal void @"_ZZN2cv3Mat12forEach_implINS_3VecIdLi4EEEZNS_8ximgproc8qu
 
 _ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i.us:  ; preds = %28, %.lr.ph71.split.us
   %.0.lcssa.i.i.i.us = phi ptr [ %22, %.lr.ph71.split.us ], [ %35, %28 ]
-  %36 = getelementptr inbounds nuw %"class.cv::Vec", ptr %.0.lcssa.i.i.i.us, i64 %25
+  %36 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.us, i64 %.idx.i
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %_ZN2cv3Mat2atINS_3VecIdLi4EEEEERT_PKi.exit.i.us, %"_ZZN2cv8ximgproc8qunitaryERKNS_11_InputArrayERKNS_12_OutputArrayEENK3$_0clERNS_3VecIdLi4EEEPKi.exit.i.us"

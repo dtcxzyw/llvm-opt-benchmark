@@ -4762,7 +4762,8 @@ _ZSt8_DestroyIPN7Imf_3_46HeaderEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.
 .body:                                            ; preds = %37
   %46 = extractvalue { ptr, i32 } %38, 0
   %47 = tail call ptr @__cxa_begin_catch(ptr %46) #27
-  %48 = getelementptr inbounds nuw %"class.Imf_3_4::Header", ptr %28, i64 %1
+  %.idx = mul nuw nsw i64 %1, 56
+  %48 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.body, %.lr.ph.i.i.i

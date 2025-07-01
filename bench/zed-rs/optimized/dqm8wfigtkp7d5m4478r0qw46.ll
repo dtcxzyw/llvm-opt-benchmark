@@ -30,7 +30,8 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN15form_urlenc
 
 _ZN15form_urlencoded6string17h78bfd90bef359864E.llvm.10425186505008497002.exit: ; preds = %3
   %7 = tail call noundef nonnull align 8 dereferenceable(24) ptr @"_ZN57_$LT$url..UrlQuery$u20$as$u20$form_urlencoded..Target$GT$13as_mut_string17h9ff6bf9eaa682feeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
-  %8 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 5
+  %8 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %9 = icmp eq i64 %2, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
@@ -327,7 +328,8 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as
   %8 = load i64, ptr %7, align 8, !noundef !8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !37
   call void @_ZN4core3fmt9Formatter10debug_list17hd6657c9b4ac76e70E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !41
-  %9 = getelementptr inbounds { i8, [1 x i8] }, ptr %6, i64 %8
+  %.idx.i = shl nsw i64 %8, 1
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h579b41d907f614deE.exit", label %.lr.ph.i.i
 
@@ -357,7 +359,8 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as
   %8 = load i64, ptr %7, align 8, !noundef !8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !45
   call void @_ZN4core3fmt9Formatter10debug_list17hd6657c9b4ac76e70E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !49
-  %9 = getelementptr inbounds { i8, [1 x i8] }, ptr %6, i64 %8
+  %.idx.i = shl nsw i64 %8, 1
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h3d1a9a48478aae86E.exit", label %.lr.ph.i.i
 

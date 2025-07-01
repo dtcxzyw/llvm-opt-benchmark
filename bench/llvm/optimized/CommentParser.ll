@@ -34,7 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.clang::FixItHint" = type <{ %"class.clang::CharSourceRange", %"class.clang::CharSourceRange", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 %"class.llvm::SmallVector.136" = type { %"class.llvm::SmallVectorImpl.137", %"struct.llvm::SmallVectorStorage.140" }
 %"class.llvm::SmallVectorImpl.137" = type { %"class.llvm::SmallVectorTemplateBase.138" }
 %"class.llvm::SmallVectorTemplateBase.138" = type { %"class.llvm::SmallVectorTemplateCommon.139" }
@@ -2456,7 +2455,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %95
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %107
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %115, i64 %118
+  %.idx.i7.i.i.i = shl nuw nsw i64 %118, 6
+  %119 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -2529,10 +2529,10 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   %.sroa.0.0.i32 = add i32 %153, %.sroa.0.0.copyload.i30
   %.sroa.4.0.insert.ext = zext i32 %.sroa.0.0.i32 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
-  %.sroa.093.0.insert.ext = zext i32 %.sroa.0.0.copyload.i30 to i64
-  %.sroa.093.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.093.0.insert.ext
+  %.sroa.094.0.insert.ext = zext i32 %.sroa.0.0.copyload.i30 to i64
+  %.sroa.094.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.094.0.insert.ext
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #13
-  store i64 %.sroa.093.0.insert.insert, ptr %9, align 8
+  store i64 %.sroa.094.0.insert.insert, ptr %9, align 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(66) %12, ptr noundef nonnull align 4 dereferenceable(9) %9)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #13
@@ -3067,7 +3067,7 @@ define dso_local noundef ptr @_ZN5clang8comments6Parser18parseInlineCommandEv(pt
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i32, ptr %9, align 8, !tbaa !38
   %11 = tail call noundef ptr @_ZNK5clang8comments13CommandTraits14getCommandInfoEj(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %10) #13
-  %.sroa.075.0.copyload = load i32, ptr %8, align 8, !tbaa !35
+  %.sroa.078.0.copyload = load i32, ptr %8, align 8, !tbaa !35
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !92
   %.sroa.9.0.copyload = load i32, ptr %9, align 8, !tbaa !35
@@ -3129,8 +3129,8 @@ _ZN5clang8comments6Parser12consumeTokenEv.exit:   ; preds = %14, %16
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !25
   %44 = call i32 @llvm.usub.sat.i32(i32 %.sroa.10.0.copyload, i32 1)
-  %.sroa.0.0.i = add i32 %44, %.sroa.075.0.copyload
-  %45 = call noundef ptr @_ZN5clang8comments4Sema18actOnInlineCommandENS_14SourceLocationES2_jN4llvm8ArrayRefINS0_7Comment8ArgumentEEE(ptr noundef nonnull align 8 dereferenceable(168) %43, i32 %.sroa.075.0.copyload, i32 %.sroa.0.0.i, i32 noundef %.sroa.9.0.copyload, ptr %40, i64 %41) #13
+  %.sroa.0.0.i = add i32 %44, %.sroa.078.0.copyload
+  %45 = call noundef ptr @_ZN5clang8comments4Sema18actOnInlineCommandENS_14SourceLocationES2_jN4llvm8ArrayRefINS0_7Comment8ArgumentEEE(ptr noundef nonnull align 8 dereferenceable(168) %43, i32 %.sroa.078.0.copyload, i32 %.sroa.0.0.i, i32 noundef %.sroa.9.0.copyload, ptr %40, i64 %41) #13
   %46 = load i64, ptr %34, align 8
   %47 = lshr i64 %46, 20
   %48 = and i64 %47, 15
@@ -3210,7 +3210,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %65
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %77
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %85, i64 %88
+  %.idx.i7.i.i.i = shl nuw nsw i64 %88, 6
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -3306,7 +3307,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   store i64 %133, ptr %142, align 8, !tbaa !80
   %.sroa.4.0.insert.ext = zext i32 %.sroa.0.0.i to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = zext i32 %.sroa.075.0.copyload to i64
+  %.sroa.0.0.insert.ext = zext i32 %.sroa.078.0.copyload to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.0.0.insert.ext
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #13
   store i64 %.sroa.0.0.insert.insert, ptr %2, align 8
@@ -3883,7 +3884,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8comments19HTMLStartTagComment9Attribut
 
 _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang8comments19HTMLStartTagComment9AttributeEEEPT_m.exit.i.i: ; preds = %239, %236
   %.0.i.i.i.i.i.i = phi ptr [ %238, %236 ], [ %240, %239 ]
-  %241 = getelementptr inbounds nuw %"class.clang::comments::HTMLStartTagComment::Attribute", ptr %216, i64 %218
+  %241 = getelementptr inbounds nuw i8, ptr %216, i64 %222
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang8comments19HTMLStartTagComment9AttributeEEEPT_m.exit.i.i
@@ -3961,7 +3962,7 @@ _ZN5clang8comments4Sema9copyArrayINS0_19HTMLStartTagComment9AttributeEEEN4llvm8A
 
 _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang8comments19HTMLStartTagComment9AttributeEEEPT_m.exit.i.i95: ; preds = %278, %275
   %.0.i.i.i.i.i.i96 = phi ptr [ %277, %275 ], [ %279, %278 ]
-  %280 = getelementptr inbounds nuw %"class.clang::comments::HTMLStartTagComment::Attribute", ptr %255, i64 %257
+  %280 = getelementptr inbounds nuw i8, ptr %255, i64 %261
   br label %.lr.ph.i.i.i.i.i97
 
 .lr.ph.i.i.i.i.i97:                               ; preds = %.lr.ph.i.i.i.i.i97, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang8comments19HTMLStartTagComment9AttributeEEEPT_m.exit.i.i95
@@ -4128,7 +4129,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit115.backedge: ; preds = %313, %315
 
 _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang8comments19HTMLStartTagComment9AttributeEEEPT_m.exit.i.i119: ; preds = %346, %343
   %.0.i.i.i.i.i.i120 = phi ptr [ %345, %343 ], [ %347, %346 ]
-  %348 = getelementptr inbounds nuw %"class.clang::comments::HTMLStartTagComment::Attribute", ptr %323, i64 %325
+  %348 = getelementptr inbounds nuw i8, ptr %323, i64 %329
   br label %.lr.ph.i.i.i.i.i121
 
 .lr.ph.i.i.i.i.i121:                              ; preds = %.lr.ph.i.i.i.i.i121, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang8comments19HTMLStartTagComment9AttributeEEEPT_m.exit.i.i119
@@ -4185,7 +4186,7 @@ _ZN5clang8comments4Sema9copyArrayINS0_19HTMLStartTagComment9AttributeEEEN4llvm8A
 
 _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang8comments19HTMLStartTagComment9AttributeEEEPT_m.exit.i.i130: ; preds = %376, %373
   %.0.i.i.i.i.i.i131 = phi ptr [ %375, %373 ], [ %377, %376 ]
-  %378 = getelementptr inbounds nuw %"class.clang::comments::HTMLStartTagComment::Attribute", ptr %353, i64 %355
+  %378 = getelementptr inbounds nuw i8, ptr %353, i64 %359
   br label %.lr.ph.i.i.i.i.i132
 
 .lr.ph.i.i.i.i.i132:                              ; preds = %.lr.ph.i.i.i.i.i132, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang8comments19HTMLStartTagComment9AttributeEEEPT_m.exit.i.i130
@@ -5800,7 +5801,8 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
 
 .lr.ph.i.preheader.i.i:                           ; preds = %14
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %16, i64 %19
+  %.idx.i.i = shl nuw nsw i64 %19, 6
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -5964,7 +5966,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %12
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %24
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %32, i64 %35
+  %.idx.i7.i.i = shl nuw nsw i64 %35, 6
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i7.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i

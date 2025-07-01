@@ -167,7 +167,8 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .lr.ph26.split.us.preheader.i:                    ; preds = %82
   %88 = sext i16 %87 to i64
-  %89 = getelementptr inbounds [4097 x %struct.PGLZ_HistEntry], ptr @hist_entries, i64 0, i64 %88
+  %.idx.i = shl nsw i64 %88, 5
+  %89 = getelementptr inbounds i8, ptr @hist_entries, i64 %.idx.i
   %90 = trunc i64 %61 to i32
   %91 = sub i32 %52, %90
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 24

@@ -40,9 +40,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.12 = type { ptr, i32, i32 }
 %struct._zend_gc_status = type { i8, i8, i8, i32, i32, i32, i32, i32, i64, i64, i64, i64 }
 %struct._zend_constant = type { %struct._zval_struct, ptr, ptr }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct._zend_fcall_info = type { i64, %struct._zval_struct, ptr, ptr, ptr, i32, ptr }
 %struct._zend_fcall_info_cache = type { ptr, ptr, ptr, ptr, ptr }
+%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @zend_standard_class_def = external local_unnamed_addr global ptr, align 8
 @executor_globals = external global %struct._zend_executor_globals, align 8
@@ -2949,7 +2949,8 @@ zend_class_default_properties_table.exit:         ; preds = %12, %17
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %22 = load i32, ptr %21, align 8, !tbaa !90
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %struct._Bucket, ptr %20, i64 %23
+  %.idx = shl nuw nsw i64 %23, 5
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %26 = load i32, ptr %25, align 8, !tbaa !28
   %27 = and i32 %26, 4
@@ -3680,7 +3681,8 @@ zend_parse_arg_obj_or_class_name.exit:            ; preds = %7
   %21 = getelementptr inbounds nuw i8, ptr %.077113, i64 88
   %22 = load i32, ptr %21, align 8, !tbaa !90
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %struct._Bucket, ptr %20, i64 %23
+  %.idx = shl nuw nsw i64 %23, 5
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %25 = getelementptr inbounds nuw i8, ptr %.077113, i64 72
   %26 = load i32, ptr %25, align 8, !tbaa !28
   %27 = and i32 %26, 4
@@ -5253,7 +5255,8 @@ define hidden void @zif_get_included_files(ptr noundef readonly captures(none) %
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 376), align 8, !tbaa !28
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 384), align 8, !tbaa !90
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct._Bucket, ptr %9, i64 %11
+  %.idx = shl nuw nsw i64 %11, 5
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 368), align 8, !tbaa !28
   %14 = and i32 %13, 4
   %.not19 = icmp eq i32 %14, 0
@@ -5779,7 +5782,8 @@ define internal fastcc void @get_declared_class_impl(i32 %.44.val, ptr noundef c
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !90
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %struct._Bucket, ptr %18, i64 %21
+  %.idx = shl nuw nsw i64 %21, 5
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !28
   %25 = and i32 %24, 4
@@ -5978,7 +5982,8 @@ define hidden void @zif_get_defined_functions(ptr noundef readonly captures(none
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !90
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %struct._Bucket, ptr %26, i64 %29
+  %.idx = shl nuw nsw i64 %29, 5
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !28
   %33 = and i32 %32, 4
@@ -6569,7 +6574,8 @@ define hidden void @zif_get_loaded_extensions(ptr noundef readonly captures(none
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @module_registry, i64 16), align 8, !tbaa !28
   %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @module_registry, i64 24), align 8, !tbaa !90
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct._Bucket, ptr %18, i64 %20
+  %.idx = shl nuw nsw i64 %20, 5
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @module_registry, i64 8), align 8, !tbaa !28
   %23 = and i32 %22, 4
   %.not = icmp eq i32 %23, 0
@@ -6655,7 +6661,8 @@ define hidden void @zif_get_defined_constants(ptr noundef readonly captures(none
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @module_registry, i64 16), align 8, !tbaa !28
   %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @module_registry, i64 24), align 8, !tbaa !90
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw %struct._Bucket, ptr %28, i64 %30
+  %.idx127 = shl nuw nsw i64 %30, 5
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx127
   %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @module_registry, i64 8), align 8, !tbaa !28
   %33 = and i32 %32, 4
   %.not100 = icmp eq i32 %33, 0
@@ -6700,7 +6707,8 @@ define hidden void @zif_get_defined_constants(ptr noundef readonly captures(none
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %54 = load i32, ptr %53, align 8, !tbaa !90
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw %struct._Bucket, ptr %52, i64 %55
+  %.idx128 = shl nuw nsw i64 %55, 5
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx128
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %58 = load i32, ptr %57, align 8, !tbaa !28
   %59 = and i32 %58, 4
@@ -6736,14 +6744,14 @@ define hidden void @zif_get_defined_constants(ptr noundef readonly captures(none
 
 74:                                               ; preds = %69
   %75 = icmp ugt i32 %72, %.091.lcssa
-  br i1 %75, label %104, label %._crit_edge127
+  br i1 %75, label %104, label %._crit_edge129
 
-._crit_edge127:                                   ; preds = %74
-  %.pre128 = zext nneg i32 %72 to i64
+._crit_edge129:                                   ; preds = %74
+  %.pre130 = zext nneg i32 %72 to i64
   br label %76
 
-76:                                               ; preds = %._crit_edge127, %69
-  %.pre-phi = phi i64 [ %.pre128, %._crit_edge127 ], [ %48, %69 ]
+76:                                               ; preds = %._crit_edge129, %69
+  %.pre-phi = phi i64 [ %.pre130, %._crit_edge129 ], [ %48, %69 ]
   %77 = getelementptr inbounds %struct._zval_struct, ptr %22, i64 %.pre-phi
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load i8, ptr %78, align 8, !tbaa !28
@@ -6815,7 +6823,8 @@ define hidden void @zif_get_defined_constants(ptr noundef readonly captures(none
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %111 = load i32, ptr %110, align 8, !tbaa !90
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw %struct._Bucket, ptr %109, i64 %112
+  %.idx = shl nuw nsw i64 %112, 5
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 %.idx
   %114 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %115 = load i32, ptr %114, align 8, !tbaa !28
   %116 = and i32 %115, 4
@@ -8713,7 +8722,8 @@ zend_gc_try_delref.exit.i:                        ; preds = %997, %992, %989
   %1004 = getelementptr inbounds nuw i8, ptr %1001, i64 24
   %1005 = load i32, ptr %1004, align 8, !tbaa !90
   %1006 = zext i32 %1005 to i64
-  %1007 = getelementptr inbounds nuw %struct._Bucket, ptr %1003, i64 %1006
+  %.idx.i = shl nuw nsw i64 %1006, 5
+  %1007 = getelementptr inbounds nuw i8, ptr %1003, i64 %.idx.i
   %1008 = getelementptr inbounds nuw i8, ptr %1001, i64 8
   %1009 = load i32, ptr %1008, align 8, !tbaa !28
   %1010 = and i32 %1009, 4
@@ -9213,7 +9223,8 @@ zend_string_release_ex.exit.thread:               ; preds = %29, %zend_string_re
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %44 = load i32, ptr %43, align 8, !tbaa !90
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw %struct._Bucket, ptr %42, i64 %45
+  %.idx = shl nuw nsw i64 %45, 5
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %48 = load i32, ptr %47, align 8, !tbaa !28
   %49 = and i32 %48, 4

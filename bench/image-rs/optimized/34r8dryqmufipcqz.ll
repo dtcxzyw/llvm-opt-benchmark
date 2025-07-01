@@ -2767,7 +2767,8 @@ define hidden void @"_ZN152_$LT$exr..image..write..channels..SpecificChannelsWri
   call void @llvm.experimental.noalias.scope.decl(metadata !625)
   call void @llvm.experimental.noalias.scope.decl(metadata !628)
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 40
-  %135 = getelementptr inbounds { { float, float }, float }, ptr %132, i64 %133
+  %.idx.i = mul nsw i64 %133, 12
+  %135 = getelementptr inbounds i8, ptr %132, i64 %.idx.i
   %.val.i = load i64, ptr %134, align 8, !alias.scope !625, !noalias !630, !noundef !19
   %136 = getelementptr inbounds nuw i8, ptr %130, i64 48
   %.val6.i = load i8, ptr %136, align 8, !range !632, !alias.scope !625, !noalias !630, !noundef !19
@@ -3983,7 +3984,8 @@ define hidden void @"_ZN152_$LT$exr..image..write..channels..SpecificChannelsWri
   call void @llvm.experimental.noalias.scope.decl(metadata !971)
   call void @llvm.experimental.noalias.scope.decl(metadata !974)
   %156 = getelementptr inbounds nuw i8, ptr %152, i64 56
-  %157 = getelementptr inbounds { { { float, float }, float }, float }, ptr %154, i64 %155
+  %.idx.i = shl nsw i64 %155, 4
+  %157 = getelementptr inbounds i8, ptr %154, i64 %.idx.i
   %.val.i = load i64, ptr %156, align 8, !alias.scope !971, !noalias !976, !noundef !19
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 64
   %.val6.i = load i8, ptr %158, align 8, !range !632, !alias.scope !971, !noalias !976, !noundef !19
@@ -7115,7 +7117,7 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h923dc4ea89c6d0efE.exit.i.i.i
 
 .lr.ph.i24.i.i.i:                                 ; preds = %.lr.ph.i20.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1867)
-  %247 = getelementptr inbounds nuw float, ptr %94, i64 %203
+  %247 = getelementptr inbounds nuw i8, ptr %94, i64 %232
   br label %248
 
 248:                                              ; preds = %251, %.lr.ph.i24.i.i.i
@@ -7409,7 +7411,8 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i208:
 
 .noexc47:                                         ; preds = %.lr.ph.i.i26.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1961)
-  %345 = getelementptr inbounds nuw float, ptr %88, i64 %203
+  %.idx.i.i.i.i = shl nuw nsw i64 %203, 2
+  %345 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx.i.i.i.i
   br label %346
 
 346:                                              ; preds = %349, %.noexc47
@@ -7576,7 +7579,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17h1e
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.614.i28.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %82, ptr nonnull readonly align 4 %83, i64 %378, i1 false), !alias.scope !2005, !noalias !1967
   call void @llvm.experimental.noalias.scope.decl(metadata !2009)
-  %388 = getelementptr inbounds nuw float, ptr %82, i64 %203
+  %388 = getelementptr inbounds nuw i8, ptr %82, i64 %378
   br label %389
 
 389:                                              ; preds = %392, %.lr.ph.i.i47.i.i
@@ -7806,7 +7809,7 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h923dc4ea89c6d0efE.exit.i.i.i
 
 .lr.ph.i24.i.i.i.i:                               ; preds = %.lr.ph.i20.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2075)
-  %450 = getelementptr inbounds nuw float, ptr %75, i64 %406
+  %450 = getelementptr inbounds nuw i8, ptr %75, i64 %435
   br label %451
 
 451:                                              ; preds = %454, %.lr.ph.i24.i.i.i.i
@@ -8100,7 +8103,8 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i188:
 
 .noexc75:                                         ; preds = %.lr.ph.i.i26.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2169)
-  %548 = getelementptr inbounds nuw float, ptr %69, i64 %406
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %406, 2
+  %548 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i.i.i.i.i
   br label %549
 
 549:                                              ; preds = %552, %.noexc75
@@ -8267,7 +8271,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17h91
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.614.i28.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %63, ptr nonnull readonly align 4 %64, i64 %581, i1 false), !alias.scope !2213, !noalias !2175
   call void @llvm.experimental.noalias.scope.decl(metadata !2217)
-  %591 = getelementptr inbounds nuw float, ptr %63, i64 %406
+  %591 = getelementptr inbounds nuw i8, ptr %63, i64 %581
   br label %592
 
 592:                                              ; preds = %595, %.lr.ph.i.i47.i.i.i
@@ -8490,7 +8494,7 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h923dc4ea89c6d0efE.exit.i.i.i
 
 .lr.ph.i24.i.i.i.i.i:                             ; preds = %.lr.ph.i20.i.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2283)
-  %651 = getelementptr inbounds nuw float, ptr %56, i64 %406
+  %651 = getelementptr inbounds nuw i8, ptr %56, i64 %636
   br label %652
 
 652:                                              ; preds = %655, %.lr.ph.i24.i.i.i.i.i
@@ -8784,7 +8788,8 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i168:
 
 .noexc103:                                        ; preds = %.lr.ph.i.i26.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2377)
-  %749 = getelementptr inbounds nuw float, ptr %50, i64 %406
+  %.idx.i.i.i.i.i.i = shl nuw nsw i64 %406, 2
+  %749 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i.i.i.i.i.i
   br label %750
 
 750:                                              ; preds = %753, %.noexc103
@@ -8951,7 +8956,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17hde
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.614.i28.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %44, ptr nonnull readonly align 4 %45, i64 %782, i1 false), !alias.scope !2421, !noalias !2383
   call void @llvm.experimental.noalias.scope.decl(metadata !2425)
-  %792 = getelementptr inbounds nuw float, ptr %44, i64 %406
+  %792 = getelementptr inbounds nuw i8, ptr %44, i64 %782
   br label %793
 
 793:                                              ; preds = %796, %.lr.ph.i.i47.i.i.i.i
@@ -9172,7 +9177,7 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h923dc4ea89c6d0efE.exit.i.i.i
 
 .lr.ph.i24.i.i.i.i.i.i:                           ; preds = %.lr.ph.i20.i.i.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2489)
-  %851 = getelementptr inbounds nuw float, ptr %37, i64 %406
+  %851 = getelementptr inbounds nuw i8, ptr %37, i64 %836
   br label %852
 
 852:                                              ; preds = %855, %.lr.ph.i24.i.i.i.i.i.i
@@ -9464,7 +9469,8 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i: ; 
 
 .noexc131:                                        ; preds = %.lr.ph.i.i26.i.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2583)
-  %947 = getelementptr inbounds nuw float, ptr %31, i64 %406
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %406, 2
+  %947 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i.i.i.i
   br label %948
 
 948:                                              ; preds = %951, %.noexc131
@@ -9629,7 +9635,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17hdd
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.614.i28.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %25, ptr nonnull readonly align 4 %26, i64 %978, i1 false), !alias.scope !2627, !noalias !2589
   call void @llvm.experimental.noalias.scope.decl(metadata !2631)
-  %988 = getelementptr inbounds nuw float, ptr %25, i64 %406
+  %988 = getelementptr inbounds nuw i8, ptr %25, i64 %978
   br label %989
 
 989:                                              ; preds = %992, %.lr.ph.i.i47.i.i.i.i.i
@@ -9659,7 +9665,8 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17hdd
   br label %1010
 
 997:                                              ; preds = %188
-  %998 = getelementptr inbounds { { { float, float }, float }, float }, ptr %192, i64 %193
+  %.idx.i = shl nsw i64 %193, 4
+  %998 = getelementptr inbounds i8, ptr %192, i64 %.idx.i
   %999 = icmp eq i64 %193, 0
   br i1 %999, label %.loopexit.i, label %.lr.ph.i
 
@@ -9696,7 +9703,8 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17hdd
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39), !noalias !2437
   %1011 = load ptr, ptr %135, align 8, !nonnull !19, !noundef !19
   %1012 = load i64, ptr %136, align 8, !noundef !19
-  %1013 = getelementptr inbounds { { { float, float }, float }, float }, ptr %1011, i64 %1012
+  %.idx = shl nsw i64 %1012, 4
+  %1013 = getelementptr inbounds i8, ptr %1011, i64 %.idx
   %1014 = icmp eq i64 %1012, 0
   br i1 %1014, label %.loopexit, label %.lr.ph
 
@@ -10461,7 +10469,7 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h923dc4ea89c6d0efE.exit.i.i.i
 
 .lr.ph.i24.i.i.i:                                 ; preds = %.lr.ph.i20.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2745)
-  %247 = getelementptr inbounds nuw float, ptr %94, i64 %203
+  %247 = getelementptr inbounds nuw i8, ptr %94, i64 %232
   br label %248
 
 248:                                              ; preds = %251, %.lr.ph.i24.i.i.i
@@ -10755,7 +10763,8 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i208:
 
 .noexc47:                                         ; preds = %.lr.ph.i.i26.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2839)
-  %345 = getelementptr inbounds nuw float, ptr %88, i64 %203
+  %.idx.i.i.i.i = shl nuw nsw i64 %203, 2
+  %345 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx.i.i.i.i
   br label %346
 
 346:                                              ; preds = %349, %.noexc47
@@ -10922,7 +10931,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17he2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.614.i28.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %82, ptr nonnull readonly align 4 %83, i64 %378, i1 false), !alias.scope !2883, !noalias !2845
   call void @llvm.experimental.noalias.scope.decl(metadata !2887)
-  %388 = getelementptr inbounds nuw float, ptr %82, i64 %203
+  %388 = getelementptr inbounds nuw i8, ptr %82, i64 %378
   br label %389
 
 389:                                              ; preds = %392, %.lr.ph.i.i47.i.i
@@ -11152,7 +11161,7 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h923dc4ea89c6d0efE.exit.i.i.i
 
 .lr.ph.i24.i.i.i.i:                               ; preds = %.lr.ph.i20.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2953)
-  %450 = getelementptr inbounds nuw float, ptr %75, i64 %406
+  %450 = getelementptr inbounds nuw i8, ptr %75, i64 %435
   br label %451
 
 451:                                              ; preds = %454, %.lr.ph.i24.i.i.i.i
@@ -11446,7 +11455,8 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i188:
 
 .noexc75:                                         ; preds = %.lr.ph.i.i26.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !3047)
-  %548 = getelementptr inbounds nuw float, ptr %69, i64 %406
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %406, 2
+  %548 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i.i.i.i.i
   br label %549
 
 549:                                              ; preds = %552, %.noexc75
@@ -11613,7 +11623,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17h91
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.614.i28.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %63, ptr nonnull readonly align 4 %64, i64 %581, i1 false), !alias.scope !3091, !noalias !3053
   call void @llvm.experimental.noalias.scope.decl(metadata !3095)
-  %591 = getelementptr inbounds nuw float, ptr %63, i64 %406
+  %591 = getelementptr inbounds nuw i8, ptr %63, i64 %581
   br label %592
 
 592:                                              ; preds = %595, %.lr.ph.i.i47.i.i.i
@@ -11836,7 +11846,7 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h923dc4ea89c6d0efE.exit.i.i.i
 
 .lr.ph.i24.i.i.i.i.i:                             ; preds = %.lr.ph.i20.i.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !3161)
-  %651 = getelementptr inbounds nuw float, ptr %56, i64 %406
+  %651 = getelementptr inbounds nuw i8, ptr %56, i64 %636
   br label %652
 
 652:                                              ; preds = %655, %.lr.ph.i24.i.i.i.i.i
@@ -12130,7 +12140,8 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i168:
 
 .noexc103:                                        ; preds = %.lr.ph.i.i26.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !3255)
-  %749 = getelementptr inbounds nuw float, ptr %50, i64 %406
+  %.idx.i.i.i.i.i.i = shl nuw nsw i64 %406, 2
+  %749 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i.i.i.i.i.i
   br label %750
 
 750:                                              ; preds = %753, %.noexc103
@@ -12297,7 +12308,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17hcf
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.614.i28.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %44, ptr nonnull readonly align 4 %45, i64 %782, i1 false), !alias.scope !3299, !noalias !3261
   call void @llvm.experimental.noalias.scope.decl(metadata !3303)
-  %792 = getelementptr inbounds nuw float, ptr %44, i64 %406
+  %792 = getelementptr inbounds nuw i8, ptr %44, i64 %782
   br label %793
 
 793:                                              ; preds = %796, %.lr.ph.i.i47.i.i.i.i
@@ -12518,7 +12529,7 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h923dc4ea89c6d0efE.exit.i.i.i
 
 .lr.ph.i24.i.i.i.i.i.i:                           ; preds = %.lr.ph.i20.i.i.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !3367)
-  %851 = getelementptr inbounds nuw float, ptr %37, i64 %406
+  %851 = getelementptr inbounds nuw i8, ptr %37, i64 %836
   br label %852
 
 852:                                              ; preds = %855, %.lr.ph.i24.i.i.i.i.i.i
@@ -12810,7 +12821,8 @@ _ZN4half8binary164arch19f16_to_f32_fallback17hb49fc63c8adc336dE.exit.i.i.i.i: ; 
 
 .noexc131:                                        ; preds = %.lr.ph.i.i26.i.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !3461)
-  %947 = getelementptr inbounds nuw float, ptr %31, i64 %406
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %406, 2
+  %947 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i.i.i.i
   br label %948
 
 948:                                              ; preds = %951, %.noexc131
@@ -12975,7 +12987,7 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17h83
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.614.i28.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %25, ptr nonnull readonly align 4 %26, i64 %978, i1 false), !alias.scope !3505, !noalias !3467
   call void @llvm.experimental.noalias.scope.decl(metadata !3509)
-  %988 = getelementptr inbounds nuw float, ptr %25, i64 %406
+  %988 = getelementptr inbounds nuw i8, ptr %25, i64 %978
   br label %989
 
 989:                                              ; preds = %992, %.lr.ph.i.i47.i.i.i.i.i
@@ -13005,7 +13017,8 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17hd4
   br label %1010
 
 997:                                              ; preds = %188
-  %998 = getelementptr inbounds { { { float, float }, float }, float }, ptr %192, i64 %193
+  %.idx.i = shl nsw i64 %193, 4
+  %998 = getelementptr inbounds i8, ptr %192, i64 %.idx.i
   %999 = icmp eq i64 %193, 0
   br i1 %999, label %.loopexit.i, label %.lr.ph.i
 
@@ -13042,7 +13055,8 @@ _ZN3exr5image4read17specific_channels36read_and_convert_all_samples_batched17hd4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39), !noalias !3315
   %1011 = load ptr, ptr %135, align 8, !nonnull !19, !noundef !19
   %1012 = load i64, ptr %136, align 8, !noundef !19
-  %1013 = getelementptr inbounds { { { float, float }, float }, float }, ptr %1011, i64 %1012
+  %.idx = shl nsw i64 %1012, 4
+  %1013 = getelementptr inbounds i8, ptr %1011, i64 %.idx
   %1014 = icmp eq i64 %1012, 0
   br i1 %1014, label %.loopexit, label %.lr.ph
 
@@ -17308,7 +17322,8 @@ define hidden void @"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alp
 33:                                               ; preds = %26, %.noexc
   %.sink5.i.i = phi ptr [ %29, %26 ], [ %24, %.noexc ]
   %.sink3.i.i = phi i64 [ %30, %26 ], [ %20, %.noexc ]
-  %34 = getelementptr inbounds { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }, ptr %.sink5.i.i, i64 %.sink3.i.i
+  %.idx = mul nsw i64 %.sink3.i.i, 1424
+  %34 = getelementptr inbounds i8, ptr %.sink5.i.i, i64 %.idx
   %35 = icmp eq i64 %.sink3.i.i, 0
   br i1 %35, label %.loopexit114, label %.lr.ph.i
 
@@ -17724,7 +17739,8 @@ define hidden void @"_ZN5image6codecs7openexr23OpenExrDecoder$LT$R$GT$21with_alp
 34:                                               ; preds = %27, %.noexc
   %.sink5.i.i = phi ptr [ %30, %27 ], [ %25, %.noexc ]
   %.sink3.i.i = phi i64 [ %31, %27 ], [ %21, %.noexc ]
-  %35 = getelementptr inbounds { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }, ptr %.sink5.i.i, i64 %.sink3.i.i
+  %.idx = mul nsw i64 %.sink3.i.i, 1424
+  %35 = getelementptr inbounds i8, ptr %.sink5.i.i, i64 %.idx
   %36 = icmp eq i64 %.sink3.i.i, 0
   br i1 %36, label %.loopexit114, label %.lr.ph.i
 

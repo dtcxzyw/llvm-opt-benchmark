@@ -403,7 +403,8 @@ _ZN4llvm11lower_boundIRNS_8ArrayRefIN12_GLOBAL__N_113X86TableEntryEEERjEEDaOT_OT
   %107 = load ptr, ptr %106, align 8, !tbaa !301
   %108 = tail call noundef i32 @_ZNK4llvm12MachineInstr22getNumExplicitOperandsEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.016.028) #12
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %107, i64 %109
+  %.idx.i.i.i = shl nuw nsw i64 %109, 5
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx.i.i.i
   %.not20.not.i.i.i = icmp eq i32 %108, 0
   br i1 %.not20.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 

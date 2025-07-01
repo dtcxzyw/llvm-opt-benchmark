@@ -10998,7 +10998,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser12SerializeMap15serialize_entry1
   tail call void @llvm.assume(i1 %23)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1651)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1654)
-  %24 = getelementptr inbounds nuw { ptr, i64 }, ptr %.val3, i64 %.val4
+  %.idx.i.i.i.i = shl nuw nsw i64 %.val4, 4
+  %24 = getelementptr inbounds nuw i8, ptr %.val3, i64 %.idx.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1657
   call fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h1b4d03c4566fad97E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(72) %.val, i64 noundef 1, i64 %.val4), !noalias !1662
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -16932,7 +16933,8 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit76: ; preds = %147, %141
 162:                                              ; preds = %160
   %163 = extractvalue { ptr, i64 } %161, 0
   %164 = extractvalue { ptr, i64 } %161, 1
-  %165 = getelementptr inbounds nuw { ptr, i64 }, ptr %163, i64 %164
+  %.idx = shl nuw nsw i64 %164, 4
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 %.idx
   %166 = icmp ne ptr %163, null
   call void @llvm.assume(i1 %166)
   %167 = icmp eq i64 %164, 0
@@ -17940,7 +17942,8 @@ define internal fastcc noundef ptr @_ZN4ruff7printer7Printer18write_summary_text
   %.val267 = load i64, ptr %58, align 8, !noundef !25
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   store i8 %56, ptr %8, align 1, !noalias !2733
-  %59 = getelementptr inbounds nuw { { i64, [4 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, ptr }, ptr %.val, i64 %.val267
+  %.idx.i = shl nuw nsw i64 %.val267, 6
+  %59 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %60 = icmp eq i64 %.val267, 0
   br i1 %60, label %._crit_edge.i, label %.lr.ph.i
 
@@ -18795,7 +18798,8 @@ define hidden noundef ptr @_ZN4ruff7printer7Printer10write_once17h69ed17b7d96a5c
   %.val231 = load i64, ptr %34, align 8, !noundef !25
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 %32, ptr %6, align 1, !noalias !2760
-  %35 = getelementptr inbounds nuw { { i64, [4 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, ptr }, ptr %.val, i64 %.val231
+  %.idx.i = shl nuw nsw i64 %.val231, 6
+  %35 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %36 = icmp eq i64 %.val231, 0
   br i1 %36, label %._crit_edge.i, label %.lr.ph.i
 
@@ -20309,7 +20313,8 @@ _ZN9itertools9Itertools13sorted_by_key17h0798b5eb764f287bE.exit: ; preds = %4, %
   %.sroa.5218.0.copyload = load i64, ptr %115, align 8
   %319 = icmp ult i64 %.sroa.5218.0.copyload, 144115188075855872
   call void @llvm.assume(i1 %319)
-  %320 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, [3 x i64] }, i64, i8, [7 x i8] }, ptr %.sroa.4217.0.copyload, i64 %.sroa.5218.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.5218.0.copyload, 6
+  %320 = getelementptr inbounds nuw i8, ptr %.sroa.4217.0.copyload, i64 %.idx
   %321 = icmp sgt i64 %.sroa.0216.0.copyload, -1
   call void @llvm.assume(i1 %321)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51)
@@ -20980,7 +20985,8 @@ define hidden noundef ptr @_ZN4ruff7printer7Printer18write_continuously17h5e344b
   %.val = load ptr, ptr %31, align 8, !nonnull !25, !noundef !25
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   store i8 %30, ptr %10, align 1, !noalias !3099
-  %32 = getelementptr inbounds nuw { { i64, [4 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, ptr }, ptr %.val, i64 %.val44
+  %.idx.i = shl nuw nsw i64 %.val44, 6
+  %32 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %33 = icmp eq i64 %.val44, 0
   br i1 %33, label %._crit_edge.i, label %.lr.ph.i
 

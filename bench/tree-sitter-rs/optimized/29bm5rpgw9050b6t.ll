@@ -2023,7 +2023,8 @@ _ZN10serde_json3ser6indent17hef4c431d91718ccfE.exit.i.i.i.i.i: ; preds = %216
   %.val15.i.i.i = load ptr, ptr %232, align 8, !alias.scope !401, !noalias !402, !nonnull !5, !noundef !5
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val16.i.i.i = load i64, ptr %233, align 8, !alias.scope !401, !noalias !402, !noundef !5
-  %234 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %.val15.i.i.i, i64 %.val16.i.i.i
+  %.idx.i.i.i = mul nsw i64 %.val16.i.i.i, 104
+  %234 = getelementptr inbounds i8, ptr %.val15.i.i.i, i64 %.idx.i.i.i
   %235 = icmp eq i64 %.val16.i.i.i, 0
   br i1 %235, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 

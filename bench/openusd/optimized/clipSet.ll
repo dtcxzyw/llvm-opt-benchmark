@@ -69,11 +69,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Hashtable.243" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"struct.std::__detail::_Hash_node_base" = type { ptr }
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.std::map.189" = type { %"class.std::_Rb_tree.190" }
 %"class.std::_Rb_tree.190" = type { %"struct.std::_Rb_tree<double, std::pair<const double, pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::Usd_ClipEntry>, std::_Select1st<std::pair<const double, pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::Usd_ClipEntry>>, std::less<double>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<double, std::pair<const double, pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::Usd_ClipEntry>, std::_Select1st<std::pair<const double, pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::Usd_ClipEntry>>, std::less<double>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::Usd_ClipEntry" = type { double, %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath" }
+%"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"struct.std::pair.197" = type { double, %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::Usd_ClipEntry" }
 %"class.std::shared_ptr.199" = type { %"class.std::__shared_ptr.200" }
 %"class.std::__shared_ptr.200" = type { ptr, %"class.std::__shared_count" }
@@ -2456,7 +2456,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %53, 
   %59 = load i64, ptr %2, align 8
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %61, i64 %59
+  %.idx.i = shl nsw i64 %59, 6
+  %62 = getelementptr inbounds i8, ptr %61, i64 %.idx.i
   %.not127.i = icmp eq i64 %59, 0
   br i1 %.not127.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -7664,7 +7665,8 @@ _ZSt8distanceISt23_Rb_tree_const_iteratorIdEENSt15iterator_traitsIT_E15differenc
 
 _ZSt22__uninitialized_move_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit: ; preds = %15
   %20 = xor i64 %.06.i.i, -1
-  %21 = getelementptr inbounds double, ptr %10, i64 %20
+  %.idx = shl nsw i64 %20, 3
+  %21 = getelementptr inbounds i8, ptr %10, i64 %.idx
   %.neg = shl i64 %.06.i.i, 3
   %.idx.neg = add i64 %.neg, 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %10, ptr nonnull align 8 %21, i64 %.idx.neg, i1 false)
@@ -10760,21 +10762,26 @@ define linkonce_odr void @_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_i
   br label %12
 
 12:                                               ; preds = %.lr.ph, %_ZSt17__merge_sort_loopIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEEvT_SE_T0_T1_T2_.exit
-  %.039 = phi i64 [ 7, %.lr.ph ], [ %61, %_ZSt17__merge_sort_loopIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEEvT_SE_T0_T1_T2_.exit ]
-  %13 = shl nsw i64 %.039, 1
-  %.not51.i = icmp slt i64 %7, %13
-  br i1 %.not51.i, label %._crit_edge.i, label %.lr.ph.i.preheader.i
+  %.040 = phi i64 [ 7, %.lr.ph ], [ %61, %_ZSt17__merge_sort_loopIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEEvT_SE_T0_T1_T2_.exit ]
+  %13 = shl nsw i64 %.040, 1
+  %.not53.i = icmp slt i64 %7, %13
+  br i1 %.not53.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i.preheader.i:                             ; preds = %12, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i
-  %.053.i = phi ptr [ %36, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i ], [ %2, %12 ]
-  %.sroa.039.052.i = phi ptr [ %15, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i ], [ %0, %12 ]
-  %14 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.sroa.039.052.i, i64 %.039
-  %15 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.sroa.039.052.i, i64 %13
+.lr.ph.i:                                         ; preds = %12
+  %.idx.i = mul nsw i64 %.040, 24
+  %.idx47.i = mul nsw i64 %.040, 48
+  br label %.lr.ph.i.preheader.i
+
+.lr.ph.i.preheader.i:                             ; preds = %.lr.ph.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i
+  %.055.i = phi ptr [ %36, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i ], [ %2, %.lr.ph.i ]
+  %.sroa.039.054.i = phi ptr [ %15, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i ], [ %0, %.lr.ph.i ]
+  %14 = getelementptr inbounds i8, ptr %.sroa.039.054.i, i64 %.idx.i
+  %15 = getelementptr inbounds i8, ptr %.sroa.039.054.i, i64 %.idx47.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %23, %.lr.ph.i.preheader.i
-  %.021.i.i = phi ptr [ %24, %23 ], [ %.053.i, %.lr.ph.i.preheader.i ]
-  %.sroa.015.020.i.i = phi ptr [ %.sroa.015.1.i.i, %23 ], [ %.sroa.039.052.i, %.lr.ph.i.preheader.i ]
+  %.021.i.i = phi ptr [ %24, %23 ], [ %.055.i, %.lr.ph.i.preheader.i ]
+  %.sroa.015.020.i.i = phi ptr [ %.sroa.015.1.i.i, %23 ], [ %.sroa.039.054.i, %.lr.ph.i.preheader.i ]
   %.sroa.011.019.i.i = phi ptr [ %.sroa.011.1.i.i, %23 ], [ %14, %.lr.ph.i.preheader.i ]
   %16 = load double, ptr %.sroa.011.019.i.i, align 8
   %17 = load double, ptr %.sroa.015.020.i.i, align 8
@@ -10833,9 +10840,10 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrRese
 ._crit_edge.i:                                    ; preds = %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i, %12
   %.sroa.039.0.lcssa.i = phi ptr [ %0, %12 ], [ %15, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i ]
   %.0.lcssa.i = phi ptr [ %2, %12 ], [ %36, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i ]
-  %.lcssa49.i = phi i64 [ %7, %12 ], [ %38, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.039, i64 %.lcssa49.i)
-  %39 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.sroa.039.0.lcssa.i, i64 %.sroa.speculated.i
+  %.lcssa51.i = phi i64 [ %7, %12 ], [ %38, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i ]
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.040, i64 %.lcssa51.i)
+  %.idx49.i = mul nsw i64 %.sroa.speculated.i, 24
+  %39 = getelementptr inbounds i8, ptr %.sroa.039.0.lcssa.i, i64 %.idx49.i
   %40 = icmp ne i64 %.sroa.speculated.i, 0
   %41 = icmp ne ptr %39, %1
   %or.cond18.i16.i = select i1 %40, i1 %41, i1 false
@@ -10895,32 +10903,37 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Us
   br label %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_T0_T1_T2_.exit
 
 _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_T0_T1_T2_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i22.i, %57
-  %61 = shl nsw i64 %.039, 2
-  %.not47.i = icmp slt i64 %11, %61
-  br i1 %.not47.i, label %._crit_edge.i26, label %.lr.ph.i.preheader.i22
+  %61 = shl nsw i64 %.040, 2
+  %.not49.i = icmp slt i64 %11, %61
+  br i1 %.not49.i, label %._crit_edge.i27, label %.lr.ph.i21
 
-.lr.ph.i.preheader.i22:                           ; preds = %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_T0_T1_T2_.exit, %_ZSt12__move_mergeIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i
-  %.sroa.022.049.i = phi ptr [ %85, %_ZSt12__move_mergeIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i ], [ %0, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_T0_T1_T2_.exit ]
-  %.048.i = phi ptr [ %63, %_ZSt12__move_mergeIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i ], [ %2, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_T0_T1_T2_.exit ]
-  %62 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.048.i, i64 %13
-  %63 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.048.i, i64 %61
-  br label %.lr.ph.i.i23
+.lr.ph.i21:                                       ; preds = %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_T0_T1_T2_.exit
+  %.idx.i22 = mul nsw i64 %.040, 48
+  %.idx43.i = mul nsw i64 %.040, 96
+  br label %.lr.ph.i.preheader.i23
 
-.lr.ph.i.i23:                                     ; preds = %71, %.lr.ph.i.preheader.i22
-  %.024.i.i = phi ptr [ %.1.i.i, %71 ], [ %.048.i, %.lr.ph.i.preheader.i22 ]
-  %.01623.i.i = phi ptr [ %.117.i.i, %71 ], [ %62, %.lr.ph.i.preheader.i22 ]
-  %.sroa.0.022.i.i = phi ptr [ %72, %71 ], [ %.sroa.022.049.i, %.lr.ph.i.preheader.i22 ]
+.lr.ph.i.preheader.i23:                           ; preds = %.lr.ph.i21, %_ZSt12__move_mergeIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i
+  %.sroa.022.051.i = phi ptr [ %85, %_ZSt12__move_mergeIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i ], [ %0, %.lr.ph.i21 ]
+  %.050.i = phi ptr [ %63, %_ZSt12__move_mergeIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i ], [ %2, %.lr.ph.i21 ]
+  %62 = getelementptr inbounds i8, ptr %.050.i, i64 %.idx.i22
+  %63 = getelementptr inbounds i8, ptr %.050.i, i64 %.idx43.i
+  br label %.lr.ph.i.i24
+
+.lr.ph.i.i24:                                     ; preds = %71, %.lr.ph.i.preheader.i23
+  %.024.i.i = phi ptr [ %.1.i.i, %71 ], [ %.050.i, %.lr.ph.i.preheader.i23 ]
+  %.01623.i.i = phi ptr [ %.117.i.i, %71 ], [ %62, %.lr.ph.i.preheader.i23 ]
+  %.sroa.0.022.i.i = phi ptr [ %72, %71 ], [ %.sroa.022.051.i, %.lr.ph.i.preheader.i23 ]
   %64 = load double, ptr %.01623.i.i, align 8
   %65 = load double, ptr %.024.i.i, align 8
   %66 = fcmp olt double %64, %65
   br i1 %66, label %67, label %69
 
-67:                                               ; preds = %.lr.ph.i.i23
+67:                                               ; preds = %.lr.ph.i.i24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %.sroa.0.022.i.i, ptr noundef nonnull align 8 dereferenceable(17) %.01623.i.i, i64 17, i1 false)
   %68 = getelementptr inbounds nuw i8, ptr %.01623.i.i, i64 24
   br label %71
 
-69:                                               ; preds = %.lr.ph.i.i23
+69:                                               ; preds = %.lr.ph.i.i24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %.sroa.0.022.i.i, ptr noundef nonnull align 8 dereferenceable(17) %.024.i.i, i64 17, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 24
   br label %71
@@ -10932,14 +10945,14 @@ _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__px
   %73 = icmp ne ptr %.1.i.i, %62
   %74 = icmp ne ptr %.117.i.i, %63
   %75 = select i1 %73, i1 %74, i1 false
-  br i1 %75, label %.lr.ph.i.i23, label %._crit_edge.i.loopexit.i, !llvm.loop !121
+  br i1 %75, label %.lr.ph.i.i24, label %._crit_edge.i.loopexit.i, !llvm.loop !121
 
 ._crit_edge.i.loopexit.i:                         ; preds = %71
   %76 = ptrtoint ptr %62 to i64
   %77 = ptrtoint ptr %.1.i.i to i64
   %78 = sub i64 %76, %77
-  %.not.i.i.i.i.i.i.i24 = icmp eq ptr %62, %.1.i.i
-  br i1 %.not.i.i.i.i.i.i.i24, label %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i.i, label %79
+  %.not.i.i.i.i.i.i.i25 = icmp eq ptr %62, %.1.i.i
+  br i1 %.not.i.i.i.i.i.i.i25, label %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i.i, label %79
 
 79:                                               ; preds = %._crit_edge.i.loopexit.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %72, ptr nonnull align 8 %.1.i.i, i64 %78, i1 false)
@@ -10961,24 +10974,25 @@ _ZSt12__move_mergeIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9
   %85 = getelementptr inbounds i8, ptr %80, i64 %83
   %86 = sub i64 %10, %81
   %87 = sdiv exact i64 %86, 24
-  %.not.i25 = icmp slt i64 %87, %61
-  br i1 %.not.i25, label %._crit_edge.i26, label %.lr.ph.i.preheader.i22, !llvm.loop !122
+  %.not.i26 = icmp slt i64 %87, %61
+  br i1 %.not.i26, label %._crit_edge.i27, label %.lr.ph.i.preheader.i23, !llvm.loop !122
 
-._crit_edge.i26:                                  ; preds = %_ZSt12__move_mergeIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_T0_T1_T2_.exit
-  %.0.lcssa.i27 = phi ptr [ %2, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_T0_T1_T2_.exit ], [ %63, %_ZSt12__move_mergeIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i ]
+._crit_edge.i27:                                  ; preds = %_ZSt12__move_mergeIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_T0_T1_T2_.exit
+  %.0.lcssa.i28 = phi ptr [ %2, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_T0_T1_T2_.exit ], [ %63, %_ZSt12__move_mergeIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i ]
   %.sroa.022.0.lcssa.i = phi ptr [ %0, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_T0_T1_T2_.exit ], [ %85, %_ZSt12__move_mergeIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i ]
-  %.lcssa45.i = phi i64 [ %11, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_T0_T1_T2_.exit ], [ %87, %_ZSt12__move_mergeIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i ]
-  %.sroa.speculated.i28 = tail call i64 @llvm.smin.i64(i64 %13, i64 %.lcssa45.i)
-  %88 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.0.lcssa.i27, i64 %.sroa.speculated.i28
-  %89 = icmp ne i64 %.sroa.speculated.i28, 0
+  %.lcssa47.i = phi i64 [ %11, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_T0_T1_T2_.exit ], [ %87, %_ZSt12__move_mergeIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEET0_T_SF_SF_SF_SE_T1_.exit.i ]
+  %.sroa.speculated.i29 = tail call i64 @llvm.smin.i64(i64 %13, i64 %.lcssa47.i)
+  %.idx45.i = mul nsw i64 %.sroa.speculated.i29, 24
+  %88 = getelementptr inbounds i8, ptr %.0.lcssa.i28, i64 %.idx45.i
+  %89 = icmp ne i64 %.sroa.speculated.i29, 0
   %90 = icmp ne ptr %88, %8
   %91 = and i1 %89, %90
   br i1 %91, label %.lr.ph.i32.i, label %._crit_edge.i25.i
 
-.lr.ph.i32.i:                                     ; preds = %._crit_edge.i26, %99
-  %.024.i33.i = phi ptr [ %.1.i37.i, %99 ], [ %.0.lcssa.i27, %._crit_edge.i26 ]
-  %.01623.i34.i = phi ptr [ %.117.i36.i, %99 ], [ %88, %._crit_edge.i26 ]
-  %.sroa.0.022.i35.i = phi ptr [ %100, %99 ], [ %.sroa.022.0.lcssa.i, %._crit_edge.i26 ]
+.lr.ph.i32.i:                                     ; preds = %._crit_edge.i27, %99
+  %.024.i33.i = phi ptr [ %.1.i37.i, %99 ], [ %.0.lcssa.i28, %._crit_edge.i27 ]
+  %.01623.i34.i = phi ptr [ %.117.i36.i, %99 ], [ %88, %._crit_edge.i27 ]
+  %.sroa.0.022.i35.i = phi ptr [ %100, %99 ], [ %.sroa.022.0.lcssa.i, %._crit_edge.i27 ]
   %92 = load double, ptr %.01623.i34.i, align 8
   %93 = load double, ptr %.024.i33.i, align 8
   %94 = fcmp olt double %92, %93
@@ -11003,10 +11017,10 @@ _ZSt12__move_mergeIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9
   %103 = select i1 %101, i1 %102, i1 false
   br i1 %103, label %.lr.ph.i32.i, label %._crit_edge.i25.i, !llvm.loop !121
 
-._crit_edge.i25.i:                                ; preds = %99, %._crit_edge.i26
-  %.sroa.0.0.lcssa.i26.i = phi ptr [ %.sroa.022.0.lcssa.i, %._crit_edge.i26 ], [ %100, %99 ]
-  %.016.lcssa.i27.i = phi ptr [ %88, %._crit_edge.i26 ], [ %.117.i36.i, %99 ]
-  %.0.lcssa.i28.i = phi ptr [ %.0.lcssa.i27, %._crit_edge.i26 ], [ %.1.i37.i, %99 ]
+._crit_edge.i25.i:                                ; preds = %99, %._crit_edge.i27
+  %.sroa.0.0.lcssa.i26.i = phi ptr [ %.sroa.022.0.lcssa.i, %._crit_edge.i27 ], [ %100, %99 ]
+  %.016.lcssa.i27.i = phi ptr [ %88, %._crit_edge.i27 ], [ %.117.i36.i, %99 ]
+  %.0.lcssa.i28.i = phi ptr [ %.0.lcssa.i28, %._crit_edge.i27 ], [ %.1.i37.i, %99 ]
   %104 = ptrtoint ptr %88 to i64
   %105 = ptrtoint ptr %.0.lcssa.i28.i to i64
   %106 = sub i64 %104, %105

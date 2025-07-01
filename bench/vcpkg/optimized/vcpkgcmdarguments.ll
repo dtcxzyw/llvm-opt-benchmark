@@ -76,9 +76,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.vcpkg::MetadataMessage" = type { i32, %union.anon.15 }
 %union.anon.15 = type { ptr }
 %"struct.std::_Rb_tree<vcpkg::OptionTableKey, std::pair<const vcpkg::OptionTableKey, vcpkg::LocalizedString>, std::_Select1st<std::pair<const vcpkg::OptionTableKey, vcpkg::LocalizedString>>, std::less<vcpkg::OptionTableKey>>::_Alloc_node" = type { ptr }
-%"struct.vcpkg::CommandSwitch" = type { %"struct.vcpkg::StringLiteral", %"struct.vcpkg::MetadataMessage" }
-%"struct.vcpkg::CommandSetting" = type { %"struct.vcpkg::StringLiteral", %"struct.vcpkg::MetadataMessage" }
-%"struct.vcpkg::CommandMultiSetting" = type { %"struct.vcpkg::StringLiteral", %"struct.vcpkg::MetadataMessage" }
 %"struct.vcpkg::msg::TagArg.50" = type { %"struct.vcpkg::StringView" }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
@@ -6334,7 +6331,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_125maybe_parse_cmd_argumentsERN5vcp
   %14 = load ptr, ptr %13, align 8, !tbaa !163
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %16 = load i64, ptr %15, align 8, !tbaa !164
-  %17 = getelementptr inbounds nuw %"struct.vcpkg::CommandSwitch", ptr %14, i64 %16
+  %.idx = shl nuw nsw i64 %16, 5
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %.not303 = icmp eq i64 %16, 0
   br i1 %.not303, label %._crit_edge, label %.lr.ph
 
@@ -6354,7 +6352,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_125maybe_parse_cmd_argumentsERN5vcp
   %23 = load ptr, ptr %22, align 8, !tbaa !165
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %25 = load i64, ptr %24, align 8, !tbaa !166
-  %26 = getelementptr inbounds nuw %"struct.vcpkg::CommandSetting", ptr %23, i64 %25
+  %.idx314 = shl nuw nsw i64 %25, 5
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx314
   %.not111305 = icmp eq i64 %25, 0
   br i1 %.not111305, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %.lr.ph308
 
@@ -6530,7 +6529,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %90 = load ptr, ptr %89, align 8, !tbaa !170
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %92 = load i64, ptr %91, align 8, !tbaa !171
-  %93 = getelementptr inbounds nuw %"struct.vcpkg::CommandMultiSetting", ptr %90, i64 %92
+  %.idx315 = shl nuw nsw i64 %92, 5
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx315
   %.not112310 = icmp eq i64 %92, 0
   br i1 %.not112310, label %._crit_edge313, label %.lr.ph312
 

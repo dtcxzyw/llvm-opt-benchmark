@@ -755,7 +755,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 12
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hb5a77b8422d5f0f5E.exit, label %.lr.ph.i
 
@@ -990,7 +991,8 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h3cf1a0867148333
   %4 = load ptr, ptr %3, align 8, !alias.scope !141, !noalias !144, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !141, !noalias !144, !noundef !5
-  %7 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %4, i64 %6
+  %.idx.i.i.i = mul nsw i64 %6, 12
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i.i
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i, label %.lr.ph.i.i.i.preheader
 
@@ -1045,50 +1047,51 @@ _ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i: ; preds = %"_ZN77_$
   %44 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 5)
   %45 = xor i64 %43, %44
   %46 = mul i64 %45, 5871781006564002453
-  %47 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %41, i64 %43
+  %.idx.i7.i.i = mul nsw i64 %43, 12
+  %47 = getelementptr inbounds i8, ptr %41, i64 %.idx.i7.i.i
   %48 = icmp eq i64 %43, 0
-  br i1 %48, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h89083779a47ad2baE.llvm.1715581770924364745.exit", label %.lr.ph.i9.i.i
+  br i1 %48, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h89083779a47ad2baE.llvm.1715581770924364745.exit", label %.lr.ph.i10.i.i
 
-.lr.ph.i9.i.i:                                    ; preds = %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11.i.i"
-  %.sroa.0.06.i10.i.i = phi ptr [ %50, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11.i.i" ], [ %41, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i ]
-  %49 = phi i64 [ %76, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11.i.i" ], [ %46, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i10.i.i, i64 12
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i10.i.i, i64 8
+.lr.ph.i10.i.i:                                   ; preds = %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i.i"
+  %.sroa.0.06.i11.i.i = phi ptr [ %50, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i.i" ], [ %41, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i ]
+  %49 = phi i64 [ %76, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i.i" ], [ %46, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i ]
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i11.i.i, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i11.i.i, i64 8
   %52 = load i16, ptr %51, align 4, !alias.scope !157, !noalias !162, !noundef !5
   %53 = zext i16 %52 to i64
   %54 = tail call i64 @llvm.fshl.i64(i64 %49, i64 %49, i64 5)
   %55 = xor i64 %54, %53
   %56 = mul i64 %55, 5871781006564002453
-  %57 = load i32, ptr %.sroa.0.06.i10.i.i, align 4, !range !76, !alias.scope !157, !noalias !162, !noundef !5
+  %57 = load i32, ptr %.sroa.0.06.i11.i.i, align 4, !range !76, !alias.scope !157, !noalias !162, !noundef !5
   %58 = zext nneg i32 %57 to i64
   %59 = tail call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 5)
   %60 = xor i64 %59, %58
   %61 = mul i64 %60, 5871781006564002453
   %62 = icmp eq i32 %57, 1
-  br i1 %62, label %63, label %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11.i.i"
+  br i1 %62, label %63, label %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i.i"
 
-63:                                               ; preds = %.lr.ph.i9.i.i
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i10.i.i, i64 4
+63:                                               ; preds = %.lr.ph.i10.i.i
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i11.i.i, i64 4
   %65 = load i32, ptr %64, align 4, !alias.scope !157, !noalias !162, !noundef !5
   %66 = zext i32 %65 to i64
   %67 = tail call i64 @llvm.fshl.i64(i64 %61, i64 %61, i64 5)
   %68 = xor i64 %67, %66
   %69 = mul i64 %68, 5871781006564002453
-  br label %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11.i.i"
+  br label %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i.i"
 
-"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11.i.i": ; preds = %63, %.lr.ph.i9.i.i
-  %70 = phi i64 [ %69, %63 ], [ %61, %.lr.ph.i9.i.i ]
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i10.i.i, i64 10
+"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i.i": ; preds = %63, %.lr.ph.i10.i.i
+  %70 = phi i64 [ %69, %63 ], [ %61, %.lr.ph.i10.i.i ]
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i11.i.i, i64 10
   %72 = load i8, ptr %71, align 2, !range !24, !alias.scope !157, !noalias !162, !noundef !5
   %73 = zext nneg i8 %72 to i64
   %74 = tail call i64 @llvm.fshl.i64(i64 %70, i64 %70, i64 5)
   %75 = xor i64 %74, %73
   %76 = mul i64 %75, 5871781006564002453
   %77 = icmp eq ptr %50, %47
-  br i1 %77, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h89083779a47ad2baE.llvm.1715581770924364745.exit", label %.lr.ph.i9.i.i
+  br i1 %77, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h89083779a47ad2baE.llvm.1715581770924364745.exit", label %.lr.ph.i10.i.i
 
-"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h89083779a47ad2baE.llvm.1715581770924364745.exit": ; preds = %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11.i.i", %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i
-  %78 = phi i64 [ %46, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i ], [ %76, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11.i.i" ]
+"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h89083779a47ad2baE.llvm.1715581770924364745.exit": ; preds = %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i.i", %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i
+  %78 = phi i64 [ %46, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i.i ], [ %76, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i.i" ]
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %80 = load i8, ptr %79, align 8, !range !81, !alias.scope !141, !noalias !144, !noundef !5
   %81 = zext nneg i8 %80 to i64
@@ -1370,7 +1373,8 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %9 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 5)
   %10 = xor i64 %9, %7
   %11 = mul i64 %10, 5871781006564002453
-  %12 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %5, i64 %7
+  %.idx.i.i = mul nsw i64 %7, 12
+  %12 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i
   %13 = icmp eq i64 %7, 0
   br i1 %13, label %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i, label %.lr.ph.i.i
 
@@ -1421,50 +1425,51 @@ _ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i: ; preds = %"_ZN77_$LT
   %48 = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 5)
   %49 = xor i64 %47, %48
   %50 = mul i64 %49, 5871781006564002453
-  %51 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %45, i64 %47
+  %.idx.i7.i = mul nsw i64 %47, 12
+  %51 = getelementptr inbounds i8, ptr %45, i64 %.idx.i7.i
   %52 = icmp eq i64 %47, 0
-  br i1 %52, label %"_ZN78_$LT$cranelift_codegen..ir..extfunc..Signature$u20$as$u20$core..hash..Hash$GT$4hash17hd43e400e8693320fE.llvm.1715581770924364745.exit", label %.lr.ph.i9.i
+  br i1 %52, label %"_ZN78_$LT$cranelift_codegen..ir..extfunc..Signature$u20$as$u20$core..hash..Hash$GT$4hash17hd43e400e8693320fE.llvm.1715581770924364745.exit", label %.lr.ph.i10.i
 
-.lr.ph.i9.i:                                      ; preds = %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11.i"
-  %.sroa.0.06.i10.i = phi ptr [ %54, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11.i" ], [ %45, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i ]
-  %53 = phi i64 [ %80, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11.i" ], [ %50, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i ]
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i10.i, i64 12
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i10.i, i64 8
+.lr.ph.i10.i:                                     ; preds = %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i"
+  %.sroa.0.06.i11.i = phi ptr [ %54, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i" ], [ %45, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i ]
+  %53 = phi i64 [ %80, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i" ], [ %50, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i ]
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i11.i, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i11.i, i64 8
   %56 = load i16, ptr %55, align 4, !alias.scope !360, !noalias !365, !noundef !5
   %57 = zext i16 %56 to i64
   %58 = tail call i64 @llvm.fshl.i64(i64 %53, i64 %53, i64 5)
   %59 = xor i64 %58, %57
   %60 = mul i64 %59, 5871781006564002453
-  %61 = load i32, ptr %.sroa.0.06.i10.i, align 4, !range !76, !alias.scope !360, !noalias !365, !noundef !5
+  %61 = load i32, ptr %.sroa.0.06.i11.i, align 4, !range !76, !alias.scope !360, !noalias !365, !noundef !5
   %62 = zext nneg i32 %61 to i64
   %63 = tail call i64 @llvm.fshl.i64(i64 %60, i64 %60, i64 5)
   %64 = xor i64 %63, %62
   %65 = mul i64 %64, 5871781006564002453
   %66 = icmp eq i32 %61, 1
-  br i1 %66, label %67, label %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11.i"
+  br i1 %66, label %67, label %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i"
 
-67:                                               ; preds = %.lr.ph.i9.i
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i10.i, i64 4
+67:                                               ; preds = %.lr.ph.i10.i
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i11.i, i64 4
   %69 = load i32, ptr %68, align 4, !alias.scope !360, !noalias !365, !noundef !5
   %70 = zext i32 %69 to i64
   %71 = tail call i64 @llvm.fshl.i64(i64 %65, i64 %65, i64 5)
   %72 = xor i64 %71, %70
   %73 = mul i64 %72, 5871781006564002453
-  br label %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11.i"
+  br label %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i"
 
-"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11.i": ; preds = %67, %.lr.ph.i9.i
-  %74 = phi i64 [ %73, %67 ], [ %65, %.lr.ph.i9.i ]
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i10.i, i64 10
+"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i": ; preds = %67, %.lr.ph.i10.i
+  %74 = phi i64 [ %73, %67 ], [ %65, %.lr.ph.i10.i ]
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i11.i, i64 10
   %76 = load i8, ptr %75, align 2, !range !24, !alias.scope !360, !noalias !365, !noundef !5
   %77 = zext nneg i8 %76 to i64
   %78 = tail call i64 @llvm.fshl.i64(i64 %74, i64 %74, i64 5)
   %79 = xor i64 %78, %77
   %80 = mul i64 %79, 5871781006564002453
   %81 = icmp eq ptr %54, %51
-  br i1 %81, label %"_ZN78_$LT$cranelift_codegen..ir..extfunc..Signature$u20$as$u20$core..hash..Hash$GT$4hash17hd43e400e8693320fE.llvm.1715581770924364745.exit", label %.lr.ph.i9.i
+  br i1 %81, label %"_ZN78_$LT$cranelift_codegen..ir..extfunc..Signature$u20$as$u20$core..hash..Hash$GT$4hash17hd43e400e8693320fE.llvm.1715581770924364745.exit", label %.lr.ph.i10.i
 
-"_ZN78_$LT$cranelift_codegen..ir..extfunc..Signature$u20$as$u20$core..hash..Hash$GT$4hash17hd43e400e8693320fE.llvm.1715581770924364745.exit": ; preds = %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11.i", %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i
-  %82 = phi i64 [ %50, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i ], [ %80, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11.i" ]
+"_ZN78_$LT$cranelift_codegen..ir..extfunc..Signature$u20$as$u20$core..hash..Hash$GT$4hash17hd43e400e8693320fE.llvm.1715581770924364745.exit": ; preds = %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i", %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i
+  %82 = phi i64 [ %50, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit.i ], [ %80, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12.i" ]
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %84 = load i8, ptr %83, align 8, !range !81, !alias.scope !342, !noalias !345, !noundef !5
   %85 = zext nneg i8 %84 to i64
@@ -2233,7 +2238,8 @@ define { i64, i64 } @_ZN17cranelift_codegen2ir7extfunc9Signature19special_param_
   br i1 %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17hc204be5c316b68c5E.llvm.1715581770924364745.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %9 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %5, i64 %7
+  %.idx = mul nsw i64 %7, 12
+  %9 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %.not = icmp eq i32 %1, 1
   br i1 %.not, label %.lr.ph.i.split, label %.lr.ph.i.split.us
 
@@ -2293,7 +2299,8 @@ define { i64, i64 } @_ZN17cranelift_codegen2ir7extfunc9Signature20special_return
   br i1 %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17he27f846f80f8dcceE.llvm.1715581770924364745.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %9 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %5, i64 %7
+  %.idx = mul nsw i64 %7, 12
+  %9 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %.not = icmp eq i32 %1, 1
   br i1 %.not, label %.lr.ph.i.split, label %.lr.ph.i.split.us
 
@@ -2354,7 +2361,8 @@ define noundef zeroext i1 @_ZN17cranelift_codegen2ir7extfunc9Signature18uses_spe
   br i1 %8, label %_ZN17cranelift_codegen2ir7extfunc9Signature19special_param_index17ha996f34775103d75E.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3
-  %9 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %5, i64 %7
+  %.idx.i = mul nsw i64 %7, 12
+  %9 = getelementptr inbounds i8, ptr %5, i64 %.idx.i
   %.not.i = icmp eq i32 %1, 1
   br i1 %.not.i, label %.lr.ph.i.split.i, label %.lr.ph.i.split.us.i
 
@@ -2412,7 +2420,8 @@ define noundef zeroext i1 @_ZN17cranelift_codegen2ir7extfunc9Signature19uses_spe
   br i1 %8, label %_ZN17cranelift_codegen2ir7extfunc9Signature20special_return_index17ha712d7bab5247d83E.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3
-  %9 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %5, i64 %7
+  %.idx.i = mul nsw i64 %7, 12
+  %9 = getelementptr inbounds i8, ptr %5, i64 %.idx.i
   %.not.i = icmp eq i32 %1, 1
   br i1 %.not.i, label %.lr.ph.i.split.i, label %.lr.ph.i.split.us.i
 
@@ -2523,7 +2532,8 @@ define noundef zeroext i1 @_ZN17cranelift_codegen2ir7extfunc9Signature24uses_str
   br i1 %6, label %_ZN17cranelift_codegen2ir7extfunc9Signature18uses_special_param17he1b2bd4dc5e588a4E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1
-  %7 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %3, i64 %5
+  %.idx.i.i = mul nsw i64 %5, 12
+  %7 = getelementptr inbounds i8, ptr %3, i64 %.idx.i.i
   br label %.lr.ph.i.split.us.i.i
 
 .lr.ph.i.split.us.i.i:                            ; preds = %"_ZN17cranelift_codegen2ir7extfunc9Signature19special_param_index28_$u7b$$u7b$closure$u7d$$u7d$17h54d2046260933371E.exit.backedge.i.us.i.i", %.lr.ph.i.i.i
@@ -4995,7 +5005,8 @@ define hidden void @"_ZN78_$LT$cranelift_codegen..ir..extfunc..Signature$u20$as$
   %8 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 5)
   %9 = xor i64 %8, %6
   %10 = mul i64 %9, 5871781006564002453
-  %11 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %4, i64 %6
+  %.idx.i = mul nsw i64 %6, 12
+  %11 = getelementptr inbounds i8, ptr %4, i64 %.idx.i
   %12 = icmp eq i64 %6, 0
   br i1 %12, label %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit, label %.lr.ph.i
 
@@ -5046,50 +5057,51 @@ _ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit: ; preds = %"_ZN77_$LT$c
   %47 = tail call i64 @llvm.fshl.i64(i64 %42, i64 %42, i64 5)
   %48 = xor i64 %47, %46
   %49 = mul i64 %48, 5871781006564002453
-  %50 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %44, i64 %46
+  %.idx.i7 = mul nsw i64 %46, 12
+  %50 = getelementptr inbounds i8, ptr %44, i64 %.idx.i7
   %51 = icmp eq i64 %46, 0
-  br i1 %51, label %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit13, label %.lr.ph.i9
+  br i1 %51, label %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit14, label %.lr.ph.i10
 
-.lr.ph.i9:                                        ; preds = %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11"
-  %.sroa.0.06.i10 = phi ptr [ %53, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11" ], [ %44, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit ]
-  %52 = phi i64 [ %79, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11" ], [ %49, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit ]
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i10, i64 12
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i10, i64 8
+.lr.ph.i10:                                       ; preds = %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12"
+  %.sroa.0.06.i11 = phi ptr [ %53, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12" ], [ %44, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit ]
+  %52 = phi i64 [ %79, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12" ], [ %49, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit ]
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i11, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i11, i64 8
   %55 = load i16, ptr %54, align 4, !alias.scope !965, !noalias !970, !noundef !5
   %56 = zext i16 %55 to i64
   %57 = tail call i64 @llvm.fshl.i64(i64 %52, i64 %52, i64 5)
   %58 = xor i64 %57, %56
   %59 = mul i64 %58, 5871781006564002453
-  %60 = load i32, ptr %.sroa.0.06.i10, align 4, !range !76, !alias.scope !965, !noalias !970, !noundef !5
+  %60 = load i32, ptr %.sroa.0.06.i11, align 4, !range !76, !alias.scope !965, !noalias !970, !noundef !5
   %61 = zext nneg i32 %60 to i64
   %62 = tail call i64 @llvm.fshl.i64(i64 %59, i64 %59, i64 5)
   %63 = xor i64 %62, %61
   %64 = mul i64 %63, 5871781006564002453
   %65 = icmp eq i32 %60, 1
-  br i1 %65, label %66, label %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11"
+  br i1 %65, label %66, label %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12"
 
-66:                                               ; preds = %.lr.ph.i9
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i10, i64 4
+66:                                               ; preds = %.lr.ph.i10
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i11, i64 4
   %68 = load i32, ptr %67, align 4, !alias.scope !965, !noalias !970, !noundef !5
   %69 = zext i32 %68 to i64
   %70 = tail call i64 @llvm.fshl.i64(i64 %64, i64 %64, i64 5)
   %71 = xor i64 %70, %69
   %72 = mul i64 %71, 5871781006564002453
-  br label %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11"
+  br label %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12"
 
-"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11": ; preds = %66, %.lr.ph.i9
-  %73 = phi i64 [ %72, %66 ], [ %64, %.lr.ph.i9 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i10, i64 10
+"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12": ; preds = %66, %.lr.ph.i10
+  %73 = phi i64 [ %72, %66 ], [ %64, %.lr.ph.i10 ]
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i11, i64 10
   %75 = load i8, ptr %74, align 2, !range !24, !alias.scope !965, !noalias !970, !noundef !5
   %76 = zext nneg i8 %75 to i64
   %77 = tail call i64 @llvm.fshl.i64(i64 %73, i64 %73, i64 5)
   %78 = xor i64 %77, %76
   %79 = mul i64 %78, 5871781006564002453
   %80 = icmp eq ptr %53, %50
-  br i1 %80, label %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit13, label %.lr.ph.i9
+  br i1 %80, label %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit14, label %.lr.ph.i10
 
-_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit13: ; preds = %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11", %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit
-  %81 = phi i64 [ %49, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit ], [ %79, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i11" ]
+_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit14: ; preds = %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12", %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit
+  %81 = phi i64 [ %49, %_ZN4core4hash4Hash10hash_slice17h38fe79ce0c8e19fcE.exit ], [ %79, %"_ZN77_$LT$cranelift_codegen..ir..extfunc..AbiParam$u20$as$u20$core..hash..Hash$GT$4hash17h35ad68bd8afa003cE.exit.i12" ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %83 = load i8, ptr %82, align 8, !range !81, !noundef !5
   %84 = zext nneg i8 %83 to i64

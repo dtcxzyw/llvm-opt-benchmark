@@ -13276,7 +13276,8 @@ common.resume.i.i:                                ; preds = %"_ZN4core3ptr120dro
   %.sroa.4.0.copyload.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !3885, !noalias !3888, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 16
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !3885, !noalias !3888
-  %93 = getelementptr inbounds { { { ptr, ptr } }, {}, {} }, ptr %.sroa.4.0.copyload.i.i.i, i64 %.sroa.5.0.copyload.i.i.i
+  %.idx207.i.i = shl nsw i64 %.sroa.5.0.copyload.i.i.i, 4
+  %93 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i.i, i64 %.idx207.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43), !noalias !3884
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42), !noalias !3884
   store ptr %.sroa.4.0.copyload.i.i.i, ptr %42, align 8, !noalias !3884
@@ -13926,7 +13927,8 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.6079290144281833942.ex
 311:                                              ; preds = %.noexc32.i.i
   %312 = icmp ne ptr %.sroa.6.i.sroa.0.0.copyload.i.i, null
   tail call void @llvm.assume(i1 %312)
-  %313 = getelementptr inbounds { { { { i32, i32 } }, { { i64, i64 } } }, {} }, ptr %.sroa.6.i.sroa.0.0.copyload.i.i, i64 %.sroa.6.i.sroa.4.0.copyload.i.i
+  %.idx206.i.i = mul nsw i64 %.sroa.6.i.sroa.4.0.copyload.i.i, 24
+  %313 = getelementptr inbounds i8, ptr %.sroa.6.i.sroa.0.0.copyload.i.i, i64 %.idx206.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40), !noalias !3884
   store ptr %.sroa.6.i.sroa.0.0.copyload.i.i, ptr %40, align 8, !noalias !3884
   %.sroa.494.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -14145,7 +14147,8 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.6079290144281833942.ex
   %.sroa.7105.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.7105.sroa.5.0..sroa.7105.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !3883
   %.sroa.7105.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %368, i64 -16
   %.sroa.7105.sroa.0.0.copyload.i.i = load ptr, ptr %.sroa.7105.0..sroa_idx.i.i, align 8, !noalias !3883, !nonnull !4, !noundef !4
-  %376 = getelementptr inbounds { { { { i32, i32 } }, { { i64, i64 } } }, {} }, ptr %.sroa.7105.sroa.0.0.copyload.i.i, i64 %.sroa.7105.sroa.5.0.copyload.i.i
+  %.idx.i.i = mul nsw i64 %.sroa.7105.sroa.5.0.copyload.i.i, 24
+  %376 = getelementptr inbounds i8, ptr %.sroa.7105.sroa.0.0.copyload.i.i, i64 %.idx.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37), !noalias !3884
   store ptr %.sroa.7105.sroa.0.0.copyload.i.i, ptr %37, align 8, !noalias !3884
   store ptr %.sroa.7105.sroa.0.0.copyload.i.i, ptr %.sroa.4110.0..sroa_idx.i.i, align 8, !noalias !3884

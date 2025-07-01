@@ -922,7 +922,8 @@ define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder24remove_block_predec
 
 "_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h59c6e36ccc11c3dbE.exit": ; preds = %28
   %32 = getelementptr inbounds nuw i32, ptr %24, i64 %21
-  %33 = getelementptr inbounds i32, ptr %32, i64 %20
+  %.idx = shl nsw i64 %20, 2
+  %33 = getelementptr inbounds i8, ptr %32, i64 %.idx
   %34 = icmp eq i64 %20, 0
   br i1 %34, label %.loopexit, label %.lr.ph.i
 
@@ -2039,7 +2040,8 @@ define hidden noundef i32 @_ZN18cranelift_frontend3ssa10SSABuilder26finish_prede
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd5a1bd6e7739781E.exit.preheader": ; preds = %256
   %260 = extractvalue { ptr, i64 } %255, 0
-  %261 = getelementptr inbounds i32, ptr %260, i64 %257
+  %.idx175 = shl nsw i64 %257, 2
+  %261 = getelementptr inbounds i8, ptr %260, i64 %.idx175
   %262 = icmp ne ptr %260, null
   call void @llvm.assume(i1 %262)
   br label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd5a1bd6e7739781E.exit"

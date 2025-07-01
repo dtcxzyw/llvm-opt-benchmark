@@ -11,7 +11,8 @@ entry:
   %Size.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %0, i64 %conv.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not10 = icmp eq i32 %1, 0
   br i1 %cmp.not10, label %return, label %for.body
 
@@ -55,7 +56,8 @@ entry:
   %Size.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %0, i64 %conv.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not13 = icmp eq i32 %1, 0
   br i1 %cmp.not13, label %return, label %for.body
 
@@ -132,7 +134,8 @@ if.then8:                                         ; preds = %if.end5
   %Size.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 8
   %8 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %8 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %7, i64 %conv.i.i
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i.i, 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %add.ptr.i.idx.i
   %cmp.not10.i = icmp eq i32 %8, 0
   br i1 %cmp.not10.i, label %return, label %for.body.i
 
@@ -211,7 +214,8 @@ entry:
   %Size.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
-  %add.ptr.i80 = getelementptr inbounds nuw ptr, ptr %0, i64 %conv.i
+  %add.ptr.i80.idx = shl nuw nsw i64 %conv.i, 3
+  %add.ptr.i80 = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.i80.idx
   %cmp.not93 = icmp eq i32 %1, 0
   br i1 %cmp.not93, label %return, label %for.body.lr.ph
 
@@ -230,7 +234,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %Size.i20 = getelementptr inbounds nuw i8, ptr %call5, i64 8
   %4 = load i32, ptr %Size.i20, align 8
   %conv.i21 = zext i32 %4 to i64
-  %add.ptr.i74 = getelementptr inbounds nuw ptr, ptr %3, i64 %conv.i21
+  %add.ptr.i74.idx = shl nuw nsw i64 %conv.i21, 3
+  %add.ptr.i74 = getelementptr inbounds nuw i8, ptr %3, i64 %add.ptr.i74.idx
   %cmp9.not91 = icmp eq i32 %4, 0
   br i1 %cmp9.not91, label %for.inc60, label %for.body10
 
@@ -309,7 +314,8 @@ if.end17:                                         ; preds = %if.end
   %Size.i.i27 = getelementptr inbounds nuw i8, ptr %call.i26, i64 8
   %17 = load i32, ptr %Size.i.i27, align 8
   %conv.i.i = zext i32 %17 to i64
-  %add.ptr.i.i28 = getelementptr inbounds nuw ptr, ptr %16, i64 %conv.i.i
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i.i, 3
+  %add.ptr.i.i28 = getelementptr inbounds nuw i8, ptr %16, i64 %add.ptr.i.idx.i
   %cmp.not10.i = icmp eq i32 %17, 0
   br i1 %cmp.not10.i, label %return, label %for.body.i29
 
@@ -347,7 +353,8 @@ if.end22:                                         ; preds = %_ZN6hermes19isStore
   %Size.i37 = getelementptr inbounds nuw i8, ptr %call23, i64 8
   %21 = load i32, ptr %Size.i37, align 8
   %conv.i38 = zext i32 %21 to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %20, i64 %conv.i38
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i38, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %20, i64 %add.ptr.i.idx
   %cmp27.not89 = icmp eq i32 %21, 0
   br i1 %cmp27.not89, label %for.inc57, label %for.body28
 

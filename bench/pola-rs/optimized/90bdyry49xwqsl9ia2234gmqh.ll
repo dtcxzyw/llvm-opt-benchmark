@@ -16964,7 +16964,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17hae4289c8f098b3b8E(p
   %16 = mul i64 %.sroa.0.0.sroa.speculated.i, 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16, i64 %16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %17 = getelementptr inbounds nuw { { { { ptr, i64, i32, i16, i8, i8 } } }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   store ptr %2, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %18, align 8
@@ -17085,7 +17085,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17he7a1b12cce32b928E(p
   %16 = shl i64 %.sroa.0.0.sroa.speculated.i, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2, ptr nonnull align 4 %.16, i64 %16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %17 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   store ptr %2, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %18, align 8
@@ -20552,7 +20552,8 @@ define hidden void @"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..S
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: write) uwtable
 define hidden void @"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17h0be2e3ab81840e91E"(ptr noalias noundef nonnull writeonly align 2 captures(address) %0, i64 noundef %1, i16 noundef %2, i16 noundef %3) unnamed_addr #14 {
-  %5 = getelementptr inbounds nuw { i16, i16 }, ptr %0, i64 %1
+  %.idx = shl nuw nsw i64 %1, 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %6 = icmp eq i64 %1, 0
   br i1 %6, label %._crit_edge, label %.lr.ph
 
@@ -67239,7 +67240,8 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i33.i135: ; pre
   br i1 %724, label %.loopexit283, label %.lr.ph.i191
 
 .lr.ph.i191:                                      ; preds = %720
-  %725 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %721, i64 %722
+  %.idx = shl nuw nsw i64 %722, 4
+  %725 = getelementptr inbounds nuw i8, ptr %721, i64 %.idx
   %.promoted19.i = load i64, ptr %92, align 8, !alias.scope !4293
   %.phi.trans.insert.i.i.i.promoted.i = load ptr, ptr %91, align 8, !alias.scope !4293
   br label %726
@@ -67886,7 +67888,8 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %1
   %44 = load ptr, ptr %43, align 8, !nonnull !12, !noundef !12
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load i64, ptr %45, align 8, !noundef !12
-  %47 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [1 x i32] }, { i8, [15 x i8] } }, ptr %44, i64 %46
+  %.idx = mul nuw nsw i64 %46, 48
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx
   %48 = icmp eq i64 %46, 0
   br i1 %48, label %.loopexit, label %.lr.ph
 
@@ -68028,7 +68031,8 @@ define { i64, i64 } @_ZN14polars_parquet5arrow5write17slice_nested_leaf17hce0553
   br i1 %3, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %4 = getelementptr inbounds nuw { i64, [8 x i64] }, ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %42
@@ -68186,7 +68190,8 @@ define void @_ZN14polars_parquet5arrow5write17to_parquet_schema17hd3dff2eefffc30
 define void @_ZN14polars_parquet5arrow5write19slice_parquet_array17h5abece760f933d45E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(184) %1, ptr noalias noundef nonnull align 8 captures(address) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #4 personality ptr @rust_eh_personality {
   %7 = alloca [48 x i8], align 8
   %8 = alloca [48 x i8], align 8
-  %9 = getelementptr inbounds nuw { i64, [8 x i64] }, ptr %2, i64 %3
+  %.idx = mul nuw nsw i64 %3, 72
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %10 = icmp eq i64 %3, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -68739,7 +68744,8 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap15slice_unchecked17h96b3ee4092ca636bE.e
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
 define noundef i64 @_ZN14polars_parquet5arrow5write14get_max_length17hd7b93a1a86cbe161E(ptr noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1) unnamed_addr #16 {
-  %3 = getelementptr inbounds nuw { i64, [8 x i64] }, ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -75363,7 +75369,8 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i28: ; preds = %4
   store ptr %.sroa.10.0.i30, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %70, align 8
-  %71 = getelementptr inbounds nuw { { { i64, [18 x i64] }, { i64, [20 x i64] }, { i32, [1 x i32] }, { [8 x i8], i8, [3 x i8] }, i32, i32, i32, i8, [7 x i8] }, { i64, [23 x i64] }, i64, i64, i64, i64, i64, i8, [7 x i8] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 600
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br i1 %18, label %.loopexit75, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %67
@@ -76255,7 +76262,8 @@ define void @_ZN14polars_parquet7parquet5write9row_group16compute_num_rows17h43a
   %.val = load ptr, ptr %5, align 8, !nonnull !12, !noundef !12
   %6 = getelementptr i8, ptr %1, i64 560
   %.val1 = load i64, ptr %6, align 8, !noundef !12
-  %7 = getelementptr inbounds nuw { { { i64, [18 x i64] }, { i64, [20 x i64] }, { i32, [1 x i32] }, { [8 x i8], i8, [3 x i8] }, i32, i32, i32, i8, [7 x i8] }, { i64, [23 x i64] }, i64, i64, i64, i64, i64, i8, [7 x i8] }, ptr %.val, i64 %.val1
+  %.idx.i = mul nuw nsw i64 %.val1, 600
+  %7 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %8 = icmp eq i64 %.val1, 0
   br i1 %8, label %"_ZN4core3ptr99drop_in_place$LT$core..result..Result$LT$i64$C$polars_parquet..parquet..error..ParquetError$GT$$GT$17h32abead36e6acd81E.exit", label %.lr.ph.i.i
 

@@ -26095,7 +26095,8 @@ define hidden void @"_ZN146_$LT$polars_arrow..array..binview..builder..BinaryVie
   %10 = load ptr, ptr %9, align 8, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load i64, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx24 = shl nuw nsw i64 %3, 2
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx24
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.val = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %1, i64 64
@@ -26199,7 +26200,8 @@ define hidden void @"_ZN146_$LT$polars_arrow..array..binview..builder..BinaryVie
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8, !noundef !3
   %.not = icmp eq ptr %63, null
-  %64 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx36 = shl nuw nsw i64 %3, 2
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx36
   %65 = icmp eq i64 %3, 0
   br i1 %.not, label %74, label %66
 
@@ -26385,7 +26387,8 @@ define hidden void @"_ZN146_$LT$polars_arrow..array..binview..builder..BinaryVie
   %10 = load ptr, ptr %9, align 8, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load i64, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx24 = shl nuw nsw i64 %3, 2
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx24
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.val = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %1, i64 64
@@ -26489,7 +26492,8 @@ define hidden void @"_ZN146_$LT$polars_arrow..array..binview..builder..BinaryVie
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8, !noundef !3
   %.not = icmp eq ptr %63, null
-  %64 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx36 = shl nuw nsw i64 %3, 2
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx36
   %65 = icmp eq i64 %3, 0
   br i1 %.not, label %74, label %66
 
@@ -26676,7 +26680,8 @@ define hidden void @"_ZN146_$LT$polars_arrow..array..binview..builder..BinaryVie
   %11 = load ptr, ptr %10, align 8, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %13 = load i64, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx30 = shl nuw nsw i64 %3, 2
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx30
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.val = load ptr, ptr %15, align 8
   %16 = getelementptr i8, ptr %1, i64 64
@@ -26792,7 +26797,8 @@ define hidden void @"_ZN146_$LT$polars_arrow..array..binview..builder..BinaryVie
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %67 = load ptr, ptr %66, align 8, !noundef !3
   %.not = icmp eq ptr %67, null
-  %68 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx42 = shl nuw nsw i64 %3, 2
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx42
   %69 = icmp eq i64 %3, 0
   br i1 %.not, label %79, label %70
 
@@ -27012,7 +27018,8 @@ define hidden void @"_ZN146_$LT$polars_arrow..array..binview..builder..BinaryVie
   %11 = load ptr, ptr %10, align 8, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %13 = load i64, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx30 = shl nuw nsw i64 %3, 2
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx30
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.val = load ptr, ptr %15, align 8
   %16 = getelementptr i8, ptr %1, i64 64
@@ -27128,7 +27135,8 @@ define hidden void @"_ZN146_$LT$polars_arrow..array..binview..builder..BinaryVie
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %67 = load ptr, ptr %66, align 8, !noundef !3
   %.not = icmp eq ptr %67, null
-  %68 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx42 = shl nuw nsw i64 %3, 2
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx42
   %69 = icmp eq i64 %3, 0
   br i1 %.not, label %79, label %70
 

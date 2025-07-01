@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::array" = type { [5 x i8] }
 %"struct.std::pair" = type { ptr, ptr }
 %class.anon.4 = type { i64, ptr, ptr }
-%struct.Elf64_Sym = type { i32, i8, i8, i16, i64, i64 }
 %"class.std::initializer_list" = type { ptr, i64 }
 %class.anon.8 = type { ptr, ptr, ptr, ptr }
 
@@ -1747,9 +1746,11 @@ _ZNK5folly10symbolizer7ElfFile2atI9Elf64_SymEERKT_m.exit.i.i.i.i.i.i: ; preds = 
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %32
   %38 = getelementptr inbounds nuw i8, ptr %.0831.i, i64 32
   %39 = load i64, ptr %38, align 8, !tbaa !80
-  %40 = udiv i64 %39, 24
-  %41 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %37, i64 %40
-  %.not.i.i.i.i.i.i = icmp ult i64 %39, 24
+  %.fr.i.i.i.i.i.i = freeze i64 %39
+  %40 = urem i64 %.fr.i.i.i.i.i.i, 24
+  %.idx.i.i.i.i.i.i = sub nuw i64 %.fr.i.i.i.i.i.i, %40
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i.i.i.i.i
+  %.not.i.i.i.i.i.i = icmp ult i64 %.fr.i.i.i.i.i.i, 24
   br i1 %.not.i.i.i.i.i.i, label %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i, label %.lr.ph.split.us.i.i.i.i.i.i
 
 .lr.ph.split.us.i.i.i.i.i.i:                      ; preds = %_ZNK5folly10symbolizer7ElfFile2atI9Elf64_SymEERKT_m.exit.i.i.i.i.i.i, %56
@@ -1932,9 +1933,11 @@ _ZNK5folly10symbolizer7ElfFile2atI9Elf64_SymEERKT_m.exit.i.i.i.i.i.i: ; preds = 
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %38
   %44 = getelementptr inbounds nuw i8, ptr %.0895.i, i64 32
   %45 = load i64, ptr %44, align 8, !tbaa !80
-  %46 = udiv i64 %45, 24
-  %47 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %43, i64 %46
-  %.not.i.i.i.i.i.i = icmp ult i64 %45, 24
+  %.fr.i.i.i.i.i.i = freeze i64 %45
+  %46 = urem i64 %.fr.i.i.i.i.i.i, 24
+  %.idx.i.i.i.i.i.i = sub nuw i64 %.fr.i.i.i.i.i.i, %46
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i.i.i.i.i
+  %.not.i.i.i.i.i.i = icmp ult i64 %.fr.i.i.i.i.i.i, 24
   br i1 %.not.i.i.i.i.i.i, label %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNK5folly10symbolizer7ElfFile2atI9Elf64_SymEERKT_m.exit.i.i.i.i.i.i

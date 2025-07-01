@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::interp::Pointer" = type <{ i64, ptr, ptr, %union.anon, i32, [4 x i8] }>
 %union.anon = type { %"struct.clang::interp::BlockPointer", [8 x i8] }
 %"struct.clang::interp::BlockPointer" = type { ptr, i32 }
-%"struct.clang::interp::Record::Field" = type { ptr, i32, ptr }
 %"class.llvm::APInt" = type <{ %union.anon.496, i32, [4 x i8] }>
 %union.anon.496 = type { i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.190 }
@@ -106,7 +105,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.clang::TemplateArgument::DA" = type { i32, ptr, ptr }
 %"class.clang::DiagnosticBuilder" = type <{ %"class.clang::StreamingDiagnostic", ptr, %"class.clang::SourceLocation", i32, %"class.std::__cxx11::basic_string", i8, i8, [6 x i8] }>
 %"class.clang::StreamingDiagnostic" = type { ptr, ptr }
-%"class.clang::FixItHint" = type <{ %"class.clang::CharSourceRange", %"class.clang::CharSourceRange", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 %"class.clang::interp::Integral.704" = type { i8 }
 %"class.clang::interp::Integral.705" = type { i16 }
 %"class.clang::interp::Integral.707" = type { i32 }
@@ -4782,7 +4780,8 @@ define dso_local void @_ZN5clang6interp24cleanupAfterFunctionCallERNS0_11InterpS
 
 .lr.ph98:                                         ; preds = %.loopexit89
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw i32, ptr %93, i64 %96
+  %.idx = shl nuw nsw i64 %96, 2
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %99
 
@@ -7871,7 +7870,8 @@ _ZNK5clang6interp7Pointer9getRecordEv.exit:       ; preds = %136, %.thread4.i.i6
   %157 = getelementptr inbounds nuw i8, ptr %154, i64 288
   %158 = load i32, ptr %157, align 8, !tbaa !468
   %159 = zext i32 %158 to i64
-  %160 = getelementptr inbounds nuw %"struct.clang::interp::Record::Field", ptr %156, i64 %159
+  %.idx = mul nuw nsw i64 %159, 24
+  %160 = getelementptr inbounds nuw i8, ptr %156, i64 %.idx
   %.not22125 = icmp eq i32 %158, 0
   br i1 %.not22125, label %.loopexit, label %.lr.ph
 
@@ -8590,7 +8590,8 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp13CheckCallableERNS0_11Inte
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %47 = load i32, ptr %46, align 8, !tbaa !468
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %48
+  %.idx.i.i = shl nuw nsw i64 %48, 3
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx.i.i
   %.not.i.i = icmp eq i32 %47, 0
   br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_15MSConstexprAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i
 
@@ -9589,7 +9590,8 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp16CheckNonNullArgsERNS0_11I
   call void @_ZN5clang6interp18collectNonNullArgsEPKNS_12FunctionDeclERKN4llvm8ArrayRefIPKNS_4ExprEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::BitVector") align 8 %7, ptr noundef %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %6) #20
   %26 = load ptr, ptr %6, align 8, !tbaa !625
   %27 = load i64, ptr %20, align 8, !tbaa !628
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %.idx = shl nuw nsw i64 %27, 3
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
   %.not55 = icmp eq i64 %27, 0
   br i1 %.not55, label %.critedge42, label %.lr.ph
 
@@ -25001,7 +25003,8 @@ _ZStneIN5clang6interp8PrimTypeES2_ENSt9enable_ifIXsr14is_convertibleIDTneclsr3st
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %72 = load i32, ptr %71, align 8, !tbaa !468
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %70, i64 %73
+  %.idx.i.i.i = shl nuw nsw i64 %73, 3
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx.i.i.i
   %.not.i.i.i = icmp eq i32 %72, 0
   br i1 %.not.i.i.i, label %_ZNK5clang6interp8Function14hasNonNullAttrEv.exit.thread, label %.lr.ph.i.i.i.i.i.i
 
@@ -25750,7 +25753,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %42
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %54
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %62, i64 %65
+  %.idx.i7.i.i.i = shl nuw nsw i64 %65, 6
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -115967,7 +115971,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %99
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %111
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %119, i64 %122
+  %.idx.i7.i.i.i = shl nuw nsw i64 %122, 6
+  %123 = getelementptr inbounds nuw i8, ptr %119, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -116383,7 +116388,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %99
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %111
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %119, i64 %122
+  %.idx.i7.i.i.i = shl nuw nsw i64 %122, 6
+  %123 = getelementptr inbounds nuw i8, ptr %119, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -116799,7 +116805,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %99
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %111
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %119, i64 %122
+  %.idx.i7.i.i.i = shl nuw nsw i64 %122, 6
+  %123 = getelementptr inbounds nuw i8, ptr %119, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -117215,7 +117222,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %99
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %111
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %119, i64 %122
+  %.idx.i7.i.i.i = shl nuw nsw i64 %122, 6
+  %123 = getelementptr inbounds nuw i8, ptr %119, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -117650,7 +117658,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %108
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %120
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %128, i64 %131
+  %.idx.i7.i.i.i = shl nuw nsw i64 %131, 6
+  %132 = getelementptr inbounds nuw i8, ptr %128, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -118101,7 +118110,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %108
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %120
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %128, i64 %131
+  %.idx.i7.i.i.i = shl nuw nsw i64 %131, 6
+  %132 = getelementptr inbounds nuw i8, ptr %128, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -118722,7 +118732,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %138
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %150
   %161 = zext i32 %160 to i64
-  %162 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %158, i64 %161
+  %.idx.i7.i.i.i = shl nuw nsw i64 %161, 6
+  %162 = getelementptr inbounds nuw i8, ptr %158, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -155104,7 +155115,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %13
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %25
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %33, i64 %36
+  %.idx.i7.i.i = shl nuw nsw i64 %36, 6
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i7.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -155930,7 +155942,8 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
 
 .lr.ph.i.preheader.i.i:                           ; preds = %14
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %16, i64 %19
+  %.idx.i.i = shl nuw nsw i64 %19, 6
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -156168,11 +156181,12 @@ define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 -8
   %6 = load i64, ptr %5, align 8
+  %.idx.i = mul i64 %6, 24
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %8 = getelementptr inbounds %"class.llvm::APFloat", ptr %3, i64 %6
+  %8 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %9 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #23
   br label %10
 
@@ -156196,9 +156210,8 @@ _ZN4llvm7APFloatD2Ev.exit.i:                      ; preds = %15, %14
   br i1 %16, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %10
 
 _ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit: ; preds = %_ZN4llvm7APFloatD2Ev.exit.i, %4
-  %17 = mul i64 %6, 24
-  %18 = add i64 %17, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %18) #22
+  %17 = add i64 %.idx.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %17) #22
   br label %_ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit
@@ -156412,7 +156425,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %15
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %27
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %35, i64 %38
+  %.idx.i7.i.i = shl nuw nsw i64 %38, 6
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i7.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -160559,7 +160573,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %12
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %24
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %32, i64 %35
+  %.idx.i7.i.i = shl nuw nsw i64 %35, 6
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i7.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -160916,7 +160931,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %116
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %128
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %136, i64 %139
+  %.idx.i7.i.i.i = shl nuw nsw i64 %139, 6
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -161414,7 +161430,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %116
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %128
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %136, i64 %139
+  %.idx.i7.i.i.i = shl nuw nsw i64 %139, 6
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -161853,7 +161870,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %116
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %128
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %136, i64 %139
+  %.idx.i7.i.i.i = shl nuw nsw i64 %139, 6
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -162290,7 +162308,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %114
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %126
   %137 = zext i32 %136 to i64
-  %138 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %134, i64 %137
+  %.idx.i7.i.i.i = shl nuw nsw i64 %137, 6
+  %138 = getelementptr inbounds nuw i8, ptr %134, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -162908,7 +162927,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %138
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %150
   %161 = zext i32 %160 to i64
-  %162 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %158, i64 %161
+  %.idx.i7.i.i.i = shl nuw nsw i64 %161, 6
+  %162 = getelementptr inbounds nuw i8, ptr %158, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -174811,7 +174831,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %137
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %149
   %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %157, i64 %160
+  %.idx.i7.i.i.i = shl nuw nsw i64 %160, 6
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -175284,7 +175305,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %137
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %149
   %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %157, i64 %160
+  %.idx.i7.i.i.i = shl nuw nsw i64 %160, 6
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -175757,7 +175779,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %137
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %149
   %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %157, i64 %160
+  %.idx.i7.i.i.i = shl nuw nsw i64 %160, 6
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -176229,7 +176252,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %136
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %148
   %159 = zext i32 %158 to i64
-  %160 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %156, i64 %159
+  %.idx.i7.i.i.i = shl nuw nsw i64 %159, 6
+  %160 = getelementptr inbounds nuw i8, ptr %156, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -176751,7 +176775,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %160
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %172
   %183 = zext i32 %182 to i64
-  %184 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %180, i64 %183
+  %.idx.i7.i.i.i = shl nuw nsw i64 %183, 6
+  %184 = getelementptr inbounds nuw i8, ptr %180, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -177470,7 +177495,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %160
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %172
   %183 = zext i32 %182 to i64
-  %184 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %180, i64 %183
+  %.idx.i7.i.i.i = shl nuw nsw i64 %183, 6
+  %184 = getelementptr inbounds nuw i8, ptr %180, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -178364,7 +178390,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %118
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %130
   %141 = zext i32 %140 to i64
-  %142 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %138, i64 %141
+  %.idx.i7.i.i.i = shl nuw nsw i64 %141, 6
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -178795,7 +178822,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %116
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %128
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %136, i64 %139
+  %.idx.i7.i.i.i = shl nuw nsw i64 %139, 6
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -179230,7 +179258,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %116
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %128
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %136, i64 %139
+  %.idx.i7.i.i.i = shl nuw nsw i64 %139, 6
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -179665,7 +179694,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %116
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %128
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %136, i64 %139
+  %.idx.i7.i.i.i = shl nuw nsw i64 %139, 6
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -180100,7 +180130,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %116
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %128
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %136, i64 %139
+  %.idx.i7.i.i.i = shl nuw nsw i64 %139, 6
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -180600,7 +180631,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %151
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %163
   %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %171, i64 %174
+  %.idx.i7.i.i.i = shl nuw nsw i64 %174, 6
+  %175 = getelementptr inbounds nuw i8, ptr %171, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -181115,7 +181147,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %151
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %163
   %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %171, i64 %174
+  %.idx.i7.i.i.i = shl nuw nsw i64 %174, 6
+  %175 = getelementptr inbounds nuw i8, ptr %171, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -181537,7 +181570,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %104
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %116
   %127 = zext i32 %126 to i64
-  %128 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %124, i64 %127
+  %.idx.i7.i.i.i = shl nuw nsw i64 %127, 6
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -188620,7 +188654,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %137
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %149
   %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %157, i64 %160
+  %.idx.i7.i.i.i = shl nuw nsw i64 %160, 6
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -189090,7 +189125,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %137
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %149
   %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %157, i64 %160
+  %.idx.i7.i.i.i = shl nuw nsw i64 %160, 6
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -189560,7 +189596,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %137
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %149
   %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %157, i64 %160
+  %.idx.i7.i.i.i = shl nuw nsw i64 %160, 6
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -190029,7 +190066,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %136
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %148
   %159 = zext i32 %158 to i64
-  %160 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %156, i64 %159
+  %.idx.i7.i.i.i = shl nuw nsw i64 %159, 6
+  %160 = getelementptr inbounds nuw i8, ptr %156, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -190548,7 +190586,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %160
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %172
   %183 = zext i32 %182 to i64
-  %184 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %180, i64 %183
+  %.idx.i7.i.i.i = shl nuw nsw i64 %183, 6
+  %184 = getelementptr inbounds nuw i8, ptr %180, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -191222,7 +191261,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %160
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %172
   %183 = zext i32 %182 to i64
-  %184 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %180, i64 %183
+  %.idx.i7.i.i.i = shl nuw nsw i64 %183, 6
+  %184 = getelementptr inbounds nuw i8, ptr %180, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -191910,7 +191950,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %118
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %130
   %141 = zext i32 %140 to i64
-  %142 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %138, i64 %141
+  %.idx.i7.i.i.i = shl nuw nsw i64 %141, 6
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -192341,7 +192382,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %116
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %128
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %136, i64 %139
+  %.idx.i7.i.i.i = shl nuw nsw i64 %139, 6
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -192776,7 +192818,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %116
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %128
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %136, i64 %139
+  %.idx.i7.i.i.i = shl nuw nsw i64 %139, 6
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -193211,7 +193254,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %116
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %128
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %136, i64 %139
+  %.idx.i7.i.i.i = shl nuw nsw i64 %139, 6
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -193646,7 +193690,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %116
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %128
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %136, i64 %139
+  %.idx.i7.i.i.i = shl nuw nsw i64 %139, 6
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -194146,7 +194191,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %151
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %163
   %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %171, i64 %174
+  %.idx.i7.i.i.i = shl nuw nsw i64 %174, 6
+  %175 = getelementptr inbounds nuw i8, ptr %171, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -194661,7 +194707,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %151
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %163
   %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %171, i64 %174
+  %.idx.i7.i.i.i = shl nuw nsw i64 %174, 6
+  %175 = getelementptr inbounds nuw i8, ptr %171, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -195166,7 +195213,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %104
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %116
   %127 = zext i32 %126 to i64
-  %128 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %124, i64 %127
+  %.idx.i7.i.i.i = shl nuw nsw i64 %127, 6
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -195822,7 +195870,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %110
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %122
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %130, i64 %133
+  %.idx.i7.i.i.i = shl nuw nsw i64 %133, 6
+  %134 = getelementptr inbounds nuw i8, ptr %130, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -196243,7 +196292,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %110
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %122
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %130, i64 %133
+  %.idx.i7.i.i.i = shl nuw nsw i64 %133, 6
+  %134 = getelementptr inbounds nuw i8, ptr %130, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -196664,7 +196714,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %110
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %122
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %130, i64 %133
+  %.idx.i7.i.i.i = shl nuw nsw i64 %133, 6
+  %134 = getelementptr inbounds nuw i8, ptr %130, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -197083,7 +197134,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %108
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %120
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %128, i64 %131
+  %.idx.i7.i.i.i = shl nuw nsw i64 %131, 6
+  %132 = getelementptr inbounds nuw i8, ptr %128, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -197668,7 +197720,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %132
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %144
   %155 = zext i32 %154 to i64
-  %156 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %152, i64 %155
+  %.idx.i7.i.i.i = shl nuw nsw i64 %155, 6
+  %156 = getelementptr inbounds nuw i8, ptr %152, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -271296,7 +271349,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %116
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %128
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %136, i64 %139
+  %.idx.i7.i.i.i = shl nuw nsw i64 %139, 6
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -271732,7 +271786,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %116
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %128
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %136, i64 %139
+  %.idx.i7.i.i.i = shl nuw nsw i64 %139, 6
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -272168,7 +272223,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %116
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %128
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %136, i64 %139
+  %.idx.i7.i.i.i = shl nuw nsw i64 %139, 6
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -272602,7 +272658,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %114
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %126
   %137 = zext i32 %136 to i64
-  %138 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %134, i64 %137
+  %.idx.i7.i.i.i = shl nuw nsw i64 %137, 6
+  %138 = getelementptr inbounds nuw i8, ptr %134, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -273217,7 +273274,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %138
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %150
   %161 = zext i32 %160 to i64
-  %162 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %158, i64 %161
+  %.idx.i7.i.i.i = shl nuw nsw i64 %161, 6
+  %162 = getelementptr inbounds nuw i8, ptr %158, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i

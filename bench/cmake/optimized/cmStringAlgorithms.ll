@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.std::pair" = type { %"class.std::basic_string_view", ptr }
-%"class.std::basic_string_view" = type { i64, ptr }
 
 $_Z13cmJoinStringsISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEES6_RKT_St17basic_string_viewIcS4_ESD_ = comdat any
 
@@ -546,7 +544,8 @@ _ZN12_GLOBAL__N_110MakeDigitsILm32EdEEvRSt17basic_string_viewIcSt11char_traitsIc
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds nuw %"struct.std::pair", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not75 = icmp eq i64 %2, 0
   br i1 %.not75, label %._crit_edge.thread, label %.lr.ph
 

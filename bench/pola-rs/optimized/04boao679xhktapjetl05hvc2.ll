@@ -9928,7 +9928,8 @@ define noundef double @"_ZN71_$LT$f64$u20$as$u20$polars_row..fixed..numeric..Fix
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define hidden void @_ZN10polars_row5fixed7numeric21increment_row_counter17hd9c92b0431b57e4bE(ptr noalias noundef nonnull align 8 captures(address) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #8 {
-  %4 = getelementptr inbounds nuw { ptr, i64 }, ptr %0, i64 %1
+  %.idx = shl nuw nsw i64 %1, 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 

@@ -1071,7 +1071,8 @@ if.then:                                          ; preds = %entry
   %fields_.i = getelementptr inbounds nuw i8, ptr %1, i64 56
   %3 = load ptr, ptr %fields_.i, align 8
   %idx.ext = sext i32 %2 to i64
-  %add.ptr = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %3, i64 %idx.ext
+  %add.ptr.idx = mul nsw i64 %idx.ext, 88
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %add.ptr.idx
   br i1 %check_fields, label %for.body, label %if.end11
 
 for.body:                                         ; preds = %if.then, %for.inc

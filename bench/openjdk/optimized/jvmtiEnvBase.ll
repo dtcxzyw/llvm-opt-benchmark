@@ -11762,7 +11762,8 @@ define linkonce_odr hidden void @_ZN27VM_SetNotifyJvmtiEventsMode27correct_jvmti
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
+  %.idx = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not9 = icmp eq i32 %10, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 

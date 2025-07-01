@@ -679,7 +679,8 @@ define hidden noundef i32 @_ZN10duckdb_re29ApplyFoldEPKNS_8CaseFoldEi(ptr nounde
 define hidden noundef i32 @_ZN10duckdb_re213CycleFoldRuneEi(i32 noundef %0) local_unnamed_addr #14 {
   %2 = load i32, ptr @_ZN10duckdb_re220num_unicode_casefoldE, align 4, !tbaa !3
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds %"struct.duckdb_re2::CaseFold", ptr @_ZN10duckdb_re216unicode_casefoldE, i64 %3
+  %.idx = mul nsw i64 %3, 12
+  %4 = getelementptr inbounds i8, ptr @_ZN10duckdb_re216unicode_casefoldE, i64 %.idx
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.i, label %_ZN10duckdb_re29ApplyFoldEPKNS_8CaseFoldEi.exit
 
@@ -785,265 +786,107 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState11PushLitera
   %3 = load i32, ptr %0, align 8, !tbaa !7
   %4 = and i32 %3, 1
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %_ZN10duckdb_re213CycleFoldRuneEi.exit.thread, label %5
+  br i1 %.not, label %28, label %5
 
 5:                                                ; preds = %2
-  %6 = load i32, ptr @_ZN10duckdb_re220num_unicode_casefoldE, align 4, !tbaa !3
-  %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %"struct.duckdb_re2::CaseFold", ptr @_ZN10duckdb_re216unicode_casefoldE, i64 %7
-  %9 = icmp sgt i32 %6, 0
-  br i1 %9, label %.lr.ph.i.i, label %_ZN10duckdb_re213CycleFoldRuneEi.exit.thread
+  %6 = tail call noundef i32 @_ZN10duckdb_re213CycleFoldRuneEi(i32 noundef %1)
+  %.not29 = icmp eq i32 %6, %1
+  br i1 %.not29, label %28, label %7
 
-.lr.ph.i.i:                                       ; preds = %5, %17
-  %.02539.i.i = phi ptr [ %.227.i.i, %17 ], [ @_ZN10duckdb_re216unicode_casefoldE, %5 ]
-  %.02838.i.i = phi i32 [ %.230.i.i, %17 ], [ %6, %5 ]
-  %10 = lshr i32 %.02838.i.i, 1
-  %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.duckdb_re2::CaseFold", ptr %.02539.i.i, i64 %11
-  %13 = load i32, ptr %12, align 4, !tbaa !52
-  %.not.i.i = icmp sgt i32 %13, %1
-  br i1 %.not.i.i, label %17, label %14
+7:                                                ; preds = %5
+  %8 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #33
+  %9 = and i32 %3, 16382
+  invoke void @_ZN10duckdb_re26RegexpC1ENS_8RegexpOpENS0_10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 20, i32 noundef %9)
+          to label %10 unwind label %22
 
-14:                                               ; preds = %.lr.ph.i.i
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !54
-  %.not32.i.i = icmp sgt i32 %1, %16
-  br i1 %.not32.i.i, label %17, label %_ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11.i
+10:                                               ; preds = %7
+  %11 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #33
+  invoke void @_ZN10duckdb_re216CharClassBuilderC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %11)
+          to label %12 unwind label %24
 
-17:                                               ; preds = %14, %.lr.ph.i.i
-  %18 = add nuw nsw i32 %10, 1
-  %19 = sub nsw i32 %.02838.i.i, %18
-  %.230.i.i = select i1 %.not.i.i, i32 %10, i32 %19
-  %narrow.i.i = select i1 %.not.i.i, i32 0, i32 %18
-  %.227.idx.i.i = zext nneg i32 %narrow.i.i to i64
-  %.227.i.i = getelementptr inbounds nuw %"struct.duckdb_re2::CaseFold", ptr %.02539.i.i, i64 %.227.idx.i.i
-  %20 = icmp sgt i32 %.230.i.i, 0
-  br i1 %20, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !55
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr %11, ptr %13, align 8, !tbaa !27
+  br label %14
 
-._crit_edge.i.i:                                  ; preds = %17
-  %.not.i = icmp ult ptr %.227.i.i, %8
-  br i1 %.not.i, label %._crit_edge.i._ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11_crit_edge.i, label %_ZN10duckdb_re213CycleFoldRuneEi.exit.thread
+14:                                               ; preds = %26, %12
+  %.023 = phi i32 [ %1, %12 ], [ %27, %26 ]
+  %15 = load i32, ptr %0, align 8, !tbaa !7
+  %16 = and i32 %15, 2048
+  %17 = icmp eq i32 %16, 0
+  %18 = icmp ne i32 %.023, 10
+  %or.cond = or i1 %18, %17
+  br i1 %or.cond, label %19, label %26
 
-._crit_edge.i._ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11_crit_edge.i: ; preds = %._crit_edge.i.i
-  %.pre.i = load i32, ptr %.227.i.i, align 4, !tbaa !52
-  br label %_ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11.i
+19:                                               ; preds = %14
+  %20 = load ptr, ptr %13, align 8, !tbaa !27
+  %21 = tail call noundef zeroext i1 @_ZN10duckdb_re216CharClassBuilder8AddRangeEii(ptr noundef nonnull align 8 dereferenceable(64) %20, i32 noundef %.023, i32 noundef %.023)
+  br label %26
 
-_ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11.i: ; preds = %14, %._crit_edge.i._ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11_crit_edge.i
-  %21 = phi i32 [ %.pre.i, %._crit_edge.i._ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11_crit_edge.i ], [ %13, %14 ]
-  %22 = phi i64 [ %.227.idx.i.i, %._crit_edge.i._ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11_crit_edge.i ], [ %11, %14 ]
-  %23 = icmp slt i32 %1, %21
-  br i1 %23, label %_ZN10duckdb_re213CycleFoldRuneEi.exit.thread, label %24
+22:                                               ; preds = %7
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  br label %47
 
-24:                                               ; preds = %_ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11.i
-  %25 = getelementptr inbounds nuw %"struct.duckdb_re2::CaseFold", ptr %.02539.i.i, i64 %22, i32 2
-  %26 = load i32, ptr %25, align 4, !tbaa !56
-  switch i32 %26, label %_ZN10duckdb_re213CycleFoldRuneEi.exit.thread54 [
-    i32 1073741824, label %27
-    i32 0, label %_ZN10duckdb_re213CycleFoldRuneEi.exit.thread
-    i32 1073741825, label %30
-  ]
+24:                                               ; preds = %10
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  br label %47
 
-27:                                               ; preds = %24
-  %28 = sub nsw i32 %1, %21
-  %29 = and i32 %28, 1
-  %.not15.i.i = icmp eq i32 %29, 0
-  br i1 %.not15.i.i, label %_ZN10duckdb_re213CycleFoldRuneEi.exit.thread54, label %_ZN10duckdb_re213CycleFoldRuneEi.exit.thread
+26:                                               ; preds = %14, %19
+  %27 = tail call noundef i32 @_ZN10duckdb_re213CycleFoldRuneEi(i32 noundef %.023)
+  %.not32 = icmp eq i32 %27, %1
+  br i1 %.not32, label %.sink.split, label %14, !llvm.loop !57
 
-30:                                               ; preds = %24
-  %31 = sub nsw i32 %1, %21
-  %32 = and i32 %31, 1
-  %.not.i9.i = icmp eq i32 %32, 0
-  br i1 %.not.i9.i, label %_ZN10duckdb_re213CycleFoldRuneEi.exit.thread54, label %_ZN10duckdb_re213CycleFoldRuneEi.exit.thread
+28:                                               ; preds = %5, %2
+  %29 = and i32 %3, 2048
+  %30 = icmp ne i32 %29, 0
+  %31 = icmp eq i32 %1, 10
+  %or.cond3 = and i1 %31, %30
+  br i1 %or.cond3, label %32, label %36
 
-_ZN10duckdb_re213CycleFoldRuneEi.exit.thread54:   ; preds = %24, %30, %27
+32:                                               ; preds = %28
   %33 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #33
-  %34 = and i32 %3, 16382
-  invoke void @_ZN10duckdb_re26RegexpC1ENS_8RegexpOpENS0_10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(40) %33, i32 noundef 20, i32 noundef %34)
-          to label %35 unwind label %47
+  invoke void @_ZN10duckdb_re26RegexpC1ENS_8RegexpOpENS0_10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(40) %33, i32 noundef 1, i32 noundef %3)
+          to label %.sink.split unwind label %34
 
-35:                                               ; preds = %_ZN10duckdb_re213CycleFoldRuneEi.exit.thread54
-  %36 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #33
-  invoke void @_ZN10duckdb_re216CharClassBuilderC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %36)
-          to label %37 unwind label %49
+34:                                               ; preds = %32
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  br label %47
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  store ptr %36, ptr %38, align 8, !tbaa !27
-  br label %39
+36:                                               ; preds = %28
+  %37 = tail call noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState17MaybeConcatStringEiNS0_10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %3)
+  br i1 %37, label %46, label %38
 
-39:                                               ; preds = %_ZN10duckdb_re213CycleFoldRuneEi.exit50, %37
-  %.023 = phi i32 [ %1, %37 ], [ %.0.i33, %_ZN10duckdb_re213CycleFoldRuneEi.exit50 ]
+38:                                               ; preds = %36
+  %39 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #33
   %40 = load i32, ptr %0, align 8, !tbaa !7
-  %41 = and i32 %40, 2048
-  %42 = icmp eq i32 %41, 0
-  %43 = icmp ne i32 %.023, 10
-  %or.cond = or i1 %43, %42
-  br i1 %or.cond, label %44, label %.lr.ph.i.i34.preheader
+  invoke void @_ZN10duckdb_re26RegexpC1ENS_8RegexpOpENS0_10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(40) %39, i32 noundef 3, i32 noundef %40)
+          to label %41 unwind label %43
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %38, align 8, !tbaa !27
-  %46 = tail call noundef zeroext i1 @_ZN10duckdb_re216CharClassBuilder8AddRangeEii(ptr noundef nonnull align 8 dereferenceable(64) %45, i32 noundef %.023, i32 noundef %.023)
-  br label %.lr.ph.i.i34.preheader
-
-.lr.ph.i.i34.preheader:                           ; preds = %39, %44
-  br label %.lr.ph.i.i34
-
-47:                                               ; preds = %_ZN10duckdb_re213CycleFoldRuneEi.exit.thread54
-  %48 = landingpad { ptr, i32 }
-          cleanup
-  br label %108
-
-49:                                               ; preds = %35
-  %50 = landingpad { ptr, i32 }
-          cleanup
-  br label %108
-
-.lr.ph.i.i34:                                     ; preds = %.lr.ph.i.i34.preheader, %58
-  %.02539.i.i35 = phi ptr [ %.227.i.i45, %58 ], [ @_ZN10duckdb_re216unicode_casefoldE, %.lr.ph.i.i34.preheader ]
-  %.02838.i.i36 = phi i32 [ %.230.i.i42, %58 ], [ %6, %.lr.ph.i.i34.preheader ]
-  %51 = lshr i32 %.02838.i.i36, 1
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw %"struct.duckdb_re2::CaseFold", ptr %.02539.i.i35, i64 %52
-  %54 = load i32, ptr %53, align 4, !tbaa !52
-  %.not.i.i37 = icmp sgt i32 %54, %.023
-  br i1 %.not.i.i37, label %58, label %55
-
-55:                                               ; preds = %.lr.ph.i.i34
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  %57 = load i32, ptr %56, align 4, !tbaa !54
-  %.not32.i.i38 = icmp sgt i32 %.023, %57
-  br i1 %.not32.i.i38, label %58, label %_ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11.i39
-
-58:                                               ; preds = %55, %.lr.ph.i.i34
-  %59 = add nuw nsw i32 %51, 1
-  %60 = sub nsw i32 %.02838.i.i36, %59
-  %.230.i.i42 = select i1 %.not.i.i37, i32 %51, i32 %60
-  %narrow.i.i43 = select i1 %.not.i.i37, i32 0, i32 %59
-  %.227.idx.i.i44 = zext nneg i32 %narrow.i.i43 to i64
-  %.227.i.i45 = getelementptr inbounds nuw %"struct.duckdb_re2::CaseFold", ptr %.02539.i.i35, i64 %.227.idx.i.i44
-  %61 = icmp sgt i32 %.230.i.i42, 0
-  br i1 %61, label %.lr.ph.i.i34, label %._crit_edge.i.i46, !llvm.loop !55
-
-._crit_edge.i.i46:                                ; preds = %58
-  %.not.i47 = icmp ult ptr %.227.i.i45, %8
-  br i1 %.not.i47, label %._crit_edge.i._ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11_crit_edge.i48, label %_ZN10duckdb_re213CycleFoldRuneEi.exit50
-
-._crit_edge.i._ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11_crit_edge.i48: ; preds = %._crit_edge.i.i46
-  %.pre.i49 = load i32, ptr %.227.i.i45, align 4, !tbaa !52
-  br label %_ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11.i39
-
-_ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11.i39: ; preds = %55, %._crit_edge.i._ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11_crit_edge.i48
-  %62 = phi i32 [ %.pre.i49, %._crit_edge.i._ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11_crit_edge.i48 ], [ %54, %55 ]
-  %63 = phi i64 [ %.227.idx.i.i44, %._crit_edge.i._ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11_crit_edge.i48 ], [ %52, %55 ]
-  %64 = icmp slt i32 %.023, %62
-  br i1 %64, label %_ZN10duckdb_re213CycleFoldRuneEi.exit50, label %65
-
-65:                                               ; preds = %_ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11.i39
-  %66 = getelementptr inbounds nuw %"struct.duckdb_re2::CaseFold", ptr %.02539.i.i35, i64 %63, i32 2
-  %67 = load i32, ptr %66, align 4, !tbaa !56
-  switch i32 %67, label %68 [
-    i32 1073741824, label %70
-    i32 1, label %73
-    i32 1073741825, label %80
-    i32 -1, label %83
-  ]
-
-68:                                               ; preds = %65
-  %69 = add nsw i32 %67, %.023
-  br label %_ZN10duckdb_re213CycleFoldRuneEi.exit50
-
-70:                                               ; preds = %65
-  %71 = sub nsw i32 %.023, %62
-  %72 = and i32 %71, 1
-  %.not15.i.i41 = icmp eq i32 %72, 0
-  br i1 %.not15.i.i41, label %73, label %_ZN10duckdb_re213CycleFoldRuneEi.exit50
-
-73:                                               ; preds = %70, %65
-  %74 = and i32 %.023, 1
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %78
-
-76:                                               ; preds = %73
-  %77 = or disjoint i32 %.023, 1
-  br label %_ZN10duckdb_re213CycleFoldRuneEi.exit50
-
-78:                                               ; preds = %73
-  %79 = add nsw i32 %.023, -1
-  br label %_ZN10duckdb_re213CycleFoldRuneEi.exit50
-
-80:                                               ; preds = %65
-  %81 = sub nsw i32 %.023, %62
-  %82 = and i32 %81, 1
-  %.not.i9.i40 = icmp eq i32 %82, 0
-  br i1 %.not.i9.i40, label %83, label %_ZN10duckdb_re213CycleFoldRuneEi.exit50
-
-83:                                               ; preds = %80, %65
-  %84 = and i32 %.023, -2147483647
-  %85 = icmp eq i32 %84, 1
-  br i1 %85, label %86, label %88
-
-86:                                               ; preds = %83
-  %87 = add nuw nsw i32 %.023, 1
-  br label %_ZN10duckdb_re213CycleFoldRuneEi.exit50
-
-88:                                               ; preds = %83
-  %89 = add nsw i32 %.023, -1
-  br label %_ZN10duckdb_re213CycleFoldRuneEi.exit50
-
-_ZN10duckdb_re213CycleFoldRuneEi.exit50:          ; preds = %._crit_edge.i.i46, %_ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11.i39, %68, %70, %76, %78, %80, %86, %88
-  %.0.i33 = phi i32 [ %.023, %_ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11.i39 ], [ %69, %68 ], [ %77, %76 ], [ %79, %78 ], [ %87, %86 ], [ %89, %88 ], [ %.023, %70 ], [ %.023, %80 ], [ %.023, %._crit_edge.i.i46 ]
-  %.not32 = icmp eq i32 %.0.i33, %1
-  br i1 %.not32, label %.sink.split, label %39, !llvm.loop !57
-
-_ZN10duckdb_re213CycleFoldRuneEi.exit.thread:     ; preds = %24, %5, %._crit_edge.i.i, %30, %27, %_ZN10duckdb_re214LookupCaseFoldEPKNS_8CaseFoldEii.exit.thread11.i, %2
-  %90 = and i32 %3, 2048
-  %91 = icmp ne i32 %90, 0
-  %92 = icmp eq i32 %1, 10
-  %or.cond3 = and i1 %92, %91
-  br i1 %or.cond3, label %93, label %97
-
-93:                                               ; preds = %_ZN10duckdb_re213CycleFoldRuneEi.exit.thread
-  %94 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #33
-  invoke void @_ZN10duckdb_re26RegexpC1ENS_8RegexpOpENS0_10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(40) %94, i32 noundef 1, i32 noundef %3)
-          to label %.sink.split unwind label %95
-
-95:                                               ; preds = %93
-  %96 = landingpad { ptr, i32 }
-          cleanup
-  br label %108
-
-97:                                               ; preds = %_ZN10duckdb_re213CycleFoldRuneEi.exit.thread
-  %98 = tail call noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState17MaybeConcatStringEiNS0_10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %3)
-  br i1 %98, label %107, label %99
-
-99:                                               ; preds = %97
-  %100 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #33
-  %101 = load i32, ptr %0, align 8, !tbaa !7
-  invoke void @_ZN10duckdb_re26RegexpC1ENS_8RegexpOpENS0_10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(40) %100, i32 noundef 3, i32 noundef %101)
-          to label %102 unwind label %104
-
-102:                                              ; preds = %99
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  store i32 %1, ptr %103, align 8, !tbaa !27
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  store i32 %1, ptr %42, align 8, !tbaa !27
   br label %.sink.split
 
-104:                                              ; preds = %99
-  %105 = landingpad { ptr, i32 }
+43:                                               ; preds = %38
+  %44 = landingpad { ptr, i32 }
           cleanup
-  br label %108
+  br label %47
 
-.sink.split:                                      ; preds = %_ZN10duckdb_re213CycleFoldRuneEi.exit50, %93, %102
-  %.sink = phi ptr [ %100, %102 ], [ %94, %93 ], [ %33, %_ZN10duckdb_re213CycleFoldRuneEi.exit50 ]
-  %106 = tail call noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState10PushRegexpEPS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.sink)
-  br label %107
+.sink.split:                                      ; preds = %26, %32, %41
+  %.sink = phi ptr [ %39, %41 ], [ %33, %32 ], [ %8, %26 ]
+  %45 = tail call noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState10PushRegexpEPS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.sink)
+  br label %46
 
-107:                                              ; preds = %.sink.split, %97
+46:                                               ; preds = %.sink.split, %36
   ret i1 true
 
-108:                                              ; preds = %47, %49, %104, %95
-  %.sink90 = phi ptr [ %33, %47 ], [ %36, %49 ], [ %100, %104 ], [ %94, %95 ]
-  %.pn.pn = phi { ptr, i32 } [ %48, %47 ], [ %50, %49 ], [ %105, %104 ], [ %96, %95 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sink90) #30
+47:                                               ; preds = %22, %24, %43, %34
+  %.sink33 = phi ptr [ %8, %22 ], [ %11, %24 ], [ %39, %43 ], [ %33, %34 ]
+  %.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %25, %24 ], [ %44, %43 ], [ %35, %34 ]
+  tail call void @_ZdlPv(ptr noundef nonnull %.sink33) #30
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -4597,7 +4440,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 .lr.ph:                                           ; preds = %27
   %29 = load i32, ptr @_ZN10duckdb_re220num_unicode_casefoldE, align 4, !tbaa !3
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds %"struct.duckdb_re2::CaseFold", ptr @_ZN10duckdb_re216unicode_casefoldE, i64 %30
+  %.idx = mul nsw i64 %30, 12
+  %31 = getelementptr inbounds i8, ptr @_ZN10duckdb_re216unicode_casefoldE, i64 %.idx
   %32 = icmp sgt i32 %29, 0
   %33 = add nsw i32 %3, 1
   br i1 %32, label %.lr.ph.i.preheader, label %.thread
@@ -8549,7 +8393,8 @@ _ZNSt11_Deque_baseIN10duckdb_re29WalkStateIiEESaIS2_EE15_M_allocate_mapEm.exit: 
   %10 = sub nsw i64 %.sroa.speculated, %7
   %11 = lshr i64 %10, 1
   %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIN10duckdb_re29WalkStateIiEESaIS2_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIN10duckdb_re29WalkStateIiEESaIS2_EE16_M_allocate_nodeEv.exit.i

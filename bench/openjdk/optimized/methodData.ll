@@ -6449,18 +6449,18 @@ define hidden void @_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib(ptr
 
 .lr.ph24.preheader:                               ; preds = %23
   %25 = zext nneg i32 %2 to i64
-  %26 = sub nsw i64 0, %25
-  %27 = getelementptr i64, ptr %1, i64 %26
-  %28 = add i64 %5, 8
-  %29 = shl nuw nsw i64 %25, 3
-  %30 = sub i64 %28, %29
-  %umax = tail call i64 @llvm.umax.i64(i64 %5, i64 %30)
-  %31 = add i64 %umax, %29
-  %32 = xor i64 %5, -1
-  %33 = add i64 %31, %32
-  %34 = and i64 %33, -8
-  %35 = add i64 %34, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %27, i8 0, i64 %35, i1 false)
+  %.neg = mul nsw i64 %25, -8
+  %26 = getelementptr i8, ptr %1, i64 %.neg
+  %27 = add i64 %5, 8
+  %28 = shl nuw nsw i64 %25, 3
+  %29 = sub i64 %27, %28
+  %umax = tail call i64 @llvm.umax.i64(i64 %5, i64 %29)
+  %30 = add i64 %umax, %28
+  %31 = xor i64 %5, -1
+  %32 = add i64 %30, %31
+  %33 = and i64 %32, -8
+  %34 = add i64 %33, 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %26, i8 0, i64 %34, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %.lr.ph24.preheader, %23, %4
@@ -6489,10 +6489,10 @@ define hidden void @_ZN10MethodData16clean_extra_dataEP21CleanExtraDataClosure(p
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN10MethodData10next_extraEP10DataLayout.exit25
-  %.040 = phi ptr [ %78, %_ZN10MethodData10next_extraEP10DataLayout.exit25 ], [ %13, %.lr.ph.preheader ]
+  %.040 = phi ptr [ %77, %_ZN10MethodData10next_extraEP10DataLayout.exit25 ], [ %13, %.lr.ph.preheader ]
   %.01839 = phi i32 [ %.127, %_ZN10MethodData10next_extraEP10DataLayout.exit25 ], [ 0, %.lr.ph.preheader ]
   %14 = load i8, ptr %.040, align 8
-  switch i8 %14, label %69 [
+  switch i8 %14, label %68 [
     i8 13, label %15
     i8 1, label %48
     i8 0, label %55
@@ -6595,26 +6595,26 @@ _ZN10MethodData10next_extraEP10DataLayout.exit:   ; preds = %24, %24, %26
 .lr.ph24.preheader.i:                             ; preds = %55
   %57 = ptrtoint ptr %.040 to i64
   %58 = zext nneg i32 %.01839 to i64
-  %59 = sub nsw i64 0, %58
-  %60 = getelementptr i64, ptr %.040, i64 %59
-  %61 = add i64 %57, 8
-  %62 = shl nuw nsw i64 %58, 3
-  %63 = sub i64 %61, %62
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %57, i64 %63)
-  %64 = xor i64 %57, -1
-  %65 = add i64 %62, %64
-  %66 = add i64 %65, %umax.i
-  %67 = and i64 %66, -8
-  %68 = add i64 %67, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %60, i8 0, i64 %68, i1 false)
+  %.neg.i = mul nsw i64 %58, -8
+  %59 = getelementptr i8, ptr %.040, i64 %.neg.i
+  %60 = add i64 %57, 8
+  %61 = shl nuw nsw i64 %58, 3
+  %62 = sub i64 %60, %61
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %57, i64 %62)
+  %63 = xor i64 %57, -1
+  %64 = add i64 %61, %63
+  %65 = add i64 %64, %umax.i
+  %66 = and i64 %65, -8
+  %67 = add i64 %66, 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %59, i8 0, i64 %67, i1 false)
   br label %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit23
 
-69:                                               ; preds = %.lr.ph
-  %70 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %70, align 1
-  %71 = load i8, ptr %.040, align 8
-  %72 = zext i8 %71 to i32
-  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.5, i32 noundef 1790, ptr noundef nonnull @.str.6, i32 noundef %72) #21
+68:                                               ; preds = %.lr.ph
+  %69 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %69, align 1
+  %70 = load i8, ptr %.040, align 8
+  %71 = zext i8 %70 to i32
+  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.5, i32 noundef 1790, ptr noundef nonnull @.str.6, i32 noundef %71) #21
   unreachable
 
 _ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit: ; preds = %43
@@ -6624,29 +6624,29 @@ _ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit: ; preds 
 _ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit: ; preds = %.lr.ph.i19, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit, %32, %_ZN10MethodData10next_extraEP10DataLayout.exit
   %.pr = phi i8 [ %.pr.pre52, %32 ], [ %25, %_ZN10MethodData10next_extraEP10DataLayout.exit ], [ %.pr.pre, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit ], [ %54, %.lr.ph.i19 ]
   %.1.ph = phi i32 [ 0, %32 ], [ %31, %_ZN10MethodData10next_extraEP10DataLayout.exit ], [ %.01839, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit ], [ %.01839, %.lr.ph.i19 ]
-  switch i8 %.pr, label %74 [
+  switch i8 %.pr, label %73 [
     i8 1, label %_ZN10MethodData10next_extraEP10DataLayout.exit25
     i8 0, label %_ZN10MethodData10next_extraEP10DataLayout.exit25
-    i8 13, label %73
+    i8 13, label %72
   ]
 
-73:                                               ; preds = %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit
+72:                                               ; preds = %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit
   br label %_ZN10MethodData10next_extraEP10DataLayout.exit25
 
-74:                                               ; preds = %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit
-  %75 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %75, align 1
-  %76 = load i8, ptr %.040, align 8
-  %77 = zext i8 %76 to i32
-  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.5, i32 noundef 1414, ptr noundef nonnull @.str.6, i32 noundef %77) #21
+73:                                               ; preds = %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit
+  %74 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %74, align 1
+  %75 = load i8, ptr %.040, align 8
+  %76 = zext i8 %75 to i32
+  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.5, i32 noundef 1414, ptr noundef nonnull @.str.6, i32 noundef %76) #21
   unreachable
 
-_ZN10MethodData10next_extraEP10DataLayout.exit25: ; preds = %48, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit, %73
-  %.127 = phi i32 [ %.1.ph, %73 ], [ %.1.ph, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit ], [ %.1.ph, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit ], [ 0, %48 ]
-  %.0.i24 = phi i64 [ 16, %73 ], [ 8, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit ], [ 8, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit ], [ 8, %48 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.040, i64 %.0.i24
-  %79 = icmp ult ptr %78, %10
-  br i1 %79, label %.lr.ph, label %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit23, !llvm.loop !36
+_ZN10MethodData10next_extraEP10DataLayout.exit25: ; preds = %48, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit, %72
+  %.127 = phi i32 [ %.1.ph, %72 ], [ %.1.ph, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit ], [ %.1.ph, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit ], [ 0, %48 ]
+  %.0.i24 = phi i64 [ 16, %72 ], [ 8, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit ], [ 8, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit ], [ 8, %48 ]
+  %77 = getelementptr inbounds nuw i8, ptr %.040, i64 %.0.i24
+  %78 = icmp ult ptr %77, %10
+  br i1 %78, label %.lr.ph, label %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit23, !llvm.loop !36
 
 _ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit23: ; preds = %_ZN10MethodData10next_extraEP10DataLayout.exit25, %2, %.lr.ph24.preheader.i, %55
   ret void

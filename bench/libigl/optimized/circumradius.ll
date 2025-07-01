@@ -6530,7 +6530,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %_ZN5Eigen8internal20generic_product_implINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEESA_EENS_9TransposeISA_EENS_10DenseShapeESG_Li8EE6evalToIS9_EEvRT_RKSD_RKSF_.exit
 
 38:                                               ; preds = %27
-  %39 = mul i64 %28, %29
+  %39 = mul nsw i64 %28, %29
   %40 = icmp slt i64 %39, 1
   br i1 %40, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.i
 
@@ -16192,7 +16192,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %_ZN5Eigen8internal20generic_product_implINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEESA_EENS_9TransposeISA_EENS_10DenseShapeESG_Li8EE6evalToINS8_IdLin1ELin1ELi0ELin1ELin1EEEEEvRT_RKSD_RKSF_.exit
 
 49:                                               ; preds = %28
-  %50 = mul i64 %29, %30
+  %50 = mul nsw i64 %29, %30
   %51 = icmp slt i64 %50, 1
   br i1 %51, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.i
 
@@ -21076,7 +21076,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %_ZN5Eigen8internal20generic_product_implINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEEESA_EENS_9TransposeISA_EENS_10DenseShapeESG_Li8EE6evalToINS8_IdLin1ELin1ELi0ELin1ELin1EEEEEvRT_RKSD_RKSF_.exit
 
 46:                                               ; preds = %28
-  %47 = mul i64 %29, %30
+  %47 = mul nsw i64 %29, %30
   %48 = icmp slt i64 %47, 1
   br i1 %48, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKd.exit.loopexit.i.i
 

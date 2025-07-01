@@ -2301,12 +2301,13 @@ _ZN6icu_7715MaybeStackArrayIPvLi16EE6resizeEii.exit: ; preds = %21, %23
   %26 = phi i32 [ %.pre, %_ZN6icu_7715MaybeStackArrayIPvLi16EE6resizeEii.exit ], [ 16, %3 ]
   %27 = phi ptr [ %20, %_ZN6icu_7715MaybeStackArrayIPvLi16EE6resizeEii.exit ], [ %10, %3 ]
   %28 = sext i32 %7 to i64
-  %29 = getelementptr inbounds ptr, ptr %27, i64 %28
+  %.idx92 = shl nsw i64 %28, 3
+  %29 = getelementptr inbounds i8, ptr %27, i64 %.idx92
   %30 = icmp sgt i32 %9, %26
   br i1 %30, label %31, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %25
-  %.pre94 = load ptr, ptr %5, align 8, !tbaa !96
+  %.pre95 = load ptr, ptr %5, align 8, !tbaa !96
   br label %41
 
 31:                                               ; preds = %25
@@ -2340,9 +2341,10 @@ _ZN6icu_7715MaybeStackArrayIPvLi16EE6resizeEii.exit67: ; preds = %37, %39
   br label %41
 
 41:                                               ; preds = %._crit_edge, %_ZN6icu_7715MaybeStackArrayIPvLi16EE6resizeEii.exit67
-  %42 = phi ptr [ %.pre94, %._crit_edge ], [ %36, %_ZN6icu_7715MaybeStackArrayIPvLi16EE6resizeEii.exit67 ]
+  %42 = phi ptr [ %.pre95, %._crit_edge ], [ %36, %_ZN6icu_7715MaybeStackArrayIPvLi16EE6resizeEii.exit67 ]
   %43 = sext i32 %9 to i64
-  %44 = getelementptr inbounds ptr, ptr %42, i64 %43
+  %.idx = shl nsw i64 %43, 3
+  %44 = getelementptr inbounds i8, ptr %42, i64 %.idx
   %45 = invoke noundef ptr @_ZNK6icu_777UVector7toArrayEPPv(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %27)
           to label %46 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

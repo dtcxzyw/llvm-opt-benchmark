@@ -398,12 +398,12 @@ entry:
   %mul = shl i64 %0, 1
   %conv = uitofp i64 %mul to double
   %div = fdiv double %sub, %conv
-  %add = or disjoint i64 %mul, 1
   %1 = icmp ugt i64 %mul, 2305843009213693951
-  %2 = shl nuw i64 %add, 3
+  %add = shl i64 %0, 4
+  %2 = or disjoint i64 %add, 8
   %3 = select i1 %1, i64 -1, i64 %2
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #24
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %call.i, i64 %add
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry

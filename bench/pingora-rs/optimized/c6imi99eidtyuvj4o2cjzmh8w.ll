@@ -33,7 +33,8 @@ define void @_ZN14pingora_limits9estimator9Estimator5reset17hff7d6eee1fa5c102E(p
   %2 = load ptr, ptr %0, align 8, !nonnull !16, !align !17, !noundef !16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !16
-  %5 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} }, { i64, i64, i64, i64 } }, ptr %2, i64 %4
+  %.idx = mul nuw nsw i64 %4, 48
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %6 = icmp eq i64 %4, 0
   br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hf615cc2be1db8a6bE.exit", label %.lr.ph.i
 
@@ -43,7 +44,8 @@ define void @_ZN14pingora_limits9estimator9Estimator5reset17hff7d6eee1fa5c102E(p
   %.val.i = load ptr, ptr %.sroa.0.07.i, align 8, !nonnull !16, !align !17, !noundef !16
   %8 = getelementptr i8, ptr %.sroa.0.07.i, i64 8
   %.val3.i = load i64, ptr %8, align 8, !noundef !16
-  %9 = getelementptr inbounds nuw { i64 }, ptr %.val.i, i64 %.val3.i
+  %.idx.i.i = shl nuw nsw i64 %.val3.i, 3
+  %9 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i.i
   %10 = icmp eq i64 %.val3.i, 0
   br i1 %10, label %"_ZN14pingora_limits9estimator9Estimator5reset28_$u7b$$u7b$closure$u7d$$u7d$17h019bee0bde0696beE.exit.i", label %.lr.ph.i.i.i
 

@@ -17183,7 +17183,8 @@ define internal fastcc noundef i64 @_ZN10polars_row6decode34dtype_and_data_to_en
   %82 = load ptr, ptr %81, align 8, !nonnull !6, !noundef !6
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %84 = load i64, ptr %83, align 8, !noundef !6
-  %85 = getelementptr inbounds nuw { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] }, ptr %82, i64 %84
+  %.idx = mul nuw nsw i64 %84, 72
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx
   %86 = icmp eq i64 %84, 0
   br i1 %86, label %.loopexit, label %.lr.ph.preheader
 
@@ -17831,7 +17832,8 @@ common.resume:                                    ; preds = %184, %.body83, %.bo
   %204 = extractvalue { i64, i64 } %203, 0
   %205 = extractvalue { i64, i64 } %203, 1
   %206 = trunc nuw i64 %204 to i1
-  %207 = getelementptr inbounds nuw { ptr, i64 }, ptr %0, i64 %1
+  %.idx52.i = shl nuw nsw i64 %1, 4
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx52.i
   %208 = icmp eq i64 %1, 0
   br i1 %206, label %209, label %239
 
@@ -17839,9 +17841,9 @@ common.resume:                                    ; preds = %184, %.body83, %.bo
   br i1 %208, label %_ZN10polars_row6decode24rows_for_fixed_size_list17h1c3e75505b187d62E.exit, label %.lr.ph40.i
 
 .lr.ph40.i:                                       ; preds = %209
-  %.not52.i = icmp eq i64 %201, 0
+  %.not53.i = icmp eq i64 %201, 0
   %210 = mul i64 %205, %201
-  br i1 %.not52.i, label %.lr.ph40.split.i, label %.lr.ph.us.i
+  br i1 %.not53.i, label %.lr.ph40.split.i, label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph40.i, %213
   %.sroa.07.038.us.i = phi ptr [ %211, %213 ], [ %0, %.lr.ph40.i ]
@@ -17892,8 +17894,8 @@ common.resume:                                    ; preds = %184, %.body83, %.bo
   %235 = add i64 %228, 1
   store i64 %235, ptr %133, align 8, !alias.scope !1144, !noalias !1147
   %236 = add i64 %219, 1
-  %exitcond68.not.i = icmp eq i64 %219, %201
-  br i1 %exitcond68.not.i, label %._crit_edge.us.i, label %218
+  %exitcond69.not.i = icmp eq i64 %219, %201
+  br i1 %exitcond69.not.i, label %._crit_edge.us.i, label %218
 
 ._crit_edge.us.i:                                 ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbd84f179efedb956E.exit.us.i"
   %237 = load i64, ptr %212, align 8, !alias.scope !1135, !noalias !1143, !noundef !6
@@ -18269,7 +18271,8 @@ _ZN10polars_row6decode24rows_for_fixed_size_list17h1c3e75505b187d62E.exit: ; pre
 
 357:                                              ; preds = %354
   store i8 %356, ptr %78, align 1
-  %358 = getelementptr inbounds nuw { ptr, i64 }, ptr %0, i64 %1
+  %.idx = shl nuw nsw i64 %1, 4
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %359 = icmp eq i64 %1, 0
   br i1 %359, label %._crit_edge343, label %.lr.ph342
 

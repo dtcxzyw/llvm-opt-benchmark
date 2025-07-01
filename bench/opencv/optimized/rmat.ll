@@ -392,60 +392,65 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.critedge
   %30 = getelementptr inbounds nuw i64, ptr %29, i64 %25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8, !tbaa !46
-  %32 = shl i64 %24, 1
-  %33 = and i64 %32, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %29, i8 0, i64 %33, i1 false), !tbaa !35
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %30, ptr %34, align 8, !tbaa !44
+  %32 = shl i64 %22, 1
+  %33 = add i64 %32, -8
+  %34 = shl i64 %23, 1
+  %35 = sub i64 %33, %34
+  %36 = and i64 %35, -8
+  %37 = add i64 %36, 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %29, i8 0, i64 %37, i1 false), !tbaa !35
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 %28
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %38, ptr %39, align 8, !tbaa !44
   %.val = load i32, ptr %1, align 8, !tbaa !50
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.val29 = load i32, ptr %35, align 4, !tbaa !51
-  %36 = icmp eq i32 %.val29, -1
-  %37 = add i32 %.val29, 511
-  %38 = and i32 %37, 511
-  %39 = add nuw nsw i32 %38, 1
-  %40 = select i1 %36, i32 1, i32 %39
-  %41 = shl i32 %.val, 2
-  %42 = and i32 %41, 28
-  %43 = lshr i32 675553809, %42
-  %44 = and i32 %43, 15
-  %45 = mul nuw nsw i32 %40, %44
-  %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds i8, ptr %30, i64 -8
-  store i64 %46, ptr %47, align 8, !tbaa !35
-  %48 = trunc i64 %25 to i32
-  %49 = icmp sgt i32 %48, 1
-  br i1 %49, label %.lr.ph, label %_ZNSt6vectorIiSaIiEED2Ev.exit36
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.val29 = load i32, ptr %40, align 4, !tbaa !51
+  %41 = icmp eq i32 %.val29, -1
+  %42 = add i32 %.val29, 511
+  %43 = and i32 %42, 511
+  %44 = add nuw nsw i32 %43, 1
+  %45 = select i1 %41, i32 1, i32 %44
+  %46 = shl i32 %.val, 2
+  %47 = and i32 %46, 28
+  %48 = lshr i32 675553809, %47
+  %49 = and i32 %48, 15
+  %50 = mul nuw nsw i32 %45, %49
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr inbounds i8, ptr %38, i64 -8
+  store i64 %51, ptr %52, align 8, !tbaa !35
+  %53 = trunc i64 %25 to i32
+  %54 = icmp sgt i32 %53, 1
+  br i1 %54, label %.lr.ph, label %_ZNSt6vectorIiSaIiEED2Ev.exit36
 
 .lr.ph:                                           ; preds = %.noexc34
-  %50 = add nuw nsw i64 %25, 4294967294
-  %51 = and i64 %50, 4294967295
-  %52 = shl nuw nsw i64 %51, 3
-  %53 = getelementptr i8, ptr %29, i64 %52
-  %scevgep = getelementptr i8, ptr %53, i64 8
+  %55 = add nuw nsw i64 %25, 4294967294
+  %56 = and i64 %55, 4294967295
+  %57 = shl nuw nsw i64 %56, 3
+  %58 = getelementptr i8, ptr %29, i64 %57
+  %scevgep = getelementptr i8, ptr %58, i64 8
   %load_initial = load i64, ptr %scevgep, align 8
-  br label %55
+  br label %60
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i, %27
-  %54 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.039.052) #18
-  resume { ptr, i32 } %54
+  resume { ptr, i32 } %59
 
-55:                                               ; preds = %.lr.ph, %55
-  %store_forwarded = phi i64 [ %load_initial, %.lr.ph ], [ %59, %55 ]
-  %indvars.iv = phi i64 [ %51, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %56 = getelementptr inbounds nuw i32, ptr %.sroa.039.052, i64 %indvars.iv
-  %57 = load i32, ptr %56, align 4, !tbaa !52
-  %58 = sext i32 %57 to i64
-  %59 = mul i64 %store_forwarded, %58
-  %60 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
-  store i64 %59, ptr %60, align 8, !tbaa !35
+60:                                               ; preds = %.lr.ph, %60
+  %store_forwarded = phi i64 [ %load_initial, %.lr.ph ], [ %64, %60 ]
+  %indvars.iv = phi i64 [ %56, %.lr.ph ], [ %indvars.iv.next, %60 ]
+  %61 = getelementptr inbounds nuw i32, ptr %.sroa.039.052, i64 %indvars.iv
+  %62 = load i32, ptr %61, align 4, !tbaa !52
+  %63 = sext i32 %62 to i64
+  %64 = mul i64 %store_forwarded, %63
+  %65 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
+  store i64 %64, ptr %65, align 8, !tbaa !35
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit36, label %55, !llvm.loop !53
+  br i1 %.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit36, label %60, !llvm.loop !53
 
-_ZNSt6vectorIiSaIiEED2Ev.exit36:                  ; preds = %55, %.noexc34
+_ZNSt6vectorIiSaIiEED2Ev.exit36:                  ; preds = %60, %.noexc34
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.039.052) #18
   ret void
 }

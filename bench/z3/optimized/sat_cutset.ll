@@ -392,7 +392,8 @@ define hidden void @_ZN3sat7cut_set9push_backERSt8functionIFvjRKNS_3cutEEES4_(pt
   %45 = load ptr, ptr %5, align 8, !tbaa !11
   %46 = load i32, ptr %25, align 8, !tbaa !3
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"class.sat::cut", ptr %45, i64 %47
+  %.idx = mul nuw nsw i64 %47, 48
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx
   %.not9.i.i.i = icmp eq i32 %46, 0
   br i1 %.not9.i.i.i, label %_ZSt18uninitialized_copyIPN3sat3cutES2_ET0_T_S4_S3_.exit, label %.lr.ph.i.i.i
 
@@ -529,7 +530,8 @@ _ZN9hashtableIPKN3sat3cutENS1_9hash_procENS1_7eq_procEEC2EjRKS4_RKS5_.exit: ; pr
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !3
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"class.sat::cut", ptr %13, i64 %16
+  %.idx = mul nuw nsw i64 %16, 48
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %.not15 = icmp eq i32 %15, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -646,7 +648,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI18default_hash_entryIPKN3sa
   %19 = and i32 %18, %17
   %20 = load ptr, ptr %0, align 8, !tbaa !37
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %class.default_hash_entry, ptr %20, i64 %21
+  %.idx = shl nuw nsw i64 %21, 4
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %23 = zext i32 %15 to i64
   %24 = getelementptr inbounds nuw %class.default_hash_entry, ptr %20, i64 %23
   %.not88 = icmp eq i32 %19, %15
@@ -911,7 +914,8 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat7cut_set7d
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !3
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.sat::cut", ptr %4, i64 %7
+  %.idx = mul nuw nsw i64 %7, 48
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -5555,7 +5559,8 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI18default_hash_entr
   %8 = and i32 %7, %4
   %9 = load ptr, ptr %0, align 8, !tbaa !37
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw %class.default_hash_entry, ptr %9, i64 %10
+  %.idx = shl nuw nsw i64 %10, 4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   %12 = zext i32 %6 to i64
   %13 = getelementptr inbounds nuw %class.default_hash_entry, ptr %9, i64 %12
   %.not47 = icmp eq i32 %8, %6
@@ -5751,7 +5756,8 @@ _ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_pro
   %12 = load i32, ptr %2, align 8, !tbaa !40
   %13 = add i32 %4, -1
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %class.default_hash_entry, ptr %11, i64 %14
+  %.idx.i = shl nuw nsw i64 %14, 4
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   %16 = getelementptr inbounds nuw %class.default_hash_entry, ptr %7, i64 %5
   %.not38.i = icmp eq i32 %12, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE10move_tableEPS5_jS9_j.exit, label %.lr.ph41.i
@@ -5767,7 +5773,8 @@ _ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_pro
   %21 = load i32, ptr %.02839.i, align 8, !tbaa !32
   %22 = and i32 %21, %13
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %class.default_hash_entry, ptr %7, i64 %23
+  %.idx43.i = shl nuw nsw i64 %23, 4
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx43.i
   %.not2933.i = icmp eq i32 %22, %4
   br i1 %.not2933.i, label %.preheader.i, label %.lr.ph.i
 

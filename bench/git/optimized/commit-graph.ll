@@ -8402,7 +8402,8 @@ define internal noundef i32 @write_graph_chunk_data(ptr noundef %0, ptr noundef 
   %10 = load ptr, ptr %9, align 8, !tbaa !224
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %12 = load i64, ptr %11, align 8, !tbaa !222
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
+  %.idx = shl nuw nsw i64 %12, 3
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %.not156 = icmp eq i64 %12, 0
   br i1 %.not156, label %._crit_edge, label %.lr.ph
 
@@ -8927,7 +8928,8 @@ define internal noundef i32 @write_graph_chunk_extra_edges(ptr noundef %0, ptr n
   %6 = load ptr, ptr %5, align 8, !tbaa !224
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = load i64, ptr %7, align 8, !tbaa !222
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %.idx = shl nuw nsw i64 %8, 3
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %.not73 = icmp eq i64 %8, 0
   br i1 %.not73, label %._crit_edge72, label %.lr.ph71
 
@@ -9102,7 +9104,8 @@ define internal noundef i32 @write_graph_chunk_bloom_indexes(ptr noundef %0, ptr
   %5 = load ptr, ptr %4, align 8, !tbaa !224
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = load i64, ptr %6, align 8, !tbaa !222
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %.not20 = icmp eq i64 %7, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
@@ -9158,7 +9161,8 @@ hashwrite_be32.exit:
   %7 = load ptr, ptr %6, align 8, !tbaa !224
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %9 = load i64, ptr %8, align 8, !tbaa !222
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %.idx = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) @__const.trace2_bloom_filter_settings.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %5, i32 noundef 0) #24

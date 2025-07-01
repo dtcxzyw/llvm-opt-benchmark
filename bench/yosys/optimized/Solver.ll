@@ -1857,7 +1857,8 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %62 = load i32, ptr %61, align 8, !tbaa !115
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds %"struct.Minisat::Solver::Watcher", ptr %60, i64 %63
+  %.idx = shl nsw i64 %63, 3
+  %64 = getelementptr inbounds i8, ptr %60, i64 %.idx
   %.not133 = icmp eq i32 %62, 0
   br i1 %.not133, label %._crit_edge138, label %.lr.ph137
 

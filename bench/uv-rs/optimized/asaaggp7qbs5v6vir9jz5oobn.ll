@@ -7052,7 +7052,8 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %4
   %93 = load ptr, ptr %92, align 8, !nonnull !3, !noundef !3
   %94 = getelementptr inbounds i8, ptr %88, i64 -8
   %95 = load i64, ptr %94, align 8, !noundef !3
-  %96 = getelementptr inbounds { { i64, [2 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, { { { { ptr, i64 } }, {} }, {} }, { ptr, [1 x i64] } }, ptr %93, i64 %95
+  %.idx = mul nsw i64 %95, 80
+  %96 = getelementptr inbounds i8, ptr %93, i64 %.idx
   %97 = icmp eq i64 %95, 0
   br i1 %97, label %.loopexit368, label %.lr.ph.i
 

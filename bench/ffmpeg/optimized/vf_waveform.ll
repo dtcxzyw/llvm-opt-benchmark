@@ -4362,6 +4362,7 @@ define internal noundef i32 @lowpass16_row_mirror(ptr noundef readonly captures(
   %89 = shl i32 %40, %36
   %90 = sext i32 %89 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %72, i32 1)
+  %.idx = shl nsw i64 %86, 1
   %91 = icmp slt i32 %66, 0
   br label %92
 
@@ -4369,7 +4370,7 @@ define internal noundef i32 @lowpass16_row_mirror(ptr noundef readonly captures(
   %.0221.i19 = phi ptr [ %85, %.lr.ph21 ], [ %109, %._crit_edge ]
   %.1.i18 = phi ptr [ %80, %.lr.ph21 ], [ %110, %._crit_edge ]
   %.0224.i17 = phi i32 [ %51, %.lr.ph21 ], [ %111, %._crit_edge ]
-  %93 = getelementptr inbounds i16, ptr %.0221.i19, i64 %86
+  %93 = getelementptr inbounds i8, ptr %.0221.i19, i64 %.idx
   br i1 %91, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %92, %106
@@ -4913,6 +4914,7 @@ define internal noundef i32 @lowpass16_row(ptr noundef readonly captures(none) %
   %85 = shl i32 %40, %36
   %86 = sext i32 %85 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %72, i32 1)
+  %.idx = shl nsw i64 %82, 1
   %87 = icmp slt i32 %66, 0
   br label %88
 
@@ -4920,7 +4922,7 @@ define internal noundef i32 @lowpass16_row(ptr noundef readonly captures(none) %
   %.0221.i19 = phi ptr [ %81, %.lr.ph21 ], [ %103, %._crit_edge ]
   %.1.i18 = phi ptr [ %76, %.lr.ph21 ], [ %104, %._crit_edge ]
   %.0224.i17 = phi i32 [ %51, %.lr.ph21 ], [ %105, %._crit_edge ]
-  %89 = getelementptr inbounds i16, ptr %.0221.i19, i64 %82
+  %89 = getelementptr inbounds i8, ptr %.0221.i19, i64 %.idx
   br i1 %87, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %88, %100

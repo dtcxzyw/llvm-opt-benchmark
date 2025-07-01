@@ -7,9 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::atomic.32" = type { %"struct.std::__atomic_base.33" }
 %"struct.std::__atomic_base.33" = type { i8 }
 %class.anon = type { ptr, ptr, ptr }
-%"struct.google::protobuf::internal::ExtensionSet::KeyValue" = type { i32, %"struct.google::protobuf::internal::ExtensionSet::Extension" }
-%"struct.google::protobuf::internal::ExtensionSet::Extension" = type { %union.anon, i8, i8, i8, i8, i32, ptr }
-%union.anon = type { i64 }
 %class.anon.24 = type { ptr, ptr }
 %"class.google::protobuf::internal::LogMessage" = type { i32, ptr, i32, %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.3 }
@@ -235,7 +232,8 @@ define hidden void @_ZNK6google8protobuf8internal12ExtensionSet12AppendToListEPK
 
 19:                                               ; preds = %4
   %20 = zext nneg i16 %.val to i64
-  %21 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.val3, i64 %20
+  %.idx.i = shl nuw nsw i64 %20, 5
+  %21 = getelementptr inbounds nuw i8, ptr %.val3, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !34
   store ptr %1, ptr %5, align 8, !noalias !34
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3213,7 +3211,7 @@ define hidden noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet22SpaceUse
   %18 = shl nuw nsw i64 %17, 5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val2.i = load ptr, ptr %19, align 8
-  %20 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.val2.i, i64 %17
+  %20 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 %18
   %.not6.i.i.i = icmp eq i16 %4, 0
   br i1 %.not6.i.i.i, label %_ZNK6google8protobuf8internal12ExtensionSet26SpaceUsedExcludingSelfLongEv.exit, label %.lr.ph.i.i.i
 
@@ -3262,7 +3260,7 @@ define hidden noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet26SpaceUse
   %18 = shl nuw nsw i64 %17, 5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val2 = load ptr, ptr %19, align 8
-  %20 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.val2, i64 %17
+  %20 = getelementptr inbounds nuw i8, ptr %.val2, i64 %18
   %.not6.i.i = icmp eq i16 %4, 0
   br i1 %.not6.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET_S5_.exit", label %.lr.ph.i.i
 

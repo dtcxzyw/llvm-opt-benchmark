@@ -391,12 +391,13 @@ do.end:                                           ; preds = %entry
   %25 = load ptr, ptr %values_.i, align 8, !tbaa !30
   %n_.i.i = getelementptr inbounds nuw i8, ptr %path, i64 80
   %26 = load i64, ptr %n_.i.i, align 8, !tbaa !31
+  %add.ptr.i.i.idx = shl nuw nsw i64 %26, 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %25, i64 %add.ptr.i.i.idx
+  %runningSum_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %27 = load double, ptr %runningSum_, align 8, !tbaa !24
   br i1 %cmp29, label %if.then30, label %if.else
 
 if.then30:                                        ; preds = %do.end
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %25, i64 %26
-  %runningSum_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %27 = load double, ptr %runningSum_, align 8, !tbaa !24
   %cmp.not4.i = icmp eq i64 %26, 0
   br i1 %cmp.not4.i, label %_ZSt10accumulateIPKddET0_T_S3_S2_.exit, label %for.body.i
 
@@ -417,10 +418,6 @@ _ZSt10accumulateIPKddET0_T_S3_S2_.exit:           ; preds = %for.body.i, %if.the
   br label %invoke.cont45
 
 if.else:                                          ; preds = %do.end
-  %add.ptr.i.i34.idx = shl nuw nsw i64 %26, 3
-  %add.ptr.i.i34 = getelementptr inbounds nuw i8, ptr %25, i64 %add.ptr.i.i34.idx
-  %runningSum_36 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %30 = load double, ptr %runningSum_36, align 8, !tbaa !24
   %cmp.not4.i35 = icmp eq i64 %26, 1
   br i1 %cmp.not4.i35, label %_ZSt10accumulateIPKddET0_T_S3_S2_.exit43, label %for.body.i36.preheader
 
@@ -429,20 +426,20 @@ for.body.i36.preheader:                           ; preds = %if.else
   br label %for.body.i36
 
 for.body.i36:                                     ; preds = %for.body.i36.preheader, %for.body.i36
-  %__init.addr.06.i37 = phi double [ %add.i39, %for.body.i36 ], [ %30, %for.body.i36.preheader ]
+  %__init.addr.06.i37 = phi double [ %add.i39, %for.body.i36 ], [ %27, %for.body.i36.preheader ]
   %__first.addr.05.i38 = phi ptr [ %incdec.ptr.i40, %for.body.i36 ], [ %add.ptr, %for.body.i36.preheader ]
-  %31 = load double, ptr %__first.addr.05.i38, align 8, !tbaa !29
-  %add.i39 = fadd double %__init.addr.06.i37, %31
+  %30 = load double, ptr %__first.addr.05.i38, align 8, !tbaa !29
+  %add.i39 = fadd double %__init.addr.06.i37, %30
   %incdec.ptr.i40 = getelementptr inbounds nuw i8, ptr %__first.addr.05.i38, i64 8
-  %cmp.not.i41 = icmp eq ptr %incdec.ptr.i40, %add.ptr.i.i34
+  %cmp.not.i41 = icmp eq ptr %incdec.ptr.i40, %add.ptr.i.i
   br i1 %cmp.not.i41, label %_ZSt10accumulateIPKddET0_T_S3_S2_.exit43, label %for.body.i36, !llvm.loop !39
 
 _ZSt10accumulateIPKddET0_T_S3_S2_.exit43:         ; preds = %for.body.i36, %if.else
-  %__init.addr.0.lcssa.i42 = phi double [ %30, %if.else ], [ %add.i39, %for.body.i36 ]
+  %__init.addr.0.lcssa.i42 = phi double [ %27, %if.else ], [ %add.i39, %for.body.i36 ]
   %pastFixings_38 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %32 = load i64, ptr %pastFixings_38, align 8, !tbaa !25
+  %31 = load i64, ptr %pastFixings_38, align 8, !tbaa !25
   %add39 = add nsw i64 %sub.ptr.div.i.i.i, -1
-  %sub = add i64 %add39, %32
+  %sub = add i64 %add39, %31
   br label %invoke.cont45
 
 invoke.cont45:                                    ; preds = %_ZSt10accumulateIPKddET0_T_S3_S2_.exit, %_ZSt10accumulateIPKddET0_T_S3_S2_.exit43
@@ -451,20 +448,20 @@ invoke.cont45:                                    ; preds = %_ZSt10accumulateIPK
   %conv = uitofp i64 %add.sink to double
   %div = fdiv double %__init.addr.0.lcssa.i.sink, %conv
   %discount_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %33 = load double, ptr %discount_, align 8, !tbaa !23
+  %32 = load double, ptr %discount_, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp43) #15
   %type_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %34 = load i32, ptr %type_, align 8, !tbaa !18
+  %33 = load i32, ptr %type_, align 8, !tbaa !18
   %type_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp43, i64 8
-  store i32 %34, ptr %type_.i.i.i, align 8, !tbaa !41
+  store i32 %33, ptr %type_.i.i.i, align 8, !tbaa !41
   %strike_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp43, i64 16
   store double %div, ptr %strike_.i.i, align 8, !tbaa !44
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %ref.tmp43, align 8, !tbaa !14
-  %35 = getelementptr double, ptr %25, i64 %26
-  %arrayidx.i.i = getelementptr i8, ptr %35, i64 -8
-  %36 = load double, ptr %arrayidx.i.i, align 8, !tbaa !29
-  %call48 = call noundef double @_ZNK8QuantLib18PlainVanillaPayoffclEd(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp43, double noundef %36)
-  %mul = fmul double %33, %call48
+  %34 = getelementptr double, ptr %25, i64 %26
+  %arrayidx.i.i = getelementptr i8, ptr %34, i64 -8
+  %35 = load double, ptr %arrayidx.i.i, align 8, !tbaa !29
+  %call48 = call noundef double @_ZNK8QuantLib18PlainVanillaPayoffclEd(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp43, double noundef %35)
+  %mul = fmul double %32, %call48
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp43) #15
   ret double %mul
 

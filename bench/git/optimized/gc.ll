@@ -3084,7 +3084,8 @@ get_maintpath.exit:                               ; preds = %4, %16
 .lr.ph:                                           ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !62
-  %37 = getelementptr inbounds nuw %struct.string_list_item, ptr %34, i64 %36
+  %.idx = shl nuw nsw i64 %36, 4
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
   %.not37 = icmp eq i64 %36, 0
   br i1 %.not37, label %.critedge28, label %.lr.ph36
 
@@ -3241,7 +3242,8 @@ get_maintpath.exit:                               ; preds = %4, %28
 .lr.ph:                                           ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !62
-  %49 = getelementptr inbounds nuw %struct.string_list_item, ptr %46, i64 %48
+  %.idx = shl nuw nsw i64 %48, 4
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %.not48 = icmp eq i64 %48, 0
   br i1 %.not48, label %.critedge37, label %.lr.ph47
 

@@ -469,7 +469,8 @@ _ZL23isMatchingStartStopPairPKN4llvm12MachineInstrES2_.exit.thread9.i: ; preds =
   %105 = load ptr, ptr %3, align 8, !tbaa !333
   %106 = load i32, ptr %16, align 8, !tbaa !334
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw ptr, ptr %105, i64 %107
+  %.idx.i = shl nuw nsw i64 %107, 3
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx.i
   %.not4012.i = icmp eq i32 %106, 0
   br i1 %.not4012.i, label %._crit_edge.i, label %.lr.ph.i
 

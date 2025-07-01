@@ -3548,7 +3548,8 @@ define void @"_ZN81_$LT$test_utils..assert_linear..AssertLinear$u20$as$u20$core.
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, ptr %11, i64 %6
+  %.idx = mul nsw i64 %6, 56
+  %12 = getelementptr inbounds i8, ptr %11, i64 %.idx
   br label %13
 
 13:                                               ; preds = %21, %9

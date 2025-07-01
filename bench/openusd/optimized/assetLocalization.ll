@@ -7267,7 +7267,8 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_12S
 .lr.ph:                                           ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_12SdfAssetPathEEEEERKT_v.exit
   %193 = getelementptr inbounds nuw i8, ptr %.0.i.i95, i64 32
   %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %194, i64 %191
+  %.idx = shl nsw i64 %191, 6
+  %195 = getelementptr inbounds i8, ptr %194, i64 %.idx
   %196 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %197 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %198 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -13113,7 +13114,8 @@ _ZNSt11_Deque_baseIN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_11SdfPrimSp
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_11SdfPrimSpecEEESaIS3_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_11SdfPrimSpecEEESaIS3_EE16_M_allocate_nodeEv.exit.i

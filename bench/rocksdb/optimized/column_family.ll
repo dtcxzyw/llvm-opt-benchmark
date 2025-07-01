@@ -267,11 +267,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.198" = type { %"struct.std::_Tuple_impl.199" }
 %"struct.std::_Tuple_impl.199" = type { %"struct.std::_Head_base.202" }
 %"struct.std::_Head_base.202" = type { ptr }
-%"struct.rocksdb::CacheAlignedWrapper" = type { %"class.rocksdb::port::Mutex", [24 x i8] }
-%"class.rocksdb::port::Mutex" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::shared_ptr<rocksdb::FSDirectory>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::shared_ptr<rocksdb::FSDirectory>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
 %"struct.std::_Hashtable<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, unsigned int>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, unsigned int>>, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char>>, std::hash<string>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
 
@@ -24356,7 +24351,7 @@ declare void @_ZN7rocksdb10TableCacheD1Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNKSt14default_deleteIN7rocksdb13BlobFileCacheEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %41, label %4
+  br i1 %3, label %40, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -24418,11 +24413,12 @@ _ZNSt12__shared_ptrIN7rocksdb8IOTracerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
   %31 = getelementptr inbounds i8, ptr %29, i64 -64
   %32 = getelementptr inbounds i8, ptr %29, i64 -8
   %33 = load i64, ptr %32, align 8
+  %.idx.i.i.i.i = shl i64 %33, 6
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %_ZNKSt14default_deleteIA_N7rocksdb19CacheAlignedWrapperINS0_4port5MutexEEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i.i.i, label %.preheader.preheader.i.i.i.i
 
 .preheader.preheader.i.i.i.i:                     ; preds = %30
-  %35 = getelementptr inbounds %"struct.rocksdb::CacheAlignedWrapper", ptr %29, i64 %33
+  %35 = getelementptr inbounds i8, ptr %29, i64 %.idx.i.i.i.i
   br label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %.preheader.i.i.i.i, %.preheader.preheader.i.i.i.i
@@ -24433,16 +24429,15 @@ _ZNSt12__shared_ptrIN7rocksdb8IOTracerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
   br i1 %38, label %_ZNKSt14default_deleteIA_N7rocksdb19CacheAlignedWrapperINS0_4port5MutexEEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i.i.i, label %.preheader.i.i.i.i
 
 _ZNKSt14default_deleteIA_N7rocksdb19CacheAlignedWrapperINS0_4port5MutexEEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i.i.i: ; preds = %.preheader.i.i.i.i, %30
-  %39 = shl i64 %33, 6
-  %40 = add i64 %39, 64
-  tail call void @_ZdaPvmSt11align_val_t(ptr noundef nonnull %31, i64 noundef %40, i64 noundef 64) #37
+  %39 = add i64 %.idx.i.i.i.i, 64
+  tail call void @_ZdaPvmSt11align_val_t(ptr noundef nonnull %31, i64 noundef %39, i64 noundef 64) #37
   br label %_ZN7rocksdb13BlobFileCacheD2Ev.exit
 
 _ZN7rocksdb13BlobFileCacheD2Ev.exit:              ; preds = %_ZNSt12__shared_ptrIN7rocksdb8IOTracerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %_ZNKSt14default_deleteIA_N7rocksdb19CacheAlignedWrapperINS0_4port5MutexEEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 80) #37
-  br label %41
+  br label %40
 
-41:                                               ; preds = %_ZN7rocksdb13BlobFileCacheD2Ev.exit, %2
+40:                                               ; preds = %_ZN7rocksdb13BlobFileCacheD2Ev.exit, %2
   ret void
 }
 

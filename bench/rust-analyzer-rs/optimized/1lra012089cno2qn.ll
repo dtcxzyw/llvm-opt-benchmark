@@ -102461,7 +102461,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds ptr, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 3
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h2836fc43f5d6afb9E.exit, label %.lr.ph.i
 
@@ -116718,18 +116719,19 @@ define noundef range(i8 0, 3) i8 @_ZN13rust_analyzer3lsp3ext19negotiated_encodin
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %..val2.i = load i64, ptr %9, align 8, !alias.scope !32796
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %..val.i = load ptr, ptr %10, align 8, !alias.scope !32796, !nonnull !4
-  %11 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %..val.i, i64 %..val2.i
-  %12 = icmp eq i64 %..val2.i, 0
-  br i1 %12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8df72d9d5b4cc9fbE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8df72d9d5b4cc9fbE.exit"
+  %10 = mul nsw i64 %..val2.i, 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %..val.i = load ptr, ptr %11, align 8, !alias.scope !32796, !nonnull !4
+  %12 = getelementptr inbounds i8, ptr %..val.i, i64 %10
+  %13 = icmp eq i64 %..val2.i, 0
+  br i1 %13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8df72d9d5b4cc9fbE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8df72d9d5b4cc9fbE.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8df72d9d5b4cc9fbE.exit": ; preds = %8, %"_ZN4core3ptr52drop_in_place$LT$lsp_types..PositionEncodingKind$GT$17h33c9c0e154ebfbfaE.exit29"
-  %.sroa.0.037 = phi ptr [ %13, %"_ZN4core3ptr52drop_in_place$LT$lsp_types..PositionEncodingKind$GT$17h33c9c0e154ebfbfaE.exit29" ], [ %..val.i, %8 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.037, i64 24
-  %14 = getelementptr i8, ptr %.sroa.0.037, i64 8
-  %15 = getelementptr i8, ptr %.sroa.0.037, i64 16
-  %.val17 = load i64, ptr %15, align 8, !alias.scope !32799, !noundef !4
+  %.sroa.0.037 = phi ptr [ %14, %"_ZN4core3ptr52drop_in_place$LT$lsp_types..PositionEncodingKind$GT$17h33c9c0e154ebfbfaE.exit29" ], [ %..val.i, %8 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.037, i64 24
+  %15 = getelementptr i8, ptr %.sroa.0.037, i64 8
+  %16 = getelementptr i8, ptr %.sroa.0.037, i64 16
+  %.val17 = load i64, ptr %16, align 8, !alias.scope !32799, !noundef !4
   switch i64 %.val17, label %"_ZN4core3ptr52drop_in_place$LT$lsp_types..PositionEncodingKind$GT$17h33c9c0e154ebfbfaE.exit29" [
     i64 5, label %"_ZN72_$LT$lsp_types..PositionEncodingKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h90c6f1e0cd5d736bE.exit"
     i64 6, label %"_ZN72_$LT$lsp_types..PositionEncodingKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h90c6f1e0cd5d736bE.exit23"
@@ -116740,20 +116742,20 @@ define noundef range(i8 0, 3) i8 @_ZN13rust_analyzer3lsp3ext19negotiated_encodin
   ret i8 %.0
 
 "_ZN72_$LT$lsp_types..PositionEncodingKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h90c6f1e0cd5d736bE.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8df72d9d5b4cc9fbE.exit"
-  %.val16 = load ptr, ptr %14, align 8, !alias.scope !32799, !nonnull !4, !noundef !4
+  %.val16 = load ptr, ptr %15, align 8, !alias.scope !32799, !nonnull !4, !noundef !4
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(5) %.val16, ptr noundef nonnull readonly align 1 dereferenceable(5) @anon.f7bd9adacdb4a38fd25728b120fa581c.211, i64 5), !alias.scope !32802
-  %16 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8df72d9d5b4cc9fbE.exit.thread", label %"_ZN4core3ptr52drop_in_place$LT$lsp_types..PositionEncodingKind$GT$17h33c9c0e154ebfbfaE.exit29"
-
-"_ZN72_$LT$lsp_types..PositionEncodingKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h90c6f1e0cd5d736bE.exit23": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8df72d9d5b4cc9fbE.exit"
-  %.val = load ptr, ptr %14, align 8, !alias.scope !32799, !nonnull !4, !noundef !4
-  %bcmp.i.i22 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(6) %.val, ptr noundef nonnull readonly align 1 dereferenceable(6) @anon.f7bd9adacdb4a38fd25728b120fa581c.213, i64 6), !alias.scope !32806
-  %17 = icmp eq i32 %bcmp.i.i22, 0
+  %17 = icmp eq i32 %bcmp.i.i, 0
   br i1 %17, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8df72d9d5b4cc9fbE.exit.thread", label %"_ZN4core3ptr52drop_in_place$LT$lsp_types..PositionEncodingKind$GT$17h33c9c0e154ebfbfaE.exit29"
 
+"_ZN72_$LT$lsp_types..PositionEncodingKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h90c6f1e0cd5d736bE.exit23": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8df72d9d5b4cc9fbE.exit"
+  %.val = load ptr, ptr %15, align 8, !alias.scope !32799, !nonnull !4, !noundef !4
+  %bcmp.i.i22 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(6) %.val, ptr noundef nonnull readonly align 1 dereferenceable(6) @anon.f7bd9adacdb4a38fd25728b120fa581c.213, i64 6), !alias.scope !32806
+  %18 = icmp eq i32 %bcmp.i.i22, 0
+  br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8df72d9d5b4cc9fbE.exit.thread", label %"_ZN4core3ptr52drop_in_place$LT$lsp_types..PositionEncodingKind$GT$17h33c9c0e154ebfbfaE.exit29"
+
 "_ZN4core3ptr52drop_in_place$LT$lsp_types..PositionEncodingKind$GT$17h33c9c0e154ebfbfaE.exit29": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8df72d9d5b4cc9fbE.exit", %"_ZN72_$LT$lsp_types..PositionEncodingKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h90c6f1e0cd5d736bE.exit", %"_ZN72_$LT$lsp_types..PositionEncodingKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h90c6f1e0cd5d736bE.exit23"
-  %18 = icmp eq ptr %13, %11
-  br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8df72d9d5b4cc9fbE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8df72d9d5b4cc9fbE.exit"
+  %19 = icmp eq ptr %14, %12
+  br i1 %19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8df72d9d5b4cc9fbE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8df72d9d5b4cc9fbE.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable

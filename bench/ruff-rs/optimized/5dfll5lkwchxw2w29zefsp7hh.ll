@@ -5476,7 +5476,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h2205a8f474bf2811E.exit: ; preds =
   %120 = shl i64 %.sroa.0.0.sroa.speculated.i.i, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %120, i1 false), !alias.scope !1073
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1073
-  %121 = getelementptr inbounds nuw { { i64, [4 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, ptr }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 %120
   store ptr %2, ptr %7, align 8, !noalias !1073
   store ptr %121, ptr %21, align 8, !noalias !1073
   store ptr %.16.i, ptr %22, align 8, !noalias !1073
@@ -5883,7 +5883,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h7b7b58f75356fb55E.exit: ; preds =
   %122 = shl i64 %.sroa.0.0.sroa.speculated.i.i, 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %122, i1 false), !alias.scope !1121
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1121
-  %123 = getelementptr inbounds nuw { ptr, ptr }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i
+  %123 = getelementptr inbounds nuw i8, ptr %2, i64 %122
   store ptr %2, ptr %7, align 8, !noalias !1121
   store ptr %123, ptr %21, align 8, !noalias !1121
   br i1 %.not.i33, label %124, label %.lr.ph.i.preheader.i
@@ -6495,7 +6495,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hcf60c91b37dd6f86E.exit: ; preds =
   %196 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %196, i1 false), !alias.scope !1313
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1313
-  %197 = getelementptr inbounds nuw { { ptr, [3 x i64] }, ptr }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i
+  %197 = getelementptr inbounds nuw i8, ptr %2, i64 %196
   store ptr %2, ptr %7, align 8, !noalias !1313
   store ptr %197, ptr %21, align 8, !noalias !1313
   store ptr %.16.i, ptr %22, align 8, !noalias !1313
@@ -7065,7 +7065,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hc142c772883fd898E.exit: ; preds =
   %118 = shl i64 %.sroa.0.0.sroa.speculated.i.i, 6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %118, i1 false), !alias.scope !1434
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1434
-  %119 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, [3 x i64] }, i64, i8, [7 x i8] }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 %118
   store ptr %2, ptr %7, align 8, !noalias !1434
   store ptr %119, ptr %21, align 8, !noalias !1434
   br i1 %.not.i33, label %120, label %.lr.ph.i.preheader.i
@@ -7482,7 +7482,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h71004aba631d93e0E.exit: ; preds =
   %147 = shl i64 %.sroa.0.0.sroa.speculated.i.i, 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %147, i1 false), !alias.scope !1499
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1499
-  %148 = getelementptr inbounds nuw { ptr, ptr }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i
+  %148 = getelementptr inbounds nuw i8, ptr %2, i64 %147
   store ptr %2, ptr %7, align 8, !noalias !1499
   store ptr %148, ptr %21, align 8, !noalias !1499
   br i1 %.not.i33, label %149, label %.lr.ph.i.preheader.i
@@ -22404,7 +22404,8 @@ _ZN9itertools9Itertools22sorted_unstable_by_key17he28f8dc44886c1cfE.exit: ; pred
   %.sroa.0.0.copyload.i = load i64, ptr %4, align 8, !noalias !4056
   %27 = icmp ult i64 %17, 288230376151711744
   tail call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds nuw { { ptr, i64 }, ptr, ptr }, ptr %15, i64 %17
+  %.idx = shl nuw nsw i64 %17, 5
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   %29 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   tail call void @llvm.assume(i1 %29)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !4056
@@ -22572,7 +22573,8 @@ _ZN9itertools9Itertools15sorted_unstable17h72318f8e5f071068E.exit: ; preds = %22
   %.sroa.0.0.copyload.i = load i64, ptr %4, align 8, !noalias !4069
   %27 = icmp ult i64 %17, 576460752303423488
   tail call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds nuw { ptr, i64 }, ptr %15, i64 %17
+  %.idx = shl nuw nsw i64 %17, 4
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   %29 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   tail call void @llvm.assume(i1 %29)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !4069
@@ -22738,7 +22740,8 @@ define hidden noundef ptr @_ZN4ruff8commands6format13FormatResults13write_summar
   %19 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i64, ptr %20, align 8, !noundef !3
-  %22 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { i64, [5 x i64] } }, ptr %19, i64 %21
+  %.idx = mul nuw nsw i64 %21, 72
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %23 = icmp eq i64 %21, 0
   br i1 %23, label %.thread90, label %.lr.ph.preheader
 
@@ -22995,7 +22998,8 @@ define hidden noundef ptr @_ZN4ruff8commands6format13FormatResults13write_summar
   %19 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i64, ptr %20, align 8, !noundef !3
-  %22 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { i64, [5 x i64] } }, ptr %19, i64 %21
+  %.idx = mul nuw nsw i64 %21, 72
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %23 = icmp eq i64 %21, 0
   br i1 %23, label %.thread90, label %.lr.ph.preheader
 

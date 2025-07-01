@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<unsigned int>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<unsigned int>::_Storage" = type { i32 }
 %"struct.llvm::sampleprof::LineLocation" = type { i32, i32 }
-%"struct.llvm::sampleprof::SampleContextFrame" = type { %"class.llvm::sampleprof::FunctionId", %"struct.llvm::sampleprof::LineLocation" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<llvm::sampleprof::FunctionSamples *, std::allocator<llvm::sampleprof::FunctionSamples *>>::_Vector_impl" }
 %"struct.std::_Vector_base<llvm::sampleprof::FunctionSamples *, std::allocator<llvm::sampleprof::FunctionSamples *>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::sampleprof::FunctionSamples *, std::allocator<llvm::sampleprof::FunctionSamples *>>::_Vector_impl_data" }
@@ -60,6 +59,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::map.6" = type { %"class.std::_Rb_tree.7" }
 %"class.std::_Rb_tree.7" = type { %"struct.std::_Rb_tree<llvm::sampleprof::LineLocation, std::pair<const llvm::sampleprof::LineLocation, std::map<llvm::sampleprof::FunctionId, llvm::sampleprof::FunctionSamples>>, std::_Select1st<std::pair<const llvm::sampleprof::LineLocation, std::map<llvm::sampleprof::FunctionId, llvm::sampleprof::FunctionSamples>>>, std::less<llvm::sampleprof::LineLocation>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<llvm::sampleprof::LineLocation, std::pair<const llvm::sampleprof::LineLocation, std::map<llvm::sampleprof::FunctionId, llvm::sampleprof::FunctionSamples>>, std::_Select1st<std::pair<const llvm::sampleprof::LineLocation, std::map<llvm::sampleprof::FunctionId, llvm::sampleprof::FunctionSamples>>>, std::less<llvm::sampleprof::LineLocation>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
+%"struct.llvm::sampleprof::SampleContextFrame" = type { %"class.llvm::sampleprof::FunctionId", %"struct.llvm::sampleprof::LineLocation" }
 %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, llvm::ContextTrieNode>, std::_Select1st<std::pair<const unsigned long, llvm::ContextTrieNode>>, std::less<unsigned long>>::_Alloc_node" = type { ptr }
 
 $_ZN4llvm10sampleprof15FunctionSamples18getCanonicalFnNameENS_9StringRefES2_ = comdat any
@@ -1812,7 +1812,8 @@ define dso_local void @_ZN4llvm20SampleContextTrackerC2ERNS_10sampleprof16Sample
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
   store i32 0, ptr %4, align 8, !tbaa !12
   store i32 0, ptr %26, align 4, !tbaa !108
-  %29 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SampleContextFrame", ptr %.sroa.3.0.copyload, i64 %.sroa.4.0.copyload
+  %.idx.i = mul nuw nsw i64 %.sroa.4.0.copyload, 24
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 %.idx.i
   %.not18.i = icmp eq i64 %.sroa.4.0.copyload, 0
   br i1 %.not18.i, label %_ZN4llvm20SampleContextTracker22getOrCreateContextPathERKNS_10sampleprof13SampleContextEb.exit, label %.lr.ph.split.us.i
 
@@ -1855,7 +1856,8 @@ define dso_local noundef ptr @_ZN4llvm20SampleContextTracker22getOrCreateContext
   %.sroa.0.0.copyload.i = load ptr, ptr %7, align 8, !tbaa !107
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !47
-  %8 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SampleContextFrame", ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
+  %.idx = mul nuw nsw i64 %.sroa.2.0.copyload.i, 24
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
   %.not18 = icmp eq i64 %.sroa.2.0.copyload.i, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -3105,7 +3107,8 @@ define dso_local noundef ptr @_ZN4llvm20SampleContextTracker20getContextSamplesF
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %6, align 8, !tbaa !107
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !47
-  %7 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SampleContextFrame", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
+  %.idx.i.i = mul nuw nsw i64 %.sroa.2.0.copyload.i.i.i, 24
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 %.idx.i.i
   %.not18.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i.i, 0
   br i1 %.not18.i.i, label %_ZN4llvm20SampleContextTracker13getContextForERKNS_10sampleprof13SampleContextE.exit.thread, label %.lr.ph.split.i.i
 
@@ -3155,7 +3158,8 @@ define dso_local noundef ptr @_ZN4llvm20SampleContextTracker13getContextForERKNS
   %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8, !tbaa !107
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !47
-  %7 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SampleContextFrame", ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i
+  %.idx.i = mul nuw nsw i64 %.sroa.2.0.copyload.i.i, 24
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 %.idx.i
   %.not18.i = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
   br i1 %.not18.i, label %_ZN4llvm20SampleContextTracker22getOrCreateContextPathERKNS_10sampleprof13SampleContextEb.exit, label %.lr.ph.split.i
 

@@ -8580,7 +8580,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEC2ESt16initializer_listIiEmRKS2_RKS4_RKS5_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr %ilist.coerce0, i64 %ilist.coerce1, i64 noundef %nBucketCount, ptr noundef nonnull align 1 dereferenceable(1) %hashFunction, ptr noundef nonnull align 1 dereferenceable(1) %predicate, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #1 comdat($_ZN5eastl13hash_multisetIiNS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEC5ESt16initializer_listIiEmRKS2_RKS4_RKS5_) align 2 {
 entry:
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -9606,7 +9607,8 @@ entry:
 define weak_odr dso_local void @_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEC2ESt16initializer_listINS_4pairIKiiEEEmRKS2_RKS4_RKS5_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr %ilist.coerce0, i64 %ilist.coerce1, i64 noundef %nBucketCount, ptr noundef nonnull align 1 dereferenceable(1) %hashFunction, ptr noundef nonnull align 1 dereferenceable(1) %predicate, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #1 comdat($_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_9allocatorELb0EEC5ESt16initializer_listINS_4pairIKiiEEEmRKS2_RKS4_RKS5_) align 2 {
 entry:
   %tmp.i = alloca %"struct.eastl::hashtable_iterator.14", align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
@@ -10615,7 +10617,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl13hash_multisetI7Align32NS_4hashIS1_EENS_8equal_toIS1_EENS_9allocatorELb0EEC2ESt16initializer_listIS1_EmRKS3_RKS5_RKS6_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr %ilist.coerce0, i64 %ilist.coerce1, i64 noundef %nBucketCount, ptr noundef nonnull align 1 dereferenceable(1) %hashFunction, ptr noundef nonnull align 1 dereferenceable(1) %predicate, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #1 comdat($_ZN5eastl13hash_multisetI7Align32NS_4hashIS1_EENS_8equal_toIS1_EENS_9allocatorELb0EEC5ESt16initializer_listIS1_EmRKS3_RKS5_RKS6_) align 2 {
 entry:
-  %add.ptr.i = getelementptr inbounds %struct.Align32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 5
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -11725,7 +11728,8 @@ entry:
 define weak_odr dso_local void @_ZN5eastl13hash_multimapI7Align32S1_NS_4hashIS1_EENS_8equal_toIS1_EENS_9allocatorELb0EEC2ESt16initializer_listINS_4pairIKS1_S1_EEEmRKS3_RKS5_RKS6_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr %ilist.coerce0, i64 %ilist.coerce1, i64 noundef %nBucketCount, ptr noundef nonnull align 1 dereferenceable(1) %hashFunction, ptr noundef nonnull align 1 dereferenceable(1) %predicate, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #1 comdat($_ZN5eastl13hash_multimapI7Align32S1_NS_4hashIS1_EENS_8equal_toIS1_EENS_9allocatorELb0EEC5ESt16initializer_listINS_4pairIKS1_S1_EEEmRKS3_RKS5_RKS6_) align 2 {
 entry:
   %tmp.i = alloca %"struct.eastl::hashtable_iterator.57", align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.60", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 6
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %mnElementCount.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %mnElementCount.i, align 8

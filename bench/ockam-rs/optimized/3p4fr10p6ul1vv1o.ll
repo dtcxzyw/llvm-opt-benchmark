@@ -967,7 +967,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hb079
   %8 = load ptr, ptr %1, align 8, !alias.scope !275, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !275, !noundef !4
-  %11 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, ptr %8, i64 %10
+  %.idx = mul nsw i64 %10, 48
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !278
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !278
   %12 = tail call noundef nonnull align 8 ptr @_ZN10serde_bare5error5Error24sequence_length_required17h721c76f33e982495E(), !noalias !278

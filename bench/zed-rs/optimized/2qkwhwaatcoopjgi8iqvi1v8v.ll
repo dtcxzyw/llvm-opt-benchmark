@@ -440,7 +440,8 @@ define hidden noundef zeroext i1 @_ZN13feature_flags12FeatureFlags8has_flag17h5d
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
-  %10 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %7, i64 %9
+  %.idx = mul nsw i64 %9, 24
+  %10 = getelementptr inbounds i8, ptr %7, i64 %.idx
   %.not.i = icmp eq i64 %9, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb32312ce72116a78E.llvm.10879722225161984294.exit", label %.lr.ph.i
 
@@ -1182,7 +1183,8 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h26df961901647d0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !506
   %8 = mul i64 %7, 5871781006564002453
   store i64 %8, ptr %4, align 8, !alias.scope !511, !noalias !516
-  %9 = getelementptr inbounds { i64, [3 x i64] }, ptr %5, i64 %7
+  %.idx.i.i.i.i.i = shl nsw i64 %7, 5
+  %9 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i.i.i.i
   %10 = icmp eq i64 %7, 0
   br i1 %10, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h3582cb2babb33f1aE.llvm.10879722225161984294.exit", label %.lr.ph.i.i.i.i.i
 
@@ -1278,7 +1280,8 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %10 = xor i64 %9, %7
   %11 = mul i64 %10, 5871781006564002453
   store i64 %11, ptr %1, align 8, !alias.scope !576, !noalias !581
-  %12 = getelementptr inbounds { i64, [3 x i64] }, ptr %5, i64 %7
+  %.idx.i.i.i.i = shl nsw i64 %7, 5
+  %12 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i.i.i
   %13 = icmp eq i64 %7, 0
   br i1 %13, label %"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for$u20$$LP$T$C$B$RP$$GT$4hash17h2e0ccba8717ec34fE.llvm.10879722225161984294.exit", label %.lr.ph.i.i.i.i
 
@@ -1362,7 +1365,8 @@ define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for
   %9 = xor i64 %8, %6
   %10 = mul i64 %9, 5871781006564002453
   store i64 %10, ptr %1, align 8, !alias.scope !619, !noalias !624
-  %11 = getelementptr inbounds { i64, [3 x i64] }, ptr %4, i64 %6
+  %.idx.i.i.i = shl nsw i64 %6, 5
+  %11 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i.i
   %12 = icmp eq i64 %6, 0
   br i1 %12, label %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hec6fa2df24506844E.llvm.10879722225161984294.exit", label %.lr.ph.i.i.i
 
@@ -4159,7 +4163,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_map17ha5255eadc673adbaE(p
   %.val = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val9 = load i64, ptr %13, align 8, !noundef !4
-  %14 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, i16, i8, [5 x i8] }, i64 }, ptr %.val, i64 %.val9
+  %.idx = mul nsw i64 %.val9, 88
+  %14 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17hc995b84dbb76d14bE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %10, i64 noundef 1, i64 %.val9)
@@ -4453,7 +4458,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h03b5a7c7850b7d0eE(p
   %.val = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val9 = load i64, ptr %8, align 8, !noundef !4
-  %9 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %.val, i64 %.val9
+  %.idx = mul nsw i64 %.val9, 24
+  %9 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h429df3125d9cee22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef 1, i64 %.val9)
@@ -4638,7 +4644,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hc8ffaf85fbd2cf81E(p
   %.val = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val9 = load i64, ptr %8, align 8, !noundef !4
-  %9 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.val9
+  %.idx = mul nsw i64 %.val9, 24
+  %9 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h429df3125d9cee22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef 1, i64 %.val9)
@@ -4758,7 +4765,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17he790fdbfe5e9270fE(p
   %.val = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val9 = load i64, ptr %8, align 8, !noundef !4
-  %9 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %.val, i64 %.val9
+  %.idx = mul nsw i64 %.val9, 72
+  %9 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h429df3125d9cee22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef 1, i64 %.val9)
@@ -6854,7 +6862,8 @@ define hidden void @"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..h
   %9 = xor i64 %8, %6
   %10 = mul i64 %9, 5871781006564002453
   store i64 %10, ptr %1, align 8, !alias.scope !2597, !noalias !2602
-  %11 = getelementptr inbounds { i64, [3 x i64] }, ptr %4, i64 %6
+  %.idx.i.i = shl nsw i64 %6, 5
+  %11 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i
   %12 = icmp eq i64 %6, 0
   br i1 %12, label %"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h4fd664e7b3523ad3E.exit", label %.lr.ph.i.i
 

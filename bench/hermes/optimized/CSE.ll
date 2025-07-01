@@ -50,15 +50,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::Recycler.16" = type { ptr }
 %"struct.llvh::detail::DenseMapPair" = type { %"struct.std::pair" }
 %"struct.std::pair" = type { %"struct.(anonymous namespace)::CSEValue", ptr }
-%"struct.std::pair.33" = type { ptr, i64 }
-%"struct.llvh::detail::DenseMapPair.53" = type { %"struct.std::pair.54" }
-%"struct.std::pair.54" = type { ptr, %"class.std::unique_ptr.56" }
-%"class.std::unique_ptr.56" = type { %"struct.std::__uniq_ptr_data.57" }
-%"struct.std::__uniq_ptr_data.57" = type { %"class.std::__uniq_ptr_impl.58" }
-%"class.std::__uniq_ptr_impl.58" = type { %"class.std::tuple.59" }
-%"class.std::tuple.59" = type { %"struct.std::_Tuple_impl.60" }
-%"struct.std::_Tuple_impl.60" = type { %"struct.std::_Head_base.63" }
-%"struct.std::_Head_base.63" = type { ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -438,7 +429,8 @@ for.end.i.i.i.i:                                  ; preds = %for.inc.i.i.i.i
   %.pre.i10.i.i.i = load ptr, ptr %destroyer.i.i.i.i, align 8
   %.pre18.i.i.i.i = load i32, ptr %Size.i.i.i.i.i.i.i.i.i.i, align 8
   %conv.i.i.i.i.i.i = zext i32 %.pre18.i.i.i.i to i64
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %.pre.i10.i.i.i, i64 %conv.i.i.i.i.i.i
+  %add.ptr.i.idx.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i.i, 3
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre.i10.i.i.i, i64 %add.ptr.i.idx.i.i.i.i.i
   %cmp.not4.i.i.i.i.i = icmp eq i32 %.pre18.i.i.i.i, 0
   br i1 %cmp.not4.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i.i
 
@@ -464,10 +456,10 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i.i.i
   br label %_ZN12_GLOBAL__N_110CSEContext11processNodeEPNS_9StackNodeE.exit.i.i.i
 
 _ZN12_GLOBAL__N_110CSEContext11processNodeEPNS_9StackNodeE.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.end.i.i.i.i.i, %if.then.i.i.i
-  %changed.0.lcssa2326.i.i.i.i = phi i1 [ %changed.1.i.i.i.i, %for.end.i.i.i.i.i ], [ %changed.1.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ false, %if.then.i.i.i ]
+  %changed.0.lcssa2427.i.i.i.i = phi i1 [ %changed.1.i.i.i.i, %for.end.i.i.i.i.i ], [ %changed.1.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ false, %if.then.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %destroyer.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp14.i.i.i.i)
-  %or6.i.i.i = or i1 %changed.043.i.i.i, %changed.0.lcssa2326.i.i.i.i
+  %or6.i.i.i = or i1 %changed.043.i.i.i, %changed.0.lcssa2427.i.i.i.i
   store i8 1, ptr %9, align 8
   br label %if.end16thread-pre-split.i.i.i
 
@@ -673,7 +665,8 @@ _ZN12_GLOBAL__N_110CSEContext3runEv.exit:         ; preds = %while.end.i.i.i, %i
   %Size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %CCtx, i64 184
   %69 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i.i.i.i.i5 = zext i32 %69 to i64
-  %add.ptr.i.i.i.i.i6 = getelementptr inbounds nuw ptr, ptr %68, i64 %conv.i.i.i.i.i5
+  %add.ptr.i.idx.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i5, 3
+  %add.ptr.i.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %68, i64 %add.ptr.i.idx.i.i.i.i
   %cmp.not4.i.i.i.i.i7 = icmp eq i32 %69, 0
   br i1 %cmp.not4.i.i.i.i.i7, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i.i, label %for.body.i.i.i.i.i8
 
@@ -689,7 +682,8 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateS
   %71 = load ptr, ptr %CustomSizedSlabs.i.i.i5.i, align 8
   %72 = load i32, ptr %Size.i.i.i.i.i2.i.i.i7.i, align 8
   %conv.i.i.i.i.i.i11 = zext i32 %72 to i64
-  %add.ptr.i.i.i.i.i.i12 = getelementptr inbounds nuw %"struct.std::pair.33", ptr %71, i64 %conv.i.i.i.i.i.i11
+  %add.ptr.i.idx.i.i.i.i.i12 = shl nuw nsw i64 %conv.i.i.i.i.i.i11, 4
+  %add.ptr.i.i.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %71, i64 %add.ptr.i.idx.i.i.i.i.i12
   %cmp.not5.i.i.i.i.i = icmp eq i32 %72, 0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i.i.i.i, label %for.body.i1.i.i.i.i
 
@@ -698,23 +692,23 @@ for.body.i1.i.i.i.i:                              ; preds = %_ZN4llvh20BumpPtrAl
   %73 = load ptr, ptr %__begin2.06.i.i.i.i.i, align 8
   call void @free(ptr noundef %73) #10
   %incdec.ptr.i2.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.06.i.i.i.i.i, i64 16
-  %cmp.not.i3.i.i.i.i = icmp eq ptr %incdec.ptr.i2.i.i.i.i, %add.ptr.i.i.i.i.i.i12
+  %cmp.not.i3.i.i.i.i = icmp eq ptr %incdec.ptr.i2.i.i.i.i, %add.ptr.i.i.i.i.i.i13
   br i1 %cmp.not.i3.i.i.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i.i.i.i, label %for.body.i1.i.i.i.i
 
 _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i.i.i.i: ; preds = %for.body.i1.i.i.i.i
-  %.pre.i.i.i.i13 = load ptr, ptr %CustomSizedSlabs.i.i.i5.i, align 8
+  %.pre.i.i.i.i14 = load ptr, ptr %CustomSizedSlabs.i.i.i5.i, align 8
   br label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i.i.i.i
 
 _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i.i.i.i: ; preds = %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i.i.i.i, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i.i
-  %74 = phi ptr [ %.pre.i.i.i.i13, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i.i.i.i ], [ %71, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i.i ]
-  %cmp.i.i.i.i.i.i.i15 = icmp eq ptr %74, %add.ptr.i.i.i.i.i1.i.i.i6.i
-  br i1 %cmp.i.i.i.i.i.i.i15, label %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i.i, label %if.then.i.i.i.i.i.i16
+  %74 = phi ptr [ %.pre.i.i.i.i14, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i.i.i.i ], [ %71, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i.i ]
+  %cmp.i.i.i.i.i.i.i16 = icmp eq ptr %74, %add.ptr.i.i.i.i.i1.i.i.i6.i
+  br i1 %cmp.i.i.i.i.i.i.i16, label %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i.i, label %if.then.i.i.i.i.i.i17
 
-if.then.i.i.i.i.i.i16:                            ; preds = %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i.i.i.i
+if.then.i.i.i.i.i.i17:                            ; preds = %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i.i.i.i
   call void @free(ptr noundef %74) #10
   br label %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i.i
 
-_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i16, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i.i.i.i
+_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i17, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i.i.i.i
   %75 = load ptr, ptr %Slabs.i.i.i1.i, align 8
   %cmp.i.i.i5.i.i.i.i = icmp eq ptr %75, %add.ptr.i.i.i.i.i.i.i.i2.i
   br i1 %cmp.i.i.i5.i.i.i.i, label %_ZN4llvh15ScopedHashTableIN12_GLOBAL__N_18CSEValueEPN6hermes5ValueENS_12DenseMapInfoIS2_EENS_18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEENS_18ScopedHashTableValIS2_S5_EELm32ELm8EEEED2Ev.exit.i, label %if.then.i.i6.i.i.i.i
@@ -730,57 +724,59 @@ _ZN4llvh15ScopedHashTableIN12_GLOBAL__N_18CSEValueEPN6hermes5ValueENS_12DenseMap
   %76 = load ptr, ptr %Slabs.i.i.i.i, align 8
   %77 = load i32, ptr %Size.i.i.i.i.i.i.i.i.i, align 8
   %conv.i.i.i.i3.i = zext i32 %77 to i64
-  %add.ptr.i.i.i.i4.i = getelementptr inbounds nuw ptr, ptr %76, i64 %conv.i.i.i.i3.i
-  %cmp.not4.i.i.i.i5.i = icmp eq i32 %77, 0
-  br i1 %cmp.not4.i.i.i.i5.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i10.i, label %for.body.i.i.i.i6.i
+  %add.ptr.i.idx.i.i.i4.i = shl nuw nsw i64 %conv.i.i.i.i3.i, 3
+  %add.ptr.i.i.i.i5.i = getelementptr inbounds nuw i8, ptr %76, i64 %add.ptr.i.idx.i.i.i4.i
+  %cmp.not4.i.i.i.i6.i = icmp eq i32 %77, 0
+  br i1 %cmp.not4.i.i.i.i6.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i11.i, label %for.body.i.i.i.i7.i
 
-for.body.i.i.i.i6.i:                              ; preds = %_ZN4llvh15ScopedHashTableIN12_GLOBAL__N_18CSEValueEPN6hermes5ValueENS_12DenseMapInfoIS2_EENS_18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEENS_18ScopedHashTableValIS2_S5_EELm32ELm8EEEED2Ev.exit.i, %for.body.i.i.i.i6.i
-  %I.addr.05.i.i.i.i7.i = phi ptr [ %incdec.ptr.i.i.i.i8.i, %for.body.i.i.i.i6.i ], [ %76, %_ZN4llvh15ScopedHashTableIN12_GLOBAL__N_18CSEValueEPN6hermes5ValueENS_12DenseMapInfoIS2_EENS_18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEENS_18ScopedHashTableValIS2_S5_EELm32ELm8EEEED2Ev.exit.i ]
-  %78 = load ptr, ptr %I.addr.05.i.i.i.i7.i, align 8
+for.body.i.i.i.i7.i:                              ; preds = %_ZN4llvh15ScopedHashTableIN12_GLOBAL__N_18CSEValueEPN6hermes5ValueENS_12DenseMapInfoIS2_EENS_18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEENS_18ScopedHashTableValIS2_S5_EELm32ELm8EEEED2Ev.exit.i, %for.body.i.i.i.i7.i
+  %I.addr.05.i.i.i.i8.i = phi ptr [ %incdec.ptr.i.i.i.i9.i, %for.body.i.i.i.i7.i ], [ %76, %_ZN4llvh15ScopedHashTableIN12_GLOBAL__N_18CSEValueEPN6hermes5ValueENS_12DenseMapInfoIS2_EENS_18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEENS_18ScopedHashTableValIS2_S5_EELm32ELm8EEEED2Ev.exit.i ]
+  %78 = load ptr, ptr %I.addr.05.i.i.i.i8.i, align 8
   call void @free(ptr noundef %78) #10
-  %incdec.ptr.i.i.i.i8.i = getelementptr inbounds nuw i8, ptr %I.addr.05.i.i.i.i7.i, i64 8
-  %cmp.not.i.i.i.i9.i = icmp eq ptr %incdec.ptr.i.i.i.i8.i, %add.ptr.i.i.i.i4.i
-  br i1 %cmp.not.i.i.i.i9.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i10.i, label %for.body.i.i.i.i6.i, !llvm.loop !8
+  %incdec.ptr.i.i.i.i9.i = getelementptr inbounds nuw i8, ptr %I.addr.05.i.i.i.i8.i, i64 8
+  %cmp.not.i.i.i.i10.i = icmp eq ptr %incdec.ptr.i.i.i.i9.i, %add.ptr.i.i.i.i5.i
+  br i1 %cmp.not.i.i.i.i10.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i11.i, label %for.body.i.i.i.i7.i, !llvm.loop !8
 
-_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i10.i: ; preds = %for.body.i.i.i.i6.i, %_ZN4llvh15ScopedHashTableIN12_GLOBAL__N_18CSEValueEPN6hermes5ValueENS_12DenseMapInfoIS2_EENS_18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEENS_18ScopedHashTableValIS2_S5_EELm32ELm8EEEED2Ev.exit.i
+_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i11.i: ; preds = %for.body.i.i.i.i7.i, %_ZN4llvh15ScopedHashTableIN12_GLOBAL__N_18CSEValueEPN6hermes5ValueENS_12DenseMapInfoIS2_EENS_18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEENS_18ScopedHashTableValIS2_S5_EELm32ELm8EEEED2Ev.exit.i
   %79 = load ptr, ptr %CustomSizedSlabs.i.i.i.i, align 8
   %80 = load i32, ptr %Size.i.i.i.i.i2.i.i.i.i, align 8
-  %conv.i.i.i.i.i13.i = zext i32 %80 to i64
-  %add.ptr.i.i.i.i.i14.i = getelementptr inbounds nuw %"struct.std::pair.33", ptr %79, i64 %conv.i.i.i.i.i13.i
-  %cmp.not5.i.i.i.i15.i = icmp eq i32 %80, 0
-  br i1 %cmp.not5.i.i.i.i15.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i.i.i22.i, label %for.body.i1.i.i.i16.i
+  %conv.i.i.i.i.i14.i = zext i32 %80 to i64
+  %add.ptr.i.idx.i.i.i.i15.i = shl nuw nsw i64 %conv.i.i.i.i.i14.i, 4
+  %add.ptr.i.i.i.i.i16.i = getelementptr inbounds nuw i8, ptr %79, i64 %add.ptr.i.idx.i.i.i.i15.i
+  %cmp.not5.i.i.i.i17.i = icmp eq i32 %80, 0
+  br i1 %cmp.not5.i.i.i.i17.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i.i.i24.i, label %for.body.i1.i.i.i18.i
 
-for.body.i1.i.i.i16.i:                            ; preds = %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i10.i, %for.body.i1.i.i.i16.i
-  %__begin2.06.i.i.i.i17.i = phi ptr [ %incdec.ptr.i2.i.i.i18.i, %for.body.i1.i.i.i16.i ], [ %79, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i10.i ]
-  %81 = load ptr, ptr %__begin2.06.i.i.i.i17.i, align 8
+for.body.i1.i.i.i18.i:                            ; preds = %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i11.i, %for.body.i1.i.i.i18.i
+  %__begin2.06.i.i.i.i19.i = phi ptr [ %incdec.ptr.i2.i.i.i20.i, %for.body.i1.i.i.i18.i ], [ %79, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i11.i ]
+  %81 = load ptr, ptr %__begin2.06.i.i.i.i19.i, align 8
   call void @free(ptr noundef %81) #10
-  %incdec.ptr.i2.i.i.i18.i = getelementptr inbounds nuw i8, ptr %__begin2.06.i.i.i.i17.i, i64 16
-  %cmp.not.i3.i.i.i19.i = icmp eq ptr %incdec.ptr.i2.i.i.i18.i, %add.ptr.i.i.i.i.i14.i
-  br i1 %cmp.not.i3.i.i.i19.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i.i.i20.i, label %for.body.i1.i.i.i16.i
+  %incdec.ptr.i2.i.i.i20.i = getelementptr inbounds nuw i8, ptr %__begin2.06.i.i.i.i19.i, i64 16
+  %cmp.not.i3.i.i.i21.i = icmp eq ptr %incdec.ptr.i2.i.i.i20.i, %add.ptr.i.i.i.i.i16.i
+  br i1 %cmp.not.i3.i.i.i21.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i.i.i22.i, label %for.body.i1.i.i.i18.i
 
-_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i.i.i20.i: ; preds = %for.body.i1.i.i.i16.i
-  %.pre.i.i.i21.i = load ptr, ptr %CustomSizedSlabs.i.i.i.i, align 8
-  br label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i.i.i22.i
+_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i.i.i22.i: ; preds = %for.body.i1.i.i.i18.i
+  %.pre.i.i.i23.i = load ptr, ptr %CustomSizedSlabs.i.i.i.i, align 8
+  br label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i.i.i24.i
 
-_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i.i.i22.i: ; preds = %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i.i.i20.i, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i10.i
-  %82 = phi ptr [ %.pre.i.i.i21.i, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i.i.i20.i ], [ %79, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i10.i ]
-  %cmp.i.i.i.i.i.i24.i = icmp eq ptr %82, %add.ptr.i.i.i.i.i1.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i24.i, label %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i26.i, label %if.then.i.i.i.i.i25.i
+_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i.i.i24.i: ; preds = %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i.i.i22.i, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i11.i
+  %82 = phi ptr [ %.pre.i.i.i23.i, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i.i.i22.i ], [ %79, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i11.i ]
+  %cmp.i.i.i.i.i.i26.i = icmp eq ptr %82, %add.ptr.i.i.i.i.i1.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i26.i, label %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i28.i, label %if.then.i.i.i.i.i27.i
 
-if.then.i.i.i.i.i25.i:                            ; preds = %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i.i.i22.i
+if.then.i.i.i.i.i27.i:                            ; preds = %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i.i.i24.i
   call void @free(ptr noundef %82) #10
-  br label %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i26.i
+  br label %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i28.i
 
-_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i26.i: ; preds = %if.then.i.i.i.i.i25.i, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i.i.i22.i
+_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i28.i: ; preds = %if.then.i.i.i.i.i27.i, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i.i.i24.i
   %83 = load ptr, ptr %Slabs.i.i.i.i, align 8
-  %cmp.i.i.i5.i.i.i28.i = icmp eq ptr %83, %add.ptr.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i5.i.i.i28.i, label %_ZN12_GLOBAL__N_110CSEContextD2Ev.exit, label %if.then.i.i6.i.i.i29.i
+  %cmp.i.i.i5.i.i.i30.i = icmp eq ptr %83, %add.ptr.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i5.i.i.i30.i, label %_ZN12_GLOBAL__N_110CSEContextD2Ev.exit, label %if.then.i.i6.i.i.i31.i
 
-if.then.i.i6.i.i.i29.i:                           ; preds = %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i26.i
+if.then.i.i6.i.i.i31.i:                           ; preds = %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i28.i
   call void @free(ptr noundef %83) #10
   br label %_ZN12_GLOBAL__N_110CSEContextD2Ev.exit
 
-_ZN12_GLOBAL__N_110CSEContextD2Ev.exit:           ; preds = %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i26.i, %if.then.i.i6.i.i.i29.i
+_ZN12_GLOBAL__N_110CSEContextD2Ev.exit:           ; preds = %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i28.i, %if.then.i.i6.i.i.i31.i
   %DomTreeNodes.i.i = getelementptr inbounds nuw i8, ptr %DT, i64 24
   %NumBuckets.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %DT, i64 40
   %84 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8
@@ -790,10 +786,11 @@ _ZN12_GLOBAL__N_110CSEContextD2Ev.exit:           ; preds = %_ZN4llvh11SmallVect
 
 for.body.preheader.i.i.i.i:                       ; preds = %_ZN12_GLOBAL__N_110CSEContextD2Ev.exit
   %idx.ext.i.i.i.i.i = zext i32 %84 to i64
-  %add.ptr.i.i.i.i.i18 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.53", ptr %.pre1.i.i.i, i64 %idx.ext.i.i.i.i.i
-  br label %for.body.i.i.i.i19
+  %add.ptr.i.idx.i.i.i.i19 = shl nuw nsw i64 %idx.ext.i.i.i.i.i, 4
+  %add.ptr.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %.pre1.i.i.i, i64 %add.ptr.i.idx.i.i.i.i19
+  br label %for.body.i.i.i.i21
 
-for.body.i.i.i.i19:                               ; preds = %if.end13.i.i.i.i, %for.body.preheader.i.i.i.i
+for.body.i.i.i.i21:                               ; preds = %if.end13.i.i.i.i, %for.body.preheader.i.i.i.i
   %P.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %if.end13.i.i.i.i ], [ %.pre1.i.i.i, %for.body.preheader.i.i.i.i ]
   %85 = load ptr, ptr %P.08.i.i.i.i, align 8
   %magicptr.i.i.i.i = ptrtoint ptr %85 to i64
@@ -802,52 +799,52 @@ for.body.i.i.i.i19:                               ; preds = %if.end13.i.i.i.i, %
     i64 -16, label %if.end13.i.i.i.i
   ]
 
-if.then11.i.i.i.i:                                ; preds = %for.body.i.i.i.i19
-  %second.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %P.08.i.i.i.i, i64 8
-  %86 = load ptr, ptr %second.i.i.i.i.i24, align 8
-  %cmp.not.i.i.i.i.i25 = icmp eq ptr %86, null
-  br i1 %cmp.not.i.i.i.i.i25, label %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
+if.then11.i.i.i.i:                                ; preds = %for.body.i.i.i.i21
+  %second.i.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %P.08.i.i.i.i, i64 8
+  %86 = load ptr, ptr %second.i.i.i.i.i26, align 8
+  %cmp.not.i.i.i.i.i27 = icmp eq ptr %86, null
+  br i1 %cmp.not.i.i.i.i.i27, label %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then11.i.i.i.i
   %Children.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %86, i64 24
   %87 = load ptr, ptr %Children.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %87, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEEclEPS4_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i26
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEEclEPS4_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i28
 
-if.then.i.i.i.i.i.i.i.i.i.i26:                    ; preds = %delete.notnull.i.i.i.i.i.i
+if.then.i.i.i.i.i.i.i.i.i.i28:                    ; preds = %delete.notnull.i.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %87) #12
   br label %_ZNKSt14default_deleteIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEEclEPS4_.exit.i.i.i.i.i
 
-_ZNKSt14default_deleteIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEEclEPS4_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i26, %delete.notnull.i.i.i.i.i.i
+_ZNKSt14default_deleteIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEEclEPS4_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i28, %delete.notnull.i.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %86) #12
   br label %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i
 
 _ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEEclEPS4_.exit.i.i.i.i.i, %if.then11.i.i.i.i
-  store ptr null, ptr %second.i.i.i.i.i24, align 8
+  store ptr null, ptr %second.i.i.i.i.i26, align 8
   br label %if.end13.i.i.i.i
 
-if.end13.i.i.i.i:                                 ; preds = %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i, %for.body.i.i.i.i19, %for.body.i.i.i.i19
+if.end13.i.i.i.i:                                 ; preds = %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i, %for.body.i.i.i.i21, %for.body.i.i.i.i21
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %P.08.i.i.i.i, i64 16
-  %cmp6.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.i.i18
-  br i1 %cmp6.not.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i.i, label %for.body.i.i.i.i19, !llvm.loop !9
+  %cmp6.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.i.i20
+  br i1 %cmp6.not.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i.i, label %for.body.i.i.i.i21, !llvm.loop !9
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i.i: ; preds = %if.end13.i.i.i.i
-  %.pre.i.i.i20 = load ptr, ptr %DomTreeNodes.i.i, align 8
+  %.pre.i.i.i22 = load ptr, ptr %DomTreeNodes.i.i, align 8
   br label %_ZN4llvh8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEED2Ev.exit.i.i
 
 _ZN4llvh8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEED2Ev.exit.i.i: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i.i, %_ZN12_GLOBAL__N_110CSEContextD2Ev.exit
-  %88 = phi ptr [ %.pre.i.i.i20, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i.i ], [ %.pre1.i.i.i, %_ZN12_GLOBAL__N_110CSEContextD2Ev.exit ]
+  %88 = phi ptr [ %.pre.i.i.i22, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i.i ], [ %.pre1.i.i.i, %_ZN12_GLOBAL__N_110CSEContextD2Ev.exit ]
   call void @_ZdlPv(ptr noundef %88) #10
   %89 = load ptr, ptr %DT, align 8
-  %add.ptr.i.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %DT, i64 16
-  %cmp.i.i.i.i.i22 = icmp eq ptr %89, %add.ptr.i.i.i.i.i.i21
-  br i1 %cmp.i.i.i.i.i22, label %_ZN6hermes13DominanceInfoD2Ev.exit, label %if.then.i.i.i.i23
+  %add.ptr.i.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %DT, i64 16
+  %cmp.i.i.i.i.i24 = icmp eq ptr %89, %add.ptr.i.i.i.i.i.i23
+  br i1 %cmp.i.i.i.i.i24, label %_ZN6hermes13DominanceInfoD2Ev.exit, label %if.then.i.i.i.i25
 
-if.then.i.i.i.i23:                                ; preds = %_ZN4llvh8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEED2Ev.exit.i.i
+if.then.i.i.i.i25:                                ; preds = %_ZN4llvh8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEED2Ev.exit.i.i
   call void @free(ptr noundef %89) #10
   br label %_ZN6hermes13DominanceInfoD2Ev.exit
 
-_ZN6hermes13DominanceInfoD2Ev.exit:               ; preds = %_ZN4llvh8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEED2Ev.exit.i.i, %if.then.i.i.i.i23
+_ZN6hermes13DominanceInfoD2Ev.exit:               ; preds = %_ZN4llvh8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEED2Ev.exit.i.i, %if.then.i.i.i.i25
   ret i1 %changed.0.lcssa.i.i.i
 }
 
@@ -1335,7 +1332,8 @@ if.then.i:                                        ; preds = %entry
   store i32 0, ptr %NumTombstones.i.i.i.i, align 4
   %this.val4.i.i = load i32, ptr %NumBuckets.i, align 8
   %idx.ext.i.i.i = zext i32 %this.val4.i.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %call.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.idx.i.i = shl nuw nsw i64 %idx.ext.i.i.i, 4
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 %add.ptr.i.idx.i.i
   %cmp.not5.i.i = icmp eq i32 %this.val4.i.i, 0
   br i1 %cmp.not5.i.i, label %_ZN4llvh8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS2_PN6hermes5ValueEEENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S8_EEE4growEj.exit, label %for.body.i.i
 
@@ -1348,14 +1346,16 @@ for.body.i.i:                                     ; preds = %if.then.i, %for.bod
 
 if.end.i:                                         ; preds = %entry
   %idx.ext.i = zext i32 %0 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %1, i64 %idx.ext.i
+  %add.ptr.idx.i = shl nuw nsw i64 %idx.ext.i, 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.idx.i
   %NumEntries.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i.i.i, align 8
   %NumTombstones.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i.i.i, align 4
   %this.val4.i.i.i = load i32, ptr %NumBuckets.i, align 8
   %idx.ext.i.i.i.i = zext i32 %this.val4.i.i.i to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %call.i.i, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.idx.i.i.i = shl nuw nsw i64 %idx.ext.i.i.i.i, 4
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 %add.ptr.i.idx.i.i.i
   %cmp.not5.i.i.i = icmp eq i32 %this.val4.i.i.i, 0
   br i1 %cmp.not5.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E9initEmptyEv.exit.i.i, label %for.body.i.i.i
 

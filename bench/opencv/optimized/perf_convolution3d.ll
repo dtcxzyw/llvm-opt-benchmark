@@ -2505,7 +2505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319: ; preds = %_Z
   %.val160 = load ptr, ptr %572, align 8, !tbaa !129
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false), !alias.scope !130
   %573 = sext i32 %.val to i64
-  %.idx = shl nsw i64 %573, 2
+  %.idx451 = shl nsw i64 %573, 2
   %574 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %.not = icmp eq i32 %.val, 0
   br i1 %.not, label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit, label %575
@@ -2522,14 +2522,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319: ; preds = %_Z
   unreachable
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %575
-  %578 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #29
+  %578 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx451) #29
           to label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i unwind label %581
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %578, ptr align 4 %.val160, i64 %.idx, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %578, ptr align 4 %.val160, i64 %.idx451, i1 false)
   %579 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %578, ptr %57, align 8, !tbaa !135
-  %580 = getelementptr inbounds nuw i8, ptr %578, i64 %.idx
+  %580 = getelementptr inbounds nuw i8, ptr %578, i64 %.idx451
   store ptr %580, ptr %579, align 8, !tbaa !137
   store ptr %580, ptr %574, align 8, !tbaa !138
   br label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit
@@ -2766,8 +2766,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit341: ; preds = %_ZNS
   %664 = sext i32 %.val161 to i64
   %.idx453 = shl nsw i64 %664, 2
   %665 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %.not457 = icmp eq i32 %.val161, 0
-  br i1 %.not457, label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit346, label %666
+  %.not455 = icmp eq i32 %.val161, 0
+  br i1 %.not455, label %_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit346, label %666
 
 666:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit341
   %667 = icmp slt i32 %.val161, 0
@@ -6640,7 +6640,8 @@ define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v202412239DictValue7releaseEv(
   br i1 %24, label %.loopexit.i.i, label %.preheader.preheader.i.i
 
 .preheader.preheader.i.i:                         ; preds = %21
-  %25 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %17, i64 %23
+  %.idx.i.i = shl nsw i64 %23, 5
+  %25 = getelementptr inbounds i8, ptr %17, i64 %.idx.i.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %.preheader.preheader.i.i

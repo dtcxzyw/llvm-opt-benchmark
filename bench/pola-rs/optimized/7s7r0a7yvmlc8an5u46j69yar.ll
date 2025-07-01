@@ -25546,7 +25546,8 @@ define hidden void @_ZN12polars_arrow2io3ipc5write9serialize7struct_12write_stru
   %12 = tail call { ptr, i64 } @_ZN12polars_arrow5array7struct_11StructArray6values17h5dbb5a2c7e2955b6E(ptr noundef nonnull align 8 %0)
   %13 = extractvalue { ptr, i64 } %12, 0
   %14 = extractvalue { ptr, i64 } %12, 1
-  %15 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %13, i64 %14
+  %.idx = shl nuw nsw i64 %14, 4
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %16 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %16)
   %17 = icmp eq i64 %14, 0
@@ -25592,7 +25593,8 @@ define hidden void @_ZN12polars_arrow2io3ipc5write9serialize5union11write_union1
   %22 = load ptr, ptr %21, align 8, !nonnull !12, !noundef !12
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load i64, ptr %23, align 8, !noundef !12
-  %25 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %22, i64 %24
+  %.idx = shl nuw nsw i64 %24, 4
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h908c1cfcc43f52ddE.exit", label %.lr.ph.i
 

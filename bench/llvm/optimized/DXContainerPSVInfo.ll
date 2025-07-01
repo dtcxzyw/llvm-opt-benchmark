@@ -4,24 +4,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::nothrow_t" = type { i8 }
-%"struct.llvm::dxbc::PSV::v2::ResourceBindInfo" = type { %"struct.llvm::dxbc::PSV::v0::ResourceBindInfo", i32, %"struct.llvm::dxbc::PSV::ResourceFlags" }
-%"struct.llvm::dxbc::PSV::v0::ResourceBindInfo" = type { i32, i32, i32, i32 }
-%"struct.llvm::dxbc::PSV::ResourceFlags" = type { %union.anon }
-%union.anon = type { i32 }
 %"class.llvm::SmallVector.17" = type { %"class.llvm::SmallVectorImpl.18", %"struct.llvm::SmallVectorStorage.21" }
 %"class.llvm::SmallVectorImpl.18" = type { %"class.llvm::SmallVectorTemplateBase.19" }
 %"class.llvm::SmallVectorTemplateBase.19" = type { %"class.llvm::SmallVectorTemplateCommon.20" }
 %"class.llvm::SmallVectorTemplateCommon.20" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.21" = type { [512 x i8] }
-%"struct.llvm::dxbc::PSV::v0::SignatureElement" = type { i32, i32, i8, i8, i8, i8, i8, i8, i8, i8 }
 %"class.llvm::StringRef" = type { ptr, i64 }
-%"struct.llvm::mcdxbc::PSVSignatureElement" = type <{ %"class.llvm::StringRef", %"class.llvm::SmallVector.5", i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }>
-%"class.llvm::SmallVector.5" = type { %"class.llvm::SmallVectorImpl.6", %"struct.llvm::SmallVectorStorage.9" }
-%"class.llvm::SmallVectorImpl.6" = type { %"class.llvm::SmallVectorTemplateBase.7" }
-%"class.llvm::SmallVectorTemplateBase.7" = type { %"class.llvm::SmallVectorTemplateCommon.8" }
-%"class.llvm::SmallVectorTemplateCommon.8" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.9" = type { [48 x i8] }
+%"struct.llvm::dxbc::PSV::v0::SignatureElement" = type { i32, i32, i8, i8, i8, i8, i8, i8, i8, i8 }
 %"class.llvm::SmallVector.35" = type { %"class.llvm::SmallVectorImpl.36", %"struct.llvm::SmallVectorStorage.39" }
 %"class.llvm::SmallVectorImpl.36" = type { %"class.llvm::SmallVectorTemplateBase.37" }
 %"class.llvm::SmallVectorTemplateBase.37" = type { %"class.llvm::SmallVectorTemplateCommon.38" }
@@ -32,7 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::Align" = type { i8 }
 %"struct.llvm::dxbc::ProgramSignatureElement" = type { i32, i32, i32, i32, i32, i32, i8, i8, i16, i32 }
 %"struct.llvm::dxbc::ProgramSignatureHeader" = type { i32, i32 }
-%"struct.llvm::mcdxbc::Signature::Parameter" = type { i32, %"class.llvm::StringRef", i32, i32, i32, i32, i8, i8, i32 }
 
 $_ZN4llvm15SmallVectorImplIjE6insertIPKjvEEPjS5_T_S6_ = comdat any
 
@@ -99,9 +88,10 @@ switch.lookup:                                    ; preds = %3
   %30 = load ptr, ptr %23, align 8, !tbaa !10
   %31 = load i32, ptr %24, align 8, !tbaa !7
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %"struct.llvm::dxbc::PSV::v2::ResourceBindInfo", ptr %30, i64 %32
-  %.not5796 = icmp eq i32 %31, 0
-  br i1 %.not5796, label %._crit_edge, label %.lr.ph
+  %.idx = mul nuw nsw i64 %32, 24
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx
+  %.not57100 = icmp eq i32 %31, 0
+  br i1 %.not57100, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
   %34 = zext nneg i32 %.052 to i64
@@ -109,12 +99,12 @@ switch.lookup:                                    ; preds = %3
 
 ._crit_edge:                                      ; preds = %36, %29
   %35 = icmp eq i32 %2, 0
-  br i1 %35, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit79, label %39
+  br i1 %35, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit82, label %39
 
 36:                                               ; preds = %.lr.ph, %36
-  %.05497 = phi ptr [ %30, %.lr.ph ], [ %38, %36 ]
-  %37 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %.05497, i64 noundef %34) #12
-  %38 = getelementptr inbounds nuw i8, ptr %.05497, i64 24
+  %.054101 = phi ptr [ %30, %.lr.ph ], [ %38, %36 ]
+  %37 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %.054101, i64 noundef %34) #12
+  %38 = getelementptr inbounds nuw i8, ptr %.054101, i64 24
   %.not57 = icmp eq ptr %38, %33
   br i1 %.not57, label %._crit_edge, label %36
 
@@ -138,31 +128,32 @@ switch.lookup:                                    ; preds = %3
   %49 = load ptr, ptr %45, align 8, !tbaa !10
   %50 = load i32, ptr %46, align 8, !tbaa !7
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %49, i64 %51
-  %.not5898 = icmp eq i32 %50, 0
-  br i1 %.not5898, label %._crit_edge102, label %.lr.ph101
+  %.idx109 = shl nuw nsw i64 %51, 2
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx109
+  %.not58102 = icmp eq i32 %50, 0
+  br i1 %.not58102, label %._crit_edge106, label %.lr.ph105
 
-._crit_edge102:                                   ; preds = %.lr.ph101, %39
+._crit_edge106:                                   ; preds = %.lr.ph105, %39
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %54 = load i32, ptr %53, align 8, !tbaa !7
   %.not59 = icmp eq i32 %54, 0
   br i1 %.not59, label %.preheader, label %58
 
-.preheader:                                       ; preds = %58, %._crit_edge102
+.preheader:                                       ; preds = %58, %._crit_edge106
   br label %76
 
-.lr.ph101:                                        ; preds = %39, %.lr.ph101
-  %.05599 = phi ptr [ %57, %.lr.ph101 ], [ %49, %39 ]
-  %55 = load i32, ptr %.05599, align 4, !tbaa !3
+.lr.ph105:                                        ; preds = %39, %.lr.ph105
+  %.055103 = phi ptr [ %57, %.lr.ph105 ], [ %49, %39 ]
+  %55 = load i32, ptr %.055103, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 %55, ptr %10, align 4, !tbaa !3
   %56 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %10, i64 noundef 4) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %57 = getelementptr inbounds nuw i8, ptr %.05599, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %.055103, i64 4
   %.not58 = icmp eq ptr %57, %52
-  br i1 %.not58, label %._crit_edge102, label %.lr.ph101
+  br i1 %.not58, label %._crit_edge106, label %.lr.ph105
 
-58:                                               ; preds = %._crit_edge102
+58:                                               ; preds = %._crit_edge106
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 16, ptr %9, align 4, !tbaa !3
@@ -175,13 +166,14 @@ switch.lookup:                                    ; preds = %3
   %65 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %61, i64 noundef %64) #12
   br label %.preheader
 
-66:                                               ; preds = %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit67
+66:                                               ; preds = %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit68
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %68 = load ptr, ptr %67, align 8, !tbaa !10
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %70 = load i32, ptr %69, align 8, !tbaa !7
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %68, i64 %71
+  %.idx.i = shl nuw nsw i64 %71, 2
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i
   %.not9.i = icmp eq i32 %70, 0
   br i1 %.not9.i, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit.preheader, label %.lr.ph.split.us.i
 
@@ -199,103 +191,107 @@ _ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_1
   %.not.us.i = icmp eq ptr %75, %72
   br i1 %.not.us.i, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit.preheader, label %.lr.ph.split.us.i
 
-76:                                               ; preds = %.preheader, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit67
-  %.056.idx103 = phi i64 [ %.056.add, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit67 ], [ 456, %.preheader ]
-  %.056.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.056.idx103
+76:                                               ; preds = %.preheader, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit68
+  %.056.idx107 = phi i64 [ %.056.add, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit68 ], [ 456, %.preheader ]
+  %.056.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.056.idx107
   %77 = load ptr, ptr %.056.ptr, align 8, !tbaa !10
   %78 = getelementptr inbounds nuw i8, ptr %.056.ptr, i64 8
   %79 = load i32, ptr %78, align 8, !tbaa !7
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %77, i64 %80
-  %.not9.i62 = icmp eq i32 %79, 0
-  br i1 %.not9.i62, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit67, label %.lr.ph.split.us.i64
+  %.idx.i62 = shl nuw nsw i64 %80, 2
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx.i62
+  %.not9.i63 = icmp eq i32 %79, 0
+  br i1 %.not9.i63, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit68, label %.lr.ph.split.us.i65
 
-.lr.ph.split.us.i64:                              ; preds = %76, %.lr.ph.split.us.i64
-  %.010.us.i65 = phi ptr [ %84, %.lr.ph.split.us.i64 ], [ %77, %76 ]
-  %82 = load i32, ptr %.010.us.i65, align 4, !tbaa !3
+.lr.ph.split.us.i65:                              ; preds = %76, %.lr.ph.split.us.i65
+  %.010.us.i66 = phi ptr [ %84, %.lr.ph.split.us.i65 ], [ %77, %76 ]
+  %82 = load i32, ptr %.010.us.i66, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
   store i32 %82, ptr %7, align 4, !tbaa !3
   %83 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %7, i64 noundef 4) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  %84 = getelementptr inbounds nuw i8, ptr %.010.us.i65, i64 4
-  %.not.us.i66 = icmp eq ptr %84, %81
-  br i1 %.not.us.i66, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit67, label %.lr.ph.split.us.i64
+  %84 = getelementptr inbounds nuw i8, ptr %.010.us.i66, i64 4
+  %.not.us.i67 = icmp eq ptr %84, %81
+  br i1 %.not.us.i67, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit68, label %.lr.ph.split.us.i65
 
-_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit67: ; preds = %.lr.ph.split.us.i64, %76
-  %.056.add = add nuw nsw i64 %.056.idx103, 64
+_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit68: ; preds = %.lr.ph.split.us.i65, %76
+  %.056.add = add nuw nsw i64 %.056.idx107, 64
   %.not60 = icmp eq i64 %.056.add, 712
   br i1 %.not60, label %66, label %76
 
-85:                                               ; preds = %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit85
+85:                                               ; preds = %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit89
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %87 = load ptr, ptr %86, align 8, !tbaa !10
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %89 = load i32, ptr %88, align 8, !tbaa !7
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw i32, ptr %87, i64 %90
-  %.not9.i68 = icmp eq i32 %89, 0
-  br i1 %.not9.i68, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit73, label %.lr.ph.split.us.i70
+  %.idx.i69 = shl nuw nsw i64 %90, 2
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 %.idx.i69
+  %.not9.i70 = icmp eq i32 %89, 0
+  br i1 %.not9.i70, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit75, label %.lr.ph.split.us.i72
 
-.lr.ph.split.us.i70:                              ; preds = %85, %.lr.ph.split.us.i70
-  %.010.us.i71 = phi ptr [ %94, %.lr.ph.split.us.i70 ], [ %87, %85 ]
-  %92 = load i32, ptr %.010.us.i71, align 4, !tbaa !3
+.lr.ph.split.us.i72:                              ; preds = %85, %.lr.ph.split.us.i72
+  %.010.us.i73 = phi ptr [ %94, %.lr.ph.split.us.i72 ], [ %87, %85 ]
+  %92 = load i32, ptr %.010.us.i73, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
   store i32 %92, ptr %6, align 4, !tbaa !3
   %93 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %6, i64 noundef 4) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  %94 = getelementptr inbounds nuw i8, ptr %.010.us.i71, i64 4
-  %.not.us.i72 = icmp eq ptr %94, %91
-  br i1 %.not.us.i72, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit73, label %.lr.ph.split.us.i70
+  %94 = getelementptr inbounds nuw i8, ptr %.010.us.i73, i64 4
+  %.not.us.i74 = icmp eq ptr %94, %91
+  br i1 %.not.us.i74, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit75, label %.lr.ph.split.us.i72
 
-_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit73: ; preds = %.lr.ph.split.us.i70, %85
+_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit75: ; preds = %.lr.ph.split.us.i72, %85
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %96 = load ptr, ptr %95, align 8, !tbaa !10
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %98 = load i32, ptr %97, align 8, !tbaa !7
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %96, i64 %99
-  %.not9.i74 = icmp eq i32 %98, 0
-  br i1 %.not9.i74, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit79, label %.lr.ph.split.us.i76
+  %.idx.i76 = shl nuw nsw i64 %99, 2
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx.i76
+  %.not9.i77 = icmp eq i32 %98, 0
+  br i1 %.not9.i77, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit82, label %.lr.ph.split.us.i79
 
-.lr.ph.split.us.i76:                              ; preds = %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit73, %.lr.ph.split.us.i76
-  %.010.us.i77 = phi ptr [ %103, %.lr.ph.split.us.i76 ], [ %96, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit73 ]
-  %101 = load i32, ptr %.010.us.i77, align 4, !tbaa !3
+.lr.ph.split.us.i79:                              ; preds = %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit75, %.lr.ph.split.us.i79
+  %.010.us.i80 = phi ptr [ %103, %.lr.ph.split.us.i79 ], [ %96, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit75 ]
+  %101 = load i32, ptr %.010.us.i80, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
   store i32 %101, ptr %5, align 4, !tbaa !3
   %102 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %5, i64 noundef 4) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  %103 = getelementptr inbounds nuw i8, ptr %.010.us.i77, i64 4
-  %.not.us.i78 = icmp eq ptr %103, %100
-  br i1 %.not.us.i78, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit79, label %.lr.ph.split.us.i76
+  %103 = getelementptr inbounds nuw i8, ptr %.010.us.i80, i64 4
+  %.not.us.i81 = icmp eq ptr %103, %100
+  br i1 %.not.us.i81, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit82, label %.lr.ph.split.us.i79
 
-_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit: ; preds = %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit.preheader, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit85
-  %.053.idx104 = phi i64 [ %.053.add, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit85 ], [ 776, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit.preheader ]
-  %.053.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.053.idx104
+_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit: ; preds = %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit.preheader, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit89
+  %.053.idx108 = phi i64 [ %.053.add, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit89 ], [ 776, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit.preheader ]
+  %.053.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.053.idx108
   %104 = load ptr, ptr %.053.ptr, align 8, !tbaa !10
   %105 = getelementptr inbounds nuw i8, ptr %.053.ptr, i64 8
   %106 = load i32, ptr %105, align 8, !tbaa !7
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw i32, ptr %104, i64 %107
-  %.not9.i80 = icmp eq i32 %106, 0
-  br i1 %.not9.i80, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit85, label %.lr.ph.split.us.i82
+  %.idx.i83 = shl nuw nsw i64 %107, 2
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 %.idx.i83
+  %.not9.i84 = icmp eq i32 %106, 0
+  br i1 %.not9.i84, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit89, label %.lr.ph.split.us.i86
 
-.lr.ph.split.us.i82:                              ; preds = %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit, %.lr.ph.split.us.i82
-  %.010.us.i83 = phi ptr [ %111, %.lr.ph.split.us.i82 ], [ %104, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit ]
-  %109 = load i32, ptr %.010.us.i83, align 4, !tbaa !3
+.lr.ph.split.us.i86:                              ; preds = %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit, %.lr.ph.split.us.i86
+  %.010.us.i87 = phi ptr [ %111, %.lr.ph.split.us.i86 ], [ %104, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit ]
+  %109 = load i32, ptr %.010.us.i87, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
   store i32 %109, ptr %4, align 4, !tbaa !3
   %110 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %4, i64 noundef 4) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
-  %111 = getelementptr inbounds nuw i8, ptr %.010.us.i83, i64 4
-  %.not.us.i84 = icmp eq ptr %111, %108
-  br i1 %.not.us.i84, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit85, label %.lr.ph.split.us.i82
+  %111 = getelementptr inbounds nuw i8, ptr %.010.us.i87, i64 4
+  %.not.us.i88 = icmp eq ptr %111, %108
+  br i1 %.not.us.i88, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit89, label %.lr.ph.split.us.i86
 
-_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit85: ; preds = %.lr.ph.split.us.i82, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit
-  %.053.add = add nuw nsw i64 %.053.idx104, 64
+_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit89: ; preds = %.lr.ph.split.us.i86, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit
+  %.053.add = add nuw nsw i64 %.053.idx108, 64
   %.not61 = icmp eq i64 %.053.add, 1032
   br i1 %.not61, label %85, label %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit
 
-_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit79: ; preds = %.lr.ph.split.us.i76, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit73, %._crit_edge
+_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit82: ; preds = %.lr.ph.split.us.i79, %_ZN4llvm7support6endian11write_arrayIjEEvRNS_11raw_ostreamENS_8ArrayRefIT_EENS_10endiannessE.exit75, %._crit_edge
   ret void
 }
 
@@ -368,10 +364,12 @@ define dso_local void @_ZN4llvm6mcdxbc14PSVRuntimeInfo8finalizeENS_6Triple15Envi
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %39 = load i32, ptr %38, align 8, !tbaa !7, !noalias !61
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::dxbc::PSV::v0::SignatureElement", ptr %36, i64 %40
+  %.idx = shl nuw nsw i64 %40, 4
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx
   %42 = load i32, ptr %21, align 8, !tbaa !7, !noalias !61
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %37, i64 %43
+  %.idx35 = shl nuw nsw i64 %43, 4
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx35
   %45 = icmp ne i32 %39, 0
   %46 = icmp ne i32 %42, 0
   %.not3.i32 = select i1 %45, i1 %46, i1 false
@@ -425,7 +423,8 @@ _ZN4llvm11SmallVectorINS_9StringRefELj32EED2Ev.exit: ; preds = %._crit_edge, %53
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL18ProcessElementListRN4llvm18StringTableBuilderERNS_15SmallVectorImplIjEERNS2_INS_4dxbc3PSV2v016SignatureElementEEERNS2_INS_9StringRefEEENS_8ArrayRefINS_6mcdxbc19PSVSignatureElementEEE(ptr noundef nonnull align 8 dereferenceable(38) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr readonly captures(address) %4, i64 %5) unnamed_addr #0 {
-  %7 = getelementptr inbounds nuw %"struct.llvm::mcdxbc::PSVSignatureElement", ptr %4, i64 %5
+  %.idx = mul nuw nsw i64 %5, 96
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not69 = icmp eq i64 %5, 0
   br i1 %.not69, label %._crit_edge, label %.lr.ph
 
@@ -630,7 +629,8 @@ _ZN4llvm15SmallVectorImplINS_4dxbc23ProgramSignatureElementEE7reserveEm.exit: ; 
   %17 = shl i32 %15, 5
   %18 = or disjoint i32 %17, 8
   %19 = load ptr, ptr %0, align 8, !tbaa !10
-  %20 = getelementptr inbounds nuw %"struct.llvm::mcdxbc::Signature::Parameter", ptr %19, i64 %16
+  %.idx = mul nuw nsw i64 %16, 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not24 = icmp eq i32 %15, 0
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
@@ -652,7 +652,8 @@ _ZN4llvm15SmallVectorImplINS_4dxbc23ProgramSignatureElementEE7reserveEm.exit: ; 
   %.val = load ptr, ptr %3, align 8, !tbaa !10
   %.val19 = load i32, ptr %8, align 8, !tbaa !7
   %31 = zext i32 %.val19 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.val, i64 %31
+  %.idx.i = shl nuw nsw i64 %31, 5
+  %32 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %33 = icmp eq i32 %.val19, 0
   br i1 %33, label %"_ZN4llvm11stable_sortIRNS_11SmallVectorINS_4dxbc23ProgramSignatureElementELj1EEEZNS_6mcdxbc9Signature5writeERNS_11raw_ostreamEE3$_0EEvOT_T0_.exit", label %.lr.ph.i.i.i.i.i
 
@@ -833,25 +834,25 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplIjE6insertIPKjv
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %25, i64 noundef %19, i64 noundef 4) #12
   %.pre8.pre.i = load i32, ptr %9, align 8, !tbaa !7
-  %.pre62.pre = load ptr, ptr %0, align 8, !tbaa !10
+  %.pre61.pre = load ptr, ptr %0, align 8, !tbaa !10
   br label %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i
 
 _ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i:    ; preds = %24, %17
-  %.pre62 = phi ptr [ %5, %17 ], [ %.pre62.pre, %24 ]
+  %.pre61 = phi ptr [ %5, %17 ], [ %.pre61.pre, %24 ]
   %.pre8.i = phi i32 [ %10, %17 ], [ %.pre8.pre.i, %24 ]
   %.not.i.i = icmp eq ptr %2, %3
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit, label %26
 
 26:                                               ; preds = %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i
   %27 = zext i32 %.pre8.i to i64
-  %28 = getelementptr inbounds nuw i32, ptr %.pre62, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr %.pre61, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 4 %2, i64 %16, i1 false)
   %.pre.i = load i32, ptr %9, align 8, !tbaa !7
-  %.pre61 = load ptr, ptr %0, align 8, !tbaa !10
+  %.pre60 = load ptr, ptr %0, align 8, !tbaa !10
   br label %_ZN4llvm15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit
 
 _ZN4llvm15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit: ; preds = %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i, %26
-  %29 = phi ptr [ %.pre62, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i ], [ %.pre61, %26 ]
+  %29 = phi ptr [ %.pre61, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i ], [ %.pre60, %26 ]
   %30 = phi i32 [ %.pre8.i, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i ], [ %.pre.i, %26 ]
   %31 = trunc i64 %18 to i32
   %32 = add i32 %30, %31
@@ -860,7 +861,7 @@ _ZN4llvm15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit: ; preds = %_ZN4llvm15Smal
   br label %_ZSt4copyIPKjPjET0_T_S4_S3_.exit
 
 34:                                               ; preds = %4
-  %.idx53 = sub i64 0, %16
+  %.idx52 = sub i64 0, %16
   %35 = ashr exact i64 %16, 2
   %36 = add nsw i64 %35, %11
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -873,13 +874,13 @@ _ZN4llvm15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit: ; preds = %_ZN4llvm15Smal
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %42, i64 noundef %36, i64 noundef 4) #12
   %.pre = load ptr, ptr %0, align 8, !tbaa !10
-  %.pre60 = load i32, ptr %9, align 8, !tbaa !7
-  %.pre64 = zext i32 %.pre60 to i64
+  %.pre59 = load i32, ptr %9, align 8, !tbaa !7
+  %.pre63 = zext i32 %.pre59 to i64
   br label %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit
 
 _ZN4llvm15SmallVectorImplIjE7reserveEm.exit:      ; preds = %34, %41
-  %.pre-phi = phi i64 [ %11, %34 ], [ %.pre64, %41 ]
-  %43 = phi i32 [ %10, %34 ], [ %.pre60, %41 ]
+  %.pre-phi = phi i64 [ %11, %34 ], [ %.pre63, %41 ]
+  %43 = phi i32 [ %10, %34 ], [ %.pre59, %41 ]
   %44 = phi ptr [ %5, %34 ], [ %.pre, %41 ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %8
   %.idx = shl nuw nsw i64 %.pre-phi, 2
@@ -890,7 +891,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit:      ; preds = %34, %41
   br i1 %.not, label %69, label %48
 
 48:                                               ; preds = %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit
-  %49 = getelementptr inbounds i8, ptr %46, i64 %.idx53
+  %49 = getelementptr inbounds i8, ptr %46, i64 %.idx52
   %50 = add nsw i64 %35, %.pre-phi
   %51 = load i32, ptr %37, align 4, !tbaa !53
   %52 = zext i32 %51 to i64
@@ -926,11 +927,11 @@ _ZN4llvm15SmallVectorImplIjE6appendISt13move_iteratorIPjEvEEvT_S6_.exit: ; preds
 
 63:                                               ; preds = %_ZN4llvm15SmallVectorImplIjE6appendISt13move_iteratorIPjEvEEvT_S6_.exit
   %64 = add i64 %8, %16
-  %gepdiff54 = sub i64 %.idx, %64
-  %65 = ashr exact i64 %gepdiff54, 2
+  %gepdiff53 = sub i64 %.idx, %64
+  %65 = ashr exact i64 %gepdiff53, 2
   %66 = sub nsw i64 0, %65
   %67 = getelementptr inbounds i32, ptr %46, i64 %66
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %67, ptr align 4 %45, i64 %gepdiff54, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %67, ptr align 4 %45, i64 %gepdiff53, i1 false)
   br label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %_ZN4llvm15SmallVectorImplIjE6appendISt13move_iteratorIPjEvEEvT_S6_.exit, %63
@@ -967,14 +968,14 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %_ZN4llvm15SmallVect
   br label %_ZSt4copyIPKjPjET0_T_S4_S3_.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.059 = phi ptr [ %80, %.lr.ph ], [ %45, %.lr.ph.preheader ]
-  %.04058 = phi i64 [ %82, %.lr.ph ], [ %47, %.lr.ph.preheader ]
-  %.04257 = phi ptr [ %81, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %79 = load i32, ptr %.04257, align 4, !tbaa !3
-  store i32 %79, ptr %.059, align 4, !tbaa !3
-  %80 = getelementptr inbounds nuw i8, ptr %.059, i64 4
-  %81 = getelementptr inbounds nuw i8, ptr %.04257, i64 4
-  %82 = add i64 %.04058, -1
+  %.058 = phi ptr [ %80, %.lr.ph ], [ %45, %.lr.ph.preheader ]
+  %.04057 = phi i64 [ %82, %.lr.ph ], [ %47, %.lr.ph.preheader ]
+  %.04256 = phi ptr [ %81, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %79 = load i32, ptr %.04256, align 4, !tbaa !3
+  store i32 %79, ptr %.058, align 4, !tbaa !3
+  %80 = getelementptr inbounds nuw i8, ptr %.058, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.04256, i64 4
+  %82 = add i64 %.04057, -1
   %.not44 = icmp eq i64 %82, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !115
 
@@ -2315,189 +2316,217 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPN4llvm4dxbc23ProgramSigna
   %7 = ptrtoint ptr %0 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 5
-  %.not53 = icmp slt i64 %9, %5
-  %.not49 = icmp eq i64 %3, 0
-  %or.cond = or i1 %.not53, %.not49
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph.i.preheader
+  %.not55 = icmp slt i64 %9, %5
+  br i1 %.not55, label %._crit_edge, label %.lr.ph
 
-.lr.ph.i.preheader:                               ; preds = %4, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit"
-  %.055 = phi ptr [ %11, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ], [ %0, %4 ]
-  %.02054 = phi ptr [ %41, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ], [ %2, %4 ]
-  %10 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.055, i64 %3
-  %11 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.055, i64 %5
+.lr.ph:                                           ; preds = %4
+  %.idx = shl i64 %3, 5
+  %.idx49 = shl nsw i64 %3, 6
+  %.not50 = icmp eq i64 %.idx, %.idx49
+  br i1 %.not50, label %._crit_edge.i.us.preheader, label %.lr.ph.i.preheader
+
+._crit_edge.i.us.preheader:                       ; preds = %.lr.ph
+  %.not.i.i.i.i.i.i.us = icmp eq i64 %3, 0
+  br label %._crit_edge.i.us
+
+._crit_edge.i.us:                                 ; preds = %._crit_edge.i.us.preheader, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us"
+  %.057.us = phi ptr [ %10, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us" ], [ %0, %._crit_edge.i.us.preheader ]
+  %.02056.us = phi ptr [ %13, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us" ], [ %2, %._crit_edge.i.us.preheader ]
+  %10 = getelementptr inbounds i8, ptr %.057.us, i64 %.idx
+  br i1 %.not.i.i.i.i.i.i.us, label %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us", label %11
+
+11:                                               ; preds = %._crit_edge.i.us
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.02056.us, ptr align 4 %.057.us, i64 %.idx, i1 false)
+  br label %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us"
+
+"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us": ; preds = %._crit_edge.i.us, %11
+  %12 = getelementptr inbounds i8, ptr %.02056.us, i64 %.idx
+  %13 = getelementptr inbounds i8, ptr %12, i64 %.idx
+  %14 = ptrtoint ptr %10 to i64
+  %15 = sub i64 %6, %14
+  %16 = ashr exact i64 %15, 5
+  %.not.us = icmp slt i64 %16, %5
+  br i1 %.not.us, label %._crit_edge, label %._crit_edge.i.us, !llvm.loop !135
+
+.lr.ph.i.preheader:                               ; preds = %.lr.ph, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit"
+  %.057 = phi ptr [ %18, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ], [ %0, %.lr.ph ]
+  %.02056 = phi ptr [ %48, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ], [ %2, %.lr.ph ]
+  %17 = getelementptr inbounds i8, ptr %.057, i64 %.idx
+  %18 = getelementptr inbounds i8, ptr %.057, i64 %.idx49
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %27
-  %.027.i = phi ptr [ %28, %27 ], [ %.02054, %.lr.ph.i.preheader ]
-  %.01826.i = phi ptr [ %.1.i, %27 ], [ %.055, %.lr.ph.i.preheader ]
-  %.01925.i = phi ptr [ %.120.i, %27 ], [ %10, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %34
+  %.027.i = phi ptr [ %35, %34 ], [ %.02056, %.lr.ph.i.preheader ]
+  %.01826.i = phi ptr [ %.1.i, %34 ], [ %.057, %.lr.ph.i.preheader ]
+  %.01925.i = phi ptr [ %.120.i, %34 ], [ %17, %.lr.ph.i.preheader ]
   %.sroa.0.0.copyload.i.i = load i32, ptr %.01826.i, align 4, !tbaa !3
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.01826.i, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4, !tbaa !3
   %.sroa.31.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.01826.i, i64 20
   %.sroa.31.0.copyload.i.i = load i32, ptr %.sroa.31.0..sroa_idx.i.i, align 4, !tbaa !3
-  %12 = getelementptr inbounds nuw i8, ptr %.01925.i, i64 20
-  %13 = getelementptr inbounds nuw i8, ptr %.01925.i, i64 4
-  %14 = load i32, ptr %.01925.i, align 4, !tbaa !3
-  %15 = icmp ult i32 %14, %.sroa.0.0.copyload.i.i
-  br i1 %15, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i", label %16
+  %19 = getelementptr inbounds nuw i8, ptr %.01925.i, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %.01925.i, i64 4
+  %21 = load i32, ptr %.01925.i, align 4, !tbaa !3
+  %22 = icmp ult i32 %21, %.sroa.0.0.copyload.i.i
+  br i1 %22, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i", label %23
 
-16:                                               ; preds = %.lr.ph.i
-  %17 = icmp ult i32 %.sroa.0.0.copyload.i.i, %14
-  br i1 %17, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i", label %18
+23:                                               ; preds = %.lr.ph.i
+  %24 = icmp ult i32 %.sroa.0.0.copyload.i.i, %21
+  br i1 %24, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i", label %25
 
-18:                                               ; preds = %16
-  %19 = load i32, ptr %12, align 4, !tbaa !3
-  %20 = icmp ult i32 %19, %.sroa.31.0.copyload.i.i
-  br i1 %20, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i", label %21
+25:                                               ; preds = %23
+  %26 = load i32, ptr %19, align 4, !tbaa !3
+  %27 = icmp ult i32 %26, %.sroa.31.0.copyload.i.i
+  br i1 %27, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i", label %28
 
-21:                                               ; preds = %18
-  %22 = icmp ult i32 %.sroa.31.0.copyload.i.i, %19
-  br i1 %22, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i"
+28:                                               ; preds = %25
+  %29 = icmp ult i32 %.sroa.31.0.copyload.i.i, %26
+  br i1 %29, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i": ; preds = %21
-  %23 = load i32, ptr %13, align 4, !tbaa !3
-  %24 = icmp ult i32 %23, %.sroa.2.0.copyload.i.i
-  br i1 %24, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i": ; preds = %28
+  %30 = load i32, ptr %20, align 4, !tbaa !3
+  %31 = icmp ult i32 %30, %.sroa.2.0.copyload.i.i
+  br i1 %31, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i", %18, %.lr.ph.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i", %25, %.lr.ph.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.027.i, ptr noundef nonnull align 4 dereferenceable(32) %.01925.i, i64 32, i1 false), !tbaa.struct !116
-  %25 = getelementptr inbounds nuw i8, ptr %.01925.i, i64 32
-  br label %27
+  %32 = getelementptr inbounds nuw i8, ptr %.01925.i, i64 32
+  br label %34
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i", %21, %16
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i", %28, %23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.027.i, ptr noundef nonnull align 4 dereferenceable(32) %.01826.i, i64 32, i1 false), !tbaa.struct !116
-  %26 = getelementptr inbounds nuw i8, ptr %.01826.i, i64 32
-  br label %27
+  %33 = getelementptr inbounds nuw i8, ptr %.01826.i, i64 32
+  br label %34
 
-27:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i"
-  %.120.i = phi ptr [ %25, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i" ], [ %.01925.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i" ]
-  %.1.i = phi ptr [ %.01826.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i" ], [ %26, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i" ]
-  %28 = getelementptr inbounds nuw i8, ptr %.027.i, i64 32
-  %29 = icmp ne ptr %.1.i, %10
-  %30 = icmp ne ptr %.120.i, %11
-  %31 = select i1 %29, i1 %30, i1 false
-  br i1 %31, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !135
+34:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i"
+  %.120.i = phi ptr [ %32, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i" ], [ %.01925.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i" ]
+  %.1.i = phi ptr [ %.01826.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i" ], [ %33, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i" ]
+  %35 = getelementptr inbounds nuw i8, ptr %.027.i, i64 32
+  %36 = icmp ne ptr %.1.i, %17
+  %37 = icmp ne ptr %.120.i, %18
+  %38 = select i1 %36, i1 %37, i1 false
+  br i1 %38, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !136
 
-._crit_edge.i.loopexit:                           ; preds = %27
-  %32 = ptrtoint ptr %10 to i64
-  %33 = ptrtoint ptr %.1.i to i64
-  %34 = sub i64 %32, %33
-  %.not.i.i.i.i.i.i = icmp eq ptr %10, %.1.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i, label %35
+._crit_edge.i.loopexit:                           ; preds = %34
+  %39 = ptrtoint ptr %17 to i64
+  %40 = ptrtoint ptr %.1.i to i64
+  %41 = sub i64 %39, %40
+  %.not.i.i.i.i.i.i = icmp eq ptr %17, %.1.i
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i, label %42
 
-35:                                               ; preds = %._crit_edge.i.loopexit
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %28, ptr nonnull align 4 %.1.i, i64 %34, i1 false)
+42:                                               ; preds = %._crit_edge.i.loopexit
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %35, ptr nonnull align 4 %.1.i, i64 %41, i1 false)
   br label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i
 
-_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i: ; preds = %35, %._crit_edge.i.loopexit
-  %36 = getelementptr inbounds i8, ptr %28, i64 %34
-  %37 = ptrtoint ptr %11 to i64
-  %38 = ptrtoint ptr %.120.i to i64
-  %39 = sub i64 %37, %38
-  %.not.i.i.i.i.i21.i = icmp eq ptr %11, %.120.i
-  br i1 %.not.i.i.i.i.i21.i, label %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit", label %40
+_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i: ; preds = %42, %._crit_edge.i.loopexit
+  %43 = getelementptr inbounds i8, ptr %35, i64 %41
+  %44 = ptrtoint ptr %18 to i64
+  %45 = ptrtoint ptr %.120.i to i64
+  %46 = sub i64 %44, %45
+  %.not.i.i.i.i.i21.i = icmp eq ptr %18, %.120.i
+  br i1 %.not.i.i.i.i.i21.i, label %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit", label %47
 
-40:                                               ; preds = %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %36, ptr nonnull align 4 %.120.i, i64 %39, i1 false)
+47:                                               ; preds = %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %43, ptr nonnull align 4 %.120.i, i64 %46, i1 false)
   br label %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit"
 
-"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit": ; preds = %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i, %40
-  %41 = getelementptr inbounds i8, ptr %36, i64 %39
-  %42 = sub i64 %6, %37
-  %43 = ashr exact i64 %42, 5
-  %.not = icmp slt i64 %43, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !136
+"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit": ; preds = %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i, %47
+  %48 = getelementptr inbounds i8, ptr %43, i64 %46
+  %49 = sub i64 %6, %44
+  %50 = ashr exact i64 %49, 5
+  %.not = icmp slt i64 %50, %5
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !135
 
-._crit_edge:                                      ; preds = %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit", %4
-  %.020.lcssa = phi ptr [ %2, %4 ], [ %41, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ]
-  %.0.lcssa = phi ptr [ %0, %4 ], [ %11, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ]
-  %.lcssa51 = phi i64 [ %9, %4 ], [ %43, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ]
-  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %3, i64 %.lcssa51)
-  %44 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %.0.lcssa, i64 %.sroa.speculated
-  %45 = icmp ne i64 %.sroa.speculated, 0
-  %46 = icmp ne ptr %44, %1
-  %47 = and i1 %45, %46
-  br i1 %47, label %.lr.ph.i30, label %._crit_edge.i23
+._crit_edge:                                      ; preds = %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit", %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us", %4
+  %.020.lcssa = phi ptr [ %2, %4 ], [ %13, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us" ], [ %48, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ]
+  %.0.lcssa = phi ptr [ %0, %4 ], [ %10, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us" ], [ %18, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ]
+  %.lcssa53 = phi i64 [ %9, %4 ], [ %16, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit.us" ], [ %50, %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit" ]
+  %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %3, i64 %.lcssa53)
+  %.idx51 = shl nsw i64 %.sroa.speculated, 5
+  %51 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %.idx51
+  %52 = icmp ne i64 %.sroa.speculated, 0
+  %53 = icmp ne ptr %51, %1
+  %54 = and i1 %52, %53
+  br i1 %54, label %.lr.ph.i30, label %._crit_edge.i23
 
-.lr.ph.i30:                                       ; preds = %._crit_edge, %63
-  %.027.i31 = phi ptr [ %64, %63 ], [ %.020.lcssa, %._crit_edge ]
-  %.01826.i32 = phi ptr [ %.1.i42, %63 ], [ %.0.lcssa, %._crit_edge ]
-  %.01925.i33 = phi ptr [ %.120.i41, %63 ], [ %44, %._crit_edge ]
+.lr.ph.i30:                                       ; preds = %._crit_edge, %70
+  %.027.i31 = phi ptr [ %71, %70 ], [ %.020.lcssa, %._crit_edge ]
+  %.01826.i32 = phi ptr [ %.1.i42, %70 ], [ %.0.lcssa, %._crit_edge ]
+  %.01925.i33 = phi ptr [ %.120.i41, %70 ], [ %51, %._crit_edge ]
   %.sroa.0.0.copyload.i.i34 = load i32, ptr %.01826.i32, align 4, !tbaa !3
   %.sroa.2.0..sroa_idx.i.i35 = getelementptr inbounds nuw i8, ptr %.01826.i32, i64 4
   %.sroa.2.0.copyload.i.i36 = load i32, ptr %.sroa.2.0..sroa_idx.i.i35, align 4, !tbaa !3
   %.sroa.31.0..sroa_idx.i.i37 = getelementptr inbounds nuw i8, ptr %.01826.i32, i64 20
   %.sroa.31.0.copyload.i.i38 = load i32, ptr %.sroa.31.0..sroa_idx.i.i37, align 4, !tbaa !3
-  %48 = getelementptr inbounds nuw i8, ptr %.01925.i33, i64 20
-  %49 = getelementptr inbounds nuw i8, ptr %.01925.i33, i64 4
-  %50 = load i32, ptr %.01925.i33, align 4, !tbaa !3
-  %51 = icmp ult i32 %50, %.sroa.0.0.copyload.i.i34
-  br i1 %51, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i43", label %52
+  %55 = getelementptr inbounds nuw i8, ptr %.01925.i33, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %.01925.i33, i64 4
+  %57 = load i32, ptr %.01925.i33, align 4, !tbaa !3
+  %58 = icmp ult i32 %57, %.sroa.0.0.copyload.i.i34
+  br i1 %58, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i43", label %59
 
-52:                                               ; preds = %.lr.ph.i30
-  %53 = icmp ult i32 %.sroa.0.0.copyload.i.i34, %50
-  br i1 %53, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i40", label %54
+59:                                               ; preds = %.lr.ph.i30
+  %60 = icmp ult i32 %.sroa.0.0.copyload.i.i34, %57
+  br i1 %60, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i40", label %61
 
-54:                                               ; preds = %52
-  %55 = load i32, ptr %48, align 4, !tbaa !3
-  %56 = icmp ult i32 %55, %.sroa.31.0.copyload.i.i38
-  br i1 %56, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i43", label %57
+61:                                               ; preds = %59
+  %62 = load i32, ptr %55, align 4, !tbaa !3
+  %63 = icmp ult i32 %62, %.sroa.31.0.copyload.i.i38
+  br i1 %63, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i43", label %64
 
-57:                                               ; preds = %54
-  %58 = icmp ult i32 %.sroa.31.0.copyload.i.i38, %55
-  br i1 %58, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i40", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i39"
+64:                                               ; preds = %61
+  %65 = icmp ult i32 %.sroa.31.0.copyload.i.i38, %62
+  br i1 %65, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i40", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i39"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i39": ; preds = %57
-  %59 = load i32, ptr %49, align 4, !tbaa !3
-  %60 = icmp ult i32 %59, %.sroa.2.0.copyload.i.i36
-  br i1 %60, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i43", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i40"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i39": ; preds = %64
+  %66 = load i32, ptr %56, align 4, !tbaa !3
+  %67 = icmp ult i32 %66, %.sroa.2.0.copyload.i.i36
+  br i1 %67, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i43", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i40"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i43": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i39", %54, %.lr.ph.i30
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i43": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i39", %61, %.lr.ph.i30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.027.i31, ptr noundef nonnull align 4 dereferenceable(32) %.01925.i33, i64 32, i1 false), !tbaa.struct !116
-  %61 = getelementptr inbounds nuw i8, ptr %.01925.i33, i64 32
-  br label %63
+  %68 = getelementptr inbounds nuw i8, ptr %.01925.i33, i64 32
+  br label %70
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i40": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i39", %57, %52
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i40": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.i39", %64, %59
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.027.i31, ptr noundef nonnull align 4 dereferenceable(32) %.01826.i32, i64 32, i1 false), !tbaa.struct !116
-  %62 = getelementptr inbounds nuw i8, ptr %.01826.i32, i64 32
-  br label %63
+  %69 = getelementptr inbounds nuw i8, ptr %.01826.i32, i64 32
+  br label %70
 
-63:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i40", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i43"
-  %.120.i41 = phi ptr [ %61, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i43" ], [ %.01925.i33, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i40" ]
-  %.1.i42 = phi ptr [ %.01826.i32, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i43" ], [ %62, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i40" ]
-  %64 = getelementptr inbounds nuw i8, ptr %.027.i31, i64 32
-  %65 = icmp ne ptr %.1.i42, %44
-  %66 = icmp ne ptr %.120.i41, %1
-  %67 = select i1 %65, i1 %66, i1 false
-  br i1 %67, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !135
+70:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i40", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i43"
+  %.120.i41 = phi ptr [ %68, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i43" ], [ %.01925.i33, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i40" ]
+  %.1.i42 = phi ptr [ %.01826.i32, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread.i43" ], [ %69, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm6mcdxbc9Signature5writeERNS2_11raw_ostreamEE3$_0EclIPNS2_4dxbc23ProgramSignatureElementESC_EEbT_T0_.exit.thread24.i40" ]
+  %71 = getelementptr inbounds nuw i8, ptr %.027.i31, i64 32
+  %72 = icmp ne ptr %.1.i42, %51
+  %73 = icmp ne ptr %.120.i41, %1
+  %74 = select i1 %72, i1 %73, i1 false
+  br i1 %74, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !136
 
-._crit_edge.i23:                                  ; preds = %63, %._crit_edge
-  %.019.lcssa.i24 = phi ptr [ %44, %._crit_edge ], [ %.120.i41, %63 ]
-  %.018.lcssa.i25 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %.1.i42, %63 ]
-  %.0.lcssa.i26 = phi ptr [ %.020.lcssa, %._crit_edge ], [ %64, %63 ]
-  %68 = ptrtoint ptr %44 to i64
-  %69 = ptrtoint ptr %.018.lcssa.i25 to i64
-  %70 = sub i64 %68, %69
-  %.not.i.i.i.i.i.i27 = icmp eq ptr %44, %.018.lcssa.i25
-  br i1 %.not.i.i.i.i.i.i27, label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i28, label %71
+._crit_edge.i23:                                  ; preds = %70, %._crit_edge
+  %.019.lcssa.i24 = phi ptr [ %51, %._crit_edge ], [ %.120.i41, %70 ]
+  %.018.lcssa.i25 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %.1.i42, %70 ]
+  %.0.lcssa.i26 = phi ptr [ %.020.lcssa, %._crit_edge ], [ %71, %70 ]
+  %75 = ptrtoint ptr %51 to i64
+  %76 = ptrtoint ptr %.018.lcssa.i25 to i64
+  %77 = sub i64 %75, %76
+  %.not.i.i.i.i.i.i27 = icmp eq ptr %51, %.018.lcssa.i25
+  br i1 %.not.i.i.i.i.i.i27, label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i28, label %78
 
-71:                                               ; preds = %._crit_edge.i23
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0.lcssa.i26, ptr align 4 %.018.lcssa.i25, i64 %70, i1 false)
+78:                                               ; preds = %._crit_edge.i23
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0.lcssa.i26, ptr align 4 %.018.lcssa.i25, i64 %77, i1 false)
   br label %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i28
 
-_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i28: ; preds = %71, %._crit_edge.i23
+_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i28: ; preds = %78, %._crit_edge.i23
   %.not.i.i.i.i.i21.i29 = icmp eq ptr %1, %.019.lcssa.i24
-  br i1 %.not.i.i.i.i.i21.i29, label %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit44", label %72
+  br i1 %.not.i.i.i.i.i21.i29, label %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit44", label %79
 
-72:                                               ; preds = %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i28
-  %73 = ptrtoint ptr %.019.lcssa.i24 to i64
-  %74 = sub i64 %6, %73
-  %75 = getelementptr inbounds i8, ptr %.0.lcssa.i26, i64 %70
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %75, ptr align 4 %.019.lcssa.i24, i64 %74, i1 false)
+79:                                               ; preds = %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i28
+  %80 = ptrtoint ptr %.019.lcssa.i24 to i64
+  %81 = sub i64 %6, %80
+  %82 = getelementptr inbounds i8, ptr %.0.lcssa.i26, i64 %77
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %82, ptr align 4 %.019.lcssa.i24, i64 %81, i1 false)
   br label %"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit44"
 
-"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit44": ; preds = %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i28, %72
+"_ZSt12__move_mergeIPN4llvm4dxbc23ProgramSignatureElementES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6mcdxbc9Signature5writeERNS0_11raw_ostreamEE3$_0EEET0_T_SE_SE_SE_SD_T1_.exit44": ; preds = %_ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit.i28, %79
   ret void
 }
 

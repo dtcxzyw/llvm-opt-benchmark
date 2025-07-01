@@ -19495,7 +19495,8 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
   %17 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8, !noundef !4
-  %20 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %17, i64 %19
+  %.idx = shl nuw nsw i64 %19, 6
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %17, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -19808,7 +19809,8 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
   %19 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i64, ptr %20, align 8, !noundef !4
-  %22 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %19, i64 %21
+  %.idx = shl nuw nsw i64 %21, 6
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %19, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -20197,7 +20199,8 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8, !noundef !4
-  %23 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %20, i64 %22
+  %.idx = shl nuw nsw i64 %22, 6
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr %20, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -20644,7 +20647,8 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
   %17 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8, !noundef !4
-  %20 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %17, i64 %19
+  %.idx = shl nuw nsw i64 %19, 6
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %17, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 40

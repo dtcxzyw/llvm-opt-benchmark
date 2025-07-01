@@ -1288,7 +1288,8 @@ _ZN10polars_row5fixed7numeric12encode_slice17hc9239283f40c9738E.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
-  %56 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 3
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %57 = icmp eq i64 %5, 0
   br i1 %57, label %_ZN10polars_row5fixed7numeric11encode_iter17h252d4c96769747b4E.exit, label %.lr.ph.i
 
@@ -1836,7 +1837,8 @@ _ZN10polars_row5fixed7numeric12encode_slice17hfeac6d8ddcd6bb8dE.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
-  %56 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 3
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %57 = icmp eq i64 %5, 0
   br i1 %57, label %_ZN10polars_row5fixed7numeric11encode_iter17h8b0834c3569b3f49E.exit, label %.lr.ph.i
 
@@ -2133,7 +2135,8 @@ _ZN10polars_row5fixed7numeric12encode_slice17h122a1d581a6e66e7E.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !317)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !320)
-  %56 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 3
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %57 = icmp eq i64 %5, 0
   br i1 %57, label %_ZN10polars_row5fixed7numeric11encode_iter17hc101c0e21df7f55cE.exit, label %.lr.ph.i
 
@@ -2430,7 +2433,8 @@ _ZN10polars_row5fixed7numeric12encode_slice17h957d1646eb306777E.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !386)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !389)
-  %56 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 3
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %57 = icmp eq i64 %5, 0
   br i1 %57, label %_ZN10polars_row5fixed7numeric11encode_iter17hc4a25b0410e462aaE.exit, label %.lr.ph.i
 
@@ -2688,7 +2692,8 @@ _ZN10polars_row5fixed7numeric12encode_slice17h80df78db46914ab5E.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !453)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !456)
-  %43 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 3
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %44 = icmp eq i64 %5, 0
   br i1 %44, label %_ZN10polars_row5fixed7numeric11encode_iter17h47079f1324bc696cE.exit, label %.lr.ph.i
 
@@ -2964,7 +2969,8 @@ _ZN10polars_row5fixed7numeric12encode_slice17h95ea09880eef3455E.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !520)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !523)
-  %56 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 3
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %57 = icmp eq i64 %5, 0
   br i1 %57, label %_ZN10polars_row5fixed7numeric11encode_iter17h45aed09f23f5bfc6E.exit, label %.lr.ph.i
 
@@ -3222,7 +3228,8 @@ _ZN10polars_row5fixed7numeric12encode_slice17hf8b87d6ff3ff45faE.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !587)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !590)
-  %43 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 3
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %44 = icmp eq i64 %5, 0
   br i1 %44, label %_ZN10polars_row5fixed7numeric11encode_iter17h199105659a2fc223E.exit, label %.lr.ph.i
 
@@ -3498,7 +3505,8 @@ _ZN10polars_row5fixed7numeric12encode_slice17hbf3163418daa1f36E.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !654)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !657)
-  %56 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 3
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %57 = icmp eq i64 %5, 0
   br i1 %57, label %_ZN10polars_row5fixed7numeric11encode_iter17hfbaba389d4aad5fbE.exit, label %.lr.ph.i
 
@@ -4166,7 +4174,8 @@ _ZN10polars_row5fixed7numeric12encode_value17h4a3ed071c7c60bfeE.exit.loopexit: ;
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10polars_row5fixed7numeric11encode_iter17h86391f22be11dd8eE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %2, i8 noundef %3, ptr noalias noundef nonnull align 8 captures(address) %4, i64 noundef %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [4 x i8], align 4
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %9 = icmp eq i64 %5, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
@@ -4553,7 +4562,8 @@ _ZN10polars_row5fixed7numeric16encode_opt_value17hac2c3164daa95376E.exit: ; pred
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10polars_row5fixed7numeric11encode_iter17hceb0a2939c026ef2E(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %2, i8 noundef %3, ptr noalias noundef nonnull align 8 captures(address) %4, i64 noundef %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [4 x i8], align 4
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %9 = icmp eq i64 %5, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 

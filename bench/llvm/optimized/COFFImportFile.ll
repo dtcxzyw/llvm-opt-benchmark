@@ -48,7 +48,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::chrono::duration" = type { i64 }
 %class.anon = type { ptr, ptr, ptr, ptr }
 %"class.llvm::function_ref" = type { ptr, i64 }
-%"struct.std::pair.65" = type { ptr, i64 }
 %"class.llvm::StringMap" = type { %"class.llvm::StringMapImpl" }
 %"class.llvm::StringMapImpl" = type { ptr, i32, i32, i32, i32 }
 %"class.llvm::SmallVector.34" = type { %"class.llvm::SmallVectorImpl.35" }
@@ -59,10 +58,10 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.40 = type { %"struct.llvm::AlignedCharArrayUnion.41" }
 %"struct.llvm::AlignedCharArrayUnion.41" = type { [32 x i8] }
 %struct.Deferred = type { %"class.std::__cxx11::basic_string", i32, ptr }
-%"struct.llvm::object::COFFShortExport" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i16, i8, i8, i8, i8, [2 x i8] }>
 %"class.llvm::Expected" = type { %union.anon.28, i8, [7 x i8] }
 %union.anon.28 = type { %"struct.llvm::AlignedCharArrayUnion.29" }
 %"struct.llvm::AlignedCharArrayUnion.29" = type { [8 x i8] }
+%"struct.std::pair.65" = type { ptr, i64 }
 
 $_ZN4llvm6object14COFFImportFileD0Ev = comdat any
 
@@ -2203,7 +2202,8 @@ _ZN4llvm6object12_GLOBAL__N_113ObjectFactoryD2Ev.exit: ; preds = %_ZNKSt7__cxx11
   %521 = load ptr, ptr %34, align 8, !tbaa !68
   %522 = load i32, ptr %36, align 8, !tbaa !69
   %523 = zext i32 %522 to i64
-  %524 = getelementptr inbounds nuw ptr, ptr %521, i64 %523
+  %.idx.i = shl nuw nsw i64 %523, 3
+  %524 = getelementptr inbounds nuw i8, ptr %521, i64 %.idx.i
   %.not6.i.i = icmp eq i32 %522, 0
   br i1 %.not6.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit.i, label %.lr.ph.i.i
 
@@ -2229,7 +2229,8 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   %535 = load ptr, ptr %38, align 8, !tbaa !68
   %536 = load i32, ptr %40, align 8, !tbaa !69
   %537 = zext i32 %536 to i64
-  %538 = getelementptr inbounds nuw %"struct.std::pair.65", ptr %535, i64 %537
+  %.idx.i.i = shl nuw nsw i64 %537, 4
+  %538 = getelementptr inbounds nuw i8, ptr %535, i64 %.idx.i.i
   %.not10.i.i = icmp eq i32 %536, 0
   br i1 %.not10.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.i, label %.lr.ph.i1.i
 
@@ -2361,7 +2362,8 @@ define internal fastcc void @"_ZZN4llvm6object18writeImportLibraryENS_9StringRef
   store i32 0, ptr %41, align 8, !tbaa !69
   %42 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 0, ptr %42, align 4, !tbaa !70
-  %43 = getelementptr inbounds nuw %"struct.llvm::object::COFFShortExport", ptr %2, i64 %3
+  %.idx288 = mul nuw nsw i64 %3, 168
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx288
   %.not280 = icmp eq i64 %3, 0
   br i1 %.not280, label %_ZN4llvm5ErrorD2Ev.exit, label %.lr.ph
 
@@ -3775,7 +3777,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   %.val88.pre = load ptr, ptr %23, align 8, !tbaa !68
   %.val90.pre = load i32, ptr %41, align 8, !tbaa !69
   %571 = zext i32 %.val90.pre to i64
-  %572 = getelementptr inbounds nuw %struct.Deferred, ptr %.val88.pre, i64 %571
+  %.idx289 = mul nuw nsw i64 %571, 48
+  %572 = getelementptr inbounds nuw i8, ptr %.val88.pre, i64 %.idx289
   %.not86285 = icmp eq i32 %.val90.pre, 0
   br i1 %.not86285, label %_ZN4llvm5ErrorD2Ev.exit, label %.lr.ph287
 
@@ -4063,7 +4066,8 @@ _ZN4llvm16NewArchiveMemberD2Ev.exit212:           ; preds = %_ZNSt6vectorIN4llvm
 
 .lr.ph.i.preheader.i:                             ; preds = %.loopexit
   %710 = zext i32 %.val2.i to i64
-  %711 = getelementptr inbounds nuw %struct.Deferred, ptr %.val.i213, i64 %710
+  %.idx.i = mul nuw nsw i64 %710, 48
+  %711 = getelementptr inbounds nuw i8, ptr %.val.i213, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZZZN4llvm6object18writeImportLibraryENS_9StringRefES1_NS_8ArrayRefINS0_15COFFShortExportEEENS_4COFF12MachineTypesEbS4_ENK3$_0clES4_S6_EN8DeferredD2Ev.exit.i.i", %.lr.ph.i.preheader.i
@@ -4749,7 +4753,8 @@ define internal fastcc void @"_ZN4llvm23SmallVectorTemplateBaseIZZNS_6object18wr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val6.i = load i32, ptr %6, align 8, !tbaa !69
   %7 = zext i32 %.val6.i to i64
-  %8 = getelementptr inbounds nuw %struct.Deferred, ptr %.val2.i, i64 %7
+  %.idx.i = mul nuw nsw i64 %7, 48
+  %8 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %.val6.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %"_ZN4llvm23SmallVectorTemplateBaseIZZNS_6object18writeImportLibraryENS_9StringRefES2_NS_8ArrayRefINS1_15COFFShortExportEEENS_4COFF12MachineTypesEbS5_ENK3$_0clES5_S7_E8DeferredLb0EE19moveElementsForGrowEPS9_.exit", label %.lr.ph.i.i.i.i.i.i
 
@@ -4802,7 +4807,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 .lr.ph.i.preheader.i:                             ; preds = %"_ZN4llvm23SmallVectorTemplateBaseIZZNS_6object18writeImportLibraryENS_9StringRefES2_NS_8ArrayRefINS1_15COFFShortExportEEENS_4COFF12MachineTypesEbS5_ENK3$_0clES5_S7_E8DeferredLb0EE18uninitialized_moveIPS9_SC_EEvT_SD_T0_.exit.i"
   %26 = zext i32 %.val4.pre.i to i64
-  %27 = getelementptr inbounds nuw %struct.Deferred, ptr %.val.pre.i, i64 %26
+  %.idx7.i = mul nuw nsw i64 %26, 48
+  %27 = getelementptr inbounds nuw i8, ptr %.val.pre.i, i64 %.idx7.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZZZN4llvm6object18writeImportLibraryENS_9StringRefES1_NS_8ArrayRefINS0_15COFFShortExportEEENS_4COFF12MachineTypesEbS4_ENK3$_0clES4_S6_EN8DeferredD2Ev.exit.i.i", %.lr.ph.i.preheader.i

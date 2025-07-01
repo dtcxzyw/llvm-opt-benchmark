@@ -2707,7 +2707,8 @@ define hidden void @_ZN10polars_row8variable8no_order24decode_variable_no_order1
   br i1 %.sroa.017.2, label %205, label %.thread51
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %18 = icmp eq i64 %2, 0
   br i1 %18, label %.loopexit57, label %.lr.ph.preheader
 
@@ -2750,14 +2751,14 @@ define hidden void @_ZN10polars_row8variable8no_order24decode_variable_no_order1
 
 36:                                               ; preds = %29
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %12, i64 noundef %2)
-          to label %._crit_edge70 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %._crit_edge71 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-._crit_edge70:                                    ; preds = %36
+._crit_edge71:                                    ; preds = %36
   %.pre = load i64, ptr %30, align 8
   br label %37
 
-37:                                               ; preds = %._crit_edge70, %29
-  %38 = phi i64 [ %.pre, %._crit_edge70 ], [ %31, %29 ]
+37:                                               ; preds = %._crit_edge71, %29
+  %38 = phi i64 [ %.pre, %._crit_edge71 ], [ %31, %29 ]
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %40 = load i64, ptr %39, align 8, !noundef !3
   %41 = icmp ult i64 %40, 576460752303423488
@@ -2769,10 +2770,10 @@ define hidden void @_ZN10polars_row8variable8no_order24decode_variable_no_order1
 
 45:                                               ; preds = %37
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder20extend_constant_slow17h6b1eb0ecaf954308E(ptr noalias noundef nonnull align 8 dereferenceable(56) %12, i64 noundef %40, i1 noundef zeroext true)
-          to label %._crit_edge71 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %._crit_edge72 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-._crit_edge71:                                    ; preds = %45
-  %.pre72 = load i64, ptr %30, align 8
+._crit_edge72:                                    ; preds = %45
+  %.pre73 = load i64, ptr %30, align 8
   br label %53
 
 46:                                               ; preds = %37
@@ -2787,8 +2788,8 @@ define hidden void @_ZN10polars_row8variable8no_order24decode_variable_no_order1
   store i64 %52, ptr %30, align 8
   br label %53
 
-53:                                               ; preds = %._crit_edge71, %46
-  %54 = phi i64 [ %.pre72, %._crit_edge71 ], [ %52, %46 ]
+53:                                               ; preds = %._crit_edge72, %46
+  %54 = phi i64 [ %.pre73, %._crit_edge72 ], [ %52, %46 ]
   %55 = add i64 %54, 1
   %56 = load i64, ptr %33, align 8, !noundef !3
   %57 = icmp ugt i64 %55, %56
@@ -2796,20 +2797,20 @@ define hidden void @_ZN10polars_row8variable8no_order24decode_variable_no_order1
 
 58:                                               ; preds = %53
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %12, i64 noundef 1)
-          to label %._crit_edge73 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %._crit_edge74 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-._crit_edge73:                                    ; preds = %58
-  %.pre74 = load i64, ptr %30, align 8, !alias.scope !266
-  %.pre79 = add i64 %.pre74, 1
+._crit_edge74:                                    ; preds = %58
+  %.pre75 = load i64, ptr %30, align 8, !alias.scope !266
+  %.pre80 = add i64 %.pre75, 1
   br label %59
 
-59:                                               ; preds = %._crit_edge73, %53
-  %.pre-phi80 = phi i64 [ %.pre79, %._crit_edge73 ], [ %55, %53 ]
+59:                                               ; preds = %._crit_edge74, %53
+  %.pre-phi81 = phi i64 [ %.pre80, %._crit_edge74 ], [ %55, %53 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !266)
   %60 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %61 = load i64, ptr %60, align 8, !alias.scope !266, !noundef !3
-  store i64 %.pre-phi80, ptr %30, align 8, !alias.scope !266
-  %62 = and i64 %.pre-phi80, 63
+  store i64 %.pre-phi81, ptr %30, align 8, !alias.scope !266
+  %62 = and i64 %.pre-phi81, 63
   %63 = icmp eq i64 %62, 0
   br i1 %63, label %64, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit38
 
@@ -2876,11 +2877,12 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   ret void
 
 92:                                               ; preds = %85
-  %93 = icmp samesign eq i64 %87, %2
+  %.idx70 = shl nuw nsw i64 %87, 4
+  %93 = icmp samesign eq i64 %.idx70, %.idx
   br i1 %93, label %._crit_edge, label %.lr.ph69
 
 .lr.ph69:                                         ; preds = %92
-  %94 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %87
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx70
   %.sroa.021.166 = getelementptr inbounds nuw i8, ptr %94, i64 16
   %95 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %96 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -3028,16 +3030,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 147:                                              ; preds = %102
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder12reserve_slow17h2ed2586fa01b0c0fE(ptr noalias noundef nonnull align 8 dereferenceable(56) %12, i64 noundef 1)
-          to label %._crit_edge75 unwind label %.loopexit
+          to label %._crit_edge76 unwind label %.loopexit
 
-._crit_edge75:                                    ; preds = %147
-  %.pre76 = load i64, ptr %26, align 8, !alias.scope !298
-  %.pre78 = add i64 %.pre76, 1
+._crit_edge76:                                    ; preds = %147
+  %.pre77 = load i64, ptr %26, align 8, !alias.scope !298
+  %.pre79 = add i64 %.pre77, 1
   br label %148
 
-148:                                              ; preds = %._crit_edge75, %102
-  %.pre-phi = phi i64 [ %.pre78, %._crit_edge75 ], [ %112, %102 ]
-  %149 = phi i64 [ %.pre76, %._crit_edge75 ], [ %111, %102 ]
+148:                                              ; preds = %._crit_edge76, %102
+  %.pre-phi = phi i64 [ %.pre79, %._crit_edge76 ], [ %112, %102 ]
+  %149 = phi i64 [ %.pre77, %._crit_edge76 ], [ %111, %102 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !298)
   %150 = zext i1 %110 to i64
   %151 = and i64 %149, 63
@@ -3103,11 +3105,11 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 
 180:                                              ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %181 = zext i8 %107 to i64
-  %.pre77 = load ptr, ptr %.sroa.021.067, align 8
+  %.pre78 = load ptr, ptr %.sroa.021.067, align 8
   br label %182
 
 182:                                              ; preds = %174, %180
-  %183 = phi ptr [ %.pre77, %180 ], [ %178, %174 ]
+  %183 = phi ptr [ %.pre78, %180 ], [ %178, %174 ]
   %.sroa.012.0 = phi i64 [ %181, %180 ], [ %179, %174 ]
   invoke fastcc void @"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h17c1dad85cb007ecE"(ptr noalias noundef align 8 dereferenceable(160) %13, ptr noalias noundef nonnull readonly align 1 %183, i64 noundef %.sroa.012.0)
           to label %184 unwind label %.loopexit
@@ -3184,11 +3186,11 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %15 unwind label %145
 
 .thread51:                                        ; preds = %143, %.body.i, %205, %15
-  %.pn3654 = phi { ptr, i32 } [ %.pn3681, %205 ], [ %lpad.phi, %15 ], [ %144, %143 ], [ %eh.lpad-body.i, %.body.i ]
+  %.pn3654 = phi { ptr, i32 } [ %.pn3682, %205 ], [ %lpad.phi, %15 ], [ %144, %143 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %.pn3654
 
 205:                                              ; preds = %.thread, %15
-  %.pn3681 = phi { ptr, i32 } [ %lpad.phi, %15 ], [ %14, %.thread ]
+  %.pn3682 = phi { ptr, i32 } [ %lpad.phi, %15 ], [ %14, %.thread ]
   invoke void @"_ZN4core3ptr102drop_in_place$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$$u5b$u8$u5d$$GT$$GT$17hf93ea26309a87f43E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %13) #20
           to label %.thread51 unwind label %145
 }

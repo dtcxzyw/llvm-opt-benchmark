@@ -562,7 +562,8 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716ReorderingBuffer4initEiR10
   %17 = sext i16 %16 to i32
   %18 = select i1 %15, i32 %9, i32 %17
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i16, ptr %10, i64 %19
+  %.idx = shl nsw i64 %19, 1
+  %20 = getelementptr inbounds i8, ptr %10, i64 %.idx
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %20, ptr %21, align 8, !tbaa !23
   %22 = load ptr, ptr %4, align 8, !tbaa !24

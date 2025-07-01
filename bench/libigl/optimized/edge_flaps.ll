@@ -37,7 +37,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %13 = load i64, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load i64, ptr %14, align 8, !tbaa !13
-  %16 = mul i64 %15, %13
+  %16 = mul nsw i64 %15, %13
   %17 = icmp slt i64 %16, 1
   br i1 %17, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKi.exit, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKi.exit.loopexit
 
@@ -65,47 +65,47 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %26 = load i64, ptr %25, align 8, !tbaa !4
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %28 = load i64, ptr %27, align 8, !tbaa !13
-  %29 = mul i64 %28, %26
+  %29 = mul nsw i64 %28, %26
   %30 = icmp slt i64 %29, 1
-  br i1 %30, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKi.exit40, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKi.exit40.loopexit
+  br i1 %30, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKi.exit41, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKi.exit41.loopexit
 
-_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKi.exit40.loopexit: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i36
+_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKi.exit41.loopexit: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i36
   %31 = load ptr, ptr %4, align 8, !tbaa !14
   %32 = shl i64 %29, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %31, i8 -1, i64 %32, i1 false), !tbaa !15
-  br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKi.exit40
+  br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKi.exit41
 
-_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKi.exit40: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKi.exit40.loopexit, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i36
+_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKi.exit41: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKi.exit41.loopexit, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i36
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !4
   %35 = icmp sgt i64 %34, 0
   br i1 %35, label %.preheader.lr.ph, label %._crit_edge
 
-.preheader.lr.ph:                                 ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKi.exit40
+.preheader.lr.ph:                                 ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKi.exit41
   %36 = load ptr, ptr %2, align 8, !tbaa !17
   %37 = load ptr, ptr %0, align 8, !tbaa !14
   %38 = load ptr, ptr %1, align 8, !tbaa !14
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %43
-  %indvars.iv51 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next52, %43 ]
-  %invariant.gep = getelementptr i32, ptr %36, i64 %indvars.iv51
-  %39 = getelementptr i32, ptr %37, i64 %indvars.iv51
+  %indvars.iv52 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next53, %43 ]
+  %invariant.gep = getelementptr i32, ptr %36, i64 %indvars.iv52
+  %39 = getelementptr i32, ptr %37, i64 %indvars.iv52
   %40 = load ptr, ptr %3, align 8
   %41 = load i64, ptr %12, align 8
-  %invariant.gep44 = getelementptr i32, ptr %40, i64 %41
+  %invariant.gep45 = getelementptr i32, ptr %40, i64 %41
   %42 = load ptr, ptr %4, align 8
-  %invariant.gep46 = getelementptr i32, ptr %42, i64 %26
-  %.sink = trunc i64 %indvars.iv51 to i32
+  %invariant.gep47 = getelementptr i32, ptr %42, i64 %26
+  %.sink = trunc i64 %indvars.iv52 to i32
   br label %44
 
-._crit_edge:                                      ; preds = %43, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKi.exit40
+._crit_edge:                                      ; preds = %43, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantEllRKi.exit41
   ret void
 
 43:                                               ; preds = %69
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next52, %34
-  br i1 %exitcond54.not, label %._crit_edge, label %.preheader, !llvm.loop !19
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %exitcond55.not = icmp eq i64 %indvars.iv.next53, %34
+  br i1 %exitcond55.not, label %._crit_edge, label %.preheader, !llvm.loop !19
 
 44:                                               ; preds = %.preheader, %69
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %69 ]
@@ -143,13 +143,13 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantE
   br label %69
 
 69:                                               ; preds = %57, %68
-  %invariant.gep44.sink = phi ptr [ %invariant.gep44, %68 ], [ %40, %57 ]
-  %invariant.gep46.sink = phi ptr [ %invariant.gep46, %68 ], [ %42, %57 ]
-  %gep45 = getelementptr i32, ptr %invariant.gep44.sink, i64 %53
-  store i32 %.sink, ptr %gep45, align 4, !tbaa !15
-  %gep47 = getelementptr i32, ptr %invariant.gep46.sink, i64 %53
+  %invariant.gep45.sink = phi ptr [ %invariant.gep45, %68 ], [ %40, %57 ]
+  %invariant.gep47.sink = phi ptr [ %invariant.gep47, %68 ], [ %42, %57 ]
+  %gep46 = getelementptr i32, ptr %invariant.gep45.sink, i64 %53
+  store i32 %.sink, ptr %gep46, align 4, !tbaa !15
+  %gep48 = getelementptr i32, ptr %invariant.gep47.sink, i64 %53
   %70 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %70, ptr %gep47, align 4, !tbaa !15
+  store i32 %70, ptr %gep48, align 4, !tbaa !15
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %43, label %44, !llvm.loop !21
 }

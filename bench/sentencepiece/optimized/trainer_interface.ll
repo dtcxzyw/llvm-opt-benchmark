@@ -3590,7 +3590,8 @@ _ZN13sentencepiece4util13StatusBuilderlsIA18_cEERS1_RKT_.exit: ; preds = %_ZN13s
   %280 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %281 = load i32, ptr %280, align 8, !tbaa !149
   %282 = sext i32 %281 to i64
-  %283 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %282
+  %.idx = shl nsw i64 %282, 3
+  %283 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not171 = icmp eq i32 %281, 0
   br i1 %.not171, label %._crit_edge, label %.lr.ph
 
@@ -3625,7 +3626,8 @@ _ZN13sentencepiece4util13StatusBuilderlsIA18_cEERS1_RKT_.exit: ; preds = %_ZN13s
   %294 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %295 = load i32, ptr %294, align 8, !tbaa !149
   %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %spec.select.i.i146, i64 %296
+  %.idx179 = shl nsw i64 %296, 3
+  %297 = getelementptr inbounds i8, ptr %spec.select.i.i146, i64 %.idx179
   %.not168173 = icmp eq i32 %295, 0
   br i1 %.not168173, label %._crit_edge177, label %.lr.ph176
 
@@ -14832,7 +14834,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit121: ; preds = %_ZSt
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %49 = load i32, ptr %48, align 8, !tbaa !149
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %50
+  %.idx = shl nsw i64 %50, 3
+  %51 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not179188 = icmp eq i32 %49, 0
   br i1 %.not179188, label %._crit_edge, label %.lr.ph
 
@@ -14941,7 +14944,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit134: ; preds = %_ZSt
   %spec.select.i.i137 = select i1 %.not.i.i136, ptr null, ptr %93
   %94 = load i32, ptr %48, align 8, !tbaa !149
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds ptr, ptr %spec.select.i.i137, i64 %95
+  %.idx199 = shl nsw i64 %95, 3
+  %96 = getelementptr inbounds i8, ptr %spec.select.i.i137, i64 %.idx199
   %.not181194 = icmp eq i32 %94, 0
   br i1 %91, label %97, label %226
 

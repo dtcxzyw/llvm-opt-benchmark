@@ -22403,7 +22403,8 @@ _ZN3hir9semantics13SemanticsImpl6to_def17h90bda645d09af602E.exit: ; preds = %"_Z
   %294 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %295 = load i64, ptr %294, align 8, !noalias !2017, !noundef !8
   %296 = lshr i64 %295, 1
-  %297 = getelementptr inbounds { { i32, i32, i32 } }, ptr %293, i64 %295
+  %.idx.i = mul nsw i64 %295, 12
+  %297 = getelementptr inbounds i8, ptr %293, i64 %.idx.i
   %298 = sub nsw i64 0, %296
   %299 = getelementptr inbounds { { i32, i32, i32 } }, ptr %297, i64 %298
   call void @llvm.experimental.noalias.scope.decl(metadata !2022)
@@ -23282,7 +23283,8 @@ define hidden void @_ZN14ide_completion11completions3vis17complete_vis_path17h66
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2340, !noalias !2343, !nonnull !8, !noundef !8
   %.sroa.5.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i12, align 8, !alias.scope !2340, !noalias !2343
-  %49 = getelementptr inbounds { { i32, i32, i32 } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nsw i64 %.sroa.5.0.copyload.i, 12
+  %49 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   store ptr %.sroa.4.0.copyload.i, ptr %20, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8

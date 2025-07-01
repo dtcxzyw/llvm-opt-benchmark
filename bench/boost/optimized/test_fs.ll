@@ -10423,7 +10423,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %23 = load ptr, ptr %22, align 8, !tbaa !38
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !41
-  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %25
+  %.idx = shl nuw nsw i64 %25, 2
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   %invariant.gep = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.not46 = icmp eq i64 %25, 0
   br i1 %.not46, label %._crit_edge, label %.lr.ph
@@ -12125,7 +12126,8 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i: ; preds = %.noexc16, %
   %38 = load ptr, ptr %1, align 8, !tbaa !38
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load i64, ptr %39, align 8, !tbaa !41
-  %41 = getelementptr inbounds nuw i32, ptr %38, i64 %40
+  %.idx = shl nuw nsw i64 %40, 2
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx
   %invariant.gep = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.not2427 = icmp eq i64 %40, 0
   br i1 %.not2427, label %._crit_edge, label %.lr.ph

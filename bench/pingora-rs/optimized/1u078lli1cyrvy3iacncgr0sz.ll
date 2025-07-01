@@ -13601,7 +13601,8 @@ define noundef align 8 ptr @_ZN12pingora_core7modules4http13HttpModuleCtx20respo
   %5 = load ptr, ptr %4, align 8, !nonnull !29, !noundef !29
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !29
-  %8 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %5, i64 %7
+  %.idx = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
@@ -13637,7 +13638,8 @@ define void @_ZN12pingora_core7modules4http13HttpModuleCtx23response_trailer_fil
   %7 = load ptr, ptr %6, align 8, !nonnull !29, !noundef !29
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !29
-  %10 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %7, i64 %9
+  %.idx = shl nuw nsw i64 %9, 4
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 
@@ -13777,7 +13779,8 @@ define void @_ZN12pingora_core7modules4http13HttpModuleCtx20response_done_filter
   %6 = load ptr, ptr %5, align 8, !nonnull !29, !noundef !29
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !29
-  %9 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %6, i64 %8
+  %.idx = shl nuw nsw i64 %8, 4
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -14049,7 +14052,8 @@ define void @_ZN12pingora_core6server11transfer_fd3Fds11deserialize17hcb76cc748b
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.411.0.copyload = load ptr, ptr %.sroa.411.0..sroa_idx, align 8, !nonnull !29, !noundef !29
-  %19 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.sroa.411.0.copyload, i64 %11
+  %.idx = mul nuw nsw i64 %11, 24
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.411.0.copyload, i64 %.idx
   %20 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %20)
   %.sroa.013.0.copyload = load i64, ptr %2, align 8

@@ -2351,7 +2351,8 @@ define hidden void @_ZN4core3str7pattern8Searcher11next_reject17h9ab5d3b5397cd89
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17hce5de6a2d3a428ffE(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(8) %2) unnamed_addr #15 {
-  %4 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] } }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 5
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -2370,7 +2371,8 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17hce5de6a2d3a428ffE(ptr noali
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17hfe3a2a50dcf6d788E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(8) %2) unnamed_addr #5 {
-  %4 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 48
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -3806,7 +3808,8 @@ _ZN9uv_pep4407version7Version5local17h0336e1695460c46cE.exit: ; preds = %.thread
   store i64 %145, ptr %1, align 8, !alias.scope !564
   call void @llvm.experimental.noalias.scope.decl(metadata !569)
   call void @llvm.experimental.noalias.scope.decl(metadata !572)
-  %146 = getelementptr inbounds { i64, [2 x i64] }, ptr %137, i64 %143
+  %.idx.i = mul nsw i64 %143, 24
+  %146 = getelementptr inbounds i8, ptr %137, i64 %.idx.i
   %147 = icmp eq i64 %143, 0
   br i1 %147, label %_ZN4core4hash4Hash10hash_slice17hc01e5b5d99061386E.exit, label %.lr.ph.i
 

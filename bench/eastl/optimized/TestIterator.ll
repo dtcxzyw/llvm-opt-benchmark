@@ -3916,7 +3916,8 @@ _ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i207: ; preds = %if.then.i.i
 if.else45:                                        ; preds = %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit
   %51 = load ptr, ptr %first, align 8
   %sub.neg = sub nsw i64 %add11.i, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i216 = getelementptr inbounds i32, ptr %51, i64 %sub.neg
+  %add.ptr.i.i.i216.idx = shl nsw i64 %sub.neg, 2
+  %add.ptr.i.i.i216 = getelementptr inbounds i8, ptr %51, i64 %add.ptr.i.i.i216.idx
   %52 = load ptr, ptr %itNewBegin27, align 8
   %mpEnd4.i232 = getelementptr inbounds nuw i8, ptr %itNewBegin27, i64 16
   %53 = load ptr, ptr %mpEnd4.i232, align 8
@@ -4737,8 +4738,10 @@ if.then5:                                         ; preds = %if.then
 
 if.then12:                                        ; preds = %if.then5
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr = getelementptr inbounds i32, ptr %3, i64 %idx.neg
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %3, ptr align 4 %add.ptr, i64 %sub.ptr.sub.i.i.i, i1 false)
+  %add.ptr.idx = shl nsw i64 %idx.neg, 2
+  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %add.ptr.idx
+  %gepdiff = sub nsw i64 0, %add.ptr.idx
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %3, ptr align 4 %add.ptr, i64 %gepdiff, i1 false)
   %4 = load ptr, ptr %mpEnd, align 8
   %add.ptr19 = getelementptr inbounds i32, ptr %4, i64 %idx.neg
   %cmp.not.i.i.i.i = icmp eq ptr %add.ptr19, %position

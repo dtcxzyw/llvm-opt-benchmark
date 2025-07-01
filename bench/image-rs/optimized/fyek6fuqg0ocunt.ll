@@ -3103,7 +3103,8 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17h604de83b4
   %.sroa.2183.0.copyload = load ptr, ptr %.sroa.2183.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %53 = getelementptr inbounds i16, ptr %.sroa.2183.0.copyload, i64 %.sroa.3.0.copyload
+  %.idx = shl nsw i64 %.sroa.3.0.copyload, 1
+  %53 = getelementptr inbounds i8, ptr %.sroa.2183.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.2183.0.copyload, ptr %9, align 8
   %.sroa.5185.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3506,7 +3507,8 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17hd232c915d
   %.sroa.2183.0.copyload = load ptr, ptr %.sroa.2183.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %53 = getelementptr inbounds i16, ptr %.sroa.2183.0.copyload, i64 %.sroa.3.0.copyload
+  %.idx = shl nsw i64 %.sroa.3.0.copyload, 1
+  %53 = getelementptr inbounds i8, ptr %.sroa.2183.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.2183.0.copyload, ptr %9, align 8
   %.sroa.5185.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8

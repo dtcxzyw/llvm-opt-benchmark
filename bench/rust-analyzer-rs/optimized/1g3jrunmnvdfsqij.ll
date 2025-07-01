@@ -2353,7 +2353,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %.val = load ptr, ptr %3, align 8, !nonnull !9, !noundef !9
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val6 = load i64, ptr %4, align 8, !noundef !9
-  %5 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %.val, i64 %.val6
+  %.idx = mul nsw i64 %.val6, 48
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !657)
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !660, !noalias !663, !nonnull !9, !align !34, !noundef !9
   %6 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
@@ -2534,7 +2535,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %.val6 = load ptr, ptr %3, align 8, !nonnull !9, !noundef !9
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %4, align 8, !noundef !9
-  %5 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val6, i64 %.val7
+  %.idx = mul nsw i64 %.val7, 24
+  %5 = getelementptr inbounds i8, ptr %.val6, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !823)
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !826, !noalias !829, !nonnull !9, !align !34, !noundef !9
   %6 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
@@ -2646,7 +2648,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %.val6 = load ptr, ptr %4, align 8, !nonnull !9, !noundef !9
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %5, align 8, !noundef !9
-  %6 = getelementptr inbounds i32, ptr %.val6, i64 %.val7
+  %.idx = shl nsw i64 %.val7, 2
+  %6 = getelementptr inbounds i8, ptr %.val6, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !910)
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !913, !noalias !916, !nonnull !9, !align !34, !noundef !9
   %7 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16

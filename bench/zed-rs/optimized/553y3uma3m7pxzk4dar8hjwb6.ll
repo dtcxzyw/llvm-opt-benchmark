@@ -14889,7 +14889,8 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hd5c2f7d857e0efc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !4007
   %8 = mul i64 %7, 5871781006564002453
   store i64 %8, ptr %4, align 8, !alias.scope !4012, !noalias !4017
-  %9 = getelementptr inbounds { i64, [3 x i64] }, ptr %5, i64 %7
+  %.idx.i.i.i.i.i = shl nsw i64 %7, 5
+  %9 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i.i.i.i
   %10 = icmp eq i64 %7, 0
   br i1 %10, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h5f4f66ffd5dc4b3cE.llvm.10185040963944003897.exit", label %.lr.ph.i.i.i.i.i
 
@@ -15885,7 +15886,8 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %10 = xor i64 %9, %7
   %11 = mul i64 %10, 5871781006564002453
   store i64 %11, ptr %1, align 8, !alias.scope !4318, !noalias !4323
-  %12 = getelementptr inbounds { i64, [3 x i64] }, ptr %5, i64 %7
+  %.idx.i.i.i.i = shl nsw i64 %7, 5
+  %12 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i.i.i
   %13 = icmp eq i64 %7, 0
   br i1 %13, label %"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for$u20$$LP$T$C$B$RP$$GT$4hash17h12f6a5fc883b1379E.llvm.10185040963944003897.exit", label %.lr.ph.i.i.i.i
 
@@ -16587,7 +16589,8 @@ define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for
   %9 = xor i64 %8, %6
   %10 = mul i64 %9, 5871781006564002453
   store i64 %10, ptr %1, align 8, !alias.scope !4643, !noalias !4648
-  %11 = getelementptr inbounds { i64, [3 x i64] }, ptr %4, i64 %6
+  %.idx.i.i.i = shl nsw i64 %6, 5
+  %11 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i.i
   %12 = icmp eq i64 %6, 0
   br i1 %12, label %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17h98035ac5093e8bf1E.llvm.10185040963944003897.exit", label %.lr.ph.i.i.i
 
@@ -98336,7 +98339,8 @@ define hidden void @"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..h
   %9 = xor i64 %8, %6
   %10 = mul i64 %9, 5871781006564002453
   store i64 %10, ptr %1, align 8, !alias.scope !17587, !noalias !17592
-  %11 = getelementptr inbounds { i64, [3 x i64] }, ptr %4, i64 %6
+  %.idx.i.i = shl nsw i64 %6, 5
+  %11 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i
   %12 = icmp eq i64 %6, 0
   br i1 %12, label %"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h71c21210e7ae81beE.exit", label %.lr.ph.i.i
 

@@ -5674,7 +5674,8 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h253d9e13b1df7a6cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #18 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !999)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h746e8feac137ae83E.llvm.4073844125802496097.exit", label %.lr.ph.i
@@ -36246,7 +36247,8 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.llvm.4073844125802496097.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
-  %33 = getelementptr inbounds { { i8, [15 x i8] }, { i32, i16, i16 }, i32, i8, [3 x i8] }, ptr %3, i64 %4
+  %.idx = shl nsw i64 %4, 5
+  %33 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %34 = icmp eq i64 %4, 0
   br i1 %34, label %.noexc24, label %.lr.ph74
 
@@ -38829,7 +38831,8 @@ define internal fastcc void @"_ZN15rustfmt_nightly6string12break_string28_$u7b$$
   unreachable
 
 "_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5e252db0049c983dE.exit": ; preds = %15
-  %19 = getelementptr inbounds { ptr, i64 }, ptr %11, i64 %16
+  %.idx = shl nsw i64 %16, 4
+  %19 = getelementptr inbounds i8, ptr %11, i64 %.idx
   br label %20
 
 20:                                               ; preds = %"_ZN15rustfmt_nightly6string12break_string28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4d539b1e2f5fdcc5E.exit.i", %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5e252db0049c983dE.exit"

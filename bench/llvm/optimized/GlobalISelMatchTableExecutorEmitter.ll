@@ -22,51 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.40" = type { %"struct.std::_Vector_base<const llvm::Record *, std::allocator<const llvm::Record *>>::_Vector_impl" }
 %"struct.std::_Vector_base<const llvm::Record *, std::allocator<const llvm::Record *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const llvm::Record *, std::allocator<const llvm::Record *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<const llvm::Record *, std::allocator<const llvm::Record *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvm::gi::RuleMatcher" = type { %"class.llvm::gi::Matcher", %"class.std::vector.49", %"class.std::__cxx11::list", %"class.std::__cxx11::basic_string", %"class.std::map.60", %"class.llvm::SmallPtrSet", %"class.llvm::StringMap", %"struct.llvm::SmallMapVector", i32, i32, i32, i64, i32, i32, %"class.std::vector.72", %"class.std::vector.39", %"class.std::vector.77", %"class.llvm::DenseSet", %"class.llvm::ArrayRef.85", %"class.llvm::StringMap.86", %"class.llvm::StringMap.87", i64 }
-%"class.llvm::gi::Matcher" = type { ptr }
-%"class.std::vector.49" = type { %"struct.std::_Vector_base.50" }
-%"struct.std::_Vector_base.50" = type { %"struct.std::_Vector_base<std::unique_ptr<llvm::gi::InstructionMatcher>, std::allocator<std::unique_ptr<llvm::gi::InstructionMatcher>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<llvm::gi::InstructionMatcher>, std::allocator<std::unique_ptr<llvm::gi::InstructionMatcher>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<llvm::gi::InstructionMatcher>, std::allocator<std::unique_ptr<llvm::gi::InstructionMatcher>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<llvm::gi::InstructionMatcher>, std::allocator<std::unique_ptr<llvm::gi::InstructionMatcher>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::unique_ptr<llvm::gi::MatchAction>, std::allocator<std::unique_ptr<llvm::gi::MatchAction>>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<std::unique_ptr<llvm::gi::MatchAction>, std::allocator<std::unique_ptr<llvm::gi::MatchAction>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.std::map.60" = type { %"class.std::_Rb_tree.61" }
-%"class.std::_Rb_tree.61" = type { %"struct.std::_Rb_tree<llvm::gi::InstructionMatcher *, std::pair<llvm::gi::InstructionMatcher *const, unsigned int>, std::_Select1st<std::pair<llvm::gi::InstructionMatcher *const, unsigned int>>, std::less<llvm::gi::InstructionMatcher *>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<llvm::gi::InstructionMatcher *, std::pair<llvm::gi::InstructionMatcher *const, unsigned int>, std::_Select1st<std::pair<llvm::gi::InstructionMatcher *const, unsigned int>>, std::less<llvm::gi::InstructionMatcher *>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"class.llvm::SmallPtrSet" = type { %"class.llvm::SmallPtrSetImpl.base", [4 x ptr] }
-%"class.llvm::SmallPtrSetImpl.base" = type { %"class.llvm::SmallPtrSetImplBase.base" }
-%"class.llvm::SmallPtrSetImplBase.base" = type <{ ptr, i32, i32, i32, i8 }>
-%"class.llvm::StringMap" = type { %"class.llvm::StringMapImpl" }
-%"class.llvm::StringMapImpl" = type { ptr, i32, i32, i32, i32 }
-%"struct.llvm::SmallMapVector" = type { %"class.llvm::MapVector" }
-%"class.llvm::MapVector" = type { %"class.llvm::SmallDenseMap", %"class.llvm::SmallVector.67" }
-%"class.llvm::SmallDenseMap" = type { i32, i32, %"struct.llvm::AlignedCharArrayUnion" }
-%"struct.llvm::AlignedCharArrayUnion" = type { [16 x i8] }
-%"class.llvm::SmallVector.67" = type { %"class.llvm::SmallVectorImpl.68", %"struct.llvm::SmallVectorStorage.71" }
-%"class.llvm::SmallVectorImpl.68" = type { %"class.llvm::SmallVectorTemplateBase.69" }
-%"class.llvm::SmallVectorTemplateBase.69" = type { %"class.llvm::SmallVectorTemplateCommon.70" }
-%"class.llvm::SmallVectorTemplateCommon.70" = type { %"class.llvm::SmallVectorBase" }
-%"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvm::SmallVectorStorage.71" = type { [16 x i8] }
-%"class.std::vector.72" = type { %"struct.std::_Vector_base.73" }
-%"struct.std::_Vector_base.73" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.77" = type { %"struct.std::_Vector_base.78" }
-%"struct.std::_Vector_base.78" = type { %"struct.std::_Vector_base<std::unique_ptr<llvm::gi::PredicateMatcher>, std::allocator<std::unique_ptr<llvm::gi::PredicateMatcher>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<llvm::gi::PredicateMatcher>, std::allocator<std::unique_ptr<llvm::gi::PredicateMatcher>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<llvm::gi::PredicateMatcher>, std::allocator<std::unique_ptr<llvm::gi::PredicateMatcher>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<llvm::gi::PredicateMatcher>, std::allocator<std::unique_ptr<llvm::gi::PredicateMatcher>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvm::DenseSet" = type { %"class.llvm::detail::DenseSetImpl" }
-%"class.llvm::detail::DenseSetImpl" = type { %"class.llvm::DenseMap.82" }
-%"class.llvm::DenseMap.82" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.llvm::ArrayRef.85" = type { ptr, i64 }
-%"class.llvm::StringMap.86" = type { %"class.llvm::StringMapImpl" }
-%"class.llvm::StringMap.87" = type { %"class.llvm::StringMapImpl" }
-%"class.llvm::gi::LLTCodeGen" = type { %"class.llvm::LLT" }
-%"class.llvm::LLT" = type { i64 }
 %"class.llvm::ArrayRef" = type { ptr, i64 }
 %"class.llvm::ArrayRef.131" = type { ptr, i64 }
 
@@ -532,7 +487,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit92:               ; preds = %170, %172
   store ptr %196, ptr %194, align 8, !tbaa !76
   %197 = getelementptr inbounds nuw %"struct.std::pair", ptr %196, i64 %3
   store ptr %197, ptr %193, align 8, !tbaa !77
-  %198 = getelementptr inbounds nuw %"class.llvm::gi::RuleMatcher", ptr %2, i64 %3
+  %.idx = mul nuw nsw i64 %3, 472
+  %198 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %199 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %200 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %274
@@ -1490,7 +1446,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit36:               ; preds = %25, %27
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit39
 
 _ZN4llvm11raw_ostreamlsEPKc.exit39:               ; preds = %38, %40
-  %44 = getelementptr inbounds nuw ptr, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not101 = icmp eq i64 %3, 0
   br i1 %.not101, label %._crit_edge, label %.lr.ph
 
@@ -2063,7 +2020,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit33:               ; preds = %25, %27
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit36
 
 _ZN4llvm11raw_ostreamlsEPKc.exit36:               ; preds = %38, %40
-  %44 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 4
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not83 = icmp eq i64 %3, 0
   br i1 %.not83, label %._crit_edge, label %.lr.ph
 
@@ -2528,7 +2486,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit27
 
 _ZN4llvm11raw_ostreamlsEPKc.exit27:               ; preds = %25, %27
-  %31 = getelementptr inbounds nuw %"class.llvm::gi::LLTCodeGen", ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not60 = icmp eq i64 %3, 0
   br i1 %.not60, label %._crit_edge, label %.lr.ph
 

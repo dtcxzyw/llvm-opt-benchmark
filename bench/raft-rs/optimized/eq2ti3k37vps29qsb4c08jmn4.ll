@@ -1036,7 +1036,8 @@ define internal fastcc void @_ZN4raft10confchange7changer7Changer5apply17h34b2c9
   %7 = alloca [8 x i8], align 8
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8
-  %10 = getelementptr inbounds nuw { i64, ptr, { { i64 } }, i8, [7 x i8] }, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 5
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %11 = icmp eq i64 %4, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 
@@ -2133,7 +2134,8 @@ define void @_ZN4raft10confchange7restore7restore17h09e107a6b2bec7e7E(ptr dead_o
 40:                                               ; preds = %4
   %41 = extractvalue { ptr, i64 } %39, 0
   %42 = extractvalue { ptr, i64 } %39, 1
-  %43 = getelementptr inbounds nuw i64, ptr %41, i64 %42
+  %.idx.i = shl nuw nsw i64 %42, 3
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i
   %44 = icmp ne ptr %41, null
   tail call void @llvm.assume(i1 %44)
   %45 = icmp eq i64 %42, 0
@@ -2154,7 +2156,8 @@ define void @_ZN4raft10confchange7restore7restore17h09e107a6b2bec7e7E(ptr dead_o
 49:                                               ; preds = %._crit_edge.i
   %50 = extractvalue { ptr, i64 } %48, 0
   %51 = extractvalue { ptr, i64 } %48, 1
-  %52 = getelementptr inbounds nuw i64, ptr %50, i64 %51
+  %.idx67.i = shl nuw nsw i64 %51, 3
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx67.i
   %53 = icmp ne ptr %50, null
   call void @llvm.assume(i1 %53)
   %54 = icmp eq i64 %51, 0
@@ -2175,7 +2178,8 @@ define void @_ZN4raft10confchange7restore7restore17h09e107a6b2bec7e7E(ptr dead_o
 58:                                               ; preds = %._crit_edge54.i
   %59 = extractvalue { ptr, i64 } %57, 0
   %60 = extractvalue { ptr, i64 } %57, 1
-  %61 = getelementptr inbounds nuw i64, ptr %59, i64 %60
+  %.idx68.i = shl nuw nsw i64 %60, 3
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx68.i
   %62 = icmp ne ptr %59, null
   call void @llvm.assume(i1 %62)
   %63 = icmp eq i64 %60, 0
@@ -2196,7 +2200,8 @@ define void @_ZN4raft10confchange7restore7restore17h09e107a6b2bec7e7E(ptr dead_o
 67:                                               ; preds = %._crit_edge58.i
   %68 = extractvalue { ptr, i64 } %66, 0
   %69 = extractvalue { ptr, i64 } %66, 1
-  %70 = getelementptr inbounds nuw i64, ptr %68, i64 %69
+  %.idx69.i = shl nuw nsw i64 %69, 3
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx69.i
   %71 = icmp ne ptr %68, null
   call void @llvm.assume(i1 %71)
   %72 = icmp eq i64 %69, 0
@@ -2217,7 +2222,8 @@ define void @_ZN4raft10confchange7restore7restore17h09e107a6b2bec7e7E(ptr dead_o
 76:                                               ; preds = %._crit_edge62.i
   %77 = extractvalue { ptr, i64 } %75, 0
   %78 = extractvalue { ptr, i64 } %75, 1
-  %79 = getelementptr inbounds nuw i64, ptr %77, i64 %78
+  %.idx70.i = shl nuw nsw i64 %78, 3
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx70.i
   %80 = icmp ne ptr %77, null
   call void @llvm.assume(i1 %80)
   %81 = icmp eq i64 %78, 0
@@ -2437,7 +2443,8 @@ _ZN4raft10confchange7restore21to_conf_change_single17hd833d3358f4f95f5E.exit: ; 
   %.sroa.558.0.copyload = load i64, ptr %.sroa.558.0..sroa_idx, align 8
   %164 = icmp ult i64 %.sroa.558.0.copyload, 288230376151711744
   call void @llvm.assume(i1 %164)
-  %165 = getelementptr inbounds nuw { i64, ptr, { { i64 } }, i8, [7 x i8] }, ptr %.sroa.4.0.copyload, i64 %.sroa.558.0.copyload
+  %.idx113 = shl nuw nsw i64 %.sroa.558.0.copyload, 5
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 %.idx113
   %166 = icmp sgt i64 %.sroa.057.0.copyload, -1
   call void @llvm.assume(i1 %166)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31)
@@ -2601,7 +2608,8 @@ _ZN4raft10confchange7restore21to_conf_change_single17hd833d3358f4f95f5E.exit: ; 
   %.sroa.068.0.copyload = load i64, ptr %34, align 8
   %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.469.0.copyload = load ptr, ptr %.sroa.469.0..sroa_idx, align 8, !nonnull !4, !noundef !4
-  %196 = getelementptr inbounds nuw { i64, ptr, { { i64 } }, i8, [7 x i8] }, ptr %.sroa.469.0.copyload, i64 %159
+  %.idx = shl nuw nsw i64 %159, 5
+  %196 = getelementptr inbounds nuw i8, ptr %.sroa.469.0.copyload, i64 %.idx
   %197 = icmp sgt i64 %.sroa.068.0.copyload, -1
   call void @llvm.assume(i1 %197)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)

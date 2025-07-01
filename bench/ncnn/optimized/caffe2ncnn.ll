@@ -4249,7 +4249,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %1394 = getelementptr inbounds nuw i8, ptr %1393, i64 32
   %1395 = load float, ptr %1394, align 8, !tbaa !190
   %1396 = load i32, ptr %1388, align 8, !tbaa !188
-  %1397 = sext i32 %1396 to i64
+  %1397 = zext i32 %1396 to i64
   %1398 = icmp slt i32 %1396, 0
   br i1 %1398, label %1399, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
@@ -4270,7 +4270,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %1377
           to label %.noexc1713 unwind label %.loopexit2312
 
 .noexc1713:                                       ; preds = %1400
-  %1403 = getelementptr inbounds nuw float, ptr %1402, i64 %1397
+  %1403 = getelementptr inbounds nuw i8, ptr %1402, i64 %1401
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc1713
@@ -4285,10 +4285,10 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %1377
   br label %.loopexit2290
 
 .loopexit2290:                                    ; preds = %.loopexit2290.loopexit, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.12.2 = phi i64 [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %1405, %.loopexit2290.loopexit ]
   %.sroa.02160.2 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %1402, %.loopexit2290.loopexit ]
+  %.0.i.i.i.i.i.i.i1711 = phi i64 [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %1405, %.loopexit2290.loopexit ]
   %1406 = ptrtoint ptr %.sroa.02160.2 to i64
-  %1407 = sub i64 %.sroa.12.2, %1406
+  %1407 = sub i64 %.0.i.i.i.i.i.i.i1711, %1406
   %1408 = ashr exact i64 %1407, 2
   %1409 = call i64 @fwrite(ptr noundef %.sroa.02160.2, i64 noundef 4, i64 noundef %1408, ptr noundef %199)
   %1410 = getelementptr inbounds nuw i8, ptr %1381, i64 128
@@ -4403,7 +4403,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %1377
 
 1467:                                             ; preds = %._crit_edge2571, %._crit_edge2567
   %1468 = load i32, ptr %1388, align 8, !tbaa !188
-  %1469 = sext i32 %1468 to i64
+  %1469 = zext i32 %1468 to i64
   %1470 = icmp slt i32 %1468, 0
   br i1 %1470, label %1471, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i1714
 
@@ -4425,15 +4425,15 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i1714: ; preds = %1467
 
 .noexc1722:                                       ; preds = %1472
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %1474, i8 0, i64 %1473, i1 false), !tbaa !193
-  %1475 = getelementptr inbounds nuw float, ptr %1474, i64 %1469
+  %1475 = getelementptr inbounds nuw i8, ptr %1474, i64 %1473
   %1476 = ptrtoint ptr %1475 to i64
   br label %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit1723
 
 _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit1723:        ; preds = %.noexc1722, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i1714
-  %.sroa.11.2 = phi i64 [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i1714 ], [ %1476, %.noexc1722 ]
   %.sroa.02152.2 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i1714 ], [ %1474, %.noexc1722 ]
+  %.0.i.i.i.i.i.i.i1719 = phi i64 [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i1714 ], [ %1476, %.noexc1722 ]
   %1477 = ptrtoint ptr %.sroa.02152.2 to i64
-  %1478 = sub i64 %.sroa.11.2, %1477
+  %1478 = sub i64 %.0.i.i.i.i.i.i.i1719, %1477
   %1479 = ashr exact i64 %1478, 2
   %1480 = call i64 @fwrite(ptr noundef %.sroa.02152.2, i64 noundef 4, i64 noundef %1479, ptr noundef %199)
   %.not.i.i.i1724 = icmp eq ptr %.sroa.02152.2, null

@@ -152,7 +152,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__shared_ptr.186" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.59" = type { %"class.std::__shared_ptr.60" }
 %"class.std::__shared_ptr.60" = type { ptr, %"class.std::__shared_count" }
-%"struct.std::pair.189" = type { %"class.std::__cxx11::basic_string", %"class.std::shared_ptr" }
 %"class.std::shared_ptr.192" = type { %"class.std::__shared_ptr.193" }
 %"class.std::__shared_ptr.193" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.195" = type { %"class.std::__shared_ptr.196" }
@@ -168,6 +167,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.758 = type { i128 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"struct.facebook::velox::TimestampToStringOptions" = type { i8, i8, i8, i8 }
+%"struct.std::pair.189" = type { %"class.std::__cxx11::basic_string", %"class.std::shared_ptr" }
 %"class.std::allocator.572" = type { i8 }
 %"struct.std::pair.587" = type { %"class.std::__cxx11::basic_string", %"class.std::function.317" }
 %"class.std::function.317" = type { %"class.std::_Function_base", ptr }
@@ -11863,7 +11863,8 @@ for.body.lr.ph:                                   ; preds = %_ZNSt12_Vector_base
   %add.ptr21.i32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i36, i64 %0
   store ptr %add.ptr21.i32, ptr %_M_end_of_storage.i.i11, align 8
   %1 = load ptr, ptr %pairs, align 8
-  %add.ptr.i37 = getelementptr inbounds nuw %"struct.std::pair.189", ptr %1, i64 %0
+  %add.ptr.i37.idx = mul nuw nsw i64 %0, 48
+  %add.ptr.i37 = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i37.idx
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %types, i64 8
   %_M_finish.i41 = getelementptr inbounds nuw i8, ptr %names, i64 8
   br label %for.body

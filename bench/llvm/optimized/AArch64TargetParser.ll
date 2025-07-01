@@ -2913,7 +2913,8 @@ define dso_local noundef i64 @_ZN4llvm7AArch6414getFMVPriorityENS_8ArrayRefINS_9
   %3 = alloca %"struct.llvm::AArch64::ExtensionSet", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  %4 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %0, i64 %1
+  %.idx = shl nuw nsw i64 %1, 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.not114 = icmp eq i64 %1, 0
   br i1 %.not114, label %._crit_edge, label %.lr.ph
 
@@ -3328,7 +3329,8 @@ define dso_local noundef i64 @_ZN4llvm7AArch6418getCpuSupportsMaskENS_8ArrayRefI
   %3 = alloca %"struct.llvm::AArch64::ExtensionSet", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  %4 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %0, i64 %1
+  %.idx = shl nuw nsw i64 %1, 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.not34 = icmp eq i64 %1, 0
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 

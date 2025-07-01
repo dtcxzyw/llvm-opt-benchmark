@@ -23,7 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon = type { ptr, ptr }
 %"class.clang::DiagnosticBuilder" = type <{ %"class.clang::StreamingDiagnostic", ptr, %"class.clang::SourceLocation", i32, %"class.std::__cxx11::basic_string", i8, i8, [6 x i8] }>
 %"class.clang::StreamingDiagnostic" = type { ptr, ptr }
-%"class.clang::FixItHint" = type <{ %"class.clang::CharSourceRange", %"class.clang::CharSourceRange", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 
 $_ZNK5clang15ObjCMessageExpr15getMethodFamilyEv = comdat any
 
@@ -2494,17 +2493,17 @@ define internal fastcc noundef zeroext i1 @_ZL31rewriteToNumericBoxedExpressionP
   %16 = load ptr, ptr %15, align 8, !tbaa !375
   %17 = load i24, ptr %16, align 8
   %18 = and i24 %17, 65536
-  %.not110 = icmp eq i24 %18, 0
-  br i1 %.not110, label %19, label %198
+  %.not111 = icmp eq i24 %18, 0
+  br i1 %.not111, label %19, label %198
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %1, align 8, !tbaa !3
   %21 = tail call i64 @_ZNK5clang15ObjCMessageExpr11getSelectorEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   %22 = tail call i64 @_ZNK5clang5NSAPI28getNSNumberLiteralMethodKindENS_8SelectorE(ptr noundef nonnull align 8 dereferenceable(712) %1, i64 %21) #15
-  %.sroa.098.0.extract.trunc = trunc i64 %22 to i32
+  %.sroa.099.0.extract.trunc = trunc i64 %22 to i32
   %23 = and i64 %22, 4294967296
-  %.not111 = icmp eq i64 %23, 0
-  br i1 %.not111, label %198, label %24
+  %.not112 = icmp eq i64 %23, 0
+  br i1 %.not112, label %198, label %24
 
 24:                                               ; preds = %19
   %25 = tail call noundef ptr @_ZN5clang4Expr14IgnoreImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #16
@@ -2525,8 +2524,8 @@ define internal fastcc noundef zeroext i1 @_ZL31rewriteToNumericBoxedExpressionP
   %38 = icmp ult i64 %32, %37
   %39 = load i16, ptr %16, align 8
   %40 = and i16 %39, 511
-  %.not113 = icmp eq i16 %40, 81
-  br i1 %.not113, label %41, label %188
+  %.not114 = icmp eq i16 %40, 81
+  br i1 %.not114, label %41, label %188
 
 41:                                               ; preds = %24
   %42 = load i32, ptr %16, align 8
@@ -2591,7 +2590,7 @@ define internal fastcc noundef zeroext i1 @_ZL31rewriteToNumericBoxedExpressionP
   ]
 
 45:                                               ; preds = %41
-  %46 = icmp eq i32 %.sroa.098.0.extract.trunc, 12
+  %46 = icmp eq i32 %.sroa.099.0.extract.trunc, 12
   br i1 %46, label %47, label %59
 
 47:                                               ; preds = %45
@@ -2615,7 +2614,7 @@ _ZNK5clang4Type13isBooleanTypeEv.exit:            ; preds = %47
   br i1 %58, label %188, label %.thread
 
 59:                                               ; preds = %45
-  %60 = add i32 %.sroa.098.0.extract.trunc, -15
+  %60 = add i32 %.sroa.099.0.extract.trunc, -15
   %or.cond = icmp ult i32 %60, -2
   %or.cond3 = or i1 %or.cond, %38
   br i1 %or.cond3, label %.thread, label %61
@@ -2630,8 +2629,8 @@ _ZNK5clang4Type13isBooleanTypeEv.exit:            ; preds = %47
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load i8, ptr %67, align 16
   %69 = icmp ne i8 %68, 46
-  %.not53114 = icmp eq ptr %66, null
-  %.not53 = or i1 %.not53114, %69
+  %.not53115 = icmp eq ptr %66, null
+  %.not53 = or i1 %.not53115, %69
   br i1 %.not53, label %70, label %188
 
 70:                                               ; preds = %61
@@ -2640,7 +2639,7 @@ _ZNK5clang4Type13isBooleanTypeEv.exit:            ; preds = %47
 
 72:                                               ; preds = %70
   %73 = tail call noundef zeroext i1 @_ZNK5clang4Type19isSignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %62) #15
-  %74 = icmp ne i32 %.sroa.098.0.extract.trunc, 13
+  %74 = icmp ne i32 %.sroa.099.0.extract.trunc, 13
   %75 = xor i1 %74, %73
   br i1 %75, label %76, label %.thread
 
@@ -2764,7 +2763,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %108
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %120
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %128, i64 %131
+  %.idx.i7.i.i.i = shl nuw nsw i64 %131, 6
+  %132 = getelementptr inbounds nuw i8, ptr %128, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -2904,8 +2904,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   ]
 
 194:                                              ; preds = %188, %188
-  %.sroa.085.0.extract.trunc = trunc i64 %189 to i32
-  %195 = tail call noundef zeroext i1 @_ZN5clang4edit6Commit6insertENS_14SourceLocationEN4llvm9StringRefEbb(ptr noundef nonnull align 8 dereferenceable(600) %2, i32 %.sroa.085.0.extract.trunc, ptr nonnull @.str.21, i64 1, i1 noundef zeroext false, i1 noundef zeroext true) #15
+  %.sroa.086.0.extract.trunc = trunc i64 %189 to i32
+  %195 = tail call noundef zeroext i1 @_ZN5clang4edit6Commit6insertENS_14SourceLocationEN4llvm9StringRefEbb(ptr noundef nonnull align 8 dereferenceable(600) %2, i32 %.sroa.086.0.extract.trunc, ptr nonnull @.str.21, i64 1, i1 noundef zeroext false, i1 noundef zeroext true) #15
   br label %198
 
 196:                                              ; preds = %188
@@ -3783,7 +3783,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %12
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %24
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %32, i64 %35
+  %.idx.i7.i.i = shl nuw nsw i64 %35, 6
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i7.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -3890,7 +3891,8 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
 
 .lr.ph.i.preheader.i.i:                           ; preds = %14
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %16, i64 %19
+  %.idx.i.i = shl nuw nsw i64 %19, 6
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i

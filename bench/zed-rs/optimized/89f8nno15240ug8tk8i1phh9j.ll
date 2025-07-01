@@ -5364,7 +5364,8 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hdd3ed719c3694112E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #20 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { ptr, [1 x i64] }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1049)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0a151842d7ca036bE.llvm.192534479544494332.exit", label %.lr.ph.i
@@ -41687,7 +41688,8 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$4edit17h28d7e063c1015e13E"(pt
   %.sroa.0155.0.copyload = load i64, ptr %2, align 8
   %.sroa.4156.0.copyload = load ptr, ptr %77, align 8, !nonnull !18, !noundef !18
   %.sroa.5157.0.copyload = load i64, ptr %68, align 8
-  %146 = getelementptr inbounds { i64, [12 x i64] }, ptr %.sroa.4156.0.copyload, i64 %.sroa.5157.0.copyload
+  %.idx = mul nsw i64 %.sroa.5157.0.copyload, 104
+  %146 = getelementptr inbounds i8, ptr %.sroa.4156.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %62)
   store ptr %.sroa.4156.0.copyload, ptr %62, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -44347,7 +44349,8 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$4edit17h408192183d049b54E"(pt
   %.sroa.0143.0.copyload = load i64, ptr %2, align 8
   %.sroa.4144.0.copyload = load ptr, ptr %73, align 8, !nonnull !18, !noundef !18
   %.sroa.5145.0.copyload = load i64, ptr %64, align 8
-  %142 = getelementptr inbounds { i64, [12 x i64] }, ptr %.sroa.4144.0.copyload, i64 %.sroa.5145.0.copyload
+  %.idx = mul nsw i64 %.sroa.5145.0.copyload, 104
+  %142 = getelementptr inbounds i8, ptr %.sroa.4144.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58)
   store ptr %.sroa.4144.0.copyload, ptr %58, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -46830,7 +46833,8 @@ common.resume:                                    ; preds = %802, %803, %75, %79
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62)
   %.sroa.0139.0.copyload = load i64, ptr %2, align 8
-  %142 = getelementptr inbounds { i64, [7 x i64] }, ptr %88, i64 %68
+  %.idx = shl nsw i64 %68, 6
+  %142 = getelementptr inbounds i8, ptr %88, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %61)
   store ptr %88, ptr %61, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 8

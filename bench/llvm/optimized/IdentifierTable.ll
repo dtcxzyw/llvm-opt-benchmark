@@ -34,7 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::greater<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
 %"class.llvm::StringRef" = type { ptr, i64 }
-%"struct.std::pair.56" = type { ptr, i64 }
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector.18" }
 %"class.llvm::SmallVector.18" = type { %"class.llvm::SmallVectorImpl.19", %"struct.llvm::SmallVectorStorage.23" }
 %"class.llvm::SmallVectorImpl.19" = type { %"class.llvm::SmallVectorTemplateBase.20" }
@@ -58,6 +57,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.36" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.37" = type { [128 x i8] }
+%"struct.std::pair.56" = type { ptr, i64 }
 
 $_ZN5clang15IdentifierTable3getEN4llvm9StringRefE = comdat any
 
@@ -20013,7 +20013,8 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfo
   %36 = load i64, ptr %35, align 8, !tbaa !39
   %37 = load ptr, ptr %32, align 8, !tbaa !6
   %38 = zext i32 %34 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
+  %.idx.i.i = shl nuw nsw i64 %38, 3
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i
   %.not17.i.i = icmp eq i32 %34, 0
   br i1 %.not17.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -20028,7 +20029,8 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfo
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %44 = load i32, ptr %43, align 8, !tbaa !11
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw %"struct.std::pair.56", ptr %42, i64 %45
+  %.idx27.i.i = shl nuw nsw i64 %45, 4
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx27.i.i
   %.not1620.i.i = icmp eq i32 %44, 0
   br i1 %.not1620.i.i, label %_ZNK4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE10PrintStatsEv.exit, label %.lr.ph24.i.i
 
@@ -21505,7 +21507,8 @@ define dso_local noundef i64 @_ZNK5clang13SelectorTable14getTotalMemoryEv(ptr no
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load i32, ptr %5, align 8, !tbaa !11
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %.idx.i = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %.not17.i = icmp eq i32 %6, 0
   br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -21520,7 +21523,8 @@ define dso_local noundef i64 @_ZNK5clang13SelectorTable14getTotalMemoryEv(ptr no
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %13 = load i32, ptr %12, align 8, !tbaa !11
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.std::pair.56", ptr %11, i64 %14
+  %.idx27.i = shl nuw nsw i64 %14, 4
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx27.i
   %.not1620.i = icmp eq i32 %13, 0
   br i1 %.not1620.i, label %_ZNK4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE14getTotalMemoryEv.exit, label %.lr.ph24.i
 
@@ -26278,7 +26282,8 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !11
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not6.i = icmp eq i32 %5, 0
   br i1 %.not6.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, label %.lr.ph.i
 
@@ -26306,7 +26311,8 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load i32, ptr %20, align 8, !tbaa !11
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.std::pair.56", ptr %19, i64 %22
+  %.idx.i = shl nuw nsw i64 %22, 4
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
   %.not10.i = icmp eq i32 %21, 0
   br i1 %.not10.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit, label %.lr.ph.i1
 

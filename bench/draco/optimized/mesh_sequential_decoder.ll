@@ -716,7 +716,7 @@ define noundef zeroext i1 @_ZN5draco21MeshSequentialDecoder26DecodeAndDecompress
   %5 = zext i32 %4 to i64
   %6 = shl nuw nsw i64 %5, 2
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #19
-  %8 = getelementptr i32, ptr %7, i64 %5
+  %8 = getelementptr inbounds nuw i32, ptr %7, i64 %5
   store i32 0, ptr %7, align 4, !tbaa !34
   %9 = icmp eq i32 %4, 1
   br i1 %9, label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i

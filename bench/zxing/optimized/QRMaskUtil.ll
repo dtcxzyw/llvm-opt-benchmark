@@ -247,7 +247,7 @@ _ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.e
   br i1 %.not31.i, label %_ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.exit89.i, label %.lr.ph.i52.i
 
 .lr.ph.i52.i:                                     ; preds = %_ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.exit51.i
-  %96 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %62, i64 %45
+  %96 = getelementptr inbounds nuw i8, ptr %62, i64 %45
   br label %97
 
 97:                                               ; preds = %102, %.lr.ph.i52.i
@@ -296,7 +296,7 @@ _ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.e
   br i1 %or.cond.i74.i, label %.critedge6.i, label %.lr.ph.i67.i, !llvm.loop !29
 
 _ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.exit75.i: ; preds = %.lr.ph.i67.i
-  %113 = getelementptr inbounds %"class.ZXing::Trit", ptr %96, i64 %58
+  %113 = getelementptr inbounds i8, ptr %96, i64 %58
   br i1 %.not27.i79.i, label %.lr.ph.i81.i, label %.critedge6.i
 
 .lr.ph.i81.i:                                     ; preds = %_ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.exit75.i, %118
@@ -334,7 +334,7 @@ _ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule3ERKNS_6MatrixINS_4TritEEE.exit:
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
   %123 = mul nsw i32 %.pre20, %6
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds %"class.ZXing::Trit", ptr %122, i64 %124
+  %125 = getelementptr inbounds i8, ptr %122, i64 %124
   %.not6.i.i.i = icmp eq i32 %123, 0
   br i1 %.not6.i.i.i, label %_ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule4ERKNS_6MatrixINS_4TritEEE.exit, label %.lr.ph.i.i.i
 

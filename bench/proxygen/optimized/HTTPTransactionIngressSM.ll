@@ -255,7 +255,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr void @_ZNSt6vectorISt4pairIS0_IN8proxygen28HTTPTransactionIngressSMData5StateENS2_5EventEES3_ESaIS6_EEC2ESt16initializer_listIS6_ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__l.coerce0, i64 %__l.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %add.ptr.i.idx = mul nsw i64 %__l.coerce1, 3
+  %add.ptr.i.idx5 = mul nsw i64 %__l.coerce1, 3
   %cmp.i.i = icmp ugt i64 %__l.coerce1, 3074457345618258602
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorISt4pairIS0_IN8proxygen28HTTPTransactionIngressSMData5StateENS2_5EventEES3_ESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i
 
@@ -271,21 +271,21 @@ _ZNSt6vectorISt4pairIS0_IN8proxygen28HTTPTransactionIngressSMData5StateENS2_5Eve
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseISt4pairIS0_IN8proxygen28HTTPTransactionIngressSMData5StateENS2_5EventEES3_ESaIS6_EE11_M_allocateEm.exit.thread.i, label %for.body.i.i.i.i.preheader.i
 
 _ZNSt12_Vector_baseISt4pairIS0_IN8proxygen28HTTPTransactionIngressSMData5StateENS2_5EventEES3_ESaIS6_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorISt4pairIS0_IN8proxygen28HTTPTransactionIngressSMData5StateENS2_5EventEES3_ESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i
-  %add.ptr5.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.i.idx
+  %add.ptr5.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.i.idx5
   %_M_end_of_storage6.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr5.i, ptr %_M_end_of_storage6.i, align 8
   br label %invoke.cont
 
 for.body.i.i.i.i.preheader.i:                     ; preds = %_ZNSt6vectorISt4pairIS0_IN8proxygen28HTTPTransactionIngressSMData5StateENS2_5EventEES3_ESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i
-  %call5.i.i.i.i2 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr.i.idx) #15
+  %call5.i.i.i.i2 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr.i.idx5) #15
           to label %call5.i.i.i.i.noexc unwind label %lpad
 
 call5.i.i.i.i.noexc:                              ; preds = %for.body.i.i.i.i.preheader.i
   store ptr %call5.i.i.i.i2, ptr %this, align 8
-  %add.ptr.i1 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2, i64 %add.ptr.i.idx
+  %add.ptr.i1 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2, i64 %add.ptr.i.idx5
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i1, ptr %_M_end_of_storage.i, align 8
-  %0 = add nsw i64 %add.ptr.i.idx, -3
+  %0 = add nsw i64 %add.ptr.i.idx5, -3
   %1 = urem i64 %0, 3
   %2 = sub nuw i64 %0, %1
   %3 = add i64 %2, 3

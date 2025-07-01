@@ -12800,7 +12800,8 @@ define hidden void @"_ZN13wasmtime_wasi4host10filesystem135_$LT$impl$u20$wasmtim
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !3215, !noalias !3218, !nonnull !5, !noundef !5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !3215, !noalias !3218
-  %21 = getelementptr inbounds { { ptr, i64, i64, i64, i8, [7 x i8] }, { { { i64, ptr, {} }, i64 } } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nsw i64 %.sroa.5.0.copyload.i, 6
+  %21 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   store ptr %.sroa.4.0.copyload.i, ptr %8, align 8
@@ -50859,7 +50860,8 @@ _ZN4core3ops8function6FnOnce9call_once17h9df09a517b193acdE.exit.i: ; preds = %36
   %48 = getelementptr i8, ptr %1, i64 40
   %.val44 = load ptr, ptr %48, align 8, !nonnull !5, !noundef !5
   %.val45 = load i64, ptr %25, align 8, !noundef !5
-  %49 = getelementptr inbounds { { { i64 } }, i32, {}, [4 x i8] }, ptr %.val44, i64 %.val45
+  %.idx = shl nsw i64 %.val45, 4
+  %49 = getelementptr inbounds i8, ptr %.val44, i64 %.idx
   %50 = icmp eq i64 %.val45, 0
   br i1 %50, label %._crit_edge, label %.lr.ph
 
@@ -105659,7 +105661,8 @@ define hidden void @_ZN9extension21extension_lsp_adapter16build_code_label17hb8e
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load i64, ptr %12, align 8, !noundef !5
-  %14 = getelementptr inbounds { i64, [5 x i64] }, ptr %11, i64 %13
+  %.idx = mul nsw i64 %13, 48
+  %14 = getelementptr inbounds i8, ptr %11, i64 %.idx
   %15 = icmp eq i64 %13, 0
   br i1 %15, label %._crit_edge, label %.lr.ph
 

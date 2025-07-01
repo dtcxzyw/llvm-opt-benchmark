@@ -17570,7 +17570,8 @@ define internal fastcc void @_ZN9uv_pep4407version7Version12only_release17h7ed8a
   %56 = call { ptr, i64 } @"_ZN71_$LT$uv_pep440..version..Release$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd084f99d64626cdbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %10)
   %57 = extractvalue { ptr, i64 } %56, 0
   %58 = extractvalue { ptr, i64 } %56, 1
-  %59 = getelementptr inbounds i64, ptr %57, i64 %58
+  %.idx = shl nsw i64 %58, 3
+  %59 = getelementptr inbounds i8, ptr %57, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 9

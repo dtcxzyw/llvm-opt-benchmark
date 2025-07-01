@@ -638,10 +638,10 @@ do.end67:                                         ; preds = %do.end
 
 cond.end.thread.i:                                ; preds = %do.end67
   store ptr null, ptr %path, align 8, !tbaa !28
-  %rows_6.i = getelementptr inbounds nuw i8, ptr %path, i64 8
-  store i64 %sub.ptr.div.i.i, ptr %rows_6.i, align 8, !tbaa !35
-  %columns_7.i = getelementptr inbounds nuw i8, ptr %path, i64 16
-  store i64 %sub.ptr.div.i, ptr %columns_7.i, align 8, !tbaa !43
+  %rows_7.i = getelementptr inbounds nuw i8, ptr %path, i64 8
+  store i64 %sub.ptr.div.i.i, ptr %rows_7.i, align 8, !tbaa !35
+  %columns_8.i = getelementptr inbounds nuw i8, ptr %path, i64 16
+  store i64 %sub.ptr.div.i, ptr %columns_8.i, align 8, !tbaa !43
   br label %_ZN8QuantLib6MatrixC2Emmd.exit
 
 for.body.i.i.i.preheader.i:                       ; preds = %do.end67
@@ -654,7 +654,7 @@ for.body.i.i.i.preheader.i:                       ; preds = %do.end67
   store i64 %sub.ptr.div.i.i, ptr %rows_.i, align 8, !tbaa !35
   %columns_.i = getelementptr inbounds nuw i8, ptr %path, i64 16
   store i64 %sub.ptr.div.i, ptr %columns_.i, align 8, !tbaa !43
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %call.i, i64 %mul.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %49
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.i.preheader.i
@@ -672,8 +672,8 @@ _ZN8QuantLib6MatrixC2Emmd.exit:                   ; preds = %for.body.i.i.i.i, %
 for.cond.cleanup.thread:                          ; preds = %_ZN8QuantLib6MatrixC2Emmd.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %values) #19
   store ptr null, ptr %values, align 8, !tbaa !28
-  %n_4.i = getelementptr inbounds nuw i8, ptr %values, i64 8
-  store i64 %sub.ptr.div.i, ptr %n_4.i, align 8, !tbaa !48
+  %n_5.i = getelementptr inbounds nuw i8, ptr %values, i64 8
+  store i64 %sub.ptr.div.i, ptr %n_5.i, align 8, !tbaa !48
   br label %invoke.cont94
 
 for.body.us:                                      ; preds = %_ZN8QuantLib6MatrixC2Emmd.exit, %for.cond74.for.cond.cleanup76_crit_edge.us
@@ -1081,7 +1081,8 @@ ehcleanup36:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 do.end:                                           ; preds = %entry
   %25 = load ptr, ptr %v1, align 8, !tbaa !28
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %25, i64 %0
+  %add.ptr.i.idx = shl nuw nsw i64 %0, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %25, i64 %add.ptr.i.idx
   %cmp.not5.i = icmp eq i64 %0, 0
   br i1 %cmp.not5.i, label %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit, label %for.body.i.preheader
 

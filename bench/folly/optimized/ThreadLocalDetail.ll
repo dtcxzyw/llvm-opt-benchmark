@@ -1331,7 +1331,8 @@ _ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolic
   %63 = load atomic i32, ptr %21 monotonic, align 4
   %64 = zext i32 %63 to i64
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.sroa.3.0.i.i, i64 %64)
-  %65 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i.i, i64 %.sroa.speculated.i
+  %.idx = shl nuw nsw i64 %.sroa.speculated.i, 3
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %.idx
   %.not.i89 = icmp eq i64 %.sroa.speculated.i, 0
   br i1 %.not.i89, label %_ZN5folly18threadlocal_detail14StaticMetaBase29removeThreadEntryFromAllInMapEPNS0_11ThreadEntryE.exit, label %.lr.ph
 

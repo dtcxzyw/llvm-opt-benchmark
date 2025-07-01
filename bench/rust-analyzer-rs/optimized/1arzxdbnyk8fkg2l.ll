@@ -2253,7 +2253,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { i64, [11 x i64] }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 96
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hb2a51eb84c996243E.exit, label %.lr.ph.i
 
@@ -14258,7 +14259,8 @@ define hidden void @"_ZN13project_model15cargo_workspace14CargoWorkspace16parent
   %41 = load ptr, ptr %40, align 8, !nonnull !9, !noundef !9
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 88
   %43 = load i64, ptr %42, align 8, !noundef !9
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i32, i8, [3 x i8] }, ptr %41, i64 %43
+  %.idx = shl nsw i64 %43, 5
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = load ptr, ptr %45, align 8, !nonnull !9, !align !136, !noundef !9
   call void @llvm.experimental.noalias.scope.decl(metadata !3784)

@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.arrow::internal::StaticVectorImpl" = type { %"struct.arrow::internal::SmallVectorStorage" }
 %"struct.arrow::internal::SmallVectorStorage" = type { [1 x %"class.arrow::internal::AlignedStorage.36"], i64, ptr, i64 }
 %"class.arrow::internal::AlignedStorage.36" = type { [16 x i8] }
-%"struct.std::pair.37" = type { i64, i64 }
 %"class.std::shared_ptr.30" = type { %"class.std::__shared_ptr.31" }
 %"class.std::__shared_ptr.31" = type { ptr, %"class.std::__shared_count" }
 %"class.arrow::util::detail::StringStreamWrapper" = type { %"class.std::unique_ptr", ptr }
@@ -1666,7 +1665,8 @@ _ZN5arrow8internal18SmallVectorStorageISt4pairIllELm1EE18reallocate_dynamicEm.ex
   br i1 %.not47, label %._crit_edge53, label %.lr.ph52.preheader
 
 .lr.ph52.preheader:                               ; preds = %57
-  %64 = getelementptr inbounds nuw %"struct.std::pair.37", ptr %62, i64 %63
+  %.idx = shl nuw nsw i64 %63, 4
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx
   br label %.lr.ph52
 
 ._crit_edge53:                                    ; preds = %.lr.ph52, %57

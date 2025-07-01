@@ -1375,7 +1375,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit121
   %129 = load ptr, ptr %128, align 8, !noalias !162, !nonnull !4, !noundef !4
   %130 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %131 = load i64, ptr %130, align 8, !noalias !162, !noundef !4
-  %132 = getelementptr inbounds { i32, i16, i16 }, ptr %129, i64 %131
+  %.idx.i = shl nsw i64 %131, 3
+  %132 = getelementptr inbounds i8, ptr %129, i64 %.idx.i
   %133 = icmp eq i64 %131, 0
   br i1 %133, label %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.exit, label %.lr.ph.i
 

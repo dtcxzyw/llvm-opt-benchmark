@@ -93,7 +93,8 @@ define noundef zeroext i1 @"_ZN61_$LT$span..map..RealSpanMap$u20$as$u20$core..fm
   %17 = load ptr, ptr %0, align 8, !nonnull !4, !align !12, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !noundef !4
-  %20 = getelementptr inbounds { i32, i32 }, ptr %17, i64 %19
+  %.idx = shl nsw i64 %19, 3
+  %20 = getelementptr inbounds i8, ptr %17, i64 %.idx
   %21 = icmp eq i64 %19, 0
   br i1 %21, label %.loopexit, label %.lr.ph
 

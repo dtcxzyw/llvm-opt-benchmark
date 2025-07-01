@@ -9692,7 +9692,8 @@ _ZN5serde2de12Deserializer21__deserialize_content17h2eddec5b1822f611E.exit._crit
   %205 = load i64, ptr %204, align 8, !alias.scope !1408, !noalias !1405, !noundef !16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1560)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1563)
-  %206 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %203, i64 %205
+  %.idx.i.i = shl i64 %205, 6
+  %206 = getelementptr inbounds i8, ptr %203, i64 %.idx.i.i
   %207 = icmp eq i64 %205, 0
   br i1 %207, label %.thread613.i.i.i, label %.lr.ph.i.i.i
 

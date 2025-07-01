@@ -214,10 +214,10 @@ _ZN5QListIP7QScreenED2Ev.exit:                    ; preds = %1
   %14 = load ptr, ptr %13, align 8, !noalias !6
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load i64, ptr %15, align 8, !noalias !6
-  %17 = getelementptr ptr, ptr %14, i64 %16
+  %.idx = shl i64 %16, 3
+  %17 = getelementptr i8, ptr %14, i64 %.idx
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #19
-  %.idx.mask = and i64 %16, 2305843009213693951
-  %.not8688 = icmp eq i64 %.idx.mask, 0
+  %.not8688 = icmp eq i64 %.idx, 0
   br i1 %.not8688, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %30, %_ZN5QListIP7QScreenED2Ev.exit

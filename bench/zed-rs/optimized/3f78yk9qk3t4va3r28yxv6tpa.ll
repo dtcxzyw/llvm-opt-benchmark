@@ -3473,7 +3473,8 @@ default.unreachable30:                            ; preds = %78, %2
 .lr.ph.preheader.i:                               ; preds = %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %115 = load ptr, ptr %114, align 8, !alias.scope !721, !noalias !700, !nonnull !7, !noundef !7
-  %116 = getelementptr inbounds { { i64, [4 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, i64, i8, i8, [6 x i8] }, ptr %115, i64 %.val.i
+  %.idx.i = mul nsw i64 %.val.i, 72
+  %116 = getelementptr inbounds i8, ptr %115, i64 %.idx.i
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %215

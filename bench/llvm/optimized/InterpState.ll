@@ -24,7 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.118 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.118 = type { i64, [8 x i8] }
-%"class.clang::FixItHint" = type <{ %"class.clang::CharSourceRange", %"class.clang::CharSourceRange", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 
 $_ZN5clang6interp11InterpState21noteUndefinedBehaviorEv = comdat any
 
@@ -558,85 +557,92 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp11InterpState32maybeDiagnos
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load i32, ptr %16, align 8, !tbaa !167, !noalias !163
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %15, i64 %18
-  br i1 %14, label %.loopexit, label %20
+  br i1 %14, label %19, label %21
 
-20:                                               ; preds = %11
+19:                                               ; preds = %11
+  %20 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %15, i64 %18
+  br label %_ZNK5clang6interp16DynamicAllocator16allocation_sitesEv.exit
+
+21:                                               ; preds = %11
+  %.idx.i.i = mul nuw nsw i64 %18, 80
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i
   %.not5.i5.i10.i2.i.i = icmp eq i32 %17, 0
   br i1 %.not5.i5.i10.i2.i.i, label %_ZNK5clang6interp16DynamicAllocator16allocation_sitesEv.exit, label %.lr.ph.i6.i12.i3.i.i
 
-.lr.ph.i6.i12.i3.i.i:                             ; preds = %20, %.critedge2.i8.i14.i6.i.i
-  %.sroa.0.3.i4.i.i = phi ptr [ %22, %.critedge2.i8.i14.i6.i.i ], [ %15, %20 ]
-  %21 = load ptr, ptr %.sroa.0.3.i4.i.i, align 8, !tbaa !168, !noalias !163
-  %magicptr.i7.i13.i5.i.i = ptrtoint ptr %21 to i64
+.lr.ph.i6.i12.i3.i.i:                             ; preds = %21, %.critedge2.i8.i14.i6.i.i
+  %.sroa.0.3.i4.i.i = phi ptr [ %24, %.critedge2.i8.i14.i6.i.i ], [ %15, %21 ]
+  %23 = load ptr, ptr %.sroa.0.3.i4.i.i, align 8, !tbaa !168, !noalias !163
+  %magicptr.i7.i13.i5.i.i = ptrtoint ptr %23 to i64
   switch i64 %magicptr.i7.i13.i5.i.i, label %_ZNK5clang6interp16DynamicAllocator16allocation_sitesEv.exit [
     i64 -4096, label %.critedge2.i8.i14.i6.i.i
     i64 -8192, label %.critedge2.i8.i14.i6.i.i
   ]
 
 .critedge2.i8.i14.i6.i.i:                         ; preds = %.lr.ph.i6.i12.i3.i.i, %.lr.ph.i6.i12.i3.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i4.i.i, i64 80
-  %.not.i9.i15.i7.i.i = icmp eq ptr %22, %19
-  br i1 %.not.i9.i15.i7.i.i, label %.loopexit, label %.lr.ph.i6.i12.i3.i.i, !llvm.loop !170
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i4.i.i, i64 80
+  %.not.i9.i15.i7.i.i = icmp eq ptr %24, %22
+  br i1 %.not.i9.i15.i7.i.i, label %_ZNK5clang6interp16DynamicAllocator16allocation_sitesEv.exit, label %.lr.ph.i6.i12.i3.i.i, !llvm.loop !170
 
-_ZNK5clang6interp16DynamicAllocator16allocation_sitesEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i, %20
-  %.pn14.i.i = phi ptr [ %15, %20 ], [ %.sroa.0.3.i4.i.i, %.lr.ph.i6.i12.i3.i.i ]
-  %.not23 = icmp eq ptr %.pn14.i.i, %19
+_ZNK5clang6interp16DynamicAllocator16allocation_sitesEv.exit: ; preds = %.lr.ph.i6.i12.i3.i.i, %.critedge2.i8.i14.i6.i.i, %19, %21
+  %.pn14.i.i = phi ptr [ %20, %19 ], [ %15, %21 ], [ %.sroa.0.3.i4.i.i, %.lr.ph.i6.i12.i3.i.i ], [ %22, %.critedge2.i8.i14.i6.i.i ]
+  %.pn12.i.i = phi ptr [ %20, %19 ], [ %22, %21 ], [ %22, %.critedge2.i8.i14.i6.i.i ], [ %22, %.lr.ph.i6.i12.i3.i.i ]
+  %25 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %15, i64 %18
+  %.not23 = icmp eq ptr %.pn14.i.i, %25
   br i1 %.not23, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK5clang6interp16DynamicAllocator16allocation_sitesEv.exit
   %.sroa.2.0..sroa_idx.i.i.i13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %23
+  br label %26
 
-23:                                               ; preds = %.lr.ph, %_ZN4llvm16DenseMapIteratorIPKN5clang4ExprENS1_6interp16DynamicAllocator14AllocationSiteENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EELb1EEppEv.exit
+26:                                               ; preds = %.lr.ph, %_ZN4llvm16DenseMapIteratorIPKN5clang4ExprENS1_6interp16DynamicAllocator14AllocationSiteENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EELb1EEppEv.exit
   %.sroa.017.024 = phi ptr [ %.pn14.i.i, %.lr.ph ], [ %.sroa.017.2, %_ZN4llvm16DenseMapIteratorIPKN5clang4ExprENS1_6interp16DynamicAllocator14AllocationSiteENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EELb1EEppEv.exit ]
-  %24 = load ptr, ptr %.sroa.017.024, align 8, !tbaa !171
-  %25 = call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #18
-  %26 = call ptr @_ZN5clang6interp5State7CCEDiagENS_14SourceLocationEjj(ptr noundef nonnull align 8 dereferenceable(9) %0, i32 %25, i32 noundef 2239, i32 noundef 0) #15
-  %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit, label %27
+  %27 = load ptr, ptr %.sroa.017.024, align 8, !tbaa !171
+  %28 = call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #18
+  %29 = call ptr @_ZN5clang6interp5State7CCEDiagENS_14SourceLocationEjj(ptr noundef nonnull align 8 dereferenceable(9) %0, i32 %28, i32 noundef 2239, i32 noundef 0) #15
+  %.not.i = icmp eq ptr %29, null
+  br i1 %.not.i, label %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit, label %30
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.017.024, i64 16
-  %29 = load i32, ptr %28, align 8, !tbaa !68
-  %30 = zext i32 %29 to i64
-  %31 = add nsw i64 %30, -1
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %26, i64 noundef %31, i32 noundef 3)
-  %32 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %24) #18
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.017.024, i64 16
+  %32 = load i32, ptr %31, align 8, !tbaa !68
+  %33 = zext i32 %32 to i64
+  %34 = add nsw i64 %33, -1
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %29, i64 noundef %34, i32 noundef 3)
+  %35 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %27) #18
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #15
-  store i64 %32, ptr %2, align 8
+  store i64 %35, ptr %2, align 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i13, align 8
-  call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %26, ptr noundef nonnull align 4 dereferenceable(9) %2)
+  call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %29, ptr noundef nonnull align 4 dereferenceable(9) %2)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #15
   br label %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
 
-_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %23, %27
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.017.024, i64 80
-  %.not5.i3.i = icmp eq ptr %33, %19
+_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %26, %30
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.017.024, i64 80
+  %.not5.i3.i = icmp eq ptr %36, %.pn12.i.i
   br i1 %.not5.i3.i, label %_ZN4llvm16DenseMapIteratorIPKN5clang4ExprENS1_6interp16DynamicAllocator14AllocationSiteENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EELb1EEppEv.exit, label %.lr.ph.i4.i
 
 .lr.ph.i4.i:                                      ; preds = %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit, %.critedge2.i6.i
-  %.sroa.017.1 = phi ptr [ %35, %.critedge2.i6.i ], [ %33, %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit ]
-  %34 = load ptr, ptr %.sroa.017.1, align 8, !tbaa !168
-  %magicptr.i5.i = ptrtoint ptr %34 to i64
+  %.sroa.017.1 = phi ptr [ %38, %.critedge2.i6.i ], [ %36, %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit ]
+  %37 = load ptr, ptr %.sroa.017.1, align 8, !tbaa !168
+  %magicptr.i5.i = ptrtoint ptr %37 to i64
   switch i64 %magicptr.i5.i, label %_ZN4llvm16DenseMapIteratorIPKN5clang4ExprENS1_6interp16DynamicAllocator14AllocationSiteENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EELb1EEppEv.exit [
     i64 -4096, label %.critedge2.i6.i
     i64 -8192, label %.critedge2.i6.i
   ]
 
 .critedge2.i6.i:                                  ; preds = %.lr.ph.i4.i, %.lr.ph.i4.i
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.017.1, i64 80
-  %.not.i7.i = icmp eq ptr %35, %19
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.017.1, i64 80
+  %.not.i7.i = icmp eq ptr %38, %.pn12.i.i
   br i1 %.not.i7.i, label %_ZN4llvm16DenseMapIteratorIPKN5clang4ExprENS1_6interp16DynamicAllocator14AllocationSiteENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EELb1EEppEv.exit, label %.lr.ph.i4.i, !llvm.loop !170
 
 _ZN4llvm16DenseMapIteratorIPKN5clang4ExprENS1_6interp16DynamicAllocator14AllocationSiteENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EELb1EEppEv.exit: ; preds = %.lr.ph.i4.i, %.critedge2.i6.i, %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
-  %.sroa.017.2 = phi ptr [ %33, %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit ], [ %35, %.critedge2.i6.i ], [ %.sroa.017.1, %.lr.ph.i4.i ]
-  %.not = icmp eq ptr %.sroa.017.2, %19
-  br i1 %.not, label %.loopexit, label %23
+  %.sroa.017.2 = phi ptr [ %36, %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit ], [ %38, %.critedge2.i6.i ], [ %.sroa.017.1, %.lr.ph.i4.i ]
+  %.not = icmp eq ptr %.sroa.017.2, %25
+  br i1 %.not, label %.loopexit, label %26
 
-.loopexit:                                        ; preds = %.critedge2.i8.i14.i6.i.i, %_ZN4llvm16DenseMapIteratorIPKN5clang4ExprENS1_6interp16DynamicAllocator14AllocationSiteENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EELb1EEppEv.exit, %11, %_ZNK5clang6interp16DynamicAllocator16allocation_sitesEv.exit, %1
-  %36 = icmp eq i32 %4, 0
-  ret i1 %36
+.loopexit:                                        ; preds = %_ZN4llvm16DenseMapIteratorIPKN5clang4ExprENS1_6interp16DynamicAllocator14AllocationSiteENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EELb1EEppEv.exit, %_ZNK5clang6interp16DynamicAllocator16allocation_sitesEv.exit, %1
+  %39 = icmp eq i32 %4, 0
+  ret i1 %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -914,7 +920,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %15
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %27
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %35, i64 %38
+  %.idx.i7.i.i = shl nuw nsw i64 %38, 6
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i7.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -1197,7 +1204,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %13
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %25
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %33, i64 %36
+  %.idx.i7.i.i = shl nuw nsw i64 %36, 6
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i7.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -1321,7 +1329,8 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %12
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %24
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %32, i64 %35
+  %.idx.i7.i.i = shl nuw nsw i64 %35, 6
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i7.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i

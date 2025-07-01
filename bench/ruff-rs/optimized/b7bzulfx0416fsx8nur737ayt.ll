@@ -1358,7 +1358,8 @@ define hidden void @_ZN11ruff_linter8settings5types14FilePatternSet13try_from_it
   %.sroa.539.0.copyload = load i64, ptr %.sroa.539.0..sroa_idx, align 8
   %24 = icmp ult i64 %.sroa.539.0.copyload, 192153584101141163
   tail call void @llvm.assume(i1 %24)
-  %25 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %.sroa.4.0.copyload, i64 %.sroa.539.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.539.0.copyload, 48
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 %.idx
   %26 = icmp sgt i64 %.sroa.037.0.copyload, -1
   tail call void @llvm.assume(i1 %26)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
@@ -12828,7 +12829,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17heb34fead9a0035c2E.exit: ; preds
   %413 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %414 = load ptr, ptr %413, align 8, !nonnull !4, !noundef !4
   %415 = load i64, ptr %405, align 8, !noundef !4
-  %416 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %414, i64 %415
+  %.idx = mul nuw nsw i64 %415, 24
+  %416 = getelementptr inbounds nuw i8, ptr %414, i64 %.idx
   %417 = icmp eq i64 %415, 0
   br i1 %417, label %._crit_edge1267, label %.lr.ph
 
@@ -12862,9 +12864,10 @@ _ZN4core4iter6traits8iterator8Iterator7collect17heb34fead9a0035c2E.exit: ; preds
 
 ._crit_edge:                                      ; preds = %735
   %.pre = load ptr, ptr %413, align 8
-  %.pre1276 = load i64, ptr %405, align 8
-  %430 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %.pre, i64 %.pre1276
-  %431 = icmp eq i64 %.pre1276, 0
+  %.pre1278 = load i64, ptr %405, align 8
+  %.idx1275 = mul nuw nsw i64 %.pre1278, 24
+  %430 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx1275
+  %431 = icmp eq i64 %.pre1278, 0
   br i1 %431, label %._crit_edge1267, label %.lr.ph1266
 
 .lr.ph1266:                                       ; preds = %._crit_edge
@@ -12904,7 +12907,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17heb34fead9a0035c2E.exit: ; preds
   %448 = load ptr, ptr %447, align 8, !nonnull !4, !noundef !4
   %449 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %450 = load i64, ptr %449, align 8, !noundef !4
-  %451 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %448, i64 %450
+  %.idx1276 = mul nuw nsw i64 %450, 24
+  %451 = getelementptr inbounds nuw i8, ptr %448, i64 %.idx1276
   %452 = icmp eq i64 %450, 0
   br i1 %452, label %._crit_edge1274, label %.lr.ph1273
 

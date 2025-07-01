@@ -3933,7 +3933,7 @@ _ZSt4copyIPKN8WasmEdge10RefVariantEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorI
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8WasmEdge8Executor8Executor9tableGrowERNS_7Runtime12StackManagerEjNS_10RefVariantEj(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected.303") align 4 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %3, <2 x i64> %4, i32 noundef %5) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %7 = invoke noundef ptr @_ZNK8WasmEdge8Executor8Executor15getTabInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %3)
-          to label %8 unwind label %49
+          to label %8 unwind label %50
 
 8:                                                ; preds = %6
   %9 = icmp ne ptr %7, null
@@ -3968,7 +3968,7 @@ define void @_ZN8WasmEdge8Executor8Executor9tableGrowERNS_7Runtime12StackManager
 
 32:                                               ; preds = %29
   invoke void @_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %20, i64 noundef %17)
-          to label %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i unwind label %44
+          to label %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i unwind label %45
 
 33:                                               ; preds = %29
   %34 = icmp ult i64 %30, %27
@@ -3991,39 +3991,41 @@ _ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i: ; preds = %37, %35
   %40 = load ptr, ptr %21, align 8
   %41 = sub nsw i64 0, %17
   %42 = getelementptr inbounds %"struct.WasmEdge::RefVariant", ptr %40, i64 %41
+  %.idx.i.i.i = shl nuw nsw i64 %17, 4
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %39
-  %.06.i.i.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i.i.i ], [ %42, %39 ]
+  %.06.i.i.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i.i.i ], [ %42, %39 ]
   store <2 x i64> %4, ptr %.06.i.i.i.i.i.i, align 16
-  %43 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i = icmp eq ptr %43, %40
+  %44 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i = icmp eq ptr %44, %43
   br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !137
 
-44:                                               ; preds = %32
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %32
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  tail call void @__clang_call_terminate(ptr %46) #26
+  %47 = extractvalue { ptr, i32 } %46, 0
+  tail call void @__clang_call_terminate(ptr %47) #26
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i
-  %47 = add i32 %11, %5
-  store i32 %47, ptr %10, align 4
+  %48 = add i32 %11, %5
+  store i32 %48, ptr %10, align 4
   br label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit
 
 _ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit: ; preds = %8, %.loopexit
   %.sink = phi i32 [ %11, %.loopexit ], [ -1, %8 ]
   store i8 1, ptr %0, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink, ptr %48, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sink, ptr %49, align 4
   ret void
 
-49:                                               ; preds = %6
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %6
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  tail call void @__clang_call_terminate(ptr %51) #26
+  %52 = extractvalue { ptr, i32 } %51, 0
+  tail call void @__clang_call_terminate(ptr %52) #26
   unreachable
 }
 
@@ -4158,7 +4160,8 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance13TableInstance8fi
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw %"struct.WasmEdge::RefVariant", ptr %16, i64 %10
-  %41 = getelementptr inbounds nuw %"struct.WasmEdge::RefVariant", ptr %40, i64 %11
+  %.idx.i.i = shl nuw nsw i64 %11, 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %39

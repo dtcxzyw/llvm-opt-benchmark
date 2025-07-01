@@ -1902,7 +1902,8 @@ define hidden void @_ZN10rayon_core5scope9ScopeBase8complete17he63e295a975dda2eE
   %.sroa.5150.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.5150.0..sroa_idx.i.i.i.i.i, align 8, !alias.scope !230, !noalias !225
   %41 = icmp ult i64 %.sroa.5150.0.copyload.i.i.i.i.i, 164703072086692426
   tail call void @llvm.assume(i1 %41)
-  %42 = getelementptr inbounds nuw { i64, [6 x i64] }, ptr %.sroa.4149.0.copyload.i.i.i.i.i, i64 %.sroa.5150.0.copyload.i.i.i.i.i
+  %.idx.i.i.i.i.i = mul nuw nsw i64 %.sroa.5150.0.copyload.i.i.i.i.i, 56
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.4149.0.copyload.i.i.i.i.i, i64 %.idx.i.i.i.i.i
   %43 = icmp sgt i64 %.sroa.0148.0.copyload.i.i.i.i.i, -1
   tail call void @llvm.assume(i1 %43)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38), !noalias !233
@@ -7715,7 +7716,8 @@ common.resume:                                    ; preds = %.body, %15
   %26 = load ptr, ptr %25, align 8, !alias.scope !546, !nonnull !12, !noundef !12
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %28 = load i64, ptr %27, align 8, !alias.scope !546, !noundef !12
-  %29 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %26, i64 %28
+  %.idx.i = mul nuw nsw i64 %28, 24
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i
   %30 = icmp eq i64 %28, 0
   br i1 %30, label %._crit_edge.i, label %.lr.ph.i
 

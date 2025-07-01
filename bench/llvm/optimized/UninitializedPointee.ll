@@ -197,8 +197,8 @@ _ZL13isVoidPointerN5clang8QualTypeE.exit.i:       ; preds = %.lr.ph.i.i, %.loope
   %76 = load i32, ptr %75, align 8, !tbaa !76, !noalias !56
   %77 = add i32 %76, -27
   %78 = icmp ult i32 %77, -13
-  %.not89.i = icmp eq ptr %74, null
-  %.not.i = or i1 %.not89.i, %78
+  %.not90.i = icmp eq ptr %74, null
+  %.not.i = or i1 %.not90.i, %78
   br i1 %.not.i, label %.thread.i, label %79
 
 79:                                               ; preds = %_ZL13isVoidPointerN5clang8QualTypeE.exit.i
@@ -210,7 +210,8 @@ _ZL13isVoidPointerN5clang8QualTypeE.exit.i:       ; preds = %.lr.ph.i.i, %.loope
   %83 = load ptr, ptr %5, align 8, !tbaa !59, !noalias !83
   %84 = load i32, ptr %47, align 4, !tbaa !62, !noalias !83
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw ptr, ptr %83, i64 %85
+  %.idx.i.i.i = shl nuw nsw i64 %85, 3
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx.i.i.i
   %.not36.i.i.i = icmp eq i32 %84, 0
   br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -249,8 +250,8 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit.i: 
   br label %98
 
 98:                                               ; preds = %129, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit.i
-  %.sroa.064.0.i = phi i64 [ %97, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit.i ], [ %133, %129 ]
-  %.078.i = phi ptr [ %74, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit.i ], [ %107, %129 ]
+  %.sroa.065.0.i = phi i64 [ %97, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit.i ], [ %133, %129 ]
+  %.079.i = phi ptr [ %74, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit.i ], [ %107, %129 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12, !noalias !56
   %99 = load ptr, ptr %50, align 8, !tbaa !9, !noalias !56
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 96
@@ -259,7 +260,7 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit.i: 
   %103 = load ptr, ptr %101, align 8, !tbaa !25, !noalias !56
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %105 = load ptr, ptr %104, align 8, !noalias !56
-  %106 = call { ptr, i8 } %105(ptr noundef nonnull align 8 dereferenceable(40) %101, ptr noundef %102, ptr nonnull %.078.i, i8 4, i64 %.sroa.064.0.i) #12, !noalias !56
+  %106 = call { ptr, i8 } %105(ptr noundef nonnull align 8 dereferenceable(40) %101, ptr noundef %102, ptr nonnull %.079.i, i8 4, i64 %.sroa.065.0.i) #12, !noalias !56
   %.fca.0.extract.i = extractvalue { ptr, i8 } %106, 0
   %.fca.1.extract.i = extractvalue { ptr, i8 } %106, 1
   store ptr %.fca.0.extract.i, ptr %7, align 8, !noalias !56
@@ -280,45 +281,46 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit.i: 
 113:                                              ; preds = %108
   %114 = load i8, ptr %49, align 4, !tbaa !64, !range !54, !noalias !88, !noundef !55
   %115 = trunc nuw i8 %114 to i1
-  br i1 %115, label %116, label %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit54.i
+  br i1 %115, label %116, label %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i
 
 116:                                              ; preds = %113
   %117 = load ptr, ptr %5, align 8, !tbaa !59, !noalias !88
   %118 = load i32, ptr %47, align 4, !tbaa !62, !noalias !88
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw ptr, ptr %117, i64 %119
-  %.not36.i.i43.i = icmp eq i32 %118, 0
-  br i1 %.not36.i.i43.i, label %._crit_edge.i.i49.i, label %.lr.ph.i.i44.i
+  %.idx.i.i43.i = shl nuw nsw i64 %119, 3
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 %.idx.i.i43.i
+  %.not36.i.i44.i = icmp eq i32 %118, 0
+  br i1 %.not36.i.i44.i, label %._crit_edge.i.i50.i, label %.lr.ph.i.i45.i
 
-.lr.ph.i.i44.i:                                   ; preds = %116, %.critedge.i.i47.i
-  %.02937.i.i45.i = phi ptr [ %122, %.critedge.i.i47.i ], [ %117, %116 ]
-  %121 = load ptr, ptr %.02937.i.i45.i, align 8, !tbaa !86, !noalias !88
-  %.not17.i.i46.i = icmp eq ptr %121, %spec.select.i25.i
-  br i1 %.not17.i.i46.i, label %.thread.i, label %.critedge.i.i47.i
+.lr.ph.i.i45.i:                                   ; preds = %116, %.critedge.i.i48.i
+  %.02937.i.i46.i = phi ptr [ %122, %.critedge.i.i48.i ], [ %117, %116 ]
+  %121 = load ptr, ptr %.02937.i.i46.i, align 8, !tbaa !86, !noalias !88
+  %.not17.i.i47.i = icmp eq ptr %121, %spec.select.i25.i
+  br i1 %.not17.i.i47.i, label %.thread.i, label %.critedge.i.i48.i
 
-.critedge.i.i47.i:                                ; preds = %.lr.ph.i.i44.i
-  %122 = getelementptr inbounds nuw i8, ptr %.02937.i.i45.i, i64 8
-  %.not.i.i48.i = icmp eq ptr %122, %120
-  br i1 %.not.i.i48.i, label %._crit_edge.i.i49.i, label %.lr.ph.i.i44.i, !llvm.loop !87
+.critedge.i.i48.i:                                ; preds = %.lr.ph.i.i45.i
+  %122 = getelementptr inbounds nuw i8, ptr %.02937.i.i46.i, i64 8
+  %.not.i.i49.i = icmp eq ptr %122, %120
+  br i1 %.not.i.i49.i, label %._crit_edge.i.i50.i, label %.lr.ph.i.i45.i, !llvm.loop !87
 
-._crit_edge.i.i49.i:                              ; preds = %.critedge.i.i47.i, %116
+._crit_edge.i.i50.i:                              ; preds = %.critedge.i.i48.i, %116
   %123 = load i32, ptr %46, align 8, !tbaa !61, !noalias !88
   %124 = icmp ult i32 %118, %123
-  br i1 %124, label %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit54.i.thread, label %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit54.i
+  br i1 %124, label %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i.thread, label %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i
 
-_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit54.i.thread: ; preds = %._crit_edge.i.i49.i
+_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i.thread: ; preds = %._crit_edge.i.i50.i
   %125 = add nuw i32 %118, 1
   store i32 %125, ptr %47, align 4, !tbaa !62, !noalias !88
   store ptr %spec.select.i25.i, ptr %120, align 8, !tbaa !86, !noalias !88
   br label %129
 
-_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit54.i: ; preds = %113, %._crit_edge.i.i49.i
+_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i: ; preds = %113, %._crit_edge.i.i50.i
   %126 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %5, ptr noundef %spec.select.i25.i) #12, !noalias !88
   %127 = extractvalue { ptr, i8 } %126, 1
   %128 = trunc nuw i8 %127 to i1
   br i1 %128, label %129, label %.thread.i
 
-129:                                              ; preds = %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit54.i.thread, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit54.i
+129:                                              ; preds = %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i.thread, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i
   %130 = load ptr, ptr %107, align 8, !tbaa !25, !noalias !56
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 96
   %132 = load ptr, ptr %131, align 8, !noalias !56
@@ -345,8 +347,8 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit54.i
   ]
 
 .preheader.i:                                     ; preds = %129, %129, %129, %129, %98
-  %.179.ph.i = phi ptr [ %.078.i, %98 ], [ %107, %129 ], [ %107, %129 ], [ %107, %129 ], [ %107, %129 ]
-  %147 = getelementptr inbounds nuw i8, ptr %.179.ph.i, i64 16
+  %.180.ph.i = phi ptr [ %.079.i, %98 ], [ %107, %129 ], [ %107, %129 ], [ %107, %129 ], [ %107, %129 ]
+  %147 = getelementptr inbounds nuw i8, ptr %.180.ph.i, i64 16
   %148 = load i32, ptr %147, align 8, !tbaa !76, !noalias !56
   %149 = icmp eq i32 %148, 15
   br i1 %149, label %.lr.ph.i, label %.thread.i
@@ -356,22 +358,22 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit54.i
   br i1 %151, label %.lr.ph.i, label %.thread.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %150
-  %.295.i = phi ptr [ %153, %150 ], [ %.179.ph.i, %.preheader.i ]
-  %152 = getelementptr inbounds nuw i8, ptr %.295.i, i64 48
+  %.296.i = phi ptr [ %153, %150 ], [ %.180.ph.i, %.preheader.i ]
+  %152 = getelementptr inbounds nuw i8, ptr %.296.i, i64 48
   %153 = load ptr, ptr %152, align 8, !tbaa !91, !noalias !56
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %155 = load i32, ptr %154, align 8, !tbaa !76, !noalias !56
   %156 = add i32 %155, -27
   %157 = icmp ult i32 %156, -13
-  %.not2390.i = icmp eq ptr %153, null
-  %.not23.i = or i1 %.not2390.i, %157
+  %.not2391.i = icmp eq ptr %153, null
+  %.not23.i = or i1 %.not2391.i, %157
   br i1 %.not23.i, label %.thread.i, label %150
 
-.thread.i:                                        ; preds = %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit54.i, %108, %.lr.ph.i.i44.i, %150, %.lr.ph.i, %.preheader.i, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i
-  %.sroa.077.0 = phi ptr [ undef, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ %.179.ph.i, %.preheader.i ], [ %153, %150 ], [ %.295.i, %.lr.ph.i ], [ %spec.select.i25.i, %.lr.ph.i.i44.i ], [ %spec.select.i25.i, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit54.i ], [ null, %108 ]
-  %.sroa.4.0 = phi i1 [ undef, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ %73, %.preheader.i ], [ true, %.lr.ph.i ], [ true, %150 ], [ %73, %.lr.ph.i.i44.i ], [ %73, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit54.i ], [ undef, %108 ]
-  %.sroa.6.0 = phi i1 [ undef, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ false, %.preheader.i ], [ false, %.lr.ph.i ], [ false, %150 ], [ true, %.lr.ph.i.i44.i ], [ true, %108 ], [ true, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit54.i ]
-  %.sink.i = phi i1 [ false, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ true, %.preheader.i ], [ true, %.lr.ph.i ], [ true, %150 ], [ true, %.lr.ph.i.i44.i ], [ %112, %108 ], [ %112, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit54.i ]
+.thread.i:                                        ; preds = %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i, %108, %.lr.ph.i.i45.i, %150, %.lr.ph.i, %.preheader.i, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i
+  %.sroa.077.0 = phi ptr [ undef, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ %.180.ph.i, %.preheader.i ], [ %153, %150 ], [ %.296.i, %.lr.ph.i ], [ %spec.select.i25.i, %.lr.ph.i.i45.i ], [ %spec.select.i25.i, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i ], [ null, %108 ]
+  %.sroa.4.0 = phi i1 [ undef, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ %73, %.preheader.i ], [ true, %.lr.ph.i ], [ true, %150 ], [ %73, %.lr.ph.i.i45.i ], [ %73, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i ], [ undef, %108 ]
+  %.sroa.6.0 = phi i1 [ undef, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ false, %.preheader.i ], [ false, %.lr.ph.i ], [ false, %150 ], [ true, %.lr.ph.i.i45.i ], [ true, %108 ], [ true, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i ]
+  %.sink.i = phi i1 [ false, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ true, %.preheader.i ], [ true, %.lr.ph.i ], [ true, %150 ], [ true, %.lr.ph.i.i45.i ], [ %112, %108 ], [ %112, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12, !noalias !56
   %158 = load i8, ptr %49, align 4, !tbaa !64, !range !54, !noalias !56, !noundef !55
   %159 = trunc nuw i8 %158 to i1

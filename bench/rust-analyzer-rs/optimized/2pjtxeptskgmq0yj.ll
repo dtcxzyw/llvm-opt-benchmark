@@ -10172,7 +10172,8 @@ define hidden void @_ZN14ide_completion11completions9attribute4lint13complete_li
   %28 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %29 = alloca { { { { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }, i64, i64, i8, i8, [6 x i8] } }, align 8
   %30 = alloca { ptr, i64 }, align 8
-  %31 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %5, i64 %6
+  %.idx125 = shl nsw i64 %6, 5
+  %31 = getelementptr inbounds i8, ptr %5, i64 %.idx125
   %32 = icmp eq i64 %6, 0
   br i1 %32, label %._crit_edge, label %.lr.ph
 
@@ -10186,7 +10187,8 @@ define hidden void @_ZN14ide_completion11completions9attribute4lint13complete_li
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %38 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %38 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %.not.i = icmp eq i64 %4, 0
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -10273,15 +10275,15 @@ define hidden void @_ZN14ide_completion11completions9attribute4lint13complete_li
 ._crit_edge.i.i:                                  ; preds = %78
   %.pre.i.i = load i64, ptr %.sroa.420.0..sroa_idx, align 8, !alias.scope !2710
   %.pre6.i.i = load i64, ptr %.sroa.521.0..sroa_idx, align 8, !alias.scope !2710
-  br label %.thread134
+  br label %.thread135
 
 81:                                               ; preds = %78
   %82 = load i64, ptr %.sroa.521.0..sroa_idx, align 8, !alias.scope !2710, !noundef !4
   %83 = load i64, ptr %.sroa.420.0..sroa_idx, align 8, !alias.scope !2710, !noundef !4
   %.not.i.i = icmp eq i64 %82, %83
-  br i1 %.not.i.i, label %88, label %.thread134
+  br i1 %.not.i.i, label %88, label %.thread135
 
-.thread134:                                       ; preds = %._crit_edge.i.i, %81
+.thread135:                                       ; preds = %._crit_edge.i.i, %81
   %84 = phi i64 [ %.pre6.i.i, %._crit_edge.i.i ], [ %82, %81 ]
   %85 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %83, %81 ]
   %.val.i.i = load ptr, ptr %33, align 8, !alias.scope !2710, !nonnull !4, !align !183, !noundef !4
@@ -10371,13 +10373,13 @@ define hidden void @_ZN14ide_completion11completions9attribute4lint13complete_li
   store i64 %.sroa.4.1.i54, ptr %37, align 8
   br label %118
 
-"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hecfeae2b404fbf7aE.exit63.thread": ; preds = %.thread134, %89, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hecfeae2b404fbf7aE.exit63.thread76"
-  %.sroa.0.1.i139 = phi ptr [ %86, %.thread134 ], [ %93, %89 ], [ %93, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hecfeae2b404fbf7aE.exit63.thread76" ]
-  %.sroa.4.1.i137 = phi i64 [ %87, %.thread134 ], [ %94, %89 ], [ %94, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hecfeae2b404fbf7aE.exit63.thread76" ]
+"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hecfeae2b404fbf7aE.exit63.thread": ; preds = %.thread135, %89, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hecfeae2b404fbf7aE.exit63.thread76"
+  %.sroa.0.1.i140 = phi ptr [ %86, %.thread135 ], [ %93, %89 ], [ %93, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hecfeae2b404fbf7aE.exit63.thread76" ]
+  %.sroa.4.1.i138 = phi i64 [ %87, %.thread135 ], [ %94, %89 ], [ %94, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hecfeae2b404fbf7aE.exit63.thread76" ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30)
-  store ptr %.sroa.0.1.i139, ptr %30, align 8
-  store i64 %.sroa.4.1.i137, ptr %37, align 8
+  store ptr %.sroa.0.1.i140, ptr %30, align 8
+  store i64 %.sroa.4.1.i138, ptr %37, align 8
   br i1 %2, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hee99acbd60b819a4E.exit, label %118
 
 118:                                              ; preds = %.thread, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hecfeae2b404fbf7aE.exit63.thread"
@@ -11263,7 +11265,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %56
   %.sroa.433.0.copyload = load ptr, ptr %.sroa.433.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.sroa.534.0.copyload = load i64, ptr %.sroa.534.0..sroa_idx, align 8
-  %76 = getelementptr inbounds { { { i8, [7 x i8] }, { i64, { [3 x i64] } } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %.sroa.433.0.copyload, i64 %.sroa.534.0.copyload
+  %.idx = mul nsw i64 %.sroa.534.0.copyload, 80
+  %76 = getelementptr inbounds i8, ptr %.sroa.433.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.433.0.copyload, ptr %9, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -11627,7 +11630,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %55
   %.sroa.443.0.copyload = load ptr, ptr %.sroa.443.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 16
   %.sroa.544.0.copyload = load i64, ptr %.sroa.544.0..sroa_idx, align 8
-  %75 = getelementptr inbounds { { { i8, [7 x i8] }, { i64, { [3 x i64] } } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %.sroa.443.0.copyload, i64 %.sroa.544.0.copyload
+  %.idx = mul nsw i64 %.sroa.544.0.copyload, 80
+  %75 = getelementptr inbounds i8, ptr %.sroa.443.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
   store ptr %.sroa.443.0.copyload, ptr %20, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -20238,7 +20242,8 @@ define void @_ZN14ide_completion7snippet7Snippet3new17h3768817bb9f115f2E(ptr noa
   store ptr %47, ptr %48, align 8, !noalias !4807
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i64 0, ptr %49, align 8, !noalias !4807
-  %50 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %9, i64 %10
+  %.idx198.i = mul nsw i64 %10, 24
+  %50 = getelementptr inbounds i8, ptr %9, i64 %.idx198.i
   %51 = icmp eq i64 %10, 0
   br i1 %51, label %._crit_edge.i, label %.lr.ph.i
 
@@ -21348,7 +21353,8 @@ define internal fastcc void @_ZN14ide_completion7snippet7Snippet7imports17h56e0c
   store ptr %23, ptr %24, align 8, !noalias !5133
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 0, ptr %25, align 8, !noalias !5133
-  %26 = getelementptr inbounds ptr, ptr %.56.val, i64 %.64.val
+  %.idx.i = shl nsw i64 %.64.val, 3
+  %26 = getelementptr inbounds i8, ptr %.56.val, i64 %.idx.i
   %27 = icmp eq i64 %.64.val, 0
   br i1 %27, label %._crit_edge.i, label %.lr.ph.i
 

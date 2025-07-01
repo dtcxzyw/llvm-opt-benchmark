@@ -2907,7 +2907,8 @@ _ZNSt6vectorISt10unique_ptrIN7rocksdb7WalFileESt14default_deleteIS2_EESaIS5_EE2a
   %.131.ph = phi i64 [ %.2, %30 ], [ %15, %_ZNSt6vectorISt10unique_ptrIN7rocksdb7WalFileESt14default_deleteIS2_EESaIS5_EE2atEm.exit ]
   %.pre = load ptr, ptr %2, align 8, !tbaa !104
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %.131.ph, i64 0)
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr.49", ptr %.pre, i64 %.sroa.speculated
+  %.idx = shl nuw nsw i64 %.sroa.speculated, 3
+  %34 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
   %35 = ptrtoint ptr %34 to i64
   %.not.i.i21 = icmp slt i64 %.131.ph, 1
   br i1 %.not.i.i21, label %_ZNSt6vectorISt10unique_ptrIN7rocksdb7WalFileESt14default_deleteIS2_EESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit, label %36

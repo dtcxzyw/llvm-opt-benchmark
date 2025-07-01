@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"struct.Luau::CodeGen::UnwindFunctionWin" = type { i32, i32, i32 }
 %"struct.Luau::CodeGen::UnwindCodeWin" = type { i8, i8 }
-%"struct.Luau::CodeGen::X64::RegisterX64" = type { i8 }
 
 $_ZN4Luau7CodeGen16UnwindBuilderWinD2Ev = comdat any
 
@@ -402,7 +401,7 @@ _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN
 _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE9push_backEOS2_.exit58: ; preds = %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i57, %41, %7
   %.043 = phi i32 [ 0, %7 ], [ 5, %41 ], [ 5, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i57 ]
   %.0 = phi i32 [ 8, %7 ], [ 16, %41 ], [ 16, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i57 ]
-  %64 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::RegisterX64", ptr %4, i64 %5
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 %5
   %.not193 = icmp samesign eq i64 %5, 0
   br i1 %.not193, label %._crit_edge, label %.lr.ph
 

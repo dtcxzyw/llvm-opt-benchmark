@@ -593,6 +593,7 @@ _ZN11duckdb_zstdL19ZSTD_ldm_gear_resetEPNS_21ldmRollingHashState_tEPKhm.exit.i: 
   %118 = getelementptr inbounds i8, ptr %102, i64 -3
   %119 = getelementptr inbounds i8, ptr %102, i64 -1
   %120 = icmp ugt ptr %100, %97
+  %.idx.i = shl nuw nsw i64 %116, 3
   br label %121
 
 121:                                              ; preds = %.loopexit.i, %.lr.ph357.i
@@ -662,7 +663,7 @@ _ZN11duckdb_zstdL19ZSTD_ldm_gear_resetEPNS_21ldmRollingHashState_tEPKhm.exit.i: 
 .lr.ph344.i:                                      ; preds = %143
   %154 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %155 = load ptr, ptr %154, align 8, !tbaa !55
-  %156 = getelementptr inbounds nuw %"struct.duckdb_zstd::ldmEntry_t", ptr %155, i64 %116
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 %.idx.i
   %157 = icmp ult ptr %145, %117
   %158 = icmp ugt ptr %145, %.1208351.i
   br i1 %.not.i, label %.lr.ph344.split.us.i, label %.lr.ph344.split.i

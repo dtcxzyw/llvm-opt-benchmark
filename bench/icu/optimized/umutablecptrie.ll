@@ -1796,9 +1796,10 @@ _ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie13findHighStartEv.exit.i.i: ; pre
   %180 = getelementptr inbounds nuw i32, ptr %178, i64 %179
   %181 = load i32, ptr %180, align 4, !tbaa !25
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 4
-  %183 = zext nneg i32 %spec.select.i.i.i to i64
-  %184 = getelementptr i32, ptr %182, i64 %183
-  %185 = getelementptr i8, ptr %184, i64 -4
+  %183 = add nsw i32 %spec.select.i.i.i, -1
+  %184 = zext nneg i32 %183 to i64
+  %.idx.i.i.i.i = shl nuw nsw i64 %184, 2
+  %185 = getelementptr inbounds nuw i8, ptr %182, i64 %.idx.i.i.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %188, %.lr.ph.i.preheader.i.i.i
@@ -2337,7 +2338,8 @@ _ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeEj.exit.i.i.i.i: ; preds = %
 
 .lr.ph.split.us.i.i.i.preheader.i.i:              ; preds = %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeEj.exit.i.i.i.i
   %388 = xor i32 %.sink.i177.i.i, -1
-  %389 = zext nneg i32 %369 to i64
+  %389 = shl nuw nsw i32 %369, 2
+  %.idx.i.i.i.i.i.i = zext nneg i32 %389 to i64
   br label %.lr.ph.split.us.i.i.i.i.i
 
 .lr.ph.split.us.i.i.i.i.i:                        ; preds = %401, %.lr.ph.split.us.i.i.i.preheader.i.i
@@ -2351,7 +2353,7 @@ _ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeEj.exit.i.i.i.i: ; preds = %
   %393 = and i32 %390, %.sink.i177.i.i
   %394 = zext nneg i32 %393 to i64
   %gep298.i.i = getelementptr i32, ptr %invariant.gep.i.i.i.i, i64 %394
-  %395 = getelementptr inbounds nuw i32, ptr %gep298.i.i, i64 %389
+  %395 = getelementptr inbounds nuw i8, ptr %gep298.i.i, i64 %.idx.i.i.i.i.i.i
   br label %.lr.ph.i.us.i.i.i.i.i
 
 .lr.ph.i.us.i.i.i.i.i:                            ; preds = %398, %.lr.ph.i.preheader.us.i.i.i.i.i

@@ -3,10 +3,6 @@ source_filename = "bench/llvm/original/LiveRegUnits.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.llvm::MachineOperand" = type { i32, %union.anon, ptr, %"union.llvm::MachineOperand::ContentsUnion" }
-%union.anon = type { i32 }
-%"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef" }
-%"class.llvm::ArrayRef" = type { ptr, i64 }
 %"struct.llvm::MCRegisterDesc" = type { i32, i32, i32, i32, i32, i16, i8, i8 }
 %"class.llvm::LiveRegUnits" = type { ptr, %"class.llvm::BitVector" }
 %"class.llvm::BitVector" = type <{ %"class.llvm::SmallVector", i32, [4 x i8] }>
@@ -163,7 +159,8 @@ define dso_local void @_ZN4llvm12LiveRegUnits12stepBackwardERKNS_12MachineInstrE
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i24, ptr %5, align 8
   %7 = zext i24 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 5
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not48 = icmp eq i24 %6, 0
   br i1 %.not48, label %._crit_edge54, label %.lr.ph
 
@@ -180,7 +177,8 @@ define dso_local void @_ZN4llvm12LiveRegUnits12stepBackwardERKNS_12MachineInstrE
 ._crit_edge:                                      ; preds = %_ZN4llvm12LiveRegUnits9removeRegEt.exit
   %.pre = load i24, ptr %5, align 8
   %16 = zext i24 %.pre to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %4, i64 %16
+  %.idx55 = shl nuw nsw i64 %16, 5
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx55
   %.not2650 = icmp eq i24 %.pre, 0
   br i1 %.not2650, label %._crit_edge54, label %.lr.ph53
 
@@ -380,7 +378,8 @@ define dso_local void @_ZN4llvm12LiveRegUnits10accumulateERKNS_12MachineInstrE(p
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i24, ptr %5, align 8
   %7 = zext i24 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 5
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not19 = icmp eq i24 %6, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
@@ -982,7 +981,8 @@ define dso_local void @_ZN4llvm12LiveRegUnits11addLiveOutsERKNS_17MachineBasicBl
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %8 = load i32, ptr %7, align 8, !tbaa !212
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %9
+  %.idx = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %.not19 = icmp eq i32 %8, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 

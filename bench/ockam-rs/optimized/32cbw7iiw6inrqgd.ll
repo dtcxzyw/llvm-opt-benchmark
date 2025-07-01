@@ -5341,7 +5341,8 @@ common.resume:                                    ; preds = %.body, %25
   br i1 %55, label %"_ZN4core3ptr490drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_error..layer..ErrorLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$$GT$17hcdc7ee03f51c2ae7E.exit.i.i", label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %.noexc22
-  %56 = getelementptr inbounds { i64, i8 }, ptr %48, i64 %50
+  %.idx.i = shl nsw i64 %50, 4
+  %56 = getelementptr inbounds i8, ptr %48, i64 %.idx.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %61

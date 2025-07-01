@@ -649,8 +649,9 @@ define i32 @solver_propagate(ptr noundef captures(none) %0) local_unnamed_addr #
   %30 = getelementptr inbounds nuw %struct.watch_list, ptr %.val139, i64 %28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !78
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw %struct.watcher, ptr %.val144, i64 %33
+  %33 = zext i32 %32 to i64
+  %.idx = shl nuw nsw i64 %33, 3
+  %34 = getelementptr inbounds nuw i8, ptr %.val144, i64 %.idx
   %.not135190.not = icmp eq i32 %32, 0
   br i1 %.not135190.not, label %._crit_edge, label %.lr.ph
 

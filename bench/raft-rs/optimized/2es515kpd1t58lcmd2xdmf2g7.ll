@@ -1207,7 +1207,8 @@ define hidden void @_ZN8protobuf7reflect5enums14EnumDescriptor11new_pb_name17h04
 40:                                               ; preds = %35
   %41 = extractvalue { ptr, i64 } %38, 0
   %42 = extractvalue { ptr, i64 } %38, 1
-  %43 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } }, i8, [7 x i8] }, { i32, [1 x i32] }, { ptr, i8, [7 x i8] }, ptr, { { i64 } } }, ptr %41, i64 %42
+  %.idx = mul nuw nsw i64 %42, 72
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx
   %44 = icmp ne ptr %41, null
   tail call void @llvm.assume(i1 %44)
   %45 = icmp eq i64 %42, 0
@@ -1430,7 +1431,8 @@ define hidden void @_ZN8protobuf7reflect5enums14EnumDescriptor11new_pb_name17h14
 40:                                               ; preds = %35
   %41 = extractvalue { ptr, i64 } %38, 0
   %42 = extractvalue { ptr, i64 } %38, 1
-  %43 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } }, i8, [7 x i8] }, { i32, [1 x i32] }, { ptr, i8, [7 x i8] }, ptr, { { i64 } } }, ptr %41, i64 %42
+  %.idx = mul nuw nsw i64 %42, 72
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx
   %44 = icmp ne ptr %41, null
   tail call void @llvm.assume(i1 %44)
   %45 = icmp eq i64 %42, 0
@@ -1653,7 +1655,8 @@ define hidden void @_ZN8protobuf7reflect5enums14EnumDescriptor11new_pb_name17h9c
 40:                                               ; preds = %35
   %41 = extractvalue { ptr, i64 } %38, 0
   %42 = extractvalue { ptr, i64 } %38, 1
-  %43 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } }, i8, [7 x i8] }, { i32, [1 x i32] }, { ptr, i8, [7 x i8] }, ptr, { { i64 } } }, ptr %41, i64 %42
+  %.idx = mul nuw nsw i64 %42, 72
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx
   %44 = icmp ne ptr %41, null
   tail call void @llvm.assume(i1 %44)
   %45 = icmp eq i64 %42, 0
@@ -1876,7 +1879,8 @@ define hidden void @_ZN8protobuf7reflect5enums14EnumDescriptor11new_pb_name17he5
 40:                                               ; preds = %35
   %41 = extractvalue { ptr, i64 } %38, 0
   %42 = extractvalue { ptr, i64 } %38, 1
-  %43 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } }, i8, [7 x i8] }, { i32, [1 x i32] }, { ptr, i8, [7 x i8] }, ptr, { { i64 } } }, ptr %41, i64 %42
+  %.idx = mul nuw nsw i64 %42, 72
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx
   %44 = icmp ne ptr %41, null
   tail call void @llvm.assume(i1 %44)
   %45 = icmp eq i64 %42, 0

@@ -1297,7 +1297,8 @@ define linkonce_odr noundef double @_ZNK17double_conversion23StringToDoubleConve
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   store ptr %1, ptr %6, align 8, !tbaa !38
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i16, ptr %1, i64 %11
+  %.idx = shl nsw i64 %11, 1
+  %12 = getelementptr inbounds i8, ptr %1, i64 %.idx
   store i32 0, ptr %4, align 4, !tbaa !8
   %13 = load i32, ptr %0, align 8, !tbaa !10
   %14 = and i32 %13, 4

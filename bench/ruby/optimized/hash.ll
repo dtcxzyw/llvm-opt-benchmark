@@ -3558,10 +3558,10 @@ RHASH_SIZE.exit:                                  ; preds = %5, %8
   %20 = trunc i64 %17 to i32
   %21 = lshr i32 %20, 20
   %22 = and i32 %21, 15
-  %23 = getelementptr i64, ptr %16, i64 %.0.i
+  %.idx.i = shl i64 %.0.i, 3
+  %23 = getelementptr i8, ptr %16, i64 %.idx.i
   %24 = icmp eq i32 %22, 0
-  %.idx.mask.i = and i64 %.0.i, 2305843009213693951
-  %25 = icmp eq i64 %.idx.mask.i, 0
+  %25 = icmp eq i64 %.idx.i, 0
   %or.cond18.i = or i1 %25, %24
   br i1 %or.cond18.i, label %ar_keys.exit, label %.lr.ph.i
 
@@ -3673,10 +3673,10 @@ RHASH_SIZE.exit:                                  ; preds = %5, %8
   %21 = trunc i64 %20 to i32
   %22 = lshr i32 %21, 20
   %23 = and i32 %22, 15
-  %24 = getelementptr i64, ptr %19, i64 %.0.i
+  %.idx21.i = shl i64 %.0.i, 3
+  %24 = getelementptr i8, ptr %19, i64 %.idx21.i
   %25 = icmp eq i32 %23, 0
-  %.idx21.mask.i = and i64 %.0.i, 2305843009213693951
-  %26 = icmp eq i64 %.idx21.mask.i, 0
+  %26 = icmp eq i64 %.idx21.i, 0
   %or.cond18.i = or i1 %26, %25
   br i1 %or.cond18.i, label %ar_values.exit, label %.lr.ph.i
 

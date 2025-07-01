@@ -4346,30 +4346,30 @@ if.then17:                                        ; preds = %_ZN4llvh15SmallVect
   %conv.i.i42 = zext i32 %13 to i64
   %sub.i45 = sub nsw i64 %conv.i.i42, %conv.i30.pre-phi
   %cmp.i46 = icmp ugt i64 %retval.0.i.i.i.i, %sub.i45
-  br i1 %cmp.i46, label %if.end.i47.thread, label %if.end.i47
+  br i1 %cmp.i46, label %if.then.i52, label %if.end.i47
 
-if.end.i47.thread:                                ; preds = %if.then17
+if.then.i52:                                      ; preds = %if.then17
   %add.i53 = add nsw i64 %retval.0.i.i.i.i, %conv.i30.pre-phi
   %add.ptr.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i.i54, i64 noundef %add.i53, i64 noundef 2) #11
   %.pre11.pre.i = load i32, ptr %Size.i, align 8
-  br label %if.then.i.i.i.i.i.i.i.i.i
+  br label %if.end.i47
 
-if.end.i47:                                       ; preds = %if.then17
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %retval.0.i.i.i.i, 0
+if.end.i47:                                       ; preds = %if.then.i52, %if.then17
+  %.pre11.i48 = phi i32 [ %.pre11.pre.i, %if.then.i52 ], [ %11, %if.then17 ]
+  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.neg, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZN4llvh15SmallVectorImplIDsE6appendISt13move_iteratorIPDsEvEEvT_S6_.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i47.thread, %if.end.i47
-  %.pre11.i4898 = phi i32 [ %.pre11.pre.i, %if.end.i47.thread ], [ %11, %if.end.i47 ]
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i47
   %14 = load ptr, ptr %this, align 8
-  %conv.i7.i = zext i32 %.pre11.i4898 to i64
+  %conv.i7.i = zext i32 %.pre11.i48 to i64
   %add.ptr.i.i49 = getelementptr inbounds nuw i16, ptr %14, i64 %conv.i7.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr.i.i49, ptr nonnull align 2 %add.ptr21, i64 %add.ptr21.idx.neg, i1 false)
   %.pre.i50 = load i32, ptr %Size.i, align 8
   br label %_ZN4llvh15SmallVectorImplIDsE6appendISt13move_iteratorIPDsEvEEvT_S6_.exit
 
 _ZN4llvh15SmallVectorImplIDsE6appendISt13move_iteratorIPDsEvEEvT_S6_.exit: ; preds = %if.end.i47, %if.then.i.i.i.i.i.i.i.i.i
-  %15 = phi i32 [ %11, %if.end.i47 ], [ %.pre.i50, %if.then.i.i.i.i.i.i.i.i.i ]
+  %15 = phi i32 [ %.pre11.i48, %if.end.i47 ], [ %.pre.i50, %if.then.i.i.i.i.i.i.i.i.i ]
   %16 = trunc i64 %retval.0.i.i.i.i to i32
   %conv.i10.i51 = add i32 %15, %16
   store i32 %conv.i10.i51, ptr %Size.i, align 8

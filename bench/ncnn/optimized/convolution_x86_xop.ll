@@ -82,7 +82,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %23
 .noexc1918.i:                                     ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
   %47 = shl nuw nsw i64 %45, 2
   %48 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #22
-  %49 = getelementptr i32, ptr %48, i64 %45
+  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %45
   store i32 0, ptr %48, align 4, !tbaa !4
   %50 = icmp eq i32 %44, 1
   br i1 %50, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i

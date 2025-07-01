@@ -257,7 +257,8 @@ define void @_ZN4span6ast_id8AstIdMap11from_source17h7d2c2749b6a8b9c5E(ptr noali
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
   %.val10 = load ptr, ptr %.sroa.4.0..sroa_idx3.i, align 8, !nonnull !11, !noundef !11
   %.val11 = load i64, ptr %.sroa.5.0..sroa_idx4.i, align 8, !noundef !11
-  %43 = getelementptr inbounds { { i32, i32 }, i16, [1 x i16] }, ptr %.val10, i64 %.val11
+  %.idx = mul nsw i64 %.val11, 12
+  %43 = getelementptr inbounds i8, ptr %.val10, i64 %.idx
   %44 = icmp eq i64 %.val11, 0
   br i1 %44, label %._crit_edge, label %.lr.ph
 

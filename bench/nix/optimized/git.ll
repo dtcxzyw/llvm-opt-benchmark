@@ -63,8 +63,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %"struct.nix::Hash" = type <{ i64, [64 x i8], i8, [7 x i8] }>
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, nix::git::TreeEntry>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, nix::git::TreeEntry>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
-%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"struct.nix::git::TreeEntry" }
-%"struct.nix::git::TreeEntry" = type { i32, [4 x i8], %"struct.nix::Hash" }
 %"struct.nix::NullFileSystemObjectSink" = type { %"struct.nix::FileSystemObjectSink" }
 %"class.std::function.177" = type { %"class.std::_Function_base", ptr }
 %class.anon.239 = type { ptr, ptr }
@@ -98,6 +96,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree_key_compare.97" = type { %"struct.std::less.98" }
 %"struct.std::less.98" = type { i8 }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
+%"struct.nix::git::TreeEntry" = type { i32, [4 x i8], %"struct.nix::Hash" }
 %"struct.nix::MemorySink" = type { %"struct.nix::FileSystemObjectSink", ptr }
 %"class.std::function.101" = type { %"class.std::_Function_base", ptr }
 %"class.std::optional.105" = type { %"struct.std::_Optional_base.106" }
@@ -164,6 +163,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<nix::Hash, std::pair<const nix::Hash, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const nix::Hash, std::__cxx11::basic_string<char>>>, std::less<nix::Hash>>::_Auto_node" = type { ptr, ptr }
 %"class.std::tuple.231" = type { i8 }
 %"struct.testing::internal::CodeLocation" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
+%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"struct.nix::git::TreeEntry" }
 %"class.std::allocator.63" = type { i8 }
 
 $_ZN5boost4noneE = comdat any
@@ -3582,7 +3582,8 @@ define linkonce_odr void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIc
   store ptr %7, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.std::pair", ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 120
+  %12 = getelementptr inbounds i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %0, ptr %6, align 8
   %.not6.i = icmp eq i64 %2, 0

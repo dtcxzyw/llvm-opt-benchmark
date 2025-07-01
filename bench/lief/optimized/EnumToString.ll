@@ -197,7 +197,8 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART13STORAGE_MODESEPKcSt4lessI
   store ptr %6, ptr %9, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !25
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN4LIEF3ART13STORAGE_MODESESt4pairIKS2_PKcESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE22_M_insert_range_uniqueIPKS7_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESI_SI_.exit, label %.lr.ph.i
 
@@ -363,7 +364,8 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_1714IMAGE_SECTIONSEPKc
   store ptr %6, ptr %9, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !25
-  %11 = getelementptr inbounds nuw %"struct.std::pair.10", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_1714IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE22_M_insert_range_uniqueIPKS8_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESJ_SJ_.exit, label %.lr.ph.i
 
@@ -526,7 +528,8 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_2914IMAGE_SECTIONSEPKc
   store ptr %6, ptr %9, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !25
-  %11 = getelementptr inbounds nuw %"struct.std::pair.25", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_2914IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE22_M_insert_range_uniqueIPKS8_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESJ_SJ_.exit, label %.lr.ph.i
 
@@ -689,7 +692,8 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_3014IMAGE_SECTIONSEPKc
   store ptr %6, ptr %9, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !25
-  %11 = getelementptr inbounds nuw %"struct.std::pair.40", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_3014IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE22_M_insert_range_uniqueIPKS8_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESJ_SJ_.exit, label %.lr.ph.i
 
@@ -852,7 +856,8 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_1713IMAGE_METHODSEPKcS
   store ptr %6, ptr %9, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !25
-  %11 = getelementptr inbounds nuw %"struct.std::pair.55", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_1713IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE22_M_insert_range_uniqueIPKS8_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESJ_SJ_.exit, label %.lr.ph.i
 
@@ -1015,7 +1020,8 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_4413IMAGE_METHODSEPKcS
   store ptr %6, ptr %9, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !25
-  %11 = getelementptr inbounds nuw %"struct.std::pair.70", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_4413IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE22_M_insert_range_uniqueIPKS8_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESJ_SJ_.exit, label %.lr.ph.i
 
@@ -1178,7 +1184,8 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_1711IMAGE_ROOTSEPKcSt4
   store ptr %6, ptr %9, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !25
-  %11 = getelementptr inbounds nuw %"struct.std::pair.85", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_1711IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE22_M_insert_range_uniqueIPKS8_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESJ_SJ_.exit, label %.lr.ph.i
 
@@ -1341,7 +1348,8 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_4411IMAGE_ROOTSEPKcSt4
   store ptr %6, ptr %9, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !25
-  %11 = getelementptr inbounds nuw %"struct.std::pair.100", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN4LIEF3ART6ART_4411IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE22_M_insert_range_uniqueIPKS8_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESJ_SJ_.exit, label %.lr.ph.i
 

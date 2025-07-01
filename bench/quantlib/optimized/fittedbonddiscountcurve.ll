@@ -5706,7 +5706,8 @@ for.cond.cleanup33:                               ; preds = %_ZN5boost10shared_p
   %call107 = call double @sqrt(double noundef %squaredSum.0.lcssa) #29, !tbaa !152
   %41 = load ptr, ptr %weights_, align 8, !tbaa !3
   %42 = load i64, ptr %n_.i, align 8, !tbaa !118
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %41, i64 %42
+  %add.ptr.i.idx.i = shl nuw nsw i64 %42, 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %41, i64 %add.ptr.i.idx.i
   %cmp.not5.i.i = icmp eq i64 %42, 0
   br i1 %cmp.not5.i.i, label %do.body, label %for.body.i.i
 
@@ -7005,7 +7006,8 @@ entry:
   %1 = load ptr, ptr %vals, align 8, !tbaa !3
   %n_.i = getelementptr inbounds nuw i8, ptr %vals, i64 8
   %2 = load i64, ptr %n_.i, align 8, !tbaa !118
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %1, i64 %2
+  %add.ptr.i.idx = shl nuw nsw i64 %2, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i.idx
   %cmp.not5 = icmp eq i64 %2, 0
   br i1 %cmp.not5, label %for.cond.cleanup, label %for.body
 
@@ -9149,7 +9151,7 @@ for.body.i.i.i.preheader.i:                       ; preds = %entry
   store ptr %call.i, ptr %agg.result, align 8, !tbaa !3
   %n_.i1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %0, ptr %n_.i1, align 8, !tbaa !118
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %call.i, i64 %0
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %2
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.i.preheader.i
@@ -9183,7 +9185,7 @@ for.body.i.i.i.preheader.i:                       ; preds = %entry
   store ptr %call.i, ptr %agg.result, align 8, !tbaa !3
   %n_.i1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %0, ptr %n_.i1, align 8, !tbaa !118
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %call.i, i64 %0
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %2
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.i.preheader.i

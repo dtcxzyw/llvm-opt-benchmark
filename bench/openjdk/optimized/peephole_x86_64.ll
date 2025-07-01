@@ -77,7 +77,8 @@ _ZNK5Block8get_nodeEj.exit51:                     ; preds = %22, %25
   %43 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %44 = load i32, ptr %43, align 8
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
+  %.idx = shl nuw nsw i64 %45, 3
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx
   %.not66 = icmp eq i32 %44, 0
   br i1 %.not66, label %._crit_edge, label %.lr.ph65
 

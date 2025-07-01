@@ -1195,7 +1195,8 @@ define noundef i32 @_ZN14cranelift_wasm15code_translator25optionally_bitcast_vec
 define internal fastcc { ptr, i64 } @_ZN14cranelift_wasm15code_translator24canonicalise_v128_values17h2fedebbc44f1c1ebE(ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = alloca i16, align 2
-  %7 = getelementptr inbounds i32, ptr %2, i64 %3
+  %.idx = shl nsw i64 %3, 2
+  %7 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %8 = load ptr, ptr %1, align 8, !nonnull !5, !align !16, !noundef !5
   br label %"_ZN14cranelift_wasm15code_translator24canonicalise_v128_values28_$u7b$$u7b$closure$u7d$$u7d$17hce08418d7284c56aE.exit.i"
 

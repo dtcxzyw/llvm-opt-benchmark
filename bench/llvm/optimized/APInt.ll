@@ -1992,22 +1992,22 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN4llvm5APInt14tcMultiplyPartEPmP
 define dso_local noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !3
-  %.not.not.i.i.i.i = icmp eq i32 %4, 0
-  br i1 %.not.not.i.i.i.i, label %_ZSt5equalIPmS0_EbT_S1_T0_.exit, label %5
+  %5 = zext i32 %4 to i64
+  %6 = add nuw nsw i64 %5, 63
+  %7 = lshr i64 %6, 3
+  %.idx = and i64 %7, 1073741816
+  %.not.not.i.i.i.i = icmp samesign eq i64 %.idx, 0
+  br i1 %.not.not.i.i.i.i, label %_ZSt5equalIPmS0_EbT_S1_T0_.exit, label %8
 
-5:                                                ; preds = %2
-  %6 = zext i32 %4 to i64
-  %7 = add nuw nsw i64 %6, 63
-  %8 = load ptr, ptr %0, align 8, !tbaa !8
-  %9 = load ptr, ptr %1, align 8, !tbaa !8
-  %10 = lshr i64 %7, 3
-  %.idx = and i64 %10, 1073741816
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %8, ptr %9, i64 %.idx)
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %0, align 8, !tbaa !8
+  %10 = load ptr, ptr %1, align 8, !tbaa !8
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %9, ptr %10, i64 %.idx)
   %.not9.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %_ZSt5equalIPmS0_EbT_S1_T0_.exit
 
-_ZSt5equalIPmS0_EbT_S1_T0_.exit:                  ; preds = %2, %5
-  %spec.select.i.i.i.i = phi i1 [ %.not9.i.i.i.i, %5 ], [ true, %2 ]
+_ZSt5equalIPmS0_EbT_S1_T0_.exit:                  ; preds = %2, %8
+  %spec.select.i.i.i.i = phi i1 [ %.not9.i.i.i.i, %8 ], [ true, %2 ]
   ret i1 %spec.select.i.i.i.i
 }
 
@@ -3439,7 +3439,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm5APInt7isSplatEj(ptr noundef nonnu
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !3
   %6 = icmp ult i32 %5, 65
-  br i1 %6, label %7, label %_ZNK4llvm5APInt13equalSlowCaseERKS0_.exit.i
+  br i1 %6, label %7, label %12
 
 7:                                                ; preds = %2
   %8 = load i64, ptr %0, align 8, !tbaa !8
@@ -3448,32 +3448,32 @@ define dso_local noundef zeroext i1 @_ZNK4llvm5APInt7isSplatEj(ptr noundef nonnu
   %11 = inttoptr i64 %9 to ptr
   br label %_ZNK4llvm5APInteqERKS0_.exit
 
-_ZNK4llvm5APInt13equalSlowCaseERKS0_.exit.i:      ; preds = %2
-  %12 = zext i32 %5 to i64
-  %13 = add nuw nsw i64 %12, 63
-  %14 = load ptr, ptr %0, align 8, !tbaa !8
-  %15 = load ptr, ptr %3, align 8, !tbaa !8
-  %16 = lshr i64 %13, 3
-  %.idx.i.i = and i64 %16, 1073741816
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr %14, ptr %15, i64 %.idx.i.i)
+12:                                               ; preds = %2
+  %13 = zext i32 %5 to i64
+  %14 = add nuw nsw i64 %13, 63
+  %15 = lshr i64 %14, 3
+  %.idx.i.i = and i64 %15, 1073741816
+  %16 = load ptr, ptr %0, align 8, !tbaa !8
+  %17 = load ptr, ptr %3, align 8, !tbaa !8
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr %16, ptr %17, i64 %.idx.i.i)
   %.not9.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br label %_ZNK4llvm5APInteqERKS0_.exit
 
-_ZNK4llvm5APInteqERKS0_.exit:                     ; preds = %7, %_ZNK4llvm5APInt13equalSlowCaseERKS0_.exit.i
-  %17 = phi ptr [ %11, %7 ], [ %15, %_ZNK4llvm5APInt13equalSlowCaseERKS0_.exit.i ]
-  %.0.i = phi i1 [ %10, %7 ], [ %.not9.i.i.i.i.i.i, %_ZNK4llvm5APInt13equalSlowCaseERKS0_.exit.i ]
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !3
-  %20 = icmp ult i32 %19, 65
-  %21 = icmp eq ptr %17, null
-  %or.cond = select i1 %20, i1 true, i1 %21
-  br i1 %or.cond, label %_ZN4llvm5APIntD2Ev.exit, label %22
+_ZNK4llvm5APInteqERKS0_.exit:                     ; preds = %7, %12
+  %18 = phi ptr [ %11, %7 ], [ %17, %12 ]
+  %.0.i = phi i1 [ %10, %7 ], [ %.not9.i.i.i.i.i.i, %12 ]
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %20 = load i32, ptr %19, align 8, !tbaa !3
+  %21 = icmp ult i32 %20, 65
+  %22 = icmp eq ptr %18, null
+  %or.cond = select i1 %21, i1 true, i1 %22
+  br i1 %or.cond, label %_ZN4llvm5APIntD2Ev.exit, label %23
 
-22:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit
-  call void @_ZdaPv(ptr noundef nonnull %17) #23
+23:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit
+  call void @_ZdaPv(ptr noundef nonnull %18) #23
   br label %_ZN4llvm5APIntD2Ev.exit
 
-_ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInteqERKS0_.exit, %22
+_ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInteqERKS0_.exit, %23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #24
   ret i1 %.0.i
 }
@@ -4967,14 +4967,14 @@ define dso_local void @_ZN4llvm8APIntOps21GreatestCommonDivisorENS_5APIntES1_(pt
 _ZNK4llvm5APInteqERKS0_.exit:                     ; preds = %3
   %11 = zext i32 %5 to i64
   %12 = add nuw nsw i64 %11, 63
-  %13 = load ptr, ptr %1, align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = lshr i64 %12, 3
-  %.idx.i.i = and i64 %15, 1073741816
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr %13, ptr %14, i64 %.idx.i.i)
+  %13 = lshr i64 %12, 3
+  %.idx.i.i = and i64 %13, 1073741816
+  %14 = load ptr, ptr %1, align 8
+  %15 = load ptr, ptr %2, align 8
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr %14, ptr %15, i64 %.idx.i.i)
   %.not9.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
-  %16 = ptrtoint ptr %14 to i64
-  %17 = ptrtoint ptr %13 to i64
+  %16 = ptrtoint ptr %15 to i64
+  %17 = ptrtoint ptr %14 to i64
   br i1 %.not9.i.i.i.i.i.i, label %18, label %.lr.ph.i.i.i
 
 18:                                               ; preds = %7, %_ZNK4llvm5APInteqERKS0_.exit
@@ -4999,7 +4999,7 @@ _ZNK4llvm5APInteqERKS0_.exit:                     ; preds = %3
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %33 ], [ %25, %.lr.ph.i.i.i ]
   %.019.i.i.i = phi i32 [ %34, %33 ], [ 0, %.lr.ph.i.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %27 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.next.i.i
+  %27 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv.next.i.i
   %28 = load i64, ptr %27, align 8, !tbaa !9
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %33, label %.thread.i.i.i
@@ -5037,9 +5037,9 @@ _ZNK4llvm5APIntntEv.exit:                         ; preds = %33, %.thread.i.i.i
 
 44:                                               ; preds = %21, %_ZNK4llvm5APIntntEv.exit
   %45 = phi i64 [ %8, %21 ], [ %17, %_ZNK4llvm5APIntntEv.exit ]
-  %46 = phi ptr [ %22, %21 ], [ %13, %_ZNK4llvm5APIntntEv.exit ]
+  %46 = phi ptr [ %22, %21 ], [ %14, %_ZNK4llvm5APIntntEv.exit ]
   %47 = phi i64 [ %9, %21 ], [ %16, %_ZNK4llvm5APIntntEv.exit ]
-  %48 = phi ptr [ %23, %21 ], [ %14, %_ZNK4llvm5APIntntEv.exit ]
+  %48 = phi ptr [ %23, %21 ], [ %15, %_ZNK4llvm5APIntntEv.exit ]
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %50 = load i32, ptr %49, align 8, !tbaa !3
   %51 = icmp ult i32 %50, 65
@@ -5376,14 +5376,14 @@ _ZNK4llvm5APIntneERKS0_.exit:                     ; preds = %_ZN4llvm5APInt11lsh
 _ZNK4llvm5APIntneERKS0_.exit.thread:              ; preds = %_ZN4llvm5APInt11lshrInPlaceEj.exit81
   %220 = zext i32 %216 to i64
   %221 = add nuw nsw i64 %220, 63
-  %222 = load ptr, ptr %1, align 8
-  %223 = load ptr, ptr %2, align 8
-  %224 = lshr i64 %221, 3
-  %.idx.i.i.i = and i64 %224, 1073741816
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %222, ptr %223, i64 %.idx.i.i.i)
+  %222 = lshr i64 %221, 3
+  %.idx.i.i.i = and i64 %222, 1073741816
+  %223 = load ptr, ptr %1, align 8
+  %224 = load ptr, ptr %2, align 8
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %223, ptr %224, i64 %.idx.i.i.i)
   %.not9.i.i.i.i.i.i.i.not = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
-  %225 = ptrtoint ptr %222 to i64
-  %226 = ptrtoint ptr %223 to i64
+  %225 = ptrtoint ptr %223 to i64
+  %226 = ptrtoint ptr %224 to i64
   br i1 %.not9.i.i.i.i.i.i.i.not, label %432, label %.thread118
 
 .thread118:                                       ; preds = %_ZNK4llvm5APIntneERKS0_.exit.thread
@@ -5397,9 +5397,9 @@ _ZNK4llvm5APIntneERKS0_.exit.thread:              ; preds = %_ZN4llvm5APInt11lsh
 
 229:                                              ; preds = %228
   %230 = add nsw i64 %indvars.iv.i.i.i.i, -1
-  %231 = getelementptr inbounds nuw i64, ptr %222, i64 %230
+  %231 = getelementptr inbounds nuw i64, ptr %223, i64 %230
   %232 = load i64, ptr %231, align 8, !tbaa !9
-  %233 = getelementptr inbounds nuw i64, ptr %223, i64 %230
+  %233 = getelementptr inbounds nuw i64, ptr %224, i64 %230
   %234 = load i64, ptr %233, align 8, !tbaa !9
   %.not13.i.i.i.i = icmp eq i64 %232, %234
   br i1 %.not13.i.i.i.i, label %228, label %_ZNK4llvm5APInt3ugtERKS0_.exit, !llvm.loop !40
@@ -5417,9 +5417,9 @@ _ZNK4llvm5APInt3ugtERKS0_.exit.thread120:         ; preds = %_ZNK4llvm5APIntneER
 .lr.ph.i.i56:                                     ; preds = %_ZNK4llvm5APInt3ugtERKS0_.exit, %247
   %indvars.iv.i.i57 = phi i64 [ %indvars.iv.next.i.i58, %247 ], [ 0, %_ZNK4llvm5APInt3ugtERKS0_.exit ]
   %.022.i.i = phi i1 [ %248, %247 ], [ true, %_ZNK4llvm5APInt3ugtERKS0_.exit ]
-  %237 = getelementptr inbounds nuw i64, ptr %222, i64 %indvars.iv.i.i57
+  %237 = getelementptr inbounds nuw i64, ptr %223, i64 %indvars.iv.i.i57
   %238 = load i64, ptr %237, align 8, !tbaa !9
-  %239 = getelementptr inbounds nuw i64, ptr %223, i64 %indvars.iv.i.i57
+  %239 = getelementptr inbounds nuw i64, ptr %224, i64 %indvars.iv.i.i57
   %240 = load i64, ptr %239, align 8, !tbaa !9
   br i1 %.022.i.i, label %244, label %241
 
@@ -5588,8 +5588,8 @@ _ZNK4llvm5APInt11countr_zeroEv.exit67:            ; preds = %279, %281
 _ZNK4llvm5APInt3ugtERKS0_.exit.thread:            ; preds = %228, %_ZNK4llvm5APInt3ugtERKS0_.exit.thread120, %_ZNK4llvm5APInt3ugtERKS0_.exit
   %330 = phi i64 [ %219, %_ZNK4llvm5APInt3ugtERKS0_.exit.thread120 ], [ %226, %_ZNK4llvm5APInt3ugtERKS0_.exit ], [ %226, %228 ]
   %331 = phi i64 [ %218, %_ZNK4llvm5APInt3ugtERKS0_.exit.thread120 ], [ %225, %_ZNK4llvm5APInt3ugtERKS0_.exit ], [ %225, %228 ]
-  %332 = phi ptr [ %235, %_ZNK4llvm5APInt3ugtERKS0_.exit.thread120 ], [ %222, %_ZNK4llvm5APInt3ugtERKS0_.exit ], [ %222, %228 ]
-  %333 = phi ptr [ %236, %_ZNK4llvm5APInt3ugtERKS0_.exit.thread120 ], [ %223, %_ZNK4llvm5APInt3ugtERKS0_.exit ], [ %223, %228 ]
+  %332 = phi ptr [ %235, %_ZNK4llvm5APInt3ugtERKS0_.exit.thread120 ], [ %223, %_ZNK4llvm5APInt3ugtERKS0_.exit ], [ %223, %228 ]
+  %333 = phi ptr [ %236, %_ZNK4llvm5APInt3ugtERKS0_.exit.thread120 ], [ %224, %_ZNK4llvm5APInt3ugtERKS0_.exit ], [ %224, %228 ]
   %334 = load i32, ptr %49, align 8, !tbaa !3
   %335 = icmp ult i32 %334, 65
   br i1 %335, label %_ZN4llvm5APIntmIERKS0_.exit94.thread, label %.lr.ph.preheader.i.i82
@@ -15770,13 +15770,13 @@ _ZNK4llvm5APInt16isMinSignedValueEv.exit.thread.thread34: ; preds = %71
 _ZNK4llvm5APIntneERKS0_.exit:                     ; preds = %_ZNK4llvm5APIntneEm.exit.thread
   %77 = zext i32 %69 to i64
   %78 = add nuw nsw i64 %77, 63
-  %79 = load ptr, ptr %5, align 8, !tbaa !8
-  %80 = load ptr, ptr %1, align 8
-  %81 = lshr i64 %78, 3
-  %.idx.i.i.i = and i64 %81, 1073741816
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %79, ptr %80, i64 %.idx.i.i.i)
+  %79 = lshr i64 %78, 3
+  %.idx.i.i.i = and i64 %79, 1073741816
+  %80 = load ptr, ptr %5, align 8, !tbaa !8
+  %81 = load ptr, ptr %1, align 8
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %80, ptr %81, i64 %.idx.i.i.i)
   %.not9.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
-  %82 = ptrtoint ptr %80 to i64
+  %82 = ptrtoint ptr %81 to i64
   br i1 %.not9.i.i.i.i.i.i.i, label %83, label %_ZNK4llvm5APInt16isMinSignedValueEv.exit.thread.thread
 
 _ZNK4llvm5APInt16isMinSignedValueEv.exit.thread.thread: ; preds = %_ZNK4llvm5APIntneERKS0_.exit
@@ -15784,9 +15784,9 @@ _ZNK4llvm5APInt16isMinSignedValueEv.exit.thread.thread: ; preds = %_ZNK4llvm5API
   br label %157
 
 83:                                               ; preds = %71, %_ZNK4llvm5APIntneERKS0_.exit
-  %84 = phi ptr [ %75, %71 ], [ %80, %_ZNK4llvm5APIntneERKS0_.exit ]
+  %84 = phi ptr [ %75, %71 ], [ %81, %_ZNK4llvm5APIntneERKS0_.exit ]
   %85 = phi i64 [ %73, %71 ], [ %82, %_ZNK4llvm5APIntneERKS0_.exit ]
-  %86 = phi ptr [ %76, %71 ], [ %79, %_ZNK4llvm5APIntneERKS0_.exit ]
+  %86 = phi ptr [ %76, %71 ], [ %80, %_ZNK4llvm5APIntneERKS0_.exit ]
   %87 = load i32, ptr %6, align 8, !tbaa !3
   %88 = icmp ult i32 %87, 65
   %89 = add i32 %87, -1
@@ -15914,7 +15914,7 @@ _ZNK4llvm5APInt16isMinSignedValueEv.exit.thread:  ; preds = %94, %90, %_ZNK4llvm
   br i1 %156, label %157, label %_ZN4llvm5APIntD2Ev.exit
 
 157:                                              ; preds = %_ZNK4llvm5APInt16isMinSignedValueEv.exit.thread.thread, %_ZNK4llvm5APInt16isMinSignedValueEv.exit.thread
-  %158 = phi ptr [ %79, %_ZNK4llvm5APInt16isMinSignedValueEv.exit.thread.thread ], [ %86, %_ZNK4llvm5APInt16isMinSignedValueEv.exit.thread ]
+  %158 = phi ptr [ %80, %_ZNK4llvm5APInt16isMinSignedValueEv.exit.thread.thread ], [ %86, %_ZNK4llvm5APInt16isMinSignedValueEv.exit.thread ]
   %159 = icmp eq ptr %158, null
   br i1 %159, label %_ZN4llvm5APIntD2Ev.exit, label %160
 
@@ -16912,16 +16912,16 @@ _ZNK4llvm5APIntneERKS0_.exit:                     ; preds = %.lr.ph.i.i
   %50 = load i64, ptr %49, align 8, !tbaa !9, !noalias !301
   %51 = and i64 %50, %46
   store i64 %51, ptr %49, align 8, !tbaa !9, !noalias !301
-  %52 = load ptr, ptr %1, align 8, !tbaa !8
-  %53 = lshr i64 %10, 3
-  %.idx.i.i.i = and i64 %53, 1073741816
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %14, ptr %52, i64 %.idx.i.i.i)
+  %52 = lshr i64 %10, 3
+  %.idx.i.i.i = and i64 %52, 1073741816
+  %53 = load ptr, ptr %1, align 8, !tbaa !8
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %14, ptr %53, i64 %.idx.i.i.i)
   %.not9.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %.not9.i.i.i.i.i.i.i, label %.critedge, label %54
 
 54:                                               ; preds = %25, %_ZNK4llvm5APIntneERKS0_.exit
   %.sroa.014.02125 = phi ptr [ %38, %25 ], [ %14, %_ZNK4llvm5APIntneERKS0_.exit ]
-  %55 = phi ptr [ %39, %25 ], [ %52, %_ZNK4llvm5APIntneERKS0_.exit ]
+  %55 = phi ptr [ %39, %25 ], [ %53, %_ZNK4llvm5APIntneERKS0_.exit ]
   %56 = phi ptr [ %40, %25 ], [ %16, %_ZNK4llvm5APIntneERKS0_.exit ]
   %57 = phi ptr [ %41, %25 ], [ %15, %_ZNK4llvm5APIntneERKS0_.exit ]
   %58 = phi i64 [ %26, %25 ], [ %17, %_ZNK4llvm5APIntneERKS0_.exit ]
@@ -23185,23 +23185,23 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm8APIntOps30GetMostSignifi
 _ZNK4llvm5APInteqERKS0_.exit:                     ; preds = %2
   %10 = zext i32 %4 to i64
   %11 = add nuw nsw i64 %10, 63
-  %12 = load ptr, ptr %0, align 8, !tbaa !8
-  %13 = load ptr, ptr %1, align 8, !tbaa !8
-  %14 = lshr i64 %11, 3
-  %.idx.i.i = and i64 %14, 1073741816
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr %12, ptr %13, i64 %.idx.i.i)
+  %12 = lshr i64 %11, 3
+  %.idx.i.i = and i64 %12, 1073741816
+  %13 = load ptr, ptr %0, align 8, !tbaa !8
+  %14 = load ptr, ptr %1, align 8, !tbaa !8
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr %13, ptr %14, i64 %.idx.i.i)
   %.not9.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not9.i.i.i.i.i.i, label %_ZN4llvm5APIntD2Ev.exit6, label %15
 
 15:                                               ; preds = %_ZNK4llvm5APInteqERKS0_.exit
   %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.idx.i.i) #22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr align 8 %12, i64 %.idx.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr align 8 %13, i64 %.idx.i.i, i1 false)
   %17 = lshr i64 %11, 6
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %15
   %.09.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i ], [ 0, %15 ]
-  %18 = getelementptr inbounds nuw i64, ptr %13, i64 %.09.i.i.i
+  %18 = getelementptr inbounds nuw i64, ptr %14, i64 %.09.i.i.i
   %19 = load i64, ptr %18, align 8, !tbaa !9, !noalias !493
   %20 = getelementptr inbounds nuw i64, ptr %16, i64 %.09.i.i.i
   %21 = load i64, ptr %20, align 8, !tbaa !9, !noalias !493

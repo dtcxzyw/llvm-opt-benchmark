@@ -5340,8 +5340,10 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIwNS_11char_trait
   %17 = icmp ult i64 %3, %16
   %18 = add i64 %.sroa.speculated.i, %3
   %storemerge.i = select i1 %17, i64 %18, i64 %15
-  %19 = getelementptr inbounds nuw i32, ptr %10, i64 %storemerge.i
-  %20 = getelementptr inbounds nuw i32, ptr %1, i64 %3
+  %.idx21.i = shl nuw nsw i64 %storemerge.i, 2
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx21.i
+  %.idx.i = shl nuw nsw i64 %3, 2
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
   %21 = icmp eq i64 %3, 0
   %22 = icmp eq i64 %storemerge.i, 0
   %or.cond.i.i.i = or i1 %21, %22
@@ -5426,7 +5428,8 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIwNS_11char_trait
 18:                                               ; preds = %4
   %19 = getelementptr inbounds nuw i32, ptr %10, i64 %2
   %20 = getelementptr inbounds nuw i32, ptr %10, i64 %15
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %3
+  %.idx.i = shl nuw nsw i64 %3, 2
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i.i, %18

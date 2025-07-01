@@ -3941,7 +3941,8 @@ entry:
   store ptr %this, ptr %this, align 8
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.i
 
@@ -5080,7 +5081,8 @@ define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE6insertENS_12List
 entry:
   %mpPrev.i = getelementptr inbounds nuw i8, ptr %position.coerce, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl4listIiNS_9allocatorEE8DoInsertIPKiEEvPNS_12ListNodeBaseET_S8_NS_17integral_constantIbLb0EEE.exit, label %for.body.lr.ph.i
 
@@ -6514,7 +6516,8 @@ entry:
   store ptr %this, ptr %this, align 8
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 6
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.i
 
@@ -7646,7 +7649,8 @@ define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE6insertENS
 entry:
   %mpPrev.i = getelementptr inbounds nuw i8, ptr %position.coerce, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 6
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl4listI7Align64NS_9allocatorEE8DoInsertIPKS1_EEvPNS_12ListNodeBaseET_S9_NS_17integral_constantIbLb0EEE.exit, label %for.body.lr.ph.i
 
@@ -9199,7 +9203,8 @@ entry:
   store ptr %this, ptr %this, align 8
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.i
 
@@ -10918,7 +10923,8 @@ define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE6inser
 entry:
   %mpPrev.i = getelementptr inbounds nuw i8, ptr %position.coerce, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE8DoInsertIPKS1_EEvPNS_12ListNodeBaseET_S9_NS_17integral_constantIbLb0EEE.exit, label %for.body.lr.ph.i
 

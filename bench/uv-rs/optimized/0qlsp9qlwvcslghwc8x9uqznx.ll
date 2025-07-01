@@ -1471,7 +1471,8 @@ define void @_ZN16uv_install_wheel5wheel24write_script_entrypoints17h17db6df7839
   %65 = alloca [24 x i8], align 8
   %66 = alloca [24 x i8], align 8
   %67 = alloca [32 x i8], align 8
-  %68 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %5, i64 %6
+  %.idx389 = mul nsw i64 %6, 72
+  %68 = getelementptr inbounds i8, ptr %5, i64 %.idx389
   %69 = icmp eq i64 %6, 0
   br i1 %69, label %._crit_edge, label %.lr.ph
 

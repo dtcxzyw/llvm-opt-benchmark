@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<absl::strings_internal::ViableSubstitution, std::allocator<absl::strings_internal::ViableSubstitution>>::_Vector_impl" }
 %"struct.std::_Vector_base<absl::strings_internal::ViableSubstitution, std::allocator<absl::strings_internal::ViableSubstitution>>::_Vector_impl" = type { %"struct.std::_Vector_base<absl::strings_internal::ViableSubstitution, std::allocator<absl::strings_internal::ViableSubstitution>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<absl::strings_internal::ViableSubstitution, std::allocator<absl::strings_internal::ViableSubstitution>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type { %"class.std::basic_string_view", %"class.std::basic_string_view" }
 
 $_ZN4absl13StrReplaceAllISt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEES6_EEEENSt7__cxx1112basic_stringIcS5_SaIcEEES6_RKT_ = comdat any
 
@@ -500,7 +499,8 @@ _ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_al
   %14 = getelementptr inbounds nuw %"struct.absl::strings_internal::ViableSubstitution", ptr %13, i64 %7
   store ptr %14, ptr %10, align 8, !tbaa !30
   %15 = load ptr, ptr %3, align 8, !tbaa !34
-  %16 = getelementptr inbounds nuw %"struct.std::pair", ptr %15, i64 %7
+  %.idx = shl nuw nsw i64 %7, 5
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   %.not.i.i = icmp eq i64 %.fr, 0
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 %.fr
   %18 = ptrtoint ptr %17 to i64

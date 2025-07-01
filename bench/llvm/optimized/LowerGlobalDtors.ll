@@ -359,7 +359,8 @@ define internal fastcc noundef zeroext i1 @_ZL7runImplRN4llvm6ModuleE(ptr nounde
 _ZNK4llvm4User8operandsEv.exit:                   ; preds = %99, %102
   %107 = phi ptr [ %101, %99 ], [ %106, %102 ]
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %99 ], [ %104, %102 ]
-  %108 = getelementptr inbounds nuw %"class.llvm::Use", ptr %107, i64 %.pre-phi2.i.i
+  %.idx = shl nuw nsw i64 %.pre-phi2.i.i, 5
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx
   %.not133386 = icmp eq i64 %.pre-phi2.i.i, 0
   br i1 %.not133386, label %.loopexit, label %.lr.ph
 

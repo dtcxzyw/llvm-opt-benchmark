@@ -202,7 +202,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Expected.248" = type { %union.anon.249, i8, [7 x i8] }
 %union.anon.249 = type { %"struct.llvm::AlignedCharArrayUnion.250" }
 %"struct.llvm::AlignedCharArrayUnion.250" = type { [32 x i8] }
-%"struct.std::pair.292" = type { ptr, i64 }
 %"class.llvm::StringSaver" = type { ptr }
 %"class.llvm::SmallVector.294" = type { %"class.llvm::SmallVectorImpl.114", %"struct.llvm::SmallVectorStorage.295" }
 %"struct.llvm::SmallVectorStorage.295" = type { [128 x i8] }
@@ -5801,7 +5800,8 @@ define dso_local void @_ZN5clang14OffloadBundler11BundleFilesEv(ptr dead_on_unwi
   %46 = load ptr, ptr %11, align 8, !tbaa !314
   %47 = load i32, ptr %32, align 8, !tbaa !316
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %46, i64 %48
+  %.idx.i.i.i = shl nuw nsw i64 %48, 3
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i.i.i
   %.not7.i.i.i.i.i.i.i.i = icmp eq i32 %47, 0
   br i1 %.not7.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -6321,7 +6321,8 @@ _ZN4llvm8ExpectedISt10unique_ptrIN12_GLOBAL__N_111FileHandlerESt14default_delete
 
 .lr.ph.i.preheader.i:                             ; preds = %249
   %252 = zext i32 %251 to i64
-  %253 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %250, i64 %252
+  %.idx.i = shl nuw nsw i64 %252, 3
+  %253 = getelementptr inbounds nuw i8, ptr %250, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -9260,7 +9261,8 @@ _ZN4llvm5ErrorD2Ev.exit152:                       ; preds = %621
   %626 = load ptr, ptr %63, align 8, !tbaa !314
   %627 = load i32, ptr %436, align 8, !tbaa !316
   %628 = zext i32 %627 to i64
-  %629 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %626, i64 %628
+  %.idx = shl nuw nsw i64 %628, 4
+  %629 = getelementptr inbounds nuw i8, ptr %626, i64 %.idx
   %.not473 = icmp eq i32 %627, 0
   br i1 %.not473, label %.critedge103, label %.lr.ph478
 
@@ -15068,7 +15070,8 @@ _ZN4llvm11SmallVectorINS_9StringRefELj16EED2Ev.exit.i: ; preds = %183, %180
   %184 = load ptr, ptr %55, align 8, !tbaa !314, !noalias !804
   %185 = load i32, ptr %57, align 8, !tbaa !316, !noalias !804
   %186 = zext i32 %185 to i64
-  %187 = getelementptr inbounds nuw ptr, ptr %184, i64 %186
+  %.idx.i.i = shl nuw nsw i64 %186, 3
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 %.idx.i.i
   %.not6.i.i.i = icmp eq i32 %185, 0
   br i1 %.not6.i.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit.i.i, label %.lr.ph.i.i.i
 
@@ -15094,7 +15097,8 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   %198 = load ptr, ptr %59, align 8, !tbaa !314, !noalias !804
   %199 = load i32, ptr %61, align 8, !tbaa !316, !noalias !804
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds nuw %"struct.std::pair.292", ptr %198, i64 %200
+  %.idx.i.i.i = shl nuw nsw i64 %200, 4
+  %201 = getelementptr inbounds nuw i8, ptr %198, i64 %.idx.i.i.i
   %.not10.i.i.i = icmp eq i32 %199, 0
   br i1 %.not10.i.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.i.i, label %.lr.ph.i1.i.i
 
@@ -15765,7 +15769,8 @@ _ZN4llvm11SmallVectorINS_9StringRefELj8EED2Ev.exit: ; preds = %.critedge24, %170
   %171 = load ptr, ptr %23, align 8, !tbaa !314
   %172 = load i32, ptr %25, align 8, !tbaa !316
   %173 = zext i32 %172 to i64
-  %174 = getelementptr inbounds nuw ptr, ptr %171, i64 %173
+  %.idx.i = shl nuw nsw i64 %173, 3
+  %174 = getelementptr inbounds nuw i8, ptr %171, i64 %.idx.i
   %.not6.i.i = icmp eq i32 %172, 0
   br i1 %.not6.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit.i, label %.lr.ph.i.i
 
@@ -15791,7 +15796,8 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   %185 = load ptr, ptr %27, align 8, !tbaa !314
   %186 = load i32, ptr %29, align 8, !tbaa !316
   %187 = zext i32 %186 to i64
-  %188 = getelementptr inbounds nuw %"struct.std::pair.292", ptr %185, i64 %187
+  %.idx.i.i = shl nuw nsw i64 %187, 4
+  %188 = getelementptr inbounds nuw i8, ptr %185, i64 %.idx.i.i
   %.not10.i.i = icmp eq i32 %186, 0
   br i1 %.not10.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.i, label %.lr.ph.i1.i
 
@@ -16589,7 +16595,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   store i64 %10, ptr %9, align 8, !tbaa !192
   store ptr null, ptr %1, align 8, !tbaa !192
   %11 = load ptr, ptr %0, align 8, !tbaa !314
-  %12 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %11, i64 %8
+  %.idx.i = shl nuw nsw i64 %8, 3
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %7, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit, label %.lr.ph.i.i.i.i.i.i
 

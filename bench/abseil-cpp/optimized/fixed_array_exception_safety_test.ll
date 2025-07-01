@@ -927,7 +927,7 @@ define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValu
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %1, ptr %4, align 8, !tbaa !30
   %5 = icmp ult i64 %1, 26
-  br i1 %5, label %13, label %6
+  br i1 %5, label %14, label %6
 
 6:                                                ; preds = %3
   %7 = icmp ugt i64 %1, 2305843009213693951
@@ -950,90 +950,93 @@ define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValu
   %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #26
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %11, ptr %12, align 8, !tbaa !21
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %10
   br label %.lr.ph.i.preheader
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %0, ptr %14, align 8, !tbaa !21
+14:                                               ; preds = %3
+  %.pre = shl nuw nsw i64 %1, 2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr %0, ptr %15, align 8, !tbaa !21
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.pre
   %.not15.i = icmp eq i64 %1, 0
   br i1 %.not15.i, label %_ZN4absl15memory_internal14ConstructRangeISaIN7testing13ThrowingValueILNS2_8TypeSpecE0EEEEPS5_JEEEvRT_T0_SA_DpRKT1_.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %.thread, %13
-  %15 = phi ptr [ %12, %.thread ], [ %14, %13 ]
-  %.0.i.i8 = phi ptr [ %11, %.thread ], [ %0, %13 ]
-  %16 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %.0.i.i8, i64 %1
+.lr.ph.i.preheader:                               ; preds = %.thread, %14
+  %17 = phi ptr [ %13, %.thread ], [ %16, %14 ]
+  %18 = phi ptr [ %12, %.thread ], [ %15, %14 ]
+  %.0.i.i9 = phi ptr [ %11, %.thread ], [ %0, %14 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i
-  %.016.i = phi ptr [ %29, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i ], [ %.0.i.i8, %.lr.ph.i.preheader ]
+  %.016.i = phi ptr [ %31, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i ], [ %.0.i.i9, %.lr.ph.i.preheader ]
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.016.i)
-          to label %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i unwind label %17
+          to label %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i unwind label %19
 
-17:                                               ; preds = %.lr.ph.i
-  %18 = landingpad { ptr, i32 }
+19:                                               ; preds = %.lr.ph.i
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #23
+  %21 = extractvalue { ptr, i32 } %20, 0
+  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #23
   br label %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i
 
-_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %21, %17
-  %.1.i = phi ptr [ %.016.i, %17 ], [ %22, %21 ]
-  %.not13.i = icmp eq ptr %.1.i, %.0.i.i8
-  br i1 %.not13.i, label %26, label %21
+_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %23, %19
+  %.1.i = phi ptr [ %.016.i, %19 ], [ %24, %23 ]
+  %.not13.i = icmp eq ptr %.1.i, %.0.i.i9
+  br i1 %.not13.i, label %28, label %23
 
-21:                                               ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i
-  %22 = getelementptr inbounds i8, ptr %.1.i, i64 -4
-  invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull align 4 dereferenceable(4) %22)
-          to label %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i unwind label %23, !llvm.loop !32
+23:                                               ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i
+  %24 = getelementptr inbounds i8, ptr %.1.i, i64 -4
+  invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull align 4 dereferenceable(4) %24)
+          to label %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i unwind label %25, !llvm.loop !32
 
-23:                                               ; preds = %21
-  %24 = landingpad { ptr, i32 }
+25:                                               ; preds = %23
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #24
+  %27 = extractvalue { ptr, i32 } %26, 0
+  tail call void @__clang_call_terminate(ptr %27) #24
   unreachable
 
-26:                                               ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i
+28:                                               ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i
   invoke void @__cxa_rethrow() #27
-          to label %33 unwind label %27
+          to label %35 unwind label %29
 
-27:                                               ; preds = %26
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %28
+  %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %.body unwind label %30
+          to label %.body unwind label %32
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i: ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds nuw i8, ptr %.016.i, i64 4
-  %.not.i = icmp eq ptr %29, %16
+  %31 = getelementptr inbounds nuw i8, ptr %.016.i, i64 4
+  %.not.i = icmp eq ptr %31, %17
   br i1 %.not.i, label %_ZN4absl15memory_internal14ConstructRangeISaIN7testing13ThrowingValueILNS2_8TypeSpecE0EEEEPS5_JEEEvRT_T0_SA_DpRKT1_.exit, label %.lr.ph.i, !llvm.loop !33
 
-30:                                               ; preds = %27
-  %31 = landingpad { ptr, i32 }
+32:                                               ; preds = %29
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #24
+  %34 = extractvalue { ptr, i32 } %33, 0
+  tail call void @__clang_call_terminate(ptr %34) #24
   unreachable
 
-33:                                               ; preds = %26
+35:                                               ; preds = %28
   unreachable
 
-_ZN4absl15memory_internal14ConstructRangeISaIN7testing13ThrowingValueILNS2_8TypeSpecE0EEEEPS5_JEEEvRT_T0_SA_DpRKT1_.exit: ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i, %13
+_ZN4absl15memory_internal14ConstructRangeISaIN7testing13ThrowingValueILNS2_8TypeSpecE0EEEEPS5_JEEEvRT_T0_SA_DpRKT1_.exit: ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i, %14
   ret void
 
-.body:                                            ; preds = %27
-  %34 = load i64, ptr %4, align 8, !tbaa !20
-  %35 = icmp ult i64 %34, 26
-  br i1 %35, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EE7StorageD2Ev.exit, label %36
+.body:                                            ; preds = %29
+  %36 = load i64, ptr %4, align 8, !tbaa !20
+  %37 = icmp ult i64 %36, 26
+  br i1 %37, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EE7StorageD2Ev.exit, label %38
 
-36:                                               ; preds = %.body
-  %37 = load ptr, ptr %15, align 8, !tbaa !21
-  %38 = shl i64 %34, 2
-  tail call void @_ZdlPvm(ptr noundef %37, i64 noundef %38) #25
+38:                                               ; preds = %.body
+  %39 = load ptr, ptr %18, align 8, !tbaa !21
+  %40 = shl i64 %36, 2
+  tail call void @_ZdlPvm(ptr noundef %39, i64 noundef %40) #25
   br label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EE7StorageD2Ev.exit
 
-_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EE7StorageD2Ev.exit: ; preds = %.body, %36
-  resume { ptr, i32 } %28
+_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EE7StorageD2Ev.exit: ; preds = %.body, %38
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5262,14 +5265,16 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #23
   %13 = load ptr, ptr %10, align 8, !tbaa !131
   %14 = load i64, ptr %11, align 8, !tbaa !20
+  %.idx5.i.i40 = shl nuw nsw i64 %14, 2
   store i64 %14, ptr %12, align 8, !tbaa !30
   %15 = icmp ult i64 %14, 26
   br i1 %15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %48
+  %.idx5.i.i42 = phi i64 [ %.idx5.i.i, %48 ], [ %.idx5.i.i40, %1 ]
   %16 = phi i64 [ %51, %48 ], [ %14, %1 ]
   %17 = phi ptr [ %50, %48 ], [ %13, %1 ]
-  %.042 = phi i32 [ %49, %48 ], [ 0, %1 ]
+  %.041 = phi i32 [ %49, %48 ], [ 0, %1 ]
   %18 = icmp ugt i64 %16, 2305843009213693951
   br i1 %18, label %.noexc.i.i.i.i, label %.thread.i.i, !prof !31
 
@@ -5281,27 +5286,27 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
   unreachable
 
 .thread.i.i:                                      ; preds = %.lr.ph
-  %.idx.i.i43 = shl nuw nsw i64 %16, 2
-  %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i.i43) #26
+  %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx5.i.i42) #26
           to label %.noexc12 unwind label %40
 
 .noexc12:                                         ; preds = %.thread.i.i
-  %20 = getelementptr inbounds nuw %"class.testing::ThrowingValue.67", ptr %17, i64 %16
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx5.i.i42
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr %19, ptr %21, align 8, !tbaa !131
   br label %.lr.ph.i.i.preheader.i.i
 
 ._crit_edge:                                      ; preds = %48, %1
-  %.lcssa40 = phi i64 [ %14, %1 ], [ %51, %48 ]
-  %.lcssa39 = phi ptr [ %13, %1 ], [ %50, %48 ]
-  %22 = getelementptr inbounds nuw %"class.testing::ThrowingValue.67", ptr %.lcssa39, i64 %.lcssa40
+  %.idx5.i.i.lcssa39 = phi i64 [ %.idx5.i.i40, %1 ], [ %.idx5.i.i, %48 ]
+  %.lcssa38 = phi ptr [ %13, %1 ], [ %50, %48 ]
+  %.lcssa25 = phi i64 [ %14, %1 ], [ %51, %48 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.lcssa38, i64 %.idx5.i.i.lcssa39
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr %3, ptr %23, align 8, !tbaa !131
-  %.not7.i.i.i.i = icmp eq i64 %.lcssa40, 0
+  %.not7.i.i.i.i = icmp eq i64 %.lcssa25, 0
   br i1 %.not7.i.i.i.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EED2Ev.exit, label %.lr.ph.i.i.preheader.i.i
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %._crit_edge, %.noexc12
-  %24 = phi ptr [ %17, %.noexc12 ], [ %.lcssa39, %._crit_edge ]
+  %24 = phi ptr [ %17, %.noexc12 ], [ %.lcssa38, %._crit_edge ]
   %25 = phi ptr [ %20, %.noexc12 ], [ %22, %._crit_edge ]
   %.0.i.i.i8.i.i = phi ptr [ %19, %.noexc12 ], [ %3, %._crit_edge ]
   br label %.lr.ph.i.i.i.i
@@ -5316,8 +5321,8 @@ define linkonce_odr dso_local void @_ZN7testing16TestThrowingCtorIN4absl10FixedA
   br i1 %.not.i.i.i.i, label %.critedge, label %.lr.ph.i.i.i.i, !llvm.loop !139
 
 .critedge:                                        ; preds = %.lr.ph.i.i.i.i
-  %.pre64 = load i64, ptr %12, align 8, !tbaa !20
-  %28 = icmp eq i64 %.pre64, 0
+  %.pre62 = load i64, ptr %12, align 8, !tbaa !20
+  %28 = icmp eq i64 %.pre62, 0
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 112
   br i1 %28, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EED2Ev.exit, label %.lr.ph.i.preheader
 
@@ -5381,7 +5386,7 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EED2
 48:                                               ; preds = %45
   call void @_ZN7testing19exceptions_internal18ConstructorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %2) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #23
-  %49 = add nuw nsw i32 %.042, 1
+  %49 = add nuw nsw i32 %.041, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #23
   store ptr %4, ptr %2, align 8, !tbaa !34
   store i64 1, ptr %5, align 8, !tbaa !41
@@ -5394,6 +5399,7 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EED2
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #23
   %50 = load ptr, ptr %10, align 8, !tbaa !131
   %51 = load i64, ptr %11, align 8, !tbaa !20
+  %.idx5.i.i = shl nuw nsw i64 %51, 2
   store i64 %51, ptr %12, align 8, !tbaa !30
   %52 = icmp ult i64 %51, 26
   br i1 %52, label %._crit_edge, label %.lr.ph, !llvm.loop !140
@@ -5416,7 +5422,7 @@ define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValu
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %1, ptr %4, align 8, !tbaa !30
   %5 = icmp ult i64 %1, 26
-  br i1 %5, label %13, label %6
+  br i1 %5, label %14, label %6
 
 6:                                                ; preds = %3
   %7 = icmp ugt i64 %1, 2305843009213693951
@@ -5439,90 +5445,93 @@ define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValu
   %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #26
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %11, ptr %12, align 8, !tbaa !131
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %10
   br label %.lr.ph.i.preheader
 
-13:                                               ; preds = %3
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %0, ptr %14, align 8, !tbaa !131
+14:                                               ; preds = %3
+  %.pre = shl nuw nsw i64 %1, 2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr %0, ptr %15, align 8, !tbaa !131
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.pre
   %.not15.i = icmp eq i64 %1, 0
   br i1 %.not15.i, label %_ZN4absl15memory_internal14ConstructRangeISaIN7testing13ThrowingValueILNS2_8TypeSpecE2EEEEPS5_JEEEvRT_T0_SA_DpRKT1_.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %.thread, %13
-  %15 = phi ptr [ %12, %.thread ], [ %14, %13 ]
-  %.0.i.i8 = phi ptr [ %11, %.thread ], [ %0, %13 ]
-  %16 = getelementptr inbounds nuw %"class.testing::ThrowingValue.67", ptr %.0.i.i8, i64 %1
+.lr.ph.i.preheader:                               ; preds = %.thread, %14
+  %17 = phi ptr [ %13, %.thread ], [ %16, %14 ]
+  %18 = phi ptr [ %12, %.thread ], [ %15, %14 ]
+  %.0.i.i9 = phi ptr [ %11, %.thread ], [ %0, %14 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i
-  %.016.i = phi ptr [ %29, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i ], [ %.0.i.i8, %.lr.ph.i.preheader ]
+  %.016.i = phi ptr [ %31, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i ], [ %.0.i.i9, %.lr.ph.i.preheader ]
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE2EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.016.i)
-          to label %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i unwind label %17
+          to label %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i unwind label %19
 
-17:                                               ; preds = %.lr.ph.i
-  %18 = landingpad { ptr, i32 }
+19:                                               ; preds = %.lr.ph.i
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #23
+  %21 = extractvalue { ptr, i32 } %20, 0
+  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #23
   br label %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destroyIS3_EEvRS4_PT_.exit.i
 
-_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %21, %17
-  %.1.i = phi ptr [ %.016.i, %17 ], [ %22, %21 ]
-  %.not13.i = icmp eq ptr %.1.i, %.0.i.i8
-  br i1 %.not13.i, label %26, label %21
+_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %23, %19
+  %.1.i = phi ptr [ %.016.i, %19 ], [ %24, %23 ]
+  %.not13.i = icmp eq ptr %.1.i, %.0.i.i9
+  br i1 %.not13.i, label %28, label %23
 
-21:                                               ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destroyIS3_EEvRS4_PT_.exit.i
-  %22 = getelementptr inbounds i8, ptr %.1.i, i64 -4
-  invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull align 4 dereferenceable(4) %22)
-          to label %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destroyIS3_EEvRS4_PT_.exit.i unwind label %23, !llvm.loop !141
+23:                                               ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destroyIS3_EEvRS4_PT_.exit.i
+  %24 = getelementptr inbounds i8, ptr %.1.i, i64 -4
+  invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull align 4 dereferenceable(4) %24)
+          to label %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destroyIS3_EEvRS4_PT_.exit.i unwind label %25, !llvm.loop !141
 
-23:                                               ; preds = %21
-  %24 = landingpad { ptr, i32 }
+25:                                               ; preds = %23
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #24
+  %27 = extractvalue { ptr, i32 } %26, 0
+  tail call void @__clang_call_terminate(ptr %27) #24
   unreachable
 
-26:                                               ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destroyIS3_EEvRS4_PT_.exit.i
+28:                                               ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destroyIS3_EEvRS4_PT_.exit.i
   invoke void @__cxa_rethrow() #27
-          to label %33 unwind label %27
+          to label %35 unwind label %29
 
-27:                                               ; preds = %26
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %28
+  %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %.body unwind label %30
+          to label %.body unwind label %32
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i: ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds nuw i8, ptr %.016.i, i64 4
-  %.not.i = icmp eq ptr %29, %16
+  %31 = getelementptr inbounds nuw i8, ptr %.016.i, i64 4
+  %.not.i = icmp eq ptr %31, %17
   br i1 %.not.i, label %_ZN4absl15memory_internal14ConstructRangeISaIN7testing13ThrowingValueILNS2_8TypeSpecE2EEEEPS5_JEEEvRT_T0_SA_DpRKT1_.exit, label %.lr.ph.i, !llvm.loop !142
 
-30:                                               ; preds = %27
-  %31 = landingpad { ptr, i32 }
+32:                                               ; preds = %29
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #24
+  %34 = extractvalue { ptr, i32 } %33, 0
+  tail call void @__clang_call_terminate(ptr %34) #24
   unreachable
 
-33:                                               ; preds = %26
+35:                                               ; preds = %28
   unreachable
 
-_ZN4absl15memory_internal14ConstructRangeISaIN7testing13ThrowingValueILNS2_8TypeSpecE2EEEEPS5_JEEEvRT_T0_SA_DpRKT1_.exit: ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i, %13
+_ZN4absl15memory_internal14ConstructRangeISaIN7testing13ThrowingValueILNS2_8TypeSpecE2EEEEPS5_JEEEvRT_T0_SA_DpRKT1_.exit: ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i, %14
   ret void
 
-.body:                                            ; preds = %27
-  %34 = load i64, ptr %4, align 8, !tbaa !20
-  %35 = icmp ult i64 %34, 26
-  br i1 %35, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EE7StorageD2Ev.exit, label %36
+.body:                                            ; preds = %29
+  %36 = load i64, ptr %4, align 8, !tbaa !20
+  %37 = icmp ult i64 %36, 26
+  br i1 %37, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EE7StorageD2Ev.exit, label %38
 
-36:                                               ; preds = %.body
-  %37 = load ptr, ptr %15, align 8, !tbaa !131
-  %38 = shl i64 %34, 2
-  tail call void @_ZdlPvm(ptr noundef %37, i64 noundef %38) #25
+38:                                               ; preds = %.body
+  %39 = load ptr, ptr %18, align 8, !tbaa !131
+  %40 = shl i64 %36, 2
+  tail call void @_ZdlPvm(ptr noundef %39, i64 noundef %40) #25
   br label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EE7StorageD2Ev.exit
 
-_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EE7StorageD2Ev.exit: ; preds = %.body, %36
-  resume { ptr, i32 } %28
+_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE2EEELm25ESaIS4_EE7StorageD2Ev.exit: ; preds = %.body, %38
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8941,7 +8950,7 @@ define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValu
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %1, ptr %5, align 8, !tbaa !30
   %6 = icmp ult i64 %1, 26
-  br i1 %6, label %14, label %7
+  br i1 %6, label %15, label %7
 
 7:                                                ; preds = %4
   %8 = icmp ugt i64 %1, 2305843009213693951
@@ -8964,90 +8973,93 @@ define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValu
   %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #26
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %12, ptr %13, align 8, !tbaa !21
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   br label %.lr.ph.i.preheader
 
-14:                                               ; preds = %4
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %0, ptr %15, align 8, !tbaa !21
+15:                                               ; preds = %4
+  %.pre = shl nuw nsw i64 %1, 2
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr %0, ptr %16, align 8, !tbaa !21
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %.pre
   %.not16.i = icmp eq i64 %1, 0
   br i1 %.not16.i, label %_ZN4absl15memory_internal14ConstructRangeISaIN7testing13ThrowingValueILNS2_8TypeSpecE0EEEEPS5_JS5_EEEvRT_T0_SA_DpRKT1_.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %.thread, %14
-  %16 = phi ptr [ %13, %.thread ], [ %15, %14 ]
-  %.0.i.i9 = phi ptr [ %12, %.thread ], [ %0, %14 ]
-  %17 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %.0.i.i9, i64 %1
+.lr.ph.i.preheader:                               ; preds = %.thread, %15
+  %18 = phi ptr [ %14, %.thread ], [ %17, %15 ]
+  %19 = phi ptr [ %13, %.thread ], [ %16, %15 ]
+  %.0.i.i10 = phi ptr [ %12, %.thread ], [ %0, %15 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i
-  %.017.i = phi ptr [ %30, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i ], [ %.0.i.i9, %.lr.ph.i.preheader ]
+  %.017.i = phi ptr [ %32, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i ], [ %.0.i.i10, %.lr.ph.i.preheader ]
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2ERKS2_(ptr noundef nonnull align 4 dereferenceable(4) %.017.i, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i unwind label %18
+          to label %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i unwind label %20
 
-18:                                               ; preds = %.lr.ph.i
-  %19 = landingpad { ptr, i32 }
+20:                                               ; preds = %.lr.ph.i
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #23
+  %22 = extractvalue { ptr, i32 } %21, 0
+  %23 = tail call ptr @__cxa_begin_catch(ptr %22) #23
   br label %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i
 
-_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %22, %18
-  %.1.i = phi ptr [ %.017.i, %18 ], [ %23, %22 ]
-  %.not14.i = icmp eq ptr %.1.i, %.0.i.i9
-  br i1 %.not14.i, label %27, label %22
+_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %24, %20
+  %.1.i = phi ptr [ %.017.i, %20 ], [ %25, %24 ]
+  %.not14.i = icmp eq ptr %.1.i, %.0.i.i10
+  br i1 %.not14.i, label %29, label %24
 
-22:                                               ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i
-  %23 = getelementptr inbounds i8, ptr %.1.i, i64 -4
-  invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull align 4 dereferenceable(4) %23)
-          to label %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i unwind label %24, !llvm.loop !178
+24:                                               ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i
+  %25 = getelementptr inbounds i8, ptr %.1.i, i64 -4
+  invoke void @_ZN7testing19exceptions_internal18ConstructorTracker16ObjectDestructedEPv(ptr noundef nonnull align 4 dereferenceable(4) %25)
+          to label %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i unwind label %26, !llvm.loop !178
 
-24:                                               ; preds = %22
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %24
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #24
+  %28 = extractvalue { ptr, i32 } %27, 0
+  tail call void @__clang_call_terminate(ptr %28) #24
   unreachable
 
-27:                                               ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i
+29:                                               ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i
   invoke void @__cxa_rethrow() #27
-          to label %34 unwind label %28
+          to label %36 unwind label %30
 
-28:                                               ; preds = %27
-  %29 = landingpad { ptr, i32 }
+30:                                               ; preds = %29
+  %31 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %.body unwind label %31
+          to label %.body unwind label %33
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i: ; preds = %.lr.ph.i
-  %30 = getelementptr inbounds nuw i8, ptr %.017.i, i64 4
-  %.not.i = icmp eq ptr %30, %17
+  %32 = getelementptr inbounds nuw i8, ptr %.017.i, i64 4
+  %.not.i = icmp eq ptr %32, %18
   br i1 %.not.i, label %_ZN4absl15memory_internal14ConstructRangeISaIN7testing13ThrowingValueILNS2_8TypeSpecE0EEEEPS5_JS5_EEEvRT_T0_SA_DpRKT1_.exit, label %.lr.ph.i, !llvm.loop !179
 
-31:                                               ; preds = %28
-  %32 = landingpad { ptr, i32 }
+33:                                               ; preds = %30
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #24
+  %35 = extractvalue { ptr, i32 } %34, 0
+  tail call void @__clang_call_terminate(ptr %35) #24
   unreachable
 
-34:                                               ; preds = %27
+36:                                               ; preds = %29
   unreachable
 
-_ZN4absl15memory_internal14ConstructRangeISaIN7testing13ThrowingValueILNS2_8TypeSpecE0EEEEPS5_JS5_EEEvRT_T0_SA_DpRKT1_.exit: ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, %14
+_ZN4absl15memory_internal14ConstructRangeISaIN7testing13ThrowingValueILNS2_8TypeSpecE0EEEEPS5_JS5_EEEvRT_T0_SA_DpRKT1_.exit: ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, %15
   ret void
 
-.body:                                            ; preds = %28
-  %35 = load i64, ptr %5, align 8, !tbaa !20
-  %36 = icmp ult i64 %35, 26
-  br i1 %36, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EE7StorageD2Ev.exit, label %37
+.body:                                            ; preds = %30
+  %37 = load i64, ptr %5, align 8, !tbaa !20
+  %38 = icmp ult i64 %37, 26
+  br i1 %38, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EE7StorageD2Ev.exit, label %39
 
-37:                                               ; preds = %.body
-  %38 = load ptr, ptr %16, align 8, !tbaa !21
-  %39 = shl i64 %35, 2
-  tail call void @_ZdlPvm(ptr noundef %38, i64 noundef %39) #25
+39:                                               ; preds = %.body
+  %40 = load ptr, ptr %19, align 8, !tbaa !21
+  %41 = shl i64 %37, 2
+  tail call void @_ZdlPvm(ptr noundef %40, i64 noundef %41) #25
   br label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EE7StorageD2Ev.exit
 
-_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EE7StorageD2Ev.exit: ; preds = %.body, %37
-  resume { ptr, i32 } %29
+_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EE7StorageD2Ev.exit: ; preds = %.body, %39
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -12347,7 +12359,8 @@ define internal void @_ZN4absl12_GLOBAL__N_110ReadMemoryINS_10FixedArrayIN7testi
   %8 = load ptr, ptr %7, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %10 = load i64, ptr %9, align 8, !tbaa !20
-  %11 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %8, i64 %10
+  %.idx = shl nuw nsw i64 %10, 2
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not27 = icmp eq i64 %10, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
@@ -13995,7 +14008,8 @@ define internal void @"_ZNSt17_Function_handlerIFvPN4absl10FixedArrayIN7testing1
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 104
   %7 = load i64, ptr %6, align 8, !tbaa !20
-  %8 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %5, i64 %7
+  %.idx.i.i.i.i = shl nuw nsw i64 %7, 2
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i.i.i
   %.not5.i.i.i.i.i.i.i = icmp eq i64 %7, 0
   br i1 %.not5.i.i.i.i.i.i.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ESaIS4_EE4fillERKS4_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -15425,7 +15439,8 @@ define internal void @_ZN4absl12_GLOBAL__N_110ReadMemoryINS_10FixedArrayIN7testi
   %8 = load ptr, ptr %7, align 8, !tbaa !96
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %10 = load i64, ptr %9, align 8, !tbaa !20
-  %11 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %8, i64 %10
+  %.idx = shl nuw nsw i64 %10, 2
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not27 = icmp eq i64 %10, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
@@ -16778,7 +16793,8 @@ define internal void @"_ZNSt17_Function_handlerIFvPN4absl10FixedArrayIN7testing1
   %5 = load ptr, ptr %4, align 8, !tbaa !96
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 104
   %7 = load i64, ptr %6, align 8, !tbaa !20
-  %8 = getelementptr inbounds nuw %"class.testing::ThrowingValue", ptr %5, i64 %7
+  %.idx.i.i.i.i = shl nuw nsw i64 %7, 2
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i.i.i
   %.not5.i.i.i.i.i.i.i = icmp eq i64 %7, 0
   br i1 %.not5.i.i.i.i.i.i.i, label %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEE4fillERKS4_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 

@@ -747,7 +747,8 @@ define internal { ptr, ptr } @"_ZN109_$LT$settings..settings_store..SettingValue
   br i1 %17, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %8
-  %18 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, { float, float, i8, i8, i8, i8, i8, i8, i8, i8 } }, ptr %14, i64 %16
+  %.idx = mul nsw i64 %16, 40
+  %18 = getelementptr inbounds i8, ptr %14, i64 %.idx
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %26, %8, %2
@@ -24013,7 +24014,8 @@ _ZN10serde_json5value8to_value17hbc439479b1e21892E.exit.i: ; preds = %137
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %222 = icmp ne ptr %.sroa.2.0.copyload, null
   call void @llvm.assume(i1 %222)
-  %223 = getelementptr inbounds { { i64, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %.idx = mul nsw i64 %.sroa.3.0.copyload, 40
+  %223 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
   store ptr %.sroa.2.0.copyload, ptr %28, align 8
   %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -27421,7 +27423,8 @@ define hidden void @_ZN13project_panel12ProjectPanel22for_each_visible_entry17h1
   %37 = load ptr, ptr %36, align 8, !nonnull !4, !noundef !4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load i64, ptr %38, align 8, !noundef !4
-  %40 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, { { { ptr, [5 x i64] } } } }, ptr %37, i64 %39
+  %.idx = mul nsw i64 %39, 80
+  %40 = getelementptr inbounds i8, ptr %37, i64 %.idx
   %41 = icmp eq i64 %39, 0
   br i1 %41, label %._crit_edge, label %.lr.ph
 
@@ -28698,7 +28701,8 @@ define hidden void @_ZN13project_panel12ProjectPanel22for_each_visible_entry17hf
   %38 = load ptr, ptr %37, align 8, !nonnull !4, !noundef !4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load i64, ptr %39, align 8, !noundef !4
-  %41 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, { { { ptr, [5 x i64] } } } }, ptr %38, i64 %40
+  %.idx = mul nsw i64 %40, 80
+  %41 = getelementptr inbounds i8, ptr %38, i64 %.idx
   %42 = icmp eq i64 %40, 0
   br i1 %42, label %._crit_edge, label %.lr.ph
 

@@ -332,7 +332,8 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: write) uwtable
 define hidden void @"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17h6992ee322ae039d8E"(ptr noalias noundef nonnull writeonly align 8 captures(address) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 {
-  %5 = getelementptr inbounds nuw { i64, i64 }, ptr %0, i64 %1
+  %.idx = shl nuw nsw i64 %1, 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %6 = icmp eq i64 %1, 0
   br i1 %6, label %._crit_edge, label %.lr.ph
 
@@ -2942,7 +2943,8 @@ define hidden void @_ZN11quinn_proto10connection9cid_state8CidState8new_cids17he
   br i1 %.not, label %54, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr { { [16 x i8] }, i64, { [20 x i8], i8 }, [3 x i8] }, ptr %1, i64 %2
+  %.idx = mul i64 %2, 48
+  %9 = getelementptr i8, ptr %1, i64 %.idx
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %10, align 8, !noundef !3
   %12 = add i64 %11, %2
@@ -2950,7 +2952,6 @@ define hidden void @_ZN11quinn_proto10connection9cid_state8CidState8new_cids17he
   %13 = getelementptr i8, ptr %9, i64 -32
   %14 = load i64, ptr %13, align 8, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.idx = mul i64 %2, 48
   %16 = icmp eq i64 %.idx, 0
   br i1 %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h6306c5be69646e9bE.exit", label %.lr.ph.i
 
@@ -5597,9 +5598,10 @@ _ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2
   br i1 %33, label %44, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h5ead546e717ba0f3E.exit.i.i
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h5ead546e717ba0f3E.exit.i.i: ; preds = %29
+  %.idx.i.i = shl nuw nsw i64 %31, 1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load ptr, ptr %34, align 8, !alias.scope !319, !nonnull !3, !noundef !3
-  %36 = getelementptr inbounds nuw i16, ptr %35, i64 %31
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i.i
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 2
   %38 = load i16, ptr %35, align 2, !alias.scope !320, !noalias !323, !noundef !3
   %39 = tail call { i16, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0d5c0dc83f710655E"(ptr noundef nonnull %37, ptr noundef nonnull %36, i16 noundef %38, ptr noalias noundef nonnull align 2 dereferenceable(2) %35), !noalias !319
@@ -5682,9 +5684,10 @@ define hidden noundef zeroext i1 @_ZN11quinn_proto10connection4mtud12MtuDiscover
   br i1 %23, label %34, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h5ead546e717ba0f3E.exit.i.i
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h5ead546e717ba0f3E.exit.i.i: ; preds = %19
+  %.idx.i.i = shl nuw nsw i64 %21, 1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !alias.scope !335, !nonnull !3, !noundef !3
-  %26 = getelementptr inbounds nuw i16, ptr %25, i64 %21
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i.i
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 2
   %28 = load i16, ptr %25, align 2, !alias.scope !336, !noalias !339, !noundef !3
   %29 = tail call { i16, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0d5c0dc83f710655E"(ptr noundef nonnull %27, ptr noundef nonnull %26, i16 noundef %28, ptr noalias noundef nonnull align 2 dereferenceable(2) %25), !noalias !335

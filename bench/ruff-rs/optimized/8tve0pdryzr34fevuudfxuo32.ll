@@ -3454,7 +3454,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 14:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  %15 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -3947,7 +3948,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 20:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  %21 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -4746,7 +4748,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 14:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  %15 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -5115,7 +5118,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 22:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
-  %23 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i32 %1, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 8

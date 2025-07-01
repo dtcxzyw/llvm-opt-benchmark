@@ -1488,8 +1488,8 @@ define internal void @_ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo19setTargetAttri
   %27 = icmp ult i32 %26, -6
   %28 = and i32 %24, 256
   %.not.i = icmp eq i32 %28, 0
-  %or.cond48 = or i1 %27, %.not.i
-  br i1 %or.cond48, label %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %29
+  %or.cond49 = or i1 %27, %.not.i
+  br i1 %or.cond49, label %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %29
 
 29:                                               ; preds = %22
   %30 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #13
@@ -1497,7 +1497,8 @@ define internal void @_ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo19setTargetAttri
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !796
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %.idx.i.i = shl nuw nsw i64 %34, 3
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i
   %.not.i.i26 = icmp eq i32 %33, 0
   br i1 %.not.i.i26, label %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %.lr.ph.i.i.i.i.i
 
@@ -1515,8 +1516,8 @@ define internal void @_ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo19setTargetAttri
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !805
 
 _ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %.not40 = icmp eq ptr %.sroa.07.1.i.i.i.i, %35
-  br i1 %.not40, label %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %42
+  %.not41 = icmp eq ptr %.sroa.07.1.i.i.i.i, %35
+  br i1 %.not41, label %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %42
 
 42:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit
   %43 = load ptr, ptr %7, align 8, !tbaa !798
@@ -1534,25 +1535,26 @@ _ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !796
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %51, i64 %54
-  %.not.i.i28 = icmp eq i32 %53, 0
-  br i1 %.not.i.i28, label %_ZNK5clang4Decl7getAttrINS_27AMDGPUFlatWorkGroupSizeAttrEEEPT_v.exit.thread, label %.lr.ph.i.i.i.i.i29
+  %.idx.i.i28 = shl nuw nsw i64 %54, 3
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i.i28
+  %.not.i.i29 = icmp eq i32 %53, 0
+  br i1 %.not.i.i29, label %_ZNK5clang4Decl7getAttrINS_27AMDGPUFlatWorkGroupSizeAttrEEEPT_v.exit.thread, label %.lr.ph.i.i.i.i.i30
 
-.lr.ph.i.i.i.i.i29:                               ; preds = %49, %60
-  %.sroa.07.1.i.i.i.i30 = phi ptr [ %61, %60 ], [ %51, %49 ]
-  %56 = load ptr, ptr %.sroa.07.1.i.i.i.i30, align 8, !tbaa !803
+.lr.ph.i.i.i.i.i30:                               ; preds = %49, %60
+  %.sroa.07.1.i.i.i.i31 = phi ptr [ %61, %60 ], [ %51, %49 ]
+  %56 = load ptr, ptr %.sroa.07.1.i.i.i.i31, align 8, !tbaa !803
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %58 = load i16, ptr %57, align 8
   %59 = icmp eq i16 %58, 105
   br i1 %59, label %_ZN5clangneENS_22specific_attr_iteratorINS_27AMDGPUFlatWorkGroupSizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, label %60
 
-60:                                               ; preds = %.lr.ph.i.i.i.i.i29
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i30, i64 8
-  %.not.i.i.i.i.i31 = icmp eq ptr %61, %55
-  br i1 %.not.i.i.i.i.i31, label %_ZNK5clang4Decl7getAttrINS_27AMDGPUFlatWorkGroupSizeAttrEEEPT_v.exit.thread, label %.lr.ph.i.i.i.i.i29, !llvm.loop !807
+60:                                               ; preds = %.lr.ph.i.i.i.i.i30
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i31, i64 8
+  %.not.i.i.i.i.i32 = icmp eq ptr %61, %55
+  br i1 %.not.i.i.i.i.i32, label %_ZNK5clang4Decl7getAttrINS_27AMDGPUFlatWorkGroupSizeAttrEEEPT_v.exit.thread, label %.lr.ph.i.i.i.i.i30, !llvm.loop !807
 
-_ZN5clangneENS_22specific_attr_iteratorINS_27AMDGPUFlatWorkGroupSizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i29
-  %.not5.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i30, %55
+_ZN5clangneENS_22specific_attr_iteratorINS_27AMDGPUFlatWorkGroupSizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i30
+  %.not5.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i31, %55
   br i1 %.not5.i.i, label %_ZNK5clang4Decl7getAttrINS_27AMDGPUFlatWorkGroupSizeAttrEEEPT_v.exit.thread, label %62
 
 62:                                               ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_27AMDGPUFlatWorkGroupSizeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i

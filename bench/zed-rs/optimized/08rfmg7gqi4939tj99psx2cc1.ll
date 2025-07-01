@@ -2315,7 +2315,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h6c3e7ea3acc5cf21E.exit: ; preds =
   %.20.i = select i1 %.not.i33, ptr %117, ptr %89
   %118 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %118, i1 false), !alias.scope !885
-  %119 = getelementptr inbounds nuw { { { { { ptr, ptr } }, {} }, {} }, i64, i64, i8, [7 x i8] }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 %118
   %120 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %120)
   %121 = getelementptr inbounds nuw i8, ptr %.val, i64 24

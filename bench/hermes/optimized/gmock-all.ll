@@ -2319,51 +2319,53 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %_ZNSt6vectorImSaImE
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i2.i, i8 -1, i64 %mul.i.i.i.i.i.i.i, i1 false)
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i2.i, i64 %mul.i.i.i.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.end.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i.i
   %1 = phi ptr [ null, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i.i ], [ %call5.i.i.i.i2.i.i2.i, %if.end.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i7.i.i = phi ptr [ %_M_finish.i.i4.i.i, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i.i ], [ %_M_finish.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
-  %retval.0.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i.i ], [ %add.ptr.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
   store ptr %retval.0.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i, align 8
   %right_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   %num_matchers_.i.i = getelementptr inbounds nuw i8, ptr %g, i64 8
   %2 = load i64, ptr %num_matchers_.i.i, align 8
   %cmp.i.i3.i = icmp ugt i64 %2, 1152921504606846975
-  br i1 %cmp.i.i3.i, label %if.then.i.i19.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i4.i
+  br i1 %cmp.i.i3.i, label %if.then.i.i20.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i4.i
 
-if.then.i.i19.i:                                  ; preds = %invoke.cont.i
+if.then.i.i20.i:                                  ; preds = %invoke.cont.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.85) #33
-          to label %.noexc20.i unwind label %lpad8.i
+          to label %.noexc21.i unwind label %lpad8.i
 
-.noexc20.i:                                       ; preds = %if.then.i.i19.i
+.noexc21.i:                                       ; preds = %if.then.i.i20.i
   unreachable
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i4.i: ; preds = %invoke.cont.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %right_.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i5.i = icmp eq i64 %2, 0
-  br i1 %cmp.not.i.i.i.i5.i, label %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i17.i, label %if.end.i.i.i.i.i.i.i6.i
+  br i1 %cmp.not.i.i.i.i5.i, label %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i18.i, label %if.end.i.i.i.i.i.i.i6.i
 
-_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i17.i: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i4.i
-  %_M_finish.i.i4.i18.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
+_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i18.i: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i4.i
+  %_M_finish.i.i4.i19.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
   br label %_ZN7testing8internal22MaxBipartiteMatchStateC2ERKNS0_11MatchMatrixE.exit
 
 if.end.i.i.i.i.i.i.i6.i:                          ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i4.i
   %mul.i.i.i.i.i.i7.i = shl nuw nsw i64 %2, 3
-  %call5.i.i.i.i2.i.i22.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i7.i) #29
-          to label %call5.i.i.i.i2.i.i.noexc21.i unwind label %lpad8.i
+  %call5.i.i.i.i2.i.i23.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i7.i) #29
+          to label %call5.i.i.i.i2.i.i.noexc22.i unwind label %lpad8.i
 
-call5.i.i.i.i2.i.i.noexc21.i:                     ; preds = %if.end.i.i.i.i.i.i.i6.i
-  store ptr %call5.i.i.i.i2.i.i22.i, ptr %right_.i, align 8
+call5.i.i.i.i2.i.i.noexc22.i:                     ; preds = %if.end.i.i.i.i.i.i.i6.i
+  store ptr %call5.i.i.i.i2.i.i23.i, ptr %right_.i, align 8
   %_M_finish.i.i.i8.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
-  store ptr %call5.i.i.i.i2.i.i22.i, ptr %_M_finish.i.i.i8.i, align 8
-  %add.ptr.i.i.i9.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i22.i, i64 %2
+  store ptr %call5.i.i.i.i2.i.i23.i, ptr %_M_finish.i.i.i8.i, align 8
+  %add.ptr.i.i.i9.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i23.i, i64 %2
   %_M_end_of_storage.i.i.i10.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 48
   store ptr %add.ptr.i.i.i9.i, ptr %_M_end_of_storage.i.i.i10.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i22.i, i8 -1, i64 %mul.i.i.i.i.i.i7.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i23.i, i8 -1, i64 %mul.i.i.i.i.i.i7.i, i1 false)
+  %add.ptr.i.i.i.i.i.i.i11.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i23.i, i64 %mul.i.i.i.i.i.i7.i
   br label %_ZN7testing8internal22MaxBipartiteMatchStateC2ERKNS0_11MatchMatrixE.exit
 
-lpad8.i:                                          ; preds = %if.end.i.i.i.i.i.i.i6.i, %if.then.i.i19.i
+lpad8.i:                                          ; preds = %if.end.i.i.i.i.i.i.i6.i, %if.then.i.i20.i
   %3 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -2377,10 +2379,10 @@ common.resume:                                    ; preds = %lpad8.i, %if.then.i
   %common.resume.op = phi { ptr, i32 } [ %6, %lpad ], [ %3, %if.then.i.i.i.i ], [ %3, %lpad8.i ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN7testing8internal22MaxBipartiteMatchStateC2ERKNS0_11MatchMatrixE.exit: ; preds = %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i17.i, %call5.i.i.i.i2.i.i.noexc21.i
-  %_M_finish.i.i7.i15.i = phi ptr [ %_M_finish.i.i4.i18.i, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i17.i ], [ %_M_finish.i.i.i8.i, %call5.i.i.i.i2.i.i.noexc21.i ]
-  %retval.0.i.i.i.i.i.i.i16.i = phi ptr [ null, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i17.i ], [ %add.ptr.i.i.i9.i, %call5.i.i.i.i2.i.i.noexc21.i ]
-  store ptr %retval.0.i.i.i.i.i.i.i16.i, ptr %_M_finish.i.i7.i15.i, align 8
+_ZN7testing8internal22MaxBipartiteMatchStateC2ERKNS0_11MatchMatrixE.exit: ; preds = %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i18.i, %call5.i.i.i.i2.i.i.noexc22.i
+  %_M_finish.i.i7.i16.i = phi ptr [ %_M_finish.i.i4.i19.i, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i18.i ], [ %_M_finish.i.i.i8.i, %call5.i.i.i.i2.i.i.noexc22.i ]
+  %retval.0.i.i.i.i.i.i.i17.i = phi ptr [ null, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i18.i ], [ %add.ptr.i.i.i.i.i.i.i11.i, %call5.i.i.i.i2.i.i.noexc22.i ]
+  store ptr %retval.0.i.i.i.i.i.i.i17.i, ptr %_M_finish.i.i7.i16.i, align 8
   invoke void @_ZN7testing8internal22MaxBipartiteMatchState7ComputeEv(ptr sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 

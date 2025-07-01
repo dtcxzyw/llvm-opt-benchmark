@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.hb_aat_map_builder_t::feature_range_t" = type { %"struct.hb_aat_map_builder_t::feature_info_t", i32, i32 }
 %"struct.hb_aat_map_builder_t::feature_info_t" = type { i32, i32, i8, i32 }
 %"struct.hb_aat_map_builder_t::feature_event_t" = type { i32, i8, %"struct.hb_aat_map_builder_t::feature_info_t" }
-%struct.hb_vector_t.146 = type { i32, i32, ptr }
 %"struct.hb_aat_map_t::range_flags_t" = type { i32, i32, i32 }
 %struct.hb_sanitize_context_t = type <{ %struct.hb_dispatch_context_t, [4 x i8], ptr, ptr, i32, i32, i32, i32, i8, [3 x i8], i32, ptr, i32, i8, i8, [2 x i8] }>
 %struct.hb_dispatch_context_t = type { i32 }
@@ -1615,7 +1614,8 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_
   %290 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %291 = load i32, ptr %290, align 4
   %292 = zext i32 %291 to i64
-  %293 = getelementptr inbounds nuw %struct.hb_vector_t.146, ptr %289, i64 %292
+  %.idx = shl nuw nsw i64 %292, 4
+  %293 = getelementptr inbounds nuw i8, ptr %289, i64 %.idx
   %.not280 = icmp eq i32 %291, 0
   br i1 %.not280, label %._crit_edge284, label %.lr.ph283
 

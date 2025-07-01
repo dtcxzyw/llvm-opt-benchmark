@@ -29,7 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.5" = type { %"class.llvm::SmallVectorBase.6" }
 %"class.llvm::SmallVectorBase.6" = type { ptr, i64, i64 }
 %"struct.llvm::SmallVectorStorage.7" = type { [128 x i8] }
-%"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::Expected" = type { %union.anon.8, i8, [7 x i8] }
 %union.anon.8 = type { %"struct.llvm::AlignedCharArrayUnion.9" }
 %"struct.llvm::AlignedCharArrayUnion.9" = type { [8 x i8] }
@@ -161,7 +160,8 @@ define dso_local void @_ZN4llvm3sys7Process13FindInEnvPathENS_9StringRefES2_NS_8
   %53 = load ptr, ptr %32, align 8, !tbaa !11
   %54 = load i32, ptr %47, align 8, !tbaa !15
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %53, i64 %55
+  %.idx = shl nuw nsw i64 %55, 4
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   %.not43 = icmp eq i32 %54, 0
   br i1 %.not43, label %._crit_edge, label %.lr.ph
 

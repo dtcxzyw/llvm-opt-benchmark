@@ -11137,7 +11137,8 @@ _ZN4gpui8executor18BackgroundExecutor5block17h5e2449a8383b8ce5E.exit: ; preds = 
   store i64 %110, ptr %97, align 8, !alias.scope !2223
   store i64 0, ptr %88, align 8
   %111 = load ptr, ptr %105, align 8, !alias.scope !2226, !nonnull !4, !noundef !4
-  %112 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %111, i64 %110
+  %.idx = shl nsw i64 %110, 6
+  %112 = getelementptr inbounds i8, ptr %111, i64 %.idx
   %113 = icmp eq i64 %110, 0
   br i1 %113, label %._crit_edge, label %.lr.ph56
 
@@ -11253,7 +11254,8 @@ _ZN4gpui8executor18BackgroundExecutor5block17h5e2449a8383b8ce5E.exit: ; preds = 
   %157 = load ptr, ptr %156, align 8, !alias.scope !2289, !nonnull !4, !noundef !4
   %158 = getelementptr inbounds nuw i8, ptr %.sroa.0.055, i64 16
   %159 = load i64, ptr %158, align 8, !alias.scope !2289, !noundef !4
-  %160 = getelementptr inbounds i64, ptr %157, i64 %159
+  %.idx57 = shl nsw i64 %159, 3
+  %160 = getelementptr inbounds i8, ptr %157, i64 %.idx57
   %161 = icmp eq i64 %159, 0
   br i1 %161, label %.loopexit, label %.lr.ph
 

@@ -960,7 +960,8 @@ define hidden void @_ZN4ring4aead3gcm8gcm_nohw15with_swapped_xi17h19ce292a39cc6e
   %.sroa.411.0.copyload = load i64, ptr %.sroa.411.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds [16 x i8], ptr %.sroa.010.0.copyload, i64 %.sroa.411.0.copyload
+  %.idx.i = shl nsw i64 %.sroa.411.0.copyload, 4
+  %16 = getelementptr inbounds i8, ptr %.sroa.010.0.copyload, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
   %17 = icmp eq i64 %.sroa.411.0.copyload, 0
   br i1 %17, label %"_ZN4ring4aead3gcm8gcm_nohw5ghash28_$u7b$$u7b$closure$u7d$$u7d$17h37f0c513eb95f044E.exit", label %.lr.ph.i.i

@@ -32,76 +32,78 @@ _ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit:      ; preds = %1
   %4 = getelementptr inbounds i8, ptr %2, i64 -4
   %5 = load i32, ptr %4, align 4, !tbaa !10
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %6
+  %7 = shl nuw nsw i64 %6, 3
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %7
   %.not28 = icmp eq i32 %5, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1, %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit
   %.0.lcssa = phi i32 [ 0, %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit ], [ 0, %1 ], [ %spec.select, %.lr.ph ]
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !12
-  %10 = icmp eq i32 %.0.lcssa, %9
-  br i1 %10, label %19, label %18
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load i32, ptr %9, align 8, !tbaa !12
+  %11 = icmp eq i32 %.0.lcssa, %10
+  br i1 %11, label %20, label %19
 
 .lr.ph:                                           ; preds = %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit, %.lr.ph
   %.030 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
-  %.01829 = phi ptr [ %17, %.lr.ph ], [ %2, %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
-  %11 = load ptr, ptr %.01829, align 8, !tbaa !15
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load i32, ptr %12, align 4
-  %14 = lshr i32 %13, 1
-  %15 = and i32 %14, 1
-  %16 = xor i32 %15, 1
-  %spec.select = add i32 %16, %.030
-  %17 = getelementptr inbounds nuw i8, ptr %.01829, i64 8
-  %.not = icmp eq ptr %17, %7
+  %.01829 = phi ptr [ %18, %.lr.ph ], [ %2, %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
+  %12 = load ptr, ptr %.01829, align 8, !tbaa !15
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load i32, ptr %13, align 4
+  %15 = lshr i32 %14, 1
+  %16 = and i32 %15, 1
+  %17 = xor i32 %16, 1
+  %spec.select = add i32 %17, %.030
+  %18 = getelementptr inbounds nuw i8, ptr %.01829, i64 8
+  %.not = icmp eq ptr %18, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-18:                                               ; preds = %._crit_edge
+19:                                               ; preds = %._crit_edge
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 29, ptr noundef nonnull @.str.1)
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   %.pre = load ptr, ptr %0, align 8, !tbaa !3
-  br label %19
+  br label %20
 
-19:                                               ; preds = %18, %._crit_edge
-  %20 = phi ptr [ %.pre, %18 ], [ %2, %._crit_edge ]
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %._crit_edge35, label %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit25
+20:                                               ; preds = %19, %._crit_edge
+  %21 = phi ptr [ %.pre, %19 ], [ %2, %._crit_edge ]
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %._crit_edge35, label %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit25
 
-_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit25:    ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %20, i64 -4
-  %23 = load i32, ptr %22, align 4, !tbaa !10
-  %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %20, i64 %24
-  %.not2231 = icmp eq i32 %23, 0
+_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit25:    ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %21, i64 -4
+  %24 = load i32, ptr %23, align 4, !tbaa !10
+  %25 = zext i32 %24 to i64
+  %26 = shl nuw nsw i64 %25, 3
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %26
+  %.not2231 = icmp eq i32 %24, 0
   br i1 %.not2231, label %._crit_edge35, label %.lr.ph34
 
-._crit_edge35:                                    ; preds = %.lr.ph34, %19, %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit25
-  %.020.lcssa = phi i32 [ 0, %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit25 ], [ 0, %19 ], [ %spec.select23, %.lr.ph34 ]
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %27 = load i32, ptr %26, align 4, !tbaa !17
-  %28 = icmp eq i32 %.020.lcssa, %27
-  br i1 %28, label %36, label %35
+._crit_edge35:                                    ; preds = %.lr.ph34, %20, %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit25
+  %.020.lcssa = phi i32 [ 0, %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit25 ], [ 0, %20 ], [ %spec.select23, %.lr.ph34 ]
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %29 = load i32, ptr %28, align 4, !tbaa !17
+  %30 = icmp eq i32 %.020.lcssa, %29
+  br i1 %30, label %38, label %37
 
 .lr.ph34:                                         ; preds = %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit25, %.lr.ph34
-  %.01933 = phi ptr [ %34, %.lr.ph34 ], [ %20, %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit25 ]
+  %.01933 = phi ptr [ %36, %.lr.ph34 ], [ %21, %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit25 ]
   %.02032 = phi i32 [ %spec.select23, %.lr.ph34 ], [ 0, %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit25 ]
-  %29 = load ptr, ptr %.01933, align 8, !tbaa !15
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load i32, ptr %30, align 4
-  %32 = lshr i32 %31, 2
-  %33 = and i32 %32, 1
-  %spec.select23 = add i32 %33, %.02032
-  %34 = getelementptr inbounds nuw i8, ptr %.01933, i64 8
-  %.not22 = icmp eq ptr %34, %25
+  %31 = load ptr, ptr %.01933, align 8, !tbaa !15
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %33 = load i32, ptr %32, align 4
+  %34 = lshr i32 %33, 2
+  %35 = and i32 %34, 1
+  %spec.select23 = add i32 %35, %.02032
+  %36 = getelementptr inbounds nuw i8, ptr %.01933, i64 8
+  %.not22 = icmp eq ptr %36, %27
   br i1 %.not22, label %._crit_edge35, label %.lr.ph34
 
-35:                                               ; preds = %._crit_edge35
+37:                                               ; preds = %._crit_edge35
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 34, ptr noundef nonnull @.str.2)
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
-  br label %36
+  br label %38
 
-36:                                               ; preds = %35, %._crit_edge35
+38:                                               ; preds = %37, %._crit_edge35
   ret i1 true
 }
 

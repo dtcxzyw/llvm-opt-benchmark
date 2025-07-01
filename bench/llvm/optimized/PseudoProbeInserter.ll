@@ -767,7 +767,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEi.exit: ; preds =
 ._crit_edge133:                                   ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit73
   %.pre = load ptr, ptr %9, align 8, !tbaa !184
   %217 = zext i32 %236 to i64
-  %218 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %217
+  %.idx = shl nuw nsw i64 %217, 3
+  %218 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
   %.not51134 = icmp eq i32 %236, 0
   br i1 %.not51134, label %._crit_edge138, label %.lr.ph137
 

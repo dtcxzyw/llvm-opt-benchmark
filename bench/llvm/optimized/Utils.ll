@@ -1781,7 +1781,8 @@ define dso_local void @_ZN4llvm5MachO14parseAliasListB5cxx11ERSt10unique_ptrINS_
   %40 = load ptr, ptr %7, align 8, !tbaa !85
   %41 = load i32, ptr %24, align 8, !tbaa !87
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %40, i64 %42
+  %.idx = shl nuw nsw i64 %42, 4
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx
   %.not82 = icmp eq i32 %41, 0
   br i1 %.not82, label %.critedge, label %.lr.ph
 

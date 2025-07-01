@@ -498,7 +498,8 @@ _ZN13pingora_error5Error7because17ha625e82a5a4383d4E.exit: ; preds = %"_ZN50_$LT
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   %39 = icmp ult i64 %.sroa.620.0.copyload, 384307168202282326
   tail call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds nuw { { { i64, [2 x i64] } } }, ptr %17, i64 %.sroa.620.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.620.0.copyload, 24
+  %40 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   store ptr %17, ptr %11, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8

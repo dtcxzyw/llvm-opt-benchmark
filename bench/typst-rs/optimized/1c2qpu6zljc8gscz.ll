@@ -3941,7 +3941,8 @@ define hidden void @_ZN3png6common4Info6encode17h4c98911db2b34450E(ptr noalias n
   %.val = load ptr, ptr %135, align 8, !nonnull !13, !noundef !13
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val194 = load i64, ptr %136, align 8, !noundef !13
-  %137 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %.val, i64 %.val194
+  %.idx = mul nsw i64 %.val194, 48
+  %137 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %138 = icmp eq i64 %.val194, 0
   br i1 %138, label %._crit_edge, label %.lr.ph
 
@@ -3963,7 +3964,8 @@ define hidden void @_ZN3png6common4Info6encode17h4c98911db2b34450E(ptr noalias n
   %.val195 = load ptr, ptr %141, align 8, !nonnull !13, !noundef !13
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val196 = load i64, ptr %142, align 8, !noundef !13
-  %143 = getelementptr inbounds { { i64, [3 x i64] }, { { { i64, ptr, {} }, i64 } } }, ptr %.val195, i64 %.val196
+  %.idx263 = mul nsw i64 %.val196, 56
+  %143 = getelementptr inbounds i8, ptr %.val195, i64 %.idx263
   %144 = icmp eq i64 %.val196, 0
   br i1 %144, label %._crit_edge258, label %.lr.ph257
 
@@ -3980,7 +3982,8 @@ define hidden void @_ZN3png6common4Info6encode17h4c98911db2b34450E(ptr noalias n
   %.val197 = load ptr, ptr %147, align 8, !nonnull !13, !noundef !13
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.val198 = load i64, ptr %148, align 8, !noundef !13
-  %149 = getelementptr inbounds { { i64, [3 x i64] }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, ptr %.val197, i64 %.val198
+  %.idx264 = mul nsw i64 %.val198, 112
+  %149 = getelementptr inbounds i8, ptr %.val197, i64 %.idx264
   %150 = icmp eq i64 %.val198, 0
   br i1 %150, label %._crit_edge262, label %.lr.ph261
 
@@ -4365,7 +4368,8 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$allo
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17h640bf4f8cd7ca0beE(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(72) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { { { [2 x i64] } } }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -4455,7 +4459,8 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h640bf4f8cd7ca0beE(ptr noali
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17ha2856ac347fa53d5E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(72) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { { i32, [4 x i32] }, [1 x i32], double }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 5
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -4545,7 +4550,8 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17hda61b708ac3b362fE(ptr noali
   %8 = alloca [4 x i8], align 4
   %9 = alloca [8 x i8], align 8
   %10 = alloca [4 x float], align 4
-  %11 = getelementptr inbounds { { i32, [4 x i32] }, [1 x i32], double }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 5
+  %11 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %12 = icmp eq i64 %1, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -4608,7 +4614,8 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17hf299048f1b14c048E(ptr noali
   %4 = alloca [8 x i8], align 8
   %5 = alloca [1 x i8], align 1
   %6 = alloca [8 x i8], align 8
-  %7 = getelementptr inbounds { { { { { [2 x i64] } } }, i8, [7 x i8] }, i64 }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 5
+  %7 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %8 = icmp eq i64 %1, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 

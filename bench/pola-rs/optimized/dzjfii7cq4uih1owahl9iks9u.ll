@@ -16671,7 +16671,8 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
   %113 = load i64, ptr %34, align 8, !noundef !13
   call void @llvm.experimental.noalias.scope.decl(metadata !994)
   %114 = trunc i64 %113 to i32
-  %115 = getelementptr inbounds nuw i32, ptr %19, i64 %108
+  %.idx = shl nuw nsw i64 %108, 2
+  %115 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %116 = icmp eq i64 %108, 0
   br i1 %116, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256", label %.lr.ph233
 
@@ -17249,7 +17250,8 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
   %113 = load i64, ptr %34, align 8, !noundef !13
   call void @llvm.experimental.noalias.scope.decl(metadata !1023)
   %114 = trunc i64 %113 to i32
-  %115 = getelementptr inbounds nuw i32, ptr %19, i64 %108
+  %.idx = shl nuw nsw i64 %108, 2
+  %115 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %116 = icmp eq i64 %108, 0
   br i1 %116, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256", label %.lr.ph233
 
@@ -17822,7 +17824,8 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
   %110 = load i64, ptr %32, align 8, !noundef !13
   call void @llvm.experimental.noalias.scope.decl(metadata !1052)
   %111 = trunc i64 %110 to i32
-  %112 = getelementptr inbounds nuw i32, ptr %17, i64 %105
+  %.idx = shl nuw nsw i64 %105, 2
+  %112 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %113 = icmp eq i64 %105, 0
   br i1 %113, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread270", label %.lr.ph247
 
@@ -18404,7 +18407,8 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
   %113 = load i64, ptr %34, align 8, !noundef !13
   call void @llvm.experimental.noalias.scope.decl(metadata !1076)
   %114 = trunc i64 %113 to i32
-  %115 = getelementptr inbounds nuw i32, ptr %19, i64 %108
+  %.idx = shl nuw nsw i64 %108, 2
+  %115 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %116 = icmp eq i64 %108, 0
   br i1 %116, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256", label %.lr.ph233
 
@@ -18975,7 +18979,8 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
   %108 = load i64, ptr %30, align 8, !noundef !13
   call void @llvm.experimental.noalias.scope.decl(metadata !1104)
   %109 = trunc i64 %108 to i32
-  %110 = getelementptr inbounds nuw i32, ptr %16, i64 %103
+  %.idx = shl nuw nsw i64 %103, 2
+  %110 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   %111 = icmp eq i64 %103, 0
   br i1 %111, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread269", label %.lr.ph246
 
@@ -19538,7 +19543,8 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
   %110 = load i64, ptr %32, align 8, !noundef !13
   call void @llvm.experimental.noalias.scope.decl(metadata !1122)
   %111 = trunc i64 %110 to i32
-  %112 = getelementptr inbounds nuw i32, ptr %17, i64 %105
+  %.idx = shl nuw nsw i64 %105, 2
+  %112 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %113 = icmp eq i64 %105, 0
   br i1 %113, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread270", label %.lr.ph247
 
@@ -20119,7 +20125,8 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
   %112 = load i64, ptr %33, align 8, !noundef !13
   call void @llvm.experimental.noalias.scope.decl(metadata !1147)
   %113 = trunc i64 %112 to i32
-  %114 = getelementptr inbounds nuw i32, ptr %18, i64 %107
+  %.idx = shl nuw nsw i64 %107, 2
+  %114 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %115 = icmp eq i64 %107, 0
   br i1 %115, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit163.thread266", label %.lr.ph243
 
@@ -20696,7 +20703,8 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
   %110 = load i64, ptr %32, align 8, !noundef !13
   call void @llvm.experimental.noalias.scope.decl(metadata !1171)
   %111 = trunc i64 %110 to i32
-  %112 = getelementptr inbounds nuw i32, ptr %17, i64 %105
+  %.idx = shl nuw nsw i64 %105, 2
+  %112 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %113 = icmp eq i64 %105, 0
   br i1 %113, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread270", label %.lr.ph247
 
@@ -21278,7 +21286,8 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
   %113 = load i64, ptr %34, align 8, !noundef !13
   call void @llvm.experimental.noalias.scope.decl(metadata !1195)
   %114 = trunc i64 %113 to i32
-  %115 = getelementptr inbounds nuw i32, ptr %19, i64 %108
+  %.idx = shl nuw nsw i64 %108, 2
+  %115 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %116 = icmp eq i64 %108, 0
   br i1 %116, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256", label %.lr.ph233
 
@@ -23193,7 +23202,8 @@ _ZN12polars_arrow5array5Array10null_count17he9e1152ac2b5c247E.exit.thread: ; pre
   %105 = load ptr, ptr %104, align 8, !nonnull !13, !noundef !13
   %106 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %107 = load i64, ptr %106, align 8, !noundef !13
-  %108 = getelementptr inbounds nuw i32, ptr %105, i64 %107
+  %.idx = shl nuw nsw i64 %107, 2
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx
   %109 = icmp eq i64 %107, 0
   br i1 %109, label %.loopexit, label %.lr.ph164
 
@@ -23395,7 +23405,8 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   %183 = load ptr, ptr %182, align 8, !nonnull !13, !noundef !13
   %184 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %185 = load i64, ptr %184, align 8, !noundef !13
-  %186 = getelementptr inbounds nuw i32, ptr %183, i64 %185
+  %.idx170 = shl nuw nsw i64 %185, 2
+  %186 = getelementptr inbounds nuw i8, ptr %183, i64 %.idx170
   %187 = icmp eq i64 %185, 0
   br i1 %187, label %._crit_edge169, label %.lr.ph168
 
@@ -24004,7 +24015,8 @@ _ZN12polars_arrow5array5Array10null_count17hcf1f8beb3bcbd716E.exit.thread: ; pre
   %102 = load ptr, ptr %101, align 8, !nonnull !13, !noundef !13
   %103 = getelementptr inbounds nuw i8, ptr %81, i64 48
   %104 = load i64, ptr %103, align 8, !noundef !13
-  %105 = getelementptr inbounds nuw i64, ptr %102, i64 %104
+  %.idx = shl nuw nsw i64 %104, 3
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 %.idx
   %106 = icmp eq i64 %104, 0
   br i1 %106, label %.loopexit, label %.lr.ph167
 
@@ -24205,7 +24217,8 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   %179 = load ptr, ptr %178, align 8, !nonnull !13, !noundef !13
   %180 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %181 = load i64, ptr %180, align 8, !noundef !13
-  %182 = getelementptr inbounds nuw i64, ptr %179, i64 %181
+  %.idx173 = shl nuw nsw i64 %181, 3
+  %182 = getelementptr inbounds nuw i8, ptr %179, i64 %.idx173
   %183 = icmp eq i64 %181, 0
   br i1 %183, label %._crit_edge172, label %.lr.ph171
 
@@ -24813,7 +24826,8 @@ _ZN12polars_arrow5array5Array10null_count17h7f068606bbc680aaE.exit.thread: ; pre
   %104 = load ptr, ptr %103, align 8, !nonnull !13, !noundef !13
   %105 = getelementptr inbounds nuw i8, ptr %83, i64 48
   %106 = load i64, ptr %105, align 8, !noundef !13
-  %107 = getelementptr inbounds nuw i64, ptr %104, i64 %106
+  %.idx = shl nuw nsw i64 %106, 3
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 %.idx
   %108 = icmp eq i64 %106, 0
   br i1 %108, label %.loopexit, label %.lr.ph164
 
@@ -25014,7 +25028,8 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   %181 = load ptr, ptr %180, align 8, !nonnull !13, !noundef !13
   %182 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %183 = load i64, ptr %182, align 8, !noundef !13
-  %184 = getelementptr inbounds nuw i64, ptr %181, i64 %183
+  %.idx170 = shl nuw nsw i64 %183, 3
+  %184 = getelementptr inbounds nuw i8, ptr %181, i64 %.idx170
   %185 = icmp eq i64 %183, 0
   br i1 %185, label %._crit_edge169, label %.lr.ph168
 
@@ -25611,7 +25626,8 @@ _ZN12polars_arrow5array5Array10null_count17h4ed23c694e69fbebE.exit.thread: ; pre
   %95 = load ptr, ptr %94, align 8, !nonnull !13, !noundef !13
   %96 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %97 = load i64, ptr %96, align 8, !noundef !13
-  %98 = getelementptr inbounds nuw i16, ptr %95, i64 %97
+  %.idx = shl nuw nsw i64 %97, 1
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx
   %99 = icmp eq i64 %97, 0
   br i1 %99, label %.loopexit, label %.lr.ph172
 
@@ -25813,7 +25829,8 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   %173 = load ptr, ptr %172, align 8, !nonnull !13, !noundef !13
   %174 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %175 = load i64, ptr %174, align 8, !noundef !13
-  %176 = getelementptr inbounds nuw i16, ptr %173, i64 %175
+  %.idx178 = shl nuw nsw i64 %175, 1
+  %176 = getelementptr inbounds nuw i8, ptr %173, i64 %.idx178
   %177 = icmp eq i64 %175, 0
   br i1 %177, label %._crit_edge177, label %.lr.ph176
 
@@ -26422,7 +26439,8 @@ _ZN12polars_arrow5array5Array10null_count17h04863f981db29605E.exit.thread: ; pre
   %103 = load ptr, ptr %102, align 8, !nonnull !13, !noundef !13
   %104 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %105 = load i64, ptr %104, align 8, !noundef !13
-  %106 = getelementptr inbounds nuw i32, ptr %103, i64 %105
+  %.idx = shl nuw nsw i64 %105, 2
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx
   %107 = icmp eq i64 %105, 0
   br i1 %107, label %.loopexit, label %.lr.ph168
 
@@ -26624,7 +26642,8 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   %181 = load ptr, ptr %180, align 8, !nonnull !13, !noundef !13
   %182 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %183 = load i64, ptr %182, align 8, !noundef !13
-  %184 = getelementptr inbounds nuw i32, ptr %181, i64 %183
+  %.idx174 = shl nuw nsw i64 %183, 2
+  %184 = getelementptr inbounds nuw i8, ptr %181, i64 %.idx174
   %185 = icmp eq i64 %183, 0
   br i1 %185, label %._crit_edge173, label %.lr.ph172
 
@@ -27232,7 +27251,8 @@ _ZN12polars_arrow5array5Array10null_count17h76402a4dd064aa8bE.exit.thread: ; pre
   %100 = load ptr, ptr %99, align 8, !nonnull !13, !noundef !13
   %101 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %102 = load i64, ptr %101, align 8, !noundef !13
-  %103 = getelementptr inbounds nuw i16, ptr %100, i64 %102
+  %.idx = shl nuw nsw i64 %102, 1
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 %.idx
   %104 = icmp eq i64 %102, 0
   br i1 %104, label %.loopexit, label %.lr.ph169
 
@@ -27434,7 +27454,8 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   %178 = load ptr, ptr %177, align 8, !nonnull !13, !noundef !13
   %179 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %180 = load i64, ptr %179, align 8, !noundef !13
-  %181 = getelementptr inbounds nuw i16, ptr %178, i64 %180
+  %.idx175 = shl nuw nsw i64 %180, 1
+  %181 = getelementptr inbounds nuw i8, ptr %178, i64 %.idx175
   %182 = icmp eq i64 %180, 0
   br i1 %182, label %._crit_edge174, label %.lr.ph173
 
@@ -31860,7 +31881,8 @@ _ZN14polars_parquet5arrow5write10dictionary19normalized_validity17h00375b9645624
   %1281 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %1282 = load ptr, ptr %1281, align 8, !noalias !1807, !noundef !13
   %1283 = load i64, ptr %1262, align 8, !noalias !1807, !noundef !13
-  %1284 = getelementptr inbounds nuw i32, ptr %1282, i64 %1283
+  %.idx.i.i = shl nuw nsw i64 %1283, 2
+  %1284 = getelementptr inbounds nuw i8, ptr %1282, i64 %.idx.i.i
   br i1 %.not33.i, label %1330, label %1285
 
 1285:                                             ; preds = %1279
@@ -35736,7 +35758,8 @@ _ZN14polars_parquet5arrow5write10dictionary19normalized_validity17h47e593e84ffee
   %1281 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %1282 = load ptr, ptr %1281, align 8, !noalias !2065, !noundef !13
   %1283 = load i64, ptr %1262, align 8, !noalias !2065, !noundef !13
-  %1284 = getelementptr inbounds nuw i16, ptr %1282, i64 %1283
+  %.idx.i.i = shl nuw nsw i64 %1283, 1
+  %1284 = getelementptr inbounds nuw i8, ptr %1282, i64 %.idx.i.i
   br i1 %.not33.i, label %1330, label %1285
 
 1285:                                             ; preds = %1279
@@ -43484,7 +43507,8 @@ _ZN14polars_parquet5arrow5write10dictionary19normalized_validity17hf11eac76e82c8
   %1281 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %1282 = load ptr, ptr %1281, align 8, !noalias !2581, !noundef !13
   %1283 = load i64, ptr %1262, align 8, !noalias !2581, !noundef !13
-  %1284 = getelementptr inbounds nuw i64, ptr %1282, i64 %1283
+  %.idx.i.i = shl nuw nsw i64 %1283, 3
+  %1284 = getelementptr inbounds nuw i8, ptr %1282, i64 %.idx.i.i
   br i1 %.not33.i, label %1331, label %1285
 
 1285:                                             ; preds = %1279
@@ -47362,7 +47386,8 @@ _ZN14polars_parquet5arrow5write10dictionary19normalized_validity17h352a022bc4162
   %1281 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %1282 = load ptr, ptr %1281, align 8, !noalias !2839, !noundef !13
   %1283 = load i64, ptr %1262, align 8, !noalias !2839, !noundef !13
-  %1284 = getelementptr inbounds nuw i32, ptr %1282, i64 %1283
+  %.idx.i.i = shl nuw nsw i64 %1283, 2
+  %1284 = getelementptr inbounds nuw i8, ptr %1282, i64 %.idx.i.i
   br i1 %.not33.i, label %1329, label %1285
 
 1285:                                             ; preds = %1279
@@ -55112,7 +55137,8 @@ _ZN14polars_parquet5arrow5write10dictionary19normalized_validity17h673769e0b8edc
   %1281 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %1282 = load ptr, ptr %1281, align 8, !noalias !3355, !noundef !13
   %1283 = load i64, ptr %1262, align 8, !noalias !3355, !noundef !13
-  %1284 = getelementptr inbounds nuw i16, ptr %1282, i64 %1283
+  %.idx.i.i = shl nuw nsw i64 %1283, 1
+  %1284 = getelementptr inbounds nuw i8, ptr %1282, i64 %.idx.i.i
   br i1 %.not33.i, label %1331, label %1285
 
 1285:                                             ; preds = %1279
@@ -59136,7 +59162,8 @@ _ZN14polars_parquet5arrow5write10dictionary19normalized_validity17hdd08aea1ef81d
   %1330 = getelementptr inbounds nuw i8, ptr %40, i64 72
   %1331 = load ptr, ptr %1330, align 8, !noalias !3641, !noundef !13
   %1332 = load i64, ptr %1311, align 8, !noalias !3641, !noundef !13
-  %1333 = getelementptr inbounds nuw i128, ptr %1331, i64 %1332
+  %.idx.i.i = shl nuw nsw i64 %1332, 4
+  %1333 = getelementptr inbounds nuw i8, ptr %1331, i64 %.idx.i.i
   br i1 %.not33.i, label %1379, label %1334
 
 1334:                                             ; preds = %1328
@@ -63014,7 +63041,8 @@ _ZN14polars_parquet5arrow5write10dictionary19normalized_validity17hb3d04c4dfac83
   %1281 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %1282 = load ptr, ptr %1281, align 8, !noalias !3899, !noundef !13
   %1283 = load i64, ptr %1262, align 8, !noalias !3899, !noundef !13
-  %1284 = getelementptr inbounds nuw i64, ptr %1282, i64 %1283
+  %.idx.i.i = shl nuw nsw i64 %1283, 3
+  %1284 = getelementptr inbounds nuw i8, ptr %1282, i64 %.idx.i.i
   br i1 %.not33.i, label %1330, label %1285
 
 1285:                                             ; preds = %1279

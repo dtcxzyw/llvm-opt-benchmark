@@ -4377,7 +4377,8 @@ select.unfold1208.i:                              ; preds = %1415, %.noexc529.i
   %.merged.i.i.i = phi { ptr, i64 } [ %1551, %1547 ], [ %1553, %1552 ]
   %1557 = extractvalue { ptr, i64 } %.merged.i.i.i, 0
   %1558 = extractvalue { ptr, i64 } %.merged.i.i.i, 1
-  %1559 = getelementptr inbounds { ptr, i64 }, ptr %1557, i64 %1558
+  %.idx.i = shl nsw i64 %1558, 4
+  %1559 = getelementptr inbounds i8, ptr %1557, i64 %.idx.i
   %1560 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr %1557, ptr %1560, align 8, !noalias !451
   %1561 = getelementptr inbounds nuw i8, ptr %0, i64 296

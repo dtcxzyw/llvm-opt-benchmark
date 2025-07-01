@@ -168,7 +168,8 @@ define dso_local void @rhash_swap_copy_u64_to_str(ptr noundef %0, ptr noundef %1
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @rhash_u32_mem_swap(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds i32, ptr %0, i64 %3
+  %.idx = shl nsw i64 %3, 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 

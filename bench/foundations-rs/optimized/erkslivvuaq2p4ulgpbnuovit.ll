@@ -14880,7 +14880,8 @@ define void @_ZN11foundations9telemetry15otlp_conversion7tracing12convert_span17
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val65 = load i64, ptr %75, align 8, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !1430)
-  %76 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %.val64, i64 %.val65
+  %.idx.i = shl nuw nsw i64 %.val65, 6
+  %76 = getelementptr inbounds nuw i8, ptr %.val64, i64 %.idx.i
   %77 = icmp eq i64 %.val65, 0
   br i1 %77, label %.loopexit, label %.lr.ph.i.i
 
@@ -16619,7 +16620,8 @@ define internal fastcc void @_ZN11foundations9telemetry6server8RouteMap3set17hb7
   %.sroa.558.0.copyload = load i64, ptr %.sroa.558.0..sroa_idx, align 8
   %36 = icmp ult i64 %.sroa.558.0.copyload, 384307168202282326
   tail call void @llvm.assume(i1 %36)
-  %37 = getelementptr inbounds nuw { { i8, [23 x i8] } }, ptr %.sroa.457.0.copyload, i64 %.sroa.558.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.558.0.copyload, 24
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.457.0.copyload, i64 %.idx
   %38 = icmp sgt i64 %.sroa.056.0.copyload, -1
   tail call void @llvm.assume(i1 %38)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -18835,7 +18837,8 @@ define hidden void @_ZN11foundations9telemetry6server4init17hdaa120deaaeb9275E(p
   %.sroa.521.0.copyload.i = load i64, ptr %.sroa.521.0..sroa_idx.i, align 8, !alias.scope !1866, !noalias !1913
   %151 = icmp ult i64 %.sroa.521.0.copyload.i, 144115188075855872
   call void @llvm.assume(i1 %151)
-  %152 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { { ptr, ptr } }, {} }, {} } }, ptr %.sroa.420.0.copyload.i, i64 %.sroa.521.0.copyload.i
+  %.idx.i = shl nuw nsw i64 %.sroa.521.0.copyload.i, 6
+  %152 = getelementptr inbounds nuw i8, ptr %.sroa.420.0.copyload.i, i64 %.idx.i
   %153 = icmp sgt i64 %.sroa.019.0.copyload.i, -1
   call void @llvm.assume(i1 %153)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18), !noalias !1869

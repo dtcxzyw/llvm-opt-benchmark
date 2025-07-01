@@ -420,7 +420,7 @@ define dso_local noundef ptr @_ZNK4llvm13DataExtractor6getU16EPmPtj(ptr noundef 
   br i1 %13, label %14, label %_ZNK4llvm13DataExtractor5getUsItEEPT_PmS3_jPNS_5ErrorE.exit
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds nuw i16, ptr %2, i64 %6
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %7
   %.not24.i = icmp eq i32 %3, 0
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -593,7 +593,7 @@ define dso_local noundef ptr @_ZNK4llvm13DataExtractor6getU32EPmPjj(ptr noundef 
   br i1 %13, label %14, label %_ZNK4llvm13DataExtractor5getUsIjEEPT_PmS3_jPNS_5ErrorE.exit
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds nuw i32, ptr %2, i64 %6
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %7
   %.not24.i = icmp eq i32 %3, 0
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -719,7 +719,7 @@ define dso_local noundef ptr @_ZNK4llvm13DataExtractor6getU64EPmS1_j(ptr noundef
   br i1 %13, label %14, label %_ZNK4llvm13DataExtractor5getUsImEEPT_PmS3_jPNS_5ErrorE.exit
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds nuw i64, ptr %2, i64 %6
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %7
   %.not24.i = icmp eq i32 %3, 0
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 

@@ -2620,7 +2620,8 @@ define hidden noundef ptr @_ZN8CallNode11result_castEv(ptr noundef nonnull align
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %9
+  %.idx = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %.not26 = icmp eq i32 %8, 0
   br i1 %.not26, label %.loopexit, label %.lr.ph
 
@@ -2680,7 +2681,8 @@ define hidden void @_ZN8CallNode19extract_projectionsEP15CallProjectionsbb(ptr n
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %.idx = shl nuw nsw i64 %17, 3
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %.not65 = icmp eq i32 %16, 0
   br i1 %.not65, label %._crit_edge, label %.lr.ph64
 
@@ -2721,9 +2723,10 @@ define hidden void @_ZN8CallNode19extract_projectionsEP15CallProjectionsbb(ptr n
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %37 = load i32, ptr %36, align 8
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %38
-  %.not67 = icmp eq i32 %37, 0
-  br i1 %.not67, label %.loopexit, label %.lr.ph62
+  %.idx67 = shl nuw nsw i64 %38, 3
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx67
+  %.not68 = icmp eq i32 %37, 0
+  br i1 %.not68, label %.loopexit, label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %33, %46
   %.05461 = phi ptr [ %47, %46 ], [ %35, %33 ]

@@ -448,7 +448,8 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN2EA4StdC15StrlcpyInternalIDscEEbPT0_PKT_mmRmS7_.exit
 
 if.end.i:                                         ; preds = %entry
-  %add.ptr.i = getelementptr inbounds i16, ptr %pSource, i64 %nSourceLength
+  %add.ptr.idx.i = shl nuw nsw i64 %nSourceLength, 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %pSource, i64 %add.ptr.idx.i
   %cmp1.i = icmp slt i64 %nSourceLength, 0
   %spec.select.i = select i1 %cmp1.i, ptr inttoptr (i64 -1 to ptr), ptr %add.ptr.i
   %add.ptr4.i = getelementptr inbounds i8, ptr %pDest, i64 %nDestCapacity
@@ -567,7 +568,8 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %add.ptr = getelementptr inbounds i32, ptr %pSource, i64 %nSourceLength
+  %add.ptr.idx = shl nsw i64 %nSourceLength, 2
+  %add.ptr = getelementptr inbounds i8, ptr %pSource, i64 %add.ptr.idx
   %cmp1 = icmp slt i64 %nSourceLength, 0
   %spec.select = select i1 %cmp1, ptr inttoptr (i64 -1 to ptr), ptr %add.ptr
   %add.ptr4 = getelementptr inbounds i8, ptr %pDest, i64 %nDestCapacity
@@ -862,7 +864,8 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN2EA4StdC15StrlcpyInternalIDiDsEEbPT0_PKT_mmRmS7_.exit
 
 if.end.i:                                         ; preds = %entry
-  %add.ptr.i = getelementptr inbounds i32, ptr %pSource, i64 %nSourceLength
+  %add.ptr.idx.i = shl nsw i64 %nSourceLength, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %pSource, i64 %add.ptr.idx.i
   %cmp1.i = icmp slt i64 %nSourceLength, 0
   %spec.select.i = select i1 %cmp1.i, ptr inttoptr (i64 -1 to ptr), ptr %add.ptr.i
   %add.ptr4.i = getelementptr inbounds i16, ptr %pDest, i64 %nDestCapacity
@@ -1055,7 +1058,8 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN2EA4StdC15StrlcpyInternalIDsDiEEbPT0_PKT_mmRmS7_.exit
 
 if.end.i:                                         ; preds = %entry
-  %add.ptr.i = getelementptr inbounds i16, ptr %pSource, i64 %nSourceLength
+  %add.ptr.idx.i = shl nuw nsw i64 %nSourceLength, 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %pSource, i64 %add.ptr.idx.i
   %cmp1.i = icmp slt i64 %nSourceLength, 0
   %spec.select.i = select i1 %cmp1.i, ptr inttoptr (i64 -1 to ptr), ptr %add.ptr.i
   %add.ptr4.i = getelementptr inbounds i32, ptr %pDest, i64 %nDestCapacity
@@ -5070,7 +5074,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not9, label %return, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.end
-  %add.ptr = getelementptr inbounds i32, ptr %s1, i64 %wcslen.i
+  %add.ptr.idx = shl nsw i64 %wcslen.i, 2
+  %add.ptr = getelementptr inbounds i8, ptr %s1, i64 %add.ptr.idx
   br label %while.body
 
 while.cond.loopexit:                              ; preds = %for.cond
@@ -5284,7 +5289,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not16, label %return, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.end
-  %add.ptr = getelementptr inbounds i32, ptr %s1, i64 %wcslen.i
+  %add.ptr.idx = shl nsw i64 %wcslen.i, 2
+  %add.ptr = getelementptr inbounds i8, ptr %s1, i64 %add.ptr.idx
   br label %while.body
 
 while.cond.loopexit:                              ; preds = %_ZN2EA4StdC7TolowerEDi.exit14

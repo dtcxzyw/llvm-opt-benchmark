@@ -76,7 +76,8 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   %.sroa.08.0.copyload = load i64, ptr %10, align 8
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.49.0.copyload = load ptr, ptr %.sroa.49.0..sroa_idx, align 8, !nonnull !3, !noundef !3
-  %34 = getelementptr inbounds nuw i32, ptr %.sroa.49.0.copyload, i64 %20
+  %.idx = shl nuw nsw i64 %20, 2
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.49.0.copyload, i64 %.idx
   %35 = icmp sgt i64 %.sroa.08.0.copyload, -1
   tail call void @llvm.assume(i1 %35)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -275,7 +276,8 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   %.sroa.08.0.copyload = load i64, ptr %11, align 8
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.49.0.copyload = load ptr, ptr %.sroa.49.0..sroa_idx, align 8, !nonnull !3, !noundef !3
-  %35 = getelementptr inbounds nuw i32, ptr %.sroa.49.0.copyload, i64 %21
+  %.idx = shl nuw nsw i64 %21, 2
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.49.0.copyload, i64 %.idx
   %36 = icmp sgt i64 %.sroa.08.0.copyload, -1
   tail call void @llvm.assume(i1 %36)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
@@ -473,7 +475,8 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   %.sroa.09.0.copyload = load i64, ptr %11, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.410.0.copyload = load ptr, ptr %.sroa.410.0..sroa_idx, align 8, !nonnull !3, !noundef !3
-  %35 = getelementptr inbounds nuw i32, ptr %.sroa.410.0.copyload, i64 %21
+  %.idx = shl nuw nsw i64 %21, 2
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.410.0.copyload, i64 %.idx
   %36 = icmp sgt i64 %.sroa.09.0.copyload, -1
   tail call void @llvm.assume(i1 %36)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
@@ -684,7 +687,8 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   %.sroa.09.0.copyload = load i64, ptr %11, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.410.0.copyload = load ptr, ptr %.sroa.410.0..sroa_idx, align 8, !nonnull !3, !noundef !3
-  %35 = getelementptr inbounds nuw i32, ptr %.sroa.410.0.copyload, i64 %21
+  %.idx = shl nuw nsw i64 %21, 2
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.410.0.copyload, i64 %.idx
   %36 = icmp sgt i64 %.sroa.09.0.copyload, -1
   tail call void @llvm.assume(i1 %36)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
@@ -890,7 +894,8 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   %.sroa.09.0.copyload = load i64, ptr %11, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.410.0.copyload = load ptr, ptr %.sroa.410.0..sroa_idx, align 8, !nonnull !3, !noundef !3
-  %35 = getelementptr inbounds nuw i32, ptr %.sroa.410.0.copyload, i64 %21
+  %.idx = shl nuw nsw i64 %21, 2
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.410.0.copyload, i64 %.idx
   %36 = icmp sgt i64 %.sroa.09.0.copyload, -1
   tail call void @llvm.assume(i1 %36)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
@@ -1097,7 +1102,8 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   %.sroa.012.0.copyload = load i64, ptr %9, align 8
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.413.0.copyload = load ptr, ptr %.sroa.413.0..sroa_idx, align 8, !nonnull !3, !noundef !3
-  %33 = getelementptr inbounds nuw i32, ptr %.sroa.413.0.copyload, i64 %19
+  %.idx = shl nuw nsw i64 %19, 2
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.413.0.copyload, i64 %.idx
   %34 = icmp sgt i64 %.sroa.012.0.copyload, -1
   tail call void @llvm.assume(i1 %34)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
@@ -1284,7 +1290,8 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   %.sroa.08.0.copyload = load i64, ptr %10, align 8
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.49.0.copyload = load ptr, ptr %.sroa.49.0..sroa_idx, align 8, !nonnull !3, !noundef !3
-  %34 = getelementptr inbounds nuw i32, ptr %.sroa.49.0.copyload, i64 %20
+  %.idx = shl nuw nsw i64 %20, 2
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.49.0.copyload, i64 %.idx
   %35 = icmp sgt i64 %.sroa.08.0.copyload, -1
   tail call void @llvm.assume(i1 %35)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -1482,7 +1489,8 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   %.sroa.09.0.copyload = load i64, ptr %11, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.410.0.copyload = load ptr, ptr %.sroa.410.0..sroa_idx, align 8, !nonnull !3, !noundef !3
-  %35 = getelementptr inbounds nuw i32, ptr %.sroa.410.0.copyload, i64 %21
+  %.idx = shl nuw nsw i64 %21, 2
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.410.0.copyload, i64 %.idx
   %36 = icmp sgt i64 %.sroa.09.0.copyload, -1
   tail call void @llvm.assume(i1 %36)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
@@ -1688,7 +1696,8 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   %.sroa.09.0.copyload = load i64, ptr %11, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.410.0.copyload = load ptr, ptr %.sroa.410.0..sroa_idx, align 8, !nonnull !3, !noundef !3
-  %35 = getelementptr inbounds nuw i32, ptr %.sroa.410.0.copyload, i64 %21
+  %.idx = shl nuw nsw i64 %21, 2
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.410.0.copyload, i64 %.idx
   %36 = icmp sgt i64 %.sroa.09.0.copyload, -1
   tail call void @llvm.assume(i1 %36)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
@@ -1894,7 +1903,8 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   %.sroa.09.0.copyload = load i64, ptr %11, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.410.0.copyload = load ptr, ptr %.sroa.410.0..sroa_idx, align 8, !nonnull !3, !noundef !3
-  %35 = getelementptr inbounds nuw i32, ptr %.sroa.410.0.copyload, i64 %21
+  %.idx = shl nuw nsw i64 %21, 2
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.410.0.copyload, i64 %.idx
   %36 = icmp sgt i64 %.sroa.09.0.copyload, -1
   tail call void @llvm.assume(i1 %36)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
@@ -2098,7 +2108,8 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   %.sroa.012.0.copyload = load i64, ptr %9, align 8
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.413.0.copyload = load ptr, ptr %.sroa.413.0..sroa_idx, align 8, !nonnull !3, !noundef !3
-  %33 = getelementptr inbounds nuw i32, ptr %.sroa.413.0.copyload, i64 %19
+  %.idx = shl nuw nsw i64 %19, 2
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.413.0.copyload, i64 %.idx
   %34 = icmp sgt i64 %.sroa.012.0.copyload, -1
   tail call void @llvm.assume(i1 %34)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)

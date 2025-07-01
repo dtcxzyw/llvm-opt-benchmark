@@ -991,7 +991,8 @@ _ZNK5clang9NamedDecl7getNameEv.exit88:            ; preds = %304, %309
 
 .lr.ph.i.preheader.i:                             ; preds = %320
   %336 = zext i32 %335 to i64
-  %337 = getelementptr inbounds nuw %"class.clang::FrontendInputFile", ptr %333, i64 %336
+  %.idx.i = mul nuw nsw i64 %336, 80
+  %337 = getelementptr inbounds nuw i8, ptr %333, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang17FrontendInputFileD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -3040,7 +3041,8 @@ _ZN5clang17FrontendInputFileC2EN4llvm9StringRefENS_9InputKindEb.exit: ; preds = 
   %34 = load ptr, ptr %0, align 8, !tbaa !99
   %35 = load i32, ptr %8, align 8, !tbaa !101
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.clang::FrontendInputFile", ptr %34, i64 %36
+  %.idx.i = mul nuw nsw i64 %36, 80
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %35, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang17FrontendInputFileELb0EE19moveElementsForGrowEPS2_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -3087,13 +3089,14 @@ _ZSt10_ConstructIN5clang17FrontendInputFileEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ;
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang17FrontendInputFileELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i: ; preds = %_ZSt10_ConstructIN5clang17FrontendInputFileEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !99
-  %.pre2.i = load i32, ptr %8, align 8, !tbaa !101
-  %.not4.i.i = icmp eq i32 %.pre2.i, 0
+  %.pre3.i = load i32, ptr %8, align 8, !tbaa !101
+  %.not4.i.i = icmp eq i32 %.pre3.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang17FrontendInputFileELb0EE19moveElementsForGrowEPS2_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang17FrontendInputFileELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i
-  %55 = zext i32 %.pre2.i to i64
-  %56 = getelementptr inbounds nuw %"class.clang::FrontendInputFile", ptr %.pre.i, i64 %55
+  %55 = zext i32 %.pre3.i to i64
+  %.idx2.i = mul nuw nsw i64 %55, 80
+  %56 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang17FrontendInputFileD2Ev.exit.i.i, %.lr.ph.i.preheader.i

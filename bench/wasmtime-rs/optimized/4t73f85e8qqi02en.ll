@@ -2323,7 +2323,8 @@ common.resume:                                    ; preds = %113, %47, %58
   %83 = load ptr, ptr %82, align 8, !alias.scope !402, !noalias !405, !nonnull !4, !align !383, !noundef !4
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %85 = load i64, ptr %84, align 8, !alias.scope !402, !noalias !405, !noundef !4
-  %86 = getelementptr inbounds { { { { ptr, [1 x i64] } } }, { { i64 }, {} }, i64, i64 }, ptr %83, i64 %85
+  %.idx.i.i = mul nsw i64 %85, 40
+  %86 = getelementptr inbounds i8, ptr %83, i64 %.idx.i.i
   %87 = icmp eq i64 %85, 0
   br i1 %87, label %.loopexit, label %.lr.ph.i.i
 

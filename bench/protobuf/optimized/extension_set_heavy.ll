@@ -13,7 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::pair" = type { i32, %"struct.google::protobuf::internal::ExtensionSet::Extension" }
 %"struct.google::protobuf::internal::ExtensionSet::Extension" = type { %union.anon, i8, i8, i8, i8, i32, ptr }
 %union.anon = type { i64 }
-%"struct.google::protobuf::internal::ExtensionSet::KeyValue" = type { i32, %"struct.google::protobuf::internal::ExtensionSet::Extension" }
 %"class.absl::lts_20230802::log_internal::LogMessageFatal" = type { %"class.absl::lts_20230802::log_internal::LogMessage" }
 %"class.absl::lts_20230802::log_internal::LogMessage" = type { %"class.absl::lts_20230802::base_internal::ErrnoSaver", %"class.std::unique_ptr" }
 %"class.absl::lts_20230802::base_internal::ErrnoSaver" = type { i32 }
@@ -186,7 +185,8 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
 
 if.end.i:                                         ; preds = %entry
   %idx.ext.i.i = zext nneg i16 %this.val to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %this.val1, i64 %idx.ext.i.i
+  %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 5
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this.val1, i64 %add.ptr.i.idx.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp96.i), !noalias !4
   store ptr %extendee, ptr %agg.tmp96.i, align 8, !noalias !4
   %agg.tmp2.sroa.5.0.agg.tmp96.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp96.i, i64 8
@@ -2550,7 +2550,8 @@ if.end.i:                                         ; preds = %entry
   %22 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %this.val1 = load ptr, ptr %22, align 8
   %idx.ext.i.i = zext nneg i16 %0 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %this.val1, i64 %idx.ext.i.i
+  %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 5
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this.val1, i64 %add.ptr.i.idx.i
   %cmp.not4.i.i = icmp eq i16 %0, 0
   br i1 %cmp.not4.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET_S5_.exit", label %for.body.i5.i
 

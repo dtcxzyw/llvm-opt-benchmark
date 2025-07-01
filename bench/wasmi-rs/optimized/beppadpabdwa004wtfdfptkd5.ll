@@ -1631,7 +1631,8 @@ define internal fastcc noundef align 8 ptr @_ZN5wasmi6engine8executor14EngineExe
   %52 = add nuw nsw i64 %49, %37
   store i64 %52, ptr %40, align 8, !alias.scope !160, !noalias !163
   %53 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %2, i64 %3
-  %54 = getelementptr inbounds nuw { [2 x i64] }, ptr %50, i64 %37
+  %.idx = shl nuw nsw i64 %37, 4
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx
   %.sroa.517.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 32
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %22)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.517.0..sroa_idx, i8 0, i64 24, i1 false)

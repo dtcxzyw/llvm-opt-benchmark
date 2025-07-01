@@ -6887,7 +6887,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.7808069312437652055.ex
   %.val50 = load ptr, ptr %205, align 8, !nonnull !4, !noundef !4
   %206 = getelementptr i8, ptr %203, i64 136
   %.val51 = load i64, ptr %206, align 8, !noundef !4
-  %207 = getelementptr inbounds { i64, [9 x i64] }, ptr %.val50, i64 %.val51
+  %.idx.i = mul nsw i64 %.val51, 80
+  %207 = getelementptr inbounds i8, ptr %.val50, i64 %.idx.i
   %208 = icmp eq i64 %.val51, 0
   br i1 %208, label %.loopexit.i.invoke, label %.lr.ph.i.i
 

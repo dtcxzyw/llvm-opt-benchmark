@@ -20956,7 +20956,7 @@ _ZN5arrow6StatusD2Ev.exit23.i.i.i.i:              ; preds = %_ZN5arrow6StatusD2E
   %123 = shl i64 %.val5, 2
   %124 = add nsw i64 %120, %123
   store i64 %124, ptr %119, align 8, !tbaa !393, !noalias !798
-  %125 = getelementptr inbounds i32, ptr %122, i64 %.val5
+  %125 = getelementptr inbounds i8, ptr %122, i64 %123
   %.not5.i.i.i.i.i.i.i.i = icmp eq i64 %.val5, 0
   br i1 %.not5.i.i.i.i.i.i.i.i, label %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -21216,7 +21216,7 @@ _ZN5arrow6StatusD2Ev.exit23.i.i.i.i:              ; preds = %_ZN5arrow6StatusD2E
   %121 = shl i64 %.val5, 3
   %122 = add nsw i64 %118, %121
   store i64 %122, ptr %117, align 8, !tbaa !393, !noalias !822
-  %123 = getelementptr inbounds i64, ptr %120, i64 %.val5
+  %123 = getelementptr inbounds i8, ptr %120, i64 %121
   %.not5.i.i.i.i.i.i.i.i = icmp eq i64 %.val5, 0
   br i1 %.not5.i.i.i.i.i.i.i.i, label %_ZN5arrow18TypedBufferBuilderIlvE12UnsafeAppendEll.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 

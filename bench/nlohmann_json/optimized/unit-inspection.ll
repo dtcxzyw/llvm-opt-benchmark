@@ -18867,7 +18867,8 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonIS
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.nlohmann::json_abi_v3_11_3::basic_json", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = getelementptr inbounds nuw %"class.nlohmann::json_abi_v3_11_3::detail::json_ref", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %11 = invoke noundef ptr @_ZSt9__find_ifIPKN8nlohmann16json_abi_v3_11_36detail8json_refINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops12_Iter_negateIZNSG_C1ESt16initializer_listISH_EbNS2_7value_tEEUlRSI_E_EEET_ST_ST_T0_St26random_access_iterator_tag(ptr noundef %1, ptr noundef %10)
           to label %12 unwind label %17
@@ -33211,7 +33212,8 @@ _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7
   %22 = load ptr, ptr %6, align 8, !tbaa !38
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %9
   store i8 0, ptr %23, align 1, !tbaa !24
-  %24 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 2
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not19 = icmp eq i64 %2, 0
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
@@ -53528,7 +53530,8 @@ _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7
   %22 = load ptr, ptr %6, align 8, !tbaa !38
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %9
   store i8 0, ptr %23, align 1, !tbaa !24
-  %24 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 2
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not19 = icmp eq i64 %2, 0
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
@@ -68540,7 +68543,8 @@ _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7
   %22 = load ptr, ptr %6, align 8, !tbaa !38
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %9
   store i8 0, ptr %23, align 1, !tbaa !24
-  %24 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 2
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not19 = icmp eq i64 %2, 0
   br i1 %.not19, label %.loopexit, label %.lr.ph
 

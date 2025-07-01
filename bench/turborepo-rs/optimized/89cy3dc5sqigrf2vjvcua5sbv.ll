@@ -376,7 +376,8 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
 .lr.ph82.preheader:                               ; preds = %33
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.0.053.ptr84, i64 8
   %89 = load ptr, ptr %88, align 8, !nonnull !5, !noundef !5
-  %90 = getelementptr inbounds { ptr, i64 }, ptr %89, i64 %35
+  %.idx = shl nsw i64 %35, 4
+  %90 = getelementptr inbounds i8, ptr %89, i64 %.idx
   br label %.lr.ph82
 
 91:                                               ; preds = %84

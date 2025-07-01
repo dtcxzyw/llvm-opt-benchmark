@@ -5782,7 +5782,8 @@ define void @FT_Outline_Transform(ptr noundef readonly captures(address_is_null)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = load i16, ptr %9, align 2, !tbaa !129
   %11 = zext i16 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %7, i64 %11
+  %.idx = shl nuw nsw i64 %11, 4
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not16 = icmp eq i16 %10, 0
   br i1 %.not16, label %.loopexit, label %FT_Vector_Transform.exit.lr.ph
 
@@ -9032,7 +9033,8 @@ define range(i32 0, 39) i32 @FT_Select_Charmap(ptr noundef captures(address_is_n
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i32, ptr %43, align 8, !tbaa !336
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %41, i64 %45
+  %.idx = shl nsw i64 %45, 3
+  %46 = getelementptr inbounds i8, ptr %41, i64 %.idx
   %47 = icmp sgt i32 %44, 0
   br i1 %47, label %.lr.ph, label %find_unicode_charmap.exit
 
@@ -9078,7 +9080,8 @@ define range(i32 0, 39) i32 @FT_Set_Charmap(ptr noundef captures(address_is_null
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i32, ptr %10, align 8, !tbaa !336
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %6, i64 %12
+  %.idx = shl nsw i64 %12, 3
+  %13 = getelementptr inbounds i8, ptr %6, i64 %.idx
   %14 = icmp sgt i32 %11, 0
   br i1 %14, label %.lr.ph, label %.loopexit
 
@@ -9827,7 +9830,8 @@ define i32 @FT_Face_GetCharVariantIndex(ptr noundef readonly captures(address_is
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load i32, ptr %16, align 8, !tbaa !336
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %14, i64 %18
+  %.idx.i = shl nsw i64 %18, 3
+  %19 = getelementptr inbounds i8, ptr %14, i64 %.idx.i
   %20 = icmp sgt i32 %17, 0
   br i1 %20, label %.lr.ph.i, label %find_variant_selector_charmap.exit.thread
 
@@ -9927,7 +9931,8 @@ define i32 @FT_Face_GetCharVariantIsDefault(ptr noundef readonly captures(addres
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8, !tbaa !336
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %7, i64 %11
+  %.idx.i = shl nsw i64 %11, 3
+  %12 = getelementptr inbounds i8, ptr %7, i64 %.idx.i
   %13 = icmp sgt i32 %10, 0
   br i1 %13, label %.lr.ph.i, label %find_variant_selector_charmap.exit.thread
 
@@ -10026,7 +10031,8 @@ define ptr @FT_Face_GetVariantSelectors(ptr noundef readonly captures(address_is
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8, !tbaa !336
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %5, i64 %9
+  %.idx.i = shl nsw i64 %9, 3
+  %10 = getelementptr inbounds i8, ptr %5, i64 %.idx.i
   %11 = icmp sgt i32 %8, 0
   br i1 %11, label %.lr.ph.i, label %find_variant_selector_charmap.exit.thread
 
@@ -10125,7 +10131,8 @@ define ptr @FT_Face_GetVariantsOfChar(ptr noundef readonly captures(address_is_n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8, !tbaa !336
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %6, i64 %10
+  %.idx.i = shl nsw i64 %10, 3
+  %11 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %12 = icmp sgt i32 %9, 0
   br i1 %12, label %.lr.ph.i, label %find_variant_selector_charmap.exit.thread
 
@@ -10225,7 +10232,8 @@ define ptr @FT_Face_GetCharsOfVariant(ptr noundef readonly captures(address_is_n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8, !tbaa !336
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %6, i64 %10
+  %.idx.i = shl nsw i64 %10, 3
+  %11 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %12 = icmp sgt i32 %9, 0
   br i1 %12, label %.lr.ph.i, label %find_variant_selector_charmap.exit.thread
 

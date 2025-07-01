@@ -276,7 +276,8 @@ define hidden void @"_ZN100_$LT$opentelemetry_proto..proto..tonic..trace..v1..Sc
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !4
-  %11 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [3 x i64] }, i64, i64, i32, i32, i32, i32, i32, [1 x i32] }, ptr %8, i64 %10
+  %.idx = mul nuw nsw i64 %10, 264
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -359,7 +360,8 @@ define hidden void @"_ZN103_$LT$opentelemetry_proto..proto..tonic..trace..v1..Re
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !4
-  %11 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [9 x i64] } }, ptr %8, i64 %10
+  %.idx = shl nuw nsw i64 %10, 7
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -6374,7 +6376,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17ha4ca5b7666fd74dfE(p
   %16 = mul i64 %.sroa.0.0.sroa.speculated.i, 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16, i64 %16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %17 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   store ptr %2, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %18, align 8
@@ -6494,7 +6496,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17hd37af8431fe0dcb2E(p
   %16 = mul i64 %.sroa.0.0.sroa.speculated.i, 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16, i64 %16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %17 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   store ptr %2, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %18, align 8
@@ -6614,7 +6616,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17hdca8399628adacccE(p
   %16 = mul i64 %.sroa.0.0.sroa.speculated.i, 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16, i64 %16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %17 = getelementptr inbounds nuw { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   store ptr %2, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %18, align 8
@@ -6734,7 +6736,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17he06faf790711edbcE(p
   %16 = mul i64 %.sroa.0.0.sroa.speculated.i, 208
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16, i64 %16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %17 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, i64 }, i64, i8, [7 x i8] }, { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   store ptr %2, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %18, align 8
@@ -17337,7 +17339,8 @@ define hidden void @"_ZN94_$LT$opentelemetry_proto..proto..tonic..trace..v1..Spa
   %59 = load ptr, ptr %58, align 8, !nonnull !4, !noundef !4
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %61 = load i64, ptr %60, align 8, !noundef !4
-  %62 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i8, [31 x i8] } }, ptr %59, i64 %61
+  %.idx = mul nuw nsw i64 %61, 56
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx
   %63 = icmp eq i64 %61, 0
   br i1 %63, label %._crit_edge, label %.lr.ph
 
@@ -17367,7 +17370,8 @@ define hidden void @"_ZN94_$LT$opentelemetry_proto..proto..tonic..trace..v1..Spa
   %72 = load ptr, ptr %71, align 8, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %74 = load i64, ptr %73, align 8, !noundef !4
-  %75 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, i64, i32, [1 x i32] }, ptr %72, i64 %74
+  %.idx27 = shl nuw nsw i64 %74, 6
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx27
   %76 = icmp eq i64 %74, 0
   br i1 %76, label %._crit_edge22, label %.lr.ph21
 
@@ -17397,7 +17401,8 @@ define hidden void @"_ZN94_$LT$opentelemetry_proto..proto..tonic..trace..v1..Spa
   %85 = load ptr, ptr %84, align 8, !nonnull !4, !noundef !4
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %87 = load i64, ptr %86, align 8, !noundef !4
-  %88 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, i32, i32 }, ptr %85, i64 %87
+  %.idx28 = mul nuw nsw i64 %87, 104
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx28
   %89 = icmp eq i64 %87, 0
   br i1 %89, label %._crit_edge26, label %.lr.ph25
 

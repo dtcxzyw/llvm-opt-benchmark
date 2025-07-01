@@ -415,7 +415,8 @@ define hidden void @_ZN7Threads15java_threads_doEP13ThreadClosure(ptr noundef %0
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not8 = icmp eq i32 %6, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -448,7 +449,8 @@ define hidden void @_ZN7Threads10threads_doEP13ThreadClosure(ptr noundef %0) loc
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
+  %.idx.i = shl nuw nsw i64 %8, 3
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
   %.not8.i = icmp eq i32 %7, 0
   br i1 %.not8.i, label %_ZN7Threads15java_threads_doEP13ThreadClosure.exit, label %.lr.ph.i
 
@@ -499,7 +501,8 @@ define hidden void @_ZN7Threads28possibly_parallel_threads_doEbP13ThreadClosure(
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %.idx = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not19 = icmp eq i32 %9, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
@@ -2406,7 +2409,8 @@ define hidden void @_ZN7Threads7oops_doEP10OopClosureP14NMethodClosure(ptr nound
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
+  %.idx = shl nuw nsw i64 %8, 3
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %.not11 = icmp eq i32 %7, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -2447,7 +2451,8 @@ define hidden void @_ZN7Threads25change_thread_claim_tokenEv() local_unnamed_add
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %9, i64 %12
+  %.idx.i.i = shl nuw nsw i64 %12, 3
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i
   %.not8.i.i = icmp eq i32 %11, 0
   br i1 %.not8.i.i, label %_ZN7Threads15java_threads_doEP13ThreadClosure.exit.i, label %.lr.ph.i.i
 
@@ -2512,7 +2517,8 @@ define hidden void @_ZN7Threads11metadata_doEP15MetadataClosure(ptr noundef %0) 
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not8 = icmp eq i32 %6, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -2546,7 +2552,8 @@ define hidden void @_ZN7Threads19metadata_handles_doEPFvP8MetadataE(ptr noundef 
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %.idx.i.i = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i.i
   %.not8.i.i = icmp eq i32 %9, 0
   br i1 %.not8.i.i, label %_ZN7Threads15java_threads_doEP13ThreadClosure.exit.i, label %.lr.ph.i.i
 
@@ -2612,7 +2619,8 @@ _ZN13GrowableArrayIP10JavaThreadEC2Ei.exit:       ; preds = %3, %.lr.ph.preheade
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %13, i64 %16
+  %.idx = shl nuw nsw i64 %16, 3
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %.not2728 = icmp eq i32 %15, 0
   br i1 %.not2728, label %._crit_edge, label %.lr.ph
 
@@ -2757,7 +2765,8 @@ define hidden noundef ptr @_ZN7Threads32owning_thread_from_monitor_ownerEP11Thre
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %9
+  %.idx = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %.not30 = icmp eq i32 %8, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
@@ -2783,7 +2792,8 @@ define hidden noundef ptr @_ZN7Threads32owning_thread_from_monitor_ownerEP11Thre
   %19 = load ptr, ptr %5, align 8
   %20 = load i32, ptr %7, align 4
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %.idx38 = shl nuw nsw i64 %21, 3
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx38
   %.not2832 = icmp eq i32 %20, 0
   br i1 %.not2832, label %.loopexit, label %.lr.ph35
 
@@ -2814,7 +2824,8 @@ define hidden noundef ptr @_ZN7Threads25owning_thread_from_objectEP11ThreadsList
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not19 = icmp eq i32 %6, 0
   br i1 %.not19, label %_ZNK9LockStack8containsEP7oopDesc.exit.thread, label %.lr.ph
 
@@ -2900,7 +2911,8 @@ define hidden noundef ptr @_ZN7Threads26owning_thread_from_monitorEP11ThreadsLis
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %12, i64 %15
+  %.idx.i = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %.not19.i = icmp eq i32 %14, 0
   br i1 %.not19.i, label %_ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopDesc.exit, label %.lr.ph.i
 
@@ -2979,16 +2991,17 @@ _ZNK9LockStack8containsEP7oopDesc.exit.i:         ; preds = %34
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %47, i64 %50
+  %.idx.i11 = shl nuw nsw i64 %50, 3
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i11
   %.not30.i = icmp eq i32 %49, 0
-  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i11
+  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i12
 
-52:                                               ; preds = %.lr.ph.i11
+52:                                               ; preds = %.lr.ph.i12
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.024.031.i, i64 8
-  %.not.i12 = icmp eq ptr %53, %51
-  br i1 %.not.i12, label %._crit_edge.i.loopexit, label %.lr.ph.i11
+  %.not.i13 = icmp eq ptr %53, %51
+  br i1 %.not.i13, label %._crit_edge.i.loopexit, label %.lr.ph.i12
 
-.lr.ph.i11:                                       ; preds = %45, %52
+.lr.ph.i12:                                       ; preds = %45, %52
   %.sroa.024.031.i = phi ptr [ %53, %52 ], [ %47, %45 ]
   %54 = load i64, ptr @PrefetchScanIntervalInBytes, align 8
   tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.sroa.024.031.i, i64 %54) #16, !srcloc !9
@@ -3009,7 +3022,8 @@ _ZNK9LockStack8containsEP7oopDesc.exit.i:         ; preds = %34
   %60 = load ptr, ptr %46, align 8
   %61 = load i32, ptr %48, align 4
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %60, i64 %62
+  %.idx38.i = shl nuw nsw i64 %62, 3
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx38.i
   %.not2832.i = icmp eq i32 %61, 0
   br i1 %.not2832.i, label %_ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopDesc.exit, label %.lr.ph35.i
 
@@ -3026,8 +3040,8 @@ _ZNK9LockStack8containsEP7oopDesc.exit.i:         ; preds = %34
   %68 = tail call noundef zeroext i1 @_ZNK10JavaThread13is_lock_ownedEPh(ptr noundef nonnull align 8 dereferenceable(1800) %67, ptr noundef nonnull %6) #16
   br i1 %68, label %_ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopDesc.exit, label %64
 
-_ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopDesc.exit: ; preds = %.lr.ph.i11, %.lr.ph35.i, %64, %_ZNK9LockStack8containsEP7oopDesc.exit.i, %36, %44, %44, %59, %._crit_edge.i, %9, %41
-  %.0 = phi ptr [ %43, %41 ], [ null, %9 ], [ null, %44 ], [ null, %._crit_edge.i ], [ null, %59 ], [ null, %44 ], [ %20, %36 ], [ null, %_ZNK9LockStack8containsEP7oopDesc.exit.i ], [ null, %64 ], [ %67, %.lr.ph35.i ], [ %55, %.lr.ph.i11 ]
+_ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopDesc.exit: ; preds = %.lr.ph.i12, %.lr.ph35.i, %64, %_ZNK9LockStack8containsEP7oopDesc.exit.i, %36, %44, %44, %59, %._crit_edge.i, %9, %41
+  %.0 = phi ptr [ %43, %41 ], [ null, %9 ], [ null, %44 ], [ null, %._crit_edge.i ], [ null, %59 ], [ null, %44 ], [ %20, %36 ], [ null, %_ZNK9LockStack8containsEP7oopDesc.exit.i ], [ null, %64 ], [ %67, %.lr.ph35.i ], [ %55, %.lr.ph.i12 ]
   ret ptr %.0
 }
 
@@ -3065,7 +3079,8 @@ define hidden void @_ZN7Threads8print_onEP12outputStreambbbb(ptr noundef %0, i1 
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
+  %.idx = shl nuw nsw i64 %22, 3
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not4344 = icmp eq i32 %21, 0
   br i1 %.not4344, label %._crit_edge, label %.lr.ph
 
@@ -3356,13 +3371,13 @@ define hidden void @_ZN7Threads14print_on_errorEP12outputStreamP6ThreadPci(ptr n
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %9, i64 %12
+  %.idx = shl nuw nsw i64 %12, 3
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   %.not6465 = icmp eq i32 %11, 0
   br i1 %.not6465, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit
-  %.067 = phi i32 [ %28, %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit ], [ 0, %4 ]
-  %.sroa.0.066 = phi ptr [ %29, %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit ], [ %9, %4 ]
+  %.sroa.0.066 = phi ptr [ %28, %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit ], [ %9, %4 ]
   %14 = phi i8 [ %27, %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit ], [ 0, %4 ]
   %15 = load i64, ptr @PrefetchScanIntervalInBytes, align 8
   tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.sroa.0.066, i64 %15) #16, !srcloc !9
@@ -3389,195 +3404,194 @@ define hidden void @_ZN7Threads14print_on_errorEP12outputStreamP6ThreadPci(ptr n
 
 _ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit: ; preds = %.lr.ph, %17
   %27 = phi i8 [ %14, %.lr.ph ], [ %21, %17 ]
-  %28 = add nuw i32 %.067, 1
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.066, i64 8
-  %.not64 = icmp eq ptr %29, %13
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.066, i64 8
+  %.not64 = icmp eq ptr %28, %13
   br i1 %.not64, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit, %4
-  %30 = phi i8 [ 0, %4 ], [ %27, %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit ]
-  %.0.lcssa = phi i32 [ 0, %4 ], [ %28, %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit ]
-  store i8 %30, ptr %5, align 1
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.24, i32 noundef %.0.lcssa) #16
+  %29 = phi i8 [ 0, %4 ], [ %27, %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit ]
+  store i8 %29, ptr %5, align 1
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.24, i32 noundef %11) #16
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #16
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.25) #16
-  %31 = load ptr, ptr @_ZN8VMThread10_vm_threadE, align 8
-  %.not = icmp ne ptr %31, null
-  %32 = zext i1 %.not to i32
-  %33 = load ptr, ptr @_ZN13WatcherThread15_watcher_threadE, align 8
-  %.not51 = icmp ne ptr %33, null
-  %34 = zext i1 %.not51 to i32
-  %35 = add nuw nsw i32 %34, %32
-  %36 = tail call noundef ptr @_ZN14AsyncLogWriter8instanceEv() #16
-  %.not52 = icmp ne ptr %36, null
-  %37 = zext i1 %.not52 to i32
-  %38 = add nuw nsw i32 %35, %37
-  %39 = load ptr, ptr @_ZN8VMThread10_vm_threadE, align 8
-  %.not.i54 = icmp eq ptr %39, null
-  br i1 %.not.i54, label %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit55, label %40
+  %30 = load ptr, ptr @_ZN8VMThread10_vm_threadE, align 8
+  %.not = icmp ne ptr %30, null
+  %31 = zext i1 %.not to i32
+  %32 = load ptr, ptr @_ZN13WatcherThread15_watcher_threadE, align 8
+  %.not51 = icmp ne ptr %32, null
+  %33 = zext i1 %.not51 to i32
+  %34 = add nuw nsw i32 %33, %31
+  %35 = tail call noundef ptr @_ZN14AsyncLogWriter8instanceEv() #16
+  %.not52 = icmp ne ptr %35, null
+  %36 = zext i1 %.not52 to i32
+  %37 = add nuw nsw i32 %34, %36
+  %38 = load ptr, ptr @_ZN8VMThread10_vm_threadE, align 8
+  %.not.i54 = icmp eq ptr %38, null
+  br i1 %.not.i54, label %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit55, label %39
 
-40:                                               ; preds = %._crit_edge
-  %41 = icmp eq ptr %1, %39
-  %42 = trunc nuw i8 %30 to i1
-  %43 = or i1 %41, %42
-  %44 = zext i1 %43 to i8
-  store i8 %44, ptr %5, align 1
-  %45 = select i1 %41, ptr @.str.19, ptr @.str.20
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %45) #16
-  %46 = ptrtoint ptr %39 to i64
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21, i64 noundef %46) #16
+39:                                               ; preds = %._crit_edge
+  %40 = icmp eq ptr %1, %38
+  %41 = trunc nuw i8 %29 to i1
+  %42 = or i1 %40, %41
+  %43 = zext i1 %42 to i8
+  store i8 %43, ptr %5, align 1
+  %44 = select i1 %40, ptr @.str.19, ptr @.str.20
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %44) #16
+  %45 = ptrtoint ptr %38 to i64
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21, i64 noundef %45) #16
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.22) #16
-  %47 = load ptr, ptr %39, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 208
-  %49 = load ptr, ptr %48, align 8
-  tail call void %49(ptr noundef nonnull align 8 dereferenceable(888) %39, ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #16
+  %46 = load ptr, ptr %38, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 208
+  %48 = load ptr, ptr %47, align 8
+  tail call void %48(ptr noundef nonnull align 8 dereferenceable(888) %38, ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #16
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #16
   br label %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit55
 
-_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit55: ; preds = %._crit_edge, %40
-  %50 = phi i8 [ %30, %._crit_edge ], [ %44, %40 ]
-  %51 = load ptr, ptr @_ZN13WatcherThread15_watcher_threadE, align 8
-  %.not.i56 = icmp eq ptr %51, null
-  br i1 %.not.i56, label %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit57, label %52
+_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit55: ; preds = %._crit_edge, %39
+  %49 = phi i8 [ %29, %._crit_edge ], [ %43, %39 ]
+  %50 = load ptr, ptr @_ZN13WatcherThread15_watcher_threadE, align 8
+  %.not.i56 = icmp eq ptr %50, null
+  br i1 %.not.i56, label %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit57, label %51
 
-52:                                               ; preds = %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit55
-  %53 = icmp eq ptr %1, %51
-  %54 = trunc nuw i8 %50 to i1
-  %55 = or i1 %53, %54
-  %56 = zext i1 %55 to i8
-  store i8 %56, ptr %5, align 1
-  %57 = select i1 %53, ptr @.str.19, ptr @.str.20
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %57) #16
-  %58 = ptrtoint ptr %51 to i64
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21, i64 noundef %58) #16
+51:                                               ; preds = %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit55
+  %52 = icmp eq ptr %1, %50
+  %53 = trunc nuw i8 %49 to i1
+  %54 = or i1 %52, %53
+  %55 = zext i1 %54 to i8
+  store i8 %55, ptr %5, align 1
+  %56 = select i1 %52, ptr @.str.19, ptr @.str.20
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %56) #16
+  %57 = ptrtoint ptr %50 to i64
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21, i64 noundef %57) #16
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.22) #16
-  %59 = load ptr, ptr %51, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 208
-  %61 = load ptr, ptr %60, align 8
-  tail call void %61(ptr noundef nonnull align 8 dereferenceable(888) %51, ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #16
+  %58 = load ptr, ptr %50, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 208
+  %60 = load ptr, ptr %59, align 8
+  tail call void %60(ptr noundef nonnull align 8 dereferenceable(888) %50, ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #16
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #16
   br label %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit57
 
-_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit57: ; preds = %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit55, %52
-  %62 = phi i8 [ %50, %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit55 ], [ %56, %52 ]
-  %63 = tail call noundef ptr @_ZN14AsyncLogWriter8instanceEv() #16
-  %.not.i58 = icmp eq ptr %63, null
-  br i1 %.not.i58, label %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit59, label %64
+_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit57: ; preds = %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit55, %51
+  %61 = phi i8 [ %49, %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit55 ], [ %55, %51 ]
+  %62 = tail call noundef ptr @_ZN14AsyncLogWriter8instanceEv() #16
+  %.not.i58 = icmp eq ptr %62, null
+  br i1 %.not.i58, label %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit59, label %63
 
-64:                                               ; preds = %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit57
-  %65 = icmp eq ptr %1, %63
-  %66 = trunc nuw i8 %62 to i1
-  %67 = or i1 %65, %66
-  %68 = zext i1 %67 to i8
-  store i8 %68, ptr %5, align 1
-  %69 = select i1 %65, ptr @.str.19, ptr @.str.20
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %69) #16
-  %70 = ptrtoint ptr %63 to i64
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21, i64 noundef %70) #16
+63:                                               ; preds = %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit57
+  %64 = icmp eq ptr %1, %62
+  %65 = trunc nuw i8 %61 to i1
+  %66 = or i1 %64, %65
+  %67 = zext i1 %66 to i8
+  store i8 %67, ptr %5, align 1
+  %68 = select i1 %64, ptr @.str.19, ptr @.str.20
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %68) #16
+  %69 = ptrtoint ptr %62 to i64
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21, i64 noundef %69) #16
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.22) #16
-  %71 = load ptr, ptr %63, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 208
-  %73 = load ptr, ptr %72, align 8
-  tail call void %73(ptr noundef nonnull align 8 dereferenceable(888) %63, ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #16
+  %70 = load ptr, ptr %62, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 208
+  %72 = load ptr, ptr %71, align 8
+  tail call void %72(ptr noundef nonnull align 8 dereferenceable(888) %62, ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #16
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #16
   br label %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit59
 
-_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit59: ; preds = %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit57, %64
-  %74 = phi i8 [ %62, %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit57 ], [ %68, %64 ]
-  %75 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %.not53 = icmp eq ptr %75, null
-  br i1 %.not53, label %88, label %76
+_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit59: ; preds = %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit57, %63
+  %73 = phi i8 [ %61, %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit57 ], [ %67, %63 ]
+  %74 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %.not53 = icmp eq ptr %74, null
+  br i1 %.not53, label %87, label %75
 
-76:                                               ; preds = %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit59
+75:                                               ; preds = %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit59
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV19PrintOnErrorClosure, i64 16), ptr %6, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %0, ptr %77, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %1, ptr %78, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %2, ptr %79, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 %3, ptr %80, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %5, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i32 0, ptr %82, align 8
-  %83 = load ptr, ptr %75, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 352
-  %85 = load ptr, ptr %84, align 8
-  call void %85(ptr noundef nonnull align 8 dereferenceable(104) %75, ptr noundef nonnull %6) #16
-  %86 = load i32, ptr %82, align 8
-  %87 = add i32 %86, %38
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %0, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %1, ptr %77, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %2, ptr %78, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i32 %3, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr %5, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store i32 0, ptr %81, align 8
+  %82 = load ptr, ptr %74, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 352
+  %84 = load ptr, ptr %83, align 8
+  call void %84(ptr noundef nonnull align 8 dereferenceable(104) %74, ptr noundef nonnull %6) #16
+  %85 = load i32, ptr %81, align 8
+  %86 = add i32 %85, %37
   %.pre = load i8, ptr %5, align 1
-  br label %88
+  br label %87
 
-88:                                               ; preds = %76, %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit59
-  %89 = phi i8 [ %.pre, %76 ], [ %74, %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit59 ]
-  %.050 = phi i32 [ %87, %76 ], [ %38, %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit59 ]
-  %90 = trunc i8 %89 to i1
-  br i1 %90, label %97, label %91
+87:                                               ; preds = %75, %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit59
+  %88 = phi i8 [ %.pre, %75 ], [ %73, %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit59 ]
+  %.050 = phi i32 [ %86, %75 ], [ %37, %_ZN7Threads14print_on_errorEP6ThreadP12outputStreamS1_PciPb.exit59 ]
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %96, label %90
 
-91:                                               ; preds = %88
+90:                                               ; preds = %87
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #16
-  %92 = ptrtoint ptr %1 to i64
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.26, i64 noundef %92) #16
-  %93 = load ptr, ptr %1, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 208
-  %95 = load ptr, ptr %94, align 8
-  call void %95(ptr noundef nonnull align 8 dereferenceable(888) %1, ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #16
-  %96 = add i32 %.050, 1
+  %91 = ptrtoint ptr %1 to i64
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.26, i64 noundef %91) #16
+  %92 = load ptr, ptr %1, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 208
+  %94 = load ptr, ptr %93, align 8
+  call void %94(ptr noundef nonnull align 8 dereferenceable(888) %1, ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #16
+  %95 = add i32 %.050, 1
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #16
-  br label %97
+  br label %96
 
-97:                                               ; preds = %91, %88
-  %.1 = phi i32 [ %.050, %88 ], [ %96, %91 ]
+96:                                               ; preds = %90, %87
+  %.1 = phi i32 [ %.050, %87 ], [ %95, %90 ]
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.24, i32 noundef %.1) #16
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #16
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.27) #16
-  %98 = load volatile ptr, ptr @_ZN17ThreadsSMRSupport17_java_thread_listE, align 8
+  %97 = load volatile ptr, ptr @_ZN17ThreadsSMRSupport17_java_thread_listE, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %98, i64 4
-  %102 = load i32, ptr %101, align 4
-  %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw ptr, ptr %100, i64 %103
-  %.not2021.i = icmp eq i32 %102, 0
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 4
+  %101 = load i32, ptr %100, align 4
+  %102 = zext i32 %101 to i64
+  %.idx.i = shl nuw nsw i64 %102, 3
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx.i
+  %.not2021.i = icmp eq i32 %101, 0
   br i1 %.not2021.i, label %_ZN7Threads23print_threads_compilingEP12outputStreamPcib.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %97, %116
-  %.023.i = phi i32 [ %.1.i, %116 ], [ 0, %97 ]
-  %.sroa.0.022.i = phi ptr [ %117, %116 ], [ %100, %97 ]
-  %105 = load i64, ptr @PrefetchScanIntervalInBytes, align 8
-  call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.sroa.0.022.i, i64 %105) #16, !srcloc !9
-  %106 = load ptr, ptr %.sroa.0.022.i, align 8
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 64
-  %109 = load ptr, ptr %108, align 8
-  %110 = call noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(888) %106) #16
-  br i1 %110, label %111, label %116
+.lr.ph.i:                                         ; preds = %96, %115
+  %.023.i = phi i32 [ %.1.i, %115 ], [ 0, %96 ]
+  %.sroa.0.022.i = phi ptr [ %116, %115 ], [ %99, %96 ]
+  %104 = load i64, ptr @PrefetchScanIntervalInBytes, align 8
+  call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.sroa.0.022.i, i64 %104) #16, !srcloc !9
+  %105 = load ptr, ptr %.sroa.0.022.i, align 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 64
+  %108 = load ptr, ptr %107, align 8
+  %109 = call noundef zeroext i1 %108(ptr noundef nonnull align 8 dereferenceable(888) %105) #16
+  br i1 %109, label %110, label %115
 
-111:                                              ; preds = %.lr.ph.i
-  %112 = getelementptr inbounds nuw i8, ptr %106, i64 1824
-  %113 = load volatile ptr, ptr %112, align 8
-  %.not.i60 = icmp eq ptr %113, null
-  br i1 %.not.i60, label %116, label %114
+110:                                              ; preds = %.lr.ph.i
+  %111 = getelementptr inbounds nuw i8, ptr %105, i64 1824
+  %112 = load volatile ptr, ptr %111, align 8
+  %.not.i60 = icmp eq ptr %112, null
+  br i1 %.not.i60, label %115, label %113
 
-114:                                              ; preds = %111
-  call void @_ZNK10JavaThread19print_name_on_errorEP12outputStreamPci(ptr noundef nonnull align 8 dereferenceable(1800) %106, ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #16
+113:                                              ; preds = %110
+  call void @_ZNK10JavaThread19print_name_on_errorEP12outputStreamPci(ptr noundef nonnull align 8 dereferenceable(1800) %105, ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #16
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.20) #16
-  call void @_ZN11CompileTask5printEP12outputStreamPKcbb(ptr noundef nonnull align 8 dereferenceable(176) %113, ptr noundef nonnull %0, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true) #16
-  %115 = add i32 %.023.i, 1
-  br label %116
+  call void @_ZN11CompileTask5printEP12outputStreamPKcbb(ptr noundef nonnull align 8 dereferenceable(176) %112, ptr noundef nonnull %0, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true) #16
+  %114 = add i32 %.023.i, 1
+  br label %115
 
-116:                                              ; preds = %114, %111, %.lr.ph.i
-  %.1.i = phi i32 [ %115, %114 ], [ %.023.i, %111 ], [ %.023.i, %.lr.ph.i ]
-  %117 = getelementptr inbounds nuw i8, ptr %.sroa.0.022.i, i64 8
-  %.not20.i = icmp eq ptr %117, %104
+115:                                              ; preds = %113, %110, %.lr.ph.i
+  %.1.i = phi i32 [ %114, %113 ], [ %.023.i, %110 ], [ %.023.i, %.lr.ph.i ]
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.022.i, i64 8
+  %.not20.i = icmp eq ptr %116, %103
   br i1 %.not20.i, label %_ZN7Threads23print_threads_compilingEP12outputStreamPcib.exit, label %.lr.ph.i
 
-_ZN7Threads23print_threads_compilingEP12outputStreamPcib.exit: ; preds = %116, %97
-  %.0.lcssa.i = phi i32 [ 0, %97 ], [ %.1.i, %116 ]
+_ZN7Threads23print_threads_compilingEP12outputStreamPcib.exit: ; preds = %115, %96
+  %.0.lcssa.i = phi i32 [ 0, %96 ], [ %.1.i, %115 ]
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.24, i32 noundef %.0.lcssa.i) #16
   ret void
 }
@@ -3593,7 +3607,8 @@ define hidden noundef i32 @_ZN7Threads23print_threads_compilingEP12outputStreamP
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %.idx = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not2021 = icmp eq i32 %9, 0
   br i1 %.not2021, label %._crit_edge, label %.lr.ph
 
@@ -3646,7 +3661,8 @@ define hidden void @_ZN7Threads6verifyEv() local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not910 = icmp eq i32 %5, 0
   br i1 %.not910, label %._crit_edge, label %.lr.ph
 

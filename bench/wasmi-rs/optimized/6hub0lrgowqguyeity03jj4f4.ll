@@ -2611,7 +2611,8 @@ _ZN5wasmi5value3Val7default17hd59a259cd0adad81E.exit.i: ; preds = %309, %.noexc4
   %436 = load ptr, ptr %435, align 8, !noalias !245, !nonnull !3, !align !4, !noundef !3
   %437 = getelementptr inbounds nuw i8, ptr %434, i64 168
   %438 = load i64, ptr %437, align 8, !noalias !245, !noundef !3
-  %439 = getelementptr inbounds nuw { { i32, [7 x i32] }, { { { { ptr, i64 } }, {} }, {} }, i8, [7 x i8] }, ptr %436, i64 %438
+  %.idx.i = mul nuw nsw i64 %438, 56
+  %439 = getelementptr inbounds nuw i8, ptr %436, i64 %.idx.i
   %440 = icmp eq i64 %438, 0
   br i1 %440, label %.loopexit433, label %.lr.ph.i96
 

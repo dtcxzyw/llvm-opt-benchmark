@@ -7367,7 +7367,8 @@ define linkonce_odr dso_local void @_ZNSt3setI10cmLinkItemSt4lessIS0_ESaIS0_EEC2
   store ptr %7, ptr %10, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8, !tbaa !16
-  %12 = getelementptr inbounds nuw %class.cmLinkItem, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 104
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
   store ptr %0, ptr %6, align 8, !tbaa !220
   %.not6.i = icmp eq i64 %2, 0

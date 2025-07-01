@@ -2462,7 +2462,8 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %56
 
 .lr.ph.preheader:                                 ; preds = %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i32, ptr %13, i64 %65
+  %.idx = shl nsw i64 %65, 2
+  %66 = getelementptr inbounds i8, ptr %13, i64 %.idx
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %_ZN10duckdb_re211SparseArrayIiE7set_newEiRKi.exit64
@@ -2865,7 +2866,8 @@ _ZNSt11_Deque_baseIN10duckdb_re23NFA6ThreadESaIS2_EE15_M_allocate_mapEm.exit:
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIN10duckdb_re23NFA6ThreadESaIS2_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIN10duckdb_re23NFA6ThreadESaIS2_EE16_M_allocate_nodeEv.exit.i

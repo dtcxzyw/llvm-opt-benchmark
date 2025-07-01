@@ -401,10 +401,10 @@ define dso_local void @zend_shutdown_executor_values(i1 noundef zeroext %0) loca
   %29 = getelementptr inbounds i8, ptr %.0176275, i64 -24
   %30 = load i8, ptr %29, align 8, !tbaa !4
   %31 = icmp eq i8 %30, 0
-  br i1 %31, label %._crit_edge310, label %32, !prof !92
+  br i1 %31, label %._crit_edge313, label %32, !prof !92
 
-._crit_edge310:                                   ; preds = %27
-  %.pre311 = add i32 %.0276, -1
+._crit_edge313:                                   ; preds = %27
+  %.pre314 = add i32 %.0276, -1
   br label %104
 
 32:                                               ; preds = %27
@@ -550,8 +550,8 @@ zend_string_release_ex.exit251:                   ; preds = %71, %66, %62, %zend
   store i32 %103, ptr %94, align 4, !tbaa !100
   br label %104
 
-104:                                              ; preds = %._crit_edge310, %98, %101
-  %.pre-phi = phi i32 [ %.pre311, %._crit_edge310 ], [ %86, %98 ], [ %86, %101 ]
+104:                                              ; preds = %._crit_edge313, %98, %101
+  %.pre-phi = phi i32 [ %.pre314, %._crit_edge313 ], [ %86, %98 ], [ %86, %101 ]
   %.not202 = icmp eq i32 %.pre-phi, 0
   br i1 %.not202, label %zend_string_release_ex.exit253, label %27
 
@@ -714,7 +714,8 @@ zend_string_release_ex.exit253:                   ; preds = %104, %32, %15
   %181 = getelementptr inbounds nuw i8, ptr %158, i64 200
   %182 = load i32, ptr %181, align 8, !tbaa !75
   %183 = zext i32 %182 to i64
-  %184 = getelementptr inbounds nuw %struct._Bucket, ptr %180, i64 %183
+  %.idx = shl nuw nsw i64 %183, 5
+  %184 = getelementptr inbounds nuw i8, ptr %180, i64 %.idx
   %185 = getelementptr inbounds nuw i8, ptr %158, i64 184
   %186 = load i32, ptr %185, align 8, !tbaa !4
   %187 = and i32 %186, 4
@@ -778,7 +779,8 @@ zval_ptr_dtor_nogc.exit248:                       ; preds = %196, %199, %204
   %212 = getelementptr inbounds nuw i8, ptr %158, i64 32
   %213 = load i32, ptr %212, align 8, !tbaa !132
   %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds %struct._zval_struct, ptr %210, i64 %214
+  %.idx309 = shl nsw i64 %214, 4
+  %215 = getelementptr inbounds i8, ptr %210, i64 %.idx309
   %.not224289 = icmp eq i32 %213, 0
   br i1 %.not224289, label %.loopexit272, label %.lr.ph292
 
@@ -905,7 +907,8 @@ zend_hash_release.exit:                           ; preds = %245, %252, %260, %2
   %268 = getelementptr inbounds nuw i8, ptr %158, i64 88
   %269 = load i32, ptr %268, align 8, !tbaa !75
   %270 = zext i32 %269 to i64
-  %271 = getelementptr inbounds nuw %struct._Bucket, ptr %267, i64 %270
+  %.idx310 = shl nuw nsw i64 %270, 5
+  %271 = getelementptr inbounds nuw i8, ptr %267, i64 %.idx310
   %272 = getelementptr inbounds nuw i8, ptr %158, i64 72
   %273 = load i32, ptr %272, align 8, !tbaa !4
   %274 = and i32 %273, 4
@@ -982,7 +985,8 @@ zend_hash_release.exit:                           ; preds = %245, %252, %260, %2
   %307 = getelementptr inbounds nuw i8, ptr %158, i64 144
   %308 = load i32, ptr %307, align 8, !tbaa !75
   %309 = zext i32 %308 to i64
-  %310 = getelementptr inbounds nuw %struct._Bucket, ptr %306, i64 %309
+  %.idx311 = shl nuw nsw i64 %309, 5
+  %310 = getelementptr inbounds nuw i8, ptr %306, i64 %.idx311
   %311 = getelementptr inbounds nuw i8, ptr %158, i64 128
   %312 = load i32, ptr %311, align 8, !tbaa !4
   %313 = and i32 %312, 4

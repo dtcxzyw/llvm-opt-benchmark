@@ -3945,12 +3945,12 @@ _ZNSt16allocator_traitsISaI6t_atomEE8allocateERS1_m.exit.i.i.i.i: ; preds = %50
 
 69:                                               ; preds = %83, %64
   %70 = phi i64 [ 0, %64 ], [ %88, %83 ]
-  %.idx23 = shl nuw nsw i64 %70, 5
-  %.add24 = add nuw nsw i64 %.idx23, 112
-  %.ptr27 = getelementptr inbounds nuw i8, ptr %0, i64 %.add24
+  %.idx.i = shl nsw i64 %70, 5
+  %.add23 = add nuw nsw i64 %.idx.i, 112
+  %.ptr26 = getelementptr inbounds nuw i8, ptr %0, i64 %.add23
   %71 = getelementptr inbounds nuw [4 x %"class.std::__cxx11::basic_string"], ptr %68, i64 0, i64 %70
-  %72 = getelementptr inbounds nuw i8, ptr %.ptr27, i64 16
-  store ptr %72, ptr %.ptr27, align 8, !tbaa !35
+  %72 = getelementptr inbounds nuw i8, ptr %.ptr26, i64 16
+  store ptr %72, ptr %.ptr26, align 8, !tbaa !35
   %73 = load ptr, ptr %71, align 8, !tbaa !86
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %75 = load i64, ptr %74, align 8, !tbaa !38
@@ -3960,11 +3960,11 @@ _ZNSt16allocator_traitsISaI6t_atomEE8allocateERS1_m.exit.i.i.i.i: ; preds = %50
   br i1 %76, label %.noexc.i.i18, label %._crit_edge.i.i.i
 
 .noexc.i.i18:                                     ; preds = %69
-  %77 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %.ptr27, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+  %77 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %.ptr26, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
           to label %.noexc.i19 unwind label %90
 
 .noexc.i19:                                       ; preds = %.noexc.i.i18
-  store ptr %77, ptr %.ptr27, align 8, !tbaa !86
+  store ptr %77, ptr %.ptr26, align 8, !tbaa !86
   %78 = load i64, ptr %3, align 8, !tbaa !85
   store i64 %78, ptr %72, align 8, !tbaa !87
   br label %._crit_edge.i.i.i
@@ -3987,9 +3987,9 @@ _ZNSt16allocator_traitsISaI6t_atomEE8allocateERS1_m.exit.i.i.i.i: ; preds = %50
 
 83:                                               ; preds = %82, %80, %._crit_edge.i.i.i
   %84 = load i64, ptr %3, align 8, !tbaa !85
-  %85 = getelementptr inbounds nuw i8, ptr %.ptr27, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.ptr26, i64 8
   store i64 %84, ptr %85, align 8, !tbaa !38
-  %86 = load ptr, ptr %.ptr27, align 8, !tbaa !86
+  %86 = load ptr, ptr %.ptr26, align 8, !tbaa !86
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 %84
   store i8 0, ptr %87, align 1, !tbaa !87
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
@@ -4004,11 +4004,11 @@ _ZNSt16allocator_traitsISaI6t_atomEE8allocateERS1_m.exit.i.i.i.i: ; preds = %50
   br i1 %92, label %.body, label %.preheader.i
 
 .preheader.i:                                     ; preds = %90, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %.idx = phi i64 [ %.add, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.add24, %90 ]
+  %.idx = phi i64 [ %.add, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.add23, %90 ]
   %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx
   %.add = add nsw i64 %.idx, -32
-  %.ptr25 = getelementptr inbounds i8, ptr %0, i64 %.add
-  %93 = load ptr, ptr %.ptr25, align 8, !tbaa !86
+  %.ptr24 = getelementptr inbounds i8, ptr %0, i64 %.add
+  %93 = load ptr, ptr %.ptr24, align 8, !tbaa !86
   %94 = getelementptr inbounds i8, ptr %.ptr, i64 -16
   %95 = icmp eq ptr %93, %94
   br i1 %95, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i

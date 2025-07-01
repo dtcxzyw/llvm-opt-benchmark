@@ -9970,7 +9970,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br label %"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$17h2cce01709bd9db21E.exit121"
 
 129:                                              ; preds = %122
-  %130 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.5174.0.copyload, i64 %.sroa.7175.0.copyload
+  %.idx = mul nsw i64 %.sroa.7175.0.copyload, 24
+  %130 = getelementptr inbounds i8, ptr %.sroa.5174.0.copyload, i64 %.idx
   store ptr %.sroa.5174.0.copyload, ptr %26, align 8, !alias.scope !1216, !noalias !1219
   %131 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 %.sroa.0173.0.copyload, ptr %131, align 8, !alias.scope !1216, !noalias !1219
@@ -11282,7 +11283,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   br label %"_ZN4core3ptr113drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$$GT$17h66f1369c53f3862fE.exit121"
 
 136:                                              ; preds = %129
-  %137 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %.sroa.5174.0.copyload, i64 %.sroa.7175.0.copyload
+  %.idx = mul nsw i64 %.sroa.7175.0.copyload, 48
+  %137 = getelementptr inbounds i8, ptr %.sroa.5174.0.copyload, i64 %.idx
   store ptr %.sroa.5174.0.copyload, ptr %33, align 8, !alias.scope !1375, !noalias !1378
   %138 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i64 %.sroa.0173.0.copyload, ptr %138, align 8, !alias.scope !1375, !noalias !1378

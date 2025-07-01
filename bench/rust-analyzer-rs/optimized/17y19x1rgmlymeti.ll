@@ -1995,7 +1995,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %.sroa.0250.0.copyload = load i64, ptr %66, align 8
   %.sroa.4251.0.copyload = load ptr, ptr %.sroa.516.0..sroa_idx17, align 8, !nonnull !5, !noundef !5
   %.sroa.5252.0.copyload = load i64, ptr %102, align 8
-  %440 = getelementptr inbounds { i64, [8 x i64] }, ptr %.sroa.4251.0.copyload, i64 %.sroa.5252.0.copyload
+  %.idx = mul nsw i64 %.sroa.5252.0.copyload, 72
+  %440 = getelementptr inbounds i8, ptr %.sroa.4251.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %59)
   store ptr %.sroa.4251.0.copyload, ptr %59, align 8
   store ptr %.sroa.4251.0.copyload, ptr %.sroa.029.sroa.2.0..sroa_idx, align 8

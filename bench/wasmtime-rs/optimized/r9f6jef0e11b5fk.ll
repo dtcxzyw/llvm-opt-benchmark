@@ -13522,7 +13522,8 @@ define void @"_ZN113_$LT$wasmtime_runtime..instance..allocator..pooling..memory_
   store i64 0, ptr %5, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.47.0..sroa_idx, align 8
   store i64 0, ptr %.sroa.58.0..sroa_idx, align 8
-  %6 = getelementptr inbounds { { { i32 } }, { { i8 } }, [3 x i8], { { [33 x i8], i8, [6 x i8] } } }, ptr %.sroa.47.0.copyload, i64 %.sroa.58.0.copyload
+  %.idx = mul nsw i64 %.sroa.58.0.copyload, 48
+  %6 = getelementptr inbounds i8, ptr %.sroa.47.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   store ptr %.sroa.47.0.copyload, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -13735,7 +13736,8 @@ define void @"_ZN97_$LT$wasmtime_runtime..sys..unix..unwind..UnwindRegistration$
   br i1 %6, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %7 = getelementptr inbounds ptr, ptr %3, i64 %5
+  %.idx = shl nsw i64 %5, 3
+  %7 = getelementptr inbounds i8, ptr %3, i64 %.idx
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1

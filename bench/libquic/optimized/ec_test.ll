@@ -38,7 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.EC_builtin_curve = type { i32, ptr }
 %class.ScopedOpenSSLContext = type { %struct.cbb_st }
 %struct.cbb_st = type { ptr, ptr, i64, i8, i8, i8 }
 
@@ -1736,82 +1735,87 @@ _ZNSt6vectorI16EC_builtin_curveSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; pred
 .noexc22:                                         ; preds = %_ZNSt6vectorI16EC_builtin_curveSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
   %4 = shl nuw nsw i64 %2, 4
   %5 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %4) #21
-  %6 = getelementptr %struct.EC_builtin_curve, ptr %5, i64 %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %8 = icmp eq i64 %2, 1
-  br i1 %8, label %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = add nsw i64 %2, -1
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit, label %9
 
-.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.noexc22, %.lr.ph.i.i.i.i.i.i.i.i.i
-  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %7, %.noexc22 ]
+9:                                                ; preds = %.noexc22
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %7, 4
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i.i.i.i.i.i
+  br label %.lr.ph.i.i.i.i.i.i.i.i.i
+
+.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %9
+  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %6, %9 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.06.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !39
-  %9 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, %6
+  %11 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %10
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !43
 
 _ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc22, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
   %.sroa.029.0 = phi ptr [ %5, %.noexc22 ], [ null, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %5, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.0.i.i.i.i.i = phi ptr [ %7, %.noexc22 ], [ null, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %6, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %10 = invoke i64 @EC_get_builtin_curves(ptr noundef %.sroa.029.0, i64 noundef %2)
-          to label %.preheader unwind label %11
+  %.0.i.i.i.i.i = phi ptr [ %6, %.noexc22 ], [ null, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %10, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %12 = invoke i64 @EC_get_builtin_curves(ptr noundef %.sroa.029.0, i64 noundef %2)
+          to label %.preheader unwind label %13
 
 .preheader:                                       ; preds = %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit
   %.not41 = icmp eq ptr %.sroa.029.0, %.0.i.i.i.i.i
   br i1 %.not41, label %.critedge21, label %.lr.ph
 
-11:                                               ; preds = %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit
-  %12 = landingpad { ptr, i32 }
+13:                                               ; preds = %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit
+  %14 = landingpad { ptr, i32 }
           cleanup
-  br label %25
+  br label %27
 
 .lr.ph:                                           ; preds = %.preheader, %.critedge
-  %.sroa.025.042 = phi ptr [ %23, %.critedge ], [ %.sroa.029.0, %.preheader ]
-  %13 = load i32, ptr %.sroa.025.042, align 8, !tbaa !45
-  %14 = invoke noundef zeroext i1 %0(i32 noundef %13)
-          to label %15 unwind label %21, !callees !47
+  %.sroa.025.042 = phi ptr [ %25, %.critedge ], [ %.sroa.029.0, %.preheader ]
+  %15 = load i32, ptr %.sroa.025.042, align 8, !tbaa !45
+  %16 = invoke noundef zeroext i1 %0(i32 noundef %15)
+          to label %17 unwind label %23, !callees !47
 
-15:                                               ; preds = %.lr.ph
-  br i1 %14, label %.critedge, label %16
+17:                                               ; preds = %.lr.ph
+  br i1 %16, label %.critedge, label %18
 
-16:                                               ; preds = %15
-  %17 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.025.042, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !48
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.13, ptr noundef %19) #24
+18:                                               ; preds = %17
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.025.042, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !48
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.13, ptr noundef %21) #24
   br label %.critedge21
 
-21:                                               ; preds = %.lr.ph
-  %22 = landingpad { ptr, i32 }
+23:                                               ; preds = %.lr.ph
+  %24 = landingpad { ptr, i32 }
           cleanup
-  br label %25
+  br label %27
 
-.critedge:                                        ; preds = %15
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.025.042, i64 16
-  %.not = icmp eq ptr %23, %.0.i.i.i.i.i
+.critedge:                                        ; preds = %17
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.025.042, i64 16
+  %.not = icmp eq ptr %25, %.0.i.i.i.i.i
   br i1 %.not, label %.critedge21, label %.lr.ph
 
-.critedge21:                                      ; preds = %.critedge, %.preheader, %16
-  %.not38 = phi i1 [ false, %16 ], [ true, %.preheader ], [ true, %.critedge ]
+.critedge21:                                      ; preds = %.critedge, %.preheader, %18
+  %.not38 = phi i1 [ false, %18 ], [ true, %.preheader ], [ true, %.critedge ]
   %.not.i.i.i = icmp eq ptr %.sroa.029.0, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorI16EC_builtin_curveSaIS0_EED2Ev.exit, label %24
+  br i1 %.not.i.i.i, label %_ZNSt6vectorI16EC_builtin_curveSaIS0_EED2Ev.exit, label %26
 
-24:                                               ; preds = %.critedge21
+26:                                               ; preds = %.critedge21
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.029.0) #22
   br label %_ZNSt6vectorI16EC_builtin_curveSaIS0_EED2Ev.exit
 
-_ZNSt6vectorI16EC_builtin_curveSaIS0_EED2Ev.exit: ; preds = %.critedge21, %24
+_ZNSt6vectorI16EC_builtin_curveSaIS0_EED2Ev.exit: ; preds = %.critedge21, %26
   ret i1 %.not38
 
-25:                                               ; preds = %21, %11
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %12, %11 ]
+27:                                               ; preds = %23, %13
+  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %14, %13 ]
   %.not.i.i.i23 = icmp eq ptr %.sroa.029.0, null
-  br i1 %.not.i.i.i23, label %_ZNSt6vectorI16EC_builtin_curveSaIS0_EED2Ev.exit24, label %26
+  br i1 %.not.i.i.i23, label %_ZNSt6vectorI16EC_builtin_curveSaIS0_EED2Ev.exit24, label %28
 
-26:                                               ; preds = %25
+28:                                               ; preds = %27
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.029.0) #22
   br label %_ZNSt6vectorI16EC_builtin_curveSaIS0_EED2Ev.exit24
 
-_ZNSt6vectorI16EC_builtin_curveSaIS0_EED2Ev.exit24: ; preds = %26, %25
+_ZNSt6vectorI16EC_builtin_curveSaIS0_EED2Ev.exit24: ; preds = %28, %27
   resume { ptr, i32 } %.pn
 }
 

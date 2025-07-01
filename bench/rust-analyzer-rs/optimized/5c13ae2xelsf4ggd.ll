@@ -2910,7 +2910,8 @@ define noundef zeroext i1 @"_ZN6parser9shortcuts45_$LT$impl$u20$parser..lexed_st
   %17 = load ptr, ptr %16, align 8, !alias.scope !381, !noalias !384, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8, !alias.scope !381, !noalias !384, !noundef !5
-  %20 = getelementptr inbounds i32, ptr %17, i64 %19
+  %.idx = shl nsw i64 %19, 2
+  %20 = getelementptr inbounds i8, ptr %17, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %20, ptr %.sroa.2.0..sroa_idx, align 8

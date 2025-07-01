@@ -1642,7 +1642,8 @@ _ZN4llvm18BinaryStreamReader9readArrayINS_7support6detail31packed_endian_specifi
 _ZN4llvm5ErrorD2Ev.exit60:                        ; preds = %88
   %91 = load ptr, ptr %4, align 8, !tbaa !167, !noalias !228
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #21, !noalias !228
-  %92 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %91, i64 %84
+  %.idx = shl nuw nsw i64 %84, 2
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx
   %.not88 = icmp eq i64 %84, 0
   br i1 %.not88, label %.critedge48, label %.critedge45
 
@@ -1688,17 +1689,17 @@ _ZN4llvm5ErrorD2Ev.exit60:                        ; preds = %88
   br label %.critedge
 
 .critedge48:                                      ; preds = %93, %_ZN4llvm5ErrorD2Ev.exit60.thread, %_ZN4llvm5ErrorD2Ev.exit60
-  %.sroa.071.196 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit60.thread ], [ %91, %_ZN4llvm5ErrorD2Ev.exit60 ], [ %91, %93 ]
-  %.sroa.10.195 = phi i64 [ 0, %_ZN4llvm5ErrorD2Ev.exit60.thread ], [ 0, %_ZN4llvm5ErrorD2Ev.exit60 ], [ %84, %93 ]
+  %.sroa.071.197 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit60.thread ], [ %91, %_ZN4llvm5ErrorD2Ev.exit60 ], [ %91, %93 ]
+  %.sroa.10.196 = phi i64 [ 0, %_ZN4llvm5ErrorD2Ev.exit60.thread ], [ 0, %_ZN4llvm5ErrorD2Ev.exit60 ], [ %84, %93 ]
   %111 = load ptr, ptr %63, align 8, !tbaa !243
   %112 = load ptr, ptr %64, align 8, !tbaa !71
   %.not.i63 = icmp eq ptr %111, %112
   br i1 %.not.i63, label %115, label %113
 
 113:                                              ; preds = %.critedge48
-  store ptr %.sroa.071.196, ptr %111, align 8, !tbaa !138
+  store ptr %.sroa.071.197, ptr %111, align 8, !tbaa !138
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %111, i64 8
-  store i64 %.sroa.10.195, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !11
+  store i64 %.sroa.10.196, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !11
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 16
   store ptr %114, ptr %63, align 8, !tbaa !243
   br label %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EE9push_backERKS7_.exit
@@ -1727,9 +1728,9 @@ _ZNKSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integr
   %127 = shl nuw nsw i64 %126, 4
   %128 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %127) #23
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 %119
-  store ptr %.sroa.071.196, ptr %129, align 8, !tbaa !138
+  store ptr %.sroa.071.197, ptr %129, align 8, !tbaa !138
   %.sroa.10.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  store i64 %.sroa.10.195, ptr %.sroa.10.0..sroa_idx75, align 8, !tbaa !11
+  store i64 %.sroa.10.196, ptr %.sroa.10.0..sroa_idx75, align 8, !tbaa !11
   %.not10.i.i.i.i.i = icmp eq ptr %116, %111
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 

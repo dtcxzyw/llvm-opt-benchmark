@@ -14535,7 +14535,8 @@ define void @_ZN5uu_pr3mpr17h47c4779e0b4a54bfE(ptr noalias noundef writeonly sre
   %28 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store i64 %2, ptr %28, align 8
-  %29 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %29 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %30 = icmp eq i64 %2, 0
   br i1 %30, label %.lr.ph206, label %.lr.ph
 
@@ -15593,7 +15594,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.11809146096169120119.e
 
 71:                                               ; preds = %69
   store ptr %70, ptr %15, align 8
-  %72 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %.sroa.4.0.copyload, i64 %.sroa.599.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.599.0.copyload, 24
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   store ptr %.sroa.4.0.copyload, ptr %14, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -15669,7 +15671,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.11809146096169120119.e
 88:                                               ; preds = %84
   %89 = load ptr, ptr %63, align 8, !nonnull !5, !noundef !5
   %90 = load i64, ptr %64, align 8, !noundef !5
-  %91 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %89, i64 %90
+  %.idx134 = mul nsw i64 %90, 24
+  %91 = getelementptr inbounds i8, ptr %89, i64 %.idx134
   %92 = icmp eq i64 %90, 0
   br i1 %92, label %._crit_edge, label %.lr.ph
 
@@ -15837,9 +15840,9 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.11809146096169120119.e
   br i1 %156, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h982ced8b1bd0f42fE.exit.thread", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h982ced8b1bd0f42fE.exit"
 
 157:                                              ; preds = %144, %140
-  %.lcssa150.sink = phi ptr [ %83, %140 ], [ %143, %144 ]
+  %.lcssa151.sink = phi ptr [ %83, %140 ], [ %143, %144 ]
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.lcssa150.sink, ptr %158, align 8
+  store ptr %.lcssa151.sink, ptr %158, align 8
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !3738
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he5a27a48d163f712E.llvm.12123109310310187846"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)

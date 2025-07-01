@@ -473,7 +473,8 @@ define hidden void @_ZN16PhaseMacroExpand12migrate_outsEP4NodeS1_(ptr noundef no
 
 .lr.ph:                                           ; preds = %3
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
+  %.idx = shl nuw nsw i64 %8, 3
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %11
 
@@ -2412,7 +2413,8 @@ define hidden noundef ptr @_ZN16PhaseMacroExpand18value_from_mem_phiEP4Node9Basi
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %24
+  %.idx = shl nuw nsw i64 %24, 3
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %.not157 = icmp eq i32 %23, 0
   br i1 %.not157, label %._crit_edge, label %.lr.ph
 
@@ -3209,7 +3211,8 @@ define hidden noundef zeroext i1 @_ZN16PhaseMacroExpand24can_eliminate_allocatio
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %54 = load i32, ptr %53, align 8
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %52, i64 %55
+  %.idx = shl nuw nsw i64 %55, 3
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx
   %.not101 = icmp eq i32 %54, 0
   br i1 %.not101, label %.thread, label %.lr.ph97
 
@@ -3248,9 +3251,10 @@ define hidden noundef zeroext i1 @_ZN16PhaseMacroExpand24can_eliminate_allocatio
   %80 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %81 = load i32, ptr %80, align 8
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %79, i64 %82
-  %.not102 = icmp eq i32 %81, 0
-  br i1 %.not102, label %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, label %.lr.ph
+  %.idx102 = shl nuw nsw i64 %82, 3
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx102
+  %.not103 = icmp eq i32 %81, 0
+  br i1 %.not103, label %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %77
   br i1 %4, label %.lr.ph.split.us, label %.lr.ph.split
@@ -3495,10 +3499,10 @@ _ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if
   br i1 %222, label %59, label %.thread.loopexit.loopexit, !llvm.loop !20
 
 .thread.loopexit.sink.split:                      ; preds = %206, %215
-  %.lcssa111.sink113 = phi ptr [ %218, %215 ], [ %60, %206 ]
-  %223 = load ptr, ptr %.lcssa111.sink113, align 8
+  %.lcssa112.sink114 = phi ptr [ %218, %215 ], [ %60, %206 ]
+  %223 = load ptr, ptr %.lcssa112.sink114, align 8
   %224 = load ptr, ptr %223, align 8
-  %225 = tail call noundef i32 %224(ptr noundef nonnull align 8 dereferenceable(52) %.lcssa111.sink113) #8
+  %225 = tail call noundef i32 %224(ptr noundef nonnull align 8 dereferenceable(52) %.lcssa112.sink114) #8
   br label %.thread
 
 .thread.loopexit.loopexit:                        ; preds = %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, %65, %149
@@ -4947,9 +4951,10 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9Node_List4pushE
 
 .lr.ph117:                                        ; preds = %220
   %223 = zext i32 %222 to i64
+  %.idx = shl nuw nsw i64 %223, 3
   %224 = getelementptr inbounds nuw i8, ptr %219, i64 16
   %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds nuw ptr, ptr %225, i64 %223
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 %.idx
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %229
@@ -7491,7 +7496,8 @@ define hidden void @_ZN16PhaseMacroExpand15yank_alloc_nodeEP12AllocateNode(ptr n
 
 .lr.ph:                                           ; preds = %13
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %18
+  %.idx = shl nuw nsw i64 %18, 3
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %21
 

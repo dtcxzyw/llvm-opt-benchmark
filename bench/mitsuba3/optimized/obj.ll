@@ -5388,20 +5388,20 @@ define linkonce_odr hidden void @_ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6Ma
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 24
   %.not = icmp ult i64 %10, %1
-  br i1 %.not, label %17, label %11
+  br i1 %.not, label %16, label %11
 
 11:                                               ; preds = %2
   %.not10.i = icmp eq i64 %1, 0
   br i1 %.not10.i, label %_ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE18__construct_at_endEm.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %11
-  %12 = mul i64 %1, 24
-  %13 = add i64 %12, -24
-  %14 = urem i64 %13, 24
-  %15 = sub nuw i64 %13, %14
-  %16 = add i64 %15, 24
-  tail call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %16, i1 false)
-  %scevgep.i = getelementptr i8, ptr %6, i64 %16
+  %.idx.i = mul i64 %1, 24
+  %12 = add i64 %.idx.i, -24
+  %13 = urem i64 %12, 24
+  %14 = sub nuw i64 %12, %13
+  %15 = add i64 %14, 24
+  tail call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %15, i1 false)
+  %scevgep.i = getelementptr i8, ptr %6, i64 %15
   br label %_ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE18__construct_at_endEm.exit
 
 _ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE18__construct_at_endEm.exit: ; preds = %11, %.lr.ph.preheader.i
@@ -5409,68 +5409,68 @@ _ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEE
   store ptr %.sroa.3.0.lcssa.i, ptr %5, align 8
   br label %_ZNSt3__114__split_bufferIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingRNS_9allocatorISC_EEED2Ev.exit
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %0, align 8
-  %.promoted.fr.i.i.i.i = freeze ptr %18
-  %19 = ptrtoint ptr %.promoted.fr.i.i.i.i to i64
-  %20 = sub i64 %8, %19
-  %21 = sdiv exact i64 %20, 24
-  %22 = add i64 %21, %1
-  %23 = icmp ugt i64 %22, 768614336404564650
-  br i1 %23, label %24, label %_ZNKSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE11__recommendB8ne190000Em.exit
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %0, align 8
+  %.promoted.fr.i.i.i.i = freeze ptr %17
+  %18 = ptrtoint ptr %.promoted.fr.i.i.i.i to i64
+  %19 = sub i64 %8, %18
+  %20 = sdiv exact i64 %19, 24
+  %21 = add i64 %20, %1
+  %22 = icmp ugt i64 %21, 768614336404564650
+  br i1 %22, label %23, label %_ZNKSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE11__recommendB8ne190000Em.exit
 
-24:                                               ; preds = %17
+23:                                               ; preds = %16
   tail call void @_ZNKSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
   unreachable
 
-_ZNKSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE11__recommendB8ne190000Em.exit: ; preds = %17
-  %25 = sub i64 %7, %19
-  %26 = sdiv exact i64 %25, 24
-  %.not.i = icmp ult i64 %26, 384307168202282325
-  %27 = shl nuw nsw i64 %26, 1
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %27, i64 %22)
+_ZNKSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE11__recommendB8ne190000Em.exit: ; preds = %16
+  %24 = sub i64 %7, %18
+  %25 = sdiv exact i64 %24, 24
+  %.not.i = icmp ult i64 %25, 384307168202282325
+  %26 = shl nuw nsw i64 %25, 1
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %26, i64 %21)
   %.0.i = select i1 %.not.i, i64 %.sroa.speculated.i, i64 768614336404564650
-  %28 = icmp eq i64 %.0.i, 0
-  br i1 %28, label %_ZNSt3__114__split_bufferIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingRNS_9allocatorISC_EEE5clearB8ne190000Ev.exit.i, label %29
+  %27 = icmp eq i64 %.0.i, 0
+  br i1 %27, label %_ZNSt3__114__split_bufferIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingRNS_9allocatorISC_EEE5clearB8ne190000Ev.exit.i, label %28
 
-29:                                               ; preds = %_ZNKSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE11__recommendB8ne190000Em.exit
-  %30 = icmp ugt i64 %.0.i, 768614336404564650
-  br i1 %30, label %31, label %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEC1ERKNS2_10PropertiesEE13VertexBindingEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSH_m.exit.i
+28:                                               ; preds = %_ZNKSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE11__recommendB8ne190000Em.exit
+  %29 = icmp ugt i64 %.0.i, 768614336404564650
+  br i1 %29, label %30, label %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEC1ERKNS2_10PropertiesEE13VertexBindingEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSH_m.exit.i
 
-31:                                               ; preds = %29
+30:                                               ; preds = %28
   tail call void @_ZSt28__throw_bad_array_new_lengthB8ne190000v() #28
   unreachable
 
-_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEC1ERKNS2_10PropertiesEE13VertexBindingEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSH_m.exit.i: ; preds = %29
-  %32 = mul nuw i64 %.0.i, 24
-  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #26
+_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEC1ERKNS2_10PropertiesEE13VertexBindingEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSH_m.exit.i: ; preds = %28
+  %31 = mul nuw i64 %.0.i, 24
+  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #26
   br label %_ZNSt3__114__split_bufferIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingRNS_9allocatorISC_EEE5clearB8ne190000Ev.exit.i
 
 _ZNSt3__114__split_bufferIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingRNS_9allocatorISC_EEE5clearB8ne190000Ev.exit.i: ; preds = %_ZNKSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE11__recommendB8ne190000Em.exit, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEC1ERKNS2_10PropertiesEE13VertexBindingEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSH_m.exit.i
-  %storemerge.i = phi ptr [ %33, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEC1ERKNS2_10PropertiesEE13VertexBindingEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSH_m.exit.i ], [ null, %_ZNKSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE11__recommendB8ne190000Em.exit ]
-  %34 = getelementptr inbounds i8, ptr %storemerge.i, i64 %20
-  %35 = getelementptr inbounds nuw %struct.VertexBinding, ptr %storemerge.i, i64 %.0.i
-  %36 = mul i64 %1, 24
-  %37 = add i64 %36, -24
-  %38 = urem i64 %37, 24
-  %39 = sub nuw i64 %37, %38
-  %40 = add i64 %39, 24
-  tail call void @llvm.memset.p0.i64(ptr align 8 %34, i8 0, i64 %40, i1 false)
-  %scevgep.i8 = getelementptr i8, ptr %34, i64 %40
-  %.neg.i = sdiv exact i64 %20, -24
-  %41 = getelementptr inbounds %struct.VertexBinding, ptr %34, i64 %.neg.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %.promoted.fr.i.i.i.i, i64 %20, i1 false)
-  store ptr %41, ptr %0, align 8
-  store ptr %scevgep.i8, ptr %5, align 8
-  store ptr %35, ptr %3, align 8
-  %.not.i9 = icmp eq ptr %.promoted.fr.i.i.i.i, null
-  br i1 %.not.i9, label %_ZNSt3__114__split_bufferIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingRNS_9allocatorISC_EEED2Ev.exit, label %42
+  %storemerge.i = phi ptr [ %32, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEC1ERKNS2_10PropertiesEE13VertexBindingEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSH_m.exit.i ], [ null, %_ZNKSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE11__recommendB8ne190000Em.exit ]
+  %33 = getelementptr inbounds i8, ptr %storemerge.i, i64 %19
+  %34 = getelementptr inbounds nuw %struct.VertexBinding, ptr %storemerge.i, i64 %.0.i
+  %.idx.i8 = mul i64 %1, 24
+  %35 = add i64 %.idx.i8, -24
+  %36 = urem i64 %35, 24
+  %37 = sub nuw i64 %35, %36
+  %38 = add i64 %37, 24
+  tail call void @llvm.memset.p0.i64(ptr align 8 %33, i8 0, i64 %38, i1 false)
+  %scevgep.i9 = getelementptr i8, ptr %33, i64 %38
+  %.neg.i = sdiv exact i64 %19, -24
+  %39 = getelementptr inbounds %struct.VertexBinding, ptr %33, i64 %.neg.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %39, ptr align 8 %.promoted.fr.i.i.i.i, i64 %19, i1 false)
+  store ptr %39, ptr %0, align 8
+  store ptr %scevgep.i9, ptr %5, align 8
+  store ptr %34, ptr %3, align 8
+  %.not.i10 = icmp eq ptr %.promoted.fr.i.i.i.i, null
+  br i1 %.not.i10, label %_ZNSt3__114__split_bufferIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingRNS_9allocatorISC_EEED2Ev.exit, label %40
 
-42:                                               ; preds = %_ZNSt3__114__split_bufferIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingRNS_9allocatorISC_EEE5clearB8ne190000Ev.exit.i
+40:                                               ; preds = %_ZNSt3__114__split_bufferIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingRNS_9allocatorISC_EEE5clearB8ne190000Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %.promoted.fr.i.i.i.i) #25
   br label %_ZNSt3__114__split_bufferIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingRNS_9allocatorISC_EEED2Ev.exit
 
-_ZNSt3__114__split_bufferIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingRNS_9allocatorISC_EEED2Ev.exit: ; preds = %42, %_ZNSt3__114__split_bufferIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingRNS_9allocatorISC_EEE5clearB8ne190000Ev.exit.i, %_ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE18__construct_at_endEm.exit
+_ZNSt3__114__split_bufferIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingRNS_9allocatorISC_EEED2Ev.exit: ; preds = %40, %_ZNSt3__114__split_bufferIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingRNS_9allocatorISC_EEE5clearB8ne190000Ev.exit.i, %_ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE18__construct_at_endEm.exit
   ret void
 }
 

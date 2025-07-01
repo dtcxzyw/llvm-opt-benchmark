@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.zend_get_gc_buffer = type { ptr, ptr, ptr }
 %struct._zend_call_stack = type { ptr, i64 }
 %struct._zend_strtod_state = type { [8 x ptr], ptr, ptr }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @.str = private unnamed_addr constant [13 x i8] c"unknown type\00", align 1
 @zend_known_strings = external local_unnamed_addr global ptr, align 8
@@ -1313,7 +1312,8 @@ define hidden void @zif_array_is_list(ptr noundef %0, ptr noundef writeonly capt
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = zext i32 %21 to i64
-  %27 = getelementptr inbounds nuw %struct._zval_struct, ptr %25, i64 %26
+  %.idx = shl nuw nsw i64 %26, 4
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx
   %.not51.i63 = icmp eq i32 %21, 0
   br i1 %.not51.i63, label %zend_array_is_list.exit, label %.lr.ph
 
@@ -1344,7 +1344,8 @@ define hidden void @zif_array_is_list(ptr noundef %0, ptr noundef writeonly capt
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %40 = load i32, ptr %39, align 8, !tbaa !77
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw %struct._Bucket, ptr %38, i64 %41
+  %.idx78 = shl nuw nsw i64 %41, 5
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx78
   %.not48.i69 = icmp eq i32 %40, 0
   br i1 %.not48.i69, label %zend_array_is_list.exit, label %.lr.ph72
 

@@ -54,12 +54,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::AlignedCharArrayUnion.98" = type { [16 x i8] }
 %"class.llvm::iterator_range" = type { %"class.llvm::object::Elf_Note_Iterator_Impl", %"class.llvm::object::Elf_Note_Iterator_Impl" }
 %"class.llvm::object::Elf_Note_Iterator_Impl" = type { ptr, i64, i64, ptr }
-%"struct.llvm::object::Elf_Shdr_Impl" = type { %"struct.llvm::object::Elf_Shdr_Base" }
-%"struct.llvm::object::Elf_Shdr_Base" = type { %"struct.llvm::support::detail::packed_endian_specific_integral.102", %"struct.llvm::support::detail::packed_endian_specific_integral.102", %"struct.llvm::support::detail::packed_endian_specific_integral.104", %"struct.llvm::support::detail::packed_endian_specific_integral.104", %"struct.llvm::support::detail::packed_endian_specific_integral.104", %"struct.llvm::support::detail::packed_endian_specific_integral.104", %"struct.llvm::support::detail::packed_endian_specific_integral.102", %"struct.llvm::support::detail::packed_endian_specific_integral.102", %"struct.llvm::support::detail::packed_endian_specific_integral.104", %"struct.llvm::support::detail::packed_endian_specific_integral.104" }
-%"struct.llvm::support::detail::packed_endian_specific_integral.102" = type { %struct.anon.103 }
-%struct.anon.103 = type { [4 x i8] }
-%"struct.llvm::support::detail::packed_endian_specific_integral.104" = type { %struct.anon.105 }
-%struct.anon.105 = type { [8 x i8] }
 
 $_ZN4llvm7msgpack8DocumentD2Ev = comdat any
 
@@ -882,7 +876,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i32: ;
   %69 = load ptr, ptr %21, align 8, !tbaa !182
   %70 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !184
-  %72 = getelementptr inbounds nuw %"struct.llvm::object::Elf_Shdr_Impl", ptr %69, i64 %71
+  %.idx = shl nuw nsw i64 %71, 6
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx
   %.not85 = icmp eq i64 %71, 0
   br i1 %.not85, label %_ZN4llvm5ErrorD2Ev.exit39, label %.lr.ph88
 

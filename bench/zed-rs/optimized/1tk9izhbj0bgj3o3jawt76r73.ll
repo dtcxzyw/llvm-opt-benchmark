@@ -11363,7 +11363,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h2983e5d6c44a3792E.exit.i: ; preds = %"
   %47 = load ptr, ptr %46, align 8, !noalias !2161, !nonnull !4, !noundef !4
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %49 = load i64, ptr %48, align 8, !noalias !2161, !noundef !4
-  %50 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %47, i64 %49
+  %.idx.i = mul nsw i64 %49, 24
+  %50 = getelementptr inbounds i8, ptr %47, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2193)
   %51 = icmp eq i64 %49, 0
   br i1 %51, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -28006,7 +28007,8 @@ common.resume:                                    ; preds = %.critedge80, %503, 
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.2253.0..sroa_idx, align 8
   store i64 0, ptr %.sroa.3254.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %56)
-  %227 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.2253.0.copyload, i64 %.sroa.3254.0.copyload
+  %.idx = mul nsw i64 %.sroa.3254.0.copyload, 24
+  %227 = getelementptr inbounds i8, ptr %.sroa.2253.0.copyload, i64 %.idx
   store ptr %.sroa.2253.0.copyload, ptr %56, align 8, !alias.scope !5419, !noalias !5422
   %228 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i64 %.sroa.0252.0.copyload, ptr %228, align 8, !alias.scope !5419, !noalias !5422

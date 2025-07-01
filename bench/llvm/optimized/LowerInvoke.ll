@@ -32,14 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::TypedTrackingMDRef" = type { %"class.llvm::TrackingMDRef" }
 %"class.llvm::TrackingMDRef" = type { ptr }
 %"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
-%"class.llvm::OperandBundleDefT" = type { %"class.std::__cxx11::basic_string", %"class.std::vector.42" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::vector.42" = type { %"struct.std::_Vector_base.43" }
-%"struct.std::_Vector_base.43" = type { %"struct.std::_Vector_base<llvm::Value *, std::allocator<llvm::Value *>>::_Vector_impl" }
-%"struct.std::_Vector_base<llvm::Value *, std::allocator<llvm::Value *>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::Value *, std::allocator<llvm::Value *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<llvm::Value *, std::allocator<llvm::Value *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN4llvm4Pass16doInitializationERNS_6ModuleE = comdat any
 
@@ -311,7 +303,8 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj16EEC2IPNS_3UseEEERKNS_14iterator_rangeIT_EE.
   %52 = load i32, ptr %13, align 8, !tbaa !57
   %53 = zext i32 %52 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
-  %54 = getelementptr inbounds nuw %"class.llvm::OperandBundleDefT", ptr %51, i64 %53
+  %.idx.i.i = mul nuw nsw i64 %53, 56
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i.i
   %.not10.i.i = icmp eq i32 %52, 0
   store i16 257, ptr %15, align 8
   br i1 %.not10.i.i, label %_ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit, label %.lr.ph.i.i
@@ -430,7 +423,8 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %95, %_ZN4llvm13Trac
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm8DebugLocD2Ev.exit
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw %"class.llvm::OperandBundleDefT", ptr %104, i64 %106
+  %.idx.i = mul nuw nsw i64 %106, 56
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 %.idx.i
   br label %.lr.ph.i.i47
 
 .lr.ph.i.i47:                                     ; preds = %_ZN4llvm17OperandBundleDefTIPNS_5ValueEED2Ev.exit.i.i, %.lr.ph.i.preheader.i

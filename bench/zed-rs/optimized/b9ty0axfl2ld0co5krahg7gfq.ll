@@ -6915,7 +6915,8 @@ _ZN13async_process7Command4args17h526c7a47d470ef84E.exit144: ; preds = %_ZN3std4
   %365 = load ptr, ptr %364, align 8, !nonnull !5, !align !76, !noundef !5
   %366 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %367 = load i64, ptr %366, align 8, !noundef !5
-  %368 = getelementptr inbounds { ptr, i64 }, ptr %365, i64 %367
+  %.idx.i.i = shl nsw i64 %367, 4
+  %368 = getelementptr inbounds i8, ptr %365, i64 %.idx.i.i
   %369 = icmp eq i64 %367, 0
   br i1 %369, label %_ZN13async_process7Command4args17hb39b9fc8e62230d7E.exit, label %.lr.ph.i.i
 
@@ -8161,7 +8162,8 @@ _ZN13async_process7Command4args17h526c7a47d470ef84E.exit91: ; preds = %_ZN3std4p
   %128 = load ptr, ptr %127, align 8, !nonnull !5, !align !76, !noundef !5
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %130 = load i64, ptr %129, align 8, !noundef !5
-  %131 = getelementptr inbounds { ptr, i64 }, ptr %128, i64 %130
+  %.idx.i.i = shl nsw i64 %130, 4
+  %131 = getelementptr inbounds i8, ptr %128, i64 %.idx.i.i
   %132 = icmp eq i64 %130, 0
   br i1 %132, label %_ZN13async_process7Command4args17hb39b9fc8e62230d7E.exit, label %.lr.ph.i.i
 

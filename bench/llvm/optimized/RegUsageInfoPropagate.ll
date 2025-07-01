@@ -21,10 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.319" = type { %"struct.std::pair.317", %"struct.std::_List_iterator" }
 %"struct.std::pair.317" = type { ptr, ptr }
 %"struct.std::_List_iterator" = type { ptr }
-%"class.llvm::MachineOperand" = type { i32, %union.anon.270, ptr, %"union.llvm::MachineOperand::ContentsUnion" }
-%union.anon.270 = type { i32 }
-%"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef" }
-%"class.llvm::ArrayRef" = type { ptr, i64 }
 
 $_ZNK4llvm25OuterAnalysisManagerProxyINS_15AnalysisManagerINS_6ModuleEJEEENS_15MachineFunctionEJEE6Result15getCachedResultINS_29PhysicalRegisterUsageAnalysisES2_EEPNT_6ResultERT0_ = comdat any
 
@@ -381,7 +377,8 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %.lr.ph
   %36 = getelementptr i8, ptr %.sroa.024.049, i64 40
   %.val20 = load i24, ptr %36, align 8
   %37 = zext i24 %.val20 to i64
-  %38 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.val, i64 %37
+  %.idx.i = shl nuw nsw i64 %37, 5
+  %38 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %.not6.i = icmp eq i24 %.val20, 0
   br i1 %.not6.i, label %"_ZZN12_GLOBAL__N_123RegUsageInfoPropagation3runERN4llvm15MachineFunctionEENK3$_0clERKNS1_8FunctionE.exit", label %.lr.ph.i
 
@@ -464,7 +461,8 @@ _ZNK4llvm11GlobalValue17isDefinitionExactEv.exit: ; preds = %57
   %.val.i = load ptr, ptr %35, align 8, !tbaa !231
   %.val2.i = load i24, ptr %36, align 8
   %68 = zext i24 %.val2.i to i64
-  %69 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.val.i, i64 %68
+  %.idx.i.i = shl nuw nsw i64 %68, 5
+  %69 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i.i
   %.not2.i.i = icmp eq i24 %.val2.i, 0
   br i1 %.not2.i.i, label %"_ZZN12_GLOBAL__N_123RegUsageInfoPropagation3runERN4llvm15MachineFunctionEENK3$_0clERKNS1_8FunctionE.exit", label %.lr.ph.i.i
 

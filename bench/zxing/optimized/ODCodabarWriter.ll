@@ -1020,7 +1020,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175: ; preds = %_Z
 _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %238, %._crit_edge
   %313 = phi ptr [ %237, %238 ], [ null, %._crit_edge ]
   %314 = load ptr, ptr %6, align 8, !tbaa !9
-  %315 = getelementptr inbounds nuw i32, ptr %314, i64 %224
+  %.idx = shl nuw nsw i64 %224, 2
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 %.idx
   %316 = icmp eq i64 %224, 0
   br i1 %316, label %._crit_edge302, label %.lr.ph301
 

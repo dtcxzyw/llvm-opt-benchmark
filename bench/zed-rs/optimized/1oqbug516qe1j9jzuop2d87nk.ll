@@ -1541,7 +1541,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hd6657c9b4ac76e70E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 24
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h6760f4843fb88956E.exit, label %.lr.ph.i
 
@@ -9825,7 +9826,8 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hce098b93c3f969f
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2714
   %8 = mul i64 %7, 5871781006564002453
   store i64 %8, ptr %4, align 8, !alias.scope !2719, !noalias !2724
-  %9 = getelementptr inbounds { i64, [3 x i64] }, ptr %5, i64 %7
+  %.idx.i.i.i.i.i = shl nsw i64 %7, 5
+  %9 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i.i.i.i
   %10 = icmp eq i64 %7, 0
   br i1 %10, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h9c0997324eefe7a3E.llvm.17803978538969967659.exit", label %.lr.ph.i.i.i.i.i
 
@@ -10222,7 +10224,8 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %10 = xor i64 %9, %7
   %11 = mul i64 %10, 5871781006564002453
   store i64 %11, ptr %1, align 8, !alias.scope !2882, !noalias !2887
-  %12 = getelementptr inbounds { i64, [3 x i64] }, ptr %5, i64 %7
+  %.idx.i.i.i.i = shl nsw i64 %7, 5
+  %12 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i.i.i
   %13 = icmp eq i64 %7, 0
   br i1 %13, label %"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for$u20$$LP$T$C$B$RP$$GT$4hash17hdced899d38b9d6d7E.llvm.17803978538969967659.exit", label %.lr.ph.i.i.i.i
 
@@ -10546,7 +10549,8 @@ define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for
   %9 = xor i64 %8, %6
   %10 = mul i64 %9, 5871781006564002453
   store i64 %10, ptr %1, align 8, !alias.scope !3015, !noalias !3020
-  %11 = getelementptr inbounds { i64, [3 x i64] }, ptr %4, i64 %6
+  %.idx.i.i.i = shl nsw i64 %6, 5
+  %11 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i.i
   %12 = icmp eq i64 %6, 0
   br i1 %12, label %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17hd6cc86edd965d29aE.llvm.17803978538969967659.exit", label %.lr.ph.i.i.i
 
@@ -11291,7 +11295,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h70c7aa33
   %12 = load ptr, ptr %11, align 8, !nonnull !9, !noundef !9
   %13 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !9
-  %15 = getelementptr inbounds { { i32, i32 } }, ptr %12, i64 %14
+  %.idx.i.i = shl nsw i64 %14, 3
+  %15 = getelementptr inbounds i8, ptr %12, i64 %.idx.i.i
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i", label %.lr.ph.i.i.i
 
@@ -11329,88 +11334,90 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h70c7aa33
   %29 = load ptr, ptr %28, align 8, !nonnull !9, !noundef !9
   %30 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 16
   %31 = load i64, ptr %30, align 8, !noundef !9
-  %32 = getelementptr inbounds { { i32, i32 } }, ptr %29, i64 %31
+  %.idx.i7.i = shl nsw i64 %31, 3
+  %32 = getelementptr inbounds i8, ptr %29, i64 %.idx.i7.i
   %33 = icmp eq i64 %31, 0
-  br i1 %33, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit", label %.lr.ph.i.i7.i
+  br i1 %33, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit", label %.lr.ph.i.i8.i
 
-.lr.ph.i.i7.i:                                    ; preds = %26, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i"
-  %.sroa.02.015.i.i8.i = phi i64 [ %39, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i" ], [ 0, %26 ]
-  %34 = phi ptr [ %38, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i" ], [ %29, %26 ]
-  %.val8.i.i9.i = load i32, ptr %34, align 4, !noalias !3092
+.lr.ph.i.i8.i:                                    ; preds = %26, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i"
+  %.sroa.02.015.i.i9.i = phi i64 [ %39, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i" ], [ 0, %26 ]
+  %34 = phi ptr [ %38, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i" ], [ %29, %26 ]
+  %.val8.i.i10.i = load i32, ptr %34, align 4, !noalias !3092
   %35 = getelementptr i8, ptr %34, i64 4
-  %.val9.i.i10.i = load i32, ptr %35, align 4, !noalias !3092, !noundef !9
-  %36 = icmp eq i32 %.val9.i.i10.i, %.val15
-  %37 = icmp eq i32 %.val8.i.i9.i, %.val14
-  %or.cond.i.i11.i = select i1 %36, i1 %37, i1 false
-  br i1 %or.cond.i.i11.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i"
+  %.val9.i.i11.i = load i32, ptr %35, align 4, !noalias !3092, !noundef !9
+  %36 = icmp eq i32 %.val9.i.i11.i, %.val15
+  %37 = icmp eq i32 %.val8.i.i10.i, %.val14
+  %or.cond.i.i12.i = select i1 %36, i1 %37, i1 false
+  br i1 %or.cond.i.i12.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i": ; preds = %.lr.ph.i.i7.i
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i": ; preds = %.lr.ph.i.i8.i
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %39 = add nuw nsw i64 %.sroa.02.015.i.i8.i, 1
+  %39 = add nuw nsw i64 %.sroa.02.015.i.i9.i, 1
   %40 = icmp eq ptr %38, %32
-  br i1 %40, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit", label %.lr.ph.i.i7.i
+  br i1 %40, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit", label %.lr.ph.i.i8.i
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i": ; preds = %.lr.ph.i.i7.i
-  %41 = icmp ult i64 %.sroa.02.015.i.i8.i, %31
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i": ; preds = %.lr.ph.i.i8.i
+  %41 = icmp ult i64 %.sroa.02.015.i.i9.i, %31
   tail call void @llvm.assume(i1 %41)
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit"
 
-"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i", %26, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i"
-  %.sroa.0.0.i13.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i" ], [ %.sroa.02.015.i.i8.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i" ], [ -1, %26 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i" ]
-  %42 = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0.i13.i
+"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i", %26, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i"
+  %.sroa.0.0.i14.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i" ], [ %.sroa.02.015.i.i9.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i" ], [ -1, %26 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i" ]
+  %42 = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0.i14.i
   br i1 %42, label %43, label %63
 
 43:                                               ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit"
-  %.sroa.059.0.copyload = load i64, ptr %1, align 8
+  %.sroa.061.0.copyload = load i64, ptr %1, align 8
   br i1 %8, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %43
   %.sroa.0.0.us = getelementptr inbounds i8, ptr %1, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.us, i64 16, i1 false)
   %44 = icmp eq ptr %.sroa.0.0.us, %0
-  br i1 %44, label %.split49.us, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28.us"
+  br i1 %44, label %.split51.us, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.us"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28.us": ; preds = %.split.us
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.us": ; preds = %.split.us
   %45 = getelementptr i8, ptr %1, i64 -24
   %.val19.us = load i32, ptr %45, align 8
   %46 = getelementptr i8, ptr %1, i64 -20
   %.val20.us = load i32, ptr %46, align 4
   %47 = icmp eq i32 %.val19.us, 0
-  br i1 %47, label %.split49.us, label %48
+  br i1 %47, label %.split51.us, label %48
 
-48:                                               ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28.us"
+48:                                               ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.us"
   %.val4.i21.us = load ptr, ptr %.val, align 8, !nonnull !9, !noundef !9
   %49 = getelementptr inbounds nuw i8, ptr %.val4.i21.us, i64 8
   %50 = load ptr, ptr %49, align 8, !nonnull !9, !noundef !9
   %51 = getelementptr inbounds nuw i8, ptr %.val4.i21.us, i64 16
   %52 = load i64, ptr %51, align 8, !noundef !9
-  %53 = getelementptr inbounds { { i32, i32 } }, ptr %50, i64 %52
+  %.idx.i7.i31.us = shl nsw i64 %52, 3
+  %53 = getelementptr inbounds i8, ptr %50, i64 %.idx.i7.i31.us
   %54 = icmp eq i64 %52, 0
-  br i1 %54, label %.split49.us, label %.lr.ph.i.i7.i30.us
+  br i1 %54, label %.split51.us, label %.lr.ph.i.i8.i32.us
 
-.lr.ph.i.i7.i30.us:                               ; preds = %48, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.us"
-  %.sroa.02.015.i.i8.i31.us = phi i64 [ %60, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.us" ], [ 0, %48 ]
-  %55 = phi ptr [ %59, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.us" ], [ %50, %48 ]
-  %.val8.i.i9.i32.us = load i32, ptr %55, align 4, !noalias !3096
+.lr.ph.i.i8.i32.us:                               ; preds = %48, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.us"
+  %.sroa.02.015.i.i9.i33.us = phi i64 [ %60, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.us" ], [ 0, %48 ]
+  %55 = phi ptr [ %59, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.us" ], [ %50, %48 ]
+  %.val8.i.i10.i34.us = load i32, ptr %55, align 4, !noalias !3096
   %56 = getelementptr i8, ptr %55, i64 4
-  %.val9.i.i10.i33.us = load i32, ptr %56, align 4, !noalias !3096, !noundef !9
-  %57 = icmp eq i32 %.val9.i.i10.i33.us, %.val20.us
-  %58 = icmp eq i32 %.val8.i.i9.i32.us, %.val19.us
-  %or.cond.i.i11.i34.us = select i1 %57, i1 %58, i1 false
-  br i1 %or.cond.i.i11.i34.us, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i37.us", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.us"
+  %.val9.i.i11.i35.us = load i32, ptr %56, align 4, !noalias !3096, !noundef !9
+  %57 = icmp eq i32 %.val9.i.i11.i35.us, %.val20.us
+  %58 = icmp eq i32 %.val8.i.i10.i34.us, %.val19.us
+  %or.cond.i.i12.i36.us = select i1 %57, i1 %58, i1 false
+  br i1 %or.cond.i.i12.i36.us, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39.us", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.us"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.us": ; preds = %.lr.ph.i.i7.i30.us
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.us": ; preds = %.lr.ph.i.i8.i32.us
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %60 = add nuw nsw i64 %.sroa.02.015.i.i8.i31.us, 1
+  %60 = add nuw nsw i64 %.sroa.02.015.i.i9.i33.us, 1
   %61 = icmp eq ptr %59, %53
-  br i1 %61, label %.split49.us, label %.lr.ph.i.i7.i30.us
+  br i1 %61, label %.split51.us, label %.lr.ph.i.i8.i32.us
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i37.us": ; preds = %.lr.ph.i.i7.i30.us
-  %62 = icmp ult i64 %.sroa.02.015.i.i8.i31.us, %52
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39.us": ; preds = %.lr.ph.i.i8.i32.us
+  %62 = icmp ult i64 %.sroa.02.015.i.i9.i33.us, %52
   tail call void @llvm.assume(i1 %62)
-  br label %.split49.us
+  br label %.split51.us
 
-63:                                               ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit", %.split49.us
+63:                                               ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit", %.split51.us
   ret void
 
 .split:                                           ; preds = %43, %.loopexit
@@ -11418,7 +11425,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h70c7aa33
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.5.0, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0, i64 16, i1 false)
   %64 = icmp eq ptr %.sroa.0.0, %0
-  br i1 %64, label %.split49.us, label %65
+  br i1 %64, label %.split51.us, label %65
 
 65:                                               ; preds = %.split
   %66 = getelementptr i8, ptr %.sroa.5.0, i64 -24
@@ -11430,67 +11437,68 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h70c7aa33
   %69 = load ptr, ptr %68, align 8, !nonnull !9, !noundef !9
   %70 = getelementptr inbounds nuw i8, ptr %.val4.i21, i64 16
   %71 = load i64, ptr %70, align 8, !noundef !9
-  %72 = getelementptr inbounds { { i32, i32 } }, ptr %69, i64 %71
+  %.idx.i.i22 = shl nsw i64 %71, 3
+  %72 = getelementptr inbounds i8, ptr %69, i64 %.idx.i.i22
   %73 = icmp eq i64 %71, 0
-  br i1 %73, label %.split49.us, label %.lr.ph.i.i.i22
+  br i1 %73, label %.split51.us, label %.lr.ph.i.i.i23
 
-.lr.ph.i.i.i22:                                   ; preds = %65, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i27"
-  %.sroa.02.015.i.i.i23 = phi i64 [ %79, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i27" ], [ 0, %65 ]
-  %74 = phi ptr [ %78, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i27" ], [ %69, %65 ]
-  %.val8.i.i.i24 = load i32, ptr %74, align 4, !noalias !3100
+.lr.ph.i.i.i23:                                   ; preds = %65, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i28"
+  %.sroa.02.015.i.i.i24 = phi i64 [ %79, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i28" ], [ 0, %65 ]
+  %74 = phi ptr [ %78, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i28" ], [ %69, %65 ]
+  %.val8.i.i.i25 = load i32, ptr %74, align 4, !noalias !3100
   %75 = getelementptr i8, ptr %74, i64 4
-  %.val9.i.i.i25 = load i32, ptr %75, align 4, !noalias !3100, !noundef !9
-  %76 = icmp eq i32 %.val9.i.i.i25, %.val13
-  %77 = icmp eq i32 %.val8.i.i.i24, %.val12
-  %or.cond.i.i.i26 = select i1 %76, i1 %77, i1 false
-  br i1 %or.cond.i.i.i26, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i38", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i27"
+  %.val9.i.i.i26 = load i32, ptr %75, align 4, !noalias !3100, !noundef !9
+  %76 = icmp eq i32 %.val9.i.i.i26, %.val13
+  %77 = icmp eq i32 %.val8.i.i.i25, %.val12
+  %or.cond.i.i.i27 = select i1 %76, i1 %77, i1 false
+  br i1 %or.cond.i.i.i27, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i40", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i28"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i27": ; preds = %.lr.ph.i.i.i22
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i28": ; preds = %.lr.ph.i.i.i23
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %79 = add nuw nsw i64 %.sroa.02.015.i.i.i23, 1
+  %79 = add nuw nsw i64 %.sroa.02.015.i.i.i24, 1
   %80 = icmp eq ptr %78, %72
-  br i1 %80, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28", label %.lr.ph.i.i.i22
+  br i1 %80, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29", label %.lr.ph.i.i.i23
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i38": ; preds = %.lr.ph.i.i.i22
-  %81 = icmp ult i64 %.sroa.02.015.i.i.i23, %71
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i40": ; preds = %.lr.ph.i.i.i23
+  %81 = icmp ult i64 %.sroa.02.015.i.i.i24, %71
   tail call void @llvm.assume(i1 %81)
-  br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28"
+  br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i27", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i38"
-  %.sroa.0.0.i.i29 = phi i64 [ %.sroa.02.015.i.i.i23, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i38" ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i27" ]
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i28", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i40"
+  %.sroa.0.0.i.i30 = phi i64 [ %.sroa.02.015.i.i.i24, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i40" ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i28" ]
   %82 = icmp eq i32 %.val19, 0
-  br i1 %82, label %.loopexit, label %.lr.ph.i.i7.i30
+  br i1 %82, label %.loopexit, label %.lr.ph.i.i8.i32
 
-.lr.ph.i.i7.i30:                                  ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35"
-  %.sroa.02.015.i.i8.i31 = phi i64 [ %88, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35" ], [ 0, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28" ]
-  %83 = phi ptr [ %87, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35" ], [ %69, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28" ]
-  %.val8.i.i9.i32 = load i32, ptr %83, align 4, !noalias !3096
+.lr.ph.i.i8.i32:                                  ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37"
+  %.sroa.02.015.i.i9.i33 = phi i64 [ %88, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37" ], [ 0, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29" ]
+  %83 = phi ptr [ %87, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37" ], [ %69, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29" ]
+  %.val8.i.i10.i34 = load i32, ptr %83, align 4, !noalias !3096
   %84 = getelementptr i8, ptr %83, i64 4
-  %.val9.i.i10.i33 = load i32, ptr %84, align 4, !noalias !3096, !noundef !9
-  %85 = icmp eq i32 %.val9.i.i10.i33, %.val20
-  %86 = icmp eq i32 %.val8.i.i9.i32, %.val19
-  %or.cond.i.i11.i34 = select i1 %85, i1 %86, i1 false
-  br i1 %or.cond.i.i11.i34, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i37", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35"
+  %.val9.i.i11.i35 = load i32, ptr %84, align 4, !noalias !3096, !noundef !9
+  %85 = icmp eq i32 %.val9.i.i11.i35, %.val20
+  %86 = icmp eq i32 %.val8.i.i10.i34, %.val19
+  %or.cond.i.i12.i36 = select i1 %85, i1 %86, i1 false
+  br i1 %or.cond.i.i12.i36, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35": ; preds = %.lr.ph.i.i7.i30
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37": ; preds = %.lr.ph.i.i8.i32
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %88 = add nuw nsw i64 %.sroa.02.015.i.i8.i31, 1
+  %88 = add nuw nsw i64 %.sroa.02.015.i.i9.i33, 1
   %89 = icmp eq ptr %87, %72
-  br i1 %89, label %.loopexit, label %.lr.ph.i.i7.i30
+  br i1 %89, label %.loopexit, label %.lr.ph.i.i8.i32
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i37": ; preds = %.lr.ph.i.i7.i30
-  %90 = icmp ult i64 %.sroa.02.015.i.i8.i31, %71
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39": ; preds = %.lr.ph.i.i8.i32
+  %90 = icmp ult i64 %.sroa.02.015.i.i9.i33, %71
   tail call void @llvm.assume(i1 %90)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i37"
-  %.sroa.0.0.i13.i36 = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28" ], [ %.sroa.02.015.i.i8.i31, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i37" ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35" ]
-  %91 = icmp ult i64 %.sroa.0.0.i.i29, %.sroa.0.0.i13.i36
-  br i1 %91, label %.split, label %.split49.us
+.loopexit:                                        ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39"
+  %.sroa.0.0.i14.i38 = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29" ], [ %.sroa.02.015.i.i9.i33, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39" ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37" ]
+  %91 = icmp ult i64 %.sroa.0.0.i.i30, %.sroa.0.0.i14.i38
+  br i1 %91, label %.split, label %.split51.us
 
-.split49.us:                                      ; preds = %.loopexit, %.split, %65, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.us", %.split.us, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i37.us", %48, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28.us"
-  %.us-phi = phi ptr [ %.sroa.0.0.us, %.split.us ], [ %.sroa.0.0.us, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i37.us" ], [ %.sroa.0.0.us, %48 ], [ %.sroa.0.0.us, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28.us" ], [ %.sroa.0.0.us, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.us" ], [ %.sroa.0.0, %65 ], [ %.sroa.0.0, %.split ], [ %.sroa.0.0, %.loopexit ]
-  store i64 %.sroa.059.0.copyload, ptr %.us-phi, align 8, !noalias !3104
+.split51.us:                                      ; preds = %.loopexit, %.split, %65, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.us", %.split.us, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39.us", %48, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.us"
+  %.us-phi = phi ptr [ %.sroa.0.0.us, %.split.us ], [ %.sroa.0.0.us, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39.us" ], [ %.sroa.0.0.us, %48 ], [ %.sroa.0.0.us, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.us" ], [ %.sroa.0.0.us, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.us" ], [ %.sroa.0.0, %65 ], [ %.sroa.0.0, %.split ], [ %.sroa.0.0, %.loopexit ]
+  store i64 %.sroa.061.0.copyload, ptr %.us-phi, align 8, !noalias !3104
   %.sroa.4.0..us-phi.sroa_idx = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
   store i32 %.val12, ptr %.sroa.4.0..us-phi.sroa_idx, align 8, !noalias !3104
   %.sroa.5.0..us-phi.sroa_idx = getelementptr inbounds nuw i8, ptr %.us-phi, i64 12
@@ -14697,7 +14705,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %12 = load ptr, ptr %11, align 8, !nonnull !9, !noundef !9
   %13 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !9
-  %15 = getelementptr inbounds { { i32, i32 } }, ptr %12, i64 %14
+  %.idx.i.i = shl nsw i64 %14, 3
+  %15 = getelementptr inbounds i8, ptr %12, i64 %.idx.i.i
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i", label %.lr.ph.i.i.i
 
@@ -14735,35 +14744,36 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %29 = load ptr, ptr %28, align 8, !nonnull !9, !noundef !9
   %30 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 16
   %31 = load i64, ptr %30, align 8, !noundef !9
-  %32 = getelementptr inbounds { { i32, i32 } }, ptr %29, i64 %31
+  %.idx.i7.i = shl nsw i64 %31, 3
+  %32 = getelementptr inbounds i8, ptr %29, i64 %.idx.i7.i
   %33 = icmp eq i64 %31, 0
-  br i1 %33, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit", label %.lr.ph.i.i7.i
+  br i1 %33, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit", label %.lr.ph.i.i8.i
 
-.lr.ph.i.i7.i:                                    ; preds = %26, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i"
-  %.sroa.02.015.i.i8.i = phi i64 [ %39, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i" ], [ 0, %26 ]
-  %34 = phi ptr [ %38, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i" ], [ %29, %26 ]
-  %.val8.i.i9.i = load i32, ptr %34, align 4, !noalias !3187
+.lr.ph.i.i8.i:                                    ; preds = %26, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i"
+  %.sroa.02.015.i.i9.i = phi i64 [ %39, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i" ], [ 0, %26 ]
+  %34 = phi ptr [ %38, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i" ], [ %29, %26 ]
+  %.val8.i.i10.i = load i32, ptr %34, align 4, !noalias !3187
   %35 = getelementptr i8, ptr %34, i64 4
-  %.val9.i.i10.i = load i32, ptr %35, align 4, !noalias !3187, !noundef !9
-  %36 = icmp eq i32 %.val9.i.i10.i, %.val24
-  %37 = icmp eq i32 %.val8.i.i9.i, %.val23
-  %or.cond.i.i11.i = select i1 %36, i1 %37, i1 false
-  br i1 %or.cond.i.i11.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i"
+  %.val9.i.i11.i = load i32, ptr %35, align 4, !noalias !3187, !noundef !9
+  %36 = icmp eq i32 %.val9.i.i11.i, %.val24
+  %37 = icmp eq i32 %.val8.i.i10.i, %.val23
+  %or.cond.i.i12.i = select i1 %36, i1 %37, i1 false
+  br i1 %or.cond.i.i12.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i": ; preds = %.lr.ph.i.i7.i
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i": ; preds = %.lr.ph.i.i8.i
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %39 = add nuw nsw i64 %.sroa.02.015.i.i8.i, 1
+  %39 = add nuw nsw i64 %.sroa.02.015.i.i9.i, 1
   %40 = icmp eq ptr %38, %32
-  br i1 %40, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit", label %.lr.ph.i.i7.i
+  br i1 %40, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit", label %.lr.ph.i.i8.i
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i": ; preds = %.lr.ph.i.i7.i
-  %41 = icmp ult i64 %.sroa.02.015.i.i8.i, %31
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i": ; preds = %.lr.ph.i.i8.i
+  %41 = icmp ult i64 %.sroa.02.015.i.i9.i, %31
   tail call void @llvm.assume(i1 %41)
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit"
 
-"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i", %26, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i"
-  %.sroa.0.0.i13.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i" ], [ %.sroa.02.015.i.i8.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i" ], [ -1, %26 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i" ]
-  %42 = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0.i13.i
+"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i", %26, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i"
+  %.sroa.0.0.i14.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i" ], [ %.sroa.02.015.i.i9.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i" ], [ -1, %26 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i" ]
+  %42 = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0.i14.i
   %43 = getelementptr i8, ptr %0, i64 56
   %.val26 = load i32, ptr %43, align 8, !noundef !9
   %44 = getelementptr i8, ptr %0, i64 60
@@ -14773,7 +14783,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %46 = getelementptr i8, ptr %0, i64 44
   %.val29 = load i32, ptr %46, align 4
   %47 = icmp eq i32 %.val26, 0
-  br i1 %47, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i50", label %48
+  br i1 %47, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i51", label %48
 
 48:                                               ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit"
   %49 = icmp ne ptr %.val4.i, null
@@ -14782,73 +14792,75 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %51 = load ptr, ptr %50, align 8, !nonnull !9, !noundef !9
   %52 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 16
   %53 = load i64, ptr %52, align 8, !noundef !9
-  %54 = getelementptr inbounds { { i32, i32 } }, ptr %51, i64 %53
+  %.idx.i.i44 = shl nsw i64 %53, 3
+  %54 = getelementptr inbounds i8, ptr %51, i64 %.idx.i.i44
   %55 = icmp eq i64 %53, 0
-  br i1 %55, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i50", label %.lr.ph.i.i.i44
+  br i1 %55, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i51", label %.lr.ph.i.i.i45
 
-.lr.ph.i.i.i44:                                   ; preds = %48, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i49"
-  %.sroa.02.015.i.i.i45 = phi i64 [ %61, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i49" ], [ 0, %48 ]
-  %56 = phi ptr [ %60, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i49" ], [ %51, %48 ]
-  %.val8.i.i.i46 = load i32, ptr %56, align 4, !noalias !3191
+.lr.ph.i.i.i45:                                   ; preds = %48, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i50"
+  %.sroa.02.015.i.i.i46 = phi i64 [ %61, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i50" ], [ 0, %48 ]
+  %56 = phi ptr [ %60, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i50" ], [ %51, %48 ]
+  %.val8.i.i.i47 = load i32, ptr %56, align 4, !noalias !3191
   %57 = getelementptr i8, ptr %56, i64 4
-  %.val9.i.i.i47 = load i32, ptr %57, align 4, !noalias !3191, !noundef !9
-  %58 = icmp eq i32 %.val9.i.i.i47, %.val27
-  %59 = icmp eq i32 %.val8.i.i.i46, %.val26
-  %or.cond.i.i.i48 = select i1 %58, i1 %59, i1 false
-  br i1 %or.cond.i.i.i48, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i60", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i49"
+  %.val9.i.i.i48 = load i32, ptr %57, align 4, !noalias !3191, !noundef !9
+  %58 = icmp eq i32 %.val9.i.i.i48, %.val27
+  %59 = icmp eq i32 %.val8.i.i.i47, %.val26
+  %or.cond.i.i.i49 = select i1 %58, i1 %59, i1 false
+  br i1 %or.cond.i.i.i49, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i62", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i50"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i49": ; preds = %.lr.ph.i.i.i44
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i50": ; preds = %.lr.ph.i.i.i45
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %61 = add nuw nsw i64 %.sroa.02.015.i.i.i45, 1
+  %61 = add nuw nsw i64 %.sroa.02.015.i.i.i46, 1
   %62 = icmp eq ptr %60, %54
-  br i1 %62, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i50", label %.lr.ph.i.i.i44
+  br i1 %62, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i51", label %.lr.ph.i.i.i45
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i60": ; preds = %.lr.ph.i.i.i44
-  %63 = icmp ult i64 %.sroa.02.015.i.i.i45, %53
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i62": ; preds = %.lr.ph.i.i.i45
+  %63 = icmp ult i64 %.sroa.02.015.i.i.i46, %53
   tail call void @llvm.assume(i1 %63)
-  br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i50"
+  br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i51"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i50": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i49", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i60", %48, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit"
-  %.sroa.0.0.i.i51 = phi i64 [ -1, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit" ], [ %.sroa.02.015.i.i.i45, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i60" ], [ -1, %48 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i49" ]
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i51": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i50", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i62", %48, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit"
+  %.sroa.0.0.i.i52 = phi i64 [ -1, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit" ], [ %.sroa.02.015.i.i.i46, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i62" ], [ -1, %48 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i50" ]
   %64 = icmp eq i32 %.val28, 0
-  br i1 %64, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit61", label %65
+  br i1 %64, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit63", label %65
 
-65:                                               ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i50"
+65:                                               ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i51"
   %66 = icmp ne ptr %.val4.i, null
   tail call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 8
   %68 = load ptr, ptr %67, align 8, !nonnull !9, !noundef !9
   %69 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 16
   %70 = load i64, ptr %69, align 8, !noundef !9
-  %71 = getelementptr inbounds { { i32, i32 } }, ptr %68, i64 %70
+  %.idx.i7.i53 = shl nsw i64 %70, 3
+  %71 = getelementptr inbounds i8, ptr %68, i64 %.idx.i7.i53
   %72 = icmp eq i64 %70, 0
-  br i1 %72, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit61", label %.lr.ph.i.i7.i52
+  br i1 %72, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit63", label %.lr.ph.i.i8.i54
 
-.lr.ph.i.i7.i52:                                  ; preds = %65, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i57"
-  %.sroa.02.015.i.i8.i53 = phi i64 [ %78, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i57" ], [ 0, %65 ]
-  %73 = phi ptr [ %77, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i57" ], [ %68, %65 ]
-  %.val8.i.i9.i54 = load i32, ptr %73, align 4, !noalias !3195
+.lr.ph.i.i8.i54:                                  ; preds = %65, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i59"
+  %.sroa.02.015.i.i9.i55 = phi i64 [ %78, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i59" ], [ 0, %65 ]
+  %73 = phi ptr [ %77, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i59" ], [ %68, %65 ]
+  %.val8.i.i10.i56 = load i32, ptr %73, align 4, !noalias !3195
   %74 = getelementptr i8, ptr %73, i64 4
-  %.val9.i.i10.i55 = load i32, ptr %74, align 4, !noalias !3195, !noundef !9
-  %75 = icmp eq i32 %.val9.i.i10.i55, %.val29
-  %76 = icmp eq i32 %.val8.i.i9.i54, %.val28
-  %or.cond.i.i11.i56 = select i1 %75, i1 %76, i1 false
-  br i1 %or.cond.i.i11.i56, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i59", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i57"
+  %.val9.i.i11.i57 = load i32, ptr %74, align 4, !noalias !3195, !noundef !9
+  %75 = icmp eq i32 %.val9.i.i11.i57, %.val29
+  %76 = icmp eq i32 %.val8.i.i10.i56, %.val28
+  %or.cond.i.i12.i58 = select i1 %75, i1 %76, i1 false
+  br i1 %or.cond.i.i12.i58, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i61", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i59"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i57": ; preds = %.lr.ph.i.i7.i52
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i59": ; preds = %.lr.ph.i.i8.i54
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %78 = add nuw nsw i64 %.sroa.02.015.i.i8.i53, 1
+  %78 = add nuw nsw i64 %.sroa.02.015.i.i9.i55, 1
   %79 = icmp eq ptr %77, %71
-  br i1 %79, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit61", label %.lr.ph.i.i7.i52
+  br i1 %79, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit63", label %.lr.ph.i.i8.i54
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i59": ; preds = %.lr.ph.i.i7.i52
-  %80 = icmp ult i64 %.sroa.02.015.i.i8.i53, %70
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i61": ; preds = %.lr.ph.i.i8.i54
+  %80 = icmp ult i64 %.sroa.02.015.i.i9.i55, %70
   tail call void @llvm.assume(i1 %80)
-  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit61"
+  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit63"
 
-"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit61": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i57", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i50", %65, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i59"
-  %.sroa.0.0.i13.i58 = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i50" ], [ %.sroa.02.015.i.i8.i53, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i59" ], [ -1, %65 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i57" ]
-  %81 = icmp ult i64 %.sroa.0.0.i.i51, %.sroa.0.0.i13.i58
+"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit63": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i59", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i51", %65, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i61"
+  %.sroa.0.0.i14.i60 = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i51" ], [ %.sroa.02.015.i.i9.i55, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i61" ], [ -1, %65 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i59" ]
+  %81 = icmp ult i64 %.sroa.0.0.i.i52, %.sroa.0.0.i14.i60
   %82 = zext i1 %42 to i64
   %83 = getelementptr inbounds nuw { ptr, { i32, [1 x i32] } }, ptr %0, i64 %82
   %84 = xor i1 %42, true
@@ -14867,82 +14879,84 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %94 = getelementptr i8, ptr %83, i64 12
   %.val34 = load i32, ptr %94, align 4
   %95 = icmp eq i32 %.val31, 0
-  br i1 %95, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i69", label %96
+  br i1 %95, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i72", label %96
 
-96:                                               ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit61"
+96:                                               ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit63"
   %97 = icmp ne ptr %.val4.i, null
   tail call void @llvm.assume(i1 %97)
   %98 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 8
   %99 = load ptr, ptr %98, align 8, !nonnull !9, !noundef !9
   %100 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 16
   %101 = load i64, ptr %100, align 8, !noundef !9
-  %102 = getelementptr inbounds { { i32, i32 } }, ptr %99, i64 %101
+  %.idx.i.i65 = shl nsw i64 %101, 3
+  %102 = getelementptr inbounds i8, ptr %99, i64 %.idx.i.i65
   %103 = icmp eq i64 %101, 0
-  br i1 %103, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i69", label %.lr.ph.i.i.i63
+  br i1 %103, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i72", label %.lr.ph.i.i.i66
 
-.lr.ph.i.i.i63:                                   ; preds = %96, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i68"
-  %.sroa.02.015.i.i.i64 = phi i64 [ %109, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i68" ], [ 0, %96 ]
-  %104 = phi ptr [ %108, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i68" ], [ %99, %96 ]
-  %.val8.i.i.i65 = load i32, ptr %104, align 4, !noalias !3199
+.lr.ph.i.i.i66:                                   ; preds = %96, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i71"
+  %.sroa.02.015.i.i.i67 = phi i64 [ %109, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i71" ], [ 0, %96 ]
+  %104 = phi ptr [ %108, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i71" ], [ %99, %96 ]
+  %.val8.i.i.i68 = load i32, ptr %104, align 4, !noalias !3199
   %105 = getelementptr i8, ptr %104, i64 4
-  %.val9.i.i.i66 = load i32, ptr %105, align 4, !noalias !3199, !noundef !9
-  %106 = icmp eq i32 %.val9.i.i.i66, %.val32
-  %107 = icmp eq i32 %.val8.i.i.i65, %.val31
-  %or.cond.i.i.i67 = select i1 %106, i1 %107, i1 false
-  br i1 %or.cond.i.i.i67, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i79", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i68"
+  %.val9.i.i.i69 = load i32, ptr %105, align 4, !noalias !3199, !noundef !9
+  %106 = icmp eq i32 %.val9.i.i.i69, %.val32
+  %107 = icmp eq i32 %.val8.i.i.i68, %.val31
+  %or.cond.i.i.i70 = select i1 %106, i1 %107, i1 false
+  br i1 %or.cond.i.i.i70, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i83", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i71"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i68": ; preds = %.lr.ph.i.i.i63
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i71": ; preds = %.lr.ph.i.i.i66
   %108 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %109 = add nuw nsw i64 %.sroa.02.015.i.i.i64, 1
+  %109 = add nuw nsw i64 %.sroa.02.015.i.i.i67, 1
   %110 = icmp eq ptr %108, %102
-  br i1 %110, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i69", label %.lr.ph.i.i.i63
+  br i1 %110, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i72", label %.lr.ph.i.i.i66
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i79": ; preds = %.lr.ph.i.i.i63
-  %111 = icmp ult i64 %.sroa.02.015.i.i.i64, %101
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i83": ; preds = %.lr.ph.i.i.i66
+  %111 = icmp ult i64 %.sroa.02.015.i.i.i67, %101
   tail call void @llvm.assume(i1 %111)
-  br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i69"
+  br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i72"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i69": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i68", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i79", %96, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit61"
-  %.sroa.0.0.i.i70 = phi i64 [ -1, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit61" ], [ %.sroa.02.015.i.i.i64, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i79" ], [ -1, %96 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i68" ]
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i72": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i71", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i83", %96, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit63"
+  %.sroa.0.0.i.i73 = phi i64 [ -1, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit63" ], [ %.sroa.02.015.i.i.i67, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i83" ], [ -1, %96 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i71" ]
   %112 = icmp eq i32 %.val33, 0
-  br i1 %112, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit80", label %113
+  br i1 %112, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit84", label %113
 
-113:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i69"
+113:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i72"
   %114 = icmp ne ptr %.val4.i, null
   tail call void @llvm.assume(i1 %114)
   %115 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 8
   %116 = load ptr, ptr %115, align 8, !nonnull !9, !noundef !9
   %117 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 16
   %118 = load i64, ptr %117, align 8, !noundef !9
-  %119 = getelementptr inbounds { { i32, i32 } }, ptr %116, i64 %118
+  %.idx.i7.i74 = shl nsw i64 %118, 3
+  %119 = getelementptr inbounds i8, ptr %116, i64 %.idx.i7.i74
   %120 = icmp eq i64 %118, 0
-  br i1 %120, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit80", label %.lr.ph.i.i7.i71
+  br i1 %120, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit84", label %.lr.ph.i.i8.i75
 
-.lr.ph.i.i7.i71:                                  ; preds = %113, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i76"
-  %.sroa.02.015.i.i8.i72 = phi i64 [ %126, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i76" ], [ 0, %113 ]
-  %121 = phi ptr [ %125, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i76" ], [ %116, %113 ]
-  %.val8.i.i9.i73 = load i32, ptr %121, align 4, !noalias !3203
+.lr.ph.i.i8.i75:                                  ; preds = %113, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i80"
+  %.sroa.02.015.i.i9.i76 = phi i64 [ %126, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i80" ], [ 0, %113 ]
+  %121 = phi ptr [ %125, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i80" ], [ %116, %113 ]
+  %.val8.i.i10.i77 = load i32, ptr %121, align 4, !noalias !3203
   %122 = getelementptr i8, ptr %121, i64 4
-  %.val9.i.i10.i74 = load i32, ptr %122, align 4, !noalias !3203, !noundef !9
-  %123 = icmp eq i32 %.val9.i.i10.i74, %.val34
-  %124 = icmp eq i32 %.val8.i.i9.i73, %.val33
-  %or.cond.i.i11.i75 = select i1 %123, i1 %124, i1 false
-  br i1 %or.cond.i.i11.i75, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i78", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i76"
+  %.val9.i.i11.i78 = load i32, ptr %122, align 4, !noalias !3203, !noundef !9
+  %123 = icmp eq i32 %.val9.i.i11.i78, %.val34
+  %124 = icmp eq i32 %.val8.i.i10.i77, %.val33
+  %or.cond.i.i12.i79 = select i1 %123, i1 %124, i1 false
+  br i1 %or.cond.i.i12.i79, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i82", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i80"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i76": ; preds = %.lr.ph.i.i7.i71
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i80": ; preds = %.lr.ph.i.i8.i75
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %126 = add nuw nsw i64 %.sroa.02.015.i.i8.i72, 1
+  %126 = add nuw nsw i64 %.sroa.02.015.i.i9.i76, 1
   %127 = icmp eq ptr %125, %119
-  br i1 %127, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit80", label %.lr.ph.i.i7.i71
+  br i1 %127, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit84", label %.lr.ph.i.i8.i75
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i78": ; preds = %.lr.ph.i.i7.i71
-  %128 = icmp ult i64 %.sroa.02.015.i.i8.i72, %118
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i82": ; preds = %.lr.ph.i.i8.i75
+  %128 = icmp ult i64 %.sroa.02.015.i.i9.i76, %118
   tail call void @llvm.assume(i1 %128)
-  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit80"
+  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit84"
 
-"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit80": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i76", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i69", %113, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i78"
-  %.sroa.0.0.i13.i77 = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i69" ], [ %.sroa.02.015.i.i8.i72, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i78" ], [ -1, %113 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i76" ]
-  %129 = icmp ult i64 %.sroa.0.0.i.i70, %.sroa.0.0.i13.i77
+"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit84": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i80", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i72", %113, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i82"
+  %.sroa.0.0.i14.i81 = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i72" ], [ %.sroa.02.015.i.i9.i76, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i82" ], [ -1, %113 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i80" ]
+  %129 = icmp ult i64 %.sroa.0.0.i.i73, %.sroa.0.0.i14.i81
   %130 = getelementptr i8, ptr %90, i64 8
   %.val36 = load i32, ptr %130, align 8, !noundef !9
   %131 = getelementptr i8, ptr %90, i64 12
@@ -14952,82 +14966,84 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %133 = getelementptr i8, ptr %86, i64 12
   %.val39 = load i32, ptr %133, align 4
   %134 = icmp eq i32 %.val36, 0
-  br i1 %134, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i88", label %135
+  br i1 %134, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i93", label %135
 
-135:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit80"
+135:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit84"
   %136 = icmp ne ptr %.val4.i, null
   tail call void @llvm.assume(i1 %136)
   %137 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 8
   %138 = load ptr, ptr %137, align 8, !nonnull !9, !noundef !9
   %139 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 16
   %140 = load i64, ptr %139, align 8, !noundef !9
-  %141 = getelementptr inbounds { { i32, i32 } }, ptr %138, i64 %140
+  %.idx.i.i86 = shl nsw i64 %140, 3
+  %141 = getelementptr inbounds i8, ptr %138, i64 %.idx.i.i86
   %142 = icmp eq i64 %140, 0
-  br i1 %142, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i88", label %.lr.ph.i.i.i82
+  br i1 %142, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i93", label %.lr.ph.i.i.i87
 
-.lr.ph.i.i.i82:                                   ; preds = %135, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i87"
-  %.sroa.02.015.i.i.i83 = phi i64 [ %148, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i87" ], [ 0, %135 ]
-  %143 = phi ptr [ %147, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i87" ], [ %138, %135 ]
-  %.val8.i.i.i84 = load i32, ptr %143, align 4, !noalias !3207
+.lr.ph.i.i.i87:                                   ; preds = %135, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i92"
+  %.sroa.02.015.i.i.i88 = phi i64 [ %148, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i92" ], [ 0, %135 ]
+  %143 = phi ptr [ %147, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i92" ], [ %138, %135 ]
+  %.val8.i.i.i89 = load i32, ptr %143, align 4, !noalias !3207
   %144 = getelementptr i8, ptr %143, i64 4
-  %.val9.i.i.i85 = load i32, ptr %144, align 4, !noalias !3207, !noundef !9
-  %145 = icmp eq i32 %.val9.i.i.i85, %.val37
-  %146 = icmp eq i32 %.val8.i.i.i84, %.val36
-  %or.cond.i.i.i86 = select i1 %145, i1 %146, i1 false
-  br i1 %or.cond.i.i.i86, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i98", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i87"
+  %.val9.i.i.i90 = load i32, ptr %144, align 4, !noalias !3207, !noundef !9
+  %145 = icmp eq i32 %.val9.i.i.i90, %.val37
+  %146 = icmp eq i32 %.val8.i.i.i89, %.val36
+  %or.cond.i.i.i91 = select i1 %145, i1 %146, i1 false
+  br i1 %or.cond.i.i.i91, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i104", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i92"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i87": ; preds = %.lr.ph.i.i.i82
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i92": ; preds = %.lr.ph.i.i.i87
   %147 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %148 = add nuw nsw i64 %.sroa.02.015.i.i.i83, 1
+  %148 = add nuw nsw i64 %.sroa.02.015.i.i.i88, 1
   %149 = icmp eq ptr %147, %141
-  br i1 %149, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i88", label %.lr.ph.i.i.i82
+  br i1 %149, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i93", label %.lr.ph.i.i.i87
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i98": ; preds = %.lr.ph.i.i.i82
-  %150 = icmp ult i64 %.sroa.02.015.i.i.i83, %140
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i104": ; preds = %.lr.ph.i.i.i87
+  %150 = icmp ult i64 %.sroa.02.015.i.i.i88, %140
   tail call void @llvm.assume(i1 %150)
-  br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i88"
+  br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i93"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i88": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i87", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i98", %135, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit80"
-  %.sroa.0.0.i.i89 = phi i64 [ -1, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit80" ], [ %.sroa.02.015.i.i.i83, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i98" ], [ -1, %135 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i87" ]
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i93": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i92", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i104", %135, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit84"
+  %.sroa.0.0.i.i94 = phi i64 [ -1, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit84" ], [ %.sroa.02.015.i.i.i88, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i104" ], [ -1, %135 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i92" ]
   %151 = icmp eq i32 %.val38, 0
-  br i1 %151, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit99", label %152
+  br i1 %151, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit105", label %152
 
-152:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i88"
+152:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i93"
   %153 = icmp ne ptr %.val4.i, null
   tail call void @llvm.assume(i1 %153)
   %154 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 8
   %155 = load ptr, ptr %154, align 8, !nonnull !9, !noundef !9
   %156 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 16
   %157 = load i64, ptr %156, align 8, !noundef !9
-  %158 = getelementptr inbounds { { i32, i32 } }, ptr %155, i64 %157
+  %.idx.i7.i95 = shl nsw i64 %157, 3
+  %158 = getelementptr inbounds i8, ptr %155, i64 %.idx.i7.i95
   %159 = icmp eq i64 %157, 0
-  br i1 %159, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit99", label %.lr.ph.i.i7.i90
+  br i1 %159, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit105", label %.lr.ph.i.i8.i96
 
-.lr.ph.i.i7.i90:                                  ; preds = %152, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i95"
-  %.sroa.02.015.i.i8.i91 = phi i64 [ %165, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i95" ], [ 0, %152 ]
-  %160 = phi ptr [ %164, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i95" ], [ %155, %152 ]
-  %.val8.i.i9.i92 = load i32, ptr %160, align 4, !noalias !3211
+.lr.ph.i.i8.i96:                                  ; preds = %152, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i101"
+  %.sroa.02.015.i.i9.i97 = phi i64 [ %165, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i101" ], [ 0, %152 ]
+  %160 = phi ptr [ %164, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i101" ], [ %155, %152 ]
+  %.val8.i.i10.i98 = load i32, ptr %160, align 4, !noalias !3211
   %161 = getelementptr i8, ptr %160, i64 4
-  %.val9.i.i10.i93 = load i32, ptr %161, align 4, !noalias !3211, !noundef !9
-  %162 = icmp eq i32 %.val9.i.i10.i93, %.val39
-  %163 = icmp eq i32 %.val8.i.i9.i92, %.val38
-  %or.cond.i.i11.i94 = select i1 %162, i1 %163, i1 false
-  br i1 %or.cond.i.i11.i94, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i97", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i95"
+  %.val9.i.i11.i99 = load i32, ptr %161, align 4, !noalias !3211, !noundef !9
+  %162 = icmp eq i32 %.val9.i.i11.i99, %.val39
+  %163 = icmp eq i32 %.val8.i.i10.i98, %.val38
+  %or.cond.i.i12.i100 = select i1 %162, i1 %163, i1 false
+  br i1 %or.cond.i.i12.i100, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i103", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i101"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i95": ; preds = %.lr.ph.i.i7.i90
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i101": ; preds = %.lr.ph.i.i8.i96
   %164 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  %165 = add nuw nsw i64 %.sroa.02.015.i.i8.i91, 1
+  %165 = add nuw nsw i64 %.sroa.02.015.i.i9.i97, 1
   %166 = icmp eq ptr %164, %158
-  br i1 %166, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit99", label %.lr.ph.i.i7.i90
+  br i1 %166, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit105", label %.lr.ph.i.i8.i96
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i97": ; preds = %.lr.ph.i.i7.i90
-  %167 = icmp ult i64 %.sroa.02.015.i.i8.i91, %157
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i103": ; preds = %.lr.ph.i.i8.i96
+  %167 = icmp ult i64 %.sroa.02.015.i.i9.i97, %157
   tail call void @llvm.assume(i1 %167)
-  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit99"
+  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit105"
 
-"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit99": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i95", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i88", %152, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i97"
-  %.sroa.0.0.i13.i96 = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i88" ], [ %.sroa.02.015.i.i8.i91, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i97" ], [ -1, %152 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i95" ]
-  %168 = icmp ult i64 %.sroa.0.0.i.i89, %.sroa.0.0.i13.i96
+"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit105": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i101", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i93", %152, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i103"
+  %.sroa.0.0.i14.i102 = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i93" ], [ %.sroa.02.015.i.i9.i97, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i103" ], [ -1, %152 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i101" ]
+  %168 = icmp ult i64 %.sroa.0.0.i.i94, %.sroa.0.0.i14.i102
   %.sroa.05.0 = select i1 %168, ptr %88, ptr %86
   %.sroa.02.0 = select i1 %129, ptr %83, ptr %.sroa.05.0
   %.sroa.09.0 = select i1 %129, ptr %86, ptr %88
@@ -15041,84 +15057,86 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %172 = getelementptr i8, ptr %.sroa.02.0, i64 12
   %.sroa.02.0.val42 = load i32, ptr %172, align 4
   %173 = icmp eq i32 %.sroa.06.0.val, 0
-  br i1 %173, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i107", label %174
+  br i1 %173, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i114", label %174
 
-174:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit99"
+174:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit105"
   %175 = icmp ne ptr %.val4.i, null
   tail call void @llvm.assume(i1 %175)
   %176 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 8
   %177 = load ptr, ptr %176, align 8, !nonnull !9, !noundef !9
   %178 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 16
   %179 = load i64, ptr %178, align 8, !noundef !9
-  %180 = getelementptr inbounds { { i32, i32 } }, ptr %177, i64 %179
+  %.idx.i.i107 = shl nsw i64 %179, 3
+  %180 = getelementptr inbounds i8, ptr %177, i64 %.idx.i.i107
   %181 = icmp eq i64 %179, 0
-  br i1 %181, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i107", label %.lr.ph.i.i.i101
+  br i1 %181, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i114", label %.lr.ph.i.i.i108
 
-.lr.ph.i.i.i101:                                  ; preds = %174, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i106"
-  %.sroa.02.015.i.i.i102 = phi i64 [ %187, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i106" ], [ 0, %174 ]
-  %182 = phi ptr [ %186, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i106" ], [ %177, %174 ]
-  %.val8.i.i.i103 = load i32, ptr %182, align 4, !noalias !3215
+.lr.ph.i.i.i108:                                  ; preds = %174, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i113"
+  %.sroa.02.015.i.i.i109 = phi i64 [ %187, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i113" ], [ 0, %174 ]
+  %182 = phi ptr [ %186, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i113" ], [ %177, %174 ]
+  %.val8.i.i.i110 = load i32, ptr %182, align 4, !noalias !3215
   %183 = getelementptr i8, ptr %182, i64 4
-  %.val9.i.i.i104 = load i32, ptr %183, align 4, !noalias !3215, !noundef !9
-  %184 = icmp eq i32 %.val9.i.i.i104, %.sroa.06.0.val41
-  %185 = icmp eq i32 %.val8.i.i.i103, %.sroa.06.0.val
-  %or.cond.i.i.i105 = select i1 %184, i1 %185, i1 false
-  br i1 %or.cond.i.i.i105, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i117", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i106"
+  %.val9.i.i.i111 = load i32, ptr %183, align 4, !noalias !3215, !noundef !9
+  %184 = icmp eq i32 %.val9.i.i.i111, %.sroa.06.0.val41
+  %185 = icmp eq i32 %.val8.i.i.i110, %.sroa.06.0.val
+  %or.cond.i.i.i112 = select i1 %184, i1 %185, i1 false
+  br i1 %or.cond.i.i.i112, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i125", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i113"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i106": ; preds = %.lr.ph.i.i.i101
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i113": ; preds = %.lr.ph.i.i.i108
   %186 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  %187 = add nuw nsw i64 %.sroa.02.015.i.i.i102, 1
+  %187 = add nuw nsw i64 %.sroa.02.015.i.i.i109, 1
   %188 = icmp eq ptr %186, %180
-  br i1 %188, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i107", label %.lr.ph.i.i.i101
+  br i1 %188, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i114", label %.lr.ph.i.i.i108
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i117": ; preds = %.lr.ph.i.i.i101
-  %189 = icmp ult i64 %.sroa.02.015.i.i.i102, %179
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i125": ; preds = %.lr.ph.i.i.i108
+  %189 = icmp ult i64 %.sroa.02.015.i.i.i109, %179
   tail call void @llvm.assume(i1 %189)
-  br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i107"
+  br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i114"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i107": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i106", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i117", %174, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit99"
-  %.sroa.0.0.i.i108 = phi i64 [ -1, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit99" ], [ %.sroa.02.015.i.i.i102, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i117" ], [ -1, %174 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i106" ]
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i114": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i113", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i125", %174, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit105"
+  %.sroa.0.0.i.i115 = phi i64 [ -1, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit105" ], [ %.sroa.02.015.i.i.i109, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i125" ], [ -1, %174 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i113" ]
   %190 = icmp eq i32 %.sroa.02.0.val, 0
-  br i1 %190, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit118", label %191
+  br i1 %190, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit126", label %191
 
-191:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i107"
+191:                                              ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i114"
   %192 = icmp ne ptr %.val4.i, null
   tail call void @llvm.assume(i1 %192)
   %193 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 8
   %194 = load ptr, ptr %193, align 8, !nonnull !9, !noundef !9
   %195 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 16
   %196 = load i64, ptr %195, align 8, !noundef !9
-  %197 = getelementptr inbounds { { i32, i32 } }, ptr %194, i64 %196
+  %.idx.i7.i116 = shl nsw i64 %196, 3
+  %197 = getelementptr inbounds i8, ptr %194, i64 %.idx.i7.i116
   %198 = icmp eq i64 %196, 0
-  br i1 %198, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit118", label %.lr.ph.i.i7.i109
+  br i1 %198, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit126", label %.lr.ph.i.i8.i117
 
-.lr.ph.i.i7.i109:                                 ; preds = %191, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i114"
-  %.sroa.02.015.i.i8.i110 = phi i64 [ %204, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i114" ], [ 0, %191 ]
-  %199 = phi ptr [ %203, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i114" ], [ %194, %191 ]
-  %.val8.i.i9.i111 = load i32, ptr %199, align 4, !noalias !3219
+.lr.ph.i.i8.i117:                                 ; preds = %191, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i122"
+  %.sroa.02.015.i.i9.i118 = phi i64 [ %204, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i122" ], [ 0, %191 ]
+  %199 = phi ptr [ %203, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i122" ], [ %194, %191 ]
+  %.val8.i.i10.i119 = load i32, ptr %199, align 4, !noalias !3219
   %200 = getelementptr i8, ptr %199, i64 4
-  %.val9.i.i10.i112 = load i32, ptr %200, align 4, !noalias !3219, !noundef !9
-  %201 = icmp eq i32 %.val9.i.i10.i112, %.sroa.02.0.val42
-  %202 = icmp eq i32 %.val8.i.i9.i111, %.sroa.02.0.val
-  %or.cond.i.i11.i113 = select i1 %201, i1 %202, i1 false
-  br i1 %or.cond.i.i11.i113, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i116", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i114"
+  %.val9.i.i11.i120 = load i32, ptr %200, align 4, !noalias !3219, !noundef !9
+  %201 = icmp eq i32 %.val9.i.i11.i120, %.sroa.02.0.val42
+  %202 = icmp eq i32 %.val8.i.i10.i119, %.sroa.02.0.val
+  %or.cond.i.i12.i121 = select i1 %201, i1 %202, i1 false
+  br i1 %or.cond.i.i12.i121, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i124", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i122"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i114": ; preds = %.lr.ph.i.i7.i109
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i122": ; preds = %.lr.ph.i.i8.i117
   %203 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  %204 = add nuw nsw i64 %.sroa.02.015.i.i8.i110, 1
+  %204 = add nuw nsw i64 %.sroa.02.015.i.i9.i118, 1
   %205 = icmp eq ptr %203, %197
-  br i1 %205, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit118", label %.lr.ph.i.i7.i109
+  br i1 %205, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit126", label %.lr.ph.i.i8.i117
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i116": ; preds = %.lr.ph.i.i7.i109
-  %206 = icmp ult i64 %.sroa.02.015.i.i8.i110, %196
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i124": ; preds = %.lr.ph.i.i8.i117
+  %206 = icmp ult i64 %.sroa.02.015.i.i9.i118, %196
   tail call void @llvm.assume(i1 %206)
-  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit118"
+  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit126"
 
-"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit118": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i114", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i107", %191, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i116"
-  %.sroa.0.0.i13.i115 = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i107" ], [ %.sroa.02.015.i.i8.i110, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i116" ], [ -1, %191 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i114" ]
+"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit126": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i122", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i114", %191, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i124"
+  %.sroa.0.0.i14.i123 = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i114" ], [ %.sroa.02.015.i.i9.i118, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i124" ], [ -1, %191 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i122" ]
   %.sroa.01.0 = select i1 %168, ptr %86, ptr %90
   %. = select i1 %129, ptr %88, ptr %83
-  %207 = icmp ult i64 %.sroa.0.0.i.i108, %.sroa.0.0.i13.i115
+  %207 = icmp ult i64 %.sroa.0.0.i.i115, %.sroa.0.0.i14.i123
   %.sroa.010.0 = select i1 %207, ptr %.sroa.06.0, ptr %.sroa.02.0
   %.sroa.011.0 = select i1 %207, ptr %.sroa.02.0, ptr %.sroa.06.0
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %., i64 16, i1 false)
@@ -17229,21 +17247,21 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   tail call void @llvm.assume(i1 %9)
   br label %14
 
-._crit_edge:                                      ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit47"
+._crit_edge:                                      ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49"
   %10 = getelementptr i8, ptr %102, i64 16
   %11 = getelementptr i8, ptr %101, i64 16
   %12 = and i64 %1, 1
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %111, label %104
 
-14:                                               ; preds = %.lr.ph, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit47"
-  %.sroa.0.014 = phi ptr [ %0, %.lr.ph ], [ %59, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit47" ]
-  %.sroa.06.013 = phi ptr [ %4, %.lr.ph ], [ %57, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit47" ]
-  %.sroa.010.012 = phi ptr [ %2, %.lr.ph ], [ %60, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit47" ]
-  %.sroa.013.011 = phi ptr [ %5, %.lr.ph ], [ %102, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit47" ]
-  %.sroa.015.010 = phi ptr [ %7, %.lr.ph ], [ %101, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit47" ]
-  %.sroa.017.09 = phi ptr [ %8, %.lr.ph ], [ %103, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit47" ]
-  %.sroa.018.08 = phi i64 [ 0, %.lr.ph ], [ %15, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit47" ]
+14:                                               ; preds = %.lr.ph, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49"
+  %.sroa.0.014 = phi ptr [ %0, %.lr.ph ], [ %59, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49" ]
+  %.sroa.06.013 = phi ptr [ %4, %.lr.ph ], [ %57, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49" ]
+  %.sroa.010.012 = phi ptr [ %2, %.lr.ph ], [ %60, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49" ]
+  %.sroa.013.011 = phi ptr [ %5, %.lr.ph ], [ %102, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49" ]
+  %.sroa.015.010 = phi ptr [ %7, %.lr.ph ], [ %101, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49" ]
+  %.sroa.017.09 = phi ptr [ %8, %.lr.ph ], [ %103, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49" ]
+  %.sroa.018.08 = phi i64 [ 0, %.lr.ph ], [ %15, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49" ]
   %15 = add nuw nsw i64 %.sroa.018.08, 1
   %16 = getelementptr i8, ptr %.sroa.06.013, i64 8
   %.sroa.06.0.val = load i32, ptr %16, align 8, !noundef !9
@@ -17264,7 +17282,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   %24 = load ptr, ptr %23, align 8, !nonnull !9, !noundef !9
   %25 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 16
   %26 = load i64, ptr %25, align 8, !noundef !9
-  %27 = getelementptr inbounds { { i32, i32 } }, ptr %24, i64 %26
+  %.idx.i.i = shl nsw i64 %26, 3
+  %27 = getelementptr inbounds i8, ptr %24, i64 %.idx.i.i
   %28 = icmp eq i64 %26, 0
   br i1 %28, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i", label %.lr.ph.i.i.i
 
@@ -17302,35 +17321,36 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   %41 = load ptr, ptr %40, align 8, !nonnull !9, !noundef !9
   %42 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 16
   %43 = load i64, ptr %42, align 8, !noundef !9
-  %44 = getelementptr inbounds { { i32, i32 } }, ptr %41, i64 %43
+  %.idx.i7.i = shl nsw i64 %43, 3
+  %44 = getelementptr inbounds i8, ptr %41, i64 %.idx.i7.i
   %45 = icmp eq i64 %43, 0
-  br i1 %45, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit", label %.lr.ph.i.i7.i
+  br i1 %45, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit", label %.lr.ph.i.i8.i
 
-.lr.ph.i.i7.i:                                    ; preds = %38, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i"
-  %.sroa.02.015.i.i8.i = phi i64 [ %51, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i" ], [ 0, %38 ]
-  %46 = phi ptr [ %50, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i" ], [ %41, %38 ]
-  %.val8.i.i9.i = load i32, ptr %46, align 4, !noalias !3268
+.lr.ph.i.i8.i:                                    ; preds = %38, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i"
+  %.sroa.02.015.i.i9.i = phi i64 [ %51, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i" ], [ 0, %38 ]
+  %46 = phi ptr [ %50, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i" ], [ %41, %38 ]
+  %.val8.i.i10.i = load i32, ptr %46, align 4, !noalias !3268
   %47 = getelementptr i8, ptr %46, i64 4
-  %.val9.i.i10.i = load i32, ptr %47, align 4, !noalias !3268, !noundef !9
-  %48 = icmp eq i32 %.val9.i.i10.i, %.sroa.0.0.val25
-  %49 = icmp eq i32 %.val8.i.i9.i, %.sroa.0.0.val
-  %or.cond.i.i11.i = select i1 %48, i1 %49, i1 false
-  br i1 %or.cond.i.i11.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i"
+  %.val9.i.i11.i = load i32, ptr %47, align 4, !noalias !3268, !noundef !9
+  %48 = icmp eq i32 %.val9.i.i11.i, %.sroa.0.0.val25
+  %49 = icmp eq i32 %.val8.i.i10.i, %.sroa.0.0.val
+  %or.cond.i.i12.i = select i1 %48, i1 %49, i1 false
+  br i1 %or.cond.i.i12.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i": ; preds = %.lr.ph.i.i7.i
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i": ; preds = %.lr.ph.i.i8.i
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %51 = add nuw nsw i64 %.sroa.02.015.i.i8.i, 1
+  %51 = add nuw nsw i64 %.sroa.02.015.i.i9.i, 1
   %52 = icmp eq ptr %50, %44
-  br i1 %52, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit", label %.lr.ph.i.i7.i
+  br i1 %52, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit", label %.lr.ph.i.i8.i
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i": ; preds = %.lr.ph.i.i7.i
-  %53 = icmp ult i64 %.sroa.02.015.i.i8.i, %43
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i": ; preds = %.lr.ph.i.i8.i
+  %53 = icmp ult i64 %.sroa.02.015.i.i9.i, %43
   tail call void @llvm.assume(i1 %53)
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit"
 
-"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i", %38, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i"
-  %.sroa.0.0.i13.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i" ], [ %.sroa.02.015.i.i8.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i" ], [ -1, %38 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i" ]
-  %54 = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0.i13.i
+"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i", %38, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i"
+  %.sroa.0.0.i14.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i" ], [ %.sroa.02.015.i.i9.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i" ], [ -1, %38 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i" ]
+  %54 = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0.i14.i
   %..i23 = select i1 %54, ptr %.sroa.06.013, ptr %.sroa.0.014
   %55 = xor i1 %54, true
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010.012, ptr noundef nonnull align 8 dereferenceable(16) %..i23, i64 16, i1 false), !noalias !3272
@@ -17349,7 +17369,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   %.sroa.013.0.val28 = load i32, ptr %64, align 4
   %.val4.i29 = load ptr, ptr %.0.val, align 8
   %65 = icmp eq i32 %.sroa.015.0.val, 0
-  br i1 %65, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i36", label %66
+  br i1 %65, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i37", label %66
 
 66:                                               ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit"
   %67 = icmp ne ptr %.val4.i29, null
@@ -17358,73 +17378,75 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   %69 = load ptr, ptr %68, align 8, !nonnull !9, !noundef !9
   %70 = getelementptr inbounds nuw i8, ptr %.val4.i29, i64 16
   %71 = load i64, ptr %70, align 8, !noundef !9
-  %72 = getelementptr inbounds { { i32, i32 } }, ptr %69, i64 %71
+  %.idx.i.i30 = shl nsw i64 %71, 3
+  %72 = getelementptr inbounds i8, ptr %69, i64 %.idx.i.i30
   %73 = icmp eq i64 %71, 0
-  br i1 %73, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i36", label %.lr.ph.i.i.i30
+  br i1 %73, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i37", label %.lr.ph.i.i.i31
 
-.lr.ph.i.i.i30:                                   ; preds = %66, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i35"
-  %.sroa.02.015.i.i.i31 = phi i64 [ %79, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i35" ], [ 0, %66 ]
-  %74 = phi ptr [ %78, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i35" ], [ %69, %66 ]
-  %.val8.i.i.i32 = load i32, ptr %74, align 4, !noalias !3276
+.lr.ph.i.i.i31:                                   ; preds = %66, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i36"
+  %.sroa.02.015.i.i.i32 = phi i64 [ %79, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i36" ], [ 0, %66 ]
+  %74 = phi ptr [ %78, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i36" ], [ %69, %66 ]
+  %.val8.i.i.i33 = load i32, ptr %74, align 4, !noalias !3276
   %75 = getelementptr i8, ptr %74, i64 4
-  %.val9.i.i.i33 = load i32, ptr %75, align 4, !noalias !3276, !noundef !9
-  %76 = icmp eq i32 %.val9.i.i.i33, %.sroa.015.0.val27
-  %77 = icmp eq i32 %.val8.i.i.i32, %.sroa.015.0.val
-  %or.cond.i.i.i34 = select i1 %76, i1 %77, i1 false
-  br i1 %or.cond.i.i.i34, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i46", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i35"
+  %.val9.i.i.i34 = load i32, ptr %75, align 4, !noalias !3276, !noundef !9
+  %76 = icmp eq i32 %.val9.i.i.i34, %.sroa.015.0.val27
+  %77 = icmp eq i32 %.val8.i.i.i33, %.sroa.015.0.val
+  %or.cond.i.i.i35 = select i1 %76, i1 %77, i1 false
+  br i1 %or.cond.i.i.i35, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i48", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i36"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i35": ; preds = %.lr.ph.i.i.i30
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i36": ; preds = %.lr.ph.i.i.i31
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %79 = add nuw nsw i64 %.sroa.02.015.i.i.i31, 1
+  %79 = add nuw nsw i64 %.sroa.02.015.i.i.i32, 1
   %80 = icmp eq ptr %78, %72
-  br i1 %80, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i36", label %.lr.ph.i.i.i30
+  br i1 %80, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i37", label %.lr.ph.i.i.i31
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i46": ; preds = %.lr.ph.i.i.i30
-  %81 = icmp ult i64 %.sroa.02.015.i.i.i31, %71
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i48": ; preds = %.lr.ph.i.i.i31
+  %81 = icmp ult i64 %.sroa.02.015.i.i.i32, %71
   tail call void @llvm.assume(i1 %81)
-  br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i36"
+  br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i37"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i36": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i35", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i46", %66, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit"
-  %.sroa.0.0.i.i37 = phi i64 [ -1, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit" ], [ %.sroa.02.015.i.i.i31, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i46" ], [ -1, %66 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i35" ]
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i37": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i36", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i48", %66, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit"
+  %.sroa.0.0.i.i38 = phi i64 [ -1, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit" ], [ %.sroa.02.015.i.i.i32, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i48" ], [ -1, %66 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i36" ]
   %82 = icmp eq i32 %.sroa.013.0.val, 0
-  br i1 %82, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit47", label %83
+  br i1 %82, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49", label %83
 
-83:                                               ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i36"
+83:                                               ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i37"
   %84 = icmp ne ptr %.val4.i29, null
   tail call void @llvm.assume(i1 %84)
   %85 = getelementptr inbounds nuw i8, ptr %.val4.i29, i64 8
   %86 = load ptr, ptr %85, align 8, !nonnull !9, !noundef !9
   %87 = getelementptr inbounds nuw i8, ptr %.val4.i29, i64 16
   %88 = load i64, ptr %87, align 8, !noundef !9
-  %89 = getelementptr inbounds { { i32, i32 } }, ptr %86, i64 %88
+  %.idx.i7.i39 = shl nsw i64 %88, 3
+  %89 = getelementptr inbounds i8, ptr %86, i64 %.idx.i7.i39
   %90 = icmp eq i64 %88, 0
-  br i1 %90, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit47", label %.lr.ph.i.i7.i38
+  br i1 %90, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49", label %.lr.ph.i.i8.i40
 
-.lr.ph.i.i7.i38:                                  ; preds = %83, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i43"
-  %.sroa.02.015.i.i8.i39 = phi i64 [ %96, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i43" ], [ 0, %83 ]
-  %91 = phi ptr [ %95, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i43" ], [ %86, %83 ]
-  %.val8.i.i9.i40 = load i32, ptr %91, align 4, !noalias !3280
+.lr.ph.i.i8.i40:                                  ; preds = %83, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i45"
+  %.sroa.02.015.i.i9.i41 = phi i64 [ %96, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i45" ], [ 0, %83 ]
+  %91 = phi ptr [ %95, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i45" ], [ %86, %83 ]
+  %.val8.i.i10.i42 = load i32, ptr %91, align 4, !noalias !3280
   %92 = getelementptr i8, ptr %91, i64 4
-  %.val9.i.i10.i41 = load i32, ptr %92, align 4, !noalias !3280, !noundef !9
-  %93 = icmp eq i32 %.val9.i.i10.i41, %.sroa.013.0.val28
-  %94 = icmp eq i32 %.val8.i.i9.i40, %.sroa.013.0.val
-  %or.cond.i.i11.i42 = select i1 %93, i1 %94, i1 false
-  br i1 %or.cond.i.i11.i42, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i45", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i43"
+  %.val9.i.i11.i43 = load i32, ptr %92, align 4, !noalias !3280, !noundef !9
+  %93 = icmp eq i32 %.val9.i.i11.i43, %.sroa.013.0.val28
+  %94 = icmp eq i32 %.val8.i.i10.i42, %.sroa.013.0.val
+  %or.cond.i.i12.i44 = select i1 %93, i1 %94, i1 false
+  br i1 %or.cond.i.i12.i44, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i47", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i45"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i43": ; preds = %.lr.ph.i.i7.i38
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i45": ; preds = %.lr.ph.i.i8.i40
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %96 = add nuw nsw i64 %.sroa.02.015.i.i8.i39, 1
+  %96 = add nuw nsw i64 %.sroa.02.015.i.i9.i41, 1
   %97 = icmp eq ptr %95, %89
-  br i1 %97, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit47", label %.lr.ph.i.i7.i38
+  br i1 %97, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49", label %.lr.ph.i.i8.i40
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i45": ; preds = %.lr.ph.i.i7.i38
-  %98 = icmp ult i64 %.sroa.02.015.i.i8.i39, %88
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i47": ; preds = %.lr.ph.i.i8.i40
+  %98 = icmp ult i64 %.sroa.02.015.i.i9.i41, %88
   tail call void @llvm.assume(i1 %98)
-  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit47"
+  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49"
 
-"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit47": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i43", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i36", %83, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i45"
-  %.sroa.0.0.i13.i44 = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i36" ], [ %.sroa.02.015.i.i8.i39, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i45" ], [ -1, %83 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i43" ]
-  %99 = icmp ult i64 %.sroa.0.0.i.i37, %.sroa.0.0.i13.i44
+"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit49": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i45", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i37", %83, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i47"
+  %.sroa.0.0.i14.i46 = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i37" ], [ %.sroa.02.015.i.i9.i41, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i47" ], [ -1, %83 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i45" ]
+  %99 = icmp ult i64 %.sroa.0.0.i.i38, %.sroa.0.0.i14.i46
   %..i = select i1 %99, ptr %.sroa.013.011, ptr %.sroa.015.010
   %100 = xor i1 %99, true
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.017.09, ptr noundef nonnull align 8 dereferenceable(16) %..i, i64 16, i1 false), !noalias !3284
@@ -20077,7 +20099,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %60 = load ptr, ptr %59, align 8, !noalias !3481, !nonnull !9, !noundef !9
   %61 = getelementptr inbounds nuw i8, ptr %.val4.i.i, i64 16
   %62 = load i64, ptr %61, align 8, !noalias !3481, !noundef !9
-  %63 = getelementptr inbounds { { i32, i32 } }, ptr %60, i64 %62
+  %.idx.i.i.i = shl nsw i64 %62, 3
+  %63 = getelementptr inbounds i8, ptr %60, i64 %.idx.i.i.i
   %64 = icmp eq i64 %62, 0
   br i1 %64, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i", label %.lr.ph.i.i.i.i
 
@@ -20115,39 +20138,40 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %77 = load ptr, ptr %76, align 8, !noalias !3481, !nonnull !9, !noundef !9
   %78 = getelementptr inbounds nuw i8, ptr %.val4.i.i, i64 16
   %79 = load i64, ptr %78, align 8, !noalias !3481, !noundef !9
-  %80 = getelementptr inbounds { { i32, i32 } }, ptr %77, i64 %79
+  %.idx.i7.i.i = shl nsw i64 %79, 3
+  %80 = getelementptr inbounds i8, ptr %77, i64 %.idx.i7.i.i
   %81 = icmp eq i64 %79, 0
-  br i1 %81, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit.i", label %.lr.ph.i.i7.i.i
+  br i1 %81, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit.i", label %.lr.ph.i.i8.i.i
 
-.lr.ph.i.i7.i.i:                                  ; preds = %74, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i"
-  %.sroa.02.015.i.i8.i.i = phi i64 [ %87, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i" ], [ 0, %74 ]
-  %82 = phi ptr [ %86, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i" ], [ %77, %74 ]
-  %.val8.i.i9.i.i = load i32, ptr %82, align 4, !noalias !3488
+.lr.ph.i.i8.i.i:                                  ; preds = %74, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i.i"
+  %.sroa.02.015.i.i9.i.i = phi i64 [ %87, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i.i" ], [ 0, %74 ]
+  %82 = phi ptr [ %86, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i.i" ], [ %77, %74 ]
+  %.val8.i.i10.i.i = load i32, ptr %82, align 4, !noalias !3488
   %83 = getelementptr i8, ptr %82, i64 4
-  %.val9.i.i10.i.i = load i32, ptr %83, align 4, !noalias !3488, !noundef !9
-  %84 = icmp eq i32 %.val9.i.i10.i.i, %.val15.i
-  %85 = icmp eq i32 %.val8.i.i9.i.i, %.val14.i
-  %or.cond.i.i11.i.i = select i1 %84, i1 %85, i1 false
-  br i1 %or.cond.i.i11.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i"
+  %.val9.i.i11.i.i = load i32, ptr %83, align 4, !noalias !3488, !noundef !9
+  %84 = icmp eq i32 %.val9.i.i11.i.i, %.val15.i
+  %85 = icmp eq i32 %.val8.i.i10.i.i, %.val14.i
+  %or.cond.i.i12.i.i = select i1 %84, i1 %85, i1 false
+  br i1 %or.cond.i.i12.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i.i"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i": ; preds = %.lr.ph.i.i7.i.i
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i.i": ; preds = %.lr.ph.i.i8.i.i
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %87 = add nuw nsw i64 %.sroa.02.015.i.i8.i.i, 1
+  %87 = add nuw nsw i64 %.sroa.02.015.i.i9.i.i, 1
   %88 = icmp eq ptr %86, %80
-  br i1 %88, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit.i", label %.lr.ph.i.i7.i.i
+  br i1 %88, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit.i", label %.lr.ph.i.i8.i.i
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i": ; preds = %.lr.ph.i.i7.i.i
-  %89 = icmp ult i64 %.sroa.02.015.i.i8.i.i, %79
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i.i": ; preds = %.lr.ph.i.i8.i.i
+  %89 = icmp ult i64 %.sroa.02.015.i.i9.i.i, %79
   tail call void @llvm.assume(i1 %89)
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit.i"
 
-"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i", %74, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i"
-  %.sroa.0.0.i13.i.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i" ], [ %.sroa.02.015.i.i8.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i.i" ], [ -1, %74 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i.i" ]
-  %90 = icmp ult i64 %.sroa.0.0.i.i.i, %.sroa.0.0.i13.i.i
+"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i.i", %74, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i"
+  %.sroa.0.0.i14.i.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i.i" ], [ %.sroa.02.015.i.i9.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i.i" ], [ -1, %74 ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i.i" ]
+  %90 = icmp ult i64 %.sroa.0.0.i.i.i, %.sroa.0.0.i14.i.i
   br i1 %90, label %91, label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h70c7aa337430a545E.llvm.17803978538969967659.exit
 
 91:                                               ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit.i"
-  %.sroa.059.0.copyload.i = load i64, ptr %51, align 8, !noalias !3481
+  %.sroa.061.0.copyload.i = load i64, ptr %51, align 8, !noalias !3481
   br i1 %56, label %.split.us.i, label %.split.i.preheader
 
 .split.i.preheader:                               ; preds = %91
@@ -20159,53 +20183,54 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.sroa.0.0.us.i = getelementptr inbounds i8, ptr %51, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.us.i, i64 16, i1 false), !noalias !3481
   %94 = icmp eq ptr %.sroa.0.0.us.i, %42
-  br i1 %94, label %.split49.us.i, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28.us.i"
+  br i1 %94, label %.split51.us.i, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.us.i"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28.us.i": ; preds = %.split.us.i
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.us.i": ; preds = %.split.us.i
   %95 = getelementptr i8, ptr %51, i64 -24
   %.val19.us.i = load i32, ptr %95, align 8, !noalias !3481
   %96 = getelementptr i8, ptr %51, i64 -20
   %.val20.us.i = load i32, ptr %96, align 4, !noalias !3481
   %97 = icmp eq i32 %.val19.us.i, 0
-  br i1 %97, label %.split49.us.i, label %98
+  br i1 %97, label %.split51.us.i, label %98
 
-98:                                               ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28.us.i"
+98:                                               ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.us.i"
   %99 = getelementptr inbounds nuw i8, ptr %.val4.i.i, i64 8
   %100 = load ptr, ptr %99, align 8, !noalias !3481, !nonnull !9, !noundef !9
   %101 = getelementptr inbounds nuw i8, ptr %.val4.i.i, i64 16
   %102 = load i64, ptr %101, align 8, !noalias !3481, !noundef !9
-  %103 = getelementptr inbounds { { i32, i32 } }, ptr %100, i64 %102
+  %.idx.i7.i31.us.i = shl nsw i64 %102, 3
+  %103 = getelementptr inbounds i8, ptr %100, i64 %.idx.i7.i31.us.i
   %104 = icmp eq i64 %102, 0
-  br i1 %104, label %.split49.us.i, label %.lr.ph.i.i7.i30.us.i
+  br i1 %104, label %.split51.us.i, label %.lr.ph.i.i8.i32.us.i
 
-.lr.ph.i.i7.i30.us.i:                             ; preds = %98, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.us.i"
-  %.sroa.02.015.i.i8.i31.us.i = phi i64 [ %110, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.us.i" ], [ 0, %98 ]
-  %105 = phi ptr [ %109, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.us.i" ], [ %100, %98 ]
-  %.val8.i.i9.i32.us.i = load i32, ptr %105, align 4, !noalias !3492
+.lr.ph.i.i8.i32.us.i:                             ; preds = %98, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.us.i"
+  %.sroa.02.015.i.i9.i33.us.i = phi i64 [ %110, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.us.i" ], [ 0, %98 ]
+  %105 = phi ptr [ %109, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.us.i" ], [ %100, %98 ]
+  %.val8.i.i10.i34.us.i = load i32, ptr %105, align 4, !noalias !3492
   %106 = getelementptr i8, ptr %105, i64 4
-  %.val9.i.i10.i33.us.i = load i32, ptr %106, align 4, !noalias !3492, !noundef !9
-  %107 = icmp eq i32 %.val9.i.i10.i33.us.i, %.val20.us.i
-  %108 = icmp eq i32 %.val8.i.i9.i32.us.i, %.val19.us.i
-  %or.cond.i.i11.i34.us.i = select i1 %107, i1 %108, i1 false
-  br i1 %or.cond.i.i11.i34.us.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i37.us.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.us.i"
+  %.val9.i.i11.i35.us.i = load i32, ptr %106, align 4, !noalias !3492, !noundef !9
+  %107 = icmp eq i32 %.val9.i.i11.i35.us.i, %.val20.us.i
+  %108 = icmp eq i32 %.val8.i.i10.i34.us.i, %.val19.us.i
+  %or.cond.i.i12.i36.us.i = select i1 %107, i1 %108, i1 false
+  br i1 %or.cond.i.i12.i36.us.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39.us.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.us.i"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.us.i": ; preds = %.lr.ph.i.i7.i30.us.i
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.us.i": ; preds = %.lr.ph.i.i8.i32.us.i
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %110 = add nuw nsw i64 %.sroa.02.015.i.i8.i31.us.i, 1
+  %110 = add nuw nsw i64 %.sroa.02.015.i.i9.i33.us.i, 1
   %111 = icmp eq ptr %109, %103
-  br i1 %111, label %.split49.us.i, label %.lr.ph.i.i7.i30.us.i
+  br i1 %111, label %.split51.us.i, label %.lr.ph.i.i8.i32.us.i
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i37.us.i": ; preds = %.lr.ph.i.i7.i30.us.i
-  %112 = icmp ult i64 %.sroa.02.015.i.i8.i31.us.i, %102
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39.us.i": ; preds = %.lr.ph.i.i8.i32.us.i
+  %112 = icmp ult i64 %.sroa.02.015.i.i9.i33.us.i, %102
   tail call void @llvm.assume(i1 %112)
-  br label %.split49.us.i
+  br label %.split51.us.i
 
 .split.i:                                         ; preds = %.split.i.preheader, %.loopexit.i
   %.sroa.5.0.i = phi ptr [ %.sroa.0.0.i, %.loopexit.i ], [ %51, %.split.i.preheader ]
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i, i64 16, i1 false), !noalias !3481
   %113 = icmp eq ptr %.sroa.0.0.i, %42
-  br i1 %113, label %.split49.us.i, label %114
+  br i1 %113, label %.split51.us.i, label %114
 
 114:                                              ; preds = %.split.i
   %115 = getelementptr i8, ptr %.sroa.5.0.i, i64 -24
@@ -20214,74 +20239,75 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   %.val20.i = load i32, ptr %116, align 4, !noalias !3481
   %117 = load ptr, ptr %92, align 8, !noalias !3481, !nonnull !9, !noundef !9
   %118 = load i64, ptr %93, align 8, !noalias !3481, !noundef !9
-  %119 = getelementptr inbounds { { i32, i32 } }, ptr %117, i64 %118
+  %.idx.i.i22.i = shl nsw i64 %118, 3
+  %119 = getelementptr inbounds i8, ptr %117, i64 %.idx.i.i22.i
   %120 = icmp eq i64 %118, 0
-  br i1 %120, label %.split49.us.i, label %.lr.ph.i.i.i22.i
+  br i1 %120, label %.split51.us.i, label %.lr.ph.i.i.i23.i
 
-.lr.ph.i.i.i22.i:                                 ; preds = %114, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i27.i"
-  %.sroa.02.015.i.i.i23.i = phi i64 [ %126, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i27.i" ], [ 0, %114 ]
-  %121 = phi ptr [ %125, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i27.i" ], [ %117, %114 ]
-  %.val8.i.i.i24.i = load i32, ptr %121, align 4, !noalias !3496
+.lr.ph.i.i.i23.i:                                 ; preds = %114, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i28.i"
+  %.sroa.02.015.i.i.i24.i = phi i64 [ %126, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i28.i" ], [ 0, %114 ]
+  %121 = phi ptr [ %125, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i28.i" ], [ %117, %114 ]
+  %.val8.i.i.i25.i = load i32, ptr %121, align 4, !noalias !3496
   %122 = getelementptr i8, ptr %121, i64 4
-  %.val9.i.i.i25.i = load i32, ptr %122, align 4, !noalias !3496, !noundef !9
-  %123 = icmp eq i32 %.val9.i.i.i25.i, %.val13.i
-  %124 = icmp eq i32 %.val8.i.i.i24.i, %.val12.i
-  %or.cond.i.i.i26.i = select i1 %123, i1 %124, i1 false
-  br i1 %or.cond.i.i.i26.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i38.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i27.i"
+  %.val9.i.i.i26.i = load i32, ptr %122, align 4, !noalias !3496, !noundef !9
+  %123 = icmp eq i32 %.val9.i.i.i26.i, %.val13.i
+  %124 = icmp eq i32 %.val8.i.i.i25.i, %.val12.i
+  %or.cond.i.i.i27.i = select i1 %123, i1 %124, i1 false
+  br i1 %or.cond.i.i.i27.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i40.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i28.i"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i27.i": ; preds = %.lr.ph.i.i.i22.i
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i28.i": ; preds = %.lr.ph.i.i.i23.i
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %126 = add nuw nsw i64 %.sroa.02.015.i.i.i23.i, 1
+  %126 = add nuw nsw i64 %.sroa.02.015.i.i.i24.i, 1
   %127 = icmp eq ptr %125, %119
-  br i1 %127, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28.i", label %.lr.ph.i.i.i22.i
+  br i1 %127, label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.i", label %.lr.ph.i.i.i23.i
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i38.i": ; preds = %.lr.ph.i.i.i22.i
-  %128 = icmp ult i64 %.sroa.02.015.i.i.i23.i, %118
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i40.i": ; preds = %.lr.ph.i.i.i23.i
+  %128 = icmp ult i64 %.sroa.02.015.i.i.i24.i, %118
   tail call void @llvm.assume(i1 %128)
-  br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28.i"
+  br label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.i"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i27.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i38.i"
-  %.sroa.0.0.i.i29.i = phi i64 [ %.sroa.02.015.i.i.i23.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i38.i" ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i27.i" ]
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.i": ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i28.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i40.i"
+  %.sroa.0.0.i.i30.i = phi i64 [ %.sroa.02.015.i.i.i24.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i.i40.i" ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i.i28.i" ]
   %129 = icmp eq i32 %.val19.i, 0
-  br i1 %129, label %.loopexit.i, label %.lr.ph.i.i7.i30.i
+  br i1 %129, label %.loopexit.i, label %.lr.ph.i.i8.i32.i
 
-.lr.ph.i.i7.i30.i:                                ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28.i", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.i"
-  %.sroa.02.015.i.i8.i31.i = phi i64 [ %135, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.i" ], [ 0, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28.i" ]
-  %130 = phi ptr [ %134, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.i" ], [ %117, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28.i" ]
-  %.val8.i.i9.i32.i = load i32, ptr %130, align 4, !noalias !3492
+.lr.ph.i.i8.i32.i:                                ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.i", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.i"
+  %.sroa.02.015.i.i9.i33.i = phi i64 [ %135, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.i" ], [ 0, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.i" ]
+  %130 = phi ptr [ %134, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.i" ], [ %117, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.i" ]
+  %.val8.i.i10.i34.i = load i32, ptr %130, align 4, !noalias !3492
   %131 = getelementptr i8, ptr %130, i64 4
-  %.val9.i.i10.i33.i = load i32, ptr %131, align 4, !noalias !3492, !noundef !9
-  %132 = icmp eq i32 %.val9.i.i10.i33.i, %.val20.i
-  %133 = icmp eq i32 %.val8.i.i9.i32.i, %.val19.i
-  %or.cond.i.i11.i34.i = select i1 %132, i1 %133, i1 false
-  br i1 %or.cond.i.i11.i34.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i37.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.i"
+  %.val9.i.i11.i35.i = load i32, ptr %131, align 4, !noalias !3492, !noundef !9
+  %132 = icmp eq i32 %.val9.i.i11.i35.i, %.val20.i
+  %133 = icmp eq i32 %.val8.i.i10.i34.i, %.val19.i
+  %or.cond.i.i12.i36.i = select i1 %132, i1 %133, i1 false
+  br i1 %or.cond.i.i12.i36.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39.i", label %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.i"
 
-"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.i": ; preds = %.lr.ph.i.i7.i30.i
+"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.i": ; preds = %.lr.ph.i.i8.i32.i
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %135 = add nuw nsw i64 %.sroa.02.015.i.i8.i31.i, 1
+  %135 = add nuw nsw i64 %.sroa.02.015.i.i9.i33.i, 1
   %136 = icmp eq ptr %134, %119
-  br i1 %136, label %.loopexit.i, label %.lr.ph.i.i7.i30.i
+  br i1 %136, label %.loopexit.i, label %.lr.ph.i.i8.i32.i
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i37.i": ; preds = %.lr.ph.i.i7.i30.i
-  %137 = icmp ult i64 %.sroa.02.015.i.i8.i31.i, %118
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39.i": ; preds = %.lr.ph.i.i8.i32.i
+  %137 = icmp ult i64 %.sroa.02.015.i.i9.i33.i, %118
   tail call void @llvm.assume(i1 %137)
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i37.i", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28.i"
-  %.sroa.0.0.i13.i36.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28.i" ], [ %.sroa.02.015.i.i8.i31.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i37.i" ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.i" ]
-  %138 = icmp ult i64 %.sroa.0.0.i.i29.i, %.sroa.0.0.i13.i36.i
-  br i1 %138, label %.split.i, label %.split49.us.i
+.loopexit.i:                                      ; preds = %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39.i", %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.i"
+  %.sroa.0.0.i14.i38.i = phi i64 [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.i" ], [ %.sroa.02.015.i.i9.i33.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39.i" ], [ -1, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.i" ]
+  %138 = icmp ult i64 %.sroa.0.0.i.i30.i, %.sroa.0.0.i14.i38.i
+  br i1 %138, label %.split.i, label %.split51.us.i
 
-.split49.us.i:                                    ; preds = %.loopexit.i, %114, %.split.i, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.us.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i37.us.i", %98, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28.us.i", %.split.us.i
-  %.us-phi.i = phi ptr [ %42, %.split.us.i ], [ %.sroa.0.0.us.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i14.i37.us.i" ], [ %.sroa.0.0.us.i, %98 ], [ %.sroa.0.0.us.i, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i28.us.i" ], [ %.sroa.0.0.us.i, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i12.i35.us.i" ], [ %.sroa.0.0.i, %.loopexit.i ], [ %.sroa.0.0.i, %114 ], [ %42, %.split.i ]
-  store i64 %.sroa.059.0.copyload.i, ptr %.us-phi.i, align 8, !noalias !3500
+.split51.us.i:                                    ; preds = %.loopexit.i, %114, %.split.i, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.us.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39.us.i", %98, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.us.i", %.split.us.i
+  %.us-phi.i = phi ptr [ %42, %.split.us.i ], [ %.sroa.0.0.us.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h927bc3eee150b469E.exit.i15.i39.us.i" ], [ %.sroa.0.0.us.i, %98 ], [ %.sroa.0.0.us.i, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$17h59e65b5ec3919082E.exit.i29.us.i" ], [ %.sroa.0.0.us.i, %"_ZN9workspace11persistence11WorkspaceDb32last_session_workspace_locations28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd0398b636cb63607E.exit.thread.i.i13.i37.us.i" ], [ %.sroa.0.0.i, %.loopexit.i ], [ %.sroa.0.0.i, %114 ], [ %42, %.split.i ]
+  store i64 %.sroa.061.0.copyload.i, ptr %.us-phi.i, align 8, !noalias !3500
   %.sroa.4.0..us-phi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 8
   store i32 %.val12.i, ptr %.sroa.4.0..us-phi.sroa_idx.i, align 8, !noalias !3500
   %.sroa.5.0..us-phi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 12
   store i32 %.val13.i, ptr %.sroa.5.0..us-phi.sroa_idx.i, align 4, !noalias !3500
   br label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h70c7aa337430a545E.llvm.17803978538969967659.exit
 
-_ZN4core5slice4sort6shared9smallsort11insert_tail17h70c7aa337430a545E.llvm.17803978538969967659.exit: ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit.i", %.split49.us.i
+_ZN4core5slice4sort6shared9smallsort11insert_tail17h70c7aa337430a545E.llvm.17803978538969967659.exit: ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hd7906b8c058f63d4E.exit.i", %.split51.us.i
   %exitcond.not = icmp eq i64 %49, %.sroa.013.0
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 }
@@ -60332,7 +60358,8 @@ define hidden void @"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..h
   %9 = xor i64 %8, %6
   %10 = mul i64 %9, 5871781006564002453
   store i64 %10, ptr %1, align 8, !alias.scope !14586, !noalias !14591
-  %11 = getelementptr inbounds { i64, [3 x i64] }, ptr %4, i64 %6
+  %.idx.i.i = shl nsw i64 %6, 5
+  %11 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i
   %12 = icmp eq i64 %6, 0
   br i1 %12, label %"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h5a48cd46894a8e19E.exit", label %.lr.ph.i.i
 
@@ -67922,7 +67949,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_ent
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !15955
   %11 = mul i64 %10, 5871781006564002453
   store i64 %11, ptr %7, align 8, !alias.scope !15960, !noalias !15965
-  %12 = getelementptr inbounds { i64, [3 x i64] }, ptr %8, i64 %10
+  %.idx.i.i.i.i.i.i = shl nsw i64 %10, 5
+  %12 = getelementptr inbounds i8, ptr %8, i64 %.idx.i.i.i.i.i.i
   %13 = icmp eq i64 %10, 0
   br i1 %13, label %_ZN4core4hash11BuildHasher8hash_one17hce098b93c3f969f6E.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -68188,7 +68216,8 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !16052
   %14 = mul i64 %13, 5871781006564002453
   store i64 %14, ptr %7, align 8, !alias.scope !16056, !noalias !16061
-  %15 = getelementptr inbounds { i64, [3 x i64] }, ptr %11, i64 %13
+  %.idx.i.i.i.i.i.i = shl nsw i64 %13, 5
+  %15 = getelementptr inbounds i8, ptr %11, i64 %.idx.i.i.i.i.i.i
   %16 = icmp eq i64 %13, 0
   br i1 %16, label %19, label %.lr.ph.i.i.i.i.i.i
 

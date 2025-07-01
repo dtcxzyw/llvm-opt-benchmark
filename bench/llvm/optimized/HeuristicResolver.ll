@@ -1664,7 +1664,8 @@ _ZNK5clang4Type5getAsINS_17DependentNameTypeEEEPKT_v.exit.thread6: ; preds = %1,
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %25 = load i32, ptr %24, align 4, !tbaa !15, !noalias !209
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %26
+  %.idx.i.i.i = shl nuw nsw i64 %26, 3
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i
   %.not36.i.i.i = icmp eq i32 %25, 0
   br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 

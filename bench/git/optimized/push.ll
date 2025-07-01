@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.refspec_item = type { i8, ptr, ptr, ptr }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
-%struct.string_list_item = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [8 x i8] c"verbose\00", align 1
 @verbosity = internal global i32 0, align 4
@@ -1089,7 +1088,8 @@ set_refspecs.exit:                                ; preds = %408, %331
   br i1 %.not3954, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %436
-  %438 = getelementptr inbounds nuw %struct.string_list_item, ptr %437, i64 %.pre58
+  %.idx = shl nuw nsw i64 %.pre58, 4
+  %438 = getelementptr inbounds nuw i8, ptr %437, i64 %.idx
   %.not63 = icmp eq i64 %.pre58, 0
   br i1 %.not63, label %.critedge, label %.lr.ph62
 

@@ -2957,7 +2957,8 @@ define noundef i64 @_ZNK13sentencepiece17SentencePieceText12ByteSizeLongEv(ptr n
   %.not.i.i = icmp eq ptr %9, null
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %10
-  %11 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %6
+  %.idx = shl nsw i64 %6, 3
+  %11 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not2224 = icmp eq i32 %5, 0
   br i1 %.not2224, label %._crit_edge, label %.lr.ph
 
@@ -4185,7 +4186,8 @@ define noundef i64 @_ZNK13sentencepiece22NBestSentencePieceText12ByteSizeLongEv(
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not15 = icmp eq i32 %3, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 

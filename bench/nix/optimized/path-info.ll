@@ -10586,7 +10586,8 @@ _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stri
   %22 = load ptr, ptr %6, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 %9
   store i8 0, ptr %23, align 1
-  %24 = getelementptr inbounds i32, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 2
+  %24 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not17 = icmp eq i64 %2, 0
   br i1 %.not17, label %.loopexit, label %.lr.ph
 
@@ -23921,7 +23922,8 @@ define linkonce_odr void @_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EEC2ESt16i
   store ptr %7, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.nix::StorePath", ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 5
+  %12 = getelementptr inbounds i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %0, ptr %6, align 8
   %.not6.i = icmp eq i64 %2, 0

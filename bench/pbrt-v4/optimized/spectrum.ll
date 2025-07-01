@@ -958,7 +958,8 @@ define dso_local void @_ZN4pbrt23PiecewiseLinearSpectrumC2EN4pstd4spanIKfEES4_NS
   %8 = alloca i64, align 8
   %9 = alloca float, align 4
   %10 = alloca float, align 4
-  %11 = getelementptr inbounds nuw float, ptr %1, i64 %2
+  %.idx36 = shl nuw nsw i64 %2, 2
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx36
   %12 = ptrtoint ptr %5 to i64
   store i64 %12, ptr %0, align 8, !tbaa !67
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -969,11 +970,10 @@ define dso_local void @_ZN4pbrt23PiecewiseLinearSpectrumC2EN4pstd4spanIKfEES4_NS
   br i1 %.not.i.not.i, label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEEC2IPKfEET_S8_RKS3_.exit, label %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i
 
 _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i: ; preds = %6
-  %.idx = shl nuw nsw i64 %2, 2
   %16 = load ptr, ptr %5, align 8, !tbaa !68
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.idx, i64 noundef 4)
+  %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.idx36, i64 noundef 4)
   %20 = load i64, ptr %15, align 8, !tbaa !60
   %.not13.i.i = icmp eq i64 %20, 0
   %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !64
@@ -1022,7 +1022,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i: ; pred
 _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEEC2IPKfEET_S8_RKS3_.exit: ; preds = %30, %6
   store i64 %2, ptr %15, align 8, !tbaa !60
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = getelementptr inbounds nuw float, ptr %3, i64 %4
+  %.idx38 = shl nuw nsw i64 %4, 2
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx38
   store i64 %12, ptr %35, align 8, !tbaa !67
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1032,11 +1033,10 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEEC2IPKfEET_S8_RKS3_.exit: ; p
   br i1 %.not.i.not.i11, label %.loopexit, label %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i12
 
 _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i12: ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEEC2IPKfEET_S8_RKS3_.exit
-  %.idx37 = shl nuw nsw i64 %4, 2
   %40 = load ptr, ptr %5, align 8, !tbaa !68
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = invoke noundef ptr %42(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.idx37, i64 noundef 4)
+  %43 = invoke noundef ptr %42(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.idx38, i64 noundef 4)
           to label %.noexc unwind label %63
 
 .noexc:                                           ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i12
@@ -3077,7 +3077,8 @@ _ZN4pbrt12InnerProductENS_8SpectrumES0_.exit:     ; preds = %.noexc129
   %244 = load ptr, ptr %243, align 8, !tbaa !64
   %245 = getelementptr inbounds nuw i8, ptr %217, i64 56
   %246 = load i64, ptr %245, align 8, !tbaa !60
-  %247 = getelementptr inbounds nuw float, ptr %244, i64 %246
+  %.idx.i = shl nuw nsw i64 %246, 2
+  %247 = getelementptr inbounds nuw i8, ptr %244, i64 %.idx.i
   %.not9.i = icmp eq i64 %246, 0
   br i1 %.not9.i, label %_ZN4pbrt23PiecewiseLinearSpectrum5ScaleEf.exit, label %.lr.ph.i
 

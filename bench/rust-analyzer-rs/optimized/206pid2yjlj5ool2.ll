@@ -2675,7 +2675,8 @@ _ZN7ide_ssr8matching7Matcher24get_placeholder_for_node17h87813144b04db35eE.exit:
   %.val94 = load ptr, ptr %92, align 8, !nonnull !4, !noundef !4
   %93 = getelementptr i8, ptr %79, i64 64
   %.val95 = load i64, ptr %93, align 8, !noundef !4
-  %94 = getelementptr inbounds ptr, ptr %.val94, i64 %.val95
+  %.idx = shl nsw i64 %.val95, 3
+  %94 = getelementptr inbounds i8, ptr %.val94, i64 %.idx
   %95 = icmp eq i64 %.val95, 0
   br i1 %95, label %._crit_edge, label %.lr.ph
 

@@ -107102,7 +107102,8 @@ _ZNSt8__detail17_ReuseOrAllocNodeIN4absl18container_internal5AllocINS_10_Hash_no
   resume { ptr, i32 } %lpad.phi
 
 26:                                               ; preds = %22, %_ZNSt10_HashtableIiSt4pairIKiiEN4absl18container_internal5AllocIS2_EENSt8__detail10_Select1stENS4_20StatefulTestingEqualENS4_19StatefulTestingHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit
-  %27 = getelementptr inbounds nuw %"struct.std::pair.59", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8__detail12_Insert_baseIiSt4pairIKiiEN4absl18container_internal5AllocIS3_EENS_10_Select1stENS5_20StatefulTestingEqualENS5_19StatefulTestingHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_insert_rangeIPKS3_NS_17_ReuseOrAllocNodeINS6_INS_10_Hash_nodeIS3_Lb1EEEEEEEEEvT_SP_RKT0_St17integral_constantIbLb1EE.exit, label %.lr.ph.i
 
@@ -108246,7 +108247,8 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   resume { ptr, i32 } %lpad.phi
 
 24:                                               ; preds = %22, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_EN4absl18container_internal5AllocIS8_EENSt8__detail10_Select1stENSA_20StatefulTestingEqualENSA_19StatefulTestingHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit
-  %25 = getelementptr inbounds nuw %"struct.std::pair.119", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 6
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8__detail12_Insert_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_S6_EN4absl18container_internal5AllocIS9_EENS_10_Select1stENSB_20StatefulTestingEqualENSB_19StatefulTestingHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_insert_rangeIPKS9_NS_17_ReuseOrAllocNodeINSC_INS_10_Hash_nodeIS9_Lb1EEEEEEEEEvT_SV_RKT0_St17integral_constantIbLb1EE.exit, label %.lr.ph.i
 

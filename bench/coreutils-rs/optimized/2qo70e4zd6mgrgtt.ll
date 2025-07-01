@@ -105,7 +105,8 @@ common.resume:                                    ; preds = %.body, %19
   %26 = load ptr, ptr %25, align 8, !alias.scope !10, !nonnull !13, !noundef !13
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load i64, ptr %27, align 8, !alias.scope !10, !noundef !13
-  %29 = getelementptr inbounds { ptr, i64, ptr }, ptr %26, i64 %28
+  %.idx.i = mul nsw i64 %28, 24
+  %29 = getelementptr inbounds i8, ptr %26, i64 %.idx.i
   %30 = icmp eq i64 %28, 0
   br i1 %30, label %._crit_edge.i, label %.lr.ph.i
 
@@ -1116,7 +1117,8 @@ _ZN3std4sync4mpmc5waker17current_thread_id5DUMMY7__getit17had567bd67086969cE.exi
   %123 = ptrtoint ptr %.0.i.i2.i.i.i.i to i64
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %125 = load ptr, ptr %124, align 16, !alias.scope !91, !noalias !94, !nonnull !13, !noundef !13
-  %126 = getelementptr inbounds { ptr, i64, ptr }, ptr %125, i64 %116
+  %.idx.i.i.i = mul nsw i64 %116, 24
+  %126 = getelementptr inbounds i8, ptr %125, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZN3std4sync4mpmc5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h18de14f4bc5e8764E.exit.i.i.i.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9441497c2e3b4ff0E.exit.i.i.i"
@@ -2076,7 +2078,8 @@ common.resume:                                    ; preds = %44, %17
   %25 = load ptr, ptr %24, align 8, !alias.scope !258, !nonnull !13, !noundef !13
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load i64, ptr %26, align 8, !alias.scope !258, !noundef !13
-  %28 = getelementptr inbounds { ptr, i64, ptr }, ptr %25, i64 %27
+  %.idx.i = mul nsw i64 %27, 24
+  %28 = getelementptr inbounds i8, ptr %25, i64 %.idx.i
   %29 = icmp eq i64 %27, 0
   br i1 %29, label %._crit_edge.i, label %.lr.ph.i
 

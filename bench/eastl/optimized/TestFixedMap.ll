@@ -10,15 +10,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::allocator" = type { i8 }
 %"struct.eastl::pair.90" = type <{ %"struct.eastl::rbtree_iterator.91", i8, [7 x i8] }>
 %"struct.eastl::rbtree_iterator.91" = type { ptr }
-%"struct.eastl::pair.80" = type { i32, float }
-%"struct.eastl::pair.82" = type { float, i32 }
 %"class.eastl::fixed_node_allocator.9" = type { %"class.eastl::fixed_pool_with_overflow" }
 %"struct.eastl::pair" = type <{ %"struct.eastl::rbtree_iterator", i8, [7 x i8] }>
 %"struct.eastl::rbtree_iterator" = type { ptr }
-%"struct.eastl::pair.60" = type { i32, [4 x i8], %struct.TestObject }
-%struct.TestObject = type <{ i32, i8, [3 x i8], i64, i32, [4 x i8] }>
 %"struct.eastl::rbtree_iterator.97" = type { ptr }
-%"struct.eastl::pair.85" = type { %struct.TestObject, i32, [4 x i8] }
 %"class.eastl::fixed_node_allocator.24" = type { %"class.eastl::fixed_pool_with_overflow.25" }
 %"class.eastl::fixed_pool_with_overflow.25" = type { %"struct.eastl::fixed_pool_base", %class.MallocAllocator, ptr }
 %class.MallocAllocator = type { i32, i32, i64 }
@@ -37,6 +32,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::fixed_map.54" = type <{ %"class.eastl::map.55", [2431 x i8], i8 }>
 %"class.eastl::map.55" = type { %"class.eastl::rbtree.56" }
 %"class.eastl::rbtree.56" = type { %"struct.eastl::rbtree_node_base", i64, %"class.eastl::fixed_node_allocator.58" }
+%"struct.eastl::pair.60" = type { i32, [4 x i8], %struct.TestObject }
+%struct.TestObject = type <{ i32, i8, [3 x i8], i64, i32, [4 x i8] }>
 %"class.eastl::fixed_map.61" = type <{ %"class.eastl::map.62", [383 x i8], i8 }>
 %"class.eastl::map.62" = type { %"class.eastl::rbtree.63" }
 %"class.eastl::rbtree.63" = type { %"struct.eastl::rbtree_node_base", i64, %"class.eastl::fixed_node_allocator.67" }
@@ -1527,7 +1524,8 @@ entry:
   %mColor.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mColor.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.80", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.i
@@ -1624,7 +1622,8 @@ entry:
   store i8 0, ptr %mColor.i.i, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.80", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb1EE6insertIPKS3_EEvT_SF_.exit, label %for.body.i
@@ -2140,7 +2139,8 @@ entry:
   %mColor.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mColor.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.82", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.lr.ph.i
 
@@ -2302,7 +2302,8 @@ entry:
   store i8 0, ptr %mColor.i.i, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.82", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE6insertIPKS3_EEvT_SF_.exit, label %for.body.lr.ph.i
 
@@ -2886,7 +2887,8 @@ entry:
   %mColor.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mColor.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.60", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 5
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.i
@@ -2983,7 +2985,8 @@ entry:
   store i8 0, ptr %mColor.i.i, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.60", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 5
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb1EE6insertIPKS4_EEvT_SG_.exit, label %for.body.i
@@ -3500,7 +3503,8 @@ entry:
   %mColor.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mColor.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.85", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 5
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i)
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.i
@@ -3597,7 +3601,8 @@ entry:
   store i8 0, ptr %mColor.i.i, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.85", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 5
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i)
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EELb1ELb0EE6insertIPKS4_EEvT_SG_.exit, label %for.body.i
@@ -4249,7 +4254,8 @@ entry:
   %mColor.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mColor.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.80", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.i
@@ -4346,7 +4352,8 @@ entry:
   store i8 0, ptr %mColor.i.i, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.80", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl6rbtreeIiNS_4pairIKifEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb1EE6insertIPKS3_EEvT_SF_.exit, label %for.body.i
@@ -5008,7 +5015,8 @@ entry:
   %mColor.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mColor.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.82", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.lr.ph.i
 
@@ -5170,7 +5178,8 @@ entry:
   store i8 0, ptr %mColor.i.i, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.82", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl6rbtreeIfNS_4pairIKfiEENS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EELb1ELb0EE6insertIPKS3_EEvT_SF_.exit, label %for.body.lr.ph.i
 
@@ -5901,7 +5910,8 @@ entry:
   %mColor.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mColor.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.60", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 5
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.i
@@ -5998,7 +6008,8 @@ entry:
   store i8 0, ptr %mColor.i.i, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.60", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 5
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl6rbtreeIiNS_4pairIKi10TestObjectEENS_4lessIiEENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb1EE6insertIPKS4_EEvT_SG_.exit, label %for.body.i
@@ -6661,7 +6672,8 @@ entry:
   %mColor.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mColor.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.85", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 5
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i)
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.i
@@ -6758,7 +6770,8 @@ entry:
   store i8 0, ptr %mColor.i.i, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.85", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 5
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i)
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_iEENS_4lessIS1_EENS_20fixed_node_allocatorILm64ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EELb1ELb0EE6insertIPKS4_EEvT_SG_.exit, label %for.body.i
@@ -73758,7 +73771,8 @@ entry:
   %mColor.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mColor.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.88", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.lr.ph.i
 
@@ -73863,7 +73877,8 @@ entry:
   store i8 0, ptr %mColor.i.i, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.88", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EELb1ELb0EE6insertIPKS3_EEvT_SF_.exit, label %for.body.lr.ph.i
 

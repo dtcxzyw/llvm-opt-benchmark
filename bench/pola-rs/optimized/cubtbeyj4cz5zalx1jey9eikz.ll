@@ -98060,7 +98060,8 @@ define hidden void @_ZN14polars_compute6gather14generic_binary26take_no_validity
   store ptr %37, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i32, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 2
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !7693
@@ -98259,7 +98260,8 @@ define hidden void @_ZN14polars_compute6gather14generic_binary20take_values_vali
   br i1 %.not, label %168, label %23, !prof !30
 
 23:                                               ; preds = %4
-  %24 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !7713
   store i64 0, ptr %15, align 8, !noalias !7713
@@ -98921,7 +98923,8 @@ define hidden void @_ZN14polars_compute6gather14generic_binary21take_indices_val
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %30 = load ptr, ptr %29, align 8, !noundef !6
   %31 = load i64, ptr %16, align 8, !noundef !6
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %.idx = shl nuw nsw i64 %31, 2
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !7780
@@ -105958,7 +105961,8 @@ define void @_ZN14polars_compute15propagate_nulls22propagate_nulls_struct17h45c3
 36:                                               ; preds = %31
   %37 = extractvalue { ptr, i64 } %34, 0
   %38 = extractvalue { ptr, i64 } %34, 1
-  %39 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %37, i64 %38
+  %.idx = shl nuw nsw i64 %38, 4
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx
   %40 = icmp ne ptr %37, null
   tail call void @llvm.assume(i1 %40)
   %41 = icmp eq i64 %38, 0

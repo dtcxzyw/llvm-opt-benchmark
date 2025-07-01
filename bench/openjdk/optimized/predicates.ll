@@ -1722,7 +1722,8 @@ _ZNK10Node_ArrayixEj.exit:                        ; preds = %_ZNK10Node_ArrayixE
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
+  %.idx = shl nuw nsw i64 %22, 3
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not17 = icmp eq i32 %21, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 

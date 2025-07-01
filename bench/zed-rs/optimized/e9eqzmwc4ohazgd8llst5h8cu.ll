@@ -1434,8 +1434,8 @@ default.unreachable.i:                            ; preds = %12
   %19 = icmp eq i8 %.sroa.7.sroa.0.0.extract.trunc, %.sroa.7.sroa.018.0.extract.trunc
   %or.cond = and i1 %18, %19
   %20 = icmp eq i32 %sum.shift, %sum.shift26
-  %or.cond32 = and i1 %or.cond, %20
-  br i1 %or.cond32, label %23, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc8054f373fdfee92E.exit.thread"
+  %or.cond33 = and i1 %or.cond, %20
+  br i1 %or.cond33, label %23, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc8054f373fdfee92E.exit.thread"
 
 _ZN4core3cmp9PartialEq2ne17hcfe89a19ea28f6b5E.exit: ; preds = %12
   %21 = icmp eq i8 %.sroa.5.0.extract.trunc, %.sroa.513.0.extract.trunc
@@ -1460,8 +1460,9 @@ _ZN4core3cmp9PartialEq2ne17hcfe89a19ea28f6b5E.exit: ; preds = %12
   br i1 %26, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc8054f373fdfee92E.exit.thread", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc8054f373fdfee92E.exit"
-  %.pn = phi i64 [ %4, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc8054f373fdfee92E.exit.thread" ], [ %.pre, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc8054f373fdfee92E.exit" ]
-  %27 = getelementptr inbounds { ptr, { i8, [3 x i8] }, { i8, [3 x i8] }, i32, i16, [1 x i16] }, ptr %8, i64 %.pn
+  %.idx31.pn.in = phi i64 [ %4, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc8054f373fdfee92E.exit.thread" ], [ %.pre, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc8054f373fdfee92E.exit" ]
+  %.idx31.pn = mul nsw i64 %.idx31.pn.in, 24
+  %27 = getelementptr inbounds i8, ptr %8, i64 %.idx31.pn
   br label %.lr.ph
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc8054f373fdfee92E.exit.thread": ; preds = %13, %17, %6, %_ZN4core3cmp9PartialEq2ne17hcfe89a19ea28f6b5E.exit
@@ -3024,7 +3025,8 @@ _ZN7polling6Poller13add_with_mode17h77be2954765ba078E.exit.i.i: ; preds = %.noex
 "_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h346bff803b94bc5fE.exit.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hc2221557fddc041bE.exit.i121.i", %225
   %271 = load ptr, ptr %149, align 8, !noalias !239, !nonnull !4, !noundef !4
   %272 = load i64, ptr %146, align 8, !noalias !239, !noundef !4
-  %273 = getelementptr inbounds <{ i32, { [1 x i64] } }>, ptr %271, i64 %272
+  %.idx.i = mul nsw i64 %272, 12
+  %273 = getelementptr inbounds i8, ptr %271, i64 %.idx.i
   %.not.not.i381.i = icmp eq i64 %272, 0
   br i1 %.not.not.i381.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h8754eb7348bc80fcE.exit.thread.i, label %.lr.ph.i
 
@@ -8497,7 +8499,8 @@ switch.lookup129:                                 ; preds = %1473
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !908, !noalias !911, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %123, i64 16
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !908, !noalias !911
-  %1686 = getelementptr inbounds { i16, [2 x i16] }, ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
+  %.idx98 = mul nsw i64 %.sroa.5.0.copyload.i.i, 6
+  %1686 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %.idx98
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %123), !noalias !791
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %122), !noalias !791
   store ptr %.sroa.4.0.copyload.i.i, ptr %122, align 8, !noalias !791
@@ -14483,7 +14486,8 @@ default.unreachable133:                           ; preds = %23
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc8054f373fdfee92E.exit": ; preds = %"_ZN137_$LT$alacritty_terminal..grid..storage..Storage$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$alacritty_terminal..index..Line$GT$$GT$9index_mut17hebda495027f478d8E.exit76"
   %123 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %124 = load ptr, ptr %123, align 8, !nonnull !4, !noundef !4
-  %125 = getelementptr inbounds { ptr, { i8, [3 x i8] }, { i8, [3 x i8] }, i32, i16, [1 x i16] }, ptr %124, i64 %.sroa.0.0.sroa.speculated.i
+  %.idx = mul nsw i64 %.sroa.0.0.sroa.speculated.i, 24
+  %125 = getelementptr inbounds i8, ptr %124, i64 %.idx
   %126 = icmp eq i64 %.sroa.0.0.sroa.speculated.i, 0
   br i1 %126, label %._crit_edge, label %.lr.ph
 
@@ -15050,7 +15054,8 @@ _ZN18alacritty_terminal4term15TermDamageState11damage_line17hbe4e8e237a39c831E.e
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc8054f373fdfee92E.exit": ; preds = %46
   %50 = getelementptr inbounds { ptr, { i8, [3 x i8] }, { i8, [3 x i8] }, i32, i16, [1 x i16] }, ptr %44, i64 %8
-  %51 = getelementptr inbounds nuw { ptr, { i8, [3 x i8] }, { i8, [3 x i8] }, i32, i16, [1 x i16] }, ptr %50, i64 %.sroa.0.0.sroa.speculated.i
+  %.idx = mul nuw nsw i64 %.sroa.0.0.sroa.speculated.i, 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx
   %52 = icmp eq i64 %7, %8
   br i1 %52, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd426d294103d7815E.exit.thread", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd426d294103d7815E.exit"
 

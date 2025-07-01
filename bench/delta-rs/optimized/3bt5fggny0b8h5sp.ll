@@ -2078,7 +2078,8 @@ _ZN3std4path7PathBuf4push17h61c7ec98beb2db6dE.exit: ; preds = %383, %202, %195
   %.sroa.4295.0.copyload = load ptr, ptr %.sroa.4295.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   %.sroa.5296.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 40
   %.sroa.5296.0.copyload = load i64, ptr %.sroa.5296.0..sroa_idx, align 8
-  %390 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.4295.0.copyload, i64 %.sroa.5296.0.copyload
+  %.idx = mul nsw i64 %.sroa.5296.0.copyload, 24
+  %390 = getelementptr inbounds i8, ptr %.sroa.4295.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %82)
   store ptr %.sroa.4295.0.copyload, ptr %82, align 8
   %.sroa.5292.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -2169,7 +2170,8 @@ _ZN3std4path7PathBuf4push17h61c7ec98beb2db6dE.exit: ; preds = %383, %202, %195
   %.sroa.4312.0.copyload = load ptr, ptr %.sroa.419.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   %.sroa.5313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 16
   %.sroa.5313.0.copyload = load i64, ptr %.sroa.5313.0..sroa_idx, align 8
-  %426 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.4312.0.copyload, i64 %.sroa.5313.0.copyload
+  %.idx486 = mul nsw i64 %.sroa.5313.0.copyload, 24
+  %426 = getelementptr inbounds i8, ptr %.sroa.4312.0.copyload, i64 %.idx486
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %77)
   store ptr %.sroa.4312.0.copyload, ptr %77, align 8
   %.sroa.5308.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -2200,8 +2202,8 @@ _ZN3std4path7PathBuf4push17h61c7ec98beb2db6dE.exit: ; preds = %383, %202, %195
   %441 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %442 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %443 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %.sroa.6.0..sroa_idx503 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %.sroa.7.0..sroa_idx506 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %.sroa.6.0..sroa_idx504 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %.sroa.7.0..sroa_idx507 = getelementptr inbounds nuw i8, ptr %72, i64 16
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34b68b036949d52dE.exit187"
 
 444:                                              ; preds = %.loopexit441, %.loopexit.split-lp442, %453
@@ -2400,8 +2402,8 @@ _ZN3std4path4Path4join17h5e0049015531a8b9E.exit:  ; preds = %461
 
 492:                                              ; preds = %_ZN3std4path4Path4join17h5e0049015531a8b9E.exit
   %.sroa.0.0.copyload = load i64, ptr %72, align 8
-  %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx503, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.0..sroa_idx506, i64 32, i1 false)
+  %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx504, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.0..sroa_idx507, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %72)
   %493 = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
   br i1 %493, label %494, label %496
@@ -2417,10 +2419,10 @@ _ZN3std4path4Path4join17h5e0049015531a8b9E.exit:  ; preds = %461
 496:                                              ; preds = %492
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %71)
   store i64 %.sroa.0.0.copyload, ptr %71, align 8
-  %.sroa.6.0..sroa_idx504 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx504, align 8
-  %.sroa.7.0..sroa_idx507 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.0..sroa_idx507, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
+  %.sroa.6.0..sroa_idx505 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx505, align 8
+  %.sroa.7.0..sroa_idx508 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.0..sroa_idx508, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %70)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27), !noalias !489
   store i64 0, ptr %27, align 8, !noalias !489

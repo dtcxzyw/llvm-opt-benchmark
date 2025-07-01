@@ -44,7 +44,8 @@ define dso_local noundef zeroext i1 @_ZN5clang5index15IndexingContext11shouldInd
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !9
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
+  %.idx.i.i.i = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i.i
   %.not.i.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i.i, label %_ZL15isGeneratedDeclPKN5clang4DeclE.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -522,7 +523,8 @@ _ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit: ; pred
 
 145:                                              ; preds = %.sink.split, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit
   %146 = load ptr, ptr %6, align 8, !tbaa !434
-  %147 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %146, i64 %132
+  %.idx = shl nuw nsw i64 %132, 4
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 %.idx
   %.not4891 = icmp eq i64 %132, 0
   br i1 %.not4891, label %.._crit_edge_crit_edge, label %.lr.ph
 
@@ -1169,7 +1171,8 @@ define internal fastcc noundef zeroext i1 @_ZL43shouldReportOccurrenceForSystemD
   br i1 %0, label %6, label %.critedge
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not.not16 = icmp eq i64 %2, 0
   br i1 %.not.not16, label %.critedge, label %.lr.ph
 

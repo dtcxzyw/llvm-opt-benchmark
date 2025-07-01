@@ -4095,7 +4095,8 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17he714182c98f6e292E.llvm.6
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %7), !noalias !1245
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %92), !noalias !1245
   %.sroa.01.0.copyload.i = load i64, ptr %107, align 8, !alias.scope !1223, !noalias !1225
-  %554 = getelementptr inbounds { i64, [7 x i64] }, ptr %500, i64 %489
+  %.idx.i = shl nsw i64 %489, 6
+  %554 = getelementptr inbounds i8, ptr %500, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %91), !noalias !1245
   store ptr %500, ptr %91, align 8, !noalias !1245
   %.sroa.4.0..sroa_idx.i156 = getelementptr inbounds nuw i8, ptr %91, i64 8

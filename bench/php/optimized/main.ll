@@ -1929,7 +1929,8 @@ declare void @display_ini_entries(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @php_register_extensions(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds ptr, ptr %0, i64 %3
+  %.idx = shl nsw i64 %3, 3
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 

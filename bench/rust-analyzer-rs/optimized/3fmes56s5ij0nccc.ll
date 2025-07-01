@@ -100,7 +100,8 @@ _ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit.i: ; preds = %47, %45, %43, %41
   %.0.i.i = phi i8 [ 1, %33 ], [ 2, %37 ], [ 3, %39 ], [ 4, %41 ], [ 5, %43 ], [ %..i.i, %47 ], [ 6, %45 ]
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i = load ptr, ptr %49, align 8, !alias.scope !6, !noalias !9, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds nuw { i64, i64, i8, [7 x i8] }, ptr %.val.i, i64 %21
+  %.idx.i = mul nuw nsw i64 %21, 24
+  %50 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i
   %51 = icmp ne i64 %35, 0
   %52 = icmp eq i64 %21, 0
   br i1 %52, label %._crit_edge.i, label %.lr.ph.i

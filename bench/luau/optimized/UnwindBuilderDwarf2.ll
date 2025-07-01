@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"struct.Luau::CodeGen::UnwindFunctionDwarf2" = type { i32, i32, i32 }
 %"struct.Luau::CodeGen::A64::RegisterA64" = type { i8 }
-%"struct.Luau::CodeGen::X64::RegisterX64" = type { i8 }
 
 $_ZN4Luau7CodeGen19UnwindBuilderDwarf2D2Ev = comdat any
 
@@ -364,7 +363,7 @@ _ZL25defineCfaExpressionOffsetPhj.exit:           ; preds = %7
 
 18:                                               ; preds = %_ZL25defineCfaExpressionOffsetPhj.exit, %7
   %.0 = phi i32 [ 16, %_ZL25defineCfaExpressionOffsetPhj.exit ], [ 8, %7 ]
-  %19 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::RegisterX64", ptr %4, i64 %5
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 %5
   %.not50 = icmp samesign eq i64 %5, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %.pre56 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !17

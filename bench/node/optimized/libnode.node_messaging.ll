@@ -4626,7 +4626,8 @@ define dso_local void @_ZN4node6worker12SiblingGroup8EntangleESt16initializer_li
 entry:
   %group_mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @uv_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %group_mutex_) #26
-  %add.ptr.i = getelementptr inbounds ptr, ptr %ports.coerce0, i64 %ports.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ports.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ports.coerce0, i64 %add.ptr.i.idx
   %cmp.not16 = icmp eq i64 %ports.coerce1, 0
   br i1 %cmp.not16, label %for.end, label %for.body.lr.ph
 

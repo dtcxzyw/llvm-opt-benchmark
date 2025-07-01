@@ -8068,7 +8068,8 @@ _ZN4gpui3app10AppContext10try_global17hc518dee24960151cE.llvm.171726062806714255
   %50 = load ptr, ptr %49, align 8, !alias.scope !1272, !nonnull !22, !noundef !22
   %51 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %52 = load i64, ptr %51, align 8, !alias.scope !1272, !noundef !22
-  %53 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %50, i64 %52
+  %.idx.i = mul nsw i64 %52, 24
+  %53 = getelementptr inbounds i8, ptr %50, i64 %.idx.i
   %.not.i.i = icmp eq i64 %52, 0
   br i1 %.not.i.i, label %_ZN13feature_flags12FeatureFlags8has_flag17h8cc92bf24f1f0c52E.exit, label %.lr.ph.i.i
 

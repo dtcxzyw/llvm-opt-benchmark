@@ -1078,38 +1078,40 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   %.not.i.i = icmp eq i64 %38, 0
   %.sroa.sel.v.sroa.sel.v = select i1 %.not46, ptr %3, ptr %23
   %.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.v.sroa.sel.v, i64 8
-  %.sroa.sel133.v = select i1 %.not45, ptr %3, ptr %21
-  %.sroa.sel133 = getelementptr inbounds nuw i8, ptr %.sroa.sel133.v, i64 8
-  %spec.select.sroa.sel = select i1 %30, ptr %.sroa.sel.v.sroa.sel, ptr %.sroa.sel133
+  %.sroa.sel134.v = select i1 %.not45, ptr %3, ptr %21
+  %.sroa.sel134 = getelementptr inbounds nuw i8, ptr %.sroa.sel134.v, i64 8
+  %spec.select.sroa.sel = select i1 %30, ptr %.sroa.sel.v.sroa.sel, ptr %.sroa.sel134
   %39 = load ptr, ptr %spec.select.sroa.sel, align 8
   %40 = select i1 %.not.i.i, ptr %spec.select.sroa.sel, ptr %39
-  %41 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %40, i64 %33
+  %.idx = mul nuw nsw i64 %33, 48
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx
   %.not4797 = icmp ult i64 %31, 2
   br i1 %.not4797, label %.thread74, label %.lr.ph100
 
 .lr.ph100:                                        ; preds = %37
-  %spec.select89.sroa.sel = select i1 %30, ptr %.sroa.sel133, ptr %.sroa.sel.v.sroa.sel
+  %spec.select89.sroa.sel = select i1 %30, ptr %.sroa.sel134, ptr %.sroa.sel.v.sroa.sel
   br label %42
 
 42:                                               ; preds = %.lr.ph100, %.thread81
   %.04098 = phi ptr [ %40, %.lr.ph100 ], [ %91, %.thread81 ]
   %.val = load i64, ptr %24, align 8
-  %.val116 = load i64, ptr %25, align 8
-  %43 = select i1 %30, i64 %.val, i64 %.val116
+  %.val117 = load i64, ptr %25, align 8
+  %43 = select i1 %30, i64 %.val, i64 %.val117
   %44 = and i64 %43, 1
   %.not.i.i51 = icmp eq i64 %44, 0
   %45 = load ptr, ptr %spec.select89.sroa.sel, align 8
   %46 = select i1 %.not.i.i51, ptr %spec.select89.sroa.sel, ptr %45
   %47 = lshr i64 %43, 1
-  %48 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %46, i64 %47
+  %.idx103 = mul nuw nsw i64 %47, 48
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx103
   %.not4893 = icmp ult i64 %43, 2
   br i1 %.not4893, label %.thread74, label %.lr.ph
 
 .lr.ph:                                           ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %.04098, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !15
-  %.fr103 = freeze i64 %50
-  %51 = icmp eq i64 %.fr103, 0
+  %.fr104 = freeze i64 %50
+  %51 = icmp eq i64 %.fr104, 0
   br i1 %51, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread63.us
@@ -1128,13 +1130,13 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %.04494 = phi ptr [ %90, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread63 ], [ %46, %.lr.ph ]
   %56 = getelementptr inbounds nuw i8, ptr %.04494, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !15
-  %58 = icmp eq i64 %.fr103, %57
+  %58 = icmp eq i64 %.fr104, %57
   br i1 %58, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread63
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %.lr.ph.split
   %59 = load ptr, ptr %.04494, align 8, !tbaa !11
   %60 = load ptr, ptr %.04098, align 8, !tbaa !11
-  %bcmp.i = call i32 @bcmp(ptr %60, ptr %59, i64 %.fr103)
+  %bcmp.i = call i32 @bcmp(ptr %60, ptr %59, i64 %.fr104)
   %61 = icmp eq i32 %bcmp.i, 0
   br i1 %61, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread63
 

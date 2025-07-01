@@ -469,7 +469,8 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
 70:                                               ; preds = %61
   %71 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %72 = load ptr, ptr %71, align 8, !nonnull !13, !noundef !13
-  %73 = getelementptr inbounds { i8, [3 x i8] }, ptr %72, i64 %65
+  %.idx = shl nsw i64 %65, 2
+  %73 = getelementptr inbounds i8, ptr %72, i64 %.idx
   %74 = icmp eq i64 %65, 0
   br i1 %74, label %._crit_edge, label %.lr.ph
 
@@ -1481,7 +1482,8 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator9operators30Operato
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4b4336bc4c2fdfe8E.exit": ; preds = %2
-  %11 = getelementptr inbounds { i8, [3 x i8] }, ptr %4, i64 %8
+  %.idx = shl nsw i64 %8, 2
+  %11 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %12 = load ptr, ptr %0, align 8, !nonnull !13, !align !35
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 160
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 144
@@ -3500,7 +3502,8 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   br i1 %114, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %107
-  %115 = getelementptr inbounds { i8, [3 x i8] }, ptr %97, i64 %100
+  %.idx = shl nsw i64 %100, 2
+  %115 = getelementptr inbounds i8, ptr %97, i64 %.idx
   br label %120
 
 ._crit_edge:                                      ; preds = %.backedge, %107
@@ -5958,7 +5961,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   tail call void @llvm.assume(i1 %36)
   %37 = shl i64 %29, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %32, ptr nonnull align 4 %35, i64 %37, i1 false), !noalias !746
-  %38 = getelementptr inbounds i32, ptr %32, i64 %29
+  %38 = getelementptr inbounds i8, ptr %32, i64 %37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   store ptr %32, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -7237,7 +7240,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %39
-  %49 = getelementptr inbounds { i8, [3 x i8] }, ptr %29, i64 %32
+  %.idx = shl nsw i64 %32, 2
+  %49 = getelementptr inbounds i8, ptr %29, i64 %.idx
   br label %54
 
 ._crit_edge:                                      ; preds = %.backedge, %39
@@ -12714,7 +12718,8 @@ default.unreachable:                              ; preds = %"_ZN103_$LT$alloc..
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !13, !noundef !13
   %.sroa.5529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5529.0.copyload = load i64, ptr %.sroa.5529.0..sroa_idx, align 8
-  %102 = getelementptr inbounds { i32, [2 x i32] }, ptr %.sroa.4.0.copyload, i64 %.sroa.5529.0.copyload
+  %.idx = mul nsw i64 %.sroa.5529.0.copyload, 12
+  %102 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
   store ptr %.sroa.4.0.copyload, ptr %30, align 8
   %.sroa.5527.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -16125,7 +16130,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br i1 %44, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %32
-  %45 = getelementptr inbounds { i8, { i8, [3 x i8] } }, ptr %34, i64 %36
+  %.idx = mul nsw i64 %36, 5
+  %45 = getelementptr inbounds i8, ptr %34, i64 %.idx
   br label %47
 
 ._crit_edge:                                      ; preds = %.backedge, %32
@@ -27781,7 +27787,8 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   %36 = load ptr, ptr %35, align 8, !nonnull !13, !align !217, !noundef !13
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %38 = load i64, ptr %37, align 8, !noundef !13
-  %39 = getelementptr inbounds { i8, { i8, [3 x i8] } }, ptr %36, i64 %38
+  %.idx = mul nsw i64 %38, 5
+  %39 = getelementptr inbounds i8, ptr %36, i64 %.idx
   %40 = icmp eq i64 %38, 0
   br i1 %40, label %._crit_edge, label %.lr.ph
 

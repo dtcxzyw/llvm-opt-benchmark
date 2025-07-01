@@ -1349,7 +1349,8 @@ define void @_ZN6icu_7716DateIntervalInfo10deleteHashEPNS_9HashtableE(ptr nounde
   br i1 %14, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %11
-  %15 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %.sroa.0.0.copyload, i64 %13
+  %.idx = shl nsw i64 %13, 6
+  %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader

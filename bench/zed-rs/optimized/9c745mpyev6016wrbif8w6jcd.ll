@@ -2366,7 +2366,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hd6657c9b4ac76e70E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 24
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h8fc7399a3512bf59E.llvm.7424502398174687719.exit, label %.lr.ph.i
 
@@ -9831,7 +9832,8 @@ define void @_ZN10supermaven15SupermavenAgent14handle_message17h1b8a86a8a3c6598d
   %85 = load ptr, ptr %84, align 8, !nonnull !30, !noundef !30
   %86 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %87 = load i64, ptr %86, align 8, !noundef !30
-  %88 = getelementptr inbounds { i64, [3 x i64] }, ptr %85, i64 %87
+  %.idx = shl nsw i64 %87, 5
+  %88 = getelementptr inbounds i8, ptr %85, i64 %.idx
   %89 = icmp eq i64 %87, 0
   br i1 %89, label %._crit_edge, label %.lr.ph
 

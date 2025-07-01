@@ -7332,7 +7332,8 @@ _ZN10serde_json3ser9Formatter12begin_object17h8798cc6ece7ede28E.exit.i.i.i: ; pr
   %56 = load ptr, ptr %55, align 8, !noalias !685, !nonnull !7, !noundef !7
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %58 = load i64, ptr %57, align 8, !noalias !685, !noundef !7
-  %59 = getelementptr inbounds nuw { { { { ptr, ptr } }, {}, {} } }, ptr %56, i64 %58
+  %.idx.i = shl nuw nsw i64 %58, 4
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx.i
   %60 = icmp eq i64 %58, 0
   br i1 %60, label %._crit_edge.i, label %.lr.ph.i
 
@@ -7480,17 +7481,17 @@ _ZN10serde_json3ser9Formatter10end_object17h76c67996dfdcb53fE.exit.i.i: ; preds 
 
 "_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$12begin_object17h171b867e004f9a06E.exit.i.i.i": ; preds = %103
   %115 = invoke noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17hf26fac1338f1b3d8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %24, ptr noalias noundef nonnull readonly align 1 @anon.7e31815fc6de9ce5100553543fa38e53.4, i64 noundef 1)
-          to label %.noexc61 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc62 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc61:                                         ; preds = %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$12begin_object17h171b867e004f9a06E.exit.i.i.i"
+.noexc62:                                         ; preds = %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$12begin_object17h171b867e004f9a06E.exit.i.i.i"
   %.not.i.i.i48 = icmp eq ptr %115, null
   br i1 %.not.i.i.i48, label %128, label %116, !prof !709
 
-116:                                              ; preds = %.noexc61
+116:                                              ; preds = %.noexc62
   %117 = invoke noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h41a46387fada144eE(ptr noundef nonnull %115)
-          to label %.noexc62 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc63 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc62:                                         ; preds = %116
+.noexc63:                                         ; preds = %116
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !771
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !771
   store ptr %117, ptr %7, align 8, !noalias !772
@@ -7511,13 +7512,13 @@ _ZN10serde_json3ser9Formatter10end_object17h76c67996dfdcb53fE.exit.i.i: ; preds 
   invoke void @_ZN5alloc3fmt6format12format_inner17hbc00c97fd665fffbE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
           to label %120 unwind label %118, !noalias !771
 
-118:                                              ; preds = %120, %.noexc62
+118:                                              ; preds = %120, %.noexc63
   %119 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hb3bc64876ee407ffE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #28
           to label %.body unwind label %122, !noalias !771
 
-120:                                              ; preds = %.noexc62
+120:                                              ; preds = %.noexc63
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !775
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !772
   %121 = invoke noundef nonnull ptr @_ZN3std2io5error5Error3new17haf34984c7f89039dE(i8 noundef 40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
@@ -7531,20 +7532,20 @@ _ZN10serde_json3ser9Formatter10end_object17h76c67996dfdcb53fE.exit.i.i: ; preds 
 
 124:                                              ; preds = %120
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hb3bc64876ee407ffE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
-          to label %.noexc65 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc66 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc65:                                         ; preds = %124
+.noexc66:                                         ; preds = %124
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !771
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !771
-  br label %.noexc65.invoke
+  br label %.noexc66.invoke
 
-.noexc65.invoke:                                  ; preds = %145, %143, %.noexc65
-  %125 = phi i64 [ 0, %.noexc65 ], [ %140, %143 ], [ %142, %145 ]
-  %126 = phi ptr [ %121, %.noexc65 ], [ %144, %143 ], [ %146, %145 ]
+.noexc66.invoke:                                  ; preds = %145, %143, %.noexc66
+  %125 = phi i64 [ 0, %.noexc66 ], [ %140, %143 ], [ %142, %145 ]
+  %126 = phi ptr [ %121, %.noexc66 ], [ %144, %143 ], [ %146, %145 ]
   %127 = invoke noundef nonnull ptr @"_ZN4slog90_$LT$impl$u20$core..convert..From$LT$slog..Error$GT$$u20$for$u20$std..io..error..Error$GT$4from17hcad2cbf3013bdf4cE"(i64 noundef %125, ptr %126)
           to label %223 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-128:                                              ; preds = %.noexc61, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$12begin_object17h171b867e004f9a06E.exit.thread.i.i.i"
+128:                                              ; preds = %.noexc62, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$12begin_object17h171b867e004f9a06E.exit.thread.i.i.i"
   store ptr %17, ptr %9, align 8, !noalias !742
   %129 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 1, ptr %129, align 8, !noalias !742
@@ -7552,43 +7553,44 @@ _ZN10serde_json3ser9Formatter10end_object17h76c67996dfdcb53fE.exit.i.i: ; preds 
   %131 = load ptr, ptr %130, align 8, !noalias !742, !nonnull !7, !noundef !7
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %133 = load i64, ptr %132, align 8, !noalias !742, !noundef !7
-  %134 = getelementptr inbounds nuw { { { { ptr, ptr } }, {}, {} } }, ptr %131, i64 %133
+  %.idx.i55 = shl nuw nsw i64 %133, 4
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 %.idx.i55
   %135 = icmp eq i64 %133, 0
-  br i1 %135, label %._crit_edge.i57, label %.lr.ph.i55
+  br i1 %135, label %._crit_edge.i58, label %.lr.ph.i56
 
-136:                                              ; preds = %.noexc67
+136:                                              ; preds = %.noexc68
   %137 = getelementptr inbounds nuw i8, ptr %.sroa.039.056.i, i64 16
   %138 = icmp eq ptr %137, %134
-  br i1 %138, label %._crit_edge.i57, label %.lr.ph.i55
+  br i1 %138, label %._crit_edge.i58, label %.lr.ph.i56
 
-.lr.ph.i55:                                       ; preds = %128, %136
+.lr.ph.i56:                                       ; preds = %128, %136
   %.sroa.039.056.i = phi ptr [ %137, %136 ], [ %131, %128 ]
   %139 = invoke { i64, ptr } @"_ZN46_$LT$slog..OwnedKVList$u20$as$u20$slog..KV$GT$9serialize17h4736f15c3a0bf7abE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.039.056.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(192) @anon.7e31815fc6de9ce5100553543fa38e53.166)
-          to label %.noexc67 unwind label %.loopexit.split-lp.loopexit
+          to label %.noexc68 unwind label %.loopexit.split-lp.loopexit
 
-.noexc67:                                         ; preds = %.lr.ph.i55
+.noexc68:                                         ; preds = %.lr.ph.i56
   %140 = extractvalue { i64, ptr } %139, 0
-  %.not.i56 = icmp eq i64 %140, 3
-  br i1 %.not.i56, label %136, label %143
+  %.not.i57 = icmp eq i64 %140, 3
+  br i1 %.not.i57, label %136, label %143
 
-._crit_edge.i57:                                  ; preds = %136, %128
+._crit_edge.i58:                                  ; preds = %136, %128
   %141 = invoke { i64, ptr } @"_ZN46_$LT$slog..OwnedKVList$u20$as$u20$slog..KV$GT$9serialize17h4736f15c3a0bf7abE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(192) @anon.7e31815fc6de9ce5100553543fa38e53.166)
-          to label %.noexc68 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc69 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc68:                                         ; preds = %._crit_edge.i57
+.noexc69:                                         ; preds = %._crit_edge.i58
   %142 = extractvalue { i64, ptr } %141, 0
-  %.not40.i58 = icmp eq i64 %142, 3
-  br i1 %.not40.i58, label %147, label %145
+  %.not40.i59 = icmp eq i64 %142, 3
+  br i1 %.not40.i59, label %147, label %145
 
-143:                                              ; preds = %.noexc67
+143:                                              ; preds = %.noexc68
   %144 = extractvalue { i64, ptr } %139, 1
-  br label %.noexc65.invoke
+  br label %.noexc66.invoke
 
-145:                                              ; preds = %.noexc68
+145:                                              ; preds = %.noexc69
   %146 = extractvalue { i64, ptr } %141, 1
-  br label %.noexc65.invoke
+  br label %.noexc66.invoke
 
-147:                                              ; preds = %.noexc68
+147:                                              ; preds = %.noexc69
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !742
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %149 = load ptr, ptr %148, align 8, !alias.scope !740, !noalias !784, !nonnull !7, !align !28, !noundef !7
@@ -7598,23 +7600,23 @@ _ZN10serde_json3ser9Formatter10end_object17h76c67996dfdcb53fE.exit.i.i: ; preds 
   %152 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %151, ptr %152, align 8, !noalias !742
   %153 = invoke { i64, ptr } @"_ZN45_$LT$slog..BorrowedKV$u20$as$u20$slog..KV$GT$9serialize17hb2ad0ba8f168ac85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(192) @anon.7e31815fc6de9ce5100553543fa38e53.166)
-          to label %.noexc71 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
-
-.noexc71:                                         ; preds = %147
-  %154 = extractvalue { i64, ptr } %153, 0
-  %.not41.i59 = icmp eq i64 %154, 3
-  br i1 %.not41.i59, label %158, label %155
-
-155:                                              ; preds = %.noexc71
-  %156 = extractvalue { i64, ptr } %153, 1
-  %157 = invoke noundef nonnull ptr @"_ZN4slog90_$LT$impl$u20$core..convert..From$LT$slog..Error$GT$$u20$for$u20$std..io..error..Error$GT$4from17hcad2cbf3013bdf4cE"(i64 noundef %154, ptr %156)
           to label %.noexc72 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc72:                                         ; preds = %155
+.noexc72:                                         ; preds = %147
+  %154 = extractvalue { i64, ptr } %153, 0
+  %.not41.i60 = icmp eq i64 %154, 3
+  br i1 %.not41.i60, label %158, label %155
+
+155:                                              ; preds = %.noexc72
+  %156 = extractvalue { i64, ptr } %153, 1
+  %157 = invoke noundef nonnull ptr @"_ZN4slog90_$LT$impl$u20$core..convert..From$LT$slog..Error$GT$$u20$for$u20$std..io..error..Error$GT$4from17hcad2cbf3013bdf4cE"(i64 noundef %154, ptr %156)
+          to label %.noexc73 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+
+.noexc73:                                         ; preds = %155
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !742
   br label %223
 
-158:                                              ; preds = %.noexc71
+158:                                              ; preds = %.noexc72
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !742
   %159 = load ptr, ptr %9, align 8, !noalias !742, !nonnull !7, !align !13, !noundef !7
   %160 = load i8, ptr %129, align 8, !range !678, !noalias !742, !noundef !7
@@ -7683,13 +7685,13 @@ _ZN10serde_json3ser9Formatter10end_object17h76c67996dfdcb53fE.exit.i.i: ; preds 
 
 "_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h97da2b0d75289b78E.exit11.i.i.i": ; preds = %181
   %193 = invoke noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17hf26fac1338f1b3d8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val.i.i, ptr noalias noundef nonnull readonly align 1 @anon.7e31815fc6de9ce5100553543fa38e53.63, i64 noundef 1)
-          to label %.noexc73 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc74 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc73:                                         ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h97da2b0d75289b78E.exit11.i.i.i"
+.noexc74:                                         ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h97da2b0d75289b78E.exit11.i.i.i"
   %.not.i.i45.i = icmp eq ptr %193, null
   br i1 %.not.i.i45.i, label %194, label %.loopexit.i
 
-194:                                              ; preds = %.noexc73, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h97da2b0d75289b78E.exit11.thread.i.i.i"
+194:                                              ; preds = %.noexc74, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h97da2b0d75289b78E.exit11.thread.i.i.i"
   %195 = load ptr, ptr %163, align 8, !alias.scope !791, !nonnull !7, !align !28, !noundef !7
   %196 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %197 = load i64, ptr %196, align 8, !alias.scope !791, !noundef !7
@@ -7732,18 +7734,18 @@ _ZN10serde_json3ser9Formatter10end_object17h76c67996dfdcb53fE.exit.i.i: ; preds 
 
 "_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17he7ff1e6685fd3108E.exit.i.i": ; preds = %.loopexit.i.i.i
   %213 = invoke noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17hf26fac1338f1b3d8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val.i.i, ptr noalias noundef nonnull readonly align 1 @anon.7e31815fc6de9ce5100553543fa38e53.3, i64 noundef 1)
-          to label %.noexc75 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
-
-.noexc75:                                         ; preds = %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17he7ff1e6685fd3108E.exit.i.i"
-  %.not.i.i60 = icmp eq ptr %213, null
-  br i1 %.not.i.i60, label %224, label %.loopexit.i, !prof !834
-
-.loopexit.i:                                      ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h97da2b0d75289b78E.exit13.i.i.i", %.noexc75, %.noexc73
-  %.sroa.0.0.i6.i.i = phi ptr [ %213, %.noexc75 ], [ %193, %.noexc73 ], [ %.sroa.0.0.i.i12.i.i.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h97da2b0d75289b78E.exit13.i.i.i" ]
-  %214 = invoke noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h41a46387fada144eE(ptr noundef nonnull %.sroa.0.0.i6.i.i)
           to label %.noexc76 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc76:                                         ; preds = %.loopexit.i
+.noexc76:                                         ; preds = %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17he7ff1e6685fd3108E.exit.i.i"
+  %.not.i.i61 = icmp eq ptr %213, null
+  br i1 %.not.i.i61, label %224, label %.loopexit.i, !prof !834
+
+.loopexit.i:                                      ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h97da2b0d75289b78E.exit13.i.i.i", %.noexc76, %.noexc74
+  %.sroa.0.0.i6.i.i = phi ptr [ %213, %.noexc76 ], [ %193, %.noexc74 ], [ %.sroa.0.0.i.i12.i.i.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h97da2b0d75289b78E.exit13.i.i.i" ]
+  %214 = invoke noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h41a46387fada144eE(ptr noundef nonnull %.sroa.0.0.i6.i.i)
+          to label %.noexc77 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+
+.noexc77:                                         ; preds = %.loopexit.i
   %215 = invoke noundef nonnull ptr @_ZN3std2io5error5Error3new17h943a4f7580597e46E(i8 noundef 40, ptr noalias noundef nonnull align 8 %214)
           to label %223 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -7752,23 +7754,23 @@ _ZN10serde_json3ser9Formatter10end_object17h76c67996dfdcb53fE.exit.i.i: ; preds 
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit:                      ; preds = %.lr.ph.i55
-  %lpad.loopexit91 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit:                      ; preds = %.lr.ph.i56
+  %lpad.loopexit92 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.lr.ph.i
-  %lpad.loopexit94 = landingpad { ptr, i32 }
+  %lpad.loopexit95 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.noexc65.invoke, %.noexc36.invoke, %244, %_ZN10serde_json3ser9Formatter12begin_object17h8798cc6ece7ede28E.exit.i.i.i, %41, %49, %._crit_edge.i, %72, %80, %_ZN10serde_json3ser9Formatter10end_object17h76c67996dfdcb53fE.exit.i.i, %100, %.noexc45, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$12begin_object17h171b867e004f9a06E.exit.i.i.i", %116, %124, %._crit_edge.i57, %147, %155, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h97da2b0d75289b78E.exit11.i.i.i", %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17he7ff1e6685fd3108E.exit.i.i", %.loopexit.i, %.noexc76, %237
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.noexc66.invoke, %.noexc36.invoke, %244, %_ZN10serde_json3ser9Formatter12begin_object17h8798cc6ece7ede28E.exit.i.i.i, %41, %49, %._crit_edge.i, %72, %80, %_ZN10serde_json3ser9Formatter10end_object17h76c67996dfdcb53fE.exit.i.i, %100, %.noexc45, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$12begin_object17h171b867e004f9a06E.exit.i.i.i", %116, %124, %._crit_edge.i58, %147, %155, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h97da2b0d75289b78E.exit11.i.i.i", %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17he7ff1e6685fd3108E.exit.i.i", %.loopexit.i, %.noexc77, %237
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %118, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %44, %43 ], [ %119, %118 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit91, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit94, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %44, %43 ], [ %119, %118 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit92, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit95, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$core..cell..RefMut$LT$std..io..buffered..bufwriter..BufWriter$LT$foundations..telemetry..log..retry_writer..RetryPipeWriter$GT$$GT$$GT$17hfa74e5fa9badbbb8E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18) #28
           to label %250 unwind label %248
 
@@ -7791,13 +7793,13 @@ _ZN10serde_json3ser9Formatter10end_object17h76c67996dfdcb53fE.exit.i.i: ; preds 
   %222 = trunc nuw i8 %221 to i1
   br i1 %222, label %230, label %226
 
-223:                                              ; preds = %.noexc65.invoke, %.noexc72, %.noexc76
-  %.sroa.0.1.i54.ph = phi ptr [ %215, %.noexc76 ], [ %157, %.noexc72 ], [ %127, %.noexc65.invoke ]
+223:                                              ; preds = %.noexc66.invoke, %.noexc73, %.noexc77
+  %.sroa.0.1.i54.ph = phi ptr [ %215, %.noexc77 ], [ %157, %.noexc73 ], [ %127, %.noexc66.invoke ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !742
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
   br label %247
 
-224:                                              ; preds = %158, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17he7ff1e6685fd3108E.exit.thread7.i.i", %.noexc75
+224:                                              ; preds = %158, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17he7ff1e6685fd3108E.exit.thread7.i.i", %.noexc76
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !742
   %225 = load ptr, ptr %17, align 8, !nonnull !7, !align !13, !noundef !7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
@@ -8002,7 +8004,8 @@ _ZN10serde_json3ser9Formatter12begin_object17hc9a7921777b382f8E.exit.i.i.i: ; pr
   %56 = load ptr, ptr %55, align 8, !noalias !849, !nonnull !7, !noundef !7
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %58 = load i64, ptr %57, align 8, !noalias !849, !noundef !7
-  %59 = getelementptr inbounds nuw { { { { ptr, ptr } }, {}, {} } }, ptr %56, i64 %58
+  %.idx.i = shl nuw nsw i64 %58, 4
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx.i
   %60 = icmp eq i64 %58, 0
   br i1 %60, label %._crit_edge.i, label %.lr.ph.i
 
@@ -8150,17 +8153,17 @@ _ZN10serde_json3ser9Formatter10end_object17hf2a13f7c58e50bb7E.exit.i.i: ; preds 
 
 "_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$12begin_object17h152f25edf6c7252eE.exit.i.i.i": ; preds = %103
   %115 = invoke noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17h4cc6f34de6f2863dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24, ptr noalias noundef nonnull readonly align 1 @anon.7e31815fc6de9ce5100553543fa38e53.4, i64 noundef 1)
-          to label %.noexc61 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc62 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc61:                                         ; preds = %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$12begin_object17h152f25edf6c7252eE.exit.i.i.i"
+.noexc62:                                         ; preds = %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$12begin_object17h152f25edf6c7252eE.exit.i.i.i"
   %.not.i.i.i48 = icmp eq ptr %115, null
   br i1 %.not.i.i.i48, label %128, label %116, !prof !709
 
-116:                                              ; preds = %.noexc61
+116:                                              ; preds = %.noexc62
   %117 = invoke noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h41a46387fada144eE(ptr noundef nonnull %115)
-          to label %.noexc62 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc63 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc62:                                         ; preds = %116
+.noexc63:                                         ; preds = %116
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !933
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !933
   store ptr %117, ptr %7, align 8, !noalias !934
@@ -8181,13 +8184,13 @@ _ZN10serde_json3ser9Formatter10end_object17hf2a13f7c58e50bb7E.exit.i.i: ; preds 
   invoke void @_ZN5alloc3fmt6format12format_inner17hbc00c97fd665fffbE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
           to label %120 unwind label %118, !noalias !933
 
-118:                                              ; preds = %120, %.noexc62
+118:                                              ; preds = %120, %.noexc63
   %119 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hb3bc64876ee407ffE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #28
           to label %.body unwind label %122, !noalias !933
 
-120:                                              ; preds = %.noexc62
+120:                                              ; preds = %.noexc63
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !937
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !934
   %121 = invoke noundef nonnull ptr @_ZN3std2io5error5Error3new17haf34984c7f89039dE(i8 noundef 40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
@@ -8201,20 +8204,20 @@ _ZN10serde_json3ser9Formatter10end_object17hf2a13f7c58e50bb7E.exit.i.i: ; preds 
 
 124:                                              ; preds = %120
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hb3bc64876ee407ffE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
-          to label %.noexc65 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc66 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc65:                                         ; preds = %124
+.noexc66:                                         ; preds = %124
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !933
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !933
-  br label %.noexc65.invoke
+  br label %.noexc66.invoke
 
-.noexc65.invoke:                                  ; preds = %145, %143, %.noexc65
-  %125 = phi i64 [ 0, %.noexc65 ], [ %140, %143 ], [ %142, %145 ]
-  %126 = phi ptr [ %121, %.noexc65 ], [ %144, %143 ], [ %146, %145 ]
+.noexc66.invoke:                                  ; preds = %145, %143, %.noexc66
+  %125 = phi i64 [ 0, %.noexc66 ], [ %140, %143 ], [ %142, %145 ]
+  %126 = phi ptr [ %121, %.noexc66 ], [ %144, %143 ], [ %146, %145 ]
   %127 = invoke noundef nonnull ptr @"_ZN4slog90_$LT$impl$u20$core..convert..From$LT$slog..Error$GT$$u20$for$u20$std..io..error..Error$GT$4from17hcad2cbf3013bdf4cE"(i64 noundef %125, ptr %126)
           to label %223 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-128:                                              ; preds = %.noexc61, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$12begin_object17h152f25edf6c7252eE.exit.thread.i.i.i"
+128:                                              ; preds = %.noexc62, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$12begin_object17h152f25edf6c7252eE.exit.thread.i.i.i"
   store ptr %17, ptr %9, align 8, !noalias !904
   %129 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 1, ptr %129, align 8, !noalias !904
@@ -8222,43 +8225,44 @@ _ZN10serde_json3ser9Formatter10end_object17hf2a13f7c58e50bb7E.exit.i.i: ; preds 
   %131 = load ptr, ptr %130, align 8, !noalias !904, !nonnull !7, !noundef !7
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %133 = load i64, ptr %132, align 8, !noalias !904, !noundef !7
-  %134 = getelementptr inbounds nuw { { { { ptr, ptr } }, {}, {} } }, ptr %131, i64 %133
+  %.idx.i55 = shl nuw nsw i64 %133, 4
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 %.idx.i55
   %135 = icmp eq i64 %133, 0
-  br i1 %135, label %._crit_edge.i57, label %.lr.ph.i55
+  br i1 %135, label %._crit_edge.i58, label %.lr.ph.i56
 
-136:                                              ; preds = %.noexc67
+136:                                              ; preds = %.noexc68
   %137 = getelementptr inbounds nuw i8, ptr %.sroa.039.056.i, i64 16
   %138 = icmp eq ptr %137, %134
-  br i1 %138, label %._crit_edge.i57, label %.lr.ph.i55
+  br i1 %138, label %._crit_edge.i58, label %.lr.ph.i56
 
-.lr.ph.i55:                                       ; preds = %128, %136
+.lr.ph.i56:                                       ; preds = %128, %136
   %.sroa.039.056.i = phi ptr [ %137, %136 ], [ %131, %128 ]
   %139 = invoke { i64, ptr } @"_ZN46_$LT$slog..OwnedKVList$u20$as$u20$slog..KV$GT$9serialize17h4736f15c3a0bf7abE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.039.056.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(192) @anon.7e31815fc6de9ce5100553543fa38e53.164)
-          to label %.noexc67 unwind label %.loopexit.split-lp.loopexit
+          to label %.noexc68 unwind label %.loopexit.split-lp.loopexit
 
-.noexc67:                                         ; preds = %.lr.ph.i55
+.noexc68:                                         ; preds = %.lr.ph.i56
   %140 = extractvalue { i64, ptr } %139, 0
-  %.not.i56 = icmp eq i64 %140, 3
-  br i1 %.not.i56, label %136, label %143
+  %.not.i57 = icmp eq i64 %140, 3
+  br i1 %.not.i57, label %136, label %143
 
-._crit_edge.i57:                                  ; preds = %136, %128
+._crit_edge.i58:                                  ; preds = %136, %128
   %141 = invoke { i64, ptr } @"_ZN46_$LT$slog..OwnedKVList$u20$as$u20$slog..KV$GT$9serialize17h4736f15c3a0bf7abE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(192) @anon.7e31815fc6de9ce5100553543fa38e53.164)
-          to label %.noexc68 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc69 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc68:                                         ; preds = %._crit_edge.i57
+.noexc69:                                         ; preds = %._crit_edge.i58
   %142 = extractvalue { i64, ptr } %141, 0
-  %.not40.i58 = icmp eq i64 %142, 3
-  br i1 %.not40.i58, label %147, label %145
+  %.not40.i59 = icmp eq i64 %142, 3
+  br i1 %.not40.i59, label %147, label %145
 
-143:                                              ; preds = %.noexc67
+143:                                              ; preds = %.noexc68
   %144 = extractvalue { i64, ptr } %139, 1
-  br label %.noexc65.invoke
+  br label %.noexc66.invoke
 
-145:                                              ; preds = %.noexc68
+145:                                              ; preds = %.noexc69
   %146 = extractvalue { i64, ptr } %141, 1
-  br label %.noexc65.invoke
+  br label %.noexc66.invoke
 
-147:                                              ; preds = %.noexc68
+147:                                              ; preds = %.noexc69
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !904
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %149 = load ptr, ptr %148, align 8, !alias.scope !902, !noalias !946, !nonnull !7, !align !28, !noundef !7
@@ -8268,23 +8272,23 @@ _ZN10serde_json3ser9Formatter10end_object17hf2a13f7c58e50bb7E.exit.i.i: ; preds 
   %152 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %151, ptr %152, align 8, !noalias !904
   %153 = invoke { i64, ptr } @"_ZN45_$LT$slog..BorrowedKV$u20$as$u20$slog..KV$GT$9serialize17hb2ad0ba8f168ac85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(192) @anon.7e31815fc6de9ce5100553543fa38e53.164)
-          to label %.noexc71 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
-
-.noexc71:                                         ; preds = %147
-  %154 = extractvalue { i64, ptr } %153, 0
-  %.not41.i59 = icmp eq i64 %154, 3
-  br i1 %.not41.i59, label %158, label %155
-
-155:                                              ; preds = %.noexc71
-  %156 = extractvalue { i64, ptr } %153, 1
-  %157 = invoke noundef nonnull ptr @"_ZN4slog90_$LT$impl$u20$core..convert..From$LT$slog..Error$GT$$u20$for$u20$std..io..error..Error$GT$4from17hcad2cbf3013bdf4cE"(i64 noundef %154, ptr %156)
           to label %.noexc72 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc72:                                         ; preds = %155
+.noexc72:                                         ; preds = %147
+  %154 = extractvalue { i64, ptr } %153, 0
+  %.not41.i60 = icmp eq i64 %154, 3
+  br i1 %.not41.i60, label %158, label %155
+
+155:                                              ; preds = %.noexc72
+  %156 = extractvalue { i64, ptr } %153, 1
+  %157 = invoke noundef nonnull ptr @"_ZN4slog90_$LT$impl$u20$core..convert..From$LT$slog..Error$GT$$u20$for$u20$std..io..error..Error$GT$4from17hcad2cbf3013bdf4cE"(i64 noundef %154, ptr %156)
+          to label %.noexc73 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+
+.noexc73:                                         ; preds = %155
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !904
   br label %223
 
-158:                                              ; preds = %.noexc71
+158:                                              ; preds = %.noexc72
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !904
   %159 = load ptr, ptr %9, align 8, !noalias !904, !nonnull !7, !align !13, !noundef !7
   %160 = load i8, ptr %129, align 8, !range !678, !noalias !904, !noundef !7
@@ -8353,13 +8357,13 @@ _ZN10serde_json3ser9Formatter10end_object17hf2a13f7c58e50bb7E.exit.i.i: ; preds 
 
 "_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hc379ef83aea4c9ddE.exit11.i.i.i": ; preds = %181
   %193 = invoke noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17h4cc6f34de6f2863dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val.i.i, ptr noalias noundef nonnull readonly align 1 @anon.7e31815fc6de9ce5100553543fa38e53.63, i64 noundef 1)
-          to label %.noexc73 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc74 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc73:                                         ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hc379ef83aea4c9ddE.exit11.i.i.i"
+.noexc74:                                         ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hc379ef83aea4c9ddE.exit11.i.i.i"
   %.not.i.i45.i = icmp eq ptr %193, null
   br i1 %.not.i.i45.i, label %194, label %.loopexit.i
 
-194:                                              ; preds = %.noexc73, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hc379ef83aea4c9ddE.exit11.thread.i.i.i"
+194:                                              ; preds = %.noexc74, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hc379ef83aea4c9ddE.exit11.thread.i.i.i"
   %195 = load ptr, ptr %163, align 8, !alias.scope !953, !nonnull !7, !align !28, !noundef !7
   %196 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %197 = load i64, ptr %196, align 8, !alias.scope !953, !noundef !7
@@ -8402,18 +8406,18 @@ _ZN10serde_json3ser9Formatter10end_object17hf2a13f7c58e50bb7E.exit.i.i: ; preds 
 
 "_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h4c5959c857e634ecE.exit.i.i": ; preds = %.loopexit.i.i.i
   %213 = invoke noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17h4cc6f34de6f2863dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val.i.i, ptr noalias noundef nonnull readonly align 1 @anon.7e31815fc6de9ce5100553543fa38e53.3, i64 noundef 1)
-          to label %.noexc75 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
-
-.noexc75:                                         ; preds = %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h4c5959c857e634ecE.exit.i.i"
-  %.not.i.i60 = icmp eq ptr %213, null
-  br i1 %.not.i.i60, label %224, label %.loopexit.i, !prof !834
-
-.loopexit.i:                                      ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hc379ef83aea4c9ddE.exit13.i.i.i", %.noexc75, %.noexc73
-  %.sroa.0.0.i6.i.i = phi ptr [ %213, %.noexc75 ], [ %193, %.noexc73 ], [ %.sroa.0.0.i.i12.i.i.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hc379ef83aea4c9ddE.exit13.i.i.i" ]
-  %214 = invoke noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h41a46387fada144eE(ptr noundef nonnull %.sroa.0.0.i6.i.i)
           to label %.noexc76 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc76:                                         ; preds = %.loopexit.i
+.noexc76:                                         ; preds = %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h4c5959c857e634ecE.exit.i.i"
+  %.not.i.i61 = icmp eq ptr %213, null
+  br i1 %.not.i.i61, label %224, label %.loopexit.i, !prof !834
+
+.loopexit.i:                                      ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hc379ef83aea4c9ddE.exit13.i.i.i", %.noexc76, %.noexc74
+  %.sroa.0.0.i6.i.i = phi ptr [ %213, %.noexc76 ], [ %193, %.noexc74 ], [ %.sroa.0.0.i.i12.i.i.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hc379ef83aea4c9ddE.exit13.i.i.i" ]
+  %214 = invoke noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h41a46387fada144eE(ptr noundef nonnull %.sroa.0.0.i6.i.i)
+          to label %.noexc77 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+
+.noexc77:                                         ; preds = %.loopexit.i
   %215 = invoke noundef nonnull ptr @_ZN3std2io5error5Error3new17h943a4f7580597e46E(i8 noundef 40, ptr noalias noundef nonnull align 8 %214)
           to label %223 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -8422,23 +8426,23 @@ _ZN10serde_json3ser9Formatter10end_object17hf2a13f7c58e50bb7E.exit.i.i: ; preds 
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit:                      ; preds = %.lr.ph.i55
-  %lpad.loopexit91 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit:                      ; preds = %.lr.ph.i56
+  %lpad.loopexit92 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.lr.ph.i
-  %lpad.loopexit94 = landingpad { ptr, i32 }
+  %lpad.loopexit95 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.noexc65.invoke, %.noexc36.invoke, %244, %_ZN10serde_json3ser9Formatter12begin_object17hc9a7921777b382f8E.exit.i.i.i, %41, %49, %._crit_edge.i, %72, %80, %_ZN10serde_json3ser9Formatter10end_object17hf2a13f7c58e50bb7E.exit.i.i, %100, %.noexc45, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$12begin_object17h152f25edf6c7252eE.exit.i.i.i", %116, %124, %._crit_edge.i57, %147, %155, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hc379ef83aea4c9ddE.exit11.i.i.i", %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h4c5959c857e634ecE.exit.i.i", %.loopexit.i, %.noexc76, %237
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.noexc66.invoke, %.noexc36.invoke, %244, %_ZN10serde_json3ser9Formatter12begin_object17hc9a7921777b382f8E.exit.i.i.i, %41, %49, %._crit_edge.i, %72, %80, %_ZN10serde_json3ser9Formatter10end_object17hf2a13f7c58e50bb7E.exit.i.i, %100, %.noexc45, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$12begin_object17h152f25edf6c7252eE.exit.i.i.i", %116, %124, %._crit_edge.i58, %147, %155, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hc379ef83aea4c9ddE.exit11.i.i.i", %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h4c5959c857e634ecE.exit.i.i", %.loopexit.i, %.noexc77, %237
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %118, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %44, %43 ], [ %119, %118 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit91, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit94, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %44, %43 ], [ %119, %118 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit92, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit95, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr107drop_in_place$LT$core..cell..RefMut$LT$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$17hcbf011e520c19755E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18) #28
           to label %250 unwind label %248
 
@@ -8461,13 +8465,13 @@ _ZN10serde_json3ser9Formatter10end_object17hf2a13f7c58e50bb7E.exit.i.i: ; preds 
   %222 = trunc nuw i8 %221 to i1
   br i1 %222, label %230, label %226
 
-223:                                              ; preds = %.noexc65.invoke, %.noexc72, %.noexc76
-  %.sroa.0.1.i54.ph = phi ptr [ %215, %.noexc76 ], [ %157, %.noexc72 ], [ %127, %.noexc65.invoke ]
+223:                                              ; preds = %.noexc66.invoke, %.noexc73, %.noexc77
+  %.sroa.0.1.i54.ph = phi ptr [ %215, %.noexc77 ], [ %157, %.noexc73 ], [ %127, %.noexc66.invoke ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !904
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
   br label %247
 
-224:                                              ; preds = %158, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h4c5959c857e634ecE.exit.thread7.i.i", %.noexc75
+224:                                              ; preds = %158, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h4c5959c857e634ecE.exit.thread7.i.i", %.noexc76
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !904
   %225 = load ptr, ptr %17, align 8, !nonnull !7, !align !13, !noundef !7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
@@ -17408,7 +17412,8 @@ define hidden void @"_ZN97_$LT$thrift_codec..data..thrift_struct..Struct$u20$as$
   %13 = load ptr, ptr %12, align 8, !nonnull !7, !noundef !7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !7
-  %16 = getelementptr inbounds nuw { { i64, [7 x i64] }, i16, [3 x i16] }, ptr %13, i64 %15
+  %.idx = mul nuw nsw i64 %15, 72
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %._crit_edge, label %.lr.ph
 

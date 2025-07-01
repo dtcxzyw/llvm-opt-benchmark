@@ -4163,7 +4163,8 @@ define internal fastcc i32 @CutOff(ptr noundef %0, ptr noundef %1, i32 noundef %
   %123 = and i64 %121, 4294967295
   %124 = getelementptr inbounds nuw i8, ptr %7, i64 %123
   %125 = zext i8 %5 to i64
-  %126 = getelementptr inbounds nuw %struct.CPpmd_State, ptr %124, i64 %125
+  %.idx = mul nuw nsw i64 %125, 6
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 %.idx
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %128 = add nuw i32 %2, 1
   br label %129

@@ -388,7 +388,8 @@ _ZN3std4sync6poison4once4Once9call_once17h8f8ac5c0a03556b6E.exit: ; preds = %.no
   %.sroa.538.0.copyload = load i64, ptr %14, align 8
   %45 = icmp ult i64 %.sroa.538.0.copyload, 576460752303423488
   tail call void @llvm.assume(i1 %45)
-  %46 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %.sroa.437.0.copyload, i64 %.sroa.538.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.538.0.copyload, 4
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.437.0.copyload, i64 %.idx
   %47 = icmp sgt i64 %.sroa.036.0.copyload, -1
   tail call void @llvm.assume(i1 %47)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -880,7 +881,8 @@ _ZN3std4sync6poison4once4Once9call_once17h8f8ac5c0a03556b6E.exit: ; preds = %.no
   %.sroa.536.0.copyload = load i64, ptr %14, align 8
   %44 = icmp ult i64 %.sroa.536.0.copyload, 164703072086692426
   tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %.sroa.435.0.copyload, i64 %.sroa.536.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.536.0.copyload, 56
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.435.0.copyload, i64 %.idx
   %46 = icmp sgt i64 %.sroa.034.0.copyload, -1
   tail call void @llvm.assume(i1 %46)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -1567,7 +1569,8 @@ _ZN3std4sync6poison4once4Once9call_once17h8f8ac5c0a03556b6E.exit: ; preds = %.no
   %.sroa.542.0.copyload = load i64, ptr %14, align 8
   %44 = icmp ult i64 %.sroa.542.0.copyload, 576460752303423488
   tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %.sroa.441.0.copyload, i64 %.sroa.542.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.542.0.copyload, 4
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.441.0.copyload, i64 %.idx
   %46 = icmp sgt i64 %.sroa.040.0.copyload, -1
   tail call void @llvm.assume(i1 %46)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -2152,7 +2155,8 @@ _ZN3std4sync6poison4once4Once9call_once17h8f8ac5c0a03556b6E.exit: ; preds = %.no
   %.sroa.536.0.copyload = load i64, ptr %14, align 8
   %44 = icmp ult i64 %.sroa.536.0.copyload, 164703072086692426
   tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %.sroa.435.0.copyload, i64 %.sroa.536.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.536.0.copyload, 56
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.435.0.copyload, i64 %.idx
   %46 = icmp sgt i64 %.sroa.034.0.copyload, -1
   tail call void @llvm.assume(i1 %46)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -2844,7 +2848,8 @@ _ZN3std4sync6poison4once4Once9call_once17h8f8ac5c0a03556b6E.exit: ; preds = %.no
   %.sroa.536.0.copyload = load i64, ptr %14, align 8
   %44 = icmp ult i64 %.sroa.536.0.copyload, 164703072086692426
   tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %.sroa.435.0.copyload, i64 %.sroa.536.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.536.0.copyload, 56
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.435.0.copyload, i64 %.idx
   %46 = icmp sgt i64 %.sroa.034.0.copyload, -1
   tail call void @llvm.assume(i1 %46)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -3521,7 +3526,8 @@ _ZN3std4sync6poison4once4Once9call_once17h8f8ac5c0a03556b6E.exit: ; preds = %.no
   %.sroa.539.0.copyload = load i64, ptr %14, align 8
   %45 = icmp ult i64 %.sroa.539.0.copyload, 576460752303423488
   tail call void @llvm.assume(i1 %45)
-  %46 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %.sroa.438.0.copyload, i64 %.sroa.539.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.539.0.copyload, 4
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.438.0.copyload, i64 %.idx
   %47 = icmp sgt i64 %.sroa.037.0.copyload, -1
   tail call void @llvm.assume(i1 %47)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -4008,7 +4014,8 @@ _ZN3std4sync6poison4once4Once9call_once17h8f8ac5c0a03556b6E.exit: ; preds = %.no
   %.sroa.539.0.copyload = load i64, ptr %14, align 8
   %45 = icmp ult i64 %.sroa.539.0.copyload, 576460752303423488
   tail call void @llvm.assume(i1 %45)
-  %46 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %.sroa.438.0.copyload, i64 %.sroa.539.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.539.0.copyload, 4
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.438.0.copyload, i64 %.idx
   %47 = icmp sgt i64 %.sroa.037.0.copyload, -1
   tail call void @llvm.assume(i1 %47)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -4507,7 +4514,8 @@ _ZN3std4sync6poison4once4Once9call_once17h8f8ac5c0a03556b6E.exit: ; preds = %.no
   %.sroa.536.0.copyload = load i64, ptr %14, align 8
   %44 = icmp ult i64 %.sroa.536.0.copyload, 164703072086692426
   tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw { ptr, [6 x i64] }, ptr %.sroa.435.0.copyload, i64 %.sroa.536.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.536.0.copyload, 56
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.435.0.copyload, i64 %.idx
   %46 = icmp sgt i64 %.sroa.034.0.copyload, -1
   tail call void @llvm.assume(i1 %46)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -5186,7 +5194,8 @@ _ZN3std4sync6poison4once4Once9call_once17h8f8ac5c0a03556b6E.exit: ; preds = %.no
   %.sroa.539.0.copyload = load i64, ptr %14, align 8
   %45 = icmp ult i64 %.sroa.539.0.copyload, 576460752303423488
   tail call void @llvm.assume(i1 %45)
-  %46 = getelementptr inbounds nuw { ptr, ptr, {} }, ptr %.sroa.438.0.copyload, i64 %.sroa.539.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.539.0.copyload, 4
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.438.0.copyload, i64 %.idx
   %47 = icmp sgt i64 %.sroa.037.0.copyload, -1
   tail call void @llvm.assume(i1 %47)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)

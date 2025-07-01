@@ -3163,7 +3163,8 @@ _ZN4pstd6vectorIN4pbrt5ImageENS_3pmr21polymorphic_allocatorIS2_EEE5clearEv.exit:
   %135 = load ptr, ptr %12, align 8, !tbaa !25
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %137 = load i64, ptr %136, align 8, !tbaa !22
-  %138 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %135, i64 %137
+  %.idx = mul nuw nsw i64 %137, 152
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 %.idx
   %.not4.i = icmp eq i64 %137, 0
   br i1 %.not4.i, label %"_ZSt8for_eachIPN4pbrt5ImageEZNS0_6MIPMapC1ES1_PKNS0_13RGBColorSpaceENS0_8WrapModeEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS0_19MIPMapFilterOptionsEE3$_0ET0_T_SI_SH_.exit", label %.lr.ph.i19
 

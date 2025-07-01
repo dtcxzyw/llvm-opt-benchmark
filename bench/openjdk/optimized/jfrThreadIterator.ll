@@ -69,7 +69,8 @@ define hidden void @_ZN28JfrJavaThreadIteratorAdapterC2Eb(ptr noundef nonnull al
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %14
+  %.idx = shl nuw nsw i64 %14, 3
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   store ptr %15, ptr %11, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 %3, ptr %16, align 8
@@ -312,7 +313,8 @@ define weak_odr hidden void @_ZN17JfrThreadIteratorI28JfrJavaThreadIteratorAdapt
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %15
+  %.idx.i = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   store ptr %16, ptr %12, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 %4, ptr %17, align 8

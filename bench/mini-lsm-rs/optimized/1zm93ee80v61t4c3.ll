@@ -4359,7 +4359,8 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as
   %8 = load i64, ptr %7, align 8, !noundef !9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1104
   call void @_ZN4core3fmt9Formatter10debug_list17h1616b9a56f5bf339E(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !1108
-  %9 = getelementptr inbounds { i64, { { i64, ptr }, i64 } }, ptr %6, i64 %8
+  %.idx.i = shl nsw i64 %8, 5
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h62937aedbaafc5d3E.exit", label %.lr.ph.i.i
 
@@ -5610,7 +5611,8 @@ define internal fastcc void @_ZN13mini_lsm_mvcc7compact7leveled27LeveledCompacti
   %.val25 = load ptr, ptr %91, align 8, !nonnull !9, !noundef !9
   %92 = getelementptr i8, ptr %90, i64 16
   %.val26 = load i64, ptr %92, align 8, !noundef !9
-  %93 = getelementptr inbounds i64, ptr %.val25, i64 %.val26
+  %.idx33 = shl nsw i64 %.val26, 3
+  %93 = getelementptr inbounds i8, ptr %.val25, i64 %.idx33
   %94 = icmp eq i64 %.val26, 0
   br i1 %94, label %._crit_edge, label %.lr.ph
 
@@ -6846,6 +6848,7 @@ _ZN4core4iter6traits8iterator8Iterator6min_by17h2354d2f34b7cc461E.exit.thread: ;
   br i1 %377, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5ccd0a8ac6a8904bE.exit", label %378
 
 378:                                              ; preds = %371
+  %.idx = and i64 %376, 2305843009213693951
   br i1 %77, label %select.unfold.invoke, label %.split
 
 .split:                                           ; preds = %378, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hde9733ec42e008bcE.exit.i.i"
@@ -6964,7 +6967,7 @@ select.unfold.cont:                               ; preds = %select.unfold.invok
   %424 = load i64, ptr %423, align 8, !noalias !1710, !noundef !9
   %425 = add i64 %424, %.018.i.i
   %426 = add nuw i64 %.017.i.i, 1
-  %427 = icmp eq i64 %426, %376
+  %427 = icmp eq i64 %426, %.idx
   br i1 %427, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5ccd0a8ac6a8904bE.exit.loopexit", label %.split
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5ccd0a8ac6a8904bE.exit.loopexit": ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hde9733ec42e008bcE.exit.i.i"
@@ -7957,7 +7960,8 @@ define void @_ZN13mini_lsm_mvcc7compact14simple_leveled33SimpleLeveledCompaction
   %.val28 = load ptr, ptr %23, align 8, !nonnull !9, !noundef !9
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.val29 = load i64, ptr %24, align 8, !noundef !9
-  %25 = getelementptr inbounds { i64, { { i64, ptr }, i64 } }, ptr %.val28, i64 %.val29
+  %.idx = shl nsw i64 %.val29, 5
+  %25 = getelementptr inbounds i8, ptr %.val28, i64 %.idx
   %26 = icmp eq i64 %.val29, 0
   br i1 %26, label %._crit_edge, label %.lr.ph
 

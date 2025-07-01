@@ -26764,7 +26764,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 20:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  %21 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -27492,7 +27493,8 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN80_$LT$serde_wasm_bindgen..de..
 
 11:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %12 = getelementptr inbounds nuw { ptr, i64 }, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 4
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -27777,7 +27779,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 14:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  %15 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -28497,7 +28500,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 20:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  %21 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -29314,7 +29318,8 @@ define hidden i64 @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$se
 
 11:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %12 = getelementptr inbounds nuw { ptr, i64 }, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 4
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -29724,7 +29729,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 14:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  %15 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -30073,7 +30079,8 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN80_$LT$serde_wasm_bindgen..de..
 
 11:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %12 = getelementptr inbounds nuw { ptr, i64 }, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 4
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -30362,7 +30369,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 16:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %1, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -30927,7 +30935,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 16:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %1, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -31568,7 +31577,8 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN80_$LT$serde_wasm_bindgen..de..
 
 11:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %12 = getelementptr inbounds nuw { ptr, i64 }, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 4
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -31865,7 +31875,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 20:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  %21 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -32623,7 +32634,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 14:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  %15 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -32972,7 +32984,8 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN80_$LT$serde_wasm_bindgen..de..
 
 11:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %12 = getelementptr inbounds nuw { ptr, i64 }, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 4
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -33315,7 +33328,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 44:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41)
-  %45 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store i32 %1, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -36089,7 +36103,8 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN80_$LT$serde_wasm_bindgen..de..
 
 11:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %12 = getelementptr inbounds nuw { ptr, i64 }, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 4
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -36382,7 +36397,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 18:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  %19 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 %1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -37102,7 +37118,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 16:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %1, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -37594,7 +37611,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 25:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
-  %26 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i32 %1, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -38577,7 +38595,8 @@ define hidden i64 @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$se
 
 11:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %12 = getelementptr inbounds nuw { ptr, i64 }, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 4
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -38957,7 +38976,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 15:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  %16 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 %1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -39350,7 +39370,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 20:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  %21 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -40134,7 +40155,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 17:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  %18 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 %1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -40743,7 +40765,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 16:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %1, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -41300,7 +41323,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 16:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %1, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -41791,7 +41815,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 20:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  %21 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -42767,7 +42792,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 16:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %1, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -43358,7 +43384,8 @@ define hidden i64 @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$se
 
 11:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %12 = getelementptr inbounds nuw { ptr, i64 }, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 4
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -43798,7 +43825,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 13:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  %14 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -44084,7 +44112,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 16:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %1, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -44560,7 +44589,8 @@ define hidden void @"_ZN80_$LT$serde_wasm_bindgen..de..Deserializer$u20$as$u20$s
 
 13:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  %14 = getelementptr inbounds nuw { ptr, i64 }, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 8

@@ -65,7 +65,8 @@ define dso_local void @_ZN4llvm27ComputeASanStackFrameLayoutERNS_15SmallVectorIm
   br i1 %.not62, label %_ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEEPFbRKS2_S6_EEEvOT_T0_.exit, label %.lr.ph
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %.pre, i64 %8
+  %.idx.i = mul nuw nsw i64 %8, 56
+  %9 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %select.unfold.i.i.i.i.i
@@ -256,7 +257,8 @@ define dso_local void @_ZN4llvm32ComputeASanStackFrameDescriptionERKNS_15SmallVe
   %21 = load ptr, ptr %1, align 8, !tbaa !11
   %22 = load i32, ptr %17, align 8, !tbaa !7
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %21, i64 %23
+  %.idx = mul nuw nsw i64 %23, 56
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %.not26 = icmp eq i32 %22, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
@@ -598,7 +600,8 @@ _ZN4llvm15SmallVectorImplIhE6resizeEmh.exit:      ; preds = %3, %.sink.split.i
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !7
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %19, i64 %22
+  %.idx = mul nuw nsw i64 %22, 56
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not46 = icmp eq i32 %21, 0
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
@@ -763,7 +766,8 @@ define dso_local void @_ZN4llvm24GetShadowBytesAfterScopeERKNS_15SmallVectorImpl
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !7
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %5, i64 %8
+  %.idx = mul nuw nsw i64 %8, 56
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %.not18 = icmp eq i32 %7, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -1251,22 +1255,27 @@ define linkonce_odr void @_ZSt24__merge_sort_with_bufferIPN4llvm28ASanStackVaria
   %12 = udiv exact i64 %7, 56
   br label %13
 
-13:                                               ; preds = %.lr.ph, %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit56
-  %.066 = phi i64 [ 7, %.lr.ph ], [ %61, %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit56 ]
-  %14 = shl nsw i64 %.066, 1
-  %.not44.i = icmp slt i64 %8, %14
-  br i1 %.not44.i, label %._crit_edge.i, label %.lr.ph.i.preheader.i
+13:                                               ; preds = %.lr.ph, %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit59
+  %.069 = phi i64 [ 7, %.lr.ph ], [ %61, %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit59 ]
+  %14 = shl nsw i64 %.069, 1
+  %.not46.i = icmp slt i64 %8, %14
+  br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i.preheader.i:                             ; preds = %13, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i
-  %.046.i = phi ptr [ %16, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i ], [ %0, %13 ]
-  %.01945.i = phi ptr [ %36, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i ], [ %2, %13 ]
-  %15 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.046.i, i64 %.066
-  %16 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.046.i, i64 %14
+.lr.ph.i:                                         ; preds = %13
+  %.idx.i = mul nsw i64 %.069, 56
+  %.idx40.i = mul nsw i64 %.069, 112
+  br label %.lr.ph.i.preheader.i
+
+.lr.ph.i.preheader.i:                             ; preds = %.lr.ph.i, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i
+  %.048.i = phi ptr [ %16, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i ], [ %0, %.lr.ph.i ]
+  %.01947.i = phi ptr [ %36, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i ], [ %2, %.lr.ph.i ]
+  %15 = getelementptr inbounds i8, ptr %.048.i, i64 %.idx.i
+  %16 = getelementptr inbounds i8, ptr %.048.i, i64 %.idx40.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %22, %.lr.ph.i.preheader.i
-  %.025.i.i = phi ptr [ %23, %22 ], [ %.01945.i, %.lr.ph.i.preheader.i ]
-  %.01824.i.i = phi ptr [ %.1.i.i, %22 ], [ %.046.i, %.lr.ph.i.preheader.i ]
+  %.025.i.i = phi ptr [ %23, %22 ], [ %.01947.i, %.lr.ph.i.preheader.i ]
+  %.01824.i.i = phi ptr [ %.1.i.i, %22 ], [ %.048.i, %.lr.ph.i.preheader.i ]
   %.01923.i.i = phi ptr [ %.120.i.i, %22 ], [ %15, %.lr.ph.i.preheader.i ]
   %17 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(56) %.01923.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.01824.i.i) #16
   br i1 %17, label %18, label %20
@@ -1323,9 +1332,10 @@ _ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_
 ._crit_edge.i:                                    ; preds = %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i, %13
   %.019.lcssa.i = phi ptr [ %2, %13 ], [ %36, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i ]
   %.0.lcssa.i = phi ptr [ %0, %13 ], [ %16, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i ]
-  %.lcssa42.i = phi i64 [ %8, %13 ], [ %38, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.066, i64 %.lcssa42.i)
-  %39 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.0.lcssa.i, i64 %.sroa.speculated.i
+  %.lcssa44.i = phi i64 [ %8, %13 ], [ %38, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i ]
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.069, i64 %.lcssa44.i)
+  %.idx42.i = mul nsw i64 %.sroa.speculated.i, 56
+  %39 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 %.idx42.i
   %40 = icmp ne i64 %.sroa.speculated.i, 0
   %41 = icmp ne ptr %39, %1
   %42 = and i1 %40, %41
@@ -1383,140 +1393,146 @@ _ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i27.i: ; pr
   br label %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit
 
 _ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit: ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i27.i, %57
-  %61 = shl nsw i64 %.066, 2
-  %.not44.i21 = icmp slt i64 %12, %61
-  br i1 %.not44.i21, label %._crit_edge.i38, label %.lr.ph.i.preheader.i23
+  %61 = shl nsw i64 %.069, 2
+  %.not46.i21 = icmp slt i64 %12, %61
+  br i1 %.not46.i21, label %._crit_edge.i40, label %.lr.ph.i22
 
-.lr.ph.i.preheader.i23:                           ; preds = %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i36
-  %.046.i24 = phi ptr [ %63, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i36 ], [ %2, %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit ]
-  %.01945.i25 = phi ptr [ %83, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i36 ], [ %0, %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit ]
-  %62 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.046.i24, i64 %14
-  %63 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.046.i24, i64 %61
-  br label %.lr.ph.i.i26
+.lr.ph.i22:                                       ; preds = %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit
+  %.idx.i23 = mul nsw i64 %.069, 112
+  %.idx40.i24 = mul nsw i64 %.069, 224
+  br label %.lr.ph.i.preheader.i25
 
-.lr.ph.i.i26:                                     ; preds = %69, %.lr.ph.i.preheader.i23
-  %.025.i.i27 = phi ptr [ %70, %69 ], [ %.01945.i25, %.lr.ph.i.preheader.i23 ]
-  %.01824.i.i28 = phi ptr [ %.1.i.i31, %69 ], [ %.046.i24, %.lr.ph.i.preheader.i23 ]
-  %.01923.i.i29 = phi ptr [ %.120.i.i30, %69 ], [ %62, %.lr.ph.i.preheader.i23 ]
-  %64 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(56) %.01923.i.i29, ptr noundef nonnull align 8 dereferenceable(56) %.01824.i.i28) #16
+.lr.ph.i.preheader.i25:                           ; preds = %.lr.ph.i22, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i38
+  %.048.i26 = phi ptr [ %63, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i38 ], [ %2, %.lr.ph.i22 ]
+  %.01947.i27 = phi ptr [ %83, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i38 ], [ %0, %.lr.ph.i22 ]
+  %62 = getelementptr inbounds i8, ptr %.048.i26, i64 %.idx.i23
+  %63 = getelementptr inbounds i8, ptr %.048.i26, i64 %.idx40.i24
+  br label %.lr.ph.i.i28
+
+.lr.ph.i.i28:                                     ; preds = %69, %.lr.ph.i.preheader.i25
+  %.025.i.i29 = phi ptr [ %70, %69 ], [ %.01947.i27, %.lr.ph.i.preheader.i25 ]
+  %.01824.i.i30 = phi ptr [ %.1.i.i33, %69 ], [ %.048.i26, %.lr.ph.i.preheader.i25 ]
+  %.01923.i.i31 = phi ptr [ %.120.i.i32, %69 ], [ %62, %.lr.ph.i.preheader.i25 ]
+  %64 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(56) %.01923.i.i31, ptr noundef nonnull align 8 dereferenceable(56) %.01824.i.i30) #16
   br i1 %64, label %65, label %67
 
-65:                                               ; preds = %.lr.ph.i.i26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.025.i.i27, ptr noundef nonnull align 8 dereferenceable(56) %.01923.i.i29, i64 56, i1 false), !tbaa.struct !62
-  %66 = getelementptr inbounds nuw i8, ptr %.01923.i.i29, i64 56
+65:                                               ; preds = %.lr.ph.i.i28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.025.i.i29, ptr noundef nonnull align 8 dereferenceable(56) %.01923.i.i31, i64 56, i1 false), !tbaa.struct !62
+  %66 = getelementptr inbounds nuw i8, ptr %.01923.i.i31, i64 56
   br label %69
 
-67:                                               ; preds = %.lr.ph.i.i26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.025.i.i27, ptr noundef nonnull align 8 dereferenceable(56) %.01824.i.i28, i64 56, i1 false), !tbaa.struct !62
-  %68 = getelementptr inbounds nuw i8, ptr %.01824.i.i28, i64 56
+67:                                               ; preds = %.lr.ph.i.i28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.025.i.i29, ptr noundef nonnull align 8 dereferenceable(56) %.01824.i.i30, i64 56, i1 false), !tbaa.struct !62
+  %68 = getelementptr inbounds nuw i8, ptr %.01824.i.i30, i64 56
   br label %69
 
 69:                                               ; preds = %67, %65
-  %.120.i.i30 = phi ptr [ %66, %65 ], [ %.01923.i.i29, %67 ]
-  %.1.i.i31 = phi ptr [ %.01824.i.i28, %65 ], [ %68, %67 ]
-  %70 = getelementptr inbounds nuw i8, ptr %.025.i.i27, i64 56
-  %71 = icmp ne ptr %.1.i.i31, %62
-  %72 = icmp ne ptr %.120.i.i30, %63
+  %.120.i.i32 = phi ptr [ %66, %65 ], [ %.01923.i.i31, %67 ]
+  %.1.i.i33 = phi ptr [ %.01824.i.i30, %65 ], [ %68, %67 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.025.i.i29, i64 56
+  %71 = icmp ne ptr %.1.i.i33, %62
+  %72 = icmp ne ptr %.120.i.i32, %63
   %73 = select i1 %71, i1 %72, i1 false
-  br i1 %73, label %.lr.ph.i.i26, label %._crit_edge.i.loopexit.i32, !llvm.loop !73
+  br i1 %73, label %.lr.ph.i.i28, label %._crit_edge.i.loopexit.i34, !llvm.loop !73
 
-._crit_edge.i.loopexit.i32:                       ; preds = %69
+._crit_edge.i.loopexit.i34:                       ; preds = %69
   %74 = ptrtoint ptr %62 to i64
-  %75 = ptrtoint ptr %.1.i.i31 to i64
+  %75 = ptrtoint ptr %.1.i.i33 to i64
   %76 = sub i64 %74, %75
-  %.not.i.i.i.i.i.i.i33 = icmp eq ptr %62, %.1.i.i31
-  br i1 %.not.i.i.i.i.i.i.i33, label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i.i34, label %77
+  %.not.i.i.i.i.i.i.i35 = icmp eq ptr %62, %.1.i.i33
+  br i1 %.not.i.i.i.i.i.i.i35, label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i.i36, label %77
 
-77:                                               ; preds = %._crit_edge.i.loopexit.i32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %70, ptr nonnull align 8 %.1.i.i31, i64 %76, i1 false)
-  br label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i.i34
+77:                                               ; preds = %._crit_edge.i.loopexit.i34
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %70, ptr nonnull align 8 %.1.i.i33, i64 %76, i1 false)
+  br label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i.i36
 
-_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i.i34: ; preds = %77, %._crit_edge.i.loopexit.i32
+_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i.i36: ; preds = %77, %._crit_edge.i.loopexit.i34
   %78 = getelementptr inbounds i8, ptr %70, i64 %76
   %79 = ptrtoint ptr %63 to i64
-  %80 = ptrtoint ptr %.120.i.i30 to i64
+  %80 = ptrtoint ptr %.120.i.i32 to i64
   %81 = sub i64 %79, %80
-  %.not.i.i.i.i.i21.i.i35 = icmp eq ptr %63, %.120.i.i30
-  br i1 %.not.i.i.i.i.i21.i.i35, label %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i36, label %82
+  %.not.i.i.i.i.i21.i.i37 = icmp eq ptr %63, %.120.i.i32
+  br i1 %.not.i.i.i.i.i21.i.i37, label %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i38, label %82
 
-82:                                               ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i.i34
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %78, ptr nonnull align 8 %.120.i.i30, i64 %81, i1 false)
-  br label %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i36
+82:                                               ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i.i36
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %78, ptr nonnull align 8 %.120.i.i32, i64 %81, i1 false)
+  br label %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i38
 
-_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i36: ; preds = %82, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i.i34
+_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i38: ; preds = %82, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i.i36
   %83 = getelementptr inbounds i8, ptr %78, i64 %81
   %84 = sub i64 %11, %79
   %85 = sdiv exact i64 %84, 56
-  %.not.i37 = icmp slt i64 %85, %61
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i.preheader.i23, !llvm.loop !74
+  %.not.i39 = icmp slt i64 %85, %61
+  br i1 %.not.i39, label %._crit_edge.i40, label %.lr.ph.i.preheader.i25, !llvm.loop !74
 
-._crit_edge.i38:                                  ; preds = %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i36, %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit
-  %.019.lcssa.i39 = phi ptr [ %0, %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit ], [ %83, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i36 ]
-  %.0.lcssa.i40 = phi ptr [ %2, %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit ], [ %63, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i36 ]
-  %.lcssa42.i41 = phi i64 [ %12, %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit ], [ %85, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i36 ]
-  %.sroa.speculated.i42 = tail call i64 @llvm.smin.i64(i64 %14, i64 %.lcssa42.i41)
-  %86 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.0.lcssa.i40, i64 %.sroa.speculated.i42
-  %87 = icmp ne i64 %.sroa.speculated.i42, 0
+._crit_edge.i40:                                  ; preds = %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i38, %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit
+  %.019.lcssa.i41 = phi ptr [ %0, %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit ], [ %83, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i38 ]
+  %.0.lcssa.i42 = phi ptr [ %2, %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit ], [ %63, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i38 ]
+  %.lcssa44.i43 = phi i64 [ %12, %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit ], [ %85, %_ZSt12__move_mergeIPN4llvm28ASanStackVariableDescriptionES2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEET0_T_SC_SC_SC_SB_T1_.exit.i38 ]
+  %.sroa.speculated.i44 = tail call i64 @llvm.smin.i64(i64 %14, i64 %.lcssa44.i43)
+  %.idx42.i45 = mul nsw i64 %.sroa.speculated.i44, 56
+  %86 = getelementptr inbounds i8, ptr %.0.lcssa.i42, i64 %.idx42.i45
+  %87 = icmp ne i64 %.sroa.speculated.i44, 0
   %88 = icmp ne ptr %86, %9
   %89 = and i1 %87, %88
-  br i1 %89, label %.lr.ph.i29.i50, label %._crit_edge.i22.i43
+  br i1 %89, label %.lr.ph.i29.i53, label %._crit_edge.i22.i46
 
-.lr.ph.i29.i50:                                   ; preds = %._crit_edge.i38, %95
-  %.025.i30.i51 = phi ptr [ %96, %95 ], [ %.019.lcssa.i39, %._crit_edge.i38 ]
-  %.01824.i31.i52 = phi ptr [ %.1.i34.i55, %95 ], [ %.0.lcssa.i40, %._crit_edge.i38 ]
-  %.01923.i32.i53 = phi ptr [ %.120.i33.i54, %95 ], [ %86, %._crit_edge.i38 ]
-  %90 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(56) %.01923.i32.i53, ptr noundef nonnull align 8 dereferenceable(56) %.01824.i31.i52) #16
+.lr.ph.i29.i53:                                   ; preds = %._crit_edge.i40, %95
+  %.025.i30.i54 = phi ptr [ %96, %95 ], [ %.019.lcssa.i41, %._crit_edge.i40 ]
+  %.01824.i31.i55 = phi ptr [ %.1.i34.i58, %95 ], [ %.0.lcssa.i42, %._crit_edge.i40 ]
+  %.01923.i32.i56 = phi ptr [ %.120.i33.i57, %95 ], [ %86, %._crit_edge.i40 ]
+  %90 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(56) %.01923.i32.i56, ptr noundef nonnull align 8 dereferenceable(56) %.01824.i31.i55) #16
   br i1 %90, label %91, label %93
 
-91:                                               ; preds = %.lr.ph.i29.i50
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.025.i30.i51, ptr noundef nonnull align 8 dereferenceable(56) %.01923.i32.i53, i64 56, i1 false), !tbaa.struct !62
-  %92 = getelementptr inbounds nuw i8, ptr %.01923.i32.i53, i64 56
+91:                                               ; preds = %.lr.ph.i29.i53
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.025.i30.i54, ptr noundef nonnull align 8 dereferenceable(56) %.01923.i32.i56, i64 56, i1 false), !tbaa.struct !62
+  %92 = getelementptr inbounds nuw i8, ptr %.01923.i32.i56, i64 56
   br label %95
 
-93:                                               ; preds = %.lr.ph.i29.i50
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.025.i30.i51, ptr noundef nonnull align 8 dereferenceable(56) %.01824.i31.i52, i64 56, i1 false), !tbaa.struct !62
-  %94 = getelementptr inbounds nuw i8, ptr %.01824.i31.i52, i64 56
+93:                                               ; preds = %.lr.ph.i29.i53
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.025.i30.i54, ptr noundef nonnull align 8 dereferenceable(56) %.01824.i31.i55, i64 56, i1 false), !tbaa.struct !62
+  %94 = getelementptr inbounds nuw i8, ptr %.01824.i31.i55, i64 56
   br label %95
 
 95:                                               ; preds = %93, %91
-  %.120.i33.i54 = phi ptr [ %92, %91 ], [ %.01923.i32.i53, %93 ]
-  %.1.i34.i55 = phi ptr [ %.01824.i31.i52, %91 ], [ %94, %93 ]
-  %96 = getelementptr inbounds nuw i8, ptr %.025.i30.i51, i64 56
-  %97 = icmp ne ptr %.1.i34.i55, %86
-  %98 = icmp ne ptr %.120.i33.i54, %9
+  %.120.i33.i57 = phi ptr [ %92, %91 ], [ %.01923.i32.i56, %93 ]
+  %.1.i34.i58 = phi ptr [ %.01824.i31.i55, %91 ], [ %94, %93 ]
+  %96 = getelementptr inbounds nuw i8, ptr %.025.i30.i54, i64 56
+  %97 = icmp ne ptr %.1.i34.i58, %86
+  %98 = icmp ne ptr %.120.i33.i57, %9
   %99 = select i1 %97, i1 %98, i1 false
-  br i1 %99, label %.lr.ph.i29.i50, label %._crit_edge.i22.i43, !llvm.loop !73
+  br i1 %99, label %.lr.ph.i29.i53, label %._crit_edge.i22.i46, !llvm.loop !73
 
-._crit_edge.i22.i43:                              ; preds = %95, %._crit_edge.i38
-  %.019.lcssa.i23.i44 = phi ptr [ %86, %._crit_edge.i38 ], [ %.120.i33.i54, %95 ]
-  %.018.lcssa.i24.i45 = phi ptr [ %.0.lcssa.i40, %._crit_edge.i38 ], [ %.1.i34.i55, %95 ]
-  %.0.lcssa.i25.i46 = phi ptr [ %.019.lcssa.i39, %._crit_edge.i38 ], [ %96, %95 ]
+._crit_edge.i22.i46:                              ; preds = %95, %._crit_edge.i40
+  %.019.lcssa.i23.i47 = phi ptr [ %86, %._crit_edge.i40 ], [ %.120.i33.i57, %95 ]
+  %.018.lcssa.i24.i48 = phi ptr [ %.0.lcssa.i42, %._crit_edge.i40 ], [ %.1.i34.i58, %95 ]
+  %.0.lcssa.i25.i49 = phi ptr [ %.019.lcssa.i41, %._crit_edge.i40 ], [ %96, %95 ]
   %100 = ptrtoint ptr %86 to i64
-  %101 = ptrtoint ptr %.018.lcssa.i24.i45 to i64
+  %101 = ptrtoint ptr %.018.lcssa.i24.i48 to i64
   %102 = sub i64 %100, %101
-  %.not.i.i.i.i.i.i26.i47 = icmp eq ptr %86, %.018.lcssa.i24.i45
-  br i1 %.not.i.i.i.i.i.i26.i47, label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i27.i48, label %103
+  %.not.i.i.i.i.i.i26.i50 = icmp eq ptr %86, %.018.lcssa.i24.i48
+  br i1 %.not.i.i.i.i.i.i26.i50, label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i27.i51, label %103
 
-103:                                              ; preds = %._crit_edge.i22.i43
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.lcssa.i25.i46, ptr align 8 %.018.lcssa.i24.i45, i64 %102, i1 false)
-  br label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i27.i48
+103:                                              ; preds = %._crit_edge.i22.i46
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.lcssa.i25.i49, ptr align 8 %.018.lcssa.i24.i48, i64 %102, i1 false)
+  br label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i27.i51
 
-_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i27.i48: ; preds = %103, %._crit_edge.i22.i43
-  %.not.i.i.i.i.i21.i28.i49 = icmp eq ptr %9, %.019.lcssa.i23.i44
-  br i1 %.not.i.i.i.i.i21.i28.i49, label %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit56, label %104
+_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i27.i51: ; preds = %103, %._crit_edge.i22.i46
+  %.not.i.i.i.i.i21.i28.i52 = icmp eq ptr %9, %.019.lcssa.i23.i47
+  br i1 %.not.i.i.i.i.i21.i28.i52, label %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit59, label %104
 
-104:                                              ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i27.i48
-  %105 = ptrtoint ptr %.019.lcssa.i23.i44 to i64
+104:                                              ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i27.i51
+  %105 = ptrtoint ptr %.019.lcssa.i23.i47 to i64
   %106 = sub i64 %11, %105
-  %107 = getelementptr inbounds i8, ptr %.0.lcssa.i25.i46, i64 %102
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %107, ptr align 8 %.019.lcssa.i23.i44, i64 %106, i1 false)
-  br label %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit56
+  %107 = getelementptr inbounds i8, ptr %.0.lcssa.i25.i49, i64 %102
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %107, ptr align 8 %.019.lcssa.i23.i47, i64 %106, i1 false)
+  br label %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit59
 
-_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit56: ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i27.i48, %104
+_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit59: ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i27.i51, %104
   %108 = icmp slt i64 %61, %8
   br i1 %108, label %13, label %._crit_edge, !llvm.loop !75
 
-._crit_edge:                                      ; preds = %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit56, %4
+._crit_edge:                                      ; preds = %_ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_T1_T2_.exit59, %4
   ret void
 }
 

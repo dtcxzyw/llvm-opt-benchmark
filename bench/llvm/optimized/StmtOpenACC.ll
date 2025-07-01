@@ -1234,7 +1234,7 @@ _ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindEN
   br label %_ZSt29uninitialized_value_constructIPPN5clang4ExprEEvT_S4_.exit.i
 
 _ZSt29uninitialized_value_constructIPPN5clang4ExprEEvT_S4_.exit.i: ; preds = %.lr.ph.i.i.i.preheader.i.i.i.i, %38, %_ZN5clang20OpenACCConstructStmtC2ENS_4Stmt9StmtClassENS_20OpenACCDirectiveKindENS_14SourceLocationES4_S4_.exit.i
-  %.idx13.i = shl nuw nsw i64 %5, 3
+  %.idx12.i = shl nuw nsw i64 %5, 3
   %41 = icmp eq i32 %2, 0
   br i1 %41, label %_ZN5clang20OpenACCWaitConstructC2Ejj.exit, label %42
 
@@ -1245,7 +1245,7 @@ _ZSt29uninitialized_value_constructIPPN5clang4ExprEEvT_S4_.exit.i: ; preds = %.l
 
 .lr.ph.i.i.i.preheader.i.i.i5.i:                  ; preds = %42
   %43 = getelementptr inbounds nuw i8, ptr %.ptr10.ptr.i, i64 8
-  %44 = add nsw i64 %.idx13.i, -8
+  %44 = add nsw i64 %.idx12.i, -8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %43, i8 0, i64 %44, i1 false), !tbaa !37
   br label %_ZN5clang20OpenACCWaitConstructC2Ejj.exit
 

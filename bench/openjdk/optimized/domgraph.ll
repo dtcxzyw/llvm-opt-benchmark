@@ -1025,9 +1025,10 @@ define hidden void @_Z26remove_single_entry_regionP7NTarjanRS0_RP4NodeR12PhaseIt
 
 .lr.ph:                                           ; preds = %4
   %8 = zext i32 %7 to i64
+  %.idx = shl nuw nsw i64 %8, 3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %13
 
@@ -1536,7 +1537,8 @@ _ZN12PhaseIterGVN15delete_input_ofEP4Nodej.exit:  ; preds = %_ZN9VectorSet8test_
   %259 = load ptr, ptr %209, align 8
   %260 = load i32, ptr %210, align 8
   %261 = zext i32 %260 to i64
-  %262 = getelementptr inbounds nuw ptr, ptr %259, i64 %261
+  %.idx = shl nuw nsw i64 %261, 3
+  %262 = getelementptr inbounds nuw i8, ptr %259, i64 %.idx
   %.not166 = icmp eq i32 %260, 0
   br i1 %.not166, label %._crit_edge151, label %.lr.ph150
 

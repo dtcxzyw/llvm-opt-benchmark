@@ -9987,7 +9987,8 @@ define hidden void @_ZN10ty_project4walk18ProjectFilesWalker11collect_set17h3a2b
   %.sroa.011.0.copyload = load i64, ptr %11, align 8
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.412.0.copyload = load ptr, ptr %.sroa.412.0..sroa_idx, align 8, !nonnull !3, !noundef !3
-  %23 = getelementptr inbounds nuw { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %.sroa.412.0.copyload, i64 %14
+  %.idx = mul nuw nsw i64 %14, 24
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.412.0.copyload, i64 %.idx
   %24 = icmp sgt i64 %.sroa.011.0.copyload, -1
   tail call void @llvm.assume(i1 %24)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)

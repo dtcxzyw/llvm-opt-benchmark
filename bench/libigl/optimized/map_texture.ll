@@ -240,8 +240,8 @@ _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS_14C
 
 .loopexit167:                                     ; preds = %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIfEES3_EEffEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i
   %67 = load ptr, ptr %18, align 8, !tbaa !36
-  %.idx.i.i.i.i.i.i = mul nuw nsw i64 %.pre, 12
-  call void @llvm.memset.p0.i64(ptr align 4 %67, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !37
+  %.idx.i.i.i.i.i.i.i.i = mul i64 %.pre, 12
+  call void @llvm.memset.p0.i64(ptr align 4 %67, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !37
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %69 = load i64, ptr %68, align 8, !tbaa !39
   %70 = load ptr, ptr %0, align 8, !tbaa !40
@@ -319,8 +319,8 @@ _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS_14C
 
 .loopexit165:                                     ; preds = %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIfEES3_EEffEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i85
   %91 = load ptr, ptr %19, align 8, !tbaa !36
-  %.idx.i.i.i.i.i.i86 = mul nuw nsw i64 %.pre168, 12
-  call void @llvm.memset.p0.i64(ptr align 4 %91, i8 0, i64 %.idx.i.i.i.i.i.i86, i1 false), !tbaa !37
+  %.idx.i.i.i.i.i.i.i.i86 = mul i64 %.pre168, 12
+  call void @llvm.memset.p0.i64(ptr align 4 %91, i8 0, i64 %.idx.i.i.i.i.i.i.i.i86, i1 false), !tbaa !37
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %93 = load i64, ptr %92, align 8, !tbaa !39
   %94 = load ptr, ptr %2, align 8, !tbaa !40
@@ -1092,8 +1092,8 @@ _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS_14C
 
 .loopexit159.loopexit:                            ; preds = %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIfEES3_EEffEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i
   %66 = load ptr, ptr %18, align 8, !tbaa !36
-  %.idx.i.i.i.i.i.i = mul nuw nsw i64 %.pre, 12
-  call void @llvm.memset.p0.i64(ptr align 4 %66, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !37
+  %.idx.i.i.i.i.i.i.i.i = mul i64 %.pre, 12
+  call void @llvm.memset.p0.i64(ptr align 4 %66, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !37
   br label %.loopexit159
 
 67:                                               ; preds = %64, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i.i.i, %60
@@ -1178,8 +1178,8 @@ _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS_14C
 
 .loopexit157.loopexit:                            ; preds = %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIfLin1ELi3ELi1ELin1ELi3EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIfEES3_EEffEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i85
   %93 = load ptr, ptr %19, align 8, !tbaa !36
-  %.idx.i.i.i.i.i.i86 = mul nuw nsw i64 %.pre160, 12
-  call void @llvm.memset.p0.i64(ptr align 4 %93, i8 0, i64 %.idx.i.i.i.i.i.i86, i1 false), !tbaa !37
+  %.idx.i.i.i.i.i.i.i.i86 = mul i64 %.pre160, 12
+  call void @llvm.memset.p0.i64(ptr align 4 %93, i8 0, i64 %.idx.i.i.i.i.i.i.i.i86, i1 false), !tbaa !37
   br label %.loopexit157
 
 94:                                               ; preds = %91, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i.i.i80, %87

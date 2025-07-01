@@ -183,7 +183,8 @@ define void @Abc_Sort_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
 32:                                               ; preds = %15
   %33 = lshr i64 %6, 3
   %34 = and i64 %33, 2147483647
-  %35 = getelementptr inbounds nuw i32, ptr %0, i64 %34
+  %.idx = shl nuw nsw i64 %34, 2
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   tail call void @Abc_Sort_rec(ptr noundef %0, ptr noundef %35, ptr noundef %2)
   %36 = getelementptr inbounds nuw i32, ptr %2, i64 %34
   tail call void @Abc_Sort_rec(ptr noundef %35, ptr noundef %1, ptr noundef %36)
@@ -480,7 +481,8 @@ define void @Abc_SortCost2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 45:                                               ; preds = %22
   %46 = lshr i64 %7, 3
   %47 = and i64 %46, 2147483647
-  %48 = getelementptr inbounds nuw i32, ptr %0, i64 %47
+  %.idx = shl nuw nsw i64 %47, 2
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   tail call void @Abc_SortCost2_rec(ptr noundef %0, ptr noundef %48, ptr noundef %2, ptr noundef %3)
   %49 = getelementptr inbounds nuw i32, ptr %2, i64 %47
   tail call void @Abc_SortCost2_rec(ptr noundef %48, ptr noundef %1, ptr noundef %49, ptr noundef %3)
@@ -774,7 +776,8 @@ define void @Abc_SortCost2Reverse_rec(ptr noundef %0, ptr noundef %1, ptr nounde
 45:                                               ; preds = %22
   %46 = lshr i64 %7, 3
   %47 = and i64 %46, 2147483647
-  %48 = getelementptr inbounds nuw i32, ptr %0, i64 %47
+  %.idx = shl nuw nsw i64 %47, 2
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   tail call void @Abc_SortCost2Reverse_rec(ptr noundef %0, ptr noundef %48, ptr noundef %2, ptr noundef %3)
   %49 = getelementptr inbounds nuw i32, ptr %2, i64 %47
   tail call void @Abc_SortCost2Reverse_rec(ptr noundef %48, ptr noundef %1, ptr noundef %49, ptr noundef %3)
@@ -1070,8 +1073,8 @@ define void @Abc_MergeSortCost_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.idx = shl nuw nsw i64 %indvars.iv82, 3
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %.idx87 = shl nuw nsw i64 %indvars.iv82, 3
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx87
   %32 = load i32, ptr %31, align 4, !tbaa !3
   %33 = shl nsw i32 %spec.select, 1
   %34 = sext i32 %33 to i64
@@ -1091,7 +1094,8 @@ define void @Abc_MergeSortCost_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 41:                                               ; preds = %20
   %42 = and i64 %8, 2147483646
-  %43 = getelementptr inbounds nuw i32, ptr %0, i64 %42
+  %.idx = shl nuw nsw i64 %42, 2
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   tail call void @Abc_MergeSortCost_rec(ptr noundef %0, ptr noundef %43, ptr noundef %2)
   %44 = getelementptr inbounds nuw i32, ptr %2, i64 %42
   tail call void @Abc_MergeSortCost_rec(ptr noundef %43, ptr noundef %1, ptr noundef %44)

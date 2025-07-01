@@ -974,7 +974,8 @@ define internal noundef signext i8 @_ZL10tu_cleanupv() #0 {
   br i1 %11, label %.loopexit.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %8
-  %12 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %6, i64 %10
+  %.idx.i = shl nsw i64 %10, 6
+  %12 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i

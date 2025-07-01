@@ -514,7 +514,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -684,7 +685,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -854,7 +856,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1023,7 +1026,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %19 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %19 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1193,7 +1197,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1362,7 +1367,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %19 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %19 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1532,7 +1538,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1701,7 +1708,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1870,7 +1878,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2039,7 +2048,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2208,7 +2218,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2377,7 +2388,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2547,7 +2559,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2716,7 +2729,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2885,7 +2899,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3055,7 +3070,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3224,7 +3240,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3394,7 +3411,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3563,7 +3581,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3733,7 +3752,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3903,7 +3923,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   %.sroa.027.0.copyload = load i64, ptr %10, align 8
   %.sroa.428.0.copyload = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %.sroa.529.0.copyload = load i64, ptr %12, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.428.0.copyload, i64 %.sroa.529.0.copyload
+  %.idx = shl nsw i64 %.sroa.529.0.copyload, 4
+  %20 = getelementptr inbounds i8, ptr %.sroa.428.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.428.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %6, i64 8

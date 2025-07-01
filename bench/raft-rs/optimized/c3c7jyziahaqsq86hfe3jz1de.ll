@@ -820,7 +820,8 @@ define hidden { i64, i1 } @_ZN4raft6quorum8majority13Configuration15committed_in
           to label %55 unwind label %34
 
 .lr.ph99.preheader:                               ; preds = %89
-  %94 = getelementptr inbounds nuw { i64, i64 }, ptr %.sroa.05.0, i64 %.sroa.7.0
+  %.idx = shl nuw nsw i64 %.sroa.7.0, 4
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 %.idx
   %.sroa.gep102 = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 16
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %96 = load i64, ptr %95, align 8, !noundef !3

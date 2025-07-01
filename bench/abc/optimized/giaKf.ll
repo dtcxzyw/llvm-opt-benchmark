@@ -5252,7 +5252,8 @@ Kf_HashFindOrAdd.exit.i:                          ; preds = %.lr.ph.i.i.i, %36, 
 
 Kf_HashPopulate.exit:                             ; preds = %Kf_HashFindOrAdd.exit.i, %4
   %48 = sext i32 %3 to i64
-  %49 = getelementptr inbounds %struct.Kf_Cut_t_, ptr %2, i64 %48
+  %.idx = mul nsw i64 %48, 96
+  %49 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %50 = icmp sgt i32 %3, 0
   br i1 %50, label %.lr.ph82, label %._crit_edge83
 

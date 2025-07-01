@@ -320,9 +320,6 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"struct.std::_Head_base.666" = type { %"class.pybind11::detail::type_caster.667" }
 %"class.pybind11::detail::type_caster.667" = type { %"class.pybind11::detail::type_caster_base.668" }
 %"class.pybind11::detail::type_caster_base.668" = type { %"class.pybind11::detail::type_caster_generic" }
-%"class.open3d::utility::optional" = type { %"struct.open3d::utility::constexpr_optional_base" }
-%"struct.open3d::utility::constexpr_optional_base" = type { i8, %"union.open3d::utility::constexpr_storage_t" }
-%"union.open3d::utility::constexpr_storage_t" = type { i64 }
 %class.anon.676 = type { i8 }
 %"class.pybind11::detail::argument_loader.679" = type { %"class.std::tuple.680" }
 %"class.std::tuple.680" = type { %"struct.std::_Tuple_impl.681" }
@@ -336,6 +333,9 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"struct.std::_Head_base.691" = type { %"struct.pybind11::detail::type_caster.692" }
 %"struct.pybind11::detail::type_caster.692" = type { %"struct.pybind11::detail::open3d_optional_caster" }
 %"struct.pybind11::detail::open3d_optional_caster" = type { %"class.open3d::utility::optional" }
+%"class.open3d::utility::optional" = type { %"struct.open3d::utility::constexpr_optional_base" }
+%"struct.open3d::utility::constexpr_optional_base" = type { i8, %"union.open3d::utility::constexpr_storage_t" }
+%"union.open3d::utility::constexpr_storage_t" = type { i64 }
 %class.anon.695 = type { i8 }
 %"class.pybind11::detail::argument_loader.698" = type { %"class.std::tuple.688" }
 %class.anon.700 = type { i8 }
@@ -9122,7 +9122,8 @@ _ZNK8pybind115tuple5beginEv.exit.thread:          ; preds = %_ZN8pybind1118reint
   %19 = phi ptr [ %18, %17 ], [ %16, %_ZN8pybind1118reinterpret_borrowINS_5tupleEEET_NS_6handleE.exit ]
   %.sroa.0.0.copyload.val.i151.in = getelementptr i8, ptr %7, i64 16
   %.sroa.0.0.copyload.val.i151 = load i64, ptr %.sroa.0.0.copyload.val.i151.in, align 8, !tbaa !365
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %.sroa.0.0.copyload.val.i151
+  %.idx = shl nsw i64 %.sroa.0.0.copyload.val.i151, 3
+  %20 = getelementptr inbounds i8, ptr %19, i64 %.idx
   %.not163229 = icmp eq i64 %.sroa.0.0.copyload.val.i151, 0
   br i1 %.not163229, label %._crit_edge.thread, label %.lr.ph
 
@@ -9130,9 +9131,9 @@ _ZNK8pybind115tuple5beginEv.exit.thread:          ; preds = %_ZN8pybind1118reint
   br i1 %.not.i.i.i.i.i, label %_ZN8pybind116objectD2Ev.exit, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZNK8pybind115tuple5beginEv.exit.thread, %._crit_edge
-  %.sroa.0136.0.lcssa304 = phi ptr [ %.sroa.0136.7, %._crit_edge ], [ null, %_ZNK8pybind115tuple5beginEv.exit.thread ]
-  %.sroa.13.0.lcssa302 = phi ptr [ %.sroa.13.6, %._crit_edge ], [ null, %_ZNK8pybind115tuple5beginEv.exit.thread ]
-  %.sroa.23.0.lcssa300 = phi ptr [ %.sroa.23.7, %._crit_edge ], [ null, %_ZNK8pybind115tuple5beginEv.exit.thread ]
+  %.sroa.0136.0.lcssa305 = phi ptr [ %.sroa.0136.7, %._crit_edge ], [ null, %_ZNK8pybind115tuple5beginEv.exit.thread ]
+  %.sroa.13.0.lcssa303 = phi ptr [ %.sroa.13.6, %._crit_edge ], [ null, %_ZNK8pybind115tuple5beginEv.exit.thread ]
+  %.sroa.23.0.lcssa301 = phi ptr [ %.sroa.23.7, %._crit_edge ], [ null, %_ZNK8pybind115tuple5beginEv.exit.thread ]
   %21 = load i64, ptr %7, align 8, !tbaa !123
   %22 = and i64 %21, 2147483648
   %.not2.i.i.i = icmp eq i64 %22, 0
@@ -9156,9 +9157,9 @@ _ZNK8pybind115tuple5beginEv.exit.thread:          ; preds = %_ZN8pybind1118reint
   unreachable
 
 _ZN8pybind116objectD2Ev.exit:                     ; preds = %._crit_edge, %._crit_edge.thread, %23, %26
-  %.sroa.0136.0.lcssa305 = phi ptr [ %.sroa.0136.7, %._crit_edge ], [ %.sroa.0136.0.lcssa304, %._crit_edge.thread ], [ %.sroa.0136.0.lcssa304, %23 ], [ %.sroa.0136.0.lcssa304, %26 ]
-  %.sroa.13.0.lcssa303 = phi ptr [ %.sroa.13.6, %._crit_edge ], [ %.sroa.13.0.lcssa302, %._crit_edge.thread ], [ %.sroa.13.0.lcssa302, %23 ], [ %.sroa.13.0.lcssa302, %26 ]
-  %.sroa.23.0.lcssa301 = phi ptr [ %.sroa.23.7, %._crit_edge ], [ %.sroa.23.0.lcssa300, %._crit_edge.thread ], [ %.sroa.23.0.lcssa300, %23 ], [ %.sroa.23.0.lcssa300, %26 ]
+  %.sroa.0136.0.lcssa306 = phi ptr [ %.sroa.0136.7, %._crit_edge ], [ %.sroa.0136.0.lcssa305, %._crit_edge.thread ], [ %.sroa.0136.0.lcssa305, %23 ], [ %.sroa.0136.0.lcssa305, %26 ]
+  %.sroa.13.0.lcssa304 = phi ptr [ %.sroa.13.6, %._crit_edge ], [ %.sroa.13.0.lcssa303, %._crit_edge.thread ], [ %.sroa.13.0.lcssa303, %23 ], [ %.sroa.13.0.lcssa303, %26 ]
+  %.sroa.23.0.lcssa302 = phi ptr [ %.sroa.23.7, %._crit_edge ], [ %.sroa.23.0.lcssa301, %._crit_edge.thread ], [ %.sroa.23.0.lcssa301, %23 ], [ %.sroa.23.0.lcssa301, %26 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
   %30 = invoke noundef nonnull align 8 dereferenceable(488) ptr @_ZN8pybind116detail13get_internalsEv()
           to label %53 unwind label %67
@@ -9252,12 +9253,12 @@ _ZNSt6vectorIP11_typeobjectSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vector
 
 53:                                               ; preds = %_ZN8pybind116objectD2Ev.exit
   %54 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  %55 = ptrtoint ptr %.sroa.0136.0.lcssa305 to i64
-  %.not264 = icmp eq ptr %.sroa.13.0.lcssa303, %.sroa.0136.0.lcssa305
+  %55 = ptrtoint ptr %.sroa.0136.0.lcssa306 to i64
+  %.not264 = icmp eq ptr %.sroa.13.0.lcssa304, %.sroa.0136.0.lcssa306
   br i1 %.not264, label %._crit_edge260, label %.lr.ph259
 
 .lr.ph259:                                        ; preds = %53
-  %56 = ptrtoint ptr %.sroa.13.0.lcssa303 to i64
+  %56 = ptrtoint ptr %.sroa.13.0.lcssa304 to i64
   %57 = sub i64 %56, %55
   %58 = ashr exact i64 %57, 3
   %59 = getelementptr inbounds nuw i8, ptr %30, i64 80
@@ -9268,8 +9269,8 @@ _ZNSt6vectorIP11_typeobjectSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vector
   br label %69
 
 ._crit_edge260:                                   ; preds = %.loopexit173, %53
-  %.sroa.23.2.lcssa = phi ptr [ %.sroa.23.0.lcssa301, %53 ], [ %.sroa.23.3, %.loopexit173 ]
-  %.sroa.0136.2.lcssa = phi ptr [ %.sroa.0136.0.lcssa305, %53 ], [ %.sroa.0136.3, %.loopexit173 ]
+  %.sroa.23.2.lcssa = phi ptr [ %.sroa.23.0.lcssa302, %53 ], [ %.sroa.23.3, %.loopexit173 ]
+  %.sroa.0136.2.lcssa = phi ptr [ %.sroa.0136.0.lcssa306, %53 ], [ %.sroa.0136.3, %.loopexit173 ]
   %.lcssa198 = phi i64 [ %55, %53 ], [ %197, %.loopexit173 ]
   %.not.i.i.i68 = icmp eq ptr %.sroa.0136.2.lcssa, null
   br i1 %.not.i.i.i68, label %_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit, label %64
@@ -9291,9 +9292,9 @@ _ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit:     ; preds = %._crit_edge260, %64
 69:                                               ; preds = %.lr.ph259, %.loopexit173
   %70 = phi i64 [ %58, %.lr.ph259 ], [ %199, %.loopexit173 ]
   %.036257 = phi i64 [ 0, %.lr.ph259 ], [ %195, %.loopexit173 ]
-  %.sroa.0136.2256 = phi ptr [ %.sroa.0136.0.lcssa305, %.lr.ph259 ], [ %.sroa.0136.3, %.loopexit173 ]
-  %.sroa.13.1255 = phi ptr [ %.sroa.13.0.lcssa303, %.lr.ph259 ], [ %.sroa.13.2, %.loopexit173 ]
-  %.sroa.23.2254 = phi ptr [ %.sroa.23.0.lcssa301, %.lr.ph259 ], [ %.sroa.23.3, %.loopexit173 ]
+  %.sroa.0136.2256 = phi ptr [ %.sroa.0136.0.lcssa306, %.lr.ph259 ], [ %.sroa.0136.3, %.loopexit173 ]
+  %.sroa.13.1255 = phi ptr [ %.sroa.13.0.lcssa304, %.lr.ph259 ], [ %.sroa.13.2, %.loopexit173 ]
+  %.sroa.23.2254 = phi ptr [ %.sroa.23.0.lcssa302, %.lr.ph259 ], [ %.sroa.23.3, %.loopexit173 ]
   %71 = getelementptr inbounds nuw ptr, ptr %.sroa.0136.2256, i64 %.036257
   %72 = load ptr, ptr %71, align 8, !tbaa !345
   %73 = getelementptr i8, ptr %72, i64 8
@@ -9368,8 +9369,8 @@ _ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6
   %.not241 = icmp eq ptr %103, %105
   br i1 %.not241, label %.loopexit173, label %.lr.ph243
 
-.lr.ph243:                                        ; preds = %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit, %.loopexit316
-  %.sroa.0118.0242 = phi ptr [ %144, %.loopexit316 ], [ %103, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ]
+.lr.ph243:                                        ; preds = %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit, %.loopexit317
+  %.sroa.0118.0242 = phi ptr [ %144, %.loopexit317 ], [ %103, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ]
   %106 = load ptr, ptr %.sroa.0118.0242, align 8, !tbaa !321
   %107 = load ptr, ptr %1, align 8, !tbaa !320
   %108 = load ptr, ptr %62, align 8, !tbaa !320
@@ -9390,7 +9391,7 @@ _ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6
   %.sroa.0114.0237 = phi ptr [ %110, %109 ], [ %107, %.lr.ph243 ]
   %111 = load ptr, ptr %.sroa.0114.0237, align 8, !tbaa !321
   %.not50 = icmp eq ptr %111, %106
-  br i1 %.not50, label %.loopexit316, label %109
+  br i1 %.not50, label %.loopexit317, label %109
 
 .critedge:                                        ; preds = %109
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -9487,7 +9488,7 @@ _ZNSt6vectorIPN8pybind116detail9type_infoESaIS3_EE17_M_realloc_insertIJRKS3_EEEv
 
 _ZN8pybind116detail41all_type_info_add_base_most_derived_firstERSt6vectorIPNS0_9type_infoESaIS3_EES3_.exit: ; preds = %118, %122, %_ZNSt6vectorIPN8pybind116detail9type_infoESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %.loopexit316
+  br label %.loopexit317
 
 .loopexit:                                        ; preds = %.lr.ph.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -9504,7 +9505,7 @@ _ZN8pybind116detail41all_type_info_add_base_most_derived_firstERSt6vectorIPNS0_9
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit316:                                     ; preds = %.lr.ph240, %_ZN8pybind116detail41all_type_info_add_base_most_derived_firstERSt6vectorIPNS0_9type_infoESaIS3_EES3_.exit
+.loopexit317:                                     ; preds = %.lr.ph240, %_ZN8pybind116detail41all_type_info_add_base_most_derived_firstERSt6vectorIPNS0_9type_infoESaIS3_EES3_.exit
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0242, i64 8
   %.not = icmp eq ptr %144, %105
   br i1 %.not, label %.loopexit173, label %.lr.ph243
@@ -9552,7 +9553,8 @@ _ZNK8pybind115tuple5beginEv.exit85.thread:        ; preds = %_ZN8pybind1118reint
   %161 = phi ptr [ %160, %159 ], [ %158, %_ZN8pybind1118reinterpret_borrowINS_5tupleEEET_NS_6handleE.exit80 ]
   %.sroa.0.0.copyload.val.i87154.in = getelementptr i8, ptr %146, i64 16
   %.sroa.0.0.copyload.val.i87154 = load i64, ptr %.sroa.0.0.copyload.val.i87154.in, align 8, !tbaa !365
-  %162 = getelementptr inbounds ptr, ptr %161, i64 %.sroa.0.0.copyload.val.i87154
+  %.idx265 = shl nsw i64 %.sroa.0.0.copyload.val.i87154, 3
+  %162 = getelementptr inbounds i8, ptr %161, i64 %.idx265
   %.not166244 = icmp eq i64 %.sroa.0.0.copyload.val.i87154, 0
   br i1 %.not166244, label %._crit_edge250.thread, label %.lr.ph249
 
@@ -9562,9 +9564,9 @@ _ZNK8pybind115tuple5beginEv.exit85.thread:        ; preds = %_ZN8pybind1118reint
   br i1 %.not.i.i.i92, label %_ZN8pybind116objectD2Ev.exit94, label %._crit_edge250.thread
 
 ._crit_edge250.thread:                            ; preds = %_ZNK8pybind115tuple5beginEv.exit85.thread, %._crit_edge250
-  %.sroa.0136.6.lcssa314 = phi ptr [ %.sroa.0136.8, %._crit_edge250 ], [ %.sroa.0136.2256, %_ZNK8pybind115tuple5beginEv.exit85.thread ]
-  %.sroa.13.5.lcssa312 = phi ptr [ %.sroa.13.7, %._crit_edge250 ], [ %.sroa.13.4, %_ZNK8pybind115tuple5beginEv.exit85.thread ]
-  %.sroa.23.6.lcssa310 = phi ptr [ %.sroa.23.8, %._crit_edge250 ], [ %.sroa.23.2254, %_ZNK8pybind115tuple5beginEv.exit85.thread ]
+  %.sroa.0136.6.lcssa315 = phi ptr [ %.sroa.0136.8, %._crit_edge250 ], [ %.sroa.0136.2256, %_ZNK8pybind115tuple5beginEv.exit85.thread ]
+  %.sroa.13.5.lcssa313 = phi ptr [ %.sroa.13.7, %._crit_edge250 ], [ %.sroa.13.4, %_ZNK8pybind115tuple5beginEv.exit85.thread ]
+  %.sroa.23.6.lcssa311 = phi ptr [ %.sroa.23.8, %._crit_edge250 ], [ %.sroa.23.2254, %_ZNK8pybind115tuple5beginEv.exit85.thread ]
   %163 = phi ptr [ %.pre, %._crit_edge250 ], [ %146, %_ZNK8pybind115tuple5beginEv.exit85.thread ]
   %164 = load i64, ptr %163, align 8, !tbaa !123
   %165 = and i64 %164, 2147483648
@@ -9589,9 +9591,9 @@ _ZNK8pybind115tuple5beginEv.exit85.thread:        ; preds = %_ZN8pybind1118reint
   unreachable
 
 _ZN8pybind116objectD2Ev.exit94:                   ; preds = %._crit_edge250, %._crit_edge250.thread, %166, %169
-  %.sroa.0136.6.lcssa315 = phi ptr [ %.sroa.0136.8, %._crit_edge250 ], [ %.sroa.0136.6.lcssa314, %._crit_edge250.thread ], [ %.sroa.0136.6.lcssa314, %166 ], [ %.sroa.0136.6.lcssa314, %169 ]
-  %.sroa.13.5.lcssa313 = phi ptr [ %.sroa.13.7, %._crit_edge250 ], [ %.sroa.13.5.lcssa312, %._crit_edge250.thread ], [ %.sroa.13.5.lcssa312, %166 ], [ %.sroa.13.5.lcssa312, %169 ]
-  %.sroa.23.6.lcssa311 = phi ptr [ %.sroa.23.8, %._crit_edge250 ], [ %.sroa.23.6.lcssa310, %._crit_edge250.thread ], [ %.sroa.23.6.lcssa310, %166 ], [ %.sroa.23.6.lcssa310, %169 ]
+  %.sroa.0136.6.lcssa316 = phi ptr [ %.sroa.0136.8, %._crit_edge250 ], [ %.sroa.0136.6.lcssa315, %._crit_edge250.thread ], [ %.sroa.0136.6.lcssa315, %166 ], [ %.sroa.0136.6.lcssa315, %169 ]
+  %.sroa.13.5.lcssa314 = phi ptr [ %.sroa.13.7, %._crit_edge250 ], [ %.sroa.13.5.lcssa313, %._crit_edge250.thread ], [ %.sroa.13.5.lcssa313, %166 ], [ %.sroa.13.5.lcssa313, %169 ]
+  %.sroa.23.6.lcssa312 = phi ptr [ %.sroa.23.8, %._crit_edge250 ], [ %.sroa.23.6.lcssa311, %._crit_edge250.thread ], [ %.sroa.23.6.lcssa311, %166 ], [ %.sroa.23.6.lcssa311, %169 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #29
   br label %.loopexit173
 
@@ -9682,11 +9684,11 @@ _ZNSt6vectorIP11_typeobjectSaIS1_EE9push_backEOS1_.exit104: ; preds = %_ZNSt6vec
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #29
   br label %.loopexit.split-lp
 
-.loopexit173:                                     ; preds = %.loopexit316, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit, %_ZN8pybind116objectD2Ev.exit94, %.loopexit177, %69
-  %.sroa.23.3 = phi ptr [ %.sroa.23.2254, %69 ], [ %.sroa.23.2254, %.loopexit177 ], [ %.sroa.23.6.lcssa311, %_ZN8pybind116objectD2Ev.exit94 ], [ %.sroa.23.2254, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ], [ %.sroa.23.2254, %.loopexit316 ]
-  %.sroa.13.2 = phi ptr [ %.sroa.13.1255, %69 ], [ %.sroa.13.1255, %.loopexit177 ], [ %.sroa.13.5.lcssa313, %_ZN8pybind116objectD2Ev.exit94 ], [ %.sroa.13.1255, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ], [ %.sroa.13.1255, %.loopexit316 ]
-  %.sroa.0136.3 = phi ptr [ %.sroa.0136.2256, %69 ], [ %.sroa.0136.2256, %.loopexit177 ], [ %.sroa.0136.6.lcssa315, %_ZN8pybind116objectD2Ev.exit94 ], [ %.sroa.0136.2256, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ], [ %.sroa.0136.2256, %.loopexit316 ]
-  %.137 = phi i64 [ %.036257, %69 ], [ %.036257, %.loopexit177 ], [ %.339, %_ZN8pybind116objectD2Ev.exit94 ], [ %.036257, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ], [ %.036257, %.loopexit316 ]
+.loopexit173:                                     ; preds = %.loopexit317, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit, %_ZN8pybind116objectD2Ev.exit94, %.loopexit177, %69
+  %.sroa.23.3 = phi ptr [ %.sroa.23.2254, %69 ], [ %.sroa.23.2254, %.loopexit177 ], [ %.sroa.23.6.lcssa312, %_ZN8pybind116objectD2Ev.exit94 ], [ %.sroa.23.2254, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ], [ %.sroa.23.2254, %.loopexit317 ]
+  %.sroa.13.2 = phi ptr [ %.sroa.13.1255, %69 ], [ %.sroa.13.1255, %.loopexit177 ], [ %.sroa.13.5.lcssa314, %_ZN8pybind116objectD2Ev.exit94 ], [ %.sroa.13.1255, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ], [ %.sroa.13.1255, %.loopexit317 ]
+  %.sroa.0136.3 = phi ptr [ %.sroa.0136.2256, %69 ], [ %.sroa.0136.2256, %.loopexit177 ], [ %.sroa.0136.6.lcssa316, %_ZN8pybind116objectD2Ev.exit94 ], [ %.sroa.0136.2256, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ], [ %.sroa.0136.2256, %.loopexit317 ]
+  %.137 = phi i64 [ %.036257, %69 ], [ %.036257, %.loopexit177 ], [ %.339, %_ZN8pybind116objectD2Ev.exit94 ], [ %.036257, %_ZNKSt13unordered_mapIP11_typeobjectSt6vectorIPN8pybind116detail9type_infoESaIS6_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S8_EEE4findERSE_.exit ], [ %.036257, %.loopexit317 ]
   %195 = add i64 %.137, 1
   %196 = ptrtoint ptr %.sroa.13.2 to i64
   %197 = ptrtoint ptr %.sroa.0136.3 to i64
@@ -9696,8 +9698,8 @@ _ZNSt6vectorIP11_typeobjectSaIS1_EE9push_backEOS1_.exit104: ; preds = %_ZNSt6vec
   br i1 %200, label %69, label %._crit_edge260, !llvm.loop !372
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %194, %67, %52
-  %.sroa.23.1 = phi ptr [ %.sroa.13.0232, %52 ], [ %.sroa.23.0.lcssa301, %67 ], [ %.sroa.13.5247, %194 ], [ %.sroa.23.2254, %.loopexit ], [ %.sroa.23.2254, %.loopexit.split-lp.loopexit ], [ %.sroa.23.2254, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0136.1 = phi ptr [ %.sroa.0136.0233, %52 ], [ %.sroa.0136.0.lcssa305, %67 ], [ %.sroa.0136.6248, %194 ], [ %.sroa.0136.2256, %.loopexit ], [ %.sroa.0136.2256, %.loopexit.split-lp.loopexit ], [ %.sroa.0136.2256, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.23.1 = phi ptr [ %.sroa.13.0232, %52 ], [ %.sroa.23.0.lcssa302, %67 ], [ %.sroa.13.5247, %194 ], [ %.sroa.23.2254, %.loopexit ], [ %.sroa.23.2254, %.loopexit.split-lp.loopexit ], [ %.sroa.23.2254, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0136.1 = phi ptr [ %.sroa.0136.0233, %52 ], [ %.sroa.0136.0.lcssa306, %67 ], [ %.sroa.0136.6248, %194 ], [ %.sroa.0136.2256, %.loopexit ], [ %.sroa.0136.2256, %.loopexit.split-lp.loopexit ], [ %.sroa.0136.2256, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn57.pn.pn.pn = phi { ptr, i32 } [ %lpad.phi183, %52 ], [ %68, %67 ], [ %lpad.phi172, %194 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit174, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp175, %.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i105 = icmp eq ptr %.sroa.0136.1, null
   br i1 %.not.i.i.i105, label %_ZNSt6vectorIP11_typeobjectSaIS1_EED2Ev.exit106, label %.thread
@@ -27227,7 +27229,8 @@ _ZNK8pybind115tuple5beginEv.exit.thread:          ; preds = %_ZN8pybind1118reint
   %20 = phi ptr [ %19, %18 ], [ %17, %_ZN8pybind1118reinterpret_borrowINS_5tupleEEET_NS_6handleE.exit ]
   %.sroa.0.0.copyload.val.i51.in = getelementptr i8, ptr %8, i64 16
   %.sroa.0.0.copyload.val.i51 = load i64, ptr %.sroa.0.0.copyload.val.i51.in, align 8, !tbaa !365
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %.sroa.0.0.copyload.val.i51
+  %.idx = shl nsw i64 %.sroa.0.0.copyload.val.i51, 3
+  %21 = getelementptr inbounds i8, ptr %20, i64 %.idx
   %.not5257 = icmp eq i64 %.sroa.0.0.copyload.val.i51, 0
   br i1 %.not5257, label %._crit_edge.thread, label %.lr.ph59
 
@@ -35821,7 +35824,8 @@ _ZNK8pybind115tuple5beginEv.exit.thread:          ; preds = %_ZN8pybind1118reint
   %17 = phi ptr [ %16, %15 ], [ %14, %_ZN8pybind1118reinterpret_borrowINS_5tupleEEET_NS_6handleE.exit ]
   %.sroa.0.0.copyload.val.i27.in = getelementptr i8, ptr %5, i64 16
   %.sroa.0.0.copyload.val.i27 = load i64, ptr %.sroa.0.0.copyload.val.i27.in, align 8, !tbaa !365
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %.sroa.0.0.copyload.val.i27
+  %.idx = shl nsw i64 %.sroa.0.0.copyload.val.i27, 3
+  %18 = getelementptr inbounds i8, ptr %17, i64 %.idx
   %.not2829 = icmp eq i64 %.sroa.0.0.copyload.val.i27, 0
   br i1 %.not2829, label %._crit_edge.thread, label %.lr.ph
 
@@ -36833,7 +36837,8 @@ _ZNK8pybind115tuple5beginEv.exit.thread:          ; preds = %_ZN8pybind1118reint
   %19 = phi ptr [ %18, %17 ], [ %16, %_ZN8pybind1118reinterpret_borrowINS_5tupleEEET_NS_6handleE.exit ]
   %.sroa.0.0.copyload.val.i84.in = getelementptr i8, ptr %7, i64 16
   %.sroa.0.0.copyload.val.i84 = load i64, ptr %.sroa.0.0.copyload.val.i84.in, align 8, !tbaa !365
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %.sroa.0.0.copyload.val.i84
+  %.idx = shl nsw i64 %.sroa.0.0.copyload.val.i84, 3
+  %20 = getelementptr inbounds i8, ptr %19, i64 %.idx
   %.not8587 = icmp eq i64 %.sroa.0.0.copyload.val.i84, 0
   br i1 %.not8587, label %._crit_edge.thread, label %.lr.ph
 
@@ -41241,9 +41246,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail7op_implILNS0_
 
 8:                                                ; preds = %7
   %9 = zext i32 %4 to i64
+  %.idx.i = shl nuw nsw i64 %9, 3
   %10 = load ptr, ptr %0, align 8, !tbaa !1072
   %11 = load ptr, ptr %1, align 8, !tbaa !1072
-  %.idx.i = shl nuw nsw i64 %9, 3
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %10, ptr %11, i64 %.idx.i)
   %.not9.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br label %_ZNK6open3d4core15SmallVectorImplIlEeqERKS2_.exit
@@ -41468,9 +41473,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail7op_implILNS0_
 
 8:                                                ; preds = %7
   %9 = zext i32 %4 to i64
+  %.idx.i.i = shl nuw nsw i64 %9, 3
   %10 = load ptr, ptr %0, align 8, !tbaa !1072
   %11 = load ptr, ptr %1, align 8, !tbaa !1072
-  %.idx.i.i = shl nuw nsw i64 %9, 3
   %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr %10, ptr %11, i64 %.idx.i.i)
   %.not9.i.i.i.i.i.i = icmp ne i32 %bcmp.i.i.i.i.i.i, 0
   br label %_ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit
@@ -41643,32 +41648,33 @@ _ZN8pybind116detail7cast_opIRKN6open3d4core10SizeVectorEEENS0_11type_casterINS0_
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !1342
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i64, ptr %43, i64 %46
-  %.not6.i.i.i.i.i17 = icmp eq i32 %45, 0
-  br i1 %.not6.i.i.i.i.i17, label %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_S8_E_EENSJ_IXntsr3std7is_voidISK_EE5valueESK_E4typeEOT1_.exit24, label %.lr.ph.i.i.i.i.i18
+  %.idx.i.i.i17 = shl nuw nsw i64 %46, 3
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i.i17
+  %.not6.i.i.i.i.i18 = icmp eq i32 %45, 0
+  br i1 %.not6.i.i.i.i.i18, label %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_S8_E_EENSJ_IXntsr3std7is_voidISK_EE5valueESK_E4typeEOT1_.exit25, label %.lr.ph.i.i.i.i.i19
 
-.lr.ph.i.i.i.i.i18:                               ; preds = %_ZN8pybind116detail7cast_opIRKN6open3d4core10SizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS9_E4typeEEEOSC_.exit.i.i16
+.lr.ph.i.i.i.i.i19:                               ; preds = %_ZN8pybind116detail7cast_opIRKN6open3d4core10SizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS9_E4typeEEEOSC_.exit.i.i16
   %48 = load i64, ptr %3, align 8, !tbaa !124
   br label %49
 
-49:                                               ; preds = %49, %.lr.ph.i.i.i.i.i18
-  %.08.i.i.i.i.i19 = phi i64 [ 0, %.lr.ph.i.i.i.i.i18 ], [ %spec.select.i.i.i.i.i21, %49 ]
-  %.057.i.i.i.i.i20 = phi ptr [ %43, %.lr.ph.i.i.i.i.i18 ], [ %53, %49 ]
-  %50 = load i64, ptr %.057.i.i.i.i.i20, align 8, !tbaa !124
+49:                                               ; preds = %49, %.lr.ph.i.i.i.i.i19
+  %.08.i.i.i.i.i20 = phi i64 [ 0, %.lr.ph.i.i.i.i.i19 ], [ %spec.select.i.i.i.i.i22, %49 ]
+  %.057.i.i.i.i.i21 = phi ptr [ %43, %.lr.ph.i.i.i.i.i19 ], [ %53, %49 ]
+  %50 = load i64, ptr %.057.i.i.i.i.i21, align 8, !tbaa !124
   %51 = icmp eq i64 %50, %48
   %52 = zext i1 %51 to i64
-  %spec.select.i.i.i.i.i21 = add nuw nsw i64 %.08.i.i.i.i.i19, %52
-  %53 = getelementptr inbounds nuw i8, ptr %.057.i.i.i.i.i20, i64 8
-  %.not.i.i.i.i.i22 = icmp eq ptr %53, %47
-  br i1 %.not.i.i.i.i.i22, label %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_S8_E_EENSJ_IXntsr3std7is_voidISK_EE5valueESK_E4typeEOT1_.exit24, label %49, !llvm.loop !1430
+  %spec.select.i.i.i.i.i22 = add nuw nsw i64 %.08.i.i.i.i.i20, %52
+  %53 = getelementptr inbounds nuw i8, ptr %.057.i.i.i.i.i21, i64 8
+  %.not.i.i.i.i.i23 = icmp eq ptr %53, %47
+  br i1 %.not.i.i.i.i.i23, label %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_S8_E_EENSJ_IXntsr3std7is_voidISK_EE5valueESK_E4typeEOT1_.exit25, label %49, !llvm.loop !1430
 
-_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_S8_E_EENSJ_IXntsr3std7is_voidISK_EE5valueESK_E4typeEOT1_.exit24: ; preds = %49, %_ZN8pybind116detail7cast_opIRKN6open3d4core10SizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS9_E4typeEEEOSC_.exit.i.i16
-  %.0.lcssa.i.i.i.i.i23 = phi i64 [ 0, %_ZN8pybind116detail7cast_opIRKN6open3d4core10SizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS9_E4typeEEEOSC_.exit.i.i16 ], [ %spec.select.i.i.i.i.i21, %49 ]
-  %54 = call ptr @PyLong_FromSsize_t(i64 noundef %.0.lcssa.i.i.i.i.i23)
+_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_S8_E_EENSJ_IXntsr3std7is_voidISK_EE5valueESK_E4typeEOT1_.exit25: ; preds = %49, %_ZN8pybind116detail7cast_opIRKN6open3d4core10SizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS9_E4typeEEEOSC_.exit.i.i16
+  %.0.lcssa.i.i.i.i.i24 = phi i64 [ 0, %_ZN8pybind116detail7cast_opIRKN6open3d4core10SizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS9_E4typeEEEOSC_.exit.i.i16 ], [ %spec.select.i.i.i.i.i22, %49 ]
+  %54 = call ptr @PyLong_FromSsize_t(i64 noundef %.0.lcssa.i.i.i.i.i24)
   br label %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE9load_argsERNS0_13function_callE.exit.thread
 
-_ZN8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE9load_argsERNS0_13function_callE.exit.thread: ; preds = %36, %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_S8_E_EENSJ_IXntsr3std7is_voidISK_EE5valueESK_E4typeEOT1_.exit, %2, %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_S8_E_EENSJ_IXntsr3std7is_voidISK_EE5valueESK_E4typeEOT1_.exit24, %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE9load_argsERNS0_13function_callE.exit
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE9load_argsERNS0_13function_callE.exit ], [ %54, %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_S8_E_EENSJ_IXntsr3std7is_voidISK_EE5valueESK_E4typeEOT1_.exit24 ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_S8_E_EENSJ_IXntsr3std7is_voidISK_EE5valueESK_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %36 ]
+_ZN8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE9load_argsERNS0_13function_callE.exit.thread: ; preds = %36, %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_S8_E_EENSJ_IXntsr3std7is_voidISK_EE5valueESK_E4typeEOT1_.exit, %2, %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_S8_E_EENSJ_IXntsr3std7is_voidISK_EE5valueESK_E4typeEOT1_.exit25, %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE9load_argsERNS0_13function_callE.exit
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE9load_argsERNS0_13function_callE.exit ], [ %54, %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_S8_E_EENSJ_IXntsr3std7is_voidISK_EE5valueESK_E4typeEOT1_.exit25 ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core10SizeVectorERKlEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_S8_E_EENSJ_IXntsr3std7is_voidISK_EE5valueESK_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %36 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #29
   ret ptr %.sroa.0.0
 }
@@ -56954,7 +56960,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail7op_implILNS0_
 7:                                                ; preds = %2
   %8 = zext i32 %4 to i64
   %9 = load ptr, ptr %0, align 8, !tbaa !1072
-  %10 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %9, i64 %8
+  %.idx.i = shl nuw nsw i64 %8, 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
   %.not9.i.i.i.i.i = icmp eq i32 %4, 0
   br i1 %.not9.i.i.i.i.i, label %_ZNK6open3d4core15SmallVectorImplINS_7utility8optionalIlEEEeqERKS5_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
@@ -57206,7 +57213,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail7op_implILNS0_
 7:                                                ; preds = %2
   %8 = zext i32 %4 to i64
   %9 = load ptr, ptr %0, align 8, !tbaa !1072
-  %10 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %9, i64 %8
+  %.idx.i.i = shl nuw nsw i64 %8, 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i
   %.not9.i.i.i.i.i.i = icmp eq i32 %4, 0
   br i1 %.not9.i.i.i.i.i.i, label %_ZNK6open3d4core15SmallVectorImplINS_7utility8optionalIlEEEneERKS5_.exit, label %.lr.ph.i.i.i.i.preheader.i.i
 
@@ -57346,26 +57354,26 @@ define linkonce_odr hidden ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6det
 
 21:                                               ; preds = %14
   %22 = icmp eq ptr %.sroa.0.0.copyload.i.i, @_Py_NoneStruct
-  br i1 %22, label %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread29, label %23
+  br i1 %22, label %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread30, label %23
 
 23:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #29
   %24 = call noundef zeroext i1 @_ZN8pybind116detail11type_casterIlvE4loadENS_6handleEb(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nonnull %.sroa.0.0.copyload.i.i, i1 noundef zeroext %20)
-  br i1 %24, label %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread31, label %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit
+  br i1 %24, label %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread32, label %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit
 
-_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread31: ; preds = %23
+_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread32: ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i64, ptr %3, align 8, !tbaa !124
   store i64 %26, ptr %25, align 8, !tbaa !124
   store i8 1, ptr %4, align 8, !tbaa !1948
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #29
-  br label %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread29
+  br label %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread30
 
 _ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit: ; preds = %23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #29
   br label %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread
 
-_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread29: ; preds = %21, %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread31
+_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread30: ; preds = %21, %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread32
   %27 = load ptr, ptr %1, align 8, !tbaa !553
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 89
   %29 = load i16, ptr %28, align 1
@@ -57376,7 +57384,7 @@ _ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7
   %.not.i.i.i.i16 = icmp eq ptr %32, null
   br i1 %.not, label %43, label %33
 
-33:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread29
+33:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread30
   br i1 %.not.i.i.i.i16, label %34, label %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit
 
 34:                                               ; preds = %33
@@ -57409,7 +57417,7 @@ _ZNO8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_
   store i32 %40, ptr @_Py_NoneStruct, align 8, !tbaa !123
   br label %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread
 
-43:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread29
+43:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread30
   br i1 %.not.i.i.i.i16, label %44, label %_ZN8pybind116detail7cast_opIRKN6open3d4core17DynamicSizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS9_E4typeEEEOSC_.exit.i.i17
 
 44:                                               ; preds = %43
@@ -57431,46 +57439,47 @@ _ZN8pybind116detail7cast_opIRKN6open3d4core17DynamicSizeVectorEEENS0_11type_cast
   %50 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %51 = load i32, ptr %50, align 8, !tbaa !1342
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %49, i64 %52
-  %.not6.i.i.i.i.i18 = icmp eq i32 %51, 0
-  br i1 %.not6.i.i.i.i.i18, label %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit27, label %.lr.ph.i.i.i.i.i19
+  %.idx.i.i.i18 = shl nuw nsw i64 %52, 4
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i.i.i18
+  %.not6.i.i.i.i.i19 = icmp eq i32 %51, 0
+  br i1 %.not6.i.i.i.i.i19, label %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28, label %.lr.ph.i.i.i.i.i20
 
-.lr.ph.i.i.i.i.i19:                               ; preds = %_ZN8pybind116detail7cast_opIRKN6open3d4core17DynamicSizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS9_E4typeEEEOSC_.exit.i.i17
+.lr.ph.i.i.i.i.i20:                               ; preds = %_ZN8pybind116detail7cast_opIRKN6open3d4core17DynamicSizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS9_E4typeEEEOSC_.exit.i.i17
   %54 = load i8, ptr %4, align 8, !tbaa !1948, !range !111, !noundef !117
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %56 = load i64, ptr %55, align 8
   br label %57
 
-57:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS6_EEbT_.exit.i.i.i.i.i23, %.lr.ph.i.i.i.i.i19
-  %.08.i.i.i.i.i20 = phi i64 [ 0, %.lr.ph.i.i.i.i.i19 ], [ %spec.select.i.i.i.i.i24, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS6_EEbT_.exit.i.i.i.i.i23 ]
-  %.057.i.i.i.i.i21 = phi ptr [ %49, %.lr.ph.i.i.i.i.i19 ], [ %67, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS6_EEbT_.exit.i.i.i.i.i23 ]
-  %58 = load i8, ptr %.057.i.i.i.i.i21, align 8, !tbaa !1948, !range !111, !noundef !117
+57:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS6_EEbT_.exit.i.i.i.i.i24, %.lr.ph.i.i.i.i.i20
+  %.08.i.i.i.i.i21 = phi i64 [ 0, %.lr.ph.i.i.i.i.i20 ], [ %spec.select.i.i.i.i.i25, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS6_EEbT_.exit.i.i.i.i.i24 ]
+  %.057.i.i.i.i.i22 = phi ptr [ %49, %.lr.ph.i.i.i.i.i20 ], [ %67, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS6_EEbT_.exit.i.i.i.i.i24 ]
+  %58 = load i8, ptr %.057.i.i.i.i.i22, align 8, !tbaa !1948, !range !111, !noundef !117
   %59 = trunc nuw i8 %58 to i1
   %60 = icmp eq i8 %58, %54
-  %brmerge.not.i.i.i.i.i.i.i22 = and i1 %60, %59
-  br i1 %brmerge.not.i.i.i.i.i.i.i22, label %61, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS6_EEbT_.exit.i.i.i.i.i23
+  %brmerge.not.i.i.i.i.i.i.i23 = and i1 %60, %59
+  br i1 %brmerge.not.i.i.i.i.i.i.i23, label %61, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS6_EEbT_.exit.i.i.i.i.i24
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds nuw i8, ptr %.057.i.i.i.i.i21, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.057.i.i.i.i.i22, i64 8
   %63 = load i64, ptr %62, align 8, !tbaa !124
   %64 = icmp eq i64 %63, %56
-  br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS6_EEbT_.exit.i.i.i.i.i23
+  br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS6_EEbT_.exit.i.i.i.i.i24
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS6_EEbT_.exit.i.i.i.i.i23: ; preds = %61, %57
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS6_EEbT_.exit.i.i.i.i.i24: ; preds = %61, %57
   %65 = phi i1 [ %60, %57 ], [ %64, %61 ]
   %66 = zext i1 %65 to i64
-  %spec.select.i.i.i.i.i24 = add nuw nsw i64 %.08.i.i.i.i.i20, %66
-  %67 = getelementptr inbounds nuw i8, ptr %.057.i.i.i.i.i21, i64 16
-  %.not.i.i.i.i.i25 = icmp eq ptr %67, %53
-  br i1 %.not.i.i.i.i.i25, label %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit27, label %57, !llvm.loop !1958
+  %spec.select.i.i.i.i.i25 = add nuw nsw i64 %.08.i.i.i.i.i21, %66
+  %67 = getelementptr inbounds nuw i8, ptr %.057.i.i.i.i.i22, i64 16
+  %.not.i.i.i.i.i26 = icmp eq ptr %67, %53
+  br i1 %.not.i.i.i.i.i26, label %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28, label %57, !llvm.loop !1958
 
-_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit27: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS6_EEbT_.exit.i.i.i.i.i23, %_ZN8pybind116detail7cast_opIRKN6open3d4core17DynamicSizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS9_E4typeEEEOSC_.exit.i.i17
-  %.0.lcssa.i.i.i.i.i26 = phi i64 [ 0, %_ZN8pybind116detail7cast_opIRKN6open3d4core17DynamicSizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS9_E4typeEEEOSC_.exit.i.i17 ], [ %spec.select.i.i.i.i.i24, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS6_EEbT_.exit.i.i.i.i.i23 ]
-  %68 = call ptr @PyLong_FromSsize_t(i64 noundef %.0.lcssa.i.i.i.i.i26)
+_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS6_EEbT_.exit.i.i.i.i.i24, %_ZN8pybind116detail7cast_opIRKN6open3d4core17DynamicSizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS9_E4typeEEEOSC_.exit.i.i17
+  %.0.lcssa.i.i.i.i.i27 = phi i64 [ 0, %_ZN8pybind116detail7cast_opIRKN6open3d4core17DynamicSizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS9_E4typeEEEOSC_.exit.i.i17 ], [ %spec.select.i.i.i.i.i25, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN6open3d7utility8optionalIlEEEclIPS6_EEbT_.exit.i.i.i.i.i24 ]
+  %68 = call ptr @PyLong_FromSsize_t(i64 noundef %.0.lcssa.i.i.i.i.i27)
   br label %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread
 
-_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread: ; preds = %42, %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit, %2, %14, %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit27, %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit ], [ %68, %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit27 ], [ inttoptr (i64 1 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %42 ]
+_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit.thread: ; preds = %42, %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit, %2, %14, %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28, %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE9load_argsERNS0_13function_callE.exit ], [ %68, %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28 ], [ inttoptr (i64 1 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRKN6open3d4core17DynamicSizeVectorERKNS2_7utility8optionalIlEEEE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS4_NS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS6_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %42 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #29
   ret ptr %.sroa.0.0
 }
@@ -61069,7 +61078,8 @@ define linkonce_odr hidden void @_ZN6open3d4core23SmallVectorTemplateBaseINS_7ut
   %19 = load ptr, ptr %0, align 8, !tbaa !1072
   %20 = load i32, ptr %4, align 8, !tbaa !1342
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %19, i64 %21
+  %.idx.i.i.i.i = shl nuw nsw i64 %21, 4
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i.i.i
   %.not11.i.i.i.i.i.i.i.i = icmp eq i32 %20, 0
   br i1 %.not11.i.i.i.i.i.i.i.i, label %_ZN6open3d4core23SmallVectorTemplateBaseINS_7utility8optionalIlEELb0EE19moveElementsForGrowEPS4_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -61612,7 +61622,8 @@ _ZN8pybind118len_hintENS_6handleE.exit:           ; preds = %.noexc
   %22 = load ptr, ptr %10, align 8, !tbaa !1072
   %23 = load i32, ptr %12, align 8, !tbaa !1342
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %22, i64 %24
+  %.idx.i.i.i = shl nuw nsw i64 %24, 4
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i.i
   %.not11.i.i.i.i.i.i.i = icmp eq i32 %23, 0
   br i1 %.not11.i.i.i.i.i.i.i, label %_ZN6open3d4core23SmallVectorTemplateBaseINS_7utility8optionalIlEELb0EE19moveElementsForGrowEPS4_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -61987,7 +61998,8 @@ define linkonce_odr hidden void @_ZN6open3d4core23SmallVectorTemplateBaseINS_7ut
   %19 = load ptr, ptr %0, align 8, !tbaa !1072
   %20 = load i32, ptr %4, align 8, !tbaa !1342
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %19, i64 %21
+  %.idx.i.i.i.i = shl nuw nsw i64 %21, 4
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i.i.i
   %.not11.i.i.i.i.i.i.i.i = icmp eq i32 %20, 0
   br i1 %.not11.i.i.i.i.i.i.i.i, label %_ZN6open3d4core23SmallVectorTemplateBaseINS_7utility8optionalIlEELb0EE19moveElementsForGrowEPS4_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -62592,7 +62604,8 @@ define linkonce_odr hidden noundef ptr @_ZN6open3d4core15SmallVectorImplINS_7uti
   %30 = load ptr, ptr %0, align 8, !tbaa !1072
   %31 = load i32, ptr %10, align 8, !tbaa !1342
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %30, i64 %32
+  %.idx.i.i.i = shl nuw nsw i64 %32, 4
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i.i
   %.not11.i.i.i.i.i.i.i = icmp eq i32 %31, 0
   br i1 %.not11.i.i.i.i.i.i.i, label %_ZN6open3d4core23SmallVectorTemplateBaseINS_7utility8optionalIlEELb0EE19moveElementsForGrowEPS4_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -62891,7 +62904,8 @@ define linkonce_odr hidden void @_ZN6open3d4core15SmallVectorImplINS_7utility8op
   %19 = load ptr, ptr %0, align 8, !tbaa !1072
   %20 = load i32, ptr %9, align 8, !tbaa !1342
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %19, i64 %21
+  %.idx.i.i.i = shl nuw nsw i64 %21, 4
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i.i
   %.not11.i.i.i.i.i.i.i = icmp eq i32 %20, 0
   br i1 %.not11.i.i.i.i.i.i.i, label %_ZN6open3d4core23SmallVectorTemplateBaseINS_7utility8optionalIlEELb0EE19moveElementsForGrowEPS4_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -63015,7 +63029,8 @@ define linkonce_odr hidden void @_ZN6open3d4core15SmallVectorImplINS_7utility8op
   %19 = load ptr, ptr %0, align 8, !tbaa !1072
   %20 = load i32, ptr %9, align 8, !tbaa !1342
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %19, i64 %21
+  %.idx.i.i.i = shl nuw nsw i64 %21, 4
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i.i.i
   %.not11.i.i.i.i.i.i.i = icmp eq i32 %20, 0
   br i1 %.not11.i.i.i.i.i.i.i, label %_ZN6open3d4core23SmallVectorTemplateBaseINS_7utility8optionalIlEELb0EE19moveElementsForGrowEPS4_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -63432,7 +63447,8 @@ _ZN8pybind118len_hintENS_6handleE.exit:           ; preds = %3, %15
   %23 = load ptr, ptr %1, align 8, !tbaa !1072
   %24 = load i32, ptr %10, align 8, !tbaa !1342
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %23, i64 %25
+  %.idx.i.i.i = shl nuw nsw i64 %25, 4
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i
   %.not11.i.i.i.i.i.i.i = icmp eq i32 %24, 0
   br i1 %.not11.i.i.i.i.i.i.i, label %_ZN6open3d4core23SmallVectorTemplateBaseINS_7utility8optionalIlEELb0EE19moveElementsForGrowEPS4_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -64199,7 +64215,8 @@ define linkonce_odr hidden noundef ptr @_ZN6open3d4core15SmallVectorImplINS_7uti
   %31 = load ptr, ptr %0, align 8, !tbaa !1072
   %32 = load i32, ptr %6, align 8, !tbaa !1342
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %31, i64 %33
+  %.idx.i.i.i.i = shl nuw nsw i64 %33, 4
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i
   %.not11.i.i.i.i.i.i.i.i = icmp eq i32 %32, 0
   br i1 %.not11.i.i.i.i.i.i.i.i, label %_ZN6open3d4core23SmallVectorTemplateBaseINS_7utility8optionalIlEELb0EE19moveElementsForGrowEPS4_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -65484,7 +65501,8 @@ _ZNK8pybind115slice7computeEmPmS1_S1_S1_.exit:    ; preds = %3
   %28 = load ptr, ptr %21, align 8, !tbaa !1072
   %29 = load i32, ptr %23, align 8, !tbaa !1342
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %28, i64 %30
+  %.idx.i.i.i = shl nuw nsw i64 %30, 4
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i.i
   %.not11.i.i.i.i.i.i.i = icmp eq i32 %29, 0
   br i1 %.not11.i.i.i.i.i.i.i, label %_ZN6open3d4core23SmallVectorTemplateBaseINS_7utility8optionalIlEELb0EE19moveElementsForGrowEPS4_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 

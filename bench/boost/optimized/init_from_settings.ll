@@ -43373,7 +43373,8 @@ define linkonce_odr hidden noundef i64 @_ZN5boost3log11v2_mt_posix9anonymous17pa
   %3 = load ptr, ptr %1, align 8, !tbaa !256
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !260
-  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %5
+  %.idx = shl i64 %5, 2
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN5boost6spirit2qi12extract_uintImLj10ELj1ELin1ELb0ELb0EE4callIPKwEEbRT_RKS7_Rm.exit.thread, label %.lr.ph.i
 
@@ -43540,7 +43541,8 @@ define linkonce_odr hidden noundef i32 @_ZN5boost3log11v2_mt_posix9anonymous17pa
   %3 = load ptr, ptr %1, align 8, !tbaa !256
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !260
-  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %5
+  %.idx = shl i64 %5, 2
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %_ZN5boost6spirit2qi12extract_uintIjLj10ELj1ELin1ELb0ELb0EE4callIPKwEEbRT_RKS7_Rj.exit.thread, label %.lr.ph.i
 
@@ -44221,7 +44223,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost3log11v2_mt_posix9anonym
   %3 = load ptr, ptr %1, align 8, !tbaa !256
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !260
-  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %5
+  %.idx = shl nuw nsw i64 %5, 2
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   switch i64 %5, label %_ZSt5equalIPKwS1_N5boost3log11v2_mt_posix9anonymous25is_case_insensitive_equalEEbT_S7_T0_T1_.exit23 [
     i64 4, label %.lr.ph.i
     i64 5, label %.lr.ph.i14
@@ -45645,8 +45648,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost3log11v2_mt_posix9anonym
   br i1 %.not.not.i.i.i.i, label %_ZSt5equalIPKwS1_EbT_S2_T0_.exit13, label %_ZSt5equalIPKwS1_EbT_S2_T0_.exit
 
 _ZSt5equalIPKwS1_EbT_S2_T0_.exit:                 ; preds = %8
-  %9 = load ptr, ptr %2, align 8, !tbaa !1756
   %.idx = shl nuw nsw i64 %1, 2
+  %9 = load ptr, ptr %2, align 8, !tbaa !1756
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %9, ptr %0, i64 %.idx)
   %.not9.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKwS1_EbT_S2_T0_.exit13, label %10
@@ -45662,9 +45665,9 @@ _ZSt5equalIPKwS1_EbT_S2_T0_.exit:                 ; preds = %8
   br i1 %.not.not.i.i.i.i9, label %_ZSt5equalIPKwS1_EbT_S2_T0_.exit13, label %15
 
 15:                                               ; preds = %14
+  %.idx15 = shl nuw nsw i64 %1, 2
   %16 = load ptr, ptr %3, align 8, !tbaa !1756
-  %.idx16 = shl nuw nsw i64 %1, 2
-  %bcmp.i.i.i.i10 = tail call i32 @bcmp(ptr %16, ptr %0, i64 %.idx16)
+  %bcmp.i.i.i.i10 = tail call i32 @bcmp(ptr %16, ptr %0, i64 %.idx15)
   %.not9.i.i.i.i11 = icmp eq i32 %bcmp.i.i.i.i10, 0
   br label %_ZSt5equalIPKwS1_EbT_S2_T0_.exit13
 

@@ -7547,7 +7547,8 @@ define linkonce_odr hidden void @_ZN4llvm9StringSetINS_15MallocAllocatorEEC2ESt1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 20, i1 false)
   store i32 8, ptr %4, align 4, !tbaa !3
-  %5 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not10 = icmp eq i64 %2, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -11172,7 +11173,8 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit: ; preds = %.prehea
 
 .lr.ph:                                           ; preds = %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %45, i64 %47
+  %.idx = shl nuw nsw i64 %47, 2
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 52
@@ -12720,7 +12722,8 @@ define dso_local noundef i32 @_ZN5clang6format20ContinuationIndenter15handleEndO
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %30 = load i32, ptr %29, align 8, !tbaa !227
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.clang::format::ParenState", ptr %28, i64 %31
+  %.idx.i = mul nuw nsw i64 %31, 56
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i
   %.not18.i = icmp eq i32 %30, 0
   br i1 %.not18.i, label %_ZN5clang6format20ContinuationIndenter17addMultilineTokenERKNS0_11FormatTokenERNS0_9LineStateE.exit, label %.lr.ph.i
 
@@ -13529,7 +13532,8 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread199:      ; preds = %95, %_ZNSt7__cxx111
   %168 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %169 = load i32, ptr %168, align 8, !tbaa !227
   %170 = zext i32 %169 to i64
-  %171 = getelementptr inbounds nuw %"struct.clang::format::ParenState", ptr %167, i64 %170
+  %.idx.i = mul nuw nsw i64 %170, 56
+  %171 = getelementptr inbounds nuw i8, ptr %167, i64 %.idx.i
   %.not18.i = icmp eq i32 %169, 0
   br i1 %.not18.i, label %_ZN5clang6format20ContinuationIndenter17addMultilineTokenERKNS0_11FormatTokenERNS0_9LineStateE.exit, label %.lr.ph.i94
 
@@ -14120,7 +14124,8 @@ _ZN5clang6formatL20getLastLineEndColumnEN4llvm9StringRefEjjNS0_8encoding8Encodin
   %459 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %460 = load i32, ptr %459, align 8, !tbaa !227
   %461 = zext i32 %460 to i64
-  %462 = getelementptr inbounds nuw %"struct.clang::format::ParenState", ptr %458, i64 %461
+  %.idx = mul nuw nsw i64 %461, 56
+  %462 = getelementptr inbounds nuw i8, ptr %458, i64 %.idx
   %.not86223 = icmp eq i32 %460, 0
   br i1 %.not86223, label %.loopexit, label %.lr.ph225
 
@@ -14223,7 +14228,8 @@ define dso_local noundef i32 @_ZN5clang6format20ContinuationIndenter17addMultili
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load i32, ptr %6, align 8, !tbaa !227
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"struct.clang::format::ParenState", ptr %5, i64 %8
+  %.idx = mul nuw nsw i64 %8, 56
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %.not18 = icmp eq i32 %7, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -15073,7 +15079,8 @@ _ZNK5clang6format11FormatToken15isStringLiteralEv.exit: ; preds = %switch.lookup
   %284 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %285 = load i32, ptr %284, align 8, !tbaa !227
   %286 = zext i32 %285 to i64
-  %287 = getelementptr inbounds nuw %"struct.clang::format::ParenState", ptr %283, i64 %286
+  %.idx = mul nuw nsw i64 %286, 56
+  %287 = getelementptr inbounds nuw i8, ptr %283, i64 %.idx
   %.not290483 = icmp eq i32 %285, 0
   br i1 %.not290483, label %._crit_edge487, label %.lr.ph486
 

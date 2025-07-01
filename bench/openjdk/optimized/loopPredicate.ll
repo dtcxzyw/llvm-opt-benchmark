@@ -800,7 +800,8 @@ _ZN12PhaseIterGVN12add_input_toEP4NodeS1_.exit:   ; preds = %_ZN9VectorSet8test_
   %350 = getelementptr inbounds nuw i8, ptr %.096, i64 32
   %351 = load i32, ptr %350, align 8
   %352 = zext i32 %351 to i64
-  %353 = getelementptr inbounds nuw ptr, ptr %349, i64 %352
+  %.idx = shl nuw nsw i64 %352, 3
+  %353 = getelementptr inbounds nuw i8, ptr %349, i64 %.idx
   %.not177 = icmp eq i32 %351, 0
   br i1 %.not177, label %._crit_edge, label %.lr.ph176
 
@@ -9421,7 +9422,8 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9VectorSet8test_
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %110 = load i32, ptr %109, align 8
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds nuw ptr, ptr %108, i64 %111
+  %.idx = shl nuw nsw i64 %111, 3
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx
   %.not43 = icmp eq i32 %110, 0
   br i1 %.not43, label %._crit_edge, label %.lr.ph
 

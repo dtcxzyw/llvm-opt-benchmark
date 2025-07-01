@@ -57,7 +57,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h1fd53c042e03b5f5E(p
   %20 = mul i64 %.sroa.0.0.sroa.speculated.i, 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2, ptr nonnull align 4 %.16, i64 %20, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  %21 = getelementptr inbounds nuw { i32, { i32, i32 }, { i32, i32 } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 %20
   store ptr %2, ptr %11, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %21, ptr %22, align 8

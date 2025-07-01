@@ -1134,7 +1134,8 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %_ZNK6icu_7713Unicod
   %443 = load i32, ptr %266, align 4
   %444 = select i1 %440, i32 %443, i32 %442
   %445 = sext i32 %444 to i64
-  %446 = getelementptr inbounds i16, ptr %.0.i.i309, i64 %445
+  %.idx.i = shl nsw i64 %445, 1
+  %446 = getelementptr inbounds i8, ptr %.0.i.i309, i64 %.idx.i
   %447 = icmp sgt i32 %444, 0
   br i1 %447, label %.lr.ph.i, label %_ZL13getChunkLimitRKN6icu_7713UnicodeStringES2_.exit
 

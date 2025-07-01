@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.module_list = type { ptr, i32, i32 }
 %struct.init_cb = type { ptr, ptr, i32 }
 %struct.update_clone_data = type { ptr, %struct.object_id, i32 }
-%struct.string_list_item = type { ptr, ptr }
 %struct.foreach_cb = type { i32, ptr, ptr, ptr, i32, i32 }
 %struct.rev_info = type { ptr, %struct.object_array, ptr, %struct.object_array, %struct.rev_cmdline_info, %struct.list_objects_filter_options, %struct.ref_exclusions, ptr, ptr, ptr, %struct.pathspec, i32, i32, i32, i32, i64, i32, i32, %struct.date_mode, i32, i32, i32, i32, ptr, i32, i32, ptr, ptr, i32, ptr, ptr, %struct.ident_split, ptr, i32, ptr, ptr, ptr, i32, i32, i32, ptr, %struct.grep_opt, ptr, i32, i32, i64, i64, i64, i32, i32, ptr, ptr, ptr, %struct.diff_options, %struct.diff_options, ptr, %struct.decoration, %struct.decoration, %struct.decoration, %struct.display_notes_opt, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, i32, %struct.decoration, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, %struct.oidset }
 %struct.object_array = type { i32, i32, ptr }
@@ -50,6 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.submodule_alternate_setup = type { ptr, i32, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
+%struct.string_list_item = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [32 x i8] c"git submodule--helper <command>\00", align 1
 @__const.cmd_submodule__helper.usage = private unnamed_addr constant [2 x ptr] [ptr @.str, ptr null], align 16
@@ -3763,7 +3763,8 @@ submodule_update_type_to_label.exit.i.i.i:        ; preds = %769, %768, %767
   br i1 %or.cond.i33.i, label %.critedge.i.i.i, label %.lr.ph.i.preheader105.i.i
 
 .lr.ph.i.preheader105.i.i:                        ; preds = %772
-  %773 = getelementptr inbounds nuw %struct.string_list_item, ptr %.sroa.8.0.copyload.i.i, i64 %.sroa.10.0.copyload.i.i
+  %.idx.i.i = shl nuw nsw i64 %.sroa.10.0.copyload.i.i, 4
+  %773 = getelementptr inbounds nuw i8, ptr %.sroa.8.0.copyload.i.i, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.preheader105.i.i

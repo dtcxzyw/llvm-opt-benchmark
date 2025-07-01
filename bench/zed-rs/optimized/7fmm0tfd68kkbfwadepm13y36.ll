@@ -721,7 +721,8 @@ define noundef ptr @_ZN6assets6Assets10load_fonts17h654d4edfc3742184E(ptr noalia
   store ptr inttoptr (i64 8 to ptr), ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %21, align 8
-  %22 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %17, i64 %.sroa.624.0.copyload
+  %.idx = mul nsw i64 %.sroa.624.0.copyload, 24
+  %22 = getelementptr inbounds i8, ptr %17, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   store ptr %17, ptr %8, align 8
   %.sroa.5.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %8, i64 8

@@ -7346,7 +7346,8 @@ define internal fastcc void @"_ZN13wasmtime_wasi4host10filesystem99_$LT$impl$u20
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1249, !noalias !1252, !nonnull !5, !noundef !5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1249, !noalias !1252
-  %21 = getelementptr inbounds { { ptr, i64, i64, i64, i8, [7 x i8] }, { { { i64, ptr, {} }, i64 } } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nsw i64 %.sroa.5.0.copyload.i, 6
+  %21 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.4.0.copyload.i, ptr %9, align 8
@@ -8195,7 +8196,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10298849200982743166.e
   %.sroa.9306.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
   %.sroa.9306.0.copyload = load i64, ptr %.sroa.9306.0..sroa_idx, align 8, !alias.scope !1420, !noalias !1413
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
-  %229 = getelementptr inbounds { { { { i64 } }, i32, {}, [4 x i8] }, { { { i64, ptr, {} }, i64 } } }, ptr %221, i64 %.sroa.9306.0.copyload
+  %.idx = mul nsw i64 %.sroa.9306.0.copyload, 40
+  %229 = getelementptr inbounds i8, ptr %221, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
   store ptr %221, ptr %30, align 8
   %.sroa.5298.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -28066,7 +28068,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i: 
   %49 = getelementptr i8, ptr %1, i64 40
   %.val46 = load ptr, ptr %49, align 8, !nonnull !5, !noundef !5
   %.val47 = load i64, ptr %32, align 8, !noundef !5
-  %50 = getelementptr inbounds { { { i64 } }, i32, {}, [4 x i8] }, ptr %.val46, i64 %.val47
+  %.idx = shl nsw i64 %.val47, 4
+  %50 = getelementptr inbounds i8, ptr %.val46, i64 %.idx
   %51 = icmp eq i64 %.val47, 0
   br i1 %51, label %._crit_edge, label %.lr.ph
 

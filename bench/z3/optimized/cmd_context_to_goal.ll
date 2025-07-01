@@ -63,7 +63,7 @@ define hidden void @_Z17assert_exprs_fromRK11cmd_contextR4goal(ptr noundef nonnu
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  br label %68
+  br label %70
 
 11:                                               ; preds = %4, %2
   %12 = tail call noundef zeroext i1 @_ZNK11cmd_context19produce_unsat_coresEv(ptr noundef nonnull align 8 dereferenceable(896) %0)
@@ -109,7 +109,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit43:           ; preds = %_ZNK6vectorIP4exprL
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
           cleanup
-  br label %68
+  br label %70
 
 31:                                               ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit43, %11
   %32 = load ptr, ptr %1, align 8, !tbaa !12
@@ -121,7 +121,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit43:           ; preds = %_ZNK6vectorIP4exprL
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   %39 = icmp eq ptr %38, null
-  br i1 %36, label %40, label %58
+  br i1 %36, label %40, label %59
 
 40:                                               ; preds = %31
   br i1 %39, label %.loopexit, label %_ZNK6vectorIP4exprLb0EjE3endEv.exit
@@ -130,75 +130,77 @@ _ZNK6vectorIP4exprLb0EjE3endEv.exit:              ; preds = %40
   %41 = getelementptr inbounds i8, ptr %38, i64 -4
   %42 = load i32, ptr %41, align 4, !tbaa !10
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %38, i64 %43
+  %44 = shl nuw nsw i64 %43, 3
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 %44
   %.not4050 = icmp eq i32 %42, 0
   br i1 %.not4050, label %.loopexit, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %_ZNK6vectorIP4exprLb0EjE3endEv.exit
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  %46 = load ptr, ptr %45, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %47 = load ptr, ptr %46, align 8, !tbaa !3
   br i1 %.not46, label %.lr.ph53.split.us, label %.lr.ph53.split
 
 .lr.ph53.split.us:                                ; preds = %.lr.ph53, %.lr.ph53.split.us
-  %.03752.us = phi ptr [ %50, %.lr.ph53.split.us ], [ %38, %.lr.ph53 ]
-  %.03851.us = phi ptr [ %51, %.lr.ph53.split.us ], [ %46, %.lr.ph53 ]
-  %47 = load ptr, ptr %.03752.us, align 8, !tbaa !29
-  %48 = load ptr, ptr %.03851.us, align 8, !tbaa !29
-  %49 = tail call noundef ptr @_ZN11ast_manager7mk_leafEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %32, ptr noundef %48)
-  tail call void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef %47, ptr noundef null, ptr noundef %49)
-  %50 = getelementptr inbounds nuw i8, ptr %.03752.us, i64 8
-  %51 = getelementptr inbounds nuw i8, ptr %.03851.us, i64 8
-  %.not40.us = icmp eq ptr %50, %44
+  %.03752.us = phi ptr [ %51, %.lr.ph53.split.us ], [ %38, %.lr.ph53 ]
+  %.03851.us = phi ptr [ %52, %.lr.ph53.split.us ], [ %47, %.lr.ph53 ]
+  %48 = load ptr, ptr %.03752.us, align 8, !tbaa !29
+  %49 = load ptr, ptr %.03851.us, align 8, !tbaa !29
+  %50 = tail call noundef ptr @_ZN11ast_manager7mk_leafEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %32, ptr noundef %49)
+  tail call void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef %48, ptr noundef null, ptr noundef %50)
+  %51 = getelementptr inbounds nuw i8, ptr %.03752.us, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.03851.us, i64 8
+  %.not40.us = icmp eq ptr %51, %45
   br i1 %.not40.us, label %.loopexit, label %.lr.ph53.split.us, !llvm.loop !31
 
 .lr.ph53.split:                                   ; preds = %.lr.ph53, %.lr.ph53.split
-  %.03752 = phi ptr [ %56, %.lr.ph53.split ], [ %38, %.lr.ph53 ]
-  %.03851 = phi ptr [ %57, %.lr.ph53.split ], [ %46, %.lr.ph53 ]
-  %52 = load ptr, ptr %.03752, align 8, !tbaa !29
-  %53 = tail call noundef ptr @_ZN11ast_manager11mk_assertedEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %32, ptr noundef %52)
-  %54 = load ptr, ptr %.03851, align 8, !tbaa !29
-  %55 = tail call noundef ptr @_ZN11ast_manager7mk_leafEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %32, ptr noundef %54)
-  tail call void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef %52, ptr noundef %53, ptr noundef %55)
-  %56 = getelementptr inbounds nuw i8, ptr %.03752, i64 8
-  %57 = getelementptr inbounds nuw i8, ptr %.03851, i64 8
-  %.not40 = icmp eq ptr %56, %44
+  %.03752 = phi ptr [ %57, %.lr.ph53.split ], [ %38, %.lr.ph53 ]
+  %.03851 = phi ptr [ %58, %.lr.ph53.split ], [ %47, %.lr.ph53 ]
+  %53 = load ptr, ptr %.03752, align 8, !tbaa !29
+  %54 = tail call noundef ptr @_ZN11ast_manager11mk_assertedEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %32, ptr noundef %53)
+  %55 = load ptr, ptr %.03851, align 8, !tbaa !29
+  %56 = tail call noundef ptr @_ZN11ast_manager7mk_leafEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %32, ptr noundef %55)
+  tail call void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef %53, ptr noundef %54, ptr noundef %56)
+  %57 = getelementptr inbounds nuw i8, ptr %.03752, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.03851, i64 8
+  %.not40 = icmp eq ptr %57, %45
   br i1 %.not40, label %.loopexit, label %.lr.ph53.split, !llvm.loop !31
 
-58:                                               ; preds = %31
+59:                                               ; preds = %31
   br i1 %39, label %.loopexit, label %_ZNK6vectorIP4exprLb0EjE3endEv.exit45
 
-_ZNK6vectorIP4exprLb0EjE3endEv.exit45:            ; preds = %58
-  %59 = getelementptr inbounds i8, ptr %38, i64 -4
-  %60 = load i32, ptr %59, align 4, !tbaa !10
-  %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %38, i64 %61
-  %.not3948 = icmp eq i32 %60, 0
+_ZNK6vectorIP4exprLb0EjE3endEv.exit45:            ; preds = %59
+  %60 = getelementptr inbounds i8, ptr %38, i64 -4
+  %61 = load i32, ptr %60, align 4, !tbaa !10
+  %62 = zext i32 %61 to i64
+  %63 = shl nuw nsw i64 %62, 3
+  %64 = getelementptr inbounds nuw i8, ptr %38, i64 %63
+  %.not3948 = icmp eq i32 %61, 0
   br i1 %.not3948, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK6vectorIP4exprLb0EjE3endEv.exit45
   br i1 %.not46, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.03649.us = phi ptr [ %64, %.lr.ph.split.us ], [ %38, %.lr.ph ]
-  %63 = load ptr, ptr %.03649.us, align 8, !tbaa !29
-  tail call void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef %63, ptr noundef null, ptr noundef null)
-  %64 = getelementptr inbounds nuw i8, ptr %.03649.us, i64 8
-  %.not39.us = icmp eq ptr %64, %62
+  %.03649.us = phi ptr [ %66, %.lr.ph.split.us ], [ %38, %.lr.ph ]
+  %65 = load ptr, ptr %.03649.us, align 8, !tbaa !29
+  tail call void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef %65, ptr noundef null, ptr noundef null)
+  %66 = getelementptr inbounds nuw i8, ptr %.03649.us, i64 8
+  %.not39.us = icmp eq ptr %66, %64
   br i1 %.not39.us, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.03649 = phi ptr [ %67, %.lr.ph.split ], [ %38, %.lr.ph ]
-  %65 = load ptr, ptr %.03649, align 8, !tbaa !29
-  %66 = tail call noundef ptr @_ZN11ast_manager11mk_assertedEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %32, ptr noundef %65)
-  tail call void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef %65, ptr noundef %66, ptr noundef null)
-  %67 = getelementptr inbounds nuw i8, ptr %.03649, i64 8
-  %.not39 = icmp eq ptr %67, %62
+  %.03649 = phi ptr [ %69, %.lr.ph.split ], [ %38, %.lr.ph ]
+  %67 = load ptr, ptr %.03649, align 8, !tbaa !29
+  %68 = tail call noundef ptr @_ZN11ast_manager11mk_assertedEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %32, ptr noundef %67)
+  tail call void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef %67, ptr noundef %68, ptr noundef null)
+  %69 = getelementptr inbounds nuw i8, ptr %.03649, i64 8
+  %.not39 = icmp eq ptr %69, %64
   br i1 %.not39, label %.loopexit, label %.lr.ph.split
 
-.loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph53.split, %.lr.ph53.split.us, %58, %40, %_ZNK6vectorIP4exprLb0EjE3endEv.exit45, %_ZNK6vectorIP4exprLb0EjE3endEv.exit
+.loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph53.split, %.lr.ph53.split.us, %59, %40, %_ZNK6vectorIP4exprLb0EjE3endEv.exit45, %_ZNK6vectorIP4exprLb0EjE3endEv.exit
   ret void
 
-68:                                               ; preds = %29, %9
+70:                                               ; preds = %29, %9
   %.sink = phi ptr [ %27, %29 ], [ %7, %9 ]
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %10, %9 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #14

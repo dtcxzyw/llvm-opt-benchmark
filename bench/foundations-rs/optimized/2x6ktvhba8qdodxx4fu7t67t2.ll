@@ -320,7 +320,8 @@ define hidden void @"_ZN101_$LT$opentelemetry_proto..proto..tonic..resource..v1.
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i8, [31 x i8] } }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 56
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -25929,7 +25930,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hc2bb0d0c453db9f3E
   %214 = load ptr, ptr %213, align 8, !nonnull !3, !noundef !3
   %215 = getelementptr inbounds nuw i8, ptr %18, i64 336
   %216 = load i64, ptr %215, align 8, !noundef !3
-  %217 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %214, i64 %216
+  %.idx = shl nuw nsw i64 %216, 4
+  %217 = getelementptr inbounds nuw i8, ptr %214, i64 %.idx
   %218 = icmp eq i64 %216, 0
   br i1 %218, label %._crit_edge, label %.lr.ph
 

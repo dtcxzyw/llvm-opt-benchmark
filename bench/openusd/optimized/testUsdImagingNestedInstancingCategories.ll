@@ -2087,8 +2087,8 @@ define linkonce_odr dso_local void @_ZN8InstanceC2ENSt7__cxx1112basic_stringIcSt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorI8InstanceSaIS0_EEC2ESt16initializer_listIS0_ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %5 = getelementptr inbounds %struct.Instance, ptr %1, i64 %2
-  %.idx = mul nsw i64 %2, 48
+  %.idx7 = mul nsw i64 %2, 48
+  %5 = getelementptr inbounds i8, ptr %1, i64 %.idx7
   %6 = icmp ugt i64 %2, 192153584101141162
   br i1 %6, label %7, label %_ZNSt6vectorI8InstanceSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
 
@@ -2104,13 +2104,13 @@ _ZNSt6vectorI8InstanceSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %4
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseI8InstanceSaIS0_EE11_M_allocateEm.exit.i, label %_ZNSt16allocator_traitsISaI8InstanceEE8allocateERS1_m.exit.i.i
 
 _ZNSt16allocator_traitsISaI8InstanceEE8allocateERS1_m.exit.i.i: ; preds = %_ZNSt6vectorI8InstanceSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
-  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #21
+  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx7) #21
           to label %_ZNSt12_Vector_baseI8InstanceSaIS0_EE11_M_allocateEm.exit.i unwind label %15
 
 _ZNSt12_Vector_baseI8InstanceSaIS0_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaI8InstanceEE8allocateERS1_m.exit.i.i, %_ZNSt6vectorI8InstanceSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
   %9 = phi ptr [ null, %_ZNSt6vectorI8InstanceSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %8, %_ZNSt16allocator_traitsISaI8InstanceEE8allocateERS1_m.exit.i.i ]
   store ptr %9, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8
   %12 = invoke noundef ptr @_ZSt16__do_uninit_copyIPK8InstancePS0_ET0_T_S5_S4_(ptr noundef %1, ptr noundef %5, ptr noundef %9)

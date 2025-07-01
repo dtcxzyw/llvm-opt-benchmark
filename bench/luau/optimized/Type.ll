@@ -21455,7 +21455,8 @@ _ZNSt15__new_allocatorISt4pairIPKN4Luau9UnionTypeEmEE8allocateEmPKv.exit.i: ; pr
 20:                                               ; preds = %_ZNSt15__new_allocatorISt4pairIPKN4Luau9UnionTypeEmEE8allocateEmPKv.exit.i
   %21 = load ptr, ptr %1, align 8, !tbaa !80
   %22 = getelementptr inbounds nuw %"struct.std::pair.178", ptr %21, i64 %13
-  %23 = getelementptr inbounds nuw %"struct.std::pair.178", ptr %22, i64 %.sroa.speculated.i
+  %.idx.i = shl nuw nsw i64 %.sroa.speculated.i, 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i
   %24 = getelementptr inbounds nuw %"struct.std::pair.178", ptr %9, i64 %13
   br label %.lr.ph.i.i.i.i
 
@@ -21474,7 +21475,8 @@ _ZSt18uninitialized_copyIPSt4pairIPKN4Luau9UnionTypeEmES6_ET0_T_S8_S7_.exit.i: ;
 
 27:                                               ; preds = %_ZSt18uninitialized_copyIPSt4pairIPKN4Luau9UnionTypeEmES6_ET0_T_S8_S7_.exit.i
   %28 = load ptr, ptr %1, align 8, !tbaa !80
-  %29 = getelementptr inbounds nuw %"struct.std::pair.178", ptr %28, i64 %19
+  %.idx36.i = shl nuw nsw i64 %19, 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx36.i
   br label %.lr.ph.i.i.i29.i
 
 .lr.ph.i.i.i29.i:                                 ; preds = %.lr.ph.i.i.i29.i, %27
@@ -22668,7 +22670,8 @@ _ZNSt15__new_allocatorISt4pairIPKN4Luau16IntersectionTypeEmEE8allocateEmPKv.exit
 20:                                               ; preds = %_ZNSt15__new_allocatorISt4pairIPKN4Luau16IntersectionTypeEmEE8allocateEmPKv.exit.i
   %21 = load ptr, ptr %1, align 8, !tbaa !134
   %22 = getelementptr inbounds nuw %"struct.std::pair.180", ptr %21, i64 %13
-  %23 = getelementptr inbounds nuw %"struct.std::pair.180", ptr %22, i64 %.sroa.speculated.i
+  %.idx.i = shl nuw nsw i64 %.sroa.speculated.i, 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i
   %24 = getelementptr inbounds nuw %"struct.std::pair.180", ptr %9, i64 %13
   br label %.lr.ph.i.i.i.i
 
@@ -22687,7 +22690,8 @@ _ZSt18uninitialized_copyIPSt4pairIPKN4Luau16IntersectionTypeEmES6_ET0_T_S8_S7_.e
 
 27:                                               ; preds = %_ZSt18uninitialized_copyIPSt4pairIPKN4Luau16IntersectionTypeEmES6_ET0_T_S8_S7_.exit.i
   %28 = load ptr, ptr %1, align 8, !tbaa !134
-  %29 = getelementptr inbounds nuw %"struct.std::pair.180", ptr %28, i64 %19
+  %.idx36.i = shl nuw nsw i64 %19, 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx36.i
   br label %.lr.ph.i.i.i29.i
 
 .lr.ph.i.i.i29.i:                                 ; preds = %.lr.ph.i.i.i29.i, %27
@@ -23468,7 +23472,8 @@ _ZNSt15__new_allocatorISt4pairIPKN4Luau9UnionTypeEmEE8allocateEmPKv.exit: ; pred
 
 22:                                               ; preds = %_ZNSt15__new_allocatorISt4pairIPKN4Luau9UnionTypeEmEE8allocateEmPKv.exit
   %23 = getelementptr inbounds nuw %"struct.std::pair.178", ptr %.pre.pre, i64 %18
-  %24 = getelementptr inbounds nuw %"struct.std::pair.178", ptr %23, i64 %.sroa.speculated
+  %.idx = shl nuw nsw i64 %.sroa.speculated, 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %22, %.lr.ph.i.i.i.i
@@ -23485,7 +23490,8 @@ _ZSt18uninitialized_moveIPSt4pairIPKN4Luau9UnionTypeEmES6_ET0_T_S8_S7_.exit: ; p
   br i1 %.not20.not, label %27, label %_ZSt18uninitialized_moveIPSt4pairIPKN4Luau9UnionTypeEmES6_ET0_T_S8_S7_.exit27
 
 27:                                               ; preds = %_ZSt18uninitialized_moveIPSt4pairIPKN4Luau9UnionTypeEmES6_ET0_T_S8_S7_.exit
-  %28 = getelementptr inbounds nuw %"struct.std::pair.178", ptr %.pre.pre, i64 %21
+  %.idx29 = shl nuw nsw i64 %21, 4
+  %28 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 %.idx29
   %29 = getelementptr inbounds nuw %"struct.std::pair.178", ptr %15, i64 %.sroa.speculated
   br label %.lr.ph.i.i.i.i22
 
@@ -23914,7 +23920,8 @@ _ZNSt15__new_allocatorISt4pairIPKN4Luau16IntersectionTypeEmEE8allocateEmPKv.exit
 
 22:                                               ; preds = %_ZNSt15__new_allocatorISt4pairIPKN4Luau16IntersectionTypeEmEE8allocateEmPKv.exit
   %23 = getelementptr inbounds nuw %"struct.std::pair.180", ptr %.pre.pre, i64 %18
-  %24 = getelementptr inbounds nuw %"struct.std::pair.180", ptr %23, i64 %.sroa.speculated
+  %.idx = shl nuw nsw i64 %.sroa.speculated, 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %22, %.lr.ph.i.i.i.i
@@ -23931,7 +23938,8 @@ _ZSt18uninitialized_moveIPSt4pairIPKN4Luau16IntersectionTypeEmES6_ET0_T_S8_S7_.e
   br i1 %.not20.not, label %27, label %_ZSt18uninitialized_moveIPSt4pairIPKN4Luau16IntersectionTypeEmES6_ET0_T_S8_S7_.exit27
 
 27:                                               ; preds = %_ZSt18uninitialized_moveIPSt4pairIPKN4Luau16IntersectionTypeEmES6_ET0_T_S8_S7_.exit
-  %28 = getelementptr inbounds nuw %"struct.std::pair.180", ptr %.pre.pre, i64 %21
+  %.idx29 = shl nuw nsw i64 %21, 4
+  %28 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 %.idx29
   %29 = getelementptr inbounds nuw %"struct.std::pair.180", ptr %15, i64 %.sroa.speculated
   br label %.lr.ph.i.i.i.i22
 

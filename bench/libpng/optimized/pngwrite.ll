@@ -3,7 +3,6 @@ source_filename = "bench/libpng/original/pngwrite.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.png_unknown_chunk_t = type { [5 x i8], ptr, i64, i8 }
 %struct.png_sPLT_struct = type { ptr, i8, ptr, i32 }
 %struct.png_text_struct = type { i32, ptr, ptr, i64, i64, ptr, ptr }
 %struct.png_row_info_struct = type { i32, i64, i8, i8, i8, i8 }
@@ -107,7 +106,8 @@ define void @png_write_info_before_PLTE(ptr noalias noundef %0, ptr noalias noun
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %40 = load ptr, ptr %39, align 8, !tbaa !43, !alias.scope !40, !noalias !37
   %41 = sext i32 %37 to i64
-  %42 = getelementptr inbounds %struct.png_unknown_chunk_t, ptr %40, i64 %41
+  %.idx.i = shl nsw i64 %41, 5
+  %42 = getelementptr inbounds i8, ptr %40, i64 %.idx.i
   %43 = icmp sgt i32 %37, 0
   br i1 %43, label %.lr.ph.i, label %write_unknown_chunks.exit
 
@@ -689,7 +689,8 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %200 = load ptr, ptr %199, align 8, !tbaa !43, !alias.scope !113, !noalias !110
   %201 = sext i32 %197 to i64
-  %202 = getelementptr inbounds %struct.png_unknown_chunk_t, ptr %200, i64 %201
+  %.idx.i = shl nsw i64 %201, 5
+  %202 = getelementptr inbounds i8, ptr %200, i64 %.idx.i
   %203 = icmp sgt i32 %197, 0
   br i1 %203, label %.lr.ph.i, label %write_unknown_chunks.exit
 
@@ -962,7 +963,8 @@ define void @png_write_end(ptr noalias noundef %0, ptr noalias noundef %1) local
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %96 = load ptr, ptr %95, align 8, !tbaa !43, !alias.scope !122, !noalias !119
   %97 = sext i32 %93 to i64
-  %98 = getelementptr inbounds %struct.png_unknown_chunk_t, ptr %96, i64 %97
+  %.idx.i = shl nsw i64 %97, 5
+  %98 = getelementptr inbounds i8, ptr %96, i64 %.idx.i
   %99 = icmp sgt i32 %93, 0
   br i1 %99, label %.lr.ph.i, label %write_unknown_chunks.exit
 
@@ -3698,7 +3700,8 @@ define internal noundef i32 @png_write_image_16bit(ptr noundef readonly captures
   %19 = add nuw nsw i32 %8, 2
   %20 = mul i32 %18, %19
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %.057, i64 %21
+  %.idx = shl nuw nsw i64 %21, 1
+  %22 = getelementptr inbounds nuw i8, ptr %.057, i64 %.idx
   %.not6875 = icmp eq i32 %13, 0
   br i1 %.not6875, label %._crit_edge78, label %.preheader.lr.ph
 

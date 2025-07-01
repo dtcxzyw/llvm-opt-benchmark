@@ -2439,7 +2439,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %33
   %37 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1)
-  %38 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdVec4f_2_10_10_10_REV", ptr %37, i64 %1
+  %.idx = shl nsw i64 %1, 2
+  %38 = getelementptr inbounds i8, ptr %37, i64 %.idx
   %39 = load ptr, ptr %2, align 8
   %.pre.i.i.i.i = load i32, ptr %39, align 4
   br label %.lr.ph.i.i.i.i
@@ -2479,7 +2480,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE9_Is
 
 53:                                               ; preds = %48
   %54 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1)
-  %55 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdVec4f_2_10_10_10_REV", ptr %49, i64 %4
+  %.idx.i = shl nsw i64 %4, 2
+  %55 = getelementptr inbounds i8, ptr %49, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i46
 
@@ -2512,46 +2514,47 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE9_Is
   %63 = phi ptr [ %.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE9_IsUniqueEv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE9_IsUniqueEv.exit.thread_crit_edge ], [ %36, %41 ]
   %64 = tail call i64 @llvm.umin.i64(i64 %1, i64 %4)
   %65 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1)
-  %66 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdVec4f_2_10_10_10_REV", ptr %63, i64 %64
-  %.not9.i.i.i.i55 = icmp eq i64 %4, 0
-  br i1 %.not9.i.i.i.i55, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE13_AllocateCopyEPS1_mm.exit60, label %.lr.ph.i.i.i.i56
+  %.idx.i55 = shl nsw i64 %64, 2
+  %66 = getelementptr inbounds i8, ptr %63, i64 %.idx.i55
+  %.not9.i.i.i.i56 = icmp eq i64 %4, 0
+  br i1 %.not9.i.i.i.i56, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE13_AllocateCopyEPS1_mm.exit61, label %.lr.ph.i.i.i.i57
 
-.lr.ph.i.i.i.i56:                                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE9_IsUniqueEv.exit.thread, %.lr.ph.i.i.i.i56
-  %.011.i.i.i.i57 = phi ptr [ %69, %.lr.ph.i.i.i.i56 ], [ %65, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE9_IsUniqueEv.exit.thread ]
-  %.0810.i.i.i.i58 = phi ptr [ %68, %.lr.ph.i.i.i.i56 ], [ %63, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE9_IsUniqueEv.exit.thread ]
-  %67 = load i32, ptr %.0810.i.i.i.i58, align 4
-  store i32 %67, ptr %.011.i.i.i.i57, align 4
-  %68 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i58, i64 4
-  %69 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i57, i64 4
-  %.not.i.i.i.i59 = icmp eq ptr %68, %66
-  br i1 %.not.i.i.i.i59, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE13_AllocateCopyEPS1_mm.exit60, label %.lr.ph.i.i.i.i56, !llvm.loop !49
+.lr.ph.i.i.i.i57:                                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE9_IsUniqueEv.exit.thread, %.lr.ph.i.i.i.i57
+  %.011.i.i.i.i58 = phi ptr [ %69, %.lr.ph.i.i.i.i57 ], [ %65, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE9_IsUniqueEv.exit.thread ]
+  %.0810.i.i.i.i59 = phi ptr [ %68, %.lr.ph.i.i.i.i57 ], [ %63, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE9_IsUniqueEv.exit.thread ]
+  %67 = load i32, ptr %.0810.i.i.i.i59, align 4
+  store i32 %67, ptr %.011.i.i.i.i58, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i59, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i58, i64 4
+  %.not.i.i.i.i60 = icmp eq ptr %68, %66
+  br i1 %.not.i.i.i.i60, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE13_AllocateCopyEPS1_mm.exit61, label %.lr.ph.i.i.i.i57, !llvm.loop !49
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE13_AllocateCopyEPS1_mm.exit60: ; preds = %.lr.ph.i.i.i.i56, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE9_IsUniqueEv.exit.thread
-  br i1 %34, label %.lr.ph.preheader.i.i.i.i62, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit
+_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE13_AllocateCopyEPS1_mm.exit61: ; preds = %.lr.ph.i.i.i.i57, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE9_IsUniqueEv.exit.thread
+  br i1 %34, label %.lr.ph.preheader.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit
 
-.lr.ph.preheader.i.i.i.i62:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE13_AllocateCopyEPS1_mm.exit60
+.lr.ph.preheader.i.i.i.i63:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE13_AllocateCopyEPS1_mm.exit61
   %70 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdVec4f_2_10_10_10_REV", ptr %65, i64 %1
   %71 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdVec4f_2_10_10_10_REV", ptr %65, i64 %4
   %72 = load ptr, ptr %2, align 8
-  %.pre.i.i.i.i63 = load i32, ptr %72, align 4
-  br label %.lr.ph.i.i.i.i64
+  %.pre.i.i.i.i64 = load i32, ptr %72, align 4
+  br label %.lr.ph.i.i.i.i65
 
-.lr.ph.i.i.i.i64:                                 ; preds = %.lr.ph.i.i.i.i64, %.lr.ph.preheader.i.i.i.i62
-  %.07.i.i.i.i65 = phi ptr [ %73, %.lr.ph.i.i.i.i64 ], [ %71, %.lr.ph.preheader.i.i.i.i62 ]
-  store i32 %.pre.i.i.i.i63, ptr %.07.i.i.i.i65, align 4
-  %73 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i65, i64 4
-  %.not.i.i.i.i66 = icmp eq ptr %73, %70
-  br i1 %.not.i.i.i.i66, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i64, !llvm.loop !48
+.lr.ph.i.i.i.i65:                                 ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.preheader.i.i.i.i63
+  %.07.i.i.i.i66 = phi ptr [ %73, %.lr.ph.i.i.i.i65 ], [ %71, %.lr.ph.preheader.i.i.i.i63 ]
+  store i32 %.pre.i.i.i.i64, ptr %.07.i.i.i.i66, align 4
+  %73 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i66, i64 4
+  %.not.i.i.i.i67 = icmp eq ptr %73, %70
+  br i1 %.not.i.i.i.i67, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !48
 
-_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i64, %.lr.ph.i.i.i.i51, %.lr.ph.i.i.i.i, %47, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE13_AllocateCopyEPS1_mm.exit60
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE13_AllocateCopyEPS1_mm.exit60 ], [ %36, %47 ], [ %37, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i51 ], [ %65, %.lr.ph.i.i.i.i64 ]
+_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i51, %.lr.ph.i.i.i.i, %47, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE13_AllocateCopyEPS1_mm.exit61
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE13_AllocateCopyEPS1_mm.exit61 ], [ %36, %47 ], [ %37, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i51 ], [ %65, %.lr.ph.i.i.i.i65 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE5clearEv.exit.sink.split, label %75
 
 75:                                               ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit
-  %.not.i68 = icmp eq ptr %74, null
-  br i1 %.not.i68, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE7_DecRefEv.exit, label %76
+  %.not.i69 = icmp eq ptr %74, null
+  br i1 %.not.i69, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE7_DecRefEv.exit, label %76
 
 76:                                               ; preds = %75
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2732,7 +2735,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE9_Is
   %10 = load ptr, ptr %2, align 8
   %11 = load i64, ptr %0, align 8
   %12 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %11)
-  %13 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdVec4f_2_10_10_10_REV", ptr %10, i64 %11
+  %.idx.i = shl nsw i64 %11, 2
+  %13 = getelementptr inbounds i8, ptr %10, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %11, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_22HdVec4f_2_10_10_10_REVEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 

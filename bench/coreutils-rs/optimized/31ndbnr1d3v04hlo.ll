@@ -497,7 +497,8 @@ define void @_ZN5uu_od11output_info10OutputInfo3new17habce696888535766E(ptr noal
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h49c5e39880d87616E.exit.thread": ; preds = %"_ZN5uu_od11output_info10OutputInfo3new28_$u7b$$u7b$closure$u7d$$u7d$17h1fb95ff31057592eE.exit.i", %5
   %.0.i816 = phi i64 [ 1, %5 ], [ %.0.sroa.speculated.i.i.i7, %"_ZN5uu_od11output_info10OutputInfo3new28_$u7b$$u7b$closure$u7d$$u7d$17h1fb95ff31057592eE.exit.i" ]
   %.0.i1215 = phi i64 [ 1, %5 ], [ %.0.sroa.speculated.i.i.i, %"_ZN5uu_od11output_info10OutputInfo3new28_$u7b$$u7b$closure$u7d$$u7d$17h1fb95ff31057592eE.exit.i" ]
-  %23 = getelementptr inbounds { { { i64, [1 x i64] }, i64, i64 }, i8, [7 x i8] }, ptr %2, i64 %3
+  %.idx = mul nuw nsw i64 %3, 40
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %24 = udiv i64 %1, %.0.i1215
   %25 = mul i64 %24, %.0.i816
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)

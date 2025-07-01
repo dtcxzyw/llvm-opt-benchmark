@@ -29658,7 +29658,8 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17h731aab4d5d67a785E.exit: ; p
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h699d0f1ebcb0bf6cE.exit": ; preds = %._crit_edge161
   %.sroa.0.0.v.i32 = select i1 %trunc.i29, i64 7328, i64 120
   %.sroa.0.0.i33 = getelementptr inbounds nuw i8, ptr %79, i64 %.sroa.0.0.v.i32
-  %84 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] }, ptr %.sroa.0.0.i33, i64 %75
+  %.idx = mul nuw nsw i64 %75, 104
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i33, i64 %.idx
   %85 = icmp eq i64 %75, 0
   br i1 %85, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he32d2747c1f60edeE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he32d2747c1f60edeE.exit"
 
@@ -32213,7 +32214,8 @@ define hidden void @"_ZN97_$LT$futures_util..future..join_all..JoinAll$LT$F$GT$$
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !4
-  %13 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %10, i64 %12
+  %.idx = shl nsw i64 %12, 5
+  %13 = getelementptr inbounds i8, ptr %10, i64 %.idx
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %.critedge, label %.lr.ph.outer
 
@@ -32290,8 +32292,8 @@ define hidden void @"_ZN97_$LT$futures_util..future..join_all..JoinAll$LT$F$GT$$
   tail call void @_ZN3std9panicking11begin_panic17hdde5dde4e77f575cE(ptr noalias noundef nonnull readonly align 1 @anon.de5bf129989e88be9af7f5e765f9c71a.5.llvm.2029774997167018338, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.de5bf129989e88be9af7f5e765f9c71a.7.llvm.2029774997167018338) #44, !noalias !8101
   unreachable
 
-common.resume:                                    ; preds = %45, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i.i", %38
-  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %55, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i.i" ], [ %46, %45 ]
+common.resume:                                    ; preds = %46, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i.i", %38
+  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %56, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i.i" ], [ %47, %46 ]
   resume { ptr, i32 } %common.resume.op
 
 38:                                               ; preds = %40
@@ -32330,74 +32332,73 @@ common.resume:                                    ; preds = %45, %"_ZN63_$LT$all
   store i64 %12, ptr %44, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %9, align 8
   store i64 0, ptr %11, align 8
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h5a1b726238a12221E.llvm.4734057639300609533"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull %10, ptr noundef nonnull %13)
-          to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8d5ac370485e757cE.exit" unwind label %45
+  %45 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %10, i64 %12
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h5a1b726238a12221E.llvm.4734057639300609533"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull %10, ptr noundef nonnull %45)
+          to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8d5ac370485e757cE.exit" unwind label %46
 
 "_ZN109_$LT$futures_util..stream..stream..collect..Collect$LT$St$C$C$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h9466fe398446bca3E.exit": ; preds = %22, %21, %"_ZN4core3ptr217drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..maybe_done..MaybeDone$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$u5d$$GT$$GT$$GT$17h8c4950eb8fcfbd61E.exit", %._crit_edge.thread
   ret void
 
-45:                                               ; preds = %.critedge
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %.critedge
+  %47 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr217drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..maybe_done..MaybeDone$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$u5d$$GT$$GT$$GT$17h8c4950eb8fcfbd61E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #43
-          to label %common.resume unwind label %63
+          to label %common.resume unwind label %62
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8d5ac370485e757cE.exit": ; preds = %.critedge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  br label %47
+  br label %48
 
-47:                                               ; preds = %49, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8d5ac370485e757cE.exit"
-  %.sroa.0.0.i.i.i = phi i64 [ 0, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8d5ac370485e757cE.exit" ], [ %51, %49 ]
-  %48 = icmp eq i64 %.sroa.0.0.i.i.i, %12
-  br i1 %48, label %"_ZN4core3ptr170drop_in_place$LT$$u5b$futures_util..future..maybe_done..MaybeDone$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$u5d$$GT$17haa55dea36a1b9c7aE.llvm.6844594870300039520.exit.i.i", label %49
+48:                                               ; preds = %50, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8d5ac370485e757cE.exit"
+  %.sroa.0.0.i.i.i = phi i64 [ 0, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8d5ac370485e757cE.exit" ], [ %52, %50 ]
+  %49 = icmp eq i64 %.sroa.0.0.i.i.i, %12
+  br i1 %49, label %"_ZN4core3ptr170drop_in_place$LT$$u5b$futures_util..future..maybe_done..MaybeDone$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$u5d$$GT$17haa55dea36a1b9c7aE.llvm.6844594870300039520.exit.i.i", label %50
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds [0 x { [24 x i8], i8, [7 x i8] }], ptr %10, i64 0, i64 %.sroa.0.0.i.i.i
-  %51 = add i64 %.sroa.0.0.i.i.i, 1
-  invoke void @"_ZN4core3ptr160drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h416cae9aa0a83349E.llvm.6844594870300039520"(ptr noundef nonnull align 8 %50)
-          to label %47 unwind label %54, !noalias !8108
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds [0 x { [24 x i8], i8, [7 x i8] }], ptr %10, i64 0, i64 %.sroa.0.0.i.i.i
+  %52 = add i64 %.sroa.0.0.i.i.i, 1
+  invoke void @"_ZN4core3ptr160drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h416cae9aa0a83349E.llvm.6844594870300039520"(ptr noundef nonnull align 8 %51)
+          to label %48 unwind label %55, !noalias !8108
 
-52:                                               ; preds = %56, %54
-  %.sroa.0.1.i.i.i = phi i64 [ %51, %54 ], [ %58, %56 ]
-  %53 = icmp eq i64 %.sroa.0.1.i.i.i, %12
-  br i1 %53, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i.i", label %56
+53:                                               ; preds = %57, %55
+  %.sroa.0.1.i.i.i = phi i64 [ %52, %55 ], [ %59, %57 ]
+  %54 = icmp eq i64 %.sroa.0.1.i.i.i, %12
+  br i1 %54, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i.i", label %57
 
-54:                                               ; preds = %49
-  %55 = landingpad { ptr, i32 }
+55:                                               ; preds = %50
+  %56 = landingpad { ptr, i32 }
           cleanup
-  br label %52
+  br label %53
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds [0 x { [24 x i8], i8, [7 x i8] }], ptr %10, i64 0, i64 %.sroa.0.1.i.i.i
-  %58 = add i64 %.sroa.0.1.i.i.i, 1
-  invoke void @"_ZN4core3ptr160drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h416cae9aa0a83349E.llvm.6844594870300039520"(ptr noundef nonnull align 8 %57) #43
-          to label %52 unwind label %59, !noalias !8108
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds [0 x { [24 x i8], i8, [7 x i8] }], ptr %10, i64 0, i64 %.sroa.0.1.i.i.i
+  %59 = add i64 %.sroa.0.1.i.i.i, 1
+  invoke void @"_ZN4core3ptr160drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h416cae9aa0a83349E.llvm.6844594870300039520"(ptr noundef nonnull align 8 %58) #43
+          to label %53 unwind label %60, !noalias !8108
 
-59:                                               ; preds = %56
-  %60 = landingpad { ptr, i32 }
+60:                                               ; preds = %57
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42, !noalias !8108
   unreachable
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i.i": ; preds = %52
-  %61 = shl nsw i64 %12, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %61, i64 noundef 8) #41, !noalias !8113
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i.i": ; preds = %53
+  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %.idx, i64 noundef 8) #41, !noalias !8113
   br label %common.resume
 
-"_ZN4core3ptr170drop_in_place$LT$$u5b$futures_util..future..maybe_done..MaybeDone$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$u5d$$GT$17haa55dea36a1b9c7aE.llvm.6844594870300039520.exit.i.i": ; preds = %47
+"_ZN4core3ptr170drop_in_place$LT$$u5b$futures_util..future..maybe_done..MaybeDone$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$u5d$$GT$17haa55dea36a1b9c7aE.llvm.6844594870300039520.exit.i.i": ; preds = %48
   br i1 %14, label %"_ZN4core3ptr217drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..maybe_done..MaybeDone$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$u5d$$GT$$GT$$GT$17h8c4950eb8fcfbd61E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i1.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i1.i.i": ; preds = %"_ZN4core3ptr170drop_in_place$LT$$u5b$futures_util..future..maybe_done..MaybeDone$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$u5d$$GT$17haa55dea36a1b9c7aE.llvm.6844594870300039520.exit.i.i"
-  %62 = shl nsw i64 %12, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %62, i64 noundef 8) #41, !noalias !8116
+  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %.idx, i64 noundef 8) #41, !noalias !8116
   br label %"_ZN4core3ptr217drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..maybe_done..MaybeDone$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$u5d$$GT$$GT$$GT$17h8c4950eb8fcfbd61E.exit"
 
 "_ZN4core3ptr217drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..maybe_done..MaybeDone$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$u5d$$GT$$GT$$GT$17h8c4950eb8fcfbd61E.exit": ; preds = %"_ZN4core3ptr170drop_in_place$LT$$u5b$futures_util..future..maybe_done..MaybeDone$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$u5d$$GT$17haa55dea36a1b9c7aE.llvm.6844594870300039520.exit.i.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i1.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %"_ZN109_$LT$futures_util..stream..stream..collect..Collect$LT$St$C$C$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h9466fe398446bca3E.exit"
 
-63:                                               ; preds = %45
-  %64 = landingpad { ptr, i32 }
+62:                                               ; preds = %46
+  %63 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable

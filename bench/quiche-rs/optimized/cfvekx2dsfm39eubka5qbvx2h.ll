@@ -4903,7 +4903,8 @@ define void @"_ZN116_$LT$h3i..frame..EnrichedHeaders$u20$as$u20$core..convert..F
 38:                                               ; preds = %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  %39 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %13, i64 %15
+  %.idx = mul nuw nsw i64 %15, 48
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %40 = icmp eq i64 %15, 0
   br i1 %40, label %._crit_edge, label %.lr.ph
 

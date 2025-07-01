@@ -3869,7 +3869,8 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepE
   br i1 %.not621, label %131, label %127
 
 .critedge:                                        ; preds = %.lr.ph
-  %64 = getelementptr inbounds nuw ptr, ptr %2, i64 %.sroa.40.0652
+  %.idx = shl nuw nsw i64 %.sroa.40.0652, 3
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %65 = ptrtoint ptr %64 to i64
   %66 = lshr i64 %.sroa.40.0652, 2
   %.not618 = icmp ult i64 %.sroa.40.0652, 4
@@ -3890,7 +3891,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepE
   %69 = getelementptr inbounds nuw i8, ptr %.02966.i.i.i.i.i, i64 8
   %.val.i.i.i.i.i = load ptr, ptr %69, align 8, !tbaa !137
   %.not.i.i33.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i33.i.i.i.i.i, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit942", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit34.i.i.i.i.i"
+  br i1 %.not.i.i33.i.i.i.i.i, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit943", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit34.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit34.i.i.i.i.i": ; preds = %68
   %70 = tail call noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_08ImageBuf11initializedEv(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i.i.i.i)
@@ -3900,21 +3901,21 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepE
   %72 = getelementptr inbounds nuw i8, ptr %.02966.i.i.i.i.i, i64 16
   %.val30.i.i.i.i.i = load ptr, ptr %72, align 8, !tbaa !137
   %.not.i.i35.i.i.i.i.i = icmp eq ptr %.val30.i.i.i.i.i, null
-  br i1 %.not.i.i35.i.i.i.i.i, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit944", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit36.i.i.i.i.i"
+  br i1 %.not.i.i35.i.i.i.i.i, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit945", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit36.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit36.i.i.i.i.i": ; preds = %71
   %73 = tail call noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_08ImageBuf11initializedEv(ptr noundef nonnull align 8 dereferenceable(16) %.val30.i.i.i.i.i)
-  br i1 %73, label %74, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit938"
+  br i1 %73, label %74, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit939"
 
 74:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit36.i.i.i.i.i"
   %75 = getelementptr inbounds nuw i8, ptr %.02966.i.i.i.i.i, i64 24
   %.val31.i.i.i.i.i = load ptr, ptr %75, align 8, !tbaa !137
   %.not.i.i37.i.i.i.i.i = icmp eq ptr %.val31.i.i.i.i.i, null
-  br i1 %.not.i.i37.i.i.i.i.i, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit946", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit38.i.i.i.i.i"
+  br i1 %.not.i.i37.i.i.i.i.i, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit947", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit38.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit38.i.i.i.i.i": ; preds = %74
   %76 = tail call noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_08ImageBuf11initializedEv(ptr noundef nonnull align 8 dereferenceable(16) %.val31.i.i.i.i.i)
-  br i1 %76, label %77, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit940"
+  br i1 %76, label %77, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit941"
 
 77:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit38.i.i.i.i.i"
   %78 = getelementptr inbounds nuw i8, ptr %.02966.i.i.i.i.i, i64 32
@@ -3978,29 +3979,29 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepE
   %92 = getelementptr inbounds nuw i8, ptr %.02966.i.i.i.i.i, i64 8
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit938": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit36.i.i.i.i.i"
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit939": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit36.i.i.i.i.i"
   %93 = getelementptr inbounds nuw i8, ptr %.02966.i.i.i.i.i, i64 16
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit940": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit38.i.i.i.i.i"
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit941": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit38.i.i.i.i.i"
   %94 = getelementptr inbounds nuw i8, ptr %.02966.i.i.i.i.i, i64 24
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit942": ; preds = %68
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit943": ; preds = %68
   %95 = getelementptr inbounds nuw i8, ptr %.02966.i.i.i.i.i, i64 8
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit944": ; preds = %71
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit945": ; preds = %71
   %96 = getelementptr inbounds nuw i8, ptr %.02966.i.i.i.i.i, i64 16
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit946": ; preds = %74
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit947": ; preds = %74
   %97 = getelementptr inbounds nuw i8, ptr %.02966.i.i.i.i.i, i64 24
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit.i.i.i.i.i", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit938", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit940", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit942", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit944", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit946", %82, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit40.i.i.i.i.i", %86, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit42.i.i.i.i.i", %90, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit44.i.i.i.i.i"
-  %.not618914 = phi i1 [ %.not618, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit40.i.i.i.i.i" ], [ %.not618, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit42.i.i.i.i.i" ], [ %.not618, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit44.i.i.i.i.i" ], [ %.not618, %82 ], [ %.not618, %86 ], [ %.not618, %90 ], [ false, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit946" ], [ false, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit944" ], [ false, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit942" ], [ false, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit940" ], [ false, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit938" ], [ false, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit" ], [ false, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit.i.i.i.i.i" ], [ false, %.lr.ph.i.i.i.i.i ]
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit40.i.i.i.i.i" ], [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit42.i.i.i.i.i" ], [ %.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit44.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %82 ], [ %.1.i.i.i.i.i, %86 ], [ %.2.i.i.i.i.i, %90 ], [ %97, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit946" ], [ %96, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit944" ], [ %95, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit942" ], [ %94, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit940" ], [ %93, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit938" ], [ %92, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit" ], [ %.02966.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit.i.i.i.i.i" ], [ %.02966.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit.i.i.i.i.i", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit939", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit941", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit943", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit945", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit947", %82, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit40.i.i.i.i.i", %86, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit42.i.i.i.i.i", %90, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit44.i.i.i.i.i"
+  %.not618915 = phi i1 [ %.not618, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit40.i.i.i.i.i" ], [ %.not618, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit42.i.i.i.i.i" ], [ %.not618, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit44.i.i.i.i.i" ], [ %.not618, %82 ], [ %.not618, %86 ], [ %.not618, %90 ], [ false, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit947" ], [ false, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit945" ], [ false, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit943" ], [ false, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit941" ], [ false, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit939" ], [ false, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit" ], [ false, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit.i.i.i.i.i" ], [ false, %.lr.ph.i.i.i.i.i ]
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit40.i.i.i.i.i" ], [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit42.i.i.i.i.i" ], [ %.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit44.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %82 ], [ %.1.i.i.i.i.i, %86 ], [ %.2.i.i.i.i.i, %90 ], [ %97, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit947" ], [ %96, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit945" ], [ %95, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit943" ], [ %94, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit941" ], [ %93, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit939" ], [ %92, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.loopexit.split.loop.exit" ], [ %.02966.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit.i.i.i.i.i" ], [ %.02966.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not619 = icmp eq ptr %64, %.028.i.i.i.i.i
   br i1 %.not619, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.thread", label %98
 
@@ -4009,7 +4010,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepE
   br label %_ZN11OpenImageIO6v3_1_0neENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit363
 
 "_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.thread": ; preds = %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit", %._crit_edge.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit44.i.i.i.i.i"
-  %.not618913 = phi i1 [ %.not618, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit44.i.i.i.i.i" ], [ %.not618, %._crit_edge.i.i.i.i.i ], [ %.not618914, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit" ]
+  %.not618914 = phi i1 [ %.not618, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_0EclIPSC_EEbT_.exit44.i.i.i.i.i" ], [ %.not618, %._crit_edge.i.i.i.i.i ], [ %.not618915, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit" ]
   %99 = load ptr, ptr %2, align 8, !tbaa !137
   %100 = tail call noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_08ImageBuf11initializedEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br i1 %100, label %101, label %.lr.ph681.preheader
@@ -4082,12 +4083,12 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepE
   br label %131
 
 131:                                              ; preds = %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.thread.thread", %127, %._crit_edge, %121, %123
-  %.sroa.40.0.lcssa907928 = phi i64 [ 0, %127 ], [ %.sroa.40.0652, %123 ], [ %.sroa.40.0652, %121 ], [ %.sroa.40.0652, %._crit_edge ], [ 0, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.thread.thread" ]
-  %.not.lcssa910926 = phi i1 [ true, %127 ], [ false, %123 ], [ false, %121 ], [ false, %._crit_edge ], [ true, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.thread.thread" ]
-  %132 = phi ptr [ %2, %127 ], [ %64, %123 ], [ %64, %121 ], [ %64, %._crit_edge ], [ %2, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.thread.thread" ]
-  %133 = phi i64 [ %62, %127 ], [ %65, %123 ], [ %65, %121 ], [ %65, %._crit_edge ], [ %62, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.thread.thread" ]
-  %134 = phi i64 [ 0, %127 ], [ %66, %123 ], [ %66, %121 ], [ %66, %._crit_edge ], [ 0, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.thread.thread" ]
-  %.not618913924 = phi i1 [ true, %127 ], [ %.not618913, %123 ], [ %.not618913, %121 ], [ %.not618913, %._crit_edge ], [ true, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.thread.thread" ]
+  %.sroa.40.0.lcssa908929 = phi i64 [ 0, %127 ], [ %.sroa.40.0652, %123 ], [ %.sroa.40.0652, %121 ], [ %.sroa.40.0652, %._crit_edge ], [ 0, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.thread.thread" ]
+  %.not.lcssa911927 = phi i1 [ true, %127 ], [ false, %123 ], [ false, %121 ], [ false, %._crit_edge ], [ true, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.thread.thread" ]
+  %132 = phi i64 [ %62, %127 ], [ %65, %123 ], [ %65, %121 ], [ %65, %._crit_edge ], [ %62, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.thread.thread" ]
+  %133 = phi i64 [ 0, %127 ], [ %66, %123 ], [ %66, %121 ], [ %66, %._crit_edge ], [ 0, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.thread.thread" ]
+  %.not618914925 = phi i1 [ true, %127 ], [ %.not618914, %123 ], [ %.not618914, %121 ], [ %.not618914, %._crit_edge ], [ true, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.thread.thread" ]
+  %134 = phi ptr [ %2, %127 ], [ %64, %123 ], [ %64, %121 ], [ %64, %._crit_edge ], [ %2, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.thread.thread" ]
   %135 = phi ptr [ null, %127 ], [ %99, %123 ], [ %99, %121 ], [ %99, %._crit_edge ], [ null, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.thread.thread" ]
   %.3597 = phi i32 [ %130, %127 ], [ %126, %123 ], [ %.2596, %121 ], [ %.2596, %._crit_edge ], [ 1, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.thread.thread" ]
   %.3 = phi i32 [ %130, %127 ], [ %126, %123 ], [ 10000, %121 ], [ %.2, %._crit_edge ], [ 1, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_0EbT_SH_T0_.exit.thread.thread" ]
@@ -4192,7 +4193,7 @@ _ZN11OpenImageIO6v3_1_016roi_intersectionERKNS0_3ROIES3_.exit: ; preds = %144, %
   store i64 14, ptr %173, align 8, !tbaa !90
   %174 = call noundef i32 @_ZNK11OpenImageIO6v3_1_014ParamValueSpan7get_intENS0_17basic_string_viewIcSt11char_traitsIcEEEibb(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %12, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext true)
   %.not193 = icmp eq i32 %174, 0
-  %.not194739 = icmp eq i64 %.sroa.40.0.lcssa907928, 0
+  %.not194739 = icmp eq i64 %.sroa.40.0.lcssa908929, 0
   %or.cond = or i1 %.not193, %.not194739
   br i1 %or.cond, label %.loopexit, label %.lr.ph741
 
@@ -4212,11 +4213,11 @@ _ZN11OpenImageIO6v3_1_016roi_intersectionERKNS0_3ROIES3_.exit: ; preds = %144, %
 
 182:                                              ; preds = %177, %.lr.ph741
   %183 = getelementptr inbounds nuw i8, ptr %.0152740, i64 8
-  %.not194 = icmp eq ptr %183, %132
+  %.not194 = icmp eq ptr %183, %134
   br i1 %.not194, label %.loopexit, label %.lr.ph741
 
 184:                                              ; preds = %131
-  br i1 %.not.lcssa910926, label %185, label %187
+  br i1 %.not.lcssa911927, label %185, label %187
 
 185:                                              ; preds = %184
   %.not624 = icmp eq i32 %137, -2147483648
@@ -4234,7 +4235,7 @@ _ZN11OpenImageIO6v3_1_016roi_intersectionERKNS0_3ROIES3_.exit: ; preds = %144, %
   br i1 %.not622, label %.preheader644, label %246
 
 .preheader644:                                    ; preds = %187
-  %.not173684 = icmp eq i64 %.sroa.40.0.lcssa907928, 0
+  %.not173684 = icmp eq i64 %.sroa.40.0.lcssa908929, 0
   br i1 %.not173684, label %.thread601, label %.lr.ph686
 
 .lr.ph686:                                        ; preds = %.preheader644, %_ZN11OpenImageIO6v3_1_09roi_unionERKNS0_3ROIES3_.exit214
@@ -4387,7 +4388,7 @@ _ZN11OpenImageIO6v3_1_09roi_unionERKNS0_3ROIES3_.exit214: ; preds = %220, %243
   store i32 %.sroa.11.0, ptr %.sroa.gep464, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #29
   %245 = getelementptr inbounds nuw i8, ptr %.0155685, i64 8
-  %.not173 = icmp eq ptr %245, %132
+  %.not173 = icmp eq ptr %245, %134
   br i1 %.not173, label %.thread601, label %.lr.ph686
 
 246:                                              ; preds = %187
@@ -4497,7 +4498,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit221: ; preds = %.noexc219
   store i32 -1, ptr %273, align 8, !tbaa !48
   %282 = getelementptr inbounds nuw i8, ptr %18, i64 124
   store i32 -1, ptr %282, align 4, !tbaa !49
-  %.not180691 = icmp eq i64 %.sroa.40.0.lcssa907928, 0
+  %.not180691 = icmp eq i64 %.sroa.40.0.lcssa908929, 0
   br i1 %.not180691, label %_ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit, label %.lr.ph694
 
 .lr.ph694:                                        ; preds = %280, %._crit_edge690
@@ -4520,7 +4521,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit221: ; preds = %.noexc219
 
 ._crit_edge690:                                   ; preds = %_ZN11OpenImageIO6v3_1_0neENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit, %.preheader643
   %291 = getelementptr inbounds nuw i8, ptr %.0164692, i64 8
-  %.not180 = icmp eq ptr %291, %132
+  %.not180 = icmp eq ptr %291, %134
   br i1 %.not180, label %_ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit, label %.lr.ph694
 
 292:                                              ; preds = %.lr.ph694
@@ -4612,10 +4613,10 @@ _ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit:   ; preds = %._crit_edge690, %28
   br i1 %.not182, label %337, label %536
 
 337:                                              ; preds = %336
-  br i1 %.not618913924, label %._crit_edge.i.i.i.i.i224, label %.lr.ph.i.i.i.i.i231
+  br i1 %.not618914925, label %._crit_edge.i.i.i.i.i224, label %.lr.ph.i.i.i.i.i231
 
 .lr.ph.i.i.i.i.i231:                              ; preds = %337, %440
-  %.096.i.i.i.i.i = phi i64 [ %442, %440 ], [ %134, %337 ]
+  %.096.i.i.i.i.i = phi i64 [ %442, %440 ], [ %133, %337 ]
   %.02995.i.i.i.i.i = phi ptr [ %441, %440 ], [ %2, %337 ]
   %.029.val.i.i.i.i.i232 = load ptr, ptr %.02995.i.i.i.i.i, align 8, !tbaa !137
   %338 = invoke noundef nonnull align 8 dereferenceable(160) ptr @_ZNK11OpenImageIO6v3_1_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %.029.val.i.i.i.i.i232)
@@ -4675,7 +4676,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit:   ; preds = %._crit_edge690, %28
   %369 = load i8, ptr %367, align 8, !tbaa !78
   %370 = load i8, ptr %368, align 8, !tbaa !78
   %371 = icmp eq i8 %369, %370
-  br i1 %371, label %372, label %.loopexit642.loopexit.split.loop.exit967
+  br i1 %371, label %372, label %.loopexit642.loopexit.split.loop.exit968
 
 372:                                              ; preds = %.noexc239
   %373 = getelementptr inbounds nuw i8, ptr %364, i64 65
@@ -4683,7 +4684,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit:   ; preds = %._crit_edge690, %28
   %375 = getelementptr inbounds nuw i8, ptr %366, i64 65
   %376 = load i8, ptr %375, align 1, !tbaa !79
   %377 = icmp eq i8 %374, %376
-  br i1 %377, label %378, label %.loopexit642.loopexit.split.loop.exit969
+  br i1 %377, label %378, label %.loopexit642.loopexit.split.loop.exit970
 
 378:                                              ; preds = %372
   %379 = getelementptr inbounds nuw i8, ptr %364, i64 66
@@ -4691,7 +4692,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit:   ; preds = %._crit_edge690, %28
   %381 = getelementptr inbounds nuw i8, ptr %366, i64 66
   %382 = load i8, ptr %381, align 2, !tbaa !80
   %383 = icmp eq i8 %380, %382
-  br i1 %383, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit40.i.i.i.i.i", label %.loopexit642.loopexit.split.loop.exit971
+  br i1 %383, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit40.i.i.i.i.i", label %.loopexit642.loopexit.split.loop.exit972
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit40.i.i.i.i.i": ; preds = %378
   %384 = getelementptr inbounds nuw i8, ptr %364, i64 68
@@ -4699,7 +4700,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit:   ; preds = %._crit_edge690, %28
   %386 = getelementptr inbounds nuw i8, ptr %366, i64 68
   %387 = load i32, ptr %386, align 4, !tbaa !81
   %.not49.i.i.i.i.i = icmp eq i32 %385, %387
-  br i1 %.not49.i.i.i.i.i, label %388, label %.loopexit642.loopexit.split.loop.exit977
+  br i1 %.not49.i.i.i.i.i, label %388, label %.loopexit642.loopexit.split.loop.exit978
 
 388:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit40.i.i.i.i.i"
   %389 = getelementptr inbounds nuw i8, ptr %.02995.i.i.i.i.i, i64 16
@@ -4718,7 +4719,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit:   ; preds = %._crit_edge690, %28
   %395 = load i8, ptr %393, align 8, !tbaa !78
   %396 = load i8, ptr %394, align 8, !tbaa !78
   %397 = icmp eq i8 %395, %396
-  br i1 %397, label %398, label %.loopexit642.loopexit.split.loop.exit961
+  br i1 %397, label %398, label %.loopexit642.loopexit.split.loop.exit962
 
 398:                                              ; preds = %.noexc241
   %399 = getelementptr inbounds nuw i8, ptr %390, i64 65
@@ -4726,7 +4727,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit:   ; preds = %._crit_edge690, %28
   %401 = getelementptr inbounds nuw i8, ptr %392, i64 65
   %402 = load i8, ptr %401, align 1, !tbaa !79
   %403 = icmp eq i8 %400, %402
-  br i1 %403, label %404, label %.loopexit642.loopexit.split.loop.exit963
+  br i1 %403, label %404, label %.loopexit642.loopexit.split.loop.exit964
 
 404:                                              ; preds = %398
   %405 = getelementptr inbounds nuw i8, ptr %390, i64 66
@@ -4734,7 +4735,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit:   ; preds = %._crit_edge690, %28
   %407 = getelementptr inbounds nuw i8, ptr %392, i64 66
   %408 = load i8, ptr %407, align 2, !tbaa !80
   %409 = icmp eq i8 %406, %408
-  br i1 %409, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit41.i.i.i.i.i", label %.loopexit642.loopexit.split.loop.exit965
+  br i1 %409, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit41.i.i.i.i.i", label %.loopexit642.loopexit.split.loop.exit966
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit41.i.i.i.i.i": ; preds = %404
   %410 = getelementptr inbounds nuw i8, ptr %390, i64 68
@@ -4742,7 +4743,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit:   ; preds = %._crit_edge690, %28
   %412 = getelementptr inbounds nuw i8, ptr %392, i64 68
   %413 = load i32, ptr %412, align 4, !tbaa !81
   %.not50.i.i.i.i.i = icmp eq i32 %411, %413
-  br i1 %.not50.i.i.i.i.i, label %414, label %.loopexit642.loopexit.split.loop.exit975
+  br i1 %.not50.i.i.i.i.i, label %414, label %.loopexit642.loopexit.split.loop.exit976
 
 414:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit41.i.i.i.i.i"
   %415 = getelementptr inbounds nuw i8, ptr %.02995.i.i.i.i.i, i64 24
@@ -4769,7 +4770,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit:   ; preds = %._crit_edge690, %28
   %427 = getelementptr inbounds nuw i8, ptr %418, i64 65
   %428 = load i8, ptr %427, align 1, !tbaa !79
   %429 = icmp eq i8 %426, %428
-  br i1 %429, label %430, label %.loopexit642.loopexit.split.loop.exit957
+  br i1 %429, label %430, label %.loopexit642.loopexit.split.loop.exit958
 
 430:                                              ; preds = %424
   %431 = getelementptr inbounds nuw i8, ptr %416, i64 66
@@ -4777,7 +4778,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit:   ; preds = %._crit_edge690, %28
   %433 = getelementptr inbounds nuw i8, ptr %418, i64 66
   %434 = load i8, ptr %433, align 2, !tbaa !80
   %435 = icmp eq i8 %432, %434
-  br i1 %435, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit42.i.i.i.i.i", label %.loopexit642.loopexit.split.loop.exit959
+  br i1 %435, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit42.i.i.i.i.i", label %.loopexit642.loopexit.split.loop.exit960
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit42.i.i.i.i.i": ; preds = %430
   %436 = getelementptr inbounds nuw i8, ptr %416, i64 68
@@ -4785,7 +4786,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit:   ; preds = %._crit_edge690, %28
   %438 = getelementptr inbounds nuw i8, ptr %418, i64 68
   %439 = load i32, ptr %438, align 4, !tbaa !81
   %.not51.i.i.i.i.i = icmp eq i32 %437, %439
-  br i1 %.not51.i.i.i.i.i, label %440, label %.loopexit642.loopexit.split.loop.exit973
+  br i1 %.not51.i.i.i.i.i, label %440, label %.loopexit642.loopexit.split.loop.exit974
 
 440:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit42.i.i.i.i.i"
   %441 = getelementptr inbounds nuw i8, ptr %.02995.i.i.i.i.i, i64 32
@@ -4795,12 +4796,12 @@ _ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit:   ; preds = %._crit_edge690, %28
 
 ._crit_edge.loopexit.i.i.i.i.i234:                ; preds = %440
   %.pre.i.i.i.i.i235 = ptrtoint ptr %441 to i64
-  %.pre110.i.i.i.i.i = sub i64 %133, %.pre.i.i.i.i.i235
+  %.pre110.i.i.i.i.i = sub i64 %132, %.pre.i.i.i.i.i235
   %444 = ashr exact i64 %.pre110.i.i.i.i.i, 3
   br label %._crit_edge.i.i.i.i.i224
 
 ._crit_edge.i.i.i.i.i224:                         ; preds = %._crit_edge.loopexit.i.i.i.i.i234, %337
-  %.pre-phi111.i.i.i.i.i = phi i64 [ %444, %._crit_edge.loopexit.i.i.i.i.i234 ], [ %.sroa.40.0.lcssa907928, %337 ]
+  %.pre-phi111.i.i.i.i.i = phi i64 [ %444, %._crit_edge.loopexit.i.i.i.i.i234 ], [ %.sroa.40.0.lcssa908929, %337 ]
   %.029.lcssa.i.i.i.i.i225 = phi ptr [ %441, %._crit_edge.loopexit.i.i.i.i.i234 ], [ %2, %337 ]
   switch i64 %.pre-phi111.i.i.i.i.i, label %.thread603 [
     i64 3, label %445
@@ -4948,53 +4949,53 @@ _ZN11OpenImageIO6v3_1_09ImageSpecaSERKS1_.exit:   ; preds = %._crit_edge690, %28
   %524 = getelementptr inbounds nuw i8, ptr %.02995.i.i.i.i.i, i64 24
   br label %.loopexit642
 
-.loopexit642.loopexit.split.loop.exit957:         ; preds = %424
+.loopexit642.loopexit.split.loop.exit958:         ; preds = %424
   %525 = getelementptr inbounds nuw i8, ptr %.02995.i.i.i.i.i, i64 24
   br label %.loopexit642
 
-.loopexit642.loopexit.split.loop.exit959:         ; preds = %430
+.loopexit642.loopexit.split.loop.exit960:         ; preds = %430
   %526 = getelementptr inbounds nuw i8, ptr %.02995.i.i.i.i.i, i64 24
   br label %.loopexit642
 
-.loopexit642.loopexit.split.loop.exit961:         ; preds = %.noexc241
+.loopexit642.loopexit.split.loop.exit962:         ; preds = %.noexc241
   %527 = getelementptr inbounds nuw i8, ptr %.02995.i.i.i.i.i, i64 16
   br label %.loopexit642
 
-.loopexit642.loopexit.split.loop.exit963:         ; preds = %398
+.loopexit642.loopexit.split.loop.exit964:         ; preds = %398
   %528 = getelementptr inbounds nuw i8, ptr %.02995.i.i.i.i.i, i64 16
   br label %.loopexit642
 
-.loopexit642.loopexit.split.loop.exit965:         ; preds = %404
+.loopexit642.loopexit.split.loop.exit966:         ; preds = %404
   %529 = getelementptr inbounds nuw i8, ptr %.02995.i.i.i.i.i, i64 16
   br label %.loopexit642
 
-.loopexit642.loopexit.split.loop.exit967:         ; preds = %.noexc239
+.loopexit642.loopexit.split.loop.exit968:         ; preds = %.noexc239
   %530 = getelementptr inbounds nuw i8, ptr %.02995.i.i.i.i.i, i64 8
   br label %.loopexit642
 
-.loopexit642.loopexit.split.loop.exit969:         ; preds = %372
+.loopexit642.loopexit.split.loop.exit970:         ; preds = %372
   %531 = getelementptr inbounds nuw i8, ptr %.02995.i.i.i.i.i, i64 8
   br label %.loopexit642
 
-.loopexit642.loopexit.split.loop.exit971:         ; preds = %378
+.loopexit642.loopexit.split.loop.exit972:         ; preds = %378
   %532 = getelementptr inbounds nuw i8, ptr %.02995.i.i.i.i.i, i64 8
   br label %.loopexit642
 
-.loopexit642.loopexit.split.loop.exit973:         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit42.i.i.i.i.i"
+.loopexit642.loopexit.split.loop.exit974:         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit42.i.i.i.i.i"
   %533 = getelementptr inbounds nuw i8, ptr %.02995.i.i.i.i.i, i64 24
   br label %.loopexit642
 
-.loopexit642.loopexit.split.loop.exit975:         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit41.i.i.i.i.i"
+.loopexit642.loopexit.split.loop.exit976:         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit41.i.i.i.i.i"
   %534 = getelementptr inbounds nuw i8, ptr %.02995.i.i.i.i.i, i64 16
   br label %.loopexit642
 
-.loopexit642.loopexit.split.loop.exit977:         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit40.i.i.i.i.i"
+.loopexit642.loopexit.split.loop.exit978:         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit40.i.i.i.i.i"
   %535 = getelementptr inbounds nuw i8, ptr %.02995.i.i.i.i.i, i64 8
   br label %.loopexit642
 
-.loopexit642:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit.i.i.i.i.i", %352, %346, %.noexc237, %.loopexit642.loopexit.split.loop.exit, %.loopexit642.loopexit.split.loop.exit957, %.loopexit642.loopexit.split.loop.exit959, %.loopexit642.loopexit.split.loop.exit961, %.loopexit642.loopexit.split.loop.exit963, %.loopexit642.loopexit.split.loop.exit965, %.loopexit642.loopexit.split.loop.exit967, %.loopexit642.loopexit.split.loop.exit969, %.loopexit642.loopexit.split.loop.exit971, %.loopexit642.loopexit.split.loop.exit973, %.loopexit642.loopexit.split.loop.exit975, %.loopexit642.loopexit.split.loop.exit977, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit45.i.i.i.i.i", %514, %508, %.noexc249, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit44.i.i.i.i.i", %487, %481, %.noexc247, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit43.i.i.i.i.i", %460, %454, %.noexc245
-  %.028.i.i.i.i.i228 = phi ptr [ %.029.lcssa.i.i.i.i.i225, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit43.i.i.i.i.i" ], [ %.1.i.i.i.i.i229, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit44.i.i.i.i.i" ], [ %.2.i.i.i.i.i226, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit45.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i225, %460 ], [ %.029.lcssa.i.i.i.i.i225, %454 ], [ %.029.lcssa.i.i.i.i.i225, %.noexc245 ], [ %.1.i.i.i.i.i229, %487 ], [ %.1.i.i.i.i.i229, %481 ], [ %.1.i.i.i.i.i229, %.noexc247 ], [ %.2.i.i.i.i.i226, %514 ], [ %.2.i.i.i.i.i226, %508 ], [ %.2.i.i.i.i.i226, %.noexc249 ], [ %524, %.loopexit642.loopexit.split.loop.exit ], [ %525, %.loopexit642.loopexit.split.loop.exit957 ], [ %526, %.loopexit642.loopexit.split.loop.exit959 ], [ %527, %.loopexit642.loopexit.split.loop.exit961 ], [ %528, %.loopexit642.loopexit.split.loop.exit963 ], [ %529, %.loopexit642.loopexit.split.loop.exit965 ], [ %530, %.loopexit642.loopexit.split.loop.exit967 ], [ %531, %.loopexit642.loopexit.split.loop.exit969 ], [ %532, %.loopexit642.loopexit.split.loop.exit971 ], [ %533, %.loopexit642.loopexit.split.loop.exit973 ], [ %534, %.loopexit642.loopexit.split.loop.exit975 ], [ %535, %.loopexit642.loopexit.split.loop.exit977 ], [ %.02995.i.i.i.i.i, %.noexc237 ], [ %.02995.i.i.i.i.i, %346 ], [ %.02995.i.i.i.i.i, %352 ], [ %.02995.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit.i.i.i.i.i" ]
-  %.not623 = icmp eq ptr %132, %.028.i.i.i.i.i228
+.loopexit642:                                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit.i.i.i.i.i", %352, %346, %.noexc237, %.loopexit642.loopexit.split.loop.exit, %.loopexit642.loopexit.split.loop.exit958, %.loopexit642.loopexit.split.loop.exit960, %.loopexit642.loopexit.split.loop.exit962, %.loopexit642.loopexit.split.loop.exit964, %.loopexit642.loopexit.split.loop.exit966, %.loopexit642.loopexit.split.loop.exit968, %.loopexit642.loopexit.split.loop.exit970, %.loopexit642.loopexit.split.loop.exit972, %.loopexit642.loopexit.split.loop.exit974, %.loopexit642.loopexit.split.loop.exit976, %.loopexit642.loopexit.split.loop.exit978, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit45.i.i.i.i.i", %514, %508, %.noexc249, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit44.i.i.i.i.i", %487, %481, %.noexc247, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit43.i.i.i.i.i", %460, %454, %.noexc245
+  %.028.i.i.i.i.i228 = phi ptr [ %.029.lcssa.i.i.i.i.i225, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit43.i.i.i.i.i" ], [ %.1.i.i.i.i.i229, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit44.i.i.i.i.i" ], [ %.2.i.i.i.i.i226, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit45.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i225, %460 ], [ %.029.lcssa.i.i.i.i.i225, %454 ], [ %.029.lcssa.i.i.i.i.i225, %.noexc245 ], [ %.1.i.i.i.i.i229, %487 ], [ %.1.i.i.i.i.i229, %481 ], [ %.1.i.i.i.i.i229, %.noexc247 ], [ %.2.i.i.i.i.i226, %514 ], [ %.2.i.i.i.i.i226, %508 ], [ %.2.i.i.i.i.i226, %.noexc249 ], [ %524, %.loopexit642.loopexit.split.loop.exit ], [ %525, %.loopexit642.loopexit.split.loop.exit958 ], [ %526, %.loopexit642.loopexit.split.loop.exit960 ], [ %527, %.loopexit642.loopexit.split.loop.exit962 ], [ %528, %.loopexit642.loopexit.split.loop.exit964 ], [ %529, %.loopexit642.loopexit.split.loop.exit966 ], [ %530, %.loopexit642.loopexit.split.loop.exit968 ], [ %531, %.loopexit642.loopexit.split.loop.exit970 ], [ %532, %.loopexit642.loopexit.split.loop.exit972 ], [ %533, %.loopexit642.loopexit.split.loop.exit974 ], [ %534, %.loopexit642.loopexit.split.loop.exit976 ], [ %535, %.loopexit642.loopexit.split.loop.exit978 ], [ %.02995.i.i.i.i.i, %.noexc237 ], [ %.02995.i.i.i.i.i, %346 ], [ %.02995.i.i.i.i.i, %352 ], [ %.02995.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_1EclIPSC_EEbT_.exit.i.i.i.i.i" ]
+  %.not623 = icmp eq ptr %134, %.028.i.i.i.i.i228
   br i1 %.not623, label %.thread603, label %536
 
 536:                                              ; preds = %.loopexit642, %336
@@ -5100,7 +5101,7 @@ _ZNK11OpenImageIO6v3_1_08TypeDescneERKS1_.exit.thread: ; preds = %557
 
 576:                                              ; preds = %573
   %.not183 = icmp eq i32 %575, 0
-  %.not184736 = icmp eq i64 %.sroa.40.0.lcssa907928, 0
+  %.not184736 = icmp eq i64 %.sroa.40.0.lcssa908929, 0
   %or.cond797 = or i1 %.not183, %.not184736
   br i1 %or.cond797, label %.loopexit640, label %.lr.ph738
 
@@ -5133,7 +5134,7 @@ _ZNK11OpenImageIO6v3_1_08TypeDescneERKS1_.exit.thread: ; preds = %557
 
 588:                                              ; preds = %584, %581
   %589 = getelementptr inbounds nuw i8, ptr %.0165737, i64 8
-  %.not184 = icmp eq ptr %589, %132
+  %.not184 = icmp eq ptr %589, %134
   br i1 %.not184, label %.loopexit640, label %578
 
 .loopexit640:                                     ; preds = %588, %576
@@ -5606,10 +5607,10 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
   br i1 %757, label %808, label %758
 
 758:                                              ; preds = %753
-  br i1 %.not618913924, label %._crit_edge.i.i.i.i.i277, label %.lr.ph.i.i.i.i.i285
+  br i1 %.not618914925, label %._crit_edge.i.i.i.i.i277, label %.lr.ph.i.i.i.i.i285
 
 .lr.ph.i.i.i.i.i285:                              ; preds = %758, %781
-  %.044.i.i.i.i.i = phi i64 [ %783, %781 ], [ %134, %758 ]
+  %.044.i.i.i.i.i = phi i64 [ %783, %781 ], [ %133, %758 ]
   %.02943.i.i.i.i.i = phi ptr [ %782, %781 ], [ %2, %758 ]
   %.029.val.i.i.i.i.i286 = load ptr, ptr %.02943.i.i.i.i.i, align 8, !tbaa !137
   %759 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK11OpenImageIO6v3_1_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %.029.val.i.i.i.i.i286)
@@ -5634,7 +5635,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
   %772 = getelementptr inbounds nuw i8, ptr %771, i64 120
   %773 = load i32, ptr %772, align 8, !tbaa !48
   %774 = icmp slt i32 %773, 0
-  br i1 %774, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit998", label %775
+  br i1 %774, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit999", label %775
 
 775:                                              ; preds = %769
   %776 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 24
@@ -5643,7 +5644,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
   %778 = getelementptr inbounds nuw i8, ptr %777, i64 120
   %779 = load i32, ptr %778, align 8, !tbaa !48
   %780 = icmp slt i32 %779, 0
-  br i1 %780, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit1000", label %781
+  br i1 %780, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit1001", label %781
 
 781:                                              ; preds = %775
   %782 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 32
@@ -5653,12 +5654,12 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
 
 ._crit_edge.loopexit.i.i.i.i.i290:                ; preds = %781
   %.pre.i.i.i.i.i291 = ptrtoint ptr %782 to i64
-  %.pre49.i.i.i.i.i = sub i64 %133, %.pre.i.i.i.i.i291
+  %.pre49.i.i.i.i.i = sub i64 %132, %.pre.i.i.i.i.i291
   %785 = ashr exact i64 %.pre49.i.i.i.i.i, 3
   br label %._crit_edge.i.i.i.i.i277
 
 ._crit_edge.i.i.i.i.i277:                         ; preds = %._crit_edge.loopexit.i.i.i.i.i290, %758
-  %.pre-phi50.i.i.i.i.i = phi i64 [ %785, %._crit_edge.loopexit.i.i.i.i.i290 ], [ %.sroa.40.0.lcssa907928, %758 ]
+  %.pre-phi50.i.i.i.i.i = phi i64 [ %785, %._crit_edge.loopexit.i.i.i.i.i290 ], [ %.sroa.40.0.lcssa908929, %758 ]
   %.029.lcssa.i.i.i.i.i278 = phi ptr [ %782, %._crit_edge.loopexit.i.i.i.i.i290 ], [ %2, %758 ]
   switch i64 %.pre-phi50.i.i.i.i.i, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.thread" [
     i64 3, label %786
@@ -5704,17 +5705,17 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
   %805 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 8
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit998": ; preds = %769
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit999": ; preds = %769
   %806 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 16
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit1000": ; preds = %775
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit1001": ; preds = %775
   %807 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 24
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i285, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit998", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit1000", %786, %793, %800
-  %.028.i.i.i.i.i281 = phi ptr [ %.029.lcssa.i.i.i.i.i278, %786 ], [ %.1.i.i.i.i.i282, %793 ], [ %.2.i.i.i.i.i279, %800 ], [ %805, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit" ], [ %806, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit998" ], [ %807, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit1000" ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i285 ]
-  %.not633 = icmp eq ptr %132, %.028.i.i.i.i.i281
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i285, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit999", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit1001", %786, %793, %800
+  %.028.i.i.i.i.i281 = phi ptr [ %.029.lcssa.i.i.i.i.i278, %786 ], [ %.1.i.i.i.i.i282, %793 ], [ %.2.i.i.i.i.i279, %800 ], [ %805, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit" ], [ %806, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit999" ], [ %807, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.loopexit.split.loop.exit1001" ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i285 ]
+  %.not633 = icmp eq ptr %134, %.028.i.i.i.i.i281
   br i1 %.not633, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit.thread", label %808
 
 808:                                              ; preds = %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_2EbT_SH_T0_.exit", %753
@@ -5737,10 +5738,10 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
   br i1 %815, label %866, label %816
 
 816:                                              ; preds = %811
-  br i1 %.not618913924, label %._crit_edge.i.i.i.i.i292, label %.lr.ph.i.i.i.i.i301
+  br i1 %.not618914925, label %._crit_edge.i.i.i.i.i292, label %.lr.ph.i.i.i.i.i301
 
 .lr.ph.i.i.i.i.i301:                              ; preds = %816, %839
-  %.044.i.i.i.i.i302 = phi i64 [ %841, %839 ], [ %134, %816 ]
+  %.044.i.i.i.i.i302 = phi i64 [ %841, %839 ], [ %133, %816 ]
   %.02943.i.i.i.i.i303 = phi ptr [ %840, %839 ], [ %2, %816 ]
   %.029.val.i.i.i.i.i304 = load ptr, ptr %.02943.i.i.i.i.i303, align 8, !tbaa !137
   %817 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK11OpenImageIO6v3_1_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %.029.val.i.i.i.i.i304)
@@ -5765,7 +5766,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
   %830 = getelementptr inbounds nuw i8, ptr %829, i64 124
   %831 = load i32, ptr %830, align 4, !tbaa !49
   %832 = icmp slt i32 %831, 0
-  br i1 %832, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit1006", label %833
+  br i1 %832, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit1007", label %833
 
 833:                                              ; preds = %827
   %834 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i303, i64 24
@@ -5774,7 +5775,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
   %836 = getelementptr inbounds nuw i8, ptr %835, i64 124
   %837 = load i32, ptr %836, align 4, !tbaa !49
   %838 = icmp slt i32 %837, 0
-  br i1 %838, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit1008", label %839
+  br i1 %838, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit1009", label %839
 
 839:                                              ; preds = %833
   %840 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i303, i64 32
@@ -5784,12 +5785,12 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
 
 ._crit_edge.loopexit.i.i.i.i.i308:                ; preds = %839
   %.pre.i.i.i.i.i309 = ptrtoint ptr %840 to i64
-  %.pre49.i.i.i.i.i310 = sub i64 %133, %.pre.i.i.i.i.i309
+  %.pre49.i.i.i.i.i310 = sub i64 %132, %.pre.i.i.i.i.i309
   %843 = ashr exact i64 %.pre49.i.i.i.i.i310, 3
   br label %._crit_edge.i.i.i.i.i292
 
 ._crit_edge.i.i.i.i.i292:                         ; preds = %._crit_edge.loopexit.i.i.i.i.i308, %816
-  %.pre-phi50.i.i.i.i.i293 = phi i64 [ %843, %._crit_edge.loopexit.i.i.i.i.i308 ], [ %.sroa.40.0.lcssa907928, %816 ]
+  %.pre-phi50.i.i.i.i.i293 = phi i64 [ %843, %._crit_edge.loopexit.i.i.i.i.i308 ], [ %.sroa.40.0.lcssa908929, %816 ]
   %.029.lcssa.i.i.i.i.i294 = phi ptr [ %840, %._crit_edge.loopexit.i.i.i.i.i308 ], [ %2, %816 ]
   switch i64 %.pre-phi50.i.i.i.i.i293, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.thread" [
     i64 3, label %844
@@ -5835,17 +5836,17 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
   %863 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i303, i64 8
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit1006": ; preds = %827
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit1007": ; preds = %827
   %864 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i303, i64 16
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit1008": ; preds = %833
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit1009": ; preds = %833
   %865 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i303, i64 24
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i301, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit1006", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit1008", %844, %851, %858
-  %.028.i.i.i.i.i297 = phi ptr [ %.029.lcssa.i.i.i.i.i294, %844 ], [ %.1.i.i.i.i.i298, %851 ], [ %.2.i.i.i.i.i295, %858 ], [ %863, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit" ], [ %864, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit1006" ], [ %865, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit1008" ], [ %.02943.i.i.i.i.i303, %.lr.ph.i.i.i.i.i301 ]
-  %.not634 = icmp eq ptr %132, %.028.i.i.i.i.i297
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i301, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit1007", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit1009", %844, %851, %858
+  %.028.i.i.i.i.i297 = phi ptr [ %.029.lcssa.i.i.i.i.i294, %844 ], [ %.1.i.i.i.i.i298, %851 ], [ %.2.i.i.i.i.i295, %858 ], [ %863, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit" ], [ %864, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit1007" ], [ %865, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.loopexit.split.loop.exit1009" ], [ %.02943.i.i.i.i.i303, %.lr.ph.i.i.i.i.i301 ]
+  %.not634 = icmp eq ptr %134, %.028.i.i.i.i.i297
   br i1 %.not634, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.thread", label %866
 
 866:                                              ; preds = %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit", %811
@@ -5869,10 +5870,10 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
   br i1 %.not199, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.thread", label %872
 
 872:                                              ; preds = %869, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_3EbT_SH_T0_.exit.thread"
-  br i1 %.not618913924, label %._crit_edge.i.i.i.i.i311, label %.lr.ph.i.i.i.i.i320
+  br i1 %.not618914925, label %._crit_edge.i.i.i.i.i311, label %.lr.ph.i.i.i.i.i320
 
 .lr.ph.i.i.i.i.i320:                              ; preds = %872, %887
-  %.057.i.i.i.i.i = phi i64 [ %889, %887 ], [ %134, %872 ]
+  %.057.i.i.i.i.i = phi i64 [ %889, %887 ], [ %133, %872 ]
   %.02956.i.i.i.i.i = phi ptr [ %888, %887 ], [ %2, %872 ]
   %.029.val.i.i.i.i.i321 = load ptr, ptr %.02956.i.i.i.i.i, align 8, !tbaa !137
   %873 = call noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf9nchannelsEv(ptr noundef nonnull align 8 dereferenceable(16) %.029.val.i.i.i.i.i321)
@@ -5894,7 +5895,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
   %881 = call noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf9nchannelsEv(ptr noundef nonnull align 8 dereferenceable(16) %.val33.i.i.i.i.i323)
   %882 = call noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf9nchannelsEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %.not44.i.i.i.i.i = icmp eq i32 %881, %882
-  br i1 %.not44.i.i.i.i.i, label %883, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit1014"
+  br i1 %.not44.i.i.i.i.i, label %883, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit1015"
 
 883:                                              ; preds = %879
   %884 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i, i64 24
@@ -5902,7 +5903,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
   %885 = call noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf9nchannelsEv(ptr noundef nonnull align 8 dereferenceable(16) %.val35.i.i.i.i.i324)
   %886 = call noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf9nchannelsEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %.not45.i.i.i.i.i = icmp eq i32 %885, %886
-  br i1 %.not45.i.i.i.i.i, label %887, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit1016"
+  br i1 %.not45.i.i.i.i.i, label %887, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit1017"
 
 887:                                              ; preds = %883
   %888 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i, i64 32
@@ -5912,12 +5913,12 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
 
 ._crit_edge.loopexit.i.i.i.i.i325:                ; preds = %887
   %.pre.i.i.i.i.i326 = ptrtoint ptr %888 to i64
-  %.pre62.i.i.i.i.i = sub i64 %133, %.pre.i.i.i.i.i326
+  %.pre62.i.i.i.i.i = sub i64 %132, %.pre.i.i.i.i.i326
   %891 = ashr exact i64 %.pre62.i.i.i.i.i, 3
   br label %._crit_edge.i.i.i.i.i311
 
 ._crit_edge.i.i.i.i.i311:                         ; preds = %._crit_edge.loopexit.i.i.i.i.i325, %872
-  %.pre-phi63.i.i.i.i.i = phi i64 [ %891, %._crit_edge.loopexit.i.i.i.i.i325 ], [ %.sroa.40.0.lcssa907928, %872 ]
+  %.pre-phi63.i.i.i.i.i = phi i64 [ %891, %._crit_edge.loopexit.i.i.i.i.i325 ], [ %.sroa.40.0.lcssa908929, %872 ]
   %.029.lcssa.i.i.i.i.i312 = phi ptr [ %888, %._crit_edge.loopexit.i.i.i.i.i325 ], [ %2, %872 ]
   switch i64 %.pre-phi63.i.i.i.i.i, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.thread" [
     i64 3, label %892
@@ -5960,17 +5961,17 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
   %905 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i, i64 8
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit1014": ; preds = %879
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit1015": ; preds = %879
   %906 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i, i64 16
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit1016": ; preds = %883
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit1017": ; preds = %883
   %907 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i, i64 24
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i320, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit1014", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit1016", %892, %897, %902
-  %.028.i.i.i.i.i315 = phi ptr [ %.029.lcssa.i.i.i.i.i312, %892 ], [ %.1.i.i.i.i.i316, %897 ], [ %.2.i.i.i.i.i313, %902 ], [ %905, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit" ], [ %906, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit1014" ], [ %907, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit1016" ], [ %.02956.i.i.i.i.i, %.lr.ph.i.i.i.i.i320 ]
-  %.not635 = icmp eq ptr %132, %.028.i.i.i.i.i315
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i320, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit1015", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit1017", %892, %897, %902
+  %.028.i.i.i.i.i315 = phi ptr [ %.029.lcssa.i.i.i.i.i312, %892 ], [ %.1.i.i.i.i.i316, %897 ], [ %.2.i.i.i.i.i313, %902 ], [ %905, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit" ], [ %906, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit1015" ], [ %907, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.loopexit.split.loop.exit1017" ], [ %.02956.i.i.i.i.i, %.lr.ph.i.i.i.i.i320 ]
+  %.not635 = icmp eq ptr %134, %.028.i.i.i.i.i315
   br i1 %.not635, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit.thread", label %908
 
 908:                                              ; preds = %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_4EbT_SH_T0_.exit"
@@ -6019,14 +6020,14 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
 _ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit327: ; preds = %.lr.ph788, %923
   %.sroa.12.0 = phi i64 [ %927, %923 ], [ 0, %.lr.ph788 ]
   %.sroa.0370.0 = phi ptr [ %925, %923 ], [ @.str.2, %.lr.ph788 ]
-  br i1 %.not618913924, label %._crit_edge.i.i.i.i.i328, label %.lr.ph.i.i.i.i.i335
+  br i1 %.not618914925, label %._crit_edge.i.i.i.i.i328, label %.lr.ph.i.i.i.i.i335
 
 .lr.ph.i.i.i.i.i335:                              ; preds = %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit327
   %928 = icmp eq i64 %.sroa.12.0, 0
   br label %929
 
 929:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit70.i.i.i.i.i", %.lr.ph.i.i.i.i.i335
-  %.0117.i.i.i.i.i = phi i64 [ %134, %.lr.ph.i.i.i.i.i335 ], [ %1002, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit70.i.i.i.i.i" ]
+  %.0117.i.i.i.i.i = phi i64 [ %133, %.lr.ph.i.i.i.i.i335 ], [ %1002, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit70.i.i.i.i.i" ]
   %.029116.i.i.i.i.i = phi ptr [ %2, %.lr.ph.i.i.i.i.i335 ], [ %1001, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit70.i.i.i.i.i" ]
   %.029.val.i.i.i.i.i336 = load ptr, ptr %.029116.i.i.i.i.i, align 8, !tbaa !137
   %930 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK11OpenImageIO6v3_1_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %.029.val.i.i.i.i.i336)
@@ -6098,7 +6099,7 @@ _ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i47.i.i.i.i.i: ; preds
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i50.i.i.i.i.i: ; preds = %964
   %bcmp.i.i.i51.i.i.i.i.i = call i32 @bcmp(ptr %.sroa.02.0.i.i48.i.i.i.i.i, ptr %.sroa.0370.0, i64 %.sroa.12.0)
   %.not.i.i.i.i52.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i51.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i52.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit54.i.i.i.i.i", label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1022"
+  br i1 %.not.i.i.i.i52.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit54.i.i.i.i.i", label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1023"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit54.i.i.i.i.i": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i50.i.i.i.i.i, %964
   %965 = getelementptr inbounds nuw i8, ptr %.029116.i.i.i.i.i, i64 16
@@ -6127,7 +6128,7 @@ _ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i55.i.i.i.i.i: ; preds
   %.sroa.02.0.i.i56.i.i.i.i.i = phi ptr [ %978, %976 ], [ @.str.2, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit54.i.i.i.i.i" ]
   %.sroa.3.0.i.i57.i.i.i.i.i = phi i64 [ %980, %976 ], [ 0, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit54.i.i.i.i.i" ]
   %981 = icmp eq i64 %.sroa.3.0.i.i57.i.i.i.i.i, %.sroa.12.0
-  br i1 %981, label %982, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1024"
+  br i1 %981, label %982, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1025"
 
 982:                                              ; preds = %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i55.i.i.i.i.i
   br i1 %928, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit62.i.i.i.i.i", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i58.i.i.i.i.i
@@ -6135,7 +6136,7 @@ _ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i55.i.i.i.i.i: ; preds
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i58.i.i.i.i.i: ; preds = %982
   %bcmp.i.i.i59.i.i.i.i.i = call i32 @bcmp(ptr %.sroa.02.0.i.i56.i.i.i.i.i, ptr %.sroa.0370.0, i64 %.sroa.12.0)
   %.not.i.i.i.i60.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i59.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i60.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit62.i.i.i.i.i", label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1026"
+  br i1 %.not.i.i.i.i60.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit62.i.i.i.i.i", label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1027"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit62.i.i.i.i.i": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i58.i.i.i.i.i, %982
   %983 = getelementptr inbounds nuw i8, ptr %.029116.i.i.i.i.i, i64 24
@@ -6164,7 +6165,7 @@ _ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i63.i.i.i.i.i: ; preds
   %.sroa.02.0.i.i64.i.i.i.i.i = phi ptr [ %996, %994 ], [ @.str.2, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit62.i.i.i.i.i" ]
   %.sroa.3.0.i.i65.i.i.i.i.i = phi i64 [ %998, %994 ], [ 0, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit62.i.i.i.i.i" ]
   %999 = icmp eq i64 %.sroa.3.0.i.i65.i.i.i.i.i, %.sroa.12.0
-  br i1 %999, label %1000, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1028"
+  br i1 %999, label %1000, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1029"
 
 1000:                                             ; preds = %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i63.i.i.i.i.i
   br i1 %928, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit70.i.i.i.i.i", label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i66.i.i.i.i.i
@@ -6172,7 +6173,7 @@ _ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i63.i.i.i.i.i: ; preds
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i66.i.i.i.i.i: ; preds = %1000
   %bcmp.i.i.i67.i.i.i.i.i = call i32 @bcmp(ptr %.sroa.02.0.i.i64.i.i.i.i.i, ptr %.sroa.0370.0, i64 %.sroa.12.0)
   %.not.i.i.i.i68.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i67.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i68.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit70.i.i.i.i.i", label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1030"
+  br i1 %.not.i.i.i.i68.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit70.i.i.i.i.i", label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1031"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit70.i.i.i.i.i": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i66.i.i.i.i.i, %1000
   %1001 = getelementptr inbounds nuw i8, ptr %.029116.i.i.i.i.i, i64 32
@@ -6182,12 +6183,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i66.i.i.i.i.i: ; preds = %1000
 
 ._crit_edge.loopexit.i.i.i.i.i338:                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN11OpenImageIO6v3_1_012ImageBufAlgo7IBAprepERNS3_3ROIERNS3_8ImageBufENS3_4spanIKPKS7_Lm18446744073709551615EEENS3_14ParamValueSpanEPNS3_9ImageSpecEE3$_5EclIPSC_EEbT_.exit70.i.i.i.i.i"
   %.pre.i.i.i.i.i339 = ptrtoint ptr %1001 to i64
-  %.pre125.i.i.i.i.i = sub i64 %133, %.pre.i.i.i.i.i339
+  %.pre125.i.i.i.i.i = sub i64 %132, %.pre.i.i.i.i.i339
   %1004 = ashr exact i64 %.pre125.i.i.i.i.i, 3
   br label %._crit_edge.i.i.i.i.i328
 
 ._crit_edge.i.i.i.i.i328:                         ; preds = %._crit_edge.loopexit.i.i.i.i.i338, %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit327
-  %.pre-phi126.i.i.i.i.i = phi i64 [ %1004, %._crit_edge.loopexit.i.i.i.i.i338 ], [ %.sroa.40.0.lcssa907928, %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit327 ]
+  %.pre-phi126.i.i.i.i.i = phi i64 [ %1004, %._crit_edge.loopexit.i.i.i.i.i338 ], [ %.sroa.40.0.lcssa908929, %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit327 ]
   %.029.lcssa.i.i.i.i.i329 = phi ptr [ %1001, %._crit_edge.loopexit.i.i.i.i.i338 ], [ %2, %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit327 ]
   switch i64 %.pre-phi126.i.i.i.i.i, label %.critedge204 [
     i64 3, label %1005
@@ -6320,29 +6321,29 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i90.i.i.i.i.i: ; preds = %1062
   %1064 = getelementptr inbounds nuw i8, ptr %.029116.i.i.i.i.i, i64 8
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1022": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i50.i.i.i.i.i
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1023": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i50.i.i.i.i.i
   %1065 = getelementptr inbounds nuw i8, ptr %.029116.i.i.i.i.i, i64 8
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1024": ; preds = %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i55.i.i.i.i.i
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1025": ; preds = %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i55.i.i.i.i.i
   %1066 = getelementptr inbounds nuw i8, ptr %.029116.i.i.i.i.i, i64 16
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1026": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i58.i.i.i.i.i
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1027": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i58.i.i.i.i.i
   %1067 = getelementptr inbounds nuw i8, ptr %.029116.i.i.i.i.i, i64 16
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1028": ; preds = %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i63.i.i.i.i.i
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1029": ; preds = %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i63.i.i.i.i.i
   %1068 = getelementptr inbounds nuw i8, ptr %.029116.i.i.i.i.i, i64 24
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1030": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i66.i.i.i.i.i
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1031": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i66.i.i.i.i.i
   %1069 = getelementptr inbounds nuw i8, ptr %.029116.i.i.i.i.i, i64 24
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit": ; preds = %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1022", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1024", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1026", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1028", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1030", %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i87.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i90.i.i.i.i.i, %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i71.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i74.i.i.i.i.i, %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i79.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i82.i.i.i.i.i
-  %.028.i.i.i.i.i332 = phi ptr [ %.029.lcssa.i.i.i.i.i329, %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i71.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i329, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i74.i.i.i.i.i ], [ %.1.i.i.i.i.i333, %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i79.i.i.i.i.i ], [ %.1.i.i.i.i.i333, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i82.i.i.i.i.i ], [ %.2.i.i.i.i.i330, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i90.i.i.i.i.i ], [ %.2.i.i.i.i.i330, %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i87.i.i.i.i.i ], [ %1064, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit" ], [ %1065, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1022" ], [ %1066, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1024" ], [ %1067, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1026" ], [ %1068, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1028" ], [ %1069, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1030" ], [ %.029116.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i ], [ %.029116.i.i.i.i.i, %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i.i.i.i.i.i ]
-  %.not636 = icmp eq ptr %132, %.028.i.i.i.i.i332
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit": ; preds = %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1023", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1025", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1027", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1029", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1031", %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i87.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i90.i.i.i.i.i, %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i71.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i74.i.i.i.i.i, %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i79.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i82.i.i.i.i.i
+  %.028.i.i.i.i.i332 = phi ptr [ %.029.lcssa.i.i.i.i.i329, %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i71.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i329, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i74.i.i.i.i.i ], [ %.1.i.i.i.i.i333, %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i79.i.i.i.i.i ], [ %.1.i.i.i.i.i333, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i82.i.i.i.i.i ], [ %.2.i.i.i.i.i330, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i90.i.i.i.i.i ], [ %.2.i.i.i.i.i330, %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i87.i.i.i.i.i ], [ %1064, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit" ], [ %1065, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1023" ], [ %1066, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1025" ], [ %1067, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1027" ], [ %1068, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1029" ], [ %1069, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit.loopexit.split.loop.exit1031" ], [ %.029116.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i ], [ %.029116.i.i.i.i.i, %_ZNK11OpenImageIO6v3_1_09ImageSpec12channel_nameEi.exit.i.i.i.i.i.i.i ]
+  %.not636 = icmp eq ptr %134, %.028.i.i.i.i.i332
   br i1 %.not636, label %.critedge204, label %1070
 
 1070:                                             ; preds = %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_5EbT_SH_T0_.exit"
@@ -6370,7 +6371,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i90.i.i.i.i.i: ; preds = %1062
   br i1 %1078, label %1081, label %1079
 
 1079:                                             ; preds = %1074
-  %1080 = call fastcc noundef zeroext i1 @"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_6EbT_SH_T0_"(ptr noundef %2, ptr noundef %132)
+  %1080 = call fastcc noundef zeroext i1 @"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_6EbT_SH_T0_"(ptr noundef %2, ptr noundef %134)
   br i1 %1080, label %1081, label %1082
 
 1081:                                             ; preds = %1079, %1074
@@ -6382,10 +6383,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i90.i.i.i.i.i: ; preds = %1062
   br i1 %1083, label %1113, label %1084
 
 1084:                                             ; preds = %1082
-  br i1 %.not618913924, label %._crit_edge.i.i.i.i.i340, label %.lr.ph.i.i.i.i.i349
+  br i1 %.not618914925, label %._crit_edge.i.i.i.i.i340, label %.lr.ph.i.i.i.i.i349
 
 .lr.ph.i.i.i.i.i349:                              ; preds = %1084, %1095
-  %.044.i.i.i.i.i350 = phi i64 [ %1097, %1095 ], [ %134, %1084 ]
+  %.044.i.i.i.i.i350 = phi i64 [ %1097, %1095 ], [ %133, %1084 ]
   %.02943.i.i.i.i.i351 = phi ptr [ %1096, %1095 ], [ %2, %1084 ]
   %.029.val.i.i.i.i.i352 = load ptr, ptr %.02943.i.i.i.i.i351, align 8, !tbaa !137
   %1085 = call noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_08ImageBuf4deepEv(ptr noundef nonnull align 8 dereferenceable(16) %.029.val.i.i.i.i.i352)
@@ -6401,13 +6402,13 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i90.i.i.i.i.i: ; preds = %1062
   %1090 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i351, i64 16
   %.val30.i.i.i.i.i354 = load ptr, ptr %1090, align 8, !tbaa !137
   %1091 = call noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_08ImageBuf4deepEv(ptr noundef nonnull align 8 dereferenceable(16) %.val30.i.i.i.i.i354)
-  br i1 %1091, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit1041", label %1092
+  br i1 %1091, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit1042", label %1092
 
 1092:                                             ; preds = %1089
   %1093 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i351, i64 24
   %.val31.i.i.i.i.i355 = load ptr, ptr %1093, align 8, !tbaa !137
   %1094 = call noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_08ImageBuf4deepEv(ptr noundef nonnull align 8 dereferenceable(16) %.val31.i.i.i.i.i355)
-  br i1 %1094, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit1043", label %1095
+  br i1 %1094, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit1044", label %1095
 
 1095:                                             ; preds = %1092
   %1096 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i351, i64 32
@@ -6417,12 +6418,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i90.i.i.i.i.i: ; preds = %1062
 
 ._crit_edge.loopexit.i.i.i.i.i356:                ; preds = %1095
   %.pre.i.i.i.i.i357 = ptrtoint ptr %1096 to i64
-  %.pre49.i.i.i.i.i358 = sub i64 %133, %.pre.i.i.i.i.i357
+  %.pre49.i.i.i.i.i358 = sub i64 %132, %.pre.i.i.i.i.i357
   %1099 = ashr exact i64 %.pre49.i.i.i.i.i358, 3
   br label %._crit_edge.i.i.i.i.i340
 
 ._crit_edge.i.i.i.i.i340:                         ; preds = %._crit_edge.loopexit.i.i.i.i.i356, %1084
-  %.pre-phi50.i.i.i.i.i341 = phi i64 [ %1099, %._crit_edge.loopexit.i.i.i.i.i356 ], [ %.sroa.40.0.lcssa907928, %1084 ]
+  %.pre-phi50.i.i.i.i.i341 = phi i64 [ %1099, %._crit_edge.loopexit.i.i.i.i.i356 ], [ %.sroa.40.0.lcssa908929, %1084 ]
   %.029.lcssa.i.i.i.i.i342 = phi ptr [ %1096, %._crit_edge.loopexit.i.i.i.i.i356 ], [ %2, %1084 ]
   switch i64 %.pre-phi50.i.i.i.i.i341, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.thread" [
     i64 3, label %1100
@@ -6459,17 +6460,17 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i90.i.i.i.i.i: ; preds = %1062
   %1110 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i351, i64 8
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit1041": ; preds = %1089
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit1042": ; preds = %1089
   %1111 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i351, i64 16
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit1043": ; preds = %1092
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit1044": ; preds = %1092
   %1112 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i351, i64 24
   br label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit"
 
-"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i349, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit1041", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit1043", %1100, %1104, %1108
-  %.028.i.i.i.i.i345 = phi ptr [ %.029.lcssa.i.i.i.i.i342, %1100 ], [ %.1.i.i.i.i.i346, %1104 ], [ %.2.i.i.i.i.i343, %1108 ], [ %1110, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit" ], [ %1111, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit1041" ], [ %1112, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit1043" ], [ %.02943.i.i.i.i.i351, %.lr.ph.i.i.i.i.i349 ]
-  %.not637 = icmp eq ptr %132, %.028.i.i.i.i.i345
+"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i349, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit1042", %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit1044", %1100, %1104, %1108
+  %.028.i.i.i.i.i345 = phi ptr [ %.029.lcssa.i.i.i.i.i342, %1100 ], [ %.1.i.i.i.i.i346, %1104 ], [ %.2.i.i.i.i.i343, %1108 ], [ %1110, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit" ], [ %1111, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit1042" ], [ %1112, %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.loopexit.split.loop.exit1044" ], [ %.02943.i.i.i.i.i351, %.lr.ph.i.i.i.i.i349 ]
+  %.not637 = icmp eq ptr %134, %.028.i.i.i.i.i345
   br i1 %.not637, label %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit.thread", label %1113
 
 1113:                                             ; preds = %"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_7EbT_SH_T0_.exit", %1082
@@ -6505,7 +6506,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i359: ; preds = %1117
   br i1 %1124, label %1125, label %1127
 
 1125:                                             ; preds = %1123
-  %1126 = call fastcc noundef zeroext i1 @"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_8EbT_SH_T0_"(ptr noundef %2, ptr noundef %132)
+  %1126 = call fastcc noundef zeroext i1 @"_ZSt6any_ofIPKPKN11OpenImageIO6v3_1_08ImageBufEZNS1_12ImageBufAlgo7IBAprepERNS1_3ROIERS2_NS1_4spanIS5_Lm18446744073709551615EEENS1_14ParamValueSpanEPNS1_9ImageSpecEE3$_8EbT_SH_T0_"(ptr noundef %2, ptr noundef %134)
   br i1 %1126, label %1127, label %_ZN11OpenImageIO6v3_1_0neENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit363
 
 1127:                                             ; preds = %1125, %1123

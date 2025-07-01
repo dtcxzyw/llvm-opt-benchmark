@@ -718,15 +718,15 @@ _ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i.i: ; preds = %.noexc74
   br i1 %100, label %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i.i, label %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i.i
 
 _ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i.i: ; preds = %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i.i
-  %.pre24.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !57
+  %.pre23.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !57
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i
 
 _ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i.i: ; preds = %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i.i
   %.idx.i.i = shl nuw nsw i64 %.sroa.speculated.i.i, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %95, ptr align 8 %.pre.i.i, i64 %.idx.i.i, i1 false)
+  %.idx22.i.i = shl nuw nsw i64 %.sroa.speculated.i.i, 2
   %101 = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !17
-  %.idx23.i.i = shl nuw nsw i64 %.sroa.speculated.i.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %99, ptr align 4 %101, i64 %.idx23.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %99, ptr align 4 %101, i64 %.idx22.i.i, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i
 
 _ZN5Eigen8internal12scoped_arrayIdED2Ev.exit9.i.i: ; preds = %.noexc74
@@ -736,7 +736,7 @@ _ZN5Eigen8internal12scoped_arrayIdED2Ev.exit9.i.i: ; preds = %.noexc74
   br label %.body75
 
 _ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i: ; preds = %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i.i, %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i.i
-  %103 = phi ptr [ %.pre24.i.i, %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i.i ], [ %101, %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i.i ]
+  %103 = phi ptr [ %.pre23.i.i, %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i.i ], [ %101, %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i.i ]
   store ptr %95, ptr %27, align 8, !tbaa !56
   store ptr %99, ptr %.phi.trans.insert.i.i, align 8, !tbaa !57
   store i64 %.sroa.speculated.i, ptr %33, align 8, !tbaa !55
@@ -932,11 +932,11 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
   br label %189
 
 ._crit_edge:                                      ; preds = %221
-  store ptr %.pre24.i.i101173, ptr %.phi.trans.insert.i.i100, align 8
+  store ptr %.pre23.i.i101173, ptr %.phi.trans.insert.i.i100, align 8
   br label %187
 
 187:                                              ; preds = %._crit_edge, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS3_l.exit65
-  %.phi.trans.insert.i.i100.promoted216 = phi ptr [ %.pre24.i.i101173, %._crit_edge ], [ %.phi.trans.insert.i.i100.promoted, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS3_l.exit65 ]
+  %.phi.trans.insert.i.i100.promoted216 = phi ptr [ %.pre23.i.i101173, %._crit_edge ], [ %.phi.trans.insert.i.i100.promoted, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS3_l.exit65 ]
   %.lcssa165 = phi ptr [ %222, %._crit_edge ], [ %.promoted164, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS3_l.exit65 ]
   %.sroa.speculated.i94160.lcssa = phi i64 [ %.sroa.speculated.i94159, %._crit_edge ], [ %.promoted158, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS3_l.exit65 ]
   %.lcssa154 = phi i64 [ %199, %._crit_edge ], [ %.promoted, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS3_l.exit65 ]
@@ -948,7 +948,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
   br i1 %exitcond207.not, label %._crit_edge181, label %165, !llvm.loop !59
 
 189:                                              ; preds = %.lr.ph, %221
-  %.pre24.i.i101174 = phi ptr [ %.phi.trans.insert.i.i100.promoted, %.lr.ph ], [ %.pre24.i.i101173, %221 ]
+  %.pre23.i.i101174 = phi ptr [ %.phi.trans.insert.i.i100.promoted, %.lr.ph ], [ %.pre23.i.i101173, %221 ]
   %.sroa.8.0170 = phi i64 [ %174, %.lr.ph ], [ %226, %221 ]
   %190 = phi i64 [ %.promoted, %.lr.ph ], [ %199, %221 ]
   %.sroa.speculated.i94160169 = phi i64 [ %.promoted158, %.lr.ph ], [ %.sroa.speculated.i94159, %221 ]
@@ -974,7 +974,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
   br i1 %.not149, label %206, label %204
 
 204:                                              ; preds = %200
-  store ptr %.pre24.i.i101174, ptr %.phi.trans.insert.i.i100, align 8
+  store ptr %.pre23.i.i101174, ptr %.phi.trans.insert.i.i100, align 8
   store i64 %190, ptr %120, align 8
   store i64 %.sroa.speculated.i94160169, ptr %133, align 8
   store ptr %191, ptr %132, align 8
@@ -1008,14 +1008,14 @@ _ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i.i96: ; preds = %.noexc108
 _ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i.i104: ; preds = %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i.i96
   %.idx.i.i105 = shl nuw nsw i64 %.sroa.speculated.i.i97, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %210, ptr align 8 %191, i64 %.idx.i.i105, i1 false)
-  %.idx23.i.i106 = shl nuw nsw i64 %.sroa.speculated.i.i97, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %214, ptr align 4 %.pre24.i.i101174, i64 %.idx23.i.i106, i1 false)
+  %.idx22.i.i106 = shl nuw nsw i64 %.sroa.speculated.i.i97, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %214, ptr align 4 %.pre23.i.i101174, i64 %.idx22.i.i106, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i102
 
 _ZN5Eigen8internal12scoped_arrayIdED2Ev.exit9.i.i95: ; preds = %.noexc108
   %216 = landingpad { ptr, i32 }
           cleanup
-  store ptr %.pre24.i.i101174, ptr %.phi.trans.insert.i.i100, align 8
+  store ptr %.pre23.i.i101174, ptr %.phi.trans.insert.i.i100, align 8
   store i64 %190, ptr %120, align 8
   store i64 %.sroa.speculated.i94160169, ptr %133, align 8
   store ptr %191, ptr %132, align 8
@@ -1023,11 +1023,11 @@ _ZN5Eigen8internal12scoped_arrayIdED2Ev.exit9.i.i95: ; preds = %.noexc108
   br label %.body92
 
 _ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i102: ; preds = %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i.i96, %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i.i104
-  %217 = icmp eq ptr %.pre24.i.i101174, null
+  %217 = icmp eq ptr %.pre23.i.i101174, null
   br i1 %217, label %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i103, label %218
 
 218:                                              ; preds = %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i102
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre24.i.i101174) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre23.i.i101174) #21
   br label %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i103
 
 _ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i103: ; preds = %218, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i102
@@ -1039,12 +1039,12 @@ _ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i103: ; preds = %218, %_ZN5Eigen
   br label %221
 
 221:                                              ; preds = %189, %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i103, %220
-  %.pre24.i.i101173 = phi ptr [ %.pre24.i.i101174, %189 ], [ %214, %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i103 ], [ %214, %220 ]
+  %.pre23.i.i101173 = phi ptr [ %.pre23.i.i101174, %189 ], [ %214, %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i103 ], [ %214, %220 ]
   %222 = phi ptr [ %191, %189 ], [ %210, %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i103 ], [ %210, %220 ]
   %.sroa.speculated.i94159 = phi i64 [ %.sroa.speculated.i94160169, %189 ], [ %.sroa.speculated.i94, %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i103 ], [ %.sroa.speculated.i94, %220 ]
   %223 = getelementptr inbounds double, ptr %222, i64 %190
   store double 0.000000e+00, ptr %223, align 8, !tbaa !24
-  %224 = getelementptr inbounds i32, ptr %.pre24.i.i101173, i64 %190
+  %224 = getelementptr inbounds i32, ptr %.pre23.i.i101173, i64 %190
   store i32 %195, ptr %224, align 4, !tbaa !19
   %225 = getelementptr inbounds double, ptr %222, i64 %197
   store double %193, ptr %225, align 8, !tbaa !24
@@ -1055,7 +1055,7 @@ _ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i103: ; preds = %218, %_ZN5Eigen
 .loopexit152:                                     ; preds = %206
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %.pre24.i.i101174, ptr %.phi.trans.insert.i.i100, align 8
+  store ptr %.pre23.i.i101174, ptr %.phi.trans.insert.i.i100, align 8
   store i64 %190, ptr %120, align 8
   store i64 %.sroa.speculated.i94160169, ptr %133, align 8
   store ptr %191, ptr %132, align 8
@@ -1190,16 +1190,16 @@ _ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i:   ; preds = %9
 
 _ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i: ; preds = %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre24.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !57
+  %.pre23.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !57
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i
 
 _ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i: ; preds = %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i
   %.idx.i = shl nuw nsw i64 %.sroa.speculated.i, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr align 8 %.pre.i, i64 %.idx.i, i1 false)
+  %.idx22.i = shl nuw nsw i64 %.sroa.speculated.i, 2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !17
-  %.idx23.i = shl nuw nsw i64 %.sroa.speculated.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %17, ptr align 4 %20, i64 %.idx23.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %17, ptr align 4 %20, i64 %.idx22.i, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i
 
 _ZN5Eigen8internal12scoped_arrayIdED2Ev.exit9.i:  ; preds = %9
@@ -1209,7 +1209,7 @@ _ZN5Eigen8internal12scoped_arrayIdED2Ev.exit9.i:  ; preds = %9
   resume { ptr, i32 } %21
 
 _ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i: ; preds = %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i, %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i
-  %22 = phi ptr [ %.pre24.i, %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i ], [ %20, %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i ]
+  %22 = phi ptr [ %.pre23.i, %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i ], [ %20, %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i ]
   store ptr %13, ptr %0, align 8, !tbaa !56
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %17, ptr %23, align 8, !tbaa !57
@@ -1285,16 +1285,16 @@ _ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i:   ; preds = %15
 
 _ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i: ; preds = %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre24.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !57
+  %.pre23.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !57
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i
 
 _ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i: ; preds = %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i
   %.idx.i = shl nuw nsw i64 %.sroa.speculated.i, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 8 %.pre.i, i64 %.idx.i, i1 false)
+  %.idx22.i = shl nuw nsw i64 %.sroa.speculated.i, 2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !17
-  %.idx23.i = shl nuw nsw i64 %.sroa.speculated.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %28, i64 %.idx23.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %28, i64 %.idx22.i, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i
 
 _ZN5Eigen8internal12scoped_arrayIdED2Ev.exit9.i:  ; preds = %15
@@ -1304,7 +1304,7 @@ _ZN5Eigen8internal12scoped_arrayIdED2Ev.exit9.i:  ; preds = %15
   resume { ptr, i32 } %29
 
 _ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i: ; preds = %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i, %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i
-  %30 = phi ptr [ %.pre24.i, %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i ], [ %28, %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i ]
+  %30 = phi ptr [ %.pre23.i, %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i ], [ %28, %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit.i ]
   store ptr %19, ptr %0, align 8, !tbaa !56
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %23, ptr %31, align 8, !tbaa !57
@@ -2545,7 +2545,7 @@ _ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i.i: ; preds = %.noexc74
   br i1 %97, label %_ZN5Eigen8internal10smart_copyIfEEvPKT_S4_PS2_.exit.i.i, label %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i.i
 
 _ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i.i: ; preds = %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i.i
-  %.pre24.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !57
+  %.pre23.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !57
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i
 
 _ZN5Eigen8internal10smart_copyIfEEvPKT_S4_PS2_.exit.i.i: ; preds = %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i.i
@@ -2562,7 +2562,7 @@ _ZN5Eigen8internal12scoped_arrayIfED2Ev.exit9.i.i: ; preds = %.noexc74
   br label %.body75
 
 _ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i: ; preds = %_ZN5Eigen8internal10smart_copyIfEEvPKT_S4_PS2_.exit.i.i, %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i.i
-  %100 = phi ptr [ %.pre24.i.i, %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i.i ], [ %98, %_ZN5Eigen8internal10smart_copyIfEEvPKT_S4_PS2_.exit.i.i ]
+  %100 = phi ptr [ %.pre23.i.i, %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i.i ], [ %98, %_ZN5Eigen8internal10smart_copyIfEEvPKT_S4_PS2_.exit.i.i ]
   store ptr %95, ptr %27, align 8, !tbaa !98
   store ptr %96, ptr %.phi.trans.insert.i.i, align 8, !tbaa !57
   store i64 %.sroa.speculated.i, ptr %33, align 8, !tbaa !97
@@ -2755,11 +2755,11 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIfLi0EiEEE13InnerIteratorC2ERKS
   br label %183
 
 ._crit_edge:                                      ; preds = %212
-  store ptr %.pre24.i.i100172, ptr %.phi.trans.insert.i.i99, align 8
+  store ptr %.pre23.i.i100172, ptr %.phi.trans.insert.i.i99, align 8
   br label %181
 
 181:                                              ; preds = %._crit_edge, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIfLi0EiEEE13InnerIteratorC2ERKS3_l.exit65
-  %.phi.trans.insert.i.i99.promoted215 = phi ptr [ %.pre24.i.i100172, %._crit_edge ], [ %.phi.trans.insert.i.i99.promoted, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIfLi0EiEEE13InnerIteratorC2ERKS3_l.exit65 ]
+  %.phi.trans.insert.i.i99.promoted215 = phi ptr [ %.pre23.i.i100172, %._crit_edge ], [ %.phi.trans.insert.i.i99.promoted, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIfLi0EiEEE13InnerIteratorC2ERKS3_l.exit65 ]
   %.lcssa164 = phi ptr [ %213, %._crit_edge ], [ %.promoted163, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIfLi0EiEEE13InnerIteratorC2ERKS3_l.exit65 ]
   %.sroa.speculated.i93159.lcssa = phi i64 [ %.sroa.speculated.i93158, %._crit_edge ], [ %.promoted157, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIfLi0EiEEE13InnerIteratorC2ERKS3_l.exit65 ]
   %.lcssa153 = phi i64 [ %193, %._crit_edge ], [ %.promoted, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIfLi0EiEEE13InnerIteratorC2ERKS3_l.exit65 ]
@@ -2771,7 +2771,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIfLi0EiEEE13InnerIteratorC2ERKS
   br i1 %exitcond206.not, label %._crit_edge180, label %159, !llvm.loop !100
 
 183:                                              ; preds = %.lr.ph, %212
-  %.pre24.i.i100173 = phi ptr [ %.phi.trans.insert.i.i99.promoted, %.lr.ph ], [ %.pre24.i.i100172, %212 ]
+  %.pre23.i.i100173 = phi ptr [ %.phi.trans.insert.i.i99.promoted, %.lr.ph ], [ %.pre23.i.i100172, %212 ]
   %.sroa.8.0169 = phi i64 [ %168, %.lr.ph ], [ %217, %212 ]
   %184 = phi i64 [ %.promoted, %.lr.ph ], [ %193, %212 ]
   %.sroa.speculated.i93159168 = phi i64 [ %.promoted157, %.lr.ph ], [ %.sroa.speculated.i93158, %212 ]
@@ -2797,7 +2797,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIfLi0EiEEE13InnerIteratorC2ERKS
   br i1 %.not148, label %200, label %198
 
 198:                                              ; preds = %194
-  store ptr %.pre24.i.i100173, ptr %.phi.trans.insert.i.i99, align 8
+  store ptr %.pre23.i.i100173, ptr %.phi.trans.insert.i.i99, align 8
   store i64 %184, ptr %117, align 8
   store i64 %.sroa.speculated.i93159168, ptr %130, align 8
   store ptr %185, ptr %129, align 8
@@ -2828,13 +2828,13 @@ _ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i.i95: ; preds = %.noexc106
 _ZN5Eigen8internal10smart_copyIfEEvPKT_S4_PS2_.exit.i.i103: ; preds = %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i.i95
   %.idx.i.i104 = shl nuw nsw i64 %.sroa.speculated.i.i96, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %204, ptr align 4 %185, i64 %.idx.i.i104, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %205, ptr align 4 %.pre24.i.i100173, i64 %.idx.i.i104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %205, ptr align 4 %.pre23.i.i100173, i64 %.idx.i.i104, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i101
 
 _ZN5Eigen8internal12scoped_arrayIfED2Ev.exit9.i.i94: ; preds = %.noexc106
   %207 = landingpad { ptr, i32 }
           cleanup
-  store ptr %.pre24.i.i100173, ptr %.phi.trans.insert.i.i99, align 8
+  store ptr %.pre23.i.i100173, ptr %.phi.trans.insert.i.i99, align 8
   store i64 %184, ptr %117, align 8
   store i64 %.sroa.speculated.i93159168, ptr %130, align 8
   store ptr %185, ptr %129, align 8
@@ -2842,11 +2842,11 @@ _ZN5Eigen8internal12scoped_arrayIfED2Ev.exit9.i.i94: ; preds = %.noexc106
   br label %.body91
 
 _ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i101: ; preds = %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i.i95, %_ZN5Eigen8internal10smart_copyIfEEvPKT_S4_PS2_.exit.i.i103
-  %208 = icmp eq ptr %.pre24.i.i100173, null
+  %208 = icmp eq ptr %.pre23.i.i100173, null
   br i1 %208, label %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i102, label %209
 
 209:                                              ; preds = %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i101
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre24.i.i100173) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre23.i.i100173) #21
   br label %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i102
 
 _ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i102: ; preds = %209, %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i.i101
@@ -2858,12 +2858,12 @@ _ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i102: ; preds = %209, %_ZN5Eigen
   br label %212
 
 212:                                              ; preds = %183, %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i102, %211
-  %.pre24.i.i100172 = phi ptr [ %.pre24.i.i100173, %183 ], [ %205, %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i102 ], [ %205, %211 ]
+  %.pre23.i.i100172 = phi ptr [ %.pre23.i.i100173, %183 ], [ %205, %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i102 ], [ %205, %211 ]
   %213 = phi ptr [ %185, %183 ], [ %204, %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i102 ], [ %204, %211 ]
   %.sroa.speculated.i93158 = phi i64 [ %.sroa.speculated.i93159168, %183 ], [ %.sroa.speculated.i93, %_ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i102 ], [ %.sroa.speculated.i93, %211 ]
   %214 = getelementptr inbounds float, ptr %213, i64 %184
   store float 0.000000e+00, ptr %214, align 4, !tbaa !43
-  %215 = getelementptr inbounds i32, ptr %.pre24.i.i100172, i64 %184
+  %215 = getelementptr inbounds i32, ptr %.pre23.i.i100172, i64 %184
   store i32 %189, ptr %215, align 4, !tbaa !19
   %216 = getelementptr inbounds float, ptr %213, i64 %191
   store float %187, ptr %216, align 4, !tbaa !43
@@ -2874,7 +2874,7 @@ _ZN5Eigen8internal12scoped_arrayIiED2Ev.exit8.i.i102: ; preds = %209, %_ZN5Eigen
 .loopexit151:                                     ; preds = %200
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %.pre24.i.i100173, ptr %.phi.trans.insert.i.i99, align 8
+  store ptr %.pre23.i.i100173, ptr %.phi.trans.insert.i.i99, align 8
   store i64 %184, ptr %117, align 8
   store i64 %.sroa.speculated.i93159168, ptr %130, align 8
   store ptr %185, ptr %129, align 8
@@ -3004,7 +3004,7 @@ _ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i:   ; preds = %9
 
 _ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i: ; preds = %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre24.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !57
+  %.pre23.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !57
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i
 
 _ZN5Eigen8internal10smart_copyIfEEvPKT_S4_PS2_.exit.i: ; preds = %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i
@@ -3022,7 +3022,7 @@ _ZN5Eigen8internal12scoped_arrayIfED2Ev.exit9.i:  ; preds = %9
   resume { ptr, i32 } %18
 
 _ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i: ; preds = %_ZN5Eigen8internal10smart_copyIfEEvPKT_S4_PS2_.exit.i, %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i
-  %19 = phi ptr [ %.pre24.i, %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i ], [ %17, %_ZN5Eigen8internal10smart_copyIfEEvPKT_S4_PS2_.exit.i ]
+  %19 = phi ptr [ %.pre23.i, %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i ], [ %17, %_ZN5Eigen8internal10smart_copyIfEEvPKT_S4_PS2_.exit.i ]
   store ptr %13, ptr %0, align 8, !tbaa !98
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %20, align 8, !tbaa !57
@@ -3086,7 +3086,7 @@ _ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i:   ; preds = %15
 
 _ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i: ; preds = %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre24.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !57
+  %.pre23.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !57
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i
 
 _ZN5Eigen8internal10smart_copyIfEEvPKT_S4_PS2_.exit.i: ; preds = %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit.i
@@ -3104,7 +3104,7 @@ _ZN5Eigen8internal12scoped_arrayIfED2Ev.exit9.i:  ; preds = %15
   resume { ptr, i32 } %26
 
 _ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit.i: ; preds = %_ZN5Eigen8internal10smart_copyIfEEvPKT_S4_PS2_.exit.i, %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i
-  %27 = phi ptr [ %.pre24.i, %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i ], [ %25, %_ZN5Eigen8internal10smart_copyIfEEvPKT_S4_PS2_.exit.i ]
+  %27 = phi ptr [ %.pre23.i, %_ZN5Eigen8internal12scoped_arrayIiEC2El.exit._ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit_crit_edge.i ], [ %25, %_ZN5Eigen8internal10smart_copyIfEEvPKT_S4_PS2_.exit.i ]
   store ptr %19, ptr %0, align 8, !tbaa !98
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %28, align 8, !tbaa !57

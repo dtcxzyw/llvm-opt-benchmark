@@ -2152,7 +2152,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h3356ddd442abad0dE.exit33: ; pre
   store i64 %302, ptr %73, align 8, !alias.scope !277, !noalias !286
   store ptr %306, ptr %.sroa.4.0..sroa_idx.i.i46, align 8, !alias.scope !277, !noalias !286
   store i64 %296, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !277, !noalias !286
-  %309 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %298, i64 %299
+  %.idx.i = mul nuw nsw i64 %299, 24
+  %309 = getelementptr inbounds nuw i8, ptr %298, i64 %.idx.i
   %.not270.i = icmp eq i64 %299, 0
   br i1 %.not270.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -2230,7 +2231,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h3356ddd442abad0dE.exit33: ; pre
 318:                                              ; preds = %315
   %319 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i46, align 8, !alias.scope !290, !noalias !294, !nonnull !8, !noundef !8
   %320 = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !290, !noalias !294, !noundef !8
-  %321 = getelementptr inbounds nuw ptr, ptr %319, i64 %320
+  %.idx.i.i = shl nuw nsw i64 %320, 3
+  %321 = getelementptr inbounds nuw i8, ptr %319, i64 %.idx.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !295)
   %322 = icmp eq i64 %320, 0
   br i1 %322, label %.thread78.i, label %.lr.ph.i.i.i
@@ -3793,15 +3795,17 @@ _ZN7ty_test7matcher21discard_todo_metadata17hcb370254f1553faeE.exit.i.i: ; preds
   %.sroa.068.0.copyload.pre.i = load i64, ptr %73, align 8, !noalias !271
   %.sroa.469.0.copyload.pre.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i46, align 8, !noalias !271
   %.sroa.570.0.copyload.pre.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !271
+  %.pre.i = shl nuw nsw i64 %.sroa.570.0.copyload.pre.i, 3
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %305
+  %.idx276.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.loopexit.i ], [ %308, %305 ]
   %.sroa.570.0.copyload.i = phi i64 [ %.sroa.570.0.copyload.pre.i, %._crit_edge.loopexit.i ], [ %296, %305 ]
   %.sroa.469.0.copyload.i = phi ptr [ %.sroa.469.0.copyload.pre.i, %._crit_edge.loopexit.i ], [ %306, %305 ]
   %.sroa.068.0.copyload.i = phi i64 [ %.sroa.068.0.copyload.pre.i, %._crit_edge.loopexit.i ], [ %302, %305 ]
   %763 = icmp ult i64 %.sroa.570.0.copyload.i, 1152921504606846976
   call void @llvm.assume(i1 %763)
-  %764 = getelementptr inbounds nuw ptr, ptr %.sroa.469.0.copyload.i, i64 %.sroa.570.0.copyload.i
+  %764 = getelementptr inbounds nuw i8, ptr %.sroa.469.0.copyload.i, i64 %.idx276.pre-phi.i
   %765 = icmp sgt i64 %.sroa.068.0.copyload.i, -1
   call void @llvm.assume(i1 %765)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %64), !noalias !271

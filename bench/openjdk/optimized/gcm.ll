@@ -119,7 +119,8 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %3, %8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = load i32, ptr %38, align 8
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %37, i64 %40
+  %.idx = shl nuw nsw i64 %40, 3
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx
   %.not27 = icmp eq i32 %39, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
@@ -2190,7 +2191,8 @@ _ZN9Node_List4pushEP4Node.exit138:                ; preds = %_ZN9Node_List4pushE
   %197 = getelementptr inbounds nuw i8, ptr %188, i64 32
   %198 = load i32, ptr %197, align 8
   %199 = zext i32 %198 to i64
-  %200 = getelementptr inbounds nuw ptr, ptr %196, i64 %199
+  %.idx = shl nuw nsw i64 %199, 3
+  %200 = getelementptr inbounds nuw i8, ptr %196, i64 %.idx
   %.not185 = icmp eq i32 %198, 0
   br i1 %.not185, label %.backedge, label %.lr.ph173, !llvm.loop !26
 
@@ -3515,7 +3517,8 @@ _ZN8PhaseCFG20get_latency_for_nodeEP4Node.exit:   ; preds = %35, %._crit_edge.i.
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %80 = load i32, ptr %79, align 8
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %78, i64 %81
+  %.idx = shl nuw nsw i64 %81, 3
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx
   %.not55 = icmp eq i32 %80, 0
   br i1 %.not55, label %.loopexit, label %.lr.ph53
 
@@ -3555,7 +3558,8 @@ define hidden void @_ZN8PhaseCFG17latency_from_usesEP4Node(ptr noundef nonnull r
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %.idx = shl nuw nsw i64 %17, 3
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -4570,7 +4574,8 @@ _ZNK4Node16is_memory_writerEv.exit:               ; preds = %143
   %154 = load ptr, ptr %31, align 8
   %155 = load i32, ptr %60, align 8
   %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds nuw ptr, ptr %154, i64 %156
+  %.idx = shl nuw nsw i64 %156, 3
+  %157 = getelementptr inbounds nuw i8, ptr %154, i64 %.idx
   %.not92 = icmp eq i32 %155, 0
   br i1 %.not92, label %._crit_edge.thread, label %.lr.ph
 

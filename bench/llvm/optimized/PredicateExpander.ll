@@ -13,9 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.llvm::raw_string_ostream" = type { %"class.llvm::raw_ostream", ptr }
 %"class.llvm::raw_ostream" = type { ptr, i32, ptr, ptr, ptr, i8, i32 }
-%"struct.std::pair" = type { ptr, %"class.llvm::SMRange" }
-%"class.llvm::SMRange" = type { %"class.llvm::SMLoc", %"class.llvm::SMLoc" }
-%"class.llvm::SMLoc" = type { ptr }
 
 $_ZNK4llvm6Record12isSubClassOfENS_9StringRefE = comdat any
 
@@ -2512,7 +2509,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %37, %39
   %42 = load i32, ptr %41, align 8, !tbaa !65
   %43 = add i32 %42, 1
   store i32 %43, ptr %41, align 8, !tbaa !65
-  %44 = getelementptr inbounds nuw ptr, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not35 = icmp eq i64 %3, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
@@ -2709,7 +2707,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %23, %25
   store i32 %30, ptr %28, align 8, !tbaa !65
   %31 = load i8, ptr %10, align 1, !tbaa !21, !range !19, !noundef !20
   store i8 0, ptr %10, align 1, !tbaa !21
-  %32 = getelementptr inbounds nuw ptr, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not29 = icmp eq i64 %3, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
@@ -4664,7 +4663,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %39, %41
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit15
 
 _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %52, %54
-  %58 = getelementptr inbounds nuw ptr, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not26 = icmp eq i64 %3, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
@@ -4805,7 +4805,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load i32, ptr %7, align 8, !tbaa !87
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %9
+  %.idx = mul nuw nsw i64 %9, 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %.not36.not = icmp eq i32 %8, 0
   br i1 %.not36.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph
 

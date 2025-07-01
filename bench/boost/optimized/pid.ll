@@ -14803,7 +14803,8 @@ _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit:     ; preds = %36, %_ZNSt6vectorIP
   %.pre6568 = phi ptr [ %38, %36 ], [ %56, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ]
   %59 = load ptr, ptr %2, align 8, !tbaa !433
   %60 = load i64, ptr %.sroa.211.0..sroa_idx, align 8, !tbaa !435
-  %61 = getelementptr inbounds nuw %"class.boost::basic_string_view", ptr %59, i64 %60
+  %.idx = shl nuw nsw i64 %60, 4
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx
   %.not56 = icmp eq i64 %60, 0
   br i1 %.not56, label %._crit_edge, label %.lr.ph
 

@@ -5,25 +5,25 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"struct.llvm::MachineFrameInfo::StackObject" = type <{ i64, i64, %"struct.llvm::Align", i8, i8, i8, i8, [3 x i8], ptr, i8, i8, i8, i8, i8, [3 x i8] }>
 %"struct.llvm::Align" = type { i8 }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.133" }
-%"struct.std::pair.133" = type { %"class.llvm::ValueMapCallbackVH", %"class.std::unique_ptr.101" }
-%"class.llvm::ValueMapCallbackVH" = type { %"class.llvm::CallbackVH", ptr }
-%"class.llvm::CallbackVH" = type { ptr, %"class.llvm::ValueHandleBase" }
-%"class.llvm::ValueHandleBase" = type { %"class.llvm::PointerIntPair", ptr, ptr }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
-%"class.std::unique_ptr.101" = type { %"struct.std::__uniq_ptr_data.102" }
-%"struct.std::__uniq_ptr_data.102" = type { %"class.std::__uniq_ptr_impl.103" }
-%"class.std::__uniq_ptr_impl.103" = type { %"class.std::tuple.104" }
-%"class.std::tuple.104" = type { %"struct.std::_Tuple_impl.105" }
-%"struct.std::_Tuple_impl.105" = type { %"struct.std::_Head_base.108" }
-%"struct.std::_Head_base.108" = type { ptr }
 %"class.std::unique_ptr.93" = type { %"struct.std::__uniq_ptr_data.94" }
 %"struct.std::__uniq_ptr_data.94" = type { %"class.std::__uniq_ptr_impl.95" }
 %"class.std::__uniq_ptr_impl.95" = type { %"class.std::tuple.96" }
 %"class.std::tuple.96" = type { %"struct.std::_Tuple_impl.97" }
 %"struct.std::_Tuple_impl.97" = type { %"struct.std::_Head_base.100" }
 %"struct.std::_Head_base.100" = type { ptr }
+%"class.llvm::ValueMapCallbackVH" = type { %"class.llvm::CallbackVH", ptr }
+%"class.llvm::CallbackVH" = type { ptr, %"class.llvm::ValueHandleBase" }
+%"class.llvm::ValueHandleBase" = type { %"class.llvm::PointerIntPair", ptr, ptr }
+%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
+%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
+%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.133" }
+%"struct.std::pair.133" = type { %"class.llvm::ValueMapCallbackVH", %"class.std::unique_ptr.101" }
+%"class.std::unique_ptr.101" = type { %"struct.std::__uniq_ptr_data.102" }
+%"struct.std::__uniq_ptr_data.102" = type { %"class.std::__uniq_ptr_impl.103" }
+%"class.std::__uniq_ptr_impl.103" = type { %"class.std::tuple.104" }
+%"class.std::tuple.104" = type { %"struct.std::_Tuple_impl.105" }
+%"struct.std::_Tuple_impl.105" = type { %"struct.std::_Head_base.108" }
+%"struct.std::_Head_base.108" = type { ptr }
 %"struct.std::pair.139" = type { ptr, %"class.std::unique_ptr.101" }
 %"struct.std::pair.137" = type <{ %"class.llvm::ValueMapIterator", i8, [7 x i8] }>
 %"class.llvm::ValueMapIterator" = type { %"class.llvm::DenseMapIterator" }
@@ -444,7 +444,8 @@ define dso_local void @_ZN4llvm24PseudoSourceValueManagerC2ERKNS_13TargetMachine
   store i32 0, ptr %20, align 4, !tbaa !86
   %21 = load i32, ptr %17, align 8, !tbaa !83
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %18, i64 %22
+  %.idx.i.i.i.i = mul nuw nsw i64 %22, 48
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i.i.i
   %.not5.i.i.i.i = icmp eq i32 %21, 0
   br i1 %.not5.i.i.i.i, label %_ZN4llvm8ValueMapIPKNS_11GlobalValueESt10unique_ptrIKNS_28GlobalValuePseudoSourceValueESt14default_deleteIS6_EENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2Ej.exit, label %_ZN4llvm18ValueMapCallbackVHIPKNS_11GlobalValueESt10unique_ptrIKNS_28GlobalValuePseudoSourceValueESt14default_deleteIS6_EENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2ERKSF_.exit.i.i.i.i
 
@@ -1480,7 +1481,8 @@ _ZN4llvm8DenseMapINS_18ValueMapCallbackVHIPKNS_11GlobalValueESt10unique_ptrIKNS_
   store i32 0, ptr %24, align 4, !tbaa !86
   %25 = load i32, ptr %2, align 8, !tbaa !83
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %26
+  %.idx.i = mul nuw nsw i64 %26, 48
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i
   %.not5.i = icmp eq i32 %25, 0
   br i1 %.not5.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPKNS_11GlobalValueESt10unique_ptrIKNS_28GlobalValuePseudoSourceValueESt14default_deleteIS8_EENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEESB_NS_12DenseMapInfoISH_vEENS_6detail12DenseMapPairISH_SB_EEEESH_SB_SJ_SM_E9initEmptyEv.exit, label %_ZN4llvm18ValueMapCallbackVHIPKNS_11GlobalValueESt10unique_ptrIKNS_28GlobalValuePseudoSourceValueESt14default_deleteIS6_EENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2ERKSF_.exit.i
 
@@ -1522,7 +1524,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueM
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !83
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %10
+  %.idx.i = mul nuw nsw i64 %10, 48
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
   %.not5.i = icmp eq i32 %9, 0
   br i1 %.not5.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPKNS_11GlobalValueESt10unique_ptrIKNS_28GlobalValuePseudoSourceValueESt14default_deleteIS8_EENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEESB_NS_12DenseMapInfoISH_vEENS_6detail12DenseMapPairISH_SB_EEEESH_SB_SJ_SM_E9initEmptyEv.exit, label %_ZN4llvm18ValueMapCallbackVHIPKNS_11GlobalValueESt10unique_ptrIKNS_28GlobalValuePseudoSourceValueESt14default_deleteIS6_EENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2ERKSF_.exit.i
 
@@ -1765,7 +1768,8 @@ _ZNSt10unique_ptrIN4llvm27FixedStackPseudoSourceValueESt14default_deleteIS1_EED2
   %26 = load ptr, ptr %0, align 8, !tbaa !79
   %27 = load i32, ptr %4, align 8, !tbaa !80
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"class.std::unique_ptr.93", ptr %26, i64 %28
+  %.idx.i.i.i = shl nuw nsw i64 %28, 3
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i.i
   %.not7.i.i.i.i.i.i.i.i = icmp eq i32 %27, 0
   br i1 %.not7.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_27FixedStackPseudoSourceValueESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 

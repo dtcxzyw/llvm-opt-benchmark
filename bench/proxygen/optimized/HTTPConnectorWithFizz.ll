@@ -124,9 +124,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.524 = type { i32 }
 %"struct.fizz::SecretType" = type { %union.anon.454, i32 }
 %union.anon.454 = type { i32 }
-%"struct.fizz::client::Action" = type <{ %union.anon.442, i32, [12 x i8] }>
-%union.anon.442 = type { %"struct.fizz::client::NewCachedPsk" }
-%"struct.fizz::client::NewCachedPsk" = type { %"struct.fizz::client::CachedPsk" }
 %"struct.fizz::detail::PendingEvent" = type <{ %union.anon.429, i32, [4 x i8] }>
 %union.anon.429 = type { %"struct.fizz::WriteNewSessionTicket", [24 x i8] }
 %"struct.fizz::WriteNewSessionTicket" = type { %"class.std::unique_ptr.30" }
@@ -155,6 +152,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.folly::Optional<folly::small_vector<fizz::client::Action, 4>>::StorageNonTriviallyDestructible" = type <{ %union.anon.495, i8, [15 x i8] }>
 %union.anon.495 = type { %"class.folly::small_vector.437" }
 %struct.Initializer = type { i8 }
+%"struct.fizz::client::Action" = type <{ %union.anon.442, i32, [12 x i8] }>
+%union.anon.442 = type { %"struct.fizz::client::NewCachedPsk" }
+%"struct.fizz::client::NewCachedPsk" = type { %"struct.fizz::client::CachedPsk" }
 %struct.Initializer.497 = type { i8 }
 %struct.Initializer.496 = type { i8 }
 %"class.std::bad_function_call" = type { %"class.std::exception" }
@@ -12305,7 +12305,8 @@ entry:
   %tobool.not1.i.i = icmp slt i64 %0, 0
   %cond.i.i = select i1 %tobool.not1.i.i, ptr %1, ptr %u.i.i
   %and.i.i.i = and i64 %0, 4611686018427387903
-  %add.ptr.i = getelementptr inbounds nuw %"struct.fizz::client::Action", ptr %cond.i.i, i64 %and.i.i.i
+  %add.ptr.i.idx = mul nuw nsw i64 %and.i.i.i, 208
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %add.ptr.i.idx
   %cmp.not63 = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp.not63, label %for.end, label %for.body.lr.ph
 
@@ -12609,7 +12610,8 @@ _ZNSt11_Deque_baseIN4fizz6detail12PendingEventESaIS2_EE15_M_allocate_mapEm.exit:
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
   %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
-  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
+  %add.ptr14.idx = shl nuw nsw i64 %add, 3
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt11_Deque_baseIN4fizz6detail12PendingEventESaIS2_EE15_M_allocate_mapEm.exit, %invoke.cont.i
@@ -15627,7 +15629,8 @@ entry:
   %tobool.not1.i.i = icmp slt i64 %0, 0
   %cond.i.i = select i1 %tobool.not1.i.i, ptr %1, ptr %u.i.i
   %and.i.i.i = and i64 %0, 4611686018427387903
-  %add.ptr.i = getelementptr inbounds nuw %"struct.fizz::client::Action", ptr %cond.i.i, i64 %and.i.i.i
+  %add.ptr.i.idx = mul nuw nsw i64 %and.i.i.i, 208
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %add.ptr.i.idx
   %cmp.not7 = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp.not7, label %for.end, label %for.body
 
@@ -15934,9 +15937,9 @@ entry:
   %1 = load ptr, ptr %u.i.i, align 8
   %tobool.not1.i.i = icmp slt i64 %0, 0
   %cond.i.i = select i1 %tobool.not1.i.i, ptr %1, ptr %u.i.i
-  %and.i.i.i = and i64 %0, 4611686018427387903
-  %add.ptr.i = getelementptr inbounds nuw %"struct.fizz::TLSContent", ptr %cond.i.i, i64 %and.i.i.i
-  %cmp.not7 = icmp eq i64 %and.i.i.i, 0
+  %and.i.i.i = shl i64 %0, 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %and.i.i.i
+  %cmp.not7 = icmp samesign eq i64 %and.i.i.i, 0
   br i1 %cmp.not7, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN4fizz10TLSContentD2Ev.exit
@@ -17908,7 +17911,8 @@ _ZNSt11_Deque_baseIN4fizz8AppWriteESaIS1_EE15_M_allocate_mapEm.exit: ; preds = %
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
   %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
-  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
+  %add.ptr14.idx = shl nuw nsw i64 %add, 3
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt11_Deque_baseIN4fizz8AppWriteESaIS1_EE15_M_allocate_mapEm.exit, %invoke.cont.i

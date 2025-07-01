@@ -1270,7 +1270,8 @@ define noundef range(i8 0, 5) i8 @_ZN20ruff_python_semantic7analyze13function_ty
   br i1 %23, label %24, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h88ecd7687b5abc81E.exit"
 
 24:                                               ; preds = %10
-  %25 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %2, i64 %3
+  %.idx = mul nuw nsw i64 %3, 72
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h43a5bf3a3767690fE.exit.thread43", label %.lr.ph.i
 
@@ -1830,7 +1831,8 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze13function_type7is_s
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 120
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h3109155d4546ba67E.exit", label %.lr.ph.i
 
@@ -1968,7 +1970,8 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility11is_ove
 define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility11is_abstract17h31f819e6425e2643E(ptr noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(448) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [136 x i8], align 8
   %5 = alloca [144 x i8], align 8
-  %6 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h150b8187426d8c7eE.exit", label %.lr.ph.i
 
@@ -2120,7 +2123,8 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility11is_abs
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility12is_validator17hc641000df800ee93E(ptr noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(448) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h65a1d14616f29c61E.exit", label %.lr.ph.i
 
@@ -2283,7 +2287,8 @@ define hidden noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility1
   %19 = load ptr, ptr %18, align 8, !nonnull !3, !align !30, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i64, ptr %20, align 8, !noundef !3
-  %22 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %19, i64 %21
+  %.idx = mul nuw nsw i64 %21, 24
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not.i = icmp eq i64 %21, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h93b97be4c8cfec77E.exit", label %.lr.ph.i
 
@@ -2591,7 +2596,8 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility17method
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %8, i64 %10
+  %.idx = mul nuw nsw i64 %10, 72
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not.i = icmp eq i64 %10, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6f0e0fb6ceb219deE.exit", label %.lr.ph.i
 

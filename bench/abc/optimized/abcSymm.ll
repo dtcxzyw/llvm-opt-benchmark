@@ -428,7 +428,8 @@ Abc_TtCopy.exit:                                  ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %11, i1 false), !tbaa !59
   %12 = add nsw i32 %2, -1
   %13 = icmp eq i32 %7, 1
-  %14 = getelementptr inbounds nuw i64, ptr %9, i64 %8
+  %.idx.i = shl nuw nsw i64 %8, 3
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
   br i1 %13, label %.split.thread, label %Abc_TtCopy.exit.split.split.us
 
 Abc_TtCopy.exit.split.split.us:                   ; preds = %Abc_TtCopy.exit, %Abc_TtFlip.exit.us16
@@ -591,7 +592,8 @@ Abc_TtCopy.exit38:                                ; preds = %15, %.lr.ph18.i.pre
 .lr.ph:                                           ; preds = %Abc_TtCopy.exit38
   %27 = shl nuw nsw i32 1, %1
   %28 = icmp eq i32 %7, 1
-  %29 = getelementptr inbounds i64, ptr %0, i64 %8
+  %.idx.i = shl nsw i64 %8, 3
+  %29 = getelementptr inbounds i8, ptr %0, i64 %.idx.i
   %30 = shl nuw nsw i64 %.pre-phi, 3
   %wide.trip.count = zext nneg i32 %27 to i64
   br label %31

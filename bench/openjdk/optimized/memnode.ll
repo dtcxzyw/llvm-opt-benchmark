@@ -1179,9 +1179,10 @@ _ZN16Unique_Node_List6memberEP4Node.exit127.thread: ; preds = %128, %_ZN16Unique
 
 .lr.ph:                                           ; preds = %181
   %184 = zext i32 %183 to i64
+  %.idx = shl nuw nsw i64 %184, 3
   %185 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds nuw ptr, ptr %186, i64 %184
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx
   %188 = getelementptr inbounds nuw i8, ptr %..i156, i64 32
   %189 = getelementptr inbounds nuw i8, ptr %..i156, i64 2408
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5671,7 +5672,8 @@ define hidden noundef ptr @_ZN8LoadNode8IdentityEP8PhaseGVN(ptr noundef nonnull 
   %138 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %139 = load i32, ptr %138, align 8
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw ptr, ptr %137, i64 %140
+  %.idx = shl nuw nsw i64 %140, 3
+  %141 = getelementptr inbounds nuw i8, ptr %137, i64 %.idx
   %.not48 = icmp eq i32 %139, 0
   br i1 %.not48, label %_ZN8LoadNode37is_instance_field_load_with_local_phiEP4Node.exit, label %.lr.ph
 
@@ -8959,7 +8961,8 @@ _ZN16Unique_Node_List6memberEP4Node.exit.thread:  ; preds = %204, %_ZN16Unique_N
   %244 = getelementptr inbounds nuw i8, ptr %162, i64 32
   %245 = load i32, ptr %244, align 8
   %246 = zext i32 %245 to i64
-  %247 = getelementptr inbounds nuw ptr, ptr %243, i64 %246
+  %.idx = shl nuw nsw i64 %246, 3
+  %247 = getelementptr inbounds nuw i8, ptr %243, i64 %.idx
   %.not158 = icmp eq i32 %245, 0
   br i1 %.not158, label %.loopexit150, label %.lr.ph156
 
@@ -11201,7 +11204,8 @@ define hidden noundef ptr @_ZN25MergePrimitiveArrayStores3runEv(ptr noundef nonn
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %43, i64 %46
+  %.idx.i.i.i = shl nuw nsw i64 %46, 3
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i.i
   %.not.i.i.i = icmp eq i32 %45, 0
   br i1 %.not.i.i.i, label %.critedge, label %.lr.ph.i.i.i
 
@@ -11288,7 +11292,8 @@ define hidden { ptr, i8 } @_ZNK25MergePrimitiveArrayStores23find_adjacent_use_st
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %.idx.i.i = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
   %.not.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i, label %_ZNK25MergePrimitiveArrayStores14find_use_storeEPK9StoreNode.exit, label %.lr.ph.i.i
 
@@ -12765,7 +12770,8 @@ define hidden { ptr, i8 } @_ZNK25MergePrimitiveArrayStores14find_use_storeEPK9St
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %.idx.i = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %_ZNK25MergePrimitiveArrayStores29find_use_store_unidirectionalEPK9StoreNode.exit, label %.lr.ph.i
 
@@ -12839,7 +12845,8 @@ define hidden { ptr, i8 } @_ZNK25MergePrimitiveArrayStores29find_use_store_unidi
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -13391,7 +13398,8 @@ define hidden noundef i64 @_ZN14InitializeNode17can_capture_storeEP9StoreNodeP8P
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %107 = load i32, ptr %106, align 8
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw ptr, ptr %105, i64 %108
+  %.idx = shl nuw nsw i64 %108, 3
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx
   %.not102 = icmp eq i32 %107, 0
   br i1 %.not102, label %._crit_edge, label %.lr.ph
 
@@ -14545,7 +14553,8 @@ _ZNK4Type12is_zero_typeEv.exit.thread:            ; preds = %134, %172, %168, %1
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %188 = load i32, ptr %187, align 8
   %189 = zext i32 %188 to i64
-  %190 = getelementptr inbounds nuw ptr, ptr %186, i64 %189
+  %.idx.i = shl nuw nsw i64 %189, 3
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.i
   %.not.i = icmp eq i32 %188, 0
   br i1 %.not.i, label %_ZNK9StoreNode15trailing_membarEv.exit.thread, label %.lr.ph.i
 
@@ -14597,7 +14606,8 @@ define hidden noundef ptr @_ZNK9StoreNode15trailing_membarEv(ptr noundef nonnull
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %.idx = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -14891,7 +14901,8 @@ define hidden noundef zeroext i1 @_ZNK9StoreNode18value_never_loadedEP11PhaseVal
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %32, i64 %35
+  %.idx = shl nuw nsw i64 %35, 3
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx
   %.not = icmp eq i32 %34, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -15477,7 +15488,8 @@ define hidden noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %8 = icmp eq i32 %5, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -15530,7 +15542,8 @@ define hidden noundef ptr @_ZNK13LoadStoreNode15trailing_membarEv(ptr noundef no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

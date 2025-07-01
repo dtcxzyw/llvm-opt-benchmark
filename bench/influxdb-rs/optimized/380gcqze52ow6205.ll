@@ -8876,7 +8876,8 @@ define void @"_ZN16influxdb3_server4http27record_batch_stream_to_body28_$u7b$$u7
   %.sroa.423.0.copyload = load i64, ptr %.sroa.423.0..sroa_idx, align 8
   %.sroa.524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.524.0.copyload = load i64, ptr %.sroa.524.0..sroa_idx, align 8
-  %23 = getelementptr inbounds { ptr, { { ptr, i64 }, i64 }, i64 }, ptr %.sroa.022.0.copyload, i64 %.sroa.524.0.copyload
+  %.idx = mul nsw i64 %.sroa.524.0.copyload, 40
+  %23 = getelementptr inbounds i8, ptr %.sroa.022.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   store ptr %.sroa.022.0.copyload, ptr %10, align 8
   %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -9262,7 +9263,8 @@ define void @"_ZN16influxdb3_server4http27record_batch_stream_to_body28_$u7b$$u7
   %.sroa.4.0..sroa_idx72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx72, align 8
   %.sroa.573.0.copyload = load i64, ptr %24, align 8
-  %35 = getelementptr inbounds { ptr, { { ptr, i64 }, i64 }, i64 }, ptr %.sroa.071.0.copyload, i64 %.sroa.573.0.copyload
+  %.idx = mul nsw i64 %.sroa.573.0.copyload, 40
+  %35 = getelementptr inbounds i8, ptr %.sroa.071.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   store ptr %.sroa.071.0.copyload, ptr %11, align 8
   %.sroa.570.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8

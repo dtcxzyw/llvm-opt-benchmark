@@ -556,7 +556,8 @@ _ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit.i: ; preds = %_ZNK4llvm14i
   %45 = call noundef ptr @_ZN4llvm15MachineFunction15allocateRegMaskEv(ptr noundef nonnull align 8 dereferenceable(1065) %1) #17
   %46 = load ptr, ptr %23, align 8, !tbaa !70
   %47 = load i64, ptr %24, align 8, !tbaa !72
-  %48 = getelementptr inbounds nuw i16, ptr %46, i64 %47
+  %.idx.i.i.i = shl nuw nsw i64 %47, 1
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i.i.i
   %.not12.i.i.i = icmp eq i64 %47, 0
   br i1 %.not12.i.i.i, label %_ZN12_GLOBAL__N_116StackMapLiveness17addLiveOutSetToMIERN4llvm15MachineFunctionERNS1_12MachineInstrE.exit.i, label %.lr.ph.i.i.i
 

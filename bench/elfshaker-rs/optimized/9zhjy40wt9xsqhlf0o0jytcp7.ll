@@ -4846,7 +4846,8 @@ define hidden void @_ZN9elfshaker7packidx8Snapshot13apply_changes17h0e84ac3ffb73
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, i32, i32 }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 12
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -5013,7 +5014,8 @@ define hidden void @_ZN9elfshaker7packidx8Snapshot13apply_changes17h0e84ac3ffb73
   %105 = load ptr, ptr %104, align 8, !nonnull !3, !noundef !3
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %107 = load i64, ptr %106, align 8, !noundef !3
-  %108 = getelementptr inbounds nuw { i32, i32, i32 }, ptr %105, i64 %107
+  %.idx19 = mul nuw nsw i64 %107, 12
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx19
   %109 = icmp eq i64 %107, 0
   br i1 %109, label %._crit_edge18, label %.lr.ph17
 

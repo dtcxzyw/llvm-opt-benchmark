@@ -624,7 +624,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %88 = load ptr, ptr %13, align 8, !tbaa !47
   %89 = load i32, ptr %77, align 8, !tbaa !49
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %88, i64 %90
+  %.idx = shl nuw nsw i64 %90, 4
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx
   %.not26129 = icmp eq i32 %89, 0
   br i1 %.not26129, label %._crit_edge, label %.lr.ph
 

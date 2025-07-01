@@ -153,22 +153,22 @@ define dso_local void @_ZN5clang11ProfileListC2EN4llvm8ArrayRefINSt7__cxx1112bas
   %6 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %2
+  %.idx1.i = shl nuw nsw i64 %2, 5
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !alias.scope !33
-  %.idx.i = shl nuw nsw i64 %2, 5
   %.not.i.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.thread.i.i.i: ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i
+  %8 = getelementptr inbounds nuw i8, ptr null, i64 %.idx1.i
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %8, ptr %9, align 8, !tbaa !36, !alias.scope !33
   br label %_ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vectorIS6_SaIS6_EEEv.exit
 
 .lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %4
-  %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #11, !noalias !33
+  %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx1.i) #11, !noalias !33
   store ptr %10, ptr %6, align 8, !tbaa !39, !alias.scope !33
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx1.i
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %11, ptr %12, align 8, !tbaa !36, !alias.scope !33
   br label %.lr.ph.i.i.i.i.i.i.i

@@ -2105,7 +2105,8 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread:     ; preds = %_ZNK11ast_manager6i
   %32 = and i32 %31, %28
   %33 = load ptr, ptr %1, align 8, !tbaa !40
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw %"class.obj_map<expr, occf_tactic::imp::bvar_info>::obj_map_entry", ptr %33, i64 %34
+  %.idx.i.i = mul nuw nsw i64 %34, 24
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i.i
   %36 = zext i32 %30 to i64
   %37 = getelementptr inbounds nuw %"class.obj_map<expr, occf_tactic::imp::bvar_info>::obj_map_entry", ptr %33, i64 %36
   %.not35.i.i = icmp eq i32 %32, %30
@@ -5032,7 +5033,8 @@ _ZNK6vectorIN23generic_model_converter5entryELb1EjE4sizeEv.exit: ; preds = %49
   store i32 %55, ptr %56, align 4, !tbaa !103
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %58 = zext i32 %55 to i64
-  %59 = getelementptr inbounds nuw %"struct.generic_model_converter::entry", ptr %52, i64 %58
+  %.idx.i.i.i = mul nuw nsw i64 %58, 40
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i.i.i
   %60 = icmp eq i32 %55, 0
   br i1 %60, label %.loopexit, label %.lr.ph.i.i.i.i.i.i
 
@@ -5195,7 +5197,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprN11occf_tact
   %20 = and i32 %19, %18
   %21 = load ptr, ptr %0, align 8, !tbaa !40
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw %"class.obj_map<expr, occf_tactic::imp::bvar_info>::obj_map_entry", ptr %21, i64 %22
+  %.idx = mul nuw nsw i64 %22, 24
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %24 = zext i32 %15 to i64
   %25 = getelementptr inbounds nuw %"class.obj_map<expr, occf_tactic::imp::bvar_info>::obj_map_entry", ptr %21, i64 %24
   %.not63 = icmp eq i32 %20, %15
@@ -5336,7 +5339,8 @@ _ZN14core_hashtableIN7obj_mapI4exprN11occf_tactic3imp9bvar_infoEE13obj_map_entry
   %14 = load i32, ptr %2, align 8, !tbaa !43
   %15 = add i32 %4, -1
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"class.obj_map<expr, occf_tactic::imp::bvar_info>::obj_map_entry", ptr %13, i64 %16
+  %.idx.i = mul nuw nsw i64 %16, 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i
   %18 = getelementptr inbounds nuw %"class.obj_map<expr, occf_tactic::imp::bvar_info>::obj_map_entry", ptr %7, i64 %5
   %.not38.i = icmp eq i32 %14, 0
   br i1 %.not38.i, label %_ZN14core_hashtableIN7obj_mapI4exprN11occf_tactic3imp9bvar_infoEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE10move_tableEPS6_jSD_j.exit, label %.lr.ph41.i
@@ -5352,7 +5356,8 @@ _ZN14core_hashtableIN7obj_mapI4exprN11occf_tactic3imp9bvar_infoEE13obj_map_entry
   %22 = load i32, ptr %21, align 4, !tbaa !107
   %23 = and i32 %22, %15
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"class.obj_map<expr, occf_tactic::imp::bvar_info>::obj_map_entry", ptr %7, i64 %24
+  %.idx43.i = mul nuw nsw i64 %24, 24
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx43.i
   %.not2933.i = icmp eq i32 %23, %4
   br i1 %.not2933.i, label %.preheader.i, label %.lr.ph.i
 

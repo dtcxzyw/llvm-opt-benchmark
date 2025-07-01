@@ -6202,7 +6202,8 @@ define hidden void @_ZN4util13extend_sorted17h9e4b0cb82f3db843E(ptr noalias noun
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1706, !noalias !1709, !nonnull !10, !noundef !10
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1706, !noalias !1709
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nsw i64 %.sroa.5.0.copyload.i, 6
+  %11 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   store ptr %.sroa.4.0.copyload.i, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -19075,7 +19076,8 @@ _ZN13extensions_ui19keywords_by_feature17h158b20b658cecfddE.exit: ; preds = %"_Z
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %57 = load i64, ptr %56, align 8
   %.fr = freeze i64 %57
-  %58 = getelementptr inbounds { ptr, i64 }, ptr %55, i64 %.fr
+  %.idx.i.i.i = shl nsw i64 %.fr, 4
+  %58 = getelementptr inbounds i8, ptr %55, i64 %.idx.i.i.i
   %.not.i.i.i.i = icmp eq i64 %.fr, 0
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -19168,7 +19170,8 @@ _ZN13extensions_ui19keywords_by_feature17h158b20b658cecfddE.exit.split: ; preds 
   %90 = load ptr, ptr %89, align 8, !nonnull !10, !noundef !10
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %92 = load i64, ptr %91, align 8, !noundef !10
-  %93 = getelementptr inbounds { ptr, i64 }, ptr %90, i64 %92
+  %.idx = shl nsw i64 %92, 4
+  %93 = getelementptr inbounds i8, ptr %90, i64 %.idx
   %.not.i = icmp eq i64 %92, 0
   br i1 %.not.i, label %.loopexit82, label %.lr.ph.i.i.i.preheader.i
 

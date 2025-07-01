@@ -419,7 +419,8 @@ define internal void @"_ZN109_$LT$ruff_formatter..arguments..Arguments$LT$Contex
   %7 = load i64, ptr %6, align 8, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %8 = getelementptr inbounds nuw { { ptr, ptr } }, ptr %5, i64 %7
+  %.idx.i = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %._crit_edge.i, label %.lr.ph.i
 
@@ -563,7 +564,8 @@ define hidden void @"_ZN110_$LT$ruff_formatter..builders..BestFitting$LT$Context
   store ptr %30, ptr %.sroa.46.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
-  %33 = getelementptr inbounds nuw { { ptr, ptr } }, ptr %13, i64 %15
+  %.idx = shl nuw nsw i64 %15, 4
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %.not1036 = icmp eq i64 %15, 0
   br i1 %.not1036, label %._crit_edge, label %.lr.ph
 
@@ -2270,7 +2272,8 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN14ruff_format
   %.not.i = icmp ne ptr %16, null
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds nuw { { ptr, ptr } }, ptr %16, i64 %18
+  %.idx.i.i.i = shl nuw nsw i64 %18, 4
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i
   %20 = icmp eq i64 %18, 0
   %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.promoted = load i8, ptr %14, align 8
@@ -2482,7 +2485,8 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN14ruff_format
   %28 = load ptr, ptr %.fr, align 8, !alias.scope !366, !noalias !369, !nonnull !3, !align !5, !noundef !3
   %29 = load i64, ptr %15, align 8, !alias.scope !366, !noalias !369, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !375)
-  %30 = getelementptr inbounds nuw { { ptr, ptr } }, ptr %28, i64 %29
+  %.idx.i.i.i.i = shl nuw nsw i64 %29, 4
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i.i.i
   %31 = icmp eq i64 %29, 0
   br i1 %31, label %._crit_edge.i, label %.lr.ph.i.i.i.i
 
@@ -2742,7 +2746,8 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN14ruff_format
   %28 = load ptr, ptr %.fr, align 8, !alias.scope !414, !noalias !417, !nonnull !3, !align !5, !noundef !3
   %29 = load i64, ptr %15, align 8, !alias.scope !414, !noalias !417, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !423)
-  %30 = getelementptr inbounds nuw { { ptr, ptr } }, ptr %28, i64 %29
+  %.idx.i.i.i.i = shl nuw nsw i64 %29, 4
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i.i.i
   %31 = icmp eq i64 %29, 0
   br i1 %31, label %._crit_edge.i, label %.lr.ph.i.i.i.i
 
@@ -3016,7 +3021,8 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN14ruff_format
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i64, ptr %15, align 8
   %.fr19 = freeze i64 %16
-  %17 = getelementptr inbounds nuw { { ptr, ptr } }, ptr %.fr18, i64 %.fr19
+  %.idx.i.i.i = shl nuw nsw i64 %.fr19, 4
+  %17 = getelementptr inbounds nuw i8, ptr %.fr18, i64 %.idx.i.i.i
   %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   br i1 %.not.i.not, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
@@ -6226,7 +6232,8 @@ define noundef zeroext i1 @"_ZN98_$LT$ruff_python_formatter..comments..debug..De
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !535, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %5, i64 %7
+  %.idx = mul nuw nsw i64 %7, 12
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 

@@ -490,16 +490,17 @@ switch.lookup:                                    ; preds = %switch.early.test.i
   br i1 %253, label %list_head.exit.us.i, label %sort_inner_and_outer.exit.thread
 
 list_head.exit.us.i:                              ; preds = %.lr.ph.split.us.i.preheader, %.lr.ph.split.us.i
-  %indvars.iv135.i144 = phi i64 [ %indvars.iv.next136.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.split.us.i.preheader ]
-  %.not117.us.i = icmp eq i64 %indvars.iv135.i144, 0
+  %indvars.iv136.i144 = phi i64 [ %indvars.iv.next137.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.split.us.i.preheader ]
+  %.not117.us.i = icmp eq i64 %indvars.iv136.i144, 0
   br i1 %.not117.us.i, label %.lr.ph.split.us.i, label %254
 
 254:                                              ; preds = %list_head.exit.us.i
+  %.idx.us.i = shl nuw nsw i64 %indvars.iv136.i144, 3
   %255 = load ptr, ptr %249, align 8
-  %256 = getelementptr inbounds nuw %union.ListCell, ptr %255, i64 %indvars.iv135.i144
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 %.idx.us.i
   %257 = load ptr, ptr %256, align 8
   %258 = call ptr @list_copy(ptr noundef nonnull %247) #5
-  %259 = trunc nuw nsw i64 %indvars.iv135.i144 to i32
+  %259 = trunc nuw nsw i64 %indvars.iv136.i144 to i32
   %260 = call ptr @list_delete_nth_cell(ptr noundef %258, i32 noundef %259) #5
   %261 = call ptr @lcons(ptr noundef %257, ptr noundef %260) #5
   br label %.lr.ph.split.us.i
@@ -512,10 +513,10 @@ list_head.exit.us.i:                              ; preds = %.lr.ph.split.us.i.p
   %265 = call ptr @build_join_pathkeys(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.0.i102, ptr noundef %.098.us.i) #5
   call fastcc void @try_mergejoin_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.097.i, ptr noundef %.099.i, ptr noundef %265, ptr noundef %263, ptr noundef %.098.us.i, ptr noundef %264, i32 noundef %.0.i102, ptr noundef nonnull %8, i1 noundef zeroext false)
   call fastcc void @try_partial_mergejoin_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.0100.i, ptr noundef nonnull %.0101.i, ptr noundef %265, ptr noundef %263, ptr noundef %.098.us.i, ptr noundef %264, i32 noundef %.0.i102, ptr noundef nonnull %8)
-  %indvars.iv.next136.i = add nuw nsw i64 %indvars.iv135.i144, 1
+  %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i144, 1
   %266 = load i32, ptr %248, align 4
   %267 = sext i32 %266 to i64
-  %268 = icmp slt i64 %indvars.iv.next136.i, %267
+  %268 = icmp slt i64 %indvars.iv.next137.i, %267
   br i1 %268, label %list_head.exit.us.i, label %sort_inner_and_outer.exit.thread
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.i103
@@ -527,8 +528,9 @@ list_head.exit.i:                                 ; preds = %.lr.ph.split.split.
   br i1 %.not117.i, label %277, label %269
 
 269:                                              ; preds = %list_head.exit.i
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i104, 3
   %270 = load ptr, ptr %249, align 8
-  %271 = getelementptr inbounds nuw %union.ListCell, ptr %270, i64 %indvars.iv.i104
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 %.idx.i
   %272 = load ptr, ptr %271, align 8
   %273 = call ptr @list_copy(ptr noundef nonnull %247) #5
   %274 = trunc nuw nsw i64 %indvars.iv.i104 to i32

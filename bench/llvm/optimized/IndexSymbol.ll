@@ -1033,7 +1033,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_12IBAc
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !82
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %.idx.i = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %_ZN5clang15hasSpecificAttrINS_12IBActionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit, label %.lr.ph.i.i.i.i
 
@@ -1075,7 +1076,8 @@ define internal fastcc void @_ZL17checkForIBOutletsPKN5clang4DeclERt(ptr noundef
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !82
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
+  %.idx.i.i = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i
   %.not.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i
 
@@ -1108,31 +1110,32 @@ _ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit.thread: ; preds = %17, %6, %
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !82
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %26
-  %.not.i.i6 = icmp eq i32 %25, 0
-  br i1 %.not.i.i6, label %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i7
+  %.idx.i.i6 = shl nuw nsw i64 %26, 3
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i6
+  %.not.i.i7 = icmp eq i32 %25, 0
+  br i1 %.not.i.i7, label %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i8
 
-.lr.ph.i.i.i.i.i7:                                ; preds = %21, %32
-  %.sroa.07.1.i.i.i.i8 = phi ptr [ %33, %32 ], [ %23, %21 ]
-  %28 = load ptr, ptr %.sroa.07.1.i.i.i.i8, align 8, !tbaa !83
+.lr.ph.i.i.i.i.i8:                                ; preds = %21, %32
+  %.sroa.07.1.i.i.i.i9 = phi ptr [ %33, %32 ], [ %23, %21 ]
+  %28 = load ptr, ptr %.sroa.07.1.i.i.i.i9, align 8, !tbaa !83
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load i16, ptr %29, align 8
   %31 = icmp eq i16 %30, 228
   br i1 %31, label %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit, label %32
 
-32:                                               ; preds = %.lr.ph.i.i.i.i.i7
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i8, i64 8
-  %.not.i.i.i.i.i9 = icmp eq ptr %33, %27
-  br i1 %.not.i.i.i.i.i9, label %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i7, !llvm.loop !88
+32:                                               ; preds = %.lr.ph.i.i.i.i.i8
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i9, i64 8
+  %.not.i.i.i.i.i10 = icmp eq ptr %33, %27
+  br i1 %.not.i.i.i.i.i10, label %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i8, !llvm.loop !88
 
-_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i7
-  %.not18 = icmp eq ptr %.sroa.07.1.i.i.i.i8, %27
-  br i1 %.not18, label %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread, label %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread.sink.split
+_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i8
+  %.not19 = icmp eq ptr %.sroa.07.1.i.i.i.i9, %27
+  br i1 %.not19, label %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread, label %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread.sink.split
 
 _ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread.sink.split: ; preds = %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit, %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit
-  %.sink26 = phi i16 [ 16, %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit ], [ 48, %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit ]
+  %.sink27 = phi i16 [ 16, %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit ], [ 48, %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit ]
   %34 = load i16, ptr %1, align 2, !tbaa !89
-  %35 = or i16 %34, %.sink26
+  %35 = or i16 %34, %.sink27
   store i16 %35, ptr %1, align 2, !tbaa !89
   br label %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread
 
@@ -1154,7 +1157,8 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang4Decl7getAttrINS_12AnnotateAtt
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !82
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %.idx.i = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %_ZN5clang15getSpecificAttrINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEPDaRKT0_.exit, label %.lr.ph.i.i.i.i
 

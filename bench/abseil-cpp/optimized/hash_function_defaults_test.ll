@@ -28795,7 +28795,8 @@ define linkonce_odr dso_local void @_ZN4absl18MakeFragmentedCordISt16initializer
   %6 = load ptr, ptr %1, align 8, !tbaa !528
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !531
-  %9 = getelementptr inbounds nuw %"class.std::basic_string_view.90", ptr %6, i64 %8
+  %.idx = shl nuw nsw i64 %8, 4
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %.not24 = icmp eq i64 %8, 0
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 

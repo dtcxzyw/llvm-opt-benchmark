@@ -718,7 +718,8 @@ _ZN4llvm11raw_ostreamlsEc.exit26:                 ; preds = %69, %71
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %77 = load i32, ptr %76, align 8, !tbaa !3
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %75, i64 %78
+  %.idx = shl nuw nsw i64 %78, 4
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 %.idx
   %.not38 = icmp eq i32 %77, 0
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 

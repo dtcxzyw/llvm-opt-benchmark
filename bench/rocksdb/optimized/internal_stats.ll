@@ -32,10 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.rocksdb::Slice" = type { ptr, i64 }
 %"struct.rocksdb::Cache::CacheItemHelper" = type { ptr, ptr, ptr, ptr, i32, ptr }
 %"struct.std::_Rb_tree<rocksdb::LevelStatType, std::pair<const rocksdb::LevelStatType, rocksdb::LevelStat>, std::_Select1st<std::pair<const rocksdb::LevelStatType, rocksdb::LevelStat>>, std::less<rocksdb::LevelStatType>>::_Alloc_node" = type { ptr }
-%"struct.std::pair" = type { i32, %"struct.rocksdb::LevelStat" }
-%"struct.rocksdb::LevelStat" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"struct.std::pair.16" = type { i32, %"struct.rocksdb::DBStatInfo" }
-%"struct.rocksdb::DBStatInfo" = type { %"class.std::__cxx11::basic_string" }
 %"class.std::vector.303" = type { %"struct.std::_Vector_base.304" }
 %"struct.std::_Vector_base.304" = type { %"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl" }
 %"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl_data" }
@@ -133,8 +129,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::hash" = type { i8 }
 %"struct.std::equal_to" = type { i8 }
 %"class.std::allocator.32" = type { i8 }
+%"struct.std::pair.16" = type { i32, %"struct.rocksdb::DBStatInfo" }
+%"struct.rocksdb::DBStatInfo" = type { %"class.std::__cxx11::basic_string" }
 %"struct.std::less.18" = type { i8 }
 %"class.std::allocator.20" = type { i8 }
+%"struct.std::pair" = type { i32, %"struct.rocksdb::LevelStat" }
+%"struct.rocksdb::LevelStat" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"struct.std::less" = type { i8 }
 %"class.std::allocator.6" = type { i8 }
 
@@ -887,7 +887,8 @@ define linkonce_odr void @_ZNSt3mapIN7rocksdb13LevelStatTypeENS0_9LevelStatESt4l
   store ptr %7, ptr %10, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8, !tbaa !26
-  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #35
   store ptr %0, ptr %6, align 8, !tbaa !27
   %.not6.i = icmp eq i64 %2, 0
@@ -1095,7 +1096,8 @@ define linkonce_odr void @_ZNSt3mapIN7rocksdb13InternalStats19InternalDBStatsTyp
   store ptr %6, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !26
-  %11 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN7rocksdb13InternalStats19InternalDBStatsTypeESt4pairIKS2_NS0_10DBStatInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE22_M_insert_range_uniqueIPKS6_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESH_SH_.exit, label %.lr.ph.i
 

@@ -2061,7 +2061,8 @@ define hidden void @phpdbg_remove_watch_element_recursively(ptr noundef %0) loca
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load i32, ptr %14, align 8, !tbaa !102
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %struct._Bucket, ptr %13, i64 %16
+  %.idx = shl nuw nsw i64 %16, 5
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load i32, ptr %18, align 8, !tbaa !20
   %20 = and i32 %19, 4
@@ -2749,7 +2750,8 @@ define hidden void @phpdbg_dequeue_elements_for_recreation() local_unnamed_addr 
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1200), align 8, !tbaa !20
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1208), align 8, !tbaa !102
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw %struct._Bucket, ptr %2, i64 %4
+  %.idx = shl nuw nsw i64 %4, 5
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1192), align 8, !tbaa !20
   %7 = and i32 %6, 4
   %.not = icmp eq i32 %7, 0
@@ -3273,7 +3275,8 @@ define hidden void @phpdbg_update_watch_collision_elements(ptr noundef readonly 
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 328
   %13 = load i32, ptr %12, align 8, !tbaa !102
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %struct._Bucket, ptr %11, i64 %14
+  %.idx = shl nuw nsw i64 %14, 5
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 312
   %17 = load i32, ptr %16, align 8, !tbaa !20
   %18 = and i32 %17, 4
@@ -3323,7 +3326,8 @@ define hidden void @phpdbg_update_watch_collision_elements(ptr noundef readonly 
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 56
   %42 = load i32, ptr %41, align 8, !tbaa !102
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw %struct._Bucket, ptr %40, i64 %43
+  %.idx120 = shl nuw nsw i64 %43, 5
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx120
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %46 = load i32, ptr %45, align 8, !tbaa !20
   %47 = and i32 %46, 4
@@ -3607,7 +3611,8 @@ phpdbg_deactivate_watchpoint.exit.i69:            ; preds = %177, %175
   %190 = getelementptr inbounds nuw i8, ptr %161, i64 56
   %191 = load i32, ptr %190, align 8, !tbaa !102
   %192 = zext i32 %191 to i64
-  %193 = getelementptr inbounds nuw %struct._Bucket, ptr %189, i64 %192
+  %.idx121 = shl nuw nsw i64 %192, 5
+  %193 = getelementptr inbounds nuw i8, ptr %189, i64 %.idx121
   %194 = getelementptr inbounds nuw i8, ptr %161, i64 40
   %195 = load i32, ptr %194, align 8, !tbaa !20
   %196 = and i32 %195, 4
@@ -3644,11 +3649,11 @@ phpdbg_clean_watch_element.exit.i52:              ; preds = %104, %._crit_edge, 
   br i1 %.not20.i47, label %.loopexit94thread-pre-split, label %.lr.ph103
 
 .loopexit94thread-pre-split:                      ; preds = %phpdbg_clean_watch_element.exit.i52, %90
-  %.pr129 = load ptr, ptr %80, align 8, !tbaa !94
+  %.pr132 = load ptr, ptr %80, align 8, !tbaa !94
   br label %.loopexit94
 
 .loopexit94:                                      ; preds = %.loopexit94thread-pre-split, %.preheader93
-  %205 = phi ptr [ %.pr129, %.loopexit94thread-pre-split ], [ %81, %.preheader93 ]
+  %205 = phi ptr [ %.pr132, %.loopexit94thread-pre-split ], [ %81, %.preheader93 ]
   %206 = icmp eq ptr %205, null
   br i1 %206, label %207, label %211
 
@@ -3773,9 +3778,9 @@ zend_hash_find_ptr.exit.i.thread:                 ; preds = %237, %231
   %264 = getelementptr inbounds nuw i8, ptr %253, i64 24
   %265 = load ptr, ptr %264, align 8, !tbaa !94
   %266 = icmp eq ptr %265, null
-  br i1 %266, label %.thread130, label %271
+  br i1 %266, label %.thread133, label %271
 
-.thread130:                                       ; preds = %263
+.thread133:                                       ; preds = %263
   %267 = getelementptr inbounds nuw i8, ptr %253, i64 120
   %268 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %269 = load ptr, ptr %268, align 8, !tbaa !90
@@ -3784,13 +3789,13 @@ zend_hash_find_ptr.exit.i.thread:                 ; preds = %237, %231
   br label %272
 
 271:                                              ; preds = %263
-  %.phi.trans.insert126 = getelementptr inbounds nuw i8, ptr %253, i64 8
-  %.pre127 = load ptr, ptr %.phi.trans.insert126, align 8, !tbaa !90
-  %.not.i58 = icmp eq ptr %.pre127, null
+  %.phi.trans.insert129 = getelementptr inbounds nuw i8, ptr %253, i64 8
+  %.pre130 = load ptr, ptr %.phi.trans.insert129, align 8, !tbaa !90
+  %.not.i58 = icmp eq ptr %.pre130, null
   br i1 %.not.i58, label %phpdbg_clean_watch_element.exit.i, label %272
 
-272:                                              ; preds = %.thread130, %271
-  %273 = phi ptr [ %269, %.thread130 ], [ %.pre127, %271 ]
+272:                                              ; preds = %.thread133, %271
+  %273 = phi ptr [ %269, %.thread133 ], [ %.pre130, %271 ]
   %274 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %275 = getelementptr inbounds nuw i8, ptr %273, i64 16
   %276 = load i32, ptr %275, align 8, !tbaa !71
@@ -3940,7 +3945,8 @@ phpdbg_deactivate_watchpoint.exit.i:              ; preds = %344, %342
   %357 = getelementptr inbounds nuw i8, ptr %328, i64 56
   %358 = load i32, ptr %357, align 8, !tbaa !102
   %359 = zext i32 %358 to i64
-  %360 = getelementptr inbounds nuw %struct._Bucket, ptr %356, i64 %359
+  %.idx122 = shl nuw nsw i64 %359, 5
+  %360 = getelementptr inbounds nuw i8, ptr %356, i64 %.idx122
   %361 = getelementptr inbounds nuw i8, ptr %328, i64 40
   %362 = load i32, ptr %361, align 8, !tbaa !20
   %363 = and i32 %362, 4
@@ -3977,11 +3983,11 @@ phpdbg_clean_watch_element.exit.i:                ; preds = %271, %._crit_edge10
   br i1 %.not20.i43, label %.loopexitthread-pre-split, label %.lr.ph110
 
 .loopexitthread-pre-split:                        ; preds = %phpdbg_clean_watch_element.exit.i, %257
-  %.pr132 = load ptr, ptr %246, align 8, !tbaa !94
+  %.pr135 = load ptr, ptr %246, align 8, !tbaa !94
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexitthread-pre-split, %.preheader
-  %372 = phi ptr [ %.pr132, %.loopexitthread-pre-split ], [ %247, %.preheader ]
+  %372 = phi ptr [ %.pr135, %.loopexitthread-pre-split ], [ %247, %.preheader ]
   %373 = icmp eq ptr %372, null
   br i1 %373, label %374, label %379
 
@@ -4134,7 +4140,8 @@ phpdbg_deactivate_watchpoint.exit:                ; preds = %16, %20
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load i32, ptr %33, align 8, !tbaa !102
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %struct._Bucket, ptr %32, i64 %35
+  %.idx = shl nuw nsw i64 %35, 5
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load i32, ptr %37, align 8, !tbaa !20
   %39 = and i32 %38, 4
@@ -4182,7 +4189,8 @@ define hidden ptr @phpdbg_watchpoint_change_collision_name(ptr noundef readonly 
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 328
   %8 = load i32, ptr %7, align 8, !tbaa !102
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %struct._Bucket, ptr %6, i64 %9
+  %.idx = shl nuw nsw i64 %9, 5
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 312
   %12 = load i32, ptr %11, align 8, !tbaa !20
   %13 = and i32 %12, 4
@@ -4249,7 +4257,8 @@ zend_string_release.exit:                         ; preds = %31, %30, %23, %19, 
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load i32, ptr %38, align 8, !tbaa !102
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %struct._Bucket, ptr %37, i64 %40
+  %.idx57 = shl nuw nsw i64 %40, 5
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx57
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load i32, ptr %42, align 8, !tbaa !20
   %44 = and i32 %43, 4
@@ -4347,7 +4356,8 @@ define hidden void @phpdbg_check_watchpoint(ptr noundef %0) local_unnamed_addr #
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8, !tbaa !102
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %struct._Bucket, ptr %11, i64 %14
+  %.idx = shl nuw nsw i64 %14, 5
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8, !tbaa !20
   %18 = and i32 %17, 4
@@ -4503,7 +4513,8 @@ zend_string_copy.exit:                            ; preds = %75, %71, %69
   %94 = load ptr, ptr %10, align 8, !tbaa !20
   %95 = load i32, ptr %12, align 8, !tbaa !102
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %struct._Bucket, ptr %94, i64 %96
+  %.idx254 = shl nuw nsw i64 %96, 5
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx254
   %98 = load i32, ptr %16, align 8, !tbaa !20
   %99 = and i32 %98, 4
   %.not164 = icmp eq i32 %99, 0
@@ -4912,7 +4923,8 @@ zend_string_release.exit:                         ; preds = %273, %272, %265, %2
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %279 = load i32, ptr %278, align 8, !tbaa !102
   %280 = zext i32 %279 to i64
-  %281 = getelementptr inbounds nuw %struct._Bucket, ptr %277, i64 %280
+  %.idx255 = shl nuw nsw i64 %280, 5
+  %281 = getelementptr inbounds nuw i8, ptr %277, i64 %.idx255
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %283 = load i32, ptr %282, align 8, !tbaa !20
   %284 = and i32 %283, 4
@@ -4964,7 +4976,8 @@ define hidden void @phpdbg_reenable_memory_watches() local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !102
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %struct._Bucket, ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 5
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !20
   %11 = and i32 %10, 4
@@ -5065,7 +5078,8 @@ define hidden range(i32 -1, 1) i32 @phpdbg_print_changed_zvals() local_unnamed_a
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !102
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %struct._Bucket, ptr %11, i64 %14
+  %.idx = shl nuw nsw i64 %14, 5
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !20
   %18 = and i32 %17, 4
@@ -5190,7 +5204,8 @@ define hidden void @phpdbg_watch_efree(ptr noundef %0) local_unnamed_addr #0 {
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 184
   %16 = load i32, ptr %15, align 8, !tbaa !102
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct._Bucket, ptr %14, i64 %17
+  %.idx = shl nuw nsw i64 %17, 5
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %20 = load i32, ptr %19, align 8, !tbaa !20
   %21 = and i32 %20, 4
@@ -5879,7 +5894,8 @@ define hidden void @phpdbg_destroy_watchpoints() local_unnamed_addr #0 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1200), align 8, !tbaa !20
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1208), align 8, !tbaa !102
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw %struct._Bucket, ptr %1, i64 %3
+  %.idx = shl nuw nsw i64 %3, 5
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1192), align 8, !tbaa !20
   %6 = and i32 %5, 4
   %.not = icmp eq i32 %6, 0

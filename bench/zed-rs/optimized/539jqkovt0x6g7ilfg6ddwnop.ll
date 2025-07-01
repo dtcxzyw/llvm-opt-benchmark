@@ -4856,7 +4856,8 @@ define void @_ZN8settings11json_schema28add_references_to_properties17h5fc390b93
   %10 = alloca [16 x i8], align 8
   %11 = alloca [48 x i8], align 8
   %12 = alloca [8 x i8], align 8
-  %13 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 5
+  %13 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %14 = icmp eq i64 %2, 0
   br i1 %14, label %._crit_edge, label %.lr.ph
 

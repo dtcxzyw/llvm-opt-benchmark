@@ -366,7 +366,8 @@ define dso_local void @_ZN4llvm42findDevirtualizableCallsForTypeCheckedLoadERNS_
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !38
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %28
+  %.idx = shl nuw nsw i64 %28, 3
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx
   %.not3863 = icmp eq i32 %27, 0
   br i1 %.not3863, label %.loopexit, label %.lr.ph66
 

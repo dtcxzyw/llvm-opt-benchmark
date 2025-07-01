@@ -9,9 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::pointer_union_detail::PointerUnionMembers.355" = type { %"class.llvm::PointerIntPair.356" }
 %"class.llvm::PointerIntPair.356" = type { %"struct.llvm::detail::PunnedPointer.357" }
 %"struct.llvm::detail::PunnedPointer.357" = type { [8 x i8] }
-%"class.clang::TemplateArgument" = type { %union.anon.363 }
-%union.anon.363 = type { %"struct.clang::TemplateArgument::DA" }
-%"struct.clang::TemplateArgument::DA" = type { i32, ptr, ptr }
 %"struct.clang::DeclarationNameInfo" = type { %"class.clang::DeclarationName", %"class.clang::SourceLocation", %"class.clang::DeclarationNameLoc" }
 %"class.clang::DeclarationName" = type { i64 }
 %"class.clang::SourceLocation" = type { i32 }
@@ -390,7 +387,8 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit:    ; preds = %_ZN4llvm16FoldingSe
   %58 = load i32, ptr %8, align 8, !tbaa !3
   %59 = add i32 %58, 1
   store i32 %59, ptr %8, align 8, !tbaa !3
-  %60 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %3, i64 %4
+  %.idx = mul nuw nsw i64 %4, 24
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not14 = icmp eq i64 %4, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 

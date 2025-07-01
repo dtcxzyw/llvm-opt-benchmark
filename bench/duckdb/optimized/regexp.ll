@@ -4105,7 +4105,7 @@ define hidden void @_ZN10duckdb_re216CharClassBuilder6NegateEv(ptr noundef nonnu
 _ZNSt12_Vector_baseIN10duckdb_re29RuneRangeESaIS1_EE11_M_allocateEm.exit.i: ; preds = %7
   %8 = shl nuw nsw i64 %5, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #31
-  %10 = getelementptr inbounds nuw %"struct.duckdb_re2::RuneRange", ptr %9, i64 %5
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !115
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4912,7 +4912,8 @@ _ZNSt11_Deque_baseIN10duckdb_re29WalkStateIiEESaIS2_EE15_M_allocate_mapEm.exit: 
   %10 = sub nsw i64 %.sroa.speculated, %7
   %11 = lshr i64 %10, 1
   %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIN10duckdb_re29WalkStateIiEESaIS2_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIN10duckdb_re29WalkStateIiEESaIS2_EE16_M_allocate_nodeEv.exit.i

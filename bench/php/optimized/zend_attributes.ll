@@ -639,7 +639,8 @@ define dso_local ptr @zend_get_attribute(ptr noundef readonly captures(address_i
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8, !tbaa !58
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %struct._zval_struct, ptr %5, i64 %8
+  %.idx.i = shl nuw nsw i64 %8, 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !11
   %12 = and i32 %11, 4
@@ -704,7 +705,8 @@ define dso_local ptr @zend_get_attribute_str(ptr noundef readonly captures(addre
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !58
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %struct._zval_struct, ptr %6, i64 %9
+  %.idx.i = shl nuw nsw i64 %9, 4
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !11
   %13 = and i32 %12, 4
@@ -763,7 +765,8 @@ define dso_local ptr @zend_get_parameter_attribute(ptr noundef readonly captures
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !58
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %struct._zval_struct, ptr %7, i64 %10
+  %.idx.i = shl nuw nsw i64 %10, 4
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !11
   %14 = and i32 %13, 4
@@ -829,7 +832,8 @@ define dso_local ptr @zend_get_parameter_attribute_str(ptr noundef readonly capt
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8, !tbaa !58
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct._zval_struct, ptr %8, i64 %11
+  %.idx.i = shl nuw nsw i64 %11, 4
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !11
   %15 = and i32 %14, 4
@@ -1348,7 +1352,8 @@ define dso_local noundef zeroext i1 @zend_is_attribute_repeated(ptr noundef read
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !58
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %struct._zval_struct, ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !11
   %11 = and i32 %10, 4

@@ -1339,7 +1339,8 @@ entry:
   %2 = load i32, ptr %height, align 4
   %mul1 = mul nsw i32 %2, %1
   %idx.ext = sext i32 %mul1 to i64
-  %add.ptr = getelementptr inbounds float, ptr %0, i64 %idx.ext
+  %add.ptr.idx = shl nsw i64 %idx.ext, 2
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.idx
   %cmp9 = icmp sgt i32 %mul1, 0
   br i1 %cmp9, label %for.body, label %for.end
 
@@ -1377,7 +1378,8 @@ entry:
   %2 = load i32, ptr %height, align 4
   %mul1 = mul nsw i32 %mul, %2
   %idx.ext = sext i32 %mul1 to i64
-  %add.ptr = getelementptr inbounds float, ptr %0, i64 %idx.ext
+  %add.ptr.idx = shl nsw i64 %idx.ext, 2
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.idx
   %cmp9 = icmp sgt i32 %mul1, 0
   br i1 %cmp9, label %for.body, label %for.end
 
@@ -1415,7 +1417,8 @@ entry:
   %2 = load i32, ptr %height, align 4
   %mul1 = mul nsw i32 %mul, %2
   %idx.ext = sext i32 %mul1 to i64
-  %add.ptr = getelementptr inbounds float, ptr %0, i64 %idx.ext
+  %add.ptr.idx = shl nsw i64 %idx.ext, 2
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.idx
   %cmp9 = icmp sgt i32 %mul1, 0
   br i1 %cmp9, label %for.body, label %for.end
 

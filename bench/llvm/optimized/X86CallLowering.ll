@@ -441,7 +441,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15X86CallLowering11lowerReturnERNS
 
 .lr.ph.i.preheader.i:                             ; preds = %59
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %"struct.llvm::CallLowering::ArgInfo", ptr %100, i64 %102
+  %.idx.i = mul nuw nsw i64 %102, 168
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm12CallLowering7ArgInfoD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -1105,7 +1106,8 @@ _ZN4llvm16MachineIRBuilder8setInstrERNS_12MachineInstrE.exit: ; preds = %_ZNK4ll
 
 .lr.ph.i.preheader.i:                             ; preds = %.loopexit
   %226 = zext i32 %.pr to i64
-  %227 = getelementptr inbounds nuw %"struct.llvm::CallLowering::ArgInfo", ptr %225, i64 %226
+  %.idx.i = mul nuw nsw i64 %226, 168
+  %227 = getelementptr inbounds nuw i8, ptr %225, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm12CallLowering7ArgInfoD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -1268,7 +1270,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15X86CallLowering9lowerCallERNS_16
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %69 = load i32, ptr %68, align 8, !tbaa !131
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %"struct.llvm::CallLowering::ArgInfo", ptr %67, i64 %70
+  %.idx = mul nuw nsw i64 %70, 168
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx
   %.not95127 = icmp eq i32 %69, 0
   br i1 %.not95127, label %.critedge97, label %.lr.ph
 
@@ -1621,7 +1624,8 @@ _ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit103: ; preds = %.critedge99, %2
 
 .lr.ph.i.preheader.i:                             ; preds = %.loopexit
   %241 = zext i32 %240 to i64
-  %242 = getelementptr inbounds nuw %"struct.llvm::CallLowering::ArgInfo", ptr %239, i64 %241
+  %.idx.i = mul nuw nsw i64 %241, 168
+  %242 = getelementptr inbounds nuw i8, ptr %239, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm12CallLowering7ArgInfoD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -1738,7 +1742,8 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplINS_12CallLowering7Arg
 
 .lr.ph.i.preheader:                               ; preds = %1
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %"struct.llvm::CallLowering::ArgInfo", ptr %2, i64 %5
+  %.idx = mul nuw nsw i64 %5, 168
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN4llvm12CallLowering7ArgInfoD2Ev.exit.i

@@ -1815,7 +1815,8 @@ common.resume:                                    ; preds = %.body, %19
   %26 = load ptr, ptr %25, align 8, !alias.scope !268, !nonnull !11, !noundef !11
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load i64, ptr %27, align 8, !alias.scope !268, !noundef !11
-  %29 = getelementptr inbounds { ptr, i64, ptr }, ptr %26, i64 %28
+  %.idx.i = mul nsw i64 %28, 24
+  %29 = getelementptr inbounds i8, ptr %26, i64 %.idx.i
   %30 = icmp eq i64 %28, 0
   br i1 %30, label %._crit_edge.i, label %.lr.ph.i
 
@@ -1827,7 +1828,8 @@ common.resume:                                    ; preds = %.body, %19
   store i64 0, ptr %32, align 8, !alias.scope !274, !noalias !277
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8, !alias.scope !274, !noalias !277, !nonnull !11, !noundef !11
-  %36 = getelementptr inbounds { ptr, i64, ptr }, ptr %35, i64 %33
+  %.idx.i.i = mul nsw i64 %33, 24
+  %36 = getelementptr inbounds i8, ptr %35, i64 %.idx.i.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !279
   store ptr %35, ptr %3, align 8, !noalias !279
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8

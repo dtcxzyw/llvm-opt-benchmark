@@ -198,7 +198,8 @@ define internal fastcc noundef zeroext i1 @_ZL34isDereferenceableAndAlignedPoint
   %41 = load ptr, ptr %8, align 8, !tbaa !3, !noalias !20
   %42 = load i32, ptr %34, align 4, !tbaa !11, !noalias !20
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %41, i64 %43
+  %.idx.i.i = shl nuw nsw i64 %43, 3
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i.i
   %.not36.i.i = icmp eq i32 %42, 0
   br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -3065,7 +3066,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit: ; 
   %50 = load ptr, ptr %5, align 8, !tbaa !119
   %51 = load i32, ptr %24, align 8, !tbaa !121
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %50, i64 %52
+  %.idx = shl nuw nsw i64 %52, 3
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx
   %.not69111 = icmp eq i32 %51, 0
   br i1 %.not69111, label %.loopexit.sink.split, label %.lr.ph113
 
@@ -3197,7 +3199,8 @@ _ZL26isPointerAlwaysReplaceablePKN4llvm5ValueES2_RKNS_10DataLayoutE.exit: ; pred
   %47 = load ptr, ptr %5, align 8, !tbaa !3, !noalias !231
   %48 = load i32, ptr %32, align 4, !tbaa !11, !noalias !231
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %49
+  %.idx.i.i.i = shl nuw nsw i64 %49, 3
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i.i.i
   %.not36.i.i.i = icmp eq i32 %48, 0
   br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 

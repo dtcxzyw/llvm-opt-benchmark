@@ -66429,7 +66429,8 @@ _ZN12polars_arrow5array5Array10null_count17h5df6b414b464f103E.exit: ; preds = %3
   %45 = icmp ne i64 %44, 0
   tail call void @llvm.assume(i1 %45)
   %.val101 = load i64, ptr %42, align 8, !noundef !6
-  %46 = getelementptr inbounds nuw i64, ptr %42, i64 %44
+  %.idx = shl nuw nsw i64 %44, 3
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he76fd475a128f07aE.exit"
 
 47:                                               ; preds = %_ZN12polars_arrow5array5Array10null_count17h5df6b414b464f103E.exit
@@ -67311,7 +67312,8 @@ _ZN12polars_arrow5array5Array10null_count17h22a1db255fd35651E.exit: ; preds = %3
   tail call void @llvm.assume(i1 %45)
   %.val117 = load i32, ptr %42, align 4, !noundef !6
   %46 = sext i32 %.val117 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %42, i64 %44
+  %.idx = shl nuw nsw i64 %44, 2
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bd5bb90c6edd5a6E.exit"
 
 48:                                               ; preds = %_ZN12polars_arrow5array5Array10null_count17h22a1db255fd35651E.exit

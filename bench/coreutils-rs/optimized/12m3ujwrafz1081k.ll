@@ -1229,7 +1229,8 @@ define { ptr, ptr } @_ZN6uu_tac3tac17h32e6488b8e3e6b18E(ptr noalias noundef nonn
   br i1 %94, label %190, label %189
 
 95:                                               ; preds = %189, %91
-  %96 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 4
+  %96 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %97 = icmp eq i64 %1, 0
   br i1 %97, label %._crit_edge, label %.lr.ph
 

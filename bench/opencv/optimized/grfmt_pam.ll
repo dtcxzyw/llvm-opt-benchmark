@@ -3322,7 +3322,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 88:                                               ; preds = %8
   %89 = sext i32 %3 to i64
-  %90 = getelementptr inbounds i16, ptr %0, i64 %89
+  %.idx = shl nsw i64 %89, 1
+  %90 = getelementptr inbounds i8, ptr %0, i64 %.idx
   switch i32 %5, label %148 [
     i32 1, label %.preheader122
     i32 3, label %104

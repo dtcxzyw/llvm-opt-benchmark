@@ -3172,12 +3172,14 @@ _ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %55
   %.sroa.450.0.copyload.i = load ptr, ptr %.sroa.450.0..sroa_idx.i, align 8, !alias.scope !551, !noalias !581, !nonnull !4, !noundef !4
   %.sroa.551.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 16
   %.sroa.551.0.copyload.i = load i64, ptr %.sroa.551.0..sroa_idx.i, align 8, !alias.scope !551, !noalias !581
-  %224 = getelementptr inbounds { i64, [16 x i64] }, ptr %.sroa.450.0.copyload.i, i64 %.sroa.551.0.copyload.i
+  %.idx.i = mul nsw i64 %.sroa.551.0.copyload.i, 136
+  %224 = getelementptr inbounds i8, ptr %.sroa.450.0.copyload.i, i64 %.idx.i
   %225 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %226 = load ptr, ptr %225, align 8, !noalias !554, !nonnull !4, !noundef !4
   %227 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %228 = load i64, ptr %227, align 8, !noalias !554, !noundef !4
-  %229 = getelementptr { { { { ptr, i64 } }, {}, {} }, i64, { ptr, { { { ptr, i64 } } }, i8, {}, [7 x i8] } }, ptr %226, i64 %228
+  %.idx113.i = mul i64 %228, 56
+  %229 = getelementptr i8, ptr %226, i64 %.idx113.i
   call void @llvm.experimental.noalias.scope.decl(metadata !582)
   call void @llvm.experimental.noalias.scope.decl(metadata !585)
   call void @llvm.experimental.noalias.scope.decl(metadata !587)
@@ -3209,8 +3211,7 @@ _ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %55
   %233 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %234 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %.sroa.0.sroa.4.0..sroa_idx.i.i64 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.idx.i = mul i64 %228, 56
-  %235 = icmp eq i64 %.idx.i, 0
+  %235 = icmp eq i64 %.idx113.i, 0
   br i1 %235, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h05c648981d257ceaE.exit.i.i.us.i", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h05c648981d257ceaE.exit.i.i.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h05c648981d257ceaE.exit.i.i.us.i": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h05c648981d257ceaE.exit.i.lr.ph.i.i", %245

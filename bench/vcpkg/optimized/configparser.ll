@@ -52194,7 +52194,8 @@ define linkonce_odr dso_local void @_ZNSt3setIN5vcpkg13StringLiteralESt4lessIS1_
   store ptr %6, ptr %9, align 8, !tbaa !777
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !62
-  %11 = getelementptr inbounds nuw %"struct.vcpkg::StringLiteral", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE22_M_insert_range_uniqueIPKS1_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESC_SC_.exit, label %.lr.ph.i
 
@@ -57928,7 +57929,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %47, %51
   %61 = load ptr, ptr %22, align 8, !tbaa !139
   %62 = load ptr, ptr %1, align 8, !tbaa !923
   %63 = load i64, ptr %29, align 8, !tbaa !918
-  %64 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %62, i64 %63
+  %.idx = shl nuw nsw i64 %63, 5
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx
   %65 = icmp ne ptr %60, %61
   %66 = icmp ne i64 %63, 0
   %67 = select i1 %65, i1 %66, i1 false

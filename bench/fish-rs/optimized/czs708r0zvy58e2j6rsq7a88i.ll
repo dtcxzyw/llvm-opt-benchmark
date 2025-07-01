@@ -2250,7 +2250,8 @@ define hidden void @"_ZN117_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %16 = getelementptr inbounds i8, ptr %13, i64 -8
   %17 = load i64, ptr %16, align 8, !noalias !467, !noundef !3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %17
+  %.idx.i.i.i = shl nuw nsw i64 %17, 2
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !468
   store i64 0, ptr %3, align 8, !noalias !468
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8, !noalias !468
@@ -4248,7 +4249,8 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hedc562d609b24748E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %0, ptr noalias noundef nonnull readonly align 1 captures(address) %1, i64 noundef %2) unnamed_addr #11 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw { i8, i8, i8, i8 }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 2
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !699)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9ea64bedcddd10e6E.exit", label %.lr.ph.i
@@ -13675,7 +13677,8 @@ _ZN4core3cmp9PartialEq2ne17h64d11d92fb68fffcE.exit: ; preds = %20
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: write) uwtable
 define hidden void @"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17h92ea760e523ca104E"(ptr noalias noundef nonnull writeonly align 1 captures(address) %0, i64 noundef %1, i32 %2) unnamed_addr #13 {
-  %4 = getelementptr inbounds nuw { i8, i8, i8, i8 }, ptr %0, i64 %1
+  %.idx = shl nuw nsw i64 %1, 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -26885,7 +26888,8 @@ thread-pre-split:                                 ; preds = %"_ZN4core3ptr79drop
   %693 = phi i1 [ false, %679 ], [ true, %673 ]
   %.sroa.028.1304 = phi i32 [ %.sroa.028.0, %679 ], [ %.sroa.028.1305, %673 ]
   %.sroa.032.2302 = phi i8 [ %.sroa.032.1, %679 ], [ %.sroa.032.2303, %673 ]
-  %694 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %692, i64 %691
+  %.idx549 = mul nuw nsw i64 %691, 24
+  %694 = getelementptr inbounds nuw i8, ptr %692, i64 %.idx549
   %695 = icmp eq i64 %691, 0
   %.sroa.0127.1.idx530 = select i1 %695, i64 0, i64 24
   %.sroa.0127.1531 = getelementptr inbounds nuw i8, ptr %692, i64 %.sroa.0127.1.idx530
@@ -31769,7 +31773,8 @@ define hidden { ptr, i64 } @"_ZN4fish21null_terminated_array30NullTerminatedArra
           to label %8 unwind label %.loopexit.split-lp
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} } }, ptr %0, i64 %1
+  %.idx = shl nuw nsw i64 %1, 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %10 = icmp eq i64 %1, 0
   br i1 %10, label %.._crit_edge_crit_edge, label %.lr.ph
 
@@ -38105,7 +38110,8 @@ define noundef zeroext i1 @"_ZN114_$LT$fish..universal_notifier..inotify..Inotif
   %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %19 = load i64, ptr %18, align 8, !noundef !3
-  %20 = getelementptr inbounds nuw { { i64, [2 x i64] }, i32, i32, i32, [1 x i32] }, ptr %17, i64 %19
+  %.idx = mul nuw nsw i64 %19, 40
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5747)
   %.not.i5 = icmp eq i64 %19, 0
   br i1 %.not.i5, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h32673f60f9293f49E.exit", label %.lr.ph.i

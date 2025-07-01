@@ -76,7 +76,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::pointer_union_detail::PointerUnionMembers.641" = type { %"class.llvm::PointerIntPair.642" }
 %"class.llvm::PointerIntPair.642" = type { %"struct.llvm::detail::PunnedPointer.456" }
 %union.anon.643 = type { ptr }
-%"class.clang::APValue::LValuePathEntry" = type { i64 }
 %"class.llvm::APFloat" = type { %"union.llvm::APFloat::Storage" }
 %"union.llvm::APFloat::Storage" = type { %"class.llvm::detail::DoubleAPFloat", [8 x i8] }
 %"class.llvm::detail::DoubleAPFloat" = type { ptr, %"class.std::unique_ptr.627" }
@@ -118,9 +117,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.1449 = type { ptr, %class.anon.706, %"class.std::__cxx11::basic_string" }
 %class.anon.1457 = type { ptr, %class.anon.751, %"class.std::__cxx11::basic_string" }
 %class.anon.751 = type { ptr, ptr }
-%"class.clang::DeclAccessPair" = type { %"struct.llvm::support::detail::packed_endian_specific_integral" }
-%"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon }
-%struct.anon = type { [8 x i8] }
 %"class.llvm::SmallString.1150" = type { %"class.llvm::SmallVector.1151" }
 %"class.llvm::SmallVector.1151" = type { %"class.llvm::SmallVectorImpl.689", %"struct.llvm::SmallVectorStorage.1152" }
 %"struct.llvm::SmallVectorStorage.1152" = type { [40 x i8] }
@@ -155,6 +151,9 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.965 = type { ptr }
 %class.anon.1460 = type { ptr, %class.anon.964, %"class.std::__cxx11::basic_string" }
 %class.anon.964 = type { ptr, ptr }
+%"class.clang::DeclAccessPair" = type { %"struct.llvm::support::detail::packed_endian_specific_integral" }
+%"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon }
+%struct.anon = type { [8 x i8] }
 %class.anon.1463 = type { ptr, %class.anon.972, %"class.std::__cxx11::basic_string" }
 %class.anon.972 = type { ptr, ptr, ptr }
 %class.anon.993 = type { ptr, ptr }
@@ -175,14 +174,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.1482 = type { ptr, %class.anon.1092, %"class.std::__cxx11::basic_string" }
 %class.anon.1092 = type { ptr, ptr }
 %"struct.std::pair.1129" = type { ptr, i64 }
-%"class.clang::ParamIdx" = type { i32 }
-%"struct.clang::OMPInteropInfo" = type { i8, i8, %"class.llvm::SmallVector.1231" }
-%"class.llvm::SmallVector.1231" = type { %"class.llvm::SmallVectorImpl.1232", %"struct.llvm::SmallVectorStorage.1235" }
-%"class.llvm::SmallVectorImpl.1232" = type { %"class.llvm::SmallVectorTemplateBase.1233" }
-%"class.llvm::SmallVectorTemplateBase.1233" = type { %"class.llvm::SmallVectorTemplateCommon.1234" }
-%"class.llvm::SmallVectorTemplateCommon.1234" = type { %"class.llvm::SmallVectorBase" }
-%"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvm::SmallVectorStorage.1235" = type { [32 x i8] }
 %class.anon.686 = type { ptr, ptr }
 %class.anon.1446 = type { ptr, %class.anon.686, %"class.std::__cxx11::basic_string" }
 %class.anon.1456 = type { ptr, %class.anon.1455, %"class.std::__cxx11::basic_string" }
@@ -9410,7 +9401,8 @@ _ZNK5clang4Decl15getOwningModuleEv.exit.thread:   ; preds = %257, %254, %_ZNSt7_
   %294 = call { ptr, i64 } @_ZN5clang10ASTContext30getModulesWithMergedDefinitionEPKNS_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %293, ptr noundef nonnull %1) #22
   %295 = extractvalue { ptr, i64 } %294, 0
   %296 = extractvalue { ptr, i64 } %294, 1
-  %297 = getelementptr inbounds nuw ptr, ptr %295, i64 %296
+  %.idx = shl nuw nsw i64 %296, 3
+  %297 = getelementptr inbounds nuw i8, ptr %295, i64 %.idx
   %.not62179 = icmp eq i64 %296, 0
   br i1 %.not62179, label %.loopexit, label %.lr.ph
 
@@ -14947,7 +14939,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit146:              ; preds = %499, %501
   %504 = call { ptr, i64 } @_ZNK5clang7APValue13getLValuePathEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #22
   %505 = extractvalue { ptr, i64 } %504, 0
   %506 = extractvalue { ptr, i64 } %504, 1
-  %507 = getelementptr inbounds nuw %"class.clang::APValue::LValuePathEntry", ptr %505, i64 %506
+  %.idx = shl nuw nsw i64 %506, 3
+  %507 = getelementptr inbounds nuw i8, ptr %505, i64 %.idx
   %.not72406 = icmp eq i64 %506, 0
   br i1 %.not72406, label %._crit_edge410, label %.lr.ph409
 
@@ -24217,7 +24210,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %55, %57
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %63 = load i32, ptr %62, align 4, !tbaa !29
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %.1.i.i.i, i64 %64
+  %.idx = shl nuw nsw i64 %64, 3
+  %65 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 %.idx
   %66 = icmp eq i32 %63, 0
   br i1 %66, label %67, label %.lr.ph
 
@@ -33013,7 +33007,8 @@ _ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE.exit: ; preds = %37, %39
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %44 = load i32, ptr %43, align 8, !tbaa !493
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
+  %.idx = shl nuw nsw i64 %45, 3
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx
   %.not17 = icmp eq i32 %44, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -35726,7 +35721,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %29 = call { ptr, i64 } @_ZN5clang10ASTContext21getModuleInitializersEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(23216) %27, ptr noundef %28) #22
   %30 = extractvalue { ptr, i64 } %29, 0
   %31 = extractvalue { ptr, i64 } %29, 1
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %.idx = shl nuw nsw i64 %31, 3
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx
   %.not13 = icmp eq i64 %31, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -40762,7 +40758,8 @@ _ZN5clang14TextNodeDumper8dumpNameEPKNS_9NamedDeclE.exit: ; preds = %2, %_ZN4llv
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %36 = load i32, ptr %35, align 8, !tbaa !1082
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %34, i64 %37
+  %.idx = shl nuw nsw i64 %37, 3
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
   %.not23 = icmp eq i32 %36, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
@@ -46032,11 +46029,12 @@ define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 -8
   %6 = load i64, ptr %5, align 8
+  %.idx.i = mul i64 %6, 24
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %8 = getelementptr inbounds %"class.llvm::APFloat", ptr %3, i64 %6
+  %8 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %9 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #27
   br label %10
 
@@ -46060,9 +46058,8 @@ _ZN4llvm7APFloatD2Ev.exit.i:                      ; preds = %15, %14
   br i1 %16, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %10
 
 _ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit: ; preds = %_ZN4llvm7APFloatD2Ev.exit.i, %4
-  %17 = mul i64 %6, 24
-  %18 = add i64 %17, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %18) #23
+  %17 = add i64 %.idx.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %17) #23
   br label %_ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit
@@ -47199,7 +47196,8 @@ define linkonce_odr hidden void @_ZN5clang14TextNodeDumper20VisitArmAgnosticAttr
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !1180
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -47276,7 +47274,8 @@ define linkonce_odr hidden void @_ZN5clang14TextNodeDumper14VisitArmInAttrEPKNS_
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !1183
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -47353,7 +47352,8 @@ define linkonce_odr hidden void @_ZN5clang14TextNodeDumper17VisitArmInOutAttrEPK
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !1186
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -47430,7 +47430,8 @@ define linkonce_odr hidden void @_ZN5clang14TextNodeDumper15VisitArmOutAttrEPKNS
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !1189
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -47507,7 +47508,8 @@ define linkonce_odr hidden void @_ZN5clang14TextNodeDumper21VisitArmPreservesAtt
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !1192
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -48435,7 +48437,8 @@ define linkonce_odr hidden void @_ZN5clang14TextNodeDumper17VisitSuppressAttrEPK
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !1212
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -48659,7 +48662,8 @@ define linkonce_odr hidden void @_ZN5clang14TextNodeDumper26VisitLifetimeCapture
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !1225
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 2
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -49215,7 +49219,8 @@ define linkonce_odr hidden void @_ZN5clang14TextNodeDumper16VisitNonNullAttrEPKN
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !1249
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.clang::ParamIdx", ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 2
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -50314,7 +50319,8 @@ define linkonce_odr hidden void @_ZN5clang14TextNodeDumper15VisitArmNewAttrEPKNS
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !1283
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -51216,7 +51222,8 @@ define linkonce_odr hidden void @_ZN5clang14TextNodeDumper20VisitCPUDispatchAttr
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !1312
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -51264,7 +51271,8 @@ define linkonce_odr hidden void @_ZN5clang14TextNodeDumper20VisitCPUSpecificAttr
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !1316
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -51371,7 +51379,8 @@ define linkonce_odr hidden void @_ZN5clang14TextNodeDumper21VisitCallableWhenAtt
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !1319
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 2
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not14 = icmp eq i32 %6, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -51473,7 +51482,8 @@ define linkonce_odr hidden void @_ZN5clang14TextNodeDumper17VisitCallbackAttrEPK
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !1325
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 2
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -52240,7 +52250,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %10, %12
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %20 = load i32, ptr %19, align 8, !tbaa !1352
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %18, i64 %21
+  %.idx = shl nuw nsw i64 %21, 2
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %.not14 = icmp eq i32 %20, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -55229,7 +55240,8 @@ define linkonce_odr hidden void @_ZN5clang14TextNodeDumper19VisitNoSanitizeAttrE
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !1437
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -56044,7 +56056,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %10, %12
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %21 = load i32, ptr %20, align 8, !tbaa !1459
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.clang::OMPInteropInfo", ptr %19, i64 %22
+  %.idx = mul nuw nsw i64 %22, 56
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not20 = icmp eq i32 %21, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
@@ -56837,7 +56850,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %62, %61, %59, %_ZN4
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %68 = load i32, ptr %67, align 8, !tbaa !1487
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw %"class.clang::ParamIdx", ptr %66, i64 %69
+  %.idx = shl nuw nsw i64 %69, 2
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx
   %.not1325 = icmp eq i32 %68, 0
   br i1 %.not1325, label %._crit_edge, label %.lr.ph
 
@@ -59352,7 +59366,8 @@ define linkonce_odr hidden void @_ZN5clang14TextNodeDumper21VisitTargetClonesAtt
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !1567
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -61657,7 +61672,8 @@ define linkonce_odr hidden void @_ZN5clang14TextNodeDumper15VisitAbiTagAttrEPKNS
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !1631
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -62703,7 +62719,8 @@ define linkonce_odr hidden void @_ZN5clang14TextNodeDumper18VisitNoBuiltinAttrEP
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !1652
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -62892,7 +62909,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %50, %48, %34, %32, 
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %56 = load i32, ptr %55, align 8, !tbaa !1659
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %54, i64 %57
+  %.idx = shl nuw nsw i64 %57, 2
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx
   %.not20 = icmp eq i32 %56, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
@@ -66147,7 +66165,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !23
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"class.std::function", ptr %6, i64 %9
+  %.idx.i = shl nuw nsw i64 %9, 5
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE19moveElementsForGrowEPS3_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -66180,13 +66199,14 @@ _ZSt10_ConstructISt8functionIFvbEEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %
 
 _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i: ; preds = %_ZSt10_ConstructISt8functionIFvbEEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !22
-  %.pre2.i = load i32, ptr %7, align 8, !tbaa !23
-  %.not4.i.i = icmp eq i32 %.pre2.i, 0
+  %.pre3.i = load i32, ptr %7, align 8, !tbaa !23
+  %.not4.i.i = icmp eq i32 %.pre3.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE19moveElementsForGrowEPS3_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
-  %21 = zext i32 %.pre2.i to i64
-  %22 = getelementptr inbounds nuw %"class.std::function", ptr %.pre.i, i64 %21
+  %21 = zext i32 %.pre3.i to i64
+  %.idx2.i = shl nuw nsw i64 %21, 5
+  %22 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i, %.lr.ph.i.preheader.i

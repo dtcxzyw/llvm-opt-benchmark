@@ -2911,7 +2911,8 @@ for.inc.i.i:                                      ; preds = %"_ZZN6hermes2vm7JSA
 
 for.body38.preheader:                             ; preds = %"_ZN6hermes2vm11HiddenClass15forEachPropertyIZNS0_7JSArray9setLengthENS0_6HandleIS3_EERNS0_7RuntimeEjNS0_11PropOpFlagsEE3$_0EEvNS4_IS1_EES7_RKT_.exit"
   %conv.i.i61 = zext i32 %61 to i64
-  %add.ptr.i.i62 = getelementptr inbounds nuw %"struct.std::pair.207", ptr %60, i64 %conv.i.i61
+  %add.ptr.i.i62.idx = shl nuw nsw i64 %conv.i.i61, 3
+  %add.ptr.i.i62 = getelementptr inbounds nuw i8, ptr %60, i64 %add.ptr.i.i62.idx
   br label %for.body38
 
 for.body38:                                       ; preds = %for.body38.preheader, %for.inc54

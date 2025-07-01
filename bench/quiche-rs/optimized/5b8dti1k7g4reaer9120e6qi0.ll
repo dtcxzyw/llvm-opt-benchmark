@@ -4243,7 +4243,8 @@ define hidden void @_ZN3h3i6client14execute_action17h3645bd6f38157cf1E(ptr noali
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !392, !noalias !395
   %163 = icmp ult i64 %.sroa.5.0.copyload.i, 88686269585142076
   call void @llvm.assume(i1 %163)
-  %164 = getelementptr inbounds nuw { i64, [12 x i64] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx370 = mul nuw nsw i64 %.sroa.5.0.copyload.i, 104
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx370
   %165 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   call void @llvm.assume(i1 %165)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %90)
@@ -4605,7 +4606,8 @@ define hidden void @_ZN3h3i6client14execute_action17h3645bd6f38157cf1E(ptr noali
   %.sroa.5.0.copyload.i154 = load i64, ptr %.sroa.5.0..sroa_idx.i153, align 8, !alias.scope !423, !noalias !426
   %267 = icmp ult i64 %.sroa.5.0.copyload.i154, 88686269585142076
   call void @llvm.assume(i1 %267)
-  %268 = getelementptr inbounds nuw { i64, [12 x i64] }, ptr %.sroa.4.0.copyload.i152, i64 %.sroa.5.0.copyload.i154
+  %.idx = mul nuw nsw i64 %.sroa.5.0.copyload.i154, 104
+  %268 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i152, i64 %.idx
   %269 = icmp sgt i64 %.sroa.0.0.copyload.i150, -1
   call void @llvm.assume(i1 %269)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %71)

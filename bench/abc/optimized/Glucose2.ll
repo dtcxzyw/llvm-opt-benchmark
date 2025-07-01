@@ -3264,7 +3264,8 @@ _ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8
   %182 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %183 = load i32, ptr %182, align 8, !tbaa !141
   %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds %"struct.Gluco2::Solver::Watcher", ptr %181, i64 %184
+  %.idx = shl nsw i64 %184, 3
+  %185 = getelementptr inbounds i8, ptr %181, i64 %.idx
   %.not146326 = icmp eq i32 %183, 0
   br i1 %.not146326, label %._crit_edge334, label %.lr.ph333
 

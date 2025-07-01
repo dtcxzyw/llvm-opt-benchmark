@@ -2875,7 +2875,8 @@ define void @Lms_ManPrintFreqStats(ptr noundef readonly captures(none) %0) local
   %43 = add nsw i32 %40, -6
   %44 = shl nuw i32 1, %43
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i64, ptr %39, i64 %45
+  %.idx.i.i = shl nsw i64 %45, 3
+  %46 = getelementptr inbounds i8, ptr %39, i64 %.idx.i.i
   %smax56.i.i = call i32 @llvm.smax.i32(i32 %44, i32 1)
   %wide.trip.count57.i.i = zext nneg i32 %smax56.i.i to i64
   br i1 %42, label %.lr.ph.split.us.i, label %.lr.ph.split.i
@@ -5276,7 +5277,8 @@ Abc_TtSupport.exit.thread.thread:                 ; preds = %If_CutTruthW.exit
   %56 = add nsw i32 %11, -6
   %57 = shl nuw i32 1, %56
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i64, ptr %18, i64 %58
+  %.idx.i.i = shl nsw i64 %58, 3
+  %59 = getelementptr inbounds i8, ptr %18, i64 %.idx.i.i
   %smax56.i.i = tail call i32 @llvm.smax.i32(i32 %57, i32 1)
   %wide.trip.count57.i.i = zext nneg i32 %smax56.i.i to i64
   br i1 %55, label %.lr.ph.split.us.i, label %.lr.ph.split.i
@@ -6005,7 +6007,8 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %52 = add nsw i32 %13, -6
   %53 = shl nuw i32 1, %52
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i64, ptr %15, i64 %54
+  %.idx.i.i = shl nsw i64 %54, 3
+  %55 = getelementptr inbounds i8, ptr %15, i64 %.idx.i.i
   %smax56.i.i = tail call i32 @llvm.smax.i32(i32 %53, i32 1)
   %wide.trip.count57.i.i = zext nneg i32 %smax56.i.i to i64
   br i1 %51, label %.lr.ph.split.us.i, label %.lr.ph.split.i
@@ -6645,7 +6648,8 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %53 = add nsw i32 %14, -6
   %54 = shl nuw i32 1, %53
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i64, ptr %16, i64 %55
+  %.idx.i.i = shl nsw i64 %55, 3
+  %56 = getelementptr inbounds i8, ptr %16, i64 %.idx.i.i
   %smax56.i.i = tail call i32 @llvm.smax.i32(i32 %54, i32 1)
   %wide.trip.count57.i.i = zext nneg i32 %smax56.i.i to i64
   br i1 %52, label %.lr.ph.split.us.i, label %.lr.ph.split.i
@@ -8389,6 +8393,7 @@ Vec_StrAlloc.exit:                                ; preds = %11
   %26 = add nsw i32 %5, -6
   %27 = shl nuw i32 1, %26
   %28 = sext i32 %27 to i64
+  %.idx.i.i = shl nsw i64 %28, 3
   %smax56.i.i = tail call i32 @llvm.smax.i32(i32 %27, i32 1)
   %wide.trip.count57.i.i = zext nneg i32 %smax56.i.i to i64
   %.not48.i.i = icmp eq i32 %26, 31
@@ -8421,7 +8426,7 @@ Vec_StrAlloc.exit:                                ; preds = %11
   br i1 %24, label %.lr.ph.i, label %Abc_TtSupportSize.exit
 
 .lr.ph.i:                                         ; preds = %46
-  %48 = getelementptr inbounds i64, ptr %45, i64 %28
+  %48 = getelementptr inbounds i8, ptr %45, i64 %.idx.i.i
   br i1 %25, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i

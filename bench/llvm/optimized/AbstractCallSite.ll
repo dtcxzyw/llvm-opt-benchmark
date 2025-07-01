@@ -73,7 +73,8 @@ _ZNK4llvm5Value11getMetadataEj.exit:              ; preds = %_ZNK4llvm8CallBase1
 _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %21, %27
   %.sroa.3.0.i.i = phi i64 [ %33, %27 ], [ %26, %21 ]
   %.sroa.0.0.i.i = phi ptr [ %31, %27 ], [ %23, %21 ]
-  %34 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i, i64 %.sroa.3.0.i.i
+  %.idx = shl nuw nsw i64 %.sroa.3.0.i.i, 3
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %.idx
   %.not2229 = icmp eq i64 %.sroa.3.0.i.i, 0
   br i1 %.not2229, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, label %.lr.ph
 
@@ -351,7 +352,8 @@ _ZNK4llvm5Value11getMetadataEj.exit.thread:       ; preds = %_ZNK4llvm8CallBase1
 _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %76, %82
   %.sroa.3.0.i.i = phi i64 [ %88, %82 ], [ %81, %76 ]
   %.sroa.0.0.i.i = phi ptr [ %86, %82 ], [ %78, %76 ]
-  %89 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i, i64 %.sroa.3.0.i.i
+  %.idx = shl nuw nsw i64 %.sroa.3.0.i.i, 3
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %.idx
   %.not5992 = icmp eq i64 %.sroa.3.0.i.i, 0
   br i1 %.not5992, label %.loopexit113, label %.lr.ph
 

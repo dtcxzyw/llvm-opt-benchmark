@@ -715,7 +715,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i265:        ; preds = %283, %281, %273
   br i1 %exitcond479.not, label %._crit_edge412, label %.lr.ph411, !llvm.loop !7
 
 312:                                              ; preds = %._crit_edge412
-  %313 = getelementptr inbounds nuw i32, ptr %204, i64 %202
+  %313 = getelementptr inbounds nuw i8, ptr %204, i64 %203
   br label %.lr.ph.i273
 
 .lr.ph.i273:                                      ; preds = %312, %.noexc

@@ -2359,7 +2359,8 @@ _ZN18serde_json_lenient3ser9Formatter18begin_object_value17hfc0c390f3f02cad0E.ex
   %.val9 = load i64, ptr %19, align 8, !alias.scope !871, !noundef !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !874)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !877)
-  %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val8, i64 %.val9
+  %.idx.i.i = mul nsw i64 %.val9, 24
+  %20 = getelementptr inbounds i8, ptr %.val8, i64 %.idx.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !880)
   %.val.i.i.i = load ptr, ptr %6, align 8, !alias.scope !883, !noalias !886, !nonnull !7, !align !60, !noundef !7
   %21 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 16

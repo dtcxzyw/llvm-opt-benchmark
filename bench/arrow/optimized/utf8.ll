@@ -1065,7 +1065,8 @@ define void @_ZN5arrow4util16WideStringToUTF8ERKNSt7__cxx1112basic_stringIwSt11c
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %8, align 8, !tbaa !36, !alias.scope !54
   store i8 0, ptr %7, align 8, !tbaa !9, !alias.scope !54
-  %9 = getelementptr inbounds nuw i32, ptr %.val, i64 %.val7
+  %.idx.i = shl nuw nsw i64 %.val7, 2
+  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %.not7.i.i = icmp eq i64 %.val7, 0
   br i1 %.not7.i.i, label %_ZN5arrow4util12_GLOBAL__N_124WideStringToUTF8InternalERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE.exit.thread, label %.lr.ph.i.i
 

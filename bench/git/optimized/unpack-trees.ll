@@ -6055,7 +6055,8 @@ define internal fastcc i32 @clear_ce_flags_1(ptr noundef %0, ptr noundef %1, i32
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %11
+  %.idx = shl nsw i64 %11, 3
+  %12 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not24 = icmp eq i32 %2, 0
   br i1 %.not24, label %..loopexit_crit_edge, label %.lr.ph30
 
@@ -6165,9 +6166,10 @@ strbuf_addch.exit122:                             ; preds = %strbuf_avail.exit.i
   %61 = icmp eq i32 %52, -1
   %..i = select i1 %61, i32 %6, i32 %52
   %sext6 = shl i64 %43, 29
-  %62 = ashr i64 %sext6, 32
-  %63 = getelementptr inbounds ptr, ptr %.08727, i64 %62
-  %.not.i17 = icmp ult i64 %sext6, 4294967296
+  %62 = ashr exact i64 %sext6, 29
+  %.idx33 = and i64 %62, -8
+  %63 = getelementptr inbounds i8, ptr %.08727, i64 %.idx33
+  %.not.i17 = icmp eq i64 %.idx33, 0
   br i1 %.not.i17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %strbuf_addch.exit122

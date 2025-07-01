@@ -756,7 +756,8 @@ _ZN20ruff_python_semantic3cfg5graph10CFGBuilder13with_capacity17h7cd6bfc9ada116f
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !83
   call void @llvm.experimental.noalias.scope.decl(metadata !112)
   call void @llvm.experimental.noalias.scope.decl(metadata !115)
-  %44 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx.i = mul nuw nsw i64 %2, 120
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
   %45 = icmp eq i64 %2, 0
   br i1 %45, label %._crit_edge.i2, label %.lr.ph.i
 
@@ -1707,7 +1708,8 @@ define void @"_ZN118_$LT$ruff_python_semantic..globals..GlobalsVisitor$u20$as$u2
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i64, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %11, i64 %13
+  %.idx = shl nuw nsw i64 %13, 5
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %15 = icmp eq i64 %13, 0
   br i1 %15, label %.loopexit, label %.lr.ph
 

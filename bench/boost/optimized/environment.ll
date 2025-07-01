@@ -7504,7 +7504,8 @@ define linkonce_odr hidden void @_ZN5boost7process2v211environment14key_value_pa
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %7, align 8, !tbaa !14
   store i8 0, ptr %6, align 8, !tbaa !15
-  %8 = getelementptr inbounds nuw %"class.boost::basic_string_view", ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not6.i = icmp eq i64 %4, 0
   br i1 %.not6.i, label %_ZSt10accumulateIPKN5boost17basic_string_viewIcSt11char_traitsIcEEEmZNS0_7process2v211environment14key_value_pairC1ENS9_8key_viewESt16initializer_listIS4_EEUlmRS5_E_ET0_T_SH_SG_T1_.exit, label %.lr.ph.i
 

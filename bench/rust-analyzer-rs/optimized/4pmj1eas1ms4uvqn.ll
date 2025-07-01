@@ -218,7 +218,8 @@ common.resume:                                    ; preds = %44, %17
   %25 = load ptr, ptr %24, align 8, !alias.scope !35, !nonnull !9, !noundef !9
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load i64, ptr %26, align 8, !alias.scope !35, !noundef !9
-  %28 = getelementptr inbounds { ptr, i64, ptr }, ptr %25, i64 %27
+  %.idx.i = mul nsw i64 %27, 24
+  %28 = getelementptr inbounds i8, ptr %25, i64 %.idx.i
   %29 = icmp eq i64 %27, 0
   br i1 %29, label %._crit_edge.i, label %.lr.ph.i
 
@@ -2003,7 +2004,8 @@ _ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.thread.
   %.0.i.ph.i.i.i = phi i64 [ %.07.val.pre.i.i.i.i.i, %_ZN17crossbeam_channel5waker17current_thread_id9THREAD_ID7__getit17hf640953b2325be6bE.exit._ZN17crossbeam_channel5waker17current_thread_id9THREAD_ID7__getit17hf640953b2325be6bE.exit.thread_crit_edge.i.i.i.i.i ], [ %123, %122 ]
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %134 = load ptr, ptr %133, align 16, !alias.scope !166, !noalias !169, !nonnull !9, !noundef !9
-  %135 = getelementptr inbounds { ptr, i64, ptr }, ptr %134, i64 %120
+  %.idx18.i.i.i = mul nsw i64 %120, 24
+  %135 = getelementptr inbounds i8, ptr %134, i64 %.idx18.i.i.i
   br label %.lr.ph.i.preheader.i.i.i
 
 _ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i.i.i: ; preds = %.noexc5.i.i, %.noexc4.i.i
@@ -2011,7 +2013,8 @@ _ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i.i.i: 
   %.pre.i.i.i = load i64, ptr %119, align 8, !alias.scope !166, !noalias !169
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %137 = load ptr, ptr %136, align 16, !alias.scope !166, !noalias !169, !nonnull !9, !noundef !9
-  %138 = getelementptr inbounds { ptr, i64, ptr }, ptr %137, i64 %.pre.i.i.i
+  %.idx.i.i.i = mul nsw i64 %.pre.i.i.i, 24
+  %138 = getelementptr inbounds i8, ptr %137, i64 %.idx.i.i.i
   %139 = icmp eq i64 %.pre.i.i.i, 0
   br i1 %139, label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$crossbeam_channel..waker..Entry$GT$$GT$17hfb4534c4181725ddE.exit.i.i", label %.lr.ph.i.preheader.i.i.i
 
@@ -2019,7 +2022,7 @@ _ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i.i.i: 
   %140 = phi ptr [ %135, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.thread.i.i.i ], [ %138, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i.i.i ]
   %141 = phi ptr [ %134, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.thread.i.i.i ], [ %137, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i.i.i ]
   %142 = phi ptr [ %133, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.thread.i.i.i ], [ %136, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i.i.i ]
-  %.0.i18.i.i.i = phi i64 [ %.0.i.ph.i.i.i, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.thread.i.i.i ], [ %129, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i.i.i ]
+  %.0.i19.i.i.i = phi i64 [ %.0.i.ph.i.i.i, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.thread.i.i.i ], [ %129, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i.i.i ]
   %143 = phi i64 [ %120, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.thread.i.i.i ], [ %.pre.i.i.i, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i.i.i ]
   br label %.lr.ph.i.i.i.i
 
@@ -2031,7 +2034,7 @@ _ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i.i.i: 
   %146 = load ptr, ptr %144, align 8, !alias.scope !187, !noalias !190, !nonnull !9, !noundef !9
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %148 = load i64, ptr %147, align 8, !range !176, !noalias !194, !noundef !9
-  %.not.i.i.i.i.i = icmp eq i64 %148, %.0.i18.i.i.i
+  %.not.i.i.i.i.i = icmp eq i64 %148, %.0.i19.i.i.i
   br i1 %.not.i.i.i.i.i, label %"_ZN17crossbeam_channel5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h997b416579942d13E.exit.i.i.i.i", label %149
 
 149:                                              ; preds = %.lr.ph.i.i.i.i

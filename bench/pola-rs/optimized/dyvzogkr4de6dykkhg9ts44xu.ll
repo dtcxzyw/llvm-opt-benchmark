@@ -17532,7 +17532,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h4a9231f2cdb92e3cE.exit: ; preds =
   %227 = shl i64 %.sroa.0.0.sroa.speculated.i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2, ptr nonnull align 4 %.16.i, i64 %227, i1 false), !alias.scope !1822
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1822
-  %228 = getelementptr inbounds nuw { { i32, i32 } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i
+  %228 = getelementptr inbounds nuw i8, ptr %2, i64 %227
   store ptr %2, ptr %7, align 8, !noalias !1822
   store ptr %228, ptr %21, align 8, !noalias !1822
   store ptr %.16.i, ptr %22, align 8, !noalias !1822
@@ -18120,7 +18120,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hdc75cc9b7e6aa91dE.exit: ; preds =
   %115 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 12
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2, ptr nonnull align 4 %.16.i, i64 %115, i1 false), !alias.scope !1898
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1898
-  %116 = getelementptr inbounds nuw { i32, i32, i32 }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 %115
   store ptr %2, ptr %7, align 8, !noalias !1898
   store ptr %116, ptr %21, align 8, !noalias !1898
   br i1 %.not.i33, label %117, label %.lr.ph.i.preheader.i
@@ -18519,7 +18519,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h0d88c92dba879b40E.exit: ; preds =
   %126 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %126, i1 false), !alias.scope !1920
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1920
-  %127 = getelementptr inbounds nuw { ptr, { i64, i32, [1 x i32] } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i
+  %127 = getelementptr inbounds nuw i8, ptr %2, i64 %126
   store ptr %2, ptr %7, align 8, !noalias !1920
   store ptr %127, ptr %21, align 8, !noalias !1920
   br i1 %.not.i33, label %128, label %.lr.ph.i.preheader.i
@@ -29689,7 +29689,8 @@ define hidden noundef zeroext i1 @"_ZN75_$LT$polars_schema..schema..Schema$LT$D$
   %13 = load ptr, ptr %12, align 8, !nonnull !6, !noundef !6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !6
-  %16 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, i64 }, ptr %13, i64 %15
+  %.idx = mul nuw nsw i64 %15, 80
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %.loopexit, label %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit18.lr.ph
 
@@ -29763,7 +29764,8 @@ define hidden noundef zeroext i1 @"_ZN75_$LT$polars_schema..schema..Schema$LT$D$
   %13 = load ptr, ptr %12, align 8, !nonnull !6, !noundef !6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !6
-  %16 = getelementptr inbounds nuw { i64, { { { ptr, i64, i32, i16, i8, i8 } } }, { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] } }, ptr %13, i64 %15
+  %.idx = mul nuw nsw i64 %15, 104
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %.loopexit, label %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit18.lr.ph
 
@@ -36350,7 +36352,8 @@ _ZN3std4sync6poison4once4Once9call_once17h3ff5b804752c8eaeE.exit.us: ; preds = %
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   %96 = load ptr, ptr %85, align 8, !nonnull !6, !noundef !6
   %97 = load i64, ptr %84, align 8, !noundef !6
-  %98 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %96, i64 %97
+  %.idx88 = mul nuw nsw i64 %97, 48
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx88
   %99 = icmp eq i64 %97, 0
   br i1 %99, label %_ZN4core4iter6traits8iterator8Iterator7collect17hb5993bd66d435ccdE.exit.us, label %.lr.ph.us
 
@@ -36491,7 +36494,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hb5993bd66d435ccdE.exit._crit_ed
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   %128 = load ptr, ptr %85, align 8, !nonnull !6, !noundef !6
   %129 = load i64, ptr %84, align 8, !noundef !6
-  %130 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %128, i64 %129
+  %.idx = mul nuw nsw i64 %129, 48
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 %.idx
   %131 = icmp eq i64 %129, 0
   br i1 %131, label %_ZN4core4iter6traits8iterator8Iterator7collect17hb5993bd66d435ccdE.exit, label %.lr.ph
 
@@ -36808,7 +36812,8 @@ _ZN3std4sync6poison4once4Once9call_once17h3ff5b804752c8eaeE.exit.us: ; preds = %
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   %93 = load ptr, ptr %84, align 8, !nonnull !6, !noundef !6
   %94 = load i64, ptr %83, align 8, !noundef !6
-  %95 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %93, i64 %94
+  %.idx81 = mul nuw nsw i64 %94, 48
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx81
   %96 = icmp eq i64 %94, 0
   br i1 %96, label %_ZN4core4iter6traits8iterator8Iterator7collect17h37cb29ed1c088df2E.exit.us, label %.lr.ph.us.preheader
 
@@ -36943,7 +36948,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h37cb29ed1c088df2E.exit._crit_ed
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   %121 = load ptr, ptr %84, align 8, !nonnull !6, !noundef !6
   %122 = load i64, ptr %83, align 8, !noundef !6
-  %123 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %121, i64 %122
+  %.idx = mul nuw nsw i64 %122, 48
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 %.idx
   %124 = icmp eq i64 %122, 0
   br i1 %124, label %_ZN4core4iter6traits8iterator8Iterator7collect17h37cb29ed1c088df2E.exit, label %.lr.ph.preheader
 
@@ -38736,7 +38742,8 @@ define hidden { i32, i32 } @_ZN13polars_stream5graph5Graph8add_node17h194124cff5
   %.sroa.527.0.copyload = load i64, ptr %.sroa.527.0..sroa_idx, align 8
   %21 = icmp ult i64 %.sroa.527.0.copyload, 576460752303423488
   tail call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds nuw { { { i32, i32 } }, i64 }, ptr %.sroa.426.0.copyload, i64 %.sroa.527.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.527.0.copyload, 4
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.426.0.copyload, i64 %.idx
   %23 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %23)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
@@ -41715,7 +41722,8 @@ define hidden { i32, i32 } @_ZN13polars_stream5graph5Graph8add_node17hbb1f8603c7
   %.sroa.527.0.copyload = load i64, ptr %.sroa.527.0..sroa_idx, align 8
   %16 = icmp ult i64 %.sroa.527.0.copyload, 576460752303423488
   tail call void @llvm.assume(i1 %16)
-  %17 = getelementptr inbounds nuw { { { i32, i32 } }, i64 }, ptr %.sroa.426.0.copyload, i64 %.sroa.527.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.527.0.copyload, 4
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.426.0.copyload, i64 %.idx
   %18 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %18)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
@@ -43339,7 +43347,8 @@ _ZN13polars_stream4pipe8RecvPort8parallel17hf125dfb41d31b89fE.exit: ; preds = %2
   %.sroa.520.0.copyload = load i64, ptr %.sroa.520.0..sroa_idx, align 8
   %41 = icmp ult i64 %.sroa.520.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %41)
-  %42 = getelementptr inbounds nuw ptr, ptr %.sroa.419.0.copyload, i64 %.sroa.520.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.520.0.copyload, 3
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.419.0.copyload, i64 %.idx
   %43 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %43)
   %.sroa.021.0.copyload = load i64, ptr %15, align 8
@@ -43630,7 +43639,8 @@ _ZN13polars_stream4pipe8RecvPort8parallel17hf125dfb41d31b89fE.exit: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !4276
   %32 = icmp ult i64 %.sroa.3.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %32)
-  %33 = getelementptr inbounds nuw ptr, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.3.0.copyload, 3
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload, i64 %.idx
   %34 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %34)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
@@ -44018,7 +44028,8 @@ define void @"_ZN112_$LT$polars_stream..nodes..in_memory_source..InMemorySourceN
   %.sroa.514.0.copyload = load i64, ptr %.sroa.514.0..sroa_idx, align 8
   %30 = icmp ult i64 %.sroa.514.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw ptr, ptr %.sroa.413.0.copyload, i64 %.sroa.514.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.514.0.copyload, 3
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.413.0.copyload, i64 %.idx
   %32 = icmp sgt i64 %.sroa.012.0.copyload, -1
   tail call void @llvm.assume(i1 %32)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
@@ -44372,7 +44383,8 @@ define void @_ZN13polars_stream5nodes10io_sources17multi_file_reader9extra_ops12
   %7 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !6
-  %10 = getelementptr inbounds nuw { { i8, [47 x i8] }, i64, [1 x i64] }, ptr %7, i64 %9
+  %.idx = shl nuw nsw i64 %9, 6
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 
@@ -44785,7 +44797,8 @@ define hidden void @_ZN13polars_stream5nodes10io_sources17multi_file_reader14ini
   %141 = load ptr, ptr %140, align 8, !nonnull !6, !noundef !6
   %142 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %143 = load i64, ptr %142, align 8, !noundef !6
-  %144 = getelementptr inbounds nuw { i8, [159 x i8] }, ptr %141, i64 %143
+  %.idx = mul nuw nsw i64 %143, 160
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 %.idx
   %145 = icmp eq i64 %143, 0
   br i1 %145, label %._crit_edge, label %.lr.ph
 
@@ -44872,7 +44885,8 @@ default.unreachable:                              ; preds = %336, %316, %163
   %180 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %181 = load ptr, ptr %180, align 8, !nonnull !6, !noundef !6
   %182 = load i64, ptr %87, align 8, !noundef !6
-  %183 = getelementptr inbounds nuw ptr, ptr %181, i64 %182
+  %.idx404 = shl nuw nsw i64 %182, 3
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 %.idx404
   %184 = icmp eq i64 %182, 0
   br i1 %184, label %._crit_edge403, label %.lr.ph402
 
@@ -46563,7 +46577,8 @@ _ZN13polars_stream4pipe8RecvPort8parallel17hf125dfb41d31b89fE.exit: ; preds = %5
   %.sroa.533.0.copyload = load i64, ptr %.sroa.533.0..sroa_idx, align 8
   %73 = icmp ult i64 %.sroa.533.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %73)
-  %74 = getelementptr inbounds nuw ptr, ptr %.sroa.432.0.copyload, i64 %.sroa.533.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.533.0.copyload, 3
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.432.0.copyload, i64 %.idx
   %75 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %75)
   %.sroa.034.0.copyload = load i64, ptr %15, align 8
@@ -47996,7 +48011,8 @@ _ZN13polars_stream4pipe8RecvPort8parallel17hf125dfb41d31b89fE.exit: ; preds = %5
   %66 = load ptr, ptr %65, align 8, !nonnull !6, !noundef !6
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %68 = load i64, ptr %67, align 8, !noundef !6
-  %69 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %66, i64 %68
+  %.idx110 = mul nuw nsw i64 %68, 96
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx110
   %.sroa.060.0.copyload = load i64, ptr %22, align 8
   %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.461.0.copyload = load ptr, ptr %.sroa.461.0..sroa_idx, align 8, !nonnull !6, !noundef !6
@@ -48243,7 +48259,8 @@ select.unfold:                                    ; preds = %"_ZN5alloc3vec16Vec
   %.sroa.575.0.copyload = load i64, ptr %.sroa.575.0..sroa_idx, align 8
   %147 = icmp ult i64 %.sroa.575.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %147)
-  %148 = getelementptr inbounds nuw ptr, ptr %.sroa.474.0.copyload, i64 %.sroa.575.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.575.0.copyload, 3
+  %148 = getelementptr inbounds nuw i8, ptr %.sroa.474.0.copyload, i64 %.idx
   %149 = icmp sgt i64 %.sroa.073.0.copyload, -1
   tail call void @llvm.assume(i1 %149)
   %.sroa.076.0.copyload = load i64, ptr %19, align 8
@@ -48548,7 +48565,8 @@ _ZN13polars_stream4pipe8RecvPort8parallel17hf125dfb41d31b89fE.exit: ; preds = %2
   %.sroa.520.0.copyload = load i64, ptr %.sroa.520.0..sroa_idx, align 8
   %41 = icmp ult i64 %.sroa.520.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %41)
-  %42 = getelementptr inbounds nuw ptr, ptr %.sroa.419.0.copyload, i64 %.sroa.520.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.520.0.copyload, 3
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.419.0.copyload, i64 %.idx
   %43 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %43)
   %.sroa.021.0.copyload = load i64, ptr %15, align 8
@@ -52095,7 +52113,8 @@ _ZN13polars_stream4pipe8RecvPort8parallel17hf125dfb41d31b89fE.exit: ; preds = %4
   %.sroa.525.0.copyload = load i64, ptr %.sroa.525.0..sroa_idx, align 8
   %57 = icmp ult i64 %.sroa.525.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %57)
-  %58 = getelementptr inbounds nuw ptr, ptr %.sroa.424.0.copyload, i64 %.sroa.525.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.525.0.copyload, 3
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.424.0.copyload, i64 %.idx
   %59 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %59)
   %.sroa.026.0.copyload = load i64, ptr %18, align 8
@@ -52465,7 +52484,8 @@ _ZN13polars_stream4pipe8RecvPort8parallel17hf125dfb41d31b89fE.exit: ; preds = %2
   %.sroa.520.0.copyload = load i64, ptr %.sroa.520.0..sroa_idx, align 8
   %41 = icmp ult i64 %.sroa.520.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %41)
-  %42 = getelementptr inbounds nuw ptr, ptr %.sroa.419.0.copyload, i64 %.sroa.520.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.520.0.copyload, 3
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.419.0.copyload, i64 %.idx
   %43 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %43)
   %.sroa.021.0.copyload = load i64, ptr %15, align 8
@@ -52767,7 +52787,8 @@ _ZN13polars_stream4pipe8RecvPort8parallel17hf125dfb41d31b89fE.exit: ; preds = %2
   %.sroa.520.0.copyload = load i64, ptr %.sroa.520.0..sroa_idx, align 8
   %41 = icmp ult i64 %.sroa.520.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %41)
-  %42 = getelementptr inbounds nuw ptr, ptr %.sroa.419.0.copyload, i64 %.sroa.520.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.520.0.copyload, 3
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.419.0.copyload, i64 %.idx
   %43 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %43)
   %.sroa.021.0.copyload = load i64, ptr %15, align 8
@@ -53232,7 +53253,8 @@ _ZN3std4sync6poison4once4Once9call_once17h5bea2717b72ed5cbE.exit: ; preds = %.no
   %.sroa.530.0.copyload = load i64, ptr %56, align 8
   %104 = icmp ult i64 %.sroa.530.0.copyload, 1152921504606846976
   call void @llvm.assume(i1 %104)
-  %105 = getelementptr inbounds nuw ptr, ptr %.sroa.429.0.copyload, i64 %.sroa.530.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.530.0.copyload, 3
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.429.0.copyload, i64 %.idx
   %106 = icmp sgt i64 %.sroa.0.0.copyload, -1
   call void @llvm.assume(i1 %106)
   %.sroa.031.0.copyload = load i64, ptr %24, align 8
@@ -54281,7 +54303,8 @@ define void @"_ZN88_$LT$polars_stream..nodes..zip..ZipNode$u20$as$u20$polars_str
 51:                                               ; preds = %.thread105, %37
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8, !nonnull !6, !noundef !6
-  %54 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64, i64 }, ptr, i64, i8, i8, [6 x i8] }, ptr %53, i64 %3
+  %.idx = mul nuw nsw i64 %3, 56
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   br i1 %20, label %._crit_edge87.thread, label %.lr.ph86
 
 ._crit_edge87.thread:                             ; preds = %51
@@ -55318,7 +55341,8 @@ _ZN3std4sync6poison4once4Once9call_once17h5bea2717b72ed5cbE.exit: ; preds = %.no
   %.sroa.554.0.copyload = load i64, ptr %46, align 8
   %104 = icmp ult i64 %.sroa.554.0.copyload, 1152921504606846976
   call void @llvm.assume(i1 %104)
-  %105 = getelementptr inbounds nuw ptr, ptr %.sroa.453.0.copyload, i64 %.sroa.554.0.copyload
+  %.idx152 = shl nuw nsw i64 %.sroa.554.0.copyload, 3
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.453.0.copyload, i64 %.idx152
   %106 = icmp sgt i64 %.sroa.0.0.copyload, -1
   call void @llvm.assume(i1 %106)
   %.sroa.055.0.copyload = load i64, ptr %25, align 8
@@ -55566,7 +55590,8 @@ _ZN3std4sync6poison4once4Once9call_once17h5bea2717b72ed5cbE.exit21: ; preds = %.
   %.sroa.570.0.copyload = load i64, ptr %56, align 8
   %180 = icmp ult i64 %.sroa.570.0.copyload, 1152921504606846976
   call void @llvm.assume(i1 %180)
-  %181 = getelementptr inbounds nuw ptr, ptr %.sroa.469.0.copyload, i64 %.sroa.570.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.570.0.copyload, 3
+  %181 = getelementptr inbounds nuw i8, ptr %.sroa.469.0.copyload, i64 %.idx
   %182 = icmp sgt i64 %.sroa.068.0.copyload, -1
   call void @llvm.assume(i1 %182)
   %.sroa.071.0.copyload = load i64, ptr %18, align 8

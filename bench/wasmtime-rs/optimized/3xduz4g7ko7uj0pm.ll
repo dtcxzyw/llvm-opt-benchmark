@@ -5405,7 +5405,8 @@ common.resume:                                    ; preds = %74, %230, %347, %51
   %112 = load ptr, ptr %111, align 8, !nonnull !5, !noundef !5
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %114 = load i64, ptr %113, align 8, !noundef !5
-  %115 = getelementptr inbounds { i32, [15 x i32] }, ptr %112, i64 %114
+  %.idx = shl nsw i64 %114, 6
+  %115 = getelementptr inbounds i8, ptr %112, i64 %.idx
   %116 = icmp eq i64 %114, 0
   br i1 %116, label %._crit_edge, label %.lr.ph
 
@@ -8959,7 +8960,8 @@ _ZN16wasmtime_environ9component5types9resources16ResourcesBuilder17register_reso
   %1047 = load ptr, ptr %1046, align 8, !alias.scope !2159, !noalias !2162, !nonnull !5, !noundef !5
   %1048 = getelementptr inbounds nuw i8, ptr %1045, i64 48
   %1049 = load i64, ptr %1048, align 8, !alias.scope !2159, !noalias !2162, !noundef !5
-  %1050 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] } }, ptr %1047, i64 %1049
+  %.idx635.i = mul nsw i64 %1049, 56
+  %1050 = getelementptr inbounds i8, ptr %1047, i64 %.idx635.i
   %1051 = icmp eq i64 %1049, 0
   br i1 %1051, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd705423449cf2dfE.exit.thread.i", label %.lr.ph634.i
 
@@ -9206,7 +9208,8 @@ _ZN16wasmtime_environ9component5types9resources16ResourcesBuilder17register_reso
   %.val175.i = load ptr, ptr %1134, align 8, !noalias !1701, !nonnull !5, !noundef !5
   %1135 = getelementptr i8, ptr %1133, i64 16
   %.val176.i = load i64, ptr %1135, align 8, !noalias !1701, !noundef !5
-  %1136 = getelementptr inbounds { { i64, [3 x i64] }, { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, i64 }, ptr %.val175.i, i64 %.val176.i
+  %.idx.i = mul nsw i64 %.val176.i, 88
+  %1136 = getelementptr inbounds i8, ptr %.val175.i, i64 %.idx.i
   %1137 = icmp eq i64 %.val176.i, 0
   br i1 %1137, label %._crit_edge.i, label %.lr.ph.i
 
@@ -14978,7 +14981,8 @@ define internal fastcc noundef i32 @_ZN16wasmtime_environ9component9translate6in
   %12 = alloca { i64, [17 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %12)
   call void @"_ZN103_$LT$wasmtime_environ..component..translate..inline..ComponentItemDef$u20$as$u20$core..clone..Clone$GT$5clone17h7c3befe9590492f4E.llvm.9996293967201523975"(ptr noalias noundef nonnull sret({ i64, [17 x i64] }) align 8 captures(none) dereferenceable(144) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %0)
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %13 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %14 = icmp eq i64 %2, 0
   br i1 %14, label %._crit_edge, label %.lr.ph
 

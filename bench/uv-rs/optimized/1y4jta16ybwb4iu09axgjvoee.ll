@@ -27503,7 +27503,8 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$
   %20 = load ptr, ptr %19, align 8, !alias.scope !5584, !nonnull !8, !noundef !8
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %22 = load i64, ptr %21, align 8, !alias.scope !5584, !noundef !8
-  %23 = getelementptr inbounds { { { { { { i64, ptr, {} }, {} }, i64 } } } }, ptr %20, i64 %22
+  %.idx = mul nsw i64 %22, 24
+  %23 = getelementptr inbounds i8, ptr %20, i64 %.idx
   %24 = icmp samesign ult i64 %22, 4294967296
   %25 = trunc nuw i64 %22 to i32
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -29165,7 +29166,8 @@ define void @_ZN9uv_python13version_files17PythonVersionFile12into_version17h1a9
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %6 = icmp ult i64 %.sroa.5.0.copyload, 230584300921369396
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { i16, [19 x i16] }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.5.0.copyload, 40
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 %.idx
   %8 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %8)
   store ptr %.sroa.4.0.copyload, ptr %4, align 8, !alias.scope !6062, !noalias !6065

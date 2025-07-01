@@ -4464,7 +4464,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hb52e020ba072cadeE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds i16, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hee9ff9b7ee72f98cE.exit, label %.lr.ph.i
 
@@ -108144,7 +108145,8 @@ define hidden { ptr, i64 } @"_ZN4rkyv5impls5alloc5boxed185_$LT$impl$u20$rkyv..tr
   %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %11 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %9, i64 noundef 8) #38
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33657)
-  %12 = getelementptr inbounds nuw { i8, [3 x i8], { { [2 x i32] } } }, ptr %8, i64 %6
+  %.idx.i = mul nuw nsw i64 %6, 12
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %14
 
@@ -108201,8 +108203,8 @@ _ZN6arcstr7arc_str9ThinInner8allocate17hae5a9c214a5f843eE.llvm.43077723753160827
   br i1 %35, label %"_ZN4rkyv5impls4core97_$LT$impl$u20$rkyv..traits..DeserializeUnsized$LT$$u5b$U$u5d$$C$D$GT$$u20$for$u20$$u5b$T$u5d$$GT$19deserialize_unsized17h8605376ae3f70da8E.exit", label %14
 
 "_ZN4rkyv5impls4core97_$LT$impl$u20$rkyv..traits..DeserializeUnsized$LT$$u5b$U$u5d$$C$D$GT$$u20$for$u20$$u5b$T$u5d$$GT$19deserialize_unsized17h8605376ae3f70da8E.exit": ; preds = %32, %2
-  %.sroa.010.020 = phi ptr [ inttoptr (i64 8 to ptr), %2 ], [ %11, %32 ]
-  %36 = insertvalue { ptr, i64 } poison, ptr %.sroa.010.020, 0
+  %.sroa.010.021 = phi ptr [ inttoptr (i64 8 to ptr), %2 ], [ %11, %32 ]
+  %36 = insertvalue { ptr, i64 } poison, ptr %.sroa.010.021, 0
   %37 = insertvalue { ptr, i64 } %36, i64 %6, 1
   ret { ptr, i64 } %37
 }
@@ -108230,7 +108232,8 @@ define hidden { ptr, i64 } @"_ZN4rkyv5impls5alloc5boxed185_$LT$impl$u20$rkyv..tr
   %11 = tail call noundef align 8 ptr @__rust_alloc(i64 noundef %9, i64 noundef 8) #38
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33679)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.09.i)
-  %12 = getelementptr inbounds nuw { i8, [7 x i8], { { i8, [31 x i8] } } }, ptr %8, i64 %6
+  %.idx.i = mul nuw nsw i64 %6, 40
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %14
 

@@ -5174,7 +5174,8 @@ define internal fastcc void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..Convert
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h10c53f7adb0ff9ebE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #12 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 24
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1104)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h727a9293261e8761E.llvm.14478405658187884595.exit", label %.lr.ph.i
@@ -11519,7 +11520,8 @@ default.unreachable:                              ; preds = %482
   %322 = load ptr, ptr %321, align 8, !alias.scope !2098, !noalias !2190, !nonnull !16, !noundef !16
   %323 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %324 = load i64, ptr %323, align 8, !alias.scope !2098, !noalias !2190, !noundef !16
-  %325 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { i64, [2 x i64] } }, ptr %322, i64 %324
+  %.idx.i = mul nsw i64 %324, 48
+  %325 = getelementptr inbounds i8, ptr %322, i64 %.idx.i
   %326 = icmp eq i64 %324, 0
   br i1 %326, label %.thread293, label %.lr.ph639.i
 

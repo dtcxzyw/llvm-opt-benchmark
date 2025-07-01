@@ -3114,7 +3114,8 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111: ; preds
   %104 = call noalias ptr @uprv_malloc_77(i64 noundef %103) #22
   call void @llvm.memset.p0.i64(ptr align 2 %104, i8 0, i64 %103, i1 false)
   %105 = sext i32 %101 to i64
-  %106 = getelementptr inbounds i16, ptr %104, i64 %105
+  %.idx = shl nsw i64 %105, 1
+  %106 = getelementptr inbounds i8, ptr %104, i64 %.idx
   %107 = icmp sgt i32 %100, -1
   br i1 %107, label %.lr.ph.split.us, label %.loopexit123
 

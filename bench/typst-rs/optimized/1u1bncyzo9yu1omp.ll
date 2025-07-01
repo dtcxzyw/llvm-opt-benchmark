@@ -2732,7 +2732,8 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   br i1 %11, label %.loopexit.i, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %.idx = shl nsw i64 %10, 5
+  %12 = getelementptr inbounds i8, ptr %8, i64 %.idx
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %17
@@ -7082,7 +7083,8 @@ define hidden void @"_ZN66_$LT$typst_syntax..node..InnerNode$u20$as$u20$core..ha
   br label %_ZN4core4hash6Hasher19write_length_prefix17h0c949a988e963dcdE.exit
 
 _ZN4core4hash6Hasher19write_length_prefix17h0c949a988e963dcdE.exit: ; preds = %238, %264
-  %266 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %231, i64 %233
+  %.idx = shl nsw i64 %233, 5
+  %266 = getelementptr inbounds i8, ptr %231, i64 %.idx
   %267 = icmp eq i64 %233, 0
   br i1 %267, label %_ZN4core4hash4Hash10hash_slice17hacfa8337e98b84f4E.exit, label %.lr.ph
 
@@ -7276,7 +7278,8 @@ _ZN4core4hash6Hasher9write_str17h18c2101eababa2e8E.llvm.5444024693429055459.exit
   br label %_ZN4core4hash6Hasher19write_length_prefix17h0c949a988e963dcdE.exit
 
 _ZN4core4hash6Hasher19write_length_prefix17h0c949a988e963dcdE.exit: ; preds = %102, %128
-  %130 = getelementptr inbounds { { { [2 x i64] } } }, ptr %93, i64 %95
+  %.idx.i = shl nsw i64 %95, 4
+  %130 = getelementptr inbounds i8, ptr %93, i64 %.idx.i
   %131 = icmp eq i64 %95, 0
   br i1 %131, label %_ZN4core4hash4Hash10hash_slice17h83e3a6caa1342b53E.exit, label %.lr.ph.i
 

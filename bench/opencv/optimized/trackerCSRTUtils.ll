@@ -3014,6 +3014,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit.i:               ; preds = %93
 
 .lr.ph499.i:                                      ; preds = %.preheader487.i
   %268 = sext i32 %65 to i64
+  %.idx.i = shl nsw i64 %268, 3
   %269 = icmp sgt i32 %65, 0
   br i1 %269, label %.lr.ph.preheader.i.us, label %.preheader483.i
 
@@ -3021,7 +3022,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit.i:               ; preds = %93
   %indvars.iv545.i.us = phi i64 [ %indvars.iv.next546.i.us, %._crit_edge.i.loopexit.us ], [ 0, %.lr.ph499.i ]
   %270 = mul i64 %indvars.iv545.i.us, %105
   %271 = getelementptr inbounds nuw double, ptr %114, i64 %270
-  %272 = getelementptr inbounds nuw double, ptr %271, i64 %268
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 %.idx.i
   %273 = mul i64 %indvars.iv545.i.us, %103
   %274 = getelementptr inbounds nuw double, ptr %112, i64 %273
   br label %.lr.ph.i.us
@@ -3132,8 +3133,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit.i:               ; preds = %93
 
 317:                                              ; preds = %368, %.preheader485.us.i
   %indvars.iv551.i = phi i64 [ 1, %.preheader485.us.i ], [ %indvars.iv.next552.i, %368 ]
-  %.idx.i = shl nsw i64 %indvars.iv551.i, 8
-  %318 = getelementptr inbounds nuw i8, ptr %309, i64 %.idx.i
+  %.idx575.i = shl nsw i64 %indvars.iv551.i, 8
+  %318 = getelementptr inbounds nuw i8, ptr %309, i64 %.idx575.i
   %319 = getelementptr inbounds nuw double, ptr %312, i64 %indvars.iv551.i
   %320 = load double, ptr %319, align 8, !tbaa !142
   %321 = getelementptr inbounds nuw i8, ptr %319, i64 8
@@ -3182,8 +3183,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit.i:               ; preds = %93
   %364 = fadd double %363, 1.000000e-04
   %365 = call double @sqrt(double noundef %364) #21, !tbaa !40
   %366 = fdiv double 1.000000e+00, %365
-  %.idx575.i = mul nuw nsw i64 %indvars.iv551.i, 144
-  %367 = getelementptr inbounds nuw i8, ptr %316, i64 %.idx575.i
+  %.idx576.i = mul nuw nsw i64 %indvars.iv551.i, 144
+  %367 = getelementptr inbounds nuw i8, ptr %316, i64 %.idx576.i
   br label %396
 
 368:                                              ; preds = %.preheader484.us.i

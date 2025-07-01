@@ -9745,7 +9745,8 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 1) ]
   %.0.copyload.i.i.i33 = load i32, ptr %13, align 1
   %14 = zext i32 %.0.copyload.i.i.i33 to i64
-  %15 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral.1", ptr %11, i64 %14
+  %.idx = shl nuw nsw i64 %14, 1
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %.not2751.not = icmp eq i32 %.0.copyload.i.i.i33, 0
   br i1 %.not2751.not, label %.critedge.sink.split, label %.lr.ph
 
@@ -12231,7 +12232,8 @@ _ZNSt12_Vector_baseIPKN4llvm6object15coff_relocationESaIS4_EE13_M_deallocateEPS4
 _ZNSt6vectorIPKN4llvm6object15coff_relocationESaIS4_EE7reserveEm.exit: ; preds = %16, %_ZNSt12_Vector_baseIPKN4llvm6object15coff_relocationESaIS4_EE13_M_deallocateEPS4_m.exit.i
   %49 = phi ptr [ %32, %16 ], [ %43, %_ZNSt12_Vector_baseIPKN4llvm6object15coff_relocationESaIS4_EE13_M_deallocateEPS4_m.exit.i ]
   %50 = phi ptr [ %31, %16 ], [ %48, %_ZNSt12_Vector_baseIPKN4llvm6object15coff_relocationESaIS4_EE13_M_deallocateEPS4_m.exit.i ]
-  %51 = getelementptr inbounds nuw %"struct.llvm::object::coff_relocation", ptr %25, i64 %28
+  %.idx = mul nuw nsw i64 %28, 10
+  %51 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx
   %.not36 = icmp eq i32 %27, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.val11.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !777

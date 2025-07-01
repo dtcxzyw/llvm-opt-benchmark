@@ -9916,7 +9916,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr80drop
 define hidden void @_ZN10serde_json5value2de15visit_array_ref17h0fd7d4c43370bbc8E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 1)) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 8
   %5 = alloca [16 x i8], align 8
-  %6 = getelementptr inbounds { i64, [8 x i64] }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 72
+  %6 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %7 = icmp eq i64 %2, 0
   br i1 %7, label %14, label %8
 
@@ -9996,7 +9997,8 @@ define hidden void @_ZN10serde_json5value2de15visit_array_ref17h0fd7d4c43370bbc8
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10serde_json5value2de15visit_array_ref17h486e5cf8f2f6ab19E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 1)) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [0 x i8], align 1
-  %5 = getelementptr inbounds { i64, [8 x i64] }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 72
+  %5 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %14, label %7
 
@@ -10118,7 +10120,8 @@ define hidden void @_ZN10serde_json5value2de15visit_array_ref17ha02c1a2bf63f5bce
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10serde_json5value2de15visit_array_ref17hc8c9444cbcf05376E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) initializes((0, 1)) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [0 x i8], align 1
-  %5 = getelementptr inbounds { i64, [8 x i64] }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 72
+  %5 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %14, label %7
 
@@ -10240,7 +10243,8 @@ define hidden void @_ZN10serde_json5value2de16visit_object_ref17h5f11e8397c5b60c
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %5, i64 %7
+  %.idx = mul nsw i64 %7, 104
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %34, label %.lr.ph.i
 
@@ -10400,7 +10404,8 @@ define hidden void @_ZN10serde_json5value2de16visit_object_ref17hf6fa646640fd113
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %5, i64 %7
+  %.idx = mul nsw i64 %7, 104
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %34, label %.lr.ph.i
 
@@ -37457,7 +37462,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hd6657c9b4ac76e70E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 48
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h286aac8c253048deE.exit, label %.lr.ph.i
 
@@ -97559,7 +97565,8 @@ define hidden void @"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash
   %11 = xor i64 %10, %.sink11.i
   %12 = mul i64 %11, 5871781006564002453
   store i64 %12, ptr %1, align 8, !alias.scope !22084
-  %13 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sink12.i, i64 %.sink11.i
+  %.idx.i = shl nsw i64 %.sink11.i, 5
+  %13 = getelementptr inbounds i8, ptr %.sink12.i, i64 %.idx.i
   %14 = icmp eq i64 %.sink11.i, 0
   br i1 %14, label %_ZN4core4hash4Hash10hash_slice17h69052f63cc3fb35fE.exit, label %.lr.ph.i
 

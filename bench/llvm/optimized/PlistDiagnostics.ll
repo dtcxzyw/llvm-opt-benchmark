@@ -67,14 +67,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SmallVectorStorage.355" = type { [32 x i8] }
 %"class.clang::DeclarationName" = type { i64 }
 %"class.llvm::raw_string_ostream" = type { %"class.llvm::raw_ostream", ptr }
-%"class.clang::FileID" = type { i32 }
-%"struct.llvm::detail::DenseMapPair.421" = type { %"struct.std::pair.422" }
-%"struct.std::pair.422" = type { %"class.clang::SourceLocation", %"class.llvm::SmallString.424" }
-%"class.llvm::SmallString.424" = type { %"class.llvm::SmallVector.425" }
-%"class.llvm::SmallVector.425" = type { %"class.llvm::SmallVectorImpl.351", %"struct.llvm::SmallVectorStorage.426" }
-%"struct.llvm::SmallVectorStorage.426" = type { [40 x i8] }
 %"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.377" }
 %"struct.std::pair.377" = type { %"class.clang::FileID", i32 }
+%"class.clang::FileID" = type { i32 }
 %"struct.std::pair.384" = type <{ %"class.llvm::DenseMapIterator", i8, [7 x i8] }>
 %"class.llvm::DenseMapIterator" = type { ptr, ptr }
 %"class.clang::SrcMgr::SLocEntry" = type { i32, [4 x i8], %union.anon.379 }
@@ -83,8 +78,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::PointerIntPair.380" = type { %"struct.llvm::detail::PunnedPointer.381" }
 %"struct.llvm::detail::PunnedPointer.381" = type { [8 x i8] }
 %"struct.std::pair.382" = type { ptr, i64 }
-%"class.clang::FixItHint" = type <{ %"class.clang::CharSourceRange", %"class.clang::CharSourceRange", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
-%"class.clang::CharSourceRange" = type <{ %"class.clang::SourceRange", i8, [3 x i8] }>
 
 $_ZN5clang6markup10EmitStringERN4llvm11raw_ostreamENS1_9StringRefE = comdat any
 
@@ -1468,7 +1461,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit156:              ; preds = %303, %305
   %308 = load ptr, ptr %13, align 8, !tbaa !40
   %309 = load i32, ptr %32, align 8, !tbaa !42
   %310 = zext i32 %309 to i64
-  %311 = getelementptr inbounds nuw %"class.clang::FileID", ptr %308, i64 %310
+  %.idx = shl nuw nsw i64 %310, 2
+  %311 = getelementptr inbounds nuw i8, ptr %308, i64 %.idx
   %.not449 = icmp eq i32 %309, 0
   br i1 %.not449, label %._crit_edge452, label %.lr.ph451
 
@@ -1710,7 +1704,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit38.i:             ; preds = %420, %418
   %423 = load ptr, ptr %261, align 8, !tbaa !40
   %424 = load i32, ptr %263, align 8, !tbaa !42
   %425 = zext i32 %424 to i64
-  %426 = getelementptr inbounds nuw ptr, ptr %423, i64 %425
+  %.idx.i.i = shl nuw nsw i64 %425, 3
+  %426 = getelementptr inbounds nuw i8, ptr %423, i64 %.idx.i.i
   %.not94.i.i = icmp eq i32 %424, 0
   br i1 %.not94.i.i, label %_ZN12_GLOBAL__N_112PlistPrinter21ReportMacroExpansionsERN4llvm11raw_ostreamEj.exit.i, label %.lr.ph.i39.i
 
@@ -1784,7 +1779,8 @@ _ZNSt14_Optional_baseIN5clang21MacroExpansionContextELb0ELb0EED2Ev.exit.thread2.
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i.i.i:             ; preds = %443
   %450 = zext i32 %448 to i64
-  %451 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.421", ptr %.pre1.i.i.i.i.i.i.i.i.i, i64 %450
+  %.idx.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %450, 72
+  %451 = getelementptr inbounds nuw i8, ptr %.pre1.i.i.i.i.i.i.i.i.i, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN4llvm11SmallVectorIcLj40EED2Ev.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i
@@ -5416,7 +5412,8 @@ _ZN4llvm8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPa
   store i32 0, ptr %24, align 4, !tbaa !427
   %25 = load i32, ptr %2, align 8, !tbaa !422
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %26
+  %.idx.i = shl nuw nsw i64 %26, 3
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i
   %.not5.i = icmp eq i32 %25, 0
   br i1 %.not5.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit, label %.lr.ph.i
 
@@ -5429,14 +5426,16 @@ _ZN4llvm8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPa
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %.idx = shl nuw nsw i64 %30, 3
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %32, align 8, !tbaa !426
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %33, align 4, !tbaa !427
   %34 = load i32, ptr %2, align 8, !tbaa !422
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %35
+  %.idx.i.i = shl nuw nsw i64 %35, 3
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i
   %.not5.i.i = icmp eq i32 %34, 0
   br i1 %.not5.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit.i, label %.lr.ph.i.i
 
@@ -5518,8 +5517,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_6
   br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E18moveFromOldBucketsEPS8_SB_.exit, label %.lr.ph.i7, !llvm.loop !532
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E18moveFromOldBucketsEPS8_SB_.exit: ; preds = %62, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit.i
-  %65 = shl nuw nsw i64 %30, 3
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %65, i64 noundef 4) #21
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %.idx, i64 noundef 4) #21
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit: ; preds = %.lr.ph.i, %22, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E18moveFromOldBucketsEPS8_SB_.exit
@@ -7410,7 +7408,8 @@ _ZN5clang6markup6IndentERN4llvm11raw_ostreamEj.exit40: ; preds = %_ZN4llvm11raw_
   %49 = load ptr, ptr %48, align 8, !tbaa !45
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %51 = load ptr, ptr %50, align 8, !tbaa !274
-  %52 = getelementptr inbounds nuw %"class.clang::SourceRange", ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   br label %.lr.ph
 
 .preheader:                                       ; preds = %_ZN5clang5Lexer14getAsCharRangeENS_15CharSourceRangeERKNS_13SourceManagerERKNS_11LangOptionsE.exit, %_ZN4llvm11raw_ostreamlsEc.exit.i46
@@ -7784,7 +7783,8 @@ _ZN5clang6markup6IndentERN4llvm11raw_ostreamEj.exit43: ; preds = %_ZN4llvm11raw_
   br label %.preheader93.preheader
 
 .preheader93.preheader:                           ; preds = %49, %47
-  %52 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 6
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   br label %.preheader93
 
 .preheader93:                                     ; preds = %.preheader93.preheader, %_ZN4llvm11raw_ostreamlsEPKc.exit89

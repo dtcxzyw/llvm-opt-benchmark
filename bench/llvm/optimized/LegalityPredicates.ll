@@ -403,7 +403,8 @@ define dso_local void @_ZN4llvm18LegalityPredicates14typeTupleInSetEjjjSt16initi
   store i32 0, ptr %11, align 8, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 4, ptr %12, align 4, !tbaa !16
-  %13 = getelementptr inbounds nuw %"class.std::tuple", ptr %4, i64 %5
+  %.idx.i.i = mul nuw nsw i64 %5, 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
   %14 = icmp ugt i64 %5, 4
   br i1 %14, label %15, label %_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.i
 
@@ -413,7 +414,8 @@ define dso_local void @_ZN4llvm18LegalityPredicates14typeTupleInSetEjjjSt16initi
   %17 = load ptr, ptr %8, align 8, !tbaa !13
   %18 = load i32, ptr %11, align 8, !tbaa !15
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"class.std::tuple", ptr %17, i64 %19
+  %.idx.i.i.i.i.i.i = mul nuw nsw i64 %19, 24
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i.i.i.i.i
   %.not7.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %18, 0
   br i1 %.not7.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsForGrowEPS3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
@@ -1775,7 +1777,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %33 = load ptr, ptr %0, align 8, !tbaa !13
   %34 = load i32, ptr %9, align 8, !tbaa !15
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::tuple", ptr %33, i64 %35
+  %.idx.i.i = mul nuw nsw i64 %35, 24
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i.i
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %34, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsForGrowEPS3_.exit.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -2087,7 +2090,8 @@ _ZSt4moveIPSt5tupleIJN4llvm3LLTES2_S2_EES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.
   %48 = load ptr, ptr %0, align 8, !tbaa !13
   %49 = load i32, ptr %25, align 8, !tbaa !15
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw %"class.std::tuple", ptr %48, i64 %50
+  %.idx.i.i = mul nuw nsw i64 %50, 24
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i.i
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %49, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsForGrowEPS3_.exit.i, label %.lr.ph.i.i.i.i.i.i.i
 

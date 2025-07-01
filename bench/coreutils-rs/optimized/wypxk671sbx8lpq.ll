@@ -813,6 +813,7 @@ define { ptr, ptr } @_ZN8uu_sleep5sleep17he4476011207b7f9cE(ptr noalias noundef 
   br i1 %37, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h607c40c260ccd239E.exit.thread", label %38
 
 38:                                               ; preds = %2
+  %.idx = and i64 %1, 1152921504606846975
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 53
   %41 = load i8, ptr %40, align 1, !range !199, !alias.scope !196, !noalias !200
@@ -1599,7 +1600,7 @@ _ZN4core4time8Duration3new17h2b271a0fd6558ad7E.exit.i.i.i.i: ; preds = %213
   %.pn7.i.i = phi i32 [ %.sroa.6.0.i, %"_ZN8uu_sleep5sleep28_$u7b$$u7b$closure$u7d$$u7d$17h1ce4e71b82c4db3fE.exit.i.i" ], [ %.sroa.3.0.i.i.i, %"_ZN8uu_sleep5sleep28_$u7b$$u7b$closure$u7d$$u7d$17hb464c79e06806601E.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9.i.i)
   %226 = add nuw i64 %.0.i, 1
-  %227 = icmp eq i64 %226, %1
+  %227 = icmp eq i64 %226, %.idx
   br i1 %227, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h607c40c260ccd239E.exit", label %77
 
 "_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1c8436210a3cb0beE.exit.i.thread": ; preds = %190, %192, %192, %194
@@ -1608,7 +1609,7 @@ _ZN4core4time8Duration3new17h2b271a0fd6558ad7E.exit.i.i.i.i: ; preds = %213
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34), !noalias !208
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9.i.i)
   %228 = add nuw i64 %.0.i, 1
-  %229 = icmp eq i64 %228, %1
+  %229 = icmp eq i64 %228, %.idx
   br i1 %229, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h607c40c260ccd239E.exit.thread22", label %.outer
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h607c40c260ccd239E.exit": ; preds = %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1c8436210a3cb0beE.exit.i"

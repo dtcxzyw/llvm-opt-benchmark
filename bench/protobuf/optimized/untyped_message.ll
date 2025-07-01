@@ -1242,19 +1242,21 @@ _ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.
   %fields_24.i51 = getelementptr inbounds nuw i8, ptr %this, i64 136
   %14 = load ptr, ptr %fields_24.i51, align 8
   %conv28.i52 = sext i32 %1 to i64
-  %add.ptr.i53 = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %14, i64 %conv28.i52
+  %add.ptr.i.idx53 = shl nsw i64 %conv28.i52, 5
+  %add.ptr.i54 = getelementptr inbounds i8, ptr %14, i64 %add.ptr.i.idx53
   br label %for.body.lr.ph
 
 _ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit: ; preds = %for.body.i
   %fields_24.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %15 = load ptr, ptr %fields_24.i, align 8
   %conv28.i = sext i32 %13 to i64
-  %add.ptr.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %15, i64 %conv28.i
+  %add.ptr.i.idx = shl nsw i64 %conv28.i, 5
+  %add.ptr.i = getelementptr inbounds i8, ptr %15, i64 %add.ptr.i.idx
   %cmp7.not44 = icmp eq i32 %13, 0
   br i1 %cmp7.not44, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit
-  %add.ptr.i55 = phi ptr [ %add.ptr.i53, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread ], [ %add.ptr.i, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ]
+  %add.ptr.i56 = phi ptr [ %add.ptr.i54, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread ], [ %add.ptr.i, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ]
   %16 = phi ptr [ %14, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread ], [ %15, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ]
   %slots_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %cmp.i2.i.i15 = icmp eq i64 %name.coerce0, 0
@@ -1366,7 +1368,7 @@ if.then.i.i36:                                    ; preds = %_ZN4absl12lts_20230
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit41: ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPKN6google8protobuf13json_internal12ResolverPool5FieldEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SE_EEE11try_emplaceINSt7__cxx1112basic_stringIcS6_SaIcEEEJSE_ETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS1_12raw_hash_setISF_SG_SH_SL_E14const_iteratorEEE5valueEiE4typeELi0EEESI_INSV_8iteratorEbERKST_DpOT0_.exit, %if.then.i.i36
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.045, i64 32
-  %cmp7.not = icmp eq ptr %incdec.ptr, %add.ptr.i55
+  %cmp7.not = icmp eq ptr %incdec.ptr, %add.ptr.i56
   br i1 %cmp7.not, label %return, label %for.body
 
 if.end30:                                         ; preds = %if.end
@@ -1598,19 +1600,21 @@ _ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.
   %fields_24.i30 = getelementptr inbounds nuw i8, ptr %this, i64 136
   %13 = load ptr, ptr %fields_24.i30, align 8
   %conv28.i31 = sext i32 %0 to i64
-  %add.ptr.i32 = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %13, i64 %conv28.i31
+  %add.ptr.i.idx32 = shl nsw i64 %conv28.i31, 5
+  %add.ptr.i33 = getelementptr inbounds i8, ptr %13, i64 %add.ptr.i.idx32
   br label %for.body.lr.ph
 
 _ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit: ; preds = %for.body.i
   %fields_24.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %14 = load ptr, ptr %fields_24.i, align 8
   %conv28.i = sext i32 %12 to i64
-  %add.ptr.i = getelementptr inbounds %"class.google::protobuf::json_internal::ResolverPool::Field", ptr %14, i64 %conv28.i
+  %add.ptr.i.idx = shl nsw i64 %conv28.i, 5
+  %add.ptr.i = getelementptr inbounds i8, ptr %14, i64 %add.ptr.i.idx
   %cmp10.not24 = icmp eq i32 %12, 0
   br i1 %cmp10.not24, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit
-  %add.ptr.i34 = phi ptr [ %add.ptr.i32, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread ], [ %add.ptr.i, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ]
+  %add.ptr.i35 = phi ptr [ %add.ptr.i33, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread ], [ %add.ptr.i, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ]
   %15 = phi ptr [ %13, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit.thread ], [ %14, %_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv.exit ]
   %fields_by_number_18 = getelementptr inbounds nuw i8, ptr %this, i64 176
   %capacity_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -1627,7 +1631,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %cmp13.us = icmp eq i32 %17, %number
   %spec.select.us = select i1 %cmp13.us, ptr %__begin3.025.us, ptr %found.026.us
   %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %__begin3.025.us, i64 32
-  %cmp10.not.us = icmp eq ptr %incdec.ptr.us, %add.ptr.i34
+  %cmp10.not.us = icmp eq ptr %incdec.ptr.us, %add.ptr.i35
   br i1 %cmp10.not.us, label %return, label %for.body.us
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1714,7 +1718,7 @@ if.then.i.i:                                      ; preds = %for.end.i.i.i
 
 for.inc:                                          ; preds = %for.body.i.i.i, %if.then.i.i
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.025, i64 32
-  %cmp10.not = icmp eq ptr %incdec.ptr, %add.ptr.i34
+  %cmp10.not = icmp eq ptr %incdec.ptr, %add.ptr.i35
   br i1 %cmp10.not, label %return, label %for.body
 
 if.end24:                                         ; preds = %if.end

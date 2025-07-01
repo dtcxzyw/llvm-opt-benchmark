@@ -98,7 +98,8 @@ entry:
   %0 = load ptr, ptr %storage, align 8
   %1 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i.i = zext i32 %1 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i16, ptr %0, i64 %conv.i.i
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i.i, 1
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.i.idx.i
   %cmp.not6.i = icmp eq i32 %1, 0
   br i1 %cmp.not6.i, label %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit, label %for.body.i
 
@@ -189,7 +190,6 @@ return:                                           ; preds = %if.end.i.i.i.i.i.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i64 @_ZN6hermes2vm15IdentifierTable21getOrCreateIdentifierIDsEENS0_10CallResultINS0_8SymbolIDELNS0_6detail20CallResultSpecializeE0EEERNS0_7RuntimeEN4llvh8ArrayRefIT_EENS0_6HandleINS0_15StringPrimitiveEEEj(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %str.coerce0, i64 %str.coerce1, ptr %maybeIncomingPrimHandle.coerce, i32 noundef %hash) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %storage.i.i = alloca %"class.llvh::SmallVector", align 8
   %hashTable_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call = tail call noundef i32 @_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIDsEEjN4llvh8ArrayRefIT_EEjb(ptr noundef nonnull align 8 dereferenceable(32) %hashTable_, ptr %str.coerce0, i64 %str.coerce1, i32 noundef %hash, i1 noundef zeroext false) #16
   %scale_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 52
@@ -277,67 +277,12 @@ if.end:                                           ; preds = %_ZNK6hermes2vm6deta
   br i1 %cmp.i.i19.not, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.end
-  %call.i = tail call noundef i32 @_ZN6hermes2vm15IdentifierTable11allocNextIDEv(ptr noundef nonnull align 8 dereferenceable(84) %this)
-  %lengthAndUniquedFlag_.i.i = getelementptr inbounds nuw i8, ptr %call13, i64 4
-  %10 = load i32, ptr %lengthAndUniquedFlag_.i.i, align 4
-  %or.i.i21 = or i32 %10, -2147483648
-  store i32 %or.i.i21, ptr %lengthAndUniquedFlag_.i.i, align 4
-  %weakUniqueID_.i.i.i = getelementptr inbounds nuw i8, ptr %call13, i64 8
-  store i32 %call.i, ptr %weakUniqueID_.i.i.i, align 4
-  %conv.i = zext i32 %call.i to i64
-  %11 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %11, i64 %conv.i
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %storage.i.i)
-  store ptr %call13, ptr %add.ptr.i.i, align 8
-  %isUTF16_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
-  store i32 -8, ptr %isUTF16_.i.i, align 8
-  %hash_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 12
-  store i32 0, ptr %hash_.i.i, align 4
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %storage.i.i, i64 16
-  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %storage.i.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %storage.i.i, i64 8
-  store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %storage.i.i, i64 12
-  store i32 32, ptr %Capacity2.i.i.i.i.i.i.i, align 4
-  call void @_ZNK6hermes2vm15StringPrimitive17appendUTF16StringERN4llvh15SmallVectorImplIDsEE(ptr noundef nonnull align 4 dereferenceable(8) %call13, ptr noundef nonnull align 8 dereferenceable(16) %storage.i.i) #16
-  %12 = load ptr, ptr %storage.i.i, align 8
-  %13 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8
-  %conv.i.i.i.i22 = zext i32 %13 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i16, ptr %12, i64 %conv.i.i.i.i22
-  %cmp.not6.i.i.i = icmp eq i32 %13, 0
-  br i1 %cmp.not6.i.i.i, label %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i.i, label %for.body.i.i.i
-
-for.body.i.i.i:                                   ; preds = %if.end18, %for.body.i.i.i
-  %hash.08.i.i.i = phi i32 [ %xor.i.i.i.i.i, %for.body.i.i.i ], [ 0, %if.end18 ]
-  %__begin0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %12, %if.end18 ]
-  %14 = load i16, ptr %__begin0.07.i.i.i, align 2
-  %conv.i.i.i.i.i = zext i16 %14 to i32
-  %add.i.i.i.i.i = add i32 %hash.08.i.i.i, %conv.i.i.i.i.i
-  %add.i1.i.i.i.i = mul i32 %add.i.i.i.i.i, 1025
-  %shr.i.i.i.i.i = lshr i32 %add.i1.i.i.i.i, 6
-  %xor.i.i.i.i.i = xor i32 %shr.i.i.i.i.i, %add.i1.i.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__begin0.07.i.i.i, i64 2
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i.i, label %for.body.i.i.i
-
-_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i.i: ; preds = %for.body.i.i.i, %if.end18
-  %hash.0.lcssa.i.i.i = phi i32 [ 0, %if.end18 ], [ %xor.i.i.i.i.i, %for.body.i.i.i ]
-  store i32 %hash.0.lcssa.i.i.i, ptr %hash_.i.i, align 4
-  %cmp.i.i.i.i.i = icmp eq ptr %12, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %_ZN6hermes2vm15IdentifierTable16allocIDAndInsertEjPNS0_15StringPrimitiveE.exit, label %if.then.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i.i
-  call void @free(ptr noundef %12) #16
-  br label %_ZN6hermes2vm15IdentifierTable16allocIDAndInsertEjPNS0_15StringPrimitiveE.exit
-
-_ZN6hermes2vm15IdentifierTable16allocIDAndInsertEjPNS0_15StringPrimitiveE.exit: ; preds = %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i.i, %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %storage.i.i)
-  call void @_ZN6hermes2vm6detail19IdentifierHashTable6insertEjNS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(32) %hashTable_, i32 noundef %call, i32 %call.i) #16
+  %call22 = tail call noundef i32 @_ZN6hermes2vm15IdentifierTable16allocIDAndInsertEjPNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(84) %this, i32 noundef %call, ptr noundef %call13)
   br label %return
 
-return:                                           ; preds = %if.end, %_ZN6hermes2vm15IdentifierTable16allocIDAndInsertEjPNS0_15StringPrimitiveE.exit, %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
-  %retval.sroa.0.0 = phi i32 [ %sub.i.i, %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit ], [ %call.i, %_ZN6hermes2vm15IdentifierTable16allocIDAndInsertEjPNS0_15StringPrimitiveE.exit ], [ undef, %if.end ]
-  %retval.sroa.3.0 = phi i64 [ 4294967296, %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit ], [ 4294967296, %_ZN6hermes2vm15IdentifierTable16allocIDAndInsertEjPNS0_15StringPrimitiveE.exit ], [ 0, %if.end ]
+return:                                           ; preds = %if.end, %if.end18, %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
+  %retval.sroa.0.0 = phi i32 [ %sub.i.i, %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit ], [ %call22, %if.end18 ], [ undef, %if.end ]
+  %retval.sroa.3.0 = phi i64 [ 4294967296, %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit ], [ 4294967296, %if.end18 ], [ 0, %if.end ]
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.3.0, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert
@@ -384,7 +329,6 @@ return:                                           ; preds = %if.end.i.i.i.i.i.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i64 @_ZN6hermes2vm15IdentifierTable21getOrCreateIdentifierIcEENS0_10CallResultINS0_8SymbolIDELNS0_6detail20CallResultSpecializeE0EEERNS0_7RuntimeEN4llvh8ArrayRefIT_EENS0_6HandleINS0_15StringPrimitiveEEEj(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %str.coerce0, i64 %str.coerce1, ptr %maybeIncomingPrimHandle.coerce, i32 noundef %hash) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %storage.i.i = alloca %"class.llvh::SmallVector", align 8
   %hashTable_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call = tail call noundef i32 @_ZNK6hermes2vm6detail19IdentifierHashTable12lookupStringIcEEjN4llvh8ArrayRefIT_EEjb(ptr noundef nonnull align 8 dereferenceable(32) %hashTable_, ptr %str.coerce0, i64 %str.coerce1, i32 noundef %hash, i1 noundef zeroext false) #16
   %scale_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 52
@@ -472,67 +416,12 @@ if.end:                                           ; preds = %_ZNK6hermes2vm6deta
   br i1 %cmp.i.i19.not, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.end
-  %call.i = tail call noundef i32 @_ZN6hermes2vm15IdentifierTable11allocNextIDEv(ptr noundef nonnull align 8 dereferenceable(84) %this)
-  %lengthAndUniquedFlag_.i.i = getelementptr inbounds nuw i8, ptr %call13, i64 4
-  %10 = load i32, ptr %lengthAndUniquedFlag_.i.i, align 4
-  %or.i.i21 = or i32 %10, -2147483648
-  store i32 %or.i.i21, ptr %lengthAndUniquedFlag_.i.i, align 4
-  %weakUniqueID_.i.i.i = getelementptr inbounds nuw i8, ptr %call13, i64 8
-  store i32 %call.i, ptr %weakUniqueID_.i.i.i, align 4
-  %conv.i = zext i32 %call.i to i64
-  %11 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %11, i64 %conv.i
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %storage.i.i)
-  store ptr %call13, ptr %add.ptr.i.i, align 8
-  %isUTF16_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
-  store i32 -8, ptr %isUTF16_.i.i, align 8
-  %hash_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 12
-  store i32 0, ptr %hash_.i.i, align 4
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %storage.i.i, i64 16
-  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %storage.i.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %storage.i.i, i64 8
-  store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %storage.i.i, i64 12
-  store i32 32, ptr %Capacity2.i.i.i.i.i.i.i, align 4
-  call void @_ZNK6hermes2vm15StringPrimitive17appendUTF16StringERN4llvh15SmallVectorImplIDsEE(ptr noundef nonnull align 4 dereferenceable(8) %call13, ptr noundef nonnull align 8 dereferenceable(16) %storage.i.i) #16
-  %12 = load ptr, ptr %storage.i.i, align 8
-  %13 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8
-  %conv.i.i.i.i22 = zext i32 %13 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i16, ptr %12, i64 %conv.i.i.i.i22
-  %cmp.not6.i.i.i = icmp eq i32 %13, 0
-  br i1 %cmp.not6.i.i.i, label %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i.i, label %for.body.i.i.i
-
-for.body.i.i.i:                                   ; preds = %if.end18, %for.body.i.i.i
-  %hash.08.i.i.i = phi i32 [ %xor.i.i.i.i.i, %for.body.i.i.i ], [ 0, %if.end18 ]
-  %__begin0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %12, %if.end18 ]
-  %14 = load i16, ptr %__begin0.07.i.i.i, align 2
-  %conv.i.i.i.i.i = zext i16 %14 to i32
-  %add.i.i.i.i.i = add i32 %hash.08.i.i.i, %conv.i.i.i.i.i
-  %add.i1.i.i.i.i = mul i32 %add.i.i.i.i.i, 1025
-  %shr.i.i.i.i.i = lshr i32 %add.i1.i.i.i.i, 6
-  %xor.i.i.i.i.i = xor i32 %shr.i.i.i.i.i, %add.i1.i.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__begin0.07.i.i.i, i64 2
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i.i, label %for.body.i.i.i
-
-_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i.i: ; preds = %for.body.i.i.i, %if.end18
-  %hash.0.lcssa.i.i.i = phi i32 [ 0, %if.end18 ], [ %xor.i.i.i.i.i, %for.body.i.i.i ]
-  store i32 %hash.0.lcssa.i.i.i, ptr %hash_.i.i, align 4
-  %cmp.i.i.i.i.i = icmp eq ptr %12, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %_ZN6hermes2vm15IdentifierTable16allocIDAndInsertEjPNS0_15StringPrimitiveE.exit, label %if.then.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i.i
-  call void @free(ptr noundef %12) #16
-  br label %_ZN6hermes2vm15IdentifierTable16allocIDAndInsertEjPNS0_15StringPrimitiveE.exit
-
-_ZN6hermes2vm15IdentifierTable16allocIDAndInsertEjPNS0_15StringPrimitiveE.exit: ; preds = %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i.i, %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %storage.i.i)
-  call void @_ZN6hermes2vm6detail19IdentifierHashTable6insertEjNS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(32) %hashTable_, i32 noundef %call, i32 %call.i) #16
+  %call22 = tail call noundef i32 @_ZN6hermes2vm15IdentifierTable16allocIDAndInsertEjPNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(84) %this, i32 noundef %call, ptr noundef %call13)
   br label %return
 
-return:                                           ; preds = %if.end, %_ZN6hermes2vm15IdentifierTable16allocIDAndInsertEjPNS0_15StringPrimitiveE.exit, %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
-  %retval.sroa.0.0 = phi i32 [ %sub.i.i, %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit ], [ %call.i, %_ZN6hermes2vm15IdentifierTable16allocIDAndInsertEjPNS0_15StringPrimitiveE.exit ], [ undef, %if.end ]
-  %retval.sroa.3.0 = phi i64 [ 4294967296, %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit ], [ 4294967296, %_ZN6hermes2vm15IdentifierTable16allocIDAndInsertEjPNS0_15StringPrimitiveE.exit ], [ 0, %if.end ]
+return:                                           ; preds = %if.end, %if.end18, %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
+  %retval.sroa.0.0 = phi i32 [ %sub.i.i, %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit ], [ %call22, %if.end18 ], [ undef, %if.end ]
+  %retval.sroa.3.0 = phi i64 [ 4294967296, %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit ], [ 4294967296, %if.end18 ], [ 0, %if.end ]
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.3.0, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert
@@ -678,7 +567,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden i32 @_ZN6hermes2vm15IdentifierTable22registerLazyIdentifierEN4llvh8ArrayRefIDsEE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr %str.coerce0, i64 %str.coerce1) local_unnamed_addr #0 align 2 {
 entry:
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %str.coerce0, i64 %str.coerce1
+  %add.ptr.i.idx.i = shl nsw i64 %str.coerce1, 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %str.coerce0, i64 %add.ptr.i.idx.i
   %cmp.not6.i = icmp eq i64 %str.coerce1, 0
   br i1 %cmp.not6.i, label %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit, label %for.body.i
 
@@ -987,7 +877,8 @@ _ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit: ; preds = %if.then.i.i.i
   %retval.0.i.i.i30 = phi ptr [ %15, %if.then.i.i.i42 ], [ %add.ptr.i.i.i.i.i.i36, %if.then5.i.i.i35 ], [ %add.ptr.i.i.i4.i.i.i29, %if.then10.i.i.i28 ], [ %17, %if.else13.i.i.i37 ]
   %and.i.i31 = and i32 %12, 2147483647
   %conv.i.i32 = zext nneg i32 %and.i.i31 to i64
-  %add.ptr.i.i.i44 = getelementptr inbounds nuw i16, ptr %retval.0.i.i.i30, i64 %conv.i.i32
+  %add.ptr.i.idx.i.i = shl nuw nsw i64 %conv.i.i32, 1
+  %add.ptr.i.i.i44 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i30, i64 %add.ptr.i.idx.i.i
   %cmp.not6.i.i45 = icmp eq i32 %and.i.i31, 0
   br i1 %cmp.not6.i.i45, label %_ZN6hermes2vm15IdentifierTable21getOrCreateIdentifierIDsEENS0_10CallResultINS0_8SymbolIDELNS0_6detail20CallResultSpecializeE0EEERNS0_7RuntimeEN4llvh8ArrayRefIT_EENS0_6HandleINS0_15StringPrimitiveEEE.exit, label %for.body.i.i46
 
@@ -1558,7 +1449,8 @@ entry:
   %2 = load ptr, ptr %storage.i, align 8
   %3 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %2, i64 %conv.i.i.i
+  %add.ptr.i.idx.i.i = shl nuw nsw i64 %conv.i.i.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %add.ptr.i.idx.i.i
   %cmp.not6.i.i = icmp eq i32 %3, 0
   br i1 %cmp.not6.i.i, label %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i, label %for.body.i.i
 
@@ -1734,7 +1626,8 @@ declare void @_ZN6hermes2vm6detail19IdentifierHashTable6insertEjNS0_8SymbolIDE(p
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN6hermes2vm15IdentifierTable32getExistingStringPrimitiveOrNullERNS0_7RuntimeEN4llvh8ArrayRefIDsEE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %str.coerce0, i64 %str.coerce1) local_unnamed_addr #0 align 2 {
 entry:
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %str.coerce0, i64 %str.coerce1
+  %add.ptr.i.idx.i = shl nsw i64 %str.coerce1, 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %str.coerce0, i64 %add.ptr.i.idx.i
   %cmp.not6.i = icmp eq i64 %str.coerce1, 0
   br i1 %cmp.not6.i, label %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit, label %for.body.i
 
@@ -2777,7 +2670,8 @@ if.end:                                           ; preds = %cond.end
   %10 = load ptr, ptr %storage.i, align 8
   %11 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i.i = zext i32 %11 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %10, i64 %conv.i.i.i
+  %add.ptr.i.idx.i.i = shl nuw nsw i64 %conv.i.i.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %add.ptr.i.idx.i.i
   %cmp.not6.i.i = icmp eq i32 %11, 0
   br i1 %cmp.not6.i.i, label %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i, label %for.body.i.i
 
@@ -2829,38 +2723,39 @@ if.else:                                          ; preds = %entry
   %15 = load ptr, ptr %storage.i39, align 8
   %16 = load i32, ptr %Size.i.i.i.i.i.i43, align 8
   %conv.i.i.i45 = zext i32 %16 to i64
-  %add.ptr.i.i.i46 = getelementptr inbounds nuw i16, ptr %15, i64 %conv.i.i.i45
-  %cmp.not6.i.i47 = icmp eq i32 %16, 0
-  br i1 %cmp.not6.i.i47, label %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i58, label %for.body.i.i48
+  %add.ptr.i.idx.i.i46 = shl nuw nsw i64 %conv.i.i.i45, 1
+  %add.ptr.i.i.i47 = getelementptr inbounds nuw i8, ptr %15, i64 %add.ptr.i.idx.i.i46
+  %cmp.not6.i.i48 = icmp eq i32 %16, 0
+  br i1 %cmp.not6.i.i48, label %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i59, label %for.body.i.i49
 
-for.body.i.i48:                                   ; preds = %if.else, %for.body.i.i48
-  %hash.08.i.i49 = phi i32 [ %xor.i.i.i.i55, %for.body.i.i48 ], [ 0, %if.else ]
-  %__begin0.07.i.i50 = phi ptr [ %incdec.ptr.i.i56, %for.body.i.i48 ], [ %15, %if.else ]
-  %17 = load i16, ptr %__begin0.07.i.i50, align 2
-  %conv.i.i.i.i51 = zext i16 %17 to i32
-  %add.i.i.i.i52 = add i32 %hash.08.i.i49, %conv.i.i.i.i51
-  %add.i1.i.i.i53 = mul i32 %add.i.i.i.i52, 1025
-  %shr.i.i.i.i54 = lshr i32 %add.i1.i.i.i53, 6
-  %xor.i.i.i.i55 = xor i32 %shr.i.i.i.i54, %add.i1.i.i.i53
-  %incdec.ptr.i.i56 = getelementptr inbounds nuw i8, ptr %__begin0.07.i.i50, i64 2
-  %cmp.not.i.i57 = icmp eq ptr %incdec.ptr.i.i56, %add.ptr.i.i.i46
-  br i1 %cmp.not.i.i57, label %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i58, label %for.body.i.i48
+for.body.i.i49:                                   ; preds = %if.else, %for.body.i.i49
+  %hash.08.i.i50 = phi i32 [ %xor.i.i.i.i56, %for.body.i.i49 ], [ 0, %if.else ]
+  %__begin0.07.i.i51 = phi ptr [ %incdec.ptr.i.i57, %for.body.i.i49 ], [ %15, %if.else ]
+  %17 = load i16, ptr %__begin0.07.i.i51, align 2
+  %conv.i.i.i.i52 = zext i16 %17 to i32
+  %add.i.i.i.i53 = add i32 %hash.08.i.i50, %conv.i.i.i.i52
+  %add.i1.i.i.i54 = mul i32 %add.i.i.i.i53, 1025
+  %shr.i.i.i.i55 = lshr i32 %add.i1.i.i.i54, 6
+  %xor.i.i.i.i56 = xor i32 %shr.i.i.i.i55, %add.i1.i.i.i54
+  %incdec.ptr.i.i57 = getelementptr inbounds nuw i8, ptr %__begin0.07.i.i51, i64 2
+  %cmp.not.i.i58 = icmp eq ptr %incdec.ptr.i.i57, %add.ptr.i.i.i47
+  br i1 %cmp.not.i.i58, label %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i59, label %for.body.i.i49
 
-_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i58: ; preds = %for.body.i.i48, %if.else
-  %hash.0.lcssa.i.i59 = phi i32 [ 0, %if.else ], [ %xor.i.i.i.i55, %for.body.i.i48 ]
-  store i32 %hash.0.lcssa.i.i59, ptr %hash_.i41, align 4
-  %cmp.i.i.i.i60 = icmp eq ptr %15, %add.ptr.i.i.i.i.i.i42
-  br i1 %cmp.i.i.i.i60, label %_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit62, label %if.then.i.i.i61
+_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i59: ; preds = %for.body.i.i49, %if.else
+  %hash.0.lcssa.i.i60 = phi i32 [ 0, %if.else ], [ %xor.i.i.i.i56, %for.body.i.i49 ]
+  store i32 %hash.0.lcssa.i.i60, ptr %hash_.i41, align 4
+  %cmp.i.i.i.i61 = icmp eq ptr %15, %add.ptr.i.i.i.i.i.i42
+  br i1 %cmp.i.i.i.i61, label %_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit63, label %if.then.i.i.i62
 
-if.then.i.i.i61:                                  ; preds = %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i58
+if.then.i.i.i62:                                  ; preds = %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i59
   call void @free(ptr noundef %15) #16
-  br label %_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit62
+  br label %_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit63
 
-_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit62: ; preds = %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i58, %if.then.i.i.i61
+_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit63: ; preds = %_ZN6hermes10hashStringIDsEEjN4llvh8ArrayRefIT_EE.exit.i59, %if.then.i.i.i62
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %storage.i39)
   br label %if.end34
 
-if.end34:                                         ; preds = %_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit62, %_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit
+if.end34:                                         ; preds = %_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit63, %_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit
   %or.i = or i32 %call, 268435456
   %18 = zext i32 %or.i to i64
   br label %return

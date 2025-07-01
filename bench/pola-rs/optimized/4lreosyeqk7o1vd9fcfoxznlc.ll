@@ -13450,7 +13450,8 @@ define hidden { i64, i64 } @"_ZN11polars_time12chunkedarray6string5infer22Dateti
   %21 = load ptr, ptr %20, align 16, !nonnull !8, !align !46, !noundef !8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i64, ptr %22, align 8, !noundef !8
-  %24 = getelementptr inbounds nuw { ptr, i64 }, ptr %21, i64 %23
+  %.idx = shl nuw nsw i64 %23, 4
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %37, label %.lr.ph
 
@@ -13525,7 +13526,8 @@ define hidden { i32, i32 } @"_ZN11polars_time12chunkedarray6string5infer22Dateti
   %21 = load ptr, ptr %20, align 16, !nonnull !8, !align !46, !noundef !8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i64, ptr %22, align 8, !noundef !8
-  %24 = getelementptr inbounds nuw { ptr, i64 }, ptr %21, i64 %23
+  %.idx = shl nuw nsw i64 %23, 4
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %37, label %.lr.ph
 
@@ -156388,7 +156390,8 @@ default.unreachable141:                           ; preds = %565, %493, %237, %"
   %.val.i = load ptr, ptr %288, align 8, !noalias !25346, !nonnull !8, !noundef !8
   %289 = getelementptr i8, ptr %284, i64 48
   %.val90.i = load i64, ptr %289, align 8, !noalias !25346, !noundef !8
-  %290 = getelementptr inbounds nuw { { i8, [1 x i8] }, [6 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.val.i, i64 %.val90.i
+  %.idx.i = shl nuw nsw i64 %.val90.i, 5
+  %290 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i
   %291 = icmp eq i64 %.val90.i, 0
   br i1 %291, label %.loopexit.i, label %.lr.ph.i
 
@@ -164142,7 +164145,8 @@ common.ret:                                       ; preds = %782, %728, %433
   %.sroa.6119.0.copyload = load i64, ptr %.sroa.6119.0..sroa_idx, align 8
   %749 = icmp ult i64 %.sroa.6119.0.copyload, 288230376151711744
   call void @llvm.assume(i1 %749)
-  %750 = getelementptr inbounds nuw { ptr, ptr, i64, { ptr } }, ptr %.sroa.5118.0.copyload, i64 %.sroa.6119.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.6119.0.copyload, 5
+  %750 = getelementptr inbounds nuw i8, ptr %.sroa.5118.0.copyload, i64 %.idx
   %751 = icmp sgt i64 %.sroa.0117.0.copyload, -1
   call void @llvm.assume(i1 %751)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
@@ -169254,7 +169258,8 @@ common.resume:                                    ; preds = %.body, %.thread, %4
   %87 = icmp ne i64 %81, %85
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %89 = load ptr, ptr %88, align 16, !nonnull !8, !noundef !8
-  %90 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, [1 x i64] }, ptr %89, i64 %85
+  %.idx = mul nuw nsw i64 %85, 80
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx
   %91 = icmp eq i64 %85, 0
   br i1 %91, label %._crit_edge, label %.lr.ph
 
@@ -175876,7 +175881,8 @@ _ZN11polars_plan5plans10builder_ir9IRBuilder7add_alp17hfc46e00d12b61f6bE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN11polars_plan5plans10conversion9stack_opt19ConversionOptimizer12fill_scratch17hb485a32614ce4dbdE(ptr noalias noundef align 8 dereferenceable(72) %0, ptr noundef nonnull align 16 %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(32) %3) unnamed_addr #3 {
-  %5 = getelementptr inbounds nuw { { i64, [3 x i64] }, { { { [6 x i64] } }, { { { i32 } } }, {}, [12 x i8] }, i64, [1 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 112
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %._crit_edge, label %.lr.ph
 
@@ -177818,7 +177824,8 @@ common.resume:                                    ; preds = %192, %.thread144, %
   %96 = load ptr, ptr %95, align 8, !nonnull !8, !noundef !8
   %97 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %98 = load i64, ptr %97, align 8, !noundef !8
-  %99 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, i64 }, ptr %96, i64 %98
+  %.idx = mul nuw nsw i64 %98, 80
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx
   %100 = icmp eq i64 %98, 0
   br i1 %100, label %._crit_edge, label %.lr.ph175
 
@@ -178282,7 +178289,8 @@ common.resume:                                    ; preds = %192, %.thread144, %
   %262 = load ptr, ptr %261, align 8, !nonnull !8, !noundef !8
   %263 = getelementptr inbounds nuw i8, ptr %197, i64 24
   %264 = load i64, ptr %263, align 8, !noundef !8
-  %265 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, [1 x i64] }, ptr %262, i64 %264
+  %.idx176 = mul nuw nsw i64 %264, 80
+  %265 = getelementptr inbounds nuw i8, ptr %262, i64 %.idx176
   %266 = icmp eq i64 %264, 0
   br i1 %266, label %.loopexit, label %.lr.ph.preheader
 

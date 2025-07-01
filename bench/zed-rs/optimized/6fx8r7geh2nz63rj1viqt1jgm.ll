@@ -983,7 +983,8 @@ _ZN11tungstenite8protocol5frame4mask19apply_mask_fallback17h75e5361c8e4a4975E.ex
   %125 = shl nuw nsw i32 %124, 3
   %126 = call i32 @llvm.fshr.i32(i32 %.sroa.15.0.copyload.i, i32 %.sroa.15.0.copyload.i, i32 %125)
   %.sroa.06.0.i = select i1 %.not.i, i32 %.sroa.15.0.copyload.i, i32 %126
-  %127 = getelementptr inbounds i32, ptr %109, i64 %110
+  %.idx.i = shl nsw i64 %110, 2
+  %127 = getelementptr inbounds i8, ptr %109, i64 %.idx.i
   %128 = icmp eq i64 %110, 0
   br i1 %128, label %._crit_edge.i, label %.lr.ph.i
 
@@ -2252,7 +2253,8 @@ _ZN11tungstenite8protocol5frame4mask19apply_mask_fallback17h75e5361c8e4a4975E.ex
   %125 = shl nuw nsw i32 %124, 3
   %126 = call i32 @llvm.fshr.i32(i32 %.sroa.15.0.copyload.i, i32 %.sroa.15.0.copyload.i, i32 %125)
   %.sroa.06.0.i = select i1 %.not.i, i32 %.sroa.15.0.copyload.i, i32 %126
-  %127 = getelementptr inbounds i32, ptr %109, i64 %110
+  %.idx.i = shl nsw i64 %110, 2
+  %127 = getelementptr inbounds i8, ptr %109, i64 %.idx.i
   %128 = icmp eq i64 %110, 0
   br i1 %128, label %._crit_edge.i, label %.lr.ph.i
 

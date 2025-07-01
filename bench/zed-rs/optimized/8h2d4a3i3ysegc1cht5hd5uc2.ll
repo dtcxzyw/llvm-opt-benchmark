@@ -10626,7 +10626,8 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$4edit17h72573b508cb9e6eaE"(pt
   %.sroa.0143.0.copyload = load i64, ptr %2, align 8
   %.sroa.4144.0.copyload = load ptr, ptr %73, align 8, !nonnull !9, !noundef !9
   %.sroa.5145.0.copyload = load i64, ptr %64, align 8
-  %142 = getelementptr inbounds { i64, [12 x i64] }, ptr %.sroa.4144.0.copyload, i64 %.sroa.5145.0.copyload
+  %.idx = mul nsw i64 %.sroa.5145.0.copyload, 104
+  %142 = getelementptr inbounds i8, ptr %.sroa.4144.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58)
   store ptr %.sroa.4144.0.copyload, ptr %58, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -13086,7 +13087,8 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$4edit17h7805691394d04823E"(pt
   %.sroa.0155.0.copyload = load i64, ptr %2, align 8
   %.sroa.4156.0.copyload = load ptr, ptr %74, align 8, !nonnull !9, !noundef !9
   %.sroa.5157.0.copyload = load i64, ptr %65, align 8
-  %143 = getelementptr inbounds { i64, [12 x i64] }, ptr %.sroa.4156.0.copyload, i64 %.sroa.5157.0.copyload
+  %.idx = mul nsw i64 %.sroa.5157.0.copyload, 104
+  %143 = getelementptr inbounds i8, ptr %.sroa.4156.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59)
   store ptr %.sroa.4156.0.copyload, ptr %59, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 8

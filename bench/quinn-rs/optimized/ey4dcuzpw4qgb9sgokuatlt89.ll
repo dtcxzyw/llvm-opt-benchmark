@@ -4129,7 +4129,8 @@ define hidden void @"_ZN6rustls7builder55ConfigBuilder$LT$S$C$rustls..builder..W
   %18 = load ptr, ptr %17, align 8, !nonnull !12, !noundef !12
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %20 = load i64, ptr %19, align 8, !noundef !12
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %.idx = shl nuw nsw i64 %20, 3
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %.not7586 = icmp eq i64 %20, 0
   br i1 %.not7586, label %._crit_edge, label %.lr.ph.preheader
 
@@ -4313,7 +4314,8 @@ define hidden void @"_ZN6rustls7builder55ConfigBuilder$LT$S$C$rustls..builder..W
   %89 = load ptr, ptr %88, align 8, !nonnull !12, !noundef !12
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %91 = load i64, ptr %90, align 8, !noundef !12
-  %92 = getelementptr inbounds nuw ptr, ptr %89, i64 %91
+  %.idx97 = shl nuw nsw i64 %91, 3
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx97
   %93 = icmp eq i64 %91, 0
   br i1 %93, label %._crit_edge96, label %.lr.ph95
 
@@ -4422,7 +4424,8 @@ thread-pre-split:                                 ; preds = %104
 
 ._crit_edge96:                                    ; preds = %.loopexit78, %86
   call void @llvm.experimental.noalias.scope.decl(metadata !624)
-  %130 = getelementptr inbounds nuw ptr, ptr %2, i64 %3
+  %.idx.i = shl nuw nsw i64 %3, 3
+  %130 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %131 = icmp eq i64 %3, 0
   br i1 %131, label %_ZN6rustls8versions15EnabledVersions3new17hb22e5636c5a9128aE.exit, label %.lr.ph.i
 
@@ -4565,7 +4568,8 @@ define hidden void @"_ZN6rustls7builder55ConfigBuilder$LT$S$C$rustls..builder..W
   %18 = load ptr, ptr %17, align 8, !nonnull !12, !noundef !12
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %20 = load i64, ptr %19, align 8, !noundef !12
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %.idx = shl nuw nsw i64 %20, 3
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %.not7586 = icmp eq i64 %20, 0
   br i1 %.not7586, label %._crit_edge, label %.lr.ph.preheader
 
@@ -4749,7 +4753,8 @@ define hidden void @"_ZN6rustls7builder55ConfigBuilder$LT$S$C$rustls..builder..W
   %89 = load ptr, ptr %88, align 8, !nonnull !12, !noundef !12
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %91 = load i64, ptr %90, align 8, !noundef !12
-  %92 = getelementptr inbounds nuw ptr, ptr %89, i64 %91
+  %.idx97 = shl nuw nsw i64 %91, 3
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx97
   %93 = icmp eq i64 %91, 0
   br i1 %93, label %._crit_edge96, label %.lr.ph95
 
@@ -4858,7 +4863,8 @@ thread-pre-split:                                 ; preds = %104
 
 ._crit_edge96:                                    ; preds = %.loopexit78, %86
   call void @llvm.experimental.noalias.scope.decl(metadata !677)
-  %130 = getelementptr inbounds nuw ptr, ptr %2, i64 %3
+  %.idx.i = shl nuw nsw i64 %3, 3
+  %130 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %131 = icmp eq i64 %3, 0
   br i1 %131, label %_ZN6rustls8versions15EnabledVersions3new17hb22e5636c5a9128aE.exit, label %.lr.ph.i
 

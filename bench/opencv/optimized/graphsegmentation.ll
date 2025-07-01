@@ -397,7 +397,8 @@ define hidden void @_ZN2cv8ximgproc12segmentation21GraphSegmentationImpl12segmen
 
 12:                                               ; preds = %5
   %13 = sext i32 %11 to i64
-  %14 = getelementptr inbounds %"class.cv::ximgproc::segmentation::Edge", ptr %1, i64 %13
+  %.idx = mul nsw i64 %13, 12
+  %14 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %13, i1 true)
   %16 = shl nuw nsw i64 %15, 1
   %17 = xor i64 %16, 126

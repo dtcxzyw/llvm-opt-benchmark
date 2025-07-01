@@ -251,7 +251,8 @@ define void @_ZN3cfg10CfgOptions10apply_diff17h04e9e3f3aad52ea2E(ptr noalias nou
   %.sroa.415.0.copyload = load ptr, ptr %.sroa.415.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.516.0.copyload = load i64, ptr %.sroa.516.0..sroa_idx, align 8
-  %8 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %.sroa.415.0.copyload, i64 %.sroa.516.0.copyload
+  %.idx = mul nsw i64 %.sroa.516.0.copyload, 48
+  %8 = getelementptr inbounds i8, ptr %.sroa.415.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   store ptr %.sroa.415.0.copyload, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -309,7 +310,8 @@ define void @_ZN3cfg10CfgOptions10apply_diff17h04e9e3f3aad52ea2E(ptr noalias nou
   %.sroa.427.0.copyload = load ptr, ptr %.sroa.427.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.528.0.copyload = load i64, ptr %.sroa.528.0..sroa_idx, align 8
-  %20 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %.sroa.427.0.copyload, i64 %.sroa.528.0.copyload
+  %.idx46 = mul nsw i64 %.sroa.528.0.copyload, 48
+  %20 = getelementptr inbounds i8, ptr %.sroa.427.0.copyload, i64 %.idx46
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %.sroa.427.0.copyload, ptr %5, align 8
   %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -718,7 +720,8 @@ define noundef zeroext i1 @"_ZN51_$LT$cfg..CfgDiff$u20$as$u20$core..fmt..Display
 .lr.ph:                                           ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %19, i64 %12
+  %.idx = mul nsw i64 %12, 48
+  %20 = getelementptr inbounds i8, ptr %19, i64 %.idx
   %21 = add i64 %12, -1
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -761,7 +764,8 @@ define noundef zeroext i1 @"_ZN51_$LT$cfg..CfgDiff$u20$as$u20$core..fmt..Display
 .lr.ph96:                                         ; preds = %.thread86
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = load ptr, ptr %42, align 8, !nonnull !4, !noundef !4
-  %44 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %43, i64 %40
+  %.idx102 = mul nsw i64 %40, 48
+  %44 = getelementptr inbounds i8, ptr %43, i64 %.idx102
   %45 = add i64 %12, -1
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -896,7 +900,8 @@ define noundef zeroext i1 @"_ZN58_$LT$cfg..InactiveReason$u20$as$u20$core..fmt..
 .lr.ph:                                           ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
-  %22 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %21, i64 %18
+  %.idx = mul nsw i64 %18, 48
+  %22 = getelementptr inbounds i8, ptr %21, i64 %.idx
   %23 = add i64 %18, -1
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -970,7 +975,8 @@ define noundef zeroext i1 @"_ZN58_$LT$cfg..InactiveReason$u20$as$u20$core..fmt..
 .lr.ph106:                                        ; preds = %31
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %56 = load ptr, ptr %55, align 8, !nonnull !4, !noundef !4
-  %57 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %56, i64 %32
+  %.idx108 = mul nsw i64 %32, 48
+  %57 = getelementptr inbounds i8, ptr %56, i64 %.idx108
   %58 = add i64 %32, -1
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 16

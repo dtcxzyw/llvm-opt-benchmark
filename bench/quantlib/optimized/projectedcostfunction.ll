@@ -1038,7 +1038,8 @@ entry:
   %1 = load ptr, ptr %v, align 8, !tbaa !14
   %n_.i = getelementptr inbounds nuw i8, ptr %v, i64 8
   %2 = load i64, ptr %n_.i, align 8, !tbaa !32
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %1, i64 %2
+  %add.ptr.i.idx = shl nuw nsw i64 %2, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i.idx
   %cmp.not5.i = icmp eq i64 %2, 0
   br i1 %cmp.not5.i, label %_ZSt10accumulateIPddET0_T_S2_S1_.exit, label %for.body.i
 

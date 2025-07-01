@@ -7550,7 +7550,8 @@ define void @_ZN12uv_installer13site_packages12SitePackages11diagnostics17h1e2ae
   %94 = load ptr, ptr %93, align 8, !nonnull !3, !noundef !3
   %95 = getelementptr inbounds i8, ptr %87, i64 -8
   %96 = load i64, ptr %95, align 8, !noundef !3
-  %97 = getelementptr inbounds i64, ptr %94, i64 %96
+  %.idx = shl nsw i64 %96, 3
+  %97 = getelementptr inbounds i8, ptr %94, i64 %.idx
   br label %98
 
 98:                                               ; preds = %91, %105
@@ -9139,7 +9140,8 @@ define void @_ZN12uv_installer13site_packages12SitePackages14satisfies_spec17h49
   store ptr %51, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i64 0, ptr %54, align 8
-  %55 = getelementptr inbounds { { i64, [46 x i64] }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %2, i64 %3
+  %.idx = mul nsw i64 %3, 400
+  %55 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %56 = icmp eq i64 %3, 0
   br i1 %56, label %._crit_edge, label %.lr.ph
 
@@ -9224,7 +9226,8 @@ define void @_ZN12uv_installer13site_packages12SitePackages14satisfies_spec17h49
   store ptr %80, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i64 0, ptr %83, align 8
-  %84 = getelementptr inbounds { { i64, [46 x i64] }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %6, i64 %7
+  %.idx184 = mul nsw i64 %7, 400
+  %84 = getelementptr inbounds i8, ptr %6, i64 %.idx184
   %85 = icmp eq i64 %7, 0
   br i1 %85, label %._crit_edge183, label %.lr.ph182
 
@@ -9332,8 +9335,8 @@ define void @_ZN12uv_installer13site_packages12SitePackages14satisfies_spec17h49
   %128 = load ptr, ptr %82, align 8, !alias.scope !2129, !noalias !2132, !nonnull !3, !noundef !3
   %129 = getelementptr inbounds { i64, [46 x i64] }, ptr %128, i64 %118
   store i64 7, ptr %129, align 8
-  %.sroa.4210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 8
-  store ptr %.sroa.0118.0180, ptr %.sroa.4210.0..sroa_idx, align 8
+  %.sroa.4211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 8
+  store ptr %.sroa.0118.0180, ptr %.sroa.4211.0..sroa_idx, align 8
   %130 = add i64 %118, 1
   store i64 %130, ptr %83, align 8, !alias.scope !2129, !noalias !2132
   br label %131
@@ -9726,8 +9729,8 @@ define void @_ZN12uv_installer13site_packages12SitePackages14satisfies_spec17h49
   %249 = load ptr, ptr %53, align 8, !alias.scope !2179, !noalias !2182, !nonnull !3, !noundef !3
   %250 = getelementptr inbounds { i64, [46 x i64] }, ptr %249, i64 %239
   store i64 7, ptr %250, align 8
-  %.sroa.4207.0..sroa_idx = getelementptr inbounds nuw i8, ptr %250, i64 8
-  store ptr %.sroa.0.0179, ptr %.sroa.4207.0..sroa_idx, align 8
+  %.sroa.4208.0..sroa_idx = getelementptr inbounds nuw i8, ptr %250, i64 8
+  store ptr %.sroa.0.0179, ptr %.sroa.4208.0..sroa_idx, align 8
   %251 = add i64 %239, 1
   store i64 %251, ptr %54, align 8, !alias.scope !2179, !noalias !2182
   br label %252

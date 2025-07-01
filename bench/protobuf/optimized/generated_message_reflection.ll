@@ -38959,19 +38959,19 @@ invoke.cont16:                                    ; preds = %if.end.i.i.i.i.i.i.
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %has_bit_indices, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i.i37, i8 -1, i64 %mul.i.i.i.i.i.i, i1 false)
-  store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %add.ptr.i.i.i.idx = shl nuw nsw i64 %conv, 2
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i37, i64 %mul.i.i.i.i.i.i
+  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %inlined_string_indices, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i6.i43 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr.i.i.i.idx) #28
+  %call5.i.i.i.i2.i6.i43 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #28
           to label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit.thread unwind label %lpad17
 
 _ZNSt6vectorIiSaIiEEC2ERKS1_.exit.thread:         ; preds = %invoke.cont16
   store ptr %call5.i.i.i.i2.i6.i43, ptr %inlined_string_indices, align 8
   %_M_finish.i.i.i39 = getelementptr inbounds nuw i8, ptr %inlined_string_indices, i64 8
-  %add.ptr.i.i.i40 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i43, i64 %add.ptr.i.i.i.idx
+  %add.ptr.i.i.i40 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i43, i64 %mul.i.i.i.i.i.i
   %_M_end_of_storage.i.i.i41 = getelementptr inbounds nuw i8, ptr %inlined_string_indices, i64 16
   store ptr %add.ptr.i.i.i40, ptr %_M_end_of_storage.i.i.i41, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i6.i43, ptr nonnull align 4 %call5.i.i.i.i2.i.i37, i64 %add.ptr.i.i.i.idx, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i6.i43, ptr nonnull align 4 %call5.i.i.i.i2.i.i37, i64 %mul.i.i.i.i.i.i, i1 false)
   store ptr %add.ptr.i.i.i40, ptr %_M_finish.i.i.i39, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %fields, i64 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %fields, i64 16

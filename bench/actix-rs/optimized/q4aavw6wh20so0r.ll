@@ -761,7 +761,8 @@ define internal fastcc { ptr, i64 } @"_ZN16actix_web_actors2ws24handshake_with_p
   br i1 %6, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc906c0cd9414d0d4E.exit, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %3
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %1
+  %.idx.i.i.i.i = shl nsw i64 %1, 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 %.idx.i.i.i.i
   %.not.i.i.i.i10.i = icmp eq i64 %1, 0
   br i1 %.not.i.i.i.i10.i, label %.lr.ph.split.split.i.i.i.i.us.preheader, label %.lr.ph.split.split.i
 

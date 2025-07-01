@@ -898,7 +898,8 @@ define internal noundef zeroext i1 @"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17h147305a8ddec0386E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(8) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds ptr, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 3
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %6, label %.lr.ph.preheader
 
@@ -2966,7 +2967,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h67e4486f0181b97cE.exit: ; preds =
   %.16.i = select i1 %.not.i33, ptr %134, ptr %106
   %135 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %135, i1 false), !alias.scope !552
-  %136 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } } } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 %135
   br i1 %.not.i33, label %.preheader.i, label %.lr.ph.i.i
 
 .preheader.i:                                     ; preds = %133, %.noexc18.i
@@ -3630,7 +3631,7 @@ _ZN4core5slice4sort6stable5drift10create_run17he4fefc6ac7505beaE.exit: ; preds =
   %.16.i = select i1 %.not.i33, ptr %226, ptr %198
   %227 = shl i64 %.sroa.0.0.sroa.speculated.i.i, 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %227, i1 false), !alias.scope !697
-  %228 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i
+  %228 = getelementptr inbounds nuw i8, ptr %2, i64 %227
   br i1 %.not.i33, label %.preheader.i, label %.lr.ph.i.i
 
 .preheader.i:                                     ; preds = %225, %_ZN4core3ops8function5FnMut8call_mut17hc0c2ae8380c2ce71E.exit.thread.i.i

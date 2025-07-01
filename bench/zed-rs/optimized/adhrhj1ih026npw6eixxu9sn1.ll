@@ -515,7 +515,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   %48 = load ptr, ptr %47, align 8, !nonnull !5, !noundef !5
   %49 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %50 = load i64, ptr %49, align 8, !noundef !5
-  %51 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %48, i64 %50
+  %.idx = mul nsw i64 %50, 24
+  %51 = getelementptr inbounds i8, ptr %48, i64 %.idx
   %52 = icmp eq i64 %50, 0
   br i1 %52, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hccf723b96593e9eeE.exit", label %.lr.ph.i
 

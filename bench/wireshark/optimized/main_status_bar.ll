@@ -42,7 +42,6 @@ module asm ".previous"
 %class.QList.25 = type { %struct.QArrayDataPointer.28 }
 %struct.QArrayDataPointer.28 = type { ptr, ptr, i64 }
 %class.QKeySequence = type { ptr }
-%"struct.LabelStack::_StackItem" = type <{ %class.QString, %class.QString, i32, [4 x i8] }>
 %"struct.QtPrivate::QStringViewArg" = type { %"struct.QtPrivate::ArgBase", %class.QStringView }
 %"struct.QtPrivate::ArgBase" = type { i8 }
 %class.QStringView = type { i64, ptr }
@@ -3683,8 +3682,8 @@ _ZN17QArrayDataPointerIN10LabelStack10_StackItemEE5derefEv.exit.i.i: ; preds = %
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr %"struct.LabelStack::_StackItem", ptr %9, i64 %11
   %.idx.i.i.i = mul i64 %11, 56
+  %12 = getelementptr i8, ptr %9, i64 %.idx.i.i.i
   %.not4.i.i.i.i.i.i = icmp eq i64 %.idx.i.i.i, 0
   br i1 %.not4.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -7124,8 +7123,8 @@ _ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i: ; preds = %_ZN7QStringD2Ev.ex
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr %class.QString, ptr %12, i64 %14
   %.idx.i.i.i = mul i64 %14, 24
+  %15 = getelementptr i8, ptr %12, i64 %.idx.i.i.i
   %.not4.i.i.i.i.i.i = icmp eq i64 %.idx.i.i.i, 0
   br i1 %.not4.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 

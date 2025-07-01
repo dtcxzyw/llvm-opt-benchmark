@@ -1044,40 +1044,40 @@ invoke.cont.i35:                                  ; preds = %_ZNSt12_Vector_base
   store ptr %call5.i.i.i.i6.i27, ptr %_M_finish.i.i.i36, align 8
   %add.ptr21.i.i37 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i6.i27, i64 64
   store ptr %add.ptr21.i.i37, ptr %_M_end_of_storage.i.i.i23, align 8
-  br label %for.body.i41
+  br label %for.body.i42
 
-for.body.i41:                                     ; preds = %invoke.cont.i35, %for.inc.i47
-  %__begin2.011.i42.idx = phi i64 [ %__begin2.011.i42.add, %for.inc.i47 ], [ 0, %invoke.cont.i35 ]
-  %__begin2.011.i42.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp26, i64 %__begin2.011.i42.idx
-  %3 = load i64, ptr %__begin2.011.i42.ptr, align 8
-  %second.i43 = getelementptr inbounds nuw i8, ptr %__begin2.011.i42.ptr, i64 8
-  %4 = load i32, ptr %second.i43, align 8
-  %conv.i44 = zext i32 %4 to i64
-  invoke void @_ZN8proxygen12HTTPSettings10setSettingENS_10SettingsIdEm(ptr noundef nonnull align 8 dereferenceable(24) %egressSettings_, i64 noundef %3, i64 noundef %conv.i44)
-          to label %for.inc.i47 unwind label %lpad.i30
+for.body.i42:                                     ; preds = %invoke.cont.i35, %for.inc.i48
+  %__begin2.011.i43.idx = phi i64 [ %__begin2.011.i43.add, %for.inc.i48 ], [ 0, %invoke.cont.i35 ]
+  %__begin2.011.i43.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp26, i64 %__begin2.011.i43.idx
+  %3 = load i64, ptr %__begin2.011.i43.ptr, align 8
+  %second.i44 = getelementptr inbounds nuw i8, ptr %__begin2.011.i43.ptr, i64 8
+  %4 = load i32, ptr %second.i44, align 8
+  %conv.i45 = zext i32 %4 to i64
+  invoke void @_ZN8proxygen12HTTPSettings10setSettingENS_10SettingsIdEm(ptr noundef nonnull align 8 dereferenceable(24) %egressSettings_, i64 noundef %3, i64 noundef %conv.i45)
+          to label %for.inc.i48 unwind label %lpad.i30
 
-for.inc.i47:                                      ; preds = %for.body.i41
-  %__begin2.011.i42.add = add nuw nsw i64 %__begin2.011.i42.idx, 16
-  %cmp.not.i49 = icmp eq i64 %__begin2.011.i42.add, 64
-  br i1 %cmp.not.i49, label %invoke.cont49, label %for.body.i41
+for.inc.i48:                                      ; preds = %for.body.i42
+  %__begin2.011.i43.add = add nuw nsw i64 %__begin2.011.i43.idx, 16
+  %cmp.not.i50 = icmp eq i64 %__begin2.011.i43.add, 64
+  br i1 %cmp.not.i50, label %invoke.cont49, label %for.body.i42
 
 lpad.i30.thread:                                  ; preds = %_ZNSt12_Vector_baseIN8proxygen11HTTPSettingESaIS1_EE11_M_allocateEm.exit.i.i25
   %lpad.loopexit.split-lp9.i29 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup87
 
-lpad.i30:                                         ; preds = %for.body.i41
-  %lpad.loopexit8.i46 = landingpad { ptr, i32 }
+lpad.i30:                                         ; preds = %for.body.i42
+  %lpad.loopexit8.i47 = landingpad { ptr, i32 }
           cleanup
-  %.pr65 = load ptr, ptr %egressSettings_, align 8
-  %tobool.not.i.i.i.i32 = icmp eq ptr %.pr65, null
+  %.pr66 = load ptr, ptr %egressSettings_, align 8
+  %tobool.not.i.i.i.i32 = icmp eq ptr %.pr66, null
   br i1 %tobool.not.i.i.i.i32, label %ehcleanup87, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %lpad.i30
-  call void @_ZdlPv(ptr noundef nonnull %.pr65) #29
+  call void @_ZdlPv(ptr noundef nonnull %.pr66) #29
   br label %ehcleanup87
 
-invoke.cont49:                                    ; preds = %for.inc.i47
+invoke.cont49:                                    ; preds = %for.inc.i48
   %frameState_ = getelementptr inbounds nuw i8, ptr %this, i64 824
   %cmp = icmp ne i8 %direction, 0
   %cond = zext i1 %cmp to i8
@@ -1113,8 +1113,8 @@ invoke.cont49:                                    ; preds = %for.inc.i47
   store i8 0, ptr %hasValue.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %hasStatus_.i, i8 0, i64 5, i1 false)
   %virtualPriorityNodes_ = getelementptr inbounds nuw i8, ptr %this, i64 1024
-  %hasValue.i.i54 = getelementptr inbounds nuw i8, ptr %this, i64 1052
-  store i8 0, ptr %hasValue.i.i54, align 4
+  %hasValue.i.i55 = getelementptr inbounds nuw i8, ptr %this, i64 1052
+  store i8 0, ptr %hasValue.i.i55, align 4
   %reuseIOBufHeadroomForData_ = getelementptr inbounds nuw i8, ptr %this, i64 1056
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %virtualPriorityNodes_, i8 0, i64 25, i1 false)
   store i8 1, ptr %reuseIOBufHeadroomForData_, align 8
@@ -1232,25 +1232,25 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %ehcleanup, %if.then
   call void @_ZN8proxygen16HeaderDecodeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %decodeInfo_) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %userAgent_) #30
   %14 = load ptr, ptr %egressSettings_, align 8
-  %tobool.not.i.i.i.i56 = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i.i.i56, label %ehcleanup87, label %if.then.i.i.i.i57
+  %tobool.not.i.i.i.i57 = icmp eq ptr %14, null
+  br i1 %tobool.not.i.i.i.i57, label %ehcleanup87, label %if.then.i.i.i.i58
 
-if.then.i.i.i.i57:                                ; preds = %_ZNSt6vectorImSaImEED2Ev.exit
+if.then.i.i.i.i58:                                ; preds = %_ZNSt6vectorImSaImEED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %14) #29
   br label %ehcleanup87
 
-ehcleanup87:                                      ; preds = %lpad.i30.thread, %if.then.i.i.i.i57, %_ZNSt6vectorImSaImEED2Ev.exit, %if.then.i.i.i.i33, %lpad.i30
-  %.pn.pn.pn = phi { ptr, i32 } [ %lpad.loopexit8.i46, %if.then.i.i.i.i33 ], [ %lpad.loopexit8.i46, %lpad.i30 ], [ %.pn, %_ZNSt6vectorImSaImEED2Ev.exit ], [ %.pn, %if.then.i.i.i.i57 ], [ %lpad.loopexit.split-lp9.i29, %lpad.i30.thread ]
+ehcleanup87:                                      ; preds = %lpad.i30.thread, %if.then.i.i.i.i58, %_ZNSt6vectorImSaImEED2Ev.exit, %if.then.i.i.i.i33, %lpad.i30
+  %.pn.pn.pn = phi { ptr, i32 } [ %lpad.loopexit8.i47, %if.then.i.i.i.i33 ], [ %lpad.loopexit8.i47, %lpad.i30 ], [ %.pn, %_ZNSt6vectorImSaImEED2Ev.exit ], [ %.pn, %if.then.i.i.i.i58 ], [ %lpad.loopexit.split-lp9.i29, %lpad.i30.thread ]
   %15 = load ptr, ptr %ingressSettings_, align 8
-  %tobool.not.i.i.i.i59 = icmp eq ptr %15, null
-  br i1 %tobool.not.i.i.i.i59, label %ehcleanup88, label %if.then.i.i.i.i60
+  %tobool.not.i.i.i.i60 = icmp eq ptr %15, null
+  br i1 %tobool.not.i.i.i.i60, label %ehcleanup88, label %if.then.i.i.i.i61
 
-if.then.i.i.i.i60:                                ; preds = %ehcleanup87
+if.then.i.i.i.i61:                                ; preds = %ehcleanup87
   call void @_ZdlPv(ptr noundef nonnull %15) #29
   br label %ehcleanup88
 
-ehcleanup88:                                      ; preds = %lpad.i.thread, %if.then.i.i.i.i60, %ehcleanup87, %if.then.i.i.i.i, %lpad.i
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %lpad.loopexit8.i, %if.then.i.i.i.i ], [ %lpad.loopexit8.i, %lpad.i ], [ %.pn.pn.pn, %ehcleanup87 ], [ %.pn.pn.pn, %if.then.i.i.i.i60 ], [ %lpad.loopexit.split-lp9.i, %lpad.i.thread ]
+ehcleanup88:                                      ; preds = %lpad.i.thread, %if.then.i.i.i.i61, %ehcleanup87, %if.then.i.i.i.i, %lpad.i
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %lpad.loopexit8.i, %if.then.i.i.i.i ], [ %lpad.loopexit8.i, %lpad.i ], [ %.pn.pn.pn, %ehcleanup87 ], [ %.pn.pn.pn, %if.then.i.i.i.i61 ], [ %lpad.loopexit.split-lp9.i, %lpad.i.thread ]
   call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %curHeaderBlock_) #30
   br label %ehcleanup89
 
@@ -17870,7 +17870,8 @@ entry:
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
   %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
-  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
+  %add.ptr14.idx = shl nuw nsw i64 %add, 3
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
   br label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %invoke.cont.i

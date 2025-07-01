@@ -246,7 +246,8 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   %64 = load ptr, ptr %63, align 8, !alias.scope !40, !noalias !43, !nonnull !4, !noundef !4
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = load i64, ptr %65, align 8, !alias.scope !40, !noalias !43, !noundef !4
-  %67 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %64, i64 %66
+  %.idx.i = shl nuw nsw i64 %66, 4
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx.i
   %68 = icmp eq i64 %66, 0
   br i1 %68, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h15c36db5c47f0bf4E.exit.i", label %.lr.ph.i.i
 

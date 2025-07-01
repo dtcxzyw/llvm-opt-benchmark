@@ -22,7 +22,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define dso_local void @_ZN4absl15random_internal26ComputeDistributionMomentsENS_4SpanIKdEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.absl::random_internal::DistributionMoments") align 8 captures(none) initializes((0, 16)) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 16, i1 false)
-  %4 = getelementptr inbounds nuw double, ptr %1, i64 %2
+  %.idx = shl i64 %2, 3
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not29 = icmp eq i64 %2, 0
   br i1 %.not29, label %.thread, label %.lr.ph
 
@@ -32,63 +33,64 @@ define dso_local void @_ZN4absl15random_internal26ComputeDistributionMomentsENS_
   br label %._crit_edge37
 
 .lr.ph36:                                         ; preds = %.lr.ph
-  store i64 %12, ptr %0, align 8
-  %6 = uitofp nneg i64 %12 to double
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = fdiv double %13, %6
-  store double %8, ptr %7, align 8, !tbaa !4
-  br label %29
+  %6 = add i64 %.idx, -8
+  %7 = lshr exact i64 %6, 3
+  %8 = add nuw nsw i64 %7, 1
+  store i64 %8, ptr %0, align 8
+  %9 = uitofp nneg i64 %8 to double
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = fdiv double %14, %9
+  store double %11, ptr %10, align 8, !tbaa !4
+  br label %30
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %9 = phi double [ %13, %.lr.ph ], [ 0.000000e+00, %3 ]
-  %.030 = phi ptr [ %14, %.lr.ph ], [ %1, %3 ]
-  %10 = phi i64 [ %12, %.lr.ph ], [ 0, %3 ]
-  %11 = load double, ptr %.030, align 8, !tbaa !10
-  %12 = add nuw nsw i64 %10, 1
-  %13 = fadd double %11, %9
-  %14 = getelementptr inbounds nuw i8, ptr %.030, i64 8
-  %.not = icmp eq ptr %14, %4
+  %12 = phi double [ %14, %.lr.ph ], [ 0.000000e+00, %3 ]
+  %.030 = phi ptr [ %15, %.lr.ph ], [ %1, %3 ]
+  %13 = load double, ptr %.030, align 8, !tbaa !10
+  %14 = fadd double %13, %12
+  %15 = getelementptr inbounds nuw i8, ptr %.030, i64 8
+  %.not = icmp eq ptr %15, %4
   br i1 %.not, label %.lr.ph36, label %.lr.ph
 
-._crit_edge37.loopexit:                           ; preds = %29
-  %15 = uitofp nneg i64 %10 to double
-  %16 = fdiv double %35, %15
+._crit_edge37.loopexit:                           ; preds = %30
+  %16 = uitofp nneg i64 %7 to double
+  %17 = fdiv double %36, %16
   br label %._crit_edge37
 
 ._crit_edge37:                                    ; preds = %._crit_edge37.loopexit, %.thread
-  %17 = phi double [ 0.000000e+00, %.thread ], [ %6, %._crit_edge37.loopexit ]
-  %18 = phi double [ 0.000000e+00, %.thread ], [ %39, %._crit_edge37.loopexit ]
-  %19 = phi double [ 0.000000e+00, %.thread ], [ %37, %._crit_edge37.loopexit ]
-  %20 = phi double [ 0.000000e+00, %.thread ], [ %16, %._crit_edge37.loopexit ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %20, ptr %21, align 8, !tbaa !11
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = fdiv double %19, %17
-  %24 = tail call double @pow(double noundef %20, double noundef 1.500000e+00) #15, !tbaa !12
-  %25 = fdiv double %23, %24
-  store double %25, ptr %22, align 8, !tbaa !14
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = fdiv double %18, %17
-  %square = fmul double %20, %20
-  %28 = fdiv double %27, %square
-  store double %28, ptr %26, align 8, !tbaa !15
+  %18 = phi double [ 0.000000e+00, %.thread ], [ %9, %._crit_edge37.loopexit ]
+  %19 = phi double [ 0.000000e+00, %.thread ], [ %40, %._crit_edge37.loopexit ]
+  %20 = phi double [ 0.000000e+00, %.thread ], [ %38, %._crit_edge37.loopexit ]
+  %21 = phi double [ 0.000000e+00, %.thread ], [ %17, %._crit_edge37.loopexit ]
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store double %21, ptr %22, align 8, !tbaa !11
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = fdiv double %20, %18
+  %25 = tail call double @pow(double noundef %21, double noundef 1.500000e+00) #15, !tbaa !12
+  %26 = fdiv double %24, %25
+  store double %26, ptr %23, align 8, !tbaa !14
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %28 = fdiv double %19, %18
+  %square = fmul double %21, %21
+  %29 = fdiv double %28, %square
+  store double %29, ptr %27, align 8, !tbaa !15
   ret void
 
-29:                                               ; preds = %.lr.ph36, %29
-  %30 = phi double [ 0.000000e+00, %.lr.ph36 ], [ %39, %29 ]
-  %31 = phi double [ 0.000000e+00, %.lr.ph36 ], [ %37, %29 ]
-  %32 = phi double [ 0.000000e+00, %.lr.ph36 ], [ %35, %29 ]
-  %.02334 = phi ptr [ %1, %.lr.ph36 ], [ %40, %29 ]
-  %33 = load double, ptr %.02334, align 8, !tbaa !10
-  %34 = fsub double %33, %8
-  %35 = tail call double @llvm.fmuladd.f64(double %34, double %34, double %32)
-  %36 = fmul double %34, %34
-  %37 = tail call double @llvm.fmuladd.f64(double %36, double %34, double %31)
-  %38 = fmul double %34, %36
-  %39 = tail call double @llvm.fmuladd.f64(double %38, double %34, double %30)
-  %40 = getelementptr inbounds nuw i8, ptr %.02334, i64 8
-  %.not24 = icmp eq ptr %40, %4
-  br i1 %.not24, label %._crit_edge37.loopexit, label %29
+30:                                               ; preds = %.lr.ph36, %30
+  %31 = phi double [ 0.000000e+00, %.lr.ph36 ], [ %40, %30 ]
+  %32 = phi double [ 0.000000e+00, %.lr.ph36 ], [ %38, %30 ]
+  %33 = phi double [ 0.000000e+00, %.lr.ph36 ], [ %36, %30 ]
+  %.02334 = phi ptr [ %1, %.lr.ph36 ], [ %41, %30 ]
+  %34 = load double, ptr %.02334, align 8, !tbaa !10
+  %35 = fsub double %34, %11
+  %36 = tail call double @llvm.fmuladd.f64(double %35, double %35, double %33)
+  %37 = fmul double %35, %35
+  %38 = tail call double @llvm.fmuladd.f64(double %37, double %35, double %32)
+  %39 = fmul double %35, %37
+  %40 = tail call double @llvm.fmuladd.f64(double %39, double %35, double %31)
+  %41 = getelementptr inbounds nuw i8, ptr %.02334, i64 8
+  %.not24 = icmp eq ptr %41, %4
+  br i1 %.not24, label %._crit_edge37.loopexit, label %30
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

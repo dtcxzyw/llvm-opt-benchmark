@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.llvm::dxil::EntryProperties" = type { ptr, i32, i32, i32, i32 }
 %"struct.llvm::dxil::ModuleMetadataInfo" = type <{ %"class.llvm::VersionTuple", %"class.llvm::VersionTuple", i32, %"class.llvm::VersionTuple", [4 x i8], %"class.llvm::SmallVector" }>
 %"class.llvm::VersionTuple" = type { i64, i64 }
 %"class.llvm::SmallVector" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage" }
@@ -22,6 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
+%"struct.llvm::dxil::EntryProperties" = type { ptr, i32, i32, i32, i32 }
 %"class.llvm::Attribute" = type { ptr }
 %"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::SmallVector.128" = type { %"class.llvm::SmallVectorImpl.129", %"struct.llvm::SmallVectorStorage.132" }
@@ -358,7 +358,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %_ZN
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %149 = load i32, ptr %148, align 8, !tbaa !31
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw %"struct.llvm::dxil::EntryProperties", ptr %147, i64 %150
+  %.idx = mul nuw nsw i64 %150, 24
+  %151 = getelementptr inbounds nuw i8, ptr %147, i64 %.idx
   %.not80 = icmp eq i32 %149, 0
   br i1 %.not80, label %._crit_edge, label %.lr.ph
 

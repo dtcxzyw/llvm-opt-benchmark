@@ -46,7 +46,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 24
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17ha0cbbf4eaac104d9E.exit, label %.lr.ph.i
 
@@ -303,7 +304,7 @@ define noundef range(i8 0, 3) i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065
   %7 = icmp ult i8 %6, 5
   %narrow = select i1 %7, i8 %6, i8 1
   switch i8 %narrow, label %8 [
-    i8 0, label %common.ret60
+    i8 0, label %common.ret61
     i8 1, label %9
     i8 2, label %14
     i8 3, label %28
@@ -318,16 +319,17 @@ define noundef range(i8 0, 3) i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065
   %11 = load ptr, ptr %10, align 8, !invariant.load !4, !nonnull !4
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
   %13 = zext i1 %12 to i8
-  br label %common.ret60
+  br label %common.ret61
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !noundef !4
-  %19 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %16, i64 %18
+  %.idx53 = mul nsw i64 %18, 48
+  %19 = getelementptr inbounds i8, ptr %16, i64 %.idx53
   %20 = icmp eq i64 %18, 0
-  br i1 %20, label %common.ret60, label %.lr.ph50
+  br i1 %20, label %common.ret61, label %.lr.ph50
 
 .lr.ph50:                                         ; preds = %14, %25
   %.09.i48 = phi i1 [ %26, %25 ], [ true, %14 ]
@@ -338,22 +340,23 @@ define noundef range(i8 0, 3) i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065
 22:                                               ; preds = %.lr.ph50
   %23 = tail call noundef i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065c0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.047, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2), !range !83, !noalias !84
   %24 = icmp eq i8 %23, 2
-  br i1 %24, label %common.ret60, label %25
+  br i1 %24, label %common.ret61, label %25
 
 25:                                               ; preds = %.lr.ph50, %22
   %.0.i19.ph = phi i8 [ %23, %22 ], [ 0, %.lr.ph50 ]
   %26 = trunc nuw i8 %.0.i19.ph to i1
   %27 = icmp eq ptr %21, %19
-  br i1 %27, label %common.ret60, label %.lr.ph50
+  br i1 %27, label %common.ret61, label %.lr.ph50
 
 28:                                               ; preds = %3
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i64, ptr %31, align 8, !noundef !4
-  %33 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %30, i64 %32
+  %.idx = mul nsw i64 %32, 48
+  %33 = getelementptr inbounds i8, ptr %30, i64 %.idx
   %34 = icmp eq i64 %32, 0
-  br i1 %34, label %common.ret60, label %.lr.ph
+  br i1 %34, label %common.ret61, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28, %39
   %.09.i1646 = phi i1 [ %40, %39 ], [ false, %28 ]
@@ -364,17 +367,17 @@ define noundef range(i8 0, 3) i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065
 36:                                               ; preds = %.lr.ph
   %37 = tail call noundef i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065c0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.026.045, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2), !range !83, !noalias !89
   %38 = icmp eq i8 %37, 2
-  br i1 %38, label %common.ret60, label %39
+  br i1 %38, label %common.ret61, label %39
 
 39:                                               ; preds = %.lr.ph, %36
   %.0.i23.ph = phi i8 [ %37, %36 ], [ 1, %.lr.ph ]
   %40 = trunc nuw i8 %.0.i23.ph to i1
   %41 = icmp eq ptr %35, %33
-  br i1 %41, label %common.ret60, label %.lr.ph
+  br i1 %41, label %common.ret61, label %.lr.ph
 
-common.ret60:                                     ; preds = %3, %9, %14, %28, %25, %22, %39, %36, %42
-  %common.ret60.op = phi i8 [ %.1, %42 ], [ %13, %9 ], [ 2, %3 ], [ 1, %14 ], [ 0, %28 ], [ 2, %22 ], [ %.0.i19.ph, %25 ], [ 2, %36 ], [ %.0.i23.ph, %39 ]
-  ret i8 %common.ret60.op
+common.ret61:                                     ; preds = %3, %9, %14, %28, %25, %22, %39, %36, %42
+  %common.ret61.op = phi i8 [ %.1, %42 ], [ %13, %9 ], [ 2, %3 ], [ 1, %14 ], [ 0, %28 ], [ 2, %22 ], [ %.0.i19.ph, %25 ], [ 2, %36 ], [ %.0.i23.ph, %39 ]
+  ret i8 %common.ret61.op
 
 42:                                               ; preds = %3
   %43 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
@@ -382,7 +385,7 @@ common.ret60:                                     ; preds = %3, %9, %14, %28, %2
   %45 = icmp eq i8 %44, 2
   %46 = xor i8 %44, 1
   %.1 = select i1 %45, i8 2, i8 %46
-  br label %common.ret60
+  br label %common.ret61
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -862,7 +862,8 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
   br i1 %15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %16 = getelementptr inbounds { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }, ptr %14, i64 %8
+  %.idx = mul nsw i64 %8, 40
+  %16 = getelementptr inbounds i8, ptr %14, i64 %.idx
   %17 = ptrtoint ptr %14 to i64
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -1053,7 +1054,8 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
   br i1 %15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %16 = getelementptr inbounds { i32, i32, i64, i64, i64, i64, i32, i32, i64, i64 }, ptr %14, i64 %8
+  %.idx = shl nsw i64 %8, 6
+  %16 = getelementptr inbounds i8, ptr %14, i64 %.idx
   %17 = ptrtoint ptr %14 to i64
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 

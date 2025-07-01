@@ -12349,7 +12349,8 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !2976
   call void @llvm.assume(i1 %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !2980
-  %54 = getelementptr inbounds i32, ptr %.sroa.4.0.copyload.i.i.i, i64 %.sroa.5.0.copyload.i.i.i
+  %.idx.i.i.i.i = shl nsw i64 %.sroa.5.0.copyload.i.i.i, 2
+  %54 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i.i, i64 %.idx.i.i.i.i
   store ptr %.sroa.4.0.copyload.i.i.i, ptr %3, align 8, !noalias !2980
   store ptr %.sroa.4.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i2.i.i.i, align 8, !noalias !2980
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %.sroa.5.0..sroa_idx.i3.i.i.i, align 8, !noalias !2980
@@ -12639,7 +12640,8 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !3015
   call void @llvm.assume(i1 %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !3019
-  %54 = getelementptr inbounds i32, ptr %.sroa.4.0.copyload.i.i.i, i64 %.sroa.5.0.copyload.i.i.i
+  %.idx.i.i.i.i = shl nsw i64 %.sroa.5.0.copyload.i.i.i, 2
+  %54 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i.i, i64 %.idx.i.i.i.i
   store ptr %.sroa.4.0.copyload.i.i.i, ptr %3, align 8, !noalias !3019
   store ptr %.sroa.4.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i2.i.i.i, align 8, !noalias !3019
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %.sroa.5.0..sroa_idx.i3.i.i.i, align 8, !noalias !3019
@@ -12969,7 +12971,8 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !3054
   call void @llvm.assume(i1 %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !3058
-  %69 = getelementptr inbounds i32, ptr %.sroa.4.0.copyload.i.i.i, i64 %.sroa.5.0.copyload.i.i.i
+  %.idx.i.i.i.i = shl nsw i64 %.sroa.5.0.copyload.i.i.i, 2
+  %69 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i.i, i64 %.idx.i.i.i.i
   store ptr %.sroa.4.0.copyload.i.i.i, ptr %3, align 8, !noalias !3058
   store ptr %.sroa.4.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i2.i.i.i, align 8, !noalias !3058
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %.sroa.5.0..sroa_idx.i3.i.i.i, align 8, !noalias !3058
@@ -21331,7 +21334,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hbd58
   %4 = load ptr, ptr %3, align 8, !alias.scope !5294, !nonnull !15, !noundef !15
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !5294, !noundef !15
-  %7 = getelementptr inbounds { i64, i32, i8, [3 x i8] }, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 4
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5297)
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !5297, !noalias !5300, !nonnull !15, !align !38, !noundef !15
   %8 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16

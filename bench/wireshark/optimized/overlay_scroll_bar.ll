@@ -939,9 +939,9 @@ _ZNK8QPalette4baseEv.exit:                        ; preds = %48
   br label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit
 
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit: ; preds = %78, %83
-  %85 = getelementptr i32, ptr %82, i64 %76
-  %.idx.mask = and i64 %76, 4611686018427387903
-  %.not116 = icmp eq i64 %.idx.mask, 0
+  %.idx = shl i64 %76, 2
+  %85 = getelementptr i8, ptr %82, i64 %.idx
+  %.not116 = icmp eq i64 %.idx, 0
   br i1 %.not116, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit

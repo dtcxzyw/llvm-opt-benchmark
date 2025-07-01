@@ -225,7 +225,8 @@ define dso_local void @_ZNK5clang6format14TokenAnnotator20setCommentLineLevelsER
 
 .lr.ph.preheader:                                 ; preds = %2
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %54, %2
@@ -510,7 +511,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format9ScopeTypeELb1EE9push_backES3_.e
   %85 = load ptr, ptr %67, align 8, !tbaa !3
   %86 = load i32, ptr %68, align 8, !tbaa !20
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %85, i64 %87
+  %.idx = shl nuw nsw i64 %87, 3
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx
   %.not124 = icmp eq i32 %86, 0
   br i1 %.not124, label %._crit_edge, label %.lr.ph
 
@@ -1927,7 +1929,8 @@ _ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit.threa
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val62 = load i32, ptr %333, align 8, !tbaa !20
   %334 = zext i32 %.val62 to i64
-  %335 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val, i64 %334
+  %.idx = mul nuw nsw i64 %334, 56
+  %335 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx
   %.not52146 = icmp eq i32 %.val62, 0
   br i1 %.not52146, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser21parseIncludeDirectiveEv.exit, label %.lr.ph148
 
@@ -2314,7 +2317,8 @@ _ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit292: ; preds = %.lr.
 
 .lr.ph573.preheader:                              ; preds = %.critedge.i109
   %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds nuw ptr, ptr %115, i64 %117
+  %.idx = shl nuw nsw i64 %117, 3
+  %118 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx
   br label %.lr.ph573
 
 .lr.ph573:                                        ; preds = %.lr.ph573.preheader, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser18addFakeParenthesisEPNS0_11FormatTokenENS_4prec5LevelES4_.exit278
@@ -4515,7 +4519,8 @@ define dso_local void @_ZNK5clang6format14TokenAnnotator30calculateFormattingInf
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 8, !tbaa !20
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
+  %.idx = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not423 = icmp eq i32 %10, 0
   br i1 %.not423, label %._crit_edge, label %.lr.ph
 
@@ -19573,7 +19578,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit95:               ; preds = %316, %318
   %323 = getelementptr inbounds nuw i8, ptr %.0125, i64 160
   %324 = load i32, ptr %323, align 8, !tbaa !20
   %325 = zext i32 %324 to i64
-  %326 = getelementptr inbounds nuw i32, ptr %322, i64 %325
+  %.idx = shl nuw nsw i64 %325, 2
+  %326 = getelementptr inbounds nuw i8, ptr %322, i64 %.idx
   %.not30121 = icmp eq i32 %324, 0
   br i1 %.not30121, label %._crit_edge, label %.lr.ph
 
@@ -31715,7 +31721,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116Annot
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1380
   %16 = load i32, ptr %15, align 4, !tbaa !226
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %.idx.i.i = shl nuw nsw i64 %17, 3
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i
   %.not.not9.i.i = icmp eq i32 %16, 0
   br i1 %.not.not9.i.i, label %_ZNK4llvm15SmallPtrSetImplIPN5clang6format11FormatTokenEE5countEPKS3_.exit.thread, label %.lr.ph.i.i
 
@@ -34453,7 +34460,8 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPN5clang6format11Form
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !226
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
+  %.idx.i = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
   %.not36.i = icmp eq i32 %10, 0
   br i1 %.not36.i, label %._crit_edge.i, label %.lr.ph.i
 

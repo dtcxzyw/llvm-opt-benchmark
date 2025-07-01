@@ -115,10 +115,10 @@ _ZN8QuantLib5ArrayC2ERKS0_.exit:                  ; preds = %cond.end.i, %if.the
 
 cond.end.thread.i:                                ; preds = %_ZN8QuantLib5ArrayC2ERKS0_.exit
   store ptr null, ptr %ev_, align 8, !tbaa !18
-  %rows_6.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store i64 %cond4, ptr %rows_6.i, align 8, !tbaa !19
-  %columns_7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store i64 %0, ptr %columns_7.i, align 8, !tbaa !20
+  %rows_7.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  store i64 %cond4, ptr %rows_7.i, align 8, !tbaa !19
+  %columns_8.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  store i64 %0, ptr %columns_8.i, align 8, !tbaa !20
   br label %invoke.cont8
 
 for.body.i.i.i.preheader.i:                       ; preds = %_ZN8QuantLib5ArrayC2ERKS0_.exit
@@ -643,21 +643,24 @@ if.then.i.i.i.i.i213:                             ; preds = %_ZNSt6vectorIdSaIdE
           to label %call5.i.i.i.i2.i.i.noexc219 unwind label %lpad304
 
 call5.i.i.i.i2.i.i.noexc219:                      ; preds = %if.then.i.i.i.i.i213
-  %add.ptr.i.i.i215 = getelementptr double, ptr %call5.i.i.i.i2.i.i220, i64 %cond4
+  %add.ptr.i.i.i215 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i220, i64 %cond4
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i220, align 8, !tbaa !21
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i220, i64 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %cond4, 1
+  %sub.i.i.i.i.i = add nsw i64 %cond4, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont305, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc219
   %89 = add nsw i64 %mul.i.i.i.i.i.i214, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %89, i1 false), !tbaa !21
+  %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %invoke.cont305
 
 invoke.cont305:                                   ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc219, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %eigenVector.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i220, %call5.i.i.i.i2.i.i.noexc219 ], [ %call5.i.i.i.i2.i.i220, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %eigenVector.sroa.12.0 = phi ptr [ %add.ptr.i.i.i215, %call5.i.i.i.i2.i.i.noexc219 ], [ %add.ptr.i.i.i215, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc219 ], [ %add.ptr.i.i.i215, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc219 ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   br i1 %cmp.not.i145, label %for.cond.cleanup311, label %for.body312.lr.ph
 
 for.body312.lr.ph:                                ; preds = %invoke.cont305

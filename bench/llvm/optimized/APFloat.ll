@@ -2254,20 +2254,20 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualE
   %31 = add i32 %30, 64
   %32 = lshr i32 %31, 6
   %.sroa.speculated.i.i = tail call noundef range(i32 1, 67108864) i32 @llvm.umax.i32(i32 %32, i32 1)
-  %33 = add i32 %30, -64
-  %34 = icmp ult i32 %33, -128
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %.0.i.i = select i1 %34, ptr %36, ptr %35
-  %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %38 = load i32, ptr %37, align 4, !tbaa !12
-  %39 = add i32 %38, -64
-  %40 = icmp ult i32 %39, -128
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %.0.i.i15 = select i1 %40, ptr %42, ptr %41
-  %43 = shl nuw nsw i32 %.sroa.speculated.i.i, 3
-  %.idx = zext nneg i32 %43 to i64
+  %33 = shl nuw nsw i32 %.sroa.speculated.i.i, 3
+  %.idx = zext nneg i32 %33 to i64
+  %34 = add i32 %30, -64
+  %35 = icmp ult i32 %34, -128
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %.0.i.i = select i1 %35, ptr %37, ptr %36
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %39 = load i32, ptr %38, align 4, !tbaa !12
+  %40 = add i32 %39, -64
+  %41 = icmp ult i32 %40, -128
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %.0.i.i15 = select i1 %41, ptr %43, ptr %42
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %.0.i.i, ptr noundef nonnull dereferenceable(1) %.0.i.i15, i64 %.idx)
   %.not9.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %_ZSt5equalIPKmS1_EbT_S2_T0_.exit
@@ -17045,11 +17045,12 @@ define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 -8
   %6 = load i64, ptr %5, align 8
+  %.idx.i = mul i64 %6, 24
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %4
-  %8 = getelementptr inbounds %"class.llvm::APFloat", ptr %3, i64 %6
+  %8 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN4llvm7APFloatD2Ev.exit.i
@@ -17072,9 +17073,8 @@ _ZN4llvm7APFloatD2Ev.exit.i:                      ; preds = %13, %12
   br i1 %14, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %.preheader
 
 _ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit: ; preds = %_ZN4llvm7APFloatD2Ev.exit.i, %4
-  %15 = mul i64 %6, 24
-  %16 = add i64 %15, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %16) #26
+  %15 = add i64 %.idx.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %15) #26
   br label %_ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit
@@ -21550,20 +21550,20 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm7APFloat14bitwiseIsEqual
   %30 = add i32 %29, 64
   %31 = lshr i32 %30, 6
   %.sroa.speculated.i.i.i = tail call noundef range(i32 1, 67108864) i32 @llvm.umax.i32(i32 %31, i32 1)
-  %32 = add i32 %29, -64
-  %33 = icmp ult i32 %32, -128
-  %34 = getelementptr inbounds nuw i8, ptr %.tr13.lcssa, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %.0.i.i.i = select i1 %33, ptr %35, ptr %34
-  %36 = getelementptr inbounds nuw i8, ptr %.lcssa28, i64 8
-  %37 = load i32, ptr %36, align 4, !tbaa !12
-  %38 = add i32 %37, -64
-  %39 = icmp ult i32 %38, -128
-  %40 = getelementptr inbounds nuw i8, ptr %.tr614.lcssa, i64 8
-  %41 = load ptr, ptr %40, align 8
-  %.0.i.i15.i = select i1 %39, ptr %41, ptr %40
-  %42 = shl nuw nsw i32 %.sroa.speculated.i.i.i, 3
-  %.idx.i = zext nneg i32 %42 to i64
+  %32 = shl nuw nsw i32 %.sroa.speculated.i.i.i, 3
+  %.idx.i = zext nneg i32 %32 to i64
+  %33 = add i32 %29, -64
+  %34 = icmp ult i32 %33, -128
+  %35 = getelementptr inbounds nuw i8, ptr %.tr13.lcssa, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %.0.i.i.i = select i1 %34, ptr %36, ptr %35
+  %37 = getelementptr inbounds nuw i8, ptr %.lcssa28, i64 8
+  %38 = load i32, ptr %37, align 4, !tbaa !12
+  %39 = add i32 %38, -64
+  %40 = icmp ult i32 %39, -128
+  %41 = getelementptr inbounds nuw i8, ptr %.tr614.lcssa, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %.0.i.i15.i = select i1 %40, ptr %42, ptr %41
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %.0.i.i.i, ptr noundef nonnull dereferenceable(1) %.0.i.i15.i, i64 %.idx.i)
   %.not9.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br label %_ZNK4llvm6detail9IEEEFloat14bitwiseIsEqualERKS1_.exit

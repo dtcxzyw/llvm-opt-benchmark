@@ -18,9 +18,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pxrInternal_v0_24__pxrReserved__::TfStaticData.16" = type { %"struct.std::atomic.17" }
 %"struct.std::atomic.17" = type { %"struct.std::__atomic_base.18" }
 %"struct.std::__atomic_base.18" = type { ptr }
+%"struct.std::pair.33" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfToken", %"class.std::function.35" }
 %"class.pxrInternal_v0_24__pxrReserved__::TfToken" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits" }
 %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits" = type { ptr }
-%"struct.std::pair.33" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfToken", %"class.std::function.35" }
 %"class.std::function.35" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
@@ -1466,7 +1466,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLoc
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %spec.select.i.i.i.i, i64 %8
+  %.idx.i.i = shl nuw nsw i64 %8, 3
+  %9 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 %.idx.i.i
   %.not7.i.i = icmp eq i32 %7, 0
   br i1 %.not7.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE9_DestructEv.exit.i, label %.lr.ph.i.i
 
@@ -1969,7 +1970,8 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__21HdDirtyBitsTranslator
   %17 = icmp ult i32 %16, 7
   %18 = load ptr, ptr %3, align 8
   %spec.select.i.i.i.i = select i1 %17, ptr %3, ptr %18
-  %19 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %spec.select.i.i.i.i, i64 %14
+  %.idx.i.i = shl nuw nsw i64 %14, 3
+  %19 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 %.idx.i.i
   %.not9.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not9.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.thread, label %.lr.ph.i.i.i.i.preheader.i.i
 
@@ -4124,7 +4126,8 @@ define noundef range(i32 -3, 262144) i32 @_ZN32pxrInternal_v0_24__pxrReserved__2
   %17 = icmp ult i32 %16, 7
   %18 = load ptr, ptr %3, align 8
   %spec.select.i.i.i.i = select i1 %17, ptr %3, ptr %18
-  %19 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %spec.select.i.i.i.i, i64 %14
+  %.idx.i.i = shl nuw nsw i64 %14, 3
+  %19 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 %.idx.i.i
   %.not9.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not9.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoreqERKS0_.exit.thread, label %.lr.ph.i.i.i.i.preheader.i.i
 

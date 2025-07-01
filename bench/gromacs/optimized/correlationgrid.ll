@@ -427,7 +427,7 @@ _ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EED2Ev.exit: ; preds = %_ZSt8
 define linkonce_odr void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS1_S3_EEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::vector<gmx::CorrelationTensor>::_Temporary_value", align 8
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %228, label %6
+  br i1 %.not, label %227, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -439,7 +439,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE14_M_fil
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 24
   %.not65 = icmp ult i64 %14, %2
-  br i1 %.not65, label %136, label %15
+  br i1 %.not65, label %135, label %15
 
 15:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
@@ -453,32 +453,31 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE14_M_fil
   %20 = sub i64 %18, %19
   %21 = sdiv exact i64 %20, 24
   %22 = icmp ugt i64 %21, %2
-  br i1 %22, label %23, label %79
+  br i1 %22, label %23, label %78
 
 23:                                               ; preds = %15
-  %24 = sub i64 0, %2
-  %25 = getelementptr inbounds %"class.gmx::CorrelationTensor", ptr %17, i64 %24
   %.idx = mul i64 %2, -24
+  %24 = getelementptr inbounds i8, ptr %17, i64 %.idx
   %.not11.i.i.i.i.i = icmp eq i64 %.idx, 0
   br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %23, %.lr.ph.i.i.i.i.i
-  %.013.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i ], [ %17, %23 ]
-  %.sroa.08.012.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %25, %23 ]
-  %26 = load ptr, ptr %.sroa.08.012.i.i.i.i.i, align 8, !tbaa !17
-  store ptr %26, ptr %.013.i.i.i.i.i, align 8, !tbaa !17
-  %27 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !20
-  store ptr %29, ptr %27, align 8, !tbaa !20
-  %30 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !31
-  store ptr %32, ptr %30, align 8, !tbaa !31
+  %.013.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %17, %23 ]
+  %.sroa.08.012.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i ], [ %24, %23 ]
+  %25 = load ptr, ptr %.sroa.08.012.i.i.i.i.i, align 8, !tbaa !17
+  store ptr %25, ptr %.013.i.i.i.i.i, align 8, !tbaa !17
+  %26 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !20
+  store ptr %28, ptr %26, align 8, !tbaa !20
+  %29 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 16
+  %31 = load ptr, ptr %30, align 8, !tbaa !31
+  store ptr %31, ptr %29, align 8, !tbaa !31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.08.012.i.i.i.i.i, i8 0, i64 24, i1 false)
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 24
-  %34 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %33, %17
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i = icmp eq ptr %32, %17
   br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !41
 
 _ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -486,105 +485,106 @@ _ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1
   br label %_ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit
 
 _ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit, %23
-  %35 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit ], [ %17, %23 ]
-  %36 = getelementptr inbounds nuw %"class.gmx::CorrelationTensor", ptr %35, i64 %2
-  store ptr %36, ptr %9, align 8, !tbaa !32
-  %37 = ptrtoint ptr %25 to i64
-  %38 = sub i64 %37, %19
-  %39 = icmp sgt i64 %38, 0
-  br i1 %39, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt13move_backwardIPN3gmx17CorrelationTensorES2_ET0_T_S4_S3_.exit
+  %34 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit ], [ %17, %23 ]
+  %35 = getelementptr inbounds nuw %"class.gmx::CorrelationTensor", ptr %34, i64 %2
+  store ptr %35, ptr %9, align 8, !tbaa !32
+  %36 = ptrtoint ptr %24 to i64
+  %37 = sub i64 %36, %19
+  %38 = icmp sgt i64 %37, 0
+  br i1 %38, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt13move_backwardIPN3gmx17CorrelationTensorES2_ET0_T_S4_S3_.exit
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %40 = udiv exact i64 %38, 24
+  %39 = udiv exact i64 %37, 24
   br label %.lr.ph.i.i.i.i.i68
 
 .lr.ph.i.i.i.i.i68:                               ; preds = %_ZN3gmx17CorrelationTensoraSEOS0_.exit.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i
-  %.010.i.i.i.i.i = phi i64 [ %74, %_ZN3gmx17CorrelationTensoraSEOS0_.exit.i.i.i.i.i ], [ %40, %.lr.ph.preheader.i.i.i.i.i ]
-  %.069.i.i.i.i.i = phi ptr [ %42, %_ZN3gmx17CorrelationTensoraSEOS0_.exit.i.i.i.i.i ], [ %17, %.lr.ph.preheader.i.i.i.i.i ]
-  %.078.i.i.i.i.i = phi ptr [ %41, %_ZN3gmx17CorrelationTensoraSEOS0_.exit.i.i.i.i.i ], [ %25, %.lr.ph.preheader.i.i.i.i.i ]
-  %41 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -24
-  %42 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -24
-  %43 = load ptr, ptr %42, align 8, !tbaa !17
-  %44 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
-  %45 = load ptr, ptr %44, align 8, !tbaa !20
-  %46 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
-  %47 = load ptr, ptr %46, align 8, !tbaa !31
-  %48 = load ptr, ptr %41, align 8, !tbaa !17
-  store ptr %48, ptr %42, align 8, !tbaa !17
-  %49 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
-  %50 = load ptr, ptr %49, align 8, !tbaa !20
-  store ptr %50, ptr %44, align 8, !tbaa !20
-  %51 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
-  %52 = load ptr, ptr %51, align 8, !tbaa !31
-  store ptr %52, ptr %46, align 8, !tbaa !31
-  %.not4.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %43, %45
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
+  %.010.i.i.i.i.i = phi i64 [ %73, %_ZN3gmx17CorrelationTensoraSEOS0_.exit.i.i.i.i.i ], [ %39, %.lr.ph.preheader.i.i.i.i.i ]
+  %.069.i.i.i.i.i = phi ptr [ %41, %_ZN3gmx17CorrelationTensoraSEOS0_.exit.i.i.i.i.i ], [ %17, %.lr.ph.preheader.i.i.i.i.i ]
+  %.078.i.i.i.i.i = phi ptr [ %40, %_ZN3gmx17CorrelationTensoraSEOS0_.exit.i.i.i.i.i ], [ %24, %.lr.ph.preheader.i.i.i.i.i ]
+  %40 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -24
+  %41 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -24
+  %42 = load ptr, ptr %41, align 8, !tbaa !17
+  %43 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
+  %44 = load ptr, ptr %43, align 8, !tbaa !20
+  %45 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
+  %46 = load ptr, ptr %45, align 8, !tbaa !31
+  %47 = load ptr, ptr %40, align 8, !tbaa !17
+  store ptr %47, ptr %41, align 8, !tbaa !17
+  %48 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
+  %49 = load ptr, ptr %48, align 8, !tbaa !20
+  store ptr %49, ptr %43, align 8, !tbaa !20
+  %50 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
+  %51 = load ptr, ptr %50, align 8, !tbaa !31
+  store ptr %51, ptr %45, align 8, !tbaa !31
+  %.not4.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %42, %44
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i68, %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %69, %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %43, %.lr.ph.i.i.i.i.i68 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i.i.i.i, i64 72
-  %54 = load ptr, ptr %53, align 8, !tbaa !21
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %54, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %55
+  %.05.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %68, %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %42, %.lr.ph.i.i.i.i.i68 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i.i.i.i, i64 72
+  %53 = load ptr, ptr %52, align 8, !tbaa !21
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %53, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %54
 
-55:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
-  %56 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i.i.i.i, i64 88
-  %57 = load ptr, ptr %56, align 8, !tbaa !24
-  %58 = ptrtoint ptr %57 to i64
-  %59 = ptrtoint ptr %54 to i64
-  %60 = sub i64 %58, %59
-  call void @_ZdlPvm(ptr noundef nonnull %54, i64 noundef %60) #16
+54:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
+  %55 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i.i.i.i, i64 88
+  %56 = load ptr, ptr %55, align 8, !tbaa !24
+  %57 = ptrtoint ptr %56 to i64
+  %58 = ptrtoint ptr %53 to i64
+  %59 = sub i64 %57, %58
+  call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %59) #16
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %55, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
-  %61 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i.i.i.i, i64 48
-  %62 = load ptr, ptr %61, align 8, !tbaa !25
-  %.not.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %62, null
-  br i1 %.not.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %63
+_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %54, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
+  %60 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i.i.i.i, i64 48
+  %61 = load ptr, ptr %60, align 8, !tbaa !25
+  %.not.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %61, null
+  br i1 %.not.i.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %62
 
-63:                                               ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %64 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i.i.i.i, i64 64
-  %65 = load ptr, ptr %64, align 8, !tbaa !28
-  %66 = ptrtoint ptr %65 to i64
-  %67 = ptrtoint ptr %62 to i64
-  %68 = sub i64 %66, %67
-  call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #16
+62:                                               ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i.i.i.i, i64 64
+  %64 = load ptr, ptr %63, align 8, !tbaa !28
+  %65 = ptrtoint ptr %64 to i64
+  %66 = ptrtoint ptr %61 to i64
+  %67 = sub i64 %65, %66
+  call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef %67) #16
   br label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %63, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %69 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i.i.i.i, i64 96
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %69, %45
+_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %62, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %68 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i.i.i.i, i64 96
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %68, %44
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !29
 
 _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i68
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3gmx17CorrelationTensoraSEOS0_.exit.i.i.i.i.i, label %70
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3gmx17CorrelationTensoraSEOS0_.exit.i.i.i.i.i, label %69
 
-70:                                               ; preds = %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i
-  %71 = ptrtoint ptr %47 to i64
-  %72 = ptrtoint ptr %43 to i64
-  %73 = sub i64 %71, %72
-  call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %73) #16
+69:                                               ; preds = %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i
+  %70 = ptrtoint ptr %46 to i64
+  %71 = ptrtoint ptr %42 to i64
+  %72 = sub i64 %70, %71
+  call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef %72) #16
   br label %_ZN3gmx17CorrelationTensoraSEOS0_.exit.i.i.i.i.i
 
-_ZN3gmx17CorrelationTensoraSEOS0_.exit.i.i.i.i.i: ; preds = %70, %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i
-  %74 = add nsw i64 %.010.i.i.i.i.i, -1
-  %75 = icmp sgt i64 %.010.i.i.i.i.i, 1
-  br i1 %75, label %.lr.ph.i.i.i.i.i68, label %_ZSt13move_backwardIPN3gmx17CorrelationTensorES2_ET0_T_S4_S3_.exit, !llvm.loop !42
+_ZN3gmx17CorrelationTensoraSEOS0_.exit.i.i.i.i.i: ; preds = %69, %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i
+  %73 = add nsw i64 %.010.i.i.i.i.i, -1
+  %74 = icmp sgt i64 %.010.i.i.i.i.i, 1
+  br i1 %74, label %.lr.ph.i.i.i.i.i68, label %_ZSt13move_backwardIPN3gmx17CorrelationTensorES2_ET0_T_S4_S3_.exit, !llvm.loop !42
 
 _ZSt13move_backwardIPN3gmx17CorrelationTensorES2_ET0_T_S4_S3_.exit: ; preds = %_ZN3gmx17CorrelationTensoraSEOS0_.exit.i.i.i.i.i, %_ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %76 = getelementptr inbounds nuw %"class.gmx::CorrelationTensor", ptr %1, i64 %2
+  %.idx119 = mul nuw nsw i64 %2, 24
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx119
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt13move_backwardIPN3gmx17CorrelationTensorES2_ET0_T_S4_S3_.exit, %.noexc
-  %.06.i.i.i = phi ptr [ %78, %.noexc ], [ %1, %_ZSt13move_backwardIPN3gmx17CorrelationTensorES2_ET0_T_S4_S3_.exit ]
-  %77 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3gmx20CorrelationBlockDataESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %.06.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %16)
+  %.06.i.i.i = phi ptr [ %77, %.noexc ], [ %1, %_ZSt13move_backwardIPN3gmx17CorrelationTensorES2_ET0_T_S4_S3_.exit ]
+  %76 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3gmx20CorrelationBlockDataESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %.06.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %16)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i.i.i
-  %78 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 24
-  %.not.i.i.i = icmp eq ptr %78, %76
+  %77 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 24
+  %.not.i.i.i = icmp eq ptr %77, %75
   br i1 %.not.i.i.i, label %_ZSt4fillIPN3gmx17CorrelationTensorES1_EvT_S3_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !43
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i
@@ -597,144 +597,144 @@ _ZSt13move_backwardIPN3gmx17CorrelationTensorES2_ET0_T_S4_S3_.exit: ; preds = %_
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %88
-  %eh.lpad-body = phi { ptr, i32 } [ %89, %88 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %87
+  %eh.lpad-body = phi { ptr, i32 } [ %88, %87 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
-  br label %229
+  br label %228
 
-79:                                               ; preds = %15
-  %80 = sub nuw i64 %2, %21
-  %.not13.i.i.i.i = icmp eq i64 %80, 0
+78:                                               ; preds = %15
+  %79 = sub nuw i64 %2, %21
+  %.not13.i.i.i.i = icmp eq i64 %79, 0
   br i1 %.not13.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %79, %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i
-  %.015.i.i.i.i = phi ptr [ %82, %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %17, %79 ]
-  %.01114.i.i.i.i = phi i64 [ %81, %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %80, %79 ]
+.lr.ph.i.i.i.i:                                   ; preds = %78, %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i
+  %.015.i.i.i.i = phi ptr [ %81, %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %17, %78 ]
+  %.01114.i.i.i.i = phi i64 [ %80, %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %79, %78 ]
   invoke void @_ZNSt6vectorIN3gmx20CorrelationBlockDataESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %.015.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %16)
-          to label %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i unwind label %83
+          to label %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i unwind label %82
 
 _ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %81 = add i64 %.01114.i.i.i.i, -1
-  %82 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i, i64 24
-  %.not.i.i.i.i = icmp eq i64 %81, 0
+  %80 = add i64 %.01114.i.i.i.i, -1
+  %81 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i, i64 24
+  %.not.i.i.i.i = icmp eq i64 %80, 0
   br i1 %.not.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !44
 
-83:                                               ; preds = %.lr.ph.i.i.i.i
-  %84 = landingpad { ptr, i32 }
+82:                                               ; preds = %.lr.ph.i.i.i.i
+  %83 = landingpad { ptr, i32 }
           catch ptr null
-  %85 = extractvalue { ptr, i32 } %84, 0
-  %86 = call ptr @__cxa_begin_catch(ptr %85) #15
+  %84 = extractvalue { ptr, i32 } %83, 0
+  %85 = call ptr @__cxa_begin_catch(ptr %84) #15
   invoke void @_ZSt8_DestroyIPN3gmx17CorrelationTensorEEvT_S3_(ptr noundef %17, ptr noundef nonnull %.015.i.i.i.i)
-          to label %87 unwind label %88
+          to label %86 unwind label %87
 
-87:                                               ; preds = %83
+86:                                               ; preds = %82
   invoke void @__cxa_rethrow() #17
-          to label %93 unwind label %88
+          to label %92 unwind label %87
 
-88:                                               ; preds = %87, %83
-  %89 = landingpad { ptr, i32 }
+87:                                               ; preds = %86, %82
+  %88 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %.body unwind label %90
+          to label %.body unwind label %89
 
-90:                                               ; preds = %88
-  %91 = landingpad { ptr, i32 }
+89:                                               ; preds = %87
+  %90 = landingpad { ptr, i32 }
           catch ptr null
-  %92 = extractvalue { ptr, i32 } %91, 0
-  call void @__clang_call_terminate(ptr %92) #18
+  %91 = extractvalue { ptr, i32 } %90, 0
+  call void @__clang_call_terminate(ptr %91) #18
   unreachable
 
-93:                                               ; preds = %87
+92:                                               ; preds = %86
   unreachable
 
-_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit: ; preds = %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i, %79
-  %94 = phi ptr [ %17, %79 ], [ %82, %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ]
-  store ptr %94, ptr %9, align 8, !tbaa !32
+_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit: ; preds = %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i, %78
+  %93 = phi ptr [ %17, %78 ], [ %81, %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ]
+  store ptr %93, ptr %9, align 8, !tbaa !32
   %.not11.i.i.i.i.i69 = icmp eq ptr %1, %17
   br i1 %.not11.i.i.i.i.i69, label %_ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit75.thread, label %.lr.ph.i.i.i.i.i70
 
 _ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit75.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 %20
-  store ptr %95, ptr %9, align 8, !tbaa !32
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 %20
+  store ptr %94, ptr %9, align 8, !tbaa !32
   br label %_ZSt4fillIPN3gmx17CorrelationTensorES1_EvT_S3_RKT0_.exit
 
 .lr.ph.i.i.i.i.i70:                               ; preds = %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, %.lr.ph.i.i.i.i.i70
-  %.013.i.i.i.i.i71 = phi ptr [ %104, %.lr.ph.i.i.i.i.i70 ], [ %94, %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit ]
-  %.sroa.08.012.i.i.i.i.i72 = phi ptr [ %103, %.lr.ph.i.i.i.i.i70 ], [ %1, %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit ]
-  %96 = load ptr, ptr %.sroa.08.012.i.i.i.i.i72, align 8, !tbaa !17
-  store ptr %96, ptr %.013.i.i.i.i.i71, align 8, !tbaa !17
-  %97 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i71, i64 8
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i72, i64 8
-  %99 = load ptr, ptr %98, align 8, !tbaa !20
-  store ptr %99, ptr %97, align 8, !tbaa !20
-  %100 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i71, i64 16
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i72, i64 16
-  %102 = load ptr, ptr %101, align 8, !tbaa !31
-  store ptr %102, ptr %100, align 8, !tbaa !31
+  %.013.i.i.i.i.i71 = phi ptr [ %103, %.lr.ph.i.i.i.i.i70 ], [ %93, %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit ]
+  %.sroa.08.012.i.i.i.i.i72 = phi ptr [ %102, %.lr.ph.i.i.i.i.i70 ], [ %1, %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit ]
+  %95 = load ptr, ptr %.sroa.08.012.i.i.i.i.i72, align 8, !tbaa !17
+  store ptr %95, ptr %.013.i.i.i.i.i71, align 8, !tbaa !17
+  %96 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i71, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i72, i64 8
+  %98 = load ptr, ptr %97, align 8, !tbaa !20
+  store ptr %98, ptr %96, align 8, !tbaa !20
+  %99 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i71, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i72, i64 16
+  %101 = load ptr, ptr %100, align 8, !tbaa !31
+  store ptr %101, ptr %99, align 8, !tbaa !31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.08.012.i.i.i.i.i72, i8 0, i64 24, i1 false)
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i72, i64 24
-  %104 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i71, i64 24
-  %.not.i.i.i.i.i73 = icmp eq ptr %103, %17
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i72, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i71, i64 24
+  %.not.i.i.i.i.i73 = icmp eq ptr %102, %17
   br i1 %.not.i.i.i.i.i73, label %_ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit75, label %.lr.ph.i.i.i.i.i70, !llvm.loop !41
 
 _ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit75: ; preds = %.lr.ph.i.i.i.i.i70
-  %105 = load ptr, ptr %9, align 8, !tbaa !32
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %20
-  store ptr %106, ptr %9, align 8, !tbaa !32
+  %104 = load ptr, ptr %9, align 8, !tbaa !32
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 %20
+  store ptr %105, ptr %9, align 8, !tbaa !32
   br label %.lr.ph.i.i.i77
 
 .lr.ph.i.i.i77:                                   ; preds = %_ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit75, %.noexc80
-  %.06.i.i.i78 = phi ptr [ %108, %.noexc80 ], [ %1, %_ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit75 ]
-  %107 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3gmx20CorrelationBlockDataESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %.06.i.i.i78, ptr noundef nonnull align 8 dereferenceable(24) %16)
+  %.06.i.i.i78 = phi ptr [ %107, %.noexc80 ], [ %1, %_ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit75 ]
+  %106 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN3gmx20CorrelationBlockDataESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %.06.i.i.i78, ptr noundef nonnull align 8 dereferenceable(24) %16)
           to label %.noexc80 unwind label %.loopexit.split-lp
 
 .noexc80:                                         ; preds = %.lr.ph.i.i.i77
-  %108 = getelementptr inbounds nuw i8, ptr %.06.i.i.i78, i64 24
-  %.not.i.i.i79 = icmp eq ptr %108, %17
+  %107 = getelementptr inbounds nuw i8, ptr %.06.i.i.i78, i64 24
+  %.not.i.i.i79 = icmp eq ptr %107, %17
   br i1 %.not.i.i.i79, label %_ZSt4fillIPN3gmx17CorrelationTensorES1_EvT_S3_RKT0_.exit, label %.lr.ph.i.i.i77, !llvm.loop !43
 
 _ZSt4fillIPN3gmx17CorrelationTensorES1_EvT_S3_RKT0_.exit: ; preds = %.noexc80, %.noexc, %_ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit75.thread
-  %109 = load ptr, ptr %16, align 8, !tbaa !17
-  %110 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %111 = load ptr, ptr %110, align 8, !tbaa !20
-  %.not4.i.i.i.i.i.i.i.i = icmp eq ptr %109, %111
+  %108 = load ptr, ptr %16, align 8, !tbaa !17
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %110 = load ptr, ptr %109, align 8, !tbaa !20
+  %.not4.i.i.i.i.i.i.i.i = icmp eq ptr %108, %110
   br i1 %.not4.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZSt4fillIPN3gmx17CorrelationTensorES1_EvT_S3_RKT0_.exit, %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i.i = phi ptr [ %128, %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i ], [ %109, %_ZSt4fillIPN3gmx17CorrelationTensorES1_EvT_S3_RKT0_.exit ]
-  %112 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 72
-  %113 = load ptr, ptr %112, align 8, !tbaa !21
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %113, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i, label %114
+  %.05.i.i.i.i.i.i.i.i = phi ptr [ %127, %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i ], [ %108, %_ZSt4fillIPN3gmx17CorrelationTensorES1_EvT_S3_RKT0_.exit ]
+  %111 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 72
+  %112 = load ptr, ptr %111, align 8, !tbaa !21
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %112, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i, label %113
 
-114:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i
-  %115 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 88
-  %116 = load ptr, ptr %115, align 8, !tbaa !24
-  %117 = ptrtoint ptr %116 to i64
-  %118 = ptrtoint ptr %113 to i64
-  %119 = sub i64 %117, %118
-  call void @_ZdlPvm(ptr noundef nonnull %113, i64 noundef %119) #16
+113:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i
+  %114 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 88
+  %115 = load ptr, ptr %114, align 8, !tbaa !24
+  %116 = ptrtoint ptr %115 to i64
+  %117 = ptrtoint ptr %112 to i64
+  %118 = sub i64 %116, %117
+  call void @_ZdlPvm(ptr noundef nonnull %112, i64 noundef %118) #16
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i
 
-_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %114, %.lr.ph.i.i.i.i.i.i.i.i
-  %120 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 48
-  %121 = load ptr, ptr %120, align 8, !tbaa !25
-  %.not.i.i.i1.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %121, null
-  br i1 %.not.i.i.i1.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i, label %122
+_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %113, %.lr.ph.i.i.i.i.i.i.i.i
+  %119 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 48
+  %120 = load ptr, ptr %119, align 8, !tbaa !25
+  %.not.i.i.i1.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %120, null
+  br i1 %.not.i.i.i1.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i, label %121
 
-122:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i
-  %123 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 64
-  %124 = load ptr, ptr %123, align 8, !tbaa !28
-  %125 = ptrtoint ptr %124 to i64
-  %126 = ptrtoint ptr %121 to i64
-  %127 = sub i64 %125, %126
-  call void @_ZdlPvm(ptr noundef nonnull %121, i64 noundef %127) #16
+121:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i
+  %122 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 64
+  %123 = load ptr, ptr %122, align 8, !tbaa !28
+  %124 = ptrtoint ptr %123 to i64
+  %125 = ptrtoint ptr %120 to i64
+  %126 = sub i64 %124, %125
+  call void @_ZdlPvm(ptr noundef nonnull %120, i64 noundef %126) #16
   br label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i
 
-_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %122, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i
-  %128 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 96
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %128, %111
+_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %121, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i
+  %127 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 96
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %127, %110
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !29
 
 _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i: ; preds = %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i
@@ -742,192 +742,192 @@ _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exitthread-pre-spl
   br label %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i
 
 _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i, %_ZSt4fillIPN3gmx17CorrelationTensorES1_EvT_S3_RKT0_.exit
-  %129 = phi ptr [ %.pr.i.i.i.i.i, %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i ], [ %109, %_ZSt4fillIPN3gmx17CorrelationTensorES1_EvT_S3_RKT0_.exit ]
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %129, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev.exit, label %130
+  %128 = phi ptr [ %.pr.i.i.i.i.i, %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i ], [ %108, %_ZSt4fillIPN3gmx17CorrelationTensorES1_EvT_S3_RKT0_.exit ]
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %128, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev.exit, label %129
 
-130:                                              ; preds = %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i
-  %131 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %132 = load ptr, ptr %131, align 8, !tbaa !31
-  %133 = ptrtoint ptr %132 to i64
-  %134 = ptrtoint ptr %129 to i64
-  %135 = sub i64 %133, %134
-  call void @_ZdlPvm(ptr noundef nonnull %129, i64 noundef %135) #16
+129:                                              ; preds = %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %131 = load ptr, ptr %130, align 8, !tbaa !31
+  %132 = ptrtoint ptr %131 to i64
+  %133 = ptrtoint ptr %128 to i64
+  %134 = sub i64 %132, %133
+  call void @_ZdlPvm(ptr noundef nonnull %128, i64 noundef %134) #16
   br label %_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev.exit
 
-_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev.exit: ; preds = %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i, %130
+_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev.exit: ; preds = %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i, %129
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
-  br label %228
+  br label %227
 
-136:                                              ; preds = %6
-  %137 = load ptr, ptr %0, align 8, !tbaa !33
-  %138 = ptrtoint ptr %137 to i64
-  %139 = sub i64 %12, %138
-  %140 = sdiv exact i64 %139, 24
-  %141 = sub nsw i64 384307168202282325, %140
-  %142 = icmp ult i64 %141, %2
-  br i1 %142, label %143, label %_ZNKSt6vectorIN3gmx17CorrelationTensorESaIS1_EE12_M_check_lenEmPKc.exit
+135:                                              ; preds = %6
+  %136 = load ptr, ptr %0, align 8, !tbaa !33
+  %137 = ptrtoint ptr %136 to i64
+  %138 = sub i64 %12, %137
+  %139 = sdiv exact i64 %138, 24
+  %140 = sub nsw i64 384307168202282325, %139
+  %141 = icmp ult i64 %140, %2
+  br i1 %141, label %142, label %_ZNKSt6vectorIN3gmx17CorrelationTensorESaIS1_EE12_M_check_lenEmPKc.exit
 
-143:                                              ; preds = %136
+142:                                              ; preds = %135
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #17
   unreachable
 
-_ZNKSt6vectorIN3gmx17CorrelationTensorESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %136
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %140, i64 %2)
-  %144 = add nsw i64 %.sroa.speculated.i, %140
-  %145 = icmp ult i64 %144, %140
-  %146 = tail call i64 @llvm.umin.i64(i64 %144, i64 384307168202282325)
-  %147 = select i1 %145, i64 384307168202282325, i64 %146
-  %148 = ptrtoint ptr %1 to i64
-  %149 = sub i64 %148, %138
-  %.not.i = icmp eq i64 %147, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE11_M_allocateEm.exit, label %150
+_ZNKSt6vectorIN3gmx17CorrelationTensorESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %135
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %139, i64 %2)
+  %143 = add nsw i64 %.sroa.speculated.i, %139
+  %144 = icmp ult i64 %143, %139
+  %145 = tail call i64 @llvm.umin.i64(i64 %143, i64 384307168202282325)
+  %146 = select i1 %144, i64 384307168202282325, i64 %145
+  %147 = ptrtoint ptr %1 to i64
+  %148 = sub i64 %147, %137
+  %.not.i = icmp eq i64 %146, 0
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE11_M_allocateEm.exit, label %149
 
-150:                                              ; preds = %_ZNKSt6vectorIN3gmx17CorrelationTensorESaIS1_EE12_M_check_lenEmPKc.exit
-  %151 = mul nuw nsw i64 %147, 24
-  %152 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %151) #19
+149:                                              ; preds = %_ZNKSt6vectorIN3gmx17CorrelationTensorESaIS1_EE12_M_check_lenEmPKc.exit
+  %150 = mul nuw nsw i64 %146, 24
+  %151 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %150) #19
   br label %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN3gmx17CorrelationTensorESaIS1_EE12_M_check_lenEmPKc.exit, %150
-  %153 = phi ptr [ %152, %150 ], [ null, %_ZNKSt6vectorIN3gmx17CorrelationTensorESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 %149
+_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN3gmx17CorrelationTensorESaIS1_EE12_M_check_lenEmPKc.exit, %149
+  %152 = phi ptr [ %151, %149 ], [ null, %_ZNKSt6vectorIN3gmx17CorrelationTensorESaIS1_EE12_M_check_lenEmPKc.exit ]
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 %148
   br label %.lr.ph.i.i.i.i83
 
 .lr.ph.i.i.i.i83:                                 ; preds = %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE11_M_allocateEm.exit, %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i86
-  %.015.i.i.i.i84 = phi ptr [ %156, %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i86 ], [ %154, %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE11_M_allocateEm.exit ]
-  %.01114.i.i.i.i85 = phi i64 [ %155, %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i86 ], [ %2, %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE11_M_allocateEm.exit ]
+  %.015.i.i.i.i84 = phi ptr [ %155, %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i86 ], [ %153, %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE11_M_allocateEm.exit ]
+  %.01114.i.i.i.i85 = phi i64 [ %154, %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i86 ], [ %2, %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE11_M_allocateEm.exit ]
   invoke void @_ZNSt6vectorIN3gmx20CorrelationBlockDataESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %.015.i.i.i.i84, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i86 unwind label %157
+          to label %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i86 unwind label %156
 
 _ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i86: ; preds = %.lr.ph.i.i.i.i83
-  %155 = add i64 %.01114.i.i.i.i85, -1
-  %156 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i84, i64 24
-  %.not.i.i.i.i87 = icmp eq i64 %155, 0
+  %154 = add i64 %.01114.i.i.i.i85, -1
+  %155 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i84, i64 24
+  %.not.i.i.i.i87 = icmp eq i64 %154, 0
   br i1 %.not.i.i.i.i87, label %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit91, label %.lr.ph.i.i.i.i83, !llvm.loop !44
 
-157:                                              ; preds = %.lr.ph.i.i.i.i83
-  %158 = landingpad { ptr, i32 }
+156:                                              ; preds = %.lr.ph.i.i.i.i83
+  %157 = landingpad { ptr, i32 }
           catch ptr null
-  %159 = extractvalue { ptr, i32 } %158, 0
-  %160 = tail call ptr @__cxa_begin_catch(ptr %159) #15
-  invoke void @_ZSt8_DestroyIPN3gmx17CorrelationTensorEEvT_S3_(ptr noundef %154, ptr noundef nonnull %.015.i.i.i.i84)
-          to label %161 unwind label %162
+  %158 = extractvalue { ptr, i32 } %157, 0
+  %159 = tail call ptr @__cxa_begin_catch(ptr %158) #15
+  invoke void @_ZSt8_DestroyIPN3gmx17CorrelationTensorEEvT_S3_(ptr noundef %153, ptr noundef nonnull %.015.i.i.i.i84)
+          to label %160 unwind label %161
 
-161:                                              ; preds = %157
+160:                                              ; preds = %156
   invoke void @__cxa_rethrow() #17
-          to label %167 unwind label %162
+          to label %166 unwind label %161
 
-162:                                              ; preds = %161, %157
-  %163 = landingpad { ptr, i32 }
+161:                                              ; preds = %160, %156
+  %162 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %.body89 unwind label %164
+          to label %.body89 unwind label %163
 
-164:                                              ; preds = %162
-  %165 = landingpad { ptr, i32 }
+163:                                              ; preds = %161
+  %164 = landingpad { ptr, i32 }
           catch ptr null
-  %166 = extractvalue { ptr, i32 } %165, 0
-  tail call void @__clang_call_terminate(ptr %166) #18
+  %165 = extractvalue { ptr, i32 } %164, 0
+  tail call void @__clang_call_terminate(ptr %165) #18
   unreachable
 
-167:                                              ; preds = %161
+166:                                              ; preds = %160
   unreachable
 
 _ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit91: ; preds = %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i86
-  %.not11.i.i.i.i.i92 = icmp eq ptr %137, %1
+  %.not11.i.i.i.i.i92 = icmp eq ptr %136, %1
   br i1 %.not11.i.i.i.i.i92, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i93
 
 .lr.ph.i.i.i.i.i93:                               ; preds = %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit91, %.lr.ph.i.i.i.i.i93
-  %.013.i.i.i.i.i94 = phi ptr [ %176, %.lr.ph.i.i.i.i.i93 ], [ %153, %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit91 ]
-  %.sroa.08.012.i.i.i.i.i95 = phi ptr [ %175, %.lr.ph.i.i.i.i.i93 ], [ %137, %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit91 ]
-  %168 = load ptr, ptr %.sroa.08.012.i.i.i.i.i95, align 8, !tbaa !17
-  store ptr %168, ptr %.013.i.i.i.i.i94, align 8, !tbaa !17
-  %169 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i94, i64 8
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i95, i64 8
-  %171 = load ptr, ptr %170, align 8, !tbaa !20
-  store ptr %171, ptr %169, align 8, !tbaa !20
-  %172 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i94, i64 16
-  %173 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i95, i64 16
-  %174 = load ptr, ptr %173, align 8, !tbaa !31
-  store ptr %174, ptr %172, align 8, !tbaa !31
+  %.013.i.i.i.i.i94 = phi ptr [ %175, %.lr.ph.i.i.i.i.i93 ], [ %152, %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit91 ]
+  %.sroa.08.012.i.i.i.i.i95 = phi ptr [ %174, %.lr.ph.i.i.i.i.i93 ], [ %136, %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit91 ]
+  %167 = load ptr, ptr %.sroa.08.012.i.i.i.i.i95, align 8, !tbaa !17
+  store ptr %167, ptr %.013.i.i.i.i.i94, align 8, !tbaa !17
+  %168 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i94, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i95, i64 8
+  %170 = load ptr, ptr %169, align 8, !tbaa !20
+  store ptr %170, ptr %168, align 8, !tbaa !20
+  %171 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i94, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i95, i64 16
+  %173 = load ptr, ptr %172, align 8, !tbaa !31
+  store ptr %173, ptr %171, align 8, !tbaa !31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.08.012.i.i.i.i.i95, i8 0, i64 24, i1 false)
-  %175 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i95, i64 24
-  %176 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i94, i64 24
-  %.not.i.i.i.i.i96 = icmp eq ptr %175, %1
+  %174 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i95, i64 24
+  %175 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i94, i64 24
+  %.not.i.i.i.i.i96 = icmp eq ptr %174, %1
   br i1 %.not.i.i.i.i.i96, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i93, !llvm.loop !41
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i93, %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit91
-  %.0.lcssa.i.i.i.i.i97 = phi ptr [ %153, %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit91 ], [ %176, %.lr.ph.i.i.i.i.i93 ]
-  %177 = getelementptr inbounds nuw %"class.gmx::CorrelationTensor", ptr %.0.lcssa.i.i.i.i.i97, i64 %2
+  %.0.lcssa.i.i.i.i.i97 = phi ptr [ %152, %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit91 ], [ %175, %.lr.ph.i.i.i.i.i93 ]
+  %176 = getelementptr inbounds nuw %"class.gmx::CorrelationTensor", ptr %.0.lcssa.i.i.i.i.i97, i64 %2
   %.not11.i.i.i.i.i98 = icmp eq ptr %1, %10
   br i1 %.not11.i.i.i.i.i98, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit104, label %.lr.ph.i.i.i.i.i99
 
 .lr.ph.i.i.i.i.i99:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %.lr.ph.i.i.i.i.i99
-  %.013.i.i.i.i.i100 = phi ptr [ %186, %.lr.ph.i.i.i.i.i99 ], [ %177, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit ]
-  %.sroa.08.012.i.i.i.i.i101 = phi ptr [ %185, %.lr.ph.i.i.i.i.i99 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit ]
-  %178 = load ptr, ptr %.sroa.08.012.i.i.i.i.i101, align 8, !tbaa !17
-  store ptr %178, ptr %.013.i.i.i.i.i100, align 8, !tbaa !17
-  %179 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i100, i64 8
-  %180 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i101, i64 8
-  %181 = load ptr, ptr %180, align 8, !tbaa !20
-  store ptr %181, ptr %179, align 8, !tbaa !20
-  %182 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i100, i64 16
-  %183 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i101, i64 16
-  %184 = load ptr, ptr %183, align 8, !tbaa !31
-  store ptr %184, ptr %182, align 8, !tbaa !31
+  %.013.i.i.i.i.i100 = phi ptr [ %185, %.lr.ph.i.i.i.i.i99 ], [ %176, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit ]
+  %.sroa.08.012.i.i.i.i.i101 = phi ptr [ %184, %.lr.ph.i.i.i.i.i99 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit ]
+  %177 = load ptr, ptr %.sroa.08.012.i.i.i.i.i101, align 8, !tbaa !17
+  store ptr %177, ptr %.013.i.i.i.i.i100, align 8, !tbaa !17
+  %178 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i100, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i101, i64 8
+  %180 = load ptr, ptr %179, align 8, !tbaa !20
+  store ptr %180, ptr %178, align 8, !tbaa !20
+  %181 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i100, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i101, i64 16
+  %183 = load ptr, ptr %182, align 8, !tbaa !31
+  store ptr %183, ptr %181, align 8, !tbaa !31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.08.012.i.i.i.i.i101, i8 0, i64 24, i1 false)
-  %185 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i101, i64 24
-  %186 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i100, i64 24
-  %.not.i.i.i.i.i102 = icmp eq ptr %185, %10
+  %184 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i101, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i100, i64 24
+  %.not.i.i.i.i.i102 = icmp eq ptr %184, %10
   br i1 %.not.i.i.i.i.i102, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit104, label %.lr.ph.i.i.i.i.i99, !llvm.loop !41
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit104: ; preds = %.lr.ph.i.i.i.i.i99, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %.0.lcssa.i.i.i.i.i103 = phi ptr [ %177, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %186, %.lr.ph.i.i.i.i.i99 ]
-  %.not4.i.i.i = icmp eq ptr %137, %10
+  %.0.lcssa.i.i.i.i.i103 = phi ptr [ %176, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %185, %.lr.ph.i.i.i.i.i99 ]
+  %.not4.i.i.i = icmp eq ptr %136, %10
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i105
 
 .lr.ph.i.i.i105:                                  ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit104, %_ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %214, %_ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i.i.i ], [ %137, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit104 ]
-  %187 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !17
-  %188 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
-  %189 = load ptr, ptr %188, align 8, !tbaa !20
-  %.not4.i.i.i.i.i.i.i.i.i = icmp eq ptr %187, %189
+  %.05.i.i.i = phi ptr [ %213, %_ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i.i.i ], [ %136, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit104 ]
+  %186 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !17
+  %187 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
+  %188 = load ptr, ptr %187, align 8, !tbaa !20
+  %.not4.i.i.i.i.i.i.i.i.i = icmp eq ptr %186, %188
   br i1 %.not4.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i105, %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i.i.i = phi ptr [ %206, %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i ], [ %187, %.lr.ph.i.i.i105 ]
-  %190 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 72
-  %191 = load ptr, ptr %190, align 8, !tbaa !21
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %191, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i, label %192
+  %.05.i.i.i.i.i.i.i.i.i = phi ptr [ %205, %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i ], [ %186, %.lr.ph.i.i.i105 ]
+  %189 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 72
+  %190 = load ptr, ptr %189, align 8, !tbaa !21
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %190, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i, label %191
 
-192:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %193 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 88
-  %194 = load ptr, ptr %193, align 8, !tbaa !24
-  %195 = ptrtoint ptr %194 to i64
-  %196 = ptrtoint ptr %191 to i64
-  %197 = sub i64 %195, %196
-  tail call void @_ZdlPvm(ptr noundef nonnull %191, i64 noundef %197) #16
+191:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
+  %192 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 88
+  %193 = load ptr, ptr %192, align 8, !tbaa !24
+  %194 = ptrtoint ptr %193 to i64
+  %195 = ptrtoint ptr %190 to i64
+  %196 = sub i64 %194, %195
+  tail call void @_ZdlPvm(ptr noundef nonnull %190, i64 noundef %196) #16
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %192, %.lr.ph.i.i.i.i.i.i.i.i.i
-  %198 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 48
-  %199 = load ptr, ptr %198, align 8, !tbaa !25
-  %.not.i.i.i1.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %199, null
-  br i1 %.not.i.i.i1.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i, label %200
+_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %191, %.lr.ph.i.i.i.i.i.i.i.i.i
+  %197 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 48
+  %198 = load ptr, ptr %197, align 8, !tbaa !25
+  %.not.i.i.i1.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %198, null
+  br i1 %.not.i.i.i1.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i, label %199
 
-200:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i
-  %201 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 64
-  %202 = load ptr, ptr %201, align 8, !tbaa !28
-  %203 = ptrtoint ptr %202 to i64
-  %204 = ptrtoint ptr %199 to i64
-  %205 = sub i64 %203, %204
-  tail call void @_ZdlPvm(ptr noundef nonnull %199, i64 noundef %205) #16
+199:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i
+  %200 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 64
+  %201 = load ptr, ptr %200, align 8, !tbaa !28
+  %202 = ptrtoint ptr %201 to i64
+  %203 = ptrtoint ptr %198 to i64
+  %204 = sub i64 %202, %203
+  tail call void @_ZdlPvm(ptr noundef nonnull %198, i64 noundef %204) #16
   br label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i
 
-_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %200, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i
-  %206 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 96
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %206, %189
+_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %199, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i
+  %205 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 96
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %205, %188
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !29
 
 _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i
@@ -935,79 +935,79 @@ _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exitthread-pre-spl
   br label %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i, %.lr.ph.i.i.i105
-  %207 = phi ptr [ %.pr.i.i.i.i.i.i, %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i ], [ %187, %.lr.ph.i.i.i105 ]
-  %.not.i.i.i.i.i.i.i.i106 = icmp eq ptr %207, null
-  br i1 %.not.i.i.i.i.i.i.i.i106, label %_ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i.i.i, label %208
+  %206 = phi ptr [ %.pr.i.i.i.i.i.i, %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i ], [ %186, %.lr.ph.i.i.i105 ]
+  %.not.i.i.i.i.i.i.i.i106 = icmp eq ptr %206, null
+  br i1 %.not.i.i.i.i.i.i.i.i106, label %_ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i.i.i, label %207
 
-208:                                              ; preds = %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i
-  %209 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
-  %210 = load ptr, ptr %209, align 8, !tbaa !31
-  %211 = ptrtoint ptr %210 to i64
-  %212 = ptrtoint ptr %207 to i64
-  %213 = sub i64 %211, %212
-  tail call void @_ZdlPvm(ptr noundef nonnull %207, i64 noundef %213) #16
+207:                                              ; preds = %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i
+  %208 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
+  %209 = load ptr, ptr %208, align 8, !tbaa !31
+  %210 = ptrtoint ptr %209 to i64
+  %211 = ptrtoint ptr %206 to i64
+  %212 = sub i64 %210, %211
+  tail call void @_ZdlPvm(ptr noundef nonnull %206, i64 noundef %212) #16
   br label %_ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i.i.i
 
-_ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i.i.i: ; preds = %208, %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i
-  %214 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
-  %.not.i.i.i107 = icmp eq ptr %214, %10
+_ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i.i.i: ; preds = %207, %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i
+  %213 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
+  %.not.i.i.i107 = icmp eq ptr %213, %10
   br i1 %.not.i.i.i107, label %_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i105, !llvm.loop !34
 
 _ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit104
-  %.not.i108 = icmp eq ptr %137, null
-  br i1 %.not.i108, label %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit, label %215
+  %.not.i108 = icmp eq ptr %136, null
+  br i1 %.not.i108, label %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit, label %214
 
-215:                                              ; preds = %_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E.exit
-  %216 = load ptr, ptr %7, align 8, !tbaa !35
-  %217 = ptrtoint ptr %216 to i64
-  %218 = sub i64 %217, %138
-  tail call void @_ZdlPvm(ptr noundef nonnull %137, i64 noundef %218) #16
+214:                                              ; preds = %_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E.exit
+  %215 = load ptr, ptr %7, align 8, !tbaa !35
+  %216 = ptrtoint ptr %215 to i64
+  %217 = sub i64 %216, %137
+  tail call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef %217) #16
   br label %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E.exit, %215
-  store ptr %153, ptr %0, align 8, !tbaa !33
+_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E.exit, %214
+  store ptr %152, ptr %0, align 8, !tbaa !33
   store ptr %.0.lcssa.i.i.i.i.i103, ptr %9, align 8, !tbaa !32
-  %219 = getelementptr inbounds nuw %"class.gmx::CorrelationTensor", ptr %153, i64 %147
-  store ptr %219, ptr %7, align 8, !tbaa !35
-  br label %228
+  %218 = getelementptr inbounds nuw %"class.gmx::CorrelationTensor", ptr %152, i64 %146
+  store ptr %218, ptr %7, align 8, !tbaa !35
+  br label %227
 
-.body89:                                          ; preds = %162
-  %220 = extractvalue { ptr, i32 } %163, 0
-  %221 = tail call ptr @__cxa_begin_catch(ptr %220) #15
-  %.not66 = icmp eq ptr %153, null
-  %222 = getelementptr inbounds nuw %"class.gmx::CorrelationTensor", ptr %154, i64 %2
-  %223 = select i1 %.not66, ptr %154, ptr %153
-  %224 = select i1 %.not66, ptr %222, ptr %153
-  invoke void @_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %223, ptr noundef nonnull %224, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %.thread unwind label %225
+.body89:                                          ; preds = %161
+  %219 = extractvalue { ptr, i32 } %162, 0
+  %220 = tail call ptr @__cxa_begin_catch(ptr %219) #15
+  %.not66 = icmp eq ptr %152, null
+  %221 = getelementptr inbounds nuw %"class.gmx::CorrelationTensor", ptr %153, i64 %2
+  %222 = select i1 %.not66, ptr %153, ptr %152
+  %223 = select i1 %.not66, ptr %221, ptr %152
+  invoke void @_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %222, ptr noundef nonnull %223, ptr noundef nonnull align 1 dereferenceable(1) %0)
+          to label %.thread unwind label %224
 
-225:                                              ; preds = %.body89, %.thread
-  %226 = landingpad { ptr, i32 }
+224:                                              ; preds = %.body89, %.thread
+  %225 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %229 unwind label %230
+          to label %228 unwind label %229
 
 .thread:                                          ; preds = %.body89
-  %227 = mul nuw nsw i64 %147, 24
-  tail call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef %227) #16
+  %226 = mul nuw nsw i64 %146, 24
+  tail call void @_ZdlPvm(ptr noundef nonnull %152, i64 noundef %226) #16
   invoke void @__cxa_rethrow() #17
-          to label %233 unwind label %225
+          to label %232 unwind label %224
 
-228:                                              ; preds = %_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev.exit, %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit, %4
+227:                                              ; preds = %_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev.exit, %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit, %4
   ret void
 
-229:                                              ; preds = %225, %.body
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %226, %225 ]
+228:                                              ; preds = %224, %.body
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %225, %224 ]
   resume { ptr, i32 } %.pn
 
-230:                                              ; preds = %225
-  %231 = landingpad { ptr, i32 }
+229:                                              ; preds = %224
+  %230 = landingpad { ptr, i32 }
           catch ptr null
-  %232 = extractvalue { ptr, i32 } %231, 0
-  tail call void @__clang_call_terminate(ptr %232) #18
+  %231 = extractvalue { ptr, i32 } %230, 0
+  tail call void @__clang_call_terminate(ptr %231) #18
   unreachable
 
-233:                                              ; preds = %.thread
+232:                                              ; preds = %.thread
   unreachable
 }
 

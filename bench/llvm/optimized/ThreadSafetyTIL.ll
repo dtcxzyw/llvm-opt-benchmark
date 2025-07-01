@@ -109,7 +109,8 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock14addPredec
   %12 = load ptr, ptr %11, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load i64, ptr %13, align 8, !tbaa !29
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %.idx = shl nuw nsw i64 %14, 3
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   %.not17 = icmp eq i64 %14, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -412,7 +413,8 @@ _ZN5clang12threadSafety3til11SimpleArrayIPNS1_10BasicBlockEE7reserveEmNS1_12MemR
   %33 = load ptr, ptr %32, align 8, !tbaa !26
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %35 = load i64, ptr %34, align 8, !tbaa !29
-  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %35
+  %.idx = shl nuw nsw i64 %35, 3
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx
   %.not19 = icmp eq i64 %35, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
@@ -731,7 +733,8 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock14renumberI
   %4 = load ptr, ptr %3, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8, !tbaa !29
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not21 = icmp eq i64 %6, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
@@ -741,7 +744,8 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock14renumberI
   %9 = load ptr, ptr %8, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load i64, ptr %10, align 8, !tbaa !29
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %.idx31 = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx31
   %.not2024 = icmp eq i64 %11, 0
   br i1 %.not2024, label %._crit_edge29, label %.lr.ph28
 
@@ -806,9 +810,9 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock15topologic
 
 .lr.ph.preheader:                                 ; preds = %7, %12
   %.sink = phi i64 [ 24, %12 ], [ 16, %7 ]
-  %.sroa.6.0.i.i.ph = phi i64 [ 2, %12 ], [ 1, %7 ]
+  %.sroa.6.0.i.i.ph = phi i64 [ 16, %12 ], [ 8, %7 ]
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.6.0.i.i.ph
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.sroa.6.0.i.i.ph
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -868,7 +872,8 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock20topologic
   %15 = load ptr, ptr %14, align 8, !tbaa !24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i64, ptr %16, align 8, !tbaa !18
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
+  %.idx = shl nuw nsw i64 %17, 3
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   %.not1920 = icmp eq i64 %17, 0
   br i1 %.not1920, label %._crit_edge, label %.lr.ph
 
@@ -906,7 +911,8 @@ define dso_local void @_ZN5clang12threadSafety3til10BasicBlock16computeDominator
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !tbaa !18
-  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not26 = icmp eq i64 %5, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph29
 
@@ -992,9 +998,9 @@ define dso_local void @_ZN5clang12threadSafety3til10BasicBlock20computePostDomin
 
 .lr.ph30:                                         ; preds = %1, %5
   %.sink = phi i64 [ 24, %5 ], [ 16, %1 ]
-  %.sroa.6.0.i.i.ph = phi i64 [ 2, %5 ], [ 1, %1 ]
+  %.sroa.6.0.i.i.ph = phi i64 [ 16, %5 ], [ 8, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.sroa.6.0.i.i.ph
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.6.0.i.i.ph
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 2147483647
@@ -1067,7 +1073,8 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG14renumberInstrsEv(ptr no
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !tbaa !18
-  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not10 = icmp eq i64 %5, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1082,7 +1089,8 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG14renumberInstrsEv(ptr no
   %9 = load ptr, ptr %8, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %11 = load i64, ptr %10, align 8, !tbaa !29
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %.idx.i = shl nuw nsw i64 %11, 3
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
   %.not21.i = icmp eq i64 %11, 0
   br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -1092,7 +1100,8 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG14renumberInstrsEv(ptr no
   %14 = load ptr, ptr %13, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %16 = load i64, ptr %15, align 8, !tbaa !29
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  %.idx31.i = shl nuw nsw i64 %16, 3
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx31.i
   %.not2024.i = icmp eq i64 %16, 0
   br i1 %.not2024.i, label %_ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit, label %.lr.ph28.i
 
@@ -1146,17 +1155,17 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG17computeNormalFormEv(ptr
   %7 = trunc i64 %6 to i32
   %8 = tail call noundef i32 @_ZN5clang12threadSafety3til10BasicBlock15topologicalSortERNS1_11SimpleArrayIPS2_EEj(ptr noundef nonnull align 8 dereferenceable(152) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %7)
   %.not = icmp eq i32 %8, 0
-  %.pre89 = load i64, ptr %5, align 8, !tbaa !18
+  %.pre91 = load i64, ptr %5, align 8, !tbaa !18
   br i1 %.not, label %26, label %9
 
 9:                                                ; preds = %1
-  %10 = trunc i64 %.pre89 to i32
+  %10 = trunc i64 %.pre91 to i32
   %11 = icmp ult i32 %8, %10
   %12 = zext i32 %8 to i64
   br i1 %11, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %9
-  %wide.trip.count = and i64 %.pre89, 4294967295
+  %wide.trip.count = and i64 %.pre91, 4294967295
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -1164,7 +1173,7 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG17computeNormalFormEv(ptr
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9, %._crit_edge.loopexit
-  %13 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %.pre89, %9 ]
+  %13 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %.pre91, %9 ]
   %14 = sub i64 %13, %12
   store i64 %14, ptr %5, align 8, !tbaa !18
   br label %26
@@ -1189,31 +1198,34 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG17computeNormalFormEv(ptr
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !74
 
 26:                                               ; preds = %._crit_edge, %1
-  %27 = phi i64 [ %14, %._crit_edge ], [ %.pre89, %1 ]
+  %27 = phi i64 [ %14, %._crit_edge ], [ %.pre91, %1 ]
   %28 = load ptr, ptr %4, align 8, !tbaa !24
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
-  %.not3772 = icmp eq i64 %27, 0
-  br i1 %.not3772, label %._crit_edge76, label %.lr.ph75
+  %.idx = shl nuw nsw i64 %27, 3
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
+  %.not3773 = icmp eq i64 %27, 0
+  br i1 %.not3773, label %._crit_edge77, label %.lr.ph76
 
-._crit_edge76:                                    ; preds = %_ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit, %26
+._crit_edge77:                                    ; preds = %_ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit, %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load ptr, ptr %30, align 8, !tbaa !75
   %32 = tail call noundef i32 @_ZN5clang12threadSafety3til10BasicBlock20topologicalFinalSortERNS1_11SimpleArrayIPS2_EEj(ptr noundef nonnull align 8 dereferenceable(152) %31, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef 0)
   %33 = load ptr, ptr %4, align 8, !tbaa !24
   %34 = load i64, ptr %5, align 8, !tbaa !18
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %.idx.i = shl nuw nsw i64 %34, 3
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i
   %.not10.i = icmp eq i64 %34, 0
-  br i1 %.not10.i, label %._crit_edge86, label %.lr.ph.i
+  br i1 %.not10.i, label %._crit_edge87, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge76, %_ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i
-  %.012.i = phi i32 [ %59, %_ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i ], [ 0, %._crit_edge76 ]
-  %.0811.i = phi ptr [ %62, %_ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i ], [ %33, %._crit_edge76 ]
+.lr.ph.i:                                         ; preds = %._crit_edge77, %_ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i
+  %.012.i = phi i32 [ %59, %_ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i ], [ 0, %._crit_edge77 ]
+  %.0811.i = phi ptr [ %62, %_ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i ], [ %33, %._crit_edge77 ]
   %36 = load ptr, ptr %.0811.i, align 8, !tbaa !25
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %38 = load ptr, ptr %37, align 8, !tbaa !26
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 72
   %40 = load i64, ptr %39, align 8, !tbaa !29
-  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %40
+  %.idx.i.i = shl nuw nsw i64 %40, 3
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i
   %.not21.i.i = icmp eq i64 %40, 0
   br i1 %.not21.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -1223,7 +1235,8 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG17computeNormalFormEv(ptr
   %43 = load ptr, ptr %42, align 8, !tbaa !26
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %45 = load i64, ptr %44, align 8, !tbaa !29
-  %46 = getelementptr inbounds nuw ptr, ptr %43, i64 %45
+  %.idx31.i.i = shl nuw nsw i64 %45, 3
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx31.i.i
   %.not2024.i.i = icmp eq i64 %45, 0
   br i1 %.not2024.i.i, label %_ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i, label %.lr.ph28.i.i
 
@@ -1264,20 +1277,21 @@ _ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i: ; preds = %.lr
   store i32 %.1.lcssa.i.i, ptr %61, align 4, !tbaa !58
   %62 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 8
   %.not.i = icmp eq ptr %62, %35
-  br i1 %.not.i, label %.lr.ph79, label %.lr.ph.i
+  br i1 %.not.i, label %.lr.ph80, label %.lr.ph.i
 
-.lr.ph75:                                         ; preds = %26, %_ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit
-  %.03473 = phi ptr [ %96, %_ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit ], [ %28, %26 ]
-  %63 = load ptr, ptr %.03473, align 8, !tbaa !25
+.lr.ph76:                                         ; preds = %26, %_ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit
+  %.03474 = phi ptr [ %96, %_ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit ], [ %28, %26 ]
+  %63 = load ptr, ptr %.03474, align 8, !tbaa !25
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %65 = load ptr, ptr %64, align 8, !tbaa !24
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %67 = load i64, ptr %66, align 8, !tbaa !18
-  %68 = getelementptr inbounds nuw ptr, ptr %65, i64 %67
+  %.idx.i39 = shl nuw nsw i64 %67, 3
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx.i39
   %.not26.i = icmp eq i64 %67, 0
   br i1 %.not26.i, label %_ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit, label %.lr.ph29.i
 
-.lr.ph29.i:                                       ; preds = %.lr.ph75
+.lr.ph29.i:                                       ; preds = %.lr.ph76
   %69 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %70 = load i32, ptr %69, align 8
   %71 = and i32 %70, 2147483647
@@ -1299,9 +1313,9 @@ _ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i: ; preds = %.lr
 
 .preheader.i:                                     ; preds = %77
   %.not2223.i = icmp eq ptr %73, %.01828.i
-  br i1 %.not2223.i, label %.loopexit.i, label %.lr.ph.i40
+  br i1 %.not2223.i, label %.loopexit.i, label %.lr.ph.i41
 
-.lr.ph.i40:                                       ; preds = %.preheader.i, %92
+.lr.ph.i41:                                       ; preds = %.preheader.i, %92
   %.025.i = phi ptr [ %.1.i, %92 ], [ %73, %.preheader.i ]
   %.224.i = phi ptr [ %.3.i, %92 ], [ %.01828.i, %.preheader.i ]
   %79 = getelementptr inbounds nuw i8, ptr %.224.i, i64 32
@@ -1313,12 +1327,12 @@ _ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i: ; preds = %.lr
   %85 = icmp samesign ugt i32 %81, %84
   br i1 %85, label %86, label %89
 
-86:                                               ; preds = %.lr.ph.i40
+86:                                               ; preds = %.lr.ph.i41
   %87 = getelementptr inbounds nuw i8, ptr %.224.i, i64 128
   %88 = load ptr, ptr %87, align 8, !tbaa !66
   br label %92
 
-89:                                               ; preds = %.lr.ph.i40
+89:                                               ; preds = %.lr.ph.i41
   %90 = getelementptr inbounds nuw i8, ptr %.025.i, i64 128
   %91 = load ptr, ptr %90, align 8, !tbaa !66
   br label %92
@@ -1327,27 +1341,27 @@ _ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i: ; preds = %.lr
   %.3.i = phi ptr [ %88, %86 ], [ %.224.i, %89 ]
   %.1.i = phi ptr [ %.025.i, %86 ], [ %91, %89 ]
   %.not22.i = icmp eq ptr %.1.i, %.3.i
-  br i1 %.not22.i, label %.loopexit.i, label %.lr.ph.i40, !llvm.loop !68
+  br i1 %.not22.i, label %.loopexit.i, label %.lr.ph.i41, !llvm.loop !68
 
 .loopexit.i:                                      ; preds = %92, %.preheader.i, %77, %72
   %.119.i = phi ptr [ %.01828.i, %72 ], [ %73, %77 ], [ %.01828.i, %.preheader.i ], [ %.3.i, %92 ]
   %93 = getelementptr inbounds nuw i8, ptr %.02027.i, i64 8
-  %.not.i39 = icmp eq ptr %93, %68
-  br i1 %.not.i39, label %_ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit, label %72
+  %.not.i40 = icmp eq ptr %93, %68
+  br i1 %.not.i40, label %_ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit, label %72
 
-_ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit: ; preds = %.loopexit.i, %.lr.ph75
-  %.018.lcssa.i = phi ptr [ null, %.lr.ph75 ], [ %.119.i, %.loopexit.i ]
+_ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit: ; preds = %.loopexit.i, %.lr.ph76
+  %.018.lcssa.i = phi ptr [ null, %.lr.ph76 ], [ %.119.i, %.loopexit.i ]
   %94 = getelementptr inbounds nuw i8, ptr %63, i64 128
   store ptr %.018.lcssa.i, ptr %94, align 8, !tbaa !66
   %95 = getelementptr inbounds nuw i8, ptr %63, i64 124
   store i32 1, ptr %95, align 4, !tbaa !67
-  %96 = getelementptr inbounds nuw i8, ptr %.03473, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.03474, i64 8
   %.not37 = icmp eq ptr %96, %29
-  br i1 %.not37, label %._crit_edge76, label %.lr.ph75
+  br i1 %.not37, label %._crit_edge77, label %.lr.ph76
 
-.lr.ph79:                                         ; preds = %_ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i, %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit
-  %.sroa.062.078 = phi ptr [ %97, %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit ], [ %35, %_ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i ]
-  %97 = getelementptr inbounds i8, ptr %.sroa.062.078, i64 -8
+.lr.ph80:                                         ; preds = %_ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i, %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit
+  %.sroa.063.079 = phi ptr [ %97, %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit ], [ %35, %_ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i ]
+  %97 = getelementptr inbounds i8, ptr %.sroa.063.079, i64 -8
   %98 = load ptr, ptr %97, align 8, !tbaa !25
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 112
   %100 = load ptr, ptr %99, align 8, !tbaa !59
@@ -1357,40 +1371,40 @@ _ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit: ; preds = %.lo
     i8 26, label %102
   ]
 
-102:                                              ; preds = %.lr.ph79
+102:                                              ; preds = %.lr.ph80
   br label %.lr.ph30.i
 
-.lr.ph30.i:                                       ; preds = %102, %.lr.ph79
-  %.sink.i = phi i64 [ 24, %102 ], [ 16, %.lr.ph79 ]
-  %.sroa.6.0.i.i.ph.i = phi i64 [ 2, %102 ], [ 1, %.lr.ph79 ]
+.lr.ph30.i:                                       ; preds = %102, %.lr.ph80
+  %.sink.i = phi i64 [ 24, %102 ], [ 16, %.lr.ph80 ]
+  %.sroa.6.0.i.i.ph.i = phi i64 [ 16, %102 ], [ 8, %.lr.ph80 ]
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 %.sink.i
-  %104 = getelementptr inbounds nuw ptr, ptr %103, i64 %.sroa.6.0.i.i.ph.i
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 %.sroa.6.0.i.i.ph.i
   %105 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %106 = load i32, ptr %105, align 8
   %107 = and i32 %106, 2147483647
   br label %108
 
-108:                                              ; preds = %.loopexit.i42, %.lr.ph30.i
-  %.01829.i = phi ptr [ null, %.lr.ph30.i ], [ %.119.i43, %.loopexit.i42 ]
-  %.02028.i = phi ptr [ %103, %.lr.ph30.i ], [ %129, %.loopexit.i42 ]
+108:                                              ; preds = %.loopexit.i43, %.lr.ph30.i
+  %.01829.i = phi ptr [ null, %.lr.ph30.i ], [ %.119.i44, %.loopexit.i43 ]
+  %.02028.i = phi ptr [ %103, %.lr.ph30.i ], [ %129, %.loopexit.i43 ]
   %109 = load ptr, ptr %.02028.i, align 8, !tbaa !25
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %111 = load i32, ptr %110, align 8
   %112 = and i32 %111, 2147483647
-  %.not21.i41 = icmp samesign ugt i32 %112, %107
-  br i1 %.not21.i41, label %113, label %.loopexit.i42
+  %.not21.i42 = icmp samesign ugt i32 %112, %107
+  br i1 %.not21.i42, label %113, label %.loopexit.i43
 
 113:                                              ; preds = %108
   %114 = icmp eq ptr %.01829.i, null
-  br i1 %114, label %.loopexit.i42, label %.preheader.i46
+  br i1 %114, label %.loopexit.i43, label %.preheader.i47
 
-.preheader.i46:                                   ; preds = %113
+.preheader.i47:                                   ; preds = %113
   %.not2224.i = icmp eq ptr %109, %.01829.i
-  br i1 %.not2224.i, label %.loopexit.i42, label %.lr.ph.i47
+  br i1 %.not2224.i, label %.loopexit.i43, label %.lr.ph.i48
 
-.lr.ph.i47:                                       ; preds = %.preheader.i46, %128
-  %.026.i = phi ptr [ %.1.i49, %128 ], [ %109, %.preheader.i46 ]
-  %.225.i = phi ptr [ %.3.i48, %128 ], [ %.01829.i, %.preheader.i46 ]
+.lr.ph.i48:                                       ; preds = %.preheader.i47, %128
+  %.026.i = phi ptr [ %.1.i50, %128 ], [ %109, %.preheader.i47 ]
+  %.225.i = phi ptr [ %.3.i49, %128 ], [ %.01829.i, %.preheader.i47 ]
   %115 = getelementptr inbounds nuw i8, ptr %.225.i, i64 32
   %116 = load i32, ptr %115, align 8
   %117 = and i32 %116, 2147483647
@@ -1400,38 +1414,38 @@ _ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit: ; preds = %.lo
   %121 = icmp samesign ult i32 %117, %120
   br i1 %121, label %122, label %125
 
-122:                                              ; preds = %.lr.ph.i47
+122:                                              ; preds = %.lr.ph.i48
   %123 = getelementptr inbounds nuw i8, ptr %.225.i, i64 144
   %124 = load ptr, ptr %123, align 8, !tbaa !69
   br label %128
 
-125:                                              ; preds = %.lr.ph.i47
+125:                                              ; preds = %.lr.ph.i48
   %126 = getelementptr inbounds nuw i8, ptr %.026.i, i64 144
   %127 = load ptr, ptr %126, align 8, !tbaa !69
   br label %128
 
 128:                                              ; preds = %125, %122
-  %.3.i48 = phi ptr [ %124, %122 ], [ %.225.i, %125 ]
-  %.1.i49 = phi ptr [ %.026.i, %122 ], [ %127, %125 ]
-  %.not22.i50 = icmp eq ptr %.1.i49, %.3.i48
-  br i1 %.not22.i50, label %.loopexit.i42, label %.lr.ph.i47, !llvm.loop !71
+  %.3.i49 = phi ptr [ %124, %122 ], [ %.225.i, %125 ]
+  %.1.i50 = phi ptr [ %.026.i, %122 ], [ %127, %125 ]
+  %.not22.i51 = icmp eq ptr %.1.i50, %.3.i49
+  br i1 %.not22.i51, label %.loopexit.i43, label %.lr.ph.i48, !llvm.loop !71
 
-.loopexit.i42:                                    ; preds = %128, %.preheader.i46, %113, %108
-  %.119.i43 = phi ptr [ %.01829.i, %108 ], [ %109, %113 ], [ %.01829.i, %.preheader.i46 ], [ %.3.i48, %128 ]
+.loopexit.i43:                                    ; preds = %128, %.preheader.i47, %113, %108
+  %.119.i44 = phi ptr [ %.01829.i, %108 ], [ %109, %113 ], [ %.01829.i, %.preheader.i47 ], [ %.3.i49, %128 ]
   %129 = getelementptr inbounds nuw i8, ptr %.02028.i, i64 8
-  %.not.i44 = icmp eq ptr %129, %104
-  br i1 %.not.i44, label %_ZN5clang12threadSafety3til10BasicBlock20computePostDominatorEv.exit, label %108
+  %.not.i45 = icmp eq ptr %129, %104
+  br i1 %.not.i45, label %_ZN5clang12threadSafety3til10BasicBlock20computePostDominatorEv.exit, label %108
 
-_ZN5clang12threadSafety3til10BasicBlock20computePostDominatorEv.exit: ; preds = %.loopexit.i42, %.lr.ph79
-  %.018.lcssa.i45 = phi ptr [ null, %.lr.ph79 ], [ %.119.i43, %.loopexit.i42 ]
+_ZN5clang12threadSafety3til10BasicBlock20computePostDominatorEv.exit: ; preds = %.loopexit.i43, %.lr.ph80
+  %.018.lcssa.i46 = phi ptr [ null, %.lr.ph80 ], [ %.119.i44, %.loopexit.i43 ]
   %130 = getelementptr inbounds nuw i8, ptr %98, i64 144
-  store ptr %.018.lcssa.i45, ptr %130, align 8, !tbaa !69
+  store ptr %.018.lcssa.i46, ptr %130, align 8, !tbaa !69
   %131 = getelementptr inbounds nuw i8, ptr %98, i64 140
   store i32 1, ptr %131, align 4, !tbaa !70
   %132 = getelementptr inbounds nuw i8, ptr %98, i64 128
   %133 = load ptr, ptr %132, align 8, !tbaa !76
-  %.not.i51 = icmp eq ptr %133, null
-  br i1 %.not.i51, label %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit, label %134
+  %.not.i52 = icmp eq ptr %133, null
+  br i1 %.not.i52, label %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit, label %134
 
 134:                                              ; preds = %_ZN5clang12threadSafety3til10BasicBlock20computePostDominatorEv.exit
   %135 = getelementptr inbounds nuw i8, ptr %98, i64 120
@@ -1445,18 +1459,18 @@ _ZN5clang12threadSafety3til10BasicBlock20computePostDominatorEv.exit: ; preds = 
   br label %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit
 
 _ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit: ; preds = %_ZN5clang12threadSafety3til10BasicBlock20computePostDominatorEv.exit, %134
-  %.not67 = icmp eq ptr %97, %33
-  br i1 %.not67, label %.lr.ph82, label %.lr.ph79
+  %.not68 = icmp eq ptr %97, %33
+  br i1 %.not68, label %.lr.ph83, label %.lr.ph80
 
-.lr.ph82:                                         ; preds = %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit, %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit54
-  %.03581 = phi ptr [ %159, %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit54 ], [ %33, %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit ]
-  %141 = load ptr, ptr %.03581, align 8, !tbaa !25
+.lr.ph83:                                         ; preds = %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit, %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit55
+  %.03582 = phi ptr [ %159, %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit55 ], [ %33, %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit ]
+  %141 = load ptr, ptr %.03582, align 8, !tbaa !25
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 128
   %143 = load ptr, ptr %142, align 8, !tbaa !76
-  %.not.i52 = icmp eq ptr %143, null
-  br i1 %.not.i52, label %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit, label %144
+  %.not.i53 = icmp eq ptr %143, null
+  br i1 %.not.i53, label %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit, label %144
 
-144:                                              ; preds = %.lr.ph82
+144:                                              ; preds = %.lr.ph83
   %145 = getelementptr inbounds nuw i8, ptr %141, i64 120
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 120
   %147 = load i32, ptr %146, align 8, !tbaa !78
@@ -1465,11 +1479,11 @@ _ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNod
   store i32 %149, ptr %145, align 8, !tbaa !78
   br label %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit
 
-_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit: ; preds = %.lr.ph82, %144
+_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit: ; preds = %.lr.ph83, %144
   %150 = getelementptr inbounds nuw i8, ptr %141, i64 144
   %151 = load ptr, ptr %150, align 8, !tbaa !76
-  %.not.i53 = icmp eq ptr %151, null
-  br i1 %.not.i53, label %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit54, label %152
+  %.not.i54 = icmp eq ptr %151, null
+  br i1 %.not.i54, label %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit55, label %152
 
 152:                                              ; preds = %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit
   %153 = getelementptr inbounds nuw i8, ptr %141, i64 136
@@ -1480,37 +1494,37 @@ _ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE
   %157 = load i32, ptr %156, align 4, !tbaa !77
   %158 = add nsw i32 %157, %155
   store i32 %158, ptr %154, align 4, !tbaa !77
-  br label %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit54
+  br label %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit55
 
-_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit54: ; preds = %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit, %152
-  %159 = getelementptr inbounds nuw i8, ptr %.03581, i64 8
+_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit55: ; preds = %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit, %152
+  %159 = getelementptr inbounds nuw i8, ptr %.03582, i64 8
   %.not38 = icmp eq ptr %159, %35
-  br i1 %.not38, label %.lr.ph85, label %.lr.ph82
+  br i1 %.not38, label %.lr.ph86, label %.lr.ph83
 
-._crit_edge86:                                    ; preds = %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit56, %._crit_edge76
+._crit_edge87:                                    ; preds = %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit57, %._crit_edge77
   ret void
 
-.lr.ph85:                                         ; preds = %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit54, %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit56
-  %.sroa.057.084 = phi ptr [ %160, %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit56 ], [ %35, %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit54 ]
-  %160 = getelementptr inbounds i8, ptr %.sroa.057.084, i64 -8
+.lr.ph86:                                         ; preds = %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit55, %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit57
+  %.sroa.058.085 = phi ptr [ %160, %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit57 ], [ %35, %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit55 ]
+  %160 = getelementptr inbounds i8, ptr %.sroa.058.085, i64 -8
   %161 = load ptr, ptr %160, align 8, !tbaa !25
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 144
   %163 = load ptr, ptr %162, align 8, !tbaa !76
-  %.not.i55 = icmp eq ptr %163, null
-  br i1 %.not.i55, label %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit56, label %164
+  %.not.i56 = icmp eq ptr %163, null
+  br i1 %.not.i56, label %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit57, label %164
 
-164:                                              ; preds = %.lr.ph85
+164:                                              ; preds = %.lr.ph86
   %165 = getelementptr inbounds nuw i8, ptr %161, i64 136
   %166 = getelementptr inbounds nuw i8, ptr %163, i64 136
   %167 = load i32, ptr %166, align 8, !tbaa !78
   %168 = load i32, ptr %165, align 8, !tbaa !78
   %169 = add nsw i32 %168, %167
   store i32 %169, ptr %165, align 8, !tbaa !78
-  br label %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit56
+  br label %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit57
 
-_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit56: ; preds = %.lr.ph85, %164
-  %.not68 = icmp eq ptr %160, %33
-  br i1 %.not68, label %._crit_edge86, label %.lr.ph85
+_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit57: ; preds = %.lr.ph86, %164
+  %.not69 = icmp eq ptr %160, %33
+  br i1 %.not69, label %._crit_edge87, label %.lr.ph86
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable

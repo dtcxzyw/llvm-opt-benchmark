@@ -3040,7 +3040,8 @@ default.unreachable:                              ; preds = %399, %223, %173
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val69 = load i64, ptr %260, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !459)
-  %261 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %.val, i64 %.val69
+  %.idx.i = mul nsw i64 %.val69, 48
+  %261 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i
   %262 = icmp eq i64 %.val69, 0
   br i1 %262, label %.sink.split, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f92d33baad3f1ffE.exit.lr.ph.i"
 
@@ -4198,7 +4199,8 @@ _ZN7uu_tail8platform4unix14ProcessChecker7is_dead17h5bee1cacc82d0102E.exit.threa
 446:                                              ; preds = %_ZN7uu_tail8platform4unix14ProcessChecker7is_dead17h5bee1cacc82d0102E.exit.thread
   %.val209 = load ptr, ptr %209, align 8, !nonnull !4, !noundef !4
   %.val210 = load i64, ptr %210, align 8, !noundef !4
-  %447 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %.val209, i64 %.val210
+  %.idx = mul nsw i64 %.val210, 24
+  %447 = getelementptr inbounds i8, ptr %.val209, i64 %.idx
   %448 = icmp eq i64 %.val210, 0
   br i1 %448, label %.loopexit368, label %.lr.ph
 

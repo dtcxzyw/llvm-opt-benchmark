@@ -5,12 +5,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %struct.expr_delta_pair = type <{ ptr, i32, [4 x i8] }>
-%class.default_hash_entry = type { i32, i32, %struct.expr_delta_pair }
 %class.contains_vars = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
+%class.default_hash_entry = type { i32, i32, %struct.expr_delta_pair }
 
 $__clang_call_terminate = comdat any
 
@@ -197,7 +197,8 @@ _ZN6vectorI15expr_delta_pairLb0EjE5resetEv.exit:  ; preds = %4, %11
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !12
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %class.default_hash_entry, ptr %20, i64 %23
+  %.idx.i = mul nuw nsw i64 %23, 24
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i
   %.not11.i = icmp eq i32 %22, 0
   br i1 %.not11.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
@@ -944,7 +945,8 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI18default_hash_entr
   %56 = and i32 %52, %55
   %57 = load ptr, ptr %0, align 8, !tbaa !5
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds nuw %class.default_hash_entry, ptr %57, i64 %58
+  %.idx = mul nuw nsw i64 %58, 24
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx
   %60 = zext i32 %54 to i64
   %61 = getelementptr inbounds nuw %class.default_hash_entry, ptr %57, i64 %60
   %.not30 = icmp eq i32 %56, %54
@@ -1092,7 +1094,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI18default_hash_entryI15expr
   %67 = and i32 %65, %66
   %68 = load ptr, ptr %0, align 8, !tbaa !5
   %69 = zext i32 %67 to i64
-  %70 = getelementptr inbounds nuw %class.default_hash_entry, ptr %68, i64 %69
+  %.idx = mul nuw nsw i64 %69, 24
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx
   %71 = zext i32 %15 to i64
   %72 = getelementptr inbounds nuw %class.default_hash_entry, ptr %68, i64 %71
   %.not63 = icmp eq i32 %67, %15
@@ -1257,7 +1260,8 @@ _ZN14core_hashtableI18default_hash_entryI15expr_delta_pairE8obj_hashIS1_E10defau
   %11 = load i32, ptr %2, align 8, !tbaa !12
   %12 = add i32 %4, -1
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %class.default_hash_entry, ptr %10, i64 %13
+  %.idx.i = mul nuw nsw i64 %13, 24
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
   %15 = getelementptr inbounds nuw %class.default_hash_entry, ptr %7, i64 %5
   %.not38.i = icmp eq i32 %11, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI18default_hash_entryI15expr_delta_pairE8obj_hashIS1_E10default_eqIS1_EE10move_tableEPS2_jS8_j.exit, label %.lr.ph41.i
@@ -1273,7 +1277,8 @@ _ZN14core_hashtableI18default_hash_entryI15expr_delta_pairE8obj_hashIS1_E10defau
   %20 = load i32, ptr %.02839.i, align 8, !tbaa !67
   %21 = and i32 %20, %12
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %class.default_hash_entry, ptr %7, i64 %22
+  %.idx43.i = mul nuw nsw i64 %22, 24
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx43.i
   %.not2933.i = icmp eq i32 %21, %4
   br i1 %.not2933.i, label %.preheader.i, label %.lr.ph.i
 

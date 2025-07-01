@@ -955,8 +955,8 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i: ; preds = %
   br i1 %50, label %.noexc, label %51
 
 51:                                               ; preds = %_ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i
-  %52 = load ptr, ptr %14, align 8, !tbaa !11
   %.idx.i168 = shl nsw i64 %49, 3
+  %52 = load ptr, ptr %14, align 8, !tbaa !11
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0.i.i, ptr align 8 %52, i64 %.idx.i168, i1 false)
   br label %.noexc
 
@@ -1183,8 +1183,8 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i172: ; preds 
   br i1 %140, label %.noexc139, label %141
 
 141:                                              ; preds = %_ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i172
-  %142 = load ptr, ptr %16, align 8, !tbaa !11
   %.idx.i174 = shl nsw i64 %139, 3
+  %142 = load ptr, ptr %16, align 8, !tbaa !11
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0.i.i173, ptr align 8 %142, i64 %.idx.i174, i1 false)
   br label %.noexc139
 
@@ -1915,8 +1915,8 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i186: ; preds 
   br i1 %473, label %.noexc154, label %474
 
 474:                                              ; preds = %_ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i186
-  %475 = load ptr, ptr %16, align 8, !tbaa !11
   %.idx.i188 = shl nsw i64 %472, 3
+  %475 = load ptr, ptr %16, align 8, !tbaa !11
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0.i.i187, ptr align 8 %475, i64 %.idx.i188, i1 false)
   br label %.noexc154
 
@@ -4784,8 +4784,8 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit: ; preds = %2,
   br i1 %23, label %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit, label %24
 
 24:                                               ; preds = %_ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit
-  %25 = load ptr, ptr %1, align 8, !tbaa !11
   %.idx = shl nsw i64 %22, 3
+  %25 = load ptr, ptr %1, align 8, !tbaa !11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0.i, ptr align 8 %25, i64 %.idx, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIdEEvPKT_S4_PS2_.exit
 

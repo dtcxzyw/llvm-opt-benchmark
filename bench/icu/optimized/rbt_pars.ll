@@ -5406,7 +5406,8 @@ define i32 @utrans_stripRules_77(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %5 = alloca i32, align 4
   %6 = alloca %"class.icu_77::UnicodeString", align 8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds i16, ptr %0, i64 %7
+  %.idx = shl nsw i64 %7, 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %9 = getelementptr inbounds i16, ptr %2, i64 %7
   %10 = shl nsw i32 %1, 1
   %11 = sext i32 %10 to i64

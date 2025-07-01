@@ -1045,7 +1045,8 @@ _ZL10findUseIdxPKN4llvm12MachineInstrEj.exit:     ; preds = %_ZNK4llvm14MachineO
   %153 = zext i16 %152 to i64
   %154 = getelementptr inbounds nuw %"struct.llvm::MCReadAdvanceEntry", ptr %150, i64 %153
   %155 = zext i16 %135 to i64
-  %156 = getelementptr inbounds nuw %"struct.llvm::MCReadAdvanceEntry", ptr %154, i64 %155
+  %.idx.i = mul nuw nsw i64 %155, 12
+  %156 = getelementptr inbounds nuw i8, ptr %154, i64 %.idx.i
   br label %.lr.ph.i55
 
 .lr.ph.i55:                                       ; preds = %_ZL10findUseIdxPKN4llvm12MachineInstrEj.exit, %168
@@ -1385,7 +1386,8 @@ _ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit: ; pred
   %70 = getelementptr inbounds nuw i8, ptr %.011.i, i64 4
   %71 = load i16, ptr %70, align 2, !tbaa !288
   %72 = zext i16 %71 to i64
-  %73 = getelementptr inbounds nuw %"struct.llvm::MCWriteProcResEntry", ptr %69, i64 %72
+  %.idx = mul nuw nsw i64 %72, 6
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx
   %.not29 = icmp eq i16 %71, 0
   br i1 %.not29, label %.critedge26, label %.lr.ph
 

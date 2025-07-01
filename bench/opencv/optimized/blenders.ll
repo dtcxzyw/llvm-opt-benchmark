@@ -5241,7 +5241,8 @@ _ZSt8_DestroyIPN2cv4UMatEEvT_S3_.exit.i.i.i.i.i:  ; preds = %.lr.ph.i.i.i.i.i.i.
 .body:                                            ; preds = %38
   %44 = extractvalue { ptr, i32 } %39, 0
   %45 = tail call ptr @__cxa_begin_catch(ptr %44) #22
-  %46 = getelementptr inbounds nuw %"class.cv::UMat", ptr %28, i64 %1
+  %.idx = mul nuw nsw i64 %1, 80
+  %46 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
   br label %.lr.ph.i.i.i46
 
 .lr.ph.i.i.i46:                                   ; preds = %.body, %.lr.ph.i.i.i46

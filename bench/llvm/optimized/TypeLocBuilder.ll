@@ -4445,7 +4445,8 @@ _ZN5clang14TypeLocBuilder7reserveEm.exit:         ; preds = %4, %_ZN5clang14Type
 
 .lr.ph1132:                                       ; preds = %._crit_edge
   %37 = zext i32 %.pre1148 to i64
-  %38 = getelementptr inbounds nuw %"class.clang::TypeLoc", ptr %.pre, i64 %37
+  %.idx = shl nuw nsw i64 %37, 4
+  %38 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 60

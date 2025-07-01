@@ -171,7 +171,8 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %Dirs, align 8
   %3 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i = zext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %2, i64 %conv.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %add.ptr.i.idx
   %cmp.not28 = icmp eq i32 %3, 0
   br i1 %cmp.not28, label %for.end, label %for.body.lr.ph
 

@@ -11618,7 +11618,8 @@ define internal fastcc void @_ZN4jiff3fmt7strtime5parse12parse_choice17h3fbe6833
   %11 = alloca [16 x i8], align 8
   %12 = alloca [16 x i8], align 8
   %13 = alloca [24 x i8], align 8
-  %14 = getelementptr inbounds nuw { ptr, i64 }, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 4
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h53e712d4c653e67fE.exit.backedge"

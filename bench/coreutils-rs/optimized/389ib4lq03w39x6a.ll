@@ -1850,7 +1850,8 @@ define void @_ZN6uucore8features6ranges10complement17h517318b1f899fd1cE(ptr noal
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds { i64, i64 }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %11 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %12 = icmp eq i64 %2, 0
   br i1 %12, label %._crit_edge.thread, label %.lr.ph
 
@@ -1961,7 +1962,8 @@ define void @_ZN6uucore8features6ranges10complement17h517318b1f899fd1cE(ptr noal
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN6uucore8features6ranges7contain17hb26912848c810b48E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #8 {
-  %4 = getelementptr inbounds { i64, i64 }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %.not10 = icmp eq i64 %1, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 

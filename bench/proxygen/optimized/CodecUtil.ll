@@ -18,8 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.std::pair" = type { %"class.folly::Range", double }
-%"class.folly::Range" = type { ptr, ptr }
 %"struct.proxygen::compress::Header" = type { i8, ptr, ptr }
 %struct.Initializer.7 = type { i8 }
 %struct.Initializer.6 = type { i8 }
@@ -103,7 +101,8 @@ invoke.cont2:                                     ; preds = %invoke.cont
   %cond.i.i = select i1 %tobool.not1.i.i, ptr %1, ptr %u.i
   %2 = and i16 %0, 16383
   %conv2.i.i.i = zext nneg i16 %2 to i64
-  %add.ptr.i14 = getelementptr inbounds nuw %"struct.std::pair", ptr %cond.i.i, i64 %conv2.i.i.i
+  %add.ptr.i14.idx = mul nuw nsw i64 %conv2.i.i.i, 24
+  %add.ptr.i14 = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %add.ptr.i14.idx
   %cmp.not22 = icmp eq i16 %2, 0
   br i1 %cmp.not22, label %for.end, label %for.body
 

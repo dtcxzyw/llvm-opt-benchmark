@@ -631,7 +631,8 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %29, %32
 _ZNK4llvm4User8operandsEv.exit:                   ; preds = %45, %48
   %53 = phi ptr [ %47, %45 ], [ %52, %48 ]
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %45 ], [ %50, %48 ]
-  %54 = getelementptr inbounds nuw %"class.llvm::Use", ptr %53, i64 %.pre-phi2.i.i
+  %.idx = shl nuw nsw i64 %.pre-phi2.i.i, 5
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   %.not4462 = icmp eq i64 %.pre-phi2.i.i, 0
   br i1 %.not4462, label %.thread, label %.lr.ph
 

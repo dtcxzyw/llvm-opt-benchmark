@@ -1090,7 +1090,8 @@ define hidden void @"_ZN7parquet5arrow12arrow_writer20ArrowWriter$LT$W$GT$5flush
   br label %75
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds { { { { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { i64, [14 x i64] }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, [1 x i32] }, ptr, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, i64, i64, i64, i64, i64, { ptr, [2 x i64] } }, i64, i64, { ptr, [2 x i64] }, { ptr, [12 x i64] }, { ptr, [2 x i64] } }, { { { ptr, i64 }, i64 }, i64 } }, ptr %.sroa.092.0.copyload, i64 %.sroa.594.0.copyload
+  %.idx = mul nsw i64 %.sroa.594.0.copyload, 552
+  %31 = getelementptr inbounds i8, ptr %.sroa.092.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   store ptr %.sroa.092.0.copyload, ptr %10, align 8
   %.sroa.577.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2931,7 +2932,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr73drop
   store i64 0, ptr %188, align 8
   %189 = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
   %190 = load i64, ptr %147, align 8, !noundef !4
-  %191 = getelementptr inbounds { { ptr, ptr }, i8, [7 x i8] }, ptr %189, i64 %190
+  %.idx256 = mul nsw i64 %190, 24
+  %191 = getelementptr inbounds i8, ptr %189, i64 %.idx256
   %192 = icmp eq i64 %190, 0
   br i1 %192, label %._crit_edge, label %.lr.ph
 

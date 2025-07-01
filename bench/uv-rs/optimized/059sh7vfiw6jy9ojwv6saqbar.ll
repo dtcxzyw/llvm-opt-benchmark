@@ -1276,7 +1276,8 @@ _ZN3std4path4Path4join17h40090beb93607973E.exit:  ; preds = %3
   call void @llvm.assume(i1 %211)
   %212 = icmp ult i64 %.sroa.8812.0, 288230376151711744
   call void @llvm.assume(i1 %212)
-  %213 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %.sroa.6811.0, i64 %.sroa.8812.0
+  %.idx = shl nuw nsw i64 %.sroa.8812.0, 5
+  %213 = getelementptr inbounds nuw i8, ptr %.sroa.6811.0, i64 %.idx
   %214 = icmp sgt i64 %.sroa.0.0871, -1
   call void @llvm.assume(i1 %214)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %149)

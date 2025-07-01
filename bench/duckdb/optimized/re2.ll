@@ -44,7 +44,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.65" = type { %"struct.duckdb_re2::PODArray<duckdb_re2::SparseArray<int>::IndexValue>::Deleter" }
 %"struct.duckdb_re2::PODArray<duckdb_re2::SparseArray<int>::IndexValue>::Deleter" = type { i32 }
 %"struct.std::_Head_base.66" = type { ptr }
-%"class.duckdb_re2::SparseArray<int>::IndexValue" = type { i32, i32 }
 %class.anon.81 = type { ptr, ptr }
 %class.anon.38 = type { i8 }
 %class.anon.84 = type { ptr, ptr }
@@ -2151,7 +2150,8 @@ _ZN10duckdb_re211SparseArrayIiEC2Ei.exit:         ; preds = %15, %.lr.ph.i.i
   %24 = load ptr, ptr %17, align 8, !tbaa !163
   %25 = load i32, ptr %3, align 8, !tbaa !136
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %24, i64 %26
+  %.idx = shl nsw i64 %26, 3
+  %27 = getelementptr inbounds i8, ptr %24, i64 %.idx
   %.not28 = icmp eq i32 %25, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 

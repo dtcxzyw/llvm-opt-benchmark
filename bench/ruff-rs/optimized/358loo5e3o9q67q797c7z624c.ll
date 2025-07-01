@@ -13206,7 +13206,8 @@ define internal fastcc void @_ZN4ruff4args15ConfigArguments18from_cli_arguments1
   tail call void @llvm.assume(i1 %100)
   %101 = icmp ult i64 %.sroa.0.sroa.5.0.copyload, 384307168202282326
   tail call void @llvm.assume(i1 %101)
-  %102 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %.sroa.0.sroa.4.0.copyload, i64 %.sroa.0.sroa.5.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.0.sroa.5.0.copyload, 24
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.4.0.copyload, i64 %.idx
   %103 = icmp sgt i64 %.sroa.0.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %103)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53)
@@ -22458,7 +22459,8 @@ define void @_ZN4ruff4args24collect_per_file_ignores17h57325fd3c52be474E(ptr dea
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2390, !noalias !2393
   %11 = icmp ult i64 %.sroa.5.0.copyload.i, 192153584101141163
   tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i8, [23 x i8] } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nuw nsw i64 %.sroa.5.0.copyload.i, 48
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   %13 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   tail call void @llvm.assume(i1 %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)

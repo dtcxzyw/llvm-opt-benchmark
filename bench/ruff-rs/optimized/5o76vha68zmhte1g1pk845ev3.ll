@@ -1269,7 +1269,8 @@ define hidden void @"_ZN15ruff_python_ast4node54_$LT$impl$u20$ruff_python_ast..g
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, [15 x i32] } }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 7
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -1300,7 +1301,8 @@ define hidden void @"_ZN15ruff_python_ast4node54_$LT$impl$u20$ruff_python_ast..g
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, [15 x i32] } }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 7
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -1331,7 +1333,8 @@ define hidden void @"_ZN15ruff_python_ast4node54_$LT$impl$u20$ruff_python_ast..g
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, [15 x i32] } }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 7
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -1362,7 +1365,8 @@ define hidden void @"_ZN15ruff_python_ast4node54_$LT$impl$u20$ruff_python_ast..g
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, [15 x i32] } }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 7
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -1393,7 +1397,8 @@ define hidden void @"_ZN15ruff_python_ast4node54_$LT$impl$u20$ruff_python_ast..g
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, [15 x i32] } }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 7
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -1424,7 +1429,8 @@ define hidden void @"_ZN15ruff_python_ast4node54_$LT$impl$u20$ruff_python_ast..g
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, [15 x i32] } }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 7
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -2540,7 +2546,7 @@ define internal fastcc void @_ZN15ruff_python_ast7visitor12source_order18SourceO
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_order17h3579b000e50f7390E(i64 noundef range(i64 0, 92) %0, ptr noundef %1, ptr noalias noundef align 8 dereferenceable(48) %2) unnamed_addr #0 {
-  switch i64 %0, label %default.unreachable106 [
+  switch i64 %0, label %default.unreachable109 [
     i64 0, label %4
     i64 1, label %10
     i64 2, label %13
@@ -2635,7 +2641,7 @@ define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_ord
     i64 91, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit
   ]
 
-default.unreachable106:                           ; preds = %3
+default.unreachable109:                           ; preds = %3
   unreachable
 
 4:                                                ; preds = %3
@@ -2682,7 +2688,8 @@ default.unreachable106:                           ; preds = %3
   %.val = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
   %24 = getelementptr i8, ptr %1, i64 16
   %.val82 = load i64, ptr %24, align 8, !noundef !3
-  %25 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.val, i64 %.val82
+  %.idx.i = shl nuw nsw i64 %.val82, 6
+  %25 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %26 = icmp eq i64 %.val82, 0
   br i1 %26, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i
 
@@ -2873,16 +2880,17 @@ default.unreachable106:                           ; preds = %3
   %93 = load ptr, ptr %92, align 8, !alias.scope !110, !noalias !113, !nonnull !3, !noundef !3
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %95 = load i64, ptr %94, align 8, !alias.scope !110, !noalias !113, !noundef !3
-  %96 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %93, i64 %95
+  %.idx.i95 = shl nuw nsw i64 %95, 6
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx.i95
   %97 = icmp eq i64 %95, 0
-  br i1 %97, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i95
+  br i1 %97, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i96
 
-.lr.ph.i95:                                       ; preds = %90, %.lr.ph.i95
-  %.sroa.01.02.i = phi ptr [ %98, %.lr.ph.i95 ], [ %93, %90 ]
+.lr.ph.i96:                                       ; preds = %90, %.lr.ph.i96
+  %.sroa.01.02.i = phi ptr [ %98, %.lr.ph.i96 ], [ %93, %90 ]
   %98 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i, i64 64
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h0c74d6169034cd15E(ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 %.sroa.01.02.i), !noalias !110
   %99 = icmp eq ptr %98, %96
-  br i1 %99, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i95
+  br i1 %99, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i96
 
 100:                                              ; preds = %3
   %101 = icmp ne ptr %1, null
@@ -2987,16 +2995,17 @@ default.unreachable106:                           ; preds = %3
   %138 = load ptr, ptr %137, align 8, !alias.scope !115, !noalias !118, !nonnull !3, !noundef !3
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %140 = load i64, ptr %139, align 8, !alias.scope !115, !noalias !118, !noundef !3
-  %141 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %138, i64 %140
+  %.idx.i97 = shl nuw nsw i64 %140, 6
+  %141 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx.i97
   %142 = icmp eq i64 %140, 0
-  br i1 %142, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i96
+  br i1 %142, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i98
 
-.lr.ph.i96:                                       ; preds = %135, %.lr.ph.i96
-  %.sroa.01.02.i97 = phi ptr [ %143, %.lr.ph.i96 ], [ %138, %135 ]
-  %143 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i97, i64 64
-  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h0c74d6169034cd15E(ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 %.sroa.01.02.i97), !noalias !115
+.lr.ph.i98:                                       ; preds = %135, %.lr.ph.i98
+  %.sroa.01.02.i99 = phi ptr [ %143, %.lr.ph.i98 ], [ %138, %135 ]
+  %143 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i99, i64 64
+  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h0c74d6169034cd15E(ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 %.sroa.01.02.i99), !noalias !115
   %144 = icmp eq ptr %143, %141
-  br i1 %144, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i96
+  br i1 %144, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i98
 
 145:                                              ; preds = %3
   %146 = icmp ne ptr %1, null
@@ -3006,16 +3015,17 @@ default.unreachable106:                           ; preds = %3
   %148 = load ptr, ptr %147, align 8, !alias.scope !120, !noalias !123, !nonnull !3, !noundef !3
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %150 = load i64, ptr %149, align 8, !alias.scope !120, !noalias !123, !noundef !3
-  %151 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %148, i64 %150
+  %.idx.i100 = shl nuw nsw i64 %150, 6
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 %.idx.i100
   %152 = icmp eq i64 %150, 0
-  br i1 %152, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i98
+  br i1 %152, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i101
 
-.lr.ph.i98:                                       ; preds = %145, %.lr.ph.i98
-  %.sroa.01.02.i99 = phi ptr [ %153, %.lr.ph.i98 ], [ %148, %145 ]
-  %153 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i99, i64 64
-  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h0c74d6169034cd15E(ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 %.sroa.01.02.i99), !noalias !120
+.lr.ph.i101:                                      ; preds = %145, %.lr.ph.i101
+  %.sroa.01.02.i102 = phi ptr [ %153, %.lr.ph.i101 ], [ %148, %145 ]
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i102, i64 64
+  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h0c74d6169034cd15E(ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 %.sroa.01.02.i102), !noalias !120
   %154 = icmp eq ptr %153, %151
-  br i1 %154, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i98
+  br i1 %154, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i101
 
 155:                                              ; preds = %3
   %156 = icmp ne ptr %1, null
@@ -3209,7 +3219,7 @@ default.unreachable106:                           ; preds = %3
   tail call void @"_ZN15ruff_python_ast4node49_$LT$impl$u20$ruff_python_ast..nodes..FString$GT$18visit_source_order17h77f7c6b31cdf8ed1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2)
   br label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit
 
-_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit: ; preds = %.lr.ph.i98, %.lr.ph.i96, %.lr.ph.i95, %.lr.ph.i, %145, %135, %90, %21, %187, %230, %182, %229, %172, %227, %111, %226, %17, %225, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %223, %221, %219, %217, %215, %213, %211, %209, %207, %205, %203, %201, %199, %196, %194, %192, %180, %178, %176, %170, %168, %166, %164, %161, %159, %157, %155, %132, %130, %128, %126, %124, %122, %120, %118, %115, %108, %106, %104, %102, %100, %88, %86, %84, %81, %79, %77, %75, %72, %68, %64, %62, %58, %55, %53, %49, %47, %45, %43, %41, %39, %37, %33, %31, %29, %15, %13, %10, %4
+_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit: ; preds = %.lr.ph.i101, %.lr.ph.i98, %.lr.ph.i96, %.lr.ph.i, %145, %135, %90, %21, %187, %230, %182, %229, %172, %227, %111, %226, %17, %225, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %223, %221, %219, %217, %215, %213, %211, %209, %207, %205, %203, %201, %199, %196, %194, %192, %180, %178, %176, %170, %168, %166, %164, %161, %159, %157, %155, %132, %130, %128, %126, %124, %122, %120, %118, %115, %108, %106, %104, %102, %100, %88, %86, %84, %81, %79, %77, %75, %72, %68, %64, %62, %58, %55, %53, %49, %47, %45, %43, %41, %39, %37, %33, %31, %29, %15, %13, %10, %4
   ret void
 
 225:                                              ; preds = %17
@@ -3236,7 +3246,7 @@ _ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_order17h394aef219dfa7657E(i64 noundef range(i64 0, 92) %0, ptr noundef %1, ptr noalias noundef align 8 dereferenceable(48) %2) unnamed_addr #0 {
-  switch i64 %0, label %default.unreachable106 [
+  switch i64 %0, label %default.unreachable109 [
     i64 0, label %4
     i64 1, label %10
     i64 2, label %13
@@ -3331,7 +3341,7 @@ define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_ord
     i64 91, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit
   ]
 
-default.unreachable106:                           ; preds = %3
+default.unreachable109:                           ; preds = %3
   unreachable
 
 4:                                                ; preds = %3
@@ -3378,7 +3388,8 @@ default.unreachable106:                           ; preds = %3
   %.val = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
   %24 = getelementptr i8, ptr %1, i64 16
   %.val82 = load i64, ptr %24, align 8, !noundef !3
-  %25 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.val, i64 %.val82
+  %.idx.i = shl nuw nsw i64 %.val82, 6
+  %25 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %26 = icmp eq i64 %.val82, 0
   br i1 %26, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i
 
@@ -3569,16 +3580,17 @@ default.unreachable106:                           ; preds = %3
   %93 = load ptr, ptr %92, align 8, !alias.scope !131, !noalias !134, !nonnull !3, !noundef !3
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %95 = load i64, ptr %94, align 8, !alias.scope !131, !noalias !134, !noundef !3
-  %96 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %93, i64 %95
+  %.idx.i95 = shl nuw nsw i64 %95, 6
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx.i95
   %97 = icmp eq i64 %95, 0
-  br i1 %97, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i95
+  br i1 %97, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i96
 
-.lr.ph.i95:                                       ; preds = %90, %.lr.ph.i95
-  %.sroa.01.02.i = phi ptr [ %98, %.lr.ph.i95 ], [ %93, %90 ]
+.lr.ph.i96:                                       ; preds = %90, %.lr.ph.i96
+  %.sroa.01.02.i = phi ptr [ %98, %.lr.ph.i96 ], [ %93, %90 ]
   %98 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i, i64 64
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17hed63e386fc0ad36bE(ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 %.sroa.01.02.i), !noalias !131
   %99 = icmp eq ptr %98, %96
-  br i1 %99, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i95
+  br i1 %99, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i96
 
 100:                                              ; preds = %3
   %101 = icmp ne ptr %1, null
@@ -3683,16 +3695,17 @@ default.unreachable106:                           ; preds = %3
   %138 = load ptr, ptr %137, align 8, !alias.scope !136, !noalias !139, !nonnull !3, !noundef !3
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %140 = load i64, ptr %139, align 8, !alias.scope !136, !noalias !139, !noundef !3
-  %141 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %138, i64 %140
+  %.idx.i97 = shl nuw nsw i64 %140, 6
+  %141 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx.i97
   %142 = icmp eq i64 %140, 0
-  br i1 %142, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i96
+  br i1 %142, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i98
 
-.lr.ph.i96:                                       ; preds = %135, %.lr.ph.i96
-  %.sroa.01.02.i97 = phi ptr [ %143, %.lr.ph.i96 ], [ %138, %135 ]
-  %143 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i97, i64 64
-  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17hed63e386fc0ad36bE(ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 %.sroa.01.02.i97), !noalias !136
+.lr.ph.i98:                                       ; preds = %135, %.lr.ph.i98
+  %.sroa.01.02.i99 = phi ptr [ %143, %.lr.ph.i98 ], [ %138, %135 ]
+  %143 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i99, i64 64
+  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17hed63e386fc0ad36bE(ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 %.sroa.01.02.i99), !noalias !136
   %144 = icmp eq ptr %143, %141
-  br i1 %144, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i96
+  br i1 %144, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i98
 
 145:                                              ; preds = %3
   %146 = icmp ne ptr %1, null
@@ -3702,16 +3715,17 @@ default.unreachable106:                           ; preds = %3
   %148 = load ptr, ptr %147, align 8, !alias.scope !141, !noalias !144, !nonnull !3, !noundef !3
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %150 = load i64, ptr %149, align 8, !alias.scope !141, !noalias !144, !noundef !3
-  %151 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %148, i64 %150
+  %.idx.i100 = shl nuw nsw i64 %150, 6
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 %.idx.i100
   %152 = icmp eq i64 %150, 0
-  br i1 %152, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i98
+  br i1 %152, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i101
 
-.lr.ph.i98:                                       ; preds = %145, %.lr.ph.i98
-  %.sroa.01.02.i99 = phi ptr [ %153, %.lr.ph.i98 ], [ %148, %145 ]
-  %153 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i99, i64 64
-  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17hed63e386fc0ad36bE(ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 %.sroa.01.02.i99), !noalias !141
+.lr.ph.i101:                                      ; preds = %145, %.lr.ph.i101
+  %.sroa.01.02.i102 = phi ptr [ %153, %.lr.ph.i101 ], [ %148, %145 ]
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i102, i64 64
+  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17hed63e386fc0ad36bE(ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 %.sroa.01.02.i102), !noalias !141
   %154 = icmp eq ptr %153, %151
-  br i1 %154, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i98
+  br i1 %154, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i101
 
 155:                                              ; preds = %3
   %156 = icmp ne ptr %1, null
@@ -3905,7 +3919,7 @@ default.unreachable106:                           ; preds = %3
   tail call void @"_ZN15ruff_python_ast4node49_$LT$impl$u20$ruff_python_ast..nodes..FString$GT$18visit_source_order17h0b71026d64f6f8afE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2)
   br label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit
 
-_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit: ; preds = %.lr.ph.i98, %.lr.ph.i96, %.lr.ph.i95, %.lr.ph.i, %145, %135, %90, %21, %187, %230, %182, %229, %172, %227, %111, %226, %17, %225, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %223, %221, %219, %217, %215, %213, %211, %209, %207, %205, %203, %201, %199, %196, %194, %192, %180, %178, %176, %170, %168, %166, %164, %161, %159, %157, %155, %132, %130, %128, %126, %124, %122, %120, %118, %115, %108, %106, %104, %102, %100, %88, %86, %84, %81, %79, %77, %75, %72, %68, %64, %62, %58, %55, %53, %49, %47, %45, %43, %41, %39, %37, %33, %31, %29, %15, %13, %10, %4
+_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit: ; preds = %.lr.ph.i101, %.lr.ph.i98, %.lr.ph.i96, %.lr.ph.i, %145, %135, %90, %21, %187, %230, %182, %229, %172, %227, %111, %226, %17, %225, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %223, %221, %219, %217, %215, %213, %211, %209, %207, %205, %203, %201, %199, %196, %194, %192, %180, %178, %176, %170, %168, %166, %164, %161, %159, %157, %155, %132, %130, %128, %126, %124, %122, %120, %118, %115, %108, %106, %104, %102, %100, %88, %86, %84, %81, %79, %77, %75, %72, %68, %64, %62, %58, %55, %53, %49, %47, %45, %43, %41, %39, %37, %33, %31, %29, %15, %13, %10, %4
   ret void
 
 225:                                              ; preds = %17
@@ -3932,7 +3946,7 @@ _ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f691
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_order17hadb345f9114fa2a6E(i64 noundef range(i64 0, 92) %0, ptr noundef %1, ptr noalias noundef align 8 dereferenceable(16) %2) unnamed_addr #0 {
-  switch i64 %0, label %default.unreachable106 [
+  switch i64 %0, label %default.unreachable109 [
     i64 0, label %4
     i64 1, label %10
     i64 2, label %13
@@ -4027,7 +4041,7 @@ define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_ord
     i64 91, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit
   ]
 
-default.unreachable106:                           ; preds = %3
+default.unreachable109:                           ; preds = %3
   unreachable
 
 4:                                                ; preds = %3
@@ -4074,7 +4088,8 @@ default.unreachable106:                           ; preds = %3
   %.val = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
   %24 = getelementptr i8, ptr %1, i64 16
   %.val82 = load i64, ptr %24, align 8, !noundef !3
-  %25 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.val, i64 %.val82
+  %.idx.i = shl nuw nsw i64 %.val82, 6
+  %25 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %26 = icmp eq i64 %.val82, 0
   br i1 %26, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i
 
@@ -4265,16 +4280,17 @@ default.unreachable106:                           ; preds = %3
   %93 = load ptr, ptr %92, align 8, !alias.scope !151, !noalias !154, !nonnull !3, !noundef !3
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %95 = load i64, ptr %94, align 8, !alias.scope !151, !noalias !154, !noundef !3
-  %96 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %93, i64 %95
+  %.idx.i95 = shl nuw nsw i64 %95, 6
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx.i95
   %97 = icmp eq i64 %95, 0
-  br i1 %97, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i95
+  br i1 %97, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i96
 
-.lr.ph.i95:                                       ; preds = %90, %.lr.ph.i95
-  %.sroa.01.02.i = phi ptr [ %98, %.lr.ph.i95 ], [ %93, %90 ]
+.lr.ph.i96:                                       ; preds = %90, %.lr.ph.i96
+  %.sroa.01.02.i = phi ptr [ %98, %.lr.ph.i96 ], [ %93, %90 ]
   %98 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i, i64 64
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17ha00bd14b0c848abeE(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 %.sroa.01.02.i), !noalias !151
   %99 = icmp eq ptr %98, %96
-  br i1 %99, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i95
+  br i1 %99, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i96
 
 100:                                              ; preds = %3
   %101 = icmp ne ptr %1, null
@@ -4379,16 +4395,17 @@ default.unreachable106:                           ; preds = %3
   %138 = load ptr, ptr %137, align 8, !alias.scope !156, !noalias !159, !nonnull !3, !noundef !3
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %140 = load i64, ptr %139, align 8, !alias.scope !156, !noalias !159, !noundef !3
-  %141 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %138, i64 %140
+  %.idx.i97 = shl nuw nsw i64 %140, 6
+  %141 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx.i97
   %142 = icmp eq i64 %140, 0
-  br i1 %142, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i96
+  br i1 %142, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i98
 
-.lr.ph.i96:                                       ; preds = %135, %.lr.ph.i96
-  %.sroa.01.02.i97 = phi ptr [ %143, %.lr.ph.i96 ], [ %138, %135 ]
-  %143 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i97, i64 64
-  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17ha00bd14b0c848abeE(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 %.sroa.01.02.i97), !noalias !156
+.lr.ph.i98:                                       ; preds = %135, %.lr.ph.i98
+  %.sroa.01.02.i99 = phi ptr [ %143, %.lr.ph.i98 ], [ %138, %135 ]
+  %143 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i99, i64 64
+  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17ha00bd14b0c848abeE(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 %.sroa.01.02.i99), !noalias !156
   %144 = icmp eq ptr %143, %141
-  br i1 %144, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i96
+  br i1 %144, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i98
 
 145:                                              ; preds = %3
   %146 = icmp ne ptr %1, null
@@ -4398,16 +4415,17 @@ default.unreachable106:                           ; preds = %3
   %148 = load ptr, ptr %147, align 8, !alias.scope !161, !noalias !164, !nonnull !3, !noundef !3
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %150 = load i64, ptr %149, align 8, !alias.scope !161, !noalias !164, !noundef !3
-  %151 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %148, i64 %150
+  %.idx.i100 = shl nuw nsw i64 %150, 6
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 %.idx.i100
   %152 = icmp eq i64 %150, 0
-  br i1 %152, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i98
+  br i1 %152, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i101
 
-.lr.ph.i98:                                       ; preds = %145, %.lr.ph.i98
-  %.sroa.01.02.i99 = phi ptr [ %153, %.lr.ph.i98 ], [ %148, %145 ]
-  %153 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i99, i64 64
-  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17ha00bd14b0c848abeE(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 %.sroa.01.02.i99), !noalias !161
+.lr.ph.i101:                                      ; preds = %145, %.lr.ph.i101
+  %.sroa.01.02.i102 = phi ptr [ %153, %.lr.ph.i101 ], [ %148, %145 ]
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i102, i64 64
+  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17ha00bd14b0c848abeE(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 %.sroa.01.02.i102), !noalias !161
   %154 = icmp eq ptr %153, %151
-  br i1 %154, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i98
+  br i1 %154, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i101
 
 155:                                              ; preds = %3
   %156 = icmp ne ptr %1, null
@@ -4601,7 +4619,7 @@ default.unreachable106:                           ; preds = %3
   tail call void @"_ZN15ruff_python_ast4node49_$LT$impl$u20$ruff_python_ast..nodes..FString$GT$18visit_source_order17h2feb1570bf42362dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
   br label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit
 
-_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit: ; preds = %.lr.ph.i98, %.lr.ph.i96, %.lr.ph.i95, %.lr.ph.i, %145, %135, %90, %21, %187, %230, %182, %229, %172, %227, %111, %226, %17, %225, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %223, %221, %219, %217, %215, %213, %211, %209, %207, %205, %203, %201, %199, %196, %194, %192, %180, %178, %176, %170, %168, %166, %164, %161, %159, %157, %155, %132, %130, %128, %126, %124, %122, %120, %118, %115, %108, %106, %104, %102, %100, %88, %86, %84, %81, %79, %77, %75, %72, %68, %64, %62, %58, %55, %53, %49, %47, %45, %43, %41, %39, %37, %33, %31, %29, %15, %13, %10, %4
+_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit: ; preds = %.lr.ph.i101, %.lr.ph.i98, %.lr.ph.i96, %.lr.ph.i, %145, %135, %90, %21, %187, %230, %182, %229, %172, %227, %111, %226, %17, %225, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %223, %221, %219, %217, %215, %213, %211, %209, %207, %205, %203, %201, %199, %196, %194, %192, %180, %178, %176, %170, %168, %166, %164, %161, %159, %157, %155, %132, %130, %128, %126, %124, %122, %120, %118, %115, %108, %106, %104, %102, %100, %88, %86, %84, %81, %79, %77, %75, %72, %68, %64, %62, %58, %55, %53, %49, %47, %45, %43, %41, %39, %37, %33, %31, %29, %15, %13, %10, %4
   ret void
 
 225:                                              ; preds = %17
@@ -4628,7 +4646,7 @@ _ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e848
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_order17hf472f7303d0041b9E(i64 noundef range(i64 0, 92) %0, ptr noundef %1, ptr noalias noundef align 8 dereferenceable(104) %2) unnamed_addr #0 {
-  switch i64 %0, label %default.unreachable114 [
+  switch i64 %0, label %default.unreachable119 [
     i64 0, label %4
     i64 1, label %10
     i64 2, label %13
@@ -4723,7 +4741,7 @@ define hidden void @_ZN15ruff_python_ast9generated10AnyNodeRef18visit_source_ord
     i64 91, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit
   ]
 
-default.unreachable114:                           ; preds = %3
+default.unreachable119:                           ; preds = %3
   unreachable
 
 4:                                                ; preds = %3
@@ -4770,7 +4788,8 @@ default.unreachable114:                           ; preds = %3
   %.val = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
   %24 = getelementptr i8, ptr %1, i64 16
   %.val82 = load i64, ptr %24, align 8, !noundef !3
-  %25 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.val, i64 %.val82
+  %.idx.i = shl nuw nsw i64 %.val82, 6
+  %25 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %26 = icmp eq i64 %.val82, 0
   br i1 %26, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i
 
@@ -4889,16 +4908,17 @@ default.unreachable114:                           ; preds = %3
   %.val91 = load ptr, ptr %66, align 8, !nonnull !3, !noundef !3
   %67 = getelementptr i8, ptr %1, i64 16
   %.val92 = load i64, ptr %67, align 8, !noundef !3
-  %68 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.val91, i64 %.val92
+  %.idx.i95 = shl nuw nsw i64 %.val92, 5
+  %68 = getelementptr inbounds nuw i8, ptr %.val91, i64 %.idx.i95
   %69 = icmp eq i64 %.val92, 0
-  br i1 %69, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i95
+  br i1 %69, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i96
 
-.lr.ph.i95:                                       ; preds = %64, %.lr.ph.i95
-  %.sroa.01.01.i96 = phi ptr [ %70, %.lr.ph.i95 ], [ %.val91, %64 ]
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i96, i64 32
-  tail call void @"_ZN136_$LT$ruff_python_formatter..comments..visitor..CommentsVisitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$16visit_identifier17h9ec5136067d45afcE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i96)
+.lr.ph.i96:                                       ; preds = %64, %.lr.ph.i96
+  %.sroa.01.01.i97 = phi ptr [ %70, %.lr.ph.i96 ], [ %.val91, %64 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i97, i64 32
+  tail call void @"_ZN136_$LT$ruff_python_formatter..comments..visitor..CommentsVisitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$16visit_identifier17h9ec5136067d45afcE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i97)
   %71 = icmp eq ptr %70, %68
-  br i1 %71, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i95
+  br i1 %71, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i96
 
 72:                                               ; preds = %3
   %73 = icmp ne ptr %1, null
@@ -4907,16 +4927,17 @@ default.unreachable114:                           ; preds = %3
   %.val93 = load ptr, ptr %74, align 8, !nonnull !3, !noundef !3
   %75 = getelementptr i8, ptr %1, i64 16
   %.val94 = load i64, ptr %75, align 8, !noundef !3
-  %76 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.val93, i64 %.val94
+  %.idx.i98 = shl nuw nsw i64 %.val94, 5
+  %76 = getelementptr inbounds nuw i8, ptr %.val93, i64 %.idx.i98
   %77 = icmp eq i64 %.val94, 0
-  br i1 %77, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i97
+  br i1 %77, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i99
 
-.lr.ph.i97:                                       ; preds = %72, %.lr.ph.i97
-  %.sroa.01.01.i98 = phi ptr [ %78, %.lr.ph.i97 ], [ %.val93, %72 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i98, i64 32
-  tail call void @"_ZN136_$LT$ruff_python_formatter..comments..visitor..CommentsVisitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$16visit_identifier17h9ec5136067d45afcE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i98)
+.lr.ph.i99:                                       ; preds = %72, %.lr.ph.i99
+  %.sroa.01.01.i100 = phi ptr [ %78, %.lr.ph.i99 ], [ %.val93, %72 ]
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i100, i64 32
+  tail call void @"_ZN136_$LT$ruff_python_formatter..comments..visitor..CommentsVisitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$16visit_identifier17h9ec5136067d45afcE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i100)
   %79 = icmp eq ptr %78, %76
-  br i1 %79, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i97
+  br i1 %79, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i99
 
 80:                                               ; preds = %3
   %81 = icmp ne ptr %1, null
@@ -4977,16 +4998,17 @@ default.unreachable114:                           ; preds = %3
   %101 = load ptr, ptr %100, align 8, !alias.scope !171, !noalias !174, !nonnull !3, !noundef !3
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %103 = load i64, ptr %102, align 8, !alias.scope !171, !noalias !174, !noundef !3
-  %104 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %101, i64 %103
+  %.idx.i101 = shl nuw nsw i64 %103, 6
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx.i101
   %105 = icmp eq i64 %103, 0
-  br i1 %105, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i99
+  br i1 %105, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i102
 
-.lr.ph.i99:                                       ; preds = %98, %.lr.ph.i99
-  %.sroa.01.02.i = phi ptr [ %106, %.lr.ph.i99 ], [ %101, %98 ]
+.lr.ph.i102:                                      ; preds = %98, %.lr.ph.i102
+  %.sroa.01.02.i = phi ptr [ %106, %.lr.ph.i102 ], [ %101, %98 ]
   %106 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i, i64 64
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h99709c8f4c464a08E(ptr noalias noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 %.sroa.01.02.i), !noalias !171
   %107 = icmp eq ptr %106, %104
-  br i1 %107, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i99
+  br i1 %107, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i102
 
 108:                                              ; preds = %3
   %109 = icmp ne ptr %1, null
@@ -5091,16 +5113,17 @@ default.unreachable114:                           ; preds = %3
   %146 = load ptr, ptr %145, align 8, !alias.scope !176, !noalias !179, !nonnull !3, !noundef !3
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %148 = load i64, ptr %147, align 8, !alias.scope !176, !noalias !179, !noundef !3
-  %149 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %146, i64 %148
+  %.idx.i103 = shl nuw nsw i64 %148, 6
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 %.idx.i103
   %150 = icmp eq i64 %148, 0
-  br i1 %150, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i100
+  br i1 %150, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i104
 
-.lr.ph.i100:                                      ; preds = %143, %.lr.ph.i100
-  %.sroa.01.02.i101 = phi ptr [ %151, %.lr.ph.i100 ], [ %146, %143 ]
-  %151 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i101, i64 64
-  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h99709c8f4c464a08E(ptr noalias noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 %.sroa.01.02.i101), !noalias !176
+.lr.ph.i104:                                      ; preds = %143, %.lr.ph.i104
+  %.sroa.01.02.i105 = phi ptr [ %151, %.lr.ph.i104 ], [ %146, %143 ]
+  %151 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i105, i64 64
+  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h99709c8f4c464a08E(ptr noalias noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 %.sroa.01.02.i105), !noalias !176
   %152 = icmp eq ptr %151, %149
-  br i1 %152, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i100
+  br i1 %152, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i104
 
 153:                                              ; preds = %3
   %154 = icmp ne ptr %1, null
@@ -5110,16 +5133,17 @@ default.unreachable114:                           ; preds = %3
   %156 = load ptr, ptr %155, align 8, !alias.scope !181, !noalias !184, !nonnull !3, !noundef !3
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %158 = load i64, ptr %157, align 8, !alias.scope !181, !noalias !184, !noundef !3
-  %159 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %156, i64 %158
+  %.idx.i106 = shl nuw nsw i64 %158, 6
+  %159 = getelementptr inbounds nuw i8, ptr %156, i64 %.idx.i106
   %160 = icmp eq i64 %158, 0
-  br i1 %160, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i102
+  br i1 %160, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i107
 
-.lr.ph.i102:                                      ; preds = %153, %.lr.ph.i102
-  %.sroa.01.02.i103 = phi ptr [ %161, %.lr.ph.i102 ], [ %156, %153 ]
-  %161 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i103, i64 64
-  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h99709c8f4c464a08E(ptr noalias noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 %.sroa.01.02.i103), !noalias !181
+.lr.ph.i107:                                      ; preds = %153, %.lr.ph.i107
+  %.sroa.01.02.i108 = phi ptr [ %161, %.lr.ph.i107 ], [ %156, %153 ]
+  %161 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i108, i64 64
+  tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h99709c8f4c464a08E(ptr noalias noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 %.sroa.01.02.i108), !noalias !181
   %162 = icmp eq ptr %161, %159
-  br i1 %162, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i102
+  br i1 %162, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i107
 
 163:                                              ; preds = %3
   %164 = icmp ne ptr %1, null
@@ -5313,7 +5337,7 @@ default.unreachable114:                           ; preds = %3
   tail call void @"_ZN15ruff_python_ast4node49_$LT$impl$u20$ruff_python_ast..nodes..FString$GT$18visit_source_order17h736b908ad2edf6ecE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noalias noundef nonnull align 8 dereferenceable(104) %2)
   br label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit
 
-_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit: ; preds = %.lr.ph.i102, %.lr.ph.i100, %.lr.ph.i99, %.lr.ph.i97, %.lr.ph.i95, %.lr.ph.i, %153, %143, %98, %72, %64, %21, %195, %238, %190, %237, %180, %235, %119, %234, %17, %233, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %231, %229, %227, %225, %223, %221, %219, %217, %215, %213, %211, %209, %207, %204, %202, %200, %188, %186, %184, %178, %176, %174, %172, %169, %167, %165, %163, %140, %138, %136, %134, %132, %130, %128, %126, %123, %116, %114, %112, %110, %108, %96, %94, %92, %89, %87, %85, %83, %80, %62, %58, %55, %53, %49, %47, %45, %43, %41, %39, %37, %33, %31, %29, %15, %13, %10, %4
+_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit: ; preds = %.lr.ph.i107, %.lr.ph.i104, %.lr.ph.i102, %.lr.ph.i99, %.lr.ph.i96, %.lr.ph.i, %153, %143, %98, %72, %64, %21, %195, %238, %190, %237, %180, %235, %119, %234, %17, %233, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %231, %229, %227, %225, %223, %221, %219, %217, %215, %213, %211, %209, %207, %204, %202, %200, %188, %186, %184, %178, %176, %174, %172, %169, %167, %165, %163, %140, %138, %136, %134, %132, %130, %128, %126, %123, %116, %114, %112, %110, %108, %96, %94, %92, %89, %87, %85, %83, %80, %62, %58, %55, %53, %49, %47, %45, %43, %41, %39, %37, %33, %31, %29, %15, %13, %10, %4
   ret void
 
 233:                                              ; preds = %17
@@ -5502,7 +5526,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated10StmtAssign18visit_s
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -5526,7 +5551,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated10StmtAssign18visit_s
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -5550,7 +5576,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated10StmtAssign18visit_s
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -5574,7 +5601,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated10StmtAssign18visit_s
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -5596,7 +5624,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated10StmtAssign18visit_s
 define internal fastcc void @_ZN15ruff_python_ast9generated10StmtGlobal18visit_source_order17h23387d5d39c20d30E(ptr %.8.val, i64 %.16.val, ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
-  %3 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.8.val, i64 %.16.val
+  %.idx = shl nuw nsw i64 %.16.val, 5
+  %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %4 = icmp eq i64 %.16.val, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -5620,7 +5649,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated10StmtGlobal18visit_s
 define internal fastcc void @_ZN15ruff_python_ast9generated10StmtGlobal18visit_source_order17ha8c48acecf6dd832E(ptr %.8.val, i64 %.16.val, ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
-  %3 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.8.val, i64 %.16.val
+  %.idx = shl nuw nsw i64 %.16.val, 5
+  %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %4 = icmp eq i64 %.16.val, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -5643,7 +5673,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated10StmtGlobal18visit_s
 define internal fastcc void @_ZN15ruff_python_ast9generated10StmtGlobal18visit_source_order17hf18a16888cf62610E(ptr %.8.val, i64 %.16.val, ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
-  %3 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.8.val, i64 %.16.val
+  %.idx = shl nuw nsw i64 %.16.val, 5
+  %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %4 = icmp eq i64 %.16.val, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -5667,7 +5698,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated10StmtGlobal18visit_s
 define internal fastcc void @_ZN15ruff_python_ast9generated10StmtImport18visit_source_order17h378434d695df1cc0E(ptr %.8.val, i64 %.16.val, ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
-  %3 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %.8.val, i64 %.16.val
+  %.idx = mul nuw nsw i64 %.16.val, 72
+  %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %4 = icmp eq i64 %.16.val, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -5698,7 +5730,8 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17hb9
 define internal fastcc void @_ZN15ruff_python_ast9generated10StmtImport18visit_source_order17hca7e2c17cd15a743E(ptr %.8.val, i64 %.16.val, ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
-  %3 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %.8.val, i64 %.16.val
+  %.idx = mul nuw nsw i64 %.16.val, 72
+  %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %4 = icmp eq i64 %.16.val, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -5728,7 +5761,8 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h4a
 define internal fastcc void @_ZN15ruff_python_ast9generated10StmtImport18visit_source_order17hd4d7b033ef8bd8ccE(ptr %.8.val, i64 %.16.val, ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
-  %3 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %.8.val, i64 %.16.val
+  %.idx = mul nuw nsw i64 %.16.val, 72
+  %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %4 = icmp eq i64 %.16.val, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -5759,7 +5793,8 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h8b
 define internal fastcc void @_ZN15ruff_python_ast9generated10StmtImport18visit_source_order17hf3751a8cc74c2b0eE(ptr %.8.val, i64 %.16.val, ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
-  %3 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %.8.val, i64 %.16.val
+  %.idx = mul nuw nsw i64 %.16.val, 72
+  %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %4 = icmp eq i64 %.16.val, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -5795,7 +5830,8 @@ define hidden void @_ZN15ruff_python_ast9generated11ExprSetComp18visit_source_or
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -5819,7 +5855,8 @@ define hidden void @_ZN15ruff_python_ast9generated11ExprSetComp18visit_source_or
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -5843,7 +5880,8 @@ define hidden void @_ZN15ruff_python_ast9generated11ExprSetComp18visit_source_or
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -5867,7 +5905,8 @@ define hidden void @_ZN15ruff_python_ast9generated11ExprSetComp18visit_source_or
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -5891,7 +5930,8 @@ define hidden void @_ZN15ruff_python_ast9generated11ExprSetComp18visit_source_or
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -5915,7 +5955,8 @@ define hidden void @_ZN15ruff_python_ast9generated11ExprSetComp18visit_source_or
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -5984,7 +6025,8 @@ define hidden void @_ZN15ruff_python_ast9generated12ExprDictComp18visit_source_o
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %8, i64 %10
+  %.idx = mul nuw nsw i64 %10, 168
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -6011,7 +6053,8 @@ define hidden void @_ZN15ruff_python_ast9generated12ExprDictComp18visit_source_o
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %8, i64 %10
+  %.idx = mul nuw nsw i64 %10, 168
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -6038,7 +6081,8 @@ define hidden void @_ZN15ruff_python_ast9generated12ExprDictComp18visit_source_o
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %8, i64 %10
+  %.idx = mul nuw nsw i64 %10, 168
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -6065,7 +6109,8 @@ define hidden void @_ZN15ruff_python_ast9generated12ExprDictComp18visit_source_o
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %8, i64 %10
+  %.idx = mul nuw nsw i64 %10, 168
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -6092,7 +6137,8 @@ define hidden void @_ZN15ruff_python_ast9generated12ExprDictComp18visit_source_o
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %8, i64 %10
+  %.idx = mul nuw nsw i64 %10, 168
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -6119,7 +6165,8 @@ define hidden void @_ZN15ruff_python_ast9generated12ExprDictComp18visit_source_o
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %8, i64 %10
+  %.idx = mul nuw nsw i64 %10, 168
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -6143,7 +6190,8 @@ define hidden void @_ZN15ruff_python_ast9generated12ExprListComp18visit_source_o
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -6167,7 +6215,8 @@ define hidden void @_ZN15ruff_python_ast9generated12ExprListComp18visit_source_o
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -6191,7 +6240,8 @@ define hidden void @_ZN15ruff_python_ast9generated12ExprListComp18visit_source_o
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -6215,7 +6265,8 @@ define hidden void @_ZN15ruff_python_ast9generated12ExprListComp18visit_source_o
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -6239,7 +6290,8 @@ define hidden void @_ZN15ruff_python_ast9generated12ExprListComp18visit_source_o
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -6263,7 +6315,8 @@ define hidden void @_ZN15ruff_python_ast9generated12ExprListComp18visit_source_o
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -6285,7 +6338,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated12StmtClassDef18visit
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %5, i64 %7
+  %.idx = mul nuw nsw i64 %7, 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
@@ -6337,7 +6391,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated12StmtClassDef18visit
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %5, i64 %7
+  %.idx = mul nuw nsw i64 %7, 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
@@ -6385,7 +6440,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated12StmtClassDef18visit
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %5, i64 %7
+  %.idx = mul nuw nsw i64 %7, 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
@@ -6438,7 +6494,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated12StmtClassDef18visit
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %5, i64 %7
+  %.idx = mul nuw nsw i64 %7, 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
@@ -6488,7 +6545,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated12StmtClassDef18visit
 define internal fastcc void @_ZN15ruff_python_ast9generated12StmtNonlocal18visit_source_order17h25aaad36dd0da1a7E(ptr %.8.val, i64 %.16.val, ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
-  %3 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.8.val, i64 %.16.val
+  %.idx = shl nuw nsw i64 %.16.val, 5
+  %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %4 = icmp eq i64 %.16.val, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -6511,7 +6569,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated12StmtNonlocal18visit
 define internal fastcc void @_ZN15ruff_python_ast9generated12StmtNonlocal18visit_source_order17h5c384fd2030daa0cE(ptr %.8.val, i64 %.16.val, ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
-  %3 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.8.val, i64 %.16.val
+  %.idx = shl nuw nsw i64 %.16.val, 5
+  %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %4 = icmp eq i64 %.16.val, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -6535,7 +6594,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated12StmtNonlocal18visit
 define internal fastcc void @_ZN15ruff_python_ast9generated12StmtNonlocal18visit_source_order17hde75d7b04597cff7E(ptr %.8.val, i64 %.16.val, ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %2)
-  %3 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.8.val, i64 %.16.val
+  %.idx = shl nuw nsw i64 %.16.val, 5
+  %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %.idx
   %4 = icmp eq i64 %.16.val, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -6634,7 +6694,8 @@ define hidden void @_ZN15ruff_python_ast9generated13ExprGenerator18visit_source_
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -6658,7 +6719,8 @@ define hidden void @_ZN15ruff_python_ast9generated13ExprGenerator18visit_source_
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -6682,7 +6744,8 @@ define hidden void @_ZN15ruff_python_ast9generated13ExprGenerator18visit_source_
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -6706,7 +6769,8 @@ define hidden void @_ZN15ruff_python_ast9generated13ExprGenerator18visit_source_
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -6730,7 +6794,8 @@ define hidden void @_ZN15ruff_python_ast9generated13ExprGenerator18visit_source_
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -6754,7 +6819,8 @@ define hidden void @_ZN15ruff_python_ast9generated13ExprGenerator18visit_source_
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, [15 x i32] }, { i32, i32 }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -7006,7 +7072,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated14StmtImportFrom18vis
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !3
-  %12 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %9, i64 %11
+  %.idx = mul nuw nsw i64 %11, 72
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   %13 = icmp eq i64 %11, 0
   br i1 %13, label %._crit_edge, label %.lr.ph
 
@@ -7055,7 +7122,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated14StmtImportFrom18vis
   %14 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %14, i64 %16
+  %.idx = mul nuw nsw i64 %16, 72
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 
@@ -7104,7 +7172,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated14StmtImportFrom18vis
   %14 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %14, i64 %16
+  %.idx = mul nuw nsw i64 %16, 72
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 
@@ -7152,7 +7221,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated14StmtImportFrom18vis
   %14 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %14, i64 %16
+  %.idx = mul nuw nsw i64 %16, 72
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 
@@ -7185,7 +7255,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated15StmtFunctionDef18vi
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %5, i64 %7
+  %.idx = mul nuw nsw i64 %7, 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
@@ -7241,7 +7312,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated15StmtFunctionDef18vi
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %5, i64 %7
+  %.idx = mul nuw nsw i64 %7, 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
@@ -7292,7 +7364,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated15StmtFunctionDef18vi
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %5, i64 %7
+  %.idx = mul nuw nsw i64 %7, 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
@@ -7347,7 +7420,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated15StmtFunctionDef18vi
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %5, i64 %7
+  %.idx = mul nuw nsw i64 %7, 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
@@ -7444,7 +7518,8 @@ define hidden void @_ZN15ruff_python_ast9generated4Stmt18visit_source_order17h02
   %12 = load ptr, ptr %11, align 8, !alias.scope !317, !noalias !320, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8, !alias.scope !317, !noalias !320, !noundef !3
-  %15 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %12, i64 %14
+  %.idx.i = mul nuw nsw i64 %14, 72
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %._crit_edge.i, label %.lr.ph.i
 
@@ -7495,16 +7570,17 @@ _ZN15ruff_python_ast9generated12StmtClassDef18visit_source_order17h8422fe81a2c8c
   %.val = load ptr, ptr %34, align 8, !nonnull !3, !noundef !3
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val1 = load i64, ptr %35, align 8, !noundef !3
-  %36 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.val, i64 %.val1
+  %.idx.i14 = shl nuw nsw i64 %.val1, 6
+  %36 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i14
   %37 = icmp eq i64 %.val1, 0
-  br i1 %37, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i14
+  br i1 %37, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i15
 
-.lr.ph.i14:                                       ; preds = %33, %.lr.ph.i14
-  %.sroa.01.01.i = phi ptr [ %38, %.lr.ph.i14 ], [ %.val, %33 ]
+.lr.ph.i15:                                       ; preds = %33, %.lr.ph.i15
+  %.sroa.01.01.i = phi ptr [ %38, %.lr.ph.i15 ], [ %.val, %33 ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i, i64 64
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h99709c8f4c464a08E(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 %.sroa.01.01.i)
   %39 = icmp eq ptr %38, %36
-  br i1 %39, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i14
+  br i1 %39, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i15
 
 40:                                               ; preds = %2
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7513,8 +7589,8 @@ _ZN15ruff_python_ast9generated12StmtClassDef18visit_source_order17h8422fe81a2c8c
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h99709c8f4c464a08E(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 %42), !noalias !322
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %44 = load ptr, ptr %43, align 8, !alias.scope !322, !noalias !325, !align !4, !noundef !3
-  %.not.i16 = icmp eq ptr %44, null
-  br i1 %.not.i16, label %_ZN15ruff_python_ast9generated13StmtTypeAlias18visit_source_order17hcfe2d5417e4a97b4E.exit, label %45
+  %.not.i17 = icmp eq ptr %44, null
+  br i1 %.not.i17, label %_ZN15ruff_python_ast9generated13StmtTypeAlias18visit_source_order17hcfe2d5417e4a97b4E.exit, label %45
 
 45:                                               ; preds = %40
   tail call void @_ZN15ruff_python_ast7visitor12source_order16walk_type_params17he8f5136d6348baefE(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %44), !noalias !322
@@ -7532,18 +7608,19 @@ _ZN15ruff_python_ast9generated13StmtTypeAlias18visit_source_order17hcfe2d5417e4a
   %50 = load ptr, ptr %49, align 8, !alias.scope !327, !noalias !330, !nonnull !3, !noundef !3
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = load i64, ptr %51, align 8, !alias.scope !327, !noalias !330, !noundef !3
-  %53 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %50, i64 %52
+  %.idx.i18 = shl nuw nsw i64 %52, 6
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i18
   %54 = icmp eq i64 %52, 0
-  br i1 %54, label %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h8336a10e3bfa5b17E.exit, label %.lr.ph.i17
+  br i1 %54, label %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h8336a10e3bfa5b17E.exit, label %.lr.ph.i19
 
-.lr.ph.i17:                                       ; preds = %48, %.lr.ph.i17
-  %.sroa.01.02.i = phi ptr [ %55, %.lr.ph.i17 ], [ %50, %48 ]
+.lr.ph.i19:                                       ; preds = %48, %.lr.ph.i19
+  %.sroa.01.02.i = phi ptr [ %55, %.lr.ph.i19 ], [ %50, %48 ]
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i, i64 64
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h99709c8f4c464a08E(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 %.sroa.01.02.i), !noalias !327
   %56 = icmp eq ptr %55, %53
-  br i1 %56, label %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h8336a10e3bfa5b17E.exit, label %.lr.ph.i17
+  br i1 %56, label %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h8336a10e3bfa5b17E.exit, label %.lr.ph.i19
 
-_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h8336a10e3bfa5b17E.exit: ; preds = %.lr.ph.i17, %48
+_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h8336a10e3bfa5b17E.exit: ; preds = %.lr.ph.i19, %48
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %58 = load ptr, ptr %57, align 8, !alias.scope !327, !noalias !330, !nonnull !3, !align !4, !noundef !3
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h99709c8f4c464a08E(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 %58), !noalias !327
@@ -7570,8 +7647,8 @@ _ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h8336a10e3bfa5b1
   tail call void @_ZN15ruff_python_ast7visitor12source_order15walk_annotation17h6d03a75fdaf5a95bE(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 %67), !noalias !332
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = load ptr, ptr %68, align 8, !alias.scope !332, !noalias !335, !align !4, !noundef !3
-  %.not.i19 = icmp eq ptr %69, null
-  br i1 %.not.i19, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %70
+  %.not.i21 = icmp eq ptr %69, null
+  br i1 %.not.i21, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %70
 
 70:                                               ; preds = %63
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h99709c8f4c464a08E(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 %69), !noalias !332
@@ -7628,16 +7705,17 @@ _ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h8336a10e3bfa5b1
   %103 = load ptr, ptr %102, align 8, !alias.scope !347, !noalias !350, !nonnull !3, !noundef !3
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %105 = load i64, ptr %104, align 8, !alias.scope !347, !noalias !350, !noundef !3
-  %106 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %103, i64 %105
+  %.idx.i22 = mul nuw nsw i64 %105, 96
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx.i22
   %107 = icmp eq i64 %105, 0
-  br i1 %107, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i20
+  br i1 %107, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i23
 
-.lr.ph.i20:                                       ; preds = %95, %.lr.ph.i20
-  %.sroa.01.02.i21 = phi ptr [ %108, %.lr.ph.i20 ], [ %103, %95 ]
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i21, i64 96
-  tail call void @_ZN15ruff_python_ast7visitor12source_order21walk_elif_else_clause17hc0a403a13277003cE(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 %.sroa.01.02.i21), !noalias !347
+.lr.ph.i23:                                       ; preds = %95, %.lr.ph.i23
+  %.sroa.01.02.i24 = phi ptr [ %108, %.lr.ph.i23 ], [ %103, %95 ]
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i24, i64 96
+  tail call void @_ZN15ruff_python_ast7visitor12source_order21walk_elif_else_clause17hc0a403a13277003cE(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 %.sroa.01.02.i24), !noalias !347
   %109 = icmp eq ptr %108, %106
-  br i1 %109, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i20
+  br i1 %109, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i23
 
 110:                                              ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !352)
@@ -7645,18 +7723,19 @@ _ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h8336a10e3bfa5b1
   %112 = load ptr, ptr %111, align 8, !alias.scope !352, !noalias !355, !nonnull !3, !noundef !3
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %114 = load i64, ptr %113, align 8, !alias.scope !352, !noalias !355, !noundef !3
-  %115 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %112, i64 %114
+  %.idx.i26 = mul nuw nsw i64 %114, 80
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 %.idx.i26
   %116 = icmp eq i64 %114, 0
-  br i1 %116, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h9458065233ba3b41E.exit, label %.lr.ph.i23
+  br i1 %116, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h9458065233ba3b41E.exit, label %.lr.ph.i27
 
-.lr.ph.i23:                                       ; preds = %110, %.lr.ph.i23
-  %.sroa.01.02.i24 = phi ptr [ %117, %.lr.ph.i23 ], [ %112, %110 ]
-  %117 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i24, i64 80
-  tail call void @_ZN15ruff_python_ast7visitor12source_order14walk_with_item17hd1efbb4c38665cf0E(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 %.sroa.01.02.i24), !noalias !352
+.lr.ph.i27:                                       ; preds = %110, %.lr.ph.i27
+  %.sroa.01.02.i28 = phi ptr [ %117, %.lr.ph.i27 ], [ %112, %110 ]
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i28, i64 80
+  tail call void @_ZN15ruff_python_ast7visitor12source_order14walk_with_item17hd1efbb4c38665cf0E(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 %.sroa.01.02.i28), !noalias !352
   %118 = icmp eq ptr %117, %115
-  br i1 %118, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h9458065233ba3b41E.exit, label %.lr.ph.i23
+  br i1 %118, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h9458065233ba3b41E.exit, label %.lr.ph.i27
 
-_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h9458065233ba3b41E.exit: ; preds = %.lr.ph.i23, %110
+_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h9458065233ba3b41E.exit: ; preds = %.lr.ph.i27, %110
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %120 = load ptr, ptr %119, align 8, !alias.scope !352, !noalias !355, !nonnull !3, !noundef !3
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7673,24 +7752,25 @@ _ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h9458065233ba3b41E.
   %127 = load ptr, ptr %126, align 8, !alias.scope !357, !noalias !360, !nonnull !3, !noundef !3
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %129 = load i64, ptr %128, align 8, !alias.scope !357, !noalias !360, !noundef !3
-  %130 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %127, i64 %129
+  %.idx.i30 = shl nuw nsw i64 %129, 7
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 %.idx.i30
   %131 = icmp eq i64 %129, 0
-  br i1 %131, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i26
+  br i1 %131, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i31
 
-.lr.ph.i26:                                       ; preds = %123, %.lr.ph.i26
-  %.sroa.01.02.i27 = phi ptr [ %132, %.lr.ph.i26 ], [ %127, %123 ]
-  %132 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i27, i64 128
-  tail call void @_ZN15ruff_python_ast7visitor12source_order15walk_match_case17h158e4dc8a29ac3beE(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.01.02.i27), !noalias !357
+.lr.ph.i31:                                       ; preds = %123, %.lr.ph.i31
+  %.sroa.01.02.i32 = phi ptr [ %132, %.lr.ph.i31 ], [ %127, %123 ]
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i32, i64 128
+  tail call void @_ZN15ruff_python_ast7visitor12source_order15walk_match_case17h158e4dc8a29ac3beE(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.01.02.i32), !noalias !357
   %133 = icmp eq ptr %132, %130
-  br i1 %133, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i26
+  br i1 %133, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i31
 
 134:                                              ; preds = %2
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val4 = load ptr, ptr %135, align 8, !align !4, !noundef !3
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val5 = load ptr, ptr %136, align 8
-  %.not.i29 = icmp eq ptr %.val4, null
-  br i1 %.not.i29, label %138, label %137
+  %.not.i34 = icmp eq ptr %.val4, null
+  br i1 %.not.i34, label %138, label %137
 
 137:                                              ; preds = %134
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h99709c8f4c464a08E(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 %.val4)
@@ -7715,18 +7795,19 @@ _ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h9458065233ba3b41E.
   %146 = load ptr, ptr %145, align 8, !alias.scope !362, !noalias !365, !nonnull !3, !noundef !3
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %148 = load i64, ptr %147, align 8, !alias.scope !362, !noalias !365, !noundef !3
-  %149 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %146, i64 %148
+  %.idx.i35 = mul nuw nsw i64 %148, 72
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 %.idx.i35
   %150 = icmp eq i64 %148, 0
-  br i1 %150, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h498e6d1240bcbc6dE.exit, label %.lr.ph.i30
+  br i1 %150, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h498e6d1240bcbc6dE.exit, label %.lr.ph.i36
 
-.lr.ph.i30:                                       ; preds = %140, %.lr.ph.i30
-  %.sroa.01.02.i31 = phi ptr [ %151, %.lr.ph.i30 ], [ %146, %140 ]
-  %151 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i31, i64 72
-  tail call void @_ZN15ruff_python_ast7visitor12source_order19walk_except_handler17hcb83ea4aa8a7d758E(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.02.i31), !noalias !362
+.lr.ph.i36:                                       ; preds = %140, %.lr.ph.i36
+  %.sroa.01.02.i37 = phi ptr [ %151, %.lr.ph.i36 ], [ %146, %140 ]
+  %151 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i37, i64 72
+  tail call void @_ZN15ruff_python_ast7visitor12source_order19walk_except_handler17hcb83ea4aa8a7d758E(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.02.i37), !noalias !362
   %152 = icmp eq ptr %151, %149
-  br i1 %152, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h498e6d1240bcbc6dE.exit, label %.lr.ph.i30
+  br i1 %152, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h498e6d1240bcbc6dE.exit, label %.lr.ph.i36
 
-_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h498e6d1240bcbc6dE.exit: ; preds = %.lr.ph.i30, %140
+_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h498e6d1240bcbc6dE.exit: ; preds = %.lr.ph.i36, %140
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %154 = load ptr, ptr %153, align 8, !alias.scope !362, !noalias !365, !nonnull !3, !noundef !3
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -7745,8 +7826,8 @@ _ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h498e6d1240bcbc6dE.e
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val7 = load ptr, ptr %163, align 8
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h99709c8f4c464a08E(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 %.val6)
-  %.not.i33 = icmp eq ptr %.val7, null
-  br i1 %.not.i33, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %164
+  %.not.i39 = icmp eq ptr %.val7, null
+  br i1 %.not.i39, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %164
 
 164:                                              ; preds = %161
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h99709c8f4c464a08E(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 %.val7)
@@ -7757,28 +7838,29 @@ _ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h498e6d1240bcbc6dE.e
   %.val8 = load ptr, ptr %166, align 8, !nonnull !3, !noundef !3
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val9 = load i64, ptr %167, align 8, !noundef !3
-  %168 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %.val8, i64 %.val9
+  %.idx.i40 = mul nuw nsw i64 %.val9, 72
+  %168 = getelementptr inbounds nuw i8, ptr %.val8, i64 %.idx.i40
   %169 = icmp eq i64 %.val9, 0
-  br i1 %169, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i34
+  br i1 %169, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i41
 
-.lr.ph.i34:                                       ; preds = %165, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h2f3bde1421a3ba20E.exit.i
-  %.sroa.01.01.i35 = phi ptr [ %170, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h2f3bde1421a3ba20E.exit.i ], [ %.val8, %165 ]
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i35, i64 72
-  %171 = tail call { i64, ptr } @"_ZN119_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Alias$GT$$GT$4from17hdcc84f5e05015a96E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i35), !noalias !367
+.lr.ph.i41:                                       ; preds = %165, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h2f3bde1421a3ba20E.exit.i
+  %.sroa.01.01.i42 = phi ptr [ %170, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h2f3bde1421a3ba20E.exit.i ], [ %.val8, %165 ]
+  %170 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i42, i64 72
+  %171 = tail call { i64, ptr } @"_ZN119_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Alias$GT$$GT$4from17hdcc84f5e05015a96E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i42), !noalias !367
   %172 = extractvalue { i64, ptr } %171, 0
   %173 = extractvalue { i64, ptr } %171, 1
   %174 = tail call noundef zeroext i1 @"_ZN136_$LT$ruff_python_formatter..comments..visitor..CommentsVisitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10enter_node17haf0d0fd5b470a7a0E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %172, ptr noundef %173)
   %175 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext %174)
   br i1 %175, label %176, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h2f3bde1421a3ba20E.exit.i
 
-176:                                              ; preds = %.lr.ph.i34
-  tail call void @"_ZN15ruff_python_ast4node47_$LT$impl$u20$ruff_python_ast..nodes..Alias$GT$18visit_source_order17hfbefa94be9d6c706E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i35, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
+176:                                              ; preds = %.lr.ph.i41
+  tail call void @"_ZN15ruff_python_ast4node47_$LT$impl$u20$ruff_python_ast..nodes..Alias$GT$18visit_source_order17hfbefa94be9d6c706E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i42, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
   br label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h2f3bde1421a3ba20E.exit.i
 
-_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h2f3bde1421a3ba20E.exit.i: ; preds = %176, %.lr.ph.i34
+_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h2f3bde1421a3ba20E.exit.i: ; preds = %176, %.lr.ph.i41
   tail call void @"_ZN136_$LT$ruff_python_formatter..comments..visitor..CommentsVisitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10leave_node17ha7b9f19f3e022dbaE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %172, ptr noundef %173)
   %177 = icmp eq ptr %170, %168
-  br i1 %177, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i34
+  br i1 %177, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i41
 
 178:                                              ; preds = %2
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7790,32 +7872,34 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h2f
   %.val10 = load ptr, ptr %181, align 8, !nonnull !3, !noundef !3
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val11 = load i64, ptr %182, align 8, !noundef !3
-  %183 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.val10, i64 %.val11
+  %.idx.i44 = shl nuw nsw i64 %.val11, 5
+  %183 = getelementptr inbounds nuw i8, ptr %.val10, i64 %.idx.i44
   %184 = icmp eq i64 %.val11, 0
-  br i1 %184, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i37
+  br i1 %184, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i45
 
-.lr.ph.i37:                                       ; preds = %180, %.lr.ph.i37
-  %.sroa.01.01.i38 = phi ptr [ %185, %.lr.ph.i37 ], [ %.val10, %180 ]
-  %185 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i38, i64 32
-  tail call void @"_ZN136_$LT$ruff_python_formatter..comments..visitor..CommentsVisitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$16visit_identifier17h9ec5136067d45afcE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i38)
+.lr.ph.i45:                                       ; preds = %180, %.lr.ph.i45
+  %.sroa.01.01.i46 = phi ptr [ %185, %.lr.ph.i45 ], [ %.val10, %180 ]
+  %185 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i46, i64 32
+  tail call void @"_ZN136_$LT$ruff_python_formatter..comments..visitor..CommentsVisitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$16visit_identifier17h9ec5136067d45afcE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i46)
   %186 = icmp eq ptr %185, %183
-  br i1 %186, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i37
+  br i1 %186, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i45
 
 187:                                              ; preds = %2
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val12 = load ptr, ptr %188, align 8, !nonnull !3, !noundef !3
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val13 = load i64, ptr %189, align 8, !noundef !3
-  %190 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.val12, i64 %.val13
+  %.idx.i48 = shl nuw nsw i64 %.val13, 5
+  %190 = getelementptr inbounds nuw i8, ptr %.val12, i64 %.idx.i48
   %191 = icmp eq i64 %.val13, 0
-  br i1 %191, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i40
+  br i1 %191, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i49
 
-.lr.ph.i40:                                       ; preds = %187, %.lr.ph.i40
-  %.sroa.01.01.i41 = phi ptr [ %192, %.lr.ph.i40 ], [ %.val12, %187 ]
-  %192 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i41, i64 32
-  tail call void @"_ZN136_$LT$ruff_python_formatter..comments..visitor..CommentsVisitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$16visit_identifier17h9ec5136067d45afcE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i41)
+.lr.ph.i49:                                       ; preds = %187, %.lr.ph.i49
+  %.sroa.01.01.i50 = phi ptr [ %192, %.lr.ph.i49 ], [ %.val12, %187 ]
+  %192 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i50, i64 32
+  tail call void @"_ZN136_$LT$ruff_python_formatter..comments..visitor..CommentsVisitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$16visit_identifier17h9ec5136067d45afcE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i50)
   %193 = icmp eq ptr %192, %190
-  br i1 %193, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i40
+  br i1 %193, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit, label %.lr.ph.i49
 
 194:                                              ; preds = %2
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7823,7 +7907,7 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h2f
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h99709c8f4c464a08E(ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 %196)
   br label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit
 
-_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit: ; preds = %.lr.ph.i40, %.lr.ph.i37, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h2f3bde1421a3ba20E.exit.i, %.lr.ph.i26, %.lr.ph.i20, %.lr.ph.i14, %187, %180, %165, %164, %161, %139, %138, %123, %95, %70, %63, %33, %30, %197, %2, %2, %2, %2, %194, %178, %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h498e6d1240bcbc6dE.exit, %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h9458065233ba3b41E.exit, %84, %71, %59, %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h8336a10e3bfa5b17E.exit, %_ZN15ruff_python_ast9generated13StmtTypeAlias18visit_source_order17hcfe2d5417e4a97b4E.exit, %_ZN15ruff_python_ast9generated12StmtClassDef18visit_source_order17h8422fe81a2c8c38cE.exit, %8
+_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h41e620472609d1aeE.exit: ; preds = %.lr.ph.i49, %.lr.ph.i45, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h2f3bde1421a3ba20E.exit.i, %.lr.ph.i31, %.lr.ph.i23, %.lr.ph.i15, %187, %180, %165, %164, %161, %139, %138, %123, %95, %70, %63, %33, %30, %197, %2, %2, %2, %2, %194, %178, %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h498e6d1240bcbc6dE.exit, %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h9458065233ba3b41E.exit, %84, %71, %59, %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h8336a10e3bfa5b17E.exit, %_ZN15ruff_python_ast9generated13StmtTypeAlias18visit_source_order17hcfe2d5417e4a97b4E.exit, %_ZN15ruff_python_ast9generated12StmtClassDef18visit_source_order17h8422fe81a2c8c38cE.exit, %8
   ret void
 
 197:                                              ; preds = %30
@@ -7888,7 +7972,8 @@ define hidden void @_ZN15ruff_python_ast9generated4Stmt18visit_source_order17h5c
   %.val = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val1 = load i64, ptr %16, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.val, i64 %.val1
+  %.idx.i = shl nuw nsw i64 %.val1, 6
+  %17 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %18 = icmp eq i64 %.val1, 0
   br i1 %18, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i
 
@@ -7925,18 +8010,19 @@ _ZN15ruff_python_ast9generated13StmtTypeAlias18visit_source_order17h4ad487016e8a
   %31 = load ptr, ptr %30, align 8, !alias.scope !377, !noalias !380, !nonnull !3, !noundef !3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i64, ptr %32, align 8, !alias.scope !377, !noalias !380, !noundef !3
-  %34 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %31, i64 %33
+  %.idx.i14 = shl nuw nsw i64 %33, 6
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i14
   %35 = icmp eq i64 %33, 0
-  br i1 %35, label %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17hcbda1ed12c05b684E.exit, label %.lr.ph.i14
+  br i1 %35, label %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17hcbda1ed12c05b684E.exit, label %.lr.ph.i15
 
-.lr.ph.i14:                                       ; preds = %29, %.lr.ph.i14
-  %.sroa.01.02.i = phi ptr [ %36, %.lr.ph.i14 ], [ %31, %29 ]
+.lr.ph.i15:                                       ; preds = %29, %.lr.ph.i15
+  %.sroa.01.02.i = phi ptr [ %36, %.lr.ph.i15 ], [ %31, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i, i64 64
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h0c74d6169034cd15E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.sroa.01.02.i), !noalias !377
   %37 = icmp eq ptr %36, %34
-  br i1 %37, label %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17hcbda1ed12c05b684E.exit, label %.lr.ph.i14
+  br i1 %37, label %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17hcbda1ed12c05b684E.exit, label %.lr.ph.i15
 
-_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17hcbda1ed12c05b684E.exit: ; preds = %.lr.ph.i14, %29
+_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17hcbda1ed12c05b684E.exit: ; preds = %.lr.ph.i15, %29
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load ptr, ptr %38, align 8, !alias.scope !377, !noalias !380, !nonnull !3, !align !4, !noundef !3
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h0c74d6169034cd15E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %39), !noalias !377
@@ -7963,8 +8049,8 @@ _ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17hcbda1ed12c05b68
   tail call void @_ZN15ruff_python_ast7visitor12source_order15walk_annotation17hffe84fb0b64b833dE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %48), !noalias !382
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = load ptr, ptr %49, align 8, !alias.scope !382, !noalias !385, !align !4, !noundef !3
-  %.not.i15 = icmp eq ptr %50, null
-  br i1 %.not.i15, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %51
+  %.not.i16 = icmp eq ptr %50, null
+  br i1 %.not.i16, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %51
 
 51:                                               ; preds = %44
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h0c74d6169034cd15E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %50), !noalias !382
@@ -8021,16 +8107,17 @@ _ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17hcbda1ed12c05b68
   %84 = load ptr, ptr %83, align 8, !alias.scope !397, !noalias !400, !nonnull !3, !noundef !3
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %86 = load i64, ptr %85, align 8, !alias.scope !397, !noalias !400, !noundef !3
-  %87 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %84, i64 %86
+  %.idx.i17 = mul nuw nsw i64 %86, 96
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 %.idx.i17
   %88 = icmp eq i64 %86, 0
-  br i1 %88, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i16
+  br i1 %88, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i18
 
-.lr.ph.i16:                                       ; preds = %76, %.lr.ph.i16
-  %.sroa.01.02.i17 = phi ptr [ %89, %.lr.ph.i16 ], [ %84, %76 ]
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i17, i64 96
-  tail call void @_ZN15ruff_python_ast7visitor12source_order21walk_elif_else_clause17h4801708104998180E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.sroa.01.02.i17), !noalias !397
+.lr.ph.i18:                                       ; preds = %76, %.lr.ph.i18
+  %.sroa.01.02.i19 = phi ptr [ %89, %.lr.ph.i18 ], [ %84, %76 ]
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i19, i64 96
+  tail call void @_ZN15ruff_python_ast7visitor12source_order21walk_elif_else_clause17h4801708104998180E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.sroa.01.02.i19), !noalias !397
   %90 = icmp eq ptr %89, %87
-  br i1 %90, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i16
+  br i1 %90, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i18
 
 91:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !402)
@@ -8038,18 +8125,19 @@ _ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17hcbda1ed12c05b68
   %93 = load ptr, ptr %92, align 8, !alias.scope !402, !noalias !405, !nonnull !3, !noundef !3
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %95 = load i64, ptr %94, align 8, !alias.scope !402, !noalias !405, !noundef !3
-  %96 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %93, i64 %95
+  %.idx.i20 = mul nuw nsw i64 %95, 80
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx.i20
   %97 = icmp eq i64 %95, 0
-  br i1 %97, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hd1d7fff546edd67aE.exit, label %.lr.ph.i18
+  br i1 %97, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hd1d7fff546edd67aE.exit, label %.lr.ph.i21
 
-.lr.ph.i18:                                       ; preds = %91, %.lr.ph.i18
-  %.sroa.01.02.i19 = phi ptr [ %98, %.lr.ph.i18 ], [ %93, %91 ]
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i19, i64 80
-  tail call void @_ZN15ruff_python_ast7visitor12source_order14walk_with_item17h8131e4277132babcE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.sroa.01.02.i19), !noalias !402
+.lr.ph.i21:                                       ; preds = %91, %.lr.ph.i21
+  %.sroa.01.02.i22 = phi ptr [ %98, %.lr.ph.i21 ], [ %93, %91 ]
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i22, i64 80
+  tail call void @_ZN15ruff_python_ast7visitor12source_order14walk_with_item17h8131e4277132babcE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.sroa.01.02.i22), !noalias !402
   %99 = icmp eq ptr %98, %96
-  br i1 %99, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hd1d7fff546edd67aE.exit, label %.lr.ph.i18
+  br i1 %99, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hd1d7fff546edd67aE.exit, label %.lr.ph.i21
 
-_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hd1d7fff546edd67aE.exit: ; preds = %.lr.ph.i18, %91
+_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hd1d7fff546edd67aE.exit: ; preds = %.lr.ph.i21, %91
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %101 = load ptr, ptr %100, align 8, !alias.scope !402, !noalias !405, !nonnull !3, !noundef !3
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8066,24 +8154,25 @@ _ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hd1d7fff546edd67aE.
   %108 = load ptr, ptr %107, align 8, !alias.scope !407, !noalias !410, !nonnull !3, !noundef !3
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %110 = load i64, ptr %109, align 8, !alias.scope !407, !noalias !410, !noundef !3
-  %111 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %108, i64 %110
+  %.idx.i23 = shl nuw nsw i64 %110, 7
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx.i23
   %112 = icmp eq i64 %110, 0
-  br i1 %112, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i20
+  br i1 %112, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i24
 
-.lr.ph.i20:                                       ; preds = %104, %.lr.ph.i20
-  %.sroa.01.02.i21 = phi ptr [ %113, %.lr.ph.i20 ], [ %108, %104 ]
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i21, i64 128
-  tail call void @_ZN15ruff_python_ast7visitor12source_order15walk_match_case17h3c682b01f2737a73E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.01.02.i21), !noalias !407
+.lr.ph.i24:                                       ; preds = %104, %.lr.ph.i24
+  %.sroa.01.02.i25 = phi ptr [ %113, %.lr.ph.i24 ], [ %108, %104 ]
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i25, i64 128
+  tail call void @_ZN15ruff_python_ast7visitor12source_order15walk_match_case17h3c682b01f2737a73E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.01.02.i25), !noalias !407
   %114 = icmp eq ptr %113, %111
-  br i1 %114, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i20
+  br i1 %114, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i24
 
 115:                                              ; preds = %2
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val4 = load ptr, ptr %116, align 8, !align !4, !noundef !3
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val5 = load ptr, ptr %117, align 8
-  %.not.i22 = icmp eq ptr %.val4, null
-  br i1 %.not.i22, label %119, label %118
+  %.not.i26 = icmp eq ptr %.val4, null
+  br i1 %.not.i26, label %119, label %118
 
 118:                                              ; preds = %115
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h0c74d6169034cd15E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.val4)
@@ -8108,18 +8197,19 @@ _ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hd1d7fff546edd67aE.
   %127 = load ptr, ptr %126, align 8, !alias.scope !412, !noalias !415, !nonnull !3, !noundef !3
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %129 = load i64, ptr %128, align 8, !alias.scope !412, !noalias !415, !noundef !3
-  %130 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %127, i64 %129
+  %.idx.i27 = mul nuw nsw i64 %129, 72
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 %.idx.i27
   %131 = icmp eq i64 %129, 0
-  br i1 %131, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h5034d86ae6fcf734E.exit, label %.lr.ph.i23
+  br i1 %131, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h5034d86ae6fcf734E.exit, label %.lr.ph.i28
 
-.lr.ph.i23:                                       ; preds = %121, %.lr.ph.i23
-  %.sroa.01.02.i24 = phi ptr [ %132, %.lr.ph.i23 ], [ %127, %121 ]
-  %132 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i24, i64 72
-  tail call void @_ZN15ruff_python_ast7visitor12source_order19walk_except_handler17hdfe32042978fa7e9E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.02.i24), !noalias !412
+.lr.ph.i28:                                       ; preds = %121, %.lr.ph.i28
+  %.sroa.01.02.i29 = phi ptr [ %132, %.lr.ph.i28 ], [ %127, %121 ]
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i29, i64 72
+  tail call void @_ZN15ruff_python_ast7visitor12source_order19walk_except_handler17hdfe32042978fa7e9E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.02.i29), !noalias !412
   %133 = icmp eq ptr %132, %130
-  br i1 %133, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h5034d86ae6fcf734E.exit, label %.lr.ph.i23
+  br i1 %133, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h5034d86ae6fcf734E.exit, label %.lr.ph.i28
 
-_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h5034d86ae6fcf734E.exit: ; preds = %.lr.ph.i23, %121
+_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h5034d86ae6fcf734E.exit: ; preds = %.lr.ph.i28, %121
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %135 = load ptr, ptr %134, align 8, !alias.scope !412, !noalias !415, !nonnull !3, !noundef !3
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -8138,8 +8228,8 @@ _ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h5034d86ae6fcf734E.e
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val7 = load ptr, ptr %144, align 8
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h0c74d6169034cd15E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.val6)
-  %.not.i25 = icmp eq ptr %.val7, null
-  br i1 %.not.i25, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %145
+  %.not.i30 = icmp eq ptr %.val7, null
+  br i1 %.not.i30, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %145
 
 145:                                              ; preds = %142
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h0c74d6169034cd15E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.val7)
@@ -8150,28 +8240,29 @@ _ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h5034d86ae6fcf734E.e
   %.val8 = load ptr, ptr %147, align 8, !nonnull !3, !noundef !3
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val9 = load i64, ptr %148, align 8, !noundef !3
-  %149 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %.val8, i64 %.val9
+  %.idx.i31 = mul nuw nsw i64 %.val9, 72
+  %149 = getelementptr inbounds nuw i8, ptr %.val8, i64 %.idx.i31
   %150 = icmp eq i64 %.val9, 0
-  br i1 %150, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i26
+  br i1 %150, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i32
 
-.lr.ph.i26:                                       ; preds = %146, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17hb9b5a324f2b98156E.exit.i
-  %.sroa.01.01.i27 = phi ptr [ %151, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17hb9b5a324f2b98156E.exit.i ], [ %.val8, %146 ]
-  %151 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i27, i64 72
-  %152 = tail call { i64, ptr } @"_ZN119_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Alias$GT$$GT$4from17hdcc84f5e05015a96E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i27), !noalias !417
+.lr.ph.i32:                                       ; preds = %146, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17hb9b5a324f2b98156E.exit.i
+  %.sroa.01.01.i33 = phi ptr [ %151, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17hb9b5a324f2b98156E.exit.i ], [ %.val8, %146 ]
+  %151 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i33, i64 72
+  %152 = tail call { i64, ptr } @"_ZN119_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Alias$GT$$GT$4from17hdcc84f5e05015a96E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i33), !noalias !417
   %153 = extractvalue { i64, ptr } %152, 0
   %154 = extractvalue { i64, ptr } %152, 1
   %155 = tail call noundef zeroext i1 @"_ZN126_$LT$ruff_python_formatter..range..FindEnclosingNode$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10enter_node17h89adbc8965ee41b9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %153, ptr noundef %154)
   %156 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext %155)
   br i1 %156, label %157, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17hb9b5a324f2b98156E.exit.i
 
-157:                                              ; preds = %.lr.ph.i26
-  tail call void @"_ZN15ruff_python_ast4node47_$LT$impl$u20$ruff_python_ast..nodes..Alias$GT$18visit_source_order17hf8949e1ecb8bcb38E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i27, ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
+157:                                              ; preds = %.lr.ph.i32
+  tail call void @"_ZN15ruff_python_ast4node47_$LT$impl$u20$ruff_python_ast..nodes..Alias$GT$18visit_source_order17hf8949e1ecb8bcb38E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i33, ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
   br label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17hb9b5a324f2b98156E.exit.i
 
-_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17hb9b5a324f2b98156E.exit.i: ; preds = %157, %.lr.ph.i26
+_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17hb9b5a324f2b98156E.exit.i: ; preds = %157, %.lr.ph.i32
   tail call void @"_ZN126_$LT$ruff_python_formatter..range..FindEnclosingNode$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10leave_node17h9622269dc1032fc1E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %153, ptr noundef %154)
   %158 = icmp eq ptr %151, %149
-  br i1 %158, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i26
+  br i1 %158, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i32
 
 159:                                              ; preds = %2
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8183,42 +8274,44 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17hb9
   %.val10 = load ptr, ptr %162, align 8, !nonnull !3, !noundef !3
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val11 = load i64, ptr %163, align 8, !noundef !3
-  %164 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.val10, i64 %.val11
+  %.idx.i34 = shl nuw nsw i64 %.val11, 5
+  %164 = getelementptr inbounds nuw i8, ptr %.val10, i64 %.idx.i34
   %165 = icmp eq i64 %.val11, 0
-  br i1 %165, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i28
+  br i1 %165, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i35
 
-.lr.ph.i28:                                       ; preds = %161, %.lr.ph.i28
-  %.sroa.01.01.i29 = phi ptr [ %166, %.lr.ph.i28 ], [ %.val10, %161 ]
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i29, i64 32
-  %167 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i29), !noalias !422
+.lr.ph.i35:                                       ; preds = %161, %.lr.ph.i35
+  %.sroa.01.01.i36 = phi ptr [ %166, %.lr.ph.i35 ], [ %.val10, %161 ]
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i36, i64 32
+  %167 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i36), !noalias !422
   %168 = extractvalue { i64, ptr } %167, 0
   %169 = extractvalue { i64, ptr } %167, 1
   %170 = tail call noundef zeroext i1 @"_ZN126_$LT$ruff_python_formatter..range..FindEnclosingNode$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10enter_node17h89adbc8965ee41b9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %168, ptr noundef %169)
   %171 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext %170)
   tail call void @"_ZN126_$LT$ruff_python_formatter..range..FindEnclosingNode$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10leave_node17h9622269dc1032fc1E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %168, ptr noundef %169)
   %172 = icmp eq ptr %166, %164
-  br i1 %172, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i28
+  br i1 %172, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i35
 
 173:                                              ; preds = %2
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val12 = load ptr, ptr %174, align 8, !nonnull !3, !noundef !3
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val13 = load i64, ptr %175, align 8, !noundef !3
-  %176 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.val12, i64 %.val13
+  %.idx.i37 = shl nuw nsw i64 %.val13, 5
+  %176 = getelementptr inbounds nuw i8, ptr %.val12, i64 %.idx.i37
   %177 = icmp eq i64 %.val13, 0
-  br i1 %177, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i30
+  br i1 %177, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i38
 
-.lr.ph.i30:                                       ; preds = %173, %.lr.ph.i30
-  %.sroa.01.01.i31 = phi ptr [ %178, %.lr.ph.i30 ], [ %.val12, %173 ]
-  %178 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i31, i64 32
-  %179 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i31), !noalias !427
+.lr.ph.i38:                                       ; preds = %173, %.lr.ph.i38
+  %.sroa.01.01.i39 = phi ptr [ %178, %.lr.ph.i38 ], [ %.val12, %173 ]
+  %178 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i39, i64 32
+  %179 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i39), !noalias !427
   %180 = extractvalue { i64, ptr } %179, 0
   %181 = extractvalue { i64, ptr } %179, 1
   %182 = tail call noundef zeroext i1 @"_ZN126_$LT$ruff_python_formatter..range..FindEnclosingNode$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10enter_node17h89adbc8965ee41b9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %180, ptr noundef %181)
   %183 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext %182)
   tail call void @"_ZN126_$LT$ruff_python_formatter..range..FindEnclosingNode$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10leave_node17h9622269dc1032fc1E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %180, ptr noundef %181)
   %184 = icmp eq ptr %178, %176
-  br i1 %184, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i30
+  br i1 %184, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit, label %.lr.ph.i38
 
 185:                                              ; preds = %2
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8226,7 +8319,7 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17hb9
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h0c74d6169034cd15E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %187)
   br label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit
 
-_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit: ; preds = %.lr.ph.i30, %.lr.ph.i28, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17hb9b5a324f2b98156E.exit.i, %.lr.ph.i20, %.lr.ph.i16, %.lr.ph.i, %173, %161, %146, %145, %142, %120, %119, %104, %76, %51, %44, %14, %11, %188, %2, %2, %2, %2, %185, %159, %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h5034d86ae6fcf734E.exit, %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hd1d7fff546edd67aE.exit, %65, %52, %40, %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17hcbda1ed12c05b684E.exit, %_ZN15ruff_python_ast9generated13StmtTypeAlias18visit_source_order17h4ad487016e8a4047E.exit, %9, %8
+_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17hfba0a66d1b312e2eE.exit: ; preds = %.lr.ph.i38, %.lr.ph.i35, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17hb9b5a324f2b98156E.exit.i, %.lr.ph.i24, %.lr.ph.i18, %.lr.ph.i, %173, %161, %146, %145, %142, %120, %119, %104, %76, %51, %44, %14, %11, %188, %2, %2, %2, %2, %185, %159, %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h5034d86ae6fcf734E.exit, %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hd1d7fff546edd67aE.exit, %65, %52, %40, %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17hcbda1ed12c05b684E.exit, %_ZN15ruff_python_ast9generated13StmtTypeAlias18visit_source_order17h4ad487016e8a4047E.exit, %9, %8
   ret void
 
 188:                                              ; preds = %11
@@ -8291,7 +8384,8 @@ define hidden void @_ZN15ruff_python_ast9generated4Stmt18visit_source_order17h6f
   %.val = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val1 = load i64, ptr %16, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.val, i64 %.val1
+  %.idx.i = shl nuw nsw i64 %.val1, 6
+  %17 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %18 = icmp eq i64 %.val1, 0
   br i1 %18, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i
 
@@ -8328,18 +8422,19 @@ _ZN15ruff_python_ast9generated13StmtTypeAlias18visit_source_order17h535bd506d17f
   %31 = load ptr, ptr %30, align 8, !alias.scope !437, !noalias !440, !nonnull !3, !noundef !3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i64, ptr %32, align 8, !alias.scope !437, !noalias !440, !noundef !3
-  %34 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %31, i64 %33
+  %.idx.i14 = shl nuw nsw i64 %33, 6
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i14
   %35 = icmp eq i64 %33, 0
-  br i1 %35, label %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h770ae48c67595bb4E.exit, label %.lr.ph.i14
+  br i1 %35, label %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h770ae48c67595bb4E.exit, label %.lr.ph.i15
 
-.lr.ph.i14:                                       ; preds = %29, %.lr.ph.i14
-  %.sroa.01.02.i = phi ptr [ %36, %.lr.ph.i14 ], [ %31, %29 ]
+.lr.ph.i15:                                       ; preds = %29, %.lr.ph.i15
+  %.sroa.01.02.i = phi ptr [ %36, %.lr.ph.i15 ], [ %31, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i, i64 64
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17hed63e386fc0ad36bE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.sroa.01.02.i), !noalias !437
   %37 = icmp eq ptr %36, %34
-  br i1 %37, label %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h770ae48c67595bb4E.exit, label %.lr.ph.i14
+  br i1 %37, label %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h770ae48c67595bb4E.exit, label %.lr.ph.i15
 
-_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h770ae48c67595bb4E.exit: ; preds = %.lr.ph.i14, %29
+_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h770ae48c67595bb4E.exit: ; preds = %.lr.ph.i15, %29
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load ptr, ptr %38, align 8, !alias.scope !437, !noalias !440, !nonnull !3, !align !4, !noundef !3
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17hed63e386fc0ad36bE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %39), !noalias !437
@@ -8366,8 +8461,8 @@ _ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h770ae48c67595bb
   tail call void @_ZN15ruff_python_ast7visitor12source_order15walk_annotation17h786b43b25d430f12E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %48), !noalias !442
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = load ptr, ptr %49, align 8, !alias.scope !442, !noalias !445, !align !4, !noundef !3
-  %.not.i15 = icmp eq ptr %50, null
-  br i1 %.not.i15, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %51
+  %.not.i16 = icmp eq ptr %50, null
+  br i1 %.not.i16, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %51
 
 51:                                               ; preds = %44
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17hed63e386fc0ad36bE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %50), !noalias !442
@@ -8424,16 +8519,17 @@ _ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h770ae48c67595bb
   %84 = load ptr, ptr %83, align 8, !alias.scope !457, !noalias !460, !nonnull !3, !noundef !3
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %86 = load i64, ptr %85, align 8, !alias.scope !457, !noalias !460, !noundef !3
-  %87 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %84, i64 %86
+  %.idx.i17 = mul nuw nsw i64 %86, 96
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 %.idx.i17
   %88 = icmp eq i64 %86, 0
-  br i1 %88, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i16
+  br i1 %88, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i18
 
-.lr.ph.i16:                                       ; preds = %76, %.lr.ph.i16
-  %.sroa.01.02.i17 = phi ptr [ %89, %.lr.ph.i16 ], [ %84, %76 ]
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i17, i64 96
-  tail call void @_ZN15ruff_python_ast7visitor12source_order21walk_elif_else_clause17h327255db61487ef8E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.sroa.01.02.i17), !noalias !457
+.lr.ph.i18:                                       ; preds = %76, %.lr.ph.i18
+  %.sroa.01.02.i19 = phi ptr [ %89, %.lr.ph.i18 ], [ %84, %76 ]
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i19, i64 96
+  tail call void @_ZN15ruff_python_ast7visitor12source_order21walk_elif_else_clause17h327255db61487ef8E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.sroa.01.02.i19), !noalias !457
   %90 = icmp eq ptr %89, %87
-  br i1 %90, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i16
+  br i1 %90, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i18
 
 91:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !462)
@@ -8441,18 +8537,19 @@ _ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h770ae48c67595bb
   %93 = load ptr, ptr %92, align 8, !alias.scope !462, !noalias !465, !nonnull !3, !noundef !3
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %95 = load i64, ptr %94, align 8, !alias.scope !462, !noalias !465, !noundef !3
-  %96 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %93, i64 %95
+  %.idx.i20 = mul nuw nsw i64 %95, 80
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx.i20
   %97 = icmp eq i64 %95, 0
-  br i1 %97, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h63fa6b77ca5e8e15E.exit, label %.lr.ph.i18
+  br i1 %97, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h63fa6b77ca5e8e15E.exit, label %.lr.ph.i21
 
-.lr.ph.i18:                                       ; preds = %91, %.lr.ph.i18
-  %.sroa.01.02.i19 = phi ptr [ %98, %.lr.ph.i18 ], [ %93, %91 ]
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i19, i64 80
-  tail call void @_ZN15ruff_python_ast7visitor12source_order14walk_with_item17h0e6ec04adce7fd93E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.sroa.01.02.i19), !noalias !462
+.lr.ph.i21:                                       ; preds = %91, %.lr.ph.i21
+  %.sroa.01.02.i22 = phi ptr [ %98, %.lr.ph.i21 ], [ %93, %91 ]
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i22, i64 80
+  tail call void @_ZN15ruff_python_ast7visitor12source_order14walk_with_item17h0e6ec04adce7fd93E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.sroa.01.02.i22), !noalias !462
   %99 = icmp eq ptr %98, %96
-  br i1 %99, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h63fa6b77ca5e8e15E.exit, label %.lr.ph.i18
+  br i1 %99, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h63fa6b77ca5e8e15E.exit, label %.lr.ph.i21
 
-_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h63fa6b77ca5e8e15E.exit: ; preds = %.lr.ph.i18, %91
+_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h63fa6b77ca5e8e15E.exit: ; preds = %.lr.ph.i21, %91
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %101 = load ptr, ptr %100, align 8, !alias.scope !462, !noalias !465, !nonnull !3, !noundef !3
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8469,24 +8566,25 @@ _ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h63fa6b77ca5e8e15E.
   %108 = load ptr, ptr %107, align 8, !alias.scope !467, !noalias !470, !nonnull !3, !noundef !3
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %110 = load i64, ptr %109, align 8, !alias.scope !467, !noalias !470, !noundef !3
-  %111 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %108, i64 %110
+  %.idx.i23 = shl nuw nsw i64 %110, 7
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx.i23
   %112 = icmp eq i64 %110, 0
-  br i1 %112, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i20
+  br i1 %112, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i24
 
-.lr.ph.i20:                                       ; preds = %104, %.lr.ph.i20
-  %.sroa.01.02.i21 = phi ptr [ %113, %.lr.ph.i20 ], [ %108, %104 ]
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i21, i64 128
-  tail call void @_ZN15ruff_python_ast7visitor12source_order15walk_match_case17ha17f66f732fa723fE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.01.02.i21), !noalias !467
+.lr.ph.i24:                                       ; preds = %104, %.lr.ph.i24
+  %.sroa.01.02.i25 = phi ptr [ %113, %.lr.ph.i24 ], [ %108, %104 ]
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i25, i64 128
+  tail call void @_ZN15ruff_python_ast7visitor12source_order15walk_match_case17ha17f66f732fa723fE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.01.02.i25), !noalias !467
   %114 = icmp eq ptr %113, %111
-  br i1 %114, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i20
+  br i1 %114, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i24
 
 115:                                              ; preds = %2
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val4 = load ptr, ptr %116, align 8, !align !4, !noundef !3
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val5 = load ptr, ptr %117, align 8
-  %.not.i22 = icmp eq ptr %.val4, null
-  br i1 %.not.i22, label %119, label %118
+  %.not.i26 = icmp eq ptr %.val4, null
+  br i1 %.not.i26, label %119, label %118
 
 118:                                              ; preds = %115
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17hed63e386fc0ad36bE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.val4)
@@ -8511,18 +8609,19 @@ _ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h63fa6b77ca5e8e15E.
   %127 = load ptr, ptr %126, align 8, !alias.scope !472, !noalias !475, !nonnull !3, !noundef !3
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %129 = load i64, ptr %128, align 8, !alias.scope !472, !noalias !475, !noundef !3
-  %130 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %127, i64 %129
+  %.idx.i27 = mul nuw nsw i64 %129, 72
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 %.idx.i27
   %131 = icmp eq i64 %129, 0
-  br i1 %131, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h9488ce9e959fc11fE.exit, label %.lr.ph.i23
+  br i1 %131, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h9488ce9e959fc11fE.exit, label %.lr.ph.i28
 
-.lr.ph.i23:                                       ; preds = %121, %.lr.ph.i23
-  %.sroa.01.02.i24 = phi ptr [ %132, %.lr.ph.i23 ], [ %127, %121 ]
-  %132 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i24, i64 72
-  tail call void @_ZN15ruff_python_ast7visitor12source_order19walk_except_handler17hd4e069fb17f85e8aE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.02.i24), !noalias !472
+.lr.ph.i28:                                       ; preds = %121, %.lr.ph.i28
+  %.sroa.01.02.i29 = phi ptr [ %132, %.lr.ph.i28 ], [ %127, %121 ]
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i29, i64 72
+  tail call void @_ZN15ruff_python_ast7visitor12source_order19walk_except_handler17hd4e069fb17f85e8aE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.02.i29), !noalias !472
   %133 = icmp eq ptr %132, %130
-  br i1 %133, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h9488ce9e959fc11fE.exit, label %.lr.ph.i23
+  br i1 %133, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h9488ce9e959fc11fE.exit, label %.lr.ph.i28
 
-_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h9488ce9e959fc11fE.exit: ; preds = %.lr.ph.i23, %121
+_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h9488ce9e959fc11fE.exit: ; preds = %.lr.ph.i28, %121
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %135 = load ptr, ptr %134, align 8, !alias.scope !472, !noalias !475, !nonnull !3, !noundef !3
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -8541,8 +8640,8 @@ _ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h9488ce9e959fc11fE.e
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val7 = load ptr, ptr %144, align 8
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17hed63e386fc0ad36bE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.val6)
-  %.not.i25 = icmp eq ptr %.val7, null
-  br i1 %.not.i25, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %145
+  %.not.i30 = icmp eq ptr %.val7, null
+  br i1 %.not.i30, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %145
 
 145:                                              ; preds = %142
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17hed63e386fc0ad36bE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %.val7)
@@ -8553,28 +8652,29 @@ _ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h9488ce9e959fc11fE.e
   %.val8 = load ptr, ptr %147, align 8, !nonnull !3, !noundef !3
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val9 = load i64, ptr %148, align 8, !noundef !3
-  %149 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %.val8, i64 %.val9
+  %.idx.i31 = mul nuw nsw i64 %.val9, 72
+  %149 = getelementptr inbounds nuw i8, ptr %.val8, i64 %.idx.i31
   %150 = icmp eq i64 %.val9, 0
-  br i1 %150, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i26
+  br i1 %150, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i32
 
-.lr.ph.i26:                                       ; preds = %146, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h8bd287f1f1503fafE.exit.i
-  %.sroa.01.01.i27 = phi ptr [ %151, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h8bd287f1f1503fafE.exit.i ], [ %.val8, %146 ]
-  %151 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i27, i64 72
-  %152 = tail call { i64, ptr } @"_ZN119_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Alias$GT$$GT$4from17hdcc84f5e05015a96E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i27), !noalias !477
+.lr.ph.i32:                                       ; preds = %146, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h8bd287f1f1503fafE.exit.i
+  %.sroa.01.01.i33 = phi ptr [ %151, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h8bd287f1f1503fafE.exit.i ], [ %.val8, %146 ]
+  %151 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i33, i64 72
+  %152 = tail call { i64, ptr } @"_ZN119_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Alias$GT$$GT$4from17hdcc84f5e05015a96E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i33), !noalias !477
   %153 = extractvalue { i64, ptr } %152, 0
   %154 = extractvalue { i64, ptr } %152, 1
   %155 = tail call noundef zeroext i1 @"_ZN120_$LT$ruff_python_formatter..range..NarrowRange$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10enter_node17h563b9f9ab1e27b96E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %153, ptr noundef %154)
   %156 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext %155)
   br i1 %156, label %157, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h8bd287f1f1503fafE.exit.i
 
-157:                                              ; preds = %.lr.ph.i26
-  tail call void @"_ZN15ruff_python_ast4node47_$LT$impl$u20$ruff_python_ast..nodes..Alias$GT$18visit_source_order17h1b35a3c4389cd84fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i27, ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
+157:                                              ; preds = %.lr.ph.i32
+  tail call void @"_ZN15ruff_python_ast4node47_$LT$impl$u20$ruff_python_ast..nodes..Alias$GT$18visit_source_order17h1b35a3c4389cd84fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i33, ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
   br label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h8bd287f1f1503fafE.exit.i
 
-_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h8bd287f1f1503fafE.exit.i: ; preds = %157, %.lr.ph.i26
+_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h8bd287f1f1503fafE.exit.i: ; preds = %157, %.lr.ph.i32
   tail call void @"_ZN120_$LT$ruff_python_formatter..range..NarrowRange$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10leave_node17hfaabd80cf73cb03cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %153, ptr noundef %154)
   %158 = icmp eq ptr %151, %149
-  br i1 %158, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i26
+  br i1 %158, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i32
 
 159:                                              ; preds = %2
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8586,42 +8686,44 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h8b
   %.val10 = load ptr, ptr %162, align 8, !nonnull !3, !noundef !3
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val11 = load i64, ptr %163, align 8, !noundef !3
-  %164 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.val10, i64 %.val11
+  %.idx.i34 = shl nuw nsw i64 %.val11, 5
+  %164 = getelementptr inbounds nuw i8, ptr %.val10, i64 %.idx.i34
   %165 = icmp eq i64 %.val11, 0
-  br i1 %165, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i28
+  br i1 %165, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i35
 
-.lr.ph.i28:                                       ; preds = %161, %.lr.ph.i28
-  %.sroa.01.01.i29 = phi ptr [ %166, %.lr.ph.i28 ], [ %.val10, %161 ]
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i29, i64 32
-  %167 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i29), !noalias !482
+.lr.ph.i35:                                       ; preds = %161, %.lr.ph.i35
+  %.sroa.01.01.i36 = phi ptr [ %166, %.lr.ph.i35 ], [ %.val10, %161 ]
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i36, i64 32
+  %167 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i36), !noalias !482
   %168 = extractvalue { i64, ptr } %167, 0
   %169 = extractvalue { i64, ptr } %167, 1
   %170 = tail call noundef zeroext i1 @"_ZN120_$LT$ruff_python_formatter..range..NarrowRange$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10enter_node17h563b9f9ab1e27b96E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %168, ptr noundef %169)
   %171 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext %170)
   tail call void @"_ZN120_$LT$ruff_python_formatter..range..NarrowRange$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10leave_node17hfaabd80cf73cb03cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %168, ptr noundef %169)
   %172 = icmp eq ptr %166, %164
-  br i1 %172, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i28
+  br i1 %172, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i35
 
 173:                                              ; preds = %2
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val12 = load ptr, ptr %174, align 8, !nonnull !3, !noundef !3
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val13 = load i64, ptr %175, align 8, !noundef !3
-  %176 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.val12, i64 %.val13
+  %.idx.i37 = shl nuw nsw i64 %.val13, 5
+  %176 = getelementptr inbounds nuw i8, ptr %.val12, i64 %.idx.i37
   %177 = icmp eq i64 %.val13, 0
-  br i1 %177, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i30
+  br i1 %177, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i38
 
-.lr.ph.i30:                                       ; preds = %173, %.lr.ph.i30
-  %.sroa.01.01.i31 = phi ptr [ %178, %.lr.ph.i30 ], [ %.val12, %173 ]
-  %178 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i31, i64 32
-  %179 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i31), !noalias !487
+.lr.ph.i38:                                       ; preds = %173, %.lr.ph.i38
+  %.sroa.01.01.i39 = phi ptr [ %178, %.lr.ph.i38 ], [ %.val12, %173 ]
+  %178 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i39, i64 32
+  %179 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i39), !noalias !487
   %180 = extractvalue { i64, ptr } %179, 0
   %181 = extractvalue { i64, ptr } %179, 1
   %182 = tail call noundef zeroext i1 @"_ZN120_$LT$ruff_python_formatter..range..NarrowRange$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10enter_node17h563b9f9ab1e27b96E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %180, ptr noundef %181)
   %183 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext %182)
   tail call void @"_ZN120_$LT$ruff_python_formatter..range..NarrowRange$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10leave_node17hfaabd80cf73cb03cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %180, ptr noundef %181)
   %184 = icmp eq ptr %178, %176
-  br i1 %184, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i30
+  br i1 %184, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit, label %.lr.ph.i38
 
 185:                                              ; preds = %2
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8629,7 +8731,7 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h8b
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17hed63e386fc0ad36bE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %187)
   br label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit
 
-_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit: ; preds = %.lr.ph.i30, %.lr.ph.i28, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h8bd287f1f1503fafE.exit.i, %.lr.ph.i20, %.lr.ph.i16, %.lr.ph.i, %173, %161, %146, %145, %142, %120, %119, %104, %76, %51, %44, %14, %11, %188, %2, %2, %2, %2, %185, %159, %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h9488ce9e959fc11fE.exit, %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h63fa6b77ca5e8e15E.exit, %65, %52, %40, %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h770ae48c67595bb4E.exit, %_ZN15ruff_python_ast9generated13StmtTypeAlias18visit_source_order17h535bd506d17f19ffE.exit, %9, %8
+_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h2218cb84953f6913E.exit: ; preds = %.lr.ph.i38, %.lr.ph.i35, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h8bd287f1f1503fafE.exit.i, %.lr.ph.i24, %.lr.ph.i18, %.lr.ph.i, %173, %161, %146, %145, %142, %120, %119, %104, %76, %51, %44, %14, %11, %188, %2, %2, %2, %2, %185, %159, %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17h9488ce9e959fc11fE.exit, %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17h63fa6b77ca5e8e15E.exit, %65, %52, %40, %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h770ae48c67595bb4E.exit, %_ZN15ruff_python_ast9generated13StmtTypeAlias18visit_source_order17h535bd506d17f19ffE.exit, %9, %8
   ret void
 
 188:                                              ; preds = %11
@@ -8694,7 +8796,8 @@ define hidden void @_ZN15ruff_python_ast9generated4Stmt18visit_source_order17hd5
   %.val = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val1 = load i64, ptr %16, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.val, i64 %.val1
+  %.idx.i = shl nuw nsw i64 %.val1, 6
+  %17 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %18 = icmp eq i64 %.val1, 0
   br i1 %18, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i
 
@@ -8731,18 +8834,19 @@ _ZN15ruff_python_ast9generated13StmtTypeAlias18visit_source_order17hb1893d674993
   %31 = load ptr, ptr %30, align 8, !alias.scope !497, !noalias !500, !nonnull !3, !noundef !3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i64, ptr %32, align 8, !alias.scope !497, !noalias !500, !noundef !3
-  %34 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %31, i64 %33
+  %.idx.i14 = shl nuw nsw i64 %33, 6
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i14
   %35 = icmp eq i64 %33, 0
-  br i1 %35, label %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h441381ef7d59f810E.exit, label %.lr.ph.i14
+  br i1 %35, label %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h441381ef7d59f810E.exit, label %.lr.ph.i15
 
-.lr.ph.i14:                                       ; preds = %29, %.lr.ph.i14
-  %.sroa.01.02.i = phi ptr [ %36, %.lr.ph.i14 ], [ %31, %29 ]
+.lr.ph.i15:                                       ; preds = %29, %.lr.ph.i15
+  %.sroa.01.02.i = phi ptr [ %36, %.lr.ph.i15 ], [ %31, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i, i64 64
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17ha00bd14b0c848abeE(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 %.sroa.01.02.i), !noalias !497
   %37 = icmp eq ptr %36, %34
-  br i1 %37, label %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h441381ef7d59f810E.exit, label %.lr.ph.i14
+  br i1 %37, label %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h441381ef7d59f810E.exit, label %.lr.ph.i15
 
-_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h441381ef7d59f810E.exit: ; preds = %.lr.ph.i14, %29
+_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h441381ef7d59f810E.exit: ; preds = %.lr.ph.i15, %29
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load ptr, ptr %38, align 8, !alias.scope !497, !noalias !500, !nonnull !3, !align !4, !noundef !3
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17ha00bd14b0c848abeE(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 %39), !noalias !497
@@ -8769,8 +8873,8 @@ _ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h441381ef7d59f81
   tail call void @_ZN15ruff_python_ast7visitor12source_order15walk_annotation17hf883e6b2477fd33dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 %48), !noalias !502
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = load ptr, ptr %49, align 8, !alias.scope !502, !noalias !505, !align !4, !noundef !3
-  %.not.i15 = icmp eq ptr %50, null
-  br i1 %.not.i15, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %51
+  %.not.i16 = icmp eq ptr %50, null
+  br i1 %.not.i16, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %51
 
 51:                                               ; preds = %44
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17ha00bd14b0c848abeE(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 %50), !noalias !502
@@ -8827,16 +8931,17 @@ _ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h441381ef7d59f81
   %84 = load ptr, ptr %83, align 8, !alias.scope !517, !noalias !520, !nonnull !3, !noundef !3
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %86 = load i64, ptr %85, align 8, !alias.scope !517, !noalias !520, !noundef !3
-  %87 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %84, i64 %86
+  %.idx.i17 = mul nuw nsw i64 %86, 96
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 %.idx.i17
   %88 = icmp eq i64 %86, 0
-  br i1 %88, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i16
+  br i1 %88, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i18
 
-.lr.ph.i16:                                       ; preds = %76, %.lr.ph.i16
-  %.sroa.01.02.i17 = phi ptr [ %89, %.lr.ph.i16 ], [ %84, %76 ]
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i17, i64 96
-  tail call void @_ZN15ruff_python_ast7visitor12source_order21walk_elif_else_clause17h99c5bd204b4ab78fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 %.sroa.01.02.i17), !noalias !517
+.lr.ph.i18:                                       ; preds = %76, %.lr.ph.i18
+  %.sroa.01.02.i19 = phi ptr [ %89, %.lr.ph.i18 ], [ %84, %76 ]
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i19, i64 96
+  tail call void @_ZN15ruff_python_ast7visitor12source_order21walk_elif_else_clause17h99c5bd204b4ab78fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 %.sroa.01.02.i19), !noalias !517
   %90 = icmp eq ptr %89, %87
-  br i1 %90, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i16
+  br i1 %90, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i18
 
 91:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !522)
@@ -8844,18 +8949,19 @@ _ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h441381ef7d59f81
   %93 = load ptr, ptr %92, align 8, !alias.scope !522, !noalias !525, !nonnull !3, !noundef !3
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %95 = load i64, ptr %94, align 8, !alias.scope !522, !noalias !525, !noundef !3
-  %96 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %93, i64 %95
+  %.idx.i20 = mul nuw nsw i64 %95, 80
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx.i20
   %97 = icmp eq i64 %95, 0
-  br i1 %97, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hab4f5481016c370aE.exit, label %.lr.ph.i18
+  br i1 %97, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hab4f5481016c370aE.exit, label %.lr.ph.i21
 
-.lr.ph.i18:                                       ; preds = %91, %.lr.ph.i18
-  %.sroa.01.02.i19 = phi ptr [ %98, %.lr.ph.i18 ], [ %93, %91 ]
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i19, i64 80
-  tail call void @_ZN15ruff_python_ast7visitor12source_order14walk_with_item17h58cd6ccc2341dfdaE(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 %.sroa.01.02.i19), !noalias !522
+.lr.ph.i21:                                       ; preds = %91, %.lr.ph.i21
+  %.sroa.01.02.i22 = phi ptr [ %98, %.lr.ph.i21 ], [ %93, %91 ]
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i22, i64 80
+  tail call void @_ZN15ruff_python_ast7visitor12source_order14walk_with_item17h58cd6ccc2341dfdaE(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 %.sroa.01.02.i22), !noalias !522
   %99 = icmp eq ptr %98, %96
-  br i1 %99, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hab4f5481016c370aE.exit, label %.lr.ph.i18
+  br i1 %99, label %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hab4f5481016c370aE.exit, label %.lr.ph.i21
 
-_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hab4f5481016c370aE.exit: ; preds = %.lr.ph.i18, %91
+_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hab4f5481016c370aE.exit: ; preds = %.lr.ph.i21, %91
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %101 = load ptr, ptr %100, align 8, !alias.scope !522, !noalias !525, !nonnull !3, !noundef !3
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8872,24 +8978,25 @@ _ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hab4f5481016c370aE.
   %108 = load ptr, ptr %107, align 8, !alias.scope !527, !noalias !530, !nonnull !3, !noundef !3
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %110 = load i64, ptr %109, align 8, !alias.scope !527, !noalias !530, !noundef !3
-  %111 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %108, i64 %110
+  %.idx.i23 = shl nuw nsw i64 %110, 7
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx.i23
   %112 = icmp eq i64 %110, 0
-  br i1 %112, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i20
+  br i1 %112, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i24
 
-.lr.ph.i20:                                       ; preds = %104, %.lr.ph.i20
-  %.sroa.01.02.i21 = phi ptr [ %113, %.lr.ph.i20 ], [ %108, %104 ]
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i21, i64 128
-  tail call void @_ZN15ruff_python_ast7visitor12source_order15walk_match_case17h5b230cfab9013e99E(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.01.02.i21), !noalias !527
+.lr.ph.i24:                                       ; preds = %104, %.lr.ph.i24
+  %.sroa.01.02.i25 = phi ptr [ %113, %.lr.ph.i24 ], [ %108, %104 ]
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i25, i64 128
+  tail call void @_ZN15ruff_python_ast7visitor12source_order15walk_match_case17h5b230cfab9013e99E(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.01.02.i25), !noalias !527
   %114 = icmp eq ptr %113, %111
-  br i1 %114, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i20
+  br i1 %114, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i24
 
 115:                                              ; preds = %2
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val4 = load ptr, ptr %116, align 8, !align !4, !noundef !3
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val5 = load ptr, ptr %117, align 8
-  %.not.i22 = icmp eq ptr %.val4, null
-  br i1 %.not.i22, label %119, label %118
+  %.not.i26 = icmp eq ptr %.val4, null
+  br i1 %.not.i26, label %119, label %118
 
 118:                                              ; preds = %115
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17ha00bd14b0c848abeE(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 %.val4)
@@ -8914,18 +9021,19 @@ _ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hab4f5481016c370aE.
   %127 = load ptr, ptr %126, align 8, !alias.scope !532, !noalias !535, !nonnull !3, !noundef !3
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %129 = load i64, ptr %128, align 8, !alias.scope !532, !noalias !535, !noundef !3
-  %130 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %127, i64 %129
+  %.idx.i27 = mul nuw nsw i64 %129, 72
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 %.idx.i27
   %131 = icmp eq i64 %129, 0
-  br i1 %131, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17hd3234329af1a2edcE.exit, label %.lr.ph.i23
+  br i1 %131, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17hd3234329af1a2edcE.exit, label %.lr.ph.i28
 
-.lr.ph.i23:                                       ; preds = %121, %.lr.ph.i23
-  %.sroa.01.02.i24 = phi ptr [ %132, %.lr.ph.i23 ], [ %127, %121 ]
-  %132 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i24, i64 72
-  tail call void @_ZN15ruff_python_ast7visitor12source_order19walk_except_handler17h36bbc5674b6fa0ccE(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.02.i24), !noalias !532
+.lr.ph.i28:                                       ; preds = %121, %.lr.ph.i28
+  %.sroa.01.02.i29 = phi ptr [ %132, %.lr.ph.i28 ], [ %127, %121 ]
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i29, i64 72
+  tail call void @_ZN15ruff_python_ast7visitor12source_order19walk_except_handler17h36bbc5674b6fa0ccE(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.02.i29), !noalias !532
   %133 = icmp eq ptr %132, %130
-  br i1 %133, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17hd3234329af1a2edcE.exit, label %.lr.ph.i23
+  br i1 %133, label %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17hd3234329af1a2edcE.exit, label %.lr.ph.i28
 
-_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17hd3234329af1a2edcE.exit: ; preds = %.lr.ph.i23, %121
+_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17hd3234329af1a2edcE.exit: ; preds = %.lr.ph.i28, %121
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %135 = load ptr, ptr %134, align 8, !alias.scope !532, !noalias !535, !nonnull !3, !noundef !3
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -8944,8 +9052,8 @@ _ZN15ruff_python_ast9generated7StmtTry18visit_source_order17hd3234329af1a2edcE.e
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val7 = load ptr, ptr %144, align 8
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17ha00bd14b0c848abeE(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 %.val6)
-  %.not.i25 = icmp eq ptr %.val7, null
-  br i1 %.not.i25, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %145
+  %.not.i30 = icmp eq ptr %.val7, null
+  br i1 %.not.i30, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %145
 
 145:                                              ; preds = %142
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17ha00bd14b0c848abeE(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 %.val7)
@@ -8956,27 +9064,28 @@ _ZN15ruff_python_ast9generated7StmtTry18visit_source_order17hd3234329af1a2edcE.e
   %.val8 = load ptr, ptr %147, align 8, !nonnull !3, !noundef !3
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val9 = load i64, ptr %148, align 8, !noundef !3
-  %149 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %.val8, i64 %.val9
+  %.idx.i31 = mul nuw nsw i64 %.val9, 72
+  %149 = getelementptr inbounds nuw i8, ptr %.val8, i64 %.idx.i31
   %150 = icmp eq i64 %.val9, 0
-  br i1 %150, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i26
+  br i1 %150, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i32
 
-.lr.ph.i26:                                       ; preds = %146, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h4a447c83ff3bca4fE.exit.i
-  %.sroa.01.01.i27 = phi ptr [ %151, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h4a447c83ff3bca4fE.exit.i ], [ %.val8, %146 ]
-  %151 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i27, i64 72
-  %152 = tail call { i64, ptr } @"_ZN119_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Alias$GT$$GT$4from17hdcc84f5e05015a96E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i27), !noalias !537
+.lr.ph.i32:                                       ; preds = %146, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h4a447c83ff3bca4fE.exit.i
+  %.sroa.01.01.i33 = phi ptr [ %151, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h4a447c83ff3bca4fE.exit.i ], [ %.val8, %146 ]
+  %151 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i33, i64 72
+  %152 = tail call { i64, ptr } @"_ZN119_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Alias$GT$$GT$4from17hdcc84f5e05015a96E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i33), !noalias !537
   %153 = extractvalue { i64, ptr } %152, 0
   %154 = extractvalue { i64, ptr } %152, 1
   %155 = tail call noundef zeroext i1 @"_ZN148_$LT$ruff_python_formatter..comments..Comments..contains_comments..Visitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10enter_node17h4bf064a869a31f8cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %153, ptr noundef %154)
   %156 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext %155)
   br i1 %156, label %157, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h4a447c83ff3bca4fE.exit.i
 
-157:                                              ; preds = %.lr.ph.i26
-  tail call void @"_ZN15ruff_python_ast4node47_$LT$impl$u20$ruff_python_ast..nodes..Alias$GT$18visit_source_order17haa5eddea615d3c98E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i27, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
+157:                                              ; preds = %.lr.ph.i32
+  tail call void @"_ZN15ruff_python_ast4node47_$LT$impl$u20$ruff_python_ast..nodes..Alias$GT$18visit_source_order17haa5eddea615d3c98E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.01.01.i33, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h4a447c83ff3bca4fE.exit.i
 
-_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h4a447c83ff3bca4fE.exit.i: ; preds = %157, %.lr.ph.i26
+_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h4a447c83ff3bca4fE.exit.i: ; preds = %157, %.lr.ph.i32
   %158 = icmp eq ptr %151, %149
-  br i1 %158, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i26
+  br i1 %158, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i32
 
 159:                                              ; preds = %2
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8988,40 +9097,42 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h4a
   %.val10 = load ptr, ptr %162, align 8, !nonnull !3, !noundef !3
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val11 = load i64, ptr %163, align 8, !noundef !3
-  %164 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.val10, i64 %.val11
+  %.idx.i34 = shl nuw nsw i64 %.val11, 5
+  %164 = getelementptr inbounds nuw i8, ptr %.val10, i64 %.idx.i34
   %165 = icmp eq i64 %.val11, 0
-  br i1 %165, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i28
+  br i1 %165, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i35
 
-.lr.ph.i28:                                       ; preds = %161, %.lr.ph.i28
-  %.sroa.01.01.i29 = phi ptr [ %166, %.lr.ph.i28 ], [ %.val10, %161 ]
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i29, i64 32
-  %167 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i29), !noalias !542
+.lr.ph.i35:                                       ; preds = %161, %.lr.ph.i35
+  %.sroa.01.01.i36 = phi ptr [ %166, %.lr.ph.i35 ], [ %.val10, %161 ]
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i36, i64 32
+  %167 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i36), !noalias !542
   %168 = extractvalue { i64, ptr } %167, 0
   %169 = extractvalue { i64, ptr } %167, 1
   %170 = tail call noundef zeroext i1 @"_ZN148_$LT$ruff_python_formatter..comments..Comments..contains_comments..Visitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10enter_node17h4bf064a869a31f8cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %168, ptr noundef %169)
   %171 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext %170)
   %172 = icmp eq ptr %166, %164
-  br i1 %172, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i28
+  br i1 %172, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i35
 
 173:                                              ; preds = %2
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val12 = load ptr, ptr %174, align 8, !nonnull !3, !noundef !3
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val13 = load i64, ptr %175, align 8, !noundef !3
-  %176 = getelementptr inbounds nuw { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.val12, i64 %.val13
+  %.idx.i37 = shl nuw nsw i64 %.val13, 5
+  %176 = getelementptr inbounds nuw i8, ptr %.val12, i64 %.idx.i37
   %177 = icmp eq i64 %.val13, 0
-  br i1 %177, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i30
+  br i1 %177, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i38
 
-.lr.ph.i30:                                       ; preds = %173, %.lr.ph.i30
-  %.sroa.01.01.i31 = phi ptr [ %178, %.lr.ph.i30 ], [ %.val12, %173 ]
-  %178 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i31, i64 32
-  %179 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i31), !noalias !547
+.lr.ph.i38:                                       ; preds = %173, %.lr.ph.i38
+  %.sroa.01.01.i39 = phi ptr [ %178, %.lr.ph.i38 ], [ %.val12, %173 ]
+  %178 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i39, i64 32
+  %179 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.01.i39), !noalias !547
   %180 = extractvalue { i64, ptr } %179, 0
   %181 = extractvalue { i64, ptr } %179, 1
   %182 = tail call noundef zeroext i1 @"_ZN148_$LT$ruff_python_formatter..comments..Comments..contains_comments..Visitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10enter_node17h4bf064a869a31f8cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %180, ptr noundef %181)
   %183 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext %182)
   %184 = icmp eq ptr %178, %176
-  br i1 %184, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i30
+  br i1 %184, label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit, label %.lr.ph.i38
 
 185:                                              ; preds = %2
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9029,7 +9140,7 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h4a
   tail call void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17ha00bd14b0c848abeE(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 %187)
   br label %_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit
 
-_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit: ; preds = %.lr.ph.i30, %.lr.ph.i28, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h4a447c83ff3bca4fE.exit.i, %.lr.ph.i20, %.lr.ph.i16, %.lr.ph.i, %173, %161, %146, %145, %142, %120, %119, %104, %76, %51, %44, %14, %11, %188, %2, %2, %2, %2, %185, %159, %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17hd3234329af1a2edcE.exit, %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hab4f5481016c370aE.exit, %65, %52, %40, %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h441381ef7d59f810E.exit, %_ZN15ruff_python_ast9generated13StmtTypeAlias18visit_source_order17hb1893d6749931a15E.exit, %9, %8
+_ZN15ruff_python_ast9generated10StmtDelete18visit_source_order17h6144885f009e8485E.exit: ; preds = %.lr.ph.i38, %.lr.ph.i35, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17h4a447c83ff3bca4fE.exit.i, %.lr.ph.i24, %.lr.ph.i18, %.lr.ph.i, %173, %161, %146, %145, %142, %120, %119, %104, %76, %51, %44, %14, %11, %188, %2, %2, %2, %2, %185, %159, %_ZN15ruff_python_ast9generated7StmtTry18visit_source_order17hd3234329af1a2edcE.exit, %_ZN15ruff_python_ast9generated8StmtWith18visit_source_order17hab4f5481016c370aE.exit, %65, %52, %40, %_ZN15ruff_python_ast9generated10StmtAssign18visit_source_order17h441381ef7d59f810E.exit, %_ZN15ruff_python_ast9generated13StmtTypeAlias18visit_source_order17hb1893d6749931a15E.exit, %9, %8
   ret void
 
 188:                                              ; preds = %11
@@ -9129,7 +9240,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated6StmtIf18visit_source
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i64, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %10, i64 %12
+  %.idx = mul nuw nsw i64 %12, 96
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %._crit_edge, label %.lr.ph
 
@@ -9158,7 +9270,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated6StmtIf18visit_source
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i64, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %10, i64 %12
+  %.idx = mul nuw nsw i64 %12, 96
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %._crit_edge, label %.lr.ph
 
@@ -9187,7 +9300,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated6StmtIf18visit_source
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i64, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %10, i64 %12
+  %.idx = mul nuw nsw i64 %12, 96
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %._crit_edge, label %.lr.ph
 
@@ -9216,7 +9330,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated6StmtIf18visit_source
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i64, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %10, i64 %12
+  %.idx = mul nuw nsw i64 %12, 96
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %._crit_edge, label %.lr.ph
 
@@ -9237,7 +9352,8 @@ define hidden void @_ZN15ruff_python_ast9generated7ExprSet18visit_source_order17
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -9258,7 +9374,8 @@ define hidden void @_ZN15ruff_python_ast9generated7ExprSet18visit_source_order17
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -9279,7 +9396,8 @@ define hidden void @_ZN15ruff_python_ast9generated7ExprSet18visit_source_order17
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -9300,7 +9418,8 @@ define hidden void @_ZN15ruff_python_ast9generated7ExprSet18visit_source_order17
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -9321,7 +9440,8 @@ define hidden void @_ZN15ruff_python_ast9generated7ExprSet18visit_source_order17
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -9342,7 +9462,8 @@ define hidden void @_ZN15ruff_python_ast9generated7ExprSet18visit_source_order17
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -9452,7 +9573,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated7StmtTry18visit_sourc
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %8, i64 %10
+  %.idx = mul nuw nsw i64 %10, 72
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -9488,7 +9610,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated7StmtTry18visit_sourc
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %8, i64 %10
+  %.idx = mul nuw nsw i64 %10, 72
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -9524,7 +9647,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated7StmtTry18visit_sourc
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %8, i64 %10
+  %.idx = mul nuw nsw i64 %10, 72
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -9560,7 +9684,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated7StmtTry18visit_sourc
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %8, i64 %10
+  %.idx = mul nuw nsw i64 %10, 72
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -9645,7 +9770,8 @@ define hidden void @_ZN15ruff_python_ast9generated8ExprList18visit_source_order1
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -9666,7 +9792,8 @@ define hidden void @_ZN15ruff_python_ast9generated8ExprList18visit_source_order1
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -9687,7 +9814,8 @@ define hidden void @_ZN15ruff_python_ast9generated8ExprList18visit_source_order1
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -9708,7 +9836,8 @@ define hidden void @_ZN15ruff_python_ast9generated8ExprList18visit_source_order1
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -9729,7 +9858,8 @@ define hidden void @_ZN15ruff_python_ast9generated8ExprList18visit_source_order1
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -9750,7 +9880,8 @@ define hidden void @_ZN15ruff_python_ast9generated8ExprList18visit_source_order1
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -9771,7 +9902,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated8StmtWith18visit_sour
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -9797,7 +9929,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated8StmtWith18visit_sour
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -9823,7 +9956,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated8StmtWith18visit_sour
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -9849,7 +9983,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated8StmtWith18visit_sour
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 }, ptr }, ptr %4, i64 %6
+  %.idx = mul nuw nsw i64 %6, 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -10205,7 +10340,8 @@ define hidden void @_ZN15ruff_python_ast9generated9ExprTuple18visit_source_order
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -10226,7 +10362,8 @@ define hidden void @_ZN15ruff_python_ast9generated9ExprTuple18visit_source_order
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -10247,7 +10384,8 @@ define hidden void @_ZN15ruff_python_ast9generated9ExprTuple18visit_source_order
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -10268,7 +10406,8 @@ define hidden void @_ZN15ruff_python_ast9generated9ExprTuple18visit_source_order
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -10289,7 +10428,8 @@ define hidden void @_ZN15ruff_python_ast9generated9ExprTuple18visit_source_order
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -10310,7 +10450,8 @@ define hidden void @_ZN15ruff_python_ast9generated9ExprTuple18visit_source_order
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -10334,7 +10475,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated9StmtMatch18visit_sou
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %6, i64 %8
+  %.idx = shl nuw nsw i64 %8, 7
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -10358,7 +10500,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated9StmtMatch18visit_sou
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %6, i64 %8
+  %.idx = shl nuw nsw i64 %8, 7
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -10382,7 +10525,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated9StmtMatch18visit_sou
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %6, i64 %8
+  %.idx = shl nuw nsw i64 %8, 7
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -10406,7 +10550,8 @@ define internal fastcc void @_ZN15ruff_python_ast9generated9StmtMatch18visit_sou
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %6, i64 %8
+  %.idx = shl nuw nsw i64 %8, 7
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 

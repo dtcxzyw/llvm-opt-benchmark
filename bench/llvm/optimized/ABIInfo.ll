@@ -960,7 +960,8 @@ define linkonce_odr hidden noundef i32 @_ZNK5clang16TargetClonesAttr15getMangled
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !579
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !492
   %.not.i = icmp eq i64 %.sroa.2.0.copyload.i, 7
@@ -976,7 +977,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %9 = load i32, ptr %8, align 4, !tbaa !588
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %4, i64 %10
+  %.idx21 = shl nuw nsw i64 %10, 4
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx21
   %.not9.i.i = icmp eq i32 %9, 0
   br i1 %.not9.i.i, label %_ZSt8count_ifIPN4llvm9StringRefEZNK5clang16TargetClonesAttr15getMangledIndexEjEUlS1_E_ENSt15iterator_traitsIT_E15difference_typeES7_S7_T0_.exit, label %.lr.ph.i.i
 
@@ -1353,7 +1355,8 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang7CodeGen12SwiftABIInfo16occupiesMoreThanEN4llvm8ArrayRefIPNS2_4TypeEEEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr readonly captures(address) %1, i64 %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not26 = icmp eq i64 %2, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
@@ -1417,7 +1420,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang7CodeGen12SwiftABIInfo16occupiesM
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang7CodeGen12SwiftABIInfo20shouldPassIndirectlyEN4llvm8ArrayRefIPNS2_4TypeEEEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr readonly captures(address) %1, i64 %2, i1 zeroext %3) unnamed_addr #5 align 2 {
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx.i = shl nuw nsw i64 %2, 3
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
   %.not26.i = icmp eq i64 %2, 0
   br i1 %.not26.i, label %_ZNK5clang7CodeGen12SwiftABIInfo16occupiesMoreThanEN4llvm8ArrayRefIPNS2_4TypeEEEj.exit, label %.lr.ph.i
 

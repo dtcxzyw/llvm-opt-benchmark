@@ -17262,7 +17262,8 @@ common.resume:                                    ; preds = %103, %.body
   %47 = getelementptr inbounds [0 x ptr], ptr %46, i64 0, i64 %42
   %48 = load ptr, ptr %29, align 8, !noalias !4283, !nonnull !9, !align !28, !noundef !9
   %49 = load i64, ptr %30, align 8, !noalias !4283, !noundef !9
-  %50 = getelementptr inbounds { { { [4 x i32], ptr, ptr }, {} }, i32, [1 x i32] }, ptr %48, i64 %49
+  %.idx.i.i.i = mul nsw i64 %49, 40
+  %50 = getelementptr inbounds i8, ptr %48, i64 %.idx.i.i.i
   %51 = icmp eq i64 %49, 0
   br i1 %51, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -32758,7 +32759,8 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17hbe8a6d37c40d5e16E.exit: ; p
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf271f328386ef283E.exit": ; preds = %._crit_edge161
   %.sroa.0.0.v.i32 = select i1 %trunc.i29, i64 7328, i64 120
   %.sroa.0.0.i33 = getelementptr inbounds nuw i8, ptr %79, i64 %.sroa.0.0.v.i32
-  %84 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] }, ptr %.sroa.0.0.i33, i64 %75
+  %.idx = mul nuw nsw i64 %75, 104
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i33, i64 %.idx
   %85 = icmp eq i64 %75, 0
   br i1 %85, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e476ec036f25f4dE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e476ec036f25f4dE.exit"
 
@@ -33063,7 +33065,8 @@ thread-pre-split._crit_edge:                      ; preds = %_ZN8arrayvec13array
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf271f328386ef283E.exit": ; preds = %._crit_edge139
   %.sroa.0.0.v.i32 = select i1 %trunc.i29, i64 7328, i64 120
   %.sroa.0.0.i33 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.0.v.i32
-  %67 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] }, ptr %.sroa.0.0.i33, i64 %59
+  %.idx = mul nuw nsw i64 %59, 104
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i33, i64 %.idx
   %68 = icmp eq i64 %59, 0
   br i1 %68, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e476ec036f25f4dE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e476ec036f25f4dE.exit"
 
@@ -33341,7 +33344,8 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h28e55c038c9c663aE.exit": ; preds = %._crit_edge114
   %.sroa.0.0.v.i34 = select i1 %trunc.i31, i64 696, i64 16
   %.sroa.0.0.i35 = getelementptr inbounds nuw i8, ptr %56, i64 %.sroa.0.0.v.i34
-  %61 = getelementptr inbounds { { i32, i16, [1 x i16] }, i64 }, ptr %.sroa.0.0.i35, i64 %53
+  %.idx = shl nuw nsw i64 %53, 4
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i35, i64 %.idx
   %62 = icmp eq i64 %53, 0
   br i1 %62, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3c7652b6440c2b2E.llvm.15813213850108364184.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he3c7652b6440c2b2E.llvm.15813213850108364184.exit"
 

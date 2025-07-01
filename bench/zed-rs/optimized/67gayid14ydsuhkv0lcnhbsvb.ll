@@ -8092,7 +8092,8 @@ _ZN7journal13heading_entry17h447e8e584c48ff23E.exit: ; preds = %.noexc106, %.noe
   %374 = load ptr, ptr %373, align 8, !nonnull !5, !noundef !5
   %375 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %376 = load i64, ptr %375, align 8, !noundef !5
-  %377 = getelementptr inbounds { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, ptr %374, i64 %376
+  %.idx = shl nsw i64 %376, 5
+  %377 = getelementptr inbounds i8, ptr %374, i64 %.idx
   %378 = icmp eq i64 %376, 0
   br i1 %378, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h279eed41956470f1E.exit.thread", label %.lr.ph
 

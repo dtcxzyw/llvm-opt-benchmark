@@ -3498,7 +3498,8 @@ define linkonce_odr dso_local void @_ZN4pbrt19PiecewiseConstant1DC2EN4pstd4spanI
   %8 = alloca float, align 4
   %9 = alloca float, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds nuw float, ptr %1, i64 %2
+  %.idx54 = shl nuw nsw i64 %2, 2
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx54
   %12 = ptrtoint ptr %5 to i64
   store i64 %12, ptr %0, align 8, !tbaa !109
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3518,11 +3519,10 @@ define linkonce_odr dso_local void @_ZN4pbrt19PiecewiseConstant1DC2EN4pstd4spanI
   br label %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i
 
 _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i: ; preds = %6
-  %.idx = shl nuw nsw i64 %2, 2
   %20 = load ptr, ptr %5, align 8, !tbaa !59
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.idx, i64 noundef 4)
+  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.idx54, i64 noundef 4)
   %24 = load i64, ptr %15, align 8, !tbaa !123
   %.not13.i.i = icmp eq i64 %24, 0
   %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !124
@@ -3684,7 +3684,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i: ; pr
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
   %88 = load ptr, ptr %13, align 8, !tbaa !124
   %89 = load i64, ptr %15, align 8, !tbaa !123
-  %90 = getelementptr inbounds nuw float, ptr %88, i64 %89
+  %.idx67 = shl nuw nsw i64 %89, 2
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx67
   %.not57 = icmp eq i64 %89, 0
   br i1 %.not57, label %._crit_edge, label %.lr.ph
 

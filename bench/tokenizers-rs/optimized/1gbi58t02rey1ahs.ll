@@ -19002,7 +19002,8 @@ define hidden void @"_ZN107_$LT$serde..__private..de..content..VariantRefDeseria
   %68 = load ptr, ptr %67, align 8, !alias.scope !4061, !nonnull !5, !noundef !5
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %70 = load i64, ptr %69, align 8, !alias.scope !4061, !noundef !5
-  %71 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %68, i64 %70
+  %.idx = shl nsw i64 %70, 6
+  %71 = getelementptr inbounds i8, ptr %68, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4064)
   %72 = icmp eq i64 %70, 0
   br i1 %72, label %.thread.thread.i, label %.lr.ph.i
@@ -19597,7 +19598,8 @@ common.resume:                                    ; preds = %213, %265, %293, %5
   %100 = load ptr, ptr %99, align 8, !alias.scope !4205, !nonnull !5, !noundef !5
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %102 = load i64, ptr %101, align 8, !alias.scope !4205, !noundef !5
-  %103 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %100, i64 %102
+  %.idx = shl nsw i64 %102, 6
+  %103 = getelementptr inbounds i8, ptr %100, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4208)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !4211
   store i64 -9223372036854775808, ptr %12, align 8, !noalias !4211

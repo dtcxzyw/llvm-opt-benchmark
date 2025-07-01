@@ -41,11 +41,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.61" = type { %"struct.std::_Head_base.62" }
 %"struct.std::_Head_base.62" = type { ptr }
 %"class.std::tuple.63" = type { i8 }
-%"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::DirtiedPrimEntry" = type { %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet" }
-%"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfSmallVector.32" }
-%"class.pxrInternal_v0_24__pxrReserved__::TfSmallVector.32" = type { %"union.pxrInternal_v0_24__pxrReserved__::TfSmallVectorBase::_DataUnion.33", i32, i32 }
-%"union.pxrInternal_v0_24__pxrReserved__::TfSmallVectorBase::_DataUnion.33" = type { ptr, [440 x i8] }
-%"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::RemovedPrimEntry" = type { %"class.pxrInternal_v0_24__pxrReserved__::SdfPath" }
 %"struct.std::_Rb_tree<pxrInternal_v0_24__pxrReserved__::SdfPath, std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, std::shared_ptr<pxrInternal_v0_24__pxrReserved__::HdsiPrimManagingSceneIndexObserver::PrimBase>>, std::_Select1st<std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, std::shared_ptr<pxrInternal_v0_24__pxrReserved__::HdsiPrimManagingSceneIndexObserver::PrimBase>>>, std::less<pxrInternal_v0_24__pxrReserved__::SdfPath>>::_Auto_node" = type { ptr, ptr }
 
 $_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14const_iteratorC2ERKS1_ = comdat any
@@ -2477,7 +2472,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__34HdsiPrimManagingSceneIndexOb
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %spec.select.i.i, i64 %14
+  %.idx = shl nuw nsw i64 %14, 4
+  %15 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 %.idx
   %.not17 = icmp eq i32 %13, 0
   br i1 %.not17, label %.loopexit, label %.lr.ph
 
@@ -2689,7 +2685,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__34HdsiPrimManagingSceneIndexOb
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 7424
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::DirtiedPrimEntry", ptr %spec.select.i.i, i64 %11
+  %.idx = mul nuw nsw i64 %11, 464
+  %12 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 %.idx
   %.not17 = icmp eq i32 %10, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -2827,7 +2824,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__34HdsiPrimManagingSceneIndexOb
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::RemovedPrimEntry", ptr %spec.select.i.i, i64 %10
+  %.idx = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 %.idx
   %.not20 = icmp eq i32 %9, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph22
 

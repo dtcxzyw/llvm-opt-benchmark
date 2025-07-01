@@ -9540,7 +9540,8 @@ define internal noundef zeroext i1 @"_ZN76_$LT$actix_web..http..header..allow..A
   %4 = load ptr, ptr %3, align 8, !nonnull !7, !noundef !7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !7
-  %7 = getelementptr inbounds { { i8, [23 x i8] } }, ptr %4, i64 %6
+  %.idx.i = mul nsw i64 %6, 24
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx.i
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h676ce2f26d48101aE.exit.thread.i.preheader", label %9
 

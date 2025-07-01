@@ -75,8 +75,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.81" = type { %"struct.std::_Head_base.84" }
 %"struct.std::_Head_base.84" = type { ptr }
 %"class.testing::internal::AssertHelper" = type { ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 %"class.std::thread" = type { %"class.std::thread::id" }
 %"class.std::thread::id" = type { i64 }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
@@ -2825,7 +2823,11 @@ define internal void @_ZN12_GLOBAL__N_144ConcurrentSequenceLockTest_ReadAndWrite
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 256
   store i64 %27, ptr %28, align 8, !tbaa !118
   %29 = icmp ult i64 %27, 33
-  br i1 %29, label %34, label %30
+  br i1 %29, label %._crit_edge228, label %30
+
+._crit_edge228:                                   ; preds = %1
+  %.pre229 = shl nuw nsw i64 %27, 3
+  br label %34
 
 30:                                               ; preds = %1
   %31 = icmp ugt i64 %27, 1152921504606846975
@@ -2840,11 +2842,12 @@ _ZNSt16allocator_traitsISaISt6atomicImEEE8allocateERS2_m.exit.i.i.i: ; preds = %
   %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #33
   br label %34
 
-34:                                               ; preds = %_ZNSt16allocator_traitsISaISt6atomicImEEE8allocateERS2_m.exit.i.i.i, %1
-  %.0.i.i.i = phi ptr [ %6, %1 ], [ %33, %_ZNSt16allocator_traitsISaISt6atomicImEEE8allocateERS2_m.exit.i.i.i ]
+34:                                               ; preds = %._crit_edge228, %_ZNSt16allocator_traitsISaISt6atomicImEEE8allocateERS2_m.exit.i.i.i
+  %.idx.pre-phi = phi i64 [ %.pre229, %._crit_edge228 ], [ %32, %_ZNSt16allocator_traitsISaISt6atomicImEEE8allocateERS2_m.exit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %6, %._crit_edge228 ], [ %33, %_ZNSt16allocator_traitsISaISt6atomicImEEE8allocateERS2_m.exit.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 264
   store ptr %.0.i.i.i, ptr %35, align 8, !tbaa !120
-  %36 = getelementptr inbounds nuw %"struct.std::atomic", ptr %.0.i.i.i, i64 %27
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.idx.pre-phi
   %.not206 = icmp ult i64 %26, 4294967296
   br i1 %.not206, label %._crit_edge, label %.lr.ph
 
@@ -3242,9 +3245,9 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %148
   br label %_ZN4absl10FixedArrayIcLm18446744073709551615ESaIcEED2Ev.exit131
 
 ._crit_edge215:                                   ; preds = %151, %.thread
-  %.0.i.i.i124230 = phi ptr [ %150, %.thread ], [ %13, %151 ]
+  %.0.i.i.i124232 = phi ptr [ %150, %.thread ], [ %13, %151 ]
   %154 = trunc nuw i32 %.090216 to i8
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0.i.i.i124230, i8 %154, i64 %146, i1 false), !tbaa !24
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0.i.i.i124232, i8 %154, i64 %146, i1 false), !tbaa !24
   %.pre = load ptr, ptr %126, align 8, !tbaa !155
   %155 = load ptr, ptr %35, align 8, !tbaa !120
   %156 = load atomic i64, ptr %7 monotonic, align 8

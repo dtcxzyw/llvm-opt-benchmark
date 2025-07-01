@@ -1633,13 +1633,13 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6ai
   %315 = getelementptr inbounds nuw i8, ptr %1, i64 1128
   %316 = load ptr, ptr %315, align 8
   %317 = zext i32 %61 to i64
-  %318 = getelementptr inbounds nuw i32, ptr %316, i64 %317
+  %.idx137 = shl nuw nsw i64 %317, 2
+  %318 = getelementptr inbounds nuw i8, ptr %316, i64 %.idx137
   %.not.i.i.i.i.i = icmp eq i32 %61, 0
   br i1 %.not.i.i.i.i.i, label %"_ZSt9transformIPjS0_ZN6Assimp7Blender22BlenderModifier_Mirror4DoItER6aiNodeRNS2_14ConversionDataERKNS2_8ElemBaseERKNS2_5SceneERKNS2_6ObjectEE3$_0ET0_T_SJ_SI_T1_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %314
-  %.idx = shl nuw nsw i64 %317, 2
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %65, ptr align 4 %316, i64 %.idx, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %65, ptr align 4 %316, i64 %.idx137, i1 false)
   %319 = getelementptr inbounds nuw i32, ptr %65, i64 %317
   br label %320
 

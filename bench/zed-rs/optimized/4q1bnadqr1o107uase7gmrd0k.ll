@@ -89423,7 +89423,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17hba3f140641e5467aE.exit.i: ; preds = %.
   %76 = load ptr, ptr %75, align 8, !noalias !19651, !nonnull !4, !noundef !4
   %77 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %78 = load i64, ptr %77, align 8, !noalias !19651, !noundef !4
-  %79 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %76, i64 %78
+  %.idx.i = mul nsw i64 %78, 24
+  %79 = getelementptr inbounds i8, ptr %76, i64 %.idx.i
   %80 = icmp eq i64 %78, 0
   br i1 %80, label %.loopexit32.i, label %.lr.ph.i.i
 
@@ -90721,7 +90722,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit.i.i: ; preds = 
   %.sroa.4.0.copyload.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !19934, !noalias !19937, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !19934, !noalias !19937
-  %107 = getelementptr inbounds { i64, { i32, i32 }, { i32, i32 }, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %.sroa.4.0.copyload.i.i.i, i64 %.sroa.5.0.copyload.i.i.i
+  %.idx.i.i = mul nsw i64 %.sroa.5.0.copyload.i.i.i, 40
+  %107 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i.i, i64 %.idx.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !19906
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20), !noalias !19906
   store ptr %.sroa.4.0.copyload.i.i.i, ptr %20, align 8, !noalias !19906
@@ -95924,7 +95926,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit.i.i: ; preds = 
   %.sroa.4.0.copyload.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !20913, !noalias !20916, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !20913, !noalias !20916
-  %86 = getelementptr inbounds { i64, { i32, i32 }, { i32, i32 }, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %.sroa.4.0.copyload.i.i.i, i64 %.sroa.5.0.copyload.i.i.i
+  %.idx.i.i = mul nsw i64 %.sroa.5.0.copyload.i.i.i, 40
+  %86 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i.i, i64 %.idx.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !20897
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !20897
   store ptr %.sroa.4.0.copyload.i.i.i, ptr %6, align 8, !noalias !20897
@@ -103894,7 +103897,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17hba3f140641e5467aE.exit.i: ; preds = %.
   %86 = load ptr, ptr %85, align 8, !noalias !22499, !nonnull !4, !noundef !4
   %87 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %88 = load i64, ptr %87, align 8, !noalias !22499, !noundef !4
-  %89 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %86, i64 %88
+  %.idx.i = mul nsw i64 %88, 24
+  %89 = getelementptr inbounds i8, ptr %86, i64 %.idx.i
   %90 = icmp eq i64 %88, 0
   br i1 %90, label %.loopexit84.i, label %.lr.ph.i.i
 
@@ -110574,7 +110578,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82bb98ccc1d8e800E.exit: ; preds = %3
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 648
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !23823
   call void @llvm.lifetime.end.p0(i64 656, ptr nonnull %7), !noalias !23823
-  %48 = getelementptr inbounds { i64, { { { i32, i32 } } }, { { { i32, i32 } } }, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %.sroa.2.0.copyload.i.i, i64 %.sroa.3.0.copyload.i.i
+  %.idx.i.i = mul nsw i64 %.sroa.3.0.copyload.i.i, 40
+  %48 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i.i, i64 %.idx.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !23823
   store ptr %.sroa.2.0.copyload.i.i, ptr %6, align 8, !noalias !23823
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -116192,7 +116197,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17hba3f140641e5467aE.exit.i: ; preds = %.
   %65 = load ptr, ptr %64, align 8, !noalias !24798, !nonnull !4, !noundef !4
   %66 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %67 = load i64, ptr %66, align 8, !noalias !24798, !noundef !4
-  %68 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %65, i64 %67
+  %.idx.i = mul nsw i64 %67, 24
+  %68 = getelementptr inbounds i8, ptr %65, i64 %.idx.i
   %69 = icmp eq i64 %67, 0
   br i1 %69, label %"_ZN3vim6visual26_$LT$impl$u20$vim..Vim$GT$12select_match28_$u7b$$u7b$closure$u7d$$u7d$17h9f66a9ab6e97cbcdE.exit", label %.lr.ph.i.i
 
@@ -116953,7 +116959,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17hba3f140641e5467aE.exit.i: ; preds = %.
   %94 = load ptr, ptr %93, align 8, !noalias !24903, !nonnull !4, !noundef !4
   %95 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %96 = load i64, ptr %95, align 8, !noalias !24903, !noundef !4
-  %97 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %94, i64 %96
+  %.idx.i = mul nsw i64 %96, 24
+  %97 = getelementptr inbounds i8, ptr %94, i64 %.idx.i
   %98 = icmp eq i64 %96, 0
   br i1 %98, label %"_ZN4core3ptr83drop_in_place$LT$gpui..view..View$LT$search..buffer_search..BufferSearchBar$GT$$GT$17hfd6fad385e6c746fE.exit35.i", label %.lr.ph.i.i
 
@@ -121926,7 +121933,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit.i.i: ; preds = 
   %.sroa.4.0.copyload.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !25851, !noalias !25854, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !25851, !noalias !25854
-  %86 = getelementptr inbounds { i64, { i32, i32 }, { i32, i32 }, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %.sroa.4.0.copyload.i.i.i, i64 %.sroa.5.0.copyload.i.i.i
+  %.idx.i.i = mul nsw i64 %.sroa.5.0.copyload.i.i.i, 40
+  %86 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i.i, i64 %.idx.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !25835
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !25835
   store ptr %.sroa.4.0.copyload.i.i.i, ptr %6, align 8, !noalias !25835
@@ -122525,7 +122533,8 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   store i64 0, ptr %51, align 8, !noalias !25984
   %52 = icmp ne ptr %.sroa.5.0.copyload, null
   call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, ptr %.sroa.5.0.copyload, i64 %.sroa.7.0.copyload
+  %.idx.i.i = mul nsw i64 %.sroa.7.0.copyload, 48
+  %53 = getelementptr inbounds i8, ptr %.sroa.5.0.copyload, i64 %.idx.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !25984
   store ptr %.sroa.5.0.copyload, ptr %8, align 8, !noalias !25984
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -125729,7 +125738,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit.i.i: ; preds = 
   %.sroa.4.0.copyload.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !26639, !noalias !26642, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !26639, !noalias !26642
-  %86 = getelementptr inbounds { i64, { i32, i32 }, { i32, i32 }, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %.sroa.4.0.copyload.i.i.i, i64 %.sroa.5.0.copyload.i.i.i
+  %.idx.i.i = mul nsw i64 %.sroa.5.0.copyload.i.i.i, 40
+  %86 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i.i, i64 %.idx.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !26623
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !26623
   store ptr %.sroa.4.0.copyload.i.i.i, ptr %6, align 8, !noalias !26623
@@ -126373,7 +126383,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17hba3f140641e5467aE.exit.i: ; preds = %.
   %79 = load ptr, ptr %78, align 8, !noalias !26785, !nonnull !4, !noundef !4
   %80 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %81 = load i64, ptr %80, align 8, !noalias !26785, !noundef !4
-  %82 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %79, i64 %81
+  %.idx.i = mul nsw i64 %81, 24
+  %82 = getelementptr inbounds i8, ptr %79, i64 %.idx.i
   %83 = icmp eq i64 %81, 0
   br i1 %83, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -140801,7 +140812,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17hba3f140641e5467aE.exit: ; preds = %"_Z
   %29 = load ptr, ptr %28, align 8, !nonnull !4, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %31 = load i64, ptr %30, align 8, !noundef !4
-  %32 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %29, i64 %31
+  %.idx = mul nsw i64 %31, 24
+  %32 = getelementptr inbounds i8, ptr %29, i64 %.idx
   %33 = icmp eq i64 %31, 0
   br i1 %33, label %"_ZN4core3ptr83drop_in_place$LT$gpui..view..View$LT$search..buffer_search..BufferSearchBar$GT$$GT$17hfd6fad385e6c746fE.exit", label %.lr.ph.i
 
@@ -141027,7 +141039,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17hba3f140641e5467aE.exit: ; preds = %"_Z
   %44 = load ptr, ptr %43, align 8, !nonnull !4, !noundef !4
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %46 = load i64, ptr %45, align 8, !noundef !4
-  %47 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %44, i64 %46
+  %.idx = mul nsw i64 %46, 24
+  %47 = getelementptr inbounds i8, ptr %44, i64 %.idx
   %48 = icmp eq i64 %46, 0
   br i1 %48, label %"_ZN4core3ptr83drop_in_place$LT$gpui..view..View$LT$search..buffer_search..BufferSearchBar$GT$$GT$17hfd6fad385e6c746fE.exit18", label %.lr.ph.i
 
@@ -143537,7 +143550,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17hba3f140641e5467aE.exit: ; preds = %"_Z
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i8, [7 x i8] }, ptr %28, i64 %30
+  %.idx = mul nsw i64 %30, 24
+  %31 = getelementptr inbounds i8, ptr %28, i64 %.idx
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h15271788c288bd86E.llvm.11494769183469379903.exit.thread", label %.lr.ph.i
 

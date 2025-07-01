@@ -10778,7 +10778,8 @@ common.ret:                                       ; preds = %2787, %2456
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34)
   %2635 = load ptr, ptr %36, align 8, !alias.scope !1473, !nonnull !4, !noundef !4
   %2636 = load i64, ptr %2495, align 8, !alias.scope !1473, !noundef !4
-  %2637 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %2635, i64 %2636
+  %.idx.i = shl nsw i64 %2636, 5
+  %2637 = getelementptr inbounds i8, ptr %2635, i64 %.idx.i
   %2638 = icmp eq i64 %2636, 0
   br i1 %2638, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit._crit_edge.i", label %.lr.ph.i
 
@@ -10794,11 +10795,11 @@ common.ret:                                       ; preds = %2787, %2456
   br i1 %2644, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit._crit_edge.i", label %.lr.ph.split.i
 
 .lr.ph.splitthread-pre-split.i:                   ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit.backedge.i"
-  %.pr110.i = load ptr, ptr %2639, align 8, !alias.scope !1476, !noalias !1481
+  %.pr111.i = load ptr, ptr %2639, align 8, !alias.scope !1476, !noalias !1481
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.splitthread-pre-split.i
-  %2645 = phi ptr [ %.pr110.i, %.lr.ph.splitthread-pre-split.i ], [ %2643, %.lr.ph.i ]
+  %2645 = phi ptr [ %.pr111.i, %.lr.ph.splitthread-pre-split.i ], [ %2643, %.lr.ph.i ]
   %.sroa.033.0104.i = phi ptr [ %2646, %.lr.ph.splitthread-pre-split.i ], [ %2635, %.lr.ph.i ]
   %2646 = getelementptr inbounds nuw i8, ptr %.sroa.033.0104.i, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !1484)
@@ -10856,19 +10857,20 @@ common.ret:                                       ; preds = %2787, %2456
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit.backedge.i": ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf83d80dd5fc9f3aE.exit.sink.split.i.i", %.lr.ph.split.i
   %2658 = icmp eq ptr %2646, %2637
-  br i1 %2658, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit._crit_edge.loopexit106.i", label %.lr.ph.splitthread-pre-split.i, !llvm.loop !1494
+  br i1 %2658, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit._crit_edge.loopexit107.i", label %.lr.ph.splitthread-pre-split.i, !llvm.loop !1494
 
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit._crit_edge.loopexit106.i": ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit.backedge.i"
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit._crit_edge.loopexit107.i": ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit.backedge.i"
   %.sroa.047.0.copyload.pre.i = load ptr, ptr %36, align 8
   %.sroa.649.0.copyload.pre.i = load i64, ptr %2495, align 8
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit._crit_edge.i"
 
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit._crit_edge.i": ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit._crit_edge.loopexit106.i", %.lr.ph.i, %2634
-  %.sroa.649.0.copyload.i = phi i64 [ %.sroa.649.0.copyload.pre.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit._crit_edge.loopexit106.i" ], [ 0, %2634 ], [ %2636, %.lr.ph.i ]
-  %.sroa.047.0.copyload.i = phi ptr [ %.sroa.047.0.copyload.pre.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit._crit_edge.loopexit106.i" ], [ %2635, %2634 ], [ %2635, %.lr.ph.i ]
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit._crit_edge.i": ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit._crit_edge.loopexit107.i", %.lr.ph.i, %2634
+  %.sroa.649.0.copyload.i = phi i64 [ %.sroa.649.0.copyload.pre.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit._crit_edge.loopexit107.i" ], [ 0, %2634 ], [ %2636, %.lr.ph.i ]
+  %.sroa.047.0.copyload.i = phi ptr [ %.sroa.047.0.copyload.pre.i, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$12contains_key17h3d0ff378cf98b4c9E.exit._crit_edge.loopexit107.i" ], [ %2635, %2634 ], [ %2635, %.lr.ph.i ]
   %.sroa.548.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.548.0.copyload.i = load i64, ptr %.sroa.548.0..sroa_idx.i, align 8
-  %2659 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %.sroa.047.0.copyload.i, i64 %.sroa.649.0.copyload.i
+  %.idx105.i = shl nsw i64 %.sroa.649.0.copyload.i, 5
+  %2659 = getelementptr inbounds i8, ptr %.sroa.047.0.copyload.i, i64 %.idx105.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
   store ptr %.sroa.047.0.copyload.i, ptr %21, align 8
   %.sroa.544.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8

@@ -3683,7 +3683,8 @@ _RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQNvMs_NtCseG2FYMysgNb_3wax4r
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = getelementptr inbounds nuw i8, ptr %.sink10.i.i.i, i64 24
   %49 = load i64, ptr %48, align 8, !noundef !5
-  %50 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %47, i64 %49
+  %.idx = mul nsw i64 %49, 24
+  %50 = getelementptr inbounds i8, ptr %47, i64 %.idx
   %51 = icmp eq i64 %49, 0
   br i1 %51, label %_RNvXs9_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4fuseINtB5_4FuseINtNtNtBb_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEINtB5_8FuseImplBY_E4nextB1s_.exit.i78.backedge, label %.lr.ph
 
@@ -4210,7 +4211,8 @@ _RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQNvMs_NtCseG2FYMysgNb_3wax4r
   %50 = load ptr, ptr %49, align 8, !nonnull !5, !noundef !5
   %51 = getelementptr inbounds nuw i8, ptr %.sink10.i.i.i, i64 24
   %52 = load i64, ptr %51, align 8, !noundef !5
-  %53 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %50, i64 %52
+  %.idx434 = mul nsw i64 %52, 24
+  %53 = getelementptr inbounds i8, ptr %50, i64 %.idx434
   %54 = icmp eq i64 %52, 0
   br i1 %54, label %_RNvXs9_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4fuseINtB5_4FuseINtNtNtBb_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEINtB5_8FuseImplBY_E4nextB1s_.exit.i78.backedge, label %.lr.ph
 

@@ -15580,7 +15580,7 @@ define void @"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigatu
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %30 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, ptr %20, i64 %21
   %31 = icmp eq i64 %24, 0
-  br i1 %31, label %.loopexit43, label %.lr.ph.i
+  br i1 %31, label %.loopexit44, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -15597,7 +15597,7 @@ define void @"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigatu
   %.sroa.7.019.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %39 ]
   %36 = add nsw i64 %.sroa.10.021.i, -1
   %37 = icmp eq ptr %.sroa.011.020.i, %30
-  br i1 %37, label %.loopexit43, label %38
+  br i1 %37, label %.loopexit44, label %38
 
 38:                                               ; preds = %35
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.011.020.i)
@@ -15612,7 +15612,7 @@ define void @"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigatu
   %44 = getelementptr inbounds nuw [0 x { [4 x i64] }], ptr %27, i64 0, i64 %.sroa.7.019.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !2390
   %45 = icmp eq i64 %36, 0
-  br i1 %45, label %.loopexit43, label %35
+  br i1 %45, label %.loopexit44, label %35
 
 46:                                               ; preds = %48
   %47 = landingpad { ptr, i32 }
@@ -15631,7 +15631,7 @@ common.resume:                                    ; preds = %.thread27, %.thread
   %common.resume.op = phi { ptr, i32 } [ %lpad.loopexit.i, %48 ], [ %113, %.thread ], [ %eh.lpad-body18, %.thread27 ], [ %81, %80 ]
   resume { ptr, i32 } %common.resume.op
 
-.loopexit43:                                      ; preds = %39, %35, %26
+.loopexit44:                                      ; preds = %39, %35, %26
   store i64 %21, ptr %29, align 8, !noalias !2388
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !2388
@@ -15642,13 +15642,14 @@ common.resume:                                    ; preds = %.thread27, %.thread
   %.pre41 = load i64, ptr %.phi.trans.insert40, align 8
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %51 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, ptr %.pre, i64 %.pre41
+  %.idx = shl nsw i64 %.pre41, 5
+  %51 = getelementptr inbounds i8, ptr %.pre, i64 %.idx
   %52 = icmp eq i64 %.pre41, 0
   br i1 %52, label %.loopexit, label %.lr.ph.i12
 
-.lr.ph.i12:                                       ; preds = %.loopexit43, %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.thread.i"
-  %.sroa.02.012.i = phi i64 [ %58, %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.thread.i" ], [ 0, %.loopexit43 ]
-  %53 = phi ptr [ %54, %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.thread.i" ], [ %.pre, %.loopexit43 ]
+.lr.ph.i12:                                       ; preds = %.loopexit44, %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.thread.i"
+  %.sroa.02.012.i = phi i64 [ %58, %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.thread.i" ], [ 0, %.loopexit44 ]
+  %53 = phi ptr [ %54, %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.thread.i" ], [ %.pre, %.loopexit44 ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = getelementptr i8, ptr %53, i64 16
   %.val8.i = load i64, ptr %55, align 8, !noalias !2398, !noundef !4
@@ -15679,9 +15680,9 @@ common.resume:                                    ; preds = %.thread27, %.thread
   store i32 %., ptr %64, align 8
   br label %73
 
-.loopexit:                                        ; preds = %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.thread.i", %.thread42, %.loopexit43
-  %65 = phi ptr [ %17, %.thread42 ], [ %50, %.loopexit43 ], [ %50, %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.thread.i" ]
-  %66 = phi ptr [ %16, %.thread42 ], [ %49, %.loopexit43 ], [ %49, %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.thread.i" ]
+.loopexit:                                        ; preds = %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.thread.i", %.thread42, %.loopexit44
+  %65 = phi ptr [ %17, %.thread42 ], [ %50, %.loopexit44 ], [ %50, %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.thread.i" ]
+  %66 = phi ptr [ %16, %.thread42 ], [ %49, %.loopexit44 ], [ %49, %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.thread.i" ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !2405
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17hc3a58dc16e07d06fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef 4, i1 noundef zeroext false)

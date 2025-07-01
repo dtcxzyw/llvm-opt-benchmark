@@ -5726,7 +5726,8 @@ _ZN14regex_automata3nfa8thompson6pikevm6PikeVM15epsilon_closure17hda26b74b08f2f8
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4ef7705dc82cbba5E.exit": ; preds = %364
   %.val78 = load ptr, ptr %76, align 8, !nonnull !4, !noundef !4
-  %368 = getelementptr inbounds i32, ptr %.val78, i64 %365
+  %.idx = shl nsw i64 %365, 2
+  %368 = getelementptr inbounds i8, ptr %.val78, i64 %.idx
   %369 = icmp eq i64 %365, 0
   br i1 %369, label %_ZN14regex_automata3nfa8thompson6pikevm6PikeVM17nexts_overlapping17h18d8504a8b056f6aE.exit, label %.lr.ph
 

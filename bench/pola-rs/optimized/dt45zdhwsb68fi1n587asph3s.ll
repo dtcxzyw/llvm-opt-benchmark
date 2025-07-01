@@ -37812,7 +37812,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   %140 = load i64, ptr %24, align 8, !alias.scope !3028, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !3031)
   %141 = trunc i64 %140 to i32
-  %142 = getelementptr inbounds nuw i32, ptr %13, i64 %137
+  %.idx = shl nuw nsw i64 %137, 2
+  %142 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %143 = icmp eq i64 %137, 0
   br i1 %143, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit116", label %.lr.ph216
 
@@ -38327,7 +38328,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   %145 = load i64, ptr %28, align 8, !alias.scope !3081, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !3084)
   %146 = trunc i64 %145 to i32
-  %147 = getelementptr inbounds nuw i32, ptr %14, i64 %142
+  %.idx = shl nuw nsw i64 %142, 2
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %148 = icmp eq i64 %142, 0
   br i1 %148, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit109", label %.lr.ph210
 
@@ -38842,7 +38844,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   %145 = load i64, ptr %28, align 8, !alias.scope !3134, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !3137)
   %146 = trunc i64 %145 to i32
-  %147 = getelementptr inbounds nuw i32, ptr %14, i64 %142
+  %.idx = shl nuw nsw i64 %142, 2
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %148 = icmp eq i64 %142, 0
   br i1 %148, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit109", label %.lr.ph210
 
@@ -39357,7 +39360,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   %145 = load i64, ptr %28, align 8, !alias.scope !3186, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !3189)
   %146 = trunc i64 %145 to i32
-  %147 = getelementptr inbounds nuw i32, ptr %14, i64 %142
+  %.idx = shl nuw nsw i64 %142, 2
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %148 = icmp eq i64 %142, 0
   br i1 %148, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit109", label %.lr.ph210
 
@@ -39866,7 +39870,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   %142 = load i64, ptr %26, align 8, !alias.scope !3238, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !3241)
   %143 = trunc i64 %142 to i32
-  %144 = getelementptr inbounds nuw i32, ptr %14, i64 %139
+  %.idx = shl nuw nsw i64 %139, 2
+  %144 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %145 = icmp eq i64 %139, 0
   br i1 %145, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit116", label %.lr.ph216
 
@@ -40381,7 +40386,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   %145 = load i64, ptr %28, align 8, !alias.scope !3290, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !3293)
   %146 = trunc i64 %145 to i32
-  %147 = getelementptr inbounds nuw i32, ptr %14, i64 %142
+  %.idx = shl nuw nsw i64 %142, 2
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %148 = icmp eq i64 %142, 0
   br i1 %148, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit109", label %.lr.ph210
 
@@ -40890,7 +40896,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   %142 = load i64, ptr %26, align 8, !alias.scope !3342, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !3345)
   %143 = trunc i64 %142 to i32
-  %144 = getelementptr inbounds nuw i32, ptr %14, i64 %139
+  %.idx = shl nuw nsw i64 %139, 2
+  %144 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %145 = icmp eq i64 %139, 0
   br i1 %145, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit116", label %.lr.ph216
 
@@ -41399,7 +41406,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   %142 = load i64, ptr %26, align 8, !alias.scope !3394, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !3397)
   %143 = trunc i64 %142 to i32
-  %144 = getelementptr inbounds nuw i32, ptr %14, i64 %139
+  %.idx = shl nuw nsw i64 %139, 2
+  %144 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %145 = icmp eq i64 %139, 0
   br i1 %145, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit116", label %.lr.ph216
 
@@ -41913,7 +41921,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   %144 = load i64, ptr %27, align 8, !alias.scope !3446, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !3449)
   %145 = trunc i64 %144 to i32
-  %146 = getelementptr inbounds nuw i32, ptr %14, i64 %141
+  %.idx = shl nuw nsw i64 %141, 2
+  %146 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %147 = icmp eq i64 %141, 0
   br i1 %147, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit112", label %.lr.ph213
 
@@ -64102,7 +64111,8 @@ define internal fastcc void @_ZN14polars_parquet5arrow5write6schema13convert_dty
   %39 = load ptr, ptr %38, align 8, !nonnull !3, !noundef !3
   %40 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %41 = load i64, ptr %40, align 8, !noundef !3
-  %42 = getelementptr inbounds nuw { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] }, ptr %39, i64 %41
+  %.idx = mul nuw nsw i64 %41, 72
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
   %43 = icmp eq i64 %41, 0
   br i1 %43, label %._crit_edge, label %.lr.ph
 
@@ -64541,7 +64551,8 @@ define hidden void @_ZN14polars_parquet5arrow5write6schema21insert_field_metadat
 .lr.ph:                                           ; preds = %"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h663316740b6b20d5E.exit", %.critedge
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8, !nonnull !3, !noundef !3
-  %55 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %54, i64 %27
+  %.idx = mul nuw nsw i64 %27, 48
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx
   %.sroa.043.1215 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %.sroa.4124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.5125.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -65423,7 +65434,8 @@ define void @_ZN14polars_parquet5arrow5write6schema22schema_to_metadata_key17h77
   %20 = load ptr, ptr %19, align 8, !nonnull !3, !noundef !3
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8, !noundef !3
-  %23 = getelementptr inbounds nuw { i64, { { { ptr, i64, i32, i16, i8, i8 } } }, { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] } }, ptr %20, i64 %22
+  %.idx = mul nuw nsw i64 %22, 104
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %.sroa.0.0.sroa.gep = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.0.0.sroa.gep24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %24 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [1 x i32] }, { i8, [15 x i8] } }, ptr %2, i64 %3
@@ -72390,7 +72402,8 @@ define void @_ZN14polars_parquet7parquet5write12column_chunk18build_column_chunk
   %32 = alloca [64 x i8], align 8
   %33 = alloca [40 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33)
-  %34 = getelementptr inbounds nuw { { { i64, [18 x i64] }, { i64, [20 x i64] }, { i32, [1 x i32] }, { [8 x i8], i8, [3 x i8] }, i32, i32, i32, i8, [7 x i8] }, { i64, [23 x i64] }, i64, i64, i64, i64, i64, i8, [7 x i8] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 600
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23), !noalias !5216
   %35 = tail call noundef i64 @_ZN8foldhash4seed19gen_per_hasher_seed17ha42e040d22b4621fE(), !noalias !5216
   %36 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN8foldhash4seed6global19GLOBAL_SEED_STORAGE17h6bd12a329340ff68E, i64 32) acquire, align 8, !noalias !5216

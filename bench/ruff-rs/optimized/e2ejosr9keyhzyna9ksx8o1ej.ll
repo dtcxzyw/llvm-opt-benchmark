@@ -1746,7 +1746,8 @@ _ZN7similar10algorithms7compact16cleanup_diff_ops17h9d8b60029f6a9167E.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %35 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %36 = getelementptr inbounds nuw { i64, [4 x i64] }, ptr %35, i64 %26
+  %.idx = mul nuw nsw i64 %26, 40
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx
   %37 = icmp eq i64 %26, 0
   br i1 %37, label %._crit_edge, label %.lr.ph
 
@@ -1878,7 +1879,8 @@ _ZN7similar10algorithms7compact16cleanup_diff_ops17h947aa92bed8990a9E.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %39 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
-  %40 = getelementptr inbounds nuw { i64, [4 x i64] }, ptr %39, i64 %30
+  %.idx = mul nuw nsw i64 %30, 40
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
   %41 = icmp eq i64 %30, 0
   br i1 %41, label %._crit_edge, label %.lr.ph
 
@@ -2027,7 +2029,8 @@ _ZN7similar10algorithms7compact16cleanup_diff_ops17hb66e1e1663c58d8cE.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %41 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds nuw { i64, [4 x i64] }, ptr %41, i64 %32
+  %.idx = mul nuw nsw i64 %32, 40
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx
   %43 = icmp eq i64 %32, 0
   br i1 %43, label %._crit_edge, label %.lr.ph
 
@@ -3375,7 +3378,8 @@ define internal void @_ZN12aho_corasick9automaton9Automaton8try_find17h022ecbc59
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h019bef736fbae720E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -3392,7 +3396,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h019bef73
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h06ccb90f6aea4425E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -3409,7 +3414,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h06ccb90f
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h14b2b00da693d5b6E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -3426,7 +3432,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h14b2b00d
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h1bab3053a85f91ceE(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -3443,7 +3450,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h1bab3053
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h1f0d897c7bbf4a64E(ptr noalias noundef align 1 dereferenceable(1) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -3460,7 +3468,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h1f0d897c
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h3f7e94e548a01d6dE(ptr noalias noundef align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -3477,7 +3486,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h3f7e94e5
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h4fab582fbc4b1097E(ptr noalias noundef align 1 dereferenceable(1) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -3494,7 +3504,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h4fab582f
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h59a26f0c0a7a7c4bE(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -3511,7 +3522,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h59a26f0c
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h6b83a00297029bbeE(ptr noalias noundef align 4 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -3528,7 +3540,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17h6b83a002
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17ha7b6defd3f8f1f8cE(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -3545,7 +3558,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17ha7b6defd
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17hb376385ba7656bbbE(ptr noalias noundef align 8 dereferenceable(120) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -3562,7 +3576,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17hb376385b
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17hc28c57f539b842d4E(ptr noalias noundef align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -3579,7 +3594,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17hc28c57f5
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_body17he187086bc0bc7a3eE(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -3613,10 +3629,10 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h05be3a54
 
 .loopexit.sink.split:                             ; preds = %2, %11, %12, %17, %._crit_edge
   %.sink = phi i64 [ 88, %._crit_edge ], [ 40, %17 ], [ 40, %12 ], [ 40, %11 ], [ 32, %2 ]
-  %.sink26 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
+  %.sink28 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink26
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink28
   %10 = load i64, ptr %9, align 8, !noundef !4
   tail call void @_ZN15ruff_python_ast17statement_visitor16StatementVisitor10visit_body17hc5c3c3802bd31456E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %8, i64 noundef %10)
   br label %.loopexit
@@ -3653,7 +3669,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h05be3a54
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %28, i64 %30
+  %.idx23 = mul nuw nsw i64 %30, 96
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx23
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %.loopexit, label %.lr.ph21
 
@@ -3662,7 +3679,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h05be3a54
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8, !noundef !4
-  %38 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %35, i64 %37
+  %.idx22 = shl nuw nsw i64 %37, 7
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx22
   %39 = icmp eq i64 %37, 0
   br i1 %39, label %.loopexit, label %.lr.ph18
 
@@ -3676,7 +3694,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h05be3a54
   %46 = load ptr, ptr %45, align 8, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load i64, ptr %47, align 8, !noundef !4
-  %49 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %46, i64 %48
+  %.idx = mul nuw nsw i64 %48, 72
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %._crit_edge, label %.lr.ph
 
@@ -3729,10 +3748,10 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h1de4a5b1
 
 .loopexit.sink.split:                             ; preds = %2, %11, %12, %17, %._crit_edge
   %.sink = phi i64 [ 88, %._crit_edge ], [ 40, %17 ], [ 40, %12 ], [ 40, %11 ], [ 32, %2 ]
-  %.sink26 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
+  %.sink28 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink26
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink28
   %10 = load i64, ptr %9, align 8, !noundef !4
   tail call void @_ZN15ruff_python_ast17statement_visitor16StatementVisitor10visit_body17hd9ff17f589332afcE(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 %8, i64 noundef %10)
   br label %.loopexit
@@ -3769,7 +3788,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h1de4a5b1
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %28, i64 %30
+  %.idx23 = mul nuw nsw i64 %30, 96
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx23
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %.loopexit, label %.lr.ph21
 
@@ -3778,7 +3798,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h1de4a5b1
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8, !noundef !4
-  %38 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %35, i64 %37
+  %.idx22 = shl nuw nsw i64 %37, 7
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx22
   %39 = icmp eq i64 %37, 0
   br i1 %39, label %.loopexit, label %.lr.ph18
 
@@ -3792,7 +3813,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h1de4a5b1
   %46 = load ptr, ptr %45, align 8, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load i64, ptr %47, align 8, !noundef !4
-  %49 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %46, i64 %48
+  %.idx = mul nuw nsw i64 %48, 72
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %._crit_edge, label %.lr.ph
 
@@ -3845,10 +3867,10 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h4ba11f84
 
 .loopexit.sink.split:                             ; preds = %2, %11, %12, %17, %._crit_edge
   %.sink = phi i64 [ 88, %._crit_edge ], [ 40, %17 ], [ 40, %12 ], [ 40, %11 ], [ 32, %2 ]
-  %.sink26 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
+  %.sink28 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink26
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink28
   %10 = load i64, ptr %9, align 8, !noundef !4
   tail call void @_ZN15ruff_python_ast17statement_visitor16StatementVisitor10visit_body17hc2a241e47d1cd21cE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 %8, i64 noundef %10)
   br label %.loopexit
@@ -3885,7 +3907,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h4ba11f84
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %28, i64 %30
+  %.idx23 = mul nuw nsw i64 %30, 96
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx23
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %.loopexit, label %.lr.ph21
 
@@ -3894,7 +3917,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h4ba11f84
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8, !noundef !4
-  %38 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %35, i64 %37
+  %.idx22 = shl nuw nsw i64 %37, 7
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx22
   %39 = icmp eq i64 %37, 0
   br i1 %39, label %.loopexit, label %.lr.ph18
 
@@ -3908,7 +3932,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h4ba11f84
   %46 = load ptr, ptr %45, align 8, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load i64, ptr %47, align 8, !noundef !4
-  %49 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %46, i64 %48
+  %.idx = mul nuw nsw i64 %48, 72
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %._crit_edge, label %.lr.ph
 
@@ -3961,10 +3986,10 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h535e5ade
 
 .loopexit.sink.split:                             ; preds = %2, %11, %12, %17, %._crit_edge
   %.sink = phi i64 [ 88, %._crit_edge ], [ 40, %17 ], [ 40, %12 ], [ 40, %11 ], [ 32, %2 ]
-  %.sink26 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
+  %.sink28 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink26
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink28
   %10 = load i64, ptr %9, align 8, !noundef !4
   tail call void @"_ZN123_$LT$ruff_linter..rules..numpy..helpers..ImportSearcher$u20$as$u20$ruff_python_ast..statement_visitor..StatementVisitor$GT$10visit_body17h0aa70a1fec8797f2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 %8, i64 noundef %10)
   br label %.loopexit
@@ -4001,7 +4026,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h535e5ade
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %28, i64 %30
+  %.idx23 = mul nuw nsw i64 %30, 96
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx23
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %.loopexit, label %.lr.ph21
 
@@ -4010,7 +4036,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h535e5ade
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8, !noundef !4
-  %38 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %35, i64 %37
+  %.idx22 = shl nuw nsw i64 %37, 7
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx22
   %39 = icmp eq i64 %37, 0
   br i1 %39, label %.loopexit, label %.lr.ph18
 
@@ -4024,7 +4051,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h535e5ade
   %46 = load ptr, ptr %45, align 8, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load i64, ptr %47, align 8, !noundef !4
-  %49 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %46, i64 %48
+  %.idx = mul nuw nsw i64 %48, 72
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %._crit_edge, label %.lr.ph
 
@@ -4077,10 +4105,10 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h7253ff6b
 
 .loopexit.sink.split:                             ; preds = %2, %11, %12, %17, %._crit_edge
   %.sink = phi i64 [ 88, %._crit_edge ], [ 40, %17 ], [ 40, %12 ], [ 40, %11 ], [ 32, %2 ]
-  %.sink26 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
+  %.sink28 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink26
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink28
   %10 = load i64, ptr %9, align 8, !noundef !4
   tail call void @_ZN15ruff_python_ast17statement_visitor16StatementVisitor10visit_body17hc336fb3949b43596E(ptr noalias noundef nonnull align 4 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 %8, i64 noundef %10)
   br label %.loopexit
@@ -4117,7 +4145,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h7253ff6b
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %28, i64 %30
+  %.idx23 = mul nuw nsw i64 %30, 96
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx23
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %.loopexit, label %.lr.ph21
 
@@ -4126,7 +4155,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h7253ff6b
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8, !noundef !4
-  %38 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %35, i64 %37
+  %.idx22 = shl nuw nsw i64 %37, 7
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx22
   %39 = icmp eq i64 %37, 0
   br i1 %39, label %.loopexit, label %.lr.ph18
 
@@ -4140,7 +4170,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h7253ff6b
   %46 = load ptr, ptr %45, align 8, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load i64, ptr %47, align 8, !noundef !4
-  %49 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %46, i64 %48
+  %.idx = mul nuw nsw i64 %48, 72
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %._crit_edge, label %.lr.ph
 
@@ -4193,10 +4224,10 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h820945f9
 
 .loopexit.sink.split:                             ; preds = %2, %11, %12, %17, %._crit_edge
   %.sink = phi i64 [ 88, %._crit_edge ], [ 40, %17 ], [ 40, %12 ], [ 40, %11 ], [ 32, %2 ]
-  %.sink26 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
+  %.sink28 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink26
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink28
   %10 = load i64, ptr %9, align 8, !noundef !4
   tail call void @_ZN15ruff_python_ast17statement_visitor16StatementVisitor10visit_body17h7902be521540d1fcE(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 %8, i64 noundef %10)
   br label %.loopexit
@@ -4233,7 +4264,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h820945f9
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %28, i64 %30
+  %.idx23 = mul nuw nsw i64 %30, 96
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx23
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %.loopexit, label %.lr.ph21
 
@@ -4242,7 +4274,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h820945f9
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8, !noundef !4
-  %38 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %35, i64 %37
+  %.idx22 = shl nuw nsw i64 %37, 7
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx22
   %39 = icmp eq i64 %37, 0
   br i1 %39, label %.loopexit, label %.lr.ph18
 
@@ -4256,7 +4289,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17h820945f9
   %46 = load ptr, ptr %45, align 8, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load i64, ptr %47, align 8, !noundef !4
-  %49 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %46, i64 %48
+  %.idx = mul nuw nsw i64 %48, 72
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %._crit_edge, label %.lr.ph
 
@@ -4309,10 +4343,10 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17ha06f6ff2
 
 .loopexit.sink.split:                             ; preds = %2, %11, %12, %17, %._crit_edge
   %.sink = phi i64 [ 88, %._crit_edge ], [ 40, %17 ], [ 40, %12 ], [ 40, %11 ], [ 32, %2 ]
-  %.sink26 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
+  %.sink28 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink26
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink28
   %10 = load i64, ptr %9, align 8, !noundef !4
   tail call void @_ZN15ruff_python_ast17statement_visitor16StatementVisitor10visit_body17hf01f7a3485dbfbd8E(ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 8 %8, i64 noundef %10)
   br label %.loopexit
@@ -4349,7 +4383,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17ha06f6ff2
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %28, i64 %30
+  %.idx23 = mul nuw nsw i64 %30, 96
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx23
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %.loopexit, label %.lr.ph21
 
@@ -4358,7 +4393,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17ha06f6ff2
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8, !noundef !4
-  %38 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %35, i64 %37
+  %.idx22 = shl nuw nsw i64 %37, 7
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx22
   %39 = icmp eq i64 %37, 0
   br i1 %39, label %.loopexit, label %.lr.ph18
 
@@ -4372,7 +4408,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17ha06f6ff2
   %46 = load ptr, ptr %45, align 8, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load i64, ptr %47, align 8, !noundef !4
-  %49 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %46, i64 %48
+  %.idx = mul nuw nsw i64 %48, 72
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %._crit_edge, label %.lr.ph
 
@@ -4425,10 +4462,10 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hb18a80e8
 
 .loopexit.sink.split:                             ; preds = %2, %11, %12, %17, %._crit_edge
   %.sink = phi i64 [ 88, %._crit_edge ], [ 40, %17 ], [ 40, %12 ], [ 40, %11 ], [ 32, %2 ]
-  %.sink26 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
+  %.sink28 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink26
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink28
   %10 = load i64, ptr %9, align 8, !noundef !4
   tail call void @_ZN15ruff_python_ast17statement_visitor16StatementVisitor10visit_body17he9e57f9a4b92f4afE(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %8, i64 noundef %10)
   br label %.loopexit
@@ -4465,7 +4502,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hb18a80e8
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %28, i64 %30
+  %.idx23 = mul nuw nsw i64 %30, 96
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx23
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %.loopexit, label %.lr.ph21
 
@@ -4474,7 +4512,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hb18a80e8
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8, !noundef !4
-  %38 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %35, i64 %37
+  %.idx22 = shl nuw nsw i64 %37, 7
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx22
   %39 = icmp eq i64 %37, 0
   br i1 %39, label %.loopexit, label %.lr.ph18
 
@@ -4488,7 +4527,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hb18a80e8
   %46 = load ptr, ptr %45, align 8, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load i64, ptr %47, align 8, !noundef !4
-  %49 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %46, i64 %48
+  %.idx = mul nuw nsw i64 %48, 72
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %._crit_edge, label %.lr.ph
 
@@ -4541,10 +4581,10 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hbbb83982
 
 .loopexit.sink.split:                             ; preds = %2, %11, %12, %17, %._crit_edge
   %.sink = phi i64 [ 88, %._crit_edge ], [ 40, %17 ], [ 40, %12 ], [ 40, %11 ], [ 32, %2 ]
-  %.sink26 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
+  %.sink28 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink26
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink28
   %10 = load i64, ptr %9, align 8, !noundef !4
   tail call void @_ZN15ruff_python_ast17statement_visitor16StatementVisitor10visit_body17h426f40a862583882E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %8, i64 noundef %10)
   br label %.loopexit
@@ -4581,7 +4621,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hbbb83982
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %28, i64 %30
+  %.idx23 = mul nuw nsw i64 %30, 96
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx23
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %.loopexit, label %.lr.ph21
 
@@ -4590,7 +4631,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hbbb83982
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8, !noundef !4
-  %38 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %35, i64 %37
+  %.idx22 = shl nuw nsw i64 %37, 7
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx22
   %39 = icmp eq i64 %37, 0
   br i1 %39, label %.loopexit, label %.lr.ph18
 
@@ -4604,7 +4646,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hbbb83982
   %46 = load ptr, ptr %45, align 8, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load i64, ptr %47, align 8, !noundef !4
-  %49 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %46, i64 %48
+  %.idx = mul nuw nsw i64 %48, 72
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %._crit_edge, label %.lr.ph
 
@@ -4657,10 +4700,10 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hcff43075
 
 .loopexit.sink.split:                             ; preds = %2, %11, %12, %17, %._crit_edge
   %.sink = phi i64 [ 88, %._crit_edge ], [ 40, %17 ], [ 40, %12 ], [ 40, %11 ], [ 32, %2 ]
-  %.sink26 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
+  %.sink28 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink26
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink28
   %10 = load i64, ptr %9, align 8, !noundef !4
   tail call void @_ZN15ruff_python_ast17statement_visitor16StatementVisitor10visit_body17hc007b7b5118edadcE(ptr noalias noundef nonnull align 1 dereferenceable(1) %0, ptr noalias noundef nonnull readonly align 8 %8, i64 noundef %10)
   br label %.loopexit
@@ -4697,7 +4740,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hcff43075
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %28, i64 %30
+  %.idx23 = mul nuw nsw i64 %30, 96
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx23
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %.loopexit, label %.lr.ph21
 
@@ -4706,7 +4750,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hcff43075
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8, !noundef !4
-  %38 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %35, i64 %37
+  %.idx22 = shl nuw nsw i64 %37, 7
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx22
   %39 = icmp eq i64 %37, 0
   br i1 %39, label %.loopexit, label %.lr.ph18
 
@@ -4720,7 +4765,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hcff43075
   %46 = load ptr, ptr %45, align 8, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load i64, ptr %47, align 8, !noundef !4
-  %49 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %46, i64 %48
+  %.idx = mul nuw nsw i64 %48, 72
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %._crit_edge, label %.lr.ph
 
@@ -4773,10 +4819,10 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hecbaf8e9
 
 .loopexit.sink.split:                             ; preds = %2, %11, %12, %17, %._crit_edge
   %.sink = phi i64 [ 88, %._crit_edge ], [ 40, %17 ], [ 40, %12 ], [ 40, %11 ], [ 32, %2 ]
-  %.sink26 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
+  %.sink28 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink26
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink28
   %10 = load i64, ptr %9, align 8, !noundef !4
   tail call void @_ZN15ruff_python_ast17statement_visitor16StatementVisitor10visit_body17h2e828d4017c90784E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %8, i64 noundef %10)
   br label %.loopexit
@@ -4813,7 +4859,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hecbaf8e9
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %28, i64 %30
+  %.idx23 = mul nuw nsw i64 %30, 96
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx23
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %.loopexit, label %.lr.ph21
 
@@ -4822,7 +4869,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hecbaf8e9
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8, !noundef !4
-  %38 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %35, i64 %37
+  %.idx22 = shl nuw nsw i64 %37, 7
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx22
   %39 = icmp eq i64 %37, 0
   br i1 %39, label %.loopexit, label %.lr.ph18
 
@@ -4836,7 +4884,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hecbaf8e9
   %46 = load ptr, ptr %45, align 8, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load i64, ptr %47, align 8, !noundef !4
-  %49 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %46, i64 %48
+  %.idx = mul nuw nsw i64 %48, 72
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %._crit_edge, label %.lr.ph
 
@@ -4889,10 +4938,10 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hfb573522
 
 .loopexit.sink.split:                             ; preds = %2, %11, %12, %17, %._crit_edge
   %.sink = phi i64 [ 88, %._crit_edge ], [ 40, %17 ], [ 40, %12 ], [ 40, %11 ], [ 32, %2 ]
-  %.sink26 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
+  %.sink28 = phi i64 [ 96, %._crit_edge ], [ 48, %17 ], [ 48, %12 ], [ 48, %11 ], [ 40, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink26
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink28
   %10 = load i64, ptr %9, align 8, !noundef !4
   tail call void @_ZN15ruff_python_ast17statement_visitor16StatementVisitor10visit_body17hf6c3f76b1f6b37e1E(ptr noalias noundef nonnull align 1 dereferenceable(1) %0, ptr noalias noundef nonnull readonly align 8 %8, i64 noundef %10)
   br label %.loopexit
@@ -4929,7 +4978,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hfb573522
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load i64, ptr %29, align 8, !noundef !4
-  %31 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %28, i64 %30
+  %.idx23 = mul nuw nsw i64 %30, 96
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx23
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %.loopexit, label %.lr.ph21
 
@@ -4938,7 +4988,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hfb573522
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8, !noundef !4
-  %38 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %35, i64 %37
+  %.idx22 = shl nuw nsw i64 %37, 7
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx22
   %39 = icmp eq i64 %37, 0
   br i1 %39, label %.loopexit, label %.lr.ph18
 
@@ -4952,7 +5003,8 @@ define hidden void @_ZN15ruff_python_ast17statement_visitor9walk_stmt17hfb573522
   %46 = load ptr, ptr %45, align 8, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load i64, ptr %47, align 8, !noundef !4
-  %49 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { [31 x i8], i8 }, { i32, i32 }, ptr } }, ptr %46, i64 %48
+  %.idx = mul nuw nsw i64 %48, 72
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %50 = icmp eq i64 %48, 0
   br i1 %50, label %._crit_edge, label %.lr.ph
 
@@ -49689,7 +49741,8 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h7ee32bf81b563a48E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #18 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5235)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h51a4d365aad6f533E.exit", label %.lr.ph.i
@@ -72246,7 +72299,8 @@ define internal fastcc void @_ZN7similar4text6inline11push_values17hde40e608f493
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !7930, !noalias !7933
   %20 = icmp ult i64 %.sroa.5.0.copyload.i, 576460752303423488
   tail call void @llvm.assume(i1 %20)
-  %21 = getelementptr inbounds nuw { ptr, i64 }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nuw nsw i64 %.sroa.5.0.copyload.i, 4
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   %22 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   tail call void @llvm.assume(i1 %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
@@ -72816,7 +72870,8 @@ _ZN5alloc5alloc15exchange_malloc17he7dced161648df71E.exit71: ; preds = %"_ZN7sim
   %.sroa.5259.0.copyload = load i64, ptr %96, align 8
   %113 = icmp ult i64 %.sroa.5259.0.copyload, 230584300921369396
   call void @llvm.assume(i1 %113)
-  %114 = getelementptr inbounds nuw { i64, [4 x i64] }, ptr %.sroa.4258.0.copyload, i64 %.sroa.5259.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.5259.0.copyload, 40
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.4258.0.copyload, i64 %.idx
   %115 = icmp sgt i64 %.sroa.0257.0.copyload, -1
   call void @llvm.assume(i1 %115)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27)
@@ -72918,7 +72973,8 @@ _ZN5alloc5alloc15exchange_malloc17he7dced161648df71E.exit71: ; preds = %"_ZN7sim
   %.sroa.5313.0.copyload = load i64, ptr %110, align 8
   %126 = icmp ult i64 %.sroa.5313.0.copyload, 384307168202282326
   call void @llvm.assume(i1 %126)
-  %127 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %.sroa.4312.0.copyload, i64 %.sroa.5313.0.copyload
+  %.idx489 = mul nuw nsw i64 %.sroa.5313.0.copyload, 24
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.4312.0.copyload, i64 %.idx489
   %128 = icmp sgt i64 %.sroa.0311.0.copyload, -1
   call void @llvm.assume(i1 %128)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
@@ -73058,7 +73114,8 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %1
   %.sroa.5325.0.copyload = load i64, ptr %112, align 8
   %165 = icmp ult i64 %.sroa.5325.0.copyload, 384307168202282326
   call void @llvm.assume(i1 %165)
-  %166 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %.sroa.4324.0.copyload, i64 %.sroa.5325.0.copyload
+  %.idx490 = mul nuw nsw i64 %.sroa.5325.0.copyload, 24
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.4324.0.copyload, i64 %.idx490
   %167 = icmp sgt i64 %.sroa.0323.0.copyload, -1
   call void @llvm.assume(i1 %167)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
@@ -74031,7 +74088,8 @@ define internal fastcc void @"_ZN7similar4text6inline20MultiLookup$LT$T$GT$3new1
   store ptr inttoptr (i64 8 to ptr), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %12 = icmp eq i64 %2, 0
   br i1 %12, label %._crit_edge38, label %.lr.ph37
 
@@ -74057,7 +74115,7 @@ define internal fastcc void @"_ZN7similar4text6inline20MultiLookup$LT$T$GT$3new1
   br label %15
 
 18:                                               ; preds = %.lr.ph37, %58
-  %.promoted = phi i64 [ 0, %.lr.ph37 ], [ %.promoted40, %58 ]
+  %.promoted = phi i64 [ 0, %.lr.ph37 ], [ %.promoted41, %58 ]
   %.sroa.0.035 = phi ptr [ %1, %.lr.ph37 ], [ %19, %58 ]
   %.sroa.7.034 = phi i64 [ 0, %.lr.ph37 ], [ %20, %58 ]
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.035, i64 16
@@ -74083,7 +74141,8 @@ define internal fastcc void @"_ZN7similar4text6inline20MultiLookup$LT$T$GT$3new1
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !8190, !noalias !8193
   %27 = icmp ult i64 %.sroa.5.0.copyload.i, 576460752303423488
   call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds nuw { ptr, i64 }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx39 = shl nuw nsw i64 %.sroa.5.0.copyload.i, 4
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx39
   %29 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   call void @llvm.assume(i1 %29)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
@@ -74177,7 +74236,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %4
   br label %._crit_edge.i
 
 ._crit_edge:                                      ; preds = %._crit_edge.i, %26
-  %.promoted40 = phi i64 [ %.promoted, %26 ], [ %62, %._crit_edge.i ]
+  %.promoted41 = phi i64 [ %.promoted, %26 ], [ %62, %._crit_edge.i ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$RF$str$GT$$GT$17h64af01f166add539E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
           to label %58 unwind label %16
 
@@ -77214,7 +77273,8 @@ define hidden void @_ZN11ruff_linter5rules13flake8_bandit5rules18suspicious_impo
   %19 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i64, ptr %20, align 8, !noundef !4
-  %22 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %19, i64 %21
+  %.idx1198 = mul nuw nsw i64 %21, 72
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx1198
   %23 = icmp eq i64 %21, 0
   br i1 %23, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit239.thread", label %.lr.ph1192.preheader
 
@@ -77466,8 +77526,8 @@ define hidden void @_ZN11ruff_linter5rules13flake8_bandit5rules18suspicious_impo
   br i1 %113, label %105, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit111"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit107.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit87"
-  %bcmp.i1061264 = tail call i32 @bcmp(ptr nonnull readonly align 1 %30, ptr nonnull @anon.b051c46de04d2cc9e5a94505cde81379.602, i64 %31), !alias.scope !8751
-  %114 = icmp eq i32 %bcmp.i1061264, 0
+  %bcmp.i1061270 = tail call i32 @bcmp(ptr nonnull readonly align 1 %30, ptr nonnull @anon.b051c46de04d2cc9e5a94505cde81379.602, i64 %31), !alias.scope !8751
+  %114 = icmp eq i32 %bcmp.i1061270, 0
   br i1 %114, label %105, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit119.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit111": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit103"
@@ -77599,7 +77659,8 @@ define hidden void @_ZN11ruff_linter5rules13flake8_bandit5rules18suspicious_impo
   %157 = load ptr, ptr %156, align 8, !nonnull !4, !noundef !4
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %159 = load i64, ptr %158, align 8, !noundef !4
-  %160 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %157, i64 %159
+  %.idx1197 = mul nuw nsw i64 %159, 72
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 %.idx1197
   %161 = icmp eq i64 %159, 0
   br i1 %161, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit239.thread", label %.lr.ph1185.preheader
 
@@ -77634,7 +77695,8 @@ define hidden void @_ZN11ruff_linter5rules13flake8_bandit5rules18suspicious_impo
   %171 = load ptr, ptr %170, align 8, !nonnull !4, !noundef !4
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %173 = load i64, ptr %172, align 8, !noundef !4
-  %174 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %171, i64 %173
+  %.idx = mul nuw nsw i64 %173, 72
+  %174 = getelementptr inbounds nuw i8, ptr %171, i64 %.idx
   %175 = icmp eq i64 %173, 0
   br i1 %175, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit239.thread", label %.lr.ph1165.preheader
 
@@ -77664,7 +77726,8 @@ define hidden void @_ZN11ruff_linter5rules13flake8_bandit5rules18suspicious_impo
   %184 = load ptr, ptr %183, align 8, !nonnull !4, !noundef !4
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %186 = load i64, ptr %185, align 8, !noundef !4
-  %187 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %184, i64 %186
+  %.idx1193 = mul nuw nsw i64 %186, 72
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 %.idx1193
   %188 = icmp eq i64 %186, 0
   br i1 %188, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit239.thread", label %.lr.ph.preheader
 
@@ -77733,8 +77796,8 @@ define hidden void @_ZN11ruff_linter5rules13flake8_bandit5rules18suspicious_impo
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit239.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit191.thread.thread": ; preds = %130, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit163", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit155", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit147", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit151", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit187.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit175", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit171", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit159", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit187", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit183"
-  %.not.i1768528628738838888938979021289 = phi i1 [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit183" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit187" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit159" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit171" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit175" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit187.thread" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit151" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit147" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit155" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit163" ], [ false, %130 ]
-  %.not.i1245795825855915956046096236286496556756807017077287347497557707758038088218268458508648698858868948959031287 = phi i1 [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit183" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit187" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit159" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit171" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit175" ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit187.thread" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit151" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit147" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit155" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit163" ], [ false, %130 ]
+  %.not.i1768528628738838888938979021295 = phi i1 [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit183" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit187" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit159" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit171" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit175" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit187.thread" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit151" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit147" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit155" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit163" ], [ false, %130 ]
+  %.not.i1245795825855915956046096236286496556756807017077287347497557707758038088218268458508648698858868948959031293 = phi i1 [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit183" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit187" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit159" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit171" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit175" ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit187.thread" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit151" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit147" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit155" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit163" ], [ false, %130 ]
   %.not.i196 = icmp eq i64 %128, 17
   br i1 %.not.i196, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit199", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit199.thread"
 
@@ -77748,7 +77811,8 @@ define hidden void @_ZN11ruff_linter5rules13flake8_bandit5rules18suspicious_impo
   %217 = load ptr, ptr %216, align 8, !nonnull !4, !noundef !4
   %218 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %219 = load i64, ptr %218, align 8, !noundef !4
-  %220 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %217, i64 %219
+  %.idx1196 = mul nuw nsw i64 %219, 72
+  %220 = getelementptr inbounds nuw i8, ptr %217, i64 %.idx1196
   %221 = icmp eq i64 %219, 0
   br i1 %221, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit239.thread", label %.lr.ph1180.preheader
 
@@ -77757,7 +77821,7 @@ define hidden void @_ZN11ruff_linter5rules13flake8_bandit5rules18suspicious_impo
   br label %.lr.ph1180
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit199.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit191.thread.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit199"
-  br i1 %.not.i1245795825855915956046096236286496556756807017077287347497557707758038088218268458508648698858868948959031287, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit203", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit203.thread"
+  br i1 %.not.i1245795825855915956046096236286496556756807017077287347497557707758038088218268458508648698858868948959031293, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit203", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit203.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit203": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit199.thread"
   %bcmp.i202 = tail call i32 @bcmp(ptr nonnull readonly align 1 %127, ptr nonnull @anon.b051c46de04d2cc9e5a94505cde81379.611, i64 %128), !alias.scope !8847
@@ -77769,7 +77833,8 @@ define hidden void @_ZN11ruff_linter5rules13flake8_bandit5rules18suspicious_impo
   %225 = load ptr, ptr %224, align 8, !nonnull !4, !noundef !4
   %226 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %227 = load i64, ptr %226, align 8, !noundef !4
-  %228 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %225, i64 %227
+  %.idx1194 = mul nuw nsw i64 %227, 72
+  %228 = getelementptr inbounds nuw i8, ptr %225, i64 %.idx1194
   %229 = icmp eq i64 %227, 0
   br i1 %229, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit239.thread", label %.lr.ph1170.preheader
 
@@ -77793,7 +77858,8 @@ define hidden void @_ZN11ruff_linter5rules13flake8_bandit5rules18suspicious_impo
   %233 = load ptr, ptr %232, align 8, !nonnull !4, !noundef !4
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %235 = load i64, ptr %234, align 8, !noundef !4
-  %236 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %233, i64 %235
+  %.idx1195 = mul nuw nsw i64 %235, 72
+  %236 = getelementptr inbounds nuw i8, ptr %233, i64 %.idx1195
   %237 = icmp eq i64 %235, 0
   br i1 %237, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit239.thread", label %.lr.ph1175.preheader
 
@@ -77822,9 +77888,9 @@ define hidden void @_ZN11ruff_linter5rules13flake8_bandit5rules18suspicious_impo
   br i1 %244, label %239, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit215.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit215.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit211", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit207", %243, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit215"
-  %.not.i2041308 = phi i1 [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit215" ], [ false, %243 ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit207" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit211" ]
+  %.not.i2041314 = phi i1 [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit215" ], [ false, %243 ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit207" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit211" ]
   %.not.i208912915918923 = phi i1 [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit215" ], [ false, %243 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit207" ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit211" ]
-  br i1 %.not.i1768528628738838888938979021289, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit219", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit219.thread"
+  br i1 %.not.i1768528628738838888938979021295, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit219", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit219.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit219": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit215.thread"
   %bcmp.i218 = tail call i32 @bcmp(ptr nonnull readonly align 1 %127, ptr nonnull @anon.b051c46de04d2cc9e5a94505cde81379.600, i64 %128), !alias.scope !8863
@@ -77837,7 +77903,7 @@ define hidden void @_ZN11ruff_linter5rules13flake8_bandit5rules18suspicious_impo
   br i1 %246, label %239, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit231"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit219.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit219", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit215.thread"
-  br i1 %.not.i2041308, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit227", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit231.thread"
+  br i1 %.not.i2041314, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit227", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit231.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit227": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit219.thread"
   %bcmp.i226 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(13) %127, ptr noundef nonnull dereferenceable(13) @anon.b051c46de04d2cc9e5a94505cde81379.602, i64 13), !alias.scope !8871
@@ -77850,9 +77916,9 @@ define hidden void @_ZN11ruff_linter5rules13flake8_bandit5rules18suspicious_impo
   br i1 %248, label %239, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit231.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit231.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit219.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit227", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit231"
-  %.not.i12457958258559159560460962362864965567568070170772873474975577077580380882182684585086486988588689489590312861297130213321340 = phi i1 [ %.not.i1245795825855915956046096236286496556756807017077287347497557707758038088218268458508648698858868948959031287, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit219.thread" ], [ %.not.i1245795825855915956046096236286496556756807017077287347497557707758038088218268458508648698858868948959031287, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit227" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit231" ]
-  %.not.i20891291591892313331338 = phi i1 [ %.not.i208912915918923, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit219.thread" ], [ %.not.i208912915918923, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit227" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit231" ]
-  br i1 %.not.i20891291591892313331338, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit235", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit235.thread"
+  %.not.i12457958258559159560460962362864965567568070170772873474975577077580380882182684585086486988588689489590312921303130813381346 = phi i1 [ %.not.i1245795825855915956046096236286496556756807017077287347497557707758038088218268458508648698858868948959031293, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit219.thread" ], [ %.not.i1245795825855915956046096236286496556756807017077287347497557707758038088218268458508648698858868948959031293, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit227" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit231" ]
+  %.not.i20891291591892313391344 = phi i1 [ %.not.i208912915918923, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit219.thread" ], [ %.not.i208912915918923, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit227" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit231" ]
+  br i1 %.not.i20891291591892313391344, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit235", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit235.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit235": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit231.thread"
   %bcmp.i234 = tail call i32 @bcmp(ptr nonnull readonly align 1 %127, ptr nonnull @anon.b051c46de04d2cc9e5a94505cde81379.604, i64 %128), !alias.scope !8879
@@ -77860,7 +77926,7 @@ define hidden void @_ZN11ruff_linter5rules13flake8_bandit5rules18suspicious_impo
   br i1 %249, label %239, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit235.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit235.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit231.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit235"
-  br i1 %.not.i12457958258559159560460962362864965567568070170772873474975577077580380882182684585086486988588689489590312861297130213321340, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit239", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit239.thread"
+  br i1 %.not.i12457958258559159560460962362864965567568070170772873474975577077580380882182684585086486988588689489590312921303130813381346, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit239", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit239.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit239": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE.exit235.thread"
   %bcmp.i238 = tail call i32 @bcmp(ptr nonnull readonly align 1 %127, ptr nonnull @anon.b051c46de04d2cc9e5a94505cde81379.605, i64 %128), !alias.scope !8883
@@ -78170,7 +78236,8 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit:
 _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit36.lr.ph: ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
-  %23 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %22, i64 %11
+  %.idx = mul nuw nsw i64 %11, 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.756.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -78270,7 +78337,8 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit:
 _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit36.lr.ph: ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
-  %23 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %22, i64 %11
+  %.idx = mul nuw nsw i64 %11, 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.756.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -78395,7 +78463,8 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit77: ; preds = %._crit_e
 _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit82.lr.ph: ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
-  %31 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %30, i64 %19
+  %.idx = mul nuw nsw i64 %19, 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx
   %.sroa.039.1154 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.5116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -78472,7 +78541,8 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit82: ; preds = %_ZN4core
 _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit102.lr.ph: ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8, !nonnull !4, !noundef !4
-  %53 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %52, i64 %36
+  %.idx162 = mul nuw nsw i64 %36, 24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx162
   %.sroa.040.1158 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.5146.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -79420,7 +79490,8 @@ define hidden { i8, ptr } @_ZN11ruff_linter5rules4ruff5rules7helpers14dataclass_
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !4
-  %13 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %10, i64 %12
+  %.idx = mul nuw nsw i64 %12, 72
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %.loopexit, label %.lr.ph
 

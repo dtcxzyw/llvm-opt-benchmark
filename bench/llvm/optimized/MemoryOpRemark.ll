@@ -1036,7 +1036,8 @@ define dso_local void @_ZN4llvm14MemoryOpRemark8visitPtrEPNS_5ValueEbRNS_28Diagn
   %20 = load ptr, ptr %5, align 8, !tbaa !127
   %21 = load i32, ptr %14, align 8, !tbaa !129
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %22
+  %.idx = shl nuw nsw i64 %22, 3
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %.not64 = icmp eq i32 %21, 0
   br i1 %.not64, label %._crit_edge.thread, label %.lr.ph
 

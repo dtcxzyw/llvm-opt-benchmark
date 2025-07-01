@@ -5297,7 +5297,8 @@ define hidden void @_ZNK22ShenandoahBarrierSetC225enqueue_useful_gc_barrierEP12P
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %13
+  %.idx.i = shl nuw nsw i64 %13, 3
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %_ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit.thread5, label %.lr.ph.i
 
@@ -5336,7 +5337,8 @@ define hidden noundef zeroext i1 @_ZN22ShenandoahBarrierSetC231has_only_shenando
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -5400,7 +5402,8 @@ define hidden void @_ZNK22ShenandoahBarrierSetC229eliminate_useless_gc_barriersE
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %21
+  %.idx.i = shl nuw nsw i64 %21, 3
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %_ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit.thread41, label %.lr.ph.i
 
@@ -5826,7 +5829,8 @@ _ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit: ; preds = %4
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %38 = load i32, ptr %37, align 8
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
+  %.idx.i = shl nuw nsw i64 %39, 3
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i
   %.not.i = icmp eq i32 %38, 0
   br i1 %.not.i, label %_ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit.thread, label %.lr.ph.i
 

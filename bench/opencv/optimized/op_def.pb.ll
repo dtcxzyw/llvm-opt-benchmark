@@ -5460,7 +5460,8 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow5OpDef12ByteSizeLongEv(ptr nou
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not48 = icmp eq i32 %3, 0
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
@@ -5475,7 +5476,8 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow5OpDef12ByteSizeLongEv(ptr nou
   %.not.i.i26 = icmp eq ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %spec.select.i.i27 = select i1 %.not.i.i26, ptr null, ptr %15
-  %16 = getelementptr inbounds ptr, ptr %spec.select.i.i27, i64 %11
+  %.idx65 = shl nsw i64 %11, 3
+  %16 = getelementptr inbounds i8, ptr %spec.select.i.i27, i64 %.idx65
   %.not4651 = icmp eq i32 %10, 0
   br i1 %.not4651, label %._crit_edge56, label %.lr.ph55
 
@@ -5509,7 +5511,8 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow5OpDef12ByteSizeLongEv(ptr nou
   %.not.i.i30 = icmp eq ptr %35, null
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %spec.select.i.i31 = select i1 %.not.i.i30, ptr null, ptr %36
-  %37 = getelementptr inbounds ptr, ptr %spec.select.i.i31, i64 %32
+  %.idx66 = shl nsw i64 %32, 3
+  %37 = getelementptr inbounds i8, ptr %spec.select.i.i31, i64 %.idx66
   %.not4758 = icmp eq i32 %31, 0
   br i1 %.not4758, label %._crit_edge63, label %.lr.ph62
 
@@ -7557,7 +7560,8 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow6OpList12ByteSizeLongEv(ptr no
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not11 = icmp eq i32 %3, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 

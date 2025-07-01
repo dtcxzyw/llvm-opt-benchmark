@@ -11,8 +11,6 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"struct.std::piecewise_construct_t" = type { i8 }
-%"struct.std::pair" = type { i8, %"struct.igl::tinyply::PropertyInfo" }
-%"struct.igl::tinyply::PropertyInfo" = type { i32, %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -80,6 +78,8 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
 %"struct.__gnu_cxx::__ops::_Iter_less_val" = type { i8 }
 %"struct.std::_Hashtable<unsigned int, std::pair<const unsigned int, igl::tinyply::PlyFile::PlyFileImpl::ParsingHelper>, std::allocator<std::pair<const unsigned int, igl::tinyply::PlyFile::PlyFileImpl::ParsingHelper>>, std::__detail::_Select1st, std::equal_to<unsigned int>, std::hash<unsigned int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node" = type { ptr, ptr }
+%"struct.std::pair" = type { i8, %"struct.igl::tinyply::PropertyInfo" }
+%"struct.igl::tinyply::PropertyInfo" = type { i32, %"class.std::__cxx11::basic_string" }
 %"struct.std::less" = type { i8 }
 %"class.std::allocator.3" = type { i8 }
 
@@ -349,7 +349,8 @@ define linkonce_odr dso_local void @_ZNSt3mapIN3igl7tinyply4TypeENS1_12PropertyI
   store ptr %6, ptr %9, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !16
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN3igl7tinyply4TypeESt4pairIKS2_NS1_12PropertyInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE22_M_insert_range_uniqueIPKS6_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESH_SH_.exit, label %.lr.ph.i
 

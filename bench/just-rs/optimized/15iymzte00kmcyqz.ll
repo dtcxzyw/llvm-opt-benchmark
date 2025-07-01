@@ -203,7 +203,8 @@ define hidden void @"_ZN114_$LT$similar..algorithms..compact..Compact$LT$Old$C$N
   %9 = load ptr, ptr %8, align 8, !alias.scope !22, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load i64, ptr %10, align 8, !alias.scope !22, !noundef !4
-  %12 = getelementptr inbounds { i64, [4 x i64] }, ptr %9, i64 %11
+  %.idx = mul nsw i64 %11, 40
+  %12 = getelementptr inbounds i8, ptr %9, i64 %.idx
   %13 = icmp eq i64 %11, 0
   br i1 %13, label %._crit_edge, label %.lr.ph
 
@@ -265,7 +266,8 @@ define hidden void @"_ZN114_$LT$similar..algorithms..compact..Compact$LT$Old$C$N
   %13 = load ptr, ptr %12, align 8, !alias.scope !35, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %15 = load i64, ptr %14, align 8, !alias.scope !35, !noundef !4
-  %16 = getelementptr inbounds { i64, [4 x i64] }, ptr %13, i64 %15
+  %.idx = mul nsw i64 %15, 40
+  %16 = getelementptr inbounds i8, ptr %13, i64 %.idx
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %._crit_edge, label %.lr.ph
 
@@ -16149,7 +16151,8 @@ define noundef zeroext i1 @"_ZN88_$LT$just..unresolved_dependency..UnresolvedDep
 .lr.ph:                                           ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
-  %30 = getelementptr inbounds { i64, [15 x i64] }, ptr %.val, i64 %12
+  %.idx = shl nsw i64 %12, 7
+  %30 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 32

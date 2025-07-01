@@ -1765,7 +1765,8 @@ define hidden { i64, ptr } @_ZN6object4read4coff7section12SectionTable15section_
   %7 = load ptr, ptr %0, align 8, !nonnull !7, !align !271, !noundef !7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !7
-  %10 = getelementptr inbounds { [8 x i8], i32, i32, i32, i32, i32, i32, i16, i16, i32 }, ptr %7, i64 %9
+  %.idx = mul nsw i64 %9, 40
+  %10 = getelementptr inbounds i8, ptr %7, i64 %.idx
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3354a24afffa91d6E.exit, label %.lr.ph.i
 
@@ -3403,7 +3404,8 @@ define hidden void @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$7subtree17h677
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 %27, ptr %30, align 4
   %31 = load ptr, ptr %2, align 8, !nonnull !7, !align !14, !noundef !7
-  %32 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %31, i64 %16
+  %.idx = shl nsw i64 %16, 6
+  %32 = getelementptr inbounds i8, ptr %31, i64 %.idx
   %33 = icmp eq i64 %16, 0
   br i1 %33, label %._crit_edge, label %.lr.ph
 
@@ -3717,7 +3719,8 @@ define hidden void @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$7subtree17hb3f
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %18, ptr %21, align 4
   %22 = load ptr, ptr %2, align 8, !nonnull !7, !align !14, !noundef !7
-  %23 = getelementptr inbounds { i32, [9 x i32] }, ptr %22, i64 %7
+  %.idx = mul nsw i64 %7, 40
+  %23 = getelementptr inbounds i8, ptr %22, i64 %.idx
   %24 = icmp eq i64 %7, 0
   br i1 %24, label %._crit_edge, label %.lr.ph
 

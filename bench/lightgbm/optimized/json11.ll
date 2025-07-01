@@ -34,7 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.83" = type { i8 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, json11_internal_lightgbm::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, json11_internal_lightgbm::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
-%"struct.std::pair.88" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 
 $_ZN24json11_internal_lightgbm9JsonValueD2Ev = comdat any
 
@@ -11710,7 +11709,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZN
   %84 = load ptr, ptr %1, align 8, !tbaa !225
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %86 = load i64, ptr %85, align 8, !tbaa !228
-  %87 = getelementptr inbounds nuw %"struct.std::pair.88", ptr %84, i64 %86
+  %.idx = mul nuw nsw i64 %86, 40
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 %.idx
   %.not84 = icmp eq i64 %86, 0
   br i1 %.not84, label %.loopexit, label %.lr.ph
 

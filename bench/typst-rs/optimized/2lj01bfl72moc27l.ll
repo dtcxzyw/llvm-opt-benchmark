@@ -3067,9 +3067,10 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   br label %.noexc54
 
 144:                                              ; preds = %132
+  %.idx.i = shl nsw i64 %135, 5
   %145 = getelementptr inbounds i8, ptr %133, i64 -24
   %146 = load ptr, ptr %145, align 8, !noalias !406, !nonnull !37, !noundef !37
-  %147 = getelementptr inbounds { { i64, [2 x i64] }, { i64 }, { {}, {} } }, ptr %146, i64 %135
+  %147 = getelementptr inbounds i8, ptr %146, i64 %.idx.i
   %148 = getelementptr inbounds i8, ptr %147, i64 -32
   %149 = getelementptr inbounds i8, ptr %147, i64 -8
   store atomic i64 0, ptr %149 seq_cst, align 8, !noalias !470
@@ -4572,9 +4573,10 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   br label %.noexc43
 
 195:                                              ; preds = %184
+  %.idx.i = mul nsw i64 %186, 24
   %196 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %197 = load ptr, ptr %196, align 8, !noalias !857, !nonnull !37, !noundef !37
-  %198 = getelementptr inbounds { { { { [2 x i64] } } }, { i64 }, { {} } }, ptr %197, i64 %186
+  %198 = getelementptr inbounds i8, ptr %197, i64 %.idx.i
   %199 = getelementptr inbounds i8, ptr %198, i64 -24
   %200 = getelementptr inbounds i8, ptr %198, i64 -8
   store atomic i64 0, ptr %200 seq_cst, align 8, !noalias !860
@@ -5270,9 +5272,10 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   br label %.noexc48
 
 128:                                              ; preds = %116
+  %.idx.i = shl nsw i64 %119, 5
   %129 = getelementptr inbounds i8, ptr %117, i64 -24
   %130 = load ptr, ptr %129, align 8, !noalias !1003, !nonnull !37, !noundef !37
-  %131 = getelementptr inbounds { { ptr, [2 x i64] }, { i64 }, { {}, {} } }, ptr %130, i64 %119
+  %131 = getelementptr inbounds i8, ptr %130, i64 %.idx.i
   %132 = getelementptr inbounds i8, ptr %131, i64 -32
   %133 = getelementptr inbounds i8, ptr %131, i64 -8
   store atomic i64 0, ptr %133 seq_cst, align 8, !noalias !1067
@@ -5804,7 +5807,8 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i.i.i.i: ; pr
   %53 = xor i64 %46, %37
   store i64 %53, ptr %19, align 8, !alias.scope !1172, !noalias !1165
   store i64 0, ptr %.sroa.10.0..sroa_idx, align 8, !alias.scope !1172, !noalias !1165
-  %54 = getelementptr inbounds { i64, [6 x i64] }, ptr %35, i64 %37
+  %.idx.i.i.i.i.i = mul nsw i64 %37, 56
+  %54 = getelementptr inbounds i8, ptr %35, i64 %.idx.i.i.i.i.i
   %55 = icmp eq i64 %37, 0
   br i1 %55, label %"_ZN80_$LT$comemo..input..Args$LT$$LP$A$C$$RP$$GT$$u20$as$u20$comemo..input..Input$GT$3key17hce45026b71ef7da0E.exit", label %.lr.ph.i.i.i.i.i
 
@@ -5923,9 +5927,10 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   br label %.noexc45
 
 125:                                              ; preds = %114
+  %.idx.i = mul nsw i64 %116, 24
   %126 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %127 = load ptr, ptr %126, align 8, !noalias !1182, !nonnull !37, !noundef !37
-  %128 = getelementptr inbounds { { { { [2 x i64] } } }, { i64 }, { {} } }, ptr %127, i64 %116
+  %128 = getelementptr inbounds i8, ptr %127, i64 %.idx.i
   %129 = getelementptr inbounds i8, ptr %128, i64 -24
   %130 = getelementptr inbounds i8, ptr %128, i64 -8
   store atomic i64 0, ptr %130 seq_cst, align 8, !noalias !1185
@@ -6719,9 +6724,10 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   br label %184
 
 160:                                              ; preds = %148
+  %.idx.i = shl nsw i64 %151, 5
   %161 = getelementptr inbounds i8, ptr %149, i64 -24
   %162 = load ptr, ptr %161, align 8, !noalias !1358, !nonnull !37, !noundef !37
-  %163 = getelementptr inbounds { { i64, [2 x i64] }, { i64 }, { {}, {}, {} } }, ptr %162, i64 %151
+  %163 = getelementptr inbounds i8, ptr %162, i64 %.idx.i
   %164 = getelementptr inbounds i8, ptr %163, i64 -32
   %165 = getelementptr inbounds i8, ptr %163, i64 -8
   store atomic i64 0, ptr %165 seq_cst, align 8, !noalias !1422

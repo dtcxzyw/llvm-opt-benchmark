@@ -27843,7 +27843,8 @@ define hidden void @"_ZN7open_ai29extract_tool_args_from_events28_$u7b$$u7b$clos
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %17 = getelementptr inbounds { { { i64, [2 x i64] }, { i64, [2 x i64] }, i8, [7 x i8] }, { i64, [2 x i64] }, i32, [1 x i32] }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %.idx = mul nsw i64 %.sroa.3.0.copyload, 88
+  %17 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload, i64 %.idx
   store ptr %.sroa.2.0.copyload, ptr %7, align 8, !alias.scope !5990, !noalias !5993
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.sroa.0.0.copyload, ptr %18, align 8, !alias.scope !5990, !noalias !5993

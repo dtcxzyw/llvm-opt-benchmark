@@ -250,7 +250,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %.pre-phi8688.i = phi i1 [ true, %18 ], [ false, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb30a6265ef15fdb4E.exit.i.i" ]
   %.pn77.i = phi ptr [ %20, %18 ], [ %29, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb30a6265ef15fdb4E.exit.i.i" ]
   %.pn75.i = phi i64 [ %22, %18 ], [ %26, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb30a6265ef15fdb4E.exit.i.i" ]
-  %30 = getelementptr inbounds nuw { i64, i64 }, ptr %.pn77.i, i64 %.pn75.i
+  %.idx.i = shl nuw nsw i64 %.pn75.i, 4
+  %30 = getelementptr inbounds nuw i8, ptr %.pn77.i, i64 %.idx.i
   %31 = icmp eq i64 %.pn75.i, 0
   br i1 %31, label %._crit_edge.i, label %.lr.ph.i
 
@@ -4041,7 +4042,8 @@ define void @_ZN11quinn_proto9range_set15array_range_set13ArrayRangeSet8subtract
 "_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h487095e03518ec32E.exit": ; preds = %5, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb30a6265ef15fdb4E.exit.i"
   %.pn5 = phi ptr [ %7, %5 ], [ %16, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb30a6265ef15fdb4E.exit.i" ]
   %.pn3 = phi i64 [ %9, %5 ], [ %13, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb30a6265ef15fdb4E.exit.i" ]
-  %17 = getelementptr inbounds nuw { i64, i64 }, ptr %.pn5, i64 %.pn3
+  %.idx = shl nuw nsw i64 %.pn3, 4
+  %17 = getelementptr inbounds nuw i8, ptr %.pn5, i64 %.idx
   %18 = icmp eq i64 %.pn3, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 

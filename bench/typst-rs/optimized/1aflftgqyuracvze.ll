@@ -2387,7 +2387,8 @@ define hidden void @_ZN9typst_pdf4font11write_fonts17h3e40f422e10bb97dE(ptr noal
   %76 = load ptr, ptr %75, align 8, !alias.scope !455, !nonnull !12, !noundef !12
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %78 = load i64, ptr %77, align 8, !alias.scope !455, !noundef !12
-  %79 = getelementptr inbounds ptr, ptr %76, i64 %78
+  %.idx = shl nsw i64 %78, 3
+  %79 = getelementptr inbounds i8, ptr %76, i64 %.idx
   %80 = icmp eq i64 %78, 0
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sink.sroa.gep697 = getelementptr inbounds nuw i8, ptr %40, i64 8

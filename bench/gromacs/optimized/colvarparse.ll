@@ -37904,7 +37904,8 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_tr
   br i1 %50, label %_ZSt6fill_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RKT1_.exit, label %51
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %1
+  %.idx.i.i = shl nuw nsw i64 %1, 5
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
   br label %.lr.ph.i.i.i.i16
 
 .lr.ph.i.i.i.i16:                                 ; preds = %.lr.ph.i.i.i.i16, %51

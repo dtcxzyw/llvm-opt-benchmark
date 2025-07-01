@@ -6,15 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.llvm::RecordVal" = type { ptr, %"class.llvm::SMLoc", %"class.llvm::PointerIntPair", ptr, i8, %"class.llvm::SmallVector.34" }
-%"class.llvm::SMLoc" = type { ptr }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
-%"class.llvm::SmallVector.34" = type { %"class.llvm::SmallVectorImpl.35" }
-%"class.llvm::SmallVectorImpl.35" = type { %"class.llvm::SmallVectorTemplateBase.36" }
-%"class.llvm::SmallVectorTemplateBase.36" = type { %"class.llvm::SmallVectorTemplateCommon.37" }
-%"class.llvm::SmallVectorTemplateCommon.37" = type { %"class.llvm::SmallVectorBase" }
-%"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
@@ -157,7 +148,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit17:               ; preds = %61, %63
   %72 = getelementptr inbounds nuw i8, ptr %26, i64 112
   %73 = load i32, ptr %72, align 8, !tbaa !63
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %"class.llvm::RecordVal", ptr %71, i64 %74
+  %.idx.i.i.i = mul nuw nsw i64 %74, 56
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx.i.i.i
   %.not16.i.i.i = icmp ne i32 %73, 0
   call void @llvm.assume(i1 %.not16.i.i.i)
   %76 = load ptr, ptr %71, align 8, !tbaa !64

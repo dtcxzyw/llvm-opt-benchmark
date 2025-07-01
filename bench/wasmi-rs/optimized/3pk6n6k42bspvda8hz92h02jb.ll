@@ -955,7 +955,8 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
 define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$38execute_copy_many_non_overlapping_impl17h244f16a0c78a6476E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noundef readonly captures(address, ret: address, provenance) %1, i16 noundef %2, ptr noalias noundef nonnull readonly align 2 captures(address) %3, i64 noundef range(i64 0, 3) %4) unnamed_addr #2 {
   %6 = tail call noundef i16 @_ZN8wasmi_ir4span7RegSpan4head17h301082d21224707fE(i16 noundef %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %4
+  %.idx.i = shl nuw nsw i64 %4, 1
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   %8 = icmp eq i64 %4, 0
   br i1 %8, label %"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$38execute_copy_many_non_overlapping_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc477310627371058E.exit", label %.lr.ph.i
 
@@ -982,14 +983,14 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
   br label %20
 
 20:                                               ; preds = %"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$38execute_copy_many_non_overlapping_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc477310627371058E.exit12", %"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$38execute_copy_many_non_overlapping_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc477310627371058E.exit"
-  %.lcssa2224 = phi i16 [ %.sroa.0.1, %"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$38execute_copy_many_non_overlapping_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc477310627371058E.exit" ], [ %29, %"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$38execute_copy_many_non_overlapping_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc477310627371058E.exit12" ]
+  %.lcssa2325 = phi i16 [ %.sroa.0.1, %"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$38execute_copy_many_non_overlapping_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc477310627371058E.exit" ], [ %29, %"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$38execute_copy_many_non_overlapping_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc477310627371058E.exit12" ]
   %.sroa.0.0 = phi ptr [ %1, %"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$38execute_copy_many_non_overlapping_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc477310627371058E.exit" ], [ %31, %"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$38execute_copy_many_non_overlapping_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc477310627371058E.exit12" ]
   %21 = load i16, ptr %.sroa.0.0, align 4, !range !32, !noundef !3
   switch i16 %21, label %32 [
     i16 522, label %22
     i16 519, label %.loopexit.loopexit
     i16 520, label %.loopexit
-    i16 521, label %.loopexit52
+    i16 521, label %.loopexit53
   ]
 
 22:                                               ; preds = %20
@@ -997,7 +998,7 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
   br label %23
 
 23:                                               ; preds = %23, %22
-  %24 = phi i16 [ %.lcssa2224, %22 ], [ %29, %23 ]
+  %24 = phi i16 [ %.lcssa2325, %22 ], [ %29, %23 ]
   %.sroa.01.01.i11.idx = phi i64 [ 2, %22 ], [ %.sroa.01.01.i11.add, %23 ]
   %.sroa.01.01.i11.ptr = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %.sroa.01.01.i11.idx
   %.sroa.01.01.i11.add = add nuw nsw i64 %.sroa.01.01.i11.idx, 2
@@ -1017,33 +1018,33 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
 32:                                               ; preds = %20
   unreachable
 
-.loopexit52:                                      ; preds = %20
+.loopexit53:                                      ; preds = %20
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %20
   br label %.loopexit
 
-.loopexit:                                        ; preds = %20, %.loopexit.loopexit, %.loopexit52
-  %.sroa.4.0 = phi i64 [ 3, %.loopexit52 ], [ 1, %.loopexit.loopexit ], [ 2, %20 ]
+.loopexit:                                        ; preds = %20, %.loopexit.loopexit, %.loopexit53
+  %.sroa.4.0 = phi i64 [ 6, %.loopexit53 ], [ 2, %.loopexit.loopexit ], [ 4, %20 ]
   %.sroa.04.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  %33 = getelementptr inbounds nuw i16, ptr %.sroa.04.0, i64 %.sroa.4.0
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.04.0, i64 %.sroa.4.0
   br label %34
 
 34:                                               ; preds = %34, %.loopexit
-  %35 = phi i16 [ %.lcssa2224, %.loopexit ], [ %41, %34 ]
-  %.sroa.01.01.i14 = phi ptr [ %.sroa.04.0, %.loopexit ], [ %36, %34 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i14, i64 2
-  %37 = load i16, ptr %.sroa.01.01.i14, align 2, !alias.scope !87, !noundef !3
+  %35 = phi i16 [ %.lcssa2325, %.loopexit ], [ %41, %34 ]
+  %.sroa.01.01.i15 = phi ptr [ %.sroa.04.0, %.loopexit ], [ %36, %34 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i15, i64 2
+  %37 = load i16, ptr %.sroa.01.01.i15, align 2, !alias.scope !87, !noundef !3
   %38 = tail call { i64, i64 } @_ZN5wasmi6engine8executor5stack6values14FrameRegisters3get17h59309104584d4632E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %19, i16 noundef %37), !noalias !87
   %39 = extractvalue { i64, i64 } %38, 0
   %40 = extractvalue { i64, i64 } %38, 1
   tail call void @_ZN5wasmi6engine8executor5stack6values14FrameRegisters3set17h6ea64cd62df6481aE(ptr noalias noundef nonnull align 8 dereferenceable(8) %19, i16 noundef %35, i64 noundef %39, i64 noundef %40), !noalias !87
   %41 = tail call noundef i16 @_ZN8wasmi_ir5index3Reg4next17h32cb5eb8c8c5bb12E(i16 noundef %35), !noalias !87
   %42 = icmp eq ptr %36, %33
-  br i1 %42, label %"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$38execute_copy_many_non_overlapping_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc477310627371058E.exit15", label %34
+  br i1 %42, label %"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$38execute_copy_many_non_overlapping_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc477310627371058E.exit16", label %34
 
-"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$38execute_copy_many_non_overlapping_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc477310627371058E.exit15": ; preds = %34
+"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$38execute_copy_many_non_overlapping_impl28_$u7b$$u7b$closure$u7d$$u7d$17hc477310627371058E.exit16": ; preds = %34
   ret ptr %.sroa.0.0
 }
 
@@ -2005,7 +2006,8 @@ define internal fastcc void @"_ZN5wasmi6engine8executor6instrs7return_59_$LT$imp
   store ptr %7, ptr %5, align 8
   %9 = tail call noundef i16 @_ZN8wasmi_ir4span7RegSpan4head17h301082d21224707fE(i16 noundef %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
-  %10 = getelementptr inbounds nuw i16, ptr %2, i64 %3
+  %.idx.i = shl nuw nsw i64 %3, 1
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %11 = icmp eq i64 %3, 0
   br i1 %11, label %"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$23copy_many_return_values28_$u7b$$u7b$closure$u7d$$u7d$17hbe43160fc55a900aE.exit", label %.lr.ph.i
 
@@ -2032,13 +2034,13 @@ define internal fastcc void @"_ZN5wasmi6engine8executor6instrs7return_59_$LT$imp
   br label %22
 
 22:                                               ; preds = %"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$23copy_many_return_values28_$u7b$$u7b$closure$u7d$$u7d$17hbe43160fc55a900aE.exit10", %"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$23copy_many_return_values28_$u7b$$u7b$closure$u7d$$u7d$17hbe43160fc55a900aE.exit"
-  %.sroa.0.025 = phi i16 [ %.sroa.0.2, %"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$23copy_many_return_values28_$u7b$$u7b$closure$u7d$$u7d$17hbe43160fc55a900aE.exit" ], [ %30, %"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$23copy_many_return_values28_$u7b$$u7b$closure$u7d$$u7d$17hbe43160fc55a900aE.exit10" ]
+  %.sroa.0.026 = phi i16 [ %.sroa.0.2, %"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$23copy_many_return_values28_$u7b$$u7b$closure$u7d$$u7d$17hbe43160fc55a900aE.exit" ], [ %30, %"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$23copy_many_return_values28_$u7b$$u7b$closure$u7d$$u7d$17hbe43160fc55a900aE.exit10" ]
   %.sroa.01.0 = phi ptr [ %1, %"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$23copy_many_return_values28_$u7b$$u7b$closure$u7d$$u7d$17hbe43160fc55a900aE.exit" ], [ %32, %"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$23copy_many_return_values28_$u7b$$u7b$closure$u7d$$u7d$17hbe43160fc55a900aE.exit10" ]
   %23 = load i16, ptr %.sroa.01.0, align 4, !range !32, !noundef !3
   switch i16 %23, label %33 [
     i16 522, label %24
     i16 519, label %.loopexit.loopexit
-    i16 520, label %.loopexit.loopexit65
+    i16 520, label %.loopexit.loopexit66
     i16 521, label %.loopexit
   ]
 
@@ -2047,7 +2049,7 @@ define internal fastcc void @"_ZN5wasmi6engine8executor6instrs7return_59_$LT$imp
   br label %25
 
 25:                                               ; preds = %25, %24
-  %.sroa.0.3 = phi i16 [ %.sroa.0.025, %24 ], [ %30, %25 ]
+  %.sroa.0.3 = phi i16 [ %.sroa.0.026, %24 ], [ %30, %25 ]
   %.sroa.01.02.i9.idx = phi i64 [ 2, %24 ], [ %.sroa.01.02.i9.add, %25 ]
   %.sroa.01.02.i9.ptr = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 %.sroa.01.02.i9.idx
   %.sroa.01.02.i9.add = add nuw nsw i64 %.sroa.01.02.i9.idx, 2
@@ -2070,30 +2072,30 @@ define internal fastcc void @"_ZN5wasmi6engine8executor6instrs7return_59_$LT$imp
 .loopexit.loopexit:                               ; preds = %22
   br label %.loopexit
 
-.loopexit.loopexit65:                             ; preds = %22
+.loopexit.loopexit66:                             ; preds = %22
   br label %.loopexit
 
-.loopexit:                                        ; preds = %22, %.loopexit.loopexit65, %.loopexit.loopexit
-  %.sroa.4.0 = phi i64 [ 1, %.loopexit.loopexit ], [ 2, %.loopexit.loopexit65 ], [ 3, %22 ]
+.loopexit:                                        ; preds = %22, %.loopexit.loopexit66, %.loopexit.loopexit
+  %.sroa.4.0 = phi i64 [ 2, %.loopexit.loopexit ], [ 4, %.loopexit.loopexit66 ], [ 6, %22 ]
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 2
   call void @llvm.experimental.noalias.scope.decl(metadata !169)
-  %34 = getelementptr inbounds nuw i16, ptr %.sroa.0.0, i64 %.sroa.4.0
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %.sroa.4.0
   br label %35
 
 35:                                               ; preds = %35, %.loopexit
-  %.sroa.0.4 = phi i16 [ %.sroa.0.025, %.loopexit ], [ %41, %35 ]
-  %.sroa.01.02.i12 = phi ptr [ %.sroa.0.0, %.loopexit ], [ %36, %35 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i12, i64 2
-  %37 = load i16, ptr %.sroa.01.02.i12, align 2, !alias.scope !169, !noalias !172, !noundef !3
+  %.sroa.0.4 = phi i16 [ %.sroa.0.026, %.loopexit ], [ %41, %35 ]
+  %.sroa.01.02.i13 = phi ptr [ %.sroa.0.0, %.loopexit ], [ %36, %35 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i13, i64 2
+  %37 = load i16, ptr %.sroa.01.02.i13, align 2, !alias.scope !169, !noalias !172, !noundef !3
   %38 = call { i64, i64 } @_ZN5wasmi6engine8executor5stack6values14FrameRegisters3get17h59309104584d4632E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %21, i16 noundef %37), !noalias !174
   %39 = extractvalue { i64, i64 } %38, 0
   %40 = extractvalue { i64, i64 } %38, 1
   call void @_ZN5wasmi6engine8executor5stack6values14FrameRegisters3set17h6ea64cd62df6481aE(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i16 noundef %.sroa.0.4, i64 noundef %39, i64 noundef %40), !noalias !174
   %41 = call noundef i16 @_ZN8wasmi_ir5index3Reg4next17h32cb5eb8c8c5bb12E(i16 noundef %.sroa.0.4), !noalias !174
   %42 = icmp eq ptr %36, %34
-  br i1 %42, label %"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$23copy_many_return_values28_$u7b$$u7b$closure$u7d$$u7d$17hbe43160fc55a900aE.exit13", label %35
+  br i1 %42, label %"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$23copy_many_return_values28_$u7b$$u7b$closure$u7d$$u7d$17hbe43160fc55a900aE.exit14", label %35
 
-"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$23copy_many_return_values28_$u7b$$u7b$closure$u7d$$u7d$17hbe43160fc55a900aE.exit13": ; preds = %35
+"_ZN5wasmi6engine8executor6instrs7return_59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$23copy_many_return_values28_$u7b$$u7b$closure$u7d$$u7d$17hbe43160fc55a900aE.exit14": ; preds = %35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret void
 }

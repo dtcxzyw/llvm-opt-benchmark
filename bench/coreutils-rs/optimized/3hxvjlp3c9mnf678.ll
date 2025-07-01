@@ -592,7 +592,8 @@ common.resume:                                    ; preds = %19, %15
   %23 = load ptr, ptr %22, align 8, !alias.scope !86, !nonnull !16, !noundef !16
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %25 = load i64, ptr %24, align 8, !alias.scope !86, !noundef !16
-  %26 = getelementptr inbounds { { i64, [1 x i64] }, { ptr, i64 }, i64, i64, i64, i8, i8, i8, [5 x i8] }, ptr %23, i64 %25
+  %.idx = shl nsw i64 %25, 6
+  %26 = getelementptr inbounds i8, ptr %23, i64 %.idx
   %27 = icmp eq i64 %25, 0
   br i1 %27, label %38, label %28
 
@@ -1091,7 +1092,8 @@ define hidden void @_ZN6uu_fmt9linebreak15build_best_path17h8cd13a26ab3d5883E(pt
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
   %.sroa.6 = alloca [2 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
-  %7 = getelementptr inbounds i64, ptr %3, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %7 = getelementptr inbounds i8, ptr %3, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
   %8 = icmp eq i64 %4, 0
   br i1 %8, label %.thread, label %9

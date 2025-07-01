@@ -38163,7 +38163,8 @@ define noundef zeroext i1 @_ZN14polars_parquet7parquet6schema5types12parquet_typ
   %62 = load ptr, ptr %61, align 8, !nonnull !3, !noundef !3
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %64 = load i64, ptr %63, align 8, !noundef !3
-  %65 = getelementptr inbounds nuw { i64, [12 x i64] }, ptr %62, i64 %64
+  %.idx = mul nuw nsw i64 %64, 104
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx
   %66 = icmp eq i64 %64, 0
   br i1 %66, label %._crit_edge, label %.lr.ph
 

@@ -35,7 +35,8 @@ define dso_local { i64, i8 } @_ZN4llvm28performOptimizedStructLayoutENS_15Mutabl
   %8 = alloca %class.anon.6, align 8
   %9 = alloca %class.anon.7, align 8
   %10 = alloca %class.anon.8, align 8
-  %11 = getelementptr inbounds nuw %"struct.llvm::OptimizedStructLayoutField", ptr %0, i64 %1
+  %.idx = mul i64 %1, 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.not160 = icmp eq i64 %1, 0
   br i1 %.not160, label %.loopexit, label %.lr.ph
 
@@ -355,31 +356,30 @@ _ZN4llvm23SmallVectorTemplateBaseINS_26OptimizedStructLayoutFieldELb1EE9push_bac
 ._crit_edge202:                                   ; preds = %._crit_edge202.loopexit, %.preheader
   %128 = phi i64 [ %.pre, %._crit_edge202.loopexit ], [ %92, %.preheader ]
   %129 = load ptr, ptr %6, align 8, !tbaa !18
-  %130 = mul i64 %1, 40
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %129, i64 %130, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %129, i64 %.idx, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  %131 = icmp eq ptr %129, %56
-  br i1 %131, label %_ZN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EED2Ev.exit, label %132
+  %130 = icmp eq ptr %129, %56
+  br i1 %130, label %_ZN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EED2Ev.exit, label %131
 
-132:                                              ; preds = %._crit_edge202
+131:                                              ; preds = %._crit_edge202
   call void @free(ptr noundef %129) #9
   br label %_ZN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EED2Ev.exit: ; preds = %._crit_edge202, %132
+_ZN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EED2Ev.exit: ; preds = %._crit_edge202, %131
   call void @llvm.lifetime.end.p0(i64 656, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  %133 = load ptr, ptr %3, align 8, !tbaa !18
-  %134 = icmp eq ptr %133, %50
-  br i1 %134, label %_ZN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLj8EED2Ev.exit, label %135
+  %132 = load ptr, ptr %3, align 8, !tbaa !18
+  %133 = icmp eq ptr %132, %50
+  br i1 %133, label %_ZN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLj8EED2Ev.exit, label %134
 
-135:                                              ; preds = %_ZN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EED2Ev.exit
-  call void @free(ptr noundef %133) #9
+134:                                              ; preds = %_ZN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EED2Ev.exit
+  call void @free(ptr noundef %132) #9
   br label %_ZN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLj8EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EED2Ev.exit, %135
+_ZN4llvm11SmallVectorIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLj8EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorINS_26OptimizedStructLayoutFieldELj16EED2Ev.exit, %134
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %3) #9
   br label %.loopexit
 
@@ -408,7 +408,8 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   %5 = getelementptr i8, ptr %4, i64 8
   %.val41 = load i32, ptr %5, align 8, !tbaa !21
   %6 = zext i32 %.val41 to i64
-  %7 = getelementptr inbounds nuw %struct.AlignmentQueue, ptr %.val, i64 %6
+  %.idx = mul nuw nsw i64 %6, 24
+  %7 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx
   %.not50 = icmp eq i32 %.val41, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !44

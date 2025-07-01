@@ -480,7 +480,8 @@ define internal fastcc ptr @flatten_set_variable_args(ptr noundef %0, ptr nounde
 25:                                               ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
   %26 = load ptr, ptr %22, align 8
-  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
   %28 = load ptr, ptr %27, align 8
   %.not44 = icmp eq i64 %indvars.iv, 0
   br i1 %.not44, label %30, label %29

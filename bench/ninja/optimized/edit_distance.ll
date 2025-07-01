@@ -30,7 +30,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
 .noexc60:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %14 = ashr exact i64 %sext, 30
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #7
-  %16 = getelementptr i32, ptr %15, i64 %12
+  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %12
   store i32 0, ptr %15, align 4, !tbaa !11
   %17 = icmp eq i64 %11, 0
   br i1 %17, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i

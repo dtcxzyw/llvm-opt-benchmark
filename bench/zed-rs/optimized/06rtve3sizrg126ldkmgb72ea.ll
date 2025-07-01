@@ -2704,7 +2704,8 @@ define hidden void @"_ZN64_$LT$zvariant..array..Array$u20$as$u20$serde..ser..Ser
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.6)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds { i64, [17 x i64] }, ptr %15, i64 %9
+  %.idx = mul nsw i64 %9, 144
+  %16 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %17 = icmp eq i64 %9, 0
   br i1 %17, label %._crit_edge, label %.lr.ph
 
@@ -2781,7 +2782,8 @@ define hidden void @"_ZN64_$LT$zvariant..array..Array$u20$as$u20$serde..ser..Ser
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.6)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds { i64, [17 x i64] }, ptr %15, i64 %9
+  %.idx = mul nsw i64 %9, 144
+  %16 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %17 = icmp eq i64 %9, 0
   br i1 %17, label %"_ZN92_$LT$zvariant..gvariant..ser..SeqSerializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17hf86e581cfaee818cE.exit", label %.lr.ph
 
@@ -2889,7 +2891,8 @@ define hidden void @"_ZN64_$LT$zvariant..array..Array$u20$as$u20$serde..ser..Ser
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.6)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds { i64, [17 x i64] }, ptr %15, i64 %9
+  %.idx = mul nsw i64 %9, 144
+  %16 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %17 = icmp eq i64 %9, 0
   br i1 %17, label %._crit_edge, label %.lr.ph
 
@@ -2966,7 +2969,8 @@ define hidden void @"_ZN64_$LT$zvariant..array..Array$u20$as$u20$serde..ser..Ser
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.6)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds { i64, [17 x i64] }, ptr %15, i64 %9
+  %.idx = mul nsw i64 %9, 144
+  %16 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %17 = icmp eq i64 %9, 0
   br i1 %17, label %"_ZN92_$LT$zvariant..gvariant..ser..SeqSerializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h9db422e87b64a611E.exit", label %.lr.ph
 
@@ -6699,7 +6703,8 @@ define hidden void @"_ZN72_$LT$zvariant..structure..Structure$u20$as$u20$serde..
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.6)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds { i64, [17 x i64] }, ptr %16, i64 %10
+  %.idx = mul nsw i64 %10, 144
+  %17 = getelementptr inbounds i8, ptr %16, i64 %.idx
   %18 = icmp eq i64 %10, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 
@@ -6829,7 +6834,8 @@ define hidden void @"_ZN72_$LT$zvariant..structure..Structure$u20$as$u20$serde..
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.6)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds { i64, [17 x i64] }, ptr %16, i64 %10
+  %.idx = mul nsw i64 %10, 144
+  %17 = getelementptr inbounds i8, ptr %16, i64 %.idx
   %18 = icmp eq i64 %10, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 
@@ -6945,7 +6951,8 @@ define hidden void @"_ZN72_$LT$zvariant..structure..Structure$u20$as$u20$serde..
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.6)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds { i64, [17 x i64] }, ptr %16, i64 %10
+  %.idx = mul nsw i64 %10, 144
+  %17 = getelementptr inbounds i8, ptr %16, i64 %.idx
   %18 = icmp eq i64 %10, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 
@@ -7055,7 +7062,8 @@ define hidden void @"_ZN72_$LT$zvariant..structure..Structure$u20$as$u20$serde..
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.6)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds { i64, [17 x i64] }, ptr %16, i64 %10
+  %.idx = mul nsw i64 %10, 144
+  %17 = getelementptr inbounds i8, ptr %16, i64 %.idx
   %18 = icmp eq i64 %10, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 

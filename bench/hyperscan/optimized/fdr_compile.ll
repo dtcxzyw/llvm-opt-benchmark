@@ -322,7 +322,8 @@ define hidden void @_ZN3ue213fdrBuildProtoEhSt6vectorINS_11hwlmLiteralESaIS1_EEb
   %69 = load ptr, ptr %59, align 8, !noalias !13
   %70 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %71 = load i64, ptr %70, align 8, !noalias !13
-  %72 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %69, i64 %71
+  %.idx.i.i.i.i.i = mul nsw i64 %71, 104
+  %72 = getelementptr inbounds i8, ptr %69, i64 %.idx.i.i.i.i.i
   %.not4.i.i.i.i.i.i.i = icmp eq i64 %71, 0
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEES3_ED2Ev.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -6424,7 +6425,8 @@ define linkonce_odr hidden void @_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %3, i64 %5
+  %.idx = mul nsw i64 %5, 104
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %.not4.i.i = icmp eq i64 %5, 0
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN3ue211hwlmLiteralEEvT_S3_.exit, label %.lr.ph.i.i
 
@@ -8651,16 +8653,21 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   br label %17
 
 17:                                               ; preds = %.lr.ph, %"_ZSt17__merge_sort_loopIPN3ue211hwlmLiteralEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEElNS3_5__ops15_Iter_comp_iterIZNS0_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS0_20FDREngineDescriptionEE3$_0EEEvT_SI_T0_T1_T2_.exit"
-  %.0156 = phi i64 [ 7, %.lr.ph ], [ %317, %"_ZSt17__merge_sort_loopIPN3ue211hwlmLiteralEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEElNS3_5__ops15_Iter_comp_iterIZNS0_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS0_20FDREngineDescriptionEE3$_0EEEvT_SI_T0_T1_T2_.exit" ]
-  %18 = shl nsw i64 %.0156, 1
+  %.0159 = phi i64 [ 7, %.lr.ph ], [ %317, %"_ZSt17__merge_sort_loopIPN3ue211hwlmLiteralEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEElNS3_5__ops15_Iter_comp_iterIZNS0_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS0_20FDREngineDescriptionEE3$_0EEEvT_SI_T0_T1_T2_.exit" ]
+  %18 = shl nsw i64 %.0159, 1
   %.not31.i = icmp slt i64 %7, %18
-  br i1 %.not31.i, label %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EEEvT_SI_T0_T1_T2_.exit", label %.lr.ph.i21
+  br i1 %.not31.i, label %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EEEvT_SI_T0_T1_T2_.exit", label %.lr.ph.i21.preheader
 
-.lr.ph.i21:                                       ; preds = %17, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EEET0_T_SJ_SJ_SJ_SI_T1_.exit"
-  %.033.i = phi ptr [ %.08.lcssa.i.i.i.i.i9.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EEET0_T_SJ_SJ_SJ_SI_T1_.exit" ], [ %2, %17 ]
-  %.sroa.023.032.i = phi ptr [ %20, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EEET0_T_SJ_SJ_SJ_SI_T1_.exit" ], [ %0, %17 ]
-  %19 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %.sroa.023.032.i, i64 %.0156
-  %20 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %.sroa.023.032.i, i64 %18
+.lr.ph.i21.preheader:                             ; preds = %17
+  %.idx = mul nsw i64 %.0159, 104
+  %.idx139 = mul nsw i64 %.0159, 208
+  br label %.lr.ph.i21
+
+.lr.ph.i21:                                       ; preds = %.lr.ph.i21.preheader, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EEET0_T_SJ_SJ_SJ_SI_T1_.exit"
+  %.033.i = phi ptr [ %.08.lcssa.i.i.i.i.i9.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EEET0_T_SJ_SJ_SJ_SI_T1_.exit" ], [ %2, %.lr.ph.i21.preheader ]
+  %.sroa.023.032.i = phi ptr [ %20, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EEET0_T_SJ_SJ_SJ_SI_T1_.exit" ], [ %0, %.lr.ph.i21.preheader ]
+  %19 = getelementptr inbounds i8, ptr %.sroa.023.032.i, i64 %.idx
+  %20 = getelementptr inbounds i8, ptr %.sroa.023.032.i, i64 %.idx139
   br label %.lr.ph.i28
 
 .lr.ph.i28:                                       ; preds = %.lr.ph.i21, %168
@@ -9335,23 +9342,24 @@ _ZN3ue211hwlmLiteralaSEOS0_.exit:                 ; preds = %_ZNSt6vectorIhSaIhE
   %.sroa.023.0.lcssa.i = phi ptr [ %0, %17 ], [ %20, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EEET0_T_SJ_SJ_SJ_SI_T1_.exit" ]
   %.0.lcssa.i = phi ptr [ %2, %17 ], [ %.08.lcssa.i.i.i.i.i9.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EEET0_T_SJ_SJ_SJ_SI_T1_.exit" ]
   %.lcssa.i = phi i64 [ %7, %17 ], [ %315, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EEET0_T_SJ_SJ_SJ_SI_T1_.exit" ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.0156, i64 %.lcssa.i)
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.0159, i64 %.lcssa.i)
   %316 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %.sroa.023.0.lcssa.i, i64 %.sroa.speculated.i
   tail call fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EEET0_T_SJ_SJ_SJ_SI_T1_"(ptr %.sroa.023.0.lcssa.i, ptr %316, ptr %316, ptr %1, ptr noundef %.0.lcssa.i)
-  %317 = shl nsw i64 %.0156, 2
+  %317 = shl nsw i64 %.0159, 2
   %.not29.i = icmp slt i64 %16, %317
   br i1 %.not29.i, label %"_ZSt17__merge_sort_loopIPN3ue211hwlmLiteralEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEElNS3_5__ops15_Iter_comp_iterIZNS0_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS0_20FDREngineDescriptionEE3$_0EEEvT_SI_T0_T1_T2_.exit", label %.lr.ph.i22.preheader
 
 .lr.ph.i22.preheader:                             ; preds = %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EEEvT_SI_T0_T1_T2_.exit"
-  %.not = icmp eq i64 %18, %317
+  %.idx140 = mul nsw i64 %.0159, 208
+  %.idx141 = mul nsw i64 %.0159, 416
   br label %.lr.ph.i22
 
 .lr.ph.i22:                                       ; preds = %.lr.ph.i22.preheader, %"_ZSt12__move_mergeIPN3ue211hwlmLiteralEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIZNS0_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS0_20FDREngineDescriptionEE3$_0EEET0_T_SJ_SJ_SJ_SI_T1_.exit"
   %.sroa.022.031.i = phi ptr [ %620, %"_ZSt12__move_mergeIPN3ue211hwlmLiteralEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIZNS0_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS0_20FDREngineDescriptionEE3$_0EEET0_T_SJ_SJ_SJ_SI_T1_.exit" ], [ %0, %.lr.ph.i22.preheader ]
   %.030.i = phi ptr [ %319, %"_ZSt12__move_mergeIPN3ue211hwlmLiteralEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIZNS0_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS0_20FDREngineDescriptionEE3$_0EEET0_T_SJ_SJ_SJ_SI_T1_.exit" ], [ %2, %.lr.ph.i22.preheader ]
-  %318 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %.030.i, i64 %18
-  %319 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %.030.i, i64 %317
-  br i1 %.not, label %._crit_edge.i, label %.lr.ph.i37
+  %318 = getelementptr inbounds i8, ptr %.030.i, i64 %.idx140
+  %319 = getelementptr inbounds i8, ptr %.030.i, i64 %.idx141
+  br label %.lr.ph.i37
 
 .lr.ph.i37:                                       ; preds = %.lr.ph.i22, %467
   %.034.i = phi ptr [ %.1.i, %467 ], [ %.030.i, %.lr.ph.i22 ]
@@ -9695,12 +9703,9 @@ _ZN3ue211hwlmLiteralaSEOS0_.exit124:              ; preds = %_ZNSt6vectorIhSaIhE
   %471 = select i1 %469, i1 %470, i1 false
   br i1 %471, label %.lr.ph.i37, label %._crit_edge.i, !llvm.loop !222
 
-._crit_edge.i:                                    ; preds = %467, %.lr.ph.i22
-  %.sroa.0.0.lcssa.i = phi ptr [ %.sroa.022.031.i, %.lr.ph.i22 ], [ %468, %467 ]
-  %.016.lcssa.i = phi ptr [ %318, %.lr.ph.i22 ], [ %.117.i, %467 ]
-  %.0.lcssa.i30 = phi ptr [ %.030.i, %.lr.ph.i22 ], [ %.1.i, %467 ]
+._crit_edge.i:                                    ; preds = %467
   %472 = ptrtoint ptr %318 to i64
-  %473 = ptrtoint ptr %.0.lcssa.i30 to i64
+  %473 = ptrtoint ptr %.1.i to i64
   %474 = sub i64 %472, %473
   %475 = icmp sgt i64 %474, 0
   br i1 %475, label %.lr.ph.preheader.i.i.i.i.i.i32, label %_ZSt4moveIPN3ue211hwlmLiteralEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i
@@ -9711,8 +9716,8 @@ _ZN3ue211hwlmLiteralaSEOS0_.exit124:              ; preds = %_ZNSt6vectorIhSaIhE
 
 .lr.ph.i.i.i.i.i.i33:                             ; preds = %_ZN3ue211hwlmLiteralaSEOS0_.exit111, %.lr.ph.preheader.i.i.i.i.i.i32
   %.012.i.i.i.i.i.i34 = phi i64 [ %541, %_ZN3ue211hwlmLiteralaSEOS0_.exit111 ], [ %476, %.lr.ph.preheader.i.i.i.i.i.i32 ]
-  %.0811.i.i.i.i.i.i35 = phi ptr [ %540, %_ZN3ue211hwlmLiteralaSEOS0_.exit111 ], [ %.sroa.0.0.lcssa.i, %.lr.ph.preheader.i.i.i.i.i.i32 ]
-  %.0910.i.i.i.i.i.i36 = phi ptr [ %539, %_ZN3ue211hwlmLiteralaSEOS0_.exit111 ], [ %.0.lcssa.i30, %.lr.ph.preheader.i.i.i.i.i.i32 ]
+  %.0811.i.i.i.i.i.i35 = phi ptr [ %540, %_ZN3ue211hwlmLiteralaSEOS0_.exit111 ], [ %468, %.lr.ph.preheader.i.i.i.i.i.i32 ]
+  %.0910.i.i.i.i.i.i36 = phi ptr [ %539, %_ZN3ue211hwlmLiteralaSEOS0_.exit111 ], [ %.1.i, %.lr.ph.preheader.i.i.i.i.i.i32 ]
   %477 = load ptr, ptr %.0811.i.i.i.i.i.i35, align 8
   %478 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i35, i64 16
   %479 = icmp eq ptr %477, %478
@@ -9858,13 +9863,13 @@ _ZN3ue211hwlmLiteralaSEOS0_.exit111:              ; preds = %_ZNSt6vectorIhSaIhE
   br i1 %542, label %.lr.ph.i.i.i.i.i.i33, label %_ZSt4moveIPN3ue211hwlmLiteralEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i, !llvm.loop !209
 
 _ZSt4moveIPN3ue211hwlmLiteralEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i: ; preds = %_ZN3ue211hwlmLiteralaSEOS0_.exit111, %._crit_edge.i
-  %.08.lcssa.i.i.i.i.i.i31 = phi ptr [ %.sroa.0.0.lcssa.i, %._crit_edge.i ], [ %540, %_ZN3ue211hwlmLiteralaSEOS0_.exit111 ]
+  %.08.lcssa.i.i.i.i.i.i31 = phi ptr [ %468, %._crit_edge.i ], [ %540, %_ZN3ue211hwlmLiteralaSEOS0_.exit111 ]
   %543 = ptrtoint ptr %.08.lcssa.i.i.i.i.i.i31 to i64
-  %544 = ptrtoint ptr %.sroa.0.0.lcssa.i to i64
+  %544 = ptrtoint ptr %468 to i64
   %545 = sub i64 %543, %544
-  %546 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i, i64 %545
+  %546 = getelementptr inbounds i8, ptr %468, i64 %545
   %547 = ptrtoint ptr %319 to i64
-  %548 = ptrtoint ptr %.016.lcssa.i to i64
+  %548 = ptrtoint ptr %.117.i to i64
   %549 = sub i64 %547, %548
   %550 = icmp sgt i64 %549, 0
   br i1 %550, label %.lr.ph.preheader.i.i.i.i.i19.i, label %"_ZSt12__move_mergeIPN3ue211hwlmLiteralEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_comp_iterIZNS0_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS0_20FDREngineDescriptionEE3$_0EEET0_T_SJ_SJ_SJ_SI_T1_.exit"
@@ -9876,7 +9881,7 @@ _ZSt4moveIPN3ue211hwlmLiteralEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaI
 .lr.ph.i.i.i.i.i20.i:                             ; preds = %_ZN3ue211hwlmLiteralaSEOS0_.exit98, %.lr.ph.preheader.i.i.i.i.i19.i
   %.012.i.i.i.i.i21.i = phi i64 [ %616, %_ZN3ue211hwlmLiteralaSEOS0_.exit98 ], [ %551, %.lr.ph.preheader.i.i.i.i.i19.i ]
   %.0811.i.i.i.i.i22.i = phi ptr [ %615, %_ZN3ue211hwlmLiteralaSEOS0_.exit98 ], [ %546, %.lr.ph.preheader.i.i.i.i.i19.i ]
-  %.0910.i.i.i.i.i23.i = phi ptr [ %614, %_ZN3ue211hwlmLiteralaSEOS0_.exit98 ], [ %.016.lcssa.i, %.lr.ph.preheader.i.i.i.i.i19.i ]
+  %.0910.i.i.i.i.i23.i = phi ptr [ %614, %_ZN3ue211hwlmLiteralaSEOS0_.exit98 ], [ %.117.i, %.lr.ph.preheader.i.i.i.i.i19.i ]
   %552 = load ptr, ptr %.0811.i.i.i.i.i22.i, align 8
   %553 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i22.i, i64 16
   %554 = icmp eq ptr %552, %553

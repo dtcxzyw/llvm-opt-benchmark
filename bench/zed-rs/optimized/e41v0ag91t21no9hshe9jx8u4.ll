@@ -1427,7 +1427,8 @@ define void @_ZN4util21merge_json_value_into17h0854c00d82c48688E(ptr noalias nou
 37:                                               ; preds = %19, %.noexc
   %38 = icmp ne ptr %.sroa.026.sroa.2.0.copyload, null
   tail call void @llvm.assume(i1 %38)
-  %39 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %.sroa.026.sroa.2.0.copyload, i64 %.sroa.026.sroa.3.0.copyload
+  %.idx = mul nsw i64 %.sroa.026.sroa.3.0.copyload, 104
+  %39 = getelementptr inbounds i8, ptr %.sroa.026.sroa.2.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   store ptr %.sroa.026.sroa.2.0.copyload, ptr %11, align 8
   %.sroa.440.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1777,7 +1778,8 @@ _ZN4core3ops8function6FnOnce9call_once17ha8c09a0b1796ad62E.exit.i: ; preds = %23
 50:                                               ; preds = %27, %.noexc19
   %51 = icmp ne ptr %.sroa.066.sroa.4.0.copyload, null
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %.sroa.066.sroa.4.0.copyload, i64 %.sroa.066.sroa.5.0.copyload
+  %.idx = mul nsw i64 %.sroa.066.sroa.5.0.copyload, 104
+  %52 = getelementptr inbounds i8, ptr %.sroa.066.sroa.4.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   store ptr %.sroa.066.sroa.4.0.copyload, ptr %14, align 8
   %.sroa.482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8

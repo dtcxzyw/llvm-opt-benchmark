@@ -4,14 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.llvm::FoldingSetBase::FoldingSetInfo" = type { ptr, ptr, ptr }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.664" }
-%"struct.std::pair.664" = type { ptr, %"class.std::unique_ptr.666" }
-%"class.std::unique_ptr.666" = type { %"struct.std::__uniq_ptr_data.667" }
-%"struct.std::__uniq_ptr_data.667" = type { %"class.std::__uniq_ptr_impl.668" }
-%"class.std::__uniq_ptr_impl.668" = type { %"class.std::tuple.669" }
-%"class.std::tuple.669" = type { %"struct.std::_Tuple_impl.670" }
-%"struct.std::_Tuple_impl.670" = type { %"struct.std::_Head_base.673" }
-%"struct.std::_Head_base.673" = type { ptr }
 %"class.clang::ento::APSIntPtr" = type { ptr }
 %"class.clang::QualType" = type { %"class.llvm::PointerIntPair" }
 %"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
@@ -217,7 +209,8 @@ define dso_local void @_ZN5clang4ento11SValBuilderC2ERN4llvm20BumpPtrAllocatorIm
   store i32 0, ptr %24, align 4, !tbaa !28
   %25 = load i32, ptr %21, align 8, !tbaa !23
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %22, i64 %26
+  %.idx.i.i.i.i = shl nuw nsw i64 %26, 4
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i.i.i
   %.not6.i.i.i.i = icmp eq i32 %25, 0
   br i1 %.not6.i.i.i.i, label %_ZN5clang4ento13SymbolManagerC2ERNS_10ASTContextERNS0_17BasicValueFactoryERN4llvm20BumpPtrAllocatorImplINS6_15MallocAllocatorELm4096ELm4096ELm128EEE.exit, label %.lr.ph.i.i.i.i
 
@@ -5450,7 +5443,8 @@ define linkonce_odr hidden void @_ZN5clang4ento11SValBuilderD2Ev(ptr noundef non
 
 .lr.ph.preheader.i.i.i:                           ; preds = %1
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.pre1.i.i, i64 %7
+  %.idx.i.i.i = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %.pre1.i.i, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %18, %.lr.ph.preheader.i.i.i

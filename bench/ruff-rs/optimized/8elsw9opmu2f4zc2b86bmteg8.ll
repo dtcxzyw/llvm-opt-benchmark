@@ -2400,7 +2400,8 @@ define hidden void @"_ZN72_$LT$insta..filters..Filters$u20$as$u20$core..convert.
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !282, !noalias !285
   %10 = icmp ult i64 %.sroa.5.0.copyload.i.i, 288230376151711744
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
+  %.idx.i = shl nuw nsw i64 %.sroa.5.0.copyload.i.i, 5
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i.i, i64 %.idx.i
   %12 = icmp sgt i64 %.sroa.0.0.copyload.i.i, -1
   tail call void @llvm.assume(i1 %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !280
@@ -3844,7 +3845,8 @@ define hidden void @_ZN7ty_test26create_diagnostic_snapshot17h938d042dcf2bd635E(
   %.sroa.5399.0.copyload = load i64, ptr %.sroa.5399.0..sroa_idx, align 8
   %70 = icmp ult i64 %.sroa.5399.0.copyload, 1152921504606846976
   call void @llvm.assume(i1 %70)
-  %71 = getelementptr inbounds nuw ptr, ptr %.sroa.4398.0.copyload, i64 %.sroa.5399.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.5399.0.copyload, 3
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.4398.0.copyload, i64 %.idx
   %72 = icmp sgt i64 %.sroa.0397.0.copyload, -1
   call void @llvm.assume(i1 %72)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20)

@@ -118,7 +118,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallInstELb1EE9push_backES2_.exit.i: ; pr
   %53 = load ptr, ptr %5, align 8, !tbaa !17
   %54 = load i32, ptr %15, align 8, !tbaa !19
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %55
+  %.idx.i = shl nuw nsw i64 %55, 3
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i
   %.not2943.i = icmp eq i32 %54, 0
   br i1 %.not2943.i, label %.loopexit.i, label %.lr.ph46.i
 

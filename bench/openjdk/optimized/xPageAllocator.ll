@@ -2297,7 +2297,8 @@ define hidden void @_ZN14XPageAllocator10free_pagesEPK18GrowableArrayCHeapIP5XPa
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %5 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %.idx = shl nsw i64 %9, 3
+  %10 = getelementptr inbounds i8, ptr %8, i64 %.idx
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -2672,7 +2673,8 @@ _ZN7XLockerI5XLockED2Ev.exit:                     ; preds = %17, %18
   %20 = icmp eq i32 %.sroa.04.0, 0
   %spec.select = select i1 %20, ptr null, ptr %.sroa.9.0
   %21 = sext i32 %.sroa.04.0 to i64
-  %22 = getelementptr inbounds ptr, ptr %spec.select, i64 %21
+  %.idx = shl nsw i64 %21, 3
+  %22 = getelementptr inbounds i8, ptr %spec.select, i64 %.idx
   br i1 %20, label %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN7XLockerI5XLockED2Ev.exit, %_ZN15XSafeDeleteImplI5XPageE16immediate_deleteEPS0_.exit

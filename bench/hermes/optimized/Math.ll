@@ -234,8 +234,8 @@ entry:
   %argCount_.i.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %5 = load i32, ptr %argCount_.i.i, align 8, !noalias !9
   %conv.i.i = zext i32 %5 to i64
-  %idx.neg.i.i.i = sub nsw i64 0, %conv.i.i
-  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %4, i64 %idx.neg.i.i.i
+  %.neg = mul nsw i64 %conv.i.i, -8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 %.neg
   %cmp.i.i.i.not20 = icmp eq i32 %5, 0
   br i1 %cmp.i.i.i.not20, label %entry.for.end_crit_edge, label %for.body.lr.ph
 
@@ -333,8 +333,8 @@ entry:
   %argCount_.i.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %5 = load i32, ptr %argCount_.i.i, align 8, !noalias !17
   %conv.i.i = zext i32 %5 to i64
-  %idx.neg.i.i.i = sub nsw i64 0, %conv.i.i
-  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %4, i64 %idx.neg.i.i.i
+  %.neg = mul nsw i64 %conv.i.i, -8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 %.neg
   %cmp.i.i.i.not20 = icmp eq i32 %5, 0
   br i1 %cmp.i.i.i.not20, label %entry.for.end_crit_edge, label %for.body.lr.ph
 
@@ -666,8 +666,8 @@ _ZN4llvh15SmallVectorImplIdE7reserveEm.exit:      ; preds = %entry, %if.then.i
   %5 = phi ptr [ %inlineStorage_.i, %entry ], [ %.pre, %if.then.i ]
   %6 = load ptr, ptr %args, align 8, !noalias !28
   %conv.i.i15 = zext i32 %3 to i64
-  %idx.neg.i.i.i = sub nsw i64 0, %conv.i.i15
-  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %6, i64 %idx.neg.i.i.i
+  %.neg = mul nsw i64 %conv.i.i15, -8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 %.neg
   %cmp.i.i.i.not42 = icmp eq i32 %3, 0
   br i1 %cmp.i.i.i.not42, label %cleanup, label %for.body.lr.ph
 
@@ -739,7 +739,8 @@ if.end42:                                         ; preds = %if.end36
   %22 = load ptr, ptr %coerced, align 8
   %23 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i29 = zext i32 %23 to i64
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %22, i64 %conv.i29
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i29, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %22, i64 %add.ptr.i.idx
   %cmp49.not49 = icmp eq i32 %23, 0
   br i1 %cmp49.not49, label %for.end56, label %for.body50
 

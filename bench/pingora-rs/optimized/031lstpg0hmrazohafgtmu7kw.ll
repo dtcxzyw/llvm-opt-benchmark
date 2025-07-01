@@ -1045,7 +1045,8 @@ define hidden void @"_ZN19brotli_decompressor7huffman42HuffmanTreeGroup$LT$Alloc
   %.val = load ptr, ptr %1, align 8, !nonnull !3, !align !7, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val10 = load i64, ptr %9, align 8, !noundef !3
-  %10 = getelementptr inbounds nuw i32, ptr %.val, i64 %.val10
+  %.idx = shl nuw nsw i64 %.val10, 2
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx
   %11 = icmp eq i64 %.val10, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 

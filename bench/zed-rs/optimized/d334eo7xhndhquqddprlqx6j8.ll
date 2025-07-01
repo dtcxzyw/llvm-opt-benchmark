@@ -42525,7 +42525,8 @@ define void @"_ZN120_$LT$language_model..provider..open_ai..OpenAiLanguageModelP
   %55 = load ptr, ptr %54, align 8, !nonnull !7, !noundef !7
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 176
   %57 = load i64, ptr %56, align 8, !noundef !7
-  %58 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, i64 }, ptr %55, i64 %57
+  %.idx = mul nsw i64 %57, 72
+  %58 = getelementptr inbounds i8, ptr %55, i64 %.idx
   %59 = icmp eq i64 %57, 0
   br i1 %59, label %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h74b7abb2efdbf15fE.exit", label %.lr.ph
 
@@ -52320,7 +52321,8 @@ common.ret:                                       ; preds = %358, %330, %39
 163:                                              ; preds = %160
   %164 = icmp ne ptr %.sroa.7128.0.copyload.i.i, null
   call void @llvm.assume(i1 %164)
-  %165 = getelementptr inbounds { { { i64, [2 x i64] }, { i64, [2 x i64] }, i8, [7 x i8] }, { i64, [2 x i64] }, i32, [1 x i32] }, ptr %.sroa.7128.0.copyload.i.i, i64 %.sroa.8.0.copyload.i.i
+  %.idx.i.i = mul nsw i64 %.sroa.8.0.copyload.i.i, 88
+  %165 = getelementptr inbounds i8, ptr %.sroa.7128.0.copyload.i.i, i64 %.idx.i.i
   store ptr %.sroa.7128.0.copyload.i.i, ptr %9, align 8, !alias.scope !12619, !noalias !12622
   %166 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %.sroa.6.0.copyload.i.i, ptr %166, align 8, !alias.scope !12619, !noalias !12622

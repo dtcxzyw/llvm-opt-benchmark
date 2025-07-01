@@ -4995,7 +4995,8 @@ entry:
   %tobool.not.i.i = icmp eq ptr %1, null
   %elements.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %spec.select.i.i = select i1 %tobool.not.i.i, ptr null, ptr %elements.i.i
-  %add.ptr.i = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %conv
+  %add.ptr.i.idx = shl nsw i64 %conv, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %add.ptr.i.idx
   %cmp.i.not185188 = icmp eq i32 %0, 0
   br i1 %cmp.i.not185188, label %for.end, label %for.body
 
@@ -5098,7 +5099,8 @@ for.end:                                          ; preds = %_ZN6google8protobuf
   %tobool.not.i.i24 = icmp eq ptr %13, null
   %elements.i.i25 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %spec.select.i.i26 = select i1 %tobool.not.i.i24, ptr null, ptr %elements.i.i25
-  %add.ptr.i33 = getelementptr inbounds ptr, ptr %spec.select.i.i26, i64 %conv11
+  %add.ptr.i33.idx = shl nsw i64 %conv11, 3
+  %add.ptr.i33 = getelementptr inbounds i8, ptr %spec.select.i.i26, i64 %add.ptr.i33.idx
   %cmp.i34.not191 = icmp eq i32 %12, 0
   br i1 %cmp.i34.not191, label %for.end30, label %for.body23
 
@@ -6737,7 +6739,8 @@ entry:
   %tobool.not.i.i = icmp eq ptr %1, null
   %elements.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %spec.select.i.i = select i1 %tobool.not.i.i, ptr null, ptr %elements.i.i
-  %add.ptr.i = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %conv
+  %add.ptr.i.idx = shl nsw i64 %conv, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %add.ptr.i.idx
   %cmp.i.not1415 = icmp eq i32 %0, 0
   br i1 %cmp.i.not1415, label %for.end, label %for.body
 
@@ -9157,7 +9160,8 @@ entry:
   %tobool.not.i.i = icmp eq ptr %1, null
   %elements.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %spec.select.i.i = select i1 %tobool.not.i.i, ptr null, ptr %elements.i.i
-  %add.ptr.i = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %conv
+  %add.ptr.i.idx = shl nsw i64 %conv, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %add.ptr.i.idx
   %cmp.i.not1415 = icmp eq i32 %0, 0
   br i1 %cmp.i.not1415, label %for.end, label %for.body
 
@@ -11717,7 +11721,8 @@ entry:
   %tobool.not.i.i = icmp eq ptr %1, null
   %elements.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %spec.select.i.i = select i1 %tobool.not.i.i, ptr null, ptr %elements.i.i
-  %add.ptr.i = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %conv
+  %add.ptr.i.idx = shl nsw i64 %conv, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %add.ptr.i.idx
   %cmp.i.not1415 = icmp eq i32 %0, 0
   br i1 %cmp.i.not1415, label %for.end, label %for.body
 

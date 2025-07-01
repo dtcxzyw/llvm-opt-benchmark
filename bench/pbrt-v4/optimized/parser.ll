@@ -1981,7 +1981,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %_Z
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %172 = load ptr, ptr %171, align 8, !tbaa !21
-  %173 = getelementptr inbounds nuw float, ptr %172, i64 %169
+  %.idx = shl nuw nsw i64 %169, 2
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 %.idx
   %174 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %175 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %225
@@ -2246,7 +2247,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
 .lr.ph230:                                        ; preds = %256
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %261 = load ptr, ptr %260, align 8, !tbaa !38
-  %262 = getelementptr inbounds nuw i32, ptr %261, i64 %258
+  %.idx237 = shl nuw nsw i64 %258, 2
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 %.idx237
   %263 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %264 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %265
@@ -2368,7 +2370,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
 .lr.ph233:                                        ; preds = %296
   %300 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %301 = load ptr, ptr %300, align 8, !tbaa !51
-  %302 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %301, i64 %298
+  %.idx238 = shl nuw nsw i64 %298, 5
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 %.idx238
   %303 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %304 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %305 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -17114,7 +17117,8 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %242 = load ptr, ptr %241, align 8, !tbaa !51
   %243 = getelementptr inbounds nuw i8, ptr %240, i64 176
   %244 = load i64, ptr %243, align 8, !tbaa !50
-  %245 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %242, i64 %244
+  %.idx = shl nuw nsw i64 %244, 5
+  %245 = getelementptr inbounds nuw i8, ptr %242, i64 %.idx
   %.not354 = icmp eq i64 %244, 0
   br i1 %.not354, label %._crit_edge.thread, label %.lr.ph
 
@@ -17874,7 +17878,8 @@ _ZNSt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS1_EED2Ev.exit34: ; preds 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42
 
 .lr.ph:                                           ; preds = %3
-  %55 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 5
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -27555,7 +27560,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   %165 = select i1 %.not.i148, ptr %164, ptr %163
   %166 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %167 = load i64, ptr %166, align 8, !tbaa !504
-  %168 = getelementptr inbounds nuw ptr, ptr %165, i64 %167
+  %.idx416 = shl nuw nsw i64 %167, 3
+  %168 = getelementptr inbounds nuw i8, ptr %165, i64 %.idx416
   %.not100413 = icmp eq i64 %167, 0
   br i1 %161, label %169, label %187
 
@@ -27904,8 +27910,8 @@ _ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_alloca
   br label %952
 
 319:                                              ; preds = %313
-  %.pre426 = load i8, ptr %36, align 1, !tbaa !708, !range !169
-  %320 = trunc nuw i8 %.pre426 to i1
+  %.pre427 = load i8, ptr %36, align 1, !tbaa !708, !range !169
+  %320 = trunc nuw i8 %.pre427 to i1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #37
   %321 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %321, ptr %15, align 8, !tbaa !26

@@ -149,7 +149,8 @@ define dso_local void @_ZN5clang17EmitClangASTNodesERKN4llvm12RecordKeeperERNS0_
   %38 = extractvalue { ptr, i64 } %37, 0
   %39 = extractvalue { ptr, i64 } %37, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18) #15
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %.idx.i = shl nuw nsw i64 %39, 3
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i
   %41 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %18, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, i8 0, i64 24, i1 false)
@@ -204,7 +205,8 @@ _ZN12_GLOBAL__N_120ClangASTNodesEmitterC2ERKN4llvm12RecordKeeperERKNSt7__cxx1112
   %61 = call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %56, ptr %58, i64 %60) #15
   %62 = extractvalue { ptr, i64 } %61, 0
   %63 = extractvalue { ptr, i64 } %61, 1
-  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %63
+  %.idx.i.i = shl nuw nsw i64 %63, 3
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx.i.i
   %.not19.i.i = icmp eq i64 %63, 0
   br i1 %.not19.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -947,7 +949,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %12, %14
 
 23:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %24 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.2, i64 noundef 29) #15
-  %.pre55 = load ptr, ptr %6, align 8, !tbaa !61
+  %.pre56 = load ptr, ptr %6, align 8, !tbaa !61
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit27
 
 25:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -958,7 +960,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %12, %14
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit27
 
 _ZN4llvm11raw_ostreamlsEPKc.exit27:               ; preds = %23, %25
-  %28 = phi ptr [ %.pre55, %23 ], [ %27, %25 ]
+  %28 = phi ptr [ %.pre56, %23 ], [ %27, %25 ]
   %29 = load ptr, ptr %4, align 8, !tbaa !56
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %28 to i64
@@ -992,7 +994,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit30:               ; preds = %34, %36
   %44 = call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr nonnull @.str.4, i64 8) #15
   %45 = extractvalue { ptr, i64 } %44, 0
   %46 = extractvalue { ptr, i64 } %44, 1
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %.idx = shl nuw nsw i64 %46, 3
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx
   %.not48 = icmp eq i64 %46, 0
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
@@ -1000,7 +1003,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit30:               ; preds = %34, %36
   %48 = call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr nonnull @.str.6, i64 11) #15
   %49 = extractvalue { ptr, i64 } %48, 0
   %50 = extractvalue { ptr, i64 } %48, 1
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %.idx55 = shl nuw nsw i64 %50, 3
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx55
   %.not2350 = icmp eq i64 %50, 0
   br i1 %.not2350, label %._crit_edge54, label %.lr.ph53
 

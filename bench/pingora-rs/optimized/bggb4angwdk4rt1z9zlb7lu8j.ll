@@ -112,7 +112,8 @@ define void @_ZN14pingora_ketama9Continuum3new17h4c06efabe3c73940E(ptr dead_on_u
   br i1 %30, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6573f39a0a8bffcfE.exit", label %.preheader
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6573f39a0a8bffcfE.exit": ; preds = %.preheader
-  %31 = getelementptr inbounds nuw { { i16, [15 x i16] }, i32 }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 36
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
   %32 = mul i32 %28, 160
   %33 = zext i32 %32 to i64

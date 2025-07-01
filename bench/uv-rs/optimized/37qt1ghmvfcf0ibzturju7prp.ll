@@ -2619,7 +2619,8 @@ define void @_ZN10uv_publish20files_for_publishing17h43351fed1361c64fE(ptr dead_
   %.sroa.5197.0.copyload = load i64, ptr %.sroa.5197.0..sroa_idx, align 8
   %48 = icmp ult i64 %.sroa.5197.0.copyload, 384307168202282326
   tail call void @llvm.assume(i1 %48)
-  %49 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.sroa.4.0.copyload, i64 %.sroa.5197.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.5197.0.copyload, 24
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 %.idx
   %50 = icmp sgt i64 %.sroa.0195.0.copyload, -1
   tail call void @llvm.assume(i1 %50)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43)

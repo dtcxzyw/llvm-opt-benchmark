@@ -2871,7 +2871,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %124
           to label %.noexc50 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc50:                                         ; preds = %127
-  %130 = getelementptr i64, ptr %129, i64 %50
+  %130 = getelementptr inbounds nuw i64, ptr %129, i64 %50
   store i64 0, ptr %129, align 8, !tbaa !67
   %131 = icmp eq i64 %50, 1
   br i1 %131, label %.lr.ph.preheader, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i

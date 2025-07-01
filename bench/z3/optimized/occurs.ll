@@ -744,7 +744,8 @@ _Z18for_each_expr_coreIN12_GLOBAL__N_14procE13ast_fast_markILj1EELb0ELb0EEvRT_RT
   %.pre.i = load ptr, ptr %4, align 8, !tbaa !3
   %.pre61.i = load i32, ptr %6, align 8, !tbaa !11
   %228 = zext i32 %.pre61.i to i64
-  %229 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %228
+  %.idx.i.i.i = shl nuw nsw i64 %228, 3
+  %229 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx.i.i.i
   %.not8.i.i.i = icmp eq i32 %.pre61.i, 0
   br i1 %.not8.i.i.i, label %.loopexit.i5.i, label %.lr.ph.i.i.i
 
@@ -1471,7 +1472,8 @@ _Z18for_each_expr_coreIN12_GLOBAL__N_19decl_procE13ast_fast_markILj1EELb0ELb0EEv
   %.pre.i = load ptr, ptr %4, align 8, !tbaa !3
   %.pre61.i = load i32, ptr %6, align 8, !tbaa !11
   %222 = zext i32 %.pre61.i to i64
-  %223 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %222
+  %.idx.i.i.i = shl nuw nsw i64 %222, 3
+  %223 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx.i.i.i
   %.not8.i.i.i = icmp eq i32 %.pre61.i, 0
   br i1 %.not8.i.i.i, label %.loopexit.i5.i, label %.lr.ph.i.i.i
 
@@ -3013,7 +3015,8 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit.thread:     ; preds = %_ZNK6vectorIP4exprL
   %299 = load ptr, ptr %6, align 8, !tbaa !3
   %300 = load i32, ptr %8, align 8, !tbaa !11
   %301 = zext i32 %300 to i64
-  %302 = getelementptr inbounds nuw ptr, ptr %299, i64 %301
+  %.idx.i.i = shl nuw nsw i64 %301, 3
+  %302 = getelementptr inbounds nuw i8, ptr %299, i64 %.idx.i.i
   %.not8.i.i = icmp eq i32 %300, 0
   br i1 %.not8.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -3068,7 +3071,8 @@ define linkonce_odr hidden void @_ZN13ast_fast_markILj2EED2Ev(ptr noundef nonnul
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !11
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 3
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %.not8.i = icmp eq i32 %4, 0
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
 
@@ -3117,7 +3121,8 @@ define linkonce_odr hidden void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnul
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !11
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 3
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %.not8.i = icmp eq i32 %4, 0
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
 

@@ -4513,7 +4513,8 @@ common.resume:                                    ; preds = %76, %19, %26
   %.not54 = icmp eq i64 %45, 2
   %..sroa.012.0 = select i1 %.not54, i64 0, i64 %45
   %..sroa.614.0 = select i1 %.not54, i64 undef, i64 %46
-  %47 = getelementptr inbounds nuw { { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [48 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %.pre, i64 %.pre87
+  %.idx = mul nuw nsw i64 %.pre87, 568
+  %47 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
   %48 = icmp eq i64 %.pre87, 0
   br i1 %48, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit.thread", label %.preheader
 
@@ -4569,8 +4570,8 @@ common.resume:                                    ; preds = %76, %19, %26
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit.thread.loopexit", %42, %44
   %65 = phi ptr [ %47, %44 ], [ %33, %42 ], [ %47, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit.thread.loopexit" ]
-  %..sroa.614.094 = phi i64 [ %..sroa.614.0, %44 ], [ undef, %42 ], [ %..sroa.614.0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit.thread.loopexit" ]
-  %..sroa.012.093 = phi i64 [ %..sroa.012.0, %44 ], [ 0, %42 ], [ %..sroa.012.0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit.thread.loopexit" ]
+  %..sroa.614.095 = phi i64 [ %..sroa.614.0, %44 ], [ undef, %42 ], [ %..sroa.614.0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit.thread.loopexit" ]
+  %..sroa.012.094 = phi i64 [ %..sroa.012.0, %44 ], [ 0, %42 ], [ %..sroa.012.0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit.thread.loopexit" ]
   %66 = phi ptr [ %.pre, %44 ], [ %33, %42 ], [ %.pre, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit.thread.loopexit" ]
   %67 = phi i1 [ true, %44 ], [ true, %42 ], [ %64, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit.thread.loopexit" ]
   %.sroa.04.0.i84 = phi i64 [ 0, %44 ], [ 0, %42 ], [ %53, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf6bef812b65e9237E.exit.thread.loopexit" ]
@@ -4600,9 +4601,9 @@ common.resume:                                    ; preds = %76, %19, %26
   %74 = trunc nuw nsw i64 %7 to i16
   %.sroa.529.0 = select i1 %73, i16 %74, i16 undef
   %.sroa.026.0 = zext i1 %73 to i16
-  store i64 %..sroa.012.093, ptr %0, align 8
+  store i64 %..sroa.012.094, ptr %0, align 8
   %.sroa.017.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %..sroa.614.094, ptr %.sroa.017.sroa.4.0..sroa_idx, align 8
+  store i64 %..sroa.614.095, ptr %.sroa.017.sroa.4.0..sroa_idx, align 8
   %.sroa.017.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %.sroa.017.sroa.5.0..sroa_idx, align 8
   %.sroa.017.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24

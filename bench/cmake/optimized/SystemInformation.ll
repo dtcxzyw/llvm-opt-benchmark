@@ -12202,7 +12202,7 @@ _ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i: ; preds = %192
           to label %_ZNSt6vectorIPKcSaIS1_EE7reserveEm.exit unwind label %.thread
 
 _ZNSt6vectorIPKcSaIS1_EE7reserveEm.exit:          ; preds = %_ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i
-  %195 = getelementptr inbounds nuw ptr, ptr %194, i64 %189
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 %193
   store ptr @.str.205, ptr %194, align 8, !tbaa !133
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit
 

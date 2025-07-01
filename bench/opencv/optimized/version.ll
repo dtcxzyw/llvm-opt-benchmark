@@ -17156,75 +17156,78 @@ define internal noundef nonnull ptr @_ZN5zxing6qrcodeL8intArrayEmz(i64 noundef r
 4:                                                ; preds = %1
   %5 = shl nuw nsw i64 %0, 2
   %6 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #17
-          to label %.noexc unwind label %16
+          to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %4
   store ptr %6, ptr %3, align 8, !tbaa !63
-  %7 = getelementptr i32, ptr %6, i64 %0
+  %7 = getelementptr inbounds nuw i32, ptr %6, i64 %0
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %7, ptr %8, align 8, !tbaa !91
   store i32 0, ptr %6, align 4, !tbaa !67
   %9 = getelementptr i8, ptr %6, i64 4
-  %10 = icmp eq i64 %0, 1
-  br i1 %10, label %.lr.ph, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %10 = add nsw i64 %0, -1
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %.lr.ph, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
-  %11 = add nsw i64 %5, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %9, i8 0, i64 %11, i1 false), !tbaa !67
+  %12 = add nsw i64 %5, -4
+  call void @llvm.memset.p0.i64(ptr align 4 %9, i8 0, i64 %12, i1 false), !tbaa !67
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %10, 2
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
-  %.0.i.i.i.i.i.ph = phi ptr [ %7, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %9, %.noexc ]
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.0.i.i.i.i.i.ph, ptr %12, align 8, !tbaa !84
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.0.i.i.i.i.i.ph = phi ptr [ %13, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %9, %.noexc ]
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %.0.i.i.i.i.i.ph, ptr %14, align 8, !tbaa !84
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.pre = load i32, ptr %2, align 16
-  %15 = load ptr, ptr %14, align 16
-  %.promoted = load ptr, ptr %13, align 8
-  br label %18
+  %17 = load ptr, ptr %16, align 16
+  %.promoted = load ptr, ptr %15, align 8
+  br label %20
 
-._crit_edge:                                      ; preds = %28, %1
+._crit_edge:                                      ; preds = %30, %1
   call void @llvm.va_end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #19
   ret ptr %3
 
-16:                                               ; preds = %4
-  %17 = landingpad { ptr, i32 }
+18:                                               ; preds = %4
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %3) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #19
-  resume { ptr, i32 } %17
+  resume { ptr, i32 } %19
 
-18:                                               ; preds = %.lr.ph, %28
-  %19 = phi ptr [ %.promoted, %.lr.ph ], [ %29, %28 ]
-  %20 = phi i32 [ %.pre, %.lr.ph ], [ %30, %28 ]
-  %.010 = phi i64 [ 0, %.lr.ph ], [ %34, %28 ]
-  %21 = icmp ult i32 %20, 41
-  br i1 %21, label %22, label %26
+20:                                               ; preds = %.lr.ph, %30
+  %21 = phi ptr [ %.promoted, %.lr.ph ], [ %31, %30 ]
+  %22 = phi i32 [ %.pre, %.lr.ph ], [ %32, %30 ]
+  %.010 = phi i64 [ 0, %.lr.ph ], [ %36, %30 ]
+  %23 = icmp ult i32 %22, 41
+  br i1 %23, label %24, label %28
 
-22:                                               ; preds = %18
-  %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr i8, ptr %15, i64 %23
-  %25 = add nuw nsw i32 %20, 8
-  store i32 %25, ptr %2, align 16
-  br label %28
+24:                                               ; preds = %20
+  %25 = zext nneg i32 %22 to i64
+  %26 = getelementptr i8, ptr %17, i64 %25
+  %27 = add nuw nsw i32 %22, 8
+  store i32 %27, ptr %2, align 16
+  br label %30
 
-26:                                               ; preds = %18
-  %27 = getelementptr i8, ptr %19, i64 8
-  store ptr %27, ptr %13, align 8
-  br label %28
+28:                                               ; preds = %20
+  %29 = getelementptr i8, ptr %21, i64 8
+  store ptr %29, ptr %15, align 8
+  br label %30
 
-28:                                               ; preds = %26, %22
-  %29 = phi ptr [ %19, %22 ], [ %27, %26 ]
-  %30 = phi i32 [ %25, %22 ], [ %20, %26 ]
-  %31 = phi ptr [ %24, %22 ], [ %19, %26 ]
-  %32 = load i32, ptr %31, align 4, !tbaa !67
-  %33 = getelementptr inbounds nuw i32, ptr %6, i64 %.010
-  store i32 %32, ptr %33, align 4, !tbaa !67
-  %34 = add nuw nsw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %34, %0
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !92
+30:                                               ; preds = %28, %24
+  %31 = phi ptr [ %21, %24 ], [ %29, %28 ]
+  %32 = phi i32 [ %27, %24 ], [ %22, %28 ]
+  %33 = phi ptr [ %26, %24 ], [ %21, %28 ]
+  %34 = load i32, ptr %33, align 4, !tbaa !67
+  %35 = getelementptr inbounds nuw i32, ptr %6, i64 %.010
+  store i32 %34, ptr %35, align 4, !tbaa !67
+  %36 = add nuw nsw i64 %.010, 1
+  %exitcond.not = icmp eq i64 %36, %0
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !92
 }
 
 declare void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) unnamed_addr #8

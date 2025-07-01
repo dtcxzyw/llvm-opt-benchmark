@@ -14953,7 +14953,8 @@ default.unreachable.i.i:                          ; preds = %65
   unreachable
 
 78:                                               ; preds = %3
-  %79 = getelementptr inbounds { i64, [17 x i64] }, ptr %13, i64 %15
+  %.idx = mul nsw i64 %15, 144
+  %79 = getelementptr inbounds i8, ptr %13, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2886)
   %80 = icmp eq i64 %15, 0
   br i1 %80, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb79147c1c94288e8E.exit", label %.lr.ph.i7

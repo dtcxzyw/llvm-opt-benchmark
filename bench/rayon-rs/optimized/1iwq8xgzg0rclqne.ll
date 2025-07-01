@@ -730,7 +730,8 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h48fd43abfedc4925E(pt
   %.sroa.4135.0.copyload = load ptr, ptr %.sroa.4135.0..sroa_idx, align 8, !nonnull !8, !noundef !8
   %.sroa.5136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 16
   %.sroa.5136.0.copyload = load i64, ptr %.sroa.5136.0..sroa_idx, align 8
-  %90 = getelementptr inbounds { ptr, { ptr, i64 }, i8, {}, [7 x i8] }, ptr %.sroa.4135.0.copyload, i64 %.sroa.5136.0.copyload
+  %.idx = shl nsw i64 %.sroa.5136.0.copyload, 5
+  %90 = getelementptr inbounds i8, ptr %.sroa.4135.0.copyload, i64 %.idx
   %.sroa.0137.0.copyload = load i64, ptr %26, align 8
   %.sroa.4138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.4138.0.copyload = load ptr, ptr %.sroa.4138.0..sroa_idx, align 8, !nonnull !8, !noundef !8

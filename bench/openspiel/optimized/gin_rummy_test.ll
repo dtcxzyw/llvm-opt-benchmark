@@ -16267,7 +16267,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN10open_spiellsIKSt6vectorIiSaIiEEEERSoS5_N4absl7debian24SpanIT_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, i64 %2) local_unnamed_addr #5 comdat {
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.75)
-  %5 = getelementptr inbounds %"class.std::vector.21", ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 24
+  %5 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not12 = icmp eq i64 %2, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -17892,7 +17893,8 @@ define linkonce_odr dso_local void @_ZN10open_spiel8internal11SpielStrOutINSt7__
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.75)
-  %6 = getelementptr inbounds float, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
+  %.idx.i = shl nsw i64 %.sroa.2.0.copyload, 2
+  %6 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %.idx.i
   %.not12.i = icmp eq i64 %.sroa.2.0.copyload, 0
   br i1 %.not12.i, label %_ZN10open_spiellsIfEERSoS1_N4absl7debian24SpanIT_EE.exit, label %.lr.ph.i
 

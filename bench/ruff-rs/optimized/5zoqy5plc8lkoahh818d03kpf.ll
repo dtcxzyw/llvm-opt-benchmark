@@ -35,7 +35,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10ruff_cache9cache_key8CacheKey15cache_key_slice17hce41498e5aa44f09E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw { i64, [9 x i64] }, ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -631,7 +632,8 @@ define noundef align 8 dereferenceable_or_null(104) ptr @"_ZN133_$LT$ruff_python
   %4 = tail call { ptr, i64 } @"_ZN15ruff_python_ast5nodes58_$LT$impl$u20$ruff_python_ast..generated..StmtClassDef$GT$5bases17h9fff4bd4f5982a89E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %2)
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
-  %7 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %5, i64 %6
+  %.idx = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %8 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %8)
   %9 = icmp eq i64 %6, 0
@@ -994,7 +996,8 @@ _ZN20ruff_python_semantic7analyze5class22any_member_declaration16any_stmt_in_bod
   %65 = load ptr, ptr %64, align 8, !nonnull !4, !noundef !4
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %67 = load i64, ptr %66, align 8, !noundef !4
-  %68 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %65, i64 %67
+  %.idx = shl nuw nsw i64 %67, 7
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx
   %69 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = load ptr, ptr %70, align 8, !nonnull !4, !align !6, !noundef !4
@@ -1173,7 +1176,8 @@ _ZN20ruff_python_semantic7analyze5class22any_member_declaration16any_stmt_in_bod
   %144 = load ptr, ptr %143, align 8, !nonnull !4, !noundef !4
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %146 = load i64, ptr %145, align 8, !noundef !4
-  %147 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [15 x i32] }, { i32, i32 } }, ptr %144, i64 %146
+  %.idx96 = mul nuw nsw i64 %146, 96
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 %.idx96
   %.not.i = icmp eq i64 %146, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9e57575da112845bE.exit", label %.lr.ph.i
 
@@ -1664,7 +1668,8 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze5class16might_be_gen
   %6 = tail call { ptr, i64 } @"_ZN15ruff_python_ast5nodes58_$LT$impl$u20$ruff_python_ast..generated..StmtClassDef$GT$5bases17h9fff4bd4f5982a89E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %0)
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
-  %9 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %7, i64 %8
+  %.idx = shl nuw nsw i64 %8, 6
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %10 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %10)
   %.not.i = icmp eq i64 %8, 0
@@ -1693,7 +1698,8 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze5class16might_be_gen
   %24 = load ptr, ptr %23, align 8, !noalias !180, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %26 = load i64, ptr %25, align 8, !noalias !180, !noundef !4
-  %27 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %24, i64 %26
+  %.idx.i = shl nuw nsw i64 %26, 6
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i
   %.not.not.not.i.not.not.i21.i = icmp eq i64 %26, 0
   br i1 %.not.not.not.i.not.not.i21.i, label %.backedge.i, label %.lr.ph.i
 
@@ -1843,7 +1849,8 @@ switch.lookup:
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i8 1, 6) i8 @_ZN20ruff_python_semantic7analyze8terminal8Terminal9from_body17hb8d955b283a90bb9E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %0, i64 %1
+  %.idx150 = mul nuw nsw i64 %1, 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx150
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %_ZN20ruff_python_semantic7analyze8terminal13always_breaks17h1b2c3b47975d31d7E.exit.outer._crit_edge, label %.lr.ph.lr.ph
 
@@ -1888,15 +1895,15 @@ _ZN20ruff_python_semantic7analyze8terminal13always_breaks17h1b2c3b47975d31d7E.ex
   %spec.store.select = tail call i8 @llvm.umax.i8(i8 %.sroa.0.0.ph.lcssa131, i8 1)
   ret i8 %spec.store.select
 
-switch.lookup383:                                 ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfcb38562d5924de3E.exit"
-  %switch.cast384 = zext i8 %.sroa.0.0.ph145 to i48
-  %switch.shiftamt385 = shl nuw nsw i48 %switch.cast384, 3
-  %switch.downshift386 = lshr i48 5514788603141, %switch.shiftamt385
-  %switch.masked387 = trunc i48 %switch.downshift386 to i8
+switch.lookup384:                                 ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfcb38562d5924de3E.exit"
+  %switch.cast385 = zext i8 %.sroa.0.0.ph145 to i48
+  %switch.shiftamt386 = shl nuw nsw i48 %switch.cast385, 3
+  %switch.downshift387 = lshr i48 5514788603141, %switch.shiftamt386
+  %switch.masked388 = trunc i48 %switch.downshift387 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
-_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit: ; preds = %9, %switch.lookup471, %185, %switch.lookup465, %switch.lookup459, %switch.lookup453, %switch.lookup406, %156, %switch.lookup400, %switch.lookup394, %switch.lookup388, %switch.lookup383, %146, %switch.lookup377, %switch.lookup371, %switch.lookup365, %135, %switch.lookup359, %switch.lookup353, %switch.lookup347, %43, %switch.lookup305, %switch.lookup299, %switch.lookup, %_ZN20ruff_python_semantic7analyze8terminal8Terminal6branch17h586139eaf8e9cfc0E.exit, %128, %36, %92, %15, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hba20706092f6f1e3E.exit", %187, %184, %158, %155, %153, %151, %.loopexit, %148, %145, %143, %141, %139, %137, %134, %45, %42, %175, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfcb38562d5924de3E.exit", %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit40
-  %.sroa.0.1 = phi i8 [ %.sroa.0.0.i38, %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit40 ], [ %.sroa.0.0.ph145, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfcb38562d5924de3E.exit" ], [ %.sroa.0.0.mux, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hba20706092f6f1e3E.exit" ], [ %.sroa.0.0.i60, %175 ], [ 4, %45 ], [ %.sroa.0.0.ph145, %42 ], [ 4, %137 ], [ %.sroa.0.0.i38, %134 ], [ 4, %148 ], [ %27, %139 ], [ %.sroa.0.0.ph145, %141 ], [ %27, %143 ], [ %.sroa.0.0.ph145, %145 ], [ 4, %158 ], [ %.sroa.0.0.i29, %.loopexit ], [ %.sroa.0.0.ph145, %151 ], [ %.sroa.0.0.i29, %153 ], [ %.sroa.0.0.ph145, %155 ], [ 4, %187 ], [ %.sroa.0.0.i60, %184 ], [ 4, %15 ], [ %spec.select, %92 ], [ %41, %36 ], [ %133, %128 ], [ %.sroa.0.0.i68, %_ZN20ruff_python_semantic7analyze8terminal8Terminal6branch17h586139eaf8e9cfc0E.exit ], [ %switch.masked, %switch.lookup ], [ %switch.masked304, %switch.lookup299 ], [ %switch.masked310, %switch.lookup305 ], [ 4, %43 ], [ %switch.masked352, %switch.lookup347 ], [ %switch.masked358, %switch.lookup353 ], [ %switch.masked364, %switch.lookup359 ], [ 4, %135 ], [ %switch.masked370, %switch.lookup365 ], [ %switch.masked376, %switch.lookup371 ], [ %switch.masked382, %switch.lookup377 ], [ 4, %146 ], [ %switch.masked387, %switch.lookup383 ], [ %switch.masked393, %switch.lookup388 ], [ %switch.masked399, %switch.lookup394 ], [ %switch.masked405, %switch.lookup400 ], [ 4, %156 ], [ %switch.masked411, %switch.lookup406 ], [ %switch.masked458, %switch.lookup453 ], [ %switch.masked464, %switch.lookup459 ], [ %switch.masked470, %switch.lookup465 ], [ 4, %185 ], [ %switch.masked476, %switch.lookup471 ], [ %.sroa.0.0.ph145, %9 ]
+_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit: ; preds = %9, %switch.lookup472, %185, %switch.lookup466, %switch.lookup460, %switch.lookup454, %switch.lookup407, %156, %switch.lookup401, %switch.lookup395, %switch.lookup389, %switch.lookup384, %146, %switch.lookup378, %switch.lookup372, %switch.lookup366, %135, %switch.lookup360, %switch.lookup354, %switch.lookup348, %43, %switch.lookup306, %switch.lookup300, %switch.lookup, %_ZN20ruff_python_semantic7analyze8terminal8Terminal6branch17h586139eaf8e9cfc0E.exit, %128, %36, %92, %15, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hba20706092f6f1e3E.exit", %187, %184, %158, %155, %153, %151, %.loopexit, %148, %145, %143, %141, %139, %137, %134, %45, %42, %175, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfcb38562d5924de3E.exit", %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit40
+  %.sroa.0.1 = phi i8 [ %.sroa.0.0.i38, %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit40 ], [ %.sroa.0.0.ph145, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfcb38562d5924de3E.exit" ], [ %.sroa.0.0.mux, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hba20706092f6f1e3E.exit" ], [ %.sroa.0.0.i60, %175 ], [ 4, %45 ], [ %.sroa.0.0.ph145, %42 ], [ 4, %137 ], [ %.sroa.0.0.i38, %134 ], [ 4, %148 ], [ %27, %139 ], [ %.sroa.0.0.ph145, %141 ], [ %27, %143 ], [ %.sroa.0.0.ph145, %145 ], [ 4, %158 ], [ %.sroa.0.0.i29, %.loopexit ], [ %.sroa.0.0.ph145, %151 ], [ %.sroa.0.0.i29, %153 ], [ %.sroa.0.0.ph145, %155 ], [ 4, %187 ], [ %.sroa.0.0.i60, %184 ], [ 4, %15 ], [ %spec.select, %92 ], [ %41, %36 ], [ %133, %128 ], [ %.sroa.0.0.i68, %_ZN20ruff_python_semantic7analyze8terminal8Terminal6branch17h586139eaf8e9cfc0E.exit ], [ %switch.masked, %switch.lookup ], [ %switch.masked305, %switch.lookup300 ], [ %switch.masked311, %switch.lookup306 ], [ 4, %43 ], [ %switch.masked353, %switch.lookup348 ], [ %switch.masked359, %switch.lookup354 ], [ %switch.masked365, %switch.lookup360 ], [ 4, %135 ], [ %switch.masked371, %switch.lookup366 ], [ %switch.masked377, %switch.lookup372 ], [ %switch.masked383, %switch.lookup378 ], [ 4, %146 ], [ %switch.masked388, %switch.lookup384 ], [ %switch.masked394, %switch.lookup389 ], [ %switch.masked400, %switch.lookup395 ], [ %switch.masked406, %switch.lookup401 ], [ 4, %156 ], [ %switch.masked412, %switch.lookup407 ], [ %switch.masked459, %switch.lookup454 ], [ %switch.masked465, %switch.lookup460 ], [ %switch.masked471, %switch.lookup466 ], [ 4, %185 ], [ %switch.masked477, %switch.lookup472 ], [ %.sroa.0.0.ph145, %9 ]
   %14 = icmp eq ptr %.sroa.027.1140, %4
   %.sroa.027.1.idx135 = select i1 %14, i64 0, i64 120
   %.sroa.027.1136 = getelementptr inbounds nuw i8, ptr %.sroa.027.1140, i64 %.sroa.027.1.idx135
@@ -1952,8 +1959,8 @@ _ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E
   switch i8 %41, label %43 [
     i8 1, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
     i8 2, label %switch.lookup
-    i8 3, label %switch.lookup299
-    i8 5, label %switch.lookup305
+    i8 3, label %switch.lookup300
+    i8 5, label %switch.lookup306
   ]
 
 43:                                               ; preds = %42
@@ -1968,20 +1975,20 @@ switch.lookup:                                    ; preds = %42
   %switch.masked = trunc i32 %switch.downshift to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
-switch.lookup299:                                 ; preds = %42
-  %switch.tableidx300 = add nsw i8 %.sroa.0.0.ph145, -2
-  %switch.cast301 = zext i8 %switch.tableidx300 to i32
-  %switch.shiftamt302 = shl nuw nsw i32 %switch.cast301, 3
-  %switch.downshift303 = lshr i32 50594564, %switch.shiftamt302
-  %switch.masked304 = trunc i32 %switch.downshift303 to i8
+switch.lookup300:                                 ; preds = %42
+  %switch.tableidx301 = add nsw i8 %.sroa.0.0.ph145, -2
+  %switch.cast302 = zext i8 %switch.tableidx301 to i32
+  %switch.shiftamt303 = shl nuw nsw i32 %switch.cast302, 3
+  %switch.downshift304 = lshr i32 50594564, %switch.shiftamt303
+  %switch.masked305 = trunc i32 %switch.downshift304 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
-switch.lookup305:                                 ; preds = %42
-  %switch.tableidx306 = add nsw i8 %.sroa.0.0.ph145, -2
-  %switch.cast307 = zext i8 %switch.tableidx306 to i32
-  %switch.shiftamt308 = shl nuw nsw i32 %switch.cast307, 3
-  %switch.downshift309 = lshr i32 84148996, %switch.shiftamt308
-  %switch.masked310 = trunc i32 %switch.downshift309 to i8
+switch.lookup306:                                 ; preds = %42
+  %switch.tableidx307 = add nsw i8 %.sroa.0.0.ph145, -2
+  %switch.cast308 = zext i8 %switch.tableidx307 to i32
+  %switch.shiftamt309 = shl nuw nsw i32 %switch.cast308, 3
+  %switch.downshift310 = lshr i32 84148996, %switch.shiftamt309
+  %switch.masked311 = trunc i32 %switch.downshift310 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
 45:                                               ; preds = %43
@@ -2010,37 +2017,37 @@ switch.lookup305:                                 ; preds = %42
 59:                                               ; preds = %57
   switch i8 %53, label %60 [
     i8 1, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit31
-    i8 2, label %switch.lookup311
-    i8 3, label %switch.lookup317
-    i8 5, label %switch.lookup323
+    i8 2, label %switch.lookup312
+    i8 3, label %switch.lookup318
+    i8 5, label %switch.lookup324
   ]
 
 60:                                               ; preds = %59
   %61 = icmp eq i8 %.sroa.0.0.ph145, 4
   br i1 %61, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit31, label %62
 
-switch.lookup311:                                 ; preds = %59
-  %switch.tableidx312 = add nsw i8 %.sroa.0.0.ph145, -2
-  %switch.cast313 = zext i8 %switch.tableidx312 to i32
-  %switch.shiftamt314 = shl nuw nsw i32 %switch.cast313, 3
-  %switch.downshift315 = lshr i32 67372034, %switch.shiftamt314
-  %switch.masked316 = trunc i32 %switch.downshift315 to i8
+switch.lookup312:                                 ; preds = %59
+  %switch.tableidx313 = add nsw i8 %.sroa.0.0.ph145, -2
+  %switch.cast314 = zext i8 %switch.tableidx313 to i32
+  %switch.shiftamt315 = shl nuw nsw i32 %switch.cast314, 3
+  %switch.downshift316 = lshr i32 67372034, %switch.shiftamt315
+  %switch.masked317 = trunc i32 %switch.downshift316 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit31
 
-switch.lookup317:                                 ; preds = %59
-  %switch.tableidx318 = add nsw i8 %.sroa.0.0.ph145, -2
-  %switch.cast319 = zext i8 %switch.tableidx318 to i32
-  %switch.shiftamt320 = shl nuw nsw i32 %switch.cast319, 3
-  %switch.downshift321 = lshr i32 50594564, %switch.shiftamt320
-  %switch.masked322 = trunc i32 %switch.downshift321 to i8
+switch.lookup318:                                 ; preds = %59
+  %switch.tableidx319 = add nsw i8 %.sroa.0.0.ph145, -2
+  %switch.cast320 = zext i8 %switch.tableidx319 to i32
+  %switch.shiftamt321 = shl nuw nsw i32 %switch.cast320, 3
+  %switch.downshift322 = lshr i32 50594564, %switch.shiftamt321
+  %switch.masked323 = trunc i32 %switch.downshift322 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit31
 
-switch.lookup323:                                 ; preds = %59
-  %switch.tableidx324 = add nsw i8 %.sroa.0.0.ph145, -2
-  %switch.cast325 = zext i8 %switch.tableidx324 to i32
-  %switch.shiftamt326 = shl nuw nsw i32 %switch.cast325, 3
-  %switch.downshift327 = lshr i32 84148996, %switch.shiftamt326
-  %switch.masked328 = trunc i32 %switch.downshift327 to i8
+switch.lookup324:                                 ; preds = %59
+  %switch.tableidx325 = add nsw i8 %.sroa.0.0.ph145, -2
+  %switch.cast326 = zext i8 %switch.tableidx325 to i32
+  %switch.shiftamt327 = shl nuw nsw i32 %switch.cast326, 3
+  %switch.downshift328 = lshr i32 84148996, %switch.shiftamt327
+  %switch.masked329 = trunc i32 %switch.downshift328 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit31
 
 62:                                               ; preds = %60
@@ -2048,11 +2055,12 @@ switch.lookup323:                                 ; preds = %59
   tail call void @llvm.assume(i1 %63)
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit31
 
-_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit31: ; preds = %60, %switch.lookup323, %switch.lookup317, %switch.lookup311, %47, %55, %57, %59, %62
-  %.sroa.0.0.i29 = phi i8 [ 4, %62 ], [ %53, %47 ], [ %.sroa.0.0.ph145, %55 ], [ %53, %57 ], [ %.sroa.0.0.ph145, %59 ], [ %switch.masked316, %switch.lookup311 ], [ %switch.masked322, %switch.lookup317 ], [ %switch.masked328, %switch.lookup323 ], [ 4, %60 ]
+_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit31: ; preds = %60, %switch.lookup324, %switch.lookup318, %switch.lookup312, %47, %55, %57, %59, %62
+  %.sroa.0.0.i29 = phi i8 [ 4, %62 ], [ %53, %47 ], [ %.sroa.0.0.ph145, %55 ], [ %53, %57 ], [ %.sroa.0.0.ph145, %59 ], [ %switch.masked317, %switch.lookup312 ], [ %switch.masked323, %switch.lookup318 ], [ %switch.masked329, %switch.lookup324 ], [ 4, %60 ]
   %64 = load ptr, ptr %48, align 8, !nonnull !4, !noundef !4
   %65 = load i64, ptr %50, align 8, !noundef !4
-  %66 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i64, [10 x i64] }, { i32, i32 }, ptr }, ptr %64, i64 %65
+  %.idx = shl nuw nsw i64 %65, 7
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx
   %.not.i = icmp eq i64 %65, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hba20706092f6f1e3E.exit", label %.lr.ph.i
 
@@ -2128,11 +2136,11 @@ _ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E
   %97 = tail call noundef i8 @_ZN20ruff_python_semantic7analyze8terminal8Terminal9from_body17hb8d955b283a90bb9E(ptr noalias noundef nonnull readonly align 8 %94, i64 noundef %96)
   %.off.i = add nsw i8 %97, -3
   %switch.i = icmp ult i8 %.off.i, 3
-  %switch.cast431 = zext i8 %.sroa.0.0.ph145 to i48
-  %switch.shiftamt432 = shl nuw nsw i48 %switch.cast431, 3
-  %switch.downshift433 = lshr i48 5514788603141, %switch.shiftamt432
-  %switch.masked434 = trunc i48 %switch.downshift433 to i8
-  %.sroa.0.2 = select i1 %switch.i, i8 %switch.masked434, i8 %.sroa.0.0.ph145
+  %switch.cast432 = zext i8 %.sroa.0.0.ph145 to i48
+  %switch.shiftamt433 = shl nuw nsw i48 %switch.cast432, 3
+  %switch.downshift434 = lshr i48 5514788603141, %switch.shiftamt433
+  %switch.masked435 = trunc i48 %switch.downshift434 to i8
+  %.sroa.0.2 = select i1 %switch.i, i8 %switch.masked435, i8 %.sroa.0.0.ph145
   %98 = getelementptr inbounds nuw i8, ptr %.sroa.027.0139, i64 88
   %99 = load ptr, ptr %98, align 8, !nonnull !4, !noundef !4
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.027.0139, i64 96
@@ -2146,7 +2154,8 @@ _ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E
   %105 = load ptr, ptr %104, align 8, !nonnull !4, !noundef !4
   %106 = getelementptr inbounds nuw i8, ptr %.sroa.027.0139, i64 24
   %107 = load i64, ptr %106, align 8, !noundef !4
-  %108 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %105, i64 %107
+  %.idx.i = mul nuw nsw i64 %107, 120
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx.i
   %109 = icmp eq i64 %107, 0
   br i1 %109, label %.loopexit.loopexit.i, label %.lr.ph.i36
 
@@ -2177,37 +2186,37 @@ _ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E
 120:                                              ; preds = %.loopexit.loopexit.i
   switch i8 %119, label %121 [
     i8 1, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit40
-    i8 2, label %switch.lookup329
-    i8 3, label %switch.lookup335
-    i8 5, label %switch.lookup341
+    i8 2, label %switch.lookup330
+    i8 3, label %switch.lookup336
+    i8 5, label %switch.lookup342
   ]
 
 121:                                              ; preds = %120
   %122 = icmp eq i8 %.sroa.0.0.ph145, 4
   br i1 %122, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit40, label %123
 
-switch.lookup329:                                 ; preds = %120
-  %switch.tableidx330 = add nsw i8 %.sroa.0.0.ph145, -2
-  %switch.cast331 = zext i8 %switch.tableidx330 to i32
-  %switch.shiftamt332 = shl nuw nsw i32 %switch.cast331, 3
-  %switch.downshift333 = lshr i32 67372034, %switch.shiftamt332
-  %switch.masked334 = trunc i32 %switch.downshift333 to i8
+switch.lookup330:                                 ; preds = %120
+  %switch.tableidx331 = add nsw i8 %.sroa.0.0.ph145, -2
+  %switch.cast332 = zext i8 %switch.tableidx331 to i32
+  %switch.shiftamt333 = shl nuw nsw i32 %switch.cast332, 3
+  %switch.downshift334 = lshr i32 67372034, %switch.shiftamt333
+  %switch.masked335 = trunc i32 %switch.downshift334 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit40
 
-switch.lookup335:                                 ; preds = %120
-  %switch.tableidx336 = add nsw i8 %.sroa.0.0.ph145, -2
-  %switch.cast337 = zext i8 %switch.tableidx336 to i32
-  %switch.shiftamt338 = shl nuw nsw i32 %switch.cast337, 3
-  %switch.downshift339 = lshr i32 50594564, %switch.shiftamt338
-  %switch.masked340 = trunc i32 %switch.downshift339 to i8
+switch.lookup336:                                 ; preds = %120
+  %switch.tableidx337 = add nsw i8 %.sroa.0.0.ph145, -2
+  %switch.cast338 = zext i8 %switch.tableidx337 to i32
+  %switch.shiftamt339 = shl nuw nsw i32 %switch.cast338, 3
+  %switch.downshift340 = lshr i32 50594564, %switch.shiftamt339
+  %switch.masked341 = trunc i32 %switch.downshift340 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit40
 
-switch.lookup341:                                 ; preds = %120
-  %switch.tableidx342 = add nsw i8 %.sroa.0.0.ph145, -2
-  %switch.cast343 = zext i8 %switch.tableidx342 to i32
-  %switch.shiftamt344 = shl nuw nsw i32 %switch.cast343, 3
-  %switch.downshift345 = lshr i32 84148996, %switch.shiftamt344
-  %switch.masked346 = trunc i32 %switch.downshift345 to i8
+switch.lookup342:                                 ; preds = %120
+  %switch.tableidx343 = add nsw i8 %.sroa.0.0.ph145, -2
+  %switch.cast344 = zext i8 %switch.tableidx343 to i32
+  %switch.shiftamt345 = shl nuw nsw i32 %switch.cast344, 3
+  %switch.downshift346 = lshr i32 84148996, %switch.shiftamt345
+  %switch.masked347 = trunc i32 %switch.downshift346 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit40
 
 123:                                              ; preds = %121
@@ -2215,8 +2224,8 @@ switch.lookup341:                                 ; preds = %120
   tail call void @llvm.assume(i1 %124)
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit40
 
-_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit40: ; preds = %121, %switch.lookup341, %switch.lookup335, %switch.lookup329, %.loopexit.loopexit.i, %120, %123
-  %.sroa.0.0.i38 = phi i8 [ 4, %123 ], [ %.sroa.0.0.ph145, %120 ], [ %119, %.loopexit.loopexit.i ], [ %switch.masked334, %switch.lookup329 ], [ %switch.masked340, %switch.lookup335 ], [ %switch.masked346, %switch.lookup341 ], [ 4, %121 ]
+_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit40: ; preds = %121, %switch.lookup342, %switch.lookup336, %switch.lookup330, %.loopexit.loopexit.i, %120, %123
+  %.sroa.0.0.i38 = phi i8 [ 4, %123 ], [ %.sroa.0.0.ph145, %120 ], [ %119, %.loopexit.loopexit.i ], [ %switch.masked335, %switch.lookup330 ], [ %switch.masked341, %switch.lookup336 ], [ %switch.masked347, %switch.lookup342 ], [ 4, %121 ]
   %125 = load ptr, ptr %117, align 8, !nonnull !4, !noundef !4
   %126 = load i64, ptr %118, align 8, !noundef !4
   %127 = tail call noundef zeroext i1 @_ZN20ruff_python_semantic7analyze8terminal16sometimes_breaks17h02d2ecc762047d6cE(ptr noalias noundef nonnull readonly align 8 %125, i64 noundef %126)
@@ -2234,37 +2243,37 @@ _ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E
 134:                                              ; preds = %128
   switch i8 %133, label %135 [
     i8 1, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
-    i8 2, label %switch.lookup347
-    i8 3, label %switch.lookup353
-    i8 5, label %switch.lookup359
+    i8 2, label %switch.lookup348
+    i8 3, label %switch.lookup354
+    i8 5, label %switch.lookup360
   ]
 
 135:                                              ; preds = %134
   %136 = icmp eq i8 %.sroa.0.0.i38, 4
   br i1 %136, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit, label %137
 
-switch.lookup347:                                 ; preds = %134
-  %switch.tableidx348 = add nsw i8 %.sroa.0.0.i38, -2
-  %switch.cast349 = zext i8 %switch.tableidx348 to i32
-  %switch.shiftamt350 = shl nuw nsw i32 %switch.cast349, 3
-  %switch.downshift351 = lshr i32 67372034, %switch.shiftamt350
-  %switch.masked352 = trunc i32 %switch.downshift351 to i8
+switch.lookup348:                                 ; preds = %134
+  %switch.tableidx349 = add nsw i8 %.sroa.0.0.i38, -2
+  %switch.cast350 = zext i8 %switch.tableidx349 to i32
+  %switch.shiftamt351 = shl nuw nsw i32 %switch.cast350, 3
+  %switch.downshift352 = lshr i32 67372034, %switch.shiftamt351
+  %switch.masked353 = trunc i32 %switch.downshift352 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
-switch.lookup353:                                 ; preds = %134
-  %switch.tableidx354 = add nsw i8 %.sroa.0.0.i38, -2
-  %switch.cast355 = zext i8 %switch.tableidx354 to i32
-  %switch.shiftamt356 = shl nuw nsw i32 %switch.cast355, 3
-  %switch.downshift357 = lshr i32 50594564, %switch.shiftamt356
-  %switch.masked358 = trunc i32 %switch.downshift357 to i8
+switch.lookup354:                                 ; preds = %134
+  %switch.tableidx355 = add nsw i8 %.sroa.0.0.i38, -2
+  %switch.cast356 = zext i8 %switch.tableidx355 to i32
+  %switch.shiftamt357 = shl nuw nsw i32 %switch.cast356, 3
+  %switch.downshift358 = lshr i32 50594564, %switch.shiftamt357
+  %switch.masked359 = trunc i32 %switch.downshift358 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
-switch.lookup359:                                 ; preds = %134
-  %switch.tableidx360 = add nsw i8 %.sroa.0.0.i38, -2
-  %switch.cast361 = zext i8 %switch.tableidx360 to i32
-  %switch.shiftamt362 = shl nuw nsw i32 %switch.cast361, 3
-  %switch.downshift363 = lshr i32 84148996, %switch.shiftamt362
-  %switch.masked364 = trunc i32 %switch.downshift363 to i8
+switch.lookup360:                                 ; preds = %134
+  %switch.tableidx361 = add nsw i8 %.sroa.0.0.i38, -2
+  %switch.cast362 = zext i8 %switch.tableidx361 to i32
+  %switch.shiftamt363 = shl nuw nsw i32 %switch.cast362, 3
+  %switch.downshift364 = lshr i32 84148996, %switch.shiftamt363
+  %switch.masked365 = trunc i32 %switch.downshift364 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
 137:                                              ; preds = %135
@@ -2275,7 +2284,7 @@ switch.lookup359:                                 ; preds = %134
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfcb38562d5924de3E.exit": ; preds = %31
   %.off.i44 = add nsw i8 %27, -3
   %switch.i45 = icmp ult i8 %.off.i44, 3
-  br i1 %switch.i45, label %switch.lookup383, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
+  br i1 %switch.i45, label %switch.lookup384, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
 139:                                              ; preds = %33
   %140 = icmp eq i8 %.sroa.0.0.ph145, 0
@@ -2292,37 +2301,37 @@ switch.lookup359:                                 ; preds = %134
 145:                                              ; preds = %143
   switch i8 %27, label %146 [
     i8 1, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
-    i8 2, label %switch.lookup365
-    i8 3, label %switch.lookup371
-    i8 5, label %switch.lookup377
+    i8 2, label %switch.lookup366
+    i8 3, label %switch.lookup372
+    i8 5, label %switch.lookup378
   ]
 
 146:                                              ; preds = %145
   %147 = icmp eq i8 %.sroa.0.0.ph145, 4
   br i1 %147, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit, label %148
 
-switch.lookup365:                                 ; preds = %145
-  %switch.tableidx366 = add nsw i8 %.sroa.0.0.ph145, -2
-  %switch.cast367 = zext i8 %switch.tableidx366 to i32
-  %switch.shiftamt368 = shl nuw nsw i32 %switch.cast367, 3
-  %switch.downshift369 = lshr i32 67372034, %switch.shiftamt368
-  %switch.masked370 = trunc i32 %switch.downshift369 to i8
+switch.lookup366:                                 ; preds = %145
+  %switch.tableidx367 = add nsw i8 %.sroa.0.0.ph145, -2
+  %switch.cast368 = zext i8 %switch.tableidx367 to i32
+  %switch.shiftamt369 = shl nuw nsw i32 %switch.cast368, 3
+  %switch.downshift370 = lshr i32 67372034, %switch.shiftamt369
+  %switch.masked371 = trunc i32 %switch.downshift370 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
-switch.lookup371:                                 ; preds = %145
-  %switch.tableidx372 = add nsw i8 %.sroa.0.0.ph145, -2
-  %switch.cast373 = zext i8 %switch.tableidx372 to i32
-  %switch.shiftamt374 = shl nuw nsw i32 %switch.cast373, 3
-  %switch.downshift375 = lshr i32 50594564, %switch.shiftamt374
-  %switch.masked376 = trunc i32 %switch.downshift375 to i8
+switch.lookup372:                                 ; preds = %145
+  %switch.tableidx373 = add nsw i8 %.sroa.0.0.ph145, -2
+  %switch.cast374 = zext i8 %switch.tableidx373 to i32
+  %switch.shiftamt375 = shl nuw nsw i32 %switch.cast374, 3
+  %switch.downshift376 = lshr i32 50594564, %switch.shiftamt375
+  %switch.masked377 = trunc i32 %switch.downshift376 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
-switch.lookup377:                                 ; preds = %145
-  %switch.tableidx378 = add nsw i8 %.sroa.0.0.ph145, -2
-  %switch.cast379 = zext i8 %switch.tableidx378 to i32
-  %switch.shiftamt380 = shl nuw nsw i32 %switch.cast379, 3
-  %switch.downshift381 = lshr i32 84148996, %switch.shiftamt380
-  %switch.masked382 = trunc i32 %switch.downshift381 to i8
+switch.lookup378:                                 ; preds = %145
+  %switch.tableidx379 = add nsw i8 %.sroa.0.0.ph145, -2
+  %switch.cast380 = zext i8 %switch.tableidx379 to i32
+  %switch.shiftamt381 = shl nuw nsw i32 %switch.cast380, 3
+  %switch.downshift382 = lshr i32 84148996, %switch.shiftamt381
+  %switch.masked383 = trunc i32 %switch.downshift382 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
 148:                                              ; preds = %146
@@ -2335,7 +2344,7 @@ switch.lookup377:                                 ; preds = %145
   %switch.i53 = icmp ult i8 %150, -3
   %brmerge = or i1 %54, %switch.i53
   %.sroa.0.0.mux = select i1 %switch.i53, i8 %.sroa.0.0.ph145, i8 5
-  br i1 %brmerge, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit, label %switch.lookup406
+  br i1 %brmerge, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit, label %switch.lookup407
 
 .loopexit:                                        ; preds = %78, %87
   br i1 %54, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit, label %151
@@ -2351,37 +2360,37 @@ switch.lookup377:                                 ; preds = %145
 155:                                              ; preds = %153
   switch i8 %.sroa.0.0.i29, label %156 [
     i8 1, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
-    i8 2, label %switch.lookup388
-    i8 3, label %switch.lookup394
-    i8 5, label %switch.lookup400
+    i8 2, label %switch.lookup389
+    i8 3, label %switch.lookup395
+    i8 5, label %switch.lookup401
   ]
 
 156:                                              ; preds = %155
   %157 = icmp eq i8 %.sroa.0.0.ph145, 4
   br i1 %157, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit, label %158
 
-switch.lookup388:                                 ; preds = %155
-  %switch.tableidx389 = add nsw i8 %.sroa.0.0.ph145, -2
-  %switch.cast390 = zext i8 %switch.tableidx389 to i32
-  %switch.shiftamt391 = shl nuw nsw i32 %switch.cast390, 3
-  %switch.downshift392 = lshr i32 67372034, %switch.shiftamt391
-  %switch.masked393 = trunc i32 %switch.downshift392 to i8
+switch.lookup389:                                 ; preds = %155
+  %switch.tableidx390 = add nsw i8 %.sroa.0.0.ph145, -2
+  %switch.cast391 = zext i8 %switch.tableidx390 to i32
+  %switch.shiftamt392 = shl nuw nsw i32 %switch.cast391, 3
+  %switch.downshift393 = lshr i32 67372034, %switch.shiftamt392
+  %switch.masked394 = trunc i32 %switch.downshift393 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
-switch.lookup394:                                 ; preds = %155
-  %switch.tableidx395 = add nsw i8 %.sroa.0.0.ph145, -2
-  %switch.cast396 = zext i8 %switch.tableidx395 to i32
-  %switch.shiftamt397 = shl nuw nsw i32 %switch.cast396, 3
-  %switch.downshift398 = lshr i32 50594564, %switch.shiftamt397
-  %switch.masked399 = trunc i32 %switch.downshift398 to i8
+switch.lookup395:                                 ; preds = %155
+  %switch.tableidx396 = add nsw i8 %.sroa.0.0.ph145, -2
+  %switch.cast397 = zext i8 %switch.tableidx396 to i32
+  %switch.shiftamt398 = shl nuw nsw i32 %switch.cast397, 3
+  %switch.downshift399 = lshr i32 50594564, %switch.shiftamt398
+  %switch.masked400 = trunc i32 %switch.downshift399 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
-switch.lookup400:                                 ; preds = %155
-  %switch.tableidx401 = add nsw i8 %.sroa.0.0.ph145, -2
-  %switch.cast402 = zext i8 %switch.tableidx401 to i32
-  %switch.shiftamt403 = shl nuw nsw i32 %switch.cast402, 3
-  %switch.downshift404 = lshr i32 84148996, %switch.shiftamt403
-  %switch.masked405 = trunc i32 %switch.downshift404 to i8
+switch.lookup401:                                 ; preds = %155
+  %switch.tableidx402 = add nsw i8 %.sroa.0.0.ph145, -2
+  %switch.cast403 = zext i8 %switch.tableidx402 to i32
+  %switch.shiftamt404 = shl nuw nsw i32 %switch.cast403, 3
+  %switch.downshift405 = lshr i32 84148996, %switch.shiftamt404
+  %switch.masked406 = trunc i32 %switch.downshift405 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
 158:                                              ; preds = %156
@@ -2389,48 +2398,48 @@ switch.lookup400:                                 ; preds = %155
   tail call void @llvm.assume(i1 %159)
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
-switch.lookup406:                                 ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hba20706092f6f1e3E.exit"
-  %switch.tableidx407 = add nsw i8 %.sroa.0.0.ph145, -1
-  %switch.cast408 = zext i8 %switch.tableidx407 to i40
-  %switch.shiftamt409 = shl nuw nsw i40 %switch.cast408, 3
-  %switch.downshift410 = lshr i40 21542142981, %switch.shiftamt409
-  %switch.masked411 = trunc i40 %switch.downshift410 to i8
+switch.lookup407:                                 ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hba20706092f6f1e3E.exit"
+  %switch.tableidx408 = add nsw i8 %.sroa.0.0.ph145, -1
+  %switch.cast409 = zext i8 %switch.tableidx408 to i40
+  %switch.shiftamt410 = shl nuw nsw i40 %switch.cast409, 3
+  %switch.downshift411 = lshr i40 21542142981, %switch.shiftamt410
+  %switch.masked412 = trunc i40 %switch.downshift411 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
 160:                                              ; preds = %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit65
   switch i8 %102, label %161 [
     i8 1, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit62
-    i8 2, label %switch.lookup412
-    i8 3, label %switch.lookup418
-    i8 5, label %switch.lookup424
+    i8 2, label %switch.lookup413
+    i8 3, label %switch.lookup419
+    i8 5, label %switch.lookup425
   ]
 
 161:                                              ; preds = %160
   %162 = icmp eq i8 %.sroa.0.2, 4
   br i1 %162, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit62, label %163
 
-switch.lookup412:                                 ; preds = %160
-  %switch.tableidx413 = add nsw i8 %.sroa.0.2, -2
-  %switch.cast414 = zext i8 %switch.tableidx413 to i32
-  %switch.shiftamt415 = shl nuw nsw i32 %switch.cast414, 3
-  %switch.downshift416 = lshr i32 67372034, %switch.shiftamt415
-  %switch.masked417 = trunc i32 %switch.downshift416 to i8
+switch.lookup413:                                 ; preds = %160
+  %switch.tableidx414 = add nsw i8 %.sroa.0.2, -2
+  %switch.cast415 = zext i8 %switch.tableidx414 to i32
+  %switch.shiftamt416 = shl nuw nsw i32 %switch.cast415, 3
+  %switch.downshift417 = lshr i32 67372034, %switch.shiftamt416
+  %switch.masked418 = trunc i32 %switch.downshift417 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit62
 
-switch.lookup418:                                 ; preds = %160
-  %switch.tableidx419 = add nsw i8 %.sroa.0.2, -2
-  %switch.cast420 = zext i8 %switch.tableidx419 to i32
-  %switch.shiftamt421 = shl nuw nsw i32 %switch.cast420, 3
-  %switch.downshift422 = lshr i32 50594564, %switch.shiftamt421
-  %switch.masked423 = trunc i32 %switch.downshift422 to i8
+switch.lookup419:                                 ; preds = %160
+  %switch.tableidx420 = add nsw i8 %.sroa.0.2, -2
+  %switch.cast421 = zext i8 %switch.tableidx420 to i32
+  %switch.shiftamt422 = shl nuw nsw i32 %switch.cast421, 3
+  %switch.downshift423 = lshr i32 50594564, %switch.shiftamt422
+  %switch.masked424 = trunc i32 %switch.downshift423 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit62
 
-switch.lookup424:                                 ; preds = %160
-  %switch.tableidx425 = add nsw i8 %.sroa.0.2, -2
-  %switch.cast426 = zext i8 %switch.tableidx425 to i32
-  %switch.shiftamt427 = shl nuw nsw i32 %switch.cast426, 3
-  %switch.downshift428 = lshr i32 84148996, %switch.shiftamt427
-  %switch.masked429 = trunc i32 %switch.downshift428 to i8
+switch.lookup425:                                 ; preds = %160
+  %switch.tableidx426 = add nsw i8 %.sroa.0.2, -2
+  %switch.cast427 = zext i8 %switch.tableidx426 to i32
+  %switch.shiftamt428 = shl nuw nsw i32 %switch.cast427, 3
+  %switch.downshift429 = lshr i32 84148996, %switch.shiftamt428
+  %switch.masked430 = trunc i32 %switch.downshift429 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit62
 
 163:                                              ; preds = %161
@@ -2438,8 +2447,8 @@ switch.lookup424:                                 ; preds = %160
   tail call void @llvm.assume(i1 %164)
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit62
 
-_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit62: ; preds = %161, %switch.lookup424, %switch.lookup418, %switch.lookup412, %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit65, %160, %163
-  %.sroa.0.0.i60 = phi i8 [ 4, %163 ], [ %.sroa.0.2, %160 ], [ %102, %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit65 ], [ %switch.masked417, %switch.lookup412 ], [ %switch.masked423, %switch.lookup418 ], [ %switch.masked429, %switch.lookup424 ], [ 4, %161 ]
+_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit62: ; preds = %161, %switch.lookup425, %switch.lookup419, %switch.lookup413, %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit65, %160, %163
+  %.sroa.0.0.i60 = phi i8 [ 4, %163 ], [ %.sroa.0.2, %160 ], [ %102, %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit65 ], [ %switch.masked418, %switch.lookup413 ], [ %switch.masked424, %switch.lookup419 ], [ %switch.masked430, %switch.lookup425 ], [ 4, %161 ]
   %165 = getelementptr inbounds nuw i8, ptr %.sroa.027.0139, i64 40
   %166 = load ptr, ptr %165, align 8, !nonnull !4, !noundef !4
   %167 = getelementptr inbounds nuw i8, ptr %.sroa.027.0139, i64 48
@@ -2456,7 +2465,7 @@ _ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E
 175:                                              ; preds = %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit62
   %.off.i66 = add nsw i8 %170, -3
   %switch.i67 = icmp ult i8 %.off.i66, 3
-  br i1 %switch.i67, label %switch.lookup471, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
+  br i1 %switch.i67, label %switch.lookup472, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
 176:                                              ; preds = %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit62
   %177 = getelementptr inbounds nuw i8, ptr %.sroa.027.0139, i64 64
@@ -2467,10 +2476,10 @@ _ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E
 
 181:                                              ; preds = %176
   switch i8 %179, label %default.unreachable3.i [
-    i8 5, label %switch.lookup447
+    i8 5, label %switch.lookup448
     i8 1, label %182
-    i8 2, label %switch.lookup435
-    i8 3, label %switch.lookup441
+    i8 2, label %switch.lookup436
+    i8 3, label %switch.lookup442
     i8 4, label %183
   ]
 
@@ -2482,20 +2491,20 @@ default.unreachable3.i:                           ; preds = %181
   %..i = select i1 %switch.i70, i8 1, i8 5
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal6branch17h586139eaf8e9cfc0E.exit
 
-switch.lookup435:                                 ; preds = %181
-  %switch.tableidx436 = add nsw i8 %170, -1
-  %switch.cast437 = zext i8 %switch.tableidx436 to i40
-  %switch.shiftamt438 = shl nuw nsw i40 %switch.cast437, 3
-  %switch.downshift439 = lshr i40 17247240705, %switch.shiftamt438
-  %switch.masked440 = trunc i40 %switch.downshift439 to i8
+switch.lookup436:                                 ; preds = %181
+  %switch.tableidx437 = add nsw i8 %170, -1
+  %switch.cast438 = zext i8 %switch.tableidx437 to i40
+  %switch.shiftamt439 = shl nuw nsw i40 %switch.cast438, 3
+  %switch.downshift440 = lshr i40 17247240705, %switch.shiftamt439
+  %switch.masked441 = trunc i40 %switch.downshift440 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal6branch17h586139eaf8e9cfc0E.exit
 
-switch.lookup441:                                 ; preds = %181
-  %switch.tableidx442 = add nsw i8 %170, -1
-  %switch.cast443 = zext i8 %switch.tableidx442 to i40
-  %switch.shiftamt444 = shl nuw nsw i40 %switch.cast443, 3
-  %switch.downshift445 = lshr i40 12952208389, %switch.shiftamt444
-  %switch.masked446 = trunc i40 %switch.downshift445 to i8
+switch.lookup442:                                 ; preds = %181
+  %switch.tableidx443 = add nsw i8 %170, -1
+  %switch.cast444 = zext i8 %switch.tableidx443 to i40
+  %switch.shiftamt445 = shl nuw nsw i40 %switch.cast444, 3
+  %switch.downshift446 = lshr i40 12952208389, %switch.shiftamt445
+  %switch.masked447 = trunc i40 %switch.downshift446 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal6branch17h586139eaf8e9cfc0E.exit
 
 183:                                              ; preds = %181
@@ -2503,53 +2512,53 @@ switch.lookup441:                                 ; preds = %181
   %switch.select2.i = select i1 %switch.selectcmp1.i, i8 5, i8 4
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal6branch17h586139eaf8e9cfc0E.exit
 
-switch.lookup447:                                 ; preds = %181
-  %switch.tableidx448 = add nsw i8 %170, -1
-  %switch.cast449 = zext i8 %switch.tableidx448 to i40
-  %switch.shiftamt450 = shl nuw nsw i40 %switch.cast449, 3
-  %switch.downshift451 = lshr i40 21542142981, %switch.shiftamt450
-  %switch.masked452 = trunc i40 %switch.downshift451 to i8
+switch.lookup448:                                 ; preds = %181
+  %switch.tableidx449 = add nsw i8 %170, -1
+  %switch.cast450 = zext i8 %switch.tableidx449 to i40
+  %switch.shiftamt451 = shl nuw nsw i40 %switch.cast450, 3
+  %switch.downshift452 = lshr i40 21542142981, %switch.shiftamt451
+  %switch.masked453 = trunc i40 %switch.downshift452 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal6branch17h586139eaf8e9cfc0E.exit
 
-_ZN20ruff_python_semantic7analyze8terminal8Terminal6branch17h586139eaf8e9cfc0E.exit: ; preds = %switch.lookup447, %switch.lookup441, %switch.lookup435, %176, %182, %183
-  %.sroa.0.0.i68 = phi i8 [ %179, %176 ], [ %..i, %182 ], [ %switch.select2.i, %183 ], [ %switch.masked440, %switch.lookup435 ], [ %switch.masked446, %switch.lookup441 ], [ %switch.masked452, %switch.lookup447 ]
+_ZN20ruff_python_semantic7analyze8terminal8Terminal6branch17h586139eaf8e9cfc0E.exit: ; preds = %switch.lookup448, %switch.lookup442, %switch.lookup436, %176, %182, %183
+  %.sroa.0.0.i68 = phi i8 [ %179, %176 ], [ %..i, %182 ], [ %switch.select2.i, %183 ], [ %switch.masked441, %switch.lookup436 ], [ %switch.masked447, %switch.lookup442 ], [ %switch.masked453, %switch.lookup448 ]
   %switch86 = icmp ult i8 %.sroa.0.0.i60, 2
   br i1 %switch86, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit, label %184
 
 184:                                              ; preds = %_ZN20ruff_python_semantic7analyze8terminal8Terminal6branch17h586139eaf8e9cfc0E.exit
   switch i8 %.sroa.0.0.i68, label %185 [
     i8 1, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
-    i8 2, label %switch.lookup453
-    i8 3, label %switch.lookup459
-    i8 5, label %switch.lookup465
+    i8 2, label %switch.lookup454
+    i8 3, label %switch.lookup460
+    i8 5, label %switch.lookup466
   ]
 
 185:                                              ; preds = %184
   %186 = icmp eq i8 %.sroa.0.0.i60, 4
   br i1 %186, label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit, label %187
 
-switch.lookup453:                                 ; preds = %184
-  %switch.tableidx454 = add nsw i8 %.sroa.0.0.i60, -2
-  %switch.cast455 = zext i8 %switch.tableidx454 to i32
-  %switch.shiftamt456 = shl nuw nsw i32 %switch.cast455, 3
-  %switch.downshift457 = lshr i32 67372034, %switch.shiftamt456
-  %switch.masked458 = trunc i32 %switch.downshift457 to i8
+switch.lookup454:                                 ; preds = %184
+  %switch.tableidx455 = add nsw i8 %.sroa.0.0.i60, -2
+  %switch.cast456 = zext i8 %switch.tableidx455 to i32
+  %switch.shiftamt457 = shl nuw nsw i32 %switch.cast456, 3
+  %switch.downshift458 = lshr i32 67372034, %switch.shiftamt457
+  %switch.masked459 = trunc i32 %switch.downshift458 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
-switch.lookup459:                                 ; preds = %184
-  %switch.tableidx460 = add nsw i8 %.sroa.0.0.i60, -2
-  %switch.cast461 = zext i8 %switch.tableidx460 to i32
-  %switch.shiftamt462 = shl nuw nsw i32 %switch.cast461, 3
-  %switch.downshift463 = lshr i32 50594564, %switch.shiftamt462
-  %switch.masked464 = trunc i32 %switch.downshift463 to i8
+switch.lookup460:                                 ; preds = %184
+  %switch.tableidx461 = add nsw i8 %.sroa.0.0.i60, -2
+  %switch.cast462 = zext i8 %switch.tableidx461 to i32
+  %switch.shiftamt463 = shl nuw nsw i32 %switch.cast462, 3
+  %switch.downshift464 = lshr i32 50594564, %switch.shiftamt463
+  %switch.masked465 = trunc i32 %switch.downshift464 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
-switch.lookup465:                                 ; preds = %184
-  %switch.tableidx466 = add nsw i8 %.sroa.0.0.i60, -2
-  %switch.cast467 = zext i8 %switch.tableidx466 to i32
-  %switch.shiftamt468 = shl nuw nsw i32 %switch.cast467, 3
-  %switch.downshift469 = lshr i32 84148996, %switch.shiftamt468
-  %switch.masked470 = trunc i32 %switch.downshift469 to i8
+switch.lookup466:                                 ; preds = %184
+  %switch.tableidx467 = add nsw i8 %.sroa.0.0.i60, -2
+  %switch.cast468 = zext i8 %switch.tableidx467 to i32
+  %switch.shiftamt469 = shl nuw nsw i32 %switch.cast468, 3
+  %switch.downshift470 = lshr i32 84148996, %switch.shiftamt469
+  %switch.masked471 = trunc i32 %switch.downshift470 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
 187:                                              ; preds = %185
@@ -2557,12 +2566,12 @@ switch.lookup465:                                 ; preds = %184
   tail call void @llvm.assume(i1 %188)
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
-switch.lookup471:                                 ; preds = %175
-  %switch.tableidx472 = add nsw i8 %.sroa.0.0.i60, -1
-  %switch.cast473 = zext i8 %switch.tableidx472 to i40
-  %switch.shiftamt474 = shl nuw nsw i40 %switch.cast473, 3
-  %switch.downshift475 = lshr i40 21542142981, %switch.shiftamt474
-  %switch.masked476 = trunc i40 %switch.downshift475 to i8
+switch.lookup472:                                 ; preds = %175
+  %switch.tableidx473 = add nsw i8 %.sroa.0.0.i60, -1
+  %switch.cast474 = zext i8 %switch.tableidx473 to i40
+  %switch.shiftamt475 = shl nuw nsw i40 %switch.cast474, 3
+  %switch.downshift476 = lshr i40 21542142981, %switch.shiftamt475
+  %switch.masked477 = trunc i40 %switch.downshift476 to i8
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 }
 
@@ -2626,7 +2635,8 @@ switch.lookup10:                                  ; preds = %4
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN20ruff_python_semantic7analyze8terminal16sometimes_breaks17h02d2ecc762047d6cE(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %.loopexit, label %.lr.ph
 
@@ -3675,7 +3685,8 @@ default.unreachable175:                           ; preds = %75, %47, %43
   %34 = load ptr, ptr %33, align 8, !nonnull !4, !noundef !4
   %35 = getelementptr inbounds nuw i8, ptr %.tr133, i64 24
   %36 = load i64, ptr %35, align 8, !noundef !4
-  %37 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %34, i64 %36
+  %.idx = shl nuw nsw i64 %36, 6
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %.sroa.7)
   %38 = icmp eq i64 %36, 0

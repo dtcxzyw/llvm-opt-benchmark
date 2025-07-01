@@ -3,12 +3,6 @@ source_filename = "bench/llvm/original/HLSLExternalSemaSource.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.1111" }
-%"struct.std::pair.1111" = type { ptr, %"class.std::function.1089" }
-%"class.std::function.1089" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.clang::LookupResult" = type { i32, i32, %"class.clang::UnresolvedSet", ptr, ptr, %"class.clang::QualType", ptr, %"struct.clang::DeclarationNameInfo", %"class.clang::SourceRange", i32, i32, i8, i8, i8, i8, i8, i8, i8, i8 }
 %"class.clang::UnresolvedSet" = type { %"class.llvm::SmallVector.1022" }
 %"class.llvm::SmallVector.1022" = type { %"class.llvm::SmallVectorImpl.1023", %"struct.llvm::SmallVectorStorage.1026" }
@@ -27,6 +21,11 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.1027 = type { %"struct.clang::DeclarationNameLoc::NT" }
 %"struct.clang::DeclarationNameLoc::NT" = type { ptr }
 %"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
+%"struct.std::pair.1111" = type { ptr, %"class.std::function.1089" }
+%"class.std::function.1089" = type { %"class.std::_Function_base", ptr }
+%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
+%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
+%"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"struct.std::pair" = type <{ %"class.llvm::DenseMapIterator", i8, [7 x i8] }>
 %"class.llvm::DenseMapIterator" = type { ptr, ptr }
 %"class.(anonymous namespace)::BuiltinTypeDeclBuilder" = type { ptr, ptr, ptr, %"class.llvm::StringMap.1087", ptr, ptr }
@@ -55,6 +54,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::APSInt" = type { %"class.llvm::APInt.base", i8, [3 x i8] }
 %"class.llvm::APInt.base" = type <{ %union.anon.1057, i32 }>
 %"struct.(anonymous namespace)::TemplateParameterListBuilder" = type { ptr, %"class.llvm::SmallVector.1029" }
+%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.1111" }
 %"class.clang::TypoCorrection" = type { %"class.clang::DeclarationName", ptr, %"class.llvm::SmallVector.1126", i32, i32, i32, %"class.clang::SourceRange", i8, i8, %"class.std::vector.1128" }
 %"class.llvm::SmallVector.1126" = type { %"class.llvm::SmallVectorImpl.1030", %"struct.llvm::SmallVectorStorage.1127" }
 %"struct.llvm::SmallVectorStorage.1127" = type { [8 x i8] }
@@ -231,7 +231,8 @@ define dso_local void @_ZN5clang22HLSLExternalSemaSourceD2Ev(ptr noundef nonnull
 
 .lr.ph.preheader.i.i:                             ; preds = %1
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.pre1.i, i64 %6
+  %.idx.i.i = mul nuw nsw i64 %6, 40
+  %7 = getelementptr inbounds nuw i8, ptr %.pre1.i, i64 %.idx.i.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt14_Function_baseD2Ev.exit.i.i, %.lr.ph.preheader.i.i
@@ -2913,7 +2914,8 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN12_GL
   store i32 0, ptr %15, align 8, !tbaa !1047, !alias.scope !1170
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 6, ptr %16, align 4, !tbaa !1048, !alias.scope !1170
-  %17 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not14 = icmp eq i64 %2, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -5742,7 +5744,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_124BuiltinTypeMethodBuilder16create
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.val38 = load i32, ptr %14, align 8, !tbaa !1047
   %15 = zext i32 %.val38 to i64
-  %16 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BuiltinTypeMethodBuilder::MethodParam", ptr %.val, i64 %15
+  %.idx = mul nuw nsw i64 %15, 24
+  %16 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx
   %.not58 = icmp eq i32 %.val38, 0
   br i1 %.not58, label %._crit_edge, label %.lr.ph
 
@@ -8367,7 +8370,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang13C
   store i32 0, ptr %25, align 4, !tbaa !1346
   %26 = load i32, ptr %3, align 8, !tbaa !6
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %22, i64 %27
+  %.idx.i.i = mul nuw nsw i64 %27, 40
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i
   %.not6.i.i = icmp eq i32 %26, 0
   br i1 %.not6.i.i, label %_ZN4llvm8DenseMapIPN5clang13CXXRecordDeclESt8functionIFvS3_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEE4growEj.exit, label %.lr.ph.i.i
 
@@ -8400,7 +8404,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang13C
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !6
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
+  %.idx.i = mul nuw nsw i64 %9, 40
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not6.i = icmp eq i32 %8, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang13CXXRecordDeclESt8functionIFvS4_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit, label %.lr.ph.i
 

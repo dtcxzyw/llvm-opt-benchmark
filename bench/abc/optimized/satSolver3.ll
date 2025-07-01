@@ -942,7 +942,8 @@ define i32 @sat_solver3_propagate(ptr noundef captures(none) %0) local_unnamed_a
   %31 = getelementptr i8, ptr %29, i64 4
   %.val127 = load i32, ptr %31, align 4, !tbaa !34
   %32 = sext i32 %.val127 to i64
-  %33 = getelementptr inbounds i32, ptr %.val122, i64 %32
+  %.idx = shl nsw i64 %32, 2
+  %33 = getelementptr inbounds i8, ptr %.val122, i64 %.idx
   %34 = load i64, ptr %6, align 8, !tbaa !54
   %35 = add nsw i64 %34, 1
   store i64 %35, ptr %6, align 8, !tbaa !54

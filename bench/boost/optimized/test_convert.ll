@@ -1045,7 +1045,8 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i344: ; preds = %.noexc347, %
 _ZNSolsEPFRSoS_E.exit164:                         ; preds = %.noexc349
   %246 = load ptr, ptr %13, align 8, !tbaa !18
   %247 = load i64, ptr %34, align 8, !tbaa !20
-  %248 = getelementptr inbounds nuw i32, ptr %246, i64 %247
+  %.idx = shl nuw nsw i64 %247, 2
+  %248 = getelementptr inbounds nuw i8, ptr %246, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %18) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %18, i8 0, i64 9, i1 false)
   %249 = getelementptr inbounds nuw i8, ptr %18, i64 9
@@ -4711,7 +4712,8 @@ _ZN5boost6nowide4test8test_monEv.exit:            ; preds = %2, %7, %9
   %11 = load ptr, ptr %1, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !20
-  %14 = getelementptr inbounds nuw i32, ptr %11, i64 %13
+  %.idx = shl nuw nsw i64 %13, 2
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %.not42.i.i = icmp eq i64 %13, 0
   br i1 %.not42.i.i, label %_ZN5boost6nowide6narrowEPcmPKwS3_.exit.thread, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i.i
 
@@ -5412,7 +5414,8 @@ define hidden void @_Z21narrow_convert_bufferRKNSt7__cxx1112basic_stringIwSt11ch
   %5 = load ptr, ptr %1, align 8, !tbaa !18
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !20
-  %8 = getelementptr inbounds nuw i32, ptr %5, i64 %7
+  %.idx = shl nuw nsw i64 %7, 2
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %.not42.i = icmp eq i64 %7, 0
   br i1 %.not42.i, label %_ZN5boost6nowide3utf14convert_bufferIcwEEPT_S4_mPKT0_S7_.exit, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i
 

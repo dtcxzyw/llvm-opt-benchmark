@@ -1936,6 +1936,7 @@ define dso_local void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplI
   %11 = add i32 %7, -1
   %12 = zext i32 %11 to i64
   %13 = icmp eq i32 %11, 0
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %12, 2
   %.pre14 = load i32, ptr %8, align 8, !tbaa !3
   br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -2022,7 +2023,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.
   %.pre-phi = phi i64 [ %.pre15, %44 ], [ %40, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ]
   %45 = load ptr, ptr %4, align 8, !tbaa !11
   %46 = getelementptr inbounds nuw i32, ptr %45, i64 %.pre-phi
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %12
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i
@@ -2091,7 +2092,8 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.
   %27 = load ptr, ptr %1, align 8, !tbaa !11
   %28 = zext i32 %.pre4.i to i64
   %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %18
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %18, 2
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %26

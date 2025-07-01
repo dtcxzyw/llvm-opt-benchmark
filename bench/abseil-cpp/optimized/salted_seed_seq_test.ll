@@ -2760,7 +2760,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %6
   store ptr %9, ptr %10, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i32, ptr %9, i64 %2
   store ptr %11, ptr %7, align 8, !tbaa !23
-  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %16
 
@@ -8028,7 +8028,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %14, %16
   %18 = load ptr, ptr %0, align 8, !tbaa !143
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !145
-  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %20
+  %.idx = shl i64 %20, 2
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %invariant.gep = getelementptr i8, ptr %1, i64 16
   %.not44 = icmp eq i64 %20, 0
   br i1 %.not44, label %._crit_edge.thread, label %.lr.ph

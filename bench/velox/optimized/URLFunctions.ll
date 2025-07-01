@@ -31444,9 +31444,8 @@ if.then4:                                         ; preds = %if.then
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.then4
-  %idx.neg = sub i64 0, %__n
-  %add.ptr = getelementptr inbounds %"struct.boost::sub_match", ptr %1, i64 %idx.neg
   %add.ptr.idx = mul i64 %__n, -24
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
   %cmp.i.i.not7.i.i.i.i.i = icmp eq i64 %add.ptr.idx, 0
   br i1 %cmp.i.i.not7.i.i.i.i.i, label %invoke.cont, label %for.inc.i.i.i.i.i
 
@@ -31503,7 +31502,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %invoke.cont20, !llvm.loop !267
 
 invoke.cont20:                                    ; preds = %for.body.i.i.i.i.i, %invoke.cont
-  %add.ptr24 = getelementptr inbounds %"struct.boost::sub_match", ptr %__position.coerce, i64 %__n
+  %add.ptr24.idx = mul nsw i64 %__n, 24
+  %add.ptr24 = getelementptr inbounds i8, ptr %__position.coerce, i64 %add.ptr24.idx
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %invoke.cont20, %for.body.i.i.i

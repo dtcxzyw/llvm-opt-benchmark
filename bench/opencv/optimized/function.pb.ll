@@ -1245,7 +1245,8 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow18FunctionDefLibrary12ByteSize
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not27 = icmp eq i32 %3, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
@@ -1260,7 +1261,8 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow18FunctionDefLibrary12ByteSize
   %.not.i.i13 = icmp eq ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %spec.select.i.i14 = select i1 %.not.i.i13, ptr null, ptr %15
-  %16 = getelementptr inbounds ptr, ptr %spec.select.i.i14, i64 %11
+  %.idx37 = shl nsw i64 %11, 3
+  %16 = getelementptr inbounds i8, ptr %spec.select.i.i14, i64 %.idx37
   %.not2630 = icmp eq i32 %10, 0
   br i1 %.not2630, label %._crit_edge35, label %.lr.ph34
 
@@ -1276,7 +1278,8 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow18FunctionDefLibrary12ByteSize
   %.not.i.i.i.i = icmp eq ptr %22, null
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %23
-  %24 = getelementptr inbounds ptr, ptr %spec.select.i.i.i.i, i64 %20
+  %.idx.i.i = shl nsw i64 %20, 3
+  %24 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i, i64 %.idx.i.i
   %.not12.i.i = icmp eq i32 %19, 0
   br i1 %.not12.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -3516,7 +3519,8 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 
 163:                                              ; preds = %161
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #30
-  %164 = getelementptr inbounds nuw ptr, ptr %141, i64 %.051
+  %.idx = shl nuw nsw i64 %.051, 3
+  %164 = getelementptr inbounds nuw i8, ptr %141, i64 %.idx
   %.not.i.i = icmp eq i64 %.051, 0
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEESt14default_deleteISE_EED2Ev.exit, label %165
 
@@ -5190,7 +5194,8 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow11FunctionDef12ByteSizeLongEv(
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not12 = icmp eq i32 %3, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 

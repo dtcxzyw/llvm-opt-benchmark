@@ -13,10 +13,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::raw_svector_ostream" = type { %"class.llvm::raw_pwrite_stream", ptr }
 %"class.llvm::raw_pwrite_stream" = type { %"class.llvm::raw_ostream" }
 %"class.llvm::raw_ostream" = type { ptr, i32, ptr, ptr, ptr, i8, i32 }
-%"struct.clang::LogDiagnosticPrinter::DiagEntry" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i32, [4 x i8], %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
+%"struct.clang::LogDiagnosticPrinter::DiagEntry" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i32, [4 x i8], %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %"class.llvm::SmallString.146" = type { %"class.llvm::SmallVector.base", [4 x i8] }
 %"class.llvm::SmallVector.base" = type <{ %"class.llvm::SmallVectorImpl.3", %"struct.llvm::SmallVectorStorage.148" }>
 %"struct.llvm::SmallVectorStorage.148" = type { [100 x i8] }
@@ -1250,7 +1250,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29:               ; preds = %126, %128
   %131 = load ptr, ptr %4, align 8, !tbaa !43
   %132 = load i32, ptr %5, align 8, !tbaa !44
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw %"struct.clang::LogDiagnosticPrinter::DiagEntry", ptr %131, i64 %133
+  %.idx = mul nuw nsw i64 %133, 120
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 %.idx
   %.not40 = icmp eq i32 %132, 0
   br i1 %.not40, label %._crit_edge, label %.lr.ph
 
@@ -2297,7 +2298,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3: ; preds = %_ZNK
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"struct.clang::LogDiagnosticPrinter::DiagEntry", ptr %21, i64 %24
+  %.idx.i = mul nuw nsw i64 %24, 120
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang20LogDiagnosticPrinter9DiagEntryD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -3399,7 +3401,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseIN5clang20LogDiagnost
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !44
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.clang::LogDiagnosticPrinter::DiagEntry", ptr %3, i64 %6
+  %.idx = mul nuw nsw i64 %6, 120
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not7.i.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang20LogDiagnosticPrinter9DiagEntryELb0EE13destroy_rangeEPS3_S5_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -3514,13 +3517,14 @@ _ZSt10_ConstructIN5clang20LogDiagnosticPrinter9DiagEntryEJS2_EEvPT_DpOT0_.exit.i
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang20LogDiagnosticPrinter9DiagEntryELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit: ; preds = %_ZSt10_ConstructIN5clang20LogDiagnosticPrinter9DiagEntryEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !43
-  %.pre2 = load i32, ptr %4, align 8, !tbaa !44
-  %.not4.i = icmp eq i32 %.pre2, 0
+  %.pre3 = load i32, ptr %4, align 8, !tbaa !44
+  %.not4.i = icmp eq i32 %.pre3, 0
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang20LogDiagnosticPrinter9DiagEntryELb0EE13destroy_rangeEPS3_S5_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang20LogDiagnosticPrinter9DiagEntryELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
-  %58 = zext i32 %.pre2 to i64
-  %59 = getelementptr inbounds nuw %"struct.clang::LogDiagnosticPrinter::DiagEntry", ptr %.pre, i64 %58
+  %58 = zext i32 %.pre3 to i64
+  %.idx2 = mul nuw nsw i64 %58, 120
+  %59 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx2
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN5clang20LogDiagnosticPrinter9DiagEntryD2Ev.exit.i

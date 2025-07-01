@@ -1804,7 +1804,8 @@ entry:
   %mul2 = fmul double %mul, 0x3CB0000000000000
   %n_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load i64, ptr %n_.i, align 8, !tbaa !78
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %1, i64 %3
+  %add.ptr.i.idx = shl nuw nsw i64 %3, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i.idx
   %cmp.not5 = icmp eq i64 %3, 0
   br i1 %cmp.not5, label %for.cond.cleanup, label %for.body
 
@@ -1840,10 +1841,10 @@ entry:
 
 cond.end.thread.i:                                ; preds = %entry
   store ptr null, ptr %W, align 8, !tbaa !16
-  %rows_6.i = getelementptr inbounds nuw i8, ptr %W, i64 8
-  store i64 %conv, ptr %rows_6.i, align 8, !tbaa !3
-  %columns_7.i = getelementptr inbounds nuw i8, ptr %W, i64 16
-  store i64 %conv, ptr %columns_7.i, align 8, !tbaa !15
+  %rows_7.i = getelementptr inbounds nuw i8, ptr %W, i64 8
+  store i64 %conv, ptr %rows_7.i, align 8, !tbaa !3
+  %columns_8.i = getelementptr inbounds nuw i8, ptr %W, i64 16
+  store i64 %conv, ptr %columns_8.i, align 8, !tbaa !15
   br label %_ZN8QuantLib6MatrixC2Emmd.exit
 
 for.body.i.i.i.preheader.i:                       ; preds = %entry
@@ -1872,7 +1873,8 @@ _ZN8QuantLib6MatrixC2Emmd.exit:                   ; preds = %for.body.i.i.i.preh
   %mul2.i = fmul double %mul.i11, 0x3CB0000000000000
   %n_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %8 = load i64, ptr %n_.i.i, align 8, !tbaa !78
-  %add.ptr.i.i12 = getelementptr inbounds nuw double, ptr %6, i64 %8
+  %add.ptr.i.idx.i = shl nuw nsw i64 %8, 3
+  %add.ptr.i.i12 = getelementptr inbounds nuw i8, ptr %6, i64 %add.ptr.i.idx.i
   %cmp.not5.i = icmp eq i64 %8, 0
   br i1 %cmp.not5.i, label %for.cond.cleanup, label %for.body.i
 
@@ -2313,10 +2315,10 @@ do.end:                                           ; preds = %entry
 
 cond.end.thread.i:                                ; preds = %do.end
   store ptr null, ptr %agg.result, align 8, !tbaa !16
-  %rows_6.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %27, ptr %rows_6.i, align 8, !tbaa !3
-  %columns_7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i64 %28, ptr %columns_7.i, align 8, !tbaa !15
+  %rows_7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i64 %27, ptr %rows_7.i, align 8, !tbaa !3
+  %columns_8.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  store i64 %28, ptr %columns_8.i, align 8, !tbaa !15
   br label %_ZN8QuantLib6MatrixC2Emmd.exit
 
 for.body.i.i.i.preheader.i:                       ; preds = %do.end
@@ -2612,7 +2614,8 @@ for.body.lr.ph:                                   ; preds = %do.end
   %n_.i47 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %26, ptr %n_.i47, align 8, !tbaa !78
   %30 = load ptr, ptr %v, align 8, !tbaa !16
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %30, i64 %0
+  %add.ptr.i.idx = shl nuw nsw i64 %0, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %30, i64 %add.ptr.i.idx
   %31 = load ptr, ptr %m, align 8, !tbaa !16
   %cmp.not5.i = icmp eq i64 %0, 0
   br i1 %cmp.not5.i, label %for.body.us.preheader, label %for.body

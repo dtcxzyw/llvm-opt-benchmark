@@ -2290,7 +2290,8 @@ define hidden void @_ZN7parquet12bloom_filter4Sbbf5write17hdbcdb53584b3c115E(ptr
   %.val39 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !584)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.4.i.i)
-  %44 = getelementptr inbounds { [8 x i32] }, ptr %.val39, i64 %24
+  %.idx.i = shl nsw i64 %24, 5
+  %44 = getelementptr inbounds i8, ptr %.val39, i64 %.idx.i
   %45 = icmp eq i64 %24, 0
   br i1 %45, label %.loopexit63, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8aef79d71754b4cE.exit.lr.ph.i"
 

@@ -2232,8 +2232,9 @@ define void @_ZN9typst_svg10svg_merged17h601c1ededbd4d56bE(ptr noalias noundef s
   br i1 %15, label %21, label %_ZN4core4iter6traits8iterator8Iterator6reduce17hf95cca0234f68c8fE.exit
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17hf95cca0234f68c8fE.exit: ; preds = %3
+  %.idx = mul nsw i64 %14, 96
   %16 = load ptr, ptr %12, align 8, !nonnull !37, !noundef !37
-  %17 = getelementptr inbounds { { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, { [32 x i8], i8, [7 x i8] }, i64 }, ptr %16, i64 %14
+  %17 = getelementptr inbounds i8, ptr %16, i64 %.idx
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %19 = tail call noundef double @_ZN5typst6layout5frame5Frame5width17h9c8c3be493ee45a4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %16), !noalias !388
   %20 = tail call noundef double @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbe1c8060da779017E.llvm.17261859237677664959"(ptr noundef nonnull %18, ptr noundef nonnull %17, double noundef %19)
@@ -3697,7 +3698,8 @@ _ZN9typst_svg11SVGRenderer12render_group17hab2748341e3aa815E.exit: ; preds = %33
   %.val.i5 = load ptr, ptr %385, align 8, !alias.scope !630, !noalias !633, !nonnull !37, !noundef !37
   %386 = getelementptr i8, ptr %.sroa.0.093, i64 40
   %.val4.i = load i64, ptr %386, align 8, !alias.scope !630, !noalias !633, !noundef !37
-  %387 = getelementptr inbounds { { i64, i16, [3 x i16] }, double, double, { i16, i16 }, i16, [1 x i16] }, ptr %.val.i5, i64 %.val4.i
+  %.idx = mul nsw i64 %.val4.i, 40
+  %387 = getelementptr inbounds i8, ptr %.val.i5, i64 %.idx
   %388 = icmp eq i64 %.val4.i, 0
   br i1 %388, label %_ZN9typst_svg11SVGRenderer11render_text17hc9a245ce42847b54E.exit, label %.lr.ph
 
@@ -6581,7 +6583,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
 
 324:                                              ; preds = %2
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.94, i64 noundef 4)
-          to label %.noexc unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %324
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %311), !noalias !1286
@@ -6603,7 +6605,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   %330 = getelementptr inbounds nuw i8, ptr %310, i64 24
   store i64 1, ptr %330, align 8, !alias.scope !1294, !noalias !1297
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.95, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %310)
-          to label %.noexc11 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc11 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc11:                                         ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %310), !noalias !1289
@@ -6612,7 +6614,8 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   %331 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %332 = load ptr, ptr %331, align 8, !alias.scope !1300, !noalias !1303, !nonnull !37, !noundef !37
   %333 = load i64, ptr %321, align 8, !alias.scope !1300, !noalias !1303, !noundef !37
-  %334 = getelementptr inbounds { i128, { i64, [10 x i64] }, [1 x i64] }, ptr %332, i64 %333
+  %.idx.i = mul nsw i64 %333, 112
+  %334 = getelementptr inbounds i8, ptr %332, i64 %.idx.i
   %335 = icmp eq i64 %333, 0
   br i1 %335, label %._crit_edge.i, label %.lr.ph.i
 
@@ -6666,7 +6669,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
 
 ._crit_edge.i:                                    ; preds = %.noexc24, %.noexc11
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %398 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %398 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 379:                                              ; preds = %.noexc24, %.lr.ph.i
   %.sroa.7.014.i = phi i64 [ 0, %.lr.ph.i ], [ %381, %.noexc24 ]
@@ -6683,7 +6686,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   store i64 %.sroa.7.014.i, ptr %.sroa.54.0..sroa_idx.i, align 16, !noalias !1286
   store i32 %383, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !1286
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.97, i64 noundef 6)
-          to label %.noexc13 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc13 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc13:                                         ; preds = %379
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %308), !noalias !1286
@@ -6698,7 +6701,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   store ptr %306, ptr %340, align 8, !alias.scope !1327, !noalias !1330
   store i64 1, ptr %341, align 8, !alias.scope !1327, !noalias !1330
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.95, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %307)
-          to label %.noexc14 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc14 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc14:                                         ; preds = %.noexc13
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %307), !noalias !1322
@@ -6717,7 +6720,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   store ptr %303, ptr %346, align 8, !alias.scope !1338, !noalias !1341
   store i64 1, ptr %347, align 8, !alias.scope !1338, !noalias !1341
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.98, i64 noundef 8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %304)
-          to label %.noexc15 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc15 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc15:                                         ; preds = %.noexc14
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %304), !noalias !1333
@@ -6732,7 +6735,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   %387 = getelementptr inbounds nuw i8, ptr %.sroa.02.013.i, i64 24
   store ptr %387, ptr %318, align 8, !noalias !1286
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.73, i64 noundef 4)
-          to label %.noexc16 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc16 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc16:                                         ; preds = %386
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %302), !noalias !1286
@@ -6747,14 +6750,14 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   store ptr %300, ptr %351, align 8, !alias.scope !1349, !noalias !1352
   store i64 1, ptr %352, align 8, !alias.scope !1349, !noalias !1352
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.77, i64 noundef 1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %301)
-          to label %.noexc17 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc17 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc17:                                         ; preds = %.noexc16
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %301), !noalias !1344
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %300), !noalias !1344
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %302), !noalias !1286
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %.noexc18 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc18 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc18:                                         ; preds = %.noexc17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %318), !noalias !1286
@@ -6771,7 +6774,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   %391 = getelementptr inbounds nuw i8, ptr %.sroa.02.013.i, i64 32
   store ptr %391, ptr %315, align 8, !noalias !1286
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.92, i64 noundef 5)
-          to label %.noexc19 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc19 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc19:                                         ; preds = %388
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %299), !noalias !1286
@@ -6786,7 +6789,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   store ptr %297, ptr %356, align 8, !alias.scope !1360, !noalias !1363
   store i64 1, ptr %357, align 8, !alias.scope !1360, !noalias !1363
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.61, i64 noundef 10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %298)
-          to label %.noexc20 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc20 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc20:                                         ; preds = %.noexc19
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %298), !noalias !1355
@@ -6804,7 +6807,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   store ptr %294, ptr %361, align 8, !alias.scope !1371, !noalias !1374
   store i64 1, ptr %362, align 8, !alias.scope !1371, !noalias !1374
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.36, i64 noundef 5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %295)
-          to label %.noexc21 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc21 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc21:                                         ; preds = %.noexc20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %295), !noalias !1366
@@ -6822,7 +6825,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   store ptr %291, ptr %366, align 8, !alias.scope !1382, !noalias !1385
   store i64 1, ptr %367, align 8, !alias.scope !1382, !noalias !1385
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.39, i64 noundef 6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %292)
-          to label %.noexc22 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc22 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc22:                                         ; preds = %.noexc21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %292), !noalias !1377
@@ -6833,7 +6836,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %312), !noalias !1286
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %312, ptr noundef nonnull align 8 dereferenceable(48) %392, i64 48, i1 false)
   %393 = invoke noundef zeroext i1 @_ZN5typst6layout9transform9Transform11is_identity17h39c9adb1ba005043E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %312)
-          to label %.noexc23 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc23 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc23:                                         ; preds = %.noexc22
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %312), !noalias !1286
@@ -6841,7 +6844,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
 
 394:                                              ; preds = %.noexc27, %.noexc18
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %.noexc24 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc24 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc24:                                         ; preds = %394
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %319), !noalias !1286
@@ -6863,7 +6866,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   store ptr %288, ptr %371, align 8, !alias.scope !1393, !noalias !1396
   store i64 1, ptr %372, align 8, !alias.scope !1393, !noalias !1396
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.47, i64 noundef 9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %289)
-          to label %.noexc25 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc25 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc25:                                         ; preds = %396
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %289), !noalias !1388
@@ -6886,14 +6889,14 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   store ptr %285, ptr %377, align 8, !alias.scope !1404, !noalias !1407
   store i64 1, ptr %378, align 8, !alias.scope !1404, !noalias !1407
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.93, i64 noundef 19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %286)
-          to label %.noexc26 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc26 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc26:                                         ; preds = %397
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %286), !noalias !1399
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %285), !noalias !1399
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %287), !noalias !1286
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %.noexc27 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc27 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc27:                                         ; preds = %.noexc26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %315), !noalias !1286
@@ -6901,52 +6904,52 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %317), !noalias !1286
   br label %394
 
-.body.thread202.loopexit:                         ; preds = %.noexc195, %.noexc194, %.noexc193, %.noexc192, %.noexc191, %1344
+.body.thread208.loopexit:                         ; preds = %.noexc201, %.noexc200, %.noexc199, %.noexc198, %.noexc197, %1344
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-.body.thread202.loopexit.split-lp.loopexit:       ; preds = %1150, %.noexc143, %.noexc144, %.noexc145, %.noexc146, %.noexc147, %.noexc148, %.noexc149, %.noexc150, %.noexc151, %.noexc152, %.noexc153, %.noexc154, %.noexc155, %.noexc156, %.noexc157, %.noexc158, %.noexc159, %1194, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit3.i", %.noexc162, %.noexc163, %.noexc164, %1204, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit8.i", %.noexc167
-  %lpad.loopexit205 = landingpad { ptr, i32 }
+.body.thread208.loopexit.split-lp.loopexit:       ; preds = %1150, %.noexc147, %.noexc148, %.noexc149, %.noexc150, %.noexc151, %.noexc152, %.noexc153, %.noexc154, %.noexc155, %.noexc156, %.noexc157, %.noexc158, %.noexc159, %.noexc160, %.noexc161, %.noexc162, %.noexc163, %1194, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit3.i", %.noexc166, %.noexc167, %.noexc168, %1204, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit8.i", %.noexc171
+  %lpad.loopexit211 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.noexc133, %.noexc132, %.noexc131, %1076, %.noexc129, %1075, %.noexc127, %1074, %.noexc125, %1073
-  %lpad.loopexit208 = landingpad { ptr, i32 }
+.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.noexc136, %.noexc135, %.noexc134, %1076, %.noexc132, %1075, %.noexc130, %1074, %.noexc128, %1073
+  %lpad.loopexit214 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %824, %.noexc103, %.noexc104, %.noexc105, %.noexc106, %.noexc107, %862, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit74.i", %871, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit79.i"
-  %lpad.loopexit210 = landingpad { ptr, i32 }
+.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %824, %.noexc105, %.noexc106, %.noexc107, %.noexc108, %.noexc109, %862, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit74.i", %871, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit79.i"
+  %lpad.loopexit216 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit71.i", %850, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit66.i", %841, %.noexc101, %._crit_edge.i44, %813, %.noexc97, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit59.i", %811, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit54.i", %802, %.noexc92, %.lr.ph156.i
-  %lpad.loopexit213 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body.thread
-
-.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %876, %1017
-  %lpad.loopexit215 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body.thread
-
-.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.backedge.i, %781, %.noexc88, %.noexc87, %.noexc86, %780, %.noexc84, %.noexc83, %.noexc82, %.noexc81, %.noexc80, %.noexc79, %.noexc78, %.noexc77, %.noexc76, %.noexc75, %.noexc74, %.noexc73, %743, %.noexc71, %.noexc70, %.noexc69, %.noexc68, %.noexc67, %.noexc66, %.noexc65, %.noexc64, %.noexc63, %.noexc62, %.noexc61, %.noexc60, %.noexc59, %.noexc58, %.noexc57, %722, %.noexc55, %.noexc54, %.noexc53, %.noexc52, %.noexc51, %.noexc50, %.noexc49, %707
+.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit71.i", %850, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit66.i", %841, %.noexc103, %._crit_edge.i46, %813, %.noexc99, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit59.i", %811, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit54.i", %802, %.noexc94, %.lr.ph156.i
   %lpad.loopexit219 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %425, %.noexc37, %.noexc38, %.noexc39, %.noexc40, %.noexc41
+.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %876, %1017
   %lpad.loopexit221 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.noexc26, %397, %396, %394, %.noexc22, %.noexc21, %.noexc20, %.noexc19, %388, %.noexc17, %.noexc16, %386, %.noexc14, %.noexc13, %379
-  %lpad.loopexit224 = landingpad { ptr, i32 }
+.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.backedge.i, %781, %.noexc90, %.noexc89, %.noexc88, %780, %.noexc86, %.noexc85, %.noexc84, %.noexc83, %.noexc82, %.noexc81, %.noexc80, %.noexc79, %.noexc78, %.noexc77, %.noexc76, %.noexc75, %743, %.noexc73, %.noexc72, %.noexc71, %.noexc70, %.noexc69, %.noexc68, %.noexc67, %.noexc66, %.noexc65, %.noexc64, %.noexc63, %.noexc62, %.noexc61, %.noexc60, %.noexc59, %722, %.noexc57, %.noexc56, %.noexc55, %.noexc54, %.noexc53, %.noexc52, %.noexc51, %707
+  %lpad.loopexit225 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %._crit_edge.i187, %.noexc188, %1311, %.noexc177, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25b193ebc1204c59E.exit.thread.i", %.noexc175, %.noexc174, %1211, %._crit_edge.i139, %.noexc140, %1082, %._crit_edge.i121, %.noexc122, %1022, %823, %._crit_edge162.i, %.noexc46, %435, %._crit_edge.i33, %.noexc34, %402, %._crit_edge.i, %.noexc, %324
+.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %425, %.noexc38, %.noexc39, %.noexc40, %.noexc41, %.noexc42
+  %lpad.loopexit227 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body.thread
+
+.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.noexc26, %397, %396, %394, %.noexc22, %.noexc21, %.noexc20, %.noexc19, %388, %.noexc17, %.noexc16, %386, %.noexc14, %.noexc13, %379
+  %lpad.loopexit230 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body.thread
+
+.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %._crit_edge.i193, %.noexc194, %1311, %.noexc182, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25b193ebc1204c59E.exit.thread.i", %.noexc180, %.noexc179, %1211, %._crit_edge.i143, %.noexc144, %1082, %._crit_edge.i124, %.noexc125, %1022, %823, %._crit_edge162.i, %.noexc48, %435, %._crit_edge.i34, %.noexc35, %402, %._crit_edge.i, %.noexc, %324
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -6966,9 +6969,9 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
 
 402:                                              ; preds = %398
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.94, i64 noundef 4)
-          to label %.noexc34 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc35 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc34:                                         ; preds = %402
+.noexc35:                                         ; preds = %402
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %282), !noalias !1410
   store ptr @anon.e1937a5437cdf78787e171774858dd58.55, ptr %282, align 8, !noalias !1413
   %403 = getelementptr inbounds nuw i8, ptr %282, i64 8
@@ -6988,23 +6991,24 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   %408 = getelementptr inbounds nuw i8, ptr %281, i64 24
   store i64 1, ptr %408, align 8, !alias.scope !1418, !noalias !1421
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.95, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %281)
-          to label %.noexc35 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc36 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc35:                                         ; preds = %.noexc34
+.noexc36:                                         ; preds = %.noexc35
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %281), !noalias !1413
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %280), !noalias !1413
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %282), !noalias !1410
   %409 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %410 = load ptr, ptr %409, align 8, !alias.scope !1424, !noalias !1427, !nonnull !37, !noundef !37
   %411 = load i64, ptr %399, align 8, !alias.scope !1424, !noalias !1427, !noundef !37
-  %412 = getelementptr inbounds { i128, { { { [2 x i64] } } } }, ptr %410, i64 %411
+  %.idx.i28 = shl nsw i64 %411, 5
+  %412 = getelementptr inbounds i8, ptr %410, i64 %.idx.i28
   %413 = icmp eq i64 %411, 0
-  br i1 %413, label %._crit_edge.i33, label %.lr.ph.i28
+  br i1 %413, label %._crit_edge.i34, label %.lr.ph.i29
 
-.lr.ph.i28:                                       ; preds = %.noexc35
+.lr.ph.i29:                                       ; preds = %.noexc36
   %414 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %.sroa.54.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %284, i64 16
-  %.sroa.6.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %284, i64 24
+  %.sroa.54.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %284, i64 16
+  %.sroa.6.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %284, i64 24
   %415 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %416 = getelementptr inbounds nuw i8, ptr %278, i64 8
   %417 = getelementptr inbounds nuw i8, ptr %278, i64 32
@@ -7017,30 +7021,30 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   %424 = getelementptr inbounds nuw i8, ptr %275, i64 24
   br label %425
 
-._crit_edge.i33:                                  ; preds = %.noexc42, %.noexc35
+._crit_edge.i34:                                  ; preds = %.noexc43, %.noexc36
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %_ZN9typst_svg11SVGRenderer20write_clip_path_defs17h52103398aa1552caE.exit unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN9typst_svg11SVGRenderer20write_clip_path_defs17h52103398aa1552caE.exit unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-425:                                              ; preds = %.noexc42, %.lr.ph.i28
-  %.sroa.7.014.i31 = phi i64 [ 0, %.lr.ph.i28 ], [ %427, %.noexc42 ]
-  %.sroa.02.013.i32 = phi ptr [ %410, %.lr.ph.i28 ], [ %426, %.noexc42 ]
-  %426 = getelementptr inbounds nuw i8, ptr %.sroa.02.013.i32, i64 32
-  %427 = add nuw nsw i64 %.sroa.7.014.i31, 1
+425:                                              ; preds = %.noexc43, %.lr.ph.i29
+  %.sroa.7.014.i32 = phi i64 [ 0, %.lr.ph.i29 ], [ %427, %.noexc43 ]
+  %.sroa.02.013.i33 = phi ptr [ %410, %.lr.ph.i29 ], [ %426, %.noexc43 ]
+  %426 = getelementptr inbounds nuw i8, ptr %.sroa.02.013.i33, i64 32
+  %427 = add nuw nsw i64 %.sroa.7.014.i32, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1429)
   call void @llvm.experimental.noalias.scope.decl(metadata !1432)
-  %428 = getelementptr inbounds nuw i8, ptr %.sroa.02.013.i32, i64 16
+  %428 = getelementptr inbounds nuw i8, ptr %.sroa.02.013.i33, i64 16
   %429 = load i32, ptr %414, align 8, !range !1311, !alias.scope !1410, !noalias !1435, !noundef !37
-  %430 = load i128, ptr %.sroa.02.013.i32, align 16, !alias.scope !1443, !noalias !1444, !noundef !37
+  %430 = load i128, ptr %.sroa.02.013.i33, align 16, !alias.scope !1443, !noalias !1444, !noundef !37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %284), !noalias !1410
   store i128 %430, ptr %284, align 16, !noalias !1410
-  store i64 %.sroa.7.014.i31, ptr %.sroa.54.0..sroa_idx.i29, align 16, !noalias !1410
-  store i32 %429, ptr %.sroa.6.0..sroa_idx.i30, align 8, !noalias !1410
+  store i64 %.sroa.7.014.i32, ptr %.sroa.54.0..sroa_idx.i30, align 16, !noalias !1410
+  store i32 %429, ptr %.sroa.6.0..sroa_idx.i31, align 8, !noalias !1410
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %283), !noalias !1410
   store ptr %428, ptr %283, align 8, !noalias !1410
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.100, i64 noundef 8)
-          to label %.noexc37 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc38 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc37:                                         ; preds = %425
+.noexc38:                                         ; preds = %425
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %279), !noalias !1410
   store ptr %284, ptr %279, align 8, !noalias !1445
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %278), !noalias !1445
@@ -7053,16 +7057,16 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   store ptr %277, ptr %418, align 8, !alias.scope !1450, !noalias !1453
   store i64 1, ptr %419, align 8, !alias.scope !1450, !noalias !1453
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.95, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %278)
-          to label %.noexc38 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc39 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc38:                                         ; preds = %.noexc37
+.noexc39:                                         ; preds = %.noexc38
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %278), !noalias !1445
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %277), !noalias !1445
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %279), !noalias !1410
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.73, i64 noundef 4)
-          to label %.noexc39 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc40 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc39:                                         ; preds = %.noexc38
+.noexc40:                                         ; preds = %.noexc39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %276), !noalias !1410
   store ptr %283, ptr %276, align 8, !noalias !1456
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %275), !noalias !1456
@@ -7075,26 +7079,26 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dc
   store ptr %274, ptr %423, align 8, !alias.scope !1461, !noalias !1464
   store i64 1, ptr %424, align 8, !alias.scope !1461, !noalias !1464
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.77, i64 noundef 1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %275)
-          to label %.noexc40 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc41 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc40:                                         ; preds = %.noexc39
+.noexc41:                                         ; preds = %.noexc40
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %275), !noalias !1456
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %274), !noalias !1456
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %276), !noalias !1410
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %.noexc41 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
-.noexc41:                                         ; preds = %.noexc40
-  invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %.noexc42 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc42 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc42:                                         ; preds = %.noexc41
+  invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
+          to label %.noexc43 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+
+.noexc43:                                         ; preds = %.noexc42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %283), !noalias !1410
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %284), !noalias !1410
   %431 = icmp eq ptr %426, %412
-  br i1 %431, label %._crit_edge.i33, label %425
+  br i1 %431, label %._crit_edge.i34, label %425
 
-_ZN9typst_svg11SVGRenderer20write_clip_path_defs17h52103398aa1552caE.exit: ; preds = %398, %._crit_edge.i33
+_ZN9typst_svg11SVGRenderer20write_clip_path_defs17h52103398aa1552caE.exit: ; preds = %398, %._crit_edge.i34
   call void @llvm.experimental.noalias.scope.decl(metadata !1467)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %246)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %251)
@@ -7106,9 +7110,9 @@ _ZN9typst_svg11SVGRenderer20write_clip_path_defs17h52103398aa1552caE.exit: ; pre
 
 435:                                              ; preds = %_ZN9typst_svg11SVGRenderer20write_clip_path_defs17h52103398aa1552caE.exit
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.94, i64 noundef 4)
-          to label %.noexc46 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc48 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc46:                                         ; preds = %435
+.noexc48:                                         ; preds = %435
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %241), !noalias !1467
   store ptr @anon.e1937a5437cdf78787e171774858dd58.101, ptr %241, align 8, !noalias !1470
   %436 = getelementptr inbounds nuw i8, ptr %241, i64 8
@@ -7128,22 +7132,23 @@ _ZN9typst_svg11SVGRenderer20write_clip_path_defs17h52103398aa1552caE.exit: ; pre
   %441 = getelementptr inbounds nuw i8, ptr %240, i64 24
   store i64 1, ptr %441, align 8, !alias.scope !1475, !noalias !1478
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.95, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %240)
-          to label %.noexc47 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc49 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc47:                                         ; preds = %.noexc46
+.noexc49:                                         ; preds = %.noexc48
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %240), !noalias !1470
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %239), !noalias !1470
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %241), !noalias !1467
   %442 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %443 = load ptr, ptr %442, align 8, !alias.scope !1481, !noalias !1484, !nonnull !37, !noundef !37
   %444 = load i64, ptr %432, align 8, !alias.scope !1481, !noalias !1484, !noundef !37
-  %445 = getelementptr inbounds { i128, { { i64, [1 x i64] }, double }, [1 x i64] }, ptr %443, i64 %444
+  %.idx.i44 = mul nsw i64 %444, 48
+  %445 = getelementptr inbounds i8, ptr %443, i64 %.idx.i44
   %446 = icmp eq i64 %444, 0
   br i1 %446, label %._crit_edge162.i, label %.lr.ph161.i
 
-.lr.ph161.i:                                      ; preds = %.noexc47
+.lr.ph161.i:                                      ; preds = %.noexc49
   %447 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %.sroa.6.0..sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %273, i64 16
+  %.sroa.6.0..sroa_idx.i45 = getelementptr inbounds nuw i8, ptr %273, i64 16
   %.sroa.7124.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %273, i64 24
   %448 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %449 = getelementptr inbounds nuw i8, ptr %201, i64 8
@@ -7409,16 +7414,16 @@ _ZN9typst_svg11SVGRenderer20write_clip_path_defs17h52103398aa1552caE.exit: ; pre
 default.unreachable:                              ; preds = %700, %1065
   unreachable
 
-default.unreachable164.i:                         ; preds = %.noexc56
+default.unreachable164.i:                         ; preds = %.noexc58
   unreachable
 
-._crit_edge162.i:                                 ; preds = %.noexc91, %.noexc47
+._crit_edge162.i:                                 ; preds = %.noexc93, %.noexc49
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %1018 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %1018 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-700:                                              ; preds = %.noexc91, %.lr.ph161.i
-  %.sroa.0122.0159.i = phi ptr [ %443, %.lr.ph161.i ], [ %701, %.noexc91 ]
-  %.sroa.7.0158.i = phi i64 [ 0, %.lr.ph161.i ], [ %702, %.noexc91 ]
+700:                                              ; preds = %.noexc93, %.lr.ph161.i
+  %.sroa.0122.0159.i = phi ptr [ %443, %.lr.ph161.i ], [ %701, %.noexc93 ]
+  %.sroa.7.0158.i = phi i64 [ 0, %.lr.ph161.i ], [ %702, %.noexc93 ]
   %701 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0159.i, i64 48
   %702 = add nuw nsw i64 %.sroa.7.0158.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1486)
@@ -7428,7 +7433,7 @@ default.unreachable164.i:                         ; preds = %.noexc56
   %705 = load i128, ptr %.sroa.0122.0159.i, align 16, !alias.scope !1500, !noalias !1501, !noundef !37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %273), !noalias !1467
   store i128 %705, ptr %273, align 16, !noalias !1467
-  store i64 %.sroa.7.0158.i, ptr %.sroa.6.0..sroa_idx.i43, align 16, !noalias !1467
+  store i64 %.sroa.7.0158.i, ptr %.sroa.6.0..sroa_idx.i45, align 16, !noalias !1467
   store i32 %704, ptr %.sroa.7124.0..sroa_idx.i, align 8, !noalias !1467
   %706 = load i64, ptr %703, align 8, !range !405, !noundef !37
   switch i64 %706, label %default.unreachable [
@@ -7439,9 +7444,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
 
 707:                                              ; preds = %700
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.102, i64 noundef 14)
-          to label %.noexc49 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc51 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc49:                                         ; preds = %707
+.noexc51:                                         ; preds = %707
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %238), !noalias !1467
   store ptr %273, ptr %238, align 8, !noalias !1502
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %237), !noalias !1502
@@ -7454,9 +7459,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %236, ptr %630, align 8, !alias.scope !1507, !noalias !1510
   store i64 1, ptr %631, align 8, !alias.scope !1507, !noalias !1510
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.95, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %237)
-          to label %.noexc50 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc52 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc50:                                         ; preds = %.noexc49
+.noexc52:                                         ; preds = %.noexc51
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %237), !noalias !1502
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %236), !noalias !1502
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %238), !noalias !1467
@@ -7473,9 +7478,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %233, ptr %636, align 8, !alias.scope !1518, !noalias !1521
   store i64 1, ptr %637, align 8, !alias.scope !1518, !noalias !1521
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.103, i64 noundef 12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %234)
-          to label %.noexc51 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc53 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc51:                                         ; preds = %.noexc50
+.noexc53:                                         ; preds = %.noexc52
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %234), !noalias !1513
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %233), !noalias !1513
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %235), !noalias !1467
@@ -7492,9 +7497,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %230, ptr %642, align 8, !alias.scope !1529, !noalias !1532
   store i64 1, ptr %643, align 8, !alias.scope !1529, !noalias !1532
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.105, i64 noundef 13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %231)
-          to label %.noexc52 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc54 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc52:                                         ; preds = %.noexc51
+.noexc54:                                         ; preds = %.noexc53
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %231), !noalias !1524
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %230), !noalias !1524
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %232), !noalias !1467
@@ -7505,24 +7510,24 @@ default.unreachable164.i:                         ; preds = %.noexc56
   %712 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0159.i, i64 32
   %713 = load double, ptr %712, align 8, !noundef !37
   %714 = invoke noundef double @_ZN5typst9visualize8gradient8Gradient20correct_aspect_ratio17h607cfec6ca2354acE(double noundef %711, double noundef %713)
-          to label %.noexc53 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
-.noexc53:                                         ; preds = %.noexc52
-  %715 = invoke noundef double @_ZN5typst6layout5angle5Angle3sin17h68bce9e105700a9bE(double noundef %714)
-          to label %.noexc54 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
-.noexc54:                                         ; preds = %.noexc53
-  %716 = invoke noundef double @_ZN5typst6layout5angle5Angle3cos17h1c9fe469e9230507E(double noundef %714)
-          to label %.noexc55 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc55 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc55:                                         ; preds = %.noexc54
+  %715 = invoke noundef double @_ZN5typst6layout5angle5Angle3sin17h68bce9e105700a9bE(double noundef %714)
+          to label %.noexc56 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+
+.noexc56:                                         ; preds = %.noexc55
+  %716 = invoke noundef double @_ZN5typst6layout5angle5Angle3cos17h1c9fe469e9230507E(double noundef %714)
+          to label %.noexc57 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+
+.noexc57:                                         ; preds = %.noexc56
   %717 = call double @llvm.fabs.f64(double %715)
   %718 = call double @llvm.fabs.f64(double %716)
   %719 = fadd double %717, %718
   %720 = invoke noundef i8 @_ZN5typst6layout5angle5Angle8quadrant17h5f79dd7575a5190eE(double noundef %714)
-          to label %.noexc56 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc58 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc56:                                         ; preds = %.noexc55
+.noexc58:                                         ; preds = %.noexc57
   %721 = fmul double %716, %719
   switch i8 %720, label %default.unreachable164.i [
     i8 0, label %768
@@ -7533,9 +7538,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
 
 722:                                              ; preds = %700
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.111, i64 noundef 14)
-          to label %.noexc57 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc59 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc57:                                         ; preds = %722
+.noexc59:                                         ; preds = %722
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %229), !noalias !1467
   store ptr %273, ptr %229, align 8, !noalias !1535
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %228), !noalias !1535
@@ -7548,9 +7553,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %227, ptr %583, align 8, !alias.scope !1540, !noalias !1543
   store i64 1, ptr %584, align 8, !alias.scope !1540, !noalias !1543
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.95, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %228)
-          to label %.noexc58 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc60 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc58:                                         ; preds = %.noexc57
+.noexc60:                                         ; preds = %.noexc59
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %228), !noalias !1535
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %227), !noalias !1535
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %229), !noalias !1467
@@ -7567,9 +7572,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %224, ptr %589, align 8, !alias.scope !1551, !noalias !1554
   store i64 1, ptr %590, align 8, !alias.scope !1551, !noalias !1554
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.103, i64 noundef 12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %225)
-          to label %.noexc59 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc61 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc59:                                         ; preds = %.noexc58
+.noexc61:                                         ; preds = %.noexc60
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %225), !noalias !1546
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %224), !noalias !1546
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %226), !noalias !1467
@@ -7586,9 +7591,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %221, ptr %595, align 8, !alias.scope !1562, !noalias !1565
   store i64 1, ptr %596, align 8, !alias.scope !1562, !noalias !1565
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.105, i64 noundef 13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %222)
-          to label %.noexc60 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc62 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc60:                                         ; preds = %.noexc59
+.noexc62:                                         ; preds = %.noexc61
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %222), !noalias !1557
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %221), !noalias !1557
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %223), !noalias !1467
@@ -7598,9 +7603,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   %725 = getelementptr inbounds nuw i8, ptr %724, i64 40
   %726 = load double, ptr %725, align 8, !noundef !37
   %727 = invoke noundef double @_ZN5typst6layout5ratio5Ratio3get17h8726a92508d6c43bE(double noundef %726)
-          to label %.noexc61 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc63 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc61:                                         ; preds = %.noexc60
+.noexc63:                                         ; preds = %.noexc62
   store double %727, ptr %268, align 8, !noalias !1467
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %220), !noalias !1467
   store ptr %268, ptr %220, align 8, !noalias !1568
@@ -7614,9 +7619,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %218, ptr %600, align 8, !alias.scope !1573, !noalias !1576
   store i64 1, ptr %601, align 8, !alias.scope !1573, !noalias !1576
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.112, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %219)
-          to label %.noexc62 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc64 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc62:                                         ; preds = %.noexc61
+.noexc64:                                         ; preds = %.noexc63
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %219), !noalias !1568
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %218), !noalias !1568
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %220), !noalias !1467
@@ -7625,9 +7630,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   %728 = getelementptr inbounds nuw i8, ptr %724, i64 48
   %729 = load double, ptr %728, align 8, !noundef !37
   %730 = invoke noundef double @_ZN5typst6layout5ratio5Ratio3get17h8726a92508d6c43bE(double noundef %729)
-          to label %.noexc63 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc65 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc63:                                         ; preds = %.noexc62
+.noexc65:                                         ; preds = %.noexc64
   store double %730, ptr %267, align 8, !noalias !1467
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %217), !noalias !1467
   store ptr %267, ptr %217, align 8, !noalias !1579
@@ -7641,9 +7646,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %215, ptr %605, align 8, !alias.scope !1584, !noalias !1587
   store i64 1, ptr %606, align 8, !alias.scope !1584, !noalias !1587
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.113, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %216)
-          to label %.noexc64 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc66 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc64:                                         ; preds = %.noexc63
+.noexc66:                                         ; preds = %.noexc65
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %216), !noalias !1579
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %215), !noalias !1579
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %217), !noalias !1467
@@ -7652,9 +7657,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   %731 = getelementptr inbounds nuw i8, ptr %724, i64 56
   %732 = load double, ptr %731, align 8, !noundef !37
   %733 = invoke noundef double @_ZN5typst6layout5ratio5Ratio3get17h8726a92508d6c43bE(double noundef %732)
-          to label %.noexc65 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc67 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc65:                                         ; preds = %.noexc64
+.noexc67:                                         ; preds = %.noexc66
   store double %733, ptr %266, align 8, !noalias !1467
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %214), !noalias !1467
   store ptr %266, ptr %214, align 8, !noalias !1590
@@ -7668,9 +7673,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %212, ptr %610, align 8, !alias.scope !1595, !noalias !1598
   store i64 1, ptr %611, align 8, !alias.scope !1595, !noalias !1598
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.114, i64 noundef 1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %213)
-          to label %.noexc66 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc68 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc66:                                         ; preds = %.noexc65
+.noexc68:                                         ; preds = %.noexc67
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %213), !noalias !1590
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %212), !noalias !1590
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %214), !noalias !1467
@@ -7679,9 +7684,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   %734 = getelementptr inbounds nuw i8, ptr %724, i64 64
   %735 = load double, ptr %734, align 8, !noundef !37
   %736 = invoke noundef double @_ZN5typst6layout5ratio5Ratio3get17h8726a92508d6c43bE(double noundef %735)
-          to label %.noexc67 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc69 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc67:                                         ; preds = %.noexc66
+.noexc69:                                         ; preds = %.noexc68
   store double %736, ptr %265, align 8, !noalias !1467
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %211), !noalias !1467
   store ptr %265, ptr %211, align 8, !noalias !1601
@@ -7695,9 +7700,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %209, ptr %615, align 8, !alias.scope !1606, !noalias !1609
   store i64 1, ptr %616, align 8, !alias.scope !1606, !noalias !1609
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.115, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %210)
-          to label %.noexc68 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc70 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc68:                                         ; preds = %.noexc67
+.noexc70:                                         ; preds = %.noexc69
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %210), !noalias !1601
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %209), !noalias !1601
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %211), !noalias !1467
@@ -7706,9 +7711,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   %737 = getelementptr inbounds nuw i8, ptr %724, i64 72
   %738 = load double, ptr %737, align 8, !noundef !37
   %739 = invoke noundef double @_ZN5typst6layout5ratio5Ratio3get17h8726a92508d6c43bE(double noundef %738)
-          to label %.noexc69 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc71 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc69:                                         ; preds = %.noexc68
+.noexc71:                                         ; preds = %.noexc70
   store double %739, ptr %264, align 8, !noalias !1467
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %208), !noalias !1467
   store ptr %264, ptr %208, align 8, !noalias !1612
@@ -7722,9 +7727,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %206, ptr %620, align 8, !alias.scope !1617, !noalias !1620
   store i64 1, ptr %621, align 8, !alias.scope !1617, !noalias !1620
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.116, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %207)
-          to label %.noexc70 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc72 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc70:                                         ; preds = %.noexc69
+.noexc72:                                         ; preds = %.noexc71
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %207), !noalias !1612
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %206), !noalias !1612
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %208), !noalias !1467
@@ -7733,9 +7738,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   %740 = getelementptr inbounds nuw i8, ptr %724, i64 80
   %741 = load double, ptr %740, align 8, !noundef !37
   %742 = invoke noundef double @_ZN5typst6layout5ratio5Ratio3get17h8726a92508d6c43bE(double noundef %741)
-          to label %.noexc71 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc73 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc71:                                         ; preds = %.noexc70
+.noexc73:                                         ; preds = %.noexc72
   store double %742, ptr %263, align 8, !noalias !1467
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %205), !noalias !1467
   store ptr %263, ptr %205, align 8, !noalias !1623
@@ -7749,9 +7754,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %203, ptr %625, align 8, !alias.scope !1628, !noalias !1631
   store i64 1, ptr %626, align 8, !alias.scope !1628, !noalias !1631
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.117, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %204)
-          to label %.noexc72 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc74 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc72:                                         ; preds = %.noexc71
+.noexc74:                                         ; preds = %.noexc73
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %204), !noalias !1623
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %203), !noalias !1623
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %205), !noalias !1467
@@ -7760,9 +7765,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
 
 743:                                              ; preds = %700
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.126, i64 noundef 7)
-          to label %.noexc73 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc75 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc73:                                         ; preds = %743
+.noexc75:                                         ; preds = %743
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %202), !noalias !1467
   store ptr %273, ptr %202, align 8, !noalias !1634
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %201), !noalias !1634
@@ -7775,9 +7780,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %200, ptr %451, align 8, !alias.scope !1639, !noalias !1642
   store i64 1, ptr %452, align 8, !alias.scope !1639, !noalias !1642
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.95, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %201)
-          to label %.noexc74 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc76 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc74:                                         ; preds = %.noexc73
+.noexc76:                                         ; preds = %.noexc75
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %201), !noalias !1634
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %200), !noalias !1634
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %202), !noalias !1467
@@ -7794,9 +7799,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %197, ptr %457, align 8, !alias.scope !1650, !noalias !1653
   store i64 1, ptr %458, align 8, !alias.scope !1650, !noalias !1653
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.32, i64 noundef 7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %198)
-          to label %.noexc75 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc77 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc75:                                         ; preds = %.noexc74
+.noexc77:                                         ; preds = %.noexc76
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %198), !noalias !1645
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %197), !noalias !1645
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %199), !noalias !1467
@@ -7813,9 +7818,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %194, ptr %463, align 8, !alias.scope !1661, !noalias !1664
   store i64 1, ptr %464, align 8, !alias.scope !1661, !noalias !1664
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.93, i64 noundef 19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %195)
-          to label %.noexc76 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc78 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc76:                                         ; preds = %.noexc75
+.noexc78:                                         ; preds = %.noexc77
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %195), !noalias !1656
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %194), !noalias !1656
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %196), !noalias !1467
@@ -7832,9 +7837,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %191, ptr %469, align 8, !alias.scope !1672, !noalias !1675
   store i64 1, ptr %470, align 8, !alias.scope !1672, !noalias !1675
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.128, i64 noundef 12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %192)
-          to label %.noexc77 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc79 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc77:                                         ; preds = %.noexc76
+.noexc79:                                         ; preds = %.noexc78
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %192), !noalias !1667
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %191), !noalias !1667
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %193), !noalias !1467
@@ -7851,9 +7856,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %188, ptr %475, align 8, !alias.scope !1683, !noalias !1686
   store i64 1, ptr %476, align 8, !alias.scope !1683, !noalias !1686
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.36, i64 noundef 5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %189)
-          to label %.noexc78 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc80 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc78:                                         ; preds = %.noexc77
+.noexc80:                                         ; preds = %.noexc79
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %189), !noalias !1678
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %188), !noalias !1678
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %190), !noalias !1467
@@ -7870,9 +7875,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %185, ptr %481, align 8, !alias.scope !1694, !noalias !1697
   store i64 1, ptr %482, align 8, !alias.scope !1694, !noalias !1697
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.39, i64 noundef 6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %186)
-          to label %.noexc79 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc81 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc79:                                         ; preds = %.noexc78
+.noexc81:                                         ; preds = %.noexc80
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %186), !noalias !1689
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %185), !noalias !1689
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %187), !noalias !1467
@@ -7889,9 +7894,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %182, ptr %487, align 8, !alias.scope !1705, !noalias !1708
   store i64 1, ptr %488, align 8, !alias.scope !1705, !noalias !1708
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.64, i64 noundef 1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %183)
-          to label %.noexc80 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc82 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc80:                                         ; preds = %.noexc79
+.noexc82:                                         ; preds = %.noexc81
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %183), !noalias !1700
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %182), !noalias !1700
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %184), !noalias !1467
@@ -7908,9 +7913,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %179, ptr %493, align 8, !alias.scope !1716, !noalias !1719
   store i64 1, ptr %494, align 8, !alias.scope !1716, !noalias !1719
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.131, i64 noundef 1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %180)
-          to label %.noexc81 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc83 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc81:                                         ; preds = %.noexc80
+.noexc83:                                         ; preds = %.noexc82
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %180), !noalias !1711
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %179), !noalias !1711
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %181), !noalias !1467
@@ -7921,13 +7926,13 @@ default.unreachable164.i:                         ; preds = %.noexc56
   %748 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0159.i, i64 32
   %749 = load double, ptr %748, align 8, !noundef !37
   %750 = invoke noundef double @_ZN5typst9visualize8gradient8Gradient20correct_aspect_ratio17h607cfec6ca2354acE(double noundef %747, double noundef %749)
-          to label %.noexc82 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc84 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc82:                                         ; preds = %.noexc81
+.noexc84:                                         ; preds = %.noexc83
   %751 = invoke noundef double @_ZN5typst6layout5angle5Angle6to_rad17h87476e3cc55117efE(double noundef %750)
-          to label %.noexc83 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc85 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc83:                                         ; preds = %.noexc82
+.noexc85:                                         ; preds = %.noexc84
   %752 = fptrunc double %751 to float
   %753 = frem float %752, 0x401921FB60000000
   %754 = fcmp olt float %753, 0.000000e+00
@@ -7936,16 +7941,16 @@ default.unreachable164.i:                         ; preds = %.noexc56
   %756 = getelementptr inbounds nuw i8, ptr %745, i64 48
   %757 = load double, ptr %756, align 8, !noundef !37
   %758 = invoke noundef double @_ZN5typst6layout5ratio5Ratio3get17h8726a92508d6c43bE(double noundef %757)
-          to label %.noexc84 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc86 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc84:                                         ; preds = %.noexc83
+.noexc86:                                         ; preds = %.noexc85
   %759 = fptrunc double %758 to float
   %760 = getelementptr inbounds nuw i8, ptr %745, i64 56
   %761 = load double, ptr %760, align 8, !noundef !37
   %762 = invoke noundef double @_ZN5typst6layout5ratio5Ratio3get17h8726a92508d6c43bE(double noundef %761)
-          to label %.noexc85 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc87 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc85:                                         ; preds = %.noexc84
+.noexc87:                                         ; preds = %.noexc86
   %763 = fptrunc double %762 to float
   %764 = fadd float %763, 5.000000e-01
   %765 = fmul float %764, 5.000000e-01
@@ -7953,22 +7958,22 @@ default.unreachable164.i:                         ; preds = %.noexc56
   %767 = fmul float %766, 5.000000e-01
   br label %876
 
-768:                                              ; preds = %.noexc56
+768:                                              ; preds = %.noexc58
   %769 = fmul double %715, %719
   br label %780
 
-770:                                              ; preds = %.noexc56
+770:                                              ; preds = %.noexc58
   %771 = fadd double %721, 1.000000e+00
   %772 = fmul double %715, %719
   br label %780
 
-773:                                              ; preds = %.noexc56
+773:                                              ; preds = %.noexc58
   %774 = fadd double %721, 1.000000e+00
   %775 = fmul double %715, %719
   %776 = fadd double %775, 1.000000e+00
   br label %780
 
-777:                                              ; preds = %.noexc56
+777:                                              ; preds = %.noexc58
   %778 = fmul double %715, %719
   %779 = fadd double %778, 1.000000e+00
   br label %780
@@ -7998,9 +8003,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %176, ptr %647, align 8, !alias.scope !1727, !noalias !1730
   store i64 1, ptr %648, align 8, !alias.scope !1727, !noalias !1730
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.107, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %177)
-          to label %.noexc86 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc88 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc86:                                         ; preds = %780
+.noexc88:                                         ; preds = %780
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %177), !noalias !1722
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %176), !noalias !1722
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %178), !noalias !1467
@@ -8016,9 +8021,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %173, ptr %652, align 8, !alias.scope !1738, !noalias !1741
   store i64 1, ptr %653, align 8, !alias.scope !1738, !noalias !1741
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.108, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %174)
-          to label %.noexc87 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc89 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc87:                                         ; preds = %.noexc86
+.noexc89:                                         ; preds = %.noexc88
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %174), !noalias !1733
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %173), !noalias !1733
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %175), !noalias !1467
@@ -8034,9 +8039,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %170, ptr %657, align 8, !alias.scope !1749, !noalias !1752
   store i64 1, ptr %658, align 8, !alias.scope !1749, !noalias !1752
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.109, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %171)
-          to label %.noexc88 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc90 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc88:                                         ; preds = %.noexc87
+.noexc90:                                         ; preds = %.noexc89
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %171), !noalias !1744
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %170), !noalias !1744
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %172), !noalias !1467
@@ -8052,9 +8057,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %167, ptr %662, align 8, !alias.scope !1760, !noalias !1763
   store i64 1, ptr %663, align 8, !alias.scope !1760, !noalias !1763
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.110, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %168)
-          to label %.noexc89 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc91 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc89:                                         ; preds = %.noexc88
+.noexc91:                                         ; preds = %.noexc90
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %168), !noalias !1755
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %167), !noalias !1755
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %169), !noalias !1467
@@ -8064,31 +8069,31 @@ default.unreachable164.i:                         ; preds = %.noexc56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %272), !noalias !1467
   br label %781
 
-781:                                              ; preds = %.noexc89, %.noexc72
+781:                                              ; preds = %.noexc91, %.noexc74
   %782 = invoke { ptr, i64 } @_ZN5typst9visualize8gradient8Gradient9stops_ref17h12773da9fdab8fb0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %703)
-          to label %.noexc90 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc92 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc90:                                         ; preds = %781
+.noexc92:                                         ; preds = %781
   %783 = extractvalue { ptr, i64 } %782, 1
   %784 = icmp ult i64 %783, 2
   br i1 %784, label %.backedge.i, label %.lr.ph156.preheader.i
 
-.lr.ph156.preheader.i:                            ; preds = %.noexc90
+.lr.ph156.preheader.i:                            ; preds = %.noexc92
   %785 = extractvalue { ptr, i64 } %782, 0
   br label %.lr.ph156.i
 
-.backedge.i:                                      ; preds = %"_ZN4core3ptr46drop_in_place$LT$typst_svg..SvgPathBuilder$GT$17h15e597a139344812E.exit103.i", %.noexc112, %.noexc90
+.backedge.i:                                      ; preds = %"_ZN4core3ptr46drop_in_place$LT$typst_svg..SvgPathBuilder$GT$17h15e597a139344812E.exit103.i", %.noexc114, %.noexc92
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %.noexc91 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc93 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc91:                                         ; preds = %.backedge.i
+.noexc93:                                         ; preds = %.backedge.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %273), !noalias !1467
   %786 = icmp eq ptr %701, %445
   br i1 %786, label %._crit_edge162.i, label %700
 
-.lr.ph156.i:                                      ; preds = %.noexc112, %.lr.ph156.preheader.i
-  %.sroa.5128.0154.i = phi i64 [ %788, %.noexc112 ], [ %783, %.lr.ph156.preheader.i ]
-  %.sroa.0127.0153.i = phi ptr [ %789, %.noexc112 ], [ %785, %.lr.ph156.preheader.i ]
+.lr.ph156.i:                                      ; preds = %.noexc114, %.lr.ph156.preheader.i
+  %.sroa.5128.0154.i = phi i64 [ %788, %.noexc114 ], [ %783, %.lr.ph156.preheader.i ]
+  %.sroa.0127.0153.i = phi ptr [ %789, %.noexc114 ], [ %785, %.lr.ph156.preheader.i ]
   %787 = icmp ne ptr %.sroa.0127.0153.i, null
   call void @llvm.assume(i1 %787)
   %788 = add i64 %.sroa.5128.0154.i, -1
@@ -8104,14 +8109,14 @@ default.unreachable164.i:                         ; preds = %.noexc56
   %793 = load double, ptr %792, align 8, !noundef !37
   store double %793, ptr %250, align 8, !noalias !1467
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.122, i64 noundef 4)
-          to label %.noexc92 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc94 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc92:                                         ; preds = %.lr.ph156.i
+.noexc94:                                         ; preds = %.lr.ph156.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %249), !noalias !1467
   invoke void @"_ZN78_$LT$typst..layout..ratio..Ratio$u20$as$u20$typst..foundations..repr..Repr$GT$4repr17h56b1ca23f842f7faE"(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %249, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %252)
-          to label %.noexc93 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc95 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc93:                                         ; preds = %.noexc92
+.noexc95:                                         ; preds = %.noexc94
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %166), !noalias !1467
   store ptr %249, ptr %166, align 8, !noalias !1766
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %165), !noalias !1766
@@ -8126,7 +8131,7 @@ default.unreachable164.i:                         ; preds = %.noexc56
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.123, i64 noundef 6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %165)
           to label %799 unwind label %794
 
-794:                                              ; preds = %.noexc93
+794:                                              ; preds = %.noexc95
   %795 = landingpad { ptr, i32 }
           cleanup
   %796 = load i8, ptr %669, align 1, !alias.scope !1777, !noalias !1467, !noundef !37
@@ -8137,7 +8142,7 @@ default.unreachable164.i:                         ; preds = %.noexc56
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %249)
           to label %.body.thread unwind label %852
 
-799:                                              ; preds = %.noexc93
+799:                                              ; preds = %.noexc95
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %165), !noalias !1766
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %164), !noalias !1766
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %166), !noalias !1467
@@ -8147,15 +8152,15 @@ default.unreachable164.i:                         ; preds = %.noexc56
 
 802:                                              ; preds = %799
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %249)
-          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit54.i" unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit54.i" unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 "_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit54.i": ; preds = %802, %799
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %249), !noalias !1467
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %248), !noalias !1467
   invoke void @_ZN5typst9visualize5color5Color6to_hex17h42f3a118686b99a3E(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %248, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %253)
-          to label %.noexc95 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc97 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc95:                                         ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit54.i"
+.noexc97:                                         ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit54.i"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %163), !noalias !1467
   store ptr %248, ptr %163, align 8, !noalias !1791
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %162), !noalias !1791
@@ -8170,7 +8175,7 @@ default.unreachable164.i:                         ; preds = %.noexc56
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.124, i64 noundef 10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %162)
           to label %808 unwind label %803
 
-803:                                              ; preds = %.noexc95
+803:                                              ; preds = %.noexc97
   %804 = landingpad { ptr, i32 }
           cleanup
   %805 = load i8, ptr %675, align 1, !alias.scope !1802, !noalias !1467, !noundef !37
@@ -8181,7 +8186,7 @@ default.unreachable164.i:                         ; preds = %.noexc56
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %248)
           to label %.body.thread unwind label %852
 
-808:                                              ; preds = %.noexc95
+808:                                              ; preds = %.noexc97
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %162), !noalias !1791
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %161), !noalias !1791
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %163), !noalias !1467
@@ -8191,58 +8196,58 @@ default.unreachable164.i:                         ; preds = %.noexc56
 
 811:                                              ; preds = %808
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %248)
-          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit59.i" unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit59.i" unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 "_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit59.i": ; preds = %811, %808
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %248), !noalias !1467
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %.noexc97 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc99 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc97:                                         ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit59.i"
+.noexc99:                                         ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit59.i"
   %812 = invoke noundef zeroext i1 @_ZN5typst9visualize8gradient8Gradient10anti_alias17h7cf6f9b6392ce241E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %703)
-          to label %.noexc98 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc100 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc98:                                         ; preds = %.noexc97
-  br i1 %812, label %813, label %._crit_edge.i44
+.noexc100:                                        ; preds = %.noexc99
+  br i1 %812, label %813, label %._crit_edge.i46
 
-813:                                              ; preds = %.noexc98
+813:                                              ; preds = %.noexc100
   %814 = invoke { ptr, i64 } @_ZN5typst9visualize8gradient8Gradient9stops_ref17h12773da9fdab8fb0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %703)
-          to label %.noexc99 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc101 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc99:                                         ; preds = %813
+.noexc101:                                        ; preds = %813
   %815 = extractvalue { ptr, i64 } %814, 1
   %816 = trunc i64 %815 to i32
   %817 = icmp eq i32 %816, 0
   br i1 %817, label %823, label %818, !prof !1816
 
-818:                                              ; preds = %.noexc99
+818:                                              ; preds = %.noexc101
   %819 = udiv i32 256, %816
   %.0.sroa.speculated.i.i = call noundef range(i32 2, 257) i32 @llvm.umax.i32(i32 range(i32 0, 257) %819, i32 2)
   %820 = add nsw i32 %.0.sroa.speculated.i.i, -1
   %821 = icmp ult i32 %816, 86
-  br i1 %821, label %.lr.ph.i45, label %._crit_edge.i44
+  br i1 %821, label %.lr.ph.i47, label %._crit_edge.i46
 
-.lr.ph.i45:                                       ; preds = %818
+.lr.ph.i47:                                       ; preds = %818
   %822 = uitofp nneg i32 %820 to double
   br label %824
 
-823:                                              ; preds = %.noexc99
+823:                                              ; preds = %.noexc101
   invoke void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @str.1, i64 noundef 25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e1937a5437cdf78787e171774858dd58.125) #17
-          to label %.noexc100 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc102 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc100:                                        ; preds = %823
+.noexc102:                                        ; preds = %823
   unreachable
 
-._crit_edge.i44:                                  ; preds = %.noexc116, %818, %.noexc98
+._crit_edge.i46:                                  ; preds = %.noexc118, %818, %.noexc100
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.122, i64 noundef 4)
-          to label %.noexc101 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc103 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc101:                                        ; preds = %._crit_edge.i44
+.noexc103:                                        ; preds = %._crit_edge.i46
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %243), !noalias !1467
   invoke void @"_ZN78_$LT$typst..layout..ratio..Ratio$u20$as$u20$typst..foundations..repr..Repr$GT$4repr17h56b1ca23f842f7faE"(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %243, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %250)
-          to label %.noexc102 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc104 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc102:                                        ; preds = %.noexc101
+.noexc104:                                        ; preds = %.noexc103
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %160), !noalias !1467
   store ptr %243, ptr %160, align 8, !noalias !1817
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %159), !noalias !1817
@@ -8257,40 +8262,40 @@ default.unreachable164.i:                         ; preds = %.noexc56
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.123, i64 noundef 6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %159)
           to label %838 unwind label %833
 
-824:                                              ; preds = %.noexc116, %.lr.ph.i45
-  %.sroa.021.0152.i = phi i32 [ 1, %.lr.ph.i45 ], [ %825, %.noexc116 ]
+824:                                              ; preds = %.noexc118, %.lr.ph.i47
+  %.sroa.021.0152.i = phi i32 [ 1, %.lr.ph.i47 ], [ %825, %.noexc118 ]
   %825 = add nuw nsw i32 %.sroa.021.0152.i, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %247), !noalias !1467
   %826 = load double, ptr %252, align 8, !noalias !1467, !noundef !37
   %827 = load double, ptr %250, align 8, !noalias !1467, !noundef !37
   %828 = invoke noundef double @"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..ops..arith..Sub$GT$3sub17hfbab24a6c3d47dbdE"(double noundef %827, double noundef %826)
-          to label %.noexc103 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc105 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc103:                                        ; preds = %824
+.noexc105:                                        ; preds = %824
   %829 = uitofp nneg i32 %.sroa.021.0152.i to double
   %830 = fdiv double %829, %822
   %831 = invoke noundef double @"_ZN80_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..ops..arith..Mul$LT$f64$GT$$GT$3mul17h5ea6e6801fd9b0dbE"(double noundef %828, double noundef %830)
-          to label %.noexc104 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
-.noexc104:                                        ; preds = %.noexc103
-  %832 = invoke noundef double @"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..ops..arith..Add$GT$3add17hdf88b48be4d3c8a1E"(double noundef %826, double noundef %831)
-          to label %.noexc105 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
-.noexc105:                                        ; preds = %.noexc104
-  store double %832, ptr %247, align 8, !noalias !1467
-  invoke void @_ZN5typst9visualize8gradient8Gradient6sample17haa58f29a369b9cbeE(ptr noalias noundef nonnull sret({ i32, [4 x i32] }) align 4 captures(none) dereferenceable(20) %246, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %703, i64 noundef 0, double noundef %832)
-          to label %.noexc106 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc106 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc106:                                        ; preds = %.noexc105
-  invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.122, i64 noundef 4)
-          to label %.noexc107 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+  %832 = invoke noundef double @"_ZN69_$LT$typst..layout..ratio..Ratio$u20$as$u20$core..ops..arith..Add$GT$3add17hdf88b48be4d3c8a1E"(double noundef %826, double noundef %831)
+          to label %.noexc107 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc107:                                        ; preds = %.noexc106
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %245), !noalias !1467
-  invoke void @"_ZN78_$LT$typst..layout..ratio..Ratio$u20$as$u20$typst..foundations..repr..Repr$GT$4repr17h56b1ca23f842f7faE"(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %245, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %247)
-          to label %.noexc108 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+  store double %832, ptr %247, align 8, !noalias !1467
+  invoke void @_ZN5typst9visualize8gradient8Gradient6sample17haa58f29a369b9cbeE(ptr noalias noundef nonnull sret({ i32, [4 x i32] }) align 4 captures(none) dereferenceable(20) %246, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %703, i64 noundef 0, double noundef %832)
+          to label %.noexc108 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc108:                                        ; preds = %.noexc107
+  invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.122, i64 noundef 4)
+          to label %.noexc109 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+
+.noexc109:                                        ; preds = %.noexc108
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %245), !noalias !1467
+  invoke void @"_ZN78_$LT$typst..layout..ratio..Ratio$u20$as$u20$typst..foundations..repr..Repr$GT$4repr17h56b1ca23f842f7faE"(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %245, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %247)
+          to label %.noexc110 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+
+.noexc110:                                        ; preds = %.noexc109
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %157), !noalias !1467
   store ptr %245, ptr %157, align 8, !noalias !1828
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %156), !noalias !1828
@@ -8305,7 +8310,7 @@ default.unreachable164.i:                         ; preds = %.noexc56
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.123, i64 noundef 6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %156)
           to label %859 unwind label %854
 
-833:                                              ; preds = %.noexc102
+833:                                              ; preds = %.noexc104
   %834 = landingpad { ptr, i32 }
           cleanup
   %835 = load i8, ptr %693, align 1, !alias.scope !1839, !noalias !1467, !noundef !37
@@ -8316,7 +8321,7 @@ default.unreachable164.i:                         ; preds = %.noexc56
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %243)
           to label %.body.thread unwind label %852
 
-838:                                              ; preds = %.noexc102
+838:                                              ; preds = %.noexc104
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %159), !noalias !1817
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %158), !noalias !1817
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %160), !noalias !1467
@@ -8326,15 +8331,15 @@ default.unreachable164.i:                         ; preds = %.noexc56
 
 841:                                              ; preds = %838
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %243)
-          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit66.i" unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit66.i" unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 "_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit66.i": ; preds = %841, %838
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %243), !noalias !1467
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %242), !noalias !1467
   invoke void @_ZN5typst9visualize5color5Color6to_hex17h42f3a118686b99a3E(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %242, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %251)
-          to label %.noexc110 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc112 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc110:                                        ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit66.i"
+.noexc112:                                        ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit66.i"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %154), !noalias !1467
   store ptr %242, ptr %154, align 8, !noalias !1853
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %153), !noalias !1853
@@ -8349,7 +8354,7 @@ default.unreachable164.i:                         ; preds = %.noexc56
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.124, i64 noundef 10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %153)
           to label %847 unwind label %842
 
-842:                                              ; preds = %.noexc110
+842:                                              ; preds = %.noexc112
   %843 = landingpad { ptr, i32 }
           cleanup
   %844 = load i8, ptr %699, align 1, !alias.scope !1864, !noalias !1467, !noundef !37
@@ -8360,7 +8365,7 @@ default.unreachable164.i:                         ; preds = %.noexc56
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %242)
           to label %.body.thread unwind label %852
 
-847:                                              ; preds = %.noexc110
+847:                                              ; preds = %.noexc112
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %153), !noalias !1853
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %152), !noalias !1853
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %154), !noalias !1467
@@ -8370,14 +8375,14 @@ default.unreachable164.i:                         ; preds = %.noexc56
 
 850:                                              ; preds = %847
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %242)
-          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit71.i" unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit71.i" unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 "_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit71.i": ; preds = %850, %847
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %242), !noalias !1467
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %.noexc112 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc114 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc112:                                        ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit71.i"
+.noexc114:                                        ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit71.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %250), !noalias !1467
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %252), !noalias !1467
   %851 = icmp ult i64 %.sroa.5128.0154.i, 3
@@ -8389,7 +8394,7 @@ default.unreachable164.i:                         ; preds = %.noexc56
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #18
   unreachable
 
-854:                                              ; preds = %.noexc108
+854:                                              ; preds = %.noexc110
   %855 = landingpad { ptr, i32 }
           cleanup
   %856 = load i8, ptr %681, align 1, !alias.scope !1878, !noalias !1467, !noundef !37
@@ -8400,7 +8405,7 @@ default.unreachable164.i:                         ; preds = %.noexc56
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %245)
           to label %.body.thread unwind label %852
 
-859:                                              ; preds = %.noexc108
+859:                                              ; preds = %.noexc110
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %156), !noalias !1828
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %155), !noalias !1828
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %157), !noalias !1467
@@ -8410,15 +8415,15 @@ default.unreachable164.i:                         ; preds = %.noexc56
 
 862:                                              ; preds = %859
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %245)
-          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit74.i" unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit74.i" unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 "_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit74.i": ; preds = %862, %859
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %245), !noalias !1467
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %244), !noalias !1467
   invoke void @_ZN5typst9visualize5color5Color6to_hex17h42f3a118686b99a3E(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %244, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %246)
-          to label %.noexc114 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc116 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc114:                                        ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit74.i"
+.noexc116:                                        ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit74.i"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %151), !noalias !1467
   store ptr %244, ptr %151, align 8, !noalias !1892
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %150), !noalias !1892
@@ -8433,7 +8438,7 @@ default.unreachable164.i:                         ; preds = %.noexc56
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.124, i64 noundef 10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %150)
           to label %868 unwind label %863
 
-863:                                              ; preds = %.noexc114
+863:                                              ; preds = %.noexc116
   %864 = landingpad { ptr, i32 }
           cleanup
   %865 = load i8, ptr %687, align 1, !alias.scope !1903, !noalias !1467, !noundef !37
@@ -8444,7 +8449,7 @@ default.unreachable164.i:                         ; preds = %.noexc56
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %244)
           to label %.body.thread unwind label %852
 
-868:                                              ; preds = %.noexc114
+868:                                              ; preds = %.noexc116
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %150), !noalias !1892
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %149), !noalias !1892
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %151), !noalias !1467
@@ -8454,19 +8459,19 @@ default.unreachable164.i:                         ; preds = %.noexc56
 
 871:                                              ; preds = %868
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %244)
-          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit79.i" unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit79.i" unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 "_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit79.i": ; preds = %871, %868
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %244), !noalias !1467
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %.noexc116 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc118 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc116:                                        ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit79.i"
+.noexc118:                                        ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit79.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %247), !noalias !1467
   %exitcond163.not.i = icmp eq i32 %825, %820
-  br i1 %exitcond163.not.i, label %._crit_edge.i44, label %824
+  br i1 %exitcond163.not.i, label %._crit_edge.i46, label %824
 
-.loopexit.i:                                      ; preds = %1013, %1012, %1011, %1010, %1009, %1008, %1007, %1005, %986, %.noexc94.i, %.noexc93.i, %.noexc92.i, %.noexc118.i, %.noexc117.i, %.noexc116.i, %.noexc115.i, %.noexc114.i, %.noexc113.i, %.noexc112.i, %.noexc111.i, %.noexc110.i, %.noexc109.i, %.noexc108.i, %.noexc107.i, %.noexc106.i, %.noexc105.i, %.noexc104.i, %946, %945, %942, %941, %938, %935, %928, %926, %.noexc87.i, %907, %.noexc84.i, %889, %.noexc81.i, %.noexc117
+.loopexit.i:                                      ; preds = %1013, %1012, %1011, %1010, %1009, %1008, %1007, %1005, %986, %.noexc94.i, %.noexc93.i, %.noexc92.i, %.noexc118.i, %.noexc117.i, %.noexc116.i, %.noexc115.i, %.noexc114.i, %.noexc113.i, %.noexc112.i, %.noexc111.i, %.noexc110.i, %.noexc109.i, %.noexc108.i, %.noexc107.i, %.noexc106.i, %.noexc105.i, %.noexc104.i, %946, %945, %942, %941, %938, %935, %928, %926, %.noexc87.i, %907, %.noexc84.i, %889, %.noexc81.i, %.noexc119
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %872
@@ -8486,8 +8491,8 @@ default.unreachable164.i:                         ; preds = %.noexc56
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %262)
           to label %.body.thread unwind label %852
 
-876:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$typst_svg..SvgPathBuilder$GT$17h15e597a139344812E.exit103.i", %.noexc85
-  %.sroa.0.0151.i = phi i64 [ 0, %.noexc85 ], [ %877, %"_ZN4core3ptr46drop_in_place$LT$typst_svg..SvgPathBuilder$GT$17h15e597a139344812E.exit103.i" ]
+876:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$typst_svg..SvgPathBuilder$GT$17h15e597a139344812E.exit103.i", %.noexc87
+  %.sroa.0.0151.i = phi i64 [ 0, %.noexc87 ], [ %877, %"_ZN4core3ptr46drop_in_place$LT$typst_svg..SvgPathBuilder$GT$17h15e597a139344812E.exit103.i" ]
   %877 = add nuw nsw i64 %.sroa.0.0151.i, 1
   %878 = uitofp nneg i64 %.sroa.0.0151.i to float
   %879 = fmul float %878, 0x3F91DF46A0000000
@@ -8495,16 +8500,16 @@ default.unreachable164.i:                         ; preds = %.noexc56
   %881 = fmul float %880, 0x3F91DF46A0000000
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %262), !noalias !1467
   %882 = invoke noundef double @_ZN5typst6layout5ratio5Ratio3one17h8d84cad970b825fdE()
-          to label %.noexc117 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc119 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc117:                                        ; preds = %876
+.noexc119:                                        ; preds = %876
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %262, i8 0, i64 15, i1 false), !noalias !1467
   store i8 -128, ptr %.sroa.4130.0..sroa_idx.i, align 1, !noalias !1467
   store double %882, ptr %495, align 8, !alias.scope !1926, !noalias !1467
   %883 = invoke noundef double @_ZN5typst6layout5ratio5Ratio3get17h8726a92508d6c43bE(double noundef %882)
           to label %.noexc81.i unwind label %.loopexit.i
 
-.noexc81.i:                                       ; preds = %.noexc117
+.noexc81.i:                                       ; preds = %.noexc119
   %884 = fptrunc double %883 to float
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %148), !noalias !1929
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %147), !noalias !1929
@@ -9018,7 +9023,7 @@ default.unreachable164.i:                         ; preds = %.noexc56
 
 1017:                                             ; preds = %1014
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %262)
-          to label %"_ZN4core3ptr46drop_in_place$LT$typst_svg..SvgPathBuilder$GT$17h15e597a139344812E.exit103.i" unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %"_ZN4core3ptr46drop_in_place$LT$typst_svg..SvgPathBuilder$GT$17h15e597a139344812E.exit103.i" unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 "_ZN4core3ptr46drop_in_place$LT$typst_svg..SvgPathBuilder$GT$17h15e597a139344812E.exit103.i": ; preds = %1017, %1014
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %262), !noalias !1467
@@ -9037,9 +9042,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
 
 1022:                                             ; preds = %1018
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.94, i64 noundef 4)
-          to label %.noexc122 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc125 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc122:                                        ; preds = %1022
+.noexc125:                                        ; preds = %1022
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %105), !noalias !2060
   store ptr @anon.e1937a5437cdf78787e171774858dd58.139, ptr %105, align 8, !noalias !2063
   %1023 = getelementptr inbounds nuw i8, ptr %105, i64 8
@@ -9059,23 +9064,24 @@ default.unreachable164.i:                         ; preds = %.noexc56
   %1028 = getelementptr inbounds nuw i8, ptr %104, i64 24
   store i64 1, ptr %1028, align 8, !alias.scope !2068, !noalias !2071
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.95, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %104)
-          to label %.noexc123 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc126 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc123:                                        ; preds = %.noexc122
+.noexc126:                                        ; preds = %.noexc125
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %104), !noalias !2063
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %103), !noalias !2063
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %105), !noalias !2060
   %1029 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %1030 = load ptr, ptr %1029, align 8, !alias.scope !2074, !noalias !2077, !nonnull !37, !noundef !37
   %1031 = load i64, ptr %1019, align 8, !alias.scope !2074, !noalias !2077, !noundef !37
-  %1032 = getelementptr inbounds { i128, { { double, double, double, double, double, double }, { i128, i64, i32, [1 x i32] }, i8, [15 x i8] } }, ptr %1030, i64 %1031
+  %.idx.i121 = mul nsw i64 %1031, 112
+  %1032 = getelementptr inbounds i8, ptr %1030, i64 %.idx.i121
   %1033 = icmp eq i64 %1031, 0
-  br i1 %1033, label %._crit_edge.i121, label %.lr.ph.i119
+  br i1 %1033, label %._crit_edge.i124, label %.lr.ph.i122
 
-.lr.ph.i119:                                      ; preds = %.noexc123
+.lr.ph.i122:                                      ; preds = %.noexc126
   %1034 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %.sroa.56.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %113, i64 16
-  %.sroa.6.0..sroa_idx.i120 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %.sroa.6.0..sroa_idx.i123 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %1035 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %1036 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %1037 = getelementptr inbounds nuw i8, ptr %95, i64 32
@@ -9108,13 +9114,13 @@ default.unreachable164.i:                         ; preds = %.noexc56
   %1064 = getelementptr inbounds nuw i8, ptr %107, i64 24
   br label %1065
 
-._crit_edge.i121:                                 ; preds = %.noexc134, %.noexc123
+._crit_edge.i124:                                 ; preds = %.noexc137, %.noexc126
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %_ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-1065:                                             ; preds = %.noexc134, %.lr.ph.i119
-  %.sroa.7.016.i = phi i64 [ 0, %.lr.ph.i119 ], [ %1067, %.noexc134 ]
-  %.sroa.04.015.i = phi ptr [ %1030, %.lr.ph.i119 ], [ %1066, %.noexc134 ]
+1065:                                             ; preds = %.noexc137, %.lr.ph.i122
+  %.sroa.7.016.i = phi i64 [ 0, %.lr.ph.i122 ], [ %1067, %.noexc137 ]
+  %.sroa.04.015.i = phi ptr [ %1030, %.lr.ph.i122 ], [ %1066, %.noexc137 ]
   %1066 = getelementptr inbounds nuw i8, ptr %.sroa.04.015.i, i64 112
   %1067 = add nuw nsw i64 %.sroa.7.016.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !2079)
@@ -9125,7 +9131,7 @@ default.unreachable164.i:                         ; preds = %.noexc56
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %113), !noalias !2060
   store i128 %1070, ptr %113, align 16, !noalias !2060
   store i64 %.sroa.7.016.i, ptr %.sroa.56.0..sroa_idx.i, align 16, !noalias !2060
-  store i32 %1069, ptr %.sroa.6.0..sroa_idx.i120, align 8, !noalias !2060
+  store i32 %1069, ptr %.sroa.6.0..sroa_idx.i123, align 8, !noalias !2060
   %1071 = getelementptr inbounds nuw i8, ptr %.sroa.04.015.i, i64 96
   %1072 = load i8, ptr %1071, align 16, !range !1221, !noundef !37
   switch i8 %1072, label %default.unreachable [
@@ -9136,9 +9142,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
 
 1073:                                             ; preds = %1065
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.102, i64 noundef 14)
-          to label %.noexc125 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc128 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc125:                                        ; preds = %1073
+.noexc128:                                        ; preds = %1073
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %112), !noalias !2060
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %112, ptr noundef nonnull align 16 dereferenceable(48) %1068, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %102), !noalias !2060
@@ -9153,9 +9159,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %100, ptr %1048, align 8, !alias.scope !2100, !noalias !2103
   store i64 1, ptr %1049, align 8, !alias.scope !2100, !noalias !2103
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.140, i64 noundef 17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %101)
-          to label %.noexc126 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc129 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc126:                                        ; preds = %.noexc125
+.noexc129:                                        ; preds = %.noexc128
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %101), !noalias !2095
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %100), !noalias !2095
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %102), !noalias !2060
@@ -9164,9 +9170,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
 
 1074:                                             ; preds = %1065
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.111, i64 noundef 14)
-          to label %.noexc127 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc130 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc127:                                        ; preds = %1074
+.noexc130:                                        ; preds = %1074
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %111), !noalias !2060
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %111, ptr noundef nonnull align 16 dereferenceable(48) %1068, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %99), !noalias !2060
@@ -9181,9 +9187,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %97, ptr %1043, align 8, !alias.scope !2111, !noalias !2114
   store i64 1, ptr %1044, align 8, !alias.scope !2111, !noalias !2114
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.140, i64 noundef 17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %98)
-          to label %.noexc128 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc131 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc128:                                        ; preds = %.noexc127
+.noexc131:                                        ; preds = %.noexc130
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %98), !noalias !2106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %97), !noalias !2106
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %99), !noalias !2060
@@ -9192,9 +9198,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
 
 1075:                                             ; preds = %1065
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.126, i64 noundef 7)
-          to label %.noexc129 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc132 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc129:                                        ; preds = %1075
+.noexc132:                                        ; preds = %1075
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %110), !noalias !2060
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %110, ptr noundef nonnull align 16 dereferenceable(48) %1068, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %96), !noalias !2060
@@ -9209,16 +9215,16 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %94, ptr %1038, align 8, !alias.scope !2122, !noalias !2125
   store i64 1, ptr %1039, align 8, !alias.scope !2122, !noalias !2125
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.141, i64 noundef 16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %95)
-          to label %.noexc130 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc133 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc130:                                        ; preds = %.noexc129
+.noexc133:                                        ; preds = %.noexc132
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %95), !noalias !2117
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %94), !noalias !2117
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %96), !noalias !2060
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %110), !noalias !2060
   br label %1076
 
-1076:                                             ; preds = %.noexc130, %.noexc128, %.noexc126
+1076:                                             ; preds = %.noexc133, %.noexc131, %.noexc129
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %93), !noalias !2060
   store ptr %113, ptr %93, align 8, !noalias !2128
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %92), !noalias !2128
@@ -9231,9 +9237,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %91, ptr %1053, align 8, !alias.scope !2133, !noalias !2136
   store i64 1, ptr %1054, align 8, !alias.scope !2133, !noalias !2136
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.95, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %92)
-          to label %.noexc131 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc134 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc131:                                        ; preds = %1076
+.noexc134:                                        ; preds = %1076
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %92), !noalias !2128
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %91), !noalias !2128
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93), !noalias !2060
@@ -9248,9 +9254,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %108, ptr %1058, align 8, !alias.scope !2139, !noalias !2142
   store i64 1, ptr %1059, align 8, !alias.scope !2139, !noalias !2142
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.142, i64 noundef 4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %109)
-          to label %.noexc132 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc135 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc132:                                        ; preds = %.noexc131
+.noexc135:                                        ; preds = %.noexc134
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %109), !noalias !2060
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %108), !noalias !2060
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %107), !noalias !2060
@@ -9263,20 +9269,20 @@ default.unreachable164.i:                         ; preds = %.noexc56
   store ptr %106, ptr %1063, align 8, !alias.scope !2145, !noalias !2148
   store i64 1, ptr %1064, align 8, !alias.scope !2145, !noalias !2148
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.61, i64 noundef 10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %107)
-          to label %.noexc133 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc136 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc133:                                        ; preds = %.noexc132
+.noexc136:                                        ; preds = %.noexc135
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %107), !noalias !2060
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %106), !noalias !2060
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %.noexc134 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc137 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc134:                                        ; preds = %.noexc133
+.noexc137:                                        ; preds = %.noexc136
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %113), !noalias !2060
   %1078 = icmp eq ptr %1066, %1032
-  br i1 %1078, label %._crit_edge.i121, label %1065
+  br i1 %1078, label %._crit_edge.i124, label %1065
 
-_ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; preds = %1018, %._crit_edge.i121
+_ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; preds = %1018, %._crit_edge.i124
   call void @llvm.experimental.noalias.scope.decl(metadata !2151)
   %1079 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %1080 = load i64, ptr %1079, align 8, !alias.scope !2151, !noundef !37
@@ -9285,9 +9291,9 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
 
 1082:                                             ; preds = %_ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.94, i64 noundef 4)
-          to label %.noexc140 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc144 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc140:                                        ; preds = %1082
+.noexc144:                                        ; preds = %1082
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %81), !noalias !2151
   store ptr @anon.e1937a5437cdf78787e171774858dd58.135, ptr %81, align 8, !noalias !2154
   %1083 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -9307,23 +9313,24 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   %1088 = getelementptr inbounds nuw i8, ptr %80, i64 24
   store i64 1, ptr %1088, align 8, !alias.scope !2159, !noalias !2162
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.95, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %80)
-          to label %.noexc141 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc145 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc141:                                        ; preds = %.noexc140
+.noexc145:                                        ; preds = %.noexc144
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %80), !noalias !2154
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %79), !noalias !2154
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %81), !noalias !2151
   %1089 = getelementptr inbounds nuw i8, ptr %1, i64 544
   %1090 = load ptr, ptr %1089, align 8, !alias.scope !2165, !noalias !2168, !nonnull !37, !noundef !37
   %1091 = load i64, ptr %1079, align 8, !alias.scope !2165, !noalias !2168, !noundef !37
-  %1092 = getelementptr inbounds { i128, { { double, double }, double, double, { i32, [4 x i32] }, { i32, [4 x i32] } }, [1 x i64] }, ptr %1090, i64 %1091
+  %.idx.i138 = mul nsw i64 %1091, 96
+  %1092 = getelementptr inbounds i8, ptr %1090, i64 %.idx.i138
   %1093 = icmp eq i64 %1091, 0
-  br i1 %1093, label %._crit_edge.i139, label %.lr.ph.i135
+  br i1 %1093, label %._crit_edge.i143, label %.lr.ph.i139
 
-.lr.ph.i135:                                      ; preds = %.noexc141
+.lr.ph.i139:                                      ; preds = %.noexc145
   %1094 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %.sroa.511.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %.sroa.6.0..sroa_idx.i136 = getelementptr inbounds nuw i8, ptr %90, i64 24
+  %.sroa.6.0..sroa_idx.i140 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %1095 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %1096 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %1097 = getelementptr inbounds nuw i8, ptr %77, i64 32
@@ -9381,13 +9388,13 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   %1149 = getelementptr inbounds nuw i8, ptr %83, i64 15
   br label %1150
 
-._crit_edge.i139:                                 ; preds = %.noexc168, %.noexc141
+._crit_edge.i143:                                 ; preds = %.noexc172, %.noexc145
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %_ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-1150:                                             ; preds = %.noexc168, %.lr.ph.i135
-  %.sroa.7.021.i = phi i64 [ 0, %.lr.ph.i135 ], [ %1152, %.noexc168 ]
-  %.sroa.09.020.i = phi ptr [ %1090, %.lr.ph.i135 ], [ %1151, %.noexc168 ]
+1150:                                             ; preds = %.noexc172, %.lr.ph.i139
+  %.sroa.7.021.i = phi i64 [ 0, %.lr.ph.i139 ], [ %1152, %.noexc172 ]
+  %.sroa.09.020.i = phi ptr [ %1090, %.lr.ph.i139 ], [ %1151, %.noexc172 ]
   %1151 = getelementptr inbounds nuw i8, ptr %.sroa.09.020.i, i64 96
   %1152 = add nuw nsw i64 %.sroa.7.021.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !2170)
@@ -9397,20 +9404,20 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %90), !noalias !2151
   store i128 %1154, ptr %90, align 16, !noalias !2151
   store i64 %.sroa.7.021.i, ptr %.sroa.511.0..sroa_idx.i, align 16, !noalias !2151
-  store i32 %1153, ptr %.sroa.6.0..sroa_idx.i136, align 8, !noalias !2151
+  store i32 %1153, ptr %.sroa.6.0..sroa_idx.i140, align 8, !noalias !2151
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %89), !noalias !2151
   %1155 = getelementptr inbounds nuw i8, ptr %.sroa.09.020.i, i64 32
   %1156 = load double, ptr %1155, align 8, !noundef !37
   %1157 = invoke noundef double @_ZN5typst6layout5angle5Angle3cos17h1c9fe469e9230507E(double noundef %1156)
-          to label %.noexc143 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc147 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc143:                                        ; preds = %1150
+.noexc147:                                        ; preds = %1150
   %1158 = getelementptr inbounds nuw i8, ptr %.sroa.09.020.i, i64 16
   %1159 = load double, ptr %1158, align 8, !noundef !37
   %1160 = invoke noundef double @_ZN5typst6layout5ratio5Ratio3get17h8726a92508d6c43bE(double noundef %1159)
-          to label %.noexc144 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc148 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc144:                                        ; preds = %.noexc143
+.noexc148:                                        ; preds = %.noexc147
   %1161 = fptrunc double %1157 to float
   %1162 = fsub float 2.000000e+00, %1161
   %1163 = fptrunc double %1160 to float
@@ -9418,15 +9425,15 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   store float %1164, ptr %89, align 4, !noalias !2151
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %88), !noalias !2151
   %1165 = invoke noundef double @_ZN5typst6layout5angle5Angle3sin17h68bce9e105700a9bE(double noundef %1156)
-          to label %.noexc145 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc149 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc145:                                        ; preds = %.noexc144
+.noexc149:                                        ; preds = %.noexc148
   %1166 = getelementptr inbounds nuw i8, ptr %.sroa.09.020.i, i64 24
   %1167 = load double, ptr %1166, align 8, !noundef !37
   %1168 = invoke noundef double @_ZN5typst6layout5ratio5Ratio3get17h8726a92508d6c43bE(double noundef %1167)
-          to label %.noexc146 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc150 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc146:                                        ; preds = %.noexc145
+.noexc150:                                        ; preds = %.noexc149
   %1169 = fptrunc double %1165 to float
   %1170 = fptrunc double %1168 to float
   %1171 = fadd float %1169, %1170
@@ -9435,13 +9442,13 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   %1172 = getelementptr inbounds nuw i8, ptr %.sroa.09.020.i, i64 40
   %1173 = load double, ptr %1172, align 8, !noundef !37
   %1174 = invoke noundef double @_ZN5typst6layout5angle5Angle3cos17h1c9fe469e9230507E(double noundef %1173)
-          to label %.noexc147 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc151 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc147:                                        ; preds = %.noexc146
+.noexc151:                                        ; preds = %.noexc150
   %1175 = invoke noundef double @_ZN5typst6layout5ratio5Ratio3get17h8726a92508d6c43bE(double noundef %1159)
-          to label %.noexc148 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc152 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc148:                                        ; preds = %.noexc147
+.noexc152:                                        ; preds = %.noexc151
   %1176 = fptrunc double %1174 to float
   %1177 = fsub float 2.000000e+00, %1176
   %1178 = fptrunc double %1175 to float
@@ -9449,21 +9456,21 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   store float %1179, ptr %87, align 4, !noalias !2151
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %86), !noalias !2151
   %1180 = invoke noundef double @_ZN5typst6layout5angle5Angle3sin17h68bce9e105700a9bE(double noundef %1173)
-          to label %.noexc149 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc153 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc149:                                        ; preds = %.noexc148
+.noexc153:                                        ; preds = %.noexc152
   %1181 = invoke noundef double @_ZN5typst6layout5ratio5Ratio3get17h8726a92508d6c43bE(double noundef %1167)
-          to label %.noexc150 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc154 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc150:                                        ; preds = %.noexc149
+.noexc154:                                        ; preds = %.noexc153
   %1182 = fptrunc double %1180 to float
   %1183 = fptrunc double %1181 to float
   %1184 = fadd float %1182, %1183
   store float %1184, ptr %86, align 4, !noalias !2151
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.102, i64 noundef 14)
-          to label %.noexc151 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc155 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc151:                                        ; preds = %.noexc150
+.noexc155:                                        ; preds = %.noexc154
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78), !noalias !2151
   store ptr %90, ptr %78, align 8, !noalias !2186
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %77), !noalias !2186
@@ -9476,9 +9483,9 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   store ptr %76, ptr %1098, align 8, !alias.scope !2191, !noalias !2194
   store i64 1, ptr %1099, align 8, !alias.scope !2191, !noalias !2194
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.95, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %77)
-          to label %.noexc152 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc156 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc152:                                        ; preds = %.noexc151
+.noexc156:                                        ; preds = %.noexc155
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %77), !noalias !2186
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %76), !noalias !2186
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78), !noalias !2151
@@ -9495,9 +9502,9 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   store ptr %73, ptr %1104, align 8, !alias.scope !2202, !noalias !2205
   store i64 1, ptr %1105, align 8, !alias.scope !2202, !noalias !2205
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.105, i64 noundef 13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %74)
-          to label %.noexc153 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc157 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc153:                                        ; preds = %.noexc152
+.noexc157:                                        ; preds = %.noexc156
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %74), !noalias !2197
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %73), !noalias !2197
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %75), !noalias !2151
@@ -9513,9 +9520,9 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   store ptr %70, ptr %1109, align 8, !alias.scope !2213, !noalias !2216
   store i64 1, ptr %1110, align 8, !alias.scope !2213, !noalias !2216
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.107, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %71)
-          to label %.noexc154 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc158 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc154:                                        ; preds = %.noexc153
+.noexc158:                                        ; preds = %.noexc157
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %71), !noalias !2208
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70), !noalias !2208
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72), !noalias !2151
@@ -9531,9 +9538,9 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   store ptr %67, ptr %1114, align 8, !alias.scope !2224, !noalias !2227
   store i64 1, ptr %1115, align 8, !alias.scope !2224, !noalias !2227
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.108, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %68)
-          to label %.noexc155 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc159 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc155:                                        ; preds = %.noexc154
+.noexc159:                                        ; preds = %.noexc158
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %68), !noalias !2219
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67), !noalias !2219
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69), !noalias !2151
@@ -9549,9 +9556,9 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   store ptr %64, ptr %1119, align 8, !alias.scope !2235, !noalias !2238
   store i64 1, ptr %1120, align 8, !alias.scope !2235, !noalias !2238
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.109, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %65)
-          to label %.noexc156 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc160 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc156:                                        ; preds = %.noexc155
+.noexc160:                                        ; preds = %.noexc159
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %65), !noalias !2230
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64), !noalias !2230
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66), !noalias !2151
@@ -9567,16 +9574,16 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   store ptr %61, ptr %1124, align 8, !alias.scope !2246, !noalias !2249
   store i64 1, ptr %1125, align 8, !alias.scope !2246, !noalias !2249
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.110, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %62)
-          to label %.noexc157 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc161 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc157:                                        ; preds = %.noexc156
+.noexc161:                                        ; preds = %.noexc160
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %62), !noalias !2241
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61), !noalias !2241
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63), !noalias !2151
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.122, i64 noundef 4)
-          to label %.noexc158 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc162 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc158:                                        ; preds = %.noexc157
+.noexc162:                                        ; preds = %.noexc161
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60), !noalias !2151
   store ptr @anon.e1937a5437cdf78787e171774858dd58.137, ptr %60, align 8, !noalias !2252
   store i64 2, ptr %1126, align 8, !noalias !2252
@@ -9590,9 +9597,9 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   store ptr %58, ptr %1130, align 8, !alias.scope !2257, !noalias !2260
   store i64 1, ptr %1131, align 8, !alias.scope !2257, !noalias !2260
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.123, i64 noundef 6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %59)
-          to label %.noexc159 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc163 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc159:                                        ; preds = %.noexc158
+.noexc163:                                        ; preds = %.noexc162
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %59), !noalias !2252
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58), !noalias !2252
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60), !noalias !2151
@@ -9601,9 +9608,9 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   %1185 = getelementptr inbounds nuw i8, ptr %.sroa.09.020.i, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %84, ptr noundef nonnull align 8 dereferenceable(20) %1185, i64 20, i1 false)
   invoke void @_ZN5typst9visualize5color5Color6to_hex17h42f3a118686b99a3E(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %85, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %84)
-          to label %.noexc160 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc164 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc160:                                        ; preds = %.noexc159
+.noexc164:                                        ; preds = %.noexc163
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %84), !noalias !2151
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57), !noalias !2151
   store ptr %85, ptr %57, align 8, !noalias !2263
@@ -9619,7 +9626,7 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.124, i64 noundef 10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %56)
           to label %1191 unwind label %1186
 
-1186:                                             ; preds = %.noexc160
+1186:                                             ; preds = %.noexc164
   %1187 = landingpad { ptr, i32 }
           cleanup
   %1188 = load i8, ptr %1137, align 1, !alias.scope !2274, !noalias !2151, !noundef !37
@@ -9630,7 +9637,7 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %85)
           to label %.body.thread unwind label %1206
 
-1191:                                             ; preds = %.noexc160
+1191:                                             ; preds = %.noexc164
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %56), !noalias !2263
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55), !noalias !2263
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57), !noalias !2151
@@ -9640,18 +9647,18 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
 
 1194:                                             ; preds = %1191
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %85)
-          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit3.i" unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit3.i" unwind label %.body.thread208.loopexit.split-lp.loopexit
 
 "_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit3.i": ; preds = %1194, %1191
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %85), !noalias !2151
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %.noexc162 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc166 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc162:                                        ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit3.i"
+.noexc166:                                        ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit3.i"
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.122, i64 noundef 4)
-          to label %.noexc163 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc167 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc163:                                        ; preds = %.noexc162
+.noexc167:                                        ; preds = %.noexc166
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54), !noalias !2151
   store ptr @anon.e1937a5437cdf78787e171774858dd58.138, ptr %54, align 8, !noalias !2288
   store i64 4, ptr %1138, align 8, !noalias !2288
@@ -9665,9 +9672,9 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   store ptr %52, ptr %1142, align 8, !alias.scope !2293, !noalias !2296
   store i64 1, ptr %1143, align 8, !alias.scope !2293, !noalias !2296
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.123, i64 noundef 6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %53)
-          to label %.noexc164 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc168 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc164:                                        ; preds = %.noexc163
+.noexc168:                                        ; preds = %.noexc167
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %53), !noalias !2288
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52), !noalias !2288
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54), !noalias !2151
@@ -9676,9 +9683,9 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   %1195 = getelementptr inbounds nuw i8, ptr %.sroa.09.020.i, i64 68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %82, ptr noundef nonnull align 4 dereferenceable(20) %1195, i64 20, i1 false)
   invoke void @_ZN5typst9visualize5color5Color6to_hex17h42f3a118686b99a3E(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %83, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %82)
-          to label %.noexc165 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc169 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc165:                                        ; preds = %.noexc164
+.noexc169:                                        ; preds = %.noexc168
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %82), !noalias !2151
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51), !noalias !2151
   store ptr %83, ptr %51, align 8, !noalias !2299
@@ -9694,7 +9701,7 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.124, i64 noundef 10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %50)
           to label %1201 unwind label %1196
 
-1196:                                             ; preds = %.noexc165
+1196:                                             ; preds = %.noexc169
   %1197 = landingpad { ptr, i32 }
           cleanup
   %1198 = load i8, ptr %1149, align 1, !alias.scope !2310, !noalias !2151, !noundef !37
@@ -9705,7 +9712,7 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %83)
           to label %.body.thread unwind label %1206
 
-1201:                                             ; preds = %.noexc165
+1201:                                             ; preds = %.noexc169
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %50), !noalias !2299
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49), !noalias !2299
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51), !noalias !2151
@@ -9715,25 +9722,25 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
 
 1204:                                             ; preds = %1201
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %83)
-          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit8.i" unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit8.i" unwind label %.body.thread208.loopexit.split-lp.loopexit
 
 "_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit8.i": ; preds = %1204, %1201
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %83), !noalias !2151
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %.noexc167 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc171 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc167:                                        ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit8.i"
+.noexc171:                                        ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h065513e1079629e8E.exit8.i"
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %.noexc168 unwind label %.body.thread202.loopexit.split-lp.loopexit
+          to label %.noexc172 unwind label %.body.thread208.loopexit.split-lp.loopexit
 
-.noexc168:                                        ; preds = %.noexc167
+.noexc172:                                        ; preds = %.noexc171
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %86), !noalias !2151
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %87), !noalias !2151
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %88), !noalias !2151
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %89), !noalias !2151
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %90), !noalias !2151
   %1205 = icmp eq ptr %1151, %1092
-  br i1 %1205, label %._crit_edge.i139, label %1150
+  br i1 %1205, label %._crit_edge.i143, label %1150
 
 1206:                                             ; preds = %1200, %1190
   %1207 = landingpad { ptr, i32 }
@@ -9741,7 +9748,7 @@ _ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit: ; pred
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #18
   unreachable
 
-_ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds = %_ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit, %._crit_edge.i139
+_ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds = %_ZN9typst_svg11SVGRenderer19write_gradient_refs17hfcc1294aebf2d1a8E.exit, %._crit_edge.i143
   call void @llvm.experimental.noalias.scope.decl(metadata !2324)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %36)
@@ -9754,9 +9761,9 @@ _ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds
 1211:                                             ; preds = %_ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit
   %1212 = getelementptr inbounds nuw i8, ptr %1, i64 456
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.94, i64 noundef 4)
-          to label %.noexc174 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc179 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc174:                                        ; preds = %1211
+.noexc179:                                        ; preds = %1211
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33), !noalias !2324
   store ptr @anon.e1937a5437cdf78787e171774858dd58.143, ptr %33, align 8, !noalias !2327
   %1213 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -9776,9 +9783,9 @@ _ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds
   %1218 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store i64 1, ptr %1218, align 8, !alias.scope !2332, !noalias !2335
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.95, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %32)
-          to label %.noexc175 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc180 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc175:                                        ; preds = %.noexc174
+.noexc180:                                        ; preds = %.noexc179
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %32), !noalias !2327
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31), !noalias !2327
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33), !noalias !2324
@@ -9795,15 +9802,16 @@ _ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds
   %.sroa.628.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %47, i64 24
   store ptr %1212, ptr %.sroa.628.0..sroa_idx.i, align 8, !noalias !2324
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h1ef0652da089eb9cE.llvm.4165080364762598926"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %48, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %47)
-          to label %.noexc176 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc181 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc176:                                        ; preds = %.noexc175
+.noexc181:                                        ; preds = %.noexc180
   %.sroa.0.0.copyload.i.i = load i64, ptr %48, align 8, !alias.scope !2343, !noalias !2346
   %.sroa.4.0..sroa_idx.i20.i = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i20.i, align 8, !alias.scope !2343, !noalias !2346, !nonnull !37, !noundef !37
   %.sroa.5.0..sroa_idx.i21.i = getelementptr inbounds nuw i8, ptr %48, i64 16
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i21.i, align 8, !alias.scope !2343, !noalias !2346
-  %1223 = getelementptr inbounds { { i128, i64, i32, [1 x i32] }, ptr, [1 x i64] }, ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
+  %.idx.i176 = mul nsw i64 %.sroa.5.0.copyload.i.i, 48
+  %1223 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %.idx.i176
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48), !noalias !2324
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46), !noalias !2324
   store ptr %.sroa.4.0.copyload.i.i, ptr %46, align 8, !noalias !2324
@@ -9811,13 +9819,13 @@ _ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds
   store ptr %.sroa.4.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !2324
   %.sroa.5.0..sroa_idx24.i = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i64 %.sroa.0.0.copyload.i.i, ptr %.sroa.5.0..sroa_idx24.i, align 8, !noalias !2324
-  %.sroa.6.0..sroa_idx.i172 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  store ptr %1223, ptr %.sroa.6.0..sroa_idx.i172, align 8, !noalias !2324
+  %.sroa.6.0..sroa_idx.i177 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  store ptr %1223, ptr %.sroa.6.0..sroa_idx.i177, align 8, !noalias !2324
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.029.i)
   %1224 = icmp eq i64 %.sroa.5.0.copyload.i.i, 0
   br i1 %1224, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25b193ebc1204c59E.exit.thread.i", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25b193ebc1204c59E.exit.lr.ph.i"
 
-"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25b193ebc1204c59E.exit.lr.ph.i": ; preds = %.noexc176
+"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25b193ebc1204c59E.exit.lr.ph.i": ; preds = %.noexc181
   %.sroa.530.0..sroa_idx31.i = getelementptr inbounds nuw i8, ptr %45, i64 24
   %.sroa.7.0..sroa_idx34.i = getelementptr inbounds nuw i8, ptr %45, i64 28
   %1225 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -9867,7 +9875,7 @@ _ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25b193ebc1204c59E.exit.i"
 
 1257:                                             ; preds = %1265, %1258
-  %.pn.i173 = phi { ptr, i32 } [ %1259, %1258 ], [ %1266, %1265 ]
+  %.pn.i178 = phi { ptr, i32 } [ %1259, %1258 ], [ %1266, %1265 ]
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha7bad07b3c2ff12bE.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(32) %46)
           to label %.body.thread unwind label %1305
 
@@ -9887,15 +9895,15 @@ _ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds
   %1262 = icmp eq i32 %.sroa.530.0.copyload.i, 1114112
   br i1 %1262, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25b193ebc1204c59E.exit.thread.i", label %1263
 
-"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25b193ebc1204c59E.exit.thread.i": ; preds = %"_ZN4core3ptr55drop_in_place$LT$typst..visualize..pattern..Pattern$GT$17hb5390c6d0e98f46bE.exit.i", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25b193ebc1204c59E.exit.i", %.noexc176
+"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25b193ebc1204c59E.exit.thread.i": ; preds = %"_ZN4core3ptr55drop_in_place$LT$typst..visualize..pattern..Pattern$GT$17hb5390c6d0e98f46bE.exit.i", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25b193ebc1204c59E.exit.i", %.noexc181
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.029.i)
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha7bad07b3c2ff12bE.llvm.9341850390877611223"(ptr noalias noundef nonnull align 8 dereferenceable(32) %46)
-          to label %.noexc177 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc182 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc177:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25b193ebc1204c59E.exit.thread.i"
+.noexc182:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25b193ebc1204c59E.exit.thread.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46), !noalias !2324
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %1307 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %1307 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1263:                                             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25b193ebc1204c59E.exit.i"
   %.sroa.736.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1260, i64 32
@@ -10118,7 +10126,7 @@ _ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45), !noalias !2324
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.029.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.029.i)
-  %1302 = load ptr, ptr %.sroa.6.0..sroa_idx.i172, align 8, !alias.scope !2414, !noalias !2351, !nonnull !37, !noundef !37
+  %1302 = load ptr, ptr %.sroa.6.0..sroa_idx.i177, align 8, !alias.scope !2414, !noalias !2351, !nonnull !37, !noundef !37
   %1303 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2414, !noalias !2351, !nonnull !37, !noundef !37
   %1304 = icmp eq ptr %1303, %1302
   br i1 %1304, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25b193ebc1204c59E.exit.thread.i", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25b193ebc1204c59E.exit.i"
@@ -10129,7 +10137,7 @@ _ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #18
   unreachable
 
-1307:                                             ; preds = %_ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit, %.noexc177
+1307:                                             ; preds = %_ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit, %.noexc182
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47)
@@ -10141,9 +10149,9 @@ _ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds
 
 1311:                                             ; preds = %1307
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.94, i64 noundef 4)
-          to label %.noexc188 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc194 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc188:                                        ; preds = %1311
+.noexc194:                                        ; preds = %1311
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !2416
   store ptr @anon.e1937a5437cdf78787e171774858dd58.145, ptr %12, align 8, !noalias !2419
   %1312 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -10163,23 +10171,24 @@ _ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds
   %1317 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 1, ptr %1317, align 8, !alias.scope !2424, !noalias !2427
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.95, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11)
-          to label %.noexc189 unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc195 unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc189:                                        ; preds = %.noexc188
+.noexc195:                                        ; preds = %.noexc194
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !2419
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !2419
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !2416
   %1318 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %1319 = load ptr, ptr %1318, align 8, !alias.scope !2430, !noalias !2433, !nonnull !37, !noundef !37
   %1320 = load i64, ptr %1308, align 8, !alias.scope !2430, !noalias !2433, !noundef !37
-  %1321 = getelementptr inbounds { i128, { { double, double, double, double, double, double }, { double, double }, { i128, i64, i32, [1 x i32] } } }, ptr %1319, i64 %1320
+  %.idx.i187 = mul nsw i64 %1320, 112
+  %1321 = getelementptr inbounds i8, ptr %1319, i64 %.idx.i187
   %1322 = icmp eq i64 %1320, 0
-  br i1 %1322, label %._crit_edge.i187, label %.lr.ph.i182
+  br i1 %1322, label %._crit_edge.i193, label %.lr.ph.i188
 
-.lr.ph.i182:                                      ; preds = %.noexc189
+.lr.ph.i188:                                      ; preds = %.noexc195
   %1323 = getelementptr inbounds nuw i8, ptr %1, i64 368
-  %.sroa.56.0..sroa_idx.i183 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %.sroa.6.0..sroa_idx.i184 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %.sroa.56.0..sroa_idx.i189 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %.sroa.6.0..sroa_idx.i190 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %1324 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %1325 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %1326 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -10202,28 +10211,28 @@ _ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds
   %1343 = getelementptr inbounds nuw i8, ptr %14, i64 24
   br label %1344
 
-._crit_edge.i187:                                 ; preds = %.noexc196, %.noexc189
+._crit_edge.i193:                                 ; preds = %.noexc202, %.noexc195
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %_ZN9typst_svg11SVGRenderer18write_pattern_refs17h78f31e130b4e7321E.exit unwind label %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZN9typst_svg11SVGRenderer18write_pattern_refs17h78f31e130b4e7321E.exit unwind label %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-1344:                                             ; preds = %.noexc196, %.lr.ph.i182
-  %.sroa.7.016.i185 = phi i64 [ 0, %.lr.ph.i182 ], [ %1346, %.noexc196 ]
-  %.sroa.04.015.i186 = phi ptr [ %1319, %.lr.ph.i182 ], [ %1345, %.noexc196 ]
-  %1345 = getelementptr inbounds nuw i8, ptr %.sroa.04.015.i186, i64 112
-  %1346 = add nuw nsw i64 %.sroa.7.016.i185, 1
+1344:                                             ; preds = %.noexc202, %.lr.ph.i188
+  %.sroa.7.016.i191 = phi i64 [ 0, %.lr.ph.i188 ], [ %1346, %.noexc202 ]
+  %.sroa.04.015.i192 = phi ptr [ %1319, %.lr.ph.i188 ], [ %1345, %.noexc202 ]
+  %1345 = getelementptr inbounds nuw i8, ptr %.sroa.04.015.i192, i64 112
+  %1346 = add nuw nsw i64 %.sroa.7.016.i191, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !2435)
   call void @llvm.experimental.noalias.scope.decl(metadata !2438)
   %1347 = load i32, ptr %1323, align 8, !range !1311, !alias.scope !2416, !noalias !2441, !noundef !37
-  %1348 = load i128, ptr %.sroa.04.015.i186, align 16, !alias.scope !2449, !noalias !2450, !noundef !37
+  %1348 = load i128, ptr %.sroa.04.015.i192, align 16, !alias.scope !2449, !noalias !2450, !noundef !37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18), !noalias !2416
   store i128 %1348, ptr %18, align 16, !noalias !2416
-  store i64 %.sroa.7.016.i185, ptr %.sroa.56.0..sroa_idx.i183, align 16, !noalias !2416
-  store i32 %1347, ptr %.sroa.6.0..sroa_idx.i184, align 8, !noalias !2416
+  store i64 %.sroa.7.016.i191, ptr %.sroa.56.0..sroa_idx.i189, align 16, !noalias !2416
+  store i32 %1347, ptr %.sroa.6.0..sroa_idx.i190, align 8, !noalias !2416
   invoke void @_ZN9xmlwriter9XmlWriter13start_element17hd78536262d9c55f3E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.126, i64 noundef 7)
-          to label %.noexc191 unwind label %.body.thread202.loopexit
+          to label %.noexc197 unwind label %.body.thread208.loopexit
 
-.noexc191:                                        ; preds = %1344
-  %1349 = getelementptr inbounds nuw i8, ptr %.sroa.04.015.i186, i64 16
+.noexc197:                                        ; preds = %1344
+  %1349 = getelementptr inbounds nuw i8, ptr %.sroa.04.015.i192, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17), !noalias !2416
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 16 dereferenceable(48) %1349, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2416
@@ -10238,9 +10247,9 @@ _ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds
   store ptr %7, ptr %1327, align 8, !alias.scope !2456, !noalias !2459
   store i64 1, ptr %1328, align 8, !alias.scope !2456, !noalias !2459
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.141, i64 noundef 16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
-          to label %.noexc192 unwind label %.body.thread202.loopexit
+          to label %.noexc198 unwind label %.body.thread208.loopexit
 
-.noexc192:                                        ; preds = %.noexc191
+.noexc198:                                        ; preds = %.noexc197
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !2451
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2451
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !2416
@@ -10257,15 +10266,15 @@ _ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds
   store ptr %4, ptr %1332, align 8, !alias.scope !2467, !noalias !2470
   store i64 1, ptr %1333, align 8, !alias.scope !2467, !noalias !2470
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.95, i64 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
-          to label %.noexc193 unwind label %.body.thread202.loopexit
+          to label %.noexc199 unwind label %.body.thread208.loopexit
 
-.noexc193:                                        ; preds = %.noexc192
+.noexc199:                                        ; preds = %.noexc198
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !2462
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2462
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !2416
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16), !noalias !2416
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !2416
-  %1350 = getelementptr inbounds nuw i8, ptr %.sroa.04.015.i186, i64 80
+  %1350 = getelementptr inbounds nuw i8, ptr %.sroa.04.015.i192, i64 80
   store ptr %1350, ptr %15, align 8, !noalias !2416
   store ptr @"_ZN52_$LT$typst_svg..Id$u20$as$u20$core..fmt..Display$GT$3fmt17h2a89e493276eed92E", ptr %1334, align 8, !noalias !2416
   store ptr @anon.e1937a5437cdf78787e171774858dd58.63, ptr %16, align 8, !alias.scope !2473, !noalias !2476
@@ -10274,9 +10283,9 @@ _ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds
   store ptr %15, ptr %1337, align 8, !alias.scope !2473, !noalias !2476
   store i64 1, ptr %1338, align 8, !alias.scope !2473, !noalias !2476
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.142, i64 noundef 4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16)
-          to label %.noexc194 unwind label %.body.thread202.loopexit
+          to label %.noexc200 unwind label %.body.thread208.loopexit
 
-.noexc194:                                        ; preds = %.noexc193
+.noexc200:                                        ; preds = %.noexc199
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16), !noalias !2416
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !2416
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14), !noalias !2416
@@ -10289,20 +10298,20 @@ _ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds
   store ptr %13, ptr %1342, align 8, !alias.scope !2479, !noalias !2482
   store i64 1, ptr %1343, align 8, !alias.scope !2479, !noalias !2482
   invoke void @_ZN9xmlwriter9XmlWriter19write_attribute_fmt17h3b3e3165a1c9d976E(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.61, i64 noundef 10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14)
-          to label %.noexc195 unwind label %.body.thread202.loopexit
+          to label %.noexc201 unwind label %.body.thread208.loopexit
 
-.noexc195:                                        ; preds = %.noexc194
+.noexc201:                                        ; preds = %.noexc200
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14), !noalias !2416
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !2416
   invoke void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1)
-          to label %.noexc196 unwind label %.body.thread202.loopexit
+          to label %.noexc202 unwind label %.body.thread208.loopexit
 
-.noexc196:                                        ; preds = %.noexc195
+.noexc202:                                        ; preds = %.noexc201
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18), !noalias !2416
   %1351 = icmp eq ptr %1345, %1321
-  br i1 %1351, label %._crit_edge.i187, label %1344
+  br i1 %1351, label %._crit_edge.i193, label %1344
 
-_ZN9typst_svg11SVGRenderer18write_pattern_refs17h78f31e130b4e7321E.exit: ; preds = %1307, %._crit_edge.i187
+_ZN9typst_svg11SVGRenderer18write_pattern_refs17h78f31e130b4e7321E.exit: ; preds = %1307, %._crit_edge.i193
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %320)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %320, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   invoke void @_ZN9xmlwriter9XmlWriter12end_document17h62a4c0cfcc5bd850E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %320)
@@ -10413,17 +10422,17 @@ _ZN9typst_svg11SVGRenderer18write_pattern_refs17h78f31e130b4e7321E.exit: ; preds
   unreachable
 
 1391:                                             ; preds = %1404, %1383
-  %.pn8.pn = phi { ptr, i32 } [ %.pn8, %1383 ], [ %eh.lpad-body199, %1404 ]
+  %.pn8.pn = phi { ptr, i32 } [ %.pn8, %1383 ], [ %eh.lpad-body205, %1404 ]
   resume { ptr, i32 } %.pn8.pn
 
 1392:                                             ; preds = %.body, %.body.thread
-  %eh.lpad-body199 = phi { ptr, i32 } [ %eh.lpad-body200, %.body.thread ], [ %lpad.thr_comm.split-lp, %.body ]
+  %eh.lpad-body205 = phi { ptr, i32 } [ %eh.lpad-body206, %.body.thread ], [ %lpad.thr_comm.split-lp, %.body ]
   %1393 = getelementptr inbounds nuw i8, ptr %1, i64 56
   invoke void @"_ZN4core3ptr76drop_in_place$LT$typst_svg..Deduplicator$LT$typst_svg..RenderedGlyph$GT$$GT$17hb96d3dfea69019f3E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1393) #19
           to label %1394 unwind label %1389
 
-.body.thread:                                     ; preds = %.body.thread202.loopexit, %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread202.loopexit.split-lp.loopexit, %1257, %1186, %1190, %1196, %1200, %794, %798, %803, %807, %833, %837, %842, %846, %854, %858, %863, %867, %872, %875
-  %eh.lpad-body200 = phi { ptr, i32 } [ %795, %798 ], [ %795, %794 ], [ %804, %807 ], [ %804, %803 ], [ %834, %837 ], [ %834, %833 ], [ %843, %846 ], [ %843, %842 ], [ %855, %858 ], [ %855, %854 ], [ %864, %867 ], [ %864, %863 ], [ %lpad.phi.i, %875 ], [ %lpad.phi.i, %872 ], [ %1187, %1190 ], [ %1187, %1186 ], [ %1197, %1200 ], [ %1197, %1196 ], [ %.pn.i173, %1257 ], [ %lpad.loopexit, %.body.thread202.loopexit ], [ %lpad.loopexit205, %.body.thread202.loopexit.split-lp.loopexit ], [ %lpad.loopexit208, %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit210, %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit213, %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit215, %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit219, %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit221, %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit224, %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.body.thread202.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+.body.thread:                                     ; preds = %.body.thread208.loopexit, %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.body.thread208.loopexit.split-lp.loopexit, %1257, %1186, %1190, %1196, %1200, %794, %798, %803, %807, %833, %837, %842, %846, %854, %858, %863, %867, %872, %875
+  %eh.lpad-body206 = phi { ptr, i32 } [ %795, %798 ], [ %795, %794 ], [ %804, %807 ], [ %804, %803 ], [ %834, %837 ], [ %834, %833 ], [ %843, %846 ], [ %843, %842 ], [ %855, %858 ], [ %855, %854 ], [ %864, %867 ], [ %864, %863 ], [ %lpad.phi.i, %875 ], [ %lpad.phi.i, %872 ], [ %1187, %1190 ], [ %1187, %1186 ], [ %1197, %1200 ], [ %1197, %1196 ], [ %.pn.i178, %1257 ], [ %lpad.loopexit, %.body.thread208.loopexit ], [ %lpad.loopexit211, %.body.thread208.loopexit.split-lp.loopexit ], [ %lpad.loopexit214, %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit216, %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit219, %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit221, %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit225, %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit227, %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit230, %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.body.thread208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$xmlwriter..XmlWriter$GT$17hfcdc236741857058E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1) #19
           to label %1392 unwind label %1389
 
@@ -10483,7 +10492,8 @@ define hidden void @_ZN9typst_svg12convert_path17he8e0b3f1bc65b4e4E(ptr noalias 
   %.val = load ptr, ptr %16, align 8, !nonnull !37, !noundef !37
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val2 = load i64, ptr %17, align 8, !noundef !37
-  %18 = getelementptr inbounds { i64, [6 x i64] }, ptr %.val, i64 %.val2
+  %.idx = mul nsw i64 %.val2, 56
+  %18 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %19 = icmp eq i64 %.val2, 0
   br i1 %19, label %._crit_edge, label %.lr.ph
 

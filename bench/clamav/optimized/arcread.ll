@@ -4327,19 +4327,19 @@ _ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIc
           to label %.noexc242 unwind label %.loopexit311
 
 .noexc242:                                        ; preds = %124
-  %127 = getelementptr i32, ptr %126, i64 %121
   store i32 0, ptr %126, align 4, !tbaa !112
-  %128 = getelementptr i8, ptr %126, i64 4
-  %129 = add nsw i64 %125, -4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %128, i8 0, i64 %129, i1 false), !tbaa !112
-  %130 = ptrtoint ptr %127 to i64
+  %127 = getelementptr i8, ptr %126, i64 4
+  %128 = add nsw i64 %125, -4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %127, i8 0, i64 %128, i1 false), !tbaa !112
+  %129 = getelementptr i8, ptr %126, i64 %125
+  %130 = ptrtoint ptr %129 to i64
   br label %_ZNSt6vectorIwSaIwEEC2EmRKS0_.exit
 
 _ZNSt6vectorIwSaIwEEC2EmRKS0_.exit:               ; preds = %.noexc242, %_ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.0250.5 = phi ptr [ %126, %.noexc242 ], [ null, %_ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.13.5 = phi i64 [ %130, %.noexc242 ], [ 0, %_ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.0.i.i.i.i.i240 = phi i64 [ %130, %.noexc242 ], [ 0, %_ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit.i ]
   %131 = ptrtoint ptr %.sroa.0250.5 to i64
-  %132 = sub i64 %.sroa.13.5, %131
+  %132 = sub i64 %.0.i.i.i.i.i240, %131
   %133 = ashr exact i64 %132, 2
   %134 = invoke noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef nonnull %.sroa.0260.7, ptr noundef nonnull %.sroa.0250.5, i64 noundef %133)
           to label %135 unwind label %_ZNSt6vectorIwSaIwEED2Ev.exit245

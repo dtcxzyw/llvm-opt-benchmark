@@ -61,7 +61,8 @@ define void @_ZN9grpc_core21StaticStrideScheduler4MakeEN4absl12lts_202407224Span
   br label %150
 
 .lr.ph.preheader:                                 ; preds = %4
-  %13 = getelementptr inbounds nuw float, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph

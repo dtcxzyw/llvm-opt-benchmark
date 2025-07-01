@@ -33,8 +33,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.zend_get_gc_buffer = type { ptr, ptr, ptr }
 %struct._zend_call_stack = type { ptr, i64 }
 %struct._zend_strtod_state = type { [8 x ptr], ptr, ptr }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct._zend_class_name = type { ptr, ptr }
+%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct.zend_attribute_arg = type { ptr, %struct._zval_struct }
 %struct._zend_early_binding = type { ptr, ptr, ptr, i32 }
 %struct._zend_execute_data = type { ptr, ptr, ptr, ptr, %struct._zval_struct, ptr, ptr, ptr, ptr }
@@ -297,11 +297,11 @@ zend_string_release_ex.exit882:                   ; preds = %61, %70, %75
 
 78:                                               ; preds = %zend_string_release_ex.exit882
   %79 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %65) #7
-  %.pre1080 = load ptr, ptr %30, align 8, !tbaa !61
+  %.pre1082 = load ptr, ptr %30, align 8, !tbaa !61
   br label %zend_string_hash_val.exit
 
 zend_string_hash_val.exit:                        ; preds = %zend_string_release_ex.exit882, %78
-  %80 = phi ptr [ %65, %zend_string_release_ex.exit882 ], [ %.pre1080, %78 ]
+  %80 = phi ptr [ %65, %zend_string_release_ex.exit882 ], [ %.pre1082, %78 ]
   store i32 2, ptr %80, align 4, !tbaa !17
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4, !tbaa !16
@@ -324,7 +324,7 @@ zend_string_hash_val.exit:                        ; preds = %zend_string_release
 92:                                               ; preds = %88, %zend_string_hash_val.exit
   store i32 86, ptr %81, align 4, !tbaa !16
   %93 = or disjoint i32 %83, 86
-  %.pre1081 = load ptr, ptr %30, align 8, !tbaa !61
+  %.pre1083 = load ptr, ptr %30, align 8, !tbaa !61
   br label %96
 
 94:                                               ; preds = %88, %86
@@ -332,7 +332,7 @@ zend_string_hash_val.exit:                        ; preds = %zend_string_release
   br label %96
 
 96:                                               ; preds = %94, %92
-  %97 = phi ptr [ %.pre1081, %92 ], [ %80, %94 ]
+  %97 = phi ptr [ %.pre1083, %92 ], [ %80, %94 ]
   %.0702 = phi i32 [ %93, %92 ], [ %95, %94 ]
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   store i32 %.0702, ptr %98, align 4, !tbaa !16
@@ -502,11 +502,11 @@ zend_string_release_ex.exit886:                   ; preds = %170, %179, %184
 
 187:                                              ; preds = %zend_string_release_ex.exit886
   %188 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %174) #7
-  %.pre1082 = load ptr, ptr %144, align 8, !tbaa !16
+  %.pre1084 = load ptr, ptr %144, align 8, !tbaa !16
   br label %zend_string_hash_val.exit951
 
 zend_string_hash_val.exit951:                     ; preds = %zend_string_release_ex.exit886, %187
-  %189 = phi ptr [ %174, %zend_string_release_ex.exit886 ], [ %.pre1082, %187 ]
+  %189 = phi ptr [ %174, %zend_string_release_ex.exit886 ], [ %.pre1084, %187 ]
   store i32 2, ptr %189, align 4, !tbaa !17
   %190 = load ptr, ptr %144, align 8, !tbaa !16
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 4
@@ -530,7 +530,7 @@ zend_string_hash_val.exit951:                     ; preds = %zend_string_release
 202:                                              ; preds = %198, %zend_string_hash_val.exit951
   store i32 86, ptr %191, align 4, !tbaa !16
   %203 = or disjoint i32 %193, 86
-  %.pre1083 = load ptr, ptr %144, align 8, !tbaa !16
+  %.pre1085 = load ptr, ptr %144, align 8, !tbaa !16
   br label %206
 
 204:                                              ; preds = %198, %196
@@ -538,7 +538,7 @@ zend_string_hash_val.exit951:                     ; preds = %zend_string_release
   br label %206
 
 206:                                              ; preds = %204, %202
-  %207 = phi ptr [ %.pre1083, %202 ], [ %190, %204 ]
+  %207 = phi ptr [ %.pre1085, %202 ], [ %190, %204 ]
   %.0704 = phi i32 [ %203, %202 ], [ %205, %204 ]
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
   store i32 %.0704, ptr %208, align 4, !tbaa !16
@@ -552,7 +552,8 @@ zend_string_hash_val.exit951:                     ; preds = %zend_string_release
   %213 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %214 = load i32, ptr %213, align 8, !tbaa !90
   %215 = zext i32 %214 to i64
-  %216 = getelementptr inbounds nuw %struct._Bucket, ptr %212, i64 %215
+  %.idx = shl nuw nsw i64 %215, 5
+  %216 = getelementptr inbounds nuw i8, ptr %212, i64 %.idx
   %217 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %218 = load i32, ptr %217, align 8, !tbaa !16
   %219 = and i32 %218, 4
@@ -647,11 +648,11 @@ zend_string_release_ex.exit890:                   ; preds = %246, %255, %260
 
 263:                                              ; preds = %zend_string_release_ex.exit890
   %264 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %250) #7
-  %.pre1084 = load ptr, ptr %224, align 8, !tbaa !91
+  %.pre1086 = load ptr, ptr %224, align 8, !tbaa !91
   br label %zend_string_hash_val.exit953
 
 zend_string_hash_val.exit953:                     ; preds = %zend_string_release_ex.exit890, %263
-  %265 = phi ptr [ %250, %zend_string_release_ex.exit890 ], [ %.pre1084, %263 ]
+  %265 = phi ptr [ %250, %zend_string_release_ex.exit890 ], [ %.pre1086, %263 ]
   store i32 2, ptr %265, align 4, !tbaa !17
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 4
   %267 = load i32, ptr %266, align 4, !tbaa !16
@@ -674,7 +675,7 @@ zend_string_hash_val.exit953:                     ; preds = %zend_string_release
 277:                                              ; preds = %273, %zend_string_hash_val.exit953
   store i32 86, ptr %266, align 4, !tbaa !16
   %278 = or disjoint i32 %268, 86
-  %.pre1085 = load ptr, ptr %224, align 8, !tbaa !91
+  %.pre1087 = load ptr, ptr %224, align 8, !tbaa !91
   br label %281
 
 279:                                              ; preds = %273, %271
@@ -682,7 +683,7 @@ zend_string_hash_val.exit953:                     ; preds = %zend_string_release
   br label %281
 
 281:                                              ; preds = %279, %277
-  %282 = phi ptr [ %.pre1085, %277 ], [ %265, %279 ]
+  %282 = phi ptr [ %.pre1087, %277 ], [ %265, %279 ]
   %.0707 = phi i32 [ %278, %277 ], [ %280, %279 ]
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 4
   store i32 %.0707, ptr %283, align 4, !tbaa !16
@@ -700,11 +701,11 @@ zend_string_hash_val.exit953:                     ; preds = %zend_string_release
   br i1 %.not791, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %287
-  %.pre1086 = load i32, ptr %217, align 8, !tbaa !16
+  %.pre1088 = load i32, ptr %217, align 8, !tbaa !16
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %209
-  %289 = phi i32 [ %.pre1086, %._crit_edge.loopexit ], [ %218, %209 ]
+  %289 = phi i32 [ %.pre1088, %._crit_edge.loopexit ], [ %218, %209 ]
   %290 = and i32 %289, 24
   store i32 %290, ptr %217, align 8, !tbaa !16
   %291 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -753,9 +754,9 @@ zend_string_hash_val.exit953:                     ; preds = %zend_string_release
 
 .lr.ph1012:                                       ; preds = %308, %322
   %316 = phi i32 [ %323, %322 ], [ %314, %308 ]
-  %indvars.iv1065 = phi i64 [ %indvars.iv.next1066, %322 ], [ 0, %308 ]
+  %indvars.iv1067 = phi i64 [ %indvars.iv.next1068, %322 ], [ 0, %308 ]
   %317 = load ptr, ptr %306, align 8, !tbaa !96
-  %318 = getelementptr inbounds nuw %struct._zval_struct, ptr %317, i64 %indvars.iv1065
+  %318 = getelementptr inbounds nuw %struct._zval_struct, ptr %317, i64 %indvars.iv1067
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 8
   %320 = load i8, ptr %319, align 8, !tbaa !16
   %.not876 = icmp eq i8 %320, 12
@@ -763,14 +764,14 @@ zend_string_hash_val.exit953:                     ; preds = %zend_string_release
 
 321:                                              ; preds = %.lr.ph1012
   tail call fastcc void @zend_persist_zval(ptr noundef nonnull %318)
-  %.pre1087 = load i32, ptr %309, align 4, !tbaa !97
+  %.pre1089 = load i32, ptr %309, align 4, !tbaa !97
   br label %322
 
 322:                                              ; preds = %.lr.ph1012, %321
-  %323 = phi i32 [ %316, %.lr.ph1012 ], [ %.pre1087, %321 ]
-  %indvars.iv.next1066 = add nuw nsw i64 %indvars.iv1065, 1
+  %323 = phi i32 [ %316, %.lr.ph1012 ], [ %.pre1089, %321 ]
+  %indvars.iv.next1068 = add nuw nsw i64 %indvars.iv1067, 1
   %324 = sext i32 %323 to i64
-  %325 = icmp slt i64 %indvars.iv.next1066, %324
+  %325 = icmp slt i64 %indvars.iv.next1068, %324
   br i1 %325, label %.lr.ph1012, label %._crit_edge1013
 
 ._crit_edge1013:                                  ; preds = %322, %308
@@ -802,7 +803,8 @@ zend_string_hash_val.exit953:                     ; preds = %zend_string_release
   %337 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %338 = load i32, ptr %337, align 8, !tbaa !90
   %339 = zext i32 %338 to i64
-  %340 = getelementptr inbounds nuw %struct._Bucket, ptr %336, i64 %339
+  %.idx1052 = shl nuw nsw i64 %339, 5
+  %340 = getelementptr inbounds nuw i8, ptr %336, i64 %.idx1052
   %341 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %342 = load i32, ptr %341, align 8, !tbaa !16
   %343 = and i32 %342, 4
@@ -897,11 +899,11 @@ zend_string_release_ex.exit894:                   ; preds = %370, %379, %384
 
 387:                                              ; preds = %zend_string_release_ex.exit894
   %388 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %374) #7
-  %.pre1088 = load ptr, ptr %348, align 8, !tbaa !91
+  %.pre1090 = load ptr, ptr %348, align 8, !tbaa !91
   br label %zend_string_hash_val.exit955
 
 zend_string_hash_val.exit955:                     ; preds = %zend_string_release_ex.exit894, %387
-  %389 = phi ptr [ %374, %zend_string_release_ex.exit894 ], [ %.pre1088, %387 ]
+  %389 = phi ptr [ %374, %zend_string_release_ex.exit894 ], [ %.pre1090, %387 ]
   store i32 2, ptr %389, align 4, !tbaa !17
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 4
   %391 = load i32, ptr %390, align 4, !tbaa !16
@@ -924,7 +926,7 @@ zend_string_hash_val.exit955:                     ; preds = %zend_string_release
 401:                                              ; preds = %397, %zend_string_hash_val.exit955
   store i32 86, ptr %390, align 4, !tbaa !16
   %402 = or disjoint i32 %392, 86
-  %.pre1089 = load ptr, ptr %348, align 8, !tbaa !91
+  %.pre1091 = load ptr, ptr %348, align 8, !tbaa !91
   br label %405
 
 403:                                              ; preds = %397, %395
@@ -932,7 +934,7 @@ zend_string_hash_val.exit955:                     ; preds = %zend_string_release
   br label %405
 
 405:                                              ; preds = %403, %401
-  %406 = phi ptr [ %.pre1089, %401 ], [ %389, %403 ]
+  %406 = phi ptr [ %.pre1091, %401 ], [ %389, %403 ]
   %.0701 = phi i32 [ %402, %401 ], [ %404, %403 ]
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 4
   store i32 %.0701, ptr %407, align 4, !tbaa !16
@@ -1187,11 +1189,11 @@ zend_persist_class_constant.exit:                 ; preds = %527, %430, %422, %4
   br i1 %.not797, label %._crit_edge1018.loopexit, label %.lr.ph1017
 
 ._crit_edge1018.loopexit:                         ; preds = %zend_persist_class_constant.exit
-  %.pre1090 = load i32, ptr %341, align 8, !tbaa !16
+  %.pre1092 = load i32, ptr %341, align 8, !tbaa !16
   br label %._crit_edge1018
 
 ._crit_edge1018:                                  ; preds = %._crit_edge1018.loopexit, %333
-  %530 = phi i32 [ %.pre1090, %._crit_edge1018.loopexit ], [ %342, %333 ]
+  %530 = phi i32 [ %.pre1092, %._crit_edge1018.loopexit ], [ %342, %333 ]
   %531 = and i32 %530, 24
   store i32 %531, ptr %341, align 8, !tbaa !16
   %532 = getelementptr inbounds nuw i8, ptr %7, i64 120
@@ -1201,7 +1203,8 @@ zend_persist_class_constant.exit:                 ; preds = %527, %430, %422, %4
   %535 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %536 = load i32, ptr %535, align 8, !tbaa !90
   %537 = zext i32 %536 to i64
-  %538 = getelementptr inbounds nuw %struct._Bucket, ptr %534, i64 %537
+  %.idx1053 = shl nuw nsw i64 %537, 5
+  %538 = getelementptr inbounds nuw i8, ptr %534, i64 %.idx1053
   %539 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %540 = load i32, ptr %539, align 8, !tbaa !16
   %541 = and i32 %540, 4
@@ -1297,11 +1300,11 @@ zend_string_release_ex.exit898:                   ; preds = %569, %578, %583
 
 586:                                              ; preds = %zend_string_release_ex.exit898
   %587 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %573) #7
-  %.pre1091 = load ptr, ptr %547, align 8, !tbaa !91
+  %.pre1093 = load ptr, ptr %547, align 8, !tbaa !91
   br label %zend_string_hash_val.exit957
 
 zend_string_hash_val.exit957:                     ; preds = %zend_string_release_ex.exit898, %586
-  %588 = phi ptr [ %573, %zend_string_release_ex.exit898 ], [ %.pre1091, %586 ]
+  %588 = phi ptr [ %573, %zend_string_release_ex.exit898 ], [ %.pre1093, %586 ]
   store i32 2, ptr %588, align 4, !tbaa !17
   %589 = getelementptr inbounds nuw i8, ptr %588, i64 4
   %590 = load i32, ptr %589, align 4, !tbaa !16
@@ -1324,7 +1327,7 @@ zend_string_hash_val.exit957:                     ; preds = %zend_string_release
 600:                                              ; preds = %596, %zend_string_hash_val.exit957
   store i32 86, ptr %589, align 4, !tbaa !16
   %601 = or disjoint i32 %591, 86
-  %.pre1092 = load ptr, ptr %547, align 8, !tbaa !91
+  %.pre1094 = load ptr, ptr %547, align 8, !tbaa !91
   br label %604
 
 602:                                              ; preds = %596, %594
@@ -1332,7 +1335,7 @@ zend_string_hash_val.exit957:                     ; preds = %zend_string_release
   br label %604
 
 604:                                              ; preds = %602, %600
-  %605 = phi ptr [ %.pre1092, %600 ], [ %588, %602 ]
+  %605 = phi ptr [ %.pre1094, %600 ], [ %588, %602 ]
   %.0696 = phi i32 [ %601, %600 ], [ %603, %602 ]
   %606 = getelementptr inbounds nuw i8, ptr %605, i64 4
   store i32 %.0696, ptr %606, align 4, !tbaa !16
@@ -1747,29 +1750,29 @@ zend_string_release_ex.exit.i988:                 ; preds = %757, %752, %747
 zend_persist_property_info.exit:                  ; preds = %809, %769
   %811 = getelementptr inbounds nuw i8, ptr %612, i64 40
   tail call fastcc void @zend_persist_type(ptr noundef nonnull %811)
-  br label %.sink.split1241
+  br label %.sink.split1243
 
 812:                                              ; preds = %607
   %813 = tail call ptr @zend_shared_alloc_get_xlat_entry(ptr noundef nonnull %546) #7
   %.not871 = icmp eq ptr %813, null
-  br i1 %.not871, label %814, label %.sink.split1241
+  br i1 %.not871, label %814, label %.sink.split1243
 
-.sink.split1241:                                  ; preds = %812, %zend_persist_property_info.exit
-  %.sink1242 = phi ptr [ %612, %zend_persist_property_info.exit ], [ %813, %812 ]
-  store ptr %.sink1242, ptr %.07001020, align 8, !tbaa !16
+.sink.split1243:                                  ; preds = %812, %zend_persist_property_info.exit
+  %.sink1244 = phi ptr [ %612, %zend_persist_property_info.exit ], [ %813, %812 ]
+  store ptr %.sink1244, ptr %.07001020, align 8, !tbaa !16
   br label %814
 
-814:                                              ; preds = %.sink.split1241, %812, %.lr.ph1022
+814:                                              ; preds = %.sink.split1243, %812, %.lr.ph1022
   %815 = getelementptr inbounds nuw i8, ptr %.07001020, i64 32
   %.not799 = icmp eq ptr %815, %538
   br i1 %.not799, label %._crit_edge1023.loopexit, label %.lr.ph1022
 
 ._crit_edge1023.loopexit:                         ; preds = %814
-  %.pre1093 = load i32, ptr %539, align 8, !tbaa !16
+  %.pre1095 = load i32, ptr %539, align 8, !tbaa !16
   br label %._crit_edge1023
 
 ._crit_edge1023:                                  ; preds = %._crit_edge1023.loopexit, %._crit_edge1018
-  %816 = phi i32 [ %.pre1093, %._crit_edge1023.loopexit ], [ %540, %._crit_edge1018 ]
+  %816 = phi i32 [ %.pre1095, %._crit_edge1023.loopexit ], [ %540, %._crit_edge1018 ]
   %817 = and i32 %816, 24
   store i32 %817, ptr %539, align 8, !tbaa !16
   %818 = getelementptr inbounds nuw i8, ptr %7, i64 248
@@ -1793,9 +1796,9 @@ zend_persist_property_info.exit:                  ; preds = %809, %769
   br i1 %830, label %.lr.ph1026, label %.loopexit
 
 .lr.ph1026:                                       ; preds = %820, %839
-  %indvars.iv1068 = phi i64 [ %indvars.iv.next1069, %839 ], [ 0, %820 ]
+  %indvars.iv1070 = phi i64 [ %indvars.iv.next1071, %839 ], [ 0, %820 ]
   %831 = load ptr, ptr %818, align 8, !tbaa !122
-  %832 = getelementptr inbounds nuw ptr, ptr %831, i64 %indvars.iv1068
+  %832 = getelementptr inbounds nuw ptr, ptr %831, i64 %indvars.iv1070
   %833 = load ptr, ptr %832, align 8, !tbaa !123
   %.not865 = icmp eq ptr %833, null
   br i1 %.not865, label %839, label %834
@@ -1807,15 +1810,15 @@ zend_persist_property_info.exit:                  ; preds = %809, %769
 
 836:                                              ; preds = %834
   %837 = load ptr, ptr %818, align 8, !tbaa !122
-  %838 = getelementptr inbounds nuw ptr, ptr %837, i64 %indvars.iv1068
+  %838 = getelementptr inbounds nuw ptr, ptr %837, i64 %indvars.iv1070
   store ptr %835, ptr %838, align 8, !tbaa !123
   br label %839
 
 839:                                              ; preds = %834, %836, %.lr.ph1026
-  %indvars.iv.next1069 = add nuw nsw i64 %indvars.iv1068, 1
+  %indvars.iv.next1071 = add nuw nsw i64 %indvars.iv1070, 1
   %840 = load i32, ptr %821, align 8, !tbaa !95
   %841 = sext i32 %840 to i64
-  %842 = icmp slt i64 %indvars.iv.next1069, %841
+  %842 = icmp slt i64 %indvars.iv.next1071, %841
   br i1 %842, label %.lr.ph1026, label %.loopexit
 
 .loopexit:                                        ; preds = %839, %820, %._crit_edge1023
@@ -1918,11 +1921,11 @@ zend_string_release_ex.exit902:                   ; preds = %872, %881, %886
 
 889:                                              ; preds = %zend_string_release_ex.exit902
   %890 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %876) #7
-  %.pre1094 = load ptr, ptr %857, align 8, !tbaa !16
+  %.pre1096 = load ptr, ptr %857, align 8, !tbaa !16
   br label %zend_string_hash_val.exit959
 
 zend_string_hash_val.exit959:                     ; preds = %zend_string_release_ex.exit902, %889
-  %891 = phi ptr [ %876, %zend_string_release_ex.exit902 ], [ %.pre1094, %889 ]
+  %891 = phi ptr [ %876, %zend_string_release_ex.exit902 ], [ %.pre1096, %889 ]
   store i32 2, ptr %891, align 4, !tbaa !17
   %892 = load ptr, ptr %857, align 8, !tbaa !16
   %893 = getelementptr inbounds nuw i8, ptr %892, i64 4
@@ -1946,7 +1949,7 @@ zend_string_hash_val.exit959:                     ; preds = %zend_string_release
 904:                                              ; preds = %900, %zend_string_hash_val.exit959
   store i32 86, ptr %893, align 4, !tbaa !16
   %905 = or disjoint i32 %895, 86
-  %.pre1095 = load ptr, ptr %857, align 8, !tbaa !16
+  %.pre1097 = load ptr, ptr %857, align 8, !tbaa !16
   br label %908
 
 906:                                              ; preds = %900, %898
@@ -1954,7 +1957,7 @@ zend_string_hash_val.exit959:                     ; preds = %zend_string_release
   br label %908
 
 908:                                              ; preds = %906, %904
-  %909 = phi ptr [ %.pre1095, %904 ], [ %892, %906 ]
+  %909 = phi ptr [ %.pre1097, %904 ], [ %892, %906 ]
   %.0692 = phi i32 [ %905, %904 ], [ %907, %906 ]
   %910 = getelementptr inbounds nuw i8, ptr %909, i64 4
   store i32 %.0692, ptr %910, align 4, !tbaa !16
@@ -2048,11 +2051,11 @@ zend_string_release_ex.exit906:                   ; preds = %938, %947, %952
 
 955:                                              ; preds = %zend_string_release_ex.exit906
   %956 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %942) #7
-  %.pre1096 = load ptr, ptr %912, align 8, !tbaa !126
+  %.pre1098 = load ptr, ptr %912, align 8, !tbaa !126
   br label %zend_string_hash_val.exit961
 
 zend_string_hash_val.exit961:                     ; preds = %zend_string_release_ex.exit906, %955
-  %957 = phi ptr [ %942, %zend_string_release_ex.exit906 ], [ %.pre1096, %955 ]
+  %957 = phi ptr [ %942, %zend_string_release_ex.exit906 ], [ %.pre1098, %955 ]
   store i32 2, ptr %957, align 4, !tbaa !17
   %958 = getelementptr inbounds nuw i8, ptr %957, i64 4
   %959 = load i32, ptr %958, align 4, !tbaa !16
@@ -2075,7 +2078,7 @@ zend_string_hash_val.exit961:                     ; preds = %zend_string_release
 969:                                              ; preds = %965, %zend_string_hash_val.exit961
   store i32 86, ptr %958, align 4, !tbaa !16
   %970 = or disjoint i32 %960, 86
-  %.pre1097 = load ptr, ptr %912, align 8, !tbaa !126
+  %.pre1099 = load ptr, ptr %912, align 8, !tbaa !126
   br label %973
 
 971:                                              ; preds = %965, %963
@@ -2083,7 +2086,7 @@ zend_string_hash_val.exit961:                     ; preds = %zend_string_release
   br label %973
 
 973:                                              ; preds = %971, %969
-  %974 = phi ptr [ %.pre1097, %969 ], [ %957, %971 ]
+  %974 = phi ptr [ %.pre1099, %969 ], [ %957, %971 ]
   %.0691 = phi i32 [ %970, %969 ], [ %972, %971 ]
   %975 = getelementptr inbounds nuw i8, ptr %974, i64 4
   store i32 %.0691, ptr %975, align 4, !tbaa !16
@@ -2149,9 +2152,9 @@ zend_string_release_ex.exit908:                   ; preds = %989, %984, %978, %9
   br label %1002
 
 1002:                                             ; preds = %.lr.ph1028, %1154
-  %indvars.iv1071 = phi i64 [ 0, %.lr.ph1028 ], [ %indvars.iv.next1072, %1154 ]
+  %indvars.iv1073 = phi i64 [ 0, %.lr.ph1028 ], [ %indvars.iv.next1074, %1154 ]
   %1003 = load ptr, ptr %1001, align 8, !tbaa !16
-  %1004 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1003, i64 %indvars.iv1071
+  %1004 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1003, i64 %indvars.iv1073
   %1005 = load ptr, ptr %1004, align 8, !tbaa !129
   %1006 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !78
   %1007 = getelementptr inbounds nuw i8, ptr %1006, i64 176
@@ -2169,7 +2172,7 @@ zend_string_release_ex.exit908:                   ; preds = %989, %984, %978, %9
   %1014 = tail call ptr @zend_shared_alloc_get_xlat_entry(ptr noundef %1005) #7
   %.not818 = icmp eq ptr %1014, null
   %1015 = load ptr, ptr %1001, align 8, !tbaa !16
-  %1016 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1015, i64 %indvars.iv1071
+  %1016 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1015, i64 %indvars.iv1073
   %1017 = load ptr, ptr %1016, align 8, !tbaa !129
   br i1 %.not818, label %1030, label %1018
 
@@ -2195,7 +2198,7 @@ zend_string_release_ex.exit908:                   ; preds = %989, %984, %978, %9
 
 zend_string_release_ex.exit910:                   ; preds = %1018, %1022, %1027
   %1028 = load ptr, ptr %1001, align 8, !tbaa !16
-  %1029 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1028, i64 %indvars.iv1071
+  %1029 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1028, i64 %indvars.iv1073
   store ptr %1014, ptr %1029, align 8, !tbaa !129
   br label %1078
 
@@ -2205,7 +2208,7 @@ zend_string_release_ex.exit910:                   ; preds = %1018, %1022, %1027
   %1033 = add i64 %1032, 25
   %1034 = tail call ptr @zend_shared_memdup_put(ptr noundef %1017, i64 noundef %1033) #7
   %1035 = load ptr, ptr %1001, align 8, !tbaa !16
-  %1036 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1035, i64 %indvars.iv1071
+  %1036 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1035, i64 %indvars.iv1073
   %1037 = load ptr, ptr %1036, align 8, !tbaa !129
   %1038 = getelementptr inbounds nuw i8, ptr %1037, i64 4
   %1039 = load i32, ptr %1038, align 4, !tbaa !16
@@ -2228,10 +2231,10 @@ zend_string_release_ex.exit910:                   ; preds = %1018, %1022, %1027
 
 zend_string_release_ex.exit912:                   ; preds = %1030, %1041, %1046
   %1047 = load ptr, ptr %1001, align 8, !tbaa !16
-  %1048 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1047, i64 %indvars.iv1071
+  %1048 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1047, i64 %indvars.iv1073
   store ptr %1034, ptr %1048, align 8, !tbaa !129
   %1049 = load ptr, ptr %1001, align 8, !tbaa !16
-  %1050 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1049, i64 %indvars.iv1071
+  %1050 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1049, i64 %indvars.iv1073
   %1051 = load ptr, ptr %1050, align 8, !tbaa !129
   %1052 = getelementptr inbounds nuw i8, ptr %1051, i64 8
   %1053 = load i64, ptr %1052, align 8, !tbaa !88
@@ -2240,16 +2243,16 @@ zend_string_release_ex.exit912:                   ; preds = %1030, %1041, %1046
 
 1054:                                             ; preds = %zend_string_release_ex.exit912
   %1055 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %1051) #7
-  %.pre1098 = load ptr, ptr %1001, align 8, !tbaa !16
-  %.phi.trans.insert1099 = getelementptr inbounds nuw %struct._zend_class_name, ptr %.pre1098, i64 %indvars.iv1071
-  %.pre1100 = load ptr, ptr %.phi.trans.insert1099, align 8, !tbaa !129
+  %.pre1100 = load ptr, ptr %1001, align 8, !tbaa !16
+  %.phi.trans.insert1101 = getelementptr inbounds nuw %struct._zend_class_name, ptr %.pre1100, i64 %indvars.iv1073
+  %.pre1102 = load ptr, ptr %.phi.trans.insert1101, align 8, !tbaa !129
   br label %zend_string_hash_val.exit963
 
 zend_string_hash_val.exit963:                     ; preds = %zend_string_release_ex.exit912, %1054
-  %1056 = phi ptr [ %1051, %zend_string_release_ex.exit912 ], [ %.pre1100, %1054 ]
+  %1056 = phi ptr [ %1051, %zend_string_release_ex.exit912 ], [ %.pre1102, %1054 ]
   store i32 2, ptr %1056, align 4, !tbaa !17
   %1057 = load ptr, ptr %1001, align 8, !tbaa !16
-  %1058 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1057, i64 %indvars.iv1071
+  %1058 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1057, i64 %indvars.iv1073
   %1059 = load ptr, ptr %1058, align 8, !tbaa !129
   %1060 = getelementptr inbounds nuw i8, ptr %1059, i64 4
   %1061 = load i32, ptr %1060, align 4, !tbaa !16
@@ -2272,9 +2275,9 @@ zend_string_hash_val.exit963:                     ; preds = %zend_string_release
 1071:                                             ; preds = %1067, %zend_string_hash_val.exit963
   store i32 86, ptr %1060, align 4, !tbaa !16
   %1072 = or disjoint i32 %1062, 86
-  %.pre1101 = load ptr, ptr %1001, align 8, !tbaa !16
-  %.phi.trans.insert1102 = getelementptr inbounds nuw %struct._zend_class_name, ptr %.pre1101, i64 %indvars.iv1071
-  %.pre1103 = load ptr, ptr %.phi.trans.insert1102, align 8, !tbaa !129
+  %.pre1103 = load ptr, ptr %1001, align 8, !tbaa !16
+  %.phi.trans.insert1104 = getelementptr inbounds nuw %struct._zend_class_name, ptr %.pre1103, i64 %indvars.iv1073
+  %.pre1105 = load ptr, ptr %.phi.trans.insert1104, align 8, !tbaa !129
   br label %1075
 
 1073:                                             ; preds = %1067, %1065
@@ -2282,7 +2285,7 @@ zend_string_hash_val.exit963:                     ; preds = %zend_string_release
   br label %1075
 
 1075:                                             ; preds = %1073, %1071
-  %1076 = phi ptr [ %.pre1103, %1071 ], [ %1059, %1073 ]
+  %1076 = phi ptr [ %.pre1105, %1071 ], [ %1059, %1073 ]
   %.0689 = phi i32 [ %1072, %1071 ], [ %1074, %1073 ]
   %1077 = getelementptr inbounds nuw i8, ptr %1076, i64 4
   store i32 %.0689, ptr %1077, align 4, !tbaa !16
@@ -2290,7 +2293,7 @@ zend_string_hash_val.exit963:                     ; preds = %zend_string_release
 
 1078:                                             ; preds = %zend_string_release_ex.exit910, %1075, %1009
   %1079 = load ptr, ptr %1001, align 8, !tbaa !16
-  %1080 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1079, i64 %indvars.iv1071, i32 1
+  %1080 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1079, i64 %indvars.iv1073, i32 1
   %1081 = load ptr, ptr %1080, align 8, !tbaa !131
   %1082 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !78
   %1083 = getelementptr inbounds nuw i8, ptr %1082, i64 176
@@ -2308,7 +2311,7 @@ zend_string_hash_val.exit963:                     ; preds = %zend_string_release
   %1090 = tail call ptr @zend_shared_alloc_get_xlat_entry(ptr noundef %1081) #7
   %.not822 = icmp eq ptr %1090, null
   %1091 = load ptr, ptr %1001, align 8, !tbaa !16
-  %1092 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1091, i64 %indvars.iv1071, i32 1
+  %1092 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1091, i64 %indvars.iv1073, i32 1
   %1093 = load ptr, ptr %1092, align 8, !tbaa !131
   br i1 %.not822, label %1106, label %1094
 
@@ -2334,7 +2337,7 @@ zend_string_hash_val.exit963:                     ; preds = %zend_string_release
 
 zend_string_release_ex.exit914:                   ; preds = %1094, %1098, %1103
   %1104 = load ptr, ptr %1001, align 8, !tbaa !16
-  %1105 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1104, i64 %indvars.iv1071, i32 1
+  %1105 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1104, i64 %indvars.iv1073, i32 1
   store ptr %1090, ptr %1105, align 8, !tbaa !131
   br label %1154
 
@@ -2344,7 +2347,7 @@ zend_string_release_ex.exit914:                   ; preds = %1094, %1098, %1103
   %1109 = add i64 %1108, 25
   %1110 = tail call ptr @zend_shared_memdup_put(ptr noundef %1093, i64 noundef %1109) #7
   %1111 = load ptr, ptr %1001, align 8, !tbaa !16
-  %1112 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1111, i64 %indvars.iv1071, i32 1
+  %1112 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1111, i64 %indvars.iv1073, i32 1
   %1113 = load ptr, ptr %1112, align 8, !tbaa !131
   %1114 = getelementptr inbounds nuw i8, ptr %1113, i64 4
   %1115 = load i32, ptr %1114, align 4, !tbaa !16
@@ -2367,10 +2370,10 @@ zend_string_release_ex.exit914:                   ; preds = %1094, %1098, %1103
 
 zend_string_release_ex.exit916:                   ; preds = %1106, %1117, %1122
   %1123 = load ptr, ptr %1001, align 8, !tbaa !16
-  %1124 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1123, i64 %indvars.iv1071, i32 1
+  %1124 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1123, i64 %indvars.iv1073, i32 1
   store ptr %1110, ptr %1124, align 8, !tbaa !131
   %1125 = load ptr, ptr %1001, align 8, !tbaa !16
-  %1126 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1125, i64 %indvars.iv1071, i32 1
+  %1126 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1125, i64 %indvars.iv1073, i32 1
   %1127 = load ptr, ptr %1126, align 8, !tbaa !131
   %1128 = getelementptr inbounds nuw i8, ptr %1127, i64 8
   %1129 = load i64, ptr %1128, align 8, !tbaa !88
@@ -2379,16 +2382,16 @@ zend_string_release_ex.exit916:                   ; preds = %1106, %1117, %1122
 
 1130:                                             ; preds = %zend_string_release_ex.exit916
   %1131 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %1127) #7
-  %.pre1104 = load ptr, ptr %1001, align 8, !tbaa !16
-  %.phi.trans.insert1105 = getelementptr inbounds nuw %struct._zend_class_name, ptr %.pre1104, i64 %indvars.iv1071, i32 1
-  %.pre1106 = load ptr, ptr %.phi.trans.insert1105, align 8, !tbaa !131
+  %.pre1106 = load ptr, ptr %1001, align 8, !tbaa !16
+  %.phi.trans.insert1107 = getelementptr inbounds nuw %struct._zend_class_name, ptr %.pre1106, i64 %indvars.iv1073, i32 1
+  %.pre1108 = load ptr, ptr %.phi.trans.insert1107, align 8, !tbaa !131
   br label %zend_string_hash_val.exit965
 
 zend_string_hash_val.exit965:                     ; preds = %zend_string_release_ex.exit916, %1130
-  %1132 = phi ptr [ %1127, %zend_string_release_ex.exit916 ], [ %.pre1106, %1130 ]
+  %1132 = phi ptr [ %1127, %zend_string_release_ex.exit916 ], [ %.pre1108, %1130 ]
   store i32 2, ptr %1132, align 4, !tbaa !17
   %1133 = load ptr, ptr %1001, align 8, !tbaa !16
-  %1134 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1133, i64 %indvars.iv1071, i32 1
+  %1134 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1133, i64 %indvars.iv1073, i32 1
   %1135 = load ptr, ptr %1134, align 8, !tbaa !131
   %1136 = getelementptr inbounds nuw i8, ptr %1135, i64 4
   %1137 = load i32, ptr %1136, align 4, !tbaa !16
@@ -2411,9 +2414,9 @@ zend_string_hash_val.exit965:                     ; preds = %zend_string_release
 1147:                                             ; preds = %1143, %zend_string_hash_val.exit965
   store i32 86, ptr %1136, align 4, !tbaa !16
   %1148 = or disjoint i32 %1138, 86
-  %.pre1107 = load ptr, ptr %1001, align 8, !tbaa !16
-  %.phi.trans.insert1108 = getelementptr inbounds nuw %struct._zend_class_name, ptr %.pre1107, i64 %indvars.iv1071, i32 1
-  %.pre1109 = load ptr, ptr %.phi.trans.insert1108, align 8, !tbaa !131
+  %.pre1109 = load ptr, ptr %1001, align 8, !tbaa !16
+  %.phi.trans.insert1110 = getelementptr inbounds nuw %struct._zend_class_name, ptr %.pre1109, i64 %indvars.iv1073, i32 1
+  %.pre1111 = load ptr, ptr %.phi.trans.insert1110, align 8, !tbaa !131
   br label %1151
 
 1149:                                             ; preds = %1143, %1141
@@ -2421,17 +2424,17 @@ zend_string_hash_val.exit965:                     ; preds = %zend_string_release
   br label %1151
 
 1151:                                             ; preds = %1149, %1147
-  %1152 = phi ptr [ %.pre1109, %1147 ], [ %1135, %1149 ]
+  %1152 = phi ptr [ %.pre1111, %1147 ], [ %1135, %1149 ]
   %.0688 = phi i32 [ %1148, %1147 ], [ %1150, %1149 ]
   %1153 = getelementptr inbounds nuw i8, ptr %1152, i64 4
   store i32 %.0688, ptr %1153, align 4, !tbaa !16
   br label %1154
 
 1154:                                             ; preds = %zend_string_release_ex.exit914, %1151, %1085
-  %indvars.iv.next1072 = add nuw nsw i64 %indvars.iv1071, 1
+  %indvars.iv.next1074 = add nuw nsw i64 %indvars.iv1073, 1
   %1155 = load i32, ptr %996, align 8, !tbaa !128
   %1156 = zext i32 %1155 to i64
-  %1157 = icmp samesign ult i64 %indvars.iv.next1072, %1156
+  %1157 = icmp samesign ult i64 %indvars.iv.next1074, %1156
   br i1 %1157, label %1002, label %._crit_edge1029
 
 ._crit_edge1029:                                  ; preds = %1154
@@ -2454,9 +2457,9 @@ zend_string_hash_val.exit965:                     ; preds = %zend_string_release
   br label %1167
 
 1167:                                             ; preds = %.lr.ph1031, %1307
-  %indvars.iv1074 = phi i64 [ 0, %.lr.ph1031 ], [ %indvars.iv.next1075, %1307 ]
+  %indvars.iv1076 = phi i64 [ 0, %.lr.ph1031 ], [ %indvars.iv.next1077, %1307 ]
   %1168 = load ptr, ptr %1166, align 8, !tbaa !133
-  %1169 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1168, i64 %indvars.iv1074
+  %1169 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1168, i64 %indvars.iv1076
   %1170 = load ptr, ptr %1169, align 8, !tbaa !129
   %1171 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !78
   %1172 = getelementptr inbounds nuw i8, ptr %1171, i64 176
@@ -2474,7 +2477,7 @@ zend_string_hash_val.exit965:                     ; preds = %zend_string_release
   %1179 = tail call ptr @zend_shared_alloc_get_xlat_entry(ptr noundef %1170) #7
   %.not858 = icmp eq ptr %1179, null
   %1180 = load ptr, ptr %1166, align 8, !tbaa !133
-  %1181 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1180, i64 %indvars.iv1074
+  %1181 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1180, i64 %indvars.iv1076
   %1182 = load ptr, ptr %1181, align 8, !tbaa !129
   br i1 %.not858, label %1195, label %1183
 
@@ -2496,12 +2499,12 @@ zend_string_hash_val.exit965:                     ; preds = %zend_string_release
 
 1192:                                             ; preds = %1187
   tail call void @_efree(ptr noundef nonnull %1182) #7
-  %.pre1110 = load ptr, ptr %1166, align 8, !tbaa !133
+  %.pre1112 = load ptr, ptr %1166, align 8, !tbaa !133
   br label %zend_string_release_ex.exit918
 
 zend_string_release_ex.exit918:                   ; preds = %1183, %1187, %1192
-  %1193 = phi ptr [ %1180, %1183 ], [ %1180, %1187 ], [ %.pre1110, %1192 ]
-  %1194 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1193, i64 %indvars.iv1074
+  %1193 = phi ptr [ %1180, %1183 ], [ %1180, %1187 ], [ %.pre1112, %1192 ]
+  %1194 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1193, i64 %indvars.iv1076
   store ptr %1179, ptr %1194, align 8, !tbaa !129
   br label %1237
 
@@ -2511,7 +2514,7 @@ zend_string_release_ex.exit918:                   ; preds = %1183, %1187, %1192
   %1198 = add i64 %1197, 25
   %1199 = tail call ptr @zend_shared_memdup_put(ptr noundef %1182, i64 noundef %1198) #7
   %1200 = load ptr, ptr %1166, align 8, !tbaa !133
-  %1201 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1200, i64 %indvars.iv1074
+  %1201 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1200, i64 %indvars.iv1076
   %1202 = load ptr, ptr %1201, align 8, !tbaa !129
   %1203 = getelementptr inbounds nuw i8, ptr %1202, i64 4
   %1204 = load i32, ptr %1203, align 4, !tbaa !16
@@ -2530,12 +2533,12 @@ zend_string_release_ex.exit918:                   ; preds = %1183, %1187, %1192
 
 1211:                                             ; preds = %1206
   tail call void @_efree(ptr noundef nonnull %1202) #7
-  %.pre1111 = load ptr, ptr %1166, align 8, !tbaa !133
+  %.pre1113 = load ptr, ptr %1166, align 8, !tbaa !133
   br label %zend_string_release_ex.exit920
 
 zend_string_release_ex.exit920:                   ; preds = %1195, %1206, %1211
-  %1212 = phi ptr [ %1200, %1195 ], [ %1200, %1206 ], [ %.pre1111, %1211 ]
-  %1213 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1212, i64 %indvars.iv1074
+  %1212 = phi ptr [ %1200, %1195 ], [ %1200, %1206 ], [ %.pre1113, %1211 ]
+  %1213 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1212, i64 %indvars.iv1076
   store ptr %1199, ptr %1213, align 8, !tbaa !129
   %1214 = getelementptr inbounds nuw i8, ptr %1199, i64 8
   %1215 = load i64, ptr %1214, align 8, !tbaa !88
@@ -2544,13 +2547,13 @@ zend_string_release_ex.exit920:                   ; preds = %1195, %1206, %1211
 
 1216:                                             ; preds = %zend_string_release_ex.exit920
   %1217 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %1199) #7
-  %.pre1112 = load ptr, ptr %1166, align 8, !tbaa !133
-  %.phi.trans.insert1113 = getelementptr inbounds nuw %struct._zend_class_name, ptr %.pre1112, i64 %indvars.iv1074
-  %.pre1114 = load ptr, ptr %.phi.trans.insert1113, align 8, !tbaa !129
+  %.pre1114 = load ptr, ptr %1166, align 8, !tbaa !133
+  %.phi.trans.insert1115 = getelementptr inbounds nuw %struct._zend_class_name, ptr %.pre1114, i64 %indvars.iv1076
+  %.pre1116 = load ptr, ptr %.phi.trans.insert1115, align 8, !tbaa !129
   br label %zend_string_hash_val.exit967
 
 zend_string_hash_val.exit967:                     ; preds = %zend_string_release_ex.exit920, %1216
-  %1218 = phi ptr [ %1199, %zend_string_release_ex.exit920 ], [ %.pre1114, %1216 ]
+  %1218 = phi ptr [ %1199, %zend_string_release_ex.exit920 ], [ %.pre1116, %1216 ]
   store i32 2, ptr %1218, align 4, !tbaa !17
   %1219 = getelementptr inbounds nuw i8, ptr %1218, i64 4
   %1220 = load i32, ptr %1219, align 4, !tbaa !16
@@ -2573,9 +2576,9 @@ zend_string_hash_val.exit967:                     ; preds = %zend_string_release
 1230:                                             ; preds = %1226, %zend_string_hash_val.exit967
   store i32 86, ptr %1219, align 4, !tbaa !16
   %1231 = or disjoint i32 %1221, 86
-  %.pre1115 = load ptr, ptr %1166, align 8, !tbaa !133
-  %.phi.trans.insert1116 = getelementptr inbounds nuw %struct._zend_class_name, ptr %.pre1115, i64 %indvars.iv1074
-  %.pre1117 = load ptr, ptr %.phi.trans.insert1116, align 8, !tbaa !129
+  %.pre1117 = load ptr, ptr %1166, align 8, !tbaa !133
+  %.phi.trans.insert1118 = getelementptr inbounds nuw %struct._zend_class_name, ptr %.pre1117, i64 %indvars.iv1076
+  %.pre1119 = load ptr, ptr %.phi.trans.insert1118, align 8, !tbaa !129
   br label %1234
 
 1232:                                             ; preds = %1226, %1224
@@ -2583,16 +2586,16 @@ zend_string_hash_val.exit967:                     ; preds = %zend_string_release
   br label %1234
 
 1234:                                             ; preds = %1232, %1230
-  %1235 = phi ptr [ %.pre1117, %1230 ], [ %1218, %1232 ]
+  %1235 = phi ptr [ %.pre1119, %1230 ], [ %1218, %1232 ]
   %.0686 = phi i32 [ %1231, %1230 ], [ %1233, %1232 ]
   %1236 = getelementptr inbounds nuw i8, ptr %1235, i64 4
   store i32 %.0686, ptr %1236, align 4, !tbaa !16
-  %.pre1118 = load ptr, ptr %1166, align 8, !tbaa !133
+  %.pre1120 = load ptr, ptr %1166, align 8, !tbaa !133
   br label %1237
 
 1237:                                             ; preds = %zend_string_release_ex.exit918, %1234, %1174
-  %1238 = phi ptr [ %1193, %zend_string_release_ex.exit918 ], [ %.pre1118, %1234 ], [ %1168, %1174 ]
-  %1239 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1238, i64 %indvars.iv1074, i32 1
+  %1238 = phi ptr [ %1193, %zend_string_release_ex.exit918 ], [ %.pre1120, %1234 ], [ %1168, %1174 ]
+  %1239 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1238, i64 %indvars.iv1076, i32 1
   %1240 = load ptr, ptr %1239, align 8, !tbaa !131
   %1241 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !78
   %1242 = getelementptr inbounds nuw i8, ptr %1241, i64 176
@@ -2610,7 +2613,7 @@ zend_string_hash_val.exit967:                     ; preds = %zend_string_release
   %1249 = tail call ptr @zend_shared_alloc_get_xlat_entry(ptr noundef %1240) #7
   %.not862 = icmp eq ptr %1249, null
   %1250 = load ptr, ptr %1166, align 8, !tbaa !133
-  %1251 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1250, i64 %indvars.iv1074, i32 1
+  %1251 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1250, i64 %indvars.iv1076, i32 1
   %1252 = load ptr, ptr %1251, align 8, !tbaa !131
   br i1 %.not862, label %1265, label %1253
 
@@ -2632,12 +2635,12 @@ zend_string_hash_val.exit967:                     ; preds = %zend_string_release
 
 1262:                                             ; preds = %1257
   tail call void @_efree(ptr noundef nonnull %1252) #7
-  %.pre1119 = load ptr, ptr %1166, align 8, !tbaa !133
+  %.pre1121 = load ptr, ptr %1166, align 8, !tbaa !133
   br label %zend_string_release_ex.exit922
 
 zend_string_release_ex.exit922:                   ; preds = %1253, %1257, %1262
-  %1263 = phi ptr [ %1250, %1253 ], [ %1250, %1257 ], [ %.pre1119, %1262 ]
-  %1264 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1263, i64 %indvars.iv1074, i32 1
+  %1263 = phi ptr [ %1250, %1253 ], [ %1250, %1257 ], [ %.pre1121, %1262 ]
+  %1264 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1263, i64 %indvars.iv1076, i32 1
   store ptr %1249, ptr %1264, align 8, !tbaa !131
   br label %1307
 
@@ -2647,7 +2650,7 @@ zend_string_release_ex.exit922:                   ; preds = %1253, %1257, %1262
   %1268 = add i64 %1267, 25
   %1269 = tail call ptr @zend_shared_memdup_put(ptr noundef %1252, i64 noundef %1268) #7
   %1270 = load ptr, ptr %1166, align 8, !tbaa !133
-  %1271 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1270, i64 %indvars.iv1074, i32 1
+  %1271 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1270, i64 %indvars.iv1076, i32 1
   %1272 = load ptr, ptr %1271, align 8, !tbaa !131
   %1273 = getelementptr inbounds nuw i8, ptr %1272, i64 4
   %1274 = load i32, ptr %1273, align 4, !tbaa !16
@@ -2666,12 +2669,12 @@ zend_string_release_ex.exit922:                   ; preds = %1253, %1257, %1262
 
 1281:                                             ; preds = %1276
   tail call void @_efree(ptr noundef nonnull %1272) #7
-  %.pre1120 = load ptr, ptr %1166, align 8, !tbaa !133
+  %.pre1122 = load ptr, ptr %1166, align 8, !tbaa !133
   br label %zend_string_release_ex.exit924
 
 zend_string_release_ex.exit924:                   ; preds = %1265, %1276, %1281
-  %1282 = phi ptr [ %1270, %1265 ], [ %1270, %1276 ], [ %.pre1120, %1281 ]
-  %1283 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1282, i64 %indvars.iv1074, i32 1
+  %1282 = phi ptr [ %1270, %1265 ], [ %1270, %1276 ], [ %.pre1122, %1281 ]
+  %1283 = getelementptr inbounds nuw %struct._zend_class_name, ptr %1282, i64 %indvars.iv1076, i32 1
   store ptr %1269, ptr %1283, align 8, !tbaa !131
   %1284 = getelementptr inbounds nuw i8, ptr %1269, i64 8
   %1285 = load i64, ptr %1284, align 8, !tbaa !88
@@ -2680,13 +2683,13 @@ zend_string_release_ex.exit924:                   ; preds = %1265, %1276, %1281
 
 1286:                                             ; preds = %zend_string_release_ex.exit924
   %1287 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %1269) #7
-  %.pre1121 = load ptr, ptr %1166, align 8, !tbaa !133
-  %.phi.trans.insert1122 = getelementptr inbounds nuw %struct._zend_class_name, ptr %.pre1121, i64 %indvars.iv1074, i32 1
-  %.pre1123 = load ptr, ptr %.phi.trans.insert1122, align 8, !tbaa !131
+  %.pre1123 = load ptr, ptr %1166, align 8, !tbaa !133
+  %.phi.trans.insert1124 = getelementptr inbounds nuw %struct._zend_class_name, ptr %.pre1123, i64 %indvars.iv1076, i32 1
+  %.pre1125 = load ptr, ptr %.phi.trans.insert1124, align 8, !tbaa !131
   br label %zend_string_hash_val.exit969
 
 zend_string_hash_val.exit969:                     ; preds = %zend_string_release_ex.exit924, %1286
-  %1288 = phi ptr [ %1269, %zend_string_release_ex.exit924 ], [ %.pre1123, %1286 ]
+  %1288 = phi ptr [ %1269, %zend_string_release_ex.exit924 ], [ %.pre1125, %1286 ]
   store i32 2, ptr %1288, align 4, !tbaa !17
   %1289 = getelementptr inbounds nuw i8, ptr %1288, i64 4
   %1290 = load i32, ptr %1289, align 4, !tbaa !16
@@ -2709,9 +2712,9 @@ zend_string_hash_val.exit969:                     ; preds = %zend_string_release
 1300:                                             ; preds = %1296, %zend_string_hash_val.exit969
   store i32 86, ptr %1289, align 4, !tbaa !16
   %1301 = or disjoint i32 %1291, 86
-  %.pre1124 = load ptr, ptr %1166, align 8, !tbaa !133
-  %.phi.trans.insert1125 = getelementptr inbounds nuw %struct._zend_class_name, ptr %.pre1124, i64 %indvars.iv1074, i32 1
-  %.pre1126 = load ptr, ptr %.phi.trans.insert1125, align 8, !tbaa !131
+  %.pre1126 = load ptr, ptr %1166, align 8, !tbaa !133
+  %.phi.trans.insert1127 = getelementptr inbounds nuw %struct._zend_class_name, ptr %.pre1126, i64 %indvars.iv1076, i32 1
+  %.pre1128 = load ptr, ptr %.phi.trans.insert1127, align 8, !tbaa !131
   br label %1304
 
 1302:                                             ; preds = %1296, %1294
@@ -2719,17 +2722,17 @@ zend_string_hash_val.exit969:                     ; preds = %zend_string_release
   br label %1304
 
 1304:                                             ; preds = %1302, %1300
-  %1305 = phi ptr [ %.pre1126, %1300 ], [ %1288, %1302 ]
+  %1305 = phi ptr [ %.pre1128, %1300 ], [ %1288, %1302 ]
   %.0685 = phi i32 [ %1301, %1300 ], [ %1303, %1302 ]
   %1306 = getelementptr inbounds nuw i8, ptr %1305, i64 4
   store i32 %.0685, ptr %1306, align 4, !tbaa !16
   br label %1307
 
 1307:                                             ; preds = %zend_string_release_ex.exit922, %1304, %1244
-  %indvars.iv.next1075 = add nuw nsw i64 %indvars.iv1074, 1
+  %indvars.iv.next1077 = add nuw nsw i64 %indvars.iv1076, 1
   %1308 = load i32, ptr %1164, align 4, !tbaa !132
   %1309 = zext i32 %1308 to i64
-  %1310 = icmp samesign ult i64 %indvars.iv.next1075, %1309
+  %1310 = icmp samesign ult i64 %indvars.iv.next1077, %1309
   br i1 %1310, label %1167, label %._crit_edge1032
 
 ._crit_edge1032:                                  ; preds = %1307
@@ -2798,14 +2801,14 @@ zend_string_hash_val.exit969:                     ; preds = %zend_string_release
 
 1346:                                             ; preds = %1341
   tail call void @_efree(ptr noundef nonnull %1336) #7
-  %.pre1127 = load ptr, ptr %1316, align 8, !tbaa !134
-  %.phi.trans.insert1128 = getelementptr inbounds nuw ptr, ptr %.pre1127, i64 %1321
-  %.pre1129 = load ptr, ptr %.phi.trans.insert1128, align 8, !tbaa !135
+  %.pre1129 = load ptr, ptr %1316, align 8, !tbaa !134
+  %.phi.trans.insert1130 = getelementptr inbounds nuw ptr, ptr %.pre1129, i64 %1321
+  %.pre1131 = load ptr, ptr %.phi.trans.insert1130, align 8, !tbaa !135
   br label %zend_string_release_ex.exit926
 
 zend_string_release_ex.exit926:                   ; preds = %1337, %1341, %1346
-  %1347 = phi ptr [ %1335, %1337 ], [ %1335, %1341 ], [ %.pre1129, %1346 ]
-  %1348 = phi ptr [ %1333, %1337 ], [ %1333, %1341 ], [ %.pre1127, %1346 ]
+  %1347 = phi ptr [ %1335, %1337 ], [ %1335, %1341 ], [ %.pre1131, %1346 ]
+  %1348 = phi ptr [ %1333, %1337 ], [ %1333, %1341 ], [ %.pre1129, %1346 ]
   store ptr %1332, ptr %1347, align 8, !tbaa !137
   br label %1391
 
@@ -2835,13 +2838,13 @@ zend_string_release_ex.exit926:                   ; preds = %1337, %1341, %1346
 
 1366:                                             ; preds = %1361
   tail call void @_efree(ptr noundef nonnull %1357) #7
-  %.pre1130 = load ptr, ptr %1316, align 8, !tbaa !134
-  %.phi.trans.insert1131 = getelementptr inbounds nuw ptr, ptr %.pre1130, i64 %1321
-  %.pre1132 = load ptr, ptr %.phi.trans.insert1131, align 8, !tbaa !135
+  %.pre1132 = load ptr, ptr %1316, align 8, !tbaa !134
+  %.phi.trans.insert1133 = getelementptr inbounds nuw ptr, ptr %.pre1132, i64 %1321
+  %.pre1134 = load ptr, ptr %.phi.trans.insert1133, align 8, !tbaa !135
   br label %zend_string_release_ex.exit928
 
 zend_string_release_ex.exit928:                   ; preds = %1349, %1361, %1366
-  %1367 = phi ptr [ %1356, %1349 ], [ %1356, %1361 ], [ %.pre1132, %1366 ]
+  %1367 = phi ptr [ %1356, %1349 ], [ %1356, %1361 ], [ %.pre1134, %1366 ]
   store ptr %1353, ptr %1367, align 8, !tbaa !137
   %1368 = getelementptr inbounds nuw i8, ptr %1353, i64 8
   %1369 = load i64, ptr %1368, align 8, !tbaa !88
@@ -2850,14 +2853,14 @@ zend_string_release_ex.exit928:                   ; preds = %1349, %1361, %1366
 
 1370:                                             ; preds = %zend_string_release_ex.exit928
   %1371 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %1353) #7
-  %.pre1133 = load ptr, ptr %1316, align 8, !tbaa !134
-  %.phi.trans.insert1134 = getelementptr inbounds nuw ptr, ptr %.pre1133, i64 %1321
-  %.pre1135 = load ptr, ptr %.phi.trans.insert1134, align 8, !tbaa !135
-  %.pre1136 = load ptr, ptr %.pre1135, align 8, !tbaa !137
+  %.pre1135 = load ptr, ptr %1316, align 8, !tbaa !134
+  %.phi.trans.insert1136 = getelementptr inbounds nuw ptr, ptr %.pre1135, i64 %1321
+  %.pre1137 = load ptr, ptr %.phi.trans.insert1136, align 8, !tbaa !135
+  %.pre1138 = load ptr, ptr %.pre1137, align 8, !tbaa !137
   br label %zend_string_hash_val.exit971
 
 zend_string_hash_val.exit971:                     ; preds = %zend_string_release_ex.exit928, %1370
-  %1372 = phi ptr [ %1353, %zend_string_release_ex.exit928 ], [ %.pre1136, %1370 ]
+  %1372 = phi ptr [ %1353, %zend_string_release_ex.exit928 ], [ %.pre1138, %1370 ]
   store i32 2, ptr %1372, align 4, !tbaa !17
   %1373 = getelementptr inbounds nuw i8, ptr %1372, i64 4
   %1374 = load i32, ptr %1373, align 4, !tbaa !16
@@ -2880,10 +2883,10 @@ zend_string_hash_val.exit971:                     ; preds = %zend_string_release
 1384:                                             ; preds = %1380, %zend_string_hash_val.exit971
   store i32 86, ptr %1373, align 4, !tbaa !16
   %1385 = or disjoint i32 %1375, 86
-  %.pre1137 = load ptr, ptr %1316, align 8, !tbaa !134
-  %.phi.trans.insert1138 = getelementptr inbounds nuw ptr, ptr %.pre1137, i64 %1321
-  %.pre1139 = load ptr, ptr %.phi.trans.insert1138, align 8, !tbaa !135
-  %.pre1140 = load ptr, ptr %.pre1139, align 8, !tbaa !137
+  %.pre1139 = load ptr, ptr %1316, align 8, !tbaa !134
+  %.phi.trans.insert1140 = getelementptr inbounds nuw ptr, ptr %.pre1139, i64 %1321
+  %.pre1141 = load ptr, ptr %.phi.trans.insert1140, align 8, !tbaa !135
+  %.pre1142 = load ptr, ptr %.pre1141, align 8, !tbaa !137
   br label %1388
 
 1386:                                             ; preds = %1380, %1378
@@ -2891,15 +2894,15 @@ zend_string_hash_val.exit971:                     ; preds = %zend_string_release
   br label %1388
 
 1388:                                             ; preds = %1386, %1384
-  %1389 = phi ptr [ %.pre1140, %1384 ], [ %1372, %1386 ]
+  %1389 = phi ptr [ %.pre1142, %1384 ], [ %1372, %1386 ]
   %.0684 = phi i32 [ %1385, %1384 ], [ %1387, %1386 ]
   %1390 = getelementptr inbounds nuw i8, ptr %1389, i64 4
   store i32 %.0684, ptr %1390, align 4, !tbaa !16
-  %.pre1141 = load ptr, ptr %1316, align 8, !tbaa !134
+  %.pre1143 = load ptr, ptr %1316, align 8, !tbaa !134
   br label %1391
 
 1391:                                             ; preds = %zend_string_release_ex.exit926, %1388, %1327, %.lr.ph1036
-  %1392 = phi ptr [ %1348, %zend_string_release_ex.exit926 ], [ %.pre1141, %1388 ], [ %1319, %1327 ], [ %1319, %.lr.ph1036 ]
+  %1392 = phi ptr [ %1348, %zend_string_release_ex.exit926 ], [ %.pre1143, %1388 ], [ %1319, %1327 ], [ %1319, %.lr.ph1036 ]
   %1393 = getelementptr inbounds nuw ptr, ptr %1392, i64 %1321
   %1394 = load ptr, ptr %1393, align 8, !tbaa !135
   %1395 = getelementptr inbounds nuw i8, ptr %1394, i64 8
@@ -2948,13 +2951,13 @@ zend_string_hash_val.exit971:                     ; preds = %zend_string_release
 
 1421:                                             ; preds = %1416
   tail call void @_efree(ptr noundef nonnull %1411) #7
-  %.pre1142 = load ptr, ptr %1316, align 8, !tbaa !134
-  %.phi.trans.insert1143 = getelementptr inbounds nuw ptr, ptr %.pre1142, i64 %1321
-  %.pre1144 = load ptr, ptr %.phi.trans.insert1143, align 8, !tbaa !135
+  %.pre1144 = load ptr, ptr %1316, align 8, !tbaa !134
+  %.phi.trans.insert1145 = getelementptr inbounds nuw ptr, ptr %.pre1144, i64 %1321
+  %.pre1146 = load ptr, ptr %.phi.trans.insert1145, align 8, !tbaa !135
   br label %zend_string_release_ex.exit930
 
 zend_string_release_ex.exit930:                   ; preds = %1412, %1416, %1421
-  %1422 = phi ptr [ %1409, %1412 ], [ %1409, %1416 ], [ %.pre1144, %1421 ]
+  %1422 = phi ptr [ %1409, %1412 ], [ %1409, %1416 ], [ %.pre1146, %1421 ]
   %1423 = getelementptr inbounds nuw i8, ptr %1422, i64 8
   store ptr %1406, ptr %1423, align 8, !tbaa !140
   br label %1468
@@ -2986,13 +2989,13 @@ zend_string_release_ex.exit930:                   ; preds = %1412, %1416, %1421
 
 1442:                                             ; preds = %1437
   tail call void @_efree(ptr noundef nonnull %1433) #7
-  %.pre1145 = load ptr, ptr %1316, align 8, !tbaa !134
-  %.phi.trans.insert1146 = getelementptr inbounds nuw ptr, ptr %.pre1145, i64 %1321
-  %.pre1147 = load ptr, ptr %.phi.trans.insert1146, align 8, !tbaa !135
+  %.pre1147 = load ptr, ptr %1316, align 8, !tbaa !134
+  %.phi.trans.insert1148 = getelementptr inbounds nuw ptr, ptr %.pre1147, i64 %1321
+  %.pre1149 = load ptr, ptr %.phi.trans.insert1148, align 8, !tbaa !135
   br label %zend_string_release_ex.exit932
 
 zend_string_release_ex.exit932:                   ; preds = %1424, %1437, %1442
-  %1443 = phi ptr [ %1431, %1424 ], [ %1431, %1437 ], [ %.pre1147, %1442 ]
+  %1443 = phi ptr [ %1431, %1424 ], [ %1431, %1437 ], [ %.pre1149, %1442 ]
   %1444 = getelementptr inbounds nuw i8, ptr %1443, i64 8
   store ptr %1428, ptr %1444, align 8, !tbaa !140
   %1445 = getelementptr inbounds nuw i8, ptr %1428, i64 8
@@ -3002,15 +3005,15 @@ zend_string_release_ex.exit932:                   ; preds = %1424, %1437, %1442
 
 1447:                                             ; preds = %zend_string_release_ex.exit932
   %1448 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %1428) #7
-  %.pre1148 = load ptr, ptr %1316, align 8, !tbaa !134
-  %.phi.trans.insert1149 = getelementptr inbounds nuw ptr, ptr %.pre1148, i64 %1321
-  %.pre1150 = load ptr, ptr %.phi.trans.insert1149, align 8, !tbaa !135
-  %.phi.trans.insert1151 = getelementptr inbounds nuw i8, ptr %.pre1150, i64 8
-  %.pre1152 = load ptr, ptr %.phi.trans.insert1151, align 8, !tbaa !140
+  %.pre1150 = load ptr, ptr %1316, align 8, !tbaa !134
+  %.phi.trans.insert1151 = getelementptr inbounds nuw ptr, ptr %.pre1150, i64 %1321
+  %.pre1152 = load ptr, ptr %.phi.trans.insert1151, align 8, !tbaa !135
+  %.phi.trans.insert1153 = getelementptr inbounds nuw i8, ptr %.pre1152, i64 8
+  %.pre1154 = load ptr, ptr %.phi.trans.insert1153, align 8, !tbaa !140
   br label %zend_string_hash_val.exit973
 
 zend_string_hash_val.exit973:                     ; preds = %zend_string_release_ex.exit932, %1447
-  %1449 = phi ptr [ %1428, %zend_string_release_ex.exit932 ], [ %.pre1152, %1447 ]
+  %1449 = phi ptr [ %1428, %zend_string_release_ex.exit932 ], [ %.pre1154, %1447 ]
   store i32 2, ptr %1449, align 4, !tbaa !17
   %1450 = getelementptr inbounds nuw i8, ptr %1449, i64 4
   %1451 = load i32, ptr %1450, align 4, !tbaa !16
@@ -3033,11 +3036,11 @@ zend_string_hash_val.exit973:                     ; preds = %zend_string_release
 1461:                                             ; preds = %1457, %zend_string_hash_val.exit973
   store i32 86, ptr %1450, align 4, !tbaa !16
   %1462 = or disjoint i32 %1452, 86
-  %.pre1153 = load ptr, ptr %1316, align 8, !tbaa !134
-  %.phi.trans.insert1154 = getelementptr inbounds nuw ptr, ptr %.pre1153, i64 %1321
-  %.pre1155 = load ptr, ptr %.phi.trans.insert1154, align 8, !tbaa !135
-  %.phi.trans.insert1156 = getelementptr inbounds nuw i8, ptr %.pre1155, i64 8
-  %.pre1157 = load ptr, ptr %.phi.trans.insert1156, align 8, !tbaa !140
+  %.pre1155 = load ptr, ptr %1316, align 8, !tbaa !134
+  %.phi.trans.insert1156 = getelementptr inbounds nuw ptr, ptr %.pre1155, i64 %1321
+  %.pre1157 = load ptr, ptr %.phi.trans.insert1156, align 8, !tbaa !135
+  %.phi.trans.insert1158 = getelementptr inbounds nuw i8, ptr %.pre1157, i64 8
+  %.pre1159 = load ptr, ptr %.phi.trans.insert1158, align 8, !tbaa !140
   br label %1465
 
 1463:                                             ; preds = %1457, %1455
@@ -3045,17 +3048,17 @@ zend_string_hash_val.exit973:                     ; preds = %zend_string_release
   br label %1465
 
 1465:                                             ; preds = %1463, %1461
-  %1466 = phi ptr [ %.pre1157, %1461 ], [ %1449, %1463 ]
+  %1466 = phi ptr [ %.pre1159, %1461 ], [ %1449, %1463 ]
   %.0683 = phi i32 [ %1462, %1461 ], [ %1464, %1463 ]
   %1467 = getelementptr inbounds nuw i8, ptr %1466, i64 4
   store i32 %.0683, ptr %1467, align 4, !tbaa !16
-  %.pre1158 = load ptr, ptr %1316, align 8, !tbaa !134
-  %.phi.trans.insert1159 = getelementptr inbounds nuw ptr, ptr %.pre1158, i64 %1321
-  %.pre1160 = load ptr, ptr %.phi.trans.insert1159, align 8, !tbaa !135
+  %.pre1160 = load ptr, ptr %1316, align 8, !tbaa !134
+  %.phi.trans.insert1161 = getelementptr inbounds nuw ptr, ptr %.pre1160, i64 %1321
+  %.pre1162 = load ptr, ptr %.phi.trans.insert1161, align 8, !tbaa !135
   br label %1468
 
 1468:                                             ; preds = %zend_string_release_ex.exit930, %1465, %1401, %1391
-  %1469 = phi ptr [ %1422, %zend_string_release_ex.exit930 ], [ %.pre1160, %1465 ], [ %1394, %1401 ], [ %1394, %1391 ]
+  %1469 = phi ptr [ %1422, %zend_string_release_ex.exit930 ], [ %.pre1162, %1465 ], [ %1394, %1401 ], [ %1394, %1391 ]
   %1470 = getelementptr inbounds nuw i8, ptr %1469, i64 16
   %1471 = load ptr, ptr %1470, align 8, !tbaa !141
   %.not852 = icmp eq ptr %1471, null
@@ -3102,13 +3105,13 @@ zend_string_hash_val.exit973:                     ; preds = %zend_string_release
 
 1496:                                             ; preds = %1491
   tail call void @_efree(ptr noundef nonnull %1486) #7
-  %.pre1161 = load ptr, ptr %1316, align 8, !tbaa !134
-  %.phi.trans.insert1162 = getelementptr inbounds nuw ptr, ptr %.pre1161, i64 %1321
-  %.pre1163 = load ptr, ptr %.phi.trans.insert1162, align 8, !tbaa !135
+  %.pre1163 = load ptr, ptr %1316, align 8, !tbaa !134
+  %.phi.trans.insert1164 = getelementptr inbounds nuw ptr, ptr %.pre1163, i64 %1321
+  %.pre1165 = load ptr, ptr %.phi.trans.insert1164, align 8, !tbaa !135
   br label %zend_string_release_ex.exit934
 
 zend_string_release_ex.exit934:                   ; preds = %1487, %1491, %1496
-  %1497 = phi ptr [ %1484, %1487 ], [ %1484, %1491 ], [ %.pre1163, %1496 ]
+  %1497 = phi ptr [ %1484, %1487 ], [ %1484, %1491 ], [ %.pre1165, %1496 ]
   %1498 = getelementptr inbounds nuw i8, ptr %1497, i64 16
   store ptr %1481, ptr %1498, align 8, !tbaa !141
   br label %1543
@@ -3140,13 +3143,13 @@ zend_string_release_ex.exit934:                   ; preds = %1487, %1491, %1496
 
 1517:                                             ; preds = %1512
   tail call void @_efree(ptr noundef nonnull %1508) #7
-  %.pre1164 = load ptr, ptr %1316, align 8, !tbaa !134
-  %.phi.trans.insert1165 = getelementptr inbounds nuw ptr, ptr %.pre1164, i64 %1321
-  %.pre1166 = load ptr, ptr %.phi.trans.insert1165, align 8, !tbaa !135
+  %.pre1166 = load ptr, ptr %1316, align 8, !tbaa !134
+  %.phi.trans.insert1167 = getelementptr inbounds nuw ptr, ptr %.pre1166, i64 %1321
+  %.pre1168 = load ptr, ptr %.phi.trans.insert1167, align 8, !tbaa !135
   br label %zend_string_release_ex.exit936
 
 zend_string_release_ex.exit936:                   ; preds = %1499, %1512, %1517
-  %1518 = phi ptr [ %1506, %1499 ], [ %1506, %1512 ], [ %.pre1166, %1517 ]
+  %1518 = phi ptr [ %1506, %1499 ], [ %1506, %1512 ], [ %.pre1168, %1517 ]
   %1519 = getelementptr inbounds nuw i8, ptr %1518, i64 16
   store ptr %1503, ptr %1519, align 8, !tbaa !141
   %1520 = getelementptr inbounds nuw i8, ptr %1503, i64 8
@@ -3156,15 +3159,15 @@ zend_string_release_ex.exit936:                   ; preds = %1499, %1512, %1517
 
 1522:                                             ; preds = %zend_string_release_ex.exit936
   %1523 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %1503) #7
-  %.pre1167 = load ptr, ptr %1316, align 8, !tbaa !134
-  %.phi.trans.insert1168 = getelementptr inbounds nuw ptr, ptr %.pre1167, i64 %1321
-  %.pre1169 = load ptr, ptr %.phi.trans.insert1168, align 8, !tbaa !135
-  %.phi.trans.insert1170 = getelementptr inbounds nuw i8, ptr %.pre1169, i64 16
-  %.pre1171 = load ptr, ptr %.phi.trans.insert1170, align 8, !tbaa !141
+  %.pre1169 = load ptr, ptr %1316, align 8, !tbaa !134
+  %.phi.trans.insert1170 = getelementptr inbounds nuw ptr, ptr %.pre1169, i64 %1321
+  %.pre1171 = load ptr, ptr %.phi.trans.insert1170, align 8, !tbaa !135
+  %.phi.trans.insert1172 = getelementptr inbounds nuw i8, ptr %.pre1171, i64 16
+  %.pre1173 = load ptr, ptr %.phi.trans.insert1172, align 8, !tbaa !141
   br label %zend_string_hash_val.exit975
 
 zend_string_hash_val.exit975:                     ; preds = %zend_string_release_ex.exit936, %1522
-  %1524 = phi ptr [ %1503, %zend_string_release_ex.exit936 ], [ %.pre1171, %1522 ]
+  %1524 = phi ptr [ %1503, %zend_string_release_ex.exit936 ], [ %.pre1173, %1522 ]
   store i32 2, ptr %1524, align 4, !tbaa !17
   %1525 = getelementptr inbounds nuw i8, ptr %1524, i64 4
   %1526 = load i32, ptr %1525, align 4, !tbaa !16
@@ -3187,11 +3190,11 @@ zend_string_hash_val.exit975:                     ; preds = %zend_string_release
 1536:                                             ; preds = %1532, %zend_string_hash_val.exit975
   store i32 86, ptr %1525, align 4, !tbaa !16
   %1537 = or disjoint i32 %1527, 86
-  %.pre1172 = load ptr, ptr %1316, align 8, !tbaa !134
-  %.phi.trans.insert1173 = getelementptr inbounds nuw ptr, ptr %.pre1172, i64 %1321
-  %.pre1174 = load ptr, ptr %.phi.trans.insert1173, align 8, !tbaa !135
-  %.phi.trans.insert1175 = getelementptr inbounds nuw i8, ptr %.pre1174, i64 16
-  %.pre1176 = load ptr, ptr %.phi.trans.insert1175, align 8, !tbaa !141
+  %.pre1174 = load ptr, ptr %1316, align 8, !tbaa !134
+  %.phi.trans.insert1175 = getelementptr inbounds nuw ptr, ptr %.pre1174, i64 %1321
+  %.pre1176 = load ptr, ptr %.phi.trans.insert1175, align 8, !tbaa !135
+  %.phi.trans.insert1177 = getelementptr inbounds nuw i8, ptr %.pre1176, i64 16
+  %.pre1178 = load ptr, ptr %.phi.trans.insert1177, align 8, !tbaa !141
   br label %1540
 
 1538:                                             ; preds = %1532, %1530
@@ -3199,17 +3202,17 @@ zend_string_hash_val.exit975:                     ; preds = %zend_string_release
   br label %1540
 
 1540:                                             ; preds = %1538, %1536
-  %1541 = phi ptr [ %.pre1176, %1536 ], [ %1524, %1538 ]
+  %1541 = phi ptr [ %.pre1178, %1536 ], [ %1524, %1538 ]
   %.0682 = phi i32 [ %1537, %1536 ], [ %1539, %1538 ]
   %1542 = getelementptr inbounds nuw i8, ptr %1541, i64 4
   store i32 %.0682, ptr %1542, align 4, !tbaa !16
-  %.pre1177 = load ptr, ptr %1316, align 8, !tbaa !134
-  %.phi.trans.insert1178 = getelementptr inbounds nuw ptr, ptr %.pre1177, i64 %1321
-  %.pre1179 = load ptr, ptr %.phi.trans.insert1178, align 8, !tbaa !135
+  %.pre1179 = load ptr, ptr %1316, align 8, !tbaa !134
+  %.phi.trans.insert1180 = getelementptr inbounds nuw ptr, ptr %.pre1179, i64 %1321
+  %.pre1181 = load ptr, ptr %.phi.trans.insert1180, align 8, !tbaa !135
   br label %1543
 
 1543:                                             ; preds = %zend_string_release_ex.exit934, %1540, %1476, %1468
-  %1544 = phi ptr [ %1497, %zend_string_release_ex.exit934 ], [ %.pre1179, %1540 ], [ %1469, %1476 ], [ %1469, %1468 ]
+  %1544 = phi ptr [ %1497, %zend_string_release_ex.exit934 ], [ %.pre1181, %1540 ], [ %1469, %1476 ], [ %1469, %1468 ]
   %1545 = tail call ptr @zend_shared_memdup_free(ptr noundef %1544, i64 noundef 32) #7
   %1546 = load ptr, ptr %1316, align 8, !tbaa !134
   %1547 = getelementptr inbounds nuw ptr, ptr %1546, i64 %1321
@@ -3290,14 +3293,14 @@ zend_string_hash_val.exit975:                     ; preds = %zend_string_release
 
 1586:                                             ; preds = %1581
   tail call void @_efree(ptr noundef nonnull %1576) #7
-  %.pre1180 = load ptr, ptr %1557, align 8, !tbaa !142
-  %.phi.trans.insert1181 = getelementptr inbounds nuw ptr, ptr %.pre1180, i64 %1562
-  %.pre1182 = load ptr, ptr %.phi.trans.insert1181, align 8, !tbaa !143
+  %.pre1182 = load ptr, ptr %1557, align 8, !tbaa !142
+  %.phi.trans.insert1183 = getelementptr inbounds nuw ptr, ptr %.pre1182, i64 %1562
+  %.pre1184 = load ptr, ptr %.phi.trans.insert1183, align 8, !tbaa !143
   br label %zend_string_release_ex.exit938
 
 zend_string_release_ex.exit938:                   ; preds = %1577, %1581, %1586
-  %1587 = phi ptr [ %1575, %1577 ], [ %1575, %1581 ], [ %.pre1182, %1586 ]
-  %1588 = phi ptr [ %1573, %1577 ], [ %1573, %1581 ], [ %.pre1180, %1586 ]
+  %1587 = phi ptr [ %1575, %1577 ], [ %1575, %1581 ], [ %.pre1184, %1586 ]
+  %1588 = phi ptr [ %1573, %1577 ], [ %1573, %1581 ], [ %.pre1182, %1586 ]
   store ptr %1572, ptr %1587, align 8, !tbaa !145
   br label %1631
 
@@ -3327,13 +3330,13 @@ zend_string_release_ex.exit938:                   ; preds = %1577, %1581, %1586
 
 1606:                                             ; preds = %1601
   tail call void @_efree(ptr noundef nonnull %1597) #7
-  %.pre1183 = load ptr, ptr %1557, align 8, !tbaa !142
-  %.phi.trans.insert1184 = getelementptr inbounds nuw ptr, ptr %.pre1183, i64 %1562
-  %.pre1185 = load ptr, ptr %.phi.trans.insert1184, align 8, !tbaa !143
+  %.pre1185 = load ptr, ptr %1557, align 8, !tbaa !142
+  %.phi.trans.insert1186 = getelementptr inbounds nuw ptr, ptr %.pre1185, i64 %1562
+  %.pre1187 = load ptr, ptr %.phi.trans.insert1186, align 8, !tbaa !143
   br label %zend_string_release_ex.exit940
 
 zend_string_release_ex.exit940:                   ; preds = %1589, %1601, %1606
-  %1607 = phi ptr [ %1596, %1589 ], [ %1596, %1601 ], [ %.pre1185, %1606 ]
+  %1607 = phi ptr [ %1596, %1589 ], [ %1596, %1601 ], [ %.pre1187, %1606 ]
   store ptr %1593, ptr %1607, align 8, !tbaa !145
   %1608 = getelementptr inbounds nuw i8, ptr %1593, i64 8
   %1609 = load i64, ptr %1608, align 8, !tbaa !88
@@ -3342,14 +3345,14 @@ zend_string_release_ex.exit940:                   ; preds = %1589, %1601, %1606
 
 1610:                                             ; preds = %zend_string_release_ex.exit940
   %1611 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %1593) #7
-  %.pre1186 = load ptr, ptr %1557, align 8, !tbaa !142
-  %.phi.trans.insert1187 = getelementptr inbounds nuw ptr, ptr %.pre1186, i64 %1562
-  %.pre1188 = load ptr, ptr %.phi.trans.insert1187, align 8, !tbaa !143
-  %.pre1189 = load ptr, ptr %.pre1188, align 8, !tbaa !145
+  %.pre1188 = load ptr, ptr %1557, align 8, !tbaa !142
+  %.phi.trans.insert1189 = getelementptr inbounds nuw ptr, ptr %.pre1188, i64 %1562
+  %.pre1190 = load ptr, ptr %.phi.trans.insert1189, align 8, !tbaa !143
+  %.pre1191 = load ptr, ptr %.pre1190, align 8, !tbaa !145
   br label %zend_string_hash_val.exit977
 
 zend_string_hash_val.exit977:                     ; preds = %zend_string_release_ex.exit940, %1610
-  %1612 = phi ptr [ %1593, %zend_string_release_ex.exit940 ], [ %.pre1189, %1610 ]
+  %1612 = phi ptr [ %1593, %zend_string_release_ex.exit940 ], [ %.pre1191, %1610 ]
   store i32 2, ptr %1612, align 4, !tbaa !17
   %1613 = getelementptr inbounds nuw i8, ptr %1612, i64 4
   %1614 = load i32, ptr %1613, align 4, !tbaa !16
@@ -3372,10 +3375,10 @@ zend_string_hash_val.exit977:                     ; preds = %zend_string_release
 1624:                                             ; preds = %1620, %zend_string_hash_val.exit977
   store i32 86, ptr %1613, align 4, !tbaa !16
   %1625 = or disjoint i32 %1615, 86
-  %.pre1190 = load ptr, ptr %1557, align 8, !tbaa !142
-  %.phi.trans.insert1191 = getelementptr inbounds nuw ptr, ptr %.pre1190, i64 %1562
-  %.pre1192 = load ptr, ptr %.phi.trans.insert1191, align 8, !tbaa !143
-  %.pre1193 = load ptr, ptr %.pre1192, align 8, !tbaa !145
+  %.pre1192 = load ptr, ptr %1557, align 8, !tbaa !142
+  %.phi.trans.insert1193 = getelementptr inbounds nuw ptr, ptr %.pre1192, i64 %1562
+  %.pre1194 = load ptr, ptr %.phi.trans.insert1193, align 8, !tbaa !143
+  %.pre1195 = load ptr, ptr %.pre1194, align 8, !tbaa !145
   br label %1628
 
 1626:                                             ; preds = %1620, %1618
@@ -3383,15 +3386,15 @@ zend_string_hash_val.exit977:                     ; preds = %zend_string_release
   br label %1628
 
 1628:                                             ; preds = %1626, %1624
-  %1629 = phi ptr [ %.pre1193, %1624 ], [ %1612, %1626 ]
+  %1629 = phi ptr [ %.pre1195, %1624 ], [ %1612, %1626 ]
   %.0680 = phi i32 [ %1625, %1624 ], [ %1627, %1626 ]
   %1630 = getelementptr inbounds nuw i8, ptr %1629, i64 4
   store i32 %.0680, ptr %1630, align 4, !tbaa !16
-  %.pre1194 = load ptr, ptr %1557, align 8, !tbaa !142
+  %.pre1196 = load ptr, ptr %1557, align 8, !tbaa !142
   br label %1631
 
 1631:                                             ; preds = %zend_string_release_ex.exit938, %1628, %1567
-  %1632 = phi ptr [ %1588, %zend_string_release_ex.exit938 ], [ %.pre1194, %1628 ], [ %1560, %1567 ]
+  %1632 = phi ptr [ %1588, %zend_string_release_ex.exit938 ], [ %.pre1196, %1628 ], [ %1560, %1567 ]
   %1633 = getelementptr inbounds nuw ptr, ptr %1632, i64 %1562
   %1634 = load ptr, ptr %1633, align 8, !tbaa !143
   %1635 = getelementptr inbounds nuw i8, ptr %1634, i64 8
@@ -3436,14 +3439,14 @@ zend_string_hash_val.exit977:                     ; preds = %zend_string_release
 
 1660:                                             ; preds = %1655
   tail call void @_efree(ptr noundef nonnull %1650) #7
-  %.pre1195 = load ptr, ptr %1557, align 8, !tbaa !142
-  %.phi.trans.insert1196 = getelementptr inbounds nuw ptr, ptr %.pre1195, i64 %1562
-  %.pre1197 = load ptr, ptr %.phi.trans.insert1196, align 8, !tbaa !143
+  %.pre1197 = load ptr, ptr %1557, align 8, !tbaa !142
+  %.phi.trans.insert1198 = getelementptr inbounds nuw ptr, ptr %.pre1197, i64 %1562
+  %.pre1199 = load ptr, ptr %.phi.trans.insert1198, align 8, !tbaa !143
   br label %zend_string_release_ex.exit942
 
 zend_string_release_ex.exit942:                   ; preds = %1651, %1655, %1660
-  %1661 = phi ptr [ %1648, %1651 ], [ %1648, %1655 ], [ %.pre1197, %1660 ]
-  %1662 = phi ptr [ %1646, %1651 ], [ %1646, %1655 ], [ %.pre1195, %1660 ]
+  %1661 = phi ptr [ %1648, %1651 ], [ %1648, %1655 ], [ %.pre1199, %1660 ]
+  %1662 = phi ptr [ %1646, %1651 ], [ %1646, %1655 ], [ %.pre1197, %1660 ]
   %1663 = getelementptr inbounds nuw i8, ptr %1661, i64 8
   store ptr %1645, ptr %1663, align 8, !tbaa !147
   br label %1708
@@ -3475,13 +3478,13 @@ zend_string_release_ex.exit942:                   ; preds = %1651, %1655, %1660
 
 1682:                                             ; preds = %1677
   tail call void @_efree(ptr noundef nonnull %1673) #7
-  %.pre1198 = load ptr, ptr %1557, align 8, !tbaa !142
-  %.phi.trans.insert1199 = getelementptr inbounds nuw ptr, ptr %.pre1198, i64 %1562
-  %.pre1200 = load ptr, ptr %.phi.trans.insert1199, align 8, !tbaa !143
+  %.pre1200 = load ptr, ptr %1557, align 8, !tbaa !142
+  %.phi.trans.insert1201 = getelementptr inbounds nuw ptr, ptr %.pre1200, i64 %1562
+  %.pre1202 = load ptr, ptr %.phi.trans.insert1201, align 8, !tbaa !143
   br label %zend_string_release_ex.exit944
 
 zend_string_release_ex.exit944:                   ; preds = %1664, %1677, %1682
-  %1683 = phi ptr [ %1671, %1664 ], [ %1671, %1677 ], [ %.pre1200, %1682 ]
+  %1683 = phi ptr [ %1671, %1664 ], [ %1671, %1677 ], [ %.pre1202, %1682 ]
   %1684 = getelementptr inbounds nuw i8, ptr %1683, i64 8
   store ptr %1668, ptr %1684, align 8, !tbaa !147
   %1685 = getelementptr inbounds nuw i8, ptr %1668, i64 8
@@ -3491,15 +3494,15 @@ zend_string_release_ex.exit944:                   ; preds = %1664, %1677, %1682
 
 1687:                                             ; preds = %zend_string_release_ex.exit944
   %1688 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %1668) #7
-  %.pre1201 = load ptr, ptr %1557, align 8, !tbaa !142
-  %.phi.trans.insert1202 = getelementptr inbounds nuw ptr, ptr %.pre1201, i64 %1562
-  %.pre1203 = load ptr, ptr %.phi.trans.insert1202, align 8, !tbaa !143
-  %.phi.trans.insert1204 = getelementptr inbounds nuw i8, ptr %.pre1203, i64 8
-  %.pre1205 = load ptr, ptr %.phi.trans.insert1204, align 8, !tbaa !147
+  %.pre1203 = load ptr, ptr %1557, align 8, !tbaa !142
+  %.phi.trans.insert1204 = getelementptr inbounds nuw ptr, ptr %.pre1203, i64 %1562
+  %.pre1205 = load ptr, ptr %.phi.trans.insert1204, align 8, !tbaa !143
+  %.phi.trans.insert1206 = getelementptr inbounds nuw i8, ptr %.pre1205, i64 8
+  %.pre1207 = load ptr, ptr %.phi.trans.insert1206, align 8, !tbaa !147
   br label %zend_string_hash_val.exit979
 
 zend_string_hash_val.exit979:                     ; preds = %zend_string_release_ex.exit944, %1687
-  %1689 = phi ptr [ %1668, %zend_string_release_ex.exit944 ], [ %.pre1205, %1687 ]
+  %1689 = phi ptr [ %1668, %zend_string_release_ex.exit944 ], [ %.pre1207, %1687 ]
   store i32 2, ptr %1689, align 4, !tbaa !17
   %1690 = getelementptr inbounds nuw i8, ptr %1689, i64 4
   %1691 = load i32, ptr %1690, align 4, !tbaa !16
@@ -3522,11 +3525,11 @@ zend_string_hash_val.exit979:                     ; preds = %zend_string_release
 1701:                                             ; preds = %1697, %zend_string_hash_val.exit979
   store i32 86, ptr %1690, align 4, !tbaa !16
   %1702 = or disjoint i32 %1692, 86
-  %.pre1206 = load ptr, ptr %1557, align 8, !tbaa !142
-  %.phi.trans.insert1207 = getelementptr inbounds nuw ptr, ptr %.pre1206, i64 %1562
-  %.pre1208 = load ptr, ptr %.phi.trans.insert1207, align 8, !tbaa !143
-  %.phi.trans.insert1209 = getelementptr inbounds nuw i8, ptr %.pre1208, i64 8
-  %.pre1210 = load ptr, ptr %.phi.trans.insert1209, align 8, !tbaa !147
+  %.pre1208 = load ptr, ptr %1557, align 8, !tbaa !142
+  %.phi.trans.insert1209 = getelementptr inbounds nuw ptr, ptr %.pre1208, i64 %1562
+  %.pre1210 = load ptr, ptr %.phi.trans.insert1209, align 8, !tbaa !143
+  %.phi.trans.insert1211 = getelementptr inbounds nuw i8, ptr %.pre1210, i64 8
+  %.pre1212 = load ptr, ptr %.phi.trans.insert1211, align 8, !tbaa !147
   br label %1705
 
 1703:                                             ; preds = %1697, %1695
@@ -3534,29 +3537,29 @@ zend_string_hash_val.exit979:                     ; preds = %zend_string_release
   br label %1705
 
 1705:                                             ; preds = %1703, %1701
-  %1706 = phi ptr [ %.pre1210, %1701 ], [ %1689, %1703 ]
+  %1706 = phi ptr [ %.pre1212, %1701 ], [ %1689, %1703 ]
   %.0679 = phi i32 [ %1702, %1701 ], [ %1704, %1703 ]
   %1707 = getelementptr inbounds nuw i8, ptr %1706, i64 4
   store i32 %.0679, ptr %1707, align 4, !tbaa !16
-  %.pre1211 = load ptr, ptr %1557, align 8, !tbaa !142
-  %.phi.trans.insert1212 = getelementptr inbounds nuw ptr, ptr %.pre1211, i64 %1562
-  %.pre1213 = load ptr, ptr %.phi.trans.insert1212, align 8, !tbaa !143
+  %.pre1213 = load ptr, ptr %1557, align 8, !tbaa !142
+  %.phi.trans.insert1214 = getelementptr inbounds nuw ptr, ptr %.pre1213, i64 %1562
+  %.pre1215 = load ptr, ptr %.phi.trans.insert1214, align 8, !tbaa !143
   br label %1708
 
 1708:                                             ; preds = %zend_string_release_ex.exit942, %1705, %1640
-  %1709 = phi ptr [ %1661, %zend_string_release_ex.exit942 ], [ %.pre1213, %1705 ], [ %1634, %1640 ]
-  %1710 = phi ptr [ %1662, %zend_string_release_ex.exit942 ], [ %.pre1211, %1705 ], [ %1632, %1640 ]
+  %1709 = phi ptr [ %1661, %zend_string_release_ex.exit942 ], [ %.pre1215, %1705 ], [ %1634, %1640 ]
+  %1710 = phi ptr [ %1662, %zend_string_release_ex.exit942 ], [ %.pre1213, %1705 ], [ %1632, %1640 ]
   %1711 = getelementptr inbounds nuw i8, ptr %1709, i64 16
   %1712 = load i32, ptr %1711, align 8, !tbaa !148
-  %.not1054 = icmp eq i32 %1712, 0
-  br i1 %.not1054, label %._crit_edge1043, label %.lr.ph1042
+  %.not1056 = icmp eq i32 %1712, 0
+  br i1 %.not1056, label %._crit_edge1043, label %.lr.ph1042
 
 .lr.ph1042:                                       ; preds = %1708, %1793
   %1713 = phi ptr [ %1794, %1793 ], [ %1710, %1708 ]
-  %indvars.iv1077 = phi i64 [ %indvars.iv.next1078, %1793 ], [ 0, %1708 ]
+  %indvars.iv1079 = phi i64 [ %indvars.iv.next1080, %1793 ], [ 0, %1708 ]
   %1714 = phi ptr [ %1796, %1793 ], [ %1709, %1708 ]
   %1715 = getelementptr inbounds nuw i8, ptr %1714, i64 24
-  %1716 = getelementptr inbounds nuw [1 x ptr], ptr %1715, i64 0, i64 %indvars.iv1077
+  %1716 = getelementptr inbounds nuw [1 x ptr], ptr %1715, i64 0, i64 %indvars.iv1079
   %1717 = load ptr, ptr %1716, align 8, !tbaa !14
   %1718 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !78
   %1719 = getelementptr inbounds nuw i8, ptr %1718, i64 176
@@ -3577,7 +3580,7 @@ zend_string_hash_val.exit979:                     ; preds = %zend_string_release
   %1728 = getelementptr inbounds nuw ptr, ptr %1727, i64 %1562
   %1729 = load ptr, ptr %1728, align 8, !tbaa !143
   %1730 = getelementptr inbounds nuw i8, ptr %1729, i64 24
-  %1731 = getelementptr inbounds nuw [1 x ptr], ptr %1730, i64 0, i64 %indvars.iv1077
+  %1731 = getelementptr inbounds nuw [1 x ptr], ptr %1730, i64 0, i64 %indvars.iv1079
   %1732 = load ptr, ptr %1731, align 8, !tbaa !14
   br i1 %.not839, label %1747, label %1733
 
@@ -3599,16 +3602,16 @@ zend_string_hash_val.exit979:                     ; preds = %zend_string_release
 
 1742:                                             ; preds = %1737
   tail call void @_efree(ptr noundef nonnull %1732) #7
-  %.pre1214 = load ptr, ptr %1557, align 8, !tbaa !142
-  %.phi.trans.insert1215 = getelementptr inbounds nuw ptr, ptr %.pre1214, i64 %1562
-  %.pre1216 = load ptr, ptr %.phi.trans.insert1215, align 8, !tbaa !143
+  %.pre1216 = load ptr, ptr %1557, align 8, !tbaa !142
+  %.phi.trans.insert1217 = getelementptr inbounds nuw ptr, ptr %.pre1216, i64 %1562
+  %.pre1218 = load ptr, ptr %.phi.trans.insert1217, align 8, !tbaa !143
   br label %zend_string_release_ex.exit946
 
 zend_string_release_ex.exit946:                   ; preds = %1733, %1737, %1742
-  %1743 = phi ptr [ %1729, %1733 ], [ %1729, %1737 ], [ %.pre1216, %1742 ]
-  %1744 = phi ptr [ %1727, %1733 ], [ %1727, %1737 ], [ %.pre1214, %1742 ]
+  %1743 = phi ptr [ %1729, %1733 ], [ %1729, %1737 ], [ %.pre1218, %1742 ]
+  %1744 = phi ptr [ %1727, %1733 ], [ %1727, %1737 ], [ %.pre1216, %1742 ]
   %1745 = getelementptr inbounds nuw i8, ptr %1743, i64 24
-  %1746 = getelementptr inbounds nuw [1 x ptr], ptr %1745, i64 0, i64 %indvars.iv1077
+  %1746 = getelementptr inbounds nuw [1 x ptr], ptr %1745, i64 0, i64 %indvars.iv1079
   store ptr %1726, ptr %1746, align 8, !tbaa !14
   br label %1793
 
@@ -3621,7 +3624,7 @@ zend_string_release_ex.exit946:                   ; preds = %1733, %1737, %1742
   %1753 = getelementptr inbounds nuw ptr, ptr %1752, i64 %1562
   %1754 = load ptr, ptr %1753, align 8, !tbaa !143
   %1755 = getelementptr inbounds nuw i8, ptr %1754, i64 24
-  %1756 = getelementptr inbounds nuw [1 x ptr], ptr %1755, i64 0, i64 %indvars.iv1077
+  %1756 = getelementptr inbounds nuw [1 x ptr], ptr %1755, i64 0, i64 %indvars.iv1079
   %1757 = load ptr, ptr %1756, align 8, !tbaa !14
   %1758 = getelementptr inbounds nuw i8, ptr %1757, i64 4
   %1759 = load i32, ptr %1758, align 4, !tbaa !16
@@ -3640,15 +3643,15 @@ zend_string_release_ex.exit946:                   ; preds = %1733, %1737, %1742
 
 1766:                                             ; preds = %1761
   tail call void @_efree(ptr noundef nonnull %1757) #7
-  %.pre1217 = load ptr, ptr %1557, align 8, !tbaa !142
-  %.phi.trans.insert1218 = getelementptr inbounds nuw ptr, ptr %.pre1217, i64 %1562
-  %.pre1219 = load ptr, ptr %.phi.trans.insert1218, align 8, !tbaa !143
+  %.pre1219 = load ptr, ptr %1557, align 8, !tbaa !142
+  %.phi.trans.insert1220 = getelementptr inbounds nuw ptr, ptr %.pre1219, i64 %1562
+  %.pre1221 = load ptr, ptr %.phi.trans.insert1220, align 8, !tbaa !143
   br label %zend_string_release_ex.exit948
 
 zend_string_release_ex.exit948:                   ; preds = %1747, %1761, %1766
-  %1767 = phi ptr [ %1754, %1747 ], [ %1754, %1761 ], [ %.pre1219, %1766 ]
+  %1767 = phi ptr [ %1754, %1747 ], [ %1754, %1761 ], [ %.pre1221, %1766 ]
   %1768 = getelementptr inbounds nuw i8, ptr %1767, i64 24
-  %1769 = getelementptr inbounds nuw [1 x ptr], ptr %1768, i64 0, i64 %indvars.iv1077
+  %1769 = getelementptr inbounds nuw [1 x ptr], ptr %1768, i64 0, i64 %indvars.iv1079
   store ptr %1751, ptr %1769, align 8, !tbaa !14
   %1770 = getelementptr inbounds nuw i8, ptr %1751, i64 8
   %1771 = load i64, ptr %1770, align 8, !tbaa !88
@@ -3657,16 +3660,16 @@ zend_string_release_ex.exit948:                   ; preds = %1747, %1761, %1766
 
 1772:                                             ; preds = %zend_string_release_ex.exit948
   %1773 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %1751) #7
-  %.pre1220 = load ptr, ptr %1557, align 8, !tbaa !142
-  %.phi.trans.insert1221 = getelementptr inbounds nuw ptr, ptr %.pre1220, i64 %1562
-  %.pre1222 = load ptr, ptr %.phi.trans.insert1221, align 8, !tbaa !143
-  %.phi.trans.insert1223 = getelementptr inbounds nuw i8, ptr %.pre1222, i64 24
-  %.phi.trans.insert1224 = getelementptr inbounds nuw [1 x ptr], ptr %.phi.trans.insert1223, i64 0, i64 %indvars.iv1077
-  %.pre1225 = load ptr, ptr %.phi.trans.insert1224, align 8, !tbaa !14
+  %.pre1222 = load ptr, ptr %1557, align 8, !tbaa !142
+  %.phi.trans.insert1223 = getelementptr inbounds nuw ptr, ptr %.pre1222, i64 %1562
+  %.pre1224 = load ptr, ptr %.phi.trans.insert1223, align 8, !tbaa !143
+  %.phi.trans.insert1225 = getelementptr inbounds nuw i8, ptr %.pre1224, i64 24
+  %.phi.trans.insert1226 = getelementptr inbounds nuw [1 x ptr], ptr %.phi.trans.insert1225, i64 0, i64 %indvars.iv1079
+  %.pre1227 = load ptr, ptr %.phi.trans.insert1226, align 8, !tbaa !14
   br label %zend_string_hash_val.exit981
 
 zend_string_hash_val.exit981:                     ; preds = %zend_string_release_ex.exit948, %1772
-  %1774 = phi ptr [ %1751, %zend_string_release_ex.exit948 ], [ %.pre1225, %1772 ]
+  %1774 = phi ptr [ %1751, %zend_string_release_ex.exit948 ], [ %.pre1227, %1772 ]
   store i32 2, ptr %1774, align 4, !tbaa !17
   %1775 = getelementptr inbounds nuw i8, ptr %1774, i64 4
   %1776 = load i32, ptr %1775, align 4, !tbaa !16
@@ -3689,12 +3692,12 @@ zend_string_hash_val.exit981:                     ; preds = %zend_string_release
 1786:                                             ; preds = %1782, %zend_string_hash_val.exit981
   store i32 86, ptr %1775, align 4, !tbaa !16
   %1787 = or disjoint i32 %1777, 86
-  %.pre1226 = load ptr, ptr %1557, align 8, !tbaa !142
-  %.phi.trans.insert1227 = getelementptr inbounds nuw ptr, ptr %.pre1226, i64 %1562
-  %.pre1228 = load ptr, ptr %.phi.trans.insert1227, align 8, !tbaa !143
-  %.phi.trans.insert1229 = getelementptr inbounds nuw i8, ptr %.pre1228, i64 24
-  %.phi.trans.insert1230 = getelementptr inbounds nuw [1 x ptr], ptr %.phi.trans.insert1229, i64 0, i64 %indvars.iv1077
-  %.pre1231 = load ptr, ptr %.phi.trans.insert1230, align 8, !tbaa !14
+  %.pre1228 = load ptr, ptr %1557, align 8, !tbaa !142
+  %.phi.trans.insert1229 = getelementptr inbounds nuw ptr, ptr %.pre1228, i64 %1562
+  %.pre1230 = load ptr, ptr %.phi.trans.insert1229, align 8, !tbaa !143
+  %.phi.trans.insert1231 = getelementptr inbounds nuw i8, ptr %.pre1230, i64 24
+  %.phi.trans.insert1232 = getelementptr inbounds nuw [1 x ptr], ptr %.phi.trans.insert1231, i64 0, i64 %indvars.iv1079
+  %.pre1233 = load ptr, ptr %.phi.trans.insert1232, align 8, !tbaa !14
   br label %1790
 
 1788:                                             ; preds = %1782, %1780
@@ -3702,22 +3705,22 @@ zend_string_hash_val.exit981:                     ; preds = %zend_string_release
   br label %1790
 
 1790:                                             ; preds = %1788, %1786
-  %1791 = phi ptr [ %.pre1231, %1786 ], [ %1774, %1788 ]
+  %1791 = phi ptr [ %.pre1233, %1786 ], [ %1774, %1788 ]
   %.0 = phi i32 [ %1787, %1786 ], [ %1789, %1788 ]
   %1792 = getelementptr inbounds nuw i8, ptr %1791, i64 4
   store i32 %.0, ptr %1792, align 4, !tbaa !16
-  %.pre1232 = load ptr, ptr %1557, align 8, !tbaa !142
+  %.pre1234 = load ptr, ptr %1557, align 8, !tbaa !142
   br label %1793
 
 1793:                                             ; preds = %zend_string_release_ex.exit946, %1790, %1721
-  %1794 = phi ptr [ %1744, %zend_string_release_ex.exit946 ], [ %.pre1232, %1790 ], [ %1713, %1721 ]
-  %indvars.iv.next1078 = add nuw nsw i64 %indvars.iv1077, 1
+  %1794 = phi ptr [ %1744, %zend_string_release_ex.exit946 ], [ %.pre1234, %1790 ], [ %1713, %1721 ]
+  %indvars.iv.next1080 = add nuw nsw i64 %indvars.iv1079, 1
   %1795 = getelementptr inbounds nuw ptr, ptr %1794, i64 %1562
   %1796 = load ptr, ptr %1795, align 8, !tbaa !143
   %1797 = getelementptr inbounds nuw i8, ptr %1796, i64 16
   %1798 = load i32, ptr %1797, align 8, !tbaa !148
   %1799 = zext i32 %1798 to i64
-  %1800 = icmp samesign ult i64 %indvars.iv.next1078, %1799
+  %1800 = icmp samesign ult i64 %indvars.iv.next1080, %1799
   br i1 %1800, label %.lr.ph1042, label %._crit_edge1043.loopexit
 
 ._crit_edge1043.loopexit:                         ; preds = %1793
@@ -4330,11 +4333,11 @@ zend_string_release_ex.exit130:                   ; preds = %26, %35, %40
 
 43:                                               ; preds = %zend_string_release_ex.exit130
   %44 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %30) #7
-  %.pre145 = load ptr, ptr %0, align 8, !tbaa !16
+  %.pre146 = load ptr, ptr %0, align 8, !tbaa !16
   br label %zend_string_hash_val.exit135
 
 zend_string_hash_val.exit135:                     ; preds = %zend_string_release_ex.exit130, %43
-  %45 = phi ptr [ %30, %zend_string_release_ex.exit130 ], [ %.pre145, %43 ]
+  %45 = phi ptr [ %30, %zend_string_release_ex.exit130 ], [ %.pre146, %43 ]
   store i32 2, ptr %45, align 4, !tbaa !17
   %46 = load ptr, ptr %0, align 8, !tbaa !16
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
@@ -4358,7 +4361,7 @@ zend_string_hash_val.exit135:                     ; preds = %zend_string_release
 58:                                               ; preds = %54, %zend_string_hash_val.exit135
   store i32 86, ptr %47, align 4, !tbaa !16
   %59 = or disjoint i32 %49, 86
-  %.pre146 = load ptr, ptr %0, align 8, !tbaa !16
+  %.pre147 = load ptr, ptr %0, align 8, !tbaa !16
   br label %62
 
 60:                                               ; preds = %54, %52
@@ -4366,7 +4369,7 @@ zend_string_hash_val.exit135:                     ; preds = %zend_string_release
   br label %62
 
 62:                                               ; preds = %60, %58
-  %63 = phi ptr [ %.pre146, %58 ], [ %46, %60 ]
+  %63 = phi ptr [ %.pre147, %58 ], [ %46, %60 ]
   %.099 = phi i32 [ %59, %58 ], [ %61, %60 ]
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i32 %.099, ptr %64, align 4, !tbaa !16
@@ -4445,7 +4448,8 @@ zend_string_hash_val.exit135:                     ; preds = %zend_string_release
   br i1 %.not115, label %110, label %102
 
 102:                                              ; preds = %93
-  %103 = getelementptr inbounds nuw %struct._zval_struct, ptr %98, i64 %101
+  %.idx = shl nuw nsw i64 %101, 4
+  %103 = getelementptr inbounds nuw i8, ptr %98, i64 %.idx
   br i1 %.not116139, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %102, %108
@@ -4465,7 +4469,8 @@ zend_string_hash_val.exit135:                     ; preds = %zend_string_release
   br i1 %.not122, label %.loopexit, label %.lr.ph
 
 110:                                              ; preds = %93
-  %111 = getelementptr inbounds nuw %struct._Bucket, ptr %98, i64 %101
+  %.idx142 = shl nuw nsw i64 %101, 5
+  %111 = getelementptr inbounds nuw i8, ptr %98, i64 %.idx142
   br i1 %.not116139, label %.loopexit, label %.lr.ph141
 
 .lr.ph141:                                        ; preds = %110, %178
@@ -4558,11 +4563,11 @@ zend_string_release_ex.exit:                      ; preds = %139, %148, %153
 
 156:                                              ; preds = %zend_string_release_ex.exit
   %157 = tail call i64 @zend_string_hash_func(ptr noundef nonnull %143) #7
-  %.pre143 = load ptr, ptr %116, align 8, !tbaa !91
+  %.pre144 = load ptr, ptr %116, align 8, !tbaa !91
   br label %zend_string_hash_val.exit
 
 zend_string_hash_val.exit:                        ; preds = %zend_string_release_ex.exit, %156
-  %158 = phi ptr [ %143, %zend_string_release_ex.exit ], [ %.pre143, %156 ]
+  %158 = phi ptr [ %143, %zend_string_release_ex.exit ], [ %.pre144, %156 ]
   store i32 2, ptr %158, align 4, !tbaa !17
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %160 = load i32, ptr %159, align 4, !tbaa !16
@@ -4585,7 +4590,7 @@ zend_string_hash_val.exit:                        ; preds = %zend_string_release
 170:                                              ; preds = %166, %zend_string_hash_val.exit
   store i32 86, ptr %159, align 4, !tbaa !16
   %171 = or disjoint i32 %161, 86
-  %.pre144 = load ptr, ptr %116, align 8, !tbaa !91
+  %.pre145 = load ptr, ptr %116, align 8, !tbaa !91
   br label %174
 
 172:                                              ; preds = %166, %164
@@ -4593,7 +4598,7 @@ zend_string_hash_val.exit:                        ; preds = %zend_string_release
   br label %174
 
 174:                                              ; preds = %172, %170
-  %175 = phi ptr [ %.pre144, %170 ], [ %158, %172 ]
+  %175 = phi ptr [ %.pre145, %170 ], [ %158, %172 ]
   %.0 = phi i32 [ %171, %170 ], [ %173, %172 ]
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 4
   store i32 %.0, ptr %176, align 4, !tbaa !16
@@ -4693,7 +4698,8 @@ define internal fastcc ptr @zend_persist_attributes(ptr noundef nonnull %0) unna
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !90
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %struct._zval_struct, ptr %12, i64 %15
+  %.idx = shl nuw nsw i64 %15, 4
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !16
   %19 = and i32 %18, 4
@@ -6073,7 +6079,8 @@ zend_string_hash_val.exit112:                     ; preds = %zend_string_release
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 344
   %91 = load i32, ptr %90, align 8, !tbaa !90
   %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw %struct._Bucket, ptr %89, i64 %92
+  %.idx.i = shl nuw nsw i64 %92, 5
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx.i
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 328
   %95 = load i32, ptr %94, align 8, !tbaa !16
   %96 = and i32 %95, 4
@@ -6195,7 +6202,7 @@ zend_string_hash_val.exit.i:                      ; preds = %140, %zend_string_r
 154:                                              ; preds = %150, %zend_string_hash_val.exit.i
   store i32 86, ptr %143, align 4, !tbaa !16
   %155 = or disjoint i32 %145, 86
-  %.pre201.i = load ptr, ptr %101, align 8, !tbaa !91
+  %.pre206.i = load ptr, ptr %101, align 8, !tbaa !91
   br label %158
 
 156:                                              ; preds = %150, %148
@@ -6203,7 +6210,7 @@ zend_string_hash_val.exit.i:                      ; preds = %140, %zend_string_r
   br label %158
 
 158:                                              ; preds = %156, %154
-  %159 = phi ptr [ %.pre201.i, %154 ], [ %142, %156 ]
+  %159 = phi ptr [ %.pre206.i, %154 ], [ %142, %156 ]
   %.0130.i = phi i32 [ %155, %154 ], [ %157, %156 ]
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 4
   store i32 %.0130.i, ptr %160, align 4, !tbaa !16
@@ -6221,19 +6228,20 @@ zend_string_hash_val.exit.i:                      ; preds = %140, %zend_string_r
   br i1 %.not140.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %164
-  %.pre202.i = load ptr, ptr %88, align 8, !tbaa !16
-  %.pre203.i = load i32, ptr %90, align 8, !tbaa !90
-  %.pre204.i = load i32, ptr %94, align 8, !tbaa !16
-  %166 = zext i32 %.pre203.i to i64
-  %167 = getelementptr inbounds nuw %struct._Bucket, ptr %.pre202.i, i64 %166
-  %168 = and i32 %.pre204.i, 4
+  %.pre207.i = load ptr, ptr %88, align 8, !tbaa !16
+  %.pre208.i = load i32, ptr %90, align 8, !tbaa !90
+  %.pre209.i = load i32, ptr %94, align 8, !tbaa !16
+  %166 = zext i32 %.pre208.i to i64
+  %.idx199.i = shl nuw nsw i64 %166, 5
+  %167 = getelementptr inbounds nuw i8, ptr %.pre207.i, i64 %.idx199.i
+  %168 = and i32 %.pre209.i, 4
   %.not141.i = icmp eq i32 %168, 0
   tail call void @llvm.assume(i1 %.not141.i)
-  %.not142174.i = icmp eq i32 %.pre203.i, 0
+  %.not142174.i = icmp eq i32 %.pre208.i, 0
   br i1 %.not142174.i, label %._crit_edge178.i, label %.lr.ph177.i
 
 .lr.ph177.i:                                      ; preds = %._crit_edge.i, %173
-  %.0131175.i = phi ptr [ %174, %173 ], [ %.pre202.i, %._crit_edge.i ]
+  %.0131175.i = phi ptr [ %174, %173 ], [ %.pre207.i, %._crit_edge.i ]
   %169 = getelementptr inbounds nuw i8, ptr %.0131175.i, i64 8
   %170 = load i8, ptr %169, align 8, !tbaa !16
   switch i8 %170, label %171 [
@@ -6269,7 +6277,8 @@ zend_string_hash_val.exit.i:                      ; preds = %140, %zend_string_r
   %183 = load ptr, ptr %88, align 8, !tbaa !16
   %184 = load i32, ptr %90, align 8, !tbaa !90
   %185 = zext i32 %184 to i64
-  %186 = getelementptr inbounds nuw %struct._Bucket, ptr %183, i64 %185
+  %.idx200.i = shl nuw nsw i64 %185, 5
+  %186 = getelementptr inbounds nuw i8, ptr %183, i64 %.idx200.i
   %187 = load i32, ptr %94, align 8, !tbaa !16
   %188 = and i32 %187, 4
   %.not143.i = icmp eq i32 %188, 0
@@ -6293,7 +6302,8 @@ zend_string_hash_val.exit.i:                      ; preds = %140, %zend_string_r
   %195 = getelementptr inbounds nuw i8, ptr %192, i64 88
   %196 = load i32, ptr %195, align 8, !tbaa !90
   %197 = zext i32 %196 to i64
-  %198 = getelementptr inbounds nuw %struct._Bucket, ptr %194, i64 %197
+  %.idx201.i = shl nuw nsw i64 %197, 5
+  %198 = getelementptr inbounds nuw i8, ptr %194, i64 %.idx201.i
   %199 = getelementptr inbounds nuw i8, ptr %192, i64 72
   %200 = load i32, ptr %199, align 8, !tbaa !16
   %201 = and i32 %200, 4
@@ -6333,8 +6343,8 @@ zend_string_hash_val.exit.i:                      ; preds = %140, %zend_string_r
   %219 = tail call i32 @zend_jit_op_array(ptr noundef nonnull %206, ptr noundef %218) #7
   %220 = getelementptr inbounds nuw i8, ptr %206, i64 188
   %221 = load i32, ptr %220, align 4, !tbaa !202
-  %.not199.i = icmp eq i32 %221, 0
-  br i1 %.not199.i, label %.loopexit170.i, label %.lr.ph181.i
+  %.not202.i = icmp eq i32 %221, 0
+  br i1 %.not202.i, label %.loopexit170.i, label %.lr.ph181.i
 
 .lr.ph181.i:                                      ; preds = %217
   %222 = getelementptr inbounds nuw i8, ptr %206, i64 200
@@ -6364,19 +6374,20 @@ zend_string_hash_val.exit.i:                      ; preds = %140, %zend_string_r
   br i1 %.not144.i, label %._crit_edge190.i, label %.lr.ph189.i
 
 ._crit_edge190.i:                                 ; preds = %.loopexit171.i
-  %.pre205.i = load ptr, ptr %88, align 8, !tbaa !16
-  %.pre206.i = load i32, ptr %90, align 8, !tbaa !90
-  %.pre207.i = load i32, ptr %94, align 8, !tbaa !16
-  %234 = zext i32 %.pre206.i to i64
-  %235 = getelementptr inbounds nuw %struct._Bucket, ptr %.pre205.i, i64 %234
-  %236 = and i32 %.pre207.i, 4
+  %.pre210.i = load ptr, ptr %88, align 8, !tbaa !16
+  %.pre211.i = load i32, ptr %90, align 8, !tbaa !90
+  %.pre212.i = load i32, ptr %94, align 8, !tbaa !16
+  %234 = zext i32 %.pre211.i to i64
+  %.idx203.i = shl nuw nsw i64 %234, 5
+  %235 = getelementptr inbounds nuw i8, ptr %.pre210.i, i64 %.idx203.i
+  %236 = and i32 %.pre212.i, 4
   %.not145.i = icmp eq i32 %236, 0
   tail call void @llvm.assume(i1 %.not145.i)
-  %.not146195.i = icmp eq i32 %.pre206.i, 0
+  %.not146195.i = icmp eq i32 %.pre211.i, 0
   br i1 %.not146195.i, label %zend_accel_persist_class_table.exit, label %.lr.ph198.i
 
 .lr.ph198.i:                                      ; preds = %._crit_edge190.i, %.loopexit.i
-  %.0132196.i = phi ptr [ %278, %.loopexit.i ], [ %.pre205.i, %._crit_edge190.i ]
+  %.0132196.i = phi ptr [ %278, %.loopexit.i ], [ %.pre210.i, %._crit_edge190.i ]
   %237 = getelementptr inbounds nuw i8, ptr %.0132196.i, i64 8
   %238 = load i8, ptr %237, align 8, !tbaa !16
   switch i8 %238, label %239 [
@@ -6391,7 +6402,8 @@ zend_string_hash_val.exit.i:                      ; preds = %140, %zend_string_r
   %243 = getelementptr inbounds nuw i8, ptr %240, i64 88
   %244 = load i32, ptr %243, align 8, !tbaa !90
   %245 = zext i32 %244 to i64
-  %246 = getelementptr inbounds nuw %struct._Bucket, ptr %242, i64 %245
+  %.idx204.i = shl nuw nsw i64 %245, 5
+  %246 = getelementptr inbounds nuw i8, ptr %242, i64 %.idx204.i
   %247 = getelementptr inbounds nuw i8, ptr %240, i64 72
   %248 = load i32, ptr %247, align 8, !tbaa !16
   %249 = and i32 %248, 4
@@ -6471,7 +6483,8 @@ zend_accel_persist_class_table.exit:              ; preds = %.loopexit.i, %182, 
   %282 = getelementptr inbounds nuw i8, ptr %8, i64 288
   %283 = load i32, ptr %282, align 8, !tbaa !90
   %284 = zext i32 %283 to i64
-  %285 = getelementptr inbounds nuw %struct._Bucket, ptr %281, i64 %284
+  %.idx = shl nuw nsw i64 %284, 5
+  %285 = getelementptr inbounds nuw i8, ptr %281, i64 %.idx
   %286 = getelementptr inbounds nuw i8, ptr %8, i64 272
   %287 = load i32, ptr %286, align 8, !tbaa !16
   %288 = and i32 %287, 4
@@ -7301,7 +7314,7 @@ zend_string_hash_val.exit513:                     ; preds = %zend_string_release
 76:                                               ; preds = %72, %zend_string_hash_val.exit513
   store i32 86, ptr %65, align 4, !tbaa !16
   %77 = or disjoint i32 %67, 86
-  %.pre546 = load ptr, ptr %22, align 8, !tbaa !246
+  %.pre548 = load ptr, ptr %22, align 8, !tbaa !246
   br label %80
 
 78:                                               ; preds = %72, %70
@@ -7309,15 +7322,15 @@ zend_string_hash_val.exit513:                     ; preds = %zend_string_release
   br label %80
 
 80:                                               ; preds = %78, %76
-  %81 = phi ptr [ %.pre546, %76 ], [ %64, %78 ]
+  %81 = phi ptr [ %.pre548, %76 ], [ %64, %78 ]
   %.0361 = phi i32 [ %77, %76 ], [ %79, %78 ]
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i32 %.0361, ptr %82, align 4, !tbaa !16
-  %.pre547 = load ptr, ptr %22, align 8, !tbaa !246
+  %.pre549 = load ptr, ptr %22, align 8, !tbaa !246
   br label %83
 
 83:                                               ; preds = %zend_string_release_ex.exit502, %80
-  %84 = phi ptr [ %33, %zend_string_release_ex.exit502 ], [ %.pre547, %80 ]
+  %84 = phi ptr [ %33, %zend_string_release_ex.exit502 ], [ %.pre549, %80 ]
   %.not421 = icmp eq ptr %84, %23
   br i1 %.not421, label %.thread, label %85
 
@@ -7561,7 +7574,8 @@ zend_string_hash_val.exit513:                     ; preds = %zend_string_release
   %192 = getelementptr inbounds nuw i8, ptr %189, i64 24
   %193 = load i32, ptr %192, align 8, !tbaa !90
   %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds nuw %struct._Bucket, ptr %191, i64 %194
+  %.idx = shl nuw nsw i64 %194, 5
+  %195 = getelementptr inbounds nuw i8, ptr %191, i64 %.idx
   %196 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %197 = load i32, ptr %196, align 8, !tbaa !16
   %198 = and i32 %197, 4
@@ -7656,11 +7670,11 @@ zend_string_release_ex.exit496:                   ; preds = %225, %234, %239
 
 242:                                              ; preds = %zend_string_release_ex.exit496
   %243 = call i64 @zend_string_hash_func(ptr noundef nonnull %229) #7
-  %.pre548 = load ptr, ptr %203, align 8, !tbaa !91
+  %.pre550 = load ptr, ptr %203, align 8, !tbaa !91
   br label %zend_string_hash_val.exit511
 
 zend_string_hash_val.exit511:                     ; preds = %zend_string_release_ex.exit496, %242
-  %244 = phi ptr [ %229, %zend_string_release_ex.exit496 ], [ %.pre548, %242 ]
+  %244 = phi ptr [ %229, %zend_string_release_ex.exit496 ], [ %.pre550, %242 ]
   store i32 2, ptr %244, align 4, !tbaa !17
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 4
   %246 = load i32, ptr %245, align 4, !tbaa !16
@@ -7683,7 +7697,7 @@ zend_string_hash_val.exit511:                     ; preds = %zend_string_release
 256:                                              ; preds = %252, %zend_string_hash_val.exit511
   store i32 86, ptr %245, align 4, !tbaa !16
   %257 = or disjoint i32 %247, 86
-  %.pre549 = load ptr, ptr %203, align 8, !tbaa !91
+  %.pre551 = load ptr, ptr %203, align 8, !tbaa !91
   br label %260
 
 258:                                              ; preds = %252, %250
@@ -7691,7 +7705,7 @@ zend_string_hash_val.exit511:                     ; preds = %zend_string_release
   br label %260
 
 260:                                              ; preds = %258, %256
-  %261 = phi ptr [ %.pre549, %256 ], [ %244, %258 ]
+  %261 = phi ptr [ %.pre551, %256 ], [ %244, %258 ]
   %.0363 = phi i32 [ %257, %256 ], [ %259, %258 ]
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 4
   store i32 %.0363, ptr %262, align 4, !tbaa !16
@@ -7707,11 +7721,11 @@ zend_string_hash_val.exit511:                     ; preds = %zend_string_release
   br i1 %.not445, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %264
-  %.pre550 = load ptr, ptr %183, align 8, !tbaa !160
+  %.pre552 = load ptr, ptr %183, align 8, !tbaa !160
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %187
-  %266 = phi ptr [ %.pre550, %._crit_edge.loopexit ], [ %189, %187 ]
+  %266 = phi ptr [ %.pre552, %._crit_edge.loopexit ], [ %189, %187 ]
   %267 = call ptr @zend_shared_memdup_put_free(ptr noundef %266, i64 noundef 56) #7
   store ptr %267, ptr %183, align 8, !tbaa !160
   store i32 2, ptr %267, align 4, !tbaa !17
@@ -7733,7 +7747,8 @@ zend_string_hash_val.exit511:                     ; preds = %zend_string_release
   %277 = call ptr @zend_shared_memdup_put(ptr noundef nonnull %271, i64 noundef %276) #7
   %278 = load i32, ptr %273, align 8, !tbaa !255
   %279 = sext i32 %278 to i64
-  %280 = getelementptr inbounds %struct._zval_struct, ptr %277, i64 %279
+  %.idx536 = shl nsw i64 %279, 4
+  %280 = getelementptr inbounds i8, ptr %277, i64 %.idx536
   store ptr %277, ptr %270, align 8, !tbaa !247
   %281 = icmp sgt i32 %278, 0
   br i1 %281, label %.lr.ph520, label %._crit_edge521
@@ -7760,9 +7775,10 @@ zend_string_hash_val.exit511:                     ; preds = %zend_string_release
   %292 = call ptr @zend_shared_memdup_put(ptr noundef %287, i64 noundef %291) #7
   %293 = load i32, ptr %288, align 8, !tbaa !256
   %294 = zext i32 %293 to i64
-  %295 = getelementptr inbounds nuw %struct._zend_op, ptr %292, i64 %294
-  %.not536 = icmp eq i32 %293, 0
-  br i1 %.not536, label %._crit_edge525, label %.lr.ph524
+  %.idx537 = shl nuw nsw i64 %294, 5
+  %295 = getelementptr inbounds nuw i8, ptr %292, i64 %.idx537
+  %.not538 = icmp eq i32 %293, 0
+  br i1 %.not538, label %._crit_edge525, label %.lr.ph524
 
 .lr.ph524:                                        ; preds = %285
   %296 = ptrtoint ptr %292 to i64
@@ -7907,11 +7923,11 @@ zend_string_release_ex.exit492:                   ; preds = %359, %368, %373
 
 376:                                              ; preds = %zend_string_release_ex.exit492
   %377 = call i64 @zend_string_hash_func(ptr noundef nonnull %363) #7
-  %.pre551 = load ptr, ptr %344, align 8, !tbaa !248
+  %.pre553 = load ptr, ptr %344, align 8, !tbaa !248
   br label %zend_string_hash_val.exit509
 
 zend_string_hash_val.exit509:                     ; preds = %zend_string_release_ex.exit492, %376
-  %378 = phi ptr [ %363, %zend_string_release_ex.exit492 ], [ %.pre551, %376 ]
+  %378 = phi ptr [ %363, %zend_string_release_ex.exit492 ], [ %.pre553, %376 ]
   store i32 2, ptr %378, align 4, !tbaa !17
   %379 = getelementptr inbounds nuw i8, ptr %378, i64 4
   %380 = load i32, ptr %379, align 4, !tbaa !16
@@ -7934,7 +7950,7 @@ zend_string_hash_val.exit509:                     ; preds = %zend_string_release
 390:                                              ; preds = %386, %zend_string_hash_val.exit509
   store i32 86, ptr %379, align 4, !tbaa !16
   %391 = or disjoint i32 %381, 86
-  %.pre552 = load ptr, ptr %344, align 8, !tbaa !248
+  %.pre554 = load ptr, ptr %344, align 8, !tbaa !248
   br label %394
 
 392:                                              ; preds = %386, %384
@@ -7942,7 +7958,7 @@ zend_string_hash_val.exit509:                     ; preds = %zend_string_release
   br label %394
 
 394:                                              ; preds = %392, %390
-  %395 = phi ptr [ %.pre552, %390 ], [ %378, %392 ]
+  %395 = phi ptr [ %.pre554, %390 ], [ %378, %392 ]
   %.0357 = phi i32 [ %391, %390 ], [ %393, %392 ]
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 4
   store i32 %.0357, ptr %396, align 4, !tbaa !16
@@ -7971,8 +7987,8 @@ zend_string_hash_val.exit509:                     ; preds = %zend_string_release
   %409 = zext i32 %.1 to i64
   %410 = shl nuw nsw i64 %409, 5
   %411 = call ptr @zend_shared_memdup_put_free(ptr noundef nonnull %.0355, i64 noundef %410) #7
-  %.not537 = icmp eq i32 %.1, 0
-  br i1 %.not537, label %._crit_edge529, label %.lr.ph528
+  %.not539 = icmp eq i32 %.1, 0
+  br i1 %.not539, label %._crit_edge529, label %.lr.ph528
 
 .lr.ph528:                                        ; preds = %400, %473
   %indvars.iv = phi i64 [ %indvars.iv.next, %473 ], [ 0, %400 ]
@@ -8058,11 +8074,11 @@ zend_string_release_ex.exit488:                   ; preds = %435, %444, %449
 
 452:                                              ; preds = %zend_string_release_ex.exit488
   %453 = call i64 @zend_string_hash_func(ptr noundef nonnull %439) #7
-  %.pre553 = load ptr, ptr %412, align 8, !tbaa !261
+  %.pre555 = load ptr, ptr %412, align 8, !tbaa !261
   br label %zend_string_hash_val.exit507
 
 zend_string_hash_val.exit507:                     ; preds = %zend_string_release_ex.exit488, %452
-  %454 = phi ptr [ %439, %zend_string_release_ex.exit488 ], [ %.pre553, %452 ]
+  %454 = phi ptr [ %439, %zend_string_release_ex.exit488 ], [ %.pre555, %452 ]
   store i32 2, ptr %454, align 4, !tbaa !17
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 4
   %456 = load i32, ptr %455, align 4, !tbaa !16
@@ -8085,7 +8101,7 @@ zend_string_hash_val.exit507:                     ; preds = %zend_string_release
 466:                                              ; preds = %462, %zend_string_hash_val.exit507
   store i32 86, ptr %455, align 4, !tbaa !16
   %467 = or disjoint i32 %457, 86
-  %.pre554 = load ptr, ptr %412, align 8, !tbaa !261
+  %.pre556 = load ptr, ptr %412, align 8, !tbaa !261
   br label %470
 
 468:                                              ; preds = %462, %460
@@ -8093,7 +8109,7 @@ zend_string_hash_val.exit507:                     ; preds = %zend_string_release
   br label %470
 
 470:                                              ; preds = %468, %466
-  %471 = phi ptr [ %.pre554, %466 ], [ %454, %468 ]
+  %471 = phi ptr [ %.pre556, %466 ], [ %454, %468 ]
   %.0352 = phi i32 [ %467, %466 ], [ %469, %468 ]
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 4
   store i32 %.0352, ptr %472, align 4, !tbaa !16
@@ -8218,11 +8234,11 @@ zend_string_release_ex.exit484:                   ; preds = %514, %523, %528
 
 531:                                              ; preds = %zend_string_release_ex.exit484
   %532 = call i64 @zend_string_hash_func(ptr noundef nonnull %518) #7
-  %.pre555 = load ptr, ptr %488, align 8, !tbaa !251
+  %.pre557 = load ptr, ptr %488, align 8, !tbaa !251
   br label %zend_string_hash_val.exit505
 
 zend_string_hash_val.exit505:                     ; preds = %zend_string_release_ex.exit484, %531
-  %533 = phi ptr [ %518, %zend_string_release_ex.exit484 ], [ %.pre555, %531 ]
+  %533 = phi ptr [ %518, %zend_string_release_ex.exit484 ], [ %.pre557, %531 ]
   store i32 2, ptr %533, align 4, !tbaa !17
   %534 = getelementptr inbounds nuw i8, ptr %533, i64 4
   %535 = load i32, ptr %534, align 4, !tbaa !16
@@ -8245,7 +8261,7 @@ zend_string_hash_val.exit505:                     ; preds = %zend_string_release
 545:                                              ; preds = %541, %zend_string_hash_val.exit505
   store i32 86, ptr %534, align 4, !tbaa !16
   %546 = or disjoint i32 %536, 86
-  %.pre556 = load ptr, ptr %488, align 8, !tbaa !251
+  %.pre558 = load ptr, ptr %488, align 8, !tbaa !251
   br label %549
 
 547:                                              ; preds = %541, %539
@@ -8253,7 +8269,7 @@ zend_string_hash_val.exit505:                     ; preds = %zend_string_release
   br label %549
 
 549:                                              ; preds = %547, %545
-  %550 = phi ptr [ %.pre556, %545 ], [ %533, %547 ]
+  %550 = phi ptr [ %.pre558, %545 ], [ %533, %547 ]
   %.0351 = phi i32 [ %546, %545 ], [ %548, %547 ]
   %551 = getelementptr inbounds nuw i8, ptr %550, i64 4
   store i32 %.0351, ptr %551, align 4, !tbaa !16
@@ -8327,9 +8343,9 @@ zend_string_release_ex.exit482:                   ; preds = %552, %556, %561
   br i1 %586, label %.lr.ph532, label %.loopexit515
 
 .lr.ph532:                                        ; preds = %579, %656
-  %indvars.iv540 = phi i64 [ %indvars.iv.next541, %656 ], [ 0, %579 ]
+  %indvars.iv542 = phi i64 [ %indvars.iv.next543, %656 ], [ 0, %579 ]
   %587 = load ptr, ptr %577, align 8, !tbaa !254
-  %588 = getelementptr inbounds nuw ptr, ptr %587, i64 %indvars.iv540
+  %588 = getelementptr inbounds nuw ptr, ptr %587, i64 %indvars.iv542
   %589 = load ptr, ptr %588, align 8, !tbaa !14
   %590 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !78
   %591 = getelementptr inbounds nuw i8, ptr %590, i64 176
@@ -8347,7 +8363,7 @@ zend_string_release_ex.exit482:                   ; preds = %552, %556, %561
   %598 = call ptr @zend_shared_alloc_get_xlat_entry(ptr noundef %589) #7
   %.not470 = icmp eq ptr %598, null
   %599 = load ptr, ptr %577, align 8, !tbaa !254
-  %600 = getelementptr inbounds nuw ptr, ptr %599, i64 %indvars.iv540
+  %600 = getelementptr inbounds nuw ptr, ptr %599, i64 %indvars.iv542
   %601 = load ptr, ptr %600, align 8, !tbaa !14
   br i1 %.not470, label %614, label %602
 
@@ -8369,12 +8385,12 @@ zend_string_release_ex.exit482:                   ; preds = %552, %556, %561
 
 611:                                              ; preds = %606
   call void @_efree(ptr noundef nonnull %601) #7
-  %.pre557 = load ptr, ptr %577, align 8, !tbaa !254
+  %.pre559 = load ptr, ptr %577, align 8, !tbaa !254
   br label %zend_string_release_ex.exit480
 
 zend_string_release_ex.exit480:                   ; preds = %602, %606, %611
-  %612 = phi ptr [ %599, %602 ], [ %599, %606 ], [ %.pre557, %611 ]
-  %613 = getelementptr inbounds nuw ptr, ptr %612, i64 %indvars.iv540
+  %612 = phi ptr [ %599, %602 ], [ %599, %606 ], [ %.pre559, %611 ]
+  %613 = getelementptr inbounds nuw ptr, ptr %612, i64 %indvars.iv542
   store ptr %598, ptr %613, align 8, !tbaa !14
   br label %656
 
@@ -8384,7 +8400,7 @@ zend_string_release_ex.exit480:                   ; preds = %602, %606, %611
   %617 = add i64 %616, 25
   %618 = call ptr @zend_shared_memdup_put(ptr noundef %601, i64 noundef %617) #7
   %619 = load ptr, ptr %577, align 8, !tbaa !254
-  %620 = getelementptr inbounds nuw ptr, ptr %619, i64 %indvars.iv540
+  %620 = getelementptr inbounds nuw ptr, ptr %619, i64 %indvars.iv542
   %621 = load ptr, ptr %620, align 8, !tbaa !14
   %622 = getelementptr inbounds nuw i8, ptr %621, i64 4
   %623 = load i32, ptr %622, align 4, !tbaa !16
@@ -8403,12 +8419,12 @@ zend_string_release_ex.exit480:                   ; preds = %602, %606, %611
 
 630:                                              ; preds = %625
   call void @_efree(ptr noundef nonnull %621) #7
-  %.pre558 = load ptr, ptr %577, align 8, !tbaa !254
+  %.pre560 = load ptr, ptr %577, align 8, !tbaa !254
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %614, %625, %630
-  %631 = phi ptr [ %619, %614 ], [ %619, %625 ], [ %.pre558, %630 ]
-  %632 = getelementptr inbounds nuw ptr, ptr %631, i64 %indvars.iv540
+  %631 = phi ptr [ %619, %614 ], [ %619, %625 ], [ %.pre560, %630 ]
+  %632 = getelementptr inbounds nuw ptr, ptr %631, i64 %indvars.iv542
   store ptr %618, ptr %632, align 8, !tbaa !14
   %633 = getelementptr inbounds nuw i8, ptr %618, i64 8
   %634 = load i64, ptr %633, align 8, !tbaa !88
@@ -8417,13 +8433,13 @@ zend_string_release_ex.exit:                      ; preds = %614, %625, %630
 
 635:                                              ; preds = %zend_string_release_ex.exit
   %636 = call i64 @zend_string_hash_func(ptr noundef nonnull %618) #7
-  %.pre559 = load ptr, ptr %577, align 8, !tbaa !254
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre559, i64 %indvars.iv540
-  %.pre560 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !14
+  %.pre561 = load ptr, ptr %577, align 8, !tbaa !254
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre561, i64 %indvars.iv542
+  %.pre562 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !14
   br label %zend_string_hash_val.exit
 
 zend_string_hash_val.exit:                        ; preds = %zend_string_release_ex.exit, %635
-  %637 = phi ptr [ %618, %zend_string_release_ex.exit ], [ %.pre560, %635 ]
+  %637 = phi ptr [ %618, %zend_string_release_ex.exit ], [ %.pre562, %635 ]
   store i32 2, ptr %637, align 4, !tbaa !17
   %638 = getelementptr inbounds nuw i8, ptr %637, i64 4
   %639 = load i32, ptr %638, align 4, !tbaa !16
@@ -8446,9 +8462,9 @@ zend_string_hash_val.exit:                        ; preds = %zend_string_release
 649:                                              ; preds = %645, %zend_string_hash_val.exit
   store i32 86, ptr %638, align 4, !tbaa !16
   %650 = or disjoint i32 %640, 86
-  %.pre561 = load ptr, ptr %577, align 8, !tbaa !254
-  %.phi.trans.insert562 = getelementptr inbounds nuw ptr, ptr %.pre561, i64 %indvars.iv540
-  %.pre563 = load ptr, ptr %.phi.trans.insert562, align 8, !tbaa !14
+  %.pre563 = load ptr, ptr %577, align 8, !tbaa !254
+  %.phi.trans.insert564 = getelementptr inbounds nuw ptr, ptr %.pre563, i64 %indvars.iv542
+  %.pre565 = load ptr, ptr %.phi.trans.insert564, align 8, !tbaa !14
   br label %653
 
 651:                                              ; preds = %645, %643
@@ -8456,17 +8472,17 @@ zend_string_hash_val.exit:                        ; preds = %zend_string_release
   br label %653
 
 653:                                              ; preds = %651, %649
-  %654 = phi ptr [ %.pre563, %649 ], [ %637, %651 ]
+  %654 = phi ptr [ %.pre565, %649 ], [ %637, %651 ]
   %.0349 = phi i32 [ %650, %649 ], [ %652, %651 ]
   %655 = getelementptr inbounds nuw i8, ptr %654, i64 4
   store i32 %.0349, ptr %655, align 4, !tbaa !16
   br label %656
 
 656:                                              ; preds = %zend_string_release_ex.exit480, %653, %593
-  %indvars.iv.next541 = add nuw nsw i64 %indvars.iv540, 1
+  %indvars.iv.next543 = add nuw nsw i64 %indvars.iv542, 1
   %657 = load i32, ptr %580, align 4, !tbaa !265
   %658 = sext i32 %657 to i64
-  %659 = icmp slt i64 %indvars.iv.next541, %658
+  %659 = icmp slt i64 %indvars.iv.next543, %658
   br i1 %659, label %.lr.ph532, label %.loopexit515
 
 .loopexit515:                                     ; preds = %656, %579, %576
@@ -8483,8 +8499,8 @@ zend_string_hash_val.exit:                        ; preds = %zend_string_release
   %667 = call ptr @zend_shared_memdup_put_free(ptr noundef %664, i64 noundef %666) #7
   store ptr %667, ptr %663, align 8, !tbaa !203
   %668 = load i32, ptr %660, align 4, !tbaa !202
-  %.not538 = icmp eq i32 %668, 0
-  br i1 %.not538, label %.sink.split, label %.lr.ph535
+  %.not540 = icmp eq i32 %668, 0
+  br i1 %.not540, label %.sink.split, label %.lr.ph535
 
 .lr.ph535:                                        ; preds = %662
   %669 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -8492,22 +8508,22 @@ zend_string_hash_val.exit:                        ; preds = %zend_string_release
 
 670:                                              ; preds = %.lr.ph535, %670
   %671 = phi ptr [ %667, %.lr.ph535 ], [ %675, %670 ]
-  %indvars.iv543 = phi i64 [ 0, %.lr.ph535 ], [ %indvars.iv.next544, %670 ]
+  %indvars.iv545 = phi i64 [ 0, %.lr.ph535 ], [ %indvars.iv.next546, %670 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
-  %672 = getelementptr inbounds nuw ptr, ptr %671, i64 %indvars.iv543
+  %672 = getelementptr inbounds nuw ptr, ptr %671, i64 %indvars.iv545
   %673 = load ptr, ptr %672, align 8, !tbaa !204
   store ptr %673, ptr %4, align 8, !tbaa !16
   store i32 13, ptr %669, align 8, !tbaa !16
   call fastcc void @zend_persist_op_array(ptr noundef nonnull %4)
   %674 = load ptr, ptr %4, align 8, !tbaa !16
   %675 = load ptr, ptr %663, align 8, !tbaa !203
-  %676 = getelementptr inbounds nuw ptr, ptr %675, i64 %indvars.iv543
+  %676 = getelementptr inbounds nuw ptr, ptr %675, i64 %indvars.iv545
   store ptr %674, ptr %676, align 8, !tbaa !204
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  %indvars.iv.next544 = add nuw nsw i64 %indvars.iv543, 1
+  %indvars.iv.next546 = add nuw nsw i64 %indvars.iv545, 1
   %677 = load i32, ptr %660, align 4, !tbaa !202
   %678 = zext i32 %677 to i64
-  %679 = icmp samesign ult i64 %indvars.iv.next544, %678
+  %679 = icmp samesign ult i64 %indvars.iv.next546, %678
   br i1 %679, label %670, label %.sink.split
 
 .sink.split:                                      ; preds = %670, %.loopexit515, %662, %167, %170

@@ -2240,7 +2240,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h1a00
   %.val = load ptr, ptr %3, align 8, !nonnull !12, !noundef !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val6 = load i64, ptr %4, align 8, !noundef !12
-  %5 = getelementptr inbounds { i64, [15 x i64] }, ptr %.val, i64 %.val6
+  %.idx = shl nsw i64 %.val6, 7
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = tail call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 @anon.79fb49cdb9b8b410ff224812fb6dc91a.24, i64 noundef 1), !noalias !307
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h2ae171f2cc8ad955E.exit.sink.split"
@@ -2295,7 +2296,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h26f5
   %.val = load ptr, ptr %3, align 8, !nonnull !12, !noundef !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val6 = load i64, ptr %4, align 8, !noundef !12
-  %5 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.val6
+  %.idx = mul nsw i64 %.val6, 24
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = tail call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 @anon.79fb49cdb9b8b410ff224812fb6dc91a.24, i64 noundef 1), !noalias !324
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h2ae171f2cc8ad955E.exit.sink.split"
@@ -2350,7 +2352,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h4dbb
   %.val = load ptr, ptr %3, align 8, !nonnull !12, !noundef !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val6 = load i64, ptr %4, align 8, !noundef !12
-  %5 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, ptr }, ptr %.val, i64 %.val6
+  %.idx = shl nsw i64 %.val6, 5
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = tail call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 @anon.79fb49cdb9b8b410ff224812fb6dc91a.24, i64 noundef 1), !noalias !341
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h2ae171f2cc8ad955E.exit.sink.split"
@@ -2749,7 +2752,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hc14c
   %.val = load ptr, ptr %3, align 8, !nonnull !12, !noundef !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val6 = load i64, ptr %4, align 8, !noundef !12
-  %5 = getelementptr inbounds { i64, [15 x i64] }, ptr %.val, i64 %.val6
+  %.idx = shl nsw i64 %.val6, 7
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = tail call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 @anon.79fb49cdb9b8b410ff224812fb6dc91a.24, i64 noundef 1), !noalias !503
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h2ae171f2cc8ad955E.exit.sink.split"
@@ -2892,7 +2896,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hf005
   %.val = load ptr, ptr %3, align 8, !nonnull !12, !noundef !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val6 = load i64, ptr %4, align 8, !noundef !12
-  %5 = getelementptr inbounds { { i64, [15 x i64] }, { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } }, i8, i8, [6 x i8] }, ptr %.val, i64 %.val6
+  %.idx = mul nsw i64 %.val6, 208
+  %5 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %6 = tail call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 @anon.79fb49cdb9b8b410ff224812fb6dc91a.24, i64 noundef 1), !noalias !557
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h2ae171f2cc8ad955E.exit.sink.split"
@@ -5358,7 +5363,8 @@ _ZN10serde_json3ser18format_escaped_str17hd9e140aaf5c70a48E.exit.i.i.i.i.i.i.i.i
 42:                                               ; preds = %39
   %43 = icmp ne ptr %.val.i.i.i.i.i, null
   tail call void @llvm.assume(i1 %43)
-  %44 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { ptr, i64 }, { i8, i8 }, [6 x i8] }, ptr %.val.i.i.i.i.i, i64 %.val21.i.i.i.i.i
+  %.idx.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %.val21.i.i.i.i.i, 48
+  %44 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %45 = tail call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 1 @anon.79fb49cdb9b8b410ff224812fb6dc91a.24, i64 noundef 1), !noalias !1302
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hc77d7a7b8789844bE.exit.sink.split.i"
@@ -6769,7 +6775,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   %.val = load ptr, ptr %351, align 8, !nonnull !12, !noundef !12
   %352 = getelementptr i8, ptr %350, i64 16
   %.val321 = load i64, ptr %352, align 8, !noundef !12
-  %353 = getelementptr inbounds { i64, [33 x i64] }, ptr %.val, i64 %.val321
+  %.idx1590 = mul nsw i64 %.val321, 272
+  %353 = getelementptr inbounds i8, ptr %.val, i64 %.idx1590
   %354 = icmp eq i64 %.val321, 0
   br i1 %354, label %._crit_edge, label %.lr.ph
 
@@ -9555,7 +9562,8 @@ default.unreachable3100:                          ; preds = %_ZN4just8analyzer8A
   %.sroa.0694.0.copyload = load i64, ptr %165, align 8
   %.sroa.4695.0.copyload = load ptr, ptr %166, align 8, !nonnull !12, !noundef !12
   %.sroa.5696.0.copyload = load i64, ptr %167, align 8
-  %1266 = getelementptr inbounds ptr, ptr %.sroa.4695.0.copyload, i64 %.sroa.5696.0.copyload
+  %.idx1591 = shl nsw i64 %.sroa.5696.0.copyload, 3
+  %1266 = getelementptr inbounds i8, ptr %.sroa.4695.0.copyload, i64 %.idx1591
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %146)
   store ptr %.sroa.4695.0.copyload, ptr %146, align 8
   %.sroa.5691.0..sroa_idx = getelementptr inbounds nuw i8, ptr %146, i64 8
@@ -12585,7 +12593,8 @@ define hidden noundef align 8 ptr @"_ZN66_$LT$just..namepath..Namepath$u20$as$u2
   %6 = load ptr, ptr %5, align 8, !nonnull !12, !noundef !12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !12
-  %9 = getelementptr inbounds { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } }, ptr %6, i64 %8
+  %.idx = mul nsw i64 %8, 72
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -13042,8 +13051,8 @@ define internal fastcc void @_ZN4just15recipe_resolver14RecipeResolver15resolve_
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sroa.9219.0..sroa_idx220 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %.sroa.9219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %.sroa.9223.0..sroa_idx224 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %.sroa.9223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   br label %48
 
 48:                                               ; preds = %103, %3
@@ -13172,7 +13181,7 @@ define internal fastcc void @_ZN4just15recipe_resolver14RecipeResolver15resolve_
   br label %.body
 
 70:                                               ; preds = %.noexc112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %.sroa.9219.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(264) %.sroa.9219.0..sroa_idx220, i64 264, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %.sroa.9223.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(264) %.sroa.9223.0..sroa_idx224, i64 264, i1 false)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %17), !noalias !2929
   store i64 %68, ptr %35, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %34)
@@ -13398,7 +13407,8 @@ common.resume:                                    ; preds = %.body, %106
   %.val106 = load ptr, ptr %138, align 8, !nonnull !12, !noundef !12
   %139 = getelementptr i8, ptr %137, i64 128
   %.val107 = load i64, ptr %139, align 8, !noundef !12
-  %140 = getelementptr inbounds { { i64, [15 x i64] }, { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } }, i8, i8, [6 x i8] }, ptr %.val106, i64 %.val107
+  %.idx = mul nsw i64 %.val107, 208
+  %140 = getelementptr inbounds i8, ptr %.val106, i64 %.idx
   %141 = icmp eq i64 %.val107, 0
   br i1 %141, label %._crit_edge, label %.lr.ph
 
@@ -13414,7 +13424,8 @@ common.resume:                                    ; preds = %.body, %106
   %.val104 = load ptr, ptr %144, align 8, !nonnull !12, !noundef !12
   %145 = getelementptr i8, ptr %137, i64 56
   %.val105 = load i64, ptr %145, align 8, !noundef !12
-  %146 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, ptr }, ptr %.val104, i64 %.val105
+  %.idx215 = shl nsw i64 %.val105, 5
+  %146 = getelementptr inbounds i8, ptr %.val104, i64 %.idx215
   %147 = icmp eq i64 %.val105, 0
   br i1 %147, label %._crit_edge208, label %.lr.ph207
 
@@ -13427,7 +13438,8 @@ common.resume:                                    ; preds = %.body, %106
   %.val100 = load ptr, ptr %149, align 8, !nonnull !12, !noundef !12
   %150 = getelementptr i8, ptr %137, i64 32
   %.val101 = load i64, ptr %150, align 8, !noundef !12
-  %151 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val100, i64 %.val101
+  %.idx217 = mul nsw i64 %.val101, 24
+  %151 = getelementptr inbounds i8, ptr %.val100, i64 %.idx217
   %152 = icmp eq i64 %.val101, 0
   br i1 %152, label %.loopexit189.backedge, label %.lr.ph214
 
@@ -13445,7 +13457,8 @@ common.resume:                                    ; preds = %.body, %106
   %.val102 = load ptr, ptr %155, align 8, !nonnull !12, !noundef !12
   %156 = getelementptr i8, ptr %.sroa.0157.0212, i64 16
   %.val103 = load i64, ptr %156, align 8, !noundef !12
-  %157 = getelementptr inbounds { i64, [15 x i64] }, ptr %.val102, i64 %.val103
+  %.idx218 = shl nsw i64 %.val103, 7
+  %157 = getelementptr inbounds i8, ptr %.val102, i64 %.idx218
   %158 = icmp eq i64 %.val103, 0
   br i1 %158, label %.loopexit, label %.lr.ph211
 
@@ -13537,7 +13550,8 @@ common.resume:                                    ; preds = %.body, %106
   %.val = load ptr, ptr %184, align 8, !nonnull !12, !noundef !12
   %185 = getelementptr i8, ptr %.sroa.0152.0205, i64 16
   %.val99 = load i64, ptr %185, align 8, !noundef !12
-  %186 = getelementptr inbounds { i64, [15 x i64] }, ptr %.val, i64 %.val99
+  %.idx216 = shl nsw i64 %.val99, 7
+  %186 = getelementptr inbounds i8, ptr %.val, i64 %.idx216
   %187 = icmp eq i64 %.val99, 0
   br i1 %187, label %.loopexit185, label %.lr.ph204
 
@@ -13870,7 +13884,8 @@ _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit: ; preds = %"_ZN4core3str21
   br label %.critedge
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17he4b27ebdb6c4e271E.exit.thread": ; preds = %_ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17he4b27ebdb6c4e271E.exit.thread8"
-  %41 = getelementptr inbounds { { i64, [15 x i64] }, { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } }, i8, i8, [6 x i8] }, ptr %2, i64 %3
+  %.idx = mul nsw i64 %3, 208
+  %41 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
@@ -14256,7 +14271,8 @@ define internal fastcc void @_ZN4just15recipe_resolver14RecipeResolver14resolve_
   %.val = load ptr, ptr %127, align 8, !nonnull !12, !noundef !12
   %128 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %.val80 = load i64, ptr %128, align 8, !noundef !12
-  %129 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] } } }, ptr %.val, i64 %.val80
+  %.idx = mul nsw i64 %.val80, 96
+  %129 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %130 = icmp eq i64 %.val80, 0
   br i1 %130, label %._crit_edge, label %.lr.ph
 
@@ -15703,7 +15719,8 @@ define noundef zeroext i1 @"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..fmt..D
   %.val = load ptr, ptr %17, align 8, !nonnull !12, !noundef !12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val13 = load i64, ptr %18, align 8, !noundef !12
-  %19 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { ptr, i64 }, { i8, i8 }, [6 x i8] }, ptr %.val, i64 %.val13
+  %.idx = mul nsw i64 %.val13, 48
+  %19 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %20 = icmp eq i64 %.val13, 0
   br i1 %20, label %._crit_edge, label %.lr.ph
 

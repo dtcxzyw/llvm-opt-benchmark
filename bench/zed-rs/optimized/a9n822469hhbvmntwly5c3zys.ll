@@ -3081,7 +3081,8 @@ define internal fastcc void @_ZN4text7History14group_trailing17h2cb5bcd59960a52a
   %40 = load ptr, ptr %39, align 8, !nonnull !9, !noundef !9
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.023, i64 16
   %42 = load i64, ptr %41, align 8, !noundef !9
-  %43 = getelementptr inbounds { i32, i16, [1 x i16] }, ptr %40, i64 %42
+  %.idx = shl nsw i64 %42, 3
+  %43 = getelementptr inbounds i8, ptr %40, i64 %.idx
   %44 = icmp eq i64 %42, 0
   br i1 %44, label %.loopexit, label %.lr.ph.preheader
 
@@ -3224,7 +3225,8 @@ define noundef align 8 dereferenceable_or_null(80) ptr @_ZN4text7History11transa
   br i1 %8, label %.loopexit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %3
-  %9 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { i32, i16, [1 x i16] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] } }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, i8, [7 x i8] }, ptr %5, i64 %7
+  %.idx = mul nsw i64 %7, 120
+  %9 = getelementptr inbounds i8, ptr %5, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17hf794aabe5cc2677eE.exit.i"
@@ -3254,7 +3256,8 @@ define noundef align 8 dereferenceable_or_null(80) ptr @_ZN4text7History11transa
   br i1 %21, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h7091e5d8c0bd0f06E.exit", label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %.loopexit
-  %22 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { i32, i16, [1 x i16] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] } }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, i8, [7 x i8] }, ptr %.val15, i64 %.val816
+  %.idx.i.i = mul nsw i64 %.val816, 120
+  %22 = getelementptr inbounds i8, ptr %.val15, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17he15e841c071d35e5E.exit.i.i.i", %.lr.ph.i.preheader.i.i
@@ -9369,7 +9372,8 @@ define internal fastcc void @_ZN4text6Buffer10apply_undo17hbaa6a9b503190595E(ptr
   %.sroa.4.0.copyload.i40 = load ptr, ptr %.sroa.4.0..sroa_idx.i39, align 8, !alias.scope !1733, !noalias !1736, !nonnull !9, !noundef !9
   %.sroa.5.0..sroa_idx.i41 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i41, align 8, !alias.scope !1733, !noalias !1736
-  %94 = getelementptr inbounds ptr, ptr %.sroa.4.0.copyload.i40, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nsw i64 %.sroa.5.0.copyload.i, 3
+  %94 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i40, i64 %.idx
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
   store ptr %.sroa.4.0.copyload.i40, ptr %23, align 8
@@ -11119,7 +11123,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr39drop
   store i32 %70, ptr %71, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !2181)
-  %72 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { i32, i16, [1 x i16] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] } }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, i8, [7 x i8] }, ptr %23, i64 %19
+  %.idx.i = mul nsw i64 %19, 120
+  %72 = getelementptr inbounds i8, ptr %23, i64 %.idx.i
   %.sroa.5.018.i = getelementptr inbounds i8, ptr %72, i64 -120
   %73 = icmp eq ptr %23, %.sroa.5.018.i
   br i1 %73, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha202cb0d40ff54c1E.exit.thread.i", label %.lr.ph.i
@@ -11266,7 +11271,8 @@ define void @_ZN4text6Buffer23group_until_transaction17h3de699b95badb6e0E(ptr no
   br i1 %9, label %_ZN4text7History11group_until17hff2e8cc1d95f95f6E.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %3
-  %10 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { i32, i16, [1 x i16] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] } }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, i8, [7 x i8] }, ptr %6, i64 %8
+  %.idx.i = mul nsw i64 %8, 120
+  %10 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.preheader.i
@@ -11876,7 +11882,8 @@ _ZN4text7History6forget17h4e3d4b5517afc19dE.exit.i: ; preds = %"_ZN5alloc3vec16V
   br i1 %61, label %.loopexit.i.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %60
-  %62 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { i32, i16, [1 x i16] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] } }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, i8, [7 x i8] }, ptr %17, i64 %58
+  %.idx.i.i = mul nsw i64 %58, 120
+  %62 = getelementptr inbounds i8, ptr %17, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h1c5af9a654997db0E.exit.i.i.i", %.lr.ph.i.preheader.i.i
@@ -11906,7 +11913,8 @@ _ZN4text7History6forget17h4e3d4b5517afc19dE.exit.i: ; preds = %"_ZN5alloc3vec16V
   br i1 %74, label %.loopexit10.i, label %.lr.ph.i.preheader.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %.loopexit.i.i
-  %75 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { i32, i16, [1 x i16] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] } }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, i8, [7 x i8] }, ptr %.val15.i.i, i64 %.val816.i.i
+  %.idx.i.i.i.i = mul nsw i64 %.val816.i.i, 120
+  %75 = getelementptr inbounds i8, ptr %.val15.i.i, i64 %.idx.i.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h97cc9f9baf79e2f8E.exit.i.i.i.i.i", %.lr.ph.i.preheader.i.i.i.i

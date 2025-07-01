@@ -939,7 +939,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order22walk_pattern_arg
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !4
-  %13 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %10, i64 %12
+  %.idx = mul nuw nsw i64 %12, 88
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %._crit_edge, label %.lr.ph
 
@@ -958,7 +959,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order22walk_pattern_arg
   %18 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load i64, ptr %19, align 8, !noundef !4
-  %21 = getelementptr inbounds nuw { { i64, [10 x i64] }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, { i32, i32 } }, ptr %18, i64 %20
+  %.idx8 = shl nuw nsw i64 %20, 7
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx8
   %22 = icmp eq i64 %20, 0
   br i1 %22, label %.loopexit, label %.lr.ph7
 
@@ -995,7 +997,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order22walk_pattern_arg
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !4
-  %13 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %10, i64 %12
+  %.idx = mul nuw nsw i64 %12, 88
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %14 = icmp eq i64 %12, 0
   br i1 %14, label %._crit_edge, label %.lr.ph
 
@@ -1015,7 +1018,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order22walk_pattern_arg
   %18 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load i64, ptr %19, align 8, !noundef !4
-  %21 = getelementptr inbounds nuw { { i64, [10 x i64] }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, { i32, i32 } }, ptr %18, i64 %20
+  %.idx8 = shl nuw nsw i64 %20, 7
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx8
   %22 = icmp eq i64 %20, 0
   br i1 %22, label %.loopexit, label %.lr.ph7
 
@@ -1050,7 +1054,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order22walk_pattern_arg
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
-  %10 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %7, i64 %9
+  %.idx = mul nuw nsw i64 %9, 88
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 
@@ -1069,7 +1074,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order22walk_pattern_arg
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load i64, ptr %16, align 8, !noundef !4
-  %18 = getelementptr inbounds nuw { { i64, [10 x i64] }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, { i32, i32 } }, ptr %15, i64 %17
+  %.idx8 = shl nuw nsw i64 %17, 7
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx8
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %.loopexit, label %.lr.ph7
 
@@ -1122,7 +1128,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order27walk_parameter_w
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41c9837ae7803389E(ptr noalias noundef align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -1151,7 +1158,8 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17hfd5
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast7visitor12source_order9walk_body17hb79f613c507f3787E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -1176,7 +1184,8 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17had4
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast7visitor12source_order9walk_body17hd7c9e9a7b88cd70bE(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 

@@ -1125,7 +1125,8 @@ if.then.i236:                                     ; preds = %if.then43
 while.body.i.preheader.i:                         ; preds = %if.then43, %if.then.i236
   %114 = load ptr, ptr %stack, align 8
   %conv.i.i241 = zext i32 %111 to i64
-  %add.ptr.i.i242 = getelementptr inbounds nuw %"struct.hermes::regex::Parser<hermes::regex::Regex<hermes::regex::UTF16RegexTraits>, const char16_t *>::ParseStackElement", ptr %114, i64 %conv.i.i241
+  %add.ptr.i.idx.i = mul nuw nsw i64 %conv.i.i241, 80
+  %add.ptr.i.i242 = getelementptr inbounds nuw i8, ptr %114, i64 %add.ptr.i.idx.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE17ParseStackElementD2Ev.exit.i.i, %while.body.i.preheader.i
@@ -2402,7 +2403,8 @@ _ZN4llvh11safe_mallocEm.exit:                     ; preds = %if.end, %if.then.i
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %Size.i, align 8
   %conv.i5 = zext i32 %2 to i64
-  %add.ptr.i23 = getelementptr inbounds nuw %"struct.hermes::regex::Parser<hermes::regex::Regex<hermes::regex::UTF16RegexTraits>, const char16_t *>::ParseStackElement", ptr %1, i64 %conv.i5
+  %add.ptr.i23.idx = mul nuw nsw i64 %conv.i5, 80
+  %add.ptr.i23 = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i23.idx
   %cmp.i.i.not5.i.i.i.i = icmp eq i32 %2, 0
   br i1 %cmp.i.i.not5.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16RegexTraitsEEEPKDsE17ParseStackElementELb0EE13destroy_rangeEPSA_SC_.exit, label %for.body.i.i.i.i
 
@@ -2440,7 +2442,8 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16Re
 
 while.body.i.preheader:                           ; preds = %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex6ParserINS2_5RegexINS2_16UTF16RegexTraitsEEEPKDsE17ParseStackElementELb0EE18uninitialized_moveIPSA_SD_EEvT_SE_T0_.exit
   %conv.i7 = zext i32 %.pre18 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"struct.hermes::regex::Parser<hermes::regex::Regex<hermes::regex::UTF16RegexTraits>, const char16_t *>::ParseStackElement", ptr %.pre, i64 %conv.i7
+  %add.ptr.i.idx = mul nuw nsw i64 %conv.i7, 80
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %.pre, i64 %add.ptr.i.idx
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE17ParseStackElementD2Ev.exit.i
@@ -4860,7 +4863,8 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIN
   store i32 0, ptr %NumTombstones.i.i.i, align 4
   %3 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i = zext i32 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %call.i, i64 %idx.ext.i.i
+  %add.ptr.i.idx.i = mul nuw nsw i64 %idx.ext.i.i, 24
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %add.ptr.i.idx.i
   %cmp.not3.i = icmp eq i32 %3, 0
   br i1 %cmp.not3.i, label %return, label %for.body.i
 
@@ -4875,14 +4879,16 @@ for.body.i:                                       ; preds = %if.then, %for.body.
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %1, i64 %idx.ext
+  %add.ptr.idx = mul nuw nsw i64 %idx.ext, 24
+  %add.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.idx
   %NumEntries.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i.i, align 8
   %NumTombstones.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i.i, align 4
   %4 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %call.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.idx.i.i = mul nuw nsw i64 %idx.ext.i.i.i, 24
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %add.ptr.i.idx.i.i
   %cmp.not3.i.i = icmp eq i32 %4, 0
   br i1 %cmp.not3.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit.i, label %for.body.i.i
 
@@ -11159,7 +11165,8 @@ if.then4.i:                                       ; preds = %if.end.i
   %Size.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load i32, ptr %Size.i.i.i.i, align 8
   %conv.i.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.hermes::CodePointRange", ptr %3, i64 %conv.i.i.i.i
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i.i.i.i, 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %add.ptr.i.idx.i
   %cmp.not21.i = icmp eq i32 %4, 0
   br i1 %cmp.not21.i, label %_ZNK6hermes5regex11BracketNodeINS0_16UTF16RegexTraitsEE13canMatchASCIIEv.exit, label %for.body.i
 
@@ -11194,7 +11201,8 @@ if.end14.i:                                       ; preds = %if.else.i
   %Size.i.i.i8.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %10 = load i32, ptr %Size.i.i.i8.i, align 8
   %conv.i.i.i9.i = zext i32 %10 to i64
-  %add.ptr.i13.i = getelementptr inbounds nuw %"struct.hermes::CodePointRange", ptr %9, i64 %conv.i.i.i9.i
+  %add.ptr.i13.idx.i = shl nuw nsw i64 %conv.i.i.i9.i, 3
+  %add.ptr.i13.i = getelementptr inbounds nuw i8, ptr %9, i64 %add.ptr.i13.idx.i
   %cmp24.not18.i = icmp eq i32 %10, 0
   br i1 %cmp24.not18.i, label %_ZNK6hermes5regex11BracketNodeINS0_16UTF16RegexTraitsEE13canMatchASCIIEv.exit, label %for.body25.i
 
@@ -11387,12 +11395,12 @@ if.then.i.i.i31:                                  ; preds = %if.else
 
 for.inc:                                          ; preds = %if.else, %if.then
   %.sink = phi i8 [ 1, %if.then ], [ 4, %if.else ]
-  %.sink78 = phi i8 [ 14, %if.then ], [ 112, %if.else ]
+  %.sink80 = phi i8 [ 14, %if.then ], [ 112, %if.else ]
   %add.ptr.i.i.i22 = getelementptr inbounds nuw i8, ptr %6, i64 %conv.i
   %positiveCharClasses = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i22, i64 5
   %bf.load10 = load i8, ptr %positiveCharClasses, align 1
   %or89 = shl i8 %cc.sroa.0.0.copyload, %.sink
-  %7 = and i8 %or89, %.sink78
+  %7 = and i8 %or89, %.sink80
   %bf.set17 = or i8 %bf.load10, %7
   store i8 %bf.set17, ptr %positiveCharClasses, align 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.063, i64 2
@@ -11433,7 +11441,7 @@ if.end28.i.i.i:                                   ; preds = %if.end13.i.i.i
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %cps, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i, i64 noundef 8) #16
   %.pre.i.i = load i32, ptr %Size.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %.pre.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %cond.end.thread71, label %if.end28.i.i.if.then.i.i.i_crit_edge.i
+  br i1 %cmp.not.i.i.i.i, label %cond.end.thread72, label %if.end28.i.i.if.then.i.i.i_crit_edge.i
 
 if.end28.i.i.if.then.i.i.i_crit_edge.i:           ; preds = %if.end28.i.i.i
   %.pre.i = load ptr, ptr %cps, align 8
@@ -11446,14 +11454,15 @@ if.then.i.i.i.i:                                  ; preds = %if.end28.i.i.if.the
   %12 = load ptr, ptr %codePointSet_, align 8
   %gepdiff.i.i.i = shl nuw nsw i64 %conv.i35.i.i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 4 %12, i64 %gepdiff.i.i.i, i1 false)
-  br label %cond.end.thread71
+  br label %cond.end.thread72
 
-cond.end.thread71:                                ; preds = %if.end28.i.i.i, %if.then.i.i.i.i
+cond.end.thread72:                                ; preds = %if.end28.i.i.i, %if.then.i.i.i.i
   store i32 %9, ptr %Size.i.i.i.i.i.i, align 8
   %13 = load ptr, ptr %cps, align 8
-  %Size.i.i.i3472 = getelementptr inbounds nuw i8, ptr %cps, i64 8
-  %conv.i.i.i73 = zext i32 %9 to i64
-  %add.ptr.i74 = getelementptr inbounds nuw %"struct.hermes::CodePointRange", ptr %13, i64 %conv.i.i.i73
+  %Size.i.i.i3473 = getelementptr inbounds nuw i8, ptr %cps, i64 8
+  %conv.i.i.i74 = zext i32 %9 to i64
+  %add.ptr.i.idx75 = shl nuw nsw i64 %conv.i.i.i74, 3
+  %add.ptr.i76 = getelementptr inbounds nuw i8, ptr %13, i64 %add.ptr.i.idx75
   br label %for.body43.lr.ph
 
 cond.end:                                         ; preds = %for.end
@@ -11466,14 +11475,15 @@ cond.end:                                         ; preds = %for.end
   %15 = load ptr, ptr %cps, align 8
   %Size.i.i.i34 = getelementptr inbounds nuw i8, ptr %cps, i64 8
   %conv.i.i.i = zext i32 %.pre to i64
-  %add.ptr.i = getelementptr inbounds nuw %"struct.hermes::CodePointRange", ptr %15, i64 %conv.i.i.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i.i.i, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %15, i64 %add.ptr.i.idx
   %cmp.not64 = icmp eq i32 %.pre, 0
   br i1 %cmp.not64, label %for.end46, label %for.body43.lr.ph
 
-for.body43.lr.ph:                                 ; preds = %cond.end.thread71, %cond.end
-  %add.ptr.i77 = phi ptr [ %add.ptr.i74, %cond.end.thread71 ], [ %add.ptr.i, %cond.end ]
-  %Size.i.i.i3476 = phi ptr [ %Size.i.i.i3472, %cond.end.thread71 ], [ %Size.i.i.i34, %cond.end ]
-  %16 = phi ptr [ %13, %cond.end.thread71 ], [ %15, %cond.end ]
+for.body43.lr.ph:                                 ; preds = %cond.end.thread72, %cond.end
+  %add.ptr.i79 = phi ptr [ %add.ptr.i76, %cond.end.thread72 ], [ %add.ptr.i, %cond.end ]
+  %Size.i.i.i3478 = phi ptr [ %Size.i.i.i3473, %cond.end.thread72 ], [ %Size.i.i.i34, %cond.end ]
+  %16 = phi ptr [ %13, %cond.end.thread72 ], [ %15, %cond.end ]
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %bcs, i64 8
   %add.ptr.i35 = getelementptr inbounds nuw i8, ptr %range.i, i64 8
   br label %for.body43
@@ -11500,11 +11510,11 @@ for.body43:                                       ; preds = %for.body43.lr.ph, %
   call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %add.ptr.i.i.i36, ptr noundef nonnull %range.i, ptr noundef nonnull %add.ptr.i35)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %range.i)
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin338.065, i64 8
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i77
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i79
   br i1 %cmp.not, label %for.end46, label %for.body43
 
 for.end46:                                        ; preds = %for.body43, %cond.end.thread, %cond.end
-  %Size.i.i.i3470 = phi ptr [ %Size.i.i.i3466, %cond.end.thread ], [ %Size.i.i.i34, %cond.end ], [ %Size.i.i.i3476, %for.body43 ]
+  %Size.i.i.i3471 = phi ptr [ %Size.i.i.i3466, %cond.end.thread ], [ %Size.i.i.i34, %cond.end ], [ %Size.i.i.i3478, %for.body43 ]
   %21 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %22 = load ptr, ptr %insn.coerce0, align 8
   %sub.ptr.lhs.cast.i.i.i.i45 = ptrtoint ptr %21 to i64
@@ -11518,7 +11528,7 @@ if.then.i.i.i49:                                  ; preds = %for.end46
   unreachable
 
 _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_14U16BracketInsnEEptEv.exit51: ; preds = %for.end46
-  %23 = load i32, ptr %Size.i.i.i3470, align 8
+  %23 = load i32, ptr %Size.i.i.i3471, align 8
   %add.ptr.i.i.i50 = getelementptr inbounds nuw i8, ptr %22, i64 %conv.i
   %rangeCount = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i50, i64 1
   store i32 %23, ptr %rangeCount, align 1
@@ -11601,12 +11611,12 @@ if.then.i.i.i31:                                  ; preds = %if.else
 
 for.inc:                                          ; preds = %if.else, %if.then
   %.sink = phi i8 [ 1, %if.then ], [ 4, %if.else ]
-  %.sink78 = phi i8 [ 14, %if.then ], [ 112, %if.else ]
+  %.sink80 = phi i8 [ 14, %if.then ], [ 112, %if.else ]
   %add.ptr.i.i.i22 = getelementptr inbounds nuw i8, ptr %6, i64 %conv.i
   %positiveCharClasses = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i22, i64 5
   %bf.load10 = load i8, ptr %positiveCharClasses, align 1
   %or89 = shl i8 %cc.sroa.0.0.copyload, %.sink
-  %7 = and i8 %or89, %.sink78
+  %7 = and i8 %or89, %.sink80
   %bf.set17 = or i8 %bf.load10, %7
   store i8 %bf.set17, ptr %positiveCharClasses, align 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.063, i64 2
@@ -11647,7 +11657,7 @@ if.end28.i.i.i:                                   ; preds = %if.end13.i.i.i
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %cps, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i, i64 noundef 8) #16
   %.pre.i.i = load i32, ptr %Size.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %.pre.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %cond.end.thread71, label %if.end28.i.i.if.then.i.i.i_crit_edge.i
+  br i1 %cmp.not.i.i.i.i, label %cond.end.thread72, label %if.end28.i.i.if.then.i.i.i_crit_edge.i
 
 if.end28.i.i.if.then.i.i.i_crit_edge.i:           ; preds = %if.end28.i.i.i
   %.pre.i = load ptr, ptr %cps, align 8
@@ -11660,14 +11670,15 @@ if.then.i.i.i.i:                                  ; preds = %if.end28.i.i.if.the
   %12 = load ptr, ptr %codePointSet_, align 8
   %gepdiff.i.i.i = shl nuw nsw i64 %conv.i35.i.i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 4 %12, i64 %gepdiff.i.i.i, i1 false)
-  br label %cond.end.thread71
+  br label %cond.end.thread72
 
-cond.end.thread71:                                ; preds = %if.end28.i.i.i, %if.then.i.i.i.i
+cond.end.thread72:                                ; preds = %if.end28.i.i.i, %if.then.i.i.i.i
   store i32 %9, ptr %Size.i.i.i.i.i.i, align 8
   %13 = load ptr, ptr %cps, align 8
-  %Size.i.i.i3472 = getelementptr inbounds nuw i8, ptr %cps, i64 8
-  %conv.i.i.i73 = zext i32 %9 to i64
-  %add.ptr.i74 = getelementptr inbounds nuw %"struct.hermes::CodePointRange", ptr %13, i64 %conv.i.i.i73
+  %Size.i.i.i3473 = getelementptr inbounds nuw i8, ptr %cps, i64 8
+  %conv.i.i.i74 = zext i32 %9 to i64
+  %add.ptr.i.idx75 = shl nuw nsw i64 %conv.i.i.i74, 3
+  %add.ptr.i76 = getelementptr inbounds nuw i8, ptr %13, i64 %add.ptr.i.idx75
   br label %for.body43.lr.ph
 
 cond.end:                                         ; preds = %for.end
@@ -11680,14 +11691,15 @@ cond.end:                                         ; preds = %for.end
   %15 = load ptr, ptr %cps, align 8
   %Size.i.i.i34 = getelementptr inbounds nuw i8, ptr %cps, i64 8
   %conv.i.i.i = zext i32 %.pre to i64
-  %add.ptr.i = getelementptr inbounds nuw %"struct.hermes::CodePointRange", ptr %15, i64 %conv.i.i.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i.i.i, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %15, i64 %add.ptr.i.idx
   %cmp.not64 = icmp eq i32 %.pre, 0
   br i1 %cmp.not64, label %for.end46, label %for.body43.lr.ph
 
-for.body43.lr.ph:                                 ; preds = %cond.end.thread71, %cond.end
-  %add.ptr.i77 = phi ptr [ %add.ptr.i74, %cond.end.thread71 ], [ %add.ptr.i, %cond.end ]
-  %Size.i.i.i3476 = phi ptr [ %Size.i.i.i3472, %cond.end.thread71 ], [ %Size.i.i.i34, %cond.end ]
-  %16 = phi ptr [ %13, %cond.end.thread71 ], [ %15, %cond.end ]
+for.body43.lr.ph:                                 ; preds = %cond.end.thread72, %cond.end
+  %add.ptr.i79 = phi ptr [ %add.ptr.i76, %cond.end.thread72 ], [ %add.ptr.i, %cond.end ]
+  %Size.i.i.i3478 = phi ptr [ %Size.i.i.i3473, %cond.end.thread72 ], [ %Size.i.i.i34, %cond.end ]
+  %16 = phi ptr [ %13, %cond.end.thread72 ], [ %15, %cond.end ]
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %bcs, i64 8
   %add.ptr.i35 = getelementptr inbounds nuw i8, ptr %range.i, i64 8
   br label %for.body43
@@ -11714,11 +11726,11 @@ for.body43:                                       ; preds = %for.body43.lr.ph, %
   call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(25) %bcs, ptr %add.ptr.i.i.i36, ptr noundef nonnull %range.i, ptr noundef nonnull %add.ptr.i35)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %range.i)
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin338.065, i64 8
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i77
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i79
   br i1 %cmp.not, label %for.end46, label %for.body43
 
 for.end46:                                        ; preds = %for.body43, %cond.end.thread, %cond.end
-  %Size.i.i.i3470 = phi ptr [ %Size.i.i.i3466, %cond.end.thread ], [ %Size.i.i.i34, %cond.end ], [ %Size.i.i.i3476, %for.body43 ]
+  %Size.i.i.i3471 = phi ptr [ %Size.i.i.i3466, %cond.end.thread ], [ %Size.i.i.i34, %cond.end ], [ %Size.i.i.i3478, %for.body43 ]
   %21 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %22 = load ptr, ptr %insn.coerce0, align 8
   %sub.ptr.lhs.cast.i.i.i.i45 = ptrtoint ptr %21 to i64
@@ -11732,7 +11744,7 @@ if.then.i.i.i49:                                  ; preds = %for.end46
   unreachable
 
 _ZN6hermes5regex19RegexBytecodeStream18InstructionWrapperINS0_11BracketInsnEEptEv.exit51: ; preds = %for.end46
-  %23 = load i32, ptr %Size.i.i.i3470, align 8
+  %23 = load i32, ptr %Size.i.i.i3471, align 8
   %add.ptr.i.i.i50 = getelementptr inbounds nuw i8, ptr %22, i64 %conv.i
   %rangeCount = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i50, i64 1
   store i32 %23, ptr %rangeCount, align 1
@@ -14176,7 +14188,8 @@ entry:
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %0, i64 %conv.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 2
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.i.i = icmp ne i32 %1, 0
   %__last.addr.08.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
   %cmp19.i.i = icmp ult ptr %0, %__last.addr.08.i.i
@@ -14453,7 +14466,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %remaining.sroa.0.0118 = phi ptr [ %chars.coerce0, %while.body.lr.ph ], [ %add.ptr.i.i, %while.cond.loopexit ]
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %remaining.sroa.6.0119, i64 255)
   %sub.i = sub i64 %remaining.sroa.6.0119, %.sroa.speculated
-  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %remaining.sroa.0.0118, i64 %.sroa.speculated
+  %add.ptr.i.i.idx = shl nuw nsw i64 %.sroa.speculated, 2
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %remaining.sroa.0.0118, i64 %add.ptr.i.i.idx
   %0 = load i8, ptr %icase_, align 8
   %tobool = trunc i8 %0 to i1
   %conv = trunc nuw i64 %.sroa.speculated to i8
@@ -14639,7 +14653,8 @@ _ZN6hermes5regex19RegexBytecodeStream9emitChar8Ec.exit: ; preds = %if.then.i.i.i
 while.end:                                        ; preds = %while.cond.loopexit, %entry
   %remaining.sroa.0.0.lcssa = phi ptr [ %chars.coerce0, %entry ], [ %add.ptr.i.i, %while.cond.loopexit ]
   %remaining.sroa.6.0.lcssa = phi i64 [ %chars.coerce1, %entry ], [ %sub.i, %while.cond.loopexit ]
-  %add.ptr.i49 = getelementptr inbounds nuw i32, ptr %remaining.sroa.0.0.lcssa, i64 %remaining.sroa.6.0.lcssa
+  %add.ptr.i49.idx = shl nuw nsw i64 %remaining.sroa.6.0.lcssa, 2
+  %add.ptr.i49 = getelementptr inbounds nuw i8, ptr %remaining.sroa.0.0.lcssa, i64 %add.ptr.i49.idx
   %cmp23.not121 = icmp eq i64 %remaining.sroa.6.0.lcssa, 0
   br i1 %cmp23.not121, label %for.end43, label %for.body24.lr.ph
 
@@ -14771,7 +14786,8 @@ entry:
   %ref.tmp.i39 = alloca i8, align 1
   %ref.tmp.i14 = alloca i8, align 1
   %ref.tmp.i = alloca i8, align 1
-  %add.ptr.i = getelementptr inbounds i32, ptr %chars.coerce0, i64 %chars.coerce1
+  %add.ptr.i.idx = shl nsw i64 %chars.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %chars.coerce0, i64 %add.ptr.i.idx
   %cmp.not93 = icmp eq i64 %chars.coerce1, 0
   br i1 %cmp.not93, label %for.end, label %for.body.lr.ph
 

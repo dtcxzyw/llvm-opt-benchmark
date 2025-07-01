@@ -6667,7 +6667,8 @@ define void @"_ZN121_$LT$uv_pypi_types..simple_json..Hashes$u20$as$u20$core..con
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %10 = icmp ult i64 %2, 576460752303423488
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds nuw { ptr, i8, [7 x i8] }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   store ptr %1, ptr %4, align 8

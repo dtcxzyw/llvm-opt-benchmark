@@ -18,7 +18,6 @@ module asm ".previous"
 %struct.QArrayDataPointer = type { ptr, ptr, i64 }
 %class.QByteArray = type { %struct.QArrayDataPointer.0 }
 %struct.QArrayDataPointer.0 = type { ptr, ptr, i64 }
-%"struct.DecodeAsModel::UIntEntry" = type { %class.QByteArray, i32, %class.QByteArray }
 %class.QVariant = type { %"struct.QVariant::Private" }
 %"struct.QVariant::Private" = type { %union.anon, i64 }
 %union.anon = type { ptr, [16 x i8] }
@@ -34,6 +33,7 @@ module asm ".previous"
 %struct.QArrayDataPointer.5 = type { ptr, ptr, i64 }
 %"class.QList<DecodeAsModel::UIntEntry>::const_iterator" = type { ptr }
 %struct.QArrayDataPointer.1 = type { ptr, ptr, i64 }
+%"struct.DecodeAsModel::UIntEntry" = type { %class.QByteArray, i32, %class.QByteArray }
 %"struct.QtPrivate::QGenericArrayOps<DecodeAsModel::UIntEntry>::Inserter" = type { ptr, ptr, i64, i64, i64, i64, i64, ptr, ptr, ptr }
 %"class.std::reverse_iterator" = type { ptr }
 %struct.Destructor = type { ptr, ptr, ptr }
@@ -1024,9 +1024,9 @@ define void @_ZN13DecodeAsModelD2Ev(ptr noundef align 8 dereferenceable_or_null(
   br label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP12DecodeAsItemEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
 
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP12DecodeAsItemEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %1, %9
-  %11 = getelementptr ptr, ptr %6, i64 %8
-  %.idx.mask = and i64 %8, 2305843009213693951
-  %.not13 = icmp eq i64 %.idx.mask, 0
+  %.idx = shl i64 %8, 3
+  %11 = getelementptr i8, ptr %6, i64 %.idx
+  %.not13 = icmp eq i64 %.idx, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %35, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP12DecodeAsItemEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
@@ -1138,8 +1138,8 @@ _ZN17QArrayDataPointerIN13DecodeAsModel9UIntEntryEE5derefEv.exit.i.i: ; preds = 
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr %"struct.DecodeAsModel::UIntEntry", ptr %47, i64 %49
   %.idx.i.i.i = mul i64 %49, 56
+  %50 = getelementptr i8, ptr %47, i64 %.idx.i.i.i
   %.not4.i.i.i.i.i.i = icmp eq i64 %.idx.i.i.i, 0
   br i1 %.not4.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsIN13DecodeAsModel9UIntEntryEE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -4004,15 +4004,14 @@ _ZN17QArrayDataPointerIP12DecodeAsItemE6detachEPS2_.exit.i: ; preds = %_ZNK17QAr
   %25 = phi ptr [ %23, %_ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit.thread.i.i ], [ %17, %_ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit.i.i ]
   %26 = phi ptr [ %24, %_ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit.thread.i.i ], [ %19, %_ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit.i.i ]
   %27 = phi ptr [ %.pre3, %_ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit.thread.i.i ], [ %18, %_ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit.i.i ]
-  %.idx3.i = shl i64 %1, 3
-  %28 = getelementptr i8, ptr %27, i64 %.idx3.i
+  %.idx.i = shl i64 %1, 3
+  %28 = getelementptr i8, ptr %27, i64 %.idx.i
   %29 = getelementptr i8, ptr %28, i64 8
-  %.idx.mask.i = and i64 %1, 2305843009213693951
-  %30 = icmp ne i64 %.idx.mask.i, 0
+  %30 = icmp ne i64 %.idx.i, 0
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i64, ptr %31, align 8
-  %.idx.i = shl i64 %32, 3
-  %33 = getelementptr i8, ptr %27, i64 %.idx.i
+  %.idx3.i = shl i64 %32, 3
+  %33 = getelementptr i8, ptr %27, i64 %.idx3.i
   %.not.i.i = icmp eq ptr %29, %33
   %or.cond.i.i = select i1 %30, i1 true, i1 %.not.i.i
   br i1 %or.cond.i.i, label %._crit_edge.i.i, label %34
@@ -4025,7 +4024,7 @@ _ZN17QArrayDataPointerIP12DecodeAsItemE6detachEPS2_.exit.i: ; preds = %_ZNK17QAr
   br i1 %.not.i.i, label %_ZN5QListIP12DecodeAsItemE6removeExx.exit, label %35
 
 35:                                               ; preds = %._crit_edge.i.i
-  %reass.sub = sub i64 %.idx.i, %.idx3.i
+  %reass.sub = sub i64 %.idx3.i, %.idx.i
   %gepdiff.i = add i64 %reass.sub, -8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %28, ptr noundef align 1 %29, i64 noundef %gepdiff.i, i1 noundef false) #23
   %.pre12.i.i = load i64, ptr %31, align 8
@@ -4075,9 +4074,9 @@ define void @_ZN13DecodeAsModel8clearAllEv(ptr noundef align 8 dereferenceable_o
   br label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP12DecodeAsItemEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
 
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP12DecodeAsItemEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %11, %18
-  %20 = getelementptr ptr, ptr %15, i64 %17
-  %.idx.mask = and i64 %17, 2305843009213693951
-  %.not6 = icmp eq i64 %.idx.mask, 0
+  %.idx = shl i64 %17, 3
+  %20 = getelementptr i8, ptr %15, i64 %.idx
+  %.not6 = icmp eq i64 %.idx, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %44, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP12DecodeAsItemEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
@@ -5268,11 +5267,11 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIN13DecodeAsModel9UIntEntryEEEENS_17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %20, ptr %21, align 8, !alias.scope !29
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %23 = getelementptr %"struct.DecodeAsModel::UIntEntry", ptr %20, i64 %19
+  %.idx = mul i64 %19, 56
+  %23 = getelementptr i8, ptr %20, i64 %.idx
   store ptr %23, ptr %22, align 8, !alias.scope !29
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 1, ptr %24, align 8, !alias.scope !29
-  %.idx = mul i64 %19, 56
   %.not248270 = icmp eq i64 %.idx, 0
   br i1 %.not248270, label %._crit_edge, label %.lr.ph
 
@@ -5289,8 +5288,8 @@ _ZN17QArrayDataPointerIN13DecodeAsModel9UIntEntryEE5derefEv.exit.i.i.i: ; preds 
 27:                                               ; preds = %_ZN17QArrayDataPointerIN13DecodeAsModel9UIntEntryEE5derefEv.exit.i.i.i
   %28 = load ptr, ptr %11, align 8
   %29 = load i64, ptr %14, align 8
-  %30 = getelementptr %"struct.DecodeAsModel::UIntEntry", ptr %28, i64 %29
   %.idx.i.i.i.i = mul i64 %29, 56
+  %30 = getelementptr i8, ptr %28, i64 %.idx.i.i.i.i
   %.not4.i.i.i.i.i.i.i = icmp eq i64 %.idx.i.i.i.i, 0
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsIN13DecodeAsModel9UIntEntryEE10destroyAllEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -5353,9 +5352,9 @@ _ZN9QtPrivate17QForeachContainerI5QListIN13DecodeAsModel9UIntEntryEEED2Ev.exit: 
   br label %_ZN9QtPrivate21qMakeForeachContainerIR5QListISt4pairIPKcS4_EEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOSA_.exit
 
 _ZN9QtPrivate21qMakeForeachContainerIR5QListISt4pairIPKcS4_EEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOSA_.exit: ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIN13DecodeAsModel9UIntEntryEEED2Ev.exit, %48
-  %50 = getelementptr %"struct.std::pair", ptr %45, i64 %47
-  %.idx286.mask = and i64 %47, 1152921504606846975
-  %.not249271 = icmp eq i64 %.idx286.mask, 0
+  %.idx286 = shl i64 %47, 4
+  %50 = getelementptr i8, ptr %45, i64 %.idx286
+  %.not249271 = icmp eq i64 %.idx286, 0
   br i1 %.not249271, label %._crit_edge274, label %.lr.ph273
 
 .lr.ph:                                           ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListIN13DecodeAsModel9UIntEntryEEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, %82
@@ -5508,9 +5507,9 @@ _ZN5QListISt4pairIPKcS2_EE5clearEv.exit:          ; preds = %_ZN9QtPrivate17QFor
   br label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP12DecodeAsItemEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
 
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP12DecodeAsItemEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %_ZN5QListISt4pairIPKcS2_EE5clearEv.exit, %107
-  %109 = getelementptr ptr, ptr %104, i64 %106
-  %.idx287.mask = and i64 %106, 2305843009213693951
-  %.not250282 = icmp eq i64 %.idx287.mask, 0
+  %.idx287 = shl i64 %106, 3
+  %109 = getelementptr i8, ptr %104, i64 %.idx287
+  %.not250282 = icmp eq i64 %.idx287, 0
   br i1 %.not250282, label %._crit_edge285, label %.lr.ph284
 
 .lr.ph284:                                        ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP12DecodeAsItemEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
@@ -6331,8 +6330,8 @@ _ZN17QArrayDataPointerIN13DecodeAsModel9UIntEntryEE5derefEv.exit.i.i: ; preds = 
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr %"struct.DecodeAsModel::UIntEntry", ptr %6, i64 %8
   %.idx.i.i.i = mul i64 %8, 56
+  %9 = getelementptr i8, ptr %6, i64 %.idx.i.i.i
   %.not4.i.i.i.i.i.i = icmp eq i64 %.idx.i.i.i, 0
   br i1 %.not4.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsIN13DecodeAsModel9UIntEntryEE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -6428,8 +6427,8 @@ _ZN17QArrayDataPointerIN13DecodeAsModel9UIntEntryEE5derefEv.exit.i: ; preds = %_
   br i1 %.not.i2, label %20, label %_ZN17QArrayDataPointerIN13DecodeAsModel9UIntEntryEED2Ev.exit
 
 20:                                               ; preds = %_ZN17QArrayDataPointerIN13DecodeAsModel9UIntEntryEE5derefEv.exit.i
-  %21 = getelementptr %"struct.DecodeAsModel::UIntEntry", ptr %17, i64 %18
   %.idx.i.i = mul i64 %18, 56
+  %21 = getelementptr i8, ptr %17, i64 %.idx.i.i
   %.not4.i.i.i.i.i = icmp eq i64 %.idx.i.i, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsIN13DecodeAsModel9UIntEntryEE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -6576,8 +6575,8 @@ _ZN17QArrayDataPointerIN13DecodeAsModel9UIntEntryEE5derefEv.exit: ; preds = %1
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr %"struct.DecodeAsModel::UIntEntry", ptr %6, i64 %8
   %.idx.i = mul i64 %8, 56
+  %9 = getelementptr i8, ptr %6, i64 %.idx.i
   %.not4.i.i.i.i = icmp eq i64 %.idx.i, 0
   br i1 %.not4.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsIN13DecodeAsModel9UIntEntryEE10destroyAllEv.exit, label %.lr.ph.i.i.i.i
 
@@ -6816,24 +6815,24 @@ _ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit31: ; preds = %43
   br i1 %or.cond5, label %_ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit31.thread, label %49
 
 _ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit31.thread: ; preds = %43, %_ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit31
-  %.idx40.mask = and i64 %spec.select, 2305843009213693951
-  %48 = icmp eq i64 %.idx40.mask, 0
+  %.idx40 = shl i64 %spec.select, 3
+  %48 = icmp eq i64 %.idx40, 0
   br i1 %48, label %_ZN9QtPrivate12QPodArrayOpsIP12DecodeAsItemE10copyAppendEPKS2_S5_.exit, label %_ZN9QtPrivate12QPodArrayOpsIP12DecodeAsItemE10copyAppendEPKS2_S5_.exit.sink.split
 
 49:                                               ; preds = %_ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit31
-  %.idx.mask = and i64 %spec.select, 2305843009213693951
-  %50 = icmp eq i64 %.idx.mask, 0
+  %.idx = shl i64 %spec.select, 3
+  %50 = icmp eq i64 %.idx, 0
   br i1 %50, label %_ZN9QtPrivate12QPodArrayOpsIP12DecodeAsItemE10copyAppendEPKS2_S5_.exit, label %_ZN9QtPrivate12QPodArrayOpsIP12DecodeAsItemE10copyAppendEPKS2_S5_.exit.sink.split
 
 _ZN9QtPrivate12QPodArrayOpsIP12DecodeAsItemE10copyAppendEPKS2_S5_.exit.sink.split: ; preds = %49, %_ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit31.thread
+  %.idx.sink48 = phi i64 [ %.idx40, %_ZNK17QArrayDataPointerIP12DecodeAsItemE11needsDetachEv.exit31.thread ], [ %.idx, %49 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i64, ptr %53, align 8
   %55 = getelementptr ptr, ptr %31, i64 %54
-  %.idx = shl i64 %spec.select, 3
-  %56 = ashr exact i64 %.idx, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %55, ptr noundef align 1 %52, i64 noundef %.idx, i1 noundef false) #23
+  %56 = ashr exact i64 %.idx.sink48, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %55, ptr noundef align 1 %52, i64 noundef %.idx.sink48, i1 noundef false) #23
   %57 = load i64, ptr %53, align 8
   %58 = add i64 %57, %56
   store i64 %58, ptr %53, align 8
@@ -7198,13 +7197,13 @@ _ZNK17QArrayDataPointerIP12DecodeAsItemE14freeSpaceAtEndEv.exit.i: ; preds = %_Z
 
 37:                                               ; preds = %33
   %38 = sub nsw i64 0, %28
-  %39 = getelementptr ptr, ptr %22, i64 %38
+  %.idx.i.i = shl i64 %38, 3
+  %39 = getelementptr i8, ptr %22, i64 %.idx.i.i
   %40 = icmp eq i64 %30, 0
   br i1 %40, label %_ZN9QtPrivate20q_relocate_overlap_nIP12DecodeAsItemxEEvPT_T0_S4_.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  %.idx.mask.i.i = and i64 %38, 2305843009213693951
-  %42 = icmp eq i64 %.idx.mask.i.i, 0
+  %42 = icmp eq i64 %.idx.i.i, 0
   %43 = icmp eq ptr %22, null
   %or.cond.i.i.i = or i1 %42, %43
   %44 = icmp eq ptr %39, null
@@ -7318,14 +7317,14 @@ _ZNK17QArrayDataPointerIP12DecodeAsItemE14freeSpaceAtEndEv.exit: ; preds = %4, %
   %43 = sub i64 %.0, %.0.i24
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr ptr, ptr %45, i64 %43
+  %.idx.i = shl i64 %43, 3
+  %46 = getelementptr i8, ptr %45, i64 %.idx.i
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = icmp eq i64 %42, 0
   br i1 %48, label %_ZN9QtPrivate20q_relocate_overlap_nIP12DecodeAsItemxEEvPT_T0_S4_.exit.i, label %49
 
 49:                                               ; preds = %41
-  %.idx.mask.i = and i64 %43, 2305843009213693951
-  %50 = icmp eq i64 %.idx.mask.i, 0
+  %50 = icmp eq i64 %.idx.i, 0
   %51 = icmp eq ptr %45, null
   %or.cond.i.i = or i1 %51, %50
   %52 = icmp eq ptr %46, null
@@ -7539,13 +7538,13 @@ _ZNK17QArrayDataPointerIiE14freeSpaceAtEndEv.exit.i: ; preds = %_ZNK17QArrayData
 
 37:                                               ; preds = %33
   %38 = sub nsw i64 0, %28
-  %39 = getelementptr i32, ptr %22, i64 %38
+  %.idx.i.i = shl i64 %38, 2
+  %39 = getelementptr i8, ptr %22, i64 %.idx.i.i
   %40 = icmp eq i64 %30, 0
   br i1 %40, label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  %.idx.mask.i.i = and i64 %38, 4611686018427387903
-  %42 = icmp eq i64 %.idx.mask.i.i, 0
+  %42 = icmp eq i64 %.idx.i.i, 0
   %43 = icmp eq ptr %22, null
   %or.cond.i.i.i = or i1 %42, %43
   %44 = icmp eq ptr %39, null
@@ -7659,14 +7658,14 @@ _ZNK17QArrayDataPointerIiE14freeSpaceAtEndEv.exit: ; preds = %4, %_ZNK17QArrayDa
   %43 = sub i64 %.0, %.0.i24
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr i32, ptr %45, i64 %43
+  %.idx.i = shl i64 %43, 2
+  %46 = getelementptr i8, ptr %45, i64 %.idx.i
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = icmp eq i64 %42, 0
   br i1 %48, label %_ZN9QtPrivate20q_relocate_overlap_nIixEEvPT_T0_S2_.exit.i, label %49
 
 49:                                               ; preds = %41
-  %.idx.mask.i = and i64 %43, 4611686018427387903
-  %50 = icmp eq i64 %.idx.mask.i, 0
+  %50 = icmp eq i64 %.idx.i, 0
   %51 = icmp eq ptr %45, null
   %or.cond.i.i = or i1 %51, %50
   %52 = icmp eq ptr %46, null
@@ -7812,24 +7811,24 @@ _ZNK17QArrayDataPointerIiE11needsDetachEv.exit31: ; preds = %43
   br i1 %or.cond5, label %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit31.thread, label %49
 
 _ZNK17QArrayDataPointerIiE11needsDetachEv.exit31.thread: ; preds = %43, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit31
-  %.idx40.mask = and i64 %spec.select, 4611686018427387903
-  %48 = icmp eq i64 %.idx40.mask, 0
+  %.idx40 = shl i64 %spec.select, 2
+  %48 = icmp eq i64 %.idx40, 0
   br i1 %48, label %_ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit, label %_ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit.sink.split
 
 49:                                               ; preds = %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit31
-  %.idx.mask = and i64 %spec.select, 4611686018427387903
-  %50 = icmp eq i64 %.idx.mask, 0
+  %.idx = shl i64 %spec.select, 2
+  %50 = icmp eq i64 %.idx, 0
   br i1 %50, label %_ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit, label %_ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit.sink.split
 
 _ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit.sink.split: ; preds = %49, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit31.thread
+  %.idx.sink48 = phi i64 [ %.idx40, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit31.thread ], [ %.idx, %49 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i64, ptr %53, align 8
   %55 = getelementptr i32, ptr %31, i64 %54
-  %.idx = shl i64 %spec.select, 2
-  %56 = ashr exact i64 %.idx, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %55, ptr noundef align 1 %52, i64 noundef %.idx, i1 noundef false) #23
+  %56 = ashr exact i64 %.idx.sink48, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %55, ptr noundef align 1 %52, i64 noundef %.idx.sink48, i1 noundef false) #23
   %57 = load i64, ptr %53, align 8
   %58 = add i64 %57, %56
   store i64 %58, ptr %53, align 8
@@ -8720,7 +8719,8 @@ _ZNK17QArrayDataPointerIN13DecodeAsModel9UIntEntryEE14freeSpaceAtEndEv.exit: ; p
   %44 = sub i64 %.0, %.0.i24
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr %"struct.DecodeAsModel::UIntEntry", ptr %46, i64 %44
+  %.idx.i = mul i64 %44, 56
+  %47 = getelementptr i8, ptr %46, i64 %.idx.i
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -8728,7 +8728,6 @@ _ZNK17QArrayDataPointerIN13DecodeAsModel9UIntEntryEE14freeSpaceAtEndEv.exit: ; p
   br i1 %49, label %_ZN9QtPrivate20q_relocate_overlap_nIN13DecodeAsModel9UIntEntryExEEvPT_T0_S4_.exit.i, label %50
 
 50:                                               ; preds = %42
-  %.idx.i = mul i64 %44, 56
   %51 = icmp eq i64 %.idx.i, 0
   %52 = icmp eq ptr %46, null
   %or.cond.i.i = or i1 %52, %51
@@ -8831,8 +8830,8 @@ _ZNK17QArrayDataPointerIN13DecodeAsModel9UIntEntryEE11needsDetachEv.exit: ; pred
 _ZNK17QArrayDataPointerIN13DecodeAsModel9UIntEntryEE11needsDetachEv.exit.thread: ; preds = %16, %_ZNK17QArrayDataPointerIN13DecodeAsModel9UIntEntryEE11needsDetachEv.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr %"struct.DecodeAsModel::UIntEntry", ptr %23, i64 %spec.select
   %.idx27 = mul i64 %spec.select, 56
+  %24 = getelementptr i8, ptr %23, i64 %.idx27
   %25 = icmp ne i64 %.idx27, 0
   %26 = icmp ult ptr %23, %24
   %or.cond31 = select i1 %25, i1 %26, i1 false
@@ -8899,8 +8898,8 @@ _ZN13DecodeAsModel9UIntEntryC2ERKS0_.exit.i:      ; preds = %52, %_ZN10QByteArra
 58:                                               ; preds = %_ZNK17QArrayDataPointerIN13DecodeAsModel9UIntEntryEE11needsDetachEv.exit
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr %"struct.DecodeAsModel::UIntEntry", ptr %60, i64 %spec.select
   %.idx = mul i64 %spec.select, 56
+  %61 = getelementptr i8, ptr %60, i64 %.idx
   %62 = icmp ne i64 %.idx, 0
   %63 = icmp ult ptr %60, %61
   %or.cond32 = select i1 %62, i1 %63, i1 false
@@ -9005,8 +9004,8 @@ _ZN17QArrayDataPointerIN13DecodeAsModel9UIntEntryEE5derefEv.exit.i: ; preds = %1
 112:                                              ; preds = %_ZN17QArrayDataPointerIN13DecodeAsModel9UIntEntryEE5derefEv.exit.i
   %113 = load ptr, ptr %7, align 8
   %114 = load i64, ptr %100, align 8
-  %115 = getelementptr %"struct.DecodeAsModel::UIntEntry", ptr %113, i64 %114
   %.idx.i.i = mul i64 %114, 56
+  %115 = getelementptr i8, ptr %113, i64 %.idx.i.i
   %.not4.i.i.i.i.i = icmp eq i64 %.idx.i.i, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsIN13DecodeAsModel9UIntEntryEE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -10186,13 +10185,13 @@ _ZNK17QArrayDataPointerISt4pairIPKcS2_EE14freeSpaceAtEndEv.exit.i: ; preds = %_Z
 
 37:                                               ; preds = %33
   %38 = sub nsw i64 0, %28
-  %39 = getelementptr %"struct.std::pair", ptr %22, i64 %38
+  %.idx.i.i = shl i64 %38, 4
+  %39 = getelementptr i8, ptr %22, i64 %.idx.i.i
   %40 = icmp eq i64 %30, 0
   br i1 %40, label %_ZN9QtPrivate20q_relocate_overlap_nISt4pairIPKcS3_ExEEvPT_T0_S6_.exit.i.i, label %41
 
 41:                                               ; preds = %37
-  %.idx.mask.i.i = and i64 %38, 1152921504606846975
-  %42 = icmp eq i64 %.idx.mask.i.i, 0
+  %42 = icmp eq i64 %.idx.i.i, 0
   %43 = icmp eq ptr %22, null
   %or.cond.i.i.i = or i1 %42, %43
   %44 = icmp eq ptr %39, null
@@ -10306,14 +10305,14 @@ _ZNK17QArrayDataPointerISt4pairIPKcS2_EE14freeSpaceAtEndEv.exit: ; preds = %4, %
   %43 = sub i64 %.0, %.0.i24
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr %"struct.std::pair", ptr %45, i64 %43
+  %.idx.i = shl i64 %43, 4
+  %46 = getelementptr i8, ptr %45, i64 %.idx.i
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = icmp eq i64 %42, 0
   br i1 %48, label %_ZN9QtPrivate20q_relocate_overlap_nISt4pairIPKcS3_ExEEvPT_T0_S6_.exit.i, label %49
 
 49:                                               ; preds = %41
-  %.idx.mask.i = and i64 %43, 1152921504606846975
-  %50 = icmp eq i64 %.idx.mask.i, 0
+  %50 = icmp eq i64 %.idx.i, 0
   %51 = icmp eq ptr %45, null
   %or.cond.i.i = or i1 %51, %50
   %52 = icmp eq ptr %46, null
@@ -10459,24 +10458,24 @@ _ZNK17QArrayDataPointerISt4pairIPKcS2_EE11needsDetachEv.exit31: ; preds = %43
   br i1 %or.cond5, label %_ZNK17QArrayDataPointerISt4pairIPKcS2_EE11needsDetachEv.exit31.thread, label %49
 
 _ZNK17QArrayDataPointerISt4pairIPKcS2_EE11needsDetachEv.exit31.thread: ; preds = %43, %_ZNK17QArrayDataPointerISt4pairIPKcS2_EE11needsDetachEv.exit31
-  %.idx40.mask = and i64 %spec.select, 1152921504606846975
-  %48 = icmp eq i64 %.idx40.mask, 0
+  %.idx40 = shl i64 %spec.select, 4
+  %48 = icmp eq i64 %.idx40, 0
   br i1 %48, label %_ZN9QtPrivate12QPodArrayOpsISt4pairIPKcS3_EE10copyAppendEPKS4_S7_.exit, label %_ZN9QtPrivate12QPodArrayOpsISt4pairIPKcS3_EE10copyAppendEPKS4_S7_.exit.sink.split
 
 49:                                               ; preds = %_ZNK17QArrayDataPointerISt4pairIPKcS2_EE11needsDetachEv.exit31
-  %.idx.mask = and i64 %spec.select, 1152921504606846975
-  %50 = icmp eq i64 %.idx.mask, 0
+  %.idx = shl i64 %spec.select, 4
+  %50 = icmp eq i64 %.idx, 0
   br i1 %50, label %_ZN9QtPrivate12QPodArrayOpsISt4pairIPKcS3_EE10copyAppendEPKS4_S7_.exit, label %_ZN9QtPrivate12QPodArrayOpsISt4pairIPKcS3_EE10copyAppendEPKS4_S7_.exit.sink.split
 
 _ZN9QtPrivate12QPodArrayOpsISt4pairIPKcS3_EE10copyAppendEPKS4_S7_.exit.sink.split: ; preds = %49, %_ZNK17QArrayDataPointerISt4pairIPKcS2_EE11needsDetachEv.exit31.thread
+  %.idx.sink48 = phi i64 [ %.idx40, %_ZNK17QArrayDataPointerISt4pairIPKcS2_EE11needsDetachEv.exit31.thread ], [ %.idx, %49 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i64, ptr %53, align 8
   %55 = getelementptr %"struct.std::pair", ptr %31, i64 %54
-  %.idx = shl i64 %spec.select, 4
-  %56 = ashr exact i64 %.idx, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %55, ptr noundef align 1 %52, i64 noundef %.idx, i1 noundef false) #23
+  %56 = ashr exact i64 %.idx.sink48, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %55, ptr noundef align 1 %52, i64 noundef %.idx.sink48, i1 noundef false) #23
   %57 = load i64, ptr %53, align 8
   %58 = add i64 %57, %56
   store i64 %58, ptr %53, align 8

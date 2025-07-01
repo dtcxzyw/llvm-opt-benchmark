@@ -42177,7 +42177,8 @@ default.unreachable:                              ; preds = %.noexc
   br i1 %130, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h7a4000cb9b54e9a4E.exit.thread, label %131
 
 131:                                              ; preds = %127
-  %132 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %128, i64 %129
+  %.idx = shl nsw i64 %129, 6
+  %132 = getelementptr inbounds i8, ptr %128, i64 %.idx
   %133 = getelementptr inbounds i8, ptr %132, i64 -64
   %134 = icmp eq ptr %128, %133
   br i1 %134, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h7a4000cb9b54e9a4E.exit.thread, label %.lr.ph.i.i.i.i.i.preheader
@@ -42185,8 +42186,8 @@ default.unreachable:                              ; preds = %.noexc
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %131
   %135 = getelementptr inbounds i8, ptr %132, i64 -8
   %136 = load double, ptr %135, align 8, !alias.scope !7622, !noalias !7627, !noundef !4
-  %137 = add i64 %129, 288230376151711743
-  %138 = and i64 %137, 288230376151711743
+  %137 = add nsw i64 %.idx, -64
+  %138 = lshr exact i64 %137, 6
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i

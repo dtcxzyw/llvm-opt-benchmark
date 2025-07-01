@@ -890,7 +890,8 @@ define range(i32 -2147483648, 1) i32 @ff_h264_queue_decode_slice(ptr noundef %0,
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 730740
   %11 = load i32, ptr %10, align 4, !tbaa !161
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.H264SliceContext, ptr %9, i64 %12
+  %.idx = mul nsw i64 %12, 35568
+  %13 = getelementptr inbounds i8, ptr %9, i64 %.idx
   %14 = icmp eq i32 %11, 0
   br i1 %14, label %15, label %18
 

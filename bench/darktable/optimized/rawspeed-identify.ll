@@ -1109,7 +1109,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 .lr.ph276.preheader:                              ; preds = %256
   %259 = zext nneg i32 %257 to i64
-  %260 = getelementptr inbounds nuw i32, ptr %238, i64 %259
+  %.idx = shl nuw nsw i64 %259, 2
+  %260 = getelementptr inbounds nuw i8, ptr %238, i64 %.idx
   br label %.lr.ph276
 
 .lr.ph276:                                        ; preds = %.lr.ph276.preheader, %.lr.ph276

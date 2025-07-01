@@ -3342,7 +3342,8 @@ _ZNSt11_Deque_baseIN5boost3log11v2_mt_posix14attribute_name10repository4nodeESaI
   %12 = sub nsw i64 %.sroa.speculated, %9
   %13 = lshr i64 %12, 1
   %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %9
+  %.idx = shl nuw nsw i64 %9, 3
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIN5boost3log11v2_mt_posix14attribute_name10repository4nodeESaIS5_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIN5boost3log11v2_mt_posix14attribute_name10repository4nodeESaIS5_EE16_M_allocate_nodeEv.exit.i

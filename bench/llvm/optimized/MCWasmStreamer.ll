@@ -3,8 +3,6 @@ source_filename = "bench/llvm/original/MCWasmStreamer.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.llvm::MCFixup" = type { ptr, i32, i32, %"class.llvm::SMLoc" }
-%"class.llvm::SMLoc" = type { ptr }
 %"class.llvm::SmallVector.58" = type { %"class.llvm::SmallVectorImpl.59", %"struct.llvm::SmallVectorStorage.62" }
 %"class.llvm::SmallVectorImpl.59" = type { %"class.llvm::SmallVectorTemplateBase.60" }
 %"class.llvm::SmallVectorTemplateBase.60" = type { %"class.llvm::SmallVectorTemplateCommon.61" }
@@ -18,6 +16,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.55" = type { %"class.llvm::SmallVectorBase.56" }
 %"class.llvm::SmallVectorBase.56" = type { ptr, i64, i64 }
 %"struct.llvm::SmallVectorStorage.108" = type { [256 x i8] }
+%"class.llvm::MCFixup" = type { ptr, i32, i32, %"class.llvm::SMLoc" }
+%"class.llvm::SMLoc" = type { ptr }
 %"class.std::unique_ptr.63" = type { %"struct.std::__uniq_ptr_data.64" }
 %"struct.std::__uniq_ptr_data.64" = type { %"class.std::__uniq_ptr_impl.65" }
 %"class.std::__uniq_ptr_impl.65" = type { %"class.std::tuple.66" }
@@ -349,7 +349,8 @@ define dso_local void @_ZN4llvm14MCWasmStreamer18emitInstToFragmentERKNS_6MCInst
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %9 = load i32, ptr %8, align 8, !tbaa !97
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %7, i64 %10
+  %.idx = mul nuw nsw i64 %10, 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not11 = icmp eq i32 %9, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -447,7 +448,8 @@ define dso_local void @_ZN4llvm14MCWasmStreamer14emitInstToDataERKNS_6MCInstERKN
   %19 = load ptr, ptr %4, align 8, !tbaa !96
   %20 = load i32, ptr %9, align 8, !tbaa !97
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %19, i64 %21
+  %.idx = mul nuw nsw i64 %21, 24
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not23 = icmp eq i32 %20, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 

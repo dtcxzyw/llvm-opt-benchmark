@@ -78,9 +78,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.clang::dependency_directives_scan::Directive" = type <{ %"class.llvm::ArrayRef.24", i8, [7 x i8] }>
 %"class.clang::DiagnosticBuilder" = type <{ %"class.clang::StreamingDiagnostic", ptr, %"class.clang::SourceLocation", i32, %"class.std::__cxx11::basic_string", i8, i8, [6 x i8] }>
 %"class.clang::StreamingDiagnostic" = type { ptr, ptr }
-%"class.clang::FixItHint" = type <{ %"class.clang::CharSourceRange", %"class.clang::CharSourceRange", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
-%"class.clang::CharSourceRange" = type <{ %"class.clang::SourceRange", i8, [3 x i8] }>
-%"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
 
 $_ZN5clang11LangOptionsD2Ev = comdat any
 
@@ -1611,7 +1608,8 @@ _ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13Di
   %.val.i = load ptr, ptr %55, align 8, !tbaa !87
   %.val14.i = load i32, ptr %57, align 8, !tbaa !88
   %618 = zext i32 %.val14.i to i64
-  %619 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DirectiveWithTokens", ptr %.val.i, i64 %618
+  %.idx.i = shl nuw nsw i64 %618, 3
+  %619 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i
   %.not1247.i = icmp eq i32 %.val14.i, 0
   br i1 %.not1247.i, label %_ZN12_GLOBAL__N_17Scanner4scanERN4llvm15SmallVectorImplIN5clang26dependency_directives_scan9DirectiveEEE.exit, label %.lr.ph.i
 
@@ -1770,7 +1768,8 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamE(ptr %0, i64 %1, ptr readonly captures(address) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(48) %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds nuw %"struct.clang::dependency_directives_scan::Directive", ptr %2, i64 %3
+  %.idx = mul nuw nsw i64 %3, 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not40 = icmp eq i64 %3, 0
   br i1 %.not40, label %._crit_edge45, label %.lr.ph44
 
@@ -1814,7 +1813,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %22, %20, %9
   %25 = load ptr, ptr %.042, align 8, !tbaa !157
   %26 = getelementptr inbounds nuw i8, ptr %.042, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !158
-  %28 = getelementptr inbounds nuw %"struct.clang::dependency_directives_scan::Token", ptr %25, i64 %27
+  %.idx46 = mul nuw nsw i64 %27, 12
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx46
   %.not2236 = icmp eq i64 %27, 0
   br i1 %.not2236, label %._crit_edge, label %.lr.ph
 
@@ -4226,7 +4226,8 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
 
 .lr.ph.i.preheader.i.i:                           ; preds = %14
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"class.clang::FixItHint", ptr %16, i64 %19
+  %.idx.i.i = shl nuw nsw i64 %19, 6
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i

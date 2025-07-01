@@ -475,7 +475,8 @@ define void @_ZN16uv_configuration9overrides9Overrides17from_requirements17hb623
   %.sroa.013.0.copyload = load i64, ptr %1, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.414.0.copyload = load ptr, ptr %.sroa.414.0..sroa_idx, align 8, !nonnull !6, !noundef !6
-  %20 = getelementptr inbounds nuw { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %.sroa.414.0.copyload, i64 %12
+  %.idx = mul nuw nsw i64 %12, 376
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.414.0.copyload, i64 %.idx
   %21 = icmp sgt i64 %.sroa.013.0.copyload, -1
   call void @llvm.assume(i1 %21)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
@@ -936,7 +937,8 @@ default.unreachable:                              ; preds = %3
   %19 = load ptr, ptr %18, align 8, !nonnull !6, !noundef !6
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load i64, ptr %20, align 8, !noundef !6
-  %22 = getelementptr inbounds { { { { ptr, i64 } }, {} }, {} }, ptr %19, i64 %21
+  %.idx = shl nsw i64 %21, 4
+  %22 = getelementptr inbounds i8, ptr %19, i64 %.idx
   %.not.i = icmp eq i64 %21, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h25955a76a0c52f88E.exit", label %.lr.ph.i
 
@@ -1873,7 +1875,8 @@ define void @_ZN16uv_configuration15package_options7Upgrade9from_args17hce3aaa9e
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !6, !noundef !6
-  %17 = getelementptr inbounds nuw { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %.sroa.4.0.copyload, i64 %12
+  %.idx = mul nuw nsw i64 %12, 376
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 %.idx
   %18 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %18)
   store ptr %.sroa.4.0.copyload, ptr %8, align 8, !alias.scope !260, !noalias !263

@@ -3698,7 +3698,8 @@ define weak_odr void @_ZN5boost7archive17basic_xml_grammarIwE4initERSt13basic_is
   %29 = load ptr, ptr %28, align 8, !tbaa !51
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %31 = load i64, ptr %30, align 8, !tbaa !34
-  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %31
+  %.idx = shl nuw nsw i64 %31, 2
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx
   %33 = tail call noundef ptr @_ZN5boost7archive23BOOST_ARCHIVE_SIGNATUREEv()
   %.not9.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not9.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i

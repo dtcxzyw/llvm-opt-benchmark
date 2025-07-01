@@ -4282,7 +4282,8 @@ define hidden void @_ZN11polars_plan3dsl5arity11ChainedThen9otherwise17ha85d1b9c
   %.sroa.520.0.copyload = load i64, ptr %.sroa.520.0..sroa_idx, align 8
   %11 = icmp ult i64 %.sroa.520.0.copyload, 48038396025285291
   tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %.sroa.419.0.copyload, i64 %.sroa.520.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.520.0.copyload, 192
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.419.0.copyload, i64 %.idx
   %13 = icmp sgt i64 %.sroa.018.0.copyload, -1
   tail call void @llvm.assume(i1 %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
@@ -8651,7 +8652,8 @@ _ZN12polars_arrow5array5Array10null_count17h9e17a45741cea44aE.exit: ; preds = %4
 define hidden void @"_ZN12polars_arrow5array7binview31BinaryViewArrayGeneric$LT$T$GT$17from_slice_values17h01291d475f9ecf41E"(ptr dead_on_unwind noalias noundef writable writeonly sret([120 x i8]) align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [160 x i8], align 8
   %5 = alloca [160 x i8], align 8
-  %6 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4), !noalias !939
   call fastcc void @"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$13with_capacity17hd83b787e0c058b76E"(ptr noalias noundef align 8 captures(none) dereferenceable(160) %4, i64 noundef %2), !noalias !939
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha35c9c31f4ee6b35E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %4, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a83c7034df2025f65df406fc8ab3f07c.81)
@@ -8709,7 +8711,8 @@ define hidden void @"_ZN12polars_arrow5array7binview31BinaryViewArrayGeneric$LT$
 define hidden void @"_ZN12polars_arrow5array7binview31BinaryViewArrayGeneric$LT$T$GT$17from_slice_values17h4e333af54d06a528E"(ptr dead_on_unwind noalias noundef writable writeonly sret([120 x i8]) align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [160 x i8], align 8
   %5 = alloca [160 x i8], align 8
-  %6 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4), !noalias !948
   call fastcc void @"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$13with_capacity17hd83b787e0c058b76E"(ptr noalias noundef align 8 captures(none) dereferenceable(160) %4, i64 noundef %2), !noalias !948
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha35c9c31f4ee6b35E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %4, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a83c7034df2025f65df406fc8ab3f07c.81)

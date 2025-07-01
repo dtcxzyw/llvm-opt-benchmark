@@ -912,7 +912,8 @@ define void @_ZN7uu_fold15handle_obsolete17h1ea1f1c1184b4e6aE(ptr noalias nounde
   %10 = alloca { { i64, ptr, {} }, i64 }, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %12 = alloca { { i64, ptr, {} }, i64 }, align 8
-  %13 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 24
+  %13 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %14 = icmp eq i64 %2, 0
   br i1 %14, label %._crit_edge, label %.lr.ph
 
@@ -1227,7 +1228,8 @@ define { ptr, ptr } @_ZN7uu_fold4fold17hcfb00262b1e9f153E(ptr noalias noundef no
   %8 = alloca { { { { { { ptr, i64 } }, {} }, {} }, i64, i64, i64 }, { ptr, ptr } }, align 8
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 24
+  %11 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %12 = icmp eq i64 %1, 0
   br i1 %12, label %.loopexit, label %.lr.ph
 

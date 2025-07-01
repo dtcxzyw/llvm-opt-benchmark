@@ -6723,7 +6723,8 @@ _ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit: ; preds = %.preheader
   %92 = load ptr, ptr %9, align 8, !tbaa !335, !noalias !344
   %93 = load i32, ptr %17, align 4, !tbaa !338, !noalias !344
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw ptr, ptr %92, i64 %94
+  %.idx.i.i = shl nuw nsw i64 %94, 3
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx.i.i
   %.not36.i.i = icmp eq i32 %93, 0
   br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 

@@ -2729,7 +2729,8 @@ _ZN5folly18threadlocal_detail14StaticMetaBase25getThreadEntrySetsPtrSpanEv.exit:
   %27 = load atomic i32, ptr %10 monotonic, align 4
   %28 = zext i32 %27 to i64
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.sroa.3.0.i.i, i64 %28)
-  %29 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i.i, i64 %.sroa.speculated.i
+  %.idx = shl nuw nsw i64 %.sroa.speculated.i, 3
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %.idx
   %.not42 = icmp eq i64 %.sroa.speculated.i, 0
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 

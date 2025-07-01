@@ -9396,7 +9396,8 @@ define hidden void @"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..has
   br label %_ZN4core4hash6Hasher19write_length_prefix17hc5b18672053ed42eE.llvm.11838416216260248463.exit
 
 _ZN4core4hash6Hasher19write_length_prefix17hc5b18672053ed42eE.llvm.11838416216260248463.exit: ; preds = %19, %45
-  %47 = getelementptr inbounds { { { [2 x i64] } } }, ptr %4, i64 %6
+  %.idx.i = shl nsw i64 %6, 4
+  %47 = getelementptr inbounds i8, ptr %4, i64 %.idx.i
   %48 = icmp eq i64 %6, 0
   br i1 %48, label %_ZN4core4hash4Hash10hash_slice17h640bf4f8cd7ca0beE.exit, label %.lr.ph.i
 
@@ -11711,7 +11712,8 @@ define hidden noundef i32 @_ZN9typst_pdf7outline13write_outline17h8dd65572b6dd76
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   %32 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %33 = load i64, ptr %30, align 8, !noundef !4
-  %34 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} }, i64 }, ptr %32, i64 %33
+  %.idx = mul nsw i64 %33, 24
+  %34 = getelementptr inbounds i8, ptr %32, i64 %.idx
   %35 = icmp eq i64 %33, 0
   br i1 %35, label %._crit_edge, label %.lr.ph119
 
@@ -12309,7 +12311,8 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit51: ; preds = %71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
   call void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.17057414408856058071"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %132 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, ptr, i64, i8, [7 x i8] }, ptr %44, i64 %46
+  %.idx = mul nsw i64 %46, 48
+  %132 = getelementptr inbounds i8, ptr %44, i64 %.idx
   br i1 %.not43, label %._crit_edge, label %.lr.ph
 
 133:                                              ; preds = %127
@@ -12665,7 +12668,8 @@ define hidden void @"_ZN67_$LT$typst_pdf..pattern..PdfPattern$u20$as$u20$core..h
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h6df732ee1cfb0ee1E.llvm.11838416216260248463"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !2212
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2217)
-  %57 = getelementptr inbounds { { { { { [2 x i64] } } }, i8, [7 x i8] }, i64 }, ptr %54, i64 %56
+  %.idx.i = shl nsw i64 %56, 5
+  %57 = getelementptr inbounds i8, ptr %54, i64 %.idx.i
   %58 = icmp eq i64 %56, 0
   br i1 %58, label %_ZN4core4hash4Hash10hash_slice17hf299048f1b14c048E.exit, label %.lr.ph.i
 

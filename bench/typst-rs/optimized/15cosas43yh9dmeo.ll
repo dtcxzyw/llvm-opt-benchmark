@@ -9,7 +9,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17h429873bb422b6957E(ptr noalias noundef nonnull readonly align 16 %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(72) %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds { { double, double }, { i64, [21 x i64] } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 192
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -2474,7 +2475,8 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i60: ; preds = %156, 
 _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i: ; preds = %238, %212
   %240 = phi i64 [ %210, %238 ], [ %.0.i.i.i12.i, %212 ]
   %241 = phi i64 [ %239, %238 ], [ %198, %212 ]
-  %242 = getelementptr inbounds { { double, double }, { i64, [21 x i64] } }, ptr %203, i64 %205
+  %.idx = mul nsw i64 %205, 192
+  %242 = getelementptr inbounds i8, ptr %203, i64 %.idx
   %243 = icmp eq i64 %205, 0
   br i1 %243, label %_ZN4core4hash4Hash10hash_slice17h429873bb422b6957E.exit.i, label %.lr.ph
 
@@ -3024,7 +3026,8 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit50: ; preds = %508, %5
   br label %_ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit
 
 _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit: ; preds = %549, %575
-  %577 = getelementptr inbounds { i64, [6 x i64] }, ptr %540, i64 %542
+  %.idx.i = mul nsw i64 %542, 56
+  %577 = getelementptr inbounds i8, ptr %540, i64 %.idx.i
   %578 = icmp eq i64 %542, 0
   br i1 %578, label %"_ZN68_$LT$typst..layout..frame..GroupItem$u20$as$u20$core..hash..Hash$GT$4hash17h05cfd70df6aec03eE.exit", label %.lr.ph.i
 
@@ -3717,7 +3720,8 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i.i: ; preds = %845, 
 _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i.i: ; preds = %1032, %1006
   %1034 = phi i64 [ %1004, %1032 ], [ %.0.i.i.i15.i.i, %1006 ]
   %1035 = phi i64 [ %1033, %1032 ], [ %.pr.i.i, %1006 ]
-  %1036 = getelementptr inbounds { i64, [6 x i64] }, ptr %997, i64 %999
+  %.idx.i.i.i = mul nsw i64 %999, 56
+  %1036 = getelementptr inbounds i8, ptr %997, i64 %.idx.i.i.i
   %1037 = icmp eq i64 %999, 0
   br i1 %1037, label %"_ZN70_$LT$typst..visualize..shape..Geometry$u20$as$u20$core..hash..Hash$GT$4hash17h57dc262367e09896E.exit.i", label %.lr.ph.i.i.i
 
@@ -5882,7 +5886,8 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i: ; preds = 
   %194 = phi i64 [ %.0.i.i.i.i, %166 ], [ %164, %192 ]
   %195 = phi i64 [ %154, %166 ], [ %193, %192 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1071)
-  %196 = getelementptr inbounds double, ptr %157, i64 %159
+  %.idx.i.i = shl nsw i64 %159, 3
+  %196 = getelementptr inbounds i8, ptr %157, i64 %.idx.i.i
   %197 = icmp eq i64 %159, 0
   br i1 %197, label %_ZN4core4hash4Hash10hash_slice17h06f94f89a0703356E.exit.i, label %.lr.ph.i.i
 

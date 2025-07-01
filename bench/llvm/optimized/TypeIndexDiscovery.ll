@@ -1399,7 +1399,8 @@ _ZN4llvm5ErrorD2Ev.exit.lr.ph:                    ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #15
   call void @_ZN4llvm18BinaryStreamReaderC1ENS_8ArrayRefIhEENS_10endiannessE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr nonnull %14, i64 %13, i32 noundef 1) #15
-  %15 = getelementptr inbounds nuw %"struct.llvm::codeview::TiReference", ptr %2, i64 %3
+  %.idx = mul nuw nsw i64 %3, 12
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8

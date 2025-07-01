@@ -14782,7 +14782,8 @@ define internal fastcc void @_ZN17crossbeam_channel5waker5Waker10disconnect17he1
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -15858,7 +15859,8 @@ common.resume.i:                                  ; preds = %47, %18
   %30 = load ptr, ptr %29, align 8, !alias.scope !1333, !nonnull !3, !noundef !3
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %32 = load i64, ptr %31, align 8, !alias.scope !1333, !noundef !3
-  %33 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %30, i64 %32
+  %.idx.i.i = mul nuw nsw i64 %32, 24
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i
   %34 = icmp eq i64 %32, 0
   br i1 %34, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -17216,7 +17218,8 @@ define hidden void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4send17h383fe2df125
 .noexc.i.i:                                       ; preds = %.lr.ph.i.preheader.i.i.i
   %105 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %106 = load ptr, ptr %105, align 8, !alias.scope !1411, !noalias !1414, !nonnull !3, !noundef !3
-  %107 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %106, i64 %101
+  %.idx.i.i.i = mul nuw nsw i64 %101, 24
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZN3std4sync4mpmc5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h4e2ce4c27a61683dE.exit.i.i.i.i", %.noexc.i.i

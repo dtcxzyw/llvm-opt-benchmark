@@ -296,7 +296,8 @@ define internal noundef signext i8 @_ZN6icu_7712_GLOBAL__N_124locale_available_c
   br i1 %5, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %2
-  %6 = getelementptr inbounds %"class.icu_77::Locale", ptr %1, i64 %4
+  %.idx = mul nsw i64 %4, 224
+  %6 = getelementptr inbounds i8, ptr %1, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader

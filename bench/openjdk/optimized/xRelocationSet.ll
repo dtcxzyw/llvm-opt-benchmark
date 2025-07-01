@@ -157,7 +157,8 @@ define hidden void @_ZN14XRelocationSet5resetEv(ptr noundef nonnull align 8 capt
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds ptr, ptr %3, i64 %5
+  %.idx = shl nsw i64 %5, 3
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %.not6 = icmp eq i64 %5, 0
   br i1 %.not6, label %_ZN18XArrayIteratorImplIP11XForwardingLb0EE4nextEPS1_.exit, label %.lr.ph
 

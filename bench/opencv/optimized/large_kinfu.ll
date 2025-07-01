@@ -9924,7 +9924,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIN
           to label %.noexc115 unwind label %295
 
 .noexc115:                                        ; preds = %181
-  %184 = getelementptr inbounds nuw float, ptr %183, i64 %178
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 %182
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc115
@@ -15884,7 +15884,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIN
           to label %.noexc113 unwind label %295
 
 .noexc113:                                        ; preds = %181
-  %184 = getelementptr inbounds nuw float, ptr %183, i64 %178
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 %182
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc113

@@ -10,10 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.130 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.130 = type { i64, [8 x i8] }
-%"class.llvm::SDep" = type { %"class.llvm::PointerIntPair", %union.anon.141, i32 }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
-%union.anon.141 = type { i32 }
 
 $_ZN4llvm17RegisterSchedulerD2Ev = comdat any
 
@@ -820,7 +816,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115ScheduleDAGVLIW17releaseSuccesso
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %6 = load i32, ptr %5, align 8, !tbaa !217
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::SDep", ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 

@@ -30896,7 +30896,8 @@ common.ret:                                       ; preds = %2110, %"_ZN4core3pt
   br i1 %921, label %2104, label %"_ZN4core3ptr55drop_in_place$LT$zbus..match_rule..builder..Builder$GT$17h3c47684a4ba76728E.exit358.i"
 
 922:                                              ; preds = %900, %889
-  %923 = getelementptr inbounds { i8, [7 x i8], { ptr, i64 } }, ptr %858, i64 %860
+  %.idx.i = mul nsw i64 %860, 24
+  %923 = getelementptr inbounds i8, ptr %858, i64 %.idx.i
   %924 = icmp eq i64 %860, 0
   br i1 %924, label %._crit_edge.i41, label %.lr.ph.i
 

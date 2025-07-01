@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.rational = type { %class.mpq }
 %class.mpq = type { %class.mpz, %class.mpz }
 %class.mpz = type { i32, i8, ptr }
-%class.mpbq = type <{ %class.mpz, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -19,6 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
+%class.mpbq = type <{ %class.mpz, i32, [4 x i8] }>
 %class._scoped_numeral = type { ptr, %class.mpz }
 %class._scoped_numeral.0 = type { ptr, %class.mpq }
 
@@ -682,7 +682,8 @@ _ZN6vectorI4mpbqLb0EjE3endEv.exit:                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %3, i64 -4
   %6 = load i32, ptr %5, align 4, !tbaa !22
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %class.mpbq, ptr %3, i64 %7
+  %8 = mul nuw nsw i64 %7, 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge.thread15, label %.lr.ph
 
@@ -692,22 +693,22 @@ _ZN6vectorI4mpbqLb0EjE3endEv.exit:                ; preds = %2
   br i1 %.not.i, label %_ZN6vectorI4mpbqLb0EjE5resetEv.exit, label %._crit_edge.thread15
 
 ._crit_edge.thread15:                             ; preds = %_ZN6vectorI4mpbqLb0EjE3endEv.exit, %._crit_edge
-  %9 = phi ptr [ %.pre, %._crit_edge ], [ %3, %_ZN6vectorI4mpbqLb0EjE3endEv.exit ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 -4
-  store i32 0, ptr %10, align 4, !tbaa !22
+  %10 = phi ptr [ %.pre, %._crit_edge ], [ %3, %_ZN6vectorI4mpbqLb0EjE3endEv.exit ]
+  %11 = getelementptr inbounds i8, ptr %10, i64 -4
+  store i32 0, ptr %11, align 4, !tbaa !22
   br label %_ZN6vectorI4mpbqLb0EjE5resetEv.exit
 
 _ZN6vectorI4mpbqLb0EjE5resetEv.exit:              ; preds = %2, %._crit_edge, %._crit_edge.thread15
   ret void
 
 .lr.ph:                                           ; preds = %_ZN6vectorI4mpbqLb0EjE3endEv.exit, %.lr.ph
-  %.011 = phi ptr [ %13, %.lr.ph ], [ %3, %_ZN6vectorI4mpbqLb0EjE3endEv.exit ]
-  %11 = load ptr, ptr %0, align 8, !tbaa !26
-  tail call void @_ZN11mpz_managerILb0EE5resetER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %11, ptr noundef nonnull align 8 dereferenceable(20) %.011)
-  %12 = getelementptr inbounds nuw i8, ptr %.011, i64 16
-  store i32 0, ptr %12, align 8, !tbaa !13
-  %13 = getelementptr inbounds nuw i8, ptr %.011, i64 24
-  %.not = icmp eq ptr %13, %8
+  %.011 = phi ptr [ %14, %.lr.ph ], [ %3, %_ZN6vectorI4mpbqLb0EjE3endEv.exit ]
+  %12 = load ptr, ptr %0, align 8, !tbaa !26
+  tail call void @_ZN11mpz_managerILb0EE5resetER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %12, ptr noundef nonnull align 8 dereferenceable(20) %.011)
+  %13 = getelementptr inbounds nuw i8, ptr %.011, i64 16
+  store i32 0, ptr %13, align 8, !tbaa !13
+  %14 = getelementptr inbounds nuw i8, ptr %.011, i64 24
+  %.not = icmp eq ptr %14, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

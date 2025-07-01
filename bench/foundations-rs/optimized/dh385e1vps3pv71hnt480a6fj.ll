@@ -5042,7 +5042,8 @@ define hidden void @_ZN5prost7message7Message6encode17hb4fa04300fe49205E(ptr dea
   br i1 %23, label %28, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %"_ZN126_$LT$opentelemetry_proto..proto..tonic..collector..trace..v1..ExportTraceServiceRequest$u20$as$u20$prost..message..Message$GT$11encoded_len17hd4a14934d81d838eE.exit.thread"
-  %24 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [3 x i64] } }, ptr %.val, i64 %.val2
+  %.idx.i8 = mul nuw nsw i64 %.val2, 80
+  %24 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -6467,44 +6468,45 @@ define hidden void @_ZN5prost8encoding7message6encode17h5dbaaef4f788baebE(i32 no
   %8 = load ptr, ptr %7, align 8, !alias.scope !767, !nonnull !3, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !767, !noundef !3
-  %11 = getelementptr inbounds nuw { { i8, [31 x i8] } }, ptr %8, i64 %10
-  %12 = icmp eq i64 %10, 0
-  br i1 %12, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6c7be50e37adc4e5E.exit.thread", label %.preheader
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6c7be50e37adc4e5E.exit.thread", label %.preheader
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6c7be50e37adc4e5E.exit.thread": ; preds = %3
   tail call fastcc void @_ZN5prost8encoding13encode_varint17h3baa26124614b5a5E(i64 noundef %10, ptr %.val1)
   br label %"_ZN101_$LT$opentelemetry_proto..proto..tonic..common..v1..ArrayValue$u20$as$u20$prost..message..Message$GT$10encode_raw17hac8c760288d73228E.exit"
 
 .preheader:                                       ; preds = %3, %"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..AnyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hc4236cbc94753347E.exit"
-  %.sroa.07.0.i.i = phi i64 [ %24, %"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..AnyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hc4236cbc94753347E.exit" ], [ 0, %3 ]
-  %.sroa.09.0.i.i = phi i64 [ %25, %"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..AnyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hc4236cbc94753347E.exit" ], [ 0, %3 ]
-  %13 = getelementptr inbounds nuw { { i8, [31 x i8] } }, ptr %8, i64 %.sroa.09.0.i.i
-  %14 = load i8, ptr %13, align 8, !range !481, !alias.scope !770, !noalias !767, !noundef !3
-  %.not.i = icmp eq i8 %14, 7
-  br i1 %.not.i, label %"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..AnyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hc4236cbc94753347E.exit", label %15
+  %.sroa.07.0.i.i = phi i64 [ %23, %"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..AnyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hc4236cbc94753347E.exit" ], [ 0, %3 ]
+  %.sroa.09.0.i.i = phi i64 [ %24, %"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..AnyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hc4236cbc94753347E.exit" ], [ 0, %3 ]
+  %12 = getelementptr inbounds nuw { { i8, [31 x i8] } }, ptr %8, i64 %.sroa.09.0.i.i
+  %13 = load i8, ptr %12, align 8, !range !481, !alias.scope !770, !noalias !767, !noundef !3
+  %.not.i = icmp eq i8 %13, 7
+  br i1 %.not.i, label %"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..AnyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hc4236cbc94753347E.exit", label %14
 
-15:                                               ; preds = %.preheader
-  %16 = tail call fastcc noundef i64 @_ZN4core3ops8function6FnOnce9call_once17h2cc32b270e988986E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %13) #27, !noalias !767
+14:                                               ; preds = %.preheader
+  %15 = tail call fastcc noundef i64 @_ZN4core3ops8function6FnOnce9call_once17h2cc32b270e988986E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) dereferenceable_or_null(32) %12) #27, !noalias !767
   br label %"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..AnyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hc4236cbc94753347E.exit"
 
-"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..AnyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hc4236cbc94753347E.exit": ; preds = %.preheader, %15
-  %.sroa.02.0.i.i = phi i64 [ %16, %15 ], [ 0, %.preheader ]
-  %17 = or i64 %.sroa.02.0.i.i, 1
-  %18 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %17, i1 true)
-  %19 = xor i64 %18, 63
-  %20 = mul nuw nsw i64 %19, 9
-  %21 = add nuw nsw i64 %20, 73
-  %22 = lshr i64 %21, 6
-  %23 = add i64 %.sroa.02.0.i.i, %.sroa.07.0.i.i
-  %24 = add i64 %23, %22
-  %25 = add nuw i64 %.sroa.09.0.i.i, 1
-  %26 = icmp eq i64 %25, %10
-  br i1 %26, label %.lr.ph.i.preheader, label %.preheader
+"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..AnyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hc4236cbc94753347E.exit": ; preds = %.preheader, %14
+  %.sroa.02.0.i.i = phi i64 [ %15, %14 ], [ 0, %.preheader ]
+  %16 = or i64 %.sroa.02.0.i.i, 1
+  %17 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %16, i1 true)
+  %18 = xor i64 %17, 63
+  %19 = mul nuw nsw i64 %18, 9
+  %20 = add nuw nsw i64 %19, 73
+  %21 = lshr i64 %20, 6
+  %22 = add i64 %.sroa.02.0.i.i, %.sroa.07.0.i.i
+  %23 = add i64 %22, %21
+  %24 = add nuw i64 %.sroa.09.0.i.i, 1
+  %25 = icmp eq i64 %24, %10
+  br i1 %25, label %.lr.ph.i.preheader, label %.preheader
 
 .lr.ph.i.preheader:                               ; preds = %"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..AnyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hc4236cbc94753347E.exit"
-  %27 = add i64 %24, %10
-  tail call fastcc void @_ZN5prost8encoding13encode_varint17h3baa26124614b5a5E(i64 noundef %27, ptr %.val1)
+  %26 = add i64 %23, %10
+  tail call fastcc void @_ZN5prost8encoding13encode_varint17h3baa26124614b5a5E(i64 noundef %26, ptr %.val1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !773)
+  %.idx.i = shl nuw nsw i64 %10, 5
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN5prost8encoding7message6encode17h74bf8316d8c0a9afE.exit.i
@@ -6529,7 +6531,7 @@ define hidden void @_ZN5prost8encoding7message6encode17h5dbaaef4f788baebE(i32 no
   br label %_ZN5prost8encoding7message6encode17h74bf8316d8c0a9afE.exit.i
 
 _ZN5prost8encoding7message6encode17h74bf8316d8c0a9afE.exit.i: ; preds = %30, %"_ZN99_$LT$opentelemetry_proto..proto..tonic..common..v1..AnyValue$u20$as$u20$prost..message..Message$GT$11encoded_len17hc4236cbc94753347E.exit.thread.i.i"
-  %32 = icmp eq ptr %28, %11
+  %32 = icmp eq ptr %28, %27
   br i1 %32, label %"_ZN101_$LT$opentelemetry_proto..proto..tonic..common..v1..ArrayValue$u20$as$u20$prost..message..Message$GT$10encode_raw17hac8c760288d73228E.exit", label %.lr.ph.i
 
 "_ZN101_$LT$opentelemetry_proto..proto..tonic..common..v1..ArrayValue$u20$as$u20$prost..message..Message$GT$10encode_raw17hac8c760288d73228E.exit": ; preds = %_ZN5prost8encoding7message6encode17h74bf8316d8c0a9afE.exit.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6c7be50e37adc4e5E.exit.thread"
@@ -6551,15 +6553,17 @@ define hidden void @_ZN5prost8encoding7message6encode17h911ec0a94b10f318E(i32 no
   %12 = tail call fastcc noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd1ff2f7ff1d6b80dE"(ptr noundef nonnull readonly align 8 %8, ptr noundef nonnull readonly %11) #31
   %13 = add i64 %12, %10
   tail call fastcc void @_ZN5prost8encoding13encode_varint17h3baa26124614b5a5E(i64 noundef %13, ptr %.val1)
-  %14 = icmp eq i64 %10, 0
-  br i1 %14, label %"_ZN103_$LT$opentelemetry_proto..proto..tonic..common..v1..KeyValueList$u20$as$u20$prost..message..Message$GT$10encode_raw17hca9c9a6e1cf5d039E.exit", label %.lr.ph.i
+  %.idx.i = mul nuw nsw i64 %10, 56
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
+  %15 = icmp eq i64 %10, 0
+  br i1 %15, label %"_ZN103_$LT$opentelemetry_proto..proto..tonic..common..v1..KeyValueList$u20$as$u20$prost..message..Message$GT$10encode_raw17hca9c9a6e1cf5d039E.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.sroa.01.01.i = phi ptr [ %15, %.lr.ph.i ], [ %8, %3 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i, i64 56
+  %.sroa.01.01.i = phi ptr [ %16, %.lr.ph.i ], [ %8, %3 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.01.01.i, i64 56
   tail call void @_ZN5prost8encoding7message6encode17hb9a5f1ab52bcf9cdE(i32 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.sroa.01.01.i, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-  %16 = icmp eq ptr %15, %11
-  br i1 %16, label %"_ZN103_$LT$opentelemetry_proto..proto..tonic..common..v1..KeyValueList$u20$as$u20$prost..message..Message$GT$10encode_raw17hca9c9a6e1cf5d039E.exit", label %.lr.ph.i
+  %17 = icmp eq ptr %16, %14
+  br i1 %17, label %"_ZN103_$LT$opentelemetry_proto..proto..tonic..common..v1..KeyValueList$u20$as$u20$prost..message..Message$GT$10encode_raw17hca9c9a6e1cf5d039E.exit", label %.lr.ph.i
 
 "_ZN103_$LT$opentelemetry_proto..proto..tonic..common..v1..KeyValueList$u20$as$u20$prost..message..Message$GT$10encode_raw17hca9c9a6e1cf5d039E.exit": ; preds = %.lr.ph.i, %3
   ret void
@@ -6769,7 +6773,8 @@ define hidden void @_ZN5prost8encoding7message6encode17hf89ba590a50da01aE(i32 no
   %22 = load ptr, ptr %21, align 8, !alias.scope !807, !noalias !810, !nonnull !3, !noundef !3
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %24 = load i64, ptr %23, align 8, !alias.scope !807, !noalias !810, !noundef !3
-  %25 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i8, [31 x i8] } }, ptr %22, i64 %24
+  %.idx.i = mul nuw nsw i64 %24, 56
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %._crit_edge.i, label %.lr.ph.i
 
@@ -12417,7 +12422,8 @@ _ZN11foundations9telemetry7tracing4live12event_output15TraceLogBuilder3new17hbb7
 
 .thread86:                                        ; preds = %42, %35
   %50 = phi i64 [ -1, %35 ], [ %spec.select, %42 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %.idx = shl nuw nsw i64 %4, 3
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %52 = icmp eq i64 %4, 0
   br i1 %52, label %._crit_edge, label %.noexc.lr.ph
 
@@ -15718,13 +15724,13 @@ define void @_ZN11foundations9telemetry7tracing24output_jaeger_thrift_udp7loggin
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   %.idx = mul nuw nsw i64 %29, 48
   %30 = icmp eq i64 %29, 0
-  br i1 %30, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8d79dd340c522f39E.exit.thread", label %.preheader103
+  br i1 %30, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8d79dd340c522f39E.exit.thread", label %.preheader102
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8d79dd340c522f39E.exit.thread": ; preds = %2
   store i64 0, ptr %23, align 8
   br label %_ZN4core4iter6traits8iterator8Iterator6reduce17h98430e15a1db1f58E.exit
 
-.preheader103:                                    ; preds = %2, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcc42489c58f9536eE.exit.i"
+.preheader102:                                    ; preds = %2, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcc42489c58f9536eE.exit.i"
   %.sroa.07.0.i = phi i64 [ %42, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcc42489c58f9536eE.exit.i" ], [ 0, %2 ]
   %.sroa.09.0.i = phi i64 [ %43, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcc42489c58f9536eE.exit.i" ], [ 0, %2 ]
   %31 = getelementptr inbounds nuw { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %27, i64 %.sroa.09.0.i
@@ -15741,26 +15747,26 @@ define void @_ZN11foundations9telemetry7tracing24output_jaeger_thrift_udp7loggin
     i64 3, label %39
   ]
 
-38:                                               ; preds = %.preheader103
+38:                                               ; preds = %.preheader102
   unreachable
 
-39:                                               ; preds = %.preheader103, %.preheader103
+39:                                               ; preds = %.preheader102, %.preheader102
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcc42489c58f9536eE.exit.i"
 
-40:                                               ; preds = %.preheader103
+40:                                               ; preds = %.preheader102
   %.sroa.23.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 40
   %.sroa.23.0.i.i.i.i = load i64, ptr %.sroa.23.0.in.i.i.i.i, align 8, !alias.scope !1323, !noundef !3
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcc42489c58f9536eE.exit.i"
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcc42489c58f9536eE.exit.i": ; preds = %40, %39, %.preheader103
-  %.sroa.01.0.i.i.i.i = phi i64 [ %.sroa.23.0.i.i.i.i, %40 ], [ 8, %39 ], [ %37, %.preheader103 ]
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcc42489c58f9536eE.exit.i": ; preds = %40, %39, %.preheader102
+  %.sroa.01.0.i.i.i.i = phi i64 [ %.sroa.23.0.i.i.i.i, %40 ], [ 8, %39 ], [ %37, %.preheader102 ]
   %.sroa.2.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 16
   %.sroa.2.0.i.i.i.i = load i64, ptr %.sroa.2.0.in.i.i.i.i, align 8, !alias.scope !1323, !noundef !3
   %41 = add i64 %.sroa.01.0.i.i.i.i, %.sroa.07.0.i
   %42 = add i64 %41, %.sroa.2.0.i.i.i.i
   %43 = add nuw i64 %.sroa.09.0.i, 1
   %44 = icmp eq i64 %43, %29
-  br i1 %44, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8d79dd340c522f39E.exit", label %.preheader103
+  br i1 %44, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8d79dd340c522f39E.exit", label %.preheader102
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8d79dd340c522f39E.exit": ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcc42489c58f9536eE.exit.i"
   store i64 %42, ptr %23, align 8

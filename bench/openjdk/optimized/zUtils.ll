@@ -28,7 +28,8 @@ define hidden void @_ZN6ZUtils4fillEPmmm(ptr noundef writeonly captures(address)
   br i1 %4, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i64, ptr %0, i64 %1
+  %.idx.i.i = shl nsw i64 %1, 3
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %5

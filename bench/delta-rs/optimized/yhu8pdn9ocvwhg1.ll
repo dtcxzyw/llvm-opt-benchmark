@@ -9330,7 +9330,8 @@ select.unfold1055.i:                              ; preds = %1405, %.noexc367.i,
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8), !noalias !1253
   %.pn1.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i1096, align 8, !alias.scope !1282, !noalias !1181, !noundef !5
   %.pn3.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i1095, align 8, !alias.scope !1282, !noalias !1181, !nonnull !5, !noundef !5
-  %1532 = getelementptr inbounds { { ptr, i64 } }, ptr %.pn3.i.i.i, i64 %.pn1.i.i.i
+  %.idx.i = shl nsw i64 %.pn1.i.i.i, 4
+  %1532 = getelementptr inbounds i8, ptr %.pn3.i.i.i, i64 %.idx.i
   %1533 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %.pn3.i.i.i, ptr %1533, align 8, !noalias !1181
   %1534 = getelementptr inbounds nuw i8, ptr %0, i64 264

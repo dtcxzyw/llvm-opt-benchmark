@@ -592,6 +592,7 @@ ZSTD_ldm_gear_reset.exit.i:                       ; preds = %.thread.i
   %120 = getelementptr inbounds i8, ptr %104, i64 -3
   %121 = getelementptr inbounds i8, ptr %104, i64 -1
   %122 = icmp ugt ptr %102, %99
+  %.idx.i = shl nuw nsw i64 %118, 3
   br label %123
 
 123:                                              ; preds = %.loopexit.i, %.lr.ph346.i
@@ -661,7 +662,7 @@ ZSTD_ldm_gear_reset.exit.i:                       ; preds = %.thread.i
 .lr.ph333.i:                                      ; preds = %145
   %156 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %157 = load ptr, ptr %156, align 8, !tbaa !53
-  %158 = getelementptr inbounds nuw %struct.ldmEntry_t, ptr %157, i64 %118
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 %.idx.i
   %159 = icmp ult ptr %147, %119
   %160 = icmp ugt ptr %147, %.1209340.i
   br i1 %.not.i, label %.lr.ph333.split.us.i, label %.lr.ph333.split.i

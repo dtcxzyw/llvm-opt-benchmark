@@ -69996,7 +69996,8 @@ default.unreachable153:                           ; preds = %545, %502, %475, %2
   %.val.i = load ptr, ptr %263, align 8, !noalias !7327, !nonnull !6, !noundef !6
   %264 = getelementptr i8, ptr %259, i64 48
   %.val90.i = load i64, ptr %264, align 8, !noalias !7327, !noundef !6
-  %265 = getelementptr inbounds nuw { { i8, [1 x i8] }, [6 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.val.i, i64 %.val90.i
+  %.idx.i = shl nuw nsw i64 %.val90.i, 5
+  %265 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i
   %266 = icmp eq i64 %.val90.i, 0
   br i1 %266, label %.loopexit.i, label %.lr.ph.i
 
@@ -77803,7 +77804,8 @@ common.ret:                                       ; preds = %744, %691, %404
   %.sroa.6125.0.copyload = load i64, ptr %.sroa.6125.0..sroa_idx, align 8
   %712 = icmp ult i64 %.sroa.6125.0.copyload, 288230376151711744
   call void @llvm.assume(i1 %712)
-  %713 = getelementptr inbounds nuw { ptr, ptr, i64, { ptr } }, ptr %.sroa.5124.0.copyload, i64 %.sroa.6125.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.6125.0.copyload, 5
+  %713 = getelementptr inbounds nuw i8, ptr %.sroa.5124.0.copyload, i64 %.idx
   %714 = icmp sgt i64 %.sroa.0123.0.copyload, -1
   call void @llvm.assume(i1 %714)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)

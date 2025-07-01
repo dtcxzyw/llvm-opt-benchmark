@@ -739,7 +739,8 @@ _ZL15getBranchWeightjPN4llvm8CallInstEi.exit.i.i: ; preds = %215, %212
 236:                                              ; preds = %_ZL15getBranchWeightjPN4llvm8CallInstEi.exit.i.i
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull %17, i64 noundef %234, i64 noundef 4) #14
   %237 = load ptr, ptr %12, align 8, !tbaa !25
-  %238 = getelementptr inbounds nuw i32, ptr %237, i64 %234
+  %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %234, 2
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 %.idx.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %236
@@ -754,7 +755,8 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i.i.i.i:      ; preds = %_ZL15getBranchWeigh
   br i1 %.not.i.i44.i, label %_ZN4llvm11SmallVectorIjLj16EEC2EmRKj.exit.i.i, label %240
 
 240:                                              ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i.i.i.i
-  %241 = getelementptr inbounds nuw i32, ptr %17, i64 %234
+  %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %234, 2
+  %241 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %240
@@ -1318,7 +1320,8 @@ _ZN4llvm5APIntC2ERKS0_.exit.i.i.i:                ; preds = %497, %495
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i.i.i
   %500 = zext i32 %499 to i64
-  %501 = getelementptr inbounds nuw ptr, ptr %498, i64 %500
+  %.idx.i.i.i = shl nuw nsw i64 %500, 3
+  %501 = getelementptr inbounds nuw i8, ptr %498, i64 %.idx.i.i.i
   br label %502
 
 502:                                              ; preds = %_ZN4llvm5APInteOERKS0_.exit.i.i.i, %.lr.ph.i.i.i

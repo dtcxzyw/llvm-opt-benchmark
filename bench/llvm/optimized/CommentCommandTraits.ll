@@ -2593,7 +2593,8 @@ define dso_local noundef ptr @_ZNK5clang8comments13CommandTraits25getTypoCorrect
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !19
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %.idx = shl nuw nsw i64 %17, 3
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %.not1747 = icmp eq i32 %16, 0
   br i1 %.not1747, label %._crit_edge, label %.lr.ph
 

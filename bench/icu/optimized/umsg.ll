@@ -559,7 +559,8 @@ _ZN6icu_7713UnicodeStringC2IPDsvEERKT_.exit:      ; preds = %.loopexit.i
   br i1 %168, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %165
-  %169 = getelementptr inbounds %"class.icu_77::Formattable", ptr %40, i64 %167
+  %.idx79 = mul nsw i64 %167, 112
+  %169 = getelementptr inbounds i8, ptr %40, i64 %.idx79
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -1044,7 +1045,8 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %135
   br i1 %156, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %._crit_edge.thread
-  %157 = getelementptr inbounds %"class.icu_77::Formattable", ptr %27, i64 %155
+  %.idx = mul nsw i64 %155, 112
+  %157 = getelementptr inbounds i8, ptr %27, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader

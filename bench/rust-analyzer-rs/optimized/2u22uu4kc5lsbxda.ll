@@ -616,7 +616,8 @@ common.resume:                                    ; preds = %70, %45
 define internal fastcc void @_ZN3hir4Type4walk11walk_bounds17h395fb8fb5ae245f2E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(16) %5) unnamed_addr #2 personality ptr @rust_eh_personality {
   %7 = alloca ptr, align 8
   %8 = alloca { ptr, ptr }, align 8
-  %9 = getelementptr inbounds { { i64, [3 x i64] }, ptr }, ptr %3, i64 %4
+  %.idx = mul nsw i64 %4, 40
+  %9 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %10 = icmp eq i64 %4, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -705,11 +706,11 @@ common.resume:                                    ; preds = %67, %76, %82, %27, 
 
 40:                                               ; preds = %"_ZN48_$LT$hir..Type$u20$as$u20$core..clone..Clone$GT$5clone17h2e1b9093a0ae79a6E.exit"
   %41 = extractvalue { ptr, i64 } %37, 0
-  %.idx = shl i64 %38, 4
-  %42 = getelementptr i8, ptr %41, i64 %.idx
+  %.idx47 = shl i64 %38, 4
+  %42 = getelementptr i8, ptr %41, i64 %.idx47
   %43 = icmp ne ptr %42, null
   call void @llvm.assume(i1 %43)
-  %44 = icmp eq i64 %.idx, 16
+  %44 = icmp eq i64 %.idx47, 16
   br i1 %44, label %.loopexit, label %.lr.ph.i.preheader.lr.ph
 
 .lr.ph.i.preheader.lr.ph:                         ; preds = %40
@@ -865,7 +866,8 @@ common.resume:                                    ; preds = %67, %76, %82, %27, 
 define internal fastcc void @_ZN3hir4Type4walk11walk_bounds17h5db798fd4232fc9fE(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5) unnamed_addr #2 personality ptr @rust_eh_personality {
   %7 = alloca ptr, align 8
   %8 = alloca { ptr, ptr }, align 8
-  %9 = getelementptr inbounds { { i64, [3 x i64] }, ptr }, ptr %3, i64 %4
+  %.idx = mul nsw i64 %4, 40
+  %9 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %10 = icmp eq i64 %4, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -951,11 +953,11 @@ common.resume:                                    ; preds = %66, %75, %81, %26, 
 
 39:                                               ; preds = %"_ZN48_$LT$hir..Type$u20$as$u20$core..clone..Clone$GT$5clone17h2e1b9093a0ae79a6E.exit"
   %40 = extractvalue { ptr, i64 } %36, 0
-  %.idx = shl i64 %37, 4
-  %41 = getelementptr i8, ptr %40, i64 %.idx
+  %.idx45 = shl i64 %37, 4
+  %41 = getelementptr i8, ptr %40, i64 %.idx45
   %42 = icmp ne ptr %41, null
   call void @llvm.assume(i1 %42)
-  %43 = icmp eq i64 %.idx, 16
+  %43 = icmp eq i64 %.idx45, 16
   br i1 %43, label %.loopexit, label %.lr.ph.i.preheader.lr.ph
 
 .lr.ph.i.preheader.lr.ph:                         ; preds = %39
@@ -10082,7 +10084,8 @@ _ZN3std3env3var17hfed9cabf3764eda4E.exit.i.i.i:   ; preds = %199
   %.sroa.0114.0.copyload.i.i.i = load i64, ptr %50, align 8, !noalias !1114
   %.sroa.4115.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.sroa.4115.0.copyload.i.i.i = load ptr, ptr %.sroa.4115.0..sroa_idx.i.i.i, align 8, !noalias !1114, !nonnull !5, !noundef !5
-  %337 = getelementptr inbounds i32, ptr %.sroa.4115.0.copyload.i.i.i, i64 %316
+  %.idx.i.i.i = shl nsw i64 %316, 2
+  %337 = getelementptr inbounds i8, ptr %.sroa.4115.0.copyload.i.i.i, i64 %.idx.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47), !noalias !1114
   store ptr %.sroa.4115.0.copyload.i.i.i, ptr %47, align 8, !noalias !1114
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -30164,7 +30167,8 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %32, %.thread,
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h24c2d0ce54b5c45eE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %0, ptr noalias noundef nonnull readonly align 4 captures(address) %1, i64 noundef %2) unnamed_addr #13 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { { i32, i32, i32 } }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 12
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2738)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb9146ed53d84c4aeE.llvm.5605154820796467450.exit", label %.lr.ph.i
@@ -36740,7 +36744,8 @@ define internal fastcc void @_ZN3ide13test_explorer24discover_tests_in_module17h
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !4014, !noalias !4017, !nonnull !5, !noundef !5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !4014, !noalias !4017
-  %102 = getelementptr inbounds { i8, [15 x i8] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nsw i64 %.sroa.5.0.copyload.i, 4
+  %102 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33)
   store ptr %.sroa.4.0.copyload.i, ptr %33, align 8

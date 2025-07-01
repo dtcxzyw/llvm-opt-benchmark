@@ -1209,7 +1209,8 @@ _ZN2cv4Mat_IhEC2ERKNS_3MatE.exit:                 ; preds = %_ZN2cv4Mat_IhEC2ERK
   br i1 %exitcond.not, label %295, label %303, !llvm.loop !91
 
 309:                                              ; preds = %295
-  %310 = getelementptr inbounds nuw %"struct.cv::videostab::Pixel3", ptr %113, i64 %wide.trip.count
+  %.idx = shl nuw nsw i64 %wide.trip.count, 3
+  %310 = getelementptr inbounds nuw i8, ptr %113, i64 %.idx
   %311 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %wide.trip.count, i1 true)
   %312 = shl nuw nsw i64 %311, 1
   %313 = xor i64 %312, 126

@@ -144,7 +144,8 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117canonicalizeAliasEPN4llvm
 _ZN4llvm4User8operandsEv.exit:                    ; preds = %14, %17
   %22 = phi ptr [ %16, %14 ], [ %21, %17 ]
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %14 ], [ %19, %17 ]
-  %23 = getelementptr inbounds nuw %"class.llvm::Use", ptr %22, i64 %.pre-phi2.i.i
+  %.idx = shl nuw nsw i64 %.pre-phi2.i.i, 5
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %.not3147 = icmp eq i64 %.pre-phi2.i.i, 0
   br i1 %.not3147, label %._crit_edge, label %.lr.ph
 

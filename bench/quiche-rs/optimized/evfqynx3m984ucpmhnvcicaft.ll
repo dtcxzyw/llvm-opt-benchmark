@@ -3669,7 +3669,8 @@ define hidden void @_ZN3h3i6client18connection_summary9StreamMap6insert17h91f8c4
   %11 = load ptr, ptr %10, align 8, !alias.scope !419, !noalias !422, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !419, !noalias !422, !noundef !4
-  %14 = getelementptr inbounds nuw { { i64, [18 x i64] }, i64 }, ptr %11, i64 %13
+  %.idx.i = mul nuw nsw i64 %13, 160
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   %15 = icmp eq i64 %13, 0
   br i1 %15, label %_ZN3h3i6client18connection_summary18CloseTriggerFrames13receive_frame17h8d346a4213ee7858E.exit, label %.lr.ph.i
 
@@ -6259,7 +6260,8 @@ define void @"_ZN116_$LT$h3i..recordreplay..qlog..H3Actions$u20$as$u20$core..con
   %21 = load i64, ptr %20, align 8, !alias.scope !649, !noalias !652
   %.sink11.i = select i1 %17, ptr %19, ptr %18
   %.sink10.i = select i1 %17, i64 %21, i64 %16
-  %22 = getelementptr inbounds nuw { i64, [12 x i64] }, ptr %.sink11.i, i64 %.sink10.i
+  %.idx = mul nuw nsw i64 %.sink10.i, 104
+  %22 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 %.idx
   %23 = icmp eq i64 %.sink10.i, 0
   br i1 %23, label %.loopexit, label %.lr.ph
 

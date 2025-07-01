@@ -70,13 +70,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorImpl.10" = type { %"class.llvm::SmallVectorTemplateBase.11" }
 %"class.llvm::SmallVectorTemplateBase.11" = type { %"class.llvm::SmallVectorTemplateCommon.12" }
 %"class.llvm::SmallVectorTemplateCommon.12" = type { %"class.llvm::SmallVectorBase" }
-%"struct.std::pair.141" = type { ptr, i64 }
 %"class.std::unique_ptr.113" = type { %"struct.std::__uniq_ptr_data.114" }
 %"struct.std::__uniq_ptr_data.114" = type { %"class.std::__uniq_ptr_impl.115" }
 %"class.std::__uniq_ptr_impl.115" = type { %"class.std::tuple.116" }
 %"class.std::tuple.116" = type { %"struct.std::_Tuple_impl.117" }
 %"struct.std::_Tuple_impl.117" = type { %"struct.std::_Head_base.120" }
 %"struct.std::_Head_base.120" = type { ptr }
+%"struct.std::pair.141" = type { ptr, i64 }
 %"class.std::tuple.148" = type { %"struct.std::_Tuple_impl.base", [4 x i8] }
 %"struct.std::_Tuple_impl.base" = type <{ %"struct.std::_Tuple_impl.150", %"struct.std::_Head_base.162" }>
 %"struct.std::_Tuple_impl.150" = type { %"struct.std::_Tuple_impl.151", %"struct.std::_Head_base.161" }
@@ -994,7 +994,8 @@ _ZN4llvm7remarks11StringTableC2EOS1_.exit:        ; preds = %_ZN4llvm11SmallVect
   %52 = load ptr, ptr %26, align 8, !tbaa !128
   %53 = load i32, ptr %28, align 8, !tbaa !142
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %52, i64 %54
+  %.idx.i = shl nuw nsw i64 %54, 3
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i
   %.not6.i.i = icmp eq i32 %53, 0
   br i1 %.not6.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit.i, label %.lr.ph.i.i
 
@@ -1020,7 +1021,8 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   %66 = load ptr, ptr %35, align 8, !tbaa !128
   %67 = load i32, ptr %37, align 8, !tbaa !142
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %"struct.std::pair.141", ptr %66, i64 %68
+  %.idx.i.i = shl nuw nsw i64 %68, 4
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i.i
   %.not10.i.i = icmp eq i32 %67, 0
   br i1 %.not10.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.i, label %.lr.ph.i1.i
 

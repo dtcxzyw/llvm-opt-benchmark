@@ -25,10 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon.361 }
 %struct.anon.361 = type { ptr, i64 }
-%"class.llvm::MachineOperand" = type { i32, %union.anon.241, ptr, %"union.llvm::MachineOperand::ContentsUnion" }
-%union.anon.241 = type { i32 }
-%"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef" }
-%"class.llvm::ArrayRef" = type { ptr, i64 }
 
 $_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE = comdat any
 
@@ -311,7 +307,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_114CFGuardLongjmp20runOnMach
 
 ._crit_edge76:                                    ; preds = %._crit_edge
   %.pre = load i32, ptr %16, align 8, !tbaa !154
-  %.pre84.pre = load ptr, ptr %3, align 8, !tbaa !153
+  %.pre85.pre = load ptr, ptr %3, align 8, !tbaa !153
   %.not.i.not = icmp ne i32 %.pre, 0
   br i1 %.not.i.not, label %.lr.ph81, label %.loopexit
 
@@ -363,7 +359,8 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %.lr.ph70
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.051.069, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !179
   %42 = zext i24 %38 to i64
-  %43 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %41, i64 %42
+  %.idx = shl nuw nsw i64 %42, 5
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %67
@@ -447,7 +444,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 
 .lr.ph81:                                         ; preds = %._crit_edge76
   %79 = zext i32 %.pre to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %.pre84.pre, i64 %79
+  %.idx82 = shl nuw nsw i64 %79, 3
+  %80 = getelementptr inbounds nuw i8, ptr %.pre85.pre, i64 %.idx82
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -469,7 +467,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 
 98:                                               ; preds = %.lr.ph81, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit ]
-  %.04179 = phi ptr [ %.pre84.pre, %.lr.ph81 ], [ %158, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit ]
+  %.04179 = phi ptr [ %.pre85.pre, %.lr.ph81 ], [ %158, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit ]
   %99 = load ptr, ptr %.04179, align 8, !tbaa !185
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4) #15
   store ptr %81, ptr %4, align 8, !tbaa !187
@@ -620,11 +618,11 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %_ZN4llvm15MachineFu
   br i1 %.not44, label %.loopexit.loopexit, label %98
 
 .loopexit.loopexit:                               ; preds = %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit
-  %.pre83 = load ptr, ptr %3, align 8, !tbaa !153
+  %.pre84 = load ptr, ptr %3, align 8, !tbaa !153
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge76
-  %159 = phi ptr [ %.pre83, %.loopexit.loopexit ], [ %.pre84.pre, %._crit_edge76 ]
+  %159 = phi ptr [ %.pre84, %.loopexit.loopexit ], [ %.pre85.pre, %._crit_edge76 ]
   %160 = icmp eq ptr %159, %15
   br i1 %160, label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit, label %161
 
@@ -633,12 +631,12 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %_ZN4llvm15MachineFu
   br label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit: ; preds = %14, %.loopexit, %161
-  %.not.i8890 = phi i1 [ %.not.i.not, %.loopexit ], [ %.not.i.not, %161 ], [ false, %14 ]
+  %.not.i8991 = phi i1 [ %.not.i.not, %.loopexit ], [ %.not.i.not, %161 ], [ false, %14 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #15
   br label %162
 
 162:                                              ; preds = %11, %2, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit
-  %.0 = phi i1 [ %.not.i8890, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit ], [ false, %2 ], [ false, %11 ]
+  %.0 = phi i1 [ %.not.i8991, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit ], [ false, %2 ], [ false, %11 ]
   ret i1 %.0
 }
 

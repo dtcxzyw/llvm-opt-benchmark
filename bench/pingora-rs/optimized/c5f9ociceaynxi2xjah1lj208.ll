@@ -13998,7 +13998,8 @@ common.ret:                                       ; preds = %566, %453, %129
   %201 = load i64, ptr %167, align 8, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !1050)
   call void @llvm.experimental.noalias.scope.decl(metadata !1053)
-  %202 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr %200, i64 %201
+  %.idx.i = shl nuw nsw i64 %201, 5
+  %202 = getelementptr inbounds nuw i8, ptr %200, i64 %.idx.i
   %203 = icmp eq i64 %201, 0
   br i1 %203, label %_ZN12pingora_core9protocols4http2v16common16populate_headers17he0a525167b4a9e93E.exit, label %.lr.ph.i
 
@@ -14294,7 +14295,8 @@ _ZN12pingora_core9protocols4http2v16common16populate_headers17he0a525167b4a9e93E
   %.sroa.6244.0.copyload = load i64, ptr %198, align 8
   %314 = icmp ult i64 %.sroa.6244.0.copyload, 288230376151711744
   call void @llvm.assume(i1 %314)
-  %315 = getelementptr inbounds nuw { { i64, i64 }, { i64, i64 } }, ptr %.sroa.5243.0.copyload, i64 %.sroa.6244.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.6244.0.copyload, 5
+  %315 = getelementptr inbounds nuw i8, ptr %.sroa.5243.0.copyload, i64 %.idx
   %316 = icmp sgt i64 %.sroa.0242.0.copyload, -1
   call void @llvm.assume(i1 %316)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42)

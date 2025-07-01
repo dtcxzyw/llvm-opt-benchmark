@@ -3872,7 +3872,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit78:               ; preds = %93, %95
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %104 = load i32, ptr %103, align 8, !tbaa !210
   %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds nuw ptr, ptr %102, i64 %105
+  %.idx = shl nuw nsw i64 %105, 3
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 %.idx
   %.not229 = icmp eq i32 %104, 0
   br i1 %.not229, label %._crit_edge, label %.lr.ph
 
@@ -4290,7 +4291,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit204:              ; preds = %303, %305
   %308 = load ptr, ptr %252, align 8, !tbaa !209
   %309 = load i32, ptr %253, align 8, !tbaa !210
   %310 = zext i32 %309 to i64
-  %311 = getelementptr inbounds nuw ptr, ptr %308, i64 %310
+  %.idx231 = shl nuw nsw i64 %310, 3
+  %311 = getelementptr inbounds nuw i8, ptr %308, i64 %.idx231
   %.not230 = icmp eq i32 %309, 0
   br i1 %.not230, label %.preheader, label %.lr.ph223
 
@@ -5104,7 +5106,8 @@ define linkonce_odr hidden void @_ZN4llvm11df_iteratorIPNS_15DomTreeNodeBaseINS_
   %32 = load ptr, ptr %0, align 8, !tbaa !167, !noalias !257
   %33 = load i32, ptr %5, align 4, !tbaa !193, !noalias !257
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %32, i64 %34
+  %.idx.i.i.i = shl nuw nsw i64 %34, 3
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i.i
   %.not36.i.i.i = icmp eq i32 %33, 0
   br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -8298,7 +8301,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit78:               ; preds = %93, %95
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %104 = load i32, ptr %103, align 8, !tbaa !210
   %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds nuw ptr, ptr %102, i64 %105
+  %.idx = shl nuw nsw i64 %105, 3
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 %.idx
   %.not229 = icmp eq i32 %104, 0
   br i1 %.not229, label %._crit_edge, label %.lr.ph
 
@@ -8716,7 +8720,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit204:              ; preds = %303, %305
   %308 = load ptr, ptr %252, align 8, !tbaa !209
   %309 = load i32, ptr %253, align 8, !tbaa !210
   %310 = zext i32 %309 to i64
-  %311 = getelementptr inbounds nuw ptr, ptr %308, i64 %310
+  %.idx231 = shl nuw nsw i64 %310, 3
+  %311 = getelementptr inbounds nuw i8, ptr %308, i64 %.idx231
   %.not230 = icmp eq i32 %309, 0
   br i1 %.not230, label %.preheader, label %.lr.ph223
 

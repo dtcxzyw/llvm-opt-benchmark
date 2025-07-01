@@ -3074,7 +3074,8 @@ define noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation15initializeRatesEiP
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sroa.speculated67, ptr %46, align 4
   %47 = zext i16 %6 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %16, i64 %47
+  %.idx = shl nuw nsw i64 %47, 2
+  %48 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   %.not5.i.i.i = icmp eq i16 %6, 0
   br i1 %.not5.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i
 

@@ -2014,7 +2014,8 @@ _.exit55.i:                                       ; preds = %61, %59
 .lr.ph.i:                                         ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %68 = load i64, ptr %67, align 8, !tbaa !40
-  %69 = getelementptr inbounds nuw %struct.string_list_item, ptr %66, i64 %68
+  %.idx = shl nuw nsw i64 %68, 4
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx
   %.not = icmp eq i64 %68, 0
   br i1 %.not, label %.critedge.i, label %.lr.ph
 

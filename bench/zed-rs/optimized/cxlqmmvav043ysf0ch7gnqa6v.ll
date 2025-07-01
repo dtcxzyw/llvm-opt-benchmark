@@ -13649,7 +13649,8 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h98140c3cc50e9ba8E.exit": ; preds = %._crit_edge114
   %.sroa.0.0.v.i34 = select i1 %trunc.i31, i64 696, i64 16
   %.sroa.0.0.i35 = getelementptr inbounds nuw i8, ptr %56, i64 %.sroa.0.0.v.i34
-  %61 = getelementptr inbounds { { i32, i16, [1 x i16] }, i64 }, ptr %.sroa.0.0.i35, i64 %53
+  %.idx = shl nuw nsw i64 %53, 4
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i35, i64 %.idx
   %62 = icmp eq i64 %53, 0
   br i1 %62, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7455d40f143cff94E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7455d40f143cff94E.exit"
 
@@ -13898,7 +13899,8 @@ thread-pre-split.preheader:                       ; preds = %20, %9
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h15bb1505738d385aE.exit": ; preds = %.loopexit83
   %.sroa.0.0.v.i32 = select i1 %trunc.i29, i64 7328, i64 120
   %.sroa.0.0.i33 = getelementptr inbounds nuw i8, ptr %53, i64 %.sroa.0.0.v.i32
-  %58 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] }, ptr %.sroa.0.0.i33, i64 %50
+  %.idx = mul nuw nsw i64 %50, 104
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i33, i64 %.idx
   %59 = icmp eq i64 %50, 0
   %.pre153 = load i64, ptr %37, align 8, !alias.scope !3441
   br i1 %59, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h060cd7ec741442e2E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h060cd7ec741442e2E.exit"
@@ -14178,7 +14180,8 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h15bb1505738d385aE.exit": ; preds = %._crit_edge129
   %.sroa.0.0.v.i35 = select i1 %trunc.i32, i64 7328, i64 120
   %.sroa.0.0.i36 = getelementptr inbounds nuw i8, ptr %66, i64 %.sroa.0.0.v.i35
-  %71 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] }, ptr %.sroa.0.0.i36, i64 %63
+  %.idx = mul nuw nsw i64 %63, 104
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i36, i64 %.idx
   %72 = icmp eq i64 %63, 0
   br i1 %72, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h060cd7ec741442e2E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h060cd7ec741442e2E.exit"
 

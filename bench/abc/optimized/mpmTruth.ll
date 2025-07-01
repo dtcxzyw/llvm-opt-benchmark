@@ -938,7 +938,8 @@ Abc_TtNot.exit.i:                                 ; preds = %.lr.ph.i138.i, %458
   %506 = add nsw i32 %504, -6
   %507 = shl nuw nsw i32 1, %506
   %508 = zext nneg i32 %507 to i64
-  %509 = getelementptr inbounds nuw i64, ptr %503, i64 %508
+  %.idx.i.i.i.i = shl nuw nsw i64 %508, 3
+  %509 = getelementptr inbounds nuw i8, ptr %503, i64 %.idx.i.i.i.i
   br i1 %505, label %.lr.ph.split.us.i.i.i, label %.lr.ph.split.split.split.preheader.i.i.i
 
 .lr.ph.split.us.i.i.i:                            ; preds = %.lr.ph.i.i.i25
@@ -1753,8 +1754,8 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
 
 30:                                               ; preds = %28
   %31 = add nsw i32 %1, -6
-  %.not129 = icmp eq i32 %31, 31
-  br i1 %.not129, label %.loopexit, label %.lr.ph
+  %.not130 = icmp eq i32 %31, 31
+  br i1 %.not130, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30
   %32 = shl nuw i32 1, %31
@@ -1771,12 +1772,12 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !33
   %smax = tail call i32 @llvm.smax.i32(i32 %32, i32 1)
-  %wide.trip.count149 = zext nneg i32 %smax to i64
+  %wide.trip.count150 = zext nneg i32 %smax to i64
   br label %44
 
 44:                                               ; preds = %.lr.ph, %44
-  %indvars.iv146 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next147, %44 ]
-  %45 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv146
+  %indvars.iv147 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next148, %44 ]
+  %45 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv147
   %46 = load i64, ptr %45, align 8, !tbaa !33
   %47 = and i64 %38, %46
   %48 = and i64 %40, %46
@@ -1786,21 +1787,22 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
   %52 = lshr i64 %51, %41
   %53 = or i64 %50, %52
   store i64 %53, ptr %45, align 8, !tbaa !33
-  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
-  %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
-  br i1 %exitcond150.not, label %.loopexit, label %44, !llvm.loop !69
+  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
+  %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
+  br i1 %exitcond151.not, label %.loopexit, label %44, !llvm.loop !69
 
 54:                                               ; preds = %28
   %55 = icmp slt i32 %spec.select117, 6
   %56 = add nsw i32 %1, -6
   %57 = shl nuw i32 1, %56
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i64, ptr %0, i64 %58
-  %.not128 = icmp eq i32 %56, 31
+  %.idx128 = shl nsw i64 %58, 3
+  %59 = getelementptr inbounds i8, ptr %0, i64 %.idx128
+  %.not129 = icmp eq i32 %56, 31
   br i1 %55, label %60, label %87
 
 60:                                               ; preds = %54
-  br i1 %.not128, label %.loopexit, label %.preheader.lr.ph
+  br i1 %.not129, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %60
   %61 = add nsw i32 %spec.select, -6
@@ -1818,17 +1820,17 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %84
   %.0126 = phi ptr [ %0, %.preheader.lr.ph ], [ %85, %84 ]
-  %invariant.gep155 = getelementptr inbounds nuw i64, ptr %.0126, i64 %71
+  %invariant.gep156 = getelementptr inbounds nuw i64, ptr %.0126, i64 %71
   br label %72
 
 72:                                               ; preds = %.preheader, %72
-  %indvars.iv140 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next141, %72 ]
-  %73 = getelementptr inbounds nuw i64, ptr %.0126, i64 %indvars.iv140
+  %indvars.iv141 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next142, %72 ]
+  %73 = getelementptr inbounds nuw i64, ptr %.0126, i64 %indvars.iv141
   %74 = load i64, ptr %73, align 8, !tbaa !33
   %75 = and i64 %66, %74
   %76 = lshr i64 %75, %67
-  %gep156 = getelementptr inbounds nuw i64, ptr %invariant.gep155, i64 %indvars.iv140
-  %77 = load i64, ptr %gep156, align 8, !tbaa !33
+  %gep157 = getelementptr inbounds nuw i64, ptr %invariant.gep156, i64 %indvars.iv141
+  %77 = load i64, ptr %gep157, align 8, !tbaa !33
   %78 = shl i64 %77, %67
   %79 = and i64 %78, %66
   %80 = and i64 %74, %68
@@ -1836,10 +1838,10 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
   store i64 %81, ptr %73, align 8, !tbaa !33
   %82 = and i64 %77, %66
   %83 = or i64 %82, %76
-  store i64 %83, ptr %gep156, align 8, !tbaa !33
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %exitcond145.not = icmp eq i64 %indvars.iv.next141, %71
-  br i1 %exitcond145.not, label %84, label %72, !llvm.loop !70
+  store i64 %83, ptr %gep157, align 8, !tbaa !33
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %exitcond146.not = icmp eq i64 %indvars.iv.next142, %71
+  br i1 %exitcond146.not, label %84, label %72, !llvm.loop !70
 
 84:                                               ; preds = %72
   %85 = getelementptr inbounds nuw i64, ptr %.0126, i64 %70
@@ -1847,7 +1849,7 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
   br i1 %86, label %.preheader, label %.loopexit, !llvm.loop !71
 
 87:                                               ; preds = %54
-  br i1 %.not128, label %.loopexit, label %.preheader120.lr.ph
+  br i1 %.not129, label %.loopexit, label %.preheader120.lr.ph
 
 .preheader120.lr.ph:                              ; preds = %87
   %88 = add nsw i32 %spec.select, -6
@@ -1865,20 +1867,20 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
 .preheader120:                                    ; preds = %.preheader120.lr.ph, %105
   %.1124 = phi ptr [ %0, %.preheader120.lr.ph ], [ %106, %105 ]
   %invariant.gep = getelementptr inbounds nuw i64, ptr %.1124, i64 %96
-  %invariant.gep153 = getelementptr inbounds nuw i64, ptr %.1124, i64 %97
+  %invariant.gep154 = getelementptr inbounds nuw i64, ptr %.1124, i64 %97
   br label %.preheader119
 
 .preheader119:                                    ; preds = %.preheader120, %103
-  %indvars.iv137 = phi i64 [ 0, %.preheader120 ], [ %indvars.iv.next138, %103 ]
-  %gep = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %indvars.iv137
-  %gep154 = getelementptr inbounds nuw i64, ptr %invariant.gep153, i64 %indvars.iv137
+  %indvars.iv138 = phi i64 [ 0, %.preheader120 ], [ %indvars.iv.next139, %103 ]
+  %gep = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %indvars.iv138
+  %gep155 = getelementptr inbounds nuw i64, ptr %invariant.gep154, i64 %indvars.iv138
   br label %98
 
 98:                                               ; preds = %.preheader119, %98
   %indvars.iv = phi i64 [ 0, %.preheader119 ], [ %indvars.iv.next, %98 ]
   %99 = getelementptr inbounds nuw i64, ptr %gep, i64 %indvars.iv
   %100 = load i64, ptr %99, align 8, !tbaa !33
-  %101 = getelementptr inbounds nuw i64, ptr %gep154, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw i64, ptr %gep155, i64 %indvars.iv
   %102 = load i64, ptr %101, align 8, !tbaa !33
   store i64 %102, ptr %99, align 8, !tbaa !33
   store i64 %100, ptr %101, align 8, !tbaa !33
@@ -1887,8 +1889,8 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
   br i1 %exitcond.not, label %103, label %98, !llvm.loop !72
 
 103:                                              ; preds = %98
-  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, %95
-  %104 = icmp samesign ult i64 %indvars.iv.next138, %97
+  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, %95
+  %104 = icmp samesign ult i64 %indvars.iv.next139, %97
   br i1 %104, label %.preheader119, label %105, !llvm.loop !73
 
 105:                                              ; preds = %103

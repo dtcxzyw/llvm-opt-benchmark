@@ -267,7 +267,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread63:       ; preds = %11, %_ZN4llvmeqENS_
   %36 = load ptr, ptr %4, align 8, !tbaa !155
   %37 = load i32, ptr %24, align 8, !tbaa !156
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %36, i64 %38
+  %.idx = shl nuw nsw i64 %38, 3
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx
   %.not3977 = icmp ne i32 %37, 0
   br i1 %.not3977, label %.lr.ph80, label %._crit_edge81
 

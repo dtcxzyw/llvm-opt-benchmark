@@ -172,7 +172,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIiEEmm
   store float 5.000000e-01, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 0, ptr %29, align 8
-  %30 = getelementptr inbounds i32, ptr %0, i64 %1
+  %30 = getelementptr inbounds i8, ptr %0, i64 %13
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %47, %.lr.ph.preheader.i.i
@@ -628,7 +628,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIjEEmm
   store float 5.000000e-01, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 0, ptr %29, align 8
-  %30 = getelementptr inbounds i32, ptr %0, i64 %1
+  %30 = getelementptr inbounds i8, ptr %0, i64 %13
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %47, %.lr.ph.preheader.i.i
@@ -1683,7 +1683,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIlEEmm
   store float 5.000000e-01, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 0, ptr %29, align 8
-  %30 = getelementptr inbounds i64, ptr %0, i64 %1
+  %30 = getelementptr inbounds i8, ptr %0, i64 %13
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %47, %.lr.ph.preheader.i.i
@@ -2139,7 +2139,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeImEEmm
   store float 5.000000e-01, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 0, ptr %29, align 8
-  %30 = getelementptr inbounds i64, ptr %0, i64 %1
+  %30 = getelementptr inbounds i8, ptr %0, i64 %13
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %47, %.lr.ph.preheader.i.i

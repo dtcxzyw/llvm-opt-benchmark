@@ -748,22 +748,24 @@ define linkonce_odr hidden void @_ZNK5boost6locale10impl_posix14utf8_converterIc
 20:                                               ; preds = %15
   %21 = load ptr, ptr %8, align 8, !tbaa !37
   %22 = load i64, ptr %18, align 8, !tbaa !33
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
-  %.not8588 = icmp eq i64 %22, 0
-  br i1 %.not8588, label %.._crit_edge92_crit_edge, label %.lr.ph91
+  %.idx96 = shl nuw nsw i64 %22, 2
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx96
+  %.not8590 = icmp eq i64 %22, 0
+  br i1 %.not8590, label %.._crit_edge94_crit_edge, label %.lr.ph93
 
-.._crit_edge92_crit_edge:                         ; preds = %20
-  %.pre93 = load i64, ptr %17, align 8, !tbaa !33, !noalias !38
-  br label %._crit_edge92
+.._crit_edge94_crit_edge:                         ; preds = %20
+  %.pre97 = load i64, ptr %17, align 8, !tbaa !33, !noalias !38
+  br label %._crit_edge94
 
-.lr.ph91:                                         ; preds = %20
+.lr.ph93:                                         ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %49
 
-._crit_edge92:                                    ; preds = %64, %.._crit_edge92_crit_edge
-  %25 = phi i64 [ %.pre93, %.._crit_edge92_crit_edge ], [ %55, %64 ]
+._crit_edge94:                                    ; preds = %64, %.._crit_edge94_crit_edge
+  %25 = phi i64 [ %.pre97, %.._crit_edge94_crit_edge ], [ %55, %64 ]
   %26 = load ptr, ptr %10, align 8, !tbaa !37, !noalias !38
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %25
+  %.idx87 = shl nuw nsw i64 %25, 2
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx87
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %28, ptr %0, align 8, !tbaa !44, !alias.scope !41
@@ -773,7 +775,7 @@ define linkonce_odr hidden void @_ZNK5boost6locale10impl_posix14utf8_converterIc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %25)
           to label %.preheader.i unwind label %34
 
-.preheader.i:                                     ; preds = %._crit_edge92
+.preheader.i:                                     ; preds = %._crit_edge94
   %.not24.i = icmp eq i64 %25, 0
   br i1 %.not24.i, label %_ZN5boost6locale4conv10utf_to_utfIcwSaIwEEENSt9enable_ifIXsr3std7is_sameINT1_10value_typeET0_EE5valueENSt7__cxx1112basic_stringIT_St11char_traitsISA_ENSt16allocator_traitsIS5_E12rebind_allocISA_EEEEE4typeERKNS9_IS7_SB_IS7_ES5_EENS1_11method_typeE.exit, label %_ZN5boost6locale3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i
 
@@ -787,7 +789,7 @@ _ZN5boost6locale3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit.i: ; preds = %.
   %.0.i.i.not.i = or i1 %32, %or.cond.i.i.i
   br i1 %.0.i.i.not.i, label %38, label %36
 
-34:                                               ; preds = %._crit_edge92
+34:                                               ; preds = %._crit_edge94
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i
@@ -834,9 +836,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
           cleanup
   br label %.body
 
-49:                                               ; preds = %.lr.ph91, %64
-  %.sroa.080.089 = phi ptr [ %21, %.lr.ph91 ], [ %68, %64 ]
-  %50 = load i32, ptr %.sroa.080.089, align 4, !tbaa !35
+49:                                               ; preds = %.lr.ph93, %64
+  %.sroa.080.091 = phi ptr [ %21, %.lr.ph93 ], [ %68, %64 ]
+  %50 = load i32, ptr %.sroa.080.091, align 4, !tbaa !35
   %51 = load ptr, ptr %24, align 8, !tbaa !3
   %52 = load ptr, ptr %51, align 8, !tbaa !9
   %53 = call i32 @towupper_l(i32 noundef %50, ptr noundef %52) #17
@@ -872,9 +874,9 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i: ; pr
   store i64 %55, ptr %17, align 8, !tbaa !33
   %67 = getelementptr inbounds nuw i32, ptr %65, i64 %55
   store i32 0, ptr %67, align 4, !tbaa !35
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.080.089, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.080.091, i64 4
   %.not85 = icmp eq ptr %68, %23
-  br i1 %.not85, label %._crit_edge92, label %49
+  br i1 %.not85, label %._crit_edge94, label %49
 
 69:                                               ; preds = %63
   %70 = landingpad { ptr, i32 }
@@ -989,9 +991,10 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit36: ; preds = %_ZN
 107:                                              ; preds = %102
   %108 = load ptr, ptr %11, align 8, !tbaa !37
   %109 = load i64, ptr %105, align 8, !tbaa !33
-  %110 = getelementptr inbounds nuw i32, ptr %108, i64 %109
-  %.not86 = icmp eq i64 %109, 0
-  br i1 %.not86, label %.._crit_edge_crit_edge, label %.lr.ph
+  %.idx95 = shl nuw nsw i64 %109, 2
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx95
+  %.not88 = icmp eq i64 %109, 0
+  br i1 %.not88, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %107
   %.pre = load i64, ptr %104, align 8, !tbaa !33, !noalias !47
@@ -1004,7 +1007,8 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit36: ; preds = %_ZN
 ._crit_edge:                                      ; preds = %151, %.._crit_edge_crit_edge
   %112 = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %142, %151 ]
   %113 = load ptr, ptr %13, align 8, !tbaa !37, !noalias !47
-  %114 = getelementptr inbounds nuw i32, ptr %113, i64 %112
+  %.idx = shl nuw nsw i64 %112, 2
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 %.idx
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %115, ptr %0, align 8, !tbaa !44, !alias.scope !50
@@ -1076,8 +1080,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %.body72
 
 136:                                              ; preds = %.lr.ph, %151
-  %.sroa.076.087 = phi ptr [ %108, %.lr.ph ], [ %155, %151 ]
-  %137 = load i32, ptr %.sroa.076.087, align 4, !tbaa !35
+  %.sroa.076.089 = phi ptr [ %108, %.lr.ph ], [ %155, %151 ]
+  %137 = load i32, ptr %.sroa.076.089, align 4, !tbaa !35
   %138 = load ptr, ptr %111, align 8, !tbaa !3
   %139 = load ptr, ptr %138, align 8, !tbaa !9
   %140 = call i32 @towlower_l(i32 noundef %137, ptr noundef %139) #17
@@ -1113,7 +1117,7 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i39: ; 
   store i64 %142, ptr %104, align 8, !tbaa !33
   %154 = getelementptr inbounds nuw i32, ptr %152, i64 %142
   store i32 0, ptr %154, align 4, !tbaa !35
-  %155 = getelementptr inbounds nuw i8, ptr %.sroa.076.087, i64 4
+  %155 = getelementptr inbounds nuw i8, ptr %.sroa.076.089, i64 4
   %.not = icmp eq ptr %155, %110
   br i1 %.not, label %._crit_edge, label %136
 

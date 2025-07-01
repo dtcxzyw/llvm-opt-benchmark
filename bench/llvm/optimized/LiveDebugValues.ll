@@ -45,12 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::once_flag" = type { i32 }
 %class.anon.170 = type { ptr, ptr }
 %"class.std::reference_wrapper" = type { ptr }
-%"class.std::unique_ptr.49" = type { %"struct.std::__uniq_ptr_data.50" }
-%"struct.std::__uniq_ptr_data.50" = type { %"class.std::__uniq_ptr_impl.51" }
-%"class.std::__uniq_ptr_impl.51" = type { %"class.std::tuple.52" }
-%"class.std::tuple.52" = type { %"struct.std::_Tuple_impl.53" }
-%"struct.std::_Tuple_impl.53" = type { %"struct.std::_Head_base.56" }
-%"struct.std::_Head_base.56" = type { ptr }
 %"struct.llvm::cl::desc" = type { %"class.llvm::StringRef" }
 %"struct.llvm::cl::initializer.24" = type { ptr }
 %"struct.llvm::cl::initializer" = type { ptr }
@@ -1008,7 +1002,8 @@ define internal void @_ZN12_GLOBAL__N_115LiveDebugValuesD2Ev(ptr noundef nonnull
 
 .lr.ph.i.preheader.i.i:                           ; preds = %1
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.std::unique_ptr.49", ptr %4, i64 %7
+  %.idx.i.i = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt10unique_ptrIN4llvm15DomTreeNodeBaseINS0_17MachineBasicBlockEEESt14default_deleteIS3_EED2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i

@@ -1368,7 +1368,8 @@ define hidden void @_ZN3mbe8expander7matcher12collect_vars17hdcd5419d06bab655E(p
   %8 = load ptr, ptr %1, align 8, !alias.scope !272, !nonnull !4, !align !275, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !alias.scope !272, !noundef !4
-  %11 = getelementptr inbounds { i64, [15 x i64] }, ptr %8, i64 %10
+  %.idx = shl nsw i64 %10, 7
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 

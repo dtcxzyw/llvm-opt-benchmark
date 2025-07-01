@@ -5300,7 +5300,8 @@ define hidden noundef align 8 dereferenceable_or_null(96) ptr @"_ZN3syn10punctua
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17hd4e3d679d9b52098E.exit": ; preds = %1
-  %13 = getelementptr inbounds { { { { i64, [3 x i64] }, { {} } }, { i64, [7 x i64] } }, { [2 x i32] } }, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 104
+  %13 = getelementptr inbounds i8, ptr %4, i64 %.idx
   store ptr %4, ptr %10, align 8, !noalias !1232
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %13, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1232
@@ -5349,7 +5350,8 @@ define hidden noundef align 8 dereferenceable_or_null(96) ptr @"_ZN3syn10punctua
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17hd4e3d679d9b52098E.exit": ; preds = %1
-  %13 = getelementptr inbounds { { { { i64, [3 x i64] }, { {} } }, { i64, [7 x i64] } }, { [2 x i32] } }, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 104
+  %13 = getelementptr inbounds i8, ptr %4, i64 %.idx
   store ptr %4, ptr %10, align 8, !noalias !1250
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %13, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1250
@@ -5398,7 +5400,8 @@ define hidden noundef align 8 dereferenceable_or_null(96) ptr @"_ZN3syn10punctua
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17h8b49bad8feb9db8cE.llvm.14145919710250835280.exit": ; preds = %1
-  %13 = getelementptr inbounds { { { { i64, [3 x i64] }, { {} } }, { i64, [7 x i64] } }, { [2 x i32] } }, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 104
+  %13 = getelementptr inbounds i8, ptr %4, i64 %.idx
   store ptr %4, ptr %10, align 8, !noalias !1270
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %13, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1270

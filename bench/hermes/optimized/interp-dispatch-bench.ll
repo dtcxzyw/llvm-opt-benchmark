@@ -166,14 +166,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::AlignedCharArray.182" = type { [2 x i8] }
 %"class.hermes::vm::StringView" = type { %union.anon.184, i32, i32 }
 %union.anon.184 = type { ptr }
-%"struct.llvh::detail::DenseMapPair.383" = type { %"struct.std::pair.384" }
-%"struct.std::pair.384" = type { ptr, %"class.std::unique_ptr.269" }
-%"class.std::unique_ptr.269" = type { %"struct.std::__uniq_ptr_data.270" }
-%"struct.std::__uniq_ptr_data.270" = type { %"class.std::__uniq_ptr_impl.271" }
-%"class.std::__uniq_ptr_impl.271" = type { %"class.std::tuple.272" }
-%"class.std::tuple.272" = type { %"struct.std::_Tuple_impl.273" }
-%"struct.std::_Tuple_impl.273" = type { %"struct.std::_Head_base.276" }
-%"struct.std::_Head_base.276" = type { ptr }
 %"struct.std::array.446" = type { [20 x i8] }
 
 $_ZN4llvh2cl3optIdLb0ENS0_6parserIdEEED2Ev = comdat any
@@ -6714,7 +6706,8 @@ entry:
 for.body.preheader:                               ; preds = %entry
   %1 = load ptr, ptr %this, align 8
   %idx.ext.i = zext i32 %0 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.383", ptr %1, i64 %idx.ext.i
+  %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i.idx
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end13

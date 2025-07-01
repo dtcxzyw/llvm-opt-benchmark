@@ -339,7 +339,8 @@ _ZN11hb_vector_tIjLb0EE4pushIJRjEEEPjDpOT_.exit71: ; preds = %_ZN11hb_vector_tIj
 
 112:                                              ; preds = %._crit_edge
   %113 = zext i32 %.sroa.17.3.lcssa to i64
-  %114 = getelementptr inbounds nuw i32, ptr %.sroa.25.3.lcssa, i64 %113
+  %.idx = shl nuw nsw i64 %113, 2
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.25.3.lcssa, i64 %.idx
   %.not276 = icmp eq i32 %.sroa.17.3.lcssa, 0
   br i1 %.not276, label %.critedge, label %.lr.ph281
 

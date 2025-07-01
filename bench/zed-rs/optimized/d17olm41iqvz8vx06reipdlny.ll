@@ -29056,7 +29056,8 @@ define hidden { ptr, ptr } @_ZN9workspace4pane4Pane9open_item17h513b83327c1f72f3
   %22 = load ptr, ptr %21, align 8, !nonnull !9, !noundef !9
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8, !noundef !9
-  %25 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %22, i64 %24
+  %.idx = shl nsw i64 %24, 4
+  %25 = getelementptr inbounds i8, ptr %22, i64 %.idx
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %.thread58, label %.lr.ph
 

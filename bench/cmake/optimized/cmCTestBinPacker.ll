@@ -467,7 +467,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserv
   %104 = load ptr, ptr %94, align 8, !tbaa !44
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %106 = load i64, ptr %105, align 8, !tbaa !46
-  %107 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %104, i64 %106
+  %.idx.i.i.i.i.i = shl nsw i64 %106, 5
+  %107 = getelementptr inbounds i8, ptr %104, i64 %.idx.i.i.i.i.i
   %.not4.i.i.i.i.i.i.i = icmp eq i64 %106, 0
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES8_ED2Ev.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -983,7 +984,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserv
   %104 = load ptr, ptr %94, align 8, !tbaa !44
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %106 = load i64, ptr %105, align 8, !tbaa !46
-  %107 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %104, i64 %106
+  %.idx.i.i.i.i.i = shl nsw i64 %106, 5
+  %107 = getelementptr inbounds i8, ptr %104, i64 %.idx.i.i.i.i.i
   %.not4.i.i.i.i.i.i.i = icmp eq i64 %106, 0
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES8_ED2Ev.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -2718,209 +2720,217 @@ _ZSt22__chunk_insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iterator
   br label %76
 
 76:                                               ; preds = %.lr.ph, %_ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_T1_T2_.exit
-  %.049 = phi i64 [ 7, %.lr.ph ], [ %160, %_ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_T1_T2_.exit ]
-  %77 = shl nsw i64 %.049, 1
+  %.050 = phi i64 [ 7, %.lr.ph ], [ %158, %_ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_T1_T2_.exit ]
+  %77 = shl nsw i64 %.050, 1
   %.not59.i = icmp slt i64 %7, %77
   br i1 %.not59.i, label %._crit_edge.i21, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %76
-  %78 = sub nsw i64 0, %.049
-  %79 = sub i64 0, %77
-  br label %80
+  %78 = sub i64 0, %77
+  %.neg.i = mul i64 %.050, -8
+  %.not22.i.i = icmp eq i64 %.neg.i, 0
+  br label %79
 
-80:                                               ; preds = %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i, %.lr.ph.i
-  %81 = phi i64 [ %4, %.lr.ph.i ], [ %100, %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
+79:                                               ; preds = %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i, %.lr.ph.i
+  %80 = phi i64 [ %4, %.lr.ph.i ], [ %99, %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
   %.060.i = phi ptr [ %2, %.lr.ph.i ], [ %.04.lcssa.i.i.i.i.i7.i.i, %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
-  %82 = inttoptr i64 %81 to ptr
-  %83 = getelementptr inbounds ptr, ptr %82, i64 %78
-  %84 = getelementptr inbounds ptr, ptr %82, i64 %79
-  %85 = ptrtoint ptr %83 to i64
-  br label %.lr.ph.i.i16
+  %81 = inttoptr i64 %80 to ptr
+  %82 = getelementptr inbounds i8, ptr %81, i64 %.neg.i
+  %83 = getelementptr inbounds ptr, ptr %81, i64 %78
+  %84 = ptrtoint ptr %82 to i64
+  br i1 %.not22.i.i, label %.critedge.i.i, label %.lr.ph.i.i16
 
-.lr.ph.i.i16:                                     ; preds = %80, %87
-  %.sroa.043.0.i = phi ptr [ %.sroa.043.1.i, %87 ], [ %83, %80 ]
-  %.sroa.045.0.i = phi ptr [ %.sroa.045.1.i, %87 ], [ %82, %80 ]
-  %86 = phi i64 [ %97, %87 ], [ %81, %80 ]
-  %.023.i.i = phi ptr [ %96, %87 ], [ %.060.i, %80 ]
-  %.not18.i.i = icmp eq ptr %.sroa.043.0.i, %84
-  br i1 %.not18.i.i, label %.critedge.i.i, label %87
+.lr.ph.i.i16:                                     ; preds = %79, %86
+  %.sroa.043.0.i = phi ptr [ %.sroa.043.1.i, %86 ], [ %82, %79 ]
+  %.sroa.045.0.i = phi ptr [ %.sroa.045.1.i, %86 ], [ %81, %79 ]
+  %85 = phi i64 [ %96, %86 ], [ %80, %79 ]
+  %.023.i.i = phi ptr [ %95, %86 ], [ %.060.i, %79 ]
+  %.not18.i.i = icmp eq ptr %.sroa.043.0.i, %83
+  br i1 %.not18.i.i, label %.critedge.i.i, label %86
 
-87:                                               ; preds = %.lr.ph.i.i16
-  %88 = getelementptr inbounds i8, ptr %.sroa.043.0.i, i64 -8
-  %89 = load ptr, ptr %88, align 8, !tbaa !25
-  %90 = inttoptr i64 %86 to ptr
-  %91 = getelementptr inbounds i8, ptr %90, i64 -8
-  %92 = load ptr, ptr %91, align 8, !tbaa !25
-  %93 = getelementptr i8, ptr %89, i64 8
-  %.val.i.i.i17 = load i32, ptr %93, align 8, !tbaa !14
-  %94 = getelementptr i8, ptr %92, i64 8
-  %.val1.i.i.i18 = load i32, ptr %94, align 8, !tbaa !14
-  %95 = icmp slt i32 %.val.i.i.i17, %.val1.i.i.i18
-  %.sroa.043.1.i = select i1 %95, ptr %88, ptr %.sroa.043.0.i
-  %.sroa.045.1.idx.i = select i1 %95, i64 0, i64 -8
+86:                                               ; preds = %.lr.ph.i.i16
+  %87 = getelementptr inbounds i8, ptr %.sroa.043.0.i, i64 -8
+  %88 = load ptr, ptr %87, align 8, !tbaa !25
+  %89 = inttoptr i64 %85 to ptr
+  %90 = getelementptr inbounds i8, ptr %89, i64 -8
+  %91 = load ptr, ptr %90, align 8, !tbaa !25
+  %92 = getelementptr i8, ptr %88, i64 8
+  %.val.i.i.i17 = load i32, ptr %92, align 8, !tbaa !14
+  %93 = getelementptr i8, ptr %91, i64 8
+  %.val1.i.i.i18 = load i32, ptr %93, align 8, !tbaa !14
+  %94 = icmp slt i32 %.val.i.i.i17, %.val1.i.i.i18
+  %.sroa.043.1.i = select i1 %94, ptr %87, ptr %.sroa.043.0.i
+  %.sroa.045.1.idx.i = select i1 %94, i64 0, i64 -8
   %.sroa.045.1.i = getelementptr inbounds i8, ptr %.sroa.045.0.i, i64 %.sroa.045.1.idx.i
-  %.sink.i.i = select i1 %95, ptr %89, ptr %92
+  %.sink.i.i = select i1 %94, ptr %88, ptr %91
   store ptr %.sink.i.i, ptr %.023.i.i, align 8, !tbaa !25
-  %96 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 8
-  %.not.i.i19 = icmp eq ptr %.sroa.045.1.i, %83
-  %97 = ptrtoint ptr %.sroa.045.1.i to i64
+  %95 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 8
+  %.not.i.i19 = icmp eq ptr %.sroa.045.1.i, %82
+  %96 = ptrtoint ptr %.sroa.045.1.i to i64
   br i1 %.not.i.i19, label %.critedge.i.i, label %.lr.ph.i.i16, !llvm.loop !158
 
-.critedge.i.i:                                    ; preds = %87, %.lr.ph.i.i16
-  %.sroa.043.2.i = phi ptr [ %.sroa.043.1.i, %87 ], [ %84, %.lr.ph.i.i16 ]
-  %98 = phi i64 [ %97, %87 ], [ %86, %.lr.ph.i.i16 ]
-  %.0.lcssa.i.i = phi ptr [ %96, %87 ], [ %.023.i.i, %.lr.ph.i.i16 ]
-  %99 = ptrtoint ptr %.sroa.043.2.i to i64
-  %100 = ptrtoint ptr %84 to i64
-  %101 = sub i64 %98, %85
-  %102 = ashr exact i64 %101, 3
-  %103 = icmp sgt i64 %102, 0
-  br i1 %103, label %.lr.ph.i.i.i.i.preheader.i.i.i, label %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i
+.critedge.i.i:                                    ; preds = %86, %.lr.ph.i.i16, %79
+  %.sroa.043.2.i = phi ptr [ %81, %79 ], [ %83, %.lr.ph.i.i16 ], [ %.sroa.043.1.i, %86 ]
+  %97 = phi i64 [ %80, %79 ], [ %85, %.lr.ph.i.i16 ], [ %96, %86 ]
+  %.0.lcssa.i.i = phi ptr [ %.060.i, %79 ], [ %.023.i.i, %.lr.ph.i.i16 ], [ %95, %86 ]
+  %98 = ptrtoint ptr %.sroa.043.2.i to i64
+  %99 = ptrtoint ptr %83 to i64
+  %100 = sub i64 %97, %84
+  %101 = ashr exact i64 %100, 3
+  %102 = icmp sgt i64 %101, 0
+  br i1 %102, label %.lr.ph.i.i.i.i.preheader.i.i.i, label %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %.critedge.i.i
-  %104 = inttoptr i64 %98 to ptr
+  %103 = inttoptr i64 %97 to ptr
   br label %.lr.ph.i.i.i.i.i.i.i22
 
 .lr.ph.i.i.i.i.i.i.i22:                           ; preds = %.lr.ph.i.i.i.i.i.i.i22, %.lr.ph.i.i.i.i.preheader.i.i.i
-  %105 = phi ptr [ %106, %.lr.ph.i.i.i.i.i.i.i22 ], [ %104, %.lr.ph.i.i.i.i.preheader.i.i.i ]
-  %.06.i.i.i.i.i.i.i = phi i64 [ %109, %.lr.ph.i.i.i.i.i.i.i22 ], [ %102, %.lr.ph.i.i.i.i.preheader.i.i.i ]
-  %.045.i.i.i.i.i.i.i = phi ptr [ %108, %.lr.ph.i.i.i.i.i.i.i22 ], [ %.0.lcssa.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i ]
-  %106 = getelementptr inbounds i8, ptr %105, i64 -8
-  %107 = load ptr, ptr %106, align 8, !tbaa !25
-  store ptr %107, ptr %.045.i.i.i.i.i.i.i, align 8, !tbaa !25
-  %108 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i.i.i, i64 8
-  %109 = add nsw i64 %.06.i.i.i.i.i.i.i, -1
-  %110 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i, 1
-  br i1 %110, label %.lr.ph.i.i.i.i.i.i.i22, label %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i, !llvm.loop !159
+  %104 = phi ptr [ %105, %.lr.ph.i.i.i.i.i.i.i22 ], [ %103, %.lr.ph.i.i.i.i.preheader.i.i.i ]
+  %.06.i.i.i.i.i.i.i = phi i64 [ %108, %.lr.ph.i.i.i.i.i.i.i22 ], [ %101, %.lr.ph.i.i.i.i.preheader.i.i.i ]
+  %.045.i.i.i.i.i.i.i = phi ptr [ %107, %.lr.ph.i.i.i.i.i.i.i22 ], [ %.0.lcssa.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i ]
+  %105 = getelementptr inbounds i8, ptr %104, i64 -8
+  %106 = load ptr, ptr %105, align 8, !tbaa !25
+  store ptr %106, ptr %.045.i.i.i.i.i.i.i, align 8, !tbaa !25
+  %107 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i.i.i, i64 8
+  %108 = add nsw i64 %.06.i.i.i.i.i.i.i, -1
+  %109 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i, 1
+  br i1 %109, label %.lr.ph.i.i.i.i.i.i.i22, label %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i, !llvm.loop !159
 
 _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i22, %.critedge.i.i
-  %.04.lcssa.i.i.i.i.i.i.i = phi ptr [ %.0.lcssa.i.i, %.critedge.i.i ], [ %108, %.lr.ph.i.i.i.i.i.i.i22 ]
-  %111 = sub i64 %99, %100
-  %112 = ashr exact i64 %111, 3
-  %113 = icmp sgt i64 %112, 0
-  br i1 %113, label %.lr.ph.i.i.i.i.i9.i.i, label %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i
+  %.04.lcssa.i.i.i.i.i.i.i = phi ptr [ %.0.lcssa.i.i, %.critedge.i.i ], [ %107, %.lr.ph.i.i.i.i.i.i.i22 ]
+  %110 = sub i64 %98, %99
+  %111 = ashr exact i64 %110, 3
+  %112 = icmp sgt i64 %111, 0
+  br i1 %112, label %.lr.ph.i.i.i.i.i9.i.i, label %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i
 
 .lr.ph.i.i.i.i.i9.i.i:                            ; preds = %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i, %.lr.ph.i.i.i.i.i9.i.i
-  %114 = phi ptr [ %115, %.lr.ph.i.i.i.i.i9.i.i ], [ %.sroa.043.2.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i ]
-  %.06.i.i.i.i.i10.i.i = phi i64 [ %118, %.lr.ph.i.i.i.i.i9.i.i ], [ %112, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i ]
-  %.045.i.i.i.i.i11.i.i = phi ptr [ %117, %.lr.ph.i.i.i.i.i9.i.i ], [ %.04.lcssa.i.i.i.i.i.i.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i ]
-  %115 = getelementptr inbounds i8, ptr %114, i64 -8
-  %116 = load ptr, ptr %115, align 8, !tbaa !25
-  store ptr %116, ptr %.045.i.i.i.i.i11.i.i, align 8, !tbaa !25
-  %117 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i11.i.i, i64 8
-  %118 = add nsw i64 %.06.i.i.i.i.i10.i.i, -1
-  %119 = icmp samesign ugt i64 %.06.i.i.i.i.i10.i.i, 1
-  br i1 %119, label %.lr.ph.i.i.i.i.i9.i.i, label %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i, !llvm.loop !159
+  %113 = phi ptr [ %114, %.lr.ph.i.i.i.i.i9.i.i ], [ %.sroa.043.2.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i ]
+  %.06.i.i.i.i.i10.i.i = phi i64 [ %117, %.lr.ph.i.i.i.i.i9.i.i ], [ %111, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i ]
+  %.045.i.i.i.i.i11.i.i = phi ptr [ %116, %.lr.ph.i.i.i.i.i9.i.i ], [ %.04.lcssa.i.i.i.i.i.i.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i ]
+  %114 = getelementptr inbounds i8, ptr %113, i64 -8
+  %115 = load ptr, ptr %114, align 8, !tbaa !25
+  store ptr %115, ptr %.045.i.i.i.i.i11.i.i, align 8, !tbaa !25
+  %116 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i11.i.i, i64 8
+  %117 = add nsw i64 %.06.i.i.i.i.i10.i.i, -1
+  %118 = icmp samesign ugt i64 %.06.i.i.i.i.i10.i.i, 1
+  br i1 %118, label %.lr.ph.i.i.i.i.i9.i.i, label %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i, !llvm.loop !159
 
 _ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i: ; preds = %.lr.ph.i.i.i.i.i9.i.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i
-  %.04.lcssa.i.i.i.i.i7.i.i = phi ptr [ %.04.lcssa.i.i.i.i.i.i.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i ], [ %117, %.lr.ph.i.i.i.i.i9.i.i ]
-  %120 = sub i64 %100, %5
-  %121 = ashr exact i64 %120, 3
-  %.not.i = icmp slt i64 %121, %77
-  br i1 %.not.i, label %._crit_edge.i21, label %80, !llvm.loop !160
+  %.04.lcssa.i.i.i.i.i7.i.i = phi ptr [ %.04.lcssa.i.i.i.i.i.i.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i ], [ %116, %.lr.ph.i.i.i.i.i9.i.i ]
+  %119 = sub i64 %99, %5
+  %120 = ashr exact i64 %119, 3
+  %.not.i = icmp slt i64 %120, %77
+  br i1 %.not.i, label %._crit_edge.i21, label %79, !llvm.loop !160
 
 ._crit_edge.i21:                                  ; preds = %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i, %76
-  %122 = phi i64 [ %4, %76 ], [ %100, %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
+  %121 = phi i64 [ %4, %76 ], [ %99, %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
   %.0.lcssa.i = phi ptr [ %2, %76 ], [ %.04.lcssa.i.i.i.i.i7.i.i, %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
-  %.lcssa56.i = phi i64 [ %7, %76 ], [ %121, %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.049, i64 %.lcssa56.i)
-  %123 = inttoptr i64 %122 to ptr
-  %124 = sub i64 0, %.sroa.speculated.i
-  %125 = getelementptr inbounds ptr, ptr %123, i64 %124
-  %.not22.i12.i = icmp eq i64 %.sroa.speculated.i, 0
-  %126 = ptrtoint ptr %125 to i64
+  %.lcssa56.i = phi i64 [ %7, %76 ], [ %120, %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.050, i64 %.lcssa56.i)
+  %122 = inttoptr i64 %121 to ptr
+  %.neg66.i = mul i64 %.sroa.speculated.i, -8
+  %123 = getelementptr inbounds i8, ptr %122, i64 %.neg66.i
+  %.not22.i12.i = icmp eq i64 %.neg66.i, 0
+  %124 = ptrtoint ptr %123 to i64
   br i1 %.not22.i12.i, label %.critedge.i24.i, label %.lr.ph.i13.i
 
-.lr.ph.i13.i:                                     ; preds = %._crit_edge.i21, %128
-  %.sroa.040.0.i = phi ptr [ %.sroa.040.1.i, %128 ], [ %123, %._crit_edge.i21 ]
-  %.sroa.038.0.i = phi ptr [ %.sroa.038.1.i, %128 ], [ %125, %._crit_edge.i21 ]
-  %127 = phi i64 [ %138, %128 ], [ %122, %._crit_edge.i21 ]
-  %.023.i14.i = phi ptr [ %137, %128 ], [ %.0.lcssa.i, %._crit_edge.i21 ]
+.lr.ph.i13.i:                                     ; preds = %._crit_edge.i21, %126
+  %.sroa.040.0.i = phi ptr [ %.sroa.040.1.i, %126 ], [ %122, %._crit_edge.i21 ]
+  %.sroa.038.0.i = phi ptr [ %.sroa.038.1.i, %126 ], [ %123, %._crit_edge.i21 ]
+  %125 = phi i64 [ %136, %126 ], [ %121, %._crit_edge.i21 ]
+  %.023.i14.i = phi ptr [ %135, %126 ], [ %.0.lcssa.i, %._crit_edge.i21 ]
   %.not18.i17.i = icmp eq ptr %.sroa.038.0.i, %.sroa.0.0.copyload.i2.i
-  br i1 %.not18.i17.i, label %.critedge.i24.i, label %128
+  br i1 %.not18.i17.i, label %.critedge.i24.i, label %126
 
-128:                                              ; preds = %.lr.ph.i13.i
-  %129 = getelementptr inbounds i8, ptr %.sroa.038.0.i, i64 -8
-  %130 = load ptr, ptr %129, align 8, !tbaa !25
-  %131 = inttoptr i64 %127 to ptr
-  %132 = getelementptr inbounds i8, ptr %131, i64 -8
-  %133 = load ptr, ptr %132, align 8, !tbaa !25
-  %134 = getelementptr i8, ptr %130, i64 8
-  %.val.i.i18.i = load i32, ptr %134, align 8, !tbaa !14
-  %135 = getelementptr i8, ptr %133, i64 8
-  %.val1.i.i19.i = load i32, ptr %135, align 8, !tbaa !14
-  %136 = icmp slt i32 %.val.i.i18.i, %.val1.i.i19.i
-  %.sroa.040.1.idx.i = select i1 %136, i64 0, i64 -8
+126:                                              ; preds = %.lr.ph.i13.i
+  %127 = getelementptr inbounds i8, ptr %.sroa.038.0.i, i64 -8
+  %128 = load ptr, ptr %127, align 8, !tbaa !25
+  %129 = inttoptr i64 %125 to ptr
+  %130 = getelementptr inbounds i8, ptr %129, i64 -8
+  %131 = load ptr, ptr %130, align 8, !tbaa !25
+  %132 = getelementptr i8, ptr %128, i64 8
+  %.val.i.i18.i = load i32, ptr %132, align 8, !tbaa !14
+  %133 = getelementptr i8, ptr %131, i64 8
+  %.val1.i.i19.i = load i32, ptr %133, align 8, !tbaa !14
+  %134 = icmp slt i32 %.val.i.i18.i, %.val1.i.i19.i
+  %.sroa.040.1.idx.i = select i1 %134, i64 0, i64 -8
   %.sroa.040.1.i = getelementptr inbounds i8, ptr %.sroa.040.0.i, i64 %.sroa.040.1.idx.i
-  %.sroa.038.1.i = select i1 %136, ptr %129, ptr %.sroa.038.0.i
-  %.sink.i20.i = select i1 %136, ptr %130, ptr %133
+  %.sroa.038.1.i = select i1 %134, ptr %127, ptr %.sroa.038.0.i
+  %.sink.i20.i = select i1 %134, ptr %128, ptr %131
   store ptr %.sink.i20.i, ptr %.023.i14.i, align 8, !tbaa !25
-  %137 = getelementptr inbounds nuw i8, ptr %.023.i14.i, i64 8
-  %.not.i23.i = icmp eq ptr %.sroa.040.1.i, %125
-  %138 = ptrtoint ptr %.sroa.040.1.i to i64
+  %135 = getelementptr inbounds nuw i8, ptr %.023.i14.i, i64 8
+  %.not.i23.i = icmp eq ptr %.sroa.040.1.i, %123
+  %136 = ptrtoint ptr %.sroa.040.1.i to i64
   br i1 %.not.i23.i, label %.critedge.i24.i, label %.lr.ph.i13.i, !llvm.loop !158
 
-.critedge.i24.i:                                  ; preds = %128, %.lr.ph.i13.i, %._crit_edge.i21
-  %.sroa.038.2.i = phi ptr [ %123, %._crit_edge.i21 ], [ %.sroa.038.0.i, %.lr.ph.i13.i ], [ %.sroa.038.1.i, %128 ]
-  %139 = phi i64 [ %122, %._crit_edge.i21 ], [ %127, %.lr.ph.i13.i ], [ %138, %128 ]
-  %.0.lcssa.i25.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i21 ], [ %.023.i14.i, %.lr.ph.i13.i ], [ %137, %128 ]
-  %140 = ptrtoint ptr %.sroa.038.2.i to i64
-  %141 = sub i64 %139, %126
-  %142 = ashr exact i64 %141, 3
-  %143 = icmp sgt i64 %142, 0
-  br i1 %143, label %.lr.ph.i.i.i.i.preheader.i.i33.i, label %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i
+.critedge.i24.i:                                  ; preds = %126, %.lr.ph.i13.i, %._crit_edge.i21
+  %.sroa.038.2.i = phi ptr [ %122, %._crit_edge.i21 ], [ %.sroa.038.0.i, %.lr.ph.i13.i ], [ %.sroa.038.1.i, %126 ]
+  %137 = phi i64 [ %121, %._crit_edge.i21 ], [ %125, %.lr.ph.i13.i ], [ %136, %126 ]
+  %.0.lcssa.i25.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i21 ], [ %.023.i14.i, %.lr.ph.i13.i ], [ %135, %126 ]
+  %138 = ptrtoint ptr %.sroa.038.2.i to i64
+  %139 = sub i64 %137, %124
+  %140 = ashr exact i64 %139, 3
+  %141 = icmp sgt i64 %140, 0
+  br i1 %141, label %.lr.ph.i.i.i.i.preheader.i.i33.i, label %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i
 
 .lr.ph.i.i.i.i.preheader.i.i33.i:                 ; preds = %.critedge.i24.i
-  %144 = inttoptr i64 %139 to ptr
+  %142 = inttoptr i64 %137 to ptr
   br label %.lr.ph.i.i.i.i.i.i34.i
 
 .lr.ph.i.i.i.i.i.i34.i:                           ; preds = %.lr.ph.i.i.i.i.i.i34.i, %.lr.ph.i.i.i.i.preheader.i.i33.i
-  %145 = phi ptr [ %146, %.lr.ph.i.i.i.i.i.i34.i ], [ %144, %.lr.ph.i.i.i.i.preheader.i.i33.i ]
-  %.06.i.i.i.i.i.i35.i = phi i64 [ %149, %.lr.ph.i.i.i.i.i.i34.i ], [ %142, %.lr.ph.i.i.i.i.preheader.i.i33.i ]
-  %.045.i.i.i.i.i.i36.i = phi ptr [ %148, %.lr.ph.i.i.i.i.i.i34.i ], [ %.0.lcssa.i25.i, %.lr.ph.i.i.i.i.preheader.i.i33.i ]
-  %146 = getelementptr inbounds i8, ptr %145, i64 -8
-  %147 = load ptr, ptr %146, align 8, !tbaa !25
-  store ptr %147, ptr %.045.i.i.i.i.i.i36.i, align 8, !tbaa !25
-  %148 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i.i36.i, i64 8
-  %149 = add nsw i64 %.06.i.i.i.i.i.i35.i, -1
-  %150 = icmp samesign ugt i64 %.06.i.i.i.i.i.i35.i, 1
-  br i1 %150, label %.lr.ph.i.i.i.i.i.i34.i, label %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i, !llvm.loop !159
+  %143 = phi ptr [ %144, %.lr.ph.i.i.i.i.i.i34.i ], [ %142, %.lr.ph.i.i.i.i.preheader.i.i33.i ]
+  %.06.i.i.i.i.i.i35.i = phi i64 [ %147, %.lr.ph.i.i.i.i.i.i34.i ], [ %140, %.lr.ph.i.i.i.i.preheader.i.i33.i ]
+  %.045.i.i.i.i.i.i36.i = phi ptr [ %146, %.lr.ph.i.i.i.i.i.i34.i ], [ %.0.lcssa.i25.i, %.lr.ph.i.i.i.i.preheader.i.i33.i ]
+  %144 = getelementptr inbounds i8, ptr %143, i64 -8
+  %145 = load ptr, ptr %144, align 8, !tbaa !25
+  store ptr %145, ptr %.045.i.i.i.i.i.i36.i, align 8, !tbaa !25
+  %146 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i.i36.i, i64 8
+  %147 = add nsw i64 %.06.i.i.i.i.i.i35.i, -1
+  %148 = icmp samesign ugt i64 %.06.i.i.i.i.i.i35.i, 1
+  br i1 %148, label %.lr.ph.i.i.i.i.i.i34.i, label %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i, !llvm.loop !159
 
 _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i: ; preds = %.lr.ph.i.i.i.i.i.i34.i, %.critedge.i24.i
-  %.04.lcssa.i.i.i.i.i.i27.i = phi ptr [ %.0.lcssa.i25.i, %.critedge.i24.i ], [ %148, %.lr.ph.i.i.i.i.i.i34.i ]
-  %151 = sub i64 %140, %5
-  %152 = ashr exact i64 %151, 3
-  %153 = icmp sgt i64 %152, 0
-  br i1 %153, label %.lr.ph.i.i.i.i.i9.i30.i, label %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit
+  %.04.lcssa.i.i.i.i.i.i27.i = phi ptr [ %.0.lcssa.i25.i, %.critedge.i24.i ], [ %146, %.lr.ph.i.i.i.i.i.i34.i ]
+  %149 = sub i64 %138, %5
+  %150 = ashr exact i64 %149, 3
+  %151 = icmp sgt i64 %150, 0
+  br i1 %151, label %.lr.ph.i.i.i.i.i9.i30.i, label %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit
 
 .lr.ph.i.i.i.i.i9.i30.i:                          ; preds = %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i, %.lr.ph.i.i.i.i.i9.i30.i
-  %154 = phi ptr [ %155, %.lr.ph.i.i.i.i.i9.i30.i ], [ %.sroa.038.2.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i ]
-  %.06.i.i.i.i.i10.i31.i = phi i64 [ %158, %.lr.ph.i.i.i.i.i9.i30.i ], [ %152, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i ]
-  %.045.i.i.i.i.i11.i32.i = phi ptr [ %157, %.lr.ph.i.i.i.i.i9.i30.i ], [ %.04.lcssa.i.i.i.i.i.i27.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i ]
-  %155 = getelementptr inbounds i8, ptr %154, i64 -8
-  %156 = load ptr, ptr %155, align 8, !tbaa !25
-  store ptr %156, ptr %.045.i.i.i.i.i11.i32.i, align 8, !tbaa !25
-  %157 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i11.i32.i, i64 8
-  %158 = add nsw i64 %.06.i.i.i.i.i10.i31.i, -1
-  %159 = icmp samesign ugt i64 %.06.i.i.i.i.i10.i31.i, 1
-  br i1 %159, label %.lr.ph.i.i.i.i.i9.i30.i, label %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit, !llvm.loop !159
+  %152 = phi ptr [ %153, %.lr.ph.i.i.i.i.i9.i30.i ], [ %.sroa.038.2.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i ]
+  %.06.i.i.i.i.i10.i31.i = phi i64 [ %156, %.lr.ph.i.i.i.i.i9.i30.i ], [ %150, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i ]
+  %.045.i.i.i.i.i11.i32.i = phi ptr [ %155, %.lr.ph.i.i.i.i.i9.i30.i ], [ %.04.lcssa.i.i.i.i.i.i27.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i ]
+  %153 = getelementptr inbounds i8, ptr %152, i64 -8
+  %154 = load ptr, ptr %153, align 8, !tbaa !25
+  store ptr %154, ptr %.045.i.i.i.i.i11.i32.i, align 8, !tbaa !25
+  %155 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i11.i32.i, i64 8
+  %156 = add nsw i64 %.06.i.i.i.i.i10.i31.i, -1
+  %157 = icmp samesign ugt i64 %.06.i.i.i.i.i10.i31.i, 1
+  br i1 %157, label %.lr.ph.i.i.i.i.i9.i30.i, label %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit, !llvm.loop !159
 
 _ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit: ; preds = %.lr.ph.i.i.i.i.i9.i30.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i
-  %160 = shl nsw i64 %.049, 2
-  %.not61.i = icmp slt i64 %7, %160
-  br i1 %.not61.i, label %._crit_edge.i27, label %.lr.ph.i23
+  %158 = shl nsw i64 %.050, 2
+  %.not63.i = icmp slt i64 %7, %158
+  br i1 %.not63.i, label %._crit_edge.i27, label %.lr.ph.i23
 
-.lr.ph.i23:                                       ; preds = %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit, %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i
-  %161 = phi ptr [ %206, %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ], [ %.sroa.0.0.copyload.i.i, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit ]
-  %.062.i = phi ptr [ %163, %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ], [ %2, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit ]
-  %162 = getelementptr inbounds ptr, ptr %.062.i, i64 %77
-  %163 = getelementptr inbounds ptr, ptr %.062.i, i64 %160
-  br label %.lr.ph.i.i24
+.lr.ph.i23:                                       ; preds = %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit
+  %.idx.i = shl nsw i64 %.050, 4
+  %.idx54.i = shl nsw i64 %.050, 5
+  %.not55.i = icmp eq i64 %.idx.i, %.idx54.i
+  br label %159
 
-.lr.ph.i.i24:                                     ; preds = %.lr.ph.i23, %.lr.ph.i.i24
-  %.sroa.048.0.i = phi ptr [ %167, %.lr.ph.i.i24 ], [ %161, %.lr.ph.i23 ]
-  %.024.i.i = phi ptr [ %.1.i.i, %.lr.ph.i.i24 ], [ %.062.i, %.lr.ph.i23 ]
-  %.01423.i.i = phi ptr [ %.115.i.i, %.lr.ph.i.i24 ], [ %162, %.lr.ph.i23 ]
+159:                                              ; preds = %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i, %.lr.ph.i23
+  %160 = phi i64 [ %4, %.lr.ph.i23 ], [ %208, %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
+  %.064.i = phi ptr [ %2, %.lr.ph.i23 ], [ %162, %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
+  %161 = getelementptr inbounds i8, ptr %.064.i, i64 %.idx.i
+  %162 = getelementptr inbounds i8, ptr %.064.i, i64 %.idx54.i
+  %163 = inttoptr i64 %160 to ptr
+  br i1 %.not55.i, label %._crit_edge.i.i, label %.lr.ph.i.i24
+
+.lr.ph.i.i24:                                     ; preds = %159, %.lr.ph.i.i24
+  %.sroa.048.0.i = phi ptr [ %167, %.lr.ph.i.i24 ], [ %163, %159 ]
+  %.024.i.i = phi ptr [ %.1.i.i, %.lr.ph.i.i24 ], [ %.064.i, %159 ]
+  %.01423.i.i = phi ptr [ %.115.i.i, %.lr.ph.i.i24 ], [ %161, %159 ]
   %.014.val.i.i = load ptr, ptr %.01423.i.i, align 8, !tbaa !25, !noalias !161
   %.0.val.i.i = load ptr, ptr %.024.i.i, align 8, !tbaa !25, !noalias !161
   %164 = getelementptr i8, ptr %.014.val.i.i, i64 8
@@ -2935,178 +2945,183 @@ _ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26
   %.1.i.idx.i = select i1 %166, i64 0, i64 8
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 %.1.i.idx.i
   store ptr %.0.val.i.sink.i, ptr %167, align 8, !tbaa !25, !noalias !161
-  %168 = icmp ne ptr %.1.i.i, %162
-  %169 = icmp ne ptr %.115.i.i, %163
+  %168 = icmp ne ptr %.1.i.i, %161
+  %169 = icmp ne ptr %.115.i.i, %162
   %170 = select i1 %168, i1 %169, i1 false
   br i1 %170, label %.lr.ph.i.i24, label %._crit_edge.loopexit.i.i, !llvm.loop !164
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i24
   %171 = ptrtoint ptr %167 to i64
-  %172 = ptrtoint ptr %162 to i64
-  %173 = ptrtoint ptr %.1.i.i to i64
-  %174 = sub i64 %172, %173
-  %175 = ashr exact i64 %174, 3
-  %176 = icmp sgt i64 %175, 0
-  br i1 %176, label %.lr.ph.i.i.i.i.i.i.i31, label %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i
+  br label %._crit_edge.i.i
 
-.lr.ph.i.i.i.i.i.i.i31:                           ; preds = %._crit_edge.loopexit.i.i, %.lr.ph.i.i.i.i.i.i.i31
-  %177 = phi ptr [ %179, %.lr.ph.i.i.i.i.i.i.i31 ], [ %167, %._crit_edge.loopexit.i.i ]
-  %.07.i.i.i.i.i.i.i = phi i64 [ %181, %.lr.ph.i.i.i.i.i.i.i31 ], [ %175, %._crit_edge.loopexit.i.i ]
-  %.056.i.i.i.i.i.i.i = phi ptr [ %180, %.lr.ph.i.i.i.i.i.i.i31 ], [ %.1.i.i, %._crit_edge.loopexit.i.i ]
-  %178 = load ptr, ptr %.056.i.i.i.i.i.i.i, align 8, !tbaa !25, !noalias !165
-  %179 = getelementptr inbounds i8, ptr %177, i64 -8
-  store ptr %178, ptr %179, align 8, !tbaa !25, !noalias !165
-  %180 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i.i.i, i64 8
-  %181 = add nsw i64 %.07.i.i.i.i.i.i.i, -1
-  %182 = icmp samesign ugt i64 %.07.i.i.i.i.i.i.i, 1
-  br i1 %182, label %.lr.ph.i.i.i.i.i.i.i31, label %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i.i, !llvm.loop !176
+._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %159
+  %.pre-phi75.i = phi ptr [ %163, %159 ], [ %167, %._crit_edge.loopexit.i.i ]
+  %172 = phi i64 [ %160, %159 ], [ %171, %._crit_edge.loopexit.i.i ]
+  %.014.lcssa.i.i = phi ptr [ %161, %159 ], [ %.115.i.i, %._crit_edge.loopexit.i.i ]
+  %.0.lcssa.i.i25 = phi ptr [ %.064.i, %159 ], [ %.1.i.i, %._crit_edge.loopexit.i.i ]
+  %173 = ptrtoint ptr %161 to i64
+  %174 = ptrtoint ptr %.0.lcssa.i.i25 to i64
+  %175 = sub i64 %173, %174
+  %176 = ashr exact i64 %175, 3
+  %177 = icmp sgt i64 %176, 0
+  br i1 %177, label %.lr.ph.i.i.i.i.i.i.i31, label %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i
+
+.lr.ph.i.i.i.i.i.i.i31:                           ; preds = %._crit_edge.i.i, %.lr.ph.i.i.i.i.i.i.i31
+  %178 = phi ptr [ %180, %.lr.ph.i.i.i.i.i.i.i31 ], [ %.pre-phi75.i, %._crit_edge.i.i ]
+  %.07.i.i.i.i.i.i.i = phi i64 [ %182, %.lr.ph.i.i.i.i.i.i.i31 ], [ %176, %._crit_edge.i.i ]
+  %.056.i.i.i.i.i.i.i = phi ptr [ %181, %.lr.ph.i.i.i.i.i.i.i31 ], [ %.0.lcssa.i.i25, %._crit_edge.i.i ]
+  %179 = load ptr, ptr %.056.i.i.i.i.i.i.i, align 8, !tbaa !25, !noalias !165
+  %180 = getelementptr inbounds i8, ptr %178, i64 -8
+  store ptr %179, ptr %180, align 8, !tbaa !25, !noalias !165
+  %181 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i.i.i, i64 8
+  %182 = add nsw i64 %.07.i.i.i.i.i.i.i, -1
+  %183 = icmp samesign ugt i64 %.07.i.i.i.i.i.i.i, 1
+  br i1 %183, label %.lr.ph.i.i.i.i.i.i.i31, label %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i.i, !llvm.loop !176
 
 _ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i31
-  %183 = ptrtoint ptr %179 to i64
+  %184 = ptrtoint ptr %180 to i64
   br label %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i
 
-_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i: ; preds = %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i.i, %._crit_edge.loopexit.i.i
-  %184 = phi i64 [ %171, %._crit_edge.loopexit.i.i ], [ %183, %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i.i ]
-  %185 = sub i64 %171, %184
-  %186 = ashr exact i64 %185, 3
-  %187 = sub nsw i64 0, %186
-  %188 = getelementptr inbounds ptr, ptr %167, i64 %187
-  %189 = ptrtoint ptr %188 to i64
-  %190 = ptrtoint ptr %163 to i64
-  %191 = ptrtoint ptr %.115.i.i to i64
-  %192 = sub i64 %190, %191
-  %193 = ashr exact i64 %192, 3
-  %194 = icmp sgt i64 %193, 0
-  br i1 %194, label %.lr.ph.i.i.i.i.i16.i.i, label %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i
+_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i: ; preds = %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i.i, %._crit_edge.i.i
+  %185 = phi i64 [ %172, %._crit_edge.i.i ], [ %184, %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i.i ]
+  %186 = sub i64 %172, %185
+  %187 = ashr exact i64 %186, 3
+  %188 = sub nsw i64 0, %187
+  %189 = getelementptr inbounds ptr, ptr %.pre-phi75.i, i64 %188
+  %190 = ptrtoint ptr %189 to i64
+  %191 = ptrtoint ptr %162 to i64
+  %192 = ptrtoint ptr %.014.lcssa.i.i to i64
+  %193 = sub i64 %191, %192
+  %194 = ashr exact i64 %193, 3
+  %195 = icmp sgt i64 %194, 0
+  br i1 %195, label %.lr.ph.i.i.i.i.i16.i.i, label %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i
 
 .lr.ph.i.i.i.i.i16.i.i:                           ; preds = %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i, %.lr.ph.i.i.i.i.i16.i.i
-  %195 = phi ptr [ %197, %.lr.ph.i.i.i.i.i16.i.i ], [ %188, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i ]
-  %.07.i.i.i.i.i17.i.i = phi i64 [ %199, %.lr.ph.i.i.i.i.i16.i.i ], [ %193, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i ]
-  %.056.i.i.i.i.i18.i.i = phi ptr [ %198, %.lr.ph.i.i.i.i.i16.i.i ], [ %.115.i.i, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i ]
-  %196 = load ptr, ptr %.056.i.i.i.i.i18.i.i, align 8, !tbaa !25, !noalias !177
-  %197 = getelementptr inbounds i8, ptr %195, i64 -8
-  store ptr %196, ptr %197, align 8, !tbaa !25, !noalias !177
-  %198 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i18.i.i, i64 8
-  %199 = add nsw i64 %.07.i.i.i.i.i17.i.i, -1
-  %200 = icmp samesign ugt i64 %.07.i.i.i.i.i17.i.i, 1
-  br i1 %200, label %.lr.ph.i.i.i.i.i16.i.i, label %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i19.i.i, !llvm.loop !176
+  %196 = phi ptr [ %198, %.lr.ph.i.i.i.i.i16.i.i ], [ %189, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i ]
+  %.07.i.i.i.i.i17.i.i = phi i64 [ %200, %.lr.ph.i.i.i.i.i16.i.i ], [ %194, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i ]
+  %.056.i.i.i.i.i18.i.i = phi ptr [ %199, %.lr.ph.i.i.i.i.i16.i.i ], [ %.014.lcssa.i.i, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i ]
+  %197 = load ptr, ptr %.056.i.i.i.i.i18.i.i, align 8, !tbaa !25, !noalias !177
+  %198 = getelementptr inbounds i8, ptr %196, i64 -8
+  store ptr %197, ptr %198, align 8, !tbaa !25, !noalias !177
+  %199 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i18.i.i, i64 8
+  %200 = add nsw i64 %.07.i.i.i.i.i17.i.i, -1
+  %201 = icmp samesign ugt i64 %.07.i.i.i.i.i17.i.i, 1
+  br i1 %201, label %.lr.ph.i.i.i.i.i16.i.i, label %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i19.i.i, !llvm.loop !176
 
 _ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i19.i.i: ; preds = %.lr.ph.i.i.i.i.i16.i.i
-  %201 = ptrtoint ptr %197 to i64
+  %202 = ptrtoint ptr %198 to i64
   br label %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i
 
 _ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i: ; preds = %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i19.i.i, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i
-  %202 = phi i64 [ %189, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i ], [ %201, %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i19.i.i ]
-  %203 = sub i64 %189, %202
-  %204 = ashr exact i64 %203, 3
-  %205 = sub nsw i64 0, %204
-  %206 = getelementptr inbounds ptr, ptr %188, i64 %205
-  %207 = sub i64 %75, %190
-  %208 = ashr exact i64 %207, 3
-  %.not.i26 = icmp slt i64 %208, %160
-  br i1 %.not.i26, label %._crit_edge.i27.loopexit, label %.lr.ph.i23, !llvm.loop !188
+  %203 = phi i64 [ %190, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i ], [ %202, %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i19.i.i ]
+  %204 = sub i64 %190, %203
+  %205 = ashr exact i64 %204, 3
+  %206 = sub nsw i64 0, %205
+  %207 = getelementptr inbounds ptr, ptr %189, i64 %206
+  %208 = ptrtoint ptr %207 to i64
+  %209 = sub i64 %75, %191
+  %210 = ashr exact i64 %209, 3
+  %.not.i26 = icmp slt i64 %210, %158
+  br i1 %.not.i26, label %._crit_edge.i27, label %159, !llvm.loop !188
 
-._crit_edge.i27.loopexit:                         ; preds = %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i
-  %209 = ptrtoint ptr %206 to i64
-  br label %._crit_edge.i27
-
-._crit_edge.i27:                                  ; preds = %._crit_edge.i27.loopexit, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit
-  %210 = phi i64 [ %4, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit ], [ %209, %._crit_edge.i27.loopexit ]
-  %.0.lcssa.i28 = phi ptr [ %2, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit ], [ %163, %._crit_edge.i27.loopexit ]
-  %.lcssa59.i = phi i64 [ %7, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit ], [ %208, %._crit_edge.i27.loopexit ]
-  %.sroa.speculated.i29 = tail call i64 @llvm.smin.i64(i64 %77, i64 %.lcssa59.i)
-  %211 = getelementptr inbounds ptr, ptr %.0.lcssa.i28, i64 %.sroa.speculated.i29
-  %212 = inttoptr i64 %210 to ptr
-  %213 = icmp ne i64 %.sroa.speculated.i29, 0
-  %214 = icmp ne ptr %211, %8
-  %215 = and i1 %213, %214
-  br i1 %215, label %.lr.ph.i34.i, label %._crit_edge.i22.i
+._crit_edge.i27:                                  ; preds = %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit
+  %211 = phi i64 [ %4, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit ], [ %208, %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
+  %.0.lcssa.i28 = phi ptr [ %2, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit ], [ %162, %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
+  %.lcssa61.i = phi i64 [ %7, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit ], [ %210, %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
+  %.sroa.speculated.i29 = tail call i64 @llvm.smin.i64(i64 %77, i64 %.lcssa61.i)
+  %.idx56.i = shl nsw i64 %.sroa.speculated.i29, 3
+  %212 = getelementptr inbounds i8, ptr %.0.lcssa.i28, i64 %.idx56.i
+  %213 = inttoptr i64 %211 to ptr
+  %214 = icmp ne i64 %.sroa.speculated.i29, 0
+  %215 = icmp ne ptr %212, %8
+  %216 = and i1 %214, %215
+  br i1 %216, label %.lr.ph.i34.i, label %._crit_edge.i22.i
 
 .lr.ph.i34.i:                                     ; preds = %._crit_edge.i27, %.lr.ph.i34.i
-  %.sroa.045.0.i30 = phi ptr [ %219, %.lr.ph.i34.i ], [ %212, %._crit_edge.i27 ]
+  %.sroa.045.0.i30 = phi ptr [ %220, %.lr.ph.i34.i ], [ %213, %._crit_edge.i27 ]
   %.024.i35.i = phi ptr [ %.1.i42.i, %.lr.ph.i34.i ], [ %.0.lcssa.i28, %._crit_edge.i27 ]
-  %.01423.i36.i = phi ptr [ %.115.i41.i, %.lr.ph.i34.i ], [ %211, %._crit_edge.i27 ]
+  %.01423.i36.i = phi ptr [ %.115.i41.i, %.lr.ph.i34.i ], [ %212, %._crit_edge.i27 ]
   %.014.val.i37.i = load ptr, ptr %.01423.i36.i, align 8, !tbaa !25, !noalias !189
   %.0.val.i38.i = load ptr, ptr %.024.i35.i, align 8, !tbaa !25, !noalias !189
-  %216 = getelementptr i8, ptr %.014.val.i37.i, i64 8
-  %.014.val.val.i39.i = load i32, ptr %216, align 8, !tbaa !14, !noalias !189
-  %217 = getelementptr i8, ptr %.0.val.i38.i, i64 8
-  %.0.val.val.i40.i = load i32, ptr %217, align 8, !tbaa !14, !noalias !189
-  %218 = icmp slt i32 %.014.val.val.i39.i, %.0.val.val.i40.i
-  %219 = getelementptr inbounds i8, ptr %.sroa.045.0.i30, i64 -8
-  %.0.val.i38.sink.i = select i1 %218, ptr %.014.val.i37.i, ptr %.0.val.i38.i
-  %.115.i41.idx.i = select i1 %218, i64 8, i64 0
+  %217 = getelementptr i8, ptr %.014.val.i37.i, i64 8
+  %.014.val.val.i39.i = load i32, ptr %217, align 8, !tbaa !14, !noalias !189
+  %218 = getelementptr i8, ptr %.0.val.i38.i, i64 8
+  %.0.val.val.i40.i = load i32, ptr %218, align 8, !tbaa !14, !noalias !189
+  %219 = icmp slt i32 %.014.val.val.i39.i, %.0.val.val.i40.i
+  %220 = getelementptr inbounds i8, ptr %.sroa.045.0.i30, i64 -8
+  %.0.val.i38.sink.i = select i1 %219, ptr %.014.val.i37.i, ptr %.0.val.i38.i
+  %.115.i41.idx.i = select i1 %219, i64 8, i64 0
   %.115.i41.i = getelementptr inbounds nuw i8, ptr %.01423.i36.i, i64 %.115.i41.idx.i
-  %.1.i42.idx.i = select i1 %218, i64 0, i64 8
+  %.1.i42.idx.i = select i1 %219, i64 0, i64 8
   %.1.i42.i = getelementptr inbounds nuw i8, ptr %.024.i35.i, i64 %.1.i42.idx.i
-  store ptr %.0.val.i38.sink.i, ptr %219, align 8, !tbaa !25, !noalias !189
-  %220 = icmp ne ptr %.1.i42.i, %211
-  %221 = icmp ne ptr %.115.i41.i, %8
-  %222 = select i1 %220, i1 %221, i1 false
-  br i1 %222, label %.lr.ph.i34.i, label %._crit_edge.loopexit.i43.i, !llvm.loop !164
+  store ptr %.0.val.i38.sink.i, ptr %220, align 8, !tbaa !25, !noalias !189
+  %221 = icmp ne ptr %.1.i42.i, %212
+  %222 = icmp ne ptr %.115.i41.i, %8
+  %223 = select i1 %221, i1 %222, i1 false
+  br i1 %223, label %.lr.ph.i34.i, label %._crit_edge.loopexit.i43.i, !llvm.loop !164
 
 ._crit_edge.loopexit.i43.i:                       ; preds = %.lr.ph.i34.i
-  %223 = ptrtoint ptr %219 to i64
+  %224 = ptrtoint ptr %220 to i64
   br label %._crit_edge.i22.i
 
 ._crit_edge.i22.i:                                ; preds = %._crit_edge.loopexit.i43.i, %._crit_edge.i27
-  %.pre-phi.i = phi ptr [ %212, %._crit_edge.i27 ], [ %219, %._crit_edge.loopexit.i43.i ]
-  %224 = phi i64 [ %210, %._crit_edge.i27 ], [ %223, %._crit_edge.loopexit.i43.i ]
-  %.014.lcssa.i23.i = phi ptr [ %211, %._crit_edge.i27 ], [ %.115.i41.i, %._crit_edge.loopexit.i43.i ]
+  %.pre-phi.i = phi ptr [ %213, %._crit_edge.i27 ], [ %220, %._crit_edge.loopexit.i43.i ]
+  %225 = phi i64 [ %211, %._crit_edge.i27 ], [ %224, %._crit_edge.loopexit.i43.i ]
+  %.014.lcssa.i23.i = phi ptr [ %212, %._crit_edge.i27 ], [ %.115.i41.i, %._crit_edge.loopexit.i43.i ]
   %.0.lcssa.i24.i = phi ptr [ %.0.lcssa.i28, %._crit_edge.i27 ], [ %.1.i42.i, %._crit_edge.loopexit.i43.i ]
-  %225 = ptrtoint ptr %211 to i64
-  %226 = ptrtoint ptr %.0.lcssa.i24.i to i64
-  %227 = sub i64 %225, %226
-  %228 = ashr exact i64 %227, 3
-  %229 = icmp sgt i64 %228, 0
-  br i1 %229, label %.lr.ph.i.i.i.i.i.i30.i, label %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i25.i
+  %226 = ptrtoint ptr %212 to i64
+  %227 = ptrtoint ptr %.0.lcssa.i24.i to i64
+  %228 = sub i64 %226, %227
+  %229 = ashr exact i64 %228, 3
+  %230 = icmp sgt i64 %229, 0
+  br i1 %230, label %.lr.ph.i.i.i.i.i.i30.i, label %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i25.i
 
 .lr.ph.i.i.i.i.i.i30.i:                           ; preds = %._crit_edge.i22.i, %.lr.ph.i.i.i.i.i.i30.i
-  %230 = phi ptr [ %232, %.lr.ph.i.i.i.i.i.i30.i ], [ %.pre-phi.i, %._crit_edge.i22.i ]
-  %.07.i.i.i.i.i.i31.i = phi i64 [ %234, %.lr.ph.i.i.i.i.i.i30.i ], [ %228, %._crit_edge.i22.i ]
-  %.056.i.i.i.i.i.i32.i = phi ptr [ %233, %.lr.ph.i.i.i.i.i.i30.i ], [ %.0.lcssa.i24.i, %._crit_edge.i22.i ]
-  %231 = load ptr, ptr %.056.i.i.i.i.i.i32.i, align 8, !tbaa !25, !noalias !192
-  %232 = getelementptr inbounds i8, ptr %230, i64 -8
-  store ptr %231, ptr %232, align 8, !tbaa !25, !noalias !192
-  %233 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i.i32.i, i64 8
-  %234 = add nsw i64 %.07.i.i.i.i.i.i31.i, -1
-  %235 = icmp samesign ugt i64 %.07.i.i.i.i.i.i31.i, 1
-  br i1 %235, label %.lr.ph.i.i.i.i.i.i30.i, label %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i33.i, !llvm.loop !176
+  %231 = phi ptr [ %233, %.lr.ph.i.i.i.i.i.i30.i ], [ %.pre-phi.i, %._crit_edge.i22.i ]
+  %.07.i.i.i.i.i.i31.i = phi i64 [ %235, %.lr.ph.i.i.i.i.i.i30.i ], [ %229, %._crit_edge.i22.i ]
+  %.056.i.i.i.i.i.i32.i = phi ptr [ %234, %.lr.ph.i.i.i.i.i.i30.i ], [ %.0.lcssa.i24.i, %._crit_edge.i22.i ]
+  %232 = load ptr, ptr %.056.i.i.i.i.i.i32.i, align 8, !tbaa !25, !noalias !192
+  %233 = getelementptr inbounds i8, ptr %231, i64 -8
+  store ptr %232, ptr %233, align 8, !tbaa !25, !noalias !192
+  %234 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i.i32.i, i64 8
+  %235 = add nsw i64 %.07.i.i.i.i.i.i31.i, -1
+  %236 = icmp samesign ugt i64 %.07.i.i.i.i.i.i31.i, 1
+  br i1 %236, label %.lr.ph.i.i.i.i.i.i30.i, label %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i33.i, !llvm.loop !176
 
 _ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i33.i: ; preds = %.lr.ph.i.i.i.i.i.i30.i
-  %236 = ptrtoint ptr %232 to i64
+  %237 = ptrtoint ptr %233 to i64
   br label %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i25.i
 
 _ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i25.i: ; preds = %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i33.i, %._crit_edge.i22.i
-  %237 = phi i64 [ %224, %._crit_edge.i22.i ], [ %236, %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i33.i ]
-  %238 = ptrtoint ptr %.014.lcssa.i23.i to i64
-  %239 = sub i64 %75, %238
-  %240 = ashr exact i64 %239, 3
-  %241 = icmp sgt i64 %240, 0
-  br i1 %241, label %.lr.ph.i.i.i.i.i16.i26.preheader.i, label %_ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_T1_T2_.exit
+  %238 = phi i64 [ %225, %._crit_edge.i22.i ], [ %237, %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i33.i ]
+  %239 = ptrtoint ptr %.014.lcssa.i23.i to i64
+  %240 = sub i64 %75, %239
+  %241 = ashr exact i64 %240, 3
+  %242 = icmp sgt i64 %241, 0
+  br i1 %242, label %.lr.ph.i.i.i.i.i16.i26.preheader.i, label %_ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_T1_T2_.exit
 
 .lr.ph.i.i.i.i.i16.i26.preheader.i:               ; preds = %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i25.i
-  %242 = sub i64 %224, %237
-  %243 = ashr exact i64 %242, 3
-  %244 = sub nsw i64 0, %243
-  %245 = getelementptr inbounds ptr, ptr %.pre-phi.i, i64 %244
+  %243 = sub i64 %225, %238
+  %244 = ashr exact i64 %243, 3
+  %245 = sub nsw i64 0, %244
+  %246 = getelementptr inbounds ptr, ptr %.pre-phi.i, i64 %245
   br label %.lr.ph.i.i.i.i.i16.i26.i
 
 .lr.ph.i.i.i.i.i16.i26.i:                         ; preds = %.lr.ph.i.i.i.i.i16.i26.i, %.lr.ph.i.i.i.i.i16.i26.preheader.i
-  %246 = phi ptr [ %248, %.lr.ph.i.i.i.i.i16.i26.i ], [ %245, %.lr.ph.i.i.i.i.i16.i26.preheader.i ]
-  %.07.i.i.i.i.i17.i27.i = phi i64 [ %250, %.lr.ph.i.i.i.i.i16.i26.i ], [ %240, %.lr.ph.i.i.i.i.i16.i26.preheader.i ]
-  %.056.i.i.i.i.i18.i28.i = phi ptr [ %249, %.lr.ph.i.i.i.i.i16.i26.i ], [ %.014.lcssa.i23.i, %.lr.ph.i.i.i.i.i16.i26.preheader.i ]
-  %247 = load ptr, ptr %.056.i.i.i.i.i18.i28.i, align 8, !tbaa !25, !noalias !203
-  %248 = getelementptr inbounds i8, ptr %246, i64 -8
-  store ptr %247, ptr %248, align 8, !tbaa !25, !noalias !203
-  %249 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i18.i28.i, i64 8
-  %250 = add nsw i64 %.07.i.i.i.i.i17.i27.i, -1
-  %251 = icmp samesign ugt i64 %.07.i.i.i.i.i17.i27.i, 1
-  br i1 %251, label %.lr.ph.i.i.i.i.i16.i26.i, label %_ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_T1_T2_.exit, !llvm.loop !176
+  %247 = phi ptr [ %249, %.lr.ph.i.i.i.i.i16.i26.i ], [ %246, %.lr.ph.i.i.i.i.i16.i26.preheader.i ]
+  %.07.i.i.i.i.i17.i27.i = phi i64 [ %251, %.lr.ph.i.i.i.i.i16.i26.i ], [ %241, %.lr.ph.i.i.i.i.i16.i26.preheader.i ]
+  %.056.i.i.i.i.i18.i28.i = phi ptr [ %250, %.lr.ph.i.i.i.i.i16.i26.i ], [ %.014.lcssa.i23.i, %.lr.ph.i.i.i.i.i16.i26.preheader.i ]
+  %248 = load ptr, ptr %.056.i.i.i.i.i18.i28.i, align 8, !tbaa !25, !noalias !203
+  %249 = getelementptr inbounds i8, ptr %247, i64 -8
+  store ptr %248, ptr %249, align 8, !tbaa !25, !noalias !203
+  %250 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i18.i28.i, i64 8
+  %251 = add nsw i64 %.07.i.i.i.i.i17.i27.i, -1
+  %252 = icmp samesign ugt i64 %.07.i.i.i.i.i17.i27.i, 1
+  br i1 %252, label %.lr.ph.i.i.i.i.i16.i26.i, label %_ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_T1_T2_.exit, !llvm.loop !176
 
 _ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_T1_T2_.exit: ; preds = %.lr.ph.i.i.i.i.i16.i26.i, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i25.i
-  %252 = icmp slt i64 %160, %7
-  br i1 %252, label %76, label %._crit_edge, !llvm.loop !214
+  %253 = icmp slt i64 %158, %7
+  br i1 %253, label %76, label %._crit_edge, !llvm.loop !214
 
 ._crit_edge:                                      ; preds = %_ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_T1_T2_.exit, %_ZSt22__chunk_insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_.exit
   ret void
@@ -4121,7 +4136,8 @@ define linkonce_odr dso_local void @_ZNSt17_Temporary_bufferISt16reverse_iterato
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !46
-  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %3, i64 %5
+  %.idx = shl nsw i64 %5, 5
+  %6 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %.not4.i.i = icmp eq i64 %5, 0
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit, label %.lr.ph.i.i
 
@@ -10557,209 +10573,217 @@ _ZSt22__chunk_insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iterator
   br label %76
 
 76:                                               ; preds = %.lr.ph, %_ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_T1_T2_.exit
-  %.049 = phi i64 [ 7, %.lr.ph ], [ %160, %_ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_T1_T2_.exit ]
-  %77 = shl nsw i64 %.049, 1
+  %.050 = phi i64 [ 7, %.lr.ph ], [ %158, %_ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_T1_T2_.exit ]
+  %77 = shl nsw i64 %.050, 1
   %.not59.i = icmp slt i64 %7, %77
   br i1 %.not59.i, label %._crit_edge.i21, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %76
-  %78 = sub nsw i64 0, %.049
-  %79 = sub i64 0, %77
-  br label %80
+  %78 = sub i64 0, %77
+  %.neg.i = mul i64 %.050, -8
+  %.not22.i.i = icmp eq i64 %.neg.i, 0
+  br label %79
 
-80:                                               ; preds = %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i, %.lr.ph.i
-  %81 = phi i64 [ %4, %.lr.ph.i ], [ %100, %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
+79:                                               ; preds = %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i, %.lr.ph.i
+  %80 = phi i64 [ %4, %.lr.ph.i ], [ %99, %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
   %.060.i = phi ptr [ %2, %.lr.ph.i ], [ %.04.lcssa.i.i.i.i.i7.i.i, %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
-  %82 = inttoptr i64 %81 to ptr
-  %83 = getelementptr inbounds ptr, ptr %82, i64 %78
-  %84 = getelementptr inbounds ptr, ptr %82, i64 %79
-  %85 = ptrtoint ptr %83 to i64
-  br label %.lr.ph.i.i16
+  %81 = inttoptr i64 %80 to ptr
+  %82 = getelementptr inbounds i8, ptr %81, i64 %.neg.i
+  %83 = getelementptr inbounds ptr, ptr %81, i64 %78
+  %84 = ptrtoint ptr %82 to i64
+  br i1 %.not22.i.i, label %.critedge.i.i, label %.lr.ph.i.i16
 
-.lr.ph.i.i16:                                     ; preds = %80, %87
-  %.sroa.043.0.i = phi ptr [ %.sroa.043.1.i, %87 ], [ %83, %80 ]
-  %.sroa.045.0.i = phi ptr [ %.sroa.045.1.i, %87 ], [ %82, %80 ]
-  %86 = phi i64 [ %97, %87 ], [ %81, %80 ]
-  %.023.i.i = phi ptr [ %96, %87 ], [ %.060.i, %80 ]
-  %.not18.i.i = icmp eq ptr %.sroa.043.0.i, %84
-  br i1 %.not18.i.i, label %.critedge.i.i, label %87
+.lr.ph.i.i16:                                     ; preds = %79, %86
+  %.sroa.043.0.i = phi ptr [ %.sroa.043.1.i, %86 ], [ %82, %79 ]
+  %.sroa.045.0.i = phi ptr [ %.sroa.045.1.i, %86 ], [ %81, %79 ]
+  %85 = phi i64 [ %96, %86 ], [ %80, %79 ]
+  %.023.i.i = phi ptr [ %95, %86 ], [ %.060.i, %79 ]
+  %.not18.i.i = icmp eq ptr %.sroa.043.0.i, %83
+  br i1 %.not18.i.i, label %.critedge.i.i, label %86
 
-87:                                               ; preds = %.lr.ph.i.i16
-  %88 = getelementptr inbounds i8, ptr %.sroa.043.0.i, i64 -8
-  %89 = load ptr, ptr %88, align 8, !tbaa !25
-  %90 = inttoptr i64 %86 to ptr
-  %91 = getelementptr inbounds i8, ptr %90, i64 -8
-  %92 = load ptr, ptr %91, align 8, !tbaa !25
-  %93 = getelementptr i8, ptr %89, i64 8
-  %.val.i.i.i17 = load i32, ptr %93, align 8, !tbaa !14
-  %94 = getelementptr i8, ptr %92, i64 8
-  %.val1.i.i.i18 = load i32, ptr %94, align 8, !tbaa !14
-  %95 = icmp slt i32 %.val.i.i.i17, %.val1.i.i.i18
-  %.sroa.043.1.i = select i1 %95, ptr %88, ptr %.sroa.043.0.i
-  %.sroa.045.1.idx.i = select i1 %95, i64 0, i64 -8
+86:                                               ; preds = %.lr.ph.i.i16
+  %87 = getelementptr inbounds i8, ptr %.sroa.043.0.i, i64 -8
+  %88 = load ptr, ptr %87, align 8, !tbaa !25
+  %89 = inttoptr i64 %85 to ptr
+  %90 = getelementptr inbounds i8, ptr %89, i64 -8
+  %91 = load ptr, ptr %90, align 8, !tbaa !25
+  %92 = getelementptr i8, ptr %88, i64 8
+  %.val.i.i.i17 = load i32, ptr %92, align 8, !tbaa !14
+  %93 = getelementptr i8, ptr %91, i64 8
+  %.val1.i.i.i18 = load i32, ptr %93, align 8, !tbaa !14
+  %94 = icmp slt i32 %.val.i.i.i17, %.val1.i.i.i18
+  %.sroa.043.1.i = select i1 %94, ptr %87, ptr %.sroa.043.0.i
+  %.sroa.045.1.idx.i = select i1 %94, i64 0, i64 -8
   %.sroa.045.1.i = getelementptr inbounds i8, ptr %.sroa.045.0.i, i64 %.sroa.045.1.idx.i
-  %.sink.i.i = select i1 %95, ptr %89, ptr %92
+  %.sink.i.i = select i1 %94, ptr %88, ptr %91
   store ptr %.sink.i.i, ptr %.023.i.i, align 8, !tbaa !25
-  %96 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 8
-  %.not.i.i19 = icmp eq ptr %.sroa.045.1.i, %83
-  %97 = ptrtoint ptr %.sroa.045.1.i to i64
+  %95 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 8
+  %.not.i.i19 = icmp eq ptr %.sroa.045.1.i, %82
+  %96 = ptrtoint ptr %.sroa.045.1.i to i64
   br i1 %.not.i.i19, label %.critedge.i.i, label %.lr.ph.i.i16, !llvm.loop !592
 
-.critedge.i.i:                                    ; preds = %87, %.lr.ph.i.i16
-  %.sroa.043.2.i = phi ptr [ %.sroa.043.1.i, %87 ], [ %84, %.lr.ph.i.i16 ]
-  %98 = phi i64 [ %97, %87 ], [ %86, %.lr.ph.i.i16 ]
-  %.0.lcssa.i.i = phi ptr [ %96, %87 ], [ %.023.i.i, %.lr.ph.i.i16 ]
-  %99 = ptrtoint ptr %.sroa.043.2.i to i64
-  %100 = ptrtoint ptr %84 to i64
-  %101 = sub i64 %98, %85
-  %102 = ashr exact i64 %101, 3
-  %103 = icmp sgt i64 %102, 0
-  br i1 %103, label %.lr.ph.i.i.i.i.preheader.i.i.i, label %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i
+.critedge.i.i:                                    ; preds = %86, %.lr.ph.i.i16, %79
+  %.sroa.043.2.i = phi ptr [ %81, %79 ], [ %83, %.lr.ph.i.i16 ], [ %.sroa.043.1.i, %86 ]
+  %97 = phi i64 [ %80, %79 ], [ %85, %.lr.ph.i.i16 ], [ %96, %86 ]
+  %.0.lcssa.i.i = phi ptr [ %.060.i, %79 ], [ %.023.i.i, %.lr.ph.i.i16 ], [ %95, %86 ]
+  %98 = ptrtoint ptr %.sroa.043.2.i to i64
+  %99 = ptrtoint ptr %83 to i64
+  %100 = sub i64 %97, %84
+  %101 = ashr exact i64 %100, 3
+  %102 = icmp sgt i64 %101, 0
+  br i1 %102, label %.lr.ph.i.i.i.i.preheader.i.i.i, label %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %.critedge.i.i
-  %104 = inttoptr i64 %98 to ptr
+  %103 = inttoptr i64 %97 to ptr
   br label %.lr.ph.i.i.i.i.i.i.i22
 
 .lr.ph.i.i.i.i.i.i.i22:                           ; preds = %.lr.ph.i.i.i.i.i.i.i22, %.lr.ph.i.i.i.i.preheader.i.i.i
-  %105 = phi ptr [ %106, %.lr.ph.i.i.i.i.i.i.i22 ], [ %104, %.lr.ph.i.i.i.i.preheader.i.i.i ]
-  %.06.i.i.i.i.i.i.i = phi i64 [ %109, %.lr.ph.i.i.i.i.i.i.i22 ], [ %102, %.lr.ph.i.i.i.i.preheader.i.i.i ]
-  %.045.i.i.i.i.i.i.i = phi ptr [ %108, %.lr.ph.i.i.i.i.i.i.i22 ], [ %.0.lcssa.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i ]
-  %106 = getelementptr inbounds i8, ptr %105, i64 -8
-  %107 = load ptr, ptr %106, align 8, !tbaa !25
-  store ptr %107, ptr %.045.i.i.i.i.i.i.i, align 8, !tbaa !25
-  %108 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i.i.i, i64 8
-  %109 = add nsw i64 %.06.i.i.i.i.i.i.i, -1
-  %110 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i, 1
-  br i1 %110, label %.lr.ph.i.i.i.i.i.i.i22, label %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i, !llvm.loop !159
+  %104 = phi ptr [ %105, %.lr.ph.i.i.i.i.i.i.i22 ], [ %103, %.lr.ph.i.i.i.i.preheader.i.i.i ]
+  %.06.i.i.i.i.i.i.i = phi i64 [ %108, %.lr.ph.i.i.i.i.i.i.i22 ], [ %101, %.lr.ph.i.i.i.i.preheader.i.i.i ]
+  %.045.i.i.i.i.i.i.i = phi ptr [ %107, %.lr.ph.i.i.i.i.i.i.i22 ], [ %.0.lcssa.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i ]
+  %105 = getelementptr inbounds i8, ptr %104, i64 -8
+  %106 = load ptr, ptr %105, align 8, !tbaa !25
+  store ptr %106, ptr %.045.i.i.i.i.i.i.i, align 8, !tbaa !25
+  %107 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i.i.i, i64 8
+  %108 = add nsw i64 %.06.i.i.i.i.i.i.i, -1
+  %109 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i, 1
+  br i1 %109, label %.lr.ph.i.i.i.i.i.i.i22, label %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i, !llvm.loop !159
 
 _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i22, %.critedge.i.i
-  %.04.lcssa.i.i.i.i.i.i.i = phi ptr [ %.0.lcssa.i.i, %.critedge.i.i ], [ %108, %.lr.ph.i.i.i.i.i.i.i22 ]
-  %111 = sub i64 %99, %100
-  %112 = ashr exact i64 %111, 3
-  %113 = icmp sgt i64 %112, 0
-  br i1 %113, label %.lr.ph.i.i.i.i.i9.i.i, label %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i
+  %.04.lcssa.i.i.i.i.i.i.i = phi ptr [ %.0.lcssa.i.i, %.critedge.i.i ], [ %107, %.lr.ph.i.i.i.i.i.i.i22 ]
+  %110 = sub i64 %98, %99
+  %111 = ashr exact i64 %110, 3
+  %112 = icmp sgt i64 %111, 0
+  br i1 %112, label %.lr.ph.i.i.i.i.i9.i.i, label %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i
 
 .lr.ph.i.i.i.i.i9.i.i:                            ; preds = %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i, %.lr.ph.i.i.i.i.i9.i.i
-  %114 = phi ptr [ %115, %.lr.ph.i.i.i.i.i9.i.i ], [ %.sroa.043.2.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i ]
-  %.06.i.i.i.i.i10.i.i = phi i64 [ %118, %.lr.ph.i.i.i.i.i9.i.i ], [ %112, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i ]
-  %.045.i.i.i.i.i11.i.i = phi ptr [ %117, %.lr.ph.i.i.i.i.i9.i.i ], [ %.04.lcssa.i.i.i.i.i.i.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i ]
-  %115 = getelementptr inbounds i8, ptr %114, i64 -8
-  %116 = load ptr, ptr %115, align 8, !tbaa !25
-  store ptr %116, ptr %.045.i.i.i.i.i11.i.i, align 8, !tbaa !25
-  %117 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i11.i.i, i64 8
-  %118 = add nsw i64 %.06.i.i.i.i.i10.i.i, -1
-  %119 = icmp samesign ugt i64 %.06.i.i.i.i.i10.i.i, 1
-  br i1 %119, label %.lr.ph.i.i.i.i.i9.i.i, label %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i, !llvm.loop !159
+  %113 = phi ptr [ %114, %.lr.ph.i.i.i.i.i9.i.i ], [ %.sroa.043.2.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i ]
+  %.06.i.i.i.i.i10.i.i = phi i64 [ %117, %.lr.ph.i.i.i.i.i9.i.i ], [ %111, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i ]
+  %.045.i.i.i.i.i11.i.i = phi ptr [ %116, %.lr.ph.i.i.i.i.i9.i.i ], [ %.04.lcssa.i.i.i.i.i.i.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i ]
+  %114 = getelementptr inbounds i8, ptr %113, i64 -8
+  %115 = load ptr, ptr %114, align 8, !tbaa !25
+  store ptr %115, ptr %.045.i.i.i.i.i11.i.i, align 8, !tbaa !25
+  %116 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i11.i.i, i64 8
+  %117 = add nsw i64 %.06.i.i.i.i.i10.i.i, -1
+  %118 = icmp samesign ugt i64 %.06.i.i.i.i.i10.i.i, 1
+  br i1 %118, label %.lr.ph.i.i.i.i.i9.i.i, label %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i, !llvm.loop !159
 
 _ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i: ; preds = %.lr.ph.i.i.i.i.i9.i.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i
-  %.04.lcssa.i.i.i.i.i7.i.i = phi ptr [ %.04.lcssa.i.i.i.i.i.i.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i ], [ %117, %.lr.ph.i.i.i.i.i9.i.i ]
-  %120 = sub i64 %100, %5
-  %121 = ashr exact i64 %120, 3
-  %.not.i = icmp slt i64 %121, %77
-  br i1 %.not.i, label %._crit_edge.i21, label %80, !llvm.loop !593
+  %.04.lcssa.i.i.i.i.i7.i.i = phi ptr [ %.04.lcssa.i.i.i.i.i.i.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i.i ], [ %116, %.lr.ph.i.i.i.i.i9.i.i ]
+  %119 = sub i64 %99, %5
+  %120 = ashr exact i64 %119, 3
+  %.not.i = icmp slt i64 %120, %77
+  br i1 %.not.i, label %._crit_edge.i21, label %79, !llvm.loop !593
 
 ._crit_edge.i21:                                  ; preds = %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i, %76
-  %122 = phi i64 [ %4, %76 ], [ %100, %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
+  %121 = phi i64 [ %4, %76 ], [ %99, %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
   %.0.lcssa.i = phi ptr [ %2, %76 ], [ %.04.lcssa.i.i.i.i.i7.i.i, %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
-  %.lcssa56.i = phi i64 [ %7, %76 ], [ %121, %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.049, i64 %.lcssa56.i)
-  %123 = inttoptr i64 %122 to ptr
-  %124 = sub i64 0, %.sroa.speculated.i
-  %125 = getelementptr inbounds ptr, ptr %123, i64 %124
-  %.not22.i12.i = icmp eq i64 %.sroa.speculated.i, 0
-  %126 = ptrtoint ptr %125 to i64
+  %.lcssa56.i = phi i64 [ %7, %76 ], [ %120, %_ZSt12__move_mergeISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_NS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.050, i64 %.lcssa56.i)
+  %122 = inttoptr i64 %121 to ptr
+  %.neg66.i = mul i64 %.sroa.speculated.i, -8
+  %123 = getelementptr inbounds i8, ptr %122, i64 %.neg66.i
+  %.not22.i12.i = icmp eq i64 %.neg66.i, 0
+  %124 = ptrtoint ptr %123 to i64
   br i1 %.not22.i12.i, label %.critedge.i24.i, label %.lr.ph.i13.i
 
-.lr.ph.i13.i:                                     ; preds = %._crit_edge.i21, %128
-  %.sroa.040.0.i = phi ptr [ %.sroa.040.1.i, %128 ], [ %123, %._crit_edge.i21 ]
-  %.sroa.038.0.i = phi ptr [ %.sroa.038.1.i, %128 ], [ %125, %._crit_edge.i21 ]
-  %127 = phi i64 [ %138, %128 ], [ %122, %._crit_edge.i21 ]
-  %.023.i14.i = phi ptr [ %137, %128 ], [ %.0.lcssa.i, %._crit_edge.i21 ]
+.lr.ph.i13.i:                                     ; preds = %._crit_edge.i21, %126
+  %.sroa.040.0.i = phi ptr [ %.sroa.040.1.i, %126 ], [ %122, %._crit_edge.i21 ]
+  %.sroa.038.0.i = phi ptr [ %.sroa.038.1.i, %126 ], [ %123, %._crit_edge.i21 ]
+  %125 = phi i64 [ %136, %126 ], [ %121, %._crit_edge.i21 ]
+  %.023.i14.i = phi ptr [ %135, %126 ], [ %.0.lcssa.i, %._crit_edge.i21 ]
   %.not18.i17.i = icmp eq ptr %.sroa.038.0.i, %.sroa.0.0.copyload.i2.i
-  br i1 %.not18.i17.i, label %.critedge.i24.i, label %128
+  br i1 %.not18.i17.i, label %.critedge.i24.i, label %126
 
-128:                                              ; preds = %.lr.ph.i13.i
-  %129 = getelementptr inbounds i8, ptr %.sroa.038.0.i, i64 -8
-  %130 = load ptr, ptr %129, align 8, !tbaa !25
-  %131 = inttoptr i64 %127 to ptr
-  %132 = getelementptr inbounds i8, ptr %131, i64 -8
-  %133 = load ptr, ptr %132, align 8, !tbaa !25
-  %134 = getelementptr i8, ptr %130, i64 8
-  %.val.i.i18.i = load i32, ptr %134, align 8, !tbaa !14
-  %135 = getelementptr i8, ptr %133, i64 8
-  %.val1.i.i19.i = load i32, ptr %135, align 8, !tbaa !14
-  %136 = icmp slt i32 %.val.i.i18.i, %.val1.i.i19.i
-  %.sroa.040.1.idx.i = select i1 %136, i64 0, i64 -8
+126:                                              ; preds = %.lr.ph.i13.i
+  %127 = getelementptr inbounds i8, ptr %.sroa.038.0.i, i64 -8
+  %128 = load ptr, ptr %127, align 8, !tbaa !25
+  %129 = inttoptr i64 %125 to ptr
+  %130 = getelementptr inbounds i8, ptr %129, i64 -8
+  %131 = load ptr, ptr %130, align 8, !tbaa !25
+  %132 = getelementptr i8, ptr %128, i64 8
+  %.val.i.i18.i = load i32, ptr %132, align 8, !tbaa !14
+  %133 = getelementptr i8, ptr %131, i64 8
+  %.val1.i.i19.i = load i32, ptr %133, align 8, !tbaa !14
+  %134 = icmp slt i32 %.val.i.i18.i, %.val1.i.i19.i
+  %.sroa.040.1.idx.i = select i1 %134, i64 0, i64 -8
   %.sroa.040.1.i = getelementptr inbounds i8, ptr %.sroa.040.0.i, i64 %.sroa.040.1.idx.i
-  %.sroa.038.1.i = select i1 %136, ptr %129, ptr %.sroa.038.0.i
-  %.sink.i20.i = select i1 %136, ptr %130, ptr %133
+  %.sroa.038.1.i = select i1 %134, ptr %127, ptr %.sroa.038.0.i
+  %.sink.i20.i = select i1 %134, ptr %128, ptr %131
   store ptr %.sink.i20.i, ptr %.023.i14.i, align 8, !tbaa !25
-  %137 = getelementptr inbounds nuw i8, ptr %.023.i14.i, i64 8
-  %.not.i23.i = icmp eq ptr %.sroa.040.1.i, %125
-  %138 = ptrtoint ptr %.sroa.040.1.i to i64
+  %135 = getelementptr inbounds nuw i8, ptr %.023.i14.i, i64 8
+  %.not.i23.i = icmp eq ptr %.sroa.040.1.i, %123
+  %136 = ptrtoint ptr %.sroa.040.1.i to i64
   br i1 %.not.i23.i, label %.critedge.i24.i, label %.lr.ph.i13.i, !llvm.loop !592
 
-.critedge.i24.i:                                  ; preds = %128, %.lr.ph.i13.i, %._crit_edge.i21
-  %.sroa.038.2.i = phi ptr [ %123, %._crit_edge.i21 ], [ %.sroa.038.0.i, %.lr.ph.i13.i ], [ %.sroa.038.1.i, %128 ]
-  %139 = phi i64 [ %122, %._crit_edge.i21 ], [ %127, %.lr.ph.i13.i ], [ %138, %128 ]
-  %.0.lcssa.i25.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i21 ], [ %.023.i14.i, %.lr.ph.i13.i ], [ %137, %128 ]
-  %140 = ptrtoint ptr %.sroa.038.2.i to i64
-  %141 = sub i64 %139, %126
-  %142 = ashr exact i64 %141, 3
-  %143 = icmp sgt i64 %142, 0
-  br i1 %143, label %.lr.ph.i.i.i.i.preheader.i.i33.i, label %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i
+.critedge.i24.i:                                  ; preds = %126, %.lr.ph.i13.i, %._crit_edge.i21
+  %.sroa.038.2.i = phi ptr [ %122, %._crit_edge.i21 ], [ %.sroa.038.0.i, %.lr.ph.i13.i ], [ %.sroa.038.1.i, %126 ]
+  %137 = phi i64 [ %121, %._crit_edge.i21 ], [ %125, %.lr.ph.i13.i ], [ %136, %126 ]
+  %.0.lcssa.i25.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i21 ], [ %.023.i14.i, %.lr.ph.i13.i ], [ %135, %126 ]
+  %138 = ptrtoint ptr %.sroa.038.2.i to i64
+  %139 = sub i64 %137, %124
+  %140 = ashr exact i64 %139, 3
+  %141 = icmp sgt i64 %140, 0
+  br i1 %141, label %.lr.ph.i.i.i.i.preheader.i.i33.i, label %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i
 
 .lr.ph.i.i.i.i.preheader.i.i33.i:                 ; preds = %.critedge.i24.i
-  %144 = inttoptr i64 %139 to ptr
+  %142 = inttoptr i64 %137 to ptr
   br label %.lr.ph.i.i.i.i.i.i34.i
 
 .lr.ph.i.i.i.i.i.i34.i:                           ; preds = %.lr.ph.i.i.i.i.i.i34.i, %.lr.ph.i.i.i.i.preheader.i.i33.i
-  %145 = phi ptr [ %146, %.lr.ph.i.i.i.i.i.i34.i ], [ %144, %.lr.ph.i.i.i.i.preheader.i.i33.i ]
-  %.06.i.i.i.i.i.i35.i = phi i64 [ %149, %.lr.ph.i.i.i.i.i.i34.i ], [ %142, %.lr.ph.i.i.i.i.preheader.i.i33.i ]
-  %.045.i.i.i.i.i.i36.i = phi ptr [ %148, %.lr.ph.i.i.i.i.i.i34.i ], [ %.0.lcssa.i25.i, %.lr.ph.i.i.i.i.preheader.i.i33.i ]
-  %146 = getelementptr inbounds i8, ptr %145, i64 -8
-  %147 = load ptr, ptr %146, align 8, !tbaa !25
-  store ptr %147, ptr %.045.i.i.i.i.i.i36.i, align 8, !tbaa !25
-  %148 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i.i36.i, i64 8
-  %149 = add nsw i64 %.06.i.i.i.i.i.i35.i, -1
-  %150 = icmp samesign ugt i64 %.06.i.i.i.i.i.i35.i, 1
-  br i1 %150, label %.lr.ph.i.i.i.i.i.i34.i, label %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i, !llvm.loop !159
+  %143 = phi ptr [ %144, %.lr.ph.i.i.i.i.i.i34.i ], [ %142, %.lr.ph.i.i.i.i.preheader.i.i33.i ]
+  %.06.i.i.i.i.i.i35.i = phi i64 [ %147, %.lr.ph.i.i.i.i.i.i34.i ], [ %140, %.lr.ph.i.i.i.i.preheader.i.i33.i ]
+  %.045.i.i.i.i.i.i36.i = phi ptr [ %146, %.lr.ph.i.i.i.i.i.i34.i ], [ %.0.lcssa.i25.i, %.lr.ph.i.i.i.i.preheader.i.i33.i ]
+  %144 = getelementptr inbounds i8, ptr %143, i64 -8
+  %145 = load ptr, ptr %144, align 8, !tbaa !25
+  store ptr %145, ptr %.045.i.i.i.i.i.i36.i, align 8, !tbaa !25
+  %146 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i.i36.i, i64 8
+  %147 = add nsw i64 %.06.i.i.i.i.i.i35.i, -1
+  %148 = icmp samesign ugt i64 %.06.i.i.i.i.i.i35.i, 1
+  br i1 %148, label %.lr.ph.i.i.i.i.i.i34.i, label %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i, !llvm.loop !159
 
 _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i: ; preds = %.lr.ph.i.i.i.i.i.i34.i, %.critedge.i24.i
-  %.04.lcssa.i.i.i.i.i.i27.i = phi ptr [ %.0.lcssa.i25.i, %.critedge.i24.i ], [ %148, %.lr.ph.i.i.i.i.i.i34.i ]
-  %151 = sub i64 %140, %5
-  %152 = ashr exact i64 %151, 3
-  %153 = icmp sgt i64 %152, 0
-  br i1 %153, label %.lr.ph.i.i.i.i.i9.i30.i, label %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit
+  %.04.lcssa.i.i.i.i.i.i27.i = phi ptr [ %.0.lcssa.i25.i, %.critedge.i24.i ], [ %146, %.lr.ph.i.i.i.i.i.i34.i ]
+  %149 = sub i64 %138, %5
+  %150 = ashr exact i64 %149, 3
+  %151 = icmp sgt i64 %150, 0
+  br i1 %151, label %.lr.ph.i.i.i.i.i9.i30.i, label %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit
 
 .lr.ph.i.i.i.i.i9.i30.i:                          ; preds = %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i, %.lr.ph.i.i.i.i.i9.i30.i
-  %154 = phi ptr [ %155, %.lr.ph.i.i.i.i.i9.i30.i ], [ %.sroa.038.2.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i ]
-  %.06.i.i.i.i.i10.i31.i = phi i64 [ %158, %.lr.ph.i.i.i.i.i9.i30.i ], [ %152, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i ]
-  %.045.i.i.i.i.i11.i32.i = phi ptr [ %157, %.lr.ph.i.i.i.i.i9.i30.i ], [ %.04.lcssa.i.i.i.i.i.i27.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i ]
-  %155 = getelementptr inbounds i8, ptr %154, i64 -8
-  %156 = load ptr, ptr %155, align 8, !tbaa !25
-  store ptr %156, ptr %.045.i.i.i.i.i11.i32.i, align 8, !tbaa !25
-  %157 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i11.i32.i, i64 8
-  %158 = add nsw i64 %.06.i.i.i.i.i10.i31.i, -1
-  %159 = icmp samesign ugt i64 %.06.i.i.i.i.i10.i31.i, 1
-  br i1 %159, label %.lr.ph.i.i.i.i.i9.i30.i, label %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit, !llvm.loop !159
+  %152 = phi ptr [ %153, %.lr.ph.i.i.i.i.i9.i30.i ], [ %.sroa.038.2.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i ]
+  %.06.i.i.i.i.i10.i31.i = phi i64 [ %156, %.lr.ph.i.i.i.i.i9.i30.i ], [ %150, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i ]
+  %.045.i.i.i.i.i11.i32.i = phi ptr [ %155, %.lr.ph.i.i.i.i.i9.i30.i ], [ %.04.lcssa.i.i.i.i.i.i27.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i ]
+  %153 = getelementptr inbounds i8, ptr %152, i64 -8
+  %154 = load ptr, ptr %153, align 8, !tbaa !25
+  store ptr %154, ptr %.045.i.i.i.i.i11.i32.i, align 8, !tbaa !25
+  %155 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i11.i32.i, i64 8
+  %156 = add nsw i64 %.06.i.i.i.i.i10.i31.i, -1
+  %157 = icmp samesign ugt i64 %.06.i.i.i.i.i10.i31.i, 1
+  br i1 %157, label %.lr.ph.i.i.i.i.i9.i30.i, label %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit, !llvm.loop !159
 
 _ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit: ; preds = %.lr.ph.i.i.i.i.i9.i30.i, %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit.i26.i
-  %160 = shl nsw i64 %.049, 2
-  %.not61.i = icmp slt i64 %7, %160
-  br i1 %.not61.i, label %._crit_edge.i27, label %.lr.ph.i23
+  %158 = shl nsw i64 %.050, 2
+  %.not63.i = icmp slt i64 %7, %158
+  br i1 %.not63.i, label %._crit_edge.i27, label %.lr.ph.i23
 
-.lr.ph.i23:                                       ; preds = %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit, %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i
-  %161 = phi ptr [ %206, %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ], [ %.sroa.0.0.copyload.i.i, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit ]
-  %.062.i = phi ptr [ %163, %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ], [ %2, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit ]
-  %162 = getelementptr inbounds ptr, ptr %.062.i, i64 %77
-  %163 = getelementptr inbounds ptr, ptr %.062.i, i64 %160
-  br label %.lr.ph.i.i24
+.lr.ph.i23:                                       ; preds = %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit
+  %.idx.i = shl nsw i64 %.050, 4
+  %.idx54.i = shl nsw i64 %.050, 5
+  %.not55.i = icmp eq i64 %.idx.i, %.idx54.i
+  br label %159
 
-.lr.ph.i.i24:                                     ; preds = %.lr.ph.i23, %.lr.ph.i.i24
-  %.sroa.048.0.i = phi ptr [ %167, %.lr.ph.i.i24 ], [ %161, %.lr.ph.i23 ]
-  %.024.i.i = phi ptr [ %.1.i.i, %.lr.ph.i.i24 ], [ %.062.i, %.lr.ph.i23 ]
-  %.01423.i.i = phi ptr [ %.115.i.i, %.lr.ph.i.i24 ], [ %162, %.lr.ph.i23 ]
+159:                                              ; preds = %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i, %.lr.ph.i23
+  %160 = phi i64 [ %4, %.lr.ph.i23 ], [ %208, %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
+  %.064.i = phi ptr [ %2, %.lr.ph.i23 ], [ %162, %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
+  %161 = getelementptr inbounds i8, ptr %.064.i, i64 %.idx.i
+  %162 = getelementptr inbounds i8, ptr %.064.i, i64 %.idx54.i
+  %163 = inttoptr i64 %160 to ptr
+  br i1 %.not55.i, label %._crit_edge.i.i, label %.lr.ph.i.i24
+
+.lr.ph.i.i24:                                     ; preds = %159, %.lr.ph.i.i24
+  %.sroa.048.0.i = phi ptr [ %167, %.lr.ph.i.i24 ], [ %163, %159 ]
+  %.024.i.i = phi ptr [ %.1.i.i, %.lr.ph.i.i24 ], [ %.064.i, %159 ]
+  %.01423.i.i = phi ptr [ %.115.i.i, %.lr.ph.i.i24 ], [ %161, %159 ]
   %.014.val.i.i = load ptr, ptr %.01423.i.i, align 8, !tbaa !25, !noalias !594
   %.0.val.i.i = load ptr, ptr %.024.i.i, align 8, !tbaa !25, !noalias !594
   %164 = getelementptr i8, ptr %.014.val.i.i, i64 8
@@ -10774,178 +10798,183 @@ _ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26
   %.1.i.idx.i = select i1 %166, i64 0, i64 8
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 %.1.i.idx.i
   store ptr %.0.val.i.sink.i, ptr %167, align 8, !tbaa !25, !noalias !594
-  %168 = icmp ne ptr %.1.i.i, %162
-  %169 = icmp ne ptr %.115.i.i, %163
+  %168 = icmp ne ptr %.1.i.i, %161
+  %169 = icmp ne ptr %.115.i.i, %162
   %170 = select i1 %168, i1 %169, i1 false
   br i1 %170, label %.lr.ph.i.i24, label %._crit_edge.loopexit.i.i, !llvm.loop !597
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i24
   %171 = ptrtoint ptr %167 to i64
-  %172 = ptrtoint ptr %162 to i64
-  %173 = ptrtoint ptr %.1.i.i to i64
-  %174 = sub i64 %172, %173
-  %175 = ashr exact i64 %174, 3
-  %176 = icmp sgt i64 %175, 0
-  br i1 %176, label %.lr.ph.i.i.i.i.i.i.i31, label %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i
+  br label %._crit_edge.i.i
 
-.lr.ph.i.i.i.i.i.i.i31:                           ; preds = %._crit_edge.loopexit.i.i, %.lr.ph.i.i.i.i.i.i.i31
-  %177 = phi ptr [ %179, %.lr.ph.i.i.i.i.i.i.i31 ], [ %167, %._crit_edge.loopexit.i.i ]
-  %.07.i.i.i.i.i.i.i = phi i64 [ %181, %.lr.ph.i.i.i.i.i.i.i31 ], [ %175, %._crit_edge.loopexit.i.i ]
-  %.056.i.i.i.i.i.i.i = phi ptr [ %180, %.lr.ph.i.i.i.i.i.i.i31 ], [ %.1.i.i, %._crit_edge.loopexit.i.i ]
-  %178 = load ptr, ptr %.056.i.i.i.i.i.i.i, align 8, !tbaa !25, !noalias !598
-  %179 = getelementptr inbounds i8, ptr %177, i64 -8
-  store ptr %178, ptr %179, align 8, !tbaa !25, !noalias !598
-  %180 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i.i.i, i64 8
-  %181 = add nsw i64 %.07.i.i.i.i.i.i.i, -1
-  %182 = icmp samesign ugt i64 %.07.i.i.i.i.i.i.i, 1
-  br i1 %182, label %.lr.ph.i.i.i.i.i.i.i31, label %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i.i, !llvm.loop !176
+._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %159
+  %.pre-phi75.i = phi ptr [ %163, %159 ], [ %167, %._crit_edge.loopexit.i.i ]
+  %172 = phi i64 [ %160, %159 ], [ %171, %._crit_edge.loopexit.i.i ]
+  %.014.lcssa.i.i = phi ptr [ %161, %159 ], [ %.115.i.i, %._crit_edge.loopexit.i.i ]
+  %.0.lcssa.i.i25 = phi ptr [ %.064.i, %159 ], [ %.1.i.i, %._crit_edge.loopexit.i.i ]
+  %173 = ptrtoint ptr %161 to i64
+  %174 = ptrtoint ptr %.0.lcssa.i.i25 to i64
+  %175 = sub i64 %173, %174
+  %176 = ashr exact i64 %175, 3
+  %177 = icmp sgt i64 %176, 0
+  br i1 %177, label %.lr.ph.i.i.i.i.i.i.i31, label %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i
+
+.lr.ph.i.i.i.i.i.i.i31:                           ; preds = %._crit_edge.i.i, %.lr.ph.i.i.i.i.i.i.i31
+  %178 = phi ptr [ %180, %.lr.ph.i.i.i.i.i.i.i31 ], [ %.pre-phi75.i, %._crit_edge.i.i ]
+  %.07.i.i.i.i.i.i.i = phi i64 [ %182, %.lr.ph.i.i.i.i.i.i.i31 ], [ %176, %._crit_edge.i.i ]
+  %.056.i.i.i.i.i.i.i = phi ptr [ %181, %.lr.ph.i.i.i.i.i.i.i31 ], [ %.0.lcssa.i.i25, %._crit_edge.i.i ]
+  %179 = load ptr, ptr %.056.i.i.i.i.i.i.i, align 8, !tbaa !25, !noalias !598
+  %180 = getelementptr inbounds i8, ptr %178, i64 -8
+  store ptr %179, ptr %180, align 8, !tbaa !25, !noalias !598
+  %181 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i.i.i, i64 8
+  %182 = add nsw i64 %.07.i.i.i.i.i.i.i, -1
+  %183 = icmp samesign ugt i64 %.07.i.i.i.i.i.i.i, 1
+  br i1 %183, label %.lr.ph.i.i.i.i.i.i.i31, label %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i.i, !llvm.loop !176
 
 _ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i31
-  %183 = ptrtoint ptr %179 to i64
+  %184 = ptrtoint ptr %180 to i64
   br label %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i
 
-_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i: ; preds = %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i.i, %._crit_edge.loopexit.i.i
-  %184 = phi i64 [ %171, %._crit_edge.loopexit.i.i ], [ %183, %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i.i ]
-  %185 = sub i64 %171, %184
-  %186 = ashr exact i64 %185, 3
-  %187 = sub nsw i64 0, %186
-  %188 = getelementptr inbounds ptr, ptr %167, i64 %187
-  %189 = ptrtoint ptr %188 to i64
-  %190 = ptrtoint ptr %163 to i64
-  %191 = ptrtoint ptr %.115.i.i to i64
-  %192 = sub i64 %190, %191
-  %193 = ashr exact i64 %192, 3
-  %194 = icmp sgt i64 %193, 0
-  br i1 %194, label %.lr.ph.i.i.i.i.i16.i.i, label %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i
+_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i: ; preds = %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i.i, %._crit_edge.i.i
+  %185 = phi i64 [ %172, %._crit_edge.i.i ], [ %184, %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i.i ]
+  %186 = sub i64 %172, %185
+  %187 = ashr exact i64 %186, 3
+  %188 = sub nsw i64 0, %187
+  %189 = getelementptr inbounds ptr, ptr %.pre-phi75.i, i64 %188
+  %190 = ptrtoint ptr %189 to i64
+  %191 = ptrtoint ptr %162 to i64
+  %192 = ptrtoint ptr %.014.lcssa.i.i to i64
+  %193 = sub i64 %191, %192
+  %194 = ashr exact i64 %193, 3
+  %195 = icmp sgt i64 %194, 0
+  br i1 %195, label %.lr.ph.i.i.i.i.i16.i.i, label %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i
 
 .lr.ph.i.i.i.i.i16.i.i:                           ; preds = %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i, %.lr.ph.i.i.i.i.i16.i.i
-  %195 = phi ptr [ %197, %.lr.ph.i.i.i.i.i16.i.i ], [ %188, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i ]
-  %.07.i.i.i.i.i17.i.i = phi i64 [ %199, %.lr.ph.i.i.i.i.i16.i.i ], [ %193, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i ]
-  %.056.i.i.i.i.i18.i.i = phi ptr [ %198, %.lr.ph.i.i.i.i.i16.i.i ], [ %.115.i.i, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i ]
-  %196 = load ptr, ptr %.056.i.i.i.i.i18.i.i, align 8, !tbaa !25, !noalias !609
-  %197 = getelementptr inbounds i8, ptr %195, i64 -8
-  store ptr %196, ptr %197, align 8, !tbaa !25, !noalias !609
-  %198 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i18.i.i, i64 8
-  %199 = add nsw i64 %.07.i.i.i.i.i17.i.i, -1
-  %200 = icmp samesign ugt i64 %.07.i.i.i.i.i17.i.i, 1
-  br i1 %200, label %.lr.ph.i.i.i.i.i16.i.i, label %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i19.i.i, !llvm.loop !176
+  %196 = phi ptr [ %198, %.lr.ph.i.i.i.i.i16.i.i ], [ %189, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i ]
+  %.07.i.i.i.i.i17.i.i = phi i64 [ %200, %.lr.ph.i.i.i.i.i16.i.i ], [ %194, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i ]
+  %.056.i.i.i.i.i18.i.i = phi ptr [ %199, %.lr.ph.i.i.i.i.i16.i.i ], [ %.014.lcssa.i.i, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i ]
+  %197 = load ptr, ptr %.056.i.i.i.i.i18.i.i, align 8, !tbaa !25, !noalias !609
+  %198 = getelementptr inbounds i8, ptr %196, i64 -8
+  store ptr %197, ptr %198, align 8, !tbaa !25, !noalias !609
+  %199 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i18.i.i, i64 8
+  %200 = add nsw i64 %.07.i.i.i.i.i17.i.i, -1
+  %201 = icmp samesign ugt i64 %.07.i.i.i.i.i17.i.i, 1
+  br i1 %201, label %.lr.ph.i.i.i.i.i16.i.i, label %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i19.i.i, !llvm.loop !176
 
 _ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i19.i.i: ; preds = %.lr.ph.i.i.i.i.i16.i.i
-  %201 = ptrtoint ptr %197 to i64
+  %202 = ptrtoint ptr %198 to i64
   br label %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i
 
 _ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i: ; preds = %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i19.i.i, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i
-  %202 = phi i64 [ %189, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i ], [ %201, %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i19.i.i ]
-  %203 = sub i64 %189, %202
-  %204 = ashr exact i64 %203, 3
-  %205 = sub nsw i64 0, %204
-  %206 = getelementptr inbounds ptr, ptr %188, i64 %205
-  %207 = sub i64 %75, %190
-  %208 = ashr exact i64 %207, 3
-  %.not.i26 = icmp slt i64 %208, %160
-  br i1 %.not.i26, label %._crit_edge.i27.loopexit, label %.lr.ph.i23, !llvm.loop !620
+  %203 = phi i64 [ %190, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i.i ], [ %202, %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i19.i.i ]
+  %204 = sub i64 %190, %203
+  %205 = ashr exact i64 %204, 3
+  %206 = sub nsw i64 0, %205
+  %207 = getelementptr inbounds ptr, ptr %189, i64 %206
+  %208 = ptrtoint ptr %207 to i64
+  %209 = sub i64 %75, %191
+  %210 = ashr exact i64 %209, 3
+  %.not.i26 = icmp slt i64 %210, %158
+  br i1 %.not.i26, label %._crit_edge.i27, label %159, !llvm.loop !620
 
-._crit_edge.i27.loopexit:                         ; preds = %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i
-  %209 = ptrtoint ptr %206 to i64
-  br label %._crit_edge.i27
-
-._crit_edge.i27:                                  ; preds = %._crit_edge.i27.loopexit, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit
-  %210 = phi i64 [ %4, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit ], [ %209, %._crit_edge.i27.loopexit ]
-  %.0.lcssa.i28 = phi ptr [ %2, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit ], [ %163, %._crit_edge.i27.loopexit ]
-  %.lcssa59.i = phi i64 [ %7, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit ], [ %208, %._crit_edge.i27.loopexit ]
-  %.sroa.speculated.i29 = tail call i64 @llvm.smin.i64(i64 %77, i64 %.lcssa59.i)
-  %211 = getelementptr inbounds ptr, ptr %.0.lcssa.i28, i64 %.sroa.speculated.i29
-  %212 = inttoptr i64 %210 to ptr
-  %213 = icmp ne i64 %.sroa.speculated.i29, 0
-  %214 = icmp ne ptr %211, %8
-  %215 = and i1 %213, %214
-  br i1 %215, label %.lr.ph.i34.i, label %._crit_edge.i22.i
+._crit_edge.i27:                                  ; preds = %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit
+  %211 = phi i64 [ %4, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit ], [ %208, %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
+  %.0.lcssa.i28 = phi ptr [ %2, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit ], [ %162, %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
+  %.lcssa61.i = phi i64 [ %7, %_ZSt17__merge_sort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_lNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_T2_.exit ], [ %210, %_ZSt12__move_mergeIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEENS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEET0_T_S14_S14_S14_S13_T1_.exit.i ]
+  %.sroa.speculated.i29 = tail call i64 @llvm.smin.i64(i64 %77, i64 %.lcssa61.i)
+  %.idx56.i = shl nsw i64 %.sroa.speculated.i29, 3
+  %212 = getelementptr inbounds i8, ptr %.0.lcssa.i28, i64 %.idx56.i
+  %213 = inttoptr i64 %211 to ptr
+  %214 = icmp ne i64 %.sroa.speculated.i29, 0
+  %215 = icmp ne ptr %212, %8
+  %216 = and i1 %214, %215
+  br i1 %216, label %.lr.ph.i34.i, label %._crit_edge.i22.i
 
 .lr.ph.i34.i:                                     ; preds = %._crit_edge.i27, %.lr.ph.i34.i
-  %.sroa.045.0.i30 = phi ptr [ %219, %.lr.ph.i34.i ], [ %212, %._crit_edge.i27 ]
+  %.sroa.045.0.i30 = phi ptr [ %220, %.lr.ph.i34.i ], [ %213, %._crit_edge.i27 ]
   %.024.i35.i = phi ptr [ %.1.i42.i, %.lr.ph.i34.i ], [ %.0.lcssa.i28, %._crit_edge.i27 ]
-  %.01423.i36.i = phi ptr [ %.115.i41.i, %.lr.ph.i34.i ], [ %211, %._crit_edge.i27 ]
+  %.01423.i36.i = phi ptr [ %.115.i41.i, %.lr.ph.i34.i ], [ %212, %._crit_edge.i27 ]
   %.014.val.i37.i = load ptr, ptr %.01423.i36.i, align 8, !tbaa !25, !noalias !621
   %.0.val.i38.i = load ptr, ptr %.024.i35.i, align 8, !tbaa !25, !noalias !621
-  %216 = getelementptr i8, ptr %.014.val.i37.i, i64 8
-  %.014.val.val.i39.i = load i32, ptr %216, align 8, !tbaa !14, !noalias !621
-  %217 = getelementptr i8, ptr %.0.val.i38.i, i64 8
-  %.0.val.val.i40.i = load i32, ptr %217, align 8, !tbaa !14, !noalias !621
-  %218 = icmp slt i32 %.014.val.val.i39.i, %.0.val.val.i40.i
-  %219 = getelementptr inbounds i8, ptr %.sroa.045.0.i30, i64 -8
-  %.0.val.i38.sink.i = select i1 %218, ptr %.014.val.i37.i, ptr %.0.val.i38.i
-  %.115.i41.idx.i = select i1 %218, i64 8, i64 0
+  %217 = getelementptr i8, ptr %.014.val.i37.i, i64 8
+  %.014.val.val.i39.i = load i32, ptr %217, align 8, !tbaa !14, !noalias !621
+  %218 = getelementptr i8, ptr %.0.val.i38.i, i64 8
+  %.0.val.val.i40.i = load i32, ptr %218, align 8, !tbaa !14, !noalias !621
+  %219 = icmp slt i32 %.014.val.val.i39.i, %.0.val.val.i40.i
+  %220 = getelementptr inbounds i8, ptr %.sroa.045.0.i30, i64 -8
+  %.0.val.i38.sink.i = select i1 %219, ptr %.014.val.i37.i, ptr %.0.val.i38.i
+  %.115.i41.idx.i = select i1 %219, i64 8, i64 0
   %.115.i41.i = getelementptr inbounds nuw i8, ptr %.01423.i36.i, i64 %.115.i41.idx.i
-  %.1.i42.idx.i = select i1 %218, i64 0, i64 8
+  %.1.i42.idx.i = select i1 %219, i64 0, i64 8
   %.1.i42.i = getelementptr inbounds nuw i8, ptr %.024.i35.i, i64 %.1.i42.idx.i
-  store ptr %.0.val.i38.sink.i, ptr %219, align 8, !tbaa !25, !noalias !621
-  %220 = icmp ne ptr %.1.i42.i, %211
-  %221 = icmp ne ptr %.115.i41.i, %8
-  %222 = select i1 %220, i1 %221, i1 false
-  br i1 %222, label %.lr.ph.i34.i, label %._crit_edge.loopexit.i43.i, !llvm.loop !597
+  store ptr %.0.val.i38.sink.i, ptr %220, align 8, !tbaa !25, !noalias !621
+  %221 = icmp ne ptr %.1.i42.i, %212
+  %222 = icmp ne ptr %.115.i41.i, %8
+  %223 = select i1 %221, i1 %222, i1 false
+  br i1 %223, label %.lr.ph.i34.i, label %._crit_edge.loopexit.i43.i, !llvm.loop !597
 
 ._crit_edge.loopexit.i43.i:                       ; preds = %.lr.ph.i34.i
-  %223 = ptrtoint ptr %219 to i64
+  %224 = ptrtoint ptr %220 to i64
   br label %._crit_edge.i22.i
 
 ._crit_edge.i22.i:                                ; preds = %._crit_edge.loopexit.i43.i, %._crit_edge.i27
-  %.pre-phi.i = phi ptr [ %212, %._crit_edge.i27 ], [ %219, %._crit_edge.loopexit.i43.i ]
-  %224 = phi i64 [ %210, %._crit_edge.i27 ], [ %223, %._crit_edge.loopexit.i43.i ]
-  %.014.lcssa.i23.i = phi ptr [ %211, %._crit_edge.i27 ], [ %.115.i41.i, %._crit_edge.loopexit.i43.i ]
+  %.pre-phi.i = phi ptr [ %213, %._crit_edge.i27 ], [ %220, %._crit_edge.loopexit.i43.i ]
+  %225 = phi i64 [ %211, %._crit_edge.i27 ], [ %224, %._crit_edge.loopexit.i43.i ]
+  %.014.lcssa.i23.i = phi ptr [ %212, %._crit_edge.i27 ], [ %.115.i41.i, %._crit_edge.loopexit.i43.i ]
   %.0.lcssa.i24.i = phi ptr [ %.0.lcssa.i28, %._crit_edge.i27 ], [ %.1.i42.i, %._crit_edge.loopexit.i43.i ]
-  %225 = ptrtoint ptr %211 to i64
-  %226 = ptrtoint ptr %.0.lcssa.i24.i to i64
-  %227 = sub i64 %225, %226
-  %228 = ashr exact i64 %227, 3
-  %229 = icmp sgt i64 %228, 0
-  br i1 %229, label %.lr.ph.i.i.i.i.i.i30.i, label %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i25.i
+  %226 = ptrtoint ptr %212 to i64
+  %227 = ptrtoint ptr %.0.lcssa.i24.i to i64
+  %228 = sub i64 %226, %227
+  %229 = ashr exact i64 %228, 3
+  %230 = icmp sgt i64 %229, 0
+  br i1 %230, label %.lr.ph.i.i.i.i.i.i30.i, label %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i25.i
 
 .lr.ph.i.i.i.i.i.i30.i:                           ; preds = %._crit_edge.i22.i, %.lr.ph.i.i.i.i.i.i30.i
-  %230 = phi ptr [ %232, %.lr.ph.i.i.i.i.i.i30.i ], [ %.pre-phi.i, %._crit_edge.i22.i ]
-  %.07.i.i.i.i.i.i31.i = phi i64 [ %234, %.lr.ph.i.i.i.i.i.i30.i ], [ %228, %._crit_edge.i22.i ]
-  %.056.i.i.i.i.i.i32.i = phi ptr [ %233, %.lr.ph.i.i.i.i.i.i30.i ], [ %.0.lcssa.i24.i, %._crit_edge.i22.i ]
-  %231 = load ptr, ptr %.056.i.i.i.i.i.i32.i, align 8, !tbaa !25, !noalias !624
-  %232 = getelementptr inbounds i8, ptr %230, i64 -8
-  store ptr %231, ptr %232, align 8, !tbaa !25, !noalias !624
-  %233 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i.i32.i, i64 8
-  %234 = add nsw i64 %.07.i.i.i.i.i.i31.i, -1
-  %235 = icmp samesign ugt i64 %.07.i.i.i.i.i.i31.i, 1
-  br i1 %235, label %.lr.ph.i.i.i.i.i.i30.i, label %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i33.i, !llvm.loop !176
+  %231 = phi ptr [ %233, %.lr.ph.i.i.i.i.i.i30.i ], [ %.pre-phi.i, %._crit_edge.i22.i ]
+  %.07.i.i.i.i.i.i31.i = phi i64 [ %235, %.lr.ph.i.i.i.i.i.i30.i ], [ %229, %._crit_edge.i22.i ]
+  %.056.i.i.i.i.i.i32.i = phi ptr [ %234, %.lr.ph.i.i.i.i.i.i30.i ], [ %.0.lcssa.i24.i, %._crit_edge.i22.i ]
+  %232 = load ptr, ptr %.056.i.i.i.i.i.i32.i, align 8, !tbaa !25, !noalias !624
+  %233 = getelementptr inbounds i8, ptr %231, i64 -8
+  store ptr %232, ptr %233, align 8, !tbaa !25, !noalias !624
+  %234 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i.i32.i, i64 8
+  %235 = add nsw i64 %.07.i.i.i.i.i.i31.i, -1
+  %236 = icmp samesign ugt i64 %.07.i.i.i.i.i.i31.i, 1
+  br i1 %236, label %.lr.ph.i.i.i.i.i.i30.i, label %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i33.i, !llvm.loop !176
 
 _ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i33.i: ; preds = %.lr.ph.i.i.i.i.i.i30.i
-  %236 = ptrtoint ptr %232 to i64
+  %237 = ptrtoint ptr %233 to i64
   br label %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i25.i
 
 _ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i25.i: ; preds = %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i33.i, %._crit_edge.i22.i
-  %237 = phi i64 [ %224, %._crit_edge.i22.i ], [ %236, %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i33.i ]
-  %238 = ptrtoint ptr %.014.lcssa.i23.i to i64
-  %239 = sub i64 %75, %238
-  %240 = ashr exact i64 %239, 3
-  %241 = icmp sgt i64 %240, 0
-  br i1 %241, label %.lr.ph.i.i.i.i.i16.i26.preheader.i, label %_ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_T1_T2_.exit
+  %238 = phi i64 [ %225, %._crit_edge.i22.i ], [ %237, %_ZSt14__copy_move_a1ILb1EPP26cmCTestBinPackerAllocationSt16reverse_iteratorIS2_EET1_T0_S6_S5_.exit.loopexit.i.i.i33.i ]
+  %239 = ptrtoint ptr %.014.lcssa.i23.i to i64
+  %240 = sub i64 %75, %239
+  %241 = ashr exact i64 %240, 3
+  %242 = icmp sgt i64 %241, 0
+  br i1 %242, label %.lr.ph.i.i.i.i.i16.i26.preheader.i, label %_ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_T1_T2_.exit
 
 .lr.ph.i.i.i.i.i16.i26.preheader.i:               ; preds = %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i25.i
-  %242 = sub i64 %224, %237
-  %243 = ashr exact i64 %242, 3
-  %244 = sub nsw i64 0, %243
-  %245 = getelementptr inbounds ptr, ptr %.pre-phi.i, i64 %244
+  %243 = sub i64 %225, %238
+  %244 = ashr exact i64 %243, 3
+  %245 = sub nsw i64 0, %244
+  %246 = getelementptr inbounds ptr, ptr %.pre-phi.i, i64 %245
   br label %.lr.ph.i.i.i.i.i16.i26.i
 
 .lr.ph.i.i.i.i.i16.i26.i:                         ; preds = %.lr.ph.i.i.i.i.i16.i26.i, %.lr.ph.i.i.i.i.i16.i26.preheader.i
-  %246 = phi ptr [ %248, %.lr.ph.i.i.i.i.i16.i26.i ], [ %245, %.lr.ph.i.i.i.i.i16.i26.preheader.i ]
-  %.07.i.i.i.i.i17.i27.i = phi i64 [ %250, %.lr.ph.i.i.i.i.i16.i26.i ], [ %240, %.lr.ph.i.i.i.i.i16.i26.preheader.i ]
-  %.056.i.i.i.i.i18.i28.i = phi ptr [ %249, %.lr.ph.i.i.i.i.i16.i26.i ], [ %.014.lcssa.i23.i, %.lr.ph.i.i.i.i.i16.i26.preheader.i ]
-  %247 = load ptr, ptr %.056.i.i.i.i.i18.i28.i, align 8, !tbaa !25, !noalias !635
-  %248 = getelementptr inbounds i8, ptr %246, i64 -8
-  store ptr %247, ptr %248, align 8, !tbaa !25, !noalias !635
-  %249 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i18.i28.i, i64 8
-  %250 = add nsw i64 %.07.i.i.i.i.i17.i27.i, -1
-  %251 = icmp samesign ugt i64 %.07.i.i.i.i.i17.i27.i, 1
-  br i1 %251, label %.lr.ph.i.i.i.i.i16.i26.i, label %_ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_T1_T2_.exit, !llvm.loop !176
+  %247 = phi ptr [ %249, %.lr.ph.i.i.i.i.i16.i26.i ], [ %246, %.lr.ph.i.i.i.i.i16.i26.preheader.i ]
+  %.07.i.i.i.i.i17.i27.i = phi i64 [ %251, %.lr.ph.i.i.i.i.i16.i26.i ], [ %241, %.lr.ph.i.i.i.i.i16.i26.preheader.i ]
+  %.056.i.i.i.i.i18.i28.i = phi ptr [ %250, %.lr.ph.i.i.i.i.i16.i26.i ], [ %.014.lcssa.i23.i, %.lr.ph.i.i.i.i.i16.i26.preheader.i ]
+  %248 = load ptr, ptr %.056.i.i.i.i.i18.i28.i, align 8, !tbaa !25, !noalias !635
+  %249 = getelementptr inbounds i8, ptr %247, i64 -8
+  store ptr %248, ptr %249, align 8, !tbaa !25, !noalias !635
+  %250 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i18.i28.i, i64 8
+  %251 = add nsw i64 %.07.i.i.i.i.i17.i27.i, -1
+  %252 = icmp samesign ugt i64 %.07.i.i.i.i.i17.i27.i, 1
+  br i1 %252, label %.lr.ph.i.i.i.i.i16.i26.i, label %_ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_T1_T2_.exit, !llvm.loop !176
 
 _ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_T1_T2_.exit: ; preds = %.lr.ph.i.i.i.i.i16.i26.i, %_ZSt4moveIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEEET0_T_SC_SB_.exit.i25.i
-  %252 = icmp slt i64 %160, %7
-  br i1 %252, label %76, label %._crit_edge, !llvm.loop !646
+  %253 = icmp slt i64 %158, %7
+  br i1 %253, label %76, label %._crit_edge, !llvm.loop !646
 
 ._crit_edge:                                      ; preds = %_ZSt17__merge_sort_loopIPP26cmCTestBinPackerAllocationSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEElNS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS0_SaIS0_EEEUlS1_S1_E_EEEvT_S13_T0_T1_T2_.exit, %_ZSt22__chunk_insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_T1_.exit
   ret void

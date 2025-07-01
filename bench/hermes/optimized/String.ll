@@ -9223,7 +9223,8 @@ entry:
   br i1 %useCurrentLocale, label %if.end175, label %if.then
 
 if.then:                                          ; preds = %entry
-  %add.ptr.i = getelementptr inbounds nuw i16, ptr %1, i64 %conv.i.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i.i, 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i.idx
   %cmp.not138 = icmp eq i32 %2, 0
   br i1 %upperCase, label %if.then5, label %if.else
 
@@ -9362,7 +9363,8 @@ if.end109:                                        ; preds = %if.end.i.i.i.i.i.i.
   %ref.tmp7.sroa.47.8.index_.i.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %builder, i64 16
   store ptr %runtime, ptr %ref.tmp7.sroa.47.8.index_.i.i.i.i.sroa_idx.i, align 8, !alias.scope !211
   %hasVal.i.i.i = getelementptr inbounds nuw i8, ptr %builder, i64 24
-  %add.ptr.i54 = getelementptr inbounds nuw i16, ptr %1, i64 %conv.i.i
+  %add.ptr.i54.idx = shl nuw nsw i64 %conv.i.i, 1
+  %add.ptr.i54 = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i54.idx
   %index_12.i = getelementptr inbounds nuw i8, ptr %builder, i64 8
   br i1 %upperCase, label %for.body116, label %for.body144
 
@@ -10028,7 +10030,8 @@ if.end.i34:                                       ; preds = %_ZNK6hermes2vm10Str
   %bf.clear8.i17 = and i32 %bf.load.i, 1073741823
   %idx.ext9.i18 = zext nneg i32 %bf.clear8.i17 to i64
   %add.ptr10.i19 = getelementptr inbounds nuw i16, ptr %retval.0.i.sink.i16, i64 %idx.ext9.i18
-  %add.ptr.i.i = getelementptr inbounds nuw i16, ptr %add.ptr10.i19, i64 %conv.i30
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i30, 1
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr10.i19, i64 %add.ptr.i.idx.i
   %cmp.not4.i.i.i.i.i = icmp eq i32 %10, 0
   br i1 %cmp.not4.i.i.i.i.i, label %return, label %for.body.i.i.i.i.i.preheader
 

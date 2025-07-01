@@ -966,10 +966,10 @@ do.end118:                                        ; preds = %do.body73
 
 cond.end.thread.i:                                ; preds = %do.end118
   store ptr null, ptr %agg.result, align 8, !tbaa !24
-  %rows_6.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %sub, ptr %rows_6.i, align 8, !tbaa !25
-  %columns_7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i64 %sub, ptr %columns_7.i, align 8, !tbaa !33
+  %rows_7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i64 %sub, ptr %rows_7.i, align 8, !tbaa !25
+  %columns_8.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  store i64 %sub, ptr %columns_8.i, align 8, !tbaa !33
   br label %_ZN8QuantLib6MatrixC2Emmd.exit
 
 for.body.i.i.i.preheader.i:                       ; preds = %do.end118

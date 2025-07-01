@@ -104,7 +104,8 @@ define dso_local void @load_pseudo_merges_from_config(ptr noundef %0, ptr nounde
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !32
-  %6 = getelementptr inbounds nuw %struct.string_list_item, ptr %3, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %.critedge, label %.lr.ph27
 

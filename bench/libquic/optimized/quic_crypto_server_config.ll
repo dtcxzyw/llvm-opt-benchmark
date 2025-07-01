@@ -9240,7 +9240,8 @@ _ZNSt10unique_ptrIN3net11ProofSource7DetailsESt14default_deleteIS2_EED2Ev.exit10
   %95 = getelementptr inbounds nuw i8, ptr %34, i64 216
   %96 = load i32, ptr %95, align 8, !tbaa !273
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds ptr, ptr %spec.select.i.i.i, i64 %97
+  %.idx.i = shl nsw i64 %97, 3
+  %98 = getelementptr inbounds i8, ptr %spec.select.i.i.i, i64 %.idx.i
   %.not1821.i = icmp eq i32 %96, 0
   br i1 %.not1821.i, label %_ZNK3net22QuicCryptoServerConfig27ValidateSourceAddressTokensERKNS_19SourceAddressTokensERKNS_9IPAddressENS_12QuicWallTimeEPNS_23CachedNetworkParametersE.exit, label %.critedge.i
 
@@ -13718,7 +13719,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %_ZN
   %102 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %103 = load i32, ptr %102, align 8, !tbaa !273
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %104
+  %.idx = shl nsw i64 %104, 3
+  %105 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not7778 = icmp eq i32 %103, 0
   br i1 %.not7778, label %_ZN3net18SourceAddressTokenaSERKS0_.exit, label %.lr.ph
 
@@ -14350,7 +14352,8 @@ define noundef range(i32 0, 20) i32 @_ZNK3net22QuicCryptoServerConfig27ValidateS
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i32, ptr %9, align 8, !tbaa !273
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %11
+  %.idx = shl nsw i64 %11, 3
+  %12 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not1821 = icmp eq i32 %10, 0
   br i1 %.not1821, label %.loopexit, label %.critedge
 

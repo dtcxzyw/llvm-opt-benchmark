@@ -11249,7 +11249,8 @@ define internal void @_ZN12_GLOBAL__N_115ReEscapeStrings5visitEPN7jsonnet8intern
   %8 = load ptr, ptr %7, align 8, !tbaa !256
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %10 = load i64, ptr %9, align 8, !tbaa !257
-  %11 = getelementptr inbounds nuw i32, ptr %8, i64 %10
+  %.idx = shl nuw nsw i64 %10, 2
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not1920 = icmp eq i64 %10, 0
   br i1 %.not1920, label %._crit_edge, label %.lr.ph
 

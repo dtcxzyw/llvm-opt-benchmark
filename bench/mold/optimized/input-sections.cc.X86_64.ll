@@ -1285,17 +1285,18 @@ _ZNK4mold12InputSectionINS_6X86_64EE8get_fdesEv.exit: ; preds = %5
   %24 = sub nsw i64 %17, %18
   %.0.i.i = select i1 %23, i64 %24, i64 %22
   %25 = getelementptr inbounds nuw %"struct.mold::FdeRecord", ptr %11, i64 %18
-  %26 = getelementptr inbounds nuw %"struct.mold::FdeRecord", ptr %25, i64 %.0.i.i
-  %27 = icmp eq i64 %.0.i.i, 0
-  br i1 %27, label %.loopexit, label %.lr.ph
+  %26 = shl nuw nsw i64 %.0.i.i, 4
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
+  %28 = icmp eq i64 %.0.i.i, 0
+  br i1 %28, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4mold12InputSectionINS_6X86_64EE8get_fdesEv.exit, %.lr.ph
-  %.sroa.04.09 = phi ptr [ %29, %.lr.ph ], [ %25, %_ZNK4mold12InputSectionINS_6X86_64EE8get_fdesEv.exit ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 14
-  store atomic i8 0, ptr %28 monotonic, align 1
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 16
-  %30 = icmp eq ptr %29, %26
-  br i1 %30, label %.loopexit, label %.lr.ph
+  %.sroa.04.09 = phi ptr [ %30, %.lr.ph ], [ %25, %_ZNK4mold12InputSectionINS_6X86_64EE8get_fdesEv.exit ]
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 14
+  store atomic i8 0, ptr %29 monotonic, align 1
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 16
+  %31 = icmp eq ptr %30, %27
+  br i1 %31, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %_ZNK4mold12InputSectionINS_6X86_64EE8get_fdesEv.exit, %1
   ret void

@@ -2395,7 +2395,8 @@ select.unfold.i.i.i:                              ; preds = %"_ZN73_$LT$$u5b$A$u
 ._crit_edge.thread.i:                             ; preds = %205
   %206 = getelementptr i8, ptr %201, i64 8
   %.val3377.i = load ptr, ptr %206, align 8, !noalias !383, !nonnull !4, !noundef !4
-  %207 = getelementptr inbounds { { i64, i64, i64 }, { i64, i64, i64 } }, ptr %.val3377.i, i64 %203
+  %.idx78.i = mul nsw i64 %203, 48
+  %207 = getelementptr inbounds i8, ptr %.val3377.i, i64 %.idx78.i
   br label %.lr.ph70.preheader.i
 
 .loopexit53.i:                                    ; preds = %246
@@ -2449,13 +2450,14 @@ _ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit.i: ; preds = %.noexc.i38, 
   %.val34.pre.i = load i64, ptr %202, align 8, !noalias !383
   %218 = getelementptr i8, ptr %201, i64 8
   %.val33.i = load ptr, ptr %218, align 8, !noalias !383, !nonnull !4, !noundef !4
-  %219 = getelementptr inbounds { { i64, i64, i64 }, { i64, i64, i64 } }, ptr %.val33.i, i64 %.val34.pre.i
+  %.idx.i = mul nsw i64 %.val34.pre.i, 48
+  %219 = getelementptr inbounds i8, ptr %.val33.i, i64 %.idx.i
   %220 = icmp eq i64 %.val34.pre.i, 0
   br i1 %220, label %_ZN12regex_syntax5error5Spans11notate_line17h94a9cb4f2e3ac536E.exit, label %.lr.ph70.preheader.i
 
 .lr.ph70.preheader.i:                             ; preds = %._crit_edge.i, %._crit_edge.thread.i
   %221 = phi ptr [ %207, %._crit_edge.thread.i ], [ %219, %._crit_edge.i ]
-  %.val3378.i = phi ptr [ %.val3377.i, %._crit_edge.thread.i ], [ %.val33.i, %._crit_edge.i ]
+  %.val3379.i = phi ptr [ %.val3377.i, %._crit_edge.thread.i ], [ %.val33.i, %._crit_edge.i ]
   %222 = phi i64 [ 0, %._crit_edge.thread.i ], [ %217, %._crit_edge.i ]
   br label %.lr.ph70.i
 
@@ -2466,7 +2468,7 @@ _ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit.i: ; preds = %.noexc.i38, 
 .lr.ph70.i:                                       ; preds = %.loopexit.i, %.lr.ph70.preheader.i
   %224 = phi i64 [ %252, %.loopexit.i ], [ %222, %.lr.ph70.preheader.i ]
   %.068.i = phi i64 [ %235, %.loopexit.i ], [ 0, %.lr.ph70.preheader.i ]
-  %.sroa.0.067.i = phi ptr [ %225, %.loopexit.i ], [ %.val3378.i, %.lr.ph70.preheader.i ]
+  %.sroa.0.067.i = phi ptr [ %225, %.loopexit.i ], [ %.val3379.i, %.lr.ph70.preheader.i ]
   %225 = getelementptr inbounds nuw i8, ptr %.sroa.0.067.i, i64 48
   %226 = getelementptr inbounds nuw i8, ptr %.sroa.0.067.i, i64 16
   %227 = load i64, ptr %226, align 8, !noalias !383, !noundef !4

@@ -31137,7 +31137,8 @@ define void @_ZN6ide_db13source_change12SourceChange5merge17h2318ddcfbd3f6ec3E(p
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  %80 = getelementptr inbounds { i32, [17 x i32] }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %.idx = mul nsw i64 %.sroa.5.0.copyload, 72
+  %80 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload, i64 %.idx
   store ptr %.sroa.4.0.copyload, ptr %9, align 8, !alias.scope !7499, !noalias !7502
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %.sroa.010.0.copyload, ptr %81, align 8, !alias.scope !7499, !noalias !7502
@@ -31610,7 +31611,8 @@ define void @_ZN6ide_db13source_change11SnippetEdit5apply17h4963471c846c2065E(pt
   br i1 %19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %20 = getelementptr inbounds { i32, { i32, i32 } }, ptr %16, i64 %18
+  %.idx = mul nsw i64 %18, 12
+  %20 = getelementptr inbounds i8, ptr %16, i64 %.idx
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -32752,7 +32754,8 @@ define void @_ZN6ide_db13source_change19SourceChangeBuilder29add_placeholder_sni
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = getelementptr inbounds ptr, ptr %6, i64 %8
+  %.idx = shl nsw i64 %8, 3
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %.loopexit16, label %.lr.ph.i
 
@@ -32804,38 +32807,39 @@ define void @_ZN6ide_db13source_change19SourceChangeBuilder29add_placeholder_sni
 .loopexit16:                                      ; preds = %"_ZN6ide_db13source_change19SourceChangeBuilder29add_placeholder_snippet_group28_$u7b$$u7b$closure$u7d$$u7d$17h4578259e88951026E.exit.i", %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %.sroa.08.0.copyload = load i64, ptr %1, align 8
+  %28 = getelementptr inbounds ptr, ptr %6, i64 %8
   store ptr %6, ptr %3, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.sroa.08.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.67.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %9, ptr %.sroa.67.0..sroa_idx, align 8
+  store ptr %28, ptr %.sroa.67.0..sroa_idx, align 8
   call void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9from_iter17h691aaa09a1c1f619E"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
   call void @_ZN6ide_db13source_change19SourceChangeBuilder11add_snippet17h5fa404d9893e87ccE(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 
-28:                                               ; preds = %29
+29:                                               ; preds = %30
   resume { ptr, i32 } %lpad.phi
 
 .loopexit:                                        ; preds = %25
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %29
+  br label %30
 
 .loopexit.split-lp:                               ; preds = %20, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h1e559efdf80fdf30E.exit"
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %29
+  br label %30
 
-29:                                               ; preds = %.loopexit.split-lp, %.loopexit
+30:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr107drop_in_place$LT$alloc..vec..Vec$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17hded4b98316375941E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #65
-          to label %28 unwind label %30
+          to label %29 unwind label %31
 
-30:                                               ; preds = %29
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %30
+  %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #64
   unreachable
@@ -34356,7 +34360,8 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %47, %.thread,
 106:                                              ; preds = %102
   %107 = extractvalue { ptr, i64 } %103, 0
   %108 = extractvalue { ptr, i64 } %103, 1
-  %109 = getelementptr inbounds { { i8, [23 x i8] } }, ptr %107, i64 %108
+  %.idx = mul nsw i64 %108, 24
+  %109 = getelementptr inbounds i8, ptr %107, i64 %.idx
   %110 = icmp ne ptr %107, null
   call void @llvm.assume(i1 %110)
   br i1 %.not119209, label %111, label %.split.i

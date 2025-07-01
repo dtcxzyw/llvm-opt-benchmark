@@ -62,7 +62,7 @@ for.body.i.preheader.i:                           ; preds = %_ZNK5boost10shared_
   %n_.i3.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %5, ptr %n_.i3.i, align 8, !tbaa !13, !alias.scope !10
   %9 = load ptr, ptr %gradient_.i, align 8, !tbaa !22, !noalias !10
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %9, i64 %5
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %7
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i

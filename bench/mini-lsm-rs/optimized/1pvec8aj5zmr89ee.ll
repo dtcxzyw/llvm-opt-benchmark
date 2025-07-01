@@ -11320,7 +11320,8 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
   %.val13.i = load ptr, ptr %41, align 8, !alias.scope !1522, !noalias !1530, !nonnull !9, !noundef !9
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val14.i = load i64, ptr %42, align 8, !alias.scope !1522, !noalias !1530, !noundef !9
-  %43 = getelementptr inbounds { ptr, i64, i64 }, ptr %.val13.i, i64 %.val14.i
+  %.idx.i = mul nsw i64 %.val14.i, 24
+  %43 = getelementptr inbounds i8, ptr %.val13.i, i64 %.idx.i
   %44 = icmp eq i64 %.val14.i, 0
   br i1 %44, label %._crit_edge.i, label %.lr.ph.i
 
@@ -11453,7 +11454,8 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
   br label %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17he63b0d22a240a349E.exit.thread.i"
 
 96:                                               ; preds = %90
-  %97 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 }, ptr %64, i64 %65
+  %.idx.i.i = mul nsw i64 %65, 48
+  %97 = getelementptr inbounds i8, ptr %64, i64 %.idx.i.i
   %98 = load ptr, ptr %.sroa.0.062.i, align 8, !alias.scope !1545, !noalias !1560, !nonnull !9, !noundef !9
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -12444,7 +12446,8 @@ define internal fastcc void @"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$
   br label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h38b0d02595a7b126E.exit"
 
 "_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h38b0d02595a7b126E.exit": ; preds = %3, %8
-  %10 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 48
+  %10 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %11 = icmp eq i64 %2, 0
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h173b5037d5f2a473E.exit", label %.lr.ph.i
 
@@ -12973,7 +12976,8 @@ define hidden void @"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$G
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i9, align 8, !alias.scope !1824, !noalias !1827, !nonnull !9, !noundef !9
   %.sroa.5.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i10, align 8, !alias.scope !1824, !noalias !1827
-  %34 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nsw i64 %.sroa.5.0.copyload.i, 24
+  %34 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.4.0.copyload.i, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8

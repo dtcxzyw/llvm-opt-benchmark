@@ -2933,7 +2933,8 @@ _ZN4task13task_template40substitute_all_template_variables_in_str17hecf9f1307158
   store ptr %425, ptr %426, align 8, !noalias !540
   %427 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 0, ptr %427, align 8, !noalias !540
-  %428 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %417, i64 %419
+  %.idx.i = mul nsw i64 %419, 24
+  %428 = getelementptr inbounds i8, ptr %417, i64 %.idx.i
   %429 = icmp eq i64 %419, 0
   br i1 %429, label %.loopexit, label %.lr.ph.i244
 

@@ -2202,7 +2202,8 @@ define void @_ZNK14dtNavMeshQuery19queryPolygonsInTileEPK10dtMeshTilePKfS4_PK13d
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds %struct.dtBVNode, ptr %15, i64 %21
+  %.idx166 = shl nsw i64 %21, 4
+  %22 = getelementptr inbounds i8, ptr %15, i64 %.idx166
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 84
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 96

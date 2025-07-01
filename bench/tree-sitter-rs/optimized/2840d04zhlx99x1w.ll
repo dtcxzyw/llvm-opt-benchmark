@@ -461,7 +461,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 .noexc.i:                                         ; preds = %.lr.ph.i
   %12 = extractvalue { ptr, i64 } %11, 0
   %13 = extractvalue { ptr, i64 } %11, 1
-  %14 = getelementptr inbounds { { { i64, i64 }, { ptr, i64 }, { ptr, i64 } }, i8, [7 x i8] }, ptr %12, i64 %13
+  %.idx.i.i.i = mul nsw i64 %13, 56
+  %14 = getelementptr inbounds i8, ptr %12, i64 %.idx.i.i.i
   %15 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %15)
   %.not.i.i.i.i = icmp eq i64 %13, 0
@@ -971,7 +972,8 @@ define hidden noundef zeroext i1 @"_ZN21tree_sitter_highlight22HighlightConfigur
   %4 = tail call { ptr, i64 } @_ZN11tree_sitter5Query19property_predicates17h43089889472b0f05E(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %3, i64 noundef %1)
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
-  %7 = getelementptr inbounds { { { i64, i64 }, { ptr, i64 }, { ptr, i64 } }, i8, [7 x i8] }, ptr %5, i64 %6
+  %.idx = mul nsw i64 %6, 56
+  %7 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %8 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %8)
   %.not.i = icmp eq i64 %6, 0
@@ -1696,7 +1698,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hb2670d9a331c09
 .noexc:                                           ; preds = %10
   %14 = extractvalue { ptr, i64 } %13, 0
   %15 = extractvalue { ptr, i64 } %13, 1
-  %16 = getelementptr inbounds { { { i64, i64 }, { ptr, i64 }, { ptr, i64 } }, i8, [7 x i8] }, ptr %14, i64 %15
+  %.idx.i.i = mul nsw i64 %15, 56
+  %16 = getelementptr inbounds i8, ptr %14, i64 %.idx.i.i
   %17 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %17)
   %.not.i.i.i = icmp eq i64 %15, 0
@@ -2641,7 +2644,8 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   %5 = tail call { ptr, i64 } @_ZN11tree_sitter5Query19property_predicates17h43089889472b0f05E(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %4, i64 noundef %1), !noalias !753
   %6 = extractvalue { ptr, i64 } %5, 0
   %7 = extractvalue { ptr, i64 } %5, 1
-  %8 = getelementptr inbounds { { { i64, i64 }, { ptr, i64 }, { ptr, i64 } }, i8, [7 x i8] }, ptr %6, i64 %7
+  %.idx.i = mul nsw i64 %7, 56
+  %8 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %9 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %9)
   %.not.i.i = icmp eq i64 %7, 0
@@ -3162,7 +3166,8 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 .noexc:                                           ; preds = %32
   %35 = load ptr, ptr %17, align 8, !alias.scope !902, !nonnull !4, !align !5, !noundef !4
   %36 = load i64, ptr %18, align 8, !alias.scope !902, !noundef !4
-  %37 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %35, i64 %36
+  %.idx.i.i = mul nsw i64 %36, 24
+  %37 = getelementptr inbounds i8, ptr %35, i64 %.idx.i.i
   %38 = icmp eq i64 %36, 0
   br i1 %38, label %.loopexit27, label %.lr.ph.i.i
 

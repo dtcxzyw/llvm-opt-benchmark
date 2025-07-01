@@ -481,7 +481,8 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder17declare_successor17h211088e58
 85:                                               ; preds = %79
   %86 = extractvalue { ptr, i64 } %83, 0
   %87 = extractvalue { ptr, i64 } %83, 1
-  %88 = getelementptr inbounds i32, ptr %86, i64 %87
+  %.idx = shl nsw i64 %87, 2
+  %88 = getelementptr inbounds i8, ptr %86, i64 %.idx
   %89 = icmp ne ptr %86, null
   tail call void @llvm.assume(i1 %89)
   %90 = icmp eq i64 %87, 0
@@ -1637,7 +1638,8 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder39append_block_par
   %.val = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr i8, ptr %3, i64 432
   %.val2 = load i64, ptr %5, align 8, !noundef !4
-  %6 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %.val, i64 %.val2
+  %.idx = mul nsw i64 %.val2, 12
+  %6 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %7 = icmp eq i64 %.val2, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -1661,7 +1663,8 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder40append_block_par
   %.val = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr i8, ptr %3, i64 456
   %.val2 = load i64, ptr %5, align 8, !noundef !4
-  %6 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %.val, i64 %.val2
+  %.idx = mul nsw i64 %.val2, 12
+  %6 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %7 = icmp eq i64 %.val2, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -1739,7 +1742,8 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder23change_jump_dest
   %10 = tail call { ptr, i64 } @_ZN17cranelift_codegen2ir12instructions15InstructionData22branch_destination_mut17hfe9106520fd2916dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
   %11 = extractvalue { ptr, i64 } %10, 0
   %12 = extractvalue { ptr, i64 } %10, 1
-  %13 = getelementptr inbounds i32, ptr %11, i64 %12
+  %.idx = shl nsw i64 %12, 2
+  %13 = getelementptr inbounds i8, ptr %11, i64 %.idx
   %14 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %14)
   %15 = icmp eq i64 %12, 0
@@ -3691,7 +3695,8 @@ define hidden void @_ZN18cranelift_frontend8frontend15FunctionBuilder23handle_ss
   %.sroa.45.0.copyload = load ptr, ptr %.sroa.45.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.56.0.copyload = load i64, ptr %.sroa.56.0..sroa_idx, align 8
-  %5 = getelementptr inbounds i32, ptr %.sroa.45.0.copyload, i64 %.sroa.56.0.copyload
+  %.idx = shl nsw i64 %.sroa.56.0.copyload, 2
+  %5 = getelementptr inbounds i8, ptr %.sroa.45.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   store ptr %.sroa.45.0.copyload, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8

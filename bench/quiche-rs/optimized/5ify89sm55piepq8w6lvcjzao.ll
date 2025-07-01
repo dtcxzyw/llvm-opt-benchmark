@@ -7566,7 +7566,8 @@ define internal noundef range(i32 0, 4) i32 @_ZN6quiche3tls11select_alpn17h426db
   %49 = load ptr, ptr %48, align 8, !nonnull !3, !noundef !3
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %51 = load i64, ptr %50, align 8, !noundef !3
-  %52 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %49, i64 %51
+  %.idx = mul nuw nsw i64 %51, 24
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx
   %.not.i = icmp eq i64 %51, 0
   br i1 %.not.i, label %.loopexit13, label %.lr.ph.i
 

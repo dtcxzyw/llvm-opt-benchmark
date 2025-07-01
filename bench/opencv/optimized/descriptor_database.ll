@@ -682,7 +682,8 @@ _ZN6google8protobuf19FileDescriptorProtoC2Ev.exit.i: ; preds = %15
   %spec.select.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr null, ptr %52
   %53 = load i32, ptr %25, align 8, !tbaa !37
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %spec.select.i.i.i.i.i, i64 %54
+  %.idx.i.i.i = shl nsw i64 %54, 3
+  %55 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 %.idx.i.i.i
   %.not11.i.i.i = icmp eq i32 %53, 0
   br i1 %.not11.i.i.i, label %"_ZZN6google8protobuf18DescriptorDatabase19FindAllMessageNamesEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEENK3$_0clERKNS0_19FileDescriptorProtoEPSt3setIS8_St4lessIS8_ES9_E.exit.thread.i", label %.lr.ph.i.i.i
 
@@ -2492,8 +2493,8 @@ _ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12Enco
           to label %_ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EE9push_backEOS4_.exit unwind label %65
 
 _ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EE9push_backEOS4_.exit: ; preds = %36
-  %.pre173 = load ptr, ptr %15, align 8, !tbaa !25
-  %37 = icmp eq ptr %.pre173, %16
+  %.pre176 = load ptr, ptr %15, align 8, !tbaa !25
+  %37 = icmp eq ptr %.pre176, %16
   br i1 %37, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EE9push_backEOS4_.exit.thread, %_ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EE9push_backEOS4_.exit
@@ -2503,7 +2504,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EE9push_backEOS4_.exit
-  call void @_ZdlPv(ptr noundef %.pre173) #27
+  call void @_ZdlPv(ptr noundef %.pre176) #27
   br label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryD2Ev.exit
 
 _ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -3056,7 +3057,8 @@ _ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.ex
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %258 = load i32, ptr %257, align 8, !tbaa !37
   %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %259
+  %.idx = shl nsw i64 %259, 3
+  %260 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not151 = icmp eq i32 %258, 0
   br i1 %.not151, label %._crit_edge, label %.lr.ph
 
@@ -3099,7 +3101,8 @@ _ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.ex
   %285 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %286 = load i32, ptr %285, align 8, !tbaa !37
   %287 = sext i32 %286 to i64
-  %288 = getelementptr inbounds ptr, ptr %spec.select.i.i92, i64 %287
+  %.idx170 = shl nsw i64 %287, 3
+  %288 = getelementptr inbounds i8, ptr %spec.select.i.i92, i64 %.idx170
   %.not145153 = icmp eq i32 %286, 0
   br i1 %.not145153, label %._crit_edge157, label %.lr.ph156
 
@@ -3131,7 +3134,8 @@ _ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.ex
   %304 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %305 = load i32, ptr %304, align 8, !tbaa !37
   %306 = sext i32 %305 to i64
-  %307 = getelementptr inbounds ptr, ptr %spec.select.i.i96, i64 %306
+  %.idx171 = shl nsw i64 %306, 3
+  %307 = getelementptr inbounds i8, ptr %spec.select.i.i96, i64 %.idx171
   %.not146158 = icmp eq i32 %305, 0
   br i1 %.not146158, label %._crit_edge162, label %.lr.ph161
 
@@ -3174,7 +3178,8 @@ _ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.ex
   %332 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %333 = load i32, ptr %332, align 8, !tbaa !37
   %334 = sext i32 %333 to i64
-  %335 = getelementptr inbounds ptr, ptr %spec.select.i.i100, i64 %334
+  %.idx172 = shl nsw i64 %334, 3
+  %335 = getelementptr inbounds i8, ptr %spec.select.i.i100, i64 %.idx172
   %.not147163 = icmp eq i32 %333, 0
   br i1 %.not147163, label %.critedge62.thread, label %.lr.ph167
 
@@ -7865,7 +7870,8 @@ _ZSt8distanceISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_tr
 
 20:                                               ; preds = %15
   %21 = xor i64 %.06.i.i, -1
-  %22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %10, i64 %21
+  %.idx = shl nsw i64 %21, 5
+  %22 = getelementptr inbounds i8, ptr %10, i64 %.idx
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %20, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_DpOT0_.exit.i.i.i.i.i
@@ -8647,7 +8653,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %62 = load i32, ptr %61, align 8, !tbaa !37
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %63
+  %.idx = shl nsw i64 %63, 3
+  %64 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not3940 = icmp eq i32 %62, 0
   br i1 %.not3940, label %._crit_edge, label %.lr.ph
 
@@ -10985,7 +10992,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf25EncodedDescr
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %9 = load i32, ptr %8, align 8, !tbaa !37
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %10
+  %.idx = shl nsw i64 %10, 3
+  %11 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not42 = icmp eq i32 %9, 0
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 
@@ -11009,7 +11017,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf25EncodedDescr
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %20 = load i32, ptr %19, align 8, !tbaa !37
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %spec.select.i.i27, i64 %21
+  %.idx51 = shl nsw i64 %21, 3
+  %22 = getelementptr inbounds i8, ptr %spec.select.i.i27, i64 %.idx51
   %.not4044 = icmp eq i32 %20, 0
   br i1 %.not4044, label %.loopexit, label %.lr.ph48
 

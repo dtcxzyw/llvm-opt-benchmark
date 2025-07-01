@@ -405,7 +405,8 @@ _ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_RKNS_
   %117 = getelementptr inbounds nuw i8, ptr %112, i64 56
   %118 = load i32, ptr %117, align 8, !tbaa !34
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %119
+  %.idx = shl nsw i64 %119, 3
+  %120 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not225 = icmp eq i32 %118, 0
   br i1 %.not225, label %.critedge102, label %.lr.ph
 

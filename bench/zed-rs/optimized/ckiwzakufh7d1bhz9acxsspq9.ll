@@ -3853,7 +3853,8 @@ define hidden void @_ZN4gpui8elements4text15InteractiveText8on_click17hd5bbc3df8
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN4gpui8elements4text15InteractiveText8on_click28_$u7b$$u7b$closure$u7d$$u7d$17hb207179715dd82c7E.llvm.1505921883771372646"(ptr noalias noundef readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noalias noundef align 8 dereferenceable(16) %5) unnamed_addr #4 personality ptr @rust_eh_personality {
   %7 = alloca [8 x i8], align 8
-  %8 = getelementptr inbounds { i64, i64 }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %8 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %9 = icmp eq i64 %2, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 

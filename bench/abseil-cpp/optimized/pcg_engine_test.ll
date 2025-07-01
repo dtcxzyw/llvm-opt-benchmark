@@ -5484,7 +5484,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %6
   store ptr %9, ptr %10, align 8, !tbaa !89
   %11 = getelementptr inbounds nuw i32, ptr %9, i64 %2
   store ptr %11, ptr %7, align 8, !tbaa !83
-  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %16
 
@@ -5630,7 +5630,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %6
   store ptr %9, ptr %10, align 8, !tbaa !89
   %11 = getelementptr inbounds nuw i32, ptr %9, i64 %2
   store ptr %11, ptr %7, align 8, !tbaa !83
-  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %16
 

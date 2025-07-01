@@ -6840,7 +6840,8 @@ common.resume:                                    ; preds = %275, %194, %50, %13
   %123 = phi i64 [ %.us-phi.i, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h63328ba02b0e4507E.exit.thread.i" ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h73b5e1e21d69efefE.exit28.i" ], [ %107, %106 ], [ %173, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he665fec132a6f511E.exit.i" ]
   %.sroa.045.0.copyload.i = load i64, ptr %44, align 8, !noalias !1244
   %.sroa.446.0.copyload.i = load ptr, ptr %56, align 8, !noalias !1244, !nonnull !12, !noundef !12
-  %124 = getelementptr inbounds ptr, ptr %.sroa.446.0.copyload.i, i64 %123
+  %.idx.i = shl nsw i64 %123, 3
+  %124 = getelementptr inbounds i8, ptr %.sroa.446.0.copyload.i, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43), !noalias !1244
   store ptr %.sroa.446.0.copyload.i, ptr %43, align 8, !noalias !1244
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 8

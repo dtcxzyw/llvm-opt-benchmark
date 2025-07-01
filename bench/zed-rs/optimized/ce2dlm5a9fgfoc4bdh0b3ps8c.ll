@@ -27617,7 +27617,8 @@ define hidden void @"_ZN83_$LT$proto..context_operation..InsertMessage$u20$as$u2
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load i64, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { i32, i32 }, ptr %8, i64 %10
+  %.idx = shl nsw i64 %10, 3
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -27887,7 +27888,8 @@ define hidden void @"_ZN83_$LT$proto..context_operation..UpdateMessage$u20$as$u2
   %24 = load ptr, ptr %23, align 8, !nonnull !5, !noundef !5
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8, !noundef !5
-  %27 = getelementptr inbounds { i32, i32 }, ptr %24, i64 %26
+  %.idx = shl nsw i64 %26, 3
+  %27 = getelementptr inbounds i8, ptr %24, i64 %.idx
   %28 = icmp eq i64 %26, 0
   br i1 %28, label %._crit_edge, label %.lr.ph
 
@@ -28425,7 +28427,8 @@ _ZN5prost8encoding4bool6encode17h583ad4e0e427f01dE.exit: ; preds = %_ZN5prost8en
   %33 = load ptr, ptr %32, align 8, !nonnull !5, !noundef !5
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i64, ptr %34, align 8, !noundef !5
-  %36 = getelementptr inbounds { i32, i32 }, ptr %33, i64 %35
+  %.idx = shl nsw i64 %35, 3
+  %36 = getelementptr inbounds i8, ptr %33, i64 %.idx
   %37 = icmp eq i64 %35, 0
   br i1 %37, label %._crit_edge, label %.lr.ph
 
@@ -30155,7 +30158,8 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit: ; pr
   %.val9 = load i64, ptr %19, align 8, !alias.scope !6795, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6798)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6801)
-  %20 = getelementptr inbounds { { i64, [11 x i64] }, i64, i8, [7 x i8] }, ptr %.val8, i64 %.val9
+  %.idx.i.i = mul nsw i64 %.val9, 112
+  %20 = getelementptr inbounds i8, ptr %.val8, i64 %.idx.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6804)
   %.val.i.i.i = load ptr, ptr %6, align 8, !alias.scope !6807, !noalias !6810, !nonnull !5, !align !316, !noundef !5
   %21 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 16
@@ -31509,7 +31513,8 @@ define hidden void @"_ZN90_$LT$proto..context_operation..SlashCommandFinished$u2
   %13 = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load i64, ptr %14, align 8, !noundef !5
-  %16 = getelementptr inbounds { { i64, [9 x i64] }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %13, i64 %15
+  %.idx = mul nsw i64 %15, 152
+  %16 = getelementptr inbounds i8, ptr %13, i64 %.idx
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %._crit_edge, label %.lr.ph
 
@@ -31518,7 +31523,8 @@ define hidden void @"_ZN90_$LT$proto..context_operation..SlashCommandFinished$u2
   %19 = load ptr, ptr %18, align 8, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %21 = load i64, ptr %20, align 8, !noundef !5
-  %22 = getelementptr inbounds { i32, i32 }, ptr %19, i64 %21
+  %.idx16 = shl nsw i64 %21, 3
+  %22 = getelementptr inbounds i8, ptr %19, i64 %.idx16
   %23 = icmp eq i64 %21, 0
   br i1 %23, label %._crit_edge15, label %.lr.ph14
 

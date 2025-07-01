@@ -748,7 +748,8 @@ _ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit: ; preds = %143
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %163 = load i32, ptr %162, align 8, !tbaa !12
   %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds nuw i32, ptr %161, i64 %164
+  %.idx = shl nuw nsw i64 %164, 2
+  %165 = getelementptr inbounds nuw i8, ptr %161, i64 %.idx
   %.not80194 = icmp eq i32 %163, 0
   br i1 %.not80194, label %.thread149, label %.lr.ph198
 
@@ -1056,7 +1057,8 @@ _ZNK4llvm9BitVector8set_bitsEv.exit.i:            ; preds = %42
   %.pre-phi.i = phi i64 [ %.pre34.i, %._crit_edge.loopexit.i ], [ %28, %_ZNK4llvm9BitVector8set_bitsEv.exit.i ], [ %28, %24 ], [ %28, %47 ]
   %63 = phi i32 [ %.pre33.i, %._crit_edge.loopexit.i ], [ %27, %_ZNK4llvm9BitVector8set_bitsEv.exit.i ], [ %27, %24 ], [ %27, %47 ]
   %64 = load ptr, ptr %25, align 8, !tbaa !6, !noalias !47
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %.pre-phi.i
+  %.idx.i = shl nuw nsw i64 %.pre-phi.i, 2
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx.i
   %.not21.i = icmp eq i32 %63, 0
   br i1 %.not21.i, label %_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE.exit, label %.lr.ph25.i
 
@@ -1381,7 +1383,8 @@ define internal fastcc noundef zeroext i1 @_ZL14isStrictSubsetRKN4llvm3omp16Vari
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !12
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw i64, ptr %3, i64 %6
+  %.idx.i = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   %.not10.i = icmp eq i32 %5, 0
   br i1 %.not10.i, label %_ZNK4llvm9BitVector5countEv.exit, label %.lr.ph.i
 
@@ -1402,27 +1405,28 @@ _ZNK4llvm9BitVector5countEv.exit:                 ; preds = %.lr.ph.i, %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !12
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw i64, ptr %13, i64 %16
-  %.not10.i17 = icmp eq i32 %15, 0
-  br i1 %.not10.i17, label %_ZNK4llvm9BitVector5countEv.exit23, label %.lr.ph.i18
+  %.idx.i17 = shl nuw nsw i64 %16, 3
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i17
+  %.not10.i18 = icmp eq i32 %15, 0
+  br i1 %.not10.i18, label %_ZNK4llvm9BitVector5countEv.exit24, label %.lr.ph.i19
 
-.lr.ph.i18:                                       ; preds = %_ZNK4llvm9BitVector5countEv.exit, %.lr.ph.i18
-  %.012.i19 = phi i32 [ %21, %.lr.ph.i18 ], [ 0, %_ZNK4llvm9BitVector5countEv.exit ]
-  %.0911.i20 = phi ptr [ %22, %.lr.ph.i18 ], [ %13, %_ZNK4llvm9BitVector5countEv.exit ]
-  %18 = load i64, ptr %.0911.i20, align 8, !tbaa !20
+.lr.ph.i19:                                       ; preds = %_ZNK4llvm9BitVector5countEv.exit, %.lr.ph.i19
+  %.012.i20 = phi i32 [ %21, %.lr.ph.i19 ], [ 0, %_ZNK4llvm9BitVector5countEv.exit ]
+  %.0911.i21 = phi ptr [ %22, %.lr.ph.i19 ], [ %13, %_ZNK4llvm9BitVector5countEv.exit ]
+  %18 = load i64, ptr %.0911.i21, align 8, !tbaa !20
   %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %18)
   %20 = trunc nuw nsw i64 %19 to i32
-  %21 = add i32 %.012.i19, %20
-  %22 = getelementptr inbounds nuw i8, ptr %.0911.i20, i64 8
-  %.not.i21 = icmp eq ptr %22, %17
-  br i1 %.not.i21, label %_ZNK4llvm9BitVector5countEv.exit23, label %.lr.ph.i18
+  %21 = add i32 %.012.i20, %20
+  %22 = getelementptr inbounds nuw i8, ptr %.0911.i21, i64 8
+  %.not.i22 = icmp eq ptr %22, %17
+  br i1 %.not.i22, label %_ZNK4llvm9BitVector5countEv.exit24, label %.lr.ph.i19
 
-_ZNK4llvm9BitVector5countEv.exit23:               ; preds = %.lr.ph.i18, %_ZNK4llvm9BitVector5countEv.exit
-  %.0.lcssa.i22 = phi i32 [ 0, %_ZNK4llvm9BitVector5countEv.exit ], [ %21, %.lr.ph.i18 ]
-  %.not = icmp ult i32 %.0.lcssa.i, %.0.lcssa.i22
+_ZNK4llvm9BitVector5countEv.exit24:               ; preds = %.lr.ph.i19, %_ZNK4llvm9BitVector5countEv.exit
+  %.0.lcssa.i23 = phi i32 [ 0, %_ZNK4llvm9BitVector5countEv.exit ], [ %21, %.lr.ph.i19 ]
+  %.not = icmp ult i32 %.0.lcssa.i, %.0.lcssa.i23
   br i1 %.not, label %23, label %_ZL8isSubsetIN4llvm3omp13TraitPropertyEEbNS0_8ArrayRefIT_EES5_.exit
 
-23:                                               ; preds = %_ZNK4llvm9BitVector5countEv.exit23
+23:                                               ; preds = %_ZNK4llvm9BitVector5countEv.exit24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load i32, ptr %24, align 8, !tbaa !13, !noalias !62
   %26 = icmp eq i32 %25, 0
@@ -1461,8 +1465,8 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %36
   %44 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.231.i.i.i.i.i, i1 true)
   %45 = trunc nuw nsw i64 %44 to i32
   %46 = or disjoint i32 %43, %45
-  %.not4252 = icmp eq i32 %46, -1
-  br i1 %.not4252, label %._crit_edge, label %.lr.ph
+  %.not4454 = icmp eq i32 %46, -1
+  br i1 %.not4454, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm9BitVector8set_bitsEv.exit
   %47 = add i32 %25, -1
@@ -1477,20 +1481,20 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %36
   br label %55
 
 55:                                               ; preds = %.lr.ph, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit
-  %.sroa.4.053 = phi i32 [ %46, %.lr.ph ], [ %89, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit ]
-  %56 = and i32 %.sroa.4.053, 63
+  %.sroa.4.055 = phi i32 [ %46, %.lr.ph ], [ %89, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit ]
+  %56 = and i32 %.sroa.4.055, 63
   %57 = zext nneg i32 %56 to i64
   %58 = shl nuw i64 1, %57
-  %59 = lshr i32 %.sroa.4.053, 6
+  %59 = lshr i32 %.sroa.4.055, 6
   %60 = zext nneg i32 %59 to i64
   %61 = getelementptr inbounds nuw i64, ptr %13, i64 %60
   %62 = load i64, ptr %61, align 8, !tbaa !20
   %63 = and i64 %62, %58
-  %.not43 = icmp eq i64 %63, 0
-  br i1 %.not43, label %_ZL8isSubsetIN4llvm3omp13TraitPropertyEEbNS0_8ArrayRefIT_EES5_.exit, label %64
+  %.not45 = icmp eq i64 %63, 0
+  br i1 %.not45, label %_ZL8isSubsetIN4llvm3omp13TraitPropertyEEbNS0_8ArrayRefIT_EES5_.exit, label %64
 
 64:                                               ; preds = %55
-  %65 = add nuw i32 %.sroa.4.053, 1
+  %65 = add nuw i32 %.sroa.4.055, 1
   %66 = icmp eq i32 %65, %25
   br i1 %66, label %._crit_edge, label %67
 
@@ -1534,8 +1538,8 @@ _ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit: ; preds = %77
   %87 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.231.i.i.i.i, i1 true)
   %88 = trunc nuw nsw i64 %87 to i32
   %89 = or disjoint i32 %86, %88
-  %.not42 = icmp eq i32 %89, -1
-  br i1 %.not42, label %._crit_edge, label %55
+  %.not44 = icmp eq i32 %89, -1
+  br i1 %.not44, label %._crit_edge, label %55
 
 ._crit_edge:                                      ; preds = %41, %67, %64, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit, %84, %23, %_ZNK4llvm9BitVector8set_bitsEv.exit
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -1552,8 +1556,10 @@ _ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit: ; preds = %77
   %99 = load ptr, ptr %98, align 8, !tbaa !6
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %101 = load ptr, ptr %100, align 8, !tbaa !6
-  %102 = getelementptr inbounds nuw i32, ptr %101, i64 %97
-  %103 = getelementptr inbounds nuw i32, ptr %99, i64 %96
+  %.idx30.i = shl nuw nsw i64 %97, 2
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx30.i
+  %.idx.i30 = shl nuw nsw i64 %96, 2
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx.i30
   %.not2025.i = icmp eq i32 %91, 0
   br i1 %.not2025.i, label %_ZL8isSubsetIN4llvm3omp13TraitPropertyEEbNS0_8ArrayRefIT_EES5_.exit, label %.lr.ph.split.preheader.i
 
@@ -1578,11 +1584,11 @@ _ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit: ; preds = %77
   br i1 %or.cond21.i, label %_ZL8isSubsetIN4llvm3omp13TraitPropertyEEbNS0_8ArrayRefIT_EES5_.exit, label %.lr.ph.split.preheader.i, !llvm.loop !65
 
 110:                                              ; preds = %.lr.ph.split.i
-  %.not.i29 = icmp eq ptr %107, %102
-  br i1 %.not.i29, label %_ZL8isSubsetIN4llvm3omp13TraitPropertyEEbNS0_8ArrayRefIT_EES5_.exit, label %.lr.ph.split.i, !llvm.loop !65
+  %.not.i31 = icmp eq ptr %107, %102
+  br i1 %.not.i31, label %_ZL8isSubsetIN4llvm3omp13TraitPropertyEEbNS0_8ArrayRefIT_EES5_.exit, label %.lr.ph.split.i, !llvm.loop !65
 
-_ZL8isSubsetIN4llvm3omp13TraitPropertyEEbNS0_8ArrayRefIT_EES5_.exit: ; preds = %55, %.outer.i, %110, %95, %._crit_edge, %_ZNK4llvm9BitVector5countEv.exit23
-  %.0 = phi i1 [ false, %_ZNK4llvm9BitVector5countEv.exit23 ], [ false, %._crit_edge ], [ true, %95 ], [ true, %110 ], [ %.not20.i, %.outer.i ], [ false, %55 ]
+_ZL8isSubsetIN4llvm3omp13TraitPropertyEEbNS0_8ArrayRefIT_EES5_.exit: ; preds = %55, %.outer.i, %110, %95, %._crit_edge, %_ZNK4llvm9BitVector5countEv.exit24
+  %.0 = phi i1 [ false, %_ZNK4llvm9BitVector5countEv.exit24 ], [ false, %._crit_edge ], [ true, %95 ], [ true, %110 ], [ %.not20.i, %.outer.i ], [ false, %55 ]
   ret i1 %.0
 }
 

@@ -5310,7 +5310,8 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h585d59f15a869c85E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #14 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1202)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h64272f2a26d6d7a8E.llvm.4228390610739757595.exit", label %.lr.ph.i
@@ -10067,6 +10068,7 @@ define internal fastcc void @_ZN5serde9__private2de7content21visit_content_seq_r
   %6 = alloca [96 x i8], align 8
   %7 = alloca [96 x i8], align 8
   %8 = alloca [48 x i8], align 8
+  %.idx = and i64 %1, 576460752303423487
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
@@ -10090,7 +10092,7 @@ define internal fastcc void @_ZN5serde9__private2de7content21visit_content_seq_r
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !1699
   store i64 0, ptr %4, align 8, !noalias !1699
-  invoke void @_ZN5serde2de5Error14invalid_length17hc4c39ab2fe139e86E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %6, i64 noundef %1, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.47af8473826c8c2585696a780e517604.155.llvm.12101516472763982539)
+  invoke void @_ZN5serde2de5Error14invalid_length17hc4c39ab2fe139e86E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %6, i64 noundef %.idx, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.47af8473826c8c2585696a780e517604.155.llvm.12101516472763982539)
           to label %"_ZN5serde2de5value28SeqDeserializer$LT$I$C$E$GT$3end17hc478c828cb25ed28E.exit" unwind label %16
 
 15:                                               ; preds = %2
@@ -10145,6 +10147,7 @@ define internal fastcc void @_ZN5serde9__private2de7content21visit_content_seq_r
   %6 = alloca [96 x i8], align 8
   %7 = alloca [96 x i8], align 8
   %8 = alloca [80 x i8], align 8
+  %.idx = and i64 %1, 576460752303423487
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
@@ -10168,7 +10171,7 @@ define internal fastcc void @_ZN5serde9__private2de7content21visit_content_seq_r
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !1706
   store i64 0, ptr %4, align 8, !noalias !1706
-  invoke void @_ZN5serde2de5Error14invalid_length17hc4c39ab2fe139e86E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %6, i64 noundef %1, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.47af8473826c8c2585696a780e517604.155.llvm.12101516472763982539)
+  invoke void @_ZN5serde2de5Error14invalid_length17hc4c39ab2fe139e86E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %6, i64 noundef %.idx, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.47af8473826c8c2585696a780e517604.155.llvm.12101516472763982539)
           to label %"_ZN5serde2de5value28SeqDeserializer$LT$I$C$E$GT$3end17hc478c828cb25ed28E.exit" unwind label %16
 
 15:                                               ; preds = %2
@@ -10223,6 +10226,7 @@ define internal fastcc void @_ZN5serde9__private2de7content21visit_content_seq_r
   %6 = alloca [96 x i8], align 8
   %7 = alloca [96 x i8], align 8
   %8 = alloca [48 x i8], align 8
+  %.idx = and i64 %1, 576460752303423487
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
@@ -10246,7 +10250,7 @@ define internal fastcc void @_ZN5serde9__private2de7content21visit_content_seq_r
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !1713
   store i64 0, ptr %4, align 8, !noalias !1713
-  invoke void @_ZN5serde2de5Error14invalid_length17hc4c39ab2fe139e86E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %6, i64 noundef %1, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.47af8473826c8c2585696a780e517604.155.llvm.12101516472763982539)
+  invoke void @_ZN5serde2de5Error14invalid_length17hc4c39ab2fe139e86E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %6, i64 noundef %.idx, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.47af8473826c8c2585696a780e517604.155.llvm.12101516472763982539)
           to label %"_ZN5serde2de5value28SeqDeserializer$LT$I$C$E$GT$3end17hc478c828cb25ed28E.exit" unwind label %16
 
 15:                                               ; preds = %2
@@ -10301,6 +10305,7 @@ define internal fastcc void @_ZN5serde9__private2de7content21visit_content_seq_r
   %6 = alloca [96 x i8], align 8
   %7 = alloca [96 x i8], align 8
   %8 = alloca [48 x i8], align 8
+  %.idx = and i64 %1, 576460752303423487
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
@@ -10324,7 +10329,7 @@ define internal fastcc void @_ZN5serde9__private2de7content21visit_content_seq_r
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !1720
   store i64 0, ptr %4, align 8, !noalias !1720
-  invoke void @_ZN5serde2de5Error14invalid_length17hc4c39ab2fe139e86E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %6, i64 noundef %1, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.47af8473826c8c2585696a780e517604.155.llvm.12101516472763982539)
+  invoke void @_ZN5serde2de5Error14invalid_length17hc4c39ab2fe139e86E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %6, i64 noundef %.idx, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.47af8473826c8c2585696a780e517604.155.llvm.12101516472763982539)
           to label %"_ZN5serde2de5value28SeqDeserializer$LT$I$C$E$GT$3end17hc478c828cb25ed28E.exit" unwind label %16
 
 15:                                               ; preds = %2
@@ -10379,6 +10384,7 @@ define internal fastcc void @_ZN5serde9__private2de7content21visit_content_seq_r
   %6 = alloca [96 x i8], align 8
   %7 = alloca [96 x i8], align 8
   %8 = alloca [32 x i8], align 8
+  %.idx = and i64 %1, 576460752303423487
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
@@ -10402,7 +10408,7 @@ define internal fastcc void @_ZN5serde9__private2de7content21visit_content_seq_r
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !1727
   store i64 0, ptr %4, align 8, !noalias !1727
-  invoke void @_ZN5serde2de5Error14invalid_length17hc4c39ab2fe139e86E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %6, i64 noundef %1, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.47af8473826c8c2585696a780e517604.155.llvm.12101516472763982539)
+  invoke void @_ZN5serde2de5Error14invalid_length17hc4c39ab2fe139e86E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %6, i64 noundef %.idx, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.47af8473826c8c2585696a780e517604.155.llvm.12101516472763982539)
           to label %"_ZN5serde2de5value28SeqDeserializer$LT$I$C$E$GT$3end17hc478c828cb25ed28E.exit" unwind label %16
 
 15:                                               ; preds = %2
@@ -10457,6 +10463,7 @@ define internal fastcc void @_ZN5serde9__private2de7content21visit_content_seq_r
   %6 = alloca [96 x i8], align 8
   %7 = alloca [96 x i8], align 8
   %8 = alloca [80 x i8], align 8
+  %.idx = and i64 %1, 576460752303423487
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
@@ -10480,7 +10487,7 @@ define internal fastcc void @_ZN5serde9__private2de7content21visit_content_seq_r
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !1734
   store i64 0, ptr %4, align 8, !noalias !1734
-  invoke void @_ZN5serde2de5Error14invalid_length17hc4c39ab2fe139e86E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %6, i64 noundef %1, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.47af8473826c8c2585696a780e517604.155.llvm.12101516472763982539)
+  invoke void @_ZN5serde2de5Error14invalid_length17hc4c39ab2fe139e86E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %6, i64 noundef %.idx, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.47af8473826c8c2585696a780e517604.155.llvm.12101516472763982539)
           to label %"_ZN5serde2de5value28SeqDeserializer$LT$I$C$E$GT$3end17hc478c828cb25ed28E.exit" unwind label %16
 
 15:                                               ; preds = %2
@@ -10535,6 +10542,7 @@ define internal fastcc void @_ZN5serde9__private2de7content21visit_content_seq_r
   %6 = alloca [96 x i8], align 8
   %7 = alloca [96 x i8], align 8
   %8 = alloca [32 x i8], align 8
+  %.idx = and i64 %1, 576460752303423487
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
@@ -10558,7 +10566,7 @@ define internal fastcc void @_ZN5serde9__private2de7content21visit_content_seq_r
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !1741
   store i64 0, ptr %4, align 8, !noalias !1741
-  invoke void @_ZN5serde2de5Error14invalid_length17hc4c39ab2fe139e86E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %6, i64 noundef %1, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.47af8473826c8c2585696a780e517604.155.llvm.12101516472763982539)
+  invoke void @_ZN5serde2de5Error14invalid_length17hc4c39ab2fe139e86E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %6, i64 noundef %.idx, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.47af8473826c8c2585696a780e517604.155.llvm.12101516472763982539)
           to label %"_ZN5serde2de5value28SeqDeserializer$LT$I$C$E$GT$3end17hc478c828cb25ed28E.exit" unwind label %16
 
 15:                                               ; preds = %2

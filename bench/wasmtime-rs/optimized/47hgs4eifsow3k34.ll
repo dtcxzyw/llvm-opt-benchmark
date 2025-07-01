@@ -3020,7 +3020,8 @@ define hidden noundef ptr @_ZN16wasmtime_runtime9component9resources14ResourceTa
   %25 = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %27 = load i64, ptr %26, align 8, !noundef !4
-  %28 = getelementptr inbounds { { i32, [1 x i32] }, i32 }, ptr %25, i64 %27
+  %.idx = mul nsw i64 %27, 12
+  %28 = getelementptr inbounds i8, ptr %25, i64 %.idx
   %29 = icmp eq i64 %27, 0
   br i1 %29, label %._crit_edge, label %.lr.ph
 

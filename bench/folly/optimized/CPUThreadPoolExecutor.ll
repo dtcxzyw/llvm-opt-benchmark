@@ -8107,7 +8107,8 @@ _ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21C
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm6ESt6atomicE7SegmentES5_St14default_deleteIS7_EEESaISB_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm6ESt6atomicE7SegmentES5_St14default_deleteIS7_EEESaISB_EE16_M_allocate_nodeEv.exit.i
@@ -9340,7 +9341,8 @@ _ZN5folly18threadlocal_detail14StaticMetaBase25getThreadEntrySetsPtrSpanEv.exit:
   %27 = load atomic i32, ptr %10 monotonic, align 4
   %28 = zext i32 %27 to i64
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.sroa.3.0.i.i, i64 %28)
-  %29 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i.i, i64 %.sroa.speculated.i
+  %.idx = shl nuw nsw i64 %.sroa.speculated.i, 3
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %.idx
   %.not42 = icmp eq i64 %.sroa.speculated.i, 0
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 
@@ -15696,7 +15698,8 @@ _ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21C
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE7SegmentES5_St14default_deleteIS7_EEESaISB_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE7SegmentES5_St14default_deleteIS7_EEESaISB_EE16_M_allocate_nodeEv.exit.i
@@ -25522,17 +25525,18 @@ define linkonce_odr void @_ZN5folly6detail13MPMCQueueBaseINS_9MPMCQueueINS_21CPU
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !48
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %20, label %5
+  br i1 %4, label %19, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 -16
   %7 = getelementptr inbounds i8, ptr %3, i64 -8
   %8 = load i64, ptr %7, align 8
+  %.idx = mul i64 %8, 144
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %5
-  %10 = getelementptr inbounds %"struct.folly::detail::SingleElementQueue", ptr %3, i64 %8
+  %10 = getelementptr inbounds i8, ptr %3, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN5folly6detail18SingleElementQueueINS_21CPUThreadPoolExecutor7CPUTaskESt6atomicED2Ev.exit
@@ -25553,12 +25557,11 @@ _ZN5folly6detail18SingleElementQueueINS_21CPUThreadPoolExecutor7CPUTaskESt6atomi
   br i1 %17, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %_ZN5folly6detail18SingleElementQueueINS_21CPUThreadPoolExecutor7CPUTaskESt6atomicED2Ev.exit, %5
-  %18 = mul i64 %8, 144
-  %19 = add i64 %18, 16
-  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %19) #41
-  br label %20
+  %18 = add i64 %.idx, 16
+  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %18) #41
+  br label %19
 
-20:                                               ; preds = %.loopexit, %1
+19:                                               ; preds = %.loopexit, %1
   ret void
 }
 
@@ -25978,7 +25981,7 @@ define linkonce_odr void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5folly9MPMCQueue
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %_ZSt8_DestroyIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0ESaIS3_EEEEvPT_.exit
-  %.06 = phi ptr [ %56, %_ZSt8_DestroyIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0ESaIS3_EEEEvPT_.exit ], [ %0, %2 ]
+  %.06 = phi ptr [ %55, %_ZSt8_DestroyIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0ESaIS3_EEEEvPT_.exit ], [ %0, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.06, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !48
   %5 = icmp eq ptr %4, null
@@ -25988,11 +25991,12 @@ define linkonce_odr void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN5folly9MPMCQueue
   %7 = getelementptr inbounds i8, ptr %4, i64 -16
   %8 = getelementptr inbounds i8, ptr %4, i64 -8
   %9 = load i64, ptr %8, align 8
+  %.idx.i.i = mul i64 %9, 144
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %.loopexit.i.i, label %.preheader.preheader.i.i
 
 .preheader.preheader.i.i:                         ; preds = %6
-  %11 = getelementptr inbounds %"struct.folly::detail::SingleElementQueue", ptr %4, i64 %9
+  %11 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN5folly6detail18SingleElementQueueINS_21CPUThreadPoolExecutor7CPUTaskESt6atomicED2Ev.exit.i.i, %.preheader.preheader.i.i
@@ -26091,15 +26095,14 @@ _ZN5folly6detail18SingleElementQueueINS_21CPUThreadPoolExecutor7CPUTaskESt6atomi
   br i1 %53, label %.loopexit.i.i, label %.preheader.i.i
 
 .loopexit.i.i:                                    ; preds = %_ZN5folly6detail18SingleElementQueueINS_21CPUThreadPoolExecutor7CPUTaskESt6atomicED2Ev.exit.i.i, %6
-  %54 = mul i64 %9, 144
-  %55 = add i64 %54, 16
-  tail call void @_ZdaPvm(ptr noundef nonnull %7, i64 noundef %55) #41
+  %54 = add i64 %.idx.i.i, 16
+  tail call void @_ZdaPvm(ptr noundef nonnull %7, i64 noundef %54) #41
   br label %_ZSt8_DestroyIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0ESaIS3_EEEEvPT_.exit
 
 _ZSt8_DestroyIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0ESaIS3_EEEEvPT_.exit: ; preds = %.lr.ph, %.loopexit.i.i
   store ptr null, ptr %3, align 8, !tbaa !48
-  %56 = getelementptr inbounds nuw i8, ptr %.06, i64 320
-  %.not = icmp eq ptr %56, %1
+  %55 = getelementptr inbounds nuw i8, ptr %.06, i64 320
+  %.not = icmp eq ptr %55, %1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !919
 
 ._crit_edge:                                      ; preds = %_ZSt8_DestroyIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0ESaIS3_EEEEvPT_.exit, %2

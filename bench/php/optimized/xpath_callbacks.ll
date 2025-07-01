@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.zend_get_gc_buffer = type { ptr, ptr, ptr }
 %struct._zend_call_stack = type { ptr, i64 }
 %struct._zend_strtod_state = type { [8 x ptr], ptr, ptr }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct._zend_fcall_info = type { i64, %struct._zval_struct, ptr, ptr, ptr, i32, ptr }
 
 @.str = private unnamed_addr constant [51 x i8] c"Function name must be passed as the first argument\00", align 1
@@ -212,7 +211,8 @@ define dso_local void @php_dom_xpath_callbacks_dtor(ptr noundef captures(none) %
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %12 = load i32, ptr %11, align 8, !tbaa !28
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %struct._Bucket, ptr %10, i64 %13
+  %.idx = shl nuw nsw i64 %13, 5
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !13
   %17 = and i32 %16, 4
@@ -284,7 +284,8 @@ define dso_local void @php_dom_xpath_callbacks_get_gc(ptr noundef readonly captu
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !28
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %struct._Bucket, ptr %6, i64 %9
+  %.idx.i = shl nuw nsw i64 %9, 5
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !13
   %13 = and i32 %12, 4
@@ -379,72 +380,74 @@ php_dom_xpath_callback_ns_get_gc.exit:            ; preds = %zend_get_gc_buffer_
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %53 = load i32, ptr %52, align 8, !tbaa !28
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %struct._Bucket, ptr %51, i64 %54
+  %.idx = shl nuw nsw i64 %54, 5
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %57 = load i32, ptr %56, align 8, !tbaa !13
   %58 = and i32 %57, 4
   %.not20 = icmp eq i32 %58, 0
   tail call void @llvm.assume(i1 %.not20)
-  %.not2135 = icmp eq i32 %53, 0
-  br i1 %.not2135, label %.loopexit, label %.lr.ph
+  %.not2136 = icmp eq i32 %53, 0
+  br i1 %.not2136, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %49
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %60
 
-60:                                               ; preds = %.lr.ph, %php_dom_xpath_callback_ns_get_gc.exit34
-  %.036 = phi ptr [ %51, %.lr.ph ], [ %106, %php_dom_xpath_callback_ns_get_gc.exit34 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.036, i64 8
+60:                                               ; preds = %.lr.ph, %php_dom_xpath_callback_ns_get_gc.exit35
+  %.037 = phi ptr [ %51, %.lr.ph ], [ %106, %php_dom_xpath_callback_ns_get_gc.exit35 ]
+  %61 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   %62 = load i8, ptr %61, align 8, !tbaa !13
   %63 = icmp eq i8 %62, 0
-  br i1 %63, label %php_dom_xpath_callback_ns_get_gc.exit34, label %64, !prof !21
+  br i1 %63, label %php_dom_xpath_callback_ns_get_gc.exit35, label %64, !prof !21
 
 64:                                               ; preds = %60
-  %65 = load ptr, ptr %.036, align 8, !tbaa !13
+  %65 = load ptr, ptr %.037, align 8, !tbaa !13
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !13
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %69 = load i32, ptr %68, align 8, !tbaa !28
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %struct._Bucket, ptr %67, i64 %70
+  %.idx.i22 = shl nuw nsw i64 %70, 5
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i22
   %72 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !13
   %74 = and i32 %73, 4
-  %.not.i22 = icmp eq i32 %74, 0
-  tail call void @llvm.assume(i1 %.not.i22)
-  %.not1315.i23 = icmp eq i32 %69, 0
-  br i1 %.not1315.i23, label %php_dom_xpath_callback_ns_get_gc.exit34, label %.lr.ph.i24
+  %.not.i23 = icmp eq i32 %74, 0
+  tail call void @llvm.assume(i1 %.not.i23)
+  %.not1315.i24 = icmp eq i32 %69, 0
+  br i1 %.not1315.i24, label %php_dom_xpath_callback_ns_get_gc.exit35, label %.lr.ph.i25
 
-.lr.ph.i24:                                       ; preds = %64, %zend_get_gc_buffer_add_fcc.exit.i30
-  %.016.i25 = phi ptr [ %105, %zend_get_gc_buffer_add_fcc.exit.i30 ], [ %67, %64 ]
-  %75 = getelementptr inbounds nuw i8, ptr %.016.i25, i64 8
+.lr.ph.i25:                                       ; preds = %64, %zend_get_gc_buffer_add_fcc.exit.i31
+  %.016.i26 = phi ptr [ %105, %zend_get_gc_buffer_add_fcc.exit.i31 ], [ %67, %64 ]
+  %75 = getelementptr inbounds nuw i8, ptr %.016.i26, i64 8
   %76 = load i8, ptr %75, align 8, !tbaa !13
   %77 = icmp eq i8 %76, 0
-  br i1 %77, label %zend_get_gc_buffer_add_fcc.exit.i30, label %78, !prof !21
+  br i1 %77, label %zend_get_gc_buffer_add_fcc.exit.i31, label %78, !prof !21
 
-78:                                               ; preds = %.lr.ph.i24
-  %79 = load ptr, ptr %.016.i25, align 8, !tbaa !13
+78:                                               ; preds = %.lr.ph.i25
+  %79 = load ptr, ptr %.016.i26, align 8, !tbaa !13
   %80 = load ptr, ptr %79, align 8, !tbaa !14
   %81 = icmp ne ptr %80, null
   tail call void @llvm.assume(i1 %81)
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %83 = load ptr, ptr %82, align 8, !tbaa !19
-  %.not.i.i26 = icmp eq ptr %83, null
-  br i1 %.not.i.i26, label %93, label %84
+  %.not.i.i27 = icmp eq ptr %83, null
+  br i1 %.not.i.i27, label %93, label %84
 
 84:                                               ; preds = %78
   %85 = load ptr, ptr %1, align 8, !tbaa !29
   %86 = load ptr, ptr %59, align 8, !tbaa !32
   %87 = icmp eq ptr %85, %86
-  br i1 %87, label %88, label %zend_get_gc_buffer_add_obj.exit14.i27, !prof !21
+  br i1 %87, label %88, label %zend_get_gc_buffer_add_obj.exit14.i28, !prof !21
 
 88:                                               ; preds = %84
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %1) #9
-  %.pre.i33 = load ptr, ptr %1, align 8, !tbaa !29
-  br label %zend_get_gc_buffer_add_obj.exit14.i27
+  %.pre.i34 = load ptr, ptr %1, align 8, !tbaa !29
+  br label %zend_get_gc_buffer_add_obj.exit14.i28
 
-zend_get_gc_buffer_add_obj.exit14.i27:            ; preds = %88, %84
-  %89 = phi ptr [ %85, %84 ], [ %.pre.i33, %88 ]
+zend_get_gc_buffer_add_obj.exit14.i28:            ; preds = %88, %84
+  %89 = phi ptr [ %85, %84 ], [ %.pre.i34, %88 ]
   store ptr %83, ptr %89, align 8, !tbaa !13
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i32 776, ptr %90, align 8, !tbaa !13
@@ -453,44 +456,44 @@ zend_get_gc_buffer_add_obj.exit14.i27:            ; preds = %88, %84
   store ptr %92, ptr %1, align 8, !tbaa !29
   br label %93
 
-93:                                               ; preds = %zend_get_gc_buffer_add_obj.exit14.i27, %78
+93:                                               ; preds = %zend_get_gc_buffer_add_obj.exit14.i28, %78
   %94 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %95 = load ptr, ptr %94, align 8, !tbaa !22
-  %.not8.i.i28 = icmp eq ptr %95, null
-  br i1 %.not8.i.i28, label %zend_get_gc_buffer_add_fcc.exit.i30, label %96
+  %.not8.i.i29 = icmp eq ptr %95, null
+  br i1 %.not8.i.i29, label %zend_get_gc_buffer_add_fcc.exit.i31, label %96
 
 96:                                               ; preds = %93
   %97 = load ptr, ptr %1, align 8, !tbaa !29
   %98 = load ptr, ptr %59, align 8, !tbaa !32
   %99 = icmp eq ptr %97, %98
-  br i1 %99, label %100, label %zend_get_gc_buffer_add_obj.exit.i29, !prof !21
+  br i1 %99, label %100, label %zend_get_gc_buffer_add_obj.exit.i30, !prof !21
 
 100:                                              ; preds = %96
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %1) #9
-  %.pre17.i32 = load ptr, ptr %1, align 8, !tbaa !29
-  br label %zend_get_gc_buffer_add_obj.exit.i29
+  %.pre17.i33 = load ptr, ptr %1, align 8, !tbaa !29
+  br label %zend_get_gc_buffer_add_obj.exit.i30
 
-zend_get_gc_buffer_add_obj.exit.i29:              ; preds = %100, %96
-  %101 = phi ptr [ %97, %96 ], [ %.pre17.i32, %100 ]
+zend_get_gc_buffer_add_obj.exit.i30:              ; preds = %100, %96
+  %101 = phi ptr [ %97, %96 ], [ %.pre17.i33, %100 ]
   store ptr %95, ptr %101, align 8, !tbaa !13
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i32 776, ptr %102, align 8, !tbaa !13
   %103 = load ptr, ptr %1, align 8, !tbaa !29
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   store ptr %104, ptr %1, align 8, !tbaa !29
-  br label %zend_get_gc_buffer_add_fcc.exit.i30
+  br label %zend_get_gc_buffer_add_fcc.exit.i31
 
-zend_get_gc_buffer_add_fcc.exit.i30:              ; preds = %zend_get_gc_buffer_add_obj.exit.i29, %93, %.lr.ph.i24
-  %105 = getelementptr inbounds nuw i8, ptr %.016.i25, i64 32
-  %.not13.i31 = icmp eq ptr %105, %71
-  br i1 %.not13.i31, label %php_dom_xpath_callback_ns_get_gc.exit34, label %.lr.ph.i24
+zend_get_gc_buffer_add_fcc.exit.i31:              ; preds = %zend_get_gc_buffer_add_obj.exit.i30, %93, %.lr.ph.i25
+  %105 = getelementptr inbounds nuw i8, ptr %.016.i26, i64 32
+  %.not13.i32 = icmp eq ptr %105, %71
+  br i1 %.not13.i32, label %php_dom_xpath_callback_ns_get_gc.exit35, label %.lr.ph.i25
 
-php_dom_xpath_callback_ns_get_gc.exit34:          ; preds = %zend_get_gc_buffer_add_fcc.exit.i30, %64, %60
-  %106 = getelementptr inbounds nuw i8, ptr %.036, i64 32
+php_dom_xpath_callback_ns_get_gc.exit35:          ; preds = %zend_get_gc_buffer_add_fcc.exit.i31, %64, %60
+  %106 = getelementptr inbounds nuw i8, ptr %.037, i64 32
   %.not21 = icmp eq ptr %106, %55
   br i1 %.not21, label %.loopexit, label %60
 
-.loopexit:                                        ; preds = %php_dom_xpath_callback_ns_get_gc.exit34, %49, %php_dom_xpath_callback_ns_get_gc.exit
+.loopexit:                                        ; preds = %php_dom_xpath_callback_ns_get_gc.exit35, %49, %php_dom_xpath_callback_ns_get_gc.exit
   ret void
 }
 
@@ -564,7 +567,8 @@ define dso_local void @php_dom_xpath_callbacks_delayed_lib_registration(ptr noun
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = load i32, ptr %9, align 8, !tbaa !28
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct._Bucket, ptr %8, i64 %11
+  %.idx = shl nuw nsw i64 %11, 5
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !13
   %15 = and i32 %14, 4
@@ -589,7 +593,8 @@ define dso_local void @php_dom_xpath_callbacks_delayed_lib_registration(ptr noun
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !28
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct._Bucket, ptr %24, i64 %27
+  %.idx40 = shl nuw nsw i64 %27, 5
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx40
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %30 = load i32, ptr %29, align 8, !tbaa !13
   %31 = and i32 %30, 4

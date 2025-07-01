@@ -1915,100 +1915,100 @@ define weak_odr noundef i64 @_ZNK7rocksdb11clock_cache15ClockCacheShardINS0_20Fi
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load i32, ptr %3, align 32, !tbaa !108
   %5 = zext nneg i32 %4 to i64
-  %6 = shl nuw i64 1, %5
-  %7 = getelementptr inbounds nuw %"struct.rocksdb::clock_cache::FixedHyperClockTable::HandleImpl", ptr %2, i64 %6
-  %8 = load i32, ptr %0, align 64, !tbaa !4
-  %.fr4 = freeze i32 %8
-  %9 = icmp eq i32 %.fr4, 1
-  br i1 %9, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  %.idx = shl nuw i64 64, %5
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
+  %7 = load i32, ptr %0, align 64, !tbaa !4
+  %.fr4 = freeze i32 %7
+  %8 = icmp eq i32 %.fr4, 1
+  br i1 %8, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %27
-  %.3 = phi i64 [ %.5, %27 ], [ 0, %.lr.ph.i ]
-  %.01.us.i = phi ptr [ %28, %27 ], [ %2, %.lr.ph.i ]
-  %10 = getelementptr inbounds nuw i8, ptr %.01.us.i, i64 40
-  %11 = load atomic i64, ptr %10 monotonic, align 8
-  %12 = and i64 %11, 4611686018427387904
-  %.not.us.i = icmp eq i64 %12, 0
-  br i1 %.not.us.i, label %27, label %13
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %26
+  %.3 = phi i64 [ %.5, %26 ], [ 0, %.lr.ph.i ]
+  %.01.us.i = phi ptr [ %27, %26 ], [ %2, %.lr.ph.i ]
+  %9 = getelementptr inbounds nuw i8, ptr %.01.us.i, i64 40
+  %10 = load atomic i64, ptr %9 monotonic, align 8
+  %11 = and i64 %10, 4611686018427387904
+  %.not.us.i = icmp eq i64 %11, 0
+  br i1 %.not.us.i, label %26, label %12
 
-13:                                               ; preds = %.lr.ph.split.us.i
-  %14 = atomicrmw add ptr %10, i64 1 acq_rel, align 8
-  %15 = and i64 %14, 4611686018427387904
-  %.not16.us.i = icmp eq i64 %15, 0
-  br i1 %.not16.us.i, label %27, label %16
+12:                                               ; preds = %.lr.ph.split.us.i
+  %13 = atomicrmw add ptr %9, i64 1 acq_rel, align 8
+  %14 = and i64 %13, 4611686018427387904
+  %.not16.us.i = icmp eq i64 %14, 0
+  br i1 %.not16.us.i, label %26, label %15
 
-16:                                               ; preds = %13
-  %17 = load atomic i64, ptr %10 monotonic, align 8
-  %18 = lshr i64 %17, 30
-  %19 = sub i64 %17, %18
-  %20 = and i64 %19, 1073741822
-  %.not.i.us.i = icmp eq i64 %20, 0
-  br i1 %.not.i.us.i, label %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i, label %21
+15:                                               ; preds = %12
+  %16 = load atomic i64, ptr %9 monotonic, align 8
+  %17 = lshr i64 %16, 30
+  %18 = sub i64 %16, %17
+  %19 = and i64 %18, 1073741822
+  %.not.i.us.i = icmp eq i64 %19, 0
+  br i1 %.not.i.us.i, label %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i, label %20
 
-21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw i8, ptr %.01.us.i, i64 32
-  %23 = load i64, ptr %22, align 8, !tbaa !35
-  %24 = add i64 %.3, 64
-  %25 = add i64 %24, %23
+20:                                               ; preds = %15
+  %21 = getelementptr inbounds nuw i8, ptr %.01.us.i, i64 32
+  %22 = load i64, ptr %21, align 8, !tbaa !35
+  %23 = add i64 %.3, 64
+  %24 = add i64 %23, %22
   br label %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i
 
-_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i: ; preds = %21, %16
-  %.4 = phi i64 [ %.3, %16 ], [ %25, %21 ]
-  %26 = atomicrmw sub ptr %10, i64 1 acq_rel, align 8
-  br label %27
+_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i: ; preds = %20, %15
+  %.4 = phi i64 [ %.3, %15 ], [ %24, %20 ]
+  %25 = atomicrmw sub ptr %9, i64 1 acq_rel, align 8
+  br label %26
 
-27:                                               ; preds = %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i, %13, %.lr.ph.split.us.i
-  %.5 = phi i64 [ %.3, %.lr.ph.split.us.i ], [ %.3, %13 ], [ %.4, %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i ]
-  %28 = getelementptr inbounds nuw i8, ptr %.01.us.i, i64 64
-  %29 = icmp ult ptr %28, %7
-  br i1 %29, label %.lr.ph.split.us.i, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit, !llvm.loop !109
+26:                                               ; preds = %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i, %12, %.lr.ph.split.us.i
+  %.5 = phi i64 [ %.3, %.lr.ph.split.us.i ], [ %.3, %12 ], [ %.4, %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.us.i ]
+  %27 = getelementptr inbounds nuw i8, ptr %.01.us.i, i64 64
+  %28 = icmp ult ptr %27, %6
+  br i1 %28, label %.lr.ph.split.us.i, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit, !llvm.loop !109
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %46
-  %.0 = phi i64 [ %.2, %46 ], [ 0, %.lr.ph.i ]
-  %.01.i = phi ptr [ %47, %46 ], [ %2, %.lr.ph.i ]
-  %30 = getelementptr inbounds nuw i8, ptr %.01.i, i64 40
-  %31 = load atomic i64, ptr %30 monotonic, align 8
-  %32 = and i64 %31, 4611686018427387904
-  %.not.i = icmp eq i64 %32, 0
-  br i1 %.not.i, label %46, label %33
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %45
+  %.0 = phi i64 [ %.2, %45 ], [ 0, %.lr.ph.i ]
+  %.01.i = phi ptr [ %46, %45 ], [ %2, %.lr.ph.i ]
+  %29 = getelementptr inbounds nuw i8, ptr %.01.i, i64 40
+  %30 = load atomic i64, ptr %29 monotonic, align 8
+  %31 = and i64 %30, 4611686018427387904
+  %.not.i = icmp eq i64 %31, 0
+  br i1 %.not.i, label %45, label %32
 
-33:                                               ; preds = %.lr.ph.split.i
-  %34 = atomicrmw add ptr %30, i64 1 acq_rel, align 8
-  %35 = and i64 %34, 4611686018427387904
-  %.not16.i = icmp eq i64 %35, 0
-  br i1 %.not16.i, label %46, label %36
+32:                                               ; preds = %.lr.ph.split.i
+  %33 = atomicrmw add ptr %29, i64 1 acq_rel, align 8
+  %34 = and i64 %33, 4611686018427387904
+  %.not16.i = icmp eq i64 %34, 0
+  br i1 %.not16.i, label %45, label %35
 
-36:                                               ; preds = %33
-  %37 = load atomic i64, ptr %30 monotonic, align 8
-  %38 = lshr i64 %37, 30
-  %39 = sub i64 %37, %38
-  %40 = and i64 %39, 1073741822
-  %.not.i.i = icmp eq i64 %40, 0
-  br i1 %.not.i.i, label %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i, label %41
+35:                                               ; preds = %32
+  %36 = load atomic i64, ptr %29 monotonic, align 8
+  %37 = lshr i64 %36, 30
+  %38 = sub i64 %36, %37
+  %39 = and i64 %38, 1073741822
+  %.not.i.i = icmp eq i64 %39, 0
+  br i1 %.not.i.i, label %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i, label %40
 
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds nuw i8, ptr %.01.i, i64 32
-  %43 = load i64, ptr %42, align 8, !tbaa !35
-  %44 = add i64 %43, %.0
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw i8, ptr %.01.i, i64 32
+  %42 = load i64, ptr %41, align 8, !tbaa !35
+  %43 = add i64 %42, %.0
   br label %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i
 
-_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i: ; preds = %41, %36
-  %.1 = phi i64 [ %.0, %36 ], [ %44, %41 ]
-  %45 = atomicrmw sub ptr %30, i64 1 acq_rel, align 8
-  br label %46
+_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i: ; preds = %40, %35
+  %.1 = phi i64 [ %.0, %35 ], [ %43, %40 ]
+  %44 = atomicrmw sub ptr %29, i64 1 acq_rel, align 8
+  br label %45
 
-46:                                               ; preds = %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i, %33, %.lr.ph.split.i
-  %.2 = phi i64 [ %.0, %.lr.ph.split.i ], [ %.0, %33 ], [ %.1, %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i ]
-  %47 = getelementptr inbounds nuw i8, ptr %.01.i, i64 64
-  %48 = icmp ult ptr %47, %7
-  br i1 %48, label %.lr.ph.split.i, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit, !llvm.loop !109
+45:                                               ; preds = %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i, %32, %.lr.ph.split.i
+  %.2 = phi i64 [ %.0, %.lr.ph.split.i ], [ %.0, %32 ], [ %.1, %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i ]
+  %46 = getelementptr inbounds nuw i8, ptr %.01.i, i64 64
+  %47 = icmp ult ptr %46, %6
+  br i1 %47, label %.lr.ph.split.i, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit, !llvm.loop !109
 
-_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit: ; preds = %46, %27
-  %.6 = phi i64 [ %.5, %27 ], [ %.2, %46 ]
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %50 = load atomic i64, ptr %49 monotonic, align 16
-  %51 = add i64 %50, %.6
-  ret i64 %51
+_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit: ; preds = %45, %26
+  %.6 = phi i64 [ %.5, %26 ], [ %.2, %45 ]
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %49 = load atomic i64, ptr %48 monotonic, align 16
+  %50 = add i64 %49, %.6
+  ret i64 %50
 }
 
 ; Function Attrs: mustprogress uwtable

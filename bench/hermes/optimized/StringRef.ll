@@ -2632,7 +2632,8 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N4llvh7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %arraydestroy.body.i.preheader
 
 arraydestroy.body.i.preheader:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.llvh::APFloat", ptr %0, i64 %2
+  %delete.end.idx.i = shl nsw i64 %2, 5
+  %delete.end.i = getelementptr inbounds i8, ptr %0, i64 %delete.end.idx.i
   %call.i1 = tail call noundef nonnull align 1 ptr @_ZN4llvh11APFloatBase15PPCDoubleDoubleEv() #21
   br label %arraydestroy.body.i
 

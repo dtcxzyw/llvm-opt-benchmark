@@ -2580,7 +2580,8 @@ define noundef zeroext i1 @_ZN5uu_rm6remove17h641699c8246c7794E(ptr noalias noun
   %80 = alloca [1 x { ptr, ptr }], align 8
   %81 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %82 = alloca ptr, align 8
-  %83 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 4
+  %83 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %84 = icmp eq i64 %1, 0
   br i1 %84, label %._crit_edge, label %.lr.ph
 

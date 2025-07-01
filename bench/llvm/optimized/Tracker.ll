@@ -3,12 +3,6 @@ source_filename = "bench/llvm/original/Tracker.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::unique_ptr.113" = type { %"struct.std::__uniq_ptr_data.114" }
-%"struct.std::__uniq_ptr_data.114" = type { %"class.std::__uniq_ptr_impl.115" }
-%"class.std::__uniq_ptr_impl.115" = type { %"class.std::tuple.116" }
-%"class.std::tuple.116" = type { %"struct.std::_Tuple_impl.117" }
-%"struct.std::_Tuple_impl.117" = type { %"struct.std::_Head_base.120" }
-%"struct.std::_Head_base.120" = type { ptr }
 %"class.llvm::SmallVector.9" = type { %"class.llvm::SmallVectorImpl.10", %"struct.llvm::SmallVectorStorage.13" }
 %"class.llvm::SmallVectorImpl.10" = type { %"class.llvm::SmallVectorTemplateBase.11" }
 %"class.llvm::SmallVectorTemplateBase.11" = type { %"class.llvm::SmallVectorTemplateCommon.12" }
@@ -248,7 +242,8 @@ define dso_local void @_ZN4llvm9sandboxir7TrackerD2Ev(ptr noundef nonnull readon
 
 .lr.ph.i.preheader.i:                             ; preds = %1
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %"class.std::unique_ptr.113", ptr %2, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 3
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12IRChangeBaseESt14default_deleteIS2_EED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -321,7 +316,8 @@ define dso_local void @_ZN4llvm9sandboxir15EraseFromParentC2EOSt10unique_ptrINS0
 
 .lr.ph42:                                         ; preds = %2
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %.idx = shl nuw nsw i64 %20, 3
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -333,11 +329,11 @@ define dso_local void @_ZN4llvm9sandboxir15EraseFromParentC2EOSt10unique_ptrINS0
   br label %46
 
 ._crit_edge43.loopexit:                           ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj6EED2Ev.exit
-  %.pre47 = load ptr, ptr %3, align 8, !tbaa !28
+  %.pre48 = load ptr, ptr %3, align 8, !tbaa !28
   br label %._crit_edge43
 
 ._crit_edge43:                                    ; preds = %._crit_edge43.loopexit, %2
-  %30 = phi ptr [ %.pre47, %._crit_edge43.loopexit ], [ %17, %2 ]
+  %30 = phi ptr [ %.pre48, %._crit_edge43.loopexit ], [ %17, %2 ]
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !18
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -400,13 +396,14 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit: ; preds = %46, %53
 _ZN4llvm4User8operandsEv.exit:                    ; preds = %57, %60
   %65 = phi ptr [ %59, %57 ], [ %64, %60 ]
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %57 ], [ %62, %60 ]
-  %66 = getelementptr inbounds nuw %"class.llvm::Use", ptr %65, i64 %.pre-phi2.i.i
+  %.idx44 = shl nuw nsw i64 %.pre-phi2.i.i, 5
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx44
   %.not3637 = icmp eq i64 %.pre-phi2.i.i, 0
-  %.pre45 = load i32, ptr %23, align 8, !tbaa !30
+  %.pre46 = load i32, ptr %23, align 8, !tbaa !30
   br i1 %.not3637, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit, %_ZN4llvm4User8operandsEv.exit
-  %67 = phi i32 [ %.pre45, %_ZN4llvm4User8operandsEv.exit ], [ %123, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit ]
+  %67 = phi i32 [ %.pre46, %_ZN4llvm4User8operandsEv.exit ], [ %123, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #10
   store ptr %25, ptr %5, align 8, !tbaa !28
   store i32 0, ptr %26, align 8, !tbaa !30
@@ -426,11 +423,11 @@ _ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.i: ; preds = %68
   br i1 %.not.i.i.i, label %.sink.split.i.i, label %_ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge
 
 _ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge: ; preds = %_ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.i
-  %.pre46 = load ptr, ptr %5, align 8, !tbaa !28
+  %.pre47 = load ptr, ptr %5, align 8, !tbaa !28
   br label %_ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.thread.i
 
 _ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.thread.i: ; preds = %_ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge, %68
-  %71 = phi ptr [ %.pre46, %_ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge ], [ %25, %68 ]
+  %71 = phi ptr [ %.pre47, %_ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge ], [ %25, %68 ]
   %72 = phi i32 [ %.pre.i, %_ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge ], [ %67, %68 ]
   %73 = zext i32 %72 to i64
   %74 = load ptr, ptr %4, align 8, !tbaa !28
@@ -525,7 +522,7 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj6EED2Ev.exit:  ; preds = %_ZN4llvm9sandboxir1
   br i1 %.not, label %._crit_edge43.loopexit, label %46
 
 .lr.ph:                                           ; preds = %_ZN4llvm4User8operandsEv.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit
-  %111 = phi i32 [ %123, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit ], [ %.pre45, %_ZN4llvm4User8operandsEv.exit ]
+  %111 = phi i32 [ %123, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit ], [ %.pre46, %_ZN4llvm4User8operandsEv.exit ]
   %.sroa.022.038 = phi ptr [ %124, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit ], [ %65, %_ZN4llvm4User8operandsEv.exit ]
   %112 = load ptr, ptr %.sroa.022.038, align 8, !tbaa !67
   %113 = load i32, ptr %24, align 4, !tbaa !34
@@ -569,7 +566,8 @@ define dso_local void @_ZN4llvm9sandboxir15EraseFromParent6acceptEv(ptr noundef 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !30
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::sandboxir::EraseFromParent::InstrAndOperands", ptr %3, i64 %6
+  %.idx = mul nuw nsw i64 %6, 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not8 = icmp eq i32 %5, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -665,7 +663,8 @@ _ZN4llvm9sandboxir15EraseFromParent16InstrAndOperandsC2ERKS2_.exit: ; preds = %2
   %34 = load ptr, ptr %3, align 8, !tbaa !28, !noalias !71
   %35 = load i32, ptr %8, align 8, !tbaa !30, !noalias !76
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %36
+  %.idx = shl nuw nsw i64 %36, 3
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
   %.not9799 = icmp eq i32 %35, 0
   br i1 %.not9799, label %._crit_edge, label %.lr.ph
 
@@ -680,8 +679,8 @@ _ZN4llvm9sandboxir15EraseFromParent16InstrAndOperandsC2ERKS2_.exit: ; preds = %2
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load i32, ptr %42, align 8, !tbaa !30
   %44 = zext i32 %43 to i64
-  %.idx = mul nuw nsw i64 %44, 72
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx
+  %.idx114 = mul nuw nsw i64 %44, 72
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx114
   %.not47108 = icmp eq i32 %43, 1
   br i1 %.not47108, label %._crit_edge113, label %.lr.ph112
 
@@ -833,7 +832,8 @@ _ZN4llvm9sandboxir15EraseFromParent16InstrAndOperandsC2ERKS2_.exit62: ; preds = 
   %102 = load ptr, ptr %4, align 8, !tbaa !28, !noalias !92
   %103 = load i32, ptr %47, align 8, !tbaa !30, !noalias !97
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw ptr, ptr %102, i64 %104
+  %.idx115 = shl nuw nsw i64 %104, 3
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 %.idx115
   %.not98102 = icmp eq i32 %103, 0
   %.pre = load ptr, ptr %49, align 8, !tbaa !58
   br i1 %.not98102, label %._crit_edge106, label %.lr.ph105
@@ -1153,7 +1153,8 @@ define dso_local void @_ZN4llvm9sandboxir16SwitchRemoveCase6revertERNS0_7Tracker
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8, !tbaa !30
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::sandboxir::SwitchRemoveCase::Case", ptr %13, i64 %16
+  %.idx = shl nuw nsw i64 %16, 4
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %.not14 = icmp eq i32 %15, 0
   br i1 %.not14, label %._crit_edge18, label %.lr.ph17
 
@@ -1421,7 +1422,8 @@ define dso_local void @_ZN4llvm9sandboxir7Tracker6revertEv(ptr noundef nonnull a
 
 .lr.ph.preheader:                                 ; preds = %1
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"class.std::unique_ptr.113", ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -1432,7 +1434,8 @@ define dso_local void @_ZN4llvm9sandboxir7Tracker6revertEv(ptr noundef nonnull a
 
 .lr.ph.i.preheader.i:                             ; preds = %._crit_edge
   %8 = zext i32 %.pre10 to i64
-  %9 = getelementptr inbounds nuw %"class.std::unique_ptr.113", ptr %.pre, i64 %8
+  %.idx.i = shl nuw nsw i64 %8, 3
+  %9 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12IRChangeBaseESt14default_deleteIS2_EED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -1477,7 +1480,8 @@ define dso_local void @_ZN4llvm9sandboxir7Tracker6acceptEv(ptr noundef nonnull a
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !30
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"class.std::unique_ptr.113", ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not8 = icmp eq i32 %5, 0
   br i1 %.not8, label %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_9sandboxir12IRChangeBaseESt14default_deleteIS3_EEE5clearEv.exit, label %.lr.ph
 
@@ -1489,7 +1493,8 @@ define dso_local void @_ZN4llvm9sandboxir7Tracker6acceptEv(ptr noundef nonnull a
 
 .lr.ph.i.preheader.i:                             ; preds = %._crit_edge
   %8 = zext i32 %.pre10 to i64
-  %9 = getelementptr inbounds nuw %"class.std::unique_ptr.113", ptr %.pre, i64 %8
+  %.idx.i = shl nuw nsw i64 %8, 3
+  %9 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir12IRChangeBaseESt14default_deleteIS2_EED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -1597,7 +1602,8 @@ _ZNSt10unique_ptrIN4llvm9sandboxir5ValueESt14default_deleteIS2_EED2Ev.exit: ; pr
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir5ValueESt14default_deleteIS2_EED2Ev.exit
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.llvm::sandboxir::EraseFromParent::InstrAndOperands", ptr %8, i64 %11
+  %.idx.i = mul nuw nsw i64 %11, 72
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm9sandboxir15EraseFromParent16InstrAndOperandsD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -1660,7 +1666,8 @@ _ZNSt10unique_ptrIN4llvm9sandboxir5ValueESt14default_deleteIS2_EED2Ev.exit.i: ; 
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZNSt10unique_ptrIN4llvm9sandboxir5ValueESt14default_deleteIS2_EED2Ev.exit.i
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.llvm::sandboxir::EraseFromParent::InstrAndOperands", ptr %8, i64 %11
+  %.idx.i.i = mul nuw nsw i64 %11, 72
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm9sandboxir15EraseFromParent16InstrAndOperandsD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -2016,7 +2023,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir15Erase
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !30
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::sandboxir::EraseFromParent::InstrAndOperands", ptr %6, i64 %9
+  %.idx.i = mul nuw nsw i64 %9, 72
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir15EraseFromParent16InstrAndOperandsELb0EE19moveElementsForGrowEPS3_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -2050,13 +2058,14 @@ _ZSt10_ConstructIN4llvm9sandboxir15EraseFromParent16InstrAndOperandsEJS3_EEvPT_D
 
 _ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir15EraseFromParent16InstrAndOperandsELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i: ; preds = %_ZSt10_ConstructIN4llvm9sandboxir15EraseFromParent16InstrAndOperandsEJS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !28
-  %.pre2.i = load i32, ptr %7, align 8, !tbaa !30
-  %.not4.i.i = icmp eq i32 %.pre2.i, 0
+  %.pre3.i = load i32, ptr %7, align 8, !tbaa !30
+  %.not4.i.i = icmp eq i32 %.pre3.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir15EraseFromParent16InstrAndOperandsELb0EE19moveElementsForGrowEPS3_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir15EraseFromParent16InstrAndOperandsELb0EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
-  %23 = zext i32 %.pre2.i to i64
-  %24 = getelementptr inbounds nuw %"struct.llvm::sandboxir::EraseFromParent::InstrAndOperands", ptr %.pre.i, i64 %23
+  %23 = zext i32 %.pre3.i to i64
+  %.idx2.i = mul nuw nsw i64 %23, 72
+  %24 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm9sandboxir15EraseFromParent16InstrAndOperandsD2Ev.exit.i.i, %.lr.ph.i.preheader.i

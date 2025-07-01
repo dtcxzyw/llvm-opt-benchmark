@@ -19,9 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.62" = type { %"class.clang::tblgen::ASTNode", %"class.clang::tblgen::ASTNode" }
 %"class.clang::tblgen::ASTNode" = type { %"class.clang::tblgen::HasProperties" }
 %"class.clang::tblgen::HasProperties" = type { %"class.clang::tblgen::WrappedRecord" }
-%"struct.std::pair" = type { ptr, %"class.llvm::SMRange" }
-%"class.llvm::SMRange" = type { %"class.llvm::SMLoc", %"class.llvm::SMLoc" }
-%"class.llvm::SMLoc" = type { ptr }
 
 $_ZN4llvmplERKNS_5TwineES2_ = comdat any
 
@@ -651,7 +648,8 @@ _ZNK4llvm12RecordKeeper8getClassENS_9StringRefE.exit.thread.i: ; preds = %_ZNK4l
   %52 = call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr %1, i64 %2) #17
   %53 = extractvalue { ptr, i64 } %52, 0
   %54 = extractvalue { ptr, i64 } %52, 1
-  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+  %.idx.i = shl nuw nsw i64 %54, 3
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i
   %.not1839.i = icmp eq i64 %54, 0
   br i1 %.not1839.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
@@ -774,7 +772,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load i32, ptr %7, align 8, !tbaa !52
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %9
+  %.idx = mul nuw nsw i64 %9, 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %.not36.not = icmp eq i32 %8, 0
   br i1 %.not36.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph
 

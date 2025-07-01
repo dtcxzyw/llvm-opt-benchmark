@@ -14282,7 +14282,8 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h6503d2912b465e26E(pt
   %.sroa.590.0.copyload = load i64, ptr %.sroa.590.0..sroa_idx, align 8
   %80 = icmp ult i64 %.sroa.590.0.copyload, 288230376151711744
   call void @llvm.assume(i1 %80)
-  %81 = getelementptr inbounds nuw { ptr, { { { ptr, i64 } } }, i8, {}, [7 x i8] }, ptr %.sroa.489.0.copyload, i64 %.sroa.590.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.590.0.copyload, 5
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.489.0.copyload, i64 %.idx
   %82 = icmp sgt i64 %.sroa.088.0.copyload, -1
   call void @llvm.assume(i1 %82)
   %.sroa.091.0.copyload = load i64, ptr %19, align 8
@@ -49122,7 +49123,8 @@ default.unreachable83:                            ; preds = %3
   %.sroa.534.0.copyload = load i64, ptr %.sroa.534.0..sroa_idx, align 8
   %27 = icmp ult i64 %.sroa.534.0.copyload, 192153584101141163
   tail call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds nuw { { { { ptr, i64, i32, i16, i8, i8 } } }, { { { ptr, i64, i32, i16, i8, i8 } } } }, ptr %.sroa.4.0.copyload, i64 %.sroa.534.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.534.0.copyload, 48
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 %.idx
   %29 = icmp sgt i64 %.sroa.033.0.copyload, -1
   tail call void @llvm.assume(i1 %29)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -49956,7 +49958,8 @@ define void @_ZN9polars_io3csv4read9read_impl12cast_columns17h3582d34651e4bcabE(
   br i1 %4, label %22, label %19
 
 19:                                               ; preds = %6
-  %20 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, [1 x i64] }, ptr %2, i64 %3
+  %.idx = mul nuw nsw i64 %3, 80
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %21 = icmp eq i64 %3, 0
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -50693,7 +50696,8 @@ define void @_ZN9polars_io3csv4read9read_impl10CoreReader3new17hff7985871662be09
   %222 = load ptr, ptr %221, align 8, !nonnull !3, !noundef !3
   %223 = getelementptr inbounds nuw i8, ptr %220, i64 32
   %224 = load i64, ptr %223, align 8, !noundef !3
-  %225 = getelementptr inbounds nuw { i8, [47 x i8] }, ptr %222, i64 %224
+  %.idx = mul nuw nsw i64 %224, 48
+  %225 = getelementptr inbounds nuw i8, ptr %222, i64 %.idx
   %226 = icmp eq i64 %224, 0
   br i1 %226, label %._crit_edge, label %.lr.ph
 
@@ -51087,9 +51091,9 @@ default.unreachable1.i.i:                         ; preds = %298
   store i64 0, ptr %341, align 8
   %342 = load ptr, ptr %47, align 8, !nonnull !3, !noundef !3
   %343 = load i64, ptr %275, align 8, !noundef !3
-  %.idx = mul nuw nsw i64 %343, 24
-  %344 = getelementptr inbounds nuw i8, ptr %342, i64 %.idx
-  %.ptr386 = getelementptr inbounds nuw i8, ptr %344, i64 16
+  %.idx386 = mul nuw nsw i64 %343, 24
+  %344 = getelementptr inbounds nuw i8, ptr %342, i64 %.idx386
+  %.ptr387 = getelementptr inbounds nuw i8, ptr %344, i64 16
   %345 = icmp eq i64 %343, 0
   br i1 %345, label %._crit_edge385, label %.lr.ph384
 
@@ -51204,7 +51208,7 @@ default.unreachable1.i.i:                         ; preds = %298
   store i64 %370, ptr %379, align 8
   %380 = add i64 %374, 1
   store i64 %380, ptr %341, align 8, !alias.scope !4647, !noalias !4650
-  %381 = icmp eq ptr %.sroa.0161.1382, %.ptr386
+  %381 = icmp eq ptr %.sroa.0161.1382, %.ptr387
   %.sroa.0161.1.idx = select i1 %381, i64 0, i64 24
   %.sroa.0161.1 = getelementptr inbounds nuw i8, ptr %.sroa.0161.1382, i64 %.sroa.0161.1.idx
   br i1 %381, label %._crit_edge385, label %357
@@ -54616,7 +54620,8 @@ define void @_ZN9polars_io7parquet4read5utils44projected_arrow_schema_to_project
   %37 = load ptr, ptr %36, align 8, !nonnull !3, !noundef !3
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8, !noundef !3
-  %40 = getelementptr inbounds nuw { i64, { { { ptr, i64, i32, i16, i8, i8 } } }, { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] } }, ptr %37, i64 %39
+  %.idx = mul nuw nsw i64 %39, 104
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx
   %41 = icmp eq i64 %39, 0
   br i1 %41, label %._crit_edge, label %.lr.ph
 
@@ -55118,7 +55123,8 @@ define hidden void @_ZN9polars_io10predicates18SkipBatchPredicate14can_skip_batc
   %87 = load ptr, ptr %86, align 8, !nonnull !3, !noundef !3
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %89 = load i64, ptr %88, align 8, !noundef !3
-  %90 = getelementptr inbounds nuw { i64, { { { ptr, i64, i32, i16, i8, i8 } } }, {} }, ptr %87, i64 %89
+  %.idx = shl nuw nsw i64 %89, 5
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 %.idx
   %91 = icmp eq i64 %89, 0
   br i1 %91, label %._crit_edge, label %.lr.ph
 

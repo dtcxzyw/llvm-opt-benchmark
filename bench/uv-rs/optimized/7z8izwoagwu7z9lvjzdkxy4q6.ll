@@ -573,7 +573,8 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h59c4f19a6a0c5b84E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #10 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 3
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd8cf67d2446b8818E.llvm.8534778228985836277.exit", label %.lr.ph.i
@@ -2391,7 +2392,8 @@ define void @"_ZN103_$LT$uv_configuration..config_settings..ConfigSettings$u20$a
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %31 = load ptr, ptr %30, align 8, !alias.scope !404, !noalias !407, !nonnull !4, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !409)
-  %32 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %31, i64 %28
+  %.idx.i.i = mul nuw nsw i64 %28, 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i
   %33 = icmp eq i64 %28, 0
   br i1 %33, label %"_ZN78_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$uv_cache_key..cache_key..CacheKey$GT$9cache_key17hb49b5d9f5a33fe76E.exit", label %.lr.ph.i.i
 

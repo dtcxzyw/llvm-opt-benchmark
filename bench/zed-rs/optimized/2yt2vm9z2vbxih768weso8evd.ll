@@ -16811,7 +16811,8 @@ define hidden void @_ZN8language6buffer6Buffer9apply_ops17h71f305bb5caf9e04E(ptr
   %80 = load ptr, ptr %79, align 8, !nonnull !7, !noundef !7
   %81 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %82 = load i64, ptr %81, align 8, !noundef !7
-  %83 = getelementptr inbounds { i64, [12 x i64] }, ptr %80, i64 %82
+  %.idx = mul nsw i64 %82, 104
+  %83 = getelementptr inbounds i8, ptr %80, i64 %.idx
   %84 = icmp eq i64 %82, 0
   br i1 %84, label %._crit_edge, label %.lr.ph
 

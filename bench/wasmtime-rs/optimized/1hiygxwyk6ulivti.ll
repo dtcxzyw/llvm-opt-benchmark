@@ -4816,7 +4816,8 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   %.val1 = load i64, ptr %7, align 8, !noundef !13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1170
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !1176
-  %8 = getelementptr inbounds { i32, [2 x i32] }, ptr %.val, i64 %.val1
+  %.idx.i.i = mul nsw i64 %.val1, 12
+  %8 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i.i
   %9 = icmp eq i64 %.val1, 0
   br i1 %9, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h7fcc689f84db38f6E.exit", label %.lr.ph.i.i.i
 

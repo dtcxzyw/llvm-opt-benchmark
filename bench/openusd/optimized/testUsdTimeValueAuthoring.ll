@@ -105,7 +105,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::map.204" = type { %"class.std::_Rb_tree.205" }
 %"class.std::_Rb_tree.205" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"struct.std::pair" = type { %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", %"class.pxrInternal_v0_24__pxrReserved__::SdfPath" }
 %"class.pxrInternal_v0_24__pxrReserved__::SdfAbstractDataTypedValue.216" = type { %"class.pxrInternal_v0_24__pxrReserved__::SdfAbstractDataValue.base", [6 x i8] }
 %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", i32, [4 x i8] }
 %"class.pxrInternal_v0_24__pxrReserved__::SdfHandle" = type { %"class.pxrInternal_v0_24__pxrReserved__::SdfSpec" }
@@ -24732,7 +24731,8 @@ define linkonce_odr dso_local void @_ZNSt3mapIdN32pxrInternal_v0_24__pxrReserved
   store ptr %7, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.std::pair.107", ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 24
+  %12 = getelementptr inbounds i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %0, ptr %6, align 8
   %.not6.i = icmp eq i64 %2, 0
@@ -27264,7 +27264,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.ex
 
 59:                                               ; preds = %54
   %60 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1)
-  %61 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %55, i64 %4
+  %.idx.i = shl nsw i64 %4, 3
+  %61 = getelementptr inbounds i8, ptr %55, i64 %.idx.i
   %.not9.i.i.i.i46 = icmp eq i64 %4, 0
   br i1 %.not9.i.i.i.i46, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i47
 
@@ -27306,55 +27307,56 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.ex
   %74 = phi ptr [ %.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.exit.thread_crit_edge ], [ %36, %47 ]
   %75 = tail call i64 @llvm.umin.i64(i64 %1, i64 %4)
   %76 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1)
-  %77 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %74, i64 %75
-  %.not9.i.i.i.i57 = icmp eq i64 %4, 0
-  br i1 %.not9.i.i.i.i57, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit62, label %.lr.ph.i.i.i.i58
+  %.idx.i57 = shl nsw i64 %75, 3
+  %77 = getelementptr inbounds i8, ptr %74, i64 %.idx.i57
+  %.not9.i.i.i.i58 = icmp eq i64 %4, 0
+  br i1 %.not9.i.i.i.i58, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit63, label %.lr.ph.i.i.i.i59
 
-.lr.ph.i.i.i.i58:                                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.exit.thread, %.lr.ph.i.i.i.i58
-  %.011.i.i.i.i59 = phi ptr [ %80, %.lr.ph.i.i.i.i58 ], [ %76, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.exit.thread ]
-  %.0810.i.i.i.i60 = phi ptr [ %79, %.lr.ph.i.i.i.i58 ], [ %74, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.exit.thread ]
-  %78 = load i64, ptr %.0810.i.i.i.i60, align 8
-  store i64 %78, ptr %.011.i.i.i.i59, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i60, i64 8
-  %80 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i59, i64 8
-  %.not.i.i.i.i61 = icmp eq ptr %79, %77
-  br i1 %.not.i.i.i.i61, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit62, label %.lr.ph.i.i.i.i58, !llvm.loop !238
+.lr.ph.i.i.i.i59:                                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.exit.thread, %.lr.ph.i.i.i.i59
+  %.011.i.i.i.i60 = phi ptr [ %80, %.lr.ph.i.i.i.i59 ], [ %76, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.exit.thread ]
+  %.0810.i.i.i.i61 = phi ptr [ %79, %.lr.ph.i.i.i.i59 ], [ %74, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.exit.thread ]
+  %78 = load i64, ptr %.0810.i.i.i.i61, align 8
+  store i64 %78, ptr %.011.i.i.i.i60, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i61, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i60, i64 8
+  %.not.i.i.i.i62 = icmp eq ptr %79, %77
+  br i1 %.not.i.i.i.i62, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit63, label %.lr.ph.i.i.i.i59, !llvm.loop !238
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit62: ; preds = %.lr.ph.i.i.i.i58, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.exit.thread
+_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit63: ; preds = %.lr.ph.i.i.i.i59, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.exit.thread
   br i1 %34, label %81, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
-81:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit62
+81:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit63
   %82 = load ptr, ptr %2, align 8
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %85, align 8
-  %.not9.i.i.i.i63 = icmp eq ptr %83, %86
-  br i1 %.not9.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i64.preheader
+  %.not9.i.i.i.i64 = icmp eq ptr %83, %86
+  br i1 %.not9.i.i.i.i64, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i65.preheader
 
-.lr.ph.i.i.i.i64.preheader:                       ; preds = %81
+.lr.ph.i.i.i.i65.preheader:                       ; preds = %81
   %87 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %76, i64 %4
-  br label %.lr.ph.i.i.i.i64
+  br label %.lr.ph.i.i.i.i65
 
-.lr.ph.i.i.i.i64:                                 ; preds = %.lr.ph.i.i.i.i64.preheader, %.lr.ph.i.i.i.i64
-  %.011.i.i.i.i65 = phi ptr [ %90, %.lr.ph.i.i.i.i64 ], [ %87, %.lr.ph.i.i.i.i64.preheader ]
-  %.0810.i.i.i.i66 = phi ptr [ %89, %.lr.ph.i.i.i.i64 ], [ %83, %.lr.ph.i.i.i.i64.preheader ]
-  %88 = load i64, ptr %.0810.i.i.i.i66, align 8
-  store i64 %88, ptr %.011.i.i.i.i65, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i66, i64 8
-  %90 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i65, i64 8
-  %.not.i.i.i.i67 = icmp eq ptr %89, %86
-  br i1 %.not.i.i.i.i67, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i64, !llvm.loop !237
+.lr.ph.i.i.i.i65:                                 ; preds = %.lr.ph.i.i.i.i65.preheader, %.lr.ph.i.i.i.i65
+  %.011.i.i.i.i66 = phi ptr [ %90, %.lr.ph.i.i.i.i65 ], [ %87, %.lr.ph.i.i.i.i65.preheader ]
+  %.0810.i.i.i.i67 = phi ptr [ %89, %.lr.ph.i.i.i.i65 ], [ %83, %.lr.ph.i.i.i.i65.preheader ]
+  %88 = load i64, ptr %.0810.i.i.i.i67, align 8
+  store i64 %88, ptr %.011.i.i.i.i66, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i67, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i66, i64 8
+  %.not.i.i.i.i68 = icmp eq ptr %89, %86
+  br i1 %.not.i.i.i.i68, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !237
 
-_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %.lr.ph.i.i.i.i64, %.lr.ph.i.i.i.i52, %.lr.ph.i.i.i.i, %53, %81, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit62
-  %.0 = phi ptr [ %76, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit62 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit ], [ %76, %81 ], [ %36, %53 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %76, %.lr.ph.i.i.i.i64 ]
+_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i52, %.lr.ph.i.i.i.i, %53, %81, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit63
+  %.0 = phi ptr [ %76, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit ], [ %76, %81 ], [ %36, %53 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %76, %.lr.ph.i.i.i.i65 ]
   %91 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %91
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE5clearEv.exit.sink.split, label %92
 
 92:                                               ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
-  %.not.i69 = icmp eq ptr %91, null
-  br i1 %.not.i69, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE7_DecRefEv.exit, label %93
+  %.not.i70 = icmp eq ptr %91, null
+  br i1 %.not.i70, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE7_DecRefEv.exit, label %93
 
 93:                                               ; preds = %92
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -27951,7 +27953,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %.not6.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11SdfTimeCodeES3_EbT_S4_T0_.exit, label %81
 
 81:                                               ; preds = %73, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit
-  %82 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %4, i64 %.pre
+  %.idx = shl nsw i64 %.pre, 3
+  %82 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not9.i.i.i.i = icmp eq i64 %.pre, 0
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11SdfTimeCodeES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
@@ -31643,7 +31646,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEaSEOS2_.exit: ; pr
 26:                                               ; preds = %17
   %27 = load i32, ptr %19, align 8
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %"struct.std::pair", ptr %16, i64 %28
+  %.idx.i.i.i = shl nsw i64 %28, 4
+  %29 = getelementptr inbounds i8, ptr %16, i64 %.idx.i.i.i
   %.not14.i.i.i = icmp eq i32 %27, 0
   br i1 %.not14.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSEOS0_.exit, label %.lr.ph.i.i.i
 

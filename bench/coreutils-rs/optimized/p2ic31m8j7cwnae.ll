@@ -247,7 +247,8 @@ define void @"_ZN81_$LT$uu_shred..FilenameIter$u20$as$u20$core..iter..traits..it
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !5
-  %12 = getelementptr inbounds i64, ptr %9, i64 %11
+  %.idx = shl nsw i64 %11, 3
+  %12 = getelementptr inbounds i8, ptr %9, i64 %.idx
   call void @"_ZN95_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$char$GT$$GT$9from_iter17h5c79abb2e0ab3108E"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull %9, ptr noundef nonnull %12)
   %13 = icmp eq i64 %11, 0
   br i1 %13, label %._crit_edge, label %.lr.ph
@@ -3578,7 +3579,8 @@ _ZN3std2fs11OpenOptions4open17h84ab283c99688114E.exit: ; preds = %186
   %452 = phi ptr [ %.pre.i291, %.lr.phthread-pre-split.i.i ], [ %451, %.lr.ph.preheader.i.i ]
   %453 = phi i64 [ %.pr.i.i, %.lr.phthread-pre-split.i.i ], [ %.sroa.4.0179.i.i, %.lr.ph.preheader.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !884)
-  %454 = getelementptr inbounds i64, ptr %452, i64 %453
+  %.idx.i.i.i = shl nsw i64 %453, 3
+  %454 = getelementptr inbounds i8, ptr %452, i64 %.idx.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30), !noalias !889
   store i64 0, ptr %30, align 8, !noalias !889
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i94.i.i, align 8, !noalias !889

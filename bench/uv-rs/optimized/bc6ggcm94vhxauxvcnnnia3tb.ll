@@ -13738,7 +13738,8 @@ define void @_ZN7uv_tool16entrypoint_paths17h42112c47308e91daE(ptr dead_on_unwin
   %37 = load ptr, ptr %36, align 8, !noalias !4578, !nonnull !3, !noundef !3
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %39 = load i64, ptr %38, align 8, !noalias !4578, !noundef !3
-  %40 = getelementptr inbounds ptr, ptr %37, i64 %39
+  %.idx.i = shl nsw i64 %39, 3
+  %40 = getelementptr inbounds i8, ptr %37, i64 %.idx.i
   %41 = icmp eq i64 %39, 0
   br i1 %41, label %.loopexit11.i, label %.lr.ph.i.i
 
@@ -14318,7 +14319,8 @@ _ZN6fs_err4file4File4open17he3808206b5e9a962E.exit: ; preds = %110
   %.sroa.5254.0.copyload = load i64, ptr %.sroa.5254.0..sroa_idx, align 8
   %201 = icmp ult i64 %.sroa.5254.0.copyload, 144115188075855872
   call void @llvm.assume(i1 %201)
-  %202 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %.sroa.4253.0.copyload, i64 %.sroa.5254.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.5254.0.copyload, 6
+  %202 = getelementptr inbounds nuw i8, ptr %.sroa.4253.0.copyload, i64 %.idx
   %203 = icmp sgt i64 %.sroa.0252.0.copyload, -1
   call void @llvm.assume(i1 %203)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)

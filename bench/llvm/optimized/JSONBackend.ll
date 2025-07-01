@@ -49,18 +49,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<llvm::json::Value, std::allocator<llvm::json::Value>>::_Vector_impl" }
 %"struct.std::_Vector_base<llvm::json::Value, std::allocator<llvm::json::Value>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::json::Value, std::allocator<llvm::json::Value>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<llvm::json::Value, std::allocator<llvm::json::Value>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvm::RecordVal" = type { ptr, %"class.llvm::SMLoc", %"class.llvm::PointerIntPair", ptr, i8, %"class.llvm::SmallVector.49" }
-%"class.llvm::SMLoc" = type { ptr }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
-%"class.llvm::SmallVector.49" = type { %"class.llvm::SmallVectorImpl.50" }
-%"class.llvm::SmallVectorImpl.50" = type { %"class.llvm::SmallVectorTemplateBase.51" }
-%"class.llvm::SmallVectorTemplateBase.51" = type { %"class.llvm::SmallVectorTemplateCommon.52" }
-%"class.llvm::SmallVectorTemplateCommon.52" = type { %"class.llvm::SmallVectorBase" }
-%"struct.std::pair.83" = type { ptr, %"class.llvm::SMRange" }
-%"class.llvm::SMRange" = type { %"class.llvm::SMLoc", %"class.llvm::SMLoc" }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.98" }
-%"struct.std::pair.98" = type { %"class.llvm::json::ObjectKey", %"class.llvm::json::Value" }
 
 $_ZN4llvm4json9ObjectKeyD2Ev = comdat any
 
@@ -435,7 +423,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %193 = getelementptr inbounds nuw i8, ptr %190, i64 112
   %194 = load i32, ptr %193, align 8, !tbaa !85
   %195 = zext i32 %194 to i64
-  %196 = getelementptr inbounds nuw %"class.llvm::RecordVal", ptr %192, i64 %195
+  %.idx.i = mul nuw nsw i64 %195, 56
+  %196 = getelementptr inbounds nuw i8, ptr %192, i64 %.idx.i
   %.not101.i = icmp eq i32 %194, 0
   br i1 %.not101.i, label %._crit_edge108.i, label %.lr.ph107.i
 
@@ -490,7 +479,8 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit58.i:             ; preds = %_ZNKSt14default_del
   %211 = getelementptr inbounds nuw i8, ptr %208, i64 160
   %212 = load i32, ptr %211, align 8, !tbaa !85
   %213 = zext i32 %212 to i64
-  %214 = getelementptr inbounds nuw %"struct.std::pair.83", ptr %210, i64 %213
+  %.idx142.i = mul nuw nsw i64 %213, 24
+  %214 = getelementptr inbounds nuw i8, ptr %210, i64 %.idx142.i
   %.not52112.i = icmp eq i32 %212, 0
   br i1 %.not52112.i, label %._crit_edge118.i, label %.lr.ph117.i
 
@@ -1305,11 +1295,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
   store ptr %495, ptr %129, align 8, !tbaa !14
   %501 = load i64, ptr %125, align 8, !tbaa !19
   store i64 %501, ptr %130, align 8, !tbaa !19
-  %.pre153.i = load i64, ptr %126, align 8, !tbaa !18
+  %.pre155.i = load i64, ptr %126, align 8, !tbaa !18
   br label %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit94.i
 
 _ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit94.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i92.i, %497
-  %502 = phi i64 [ %498, %497 ], [ %.pre153.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i92.i ]
+  %502 = phi i64 [ %498, %497 ], [ %.pre155.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i92.i ]
   store i64 %502, ptr %131, align 8, !tbaa !18
   store ptr %125, ptr %43, align 8, !tbaa !14
   store i64 0, ptr %126, align 8, !tbaa !18
@@ -1417,7 +1407,8 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit107.i:            ; preds = %_ZNKSt14default_del
   %539 = getelementptr inbounds nuw i8, ptr %536, i64 16
   %540 = load i32, ptr %539, align 8, !tbaa !85
   %541 = zext i32 %540 to i64
-  %542 = getelementptr inbounds nuw %"class.llvm::SMLoc", ptr %538, i64 %541
+  %.idx143.i = shl nuw nsw i64 %541, 3
+  %542 = getelementptr inbounds nuw i8, ptr %538, i64 %.idx143.i
   %.not53122.i = icmp eq i32 %540, 0
   br i1 %.not53122.i, label %._crit_edge128.i, label %.lr.ph127.i
 
@@ -1597,11 +1588,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
   store ptr %600, ptr %110, align 8, !tbaa !14
   %606 = load i64, ptr %105, align 8, !tbaa !19
   store i64 %606, ptr %111, align 8, !tbaa !19
-  %.pre151.i = load i64, ptr %107, align 8, !tbaa !18
+  %.pre153.i = load i64, ptr %107, align 8, !tbaa !18
   br label %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit116.i
 
 _ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit116.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i114.i, %602
-  %607 = phi i64 [ %603, %602 ], [ %.pre151.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i114.i ]
+  %607 = phi i64 [ %603, %602 ], [ %.pre153.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i114.i ]
   store i64 %607, ptr %112, align 8, !tbaa !18
   store ptr %105, ptr %37, align 8, !tbaa !14
   store i64 0, ptr %107, align 8, !tbaa !18
@@ -1952,11 +1943,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
   store ptr %712, ptr %118, align 8, !tbaa !14
   %718 = load i64, ptr %113, align 8, !tbaa !19
   store i64 %718, ptr %119, align 8, !tbaa !19
-  %.pre152.i = load i64, ptr %115, align 8, !tbaa !18
+  %.pre154.i = load i64, ptr %115, align 8, !tbaa !18
   br label %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit129.i
 
 _ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit129.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i127.i, %714
-  %719 = phi i64 [ %715, %714 ], [ %.pre152.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i127.i ]
+  %719 = phi i64 [ %715, %714 ], [ %.pre154.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i127.i ]
   store i64 %719, ptr %120, align 8, !tbaa !18
   store ptr %113, ptr %39, align 8, !tbaa !14
   store i64 0, ptr %115, align 8, !tbaa !18
@@ -2401,11 +2392,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
   store ptr %861, ptr %137, align 8, !tbaa !14
   %867 = load i64, ptr %134, align 8, !tbaa !19
   store i64 %867, ptr %138, align 8, !tbaa !19
-  %.pre154.i = load i64, ptr %133, align 8, !tbaa !18
+  %.pre156.i = load i64, ptr %133, align 8, !tbaa !18
   br label %_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit187.i
 
 _ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit187.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i185.i, %863
-  %868 = phi i64 [ %864, %863 ], [ %.pre154.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i185.i ]
+  %868 = phi i64 [ %864, %863 ], [ %.pre156.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i185.i ]
   store i64 %868, ptr %139, align 8, !tbaa !18
   store ptr %134, ptr %48, align 8, !tbaa !14
   store i64 0, ptr %133, align 8, !tbaa !18
@@ -2510,20 +2501,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i: ; preds = %
   br i1 %.not53.i, label %._crit_edge128.i, label %.lr.ph127.i
 
 ._crit_edge141.loopexit.i:                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit207.i
-  %.pre155.i = load ptr, ptr %54, align 8, !tbaa !110
+  %.pre157.i = load ptr, ptr %54, align 8, !tbaa !110
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %.pre156.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !112
-  %.phi.trans.insert157.i = getelementptr inbounds nuw i8, ptr %54, i64 12
-  %.pre158.i = load i32, ptr %.phi.trans.insert157.i, align 4, !tbaa !112
-  %.phi.trans.insert159.i = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %.pre160.i = load i32, ptr %.phi.trans.insert159.i, align 8, !tbaa !112
+  %.pre158.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !112
+  %.phi.trans.insert159.i = getelementptr inbounds nuw i8, ptr %54, i64 12
+  %.pre160.i = load i32, ptr %.phi.trans.insert159.i, align 4, !tbaa !112
+  %.phi.trans.insert161.i = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %.pre162.i = load i32, ptr %.phi.trans.insert161.i, align 8, !tbaa !112
   br label %._crit_edge141.i
 
 ._crit_edge141.i:                                 ; preds = %._crit_edge141.loopexit.i, %._crit_edge136.i
-  %900 = phi i32 [ %.pre160.i, %._crit_edge141.loopexit.i ], [ 0, %._crit_edge136.i ]
-  %901 = phi i32 [ %.pre158.i, %._crit_edge141.loopexit.i ], [ 0, %._crit_edge136.i ]
-  %902 = phi i32 [ %.pre156.i, %._crit_edge141.loopexit.i ], [ 0, %._crit_edge136.i ]
-  %903 = phi ptr [ %.pre155.i, %._crit_edge141.loopexit.i ], [ null, %._crit_edge136.i ]
+  %900 = phi i32 [ %.pre162.i, %._crit_edge141.loopexit.i ], [ 0, %._crit_edge136.i ]
+  %901 = phi i32 [ %.pre160.i, %._crit_edge141.loopexit.i ], [ 0, %._crit_edge136.i ]
+  %902 = phi i32 [ %.pre158.i, %._crit_edge141.loopexit.i ], [ 0, %._crit_edge136.i ]
+  %903 = phi ptr [ %.pre157.i, %._crit_edge141.loopexit.i ], [ null, %._crit_edge136.i ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %58) #16
   store i16 7, ptr %58, align 8, !tbaa !3
   %904 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -4848,7 +4839,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9Ob
   %8 = load ptr, ptr %0, align 8, !tbaa !113
   %9 = load i32, ptr %4, align 8, !tbaa !115
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %10
+  %.idx = shl nuw nsw i64 %10, 6
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not51 = icmp eq i32 %9, 0
   br i1 %.not51, label %._crit_edge, label %.lr.ph
 

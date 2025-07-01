@@ -5624,7 +5624,8 @@ define hidden void @_ZN10serde_json5value2de15visit_array_ref17h7506e64cdcb15130
   %4 = alloca [0 x i8], align 1
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
-  %7 = getelementptr inbounds { i64, [8 x i64] }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 72
+  %7 = getelementptr inbounds i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %8 = icmp eq i64 %2, 0
   br i1 %8, label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..SeqAccess$GT$12next_element17h466dd18466258c9aE.exit.thread.i.thread", label %9
@@ -20160,7 +20161,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h5cef859f9509d12bE(p
   %8 = load ptr, ptr %7, align 8, !alias.scope !6077, !nonnull !9, !noundef !9
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !6077, !noundef !9
-  %11 = getelementptr inbounds { i64, [4 x i64] }, ptr %8, i64 %10
+  %.idx = mul nsw i64 %10, 40
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h429df3125d9cee22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef 1, i64 %10)
@@ -20316,7 +20318,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h6050c9263e14f486E(p
   %5 = alloca [72 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
-  %8 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 24
+  %8 = getelementptr inbounds i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h429df3125d9cee22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i64 noundef 1, i64 %2)
@@ -20435,7 +20438,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h6fa4aa1bfd145ea8E(p
   %7 = load ptr, ptr %6, align 8, !alias.scope !6204, !nonnull !9, !noundef !9
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !6204, !noundef !9
-  %10 = getelementptr inbounds i64, ptr %7, i64 %9
+  %.idx = shl nsw i64 %9, 3
+  %10 = getelementptr inbounds i8, ptr %7, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h429df3125d9cee22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef 1, i64 %9)
@@ -20542,7 +20546,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h723e78b72c278656E(p
   %8 = load ptr, ptr %7, align 8, !alias.scope !6251, !nonnull !9, !noundef !9
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !6251, !noundef !9
-  %11 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %8, i64 %10
+  %.idx = shl nsw i64 %10, 4
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h429df3125d9cee22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef 1, i64 %10)
@@ -20858,7 +20863,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hb2d0aabb95df8669E(p
   %8 = load ptr, ptr %7, align 8, !alias.scope !6422, !nonnull !9, !noundef !9
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !6422, !noundef !9
-  %11 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %8, i64 %10
+  %.idx = mul nsw i64 %10, 24
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h429df3125d9cee22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef 1, i64 %10)
@@ -21018,7 +21024,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hdaa0b8820c2aee08E(p
   %8 = load ptr, ptr %7, align 8, !alias.scope !6488, !nonnull !9, !noundef !9
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !6488, !noundef !9
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %8, i64 %10
+  %.idx = mul nsw i64 %10, 24
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h429df3125d9cee22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef 1, i64 %10)
@@ -21138,7 +21145,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17he631ea3950dce035E(p
   %8 = load ptr, ptr %7, align 8, !alias.scope !6552, !nonnull !9, !noundef !9
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !6552, !noundef !9
-  %11 = getelementptr inbounds { i64, [8 x i64] }, ptr %8, i64 %10
+  %.idx = mul nsw i64 %10, 72
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h429df3125d9cee22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef 1, i64 %10)
@@ -38826,7 +38834,8 @@ default.unreachable:                              ; preds = %106, %315
   %.val183 = load ptr, ptr %81, align 8, !nonnull !9, !noundef !9
   %.val184 = load i64, ptr %82, align 8, !noundef !9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %65), !noalias !11930
-  %236 = getelementptr inbounds { i8, [63 x i8] }, ptr %.val183, i64 %.val184
+  %.idx.i = shl nsw i64 %.val184, 6
+  %236 = getelementptr inbounds i8, ptr %.val183, i64 %.idx.i
   %237 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store ptr %.val183, ptr %237, align 8, !noalias !11930
   %238 = getelementptr inbounds nuw i8, ptr %65, i64 40

@@ -1955,7 +1955,8 @@ define range(i32 -65535, 65536) i32 @uprv_strCompare_77(ptr noundef %0, i32 noun
 
 24:                                               ; preds = %22
   %25 = sext i32 %1 to i64
-  %26 = getelementptr inbounds i16, ptr %0, i64 %25
+  %.idx = shl nsw i64 %25, 1
+  %26 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %27 = icmp eq i32 %1, 0
   br i1 %27, label %.thread, label %.lr.ph175
 
@@ -2021,7 +2022,8 @@ u_strlen_77.exit141:                              ; preds = %.preheader149
   %.0107.sink = tail call i32 @llvm.smin.i32(i32 %.0107, i32 %.0113)
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %.0107, i32 %.0113)
   %54 = sext i32 %.0107.sink to i64
-  %55 = getelementptr inbounds i16, ptr %0, i64 %54
+  %.idx218 = shl nsw i64 %54, 1
+  %55 = getelementptr inbounds i8, ptr %0, i64 %.idx218
   %56 = icmp eq ptr %0, %2
   %57 = icmp eq i32 %.0107.sink, 0
   %or.cond183 = select i1 %56, i1 true, i1 %57
@@ -2613,7 +2615,8 @@ define signext range(i8 0, 2) i8 @u_strHasMoreChar32Than_77(ptr noundef readonly
 
 34:                                               ; preds = %31
   %35 = zext nneg i32 %1 to i64
-  %36 = getelementptr inbounds nuw i16, ptr %0, i64 %35
+  %.idx = shl nuw nsw i64 %35, 1
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %37 = icmp eq i32 %1, 0
   br i1 %37, label %.loopexit, label %.lr.ph
 
@@ -2699,8 +2702,9 @@ define noundef ptr @u_memset_77(ptr noundef returned writeonly captures(address,
   br i1 %4, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %3
-  %5 = zext nneg i32 %2 to i64
-  %6 = getelementptr inbounds nuw i16, ptr %0, i64 %5
+  %5 = shl nuw i32 %2, 1
+  %.idx = zext i32 %5 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2720,8 +2724,9 @@ define range(i32 -65535, 65536) i32 @u_memcmp_77(ptr noundef readonly captures(a
   br i1 %4, label %.lr.ph.preheader, label %.thread
 
 .lr.ph.preheader:                                 ; preds = %3
-  %5 = zext nneg i32 %2 to i64
-  %6 = getelementptr inbounds nuw i16, ptr %0, i64 %5
+  %5 = shl nuw i32 %2, 1
+  %.idx = zext i32 %5 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
@@ -3456,7 +3461,8 @@ define i32 @ustr_hashUCharsN_77(ptr noundef readonly captures(address) %0, i32 n
 
 3:                                                ; preds = %2
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i16, ptr %0, i64 %4
+  %.idx = shl nsw i64 %4, 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph, label %.loopexit
 

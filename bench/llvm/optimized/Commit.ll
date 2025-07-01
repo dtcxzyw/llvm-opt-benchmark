@@ -276,7 +276,8 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread: ; 
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load i32, ptr %31, align 8, !tbaa !72
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %30, i64 %33
+  %.idx.i = mul nuw nsw i64 %33, 56
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i
   %.not49.i = icmp eq i32 %32, 0
   br i1 %.not49.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -432,7 +433,8 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread: ; 
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load i32, ptr %44, align 8, !tbaa !72
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %43, i64 %46
+  %.idx.i = mul nuw nsw i64 %46, 56
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i
   %.not49.i = icmp eq i32 %45, 0
   br i1 %.not49.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -1688,7 +1690,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit6Commit17canInsertInOffsetENS
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8, !tbaa !72
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"struct.clang::edit::Commit::Edit", ptr %5, i64 %8
+  %.idx = mul nuw nsw i64 %8, 56
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %.not49 = icmp eq i32 %7, 0
   br i1 %.not49, label %._crit_edge, label %.lr.ph
 

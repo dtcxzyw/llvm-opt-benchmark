@@ -52,7 +52,8 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i32, ptr %29, align 8, !tbaa !21
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr %28, i64 %31
+  %.idx = shl nsw i64 %31, 3
+  %32 = getelementptr inbounds i8, ptr %28, i64 %.idx
   %33 = and i32 %2, 64
   %.not335 = icmp eq i32 %33, 0
   %34 = icmp sgt i32 %30, 0
@@ -815,7 +816,8 @@ thread-pre-split:                                 ; preds = %283, %279, %272
 370:                                              ; preds = %365
   %371 = load i32, ptr %349, align 8, !tbaa !21
   %372 = sext i32 %371 to i64
-  %373 = getelementptr inbounds ptr, ptr %369, i64 %372
+  %.idx.i = shl nsw i64 %372, 3
+  %373 = getelementptr inbounds i8, ptr %369, i64 %.idx.i
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %369, ptr %374, align 8, !tbaa !20
   store i32 %.0.i, ptr %349, align 8, !tbaa !21
@@ -1076,7 +1078,8 @@ define internal fastcc void @dthtab(ptr noundef captures(none) %0) unnamed_addr 
 21:                                               ; preds = %16
   %22 = load i32, ptr %2, align 8, !tbaa !21
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %23
+  %.idx = shl nsw i64 %23, 3
+  %24 = getelementptr inbounds i8, ptr %20, i64 %.idx
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %20, ptr %25, align 8, !tbaa !20
   store i32 %.0, ptr %2, align 8, !tbaa !21

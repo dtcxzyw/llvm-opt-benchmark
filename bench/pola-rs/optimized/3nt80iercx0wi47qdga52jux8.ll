@@ -31135,7 +31135,8 @@ default.unreachable153:                           ; preds = %546, %503, %476, %2
   %.val.i = load ptr, ptr %272, align 8, !noalias !2873, !nonnull !4, !noundef !4
   %273 = getelementptr i8, ptr %268, i64 48
   %.val90.i = load i64, ptr %273, align 8, !noalias !2873, !noundef !4
-  %274 = getelementptr inbounds nuw { { i8, [1 x i8] }, [6 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.val.i, i64 %.val90.i
+  %.idx.i = shl nuw nsw i64 %.val90.i, 5
+  %274 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i
   %275 = icmp eq i64 %.val90.i, 0
   br i1 %275, label %.loopexit.i, label %.lr.ph.i
 
@@ -35306,7 +35307,8 @@ define hidden void @_ZN9polars_io5cloud7options42try_build_http_header_map_from_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %20, ptr noundef nonnull readonly align 8 dereferenceable(96) %14, i64 96, i1 false), !alias.scope !3254
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %14)
-  %24 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 48
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %25 = icmp eq i64 %2, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
 

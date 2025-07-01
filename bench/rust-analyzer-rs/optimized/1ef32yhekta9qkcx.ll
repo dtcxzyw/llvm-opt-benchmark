@@ -633,7 +633,8 @@ define hidden noundef i64 @"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$9new_inner17h6
   %.sroa.438.0.copyload = load ptr, ptr %.sroa.438.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.539.0.copyload = load i64, ptr %.sroa.539.0..sroa_idx, align 8
-  %50 = getelementptr inbounds { i64, { ptr, ptr } }, ptr %.sroa.438.0.copyload, i64 %.sroa.539.0.copyload
+  %.idx = mul nsw i64 %.sroa.539.0.copyload, 24
+  %50 = getelementptr inbounds i8, ptr %.sroa.438.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   store ptr %.sroa.438.0.copyload, ptr %8, align 8
   %.sroa.434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2162,7 +2163,8 @@ define void @_ZN3mbe8validate17he3828157b3017cb8E(ptr noalias noundef writeonly 
   %5 = load ptr, ptr %1, align 8, !alias.scope !363, !nonnull !4, !align !5, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !363, !noundef !4
-  %8 = getelementptr inbounds { i64, [15 x i64] }, ptr %5, i64 %7
+  %.idx37 = shl nsw i64 %7, 7
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx37
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
@@ -2206,7 +2208,8 @@ define void @_ZN3mbe8validate17he3828157b3017cb8E(ptr noalias noundef writeonly 
   %25 = load ptr, ptr %24, align 8, !alias.scope !368, !nonnull !4, !align !5, !noundef !4
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.02736, i64 112
   %27 = load i64, ptr %26, align 8, !alias.scope !368, !noundef !4
-  %28 = getelementptr inbounds { i64, [15 x i64] }, ptr %25, i64 %27
+  %.idx = shl nsw i64 %27, 7
+  %28 = getelementptr inbounds i8, ptr %25, i64 %.idx
   %29 = icmp eq i64 %27, 0
   br i1 %29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0824fca3df56a0b5E.exit", label %.lr.ph.i
 

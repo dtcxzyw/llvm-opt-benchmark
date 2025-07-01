@@ -7750,7 +7750,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %11 = load i64, ptr %10, align 8, !alias.scope !2552, !noalias !2555
   %.sink12.i.i = select i1 %8, ptr %9, ptr %5
   %.sink11.i.i = select i1 %8, i64 %11, i64 %7
-  %12 = getelementptr inbounds { { { { [4 x i64] }, i64 } }, i64 }, ptr %.sink12.i.i, i64 %.sink11.i.i
+  %.idx.i = mul nsw i64 %.sink11.i.i, 48
+  %12 = getelementptr inbounds i8, ptr %.sink12.i.i, i64 %.idx.i
   %13 = icmp eq i64 %.sink11.i.i, 0
   br i1 %13, label %"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h4279635183b2a360E.exit", label %.lr.ph.i.i
 
@@ -7786,7 +7787,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %11 = load i64, ptr %10, align 8, !alias.scope !2565, !noalias !2568
   %.sink12.i.i = select i1 %8, ptr %9, ptr %5
   %.sink11.i.i = select i1 %8, i64 %11, i64 %7
-  %12 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %.sink12.i.i, i64 %.sink11.i.i
+  %.idx.i = mul nsw i64 %.sink11.i.i, 48
+  %12 = getelementptr inbounds i8, ptr %.sink12.i.i, i64 %.idx.i
   %13 = icmp eq i64 %.sink11.i.i, 0
   br i1 %13, label %"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2dc4a4bb9854ba59E.exit", label %.lr.ph.i.i
 
@@ -7822,7 +7824,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %11 = load i64, ptr %10, align 8, !alias.scope !2578, !noalias !2581
   %.sink12.i.i = select i1 %8, ptr %9, ptr %5
   %.sink11.i.i = select i1 %8, i64 %11, i64 %7
-  %12 = getelementptr inbounds { { { { [6 x i64] }, i64 } }, i64 }, ptr %.sink12.i.i, i64 %.sink11.i.i
+  %.idx.i = shl nsw i64 %.sink11.i.i, 6
+  %12 = getelementptr inbounds i8, ptr %.sink12.i.i, i64 %.idx.i
   %13 = icmp eq i64 %.sink11.i.i, 0
   br i1 %13, label %"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17he693deda67b01c92E.exit", label %.lr.ph.i.i
 
@@ -7865,7 +7868,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %11 = load i64, ptr %10, align 8, !alias.scope !2591, !noalias !2594
   %.sink12.i.i = select i1 %8, ptr %9, ptr %5
   %.sink11.i.i = select i1 %8, i64 %11, i64 %7
-  %12 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] } }, ptr %.sink12.i.i, i64 %.sink11.i.i
+  %.idx.i = shl nsw i64 %.sink11.i.i, 5
+  %12 = getelementptr inbounds i8, ptr %.sink12.i.i, i64 %.idx.i
   %13 = icmp eq i64 %.sink11.i.i, 0
   br i1 %13, label %"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf5f6617c203df861E.exit", label %.lr.ph.i.i
 
@@ -8475,7 +8479,8 @@ define hidden void @"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash
   store i64 %11, ptr %1, align 8, !alias.scope !2731
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2736)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2739)
-  %12 = getelementptr inbounds { { { { [6 x i64] }, i64 } }, i64 }, ptr %.sink12.i, i64 %.sink11.i
+  %.idx.i = shl nsw i64 %.sink11.i, 6
+  %12 = getelementptr inbounds i8, ptr %.sink12.i, i64 %.idx.i
   %13 = icmp eq i64 %.sink11.i, 0
   br i1 %13, label %_ZN4core4hash4Hash10hash_slice17hbfcc1f1c385da905E.exit, label %.lr.ph.i
 
@@ -8502,7 +8507,8 @@ define hidden void @"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash
   store i64 %23, ptr %1, align 8, !alias.scope !2761, !noalias !2766
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2767)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2770)
-  %24 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %.sink12.i.i.i.i.i, i64 %.sink11.i.i.i.i.i
+  %.idx.i.i.i.i.i = mul nsw i64 %.sink11.i.i.i.i.i, 48
+  %24 = getelementptr inbounds i8, ptr %.sink12.i.i.i.i.i, i64 %.idx.i.i.i.i.i
   %25 = icmp eq i64 %.sink11.i.i.i.i.i, 0
   br i1 %25, label %"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for$u20$$LP$T$C$B$RP$$GT$4hash17h2c254462154e2300E.llvm.13357494507604120068.exit.i", label %.lr.ph.i.i.i.i.i
 
@@ -8584,7 +8590,8 @@ define hidden void @"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash
   store i64 %11, ptr %1, align 8, !alias.scope !2818
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2823)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2826)
-  %12 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] } }, ptr %.sink12.i, i64 %.sink11.i
+  %.idx.i = shl nsw i64 %.sink11.i, 5
+  %12 = getelementptr inbounds i8, ptr %.sink12.i, i64 %.idx.i
   %13 = icmp eq i64 %.sink11.i, 0
   br i1 %13, label %_ZN4core4hash4Hash10hash_slice17hce5de6a2d3a428ffE.exit, label %.lr.ph.i
 
@@ -8665,7 +8672,8 @@ define hidden void @"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash
   store i64 %11, ptr %1, align 8, !alias.scope !2864
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2869)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2872)
-  %12 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %.sink12.i, i64 %.sink11.i
+  %.idx.i = mul nsw i64 %.sink11.i, 48
+  %12 = getelementptr inbounds i8, ptr %.sink12.i, i64 %.idx.i
   %13 = icmp eq i64 %.sink11.i, 0
   br i1 %13, label %_ZN4core4hash4Hash10hash_slice17hfe3a2a50dcf6d788E.exit, label %.lr.ph.i
 

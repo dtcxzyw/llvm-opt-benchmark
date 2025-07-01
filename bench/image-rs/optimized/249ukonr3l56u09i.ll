@@ -1232,7 +1232,8 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17hc3b3f85ea082f86cE(pt
   %.sroa.4135.0.copyload = load ptr, ptr %.sroa.4135.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.sroa.5136.0.copyload = load i64, ptr %.sroa.5136.0..sroa_idx, align 8
-  %83 = getelementptr inbounds { ptr, { ptr, i64 }, i8, {}, [7 x i8] }, ptr %.sroa.4135.0.copyload, i64 %.sroa.5136.0.copyload
+  %.idx = shl nsw i64 %.sroa.5136.0.copyload, 5
+  %83 = getelementptr inbounds i8, ptr %.sroa.4135.0.copyload, i64 %.idx
   %.sroa.0137.0.copyload = load i64, ptr %24, align 8
   %.sroa.4138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.4138.0.copyload = load ptr, ptr %.sroa.4138.0..sroa_idx, align 8, !nonnull !4, !noundef !4
@@ -4276,7 +4277,8 @@ define hidden void @_ZN3std4sync4mpmc5waker5Waker10disconnect17hce97e18401253427
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
-  %10 = getelementptr inbounds { ptr, i64, ptr }, ptr %7, i64 %9
+  %.idx = mul nsw i64 %9, 24
+  %10 = getelementptr inbounds i8, ptr %7, i64 %.idx
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 

@@ -4506,7 +4506,8 @@ _ZN4llvh11safe_mallocEm.exit.i.i:                 ; preds = %if.then.i.i.i, %if.
   %43 = load ptr, ptr %newProps, align 8
   %44 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i5.i.i = zext i32 %44 to i64
-  %add.ptr.i30.i.i = getelementptr inbounds nuw %struct.NewProps, ptr %43, i64 %conv.i5.i.i
+  %add.ptr.i30.idx.i.i = shl nuw nsw i64 %conv.i5.i.i, 4
+  %add.ptr.i30.i.i = getelementptr inbounds nuw i8, ptr %43, i64 %add.ptr.i30.idx.i.i
   %cmp.i.i.not4.i.i.i.i.i.i = icmp eq i32 %44, 0
   br i1 %cmp.i.i.not4.i.i.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIZN6hermes2vmL30objectDefinePropertiesInternalERNS2_7RuntimeENS2_6HandleINS2_11HermesValueEEES7_E8NewPropsLb0EE18uninitialized_moveIPS8_SB_EEvT_SC_T0_.exit.i.i, label %for.body.i.i.i.i.i.i
 
@@ -4566,7 +4567,8 @@ for.end:                                          ; preds = %for.inc
   %.pre = load ptr, ptr %newProps, align 8
   %.pre234 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i = zext i32 %.pre234 to i64
-  %add.ptr.i = getelementptr inbounds nuw %struct.NewProps, ptr %.pre, i64 %conv.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %.pre, i64 %add.ptr.i.idx
   %cmp120.not230 = icmp eq i32 %.pre234, 0
   br i1 %cmp120.not230, label %for.end154, label %for.body121.lr.ph
 

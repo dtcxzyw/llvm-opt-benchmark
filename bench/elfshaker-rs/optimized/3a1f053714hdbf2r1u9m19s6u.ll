@@ -4425,7 +4425,8 @@ define void @_ZN9elfshaker4repo10repository10Repository16extract_snapshot17hd0a4
 338:                                              ; preds = %337
   %339 = load ptr, ptr %292, align 8, !nonnull !5, !noundef !5
   %340 = load i64, ptr %294, align 8, !noundef !5
-  %341 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } } }, { i64, i64 }, [20 x i8], i32 }, ptr %339, i64 %340
+  %.idx = shl nuw nsw i64 %340, 6
+  %341 = getelementptr inbounds nuw i8, ptr %339, i64 %.idx
   %342 = icmp eq i64 %340, 0
   br i1 %342, label %.loopexit419, label %.lr.ph
 
@@ -5511,7 +5512,8 @@ define void @_ZN9elfshaker4repo10repository10Repository18update_remote_pack17h90
   %.sroa.5100.0.copyload = load i64, ptr %.sroa.5100.0..sroa_idx, align 8
   %148 = icmp ult i64 %.sroa.5100.0.copyload, 96076792050570582
   call void @llvm.assume(i1 %148)
-  %149 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] } }, ptr %.sroa.499.0.copyload, i64 %.sroa.5100.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.5100.0.copyload, 96
+  %149 = getelementptr inbounds nuw i8, ptr %.sroa.499.0.copyload, i64 %.idx
   %150 = icmp sgt i64 %.sroa.098.0.copyload, -1
   call void @llvm.assume(i1 %150)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
@@ -6293,7 +6295,8 @@ _ZN9elfshaker4repo10repository10Repository8temp_dir17h72d63a4677e1e653E.exit: ; 
   %.sroa.5.0.copyload.i135 = load i64, ptr %.sroa.5.0..sroa_idx.i134, align 8, !alias.scope !370, !noalias !373
   %180 = icmp ult i64 %.sroa.5.0.copyload.i135, 288230376151711744
   call void @llvm.assume(i1 %180)
-  %181 = getelementptr inbounds nuw { [1 x i64], i64, [2 x i64] }, ptr %.sroa.4.0.copyload.i133, i64 %.sroa.5.0.copyload.i135
+  %.idx = shl nuw nsw i64 %.sroa.5.0.copyload.i135, 5
+  %181 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i133, i64 %.idx
   %182 = icmp sgt i64 %.sroa.0.0.copyload.i131, -1
   call void @llvm.assume(i1 %182)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40)
@@ -6534,7 +6537,8 @@ _ZN9elfshaker4repo10repository10Repository8temp_dir17h72d63a4677e1e653E.exit: ; 
   %.sroa.5168.0.copyload = load i64, ptr %167, align 8
   %246 = icmp ult i64 %.sroa.5168.0.copyload, 384307168202282326
   call void @llvm.assume(i1 %246)
-  %247 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %.sroa.4167.0.copyload, i64 %.sroa.5168.0.copyload
+  %.idx256 = mul nuw nsw i64 %.sroa.5168.0.copyload, 24
+  %247 = getelementptr inbounds nuw i8, ptr %.sroa.4167.0.copyload, i64 %.idx256
   %248 = icmp sgt i64 %.sroa.0166.0.copyload, -1
   call void @llvm.assume(i1 %248)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32)
@@ -8701,7 +8705,8 @@ define void @_ZN9elfshaker4repo10repository10Repository18copy_loose_entries17h55
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.433.0..sroa_idx, align 8
   %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 0, ptr %.sroa.534.0..sroa_idx, align 8
-  %30 = getelementptr inbounds nuw { { { { { { i64, ptr, {} }, {} }, i64 } } }, { i64, i64 }, [20 x i8], i32 }, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 6
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %31 = icmp eq i64 %3, 0
   br i1 %31, label %._crit_edge, label %.lr.ph.preheader
 
@@ -10749,7 +10754,8 @@ define void @_ZN9elfshaker4repo10repository10Repository14update_remotes17hced130
   %.sroa.574.0.copyload = load i64, ptr %.sroa.574.0..sroa_idx, align 8
   %61 = icmp ult i64 %.sroa.574.0.copyload, 96076792050570582
   call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] } }, ptr %.sroa.473.0.copyload, i64 %.sroa.574.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.574.0.copyload, 96
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.473.0.copyload, i64 %.idx
   %63 = icmp sgt i64 %.sroa.072.0.copyload, -1
   call void @llvm.assume(i1 %63)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)

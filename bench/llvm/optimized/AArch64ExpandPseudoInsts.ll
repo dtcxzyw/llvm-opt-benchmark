@@ -47,7 +47,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.372" = type { %"class.llvm::SmallVectorTemplateCommon.373" }
 %"class.llvm::SmallVectorTemplateCommon.373" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.374" = type { [64 x i8] }
-%"struct.llvm::AArch64_IMM::ImmInsnModel" = type { i32, i64, i64 }
 
 $_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE = comdat any
 
@@ -4806,7 +4805,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_119AArch64ExpandPseudo12expandMOVIm
   %58 = load ptr, ptr %26, align 8, !tbaa !739
   %59 = load i32, ptr %53, align 8, !tbaa !740
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %"struct.llvm::AArch64_IMM::ImmInsnModel", ptr %58, i64 %60
+  %.idx = mul nuw nsw i64 %60, 24
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx
   %.not267 = icmp eq i32 %59, 0
   br i1 %.not267, label %._crit_edge, label %.lr.ph
 
@@ -9163,7 +9163,8 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm10M
   %22 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(32) %21)
   %23 = extractvalue { ptr, ptr } %22, 0
   %24 = extractvalue { ptr, ptr } %22, 1
-  %25 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %4, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 5
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
   %.not9.i = icmp eq i64 %5, 0
   br i1 %.not9.i, label %_ZNK4llvm19MachineInstrBuilder3addENS_8ArrayRefINS_14MachineOperandEEE.exit, label %.lr.ph.i
 

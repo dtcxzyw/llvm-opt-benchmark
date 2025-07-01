@@ -10252,7 +10252,8 @@ common.ret:                                       ; preds = %841, %843
   %.val.i.i = load ptr, ptr %595, align 8, !noalias !1316, !nonnull !5, !noundef !5
   %596 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %.val31.i.i = load i64, ptr %596, align 8, !noalias !1316, !noundef !5
-  %597 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %.val.i.i, i64 %.val31.i.i
+  %.idx.i.i = mul nsw i64 %.val31.i.i, 48
+  %597 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.idx.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7.i.i.i)
   %598 = icmp eq i64 %.val31.i.i, 0
   br i1 %598, label %.loopexit.i.i, label %.lr.ph.preheader.i.i.i

@@ -3407,7 +3407,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %150 = load ptr, ptr %10, align 8, !tbaa !90
   %151 = load i32, ptr %144, align 8, !tbaa !92
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %150, i64 %152
+  %.idx = shl nuw nsw i64 %152, 4
+  %153 = getelementptr inbounds nuw i8, ptr %150, i64 %.idx
   %.not224 = icmp eq i32 %151, 0
   br i1 %.not224, label %._crit_edge, label %.lr.ph
 

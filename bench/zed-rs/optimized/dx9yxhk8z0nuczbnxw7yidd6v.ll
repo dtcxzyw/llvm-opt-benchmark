@@ -4449,7 +4449,8 @@ define void @"_ZN104_$LT$ui..components..label..highlighted_label..HighlightedLa
   store ptr inttoptr (i64 8 to ptr), ptr %75, align 8, !noalias !520
   %76 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %76, align 8, !noalias !520
-  %77 = getelementptr inbounds { { i64, i64 }, { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] } }, ptr %.sroa.427.0.copyload, i64 %.sroa.5.0.copyload
+  %.idx.i = shl nsw i64 %.sroa.5.0.copyload, 7
+  %77 = getelementptr inbounds i8, ptr %.sroa.427.0.copyload, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !520
   store ptr %.sroa.427.0.copyload, ptr %14, align 8, !noalias !520
   %.sroa.4.0..sroa_idx.i16 = getelementptr inbounds nuw i8, ptr %14, i64 8

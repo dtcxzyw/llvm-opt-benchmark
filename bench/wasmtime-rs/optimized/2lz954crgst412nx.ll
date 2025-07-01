@@ -5858,7 +5858,8 @@ _ZN16wasmtime_runtime8instance9allocator7pooling24PoolingInstanceAllocator32vali
   %.val34 = load ptr, ptr %32, align 8, !nonnull !4, !noundef !4
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %.val35 = load i64, ptr %33, align 8, !noundef !4
-  %34 = getelementptr inbounds { i64, [9 x i64] }, ptr %.val34, i64 %.val35
+  %.idx = mul nsw i64 %.val35, 80
+  %34 = getelementptr inbounds i8, ptr %.val34, i64 %.idx
   %35 = icmp eq i64 %.val35, 0
   br i1 %35, label %.thread43, label %.lr.ph
 

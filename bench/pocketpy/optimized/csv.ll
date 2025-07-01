@@ -1653,7 +1653,8 @@ define linkonce_odr void @_ZN4pkpy3Py_INS_10pod_vectorIPNS_8PyObjectELi4EEEE12_o
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %2, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 3
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not15 = icmp eq i32 %5, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 

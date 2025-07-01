@@ -45,7 +45,8 @@ define hidden noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_buil
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %5, i64 %7
+  %.idx = shl nsw i64 %7, 4
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %.loopexit, label %.lr.ph
 
@@ -98,7 +99,8 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11t
   %6 = load ptr, ptr %5, align 8, !alias.scope !20, !noalias !21, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !20, !noalias !21, !noundef !4
-  %9 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %6, i64 %8
+  %.idx.i.i = shl nsw i64 %8, 4
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %.thread15, label %.lr.ph.i.i
 
@@ -204,7 +206,8 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11t
   %6 = load ptr, ptr %5, align 8, !alias.scope !52, !noalias !53, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !52, !noalias !53, !noundef !4
-  %9 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %6, i64 %8
+  %.idx.i.i = shl nsw i64 %8, 4
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %.thread15, label %.lr.ph.i.i
 
@@ -347,7 +350,8 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches13t
   %6 = load ptr, ptr %5, align 8, !alias.scope !76, !noalias !79, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !76, !noalias !79, !noundef !4
-  %9 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %6, i64 %8
+  %.idx.i = shl nsw i64 %8, 4
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %.loopexit, label %.lr.ph.i
 
@@ -420,7 +424,8 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches13t
   %6 = load ptr, ptr %5, align 8, !alias.scope !92, !noalias !95, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !92, !noalias !95, !noundef !4
-  %9 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %6, i64 %8
+  %.idx.i = shl nsw i64 %8, 4
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %.loopexit, label %.lr.ph.i
 

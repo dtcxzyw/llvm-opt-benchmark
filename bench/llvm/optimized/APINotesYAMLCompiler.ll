@@ -226,8 +226,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.181" = type { %"class.llvm::SmallVectorTemplateCommon.182" }
 %"class.llvm::SmallVectorTemplateCommon.182" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.183" = type { [192 x i8] }
-%"class.llvm::SMFixIt" = type { %"class.llvm::SMRange", %"class.std::__cxx11::basic_string" }
-%"class.llvm::SMRange" = type { %"class.llvm::SMLoc", %"class.llvm::SMLoc" }
 %"class.clang::api_notes::ObjCMethodInfo" = type { %"class.clang::api_notes::FunctionInfo", i8, [7 x i8], %"class.std::optional.234" }
 %"class.llvm::SmallVector.244" = type { %"class.llvm::SmallVectorImpl.245", %"struct.llvm::SmallVectorStorage.248" }
 %"class.llvm::SmallVectorImpl.245" = type { %"class.llvm::SmallVectorTemplateBase.246" }
@@ -13754,7 +13752,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_113YAMLConverter9emitErrorEN4llvm5T
 
 .lr.ph.i.preheader.i.i:                           ; preds = %2
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::SMFixIt", ptr %13, i64 %16
+  %.idx.i.i = mul nuw nsw i64 %16, 48
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm7SMFixItD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i

@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.(anonymous namespace)::VectorLegalizer" = type { ptr, ptr, i8, [7 x i8], %"class.llvm::SmallDenseMap" }
 %"class.llvm::SmallDenseMap" = type { i32, i32, %"struct.llvm::AlignedCharArrayUnion" }
 %"struct.llvm::AlignedCharArrayUnion" = type { [2048 x i8] }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
 %"struct.std::pair" = type { %"class.llvm::SDValue", %"class.llvm::SDValue" }
 %"struct.std::pair.56" = type <{ %"class.llvm::DenseMapIterator", i8, [7 x i8] }>
 %"class.llvm::DenseMapIterator" = type { ptr, ptr }
@@ -23,6 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.47" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.48" = type { [128 x i8] }
+%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
 %"class.llvm::SDUse" = type { %"class.llvm::SDValue", ptr, ptr, ptr }
 %"class.llvm::SmallVector.64" = type { %"class.llvm::SmallVectorImpl.45", %"struct.llvm::SmallVectorStorage.65" }
 %"struct.llvm::SmallVectorStorage.65" = type { [80 x i8] }
@@ -88,8 +88,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.base.251" = type <{ %"union.std::_Optional_payload_base<llvm::TargetLowering::PtrAuthInfo>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<llvm::TargetLowering::PtrAuthInfo>::_Storage" = type { %"struct.llvm::TargetLowering::PtrAuthInfo" }
 %"struct.llvm::TargetLowering::PtrAuthInfo" = type { i64, %"class.llvm::SDValue" }
-%"struct.llvm::VFParameter" = type <{ i32, i32, i32, %"struct.llvm::Align", [3 x i8] }>
-%"struct.llvm::Align" = type { i8 }
 %"class.llvm::TargetLoweringBase::ArgListEntry" = type { ptr, %"class.llvm::SDValue", ptr, i16, %"struct.llvm::MaybeAlign", ptr }
 %"struct.llvm::MaybeAlign" = type { %"class.std::optional.77" }
 %"class.std::optional.77" = type { %"struct.std::_Optional_base.78" }
@@ -504,7 +502,8 @@ _ZN4llvm12SelectionDAG7setRootENS_7SDValueE.exit.i: ; preds = %96, %.thread.i.i
   %113 = load ptr, ptr %112, align 8
   %114 = select i1 %.not.i.i.i20.i, ptr %113, ptr %112
   %115 = zext i32 %107 to i64
-  %116 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %114, i64 %115
+  %.idx.i.i = shl nuw nsw i64 %115, 5
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 %.idx.i.i
   %.not7.i.i = icmp eq i32 %107, 0
   br i1 %.not7.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -812,7 +811,8 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueES2_Lj64ENS_12DenseMapInfoI
   %195 = getelementptr inbounds nuw i8, ptr %.fr.i, i64 64
   %196 = load i16, ptr %195, align 8, !tbaa !152
   %197 = zext i16 %196 to i64
-  %198 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %194, i64 %197
+  %.idx = mul nuw nsw i64 %197, 40
+  %198 = getelementptr inbounds nuw i8, ptr %194, i64 %.idx
   %.not45904608 = icmp eq i16 %196, 0
   br i1 %.not45904608, label %._crit_edge, label %.lr.ph
 
@@ -11093,7 +11093,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7S
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i, i32 %11, i32 64
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %9, i64 %13
+  %.idx.i = shl nuw nsw i64 %13, 5
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
   %.not6.i = icmp eq i32 %12, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueES2_Lj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E9initEmptyEv.exit, label %.lr.ph.i
 
@@ -19741,7 +19742,8 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i:            ; preds = %117, %114
   %122 = load i32, ptr %121, align 4, !tbaa !198
   store i32 %122, ptr %120, align 8, !tbaa !199
   %123 = load ptr, ptr %104, align 8, !tbaa !148
-  %124 = getelementptr inbounds nuw %"struct.llvm::VFParameter", ptr %123, i64 %.pre-phi.i
+  %.idx.i = shl nuw nsw i64 %.pre-phi.i, 4
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 %.idx.i
   %.not78237.i = icmp eq i32 %119, 0
   br i1 %.not78237.i, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i.i, label %.lr.ph244.i
 
@@ -22313,7 +22315,8 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapINS_7SDValueES1_Lj64ENS_
   %23 = select i1 %.not.i.i.i.i, ptr %22, ptr %21
   %24 = select i1 %.not.i.i.i.i, i32 %19, i32 64
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %23, i64 %25
+  %.idx.i = shl nuw nsw i64 %25, 5
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i
   %.not6.i = icmp eq i32 %24, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueES2_Lj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E9initEmptyEv.exit, label %.lr.ph.i
 
@@ -22372,7 +22375,8 @@ _ZN4llvm13SmallDenseMapINS_7SDValueES1_Lj64ENS_12DenseMapInfoIS1_vEENS_6detail12
   %49 = select i1 %.not.i.i.i.i.i, ptr %45, ptr %48
   %50 = select i1 %.not.i.i.i.i.i, i32 %44, i32 64
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %49, i64 %51
+  %.idx.i.i = shl nuw nsw i64 %51, 5
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i.i
   %.not6.i.i = icmp eq i32 %50, 0
   br i1 %.not6.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueES2_Lj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E9initEmptyEv.exit, label %.lr.ph.i.i
 

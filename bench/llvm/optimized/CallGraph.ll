@@ -445,7 +445,8 @@ define dso_local void @_ZN5clang9CallGraphD2Ev(ptr noundef nonnull align 8 captu
 
 .lr.ph.preheader.i.i:                             ; preds = %1
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.pre1.i, i64 %6
+  %.idx.i.i = shl nuw nsw i64 %6, 4
+  %7 = getelementptr inbounds nuw i8, ptr %.pre1.i, i64 %.idx.i.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %18, %.lr.ph.preheader.i.i
@@ -2405,7 +2406,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
 
 .lr.ph42:                                         ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %23
+  %.idx = shl nuw nsw i64 %23, 3
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %33
 
@@ -2544,7 +2546,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit27:               ; preds = %88, %90
   %95 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %96 = load i32, ptr %95, align 8, !tbaa !48
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw %"struct.clang::CallGraphNode::CallRecord", ptr %94, i64 %97
+  %.idx44 = shl nuw nsw i64 %97, 4
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx44
   %.not38 = icmp eq i32 %96, 0
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
@@ -6155,7 +6158,8 @@ _ZN4llvm8DenseMapIPKN5clang4DeclESt10unique_ptrINS1_13CallGraphNodeESt14default_
   store i32 0, ptr %24, align 4, !tbaa !76
   %25 = load i32, ptr %2, align 8, !tbaa !58
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %26
+  %.idx.i = shl nuw nsw i64 %26, 4
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i
   %.not6.i = icmp eq i32 %25, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclESt10unique_ptrINS2_13CallGraphNodeESt14default_deleteIS7_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E9initEmptyEv.exit, label %.lr.ph.i
 
@@ -6168,14 +6172,16 @@ _ZN4llvm8DenseMapIPKN5clang4DeclESt10unique_ptrINS1_13CallGraphNodeESt14default_
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIPKN5clang4DeclESt10unique_ptrINS1_13CallGraphNodeESt14default_deleteIS6_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %.idx = shl nuw nsw i64 %30, 4
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %32, align 8, !tbaa !75
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %33, align 4, !tbaa !76
   %34 = load i32, ptr %2, align 8, !tbaa !58
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %35
+  %.idx.i.i = shl nuw nsw i64 %35, 4
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i
   %.not6.i.i = icmp eq i32 %34, 0
   br i1 %.not6.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclESt10unique_ptrINS2_13CallGraphNodeESt14default_deleteIS7_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E9initEmptyEv.exit.i, label %.lr.ph.i.i
 
@@ -6265,8 +6271,7 @@ _ZNSt10unique_ptrIN5clang13CallGraphNodeESt14default_deleteIS1_EED2Ev.exit.i: ; 
   br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclESt10unique_ptrINS2_13CallGraphNodeESt14default_deleteIS7_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E18moveFromOldBucketsEPSF_SI_.exit, label %.lr.ph.i7, !llvm.loop !163
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclESt10unique_ptrINS2_13CallGraphNodeESt14default_deleteIS7_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E18moveFromOldBucketsEPSF_SI_.exit: ; preds = %69, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclESt10unique_ptrINS2_13CallGraphNodeESt14default_deleteIS7_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E9initEmptyEv.exit.i
-  %72 = shl nuw nsw i64 %30, 4
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %72, i64 noundef 8) #18
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %.idx, i64 noundef 8) #18
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclESt10unique_ptrINS2_13CallGraphNodeESt14default_deleteIS7_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E9initEmptyEv.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclESt10unique_ptrINS2_13CallGraphNodeESt14default_deleteIS7_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E9initEmptyEv.exit: ; preds = %.lr.ph.i, %22, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclESt10unique_ptrINS2_13CallGraphNodeESt14default_deleteIS7_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E18moveFromOldBucketsEPSF_SI_.exit
@@ -6854,7 +6859,8 @@ _ZN4llvm11po_iteratorIPKN5clang9CallGraphENS_11SmallPtrSetIPKNS1_13CallGraphNode
   br i1 %.not.i.i.i.i, label %32, label %.loopexit.i
 
 32:                                               ; preds = %_ZN4llvm11po_iteratorIPKN5clang9CallGraphENS_11SmallPtrSetIPKNS1_13CallGraphNodeELj8EEELb0ENS_11GraphTraitsIS4_EEEppEv.exit.i
-  %33 = getelementptr inbounds nuw %"class.std::tuple.862", ptr %.pre.i, i64 %31
+  %.idx.i.i.i.i = mul nuw nsw i64 %31, 24
+  %33 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx.i.i.i.i
   %.not9.i.i.i.i.i.i.i.i = icmp eq i32 %29, 0
   %.pre = load ptr, ptr %17, align 8, !tbaa !47
   br i1 %.not9.i.i.i.i.i.i.i.i, label %_ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN4llvm11po_iteratorIPKN5clang9CallGraphENS3_11SmallPtrSetIPKNS5_13CallGraphNodeELj8EEELb0ENS3_11GraphTraitsIS8_EEEESt20back_insert_iteratorINS3_11SmallVectorISC_Lj8EEEEEET0_T_SM_SL_.exit, label %.lr.ph.i.i.i.i.i.i.i.i
@@ -7011,7 +7017,8 @@ define linkonce_odr hidden void @_ZN4llvm11po_iteratorIPKN5clang9CallGraphENS_11
   %29 = load ptr, ptr %0, align 8, !tbaa !171, !noalias !209
   %30 = load i32, ptr %17, align 4, !tbaa !176, !noalias !209
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %31
+  %.idx.i.i.i = shl nuw nsw i64 %31, 3
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i
   %.not36.i.i.i = icmp eq i32 %30, 0
   br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -7124,7 +7131,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %16 = load ptr, ptr %1, align 8, !tbaa !35
   store ptr %16, ptr %15, align 8, !tbaa !186
   %17 = load ptr, ptr %0, align 8, !tbaa !47
-  %18 = getelementptr inbounds nuw %"class.std::tuple.862", ptr %17, i64 %10
+  %.idx.i = mul nuw nsw i64 %10, 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPKN5clang13CallGraphNodeEPKNS3_10CallRecordES8_EELb0EE19moveElementsForGrowEPS9_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -7271,7 +7279,8 @@ _ZSt4moveIPSt5tupleIJPKN5clang13CallGraphNodeEPKNS2_10CallRecordES7_EES9_ET0_T_S
   %48 = load ptr, ptr %0, align 8, !tbaa !47
   %49 = load i32, ptr %25, align 8, !tbaa !48
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw %"class.std::tuple.862", ptr %48, i64 %50
+  %.idx.i.i = mul nuw nsw i64 %50, 24
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i.i
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %49, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPKN5clang13CallGraphNodeEPKNS3_10CallRecordES8_EELb0EE19moveElementsForGrowEPS9_.exit.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -7439,7 +7448,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %33 = load ptr, ptr %0, align 8, !tbaa !47
   %34 = load i32, ptr %9, align 8, !tbaa !48
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::tuple.862", ptr %33, i64 %35
+  %.idx.i.i = mul nuw nsw i64 %35, 24
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i.i
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %34, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPKN5clang13CallGraphNodeEPKNS3_10CallRecordES8_EELb0EE19moveElementsForGrowEPS9_.exit.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -8075,83 +8085,91 @@ define linkonce_odr hidden void @_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE10wr
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !58, !noalias !239
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %13
-  br i1 %9, label %_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE10writeNodesEv.exit, label %15
+  br i1 %9, label %14, label %16
 
-15:                                               ; preds = %2
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %13
+  br label %_ZN4llvm5nodesIPKN5clang9CallGraphEEENS_14iterator_rangeINS_11GraphTraitsIT_E14nodes_iteratorEEERKS7_.exit.i
+
+16:                                               ; preds = %2
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %13, 4
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i.i.i
   %.not5.i5.i10.i2.i.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not5.i5.i10.i2.i.i.i.i.i, label %_ZN4llvm5nodesIPKN5clang9CallGraphEEENS_14iterator_rangeINS_11GraphTraitsIT_E14nodes_iteratorEEERKS7_.exit.i, label %.lr.ph.i6.i12.i3.i.i.i.i.i
 
-.lr.ph.i6.i12.i3.i.i.i.i.i:                       ; preds = %15, %.critedge2.i8.i14.i6.i.i.i.i.i
-  %.sroa.0.3.i4.i.i.i.i.i = phi ptr [ %17, %.critedge2.i8.i14.i6.i.i.i.i.i ], [ %10, %15 ]
-  %16 = load ptr, ptr %.sroa.0.3.i4.i.i.i.i.i, align 8, !tbaa !33, !noalias !239
-  %magicptr.i7.i13.i5.i.i.i.i.i = ptrtoint ptr %16 to i64
+.lr.ph.i6.i12.i3.i.i.i.i.i:                       ; preds = %16, %.critedge2.i8.i14.i6.i.i.i.i.i
+  %.sroa.0.3.i4.i.i.i.i.i = phi ptr [ %19, %.critedge2.i8.i14.i6.i.i.i.i.i ], [ %10, %16 ]
+  %18 = load ptr, ptr %.sroa.0.3.i4.i.i.i.i.i, align 8, !tbaa !33, !noalias !239
+  %magicptr.i7.i13.i5.i.i.i.i.i = ptrtoint ptr %18 to i64
   switch i64 %magicptr.i7.i13.i5.i.i.i.i.i, label %_ZN4llvm5nodesIPKN5clang9CallGraphEEENS_14iterator_rangeINS_11GraphTraitsIT_E14nodes_iteratorEEERKS7_.exit.i [
     i64 -4096, label %.critedge2.i8.i14.i6.i.i.i.i.i
     i64 -8192, label %.critedge2.i8.i14.i6.i.i.i.i.i
   ]
 
 .critedge2.i8.i14.i6.i.i.i.i.i:                   ; preds = %.lr.ph.i6.i12.i3.i.i.i.i.i, %.lr.ph.i6.i12.i3.i.i.i.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i4.i.i.i.i.i, i64 16
-  %.not.i9.i15.i7.i.i.i.i.i = icmp eq ptr %17, %14
-  br i1 %.not.i9.i15.i7.i.i.i.i.i, label %_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE10writeNodesEv.exit, label %.lr.ph.i6.i12.i3.i.i.i.i.i, !llvm.loop !242
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i4.i.i.i.i.i, i64 16
+  %.not.i9.i15.i7.i.i.i.i.i = icmp eq ptr %19, %17
+  br i1 %.not.i9.i15.i7.i.i.i.i.i, label %_ZN4llvm5nodesIPKN5clang9CallGraphEEENS_14iterator_rangeINS_11GraphTraitsIT_E14nodes_iteratorEEERKS7_.exit.i, label %.lr.ph.i6.i12.i3.i.i.i.i.i, !llvm.loop !242
 
-_ZN4llvm5nodesIPKN5clang9CallGraphEEENS_14iterator_rangeINS_11GraphTraitsIT_E14nodes_iteratorEEERKS7_.exit.i: ; preds = %.lr.ph.i6.i12.i3.i.i.i.i.i, %15
-  %.pn14.i.i.i.i.i = phi ptr [ %10, %15 ], [ %.sroa.0.3.i4.i.i.i.i.i, %.lr.ph.i6.i12.i3.i.i.i.i.i ]
-  %.not11.i = icmp eq ptr %.pn14.i.i.i.i.i, %14
+_ZN4llvm5nodesIPKN5clang9CallGraphEEENS_14iterator_rangeINS_11GraphTraitsIT_E14nodes_iteratorEEERKS7_.exit.i: ; preds = %.critedge2.i8.i14.i6.i.i.i.i.i, %.lr.ph.i6.i12.i3.i.i.i.i.i, %16, %14
+  %.pn14.i.i.i.i.i = phi ptr [ %15, %14 ], [ %10, %16 ], [ %.sroa.0.3.i4.i.i.i.i.i, %.lr.ph.i6.i12.i3.i.i.i.i.i ], [ %17, %.critedge2.i8.i14.i6.i.i.i.i.i ]
+  %.pn12.i.i.i.i.i = phi ptr [ %15, %14 ], [ %17, %16 ], [ %17, %.lr.ph.i6.i12.i3.i.i.i.i.i ], [ %17, %.critedge2.i8.i14.i6.i.i.i.i.i ]
+  %20 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %13
+  %.not11.i = icmp eq ptr %.pn14.i.i.i.i.i, %20
   br i1 %.not11.i, label %_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE10writeNodesEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm5nodesIPKN5clang9CallGraphEEENS_14iterator_rangeINS_11GraphTraitsIT_E14nodes_iteratorEEERKS7_.exit.i, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_16DenseMapIteratorIPKN5clang4DeclESt10unique_ptrINS3_13CallGraphNodeESt14default_deleteIS8_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SB_EELb1EEEPFPS8_RKSG_ESI_EESH_St20forward_iterator_tagSI_lPSI_SI_EppEv.exit.i
-  %.sroa.05.012.i = phi ptr [ %.sroa.05.1.i, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_16DenseMapIteratorIPKN5clang4DeclESt10unique_ptrINS3_13CallGraphNodeESt14default_deleteIS8_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SB_EELb1EEEPFPS8_RKSG_ESI_EESH_St20forward_iterator_tagSI_lPSI_SI_EppEv.exit.i ], [ %.pn14.i.i.i.i.i, %_ZN4llvm5nodesIPKN5clang9CallGraphEEENS_14iterator_rangeINS_11GraphTraitsIT_E14nodes_iteratorEEERKS7_.exit.i ]
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.05.012.i, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !35
-  tail call void @_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE9writeNodeEPKNS1_13CallGraphNodeE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef %19)
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.05.012.i, i64 16
-  %.not5.i3.i.i.i = icmp eq ptr %20, %14
-  br i1 %.not5.i3.i.i.i, label %_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE10writeNodesEv.exit, label %.lr.ph.i4.i.i.i
+  %.sroa.05.012.i = phi ptr [ %.sroa.05.2.i, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_16DenseMapIteratorIPKN5clang4DeclESt10unique_ptrINS3_13CallGraphNodeESt14default_deleteIS8_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SB_EELb1EEEPFPS8_RKSG_ESI_EESH_St20forward_iterator_tagSI_lPSI_SI_EppEv.exit.i ], [ %.pn14.i.i.i.i.i, %_ZN4llvm5nodesIPKN5clang9CallGraphEEENS_14iterator_rangeINS_11GraphTraitsIT_E14nodes_iteratorEEERKS7_.exit.i ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.05.012.i, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !35
+  tail call void @_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE9writeNodeEPKNS1_13CallGraphNodeE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef %22)
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.05.012.i, i64 16
+  %.not5.i3.i.i.i = icmp eq ptr %23, %.pn12.i.i.i.i.i
+  br i1 %.not5.i3.i.i.i, label %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_16DenseMapIteratorIPKN5clang4DeclESt10unique_ptrINS3_13CallGraphNodeESt14default_deleteIS8_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SB_EELb1EEEPFPS8_RKSG_ESI_EESH_St20forward_iterator_tagSI_lPSI_SI_EppEv.exit.i, label %.lr.ph.i4.i.i.i
 
 .lr.ph.i4.i.i.i:                                  ; preds = %.lr.ph.i, %.critedge2.i6.i.i.i
-  %.sroa.05.1.i = phi ptr [ %22, %.critedge2.i6.i.i.i ], [ %20, %.lr.ph.i ]
-  %21 = load ptr, ptr %.sroa.05.1.i, align 8, !tbaa !33
-  %magicptr.i5.i.i.i = ptrtoint ptr %21 to i64
+  %.sroa.05.1.i = phi ptr [ %25, %.critedge2.i6.i.i.i ], [ %23, %.lr.ph.i ]
+  %24 = load ptr, ptr %.sroa.05.1.i, align 8, !tbaa !33
+  %magicptr.i5.i.i.i = ptrtoint ptr %24 to i64
   switch i64 %magicptr.i5.i.i.i, label %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_16DenseMapIteratorIPKN5clang4DeclESt10unique_ptrINS3_13CallGraphNodeESt14default_deleteIS8_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SB_EELb1EEEPFPS8_RKSG_ESI_EESH_St20forward_iterator_tagSI_lPSI_SI_EppEv.exit.i [
     i64 -4096, label %.critedge2.i6.i.i.i
     i64 -8192, label %.critedge2.i6.i.i.i
   ]
 
 .critedge2.i6.i.i.i:                              ; preds = %.lr.ph.i4.i.i.i, %.lr.ph.i4.i.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.05.1.i, i64 16
-  %.not.i7.i.i.i = icmp eq ptr %22, %14
-  br i1 %.not.i7.i.i.i, label %_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE10writeNodesEv.exit, label %.lr.ph.i4.i.i.i, !llvm.loop !242
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.05.1.i, i64 16
+  %.not.i7.i.i.i = icmp eq ptr %25, %.pn12.i.i.i.i.i
+  br i1 %.not.i7.i.i.i, label %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_16DenseMapIteratorIPKN5clang4DeclESt10unique_ptrINS3_13CallGraphNodeESt14default_deleteIS8_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SB_EELb1EEEPFPS8_RKSG_ESI_EESH_St20forward_iterator_tagSI_lPSI_SI_EppEv.exit.i, label %.lr.ph.i4.i.i.i, !llvm.loop !242
 
-_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_16DenseMapIteratorIPKN5clang4DeclESt10unique_ptrINS3_13CallGraphNodeESt14default_deleteIS8_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SB_EELb1EEEPFPS8_RKSG_ESI_EESH_St20forward_iterator_tagSI_lPSI_SI_EppEv.exit.i: ; preds = %.lr.ph.i4.i.i.i
-  %.not.i = icmp eq ptr %.sroa.05.1.i, %14
+_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_16DenseMapIteratorIPKN5clang4DeclESt10unique_ptrINS3_13CallGraphNodeESt14default_deleteIS8_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SB_EELb1EEEPFPS8_RKSG_ESI_EESH_St20forward_iterator_tagSI_lPSI_SI_EppEv.exit.i: ; preds = %.critedge2.i6.i.i.i, %.lr.ph.i4.i.i.i, %.lr.ph.i
+  %.sroa.05.2.i = phi ptr [ %23, %.lr.ph.i ], [ %25, %.critedge2.i6.i.i.i ], [ %.sroa.05.1.i, %.lr.ph.i4.i.i.i ]
+  %.not.i = icmp eq ptr %.sroa.05.2.i, %20
   br i1 %.not.i, label %_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE10writeNodesEv.exit, label %.lr.ph.i
 
-_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE10writeNodesEv.exit: ; preds = %.critedge2.i8.i14.i6.i.i.i.i.i, %.lr.ph.i, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_16DenseMapIteratorIPKN5clang4DeclESt10unique_ptrINS3_13CallGraphNodeESt14default_deleteIS8_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SB_EELb1EEEPFPS8_RKSG_ESI_EESH_St20forward_iterator_tagSI_lPSI_SI_EppEv.exit.i, %.critedge2.i6.i.i.i, %2, %_ZN4llvm5nodesIPKN5clang9CallGraphEEENS_14iterator_rangeINS_11GraphTraitsIT_E14nodes_iteratorEEERKS7_.exit.i
-  %23 = load ptr, ptr %0, align 8, !tbaa !243
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !79
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !84
-  %28 = ptrtoint ptr %25 to i64
-  %29 = ptrtoint ptr %27 to i64
-  %30 = sub i64 %28, %29
-  %31 = icmp ult i64 %30, 2
-  br i1 %31, label %32, label %34
+_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE10writeNodesEv.exit: ; preds = %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_16DenseMapIteratorIPKN5clang4DeclESt10unique_ptrINS3_13CallGraphNodeESt14default_deleteIS8_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SB_EELb1EEEPFPS8_RKSG_ESI_EESH_St20forward_iterator_tagSI_lPSI_SI_EppEv.exit.i, %_ZN4llvm5nodesIPKN5clang9CallGraphEEENS_14iterator_rangeINS_11GraphTraitsIT_E14nodes_iteratorEEERKS7_.exit.i
+  %26 = load ptr, ptr %0, align 8, !tbaa !243
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %28 = load ptr, ptr %27, align 8, !tbaa !79
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %30 = load ptr, ptr %29, align 8, !tbaa !84
+  %31 = ptrtoint ptr %28 to i64
+  %32 = ptrtoint ptr %30 to i64
+  %33 = sub i64 %31, %32
+  %34 = icmp ult i64 %33, 2
+  br i1 %34, label %35, label %37
 
-32:                                               ; preds = %_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE10writeNodesEv.exit
-  %33 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull @.str.59, i64 noundef 2) #18
+35:                                               ; preds = %_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE10writeNodesEv.exit
+  %36 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull @.str.59, i64 noundef 2) #18
   br label %_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE11writeFooterEv.exit
 
-34:                                               ; preds = %_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE10writeNodesEv.exit
-  store i16 2685, ptr %27, align 1
-  %35 = load ptr, ptr %26, align 8, !tbaa !84
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 2
-  store ptr %36, ptr %26, align 8, !tbaa !84
+37:                                               ; preds = %_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE10writeNodesEv.exit
+  store i16 2685, ptr %30, align 1
+  %38 = load ptr, ptr %29, align 8, !tbaa !84
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 2
+  store ptr %39, ptr %29, align 8, !tbaa !84
   br label %_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE11writeFooterEv.exit
 
-_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE11writeFooterEv.exit: ; preds = %32, %34
+_ZN4llvm11GraphWriterIPKN5clang9CallGraphEE11writeFooterEv.exit: ; preds = %35, %37
   ret void
 }
 
@@ -8658,7 +8676,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit78:               ; preds = %92, %94
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %103 = load i32, ptr %102, align 8, !tbaa !48
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw %"struct.clang::CallGraphNode::CallRecord", ptr %101, i64 %104
+  %.idx = shl nuw nsw i64 %104, 4
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx
   %.not241 = icmp eq i32 %103, 0
   br i1 %.not241, label %._crit_edge, label %.lr.ph
 
@@ -8818,9 +8837,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit87:               ; preds = %149, %151, %164, %1
 _ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i: ; preds = %183
   %189 = getelementptr inbounds nuw i8, ptr %182, i64 40
   call void @_ZNK5clang15DeclarationName11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %189) #18
-  %.pre246 = load ptr, ptr %6, align 8, !tbaa !106
-  %.phi.trans.insert247 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.pre248 = load i64, ptr %.phi.trans.insert247, align 8, !tbaa !104
+  %.pre247 = load ptr, ptr %6, align 8, !tbaa !106
+  %.phi.trans.insert248 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.pre249 = load i64, ptr %.phi.trans.insert248, align 8, !tbaa !104
   br label %_ZN4llvm14DOTGraphTraitsIPKN5clang9CallGraphEE12getNodeLabelB5cxx11EPKNS1_13CallGraphNodeES4_.exit
 
 ._crit_edge.i.i6.i:                               ; preds = %183, %181
@@ -8834,8 +8853,8 @@ _ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i: ; preds 
   br label %_ZN4llvm14DOTGraphTraitsIPKN5clang9CallGraphEE12getNodeLabelB5cxx11EPKNS1_13CallGraphNodeES4_.exit
 
 _ZN4llvm14DOTGraphTraitsIPKN5clang9CallGraphEE12getNodeLabelB5cxx11EPKNS1_13CallGraphNodeES4_.exit: ; preds = %._crit_edge.i.i.i, %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i, %._crit_edge.i.i6.i
-  %193 = phi i64 [ 8, %._crit_edge.i.i.i ], [ %.pre248, %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i ], [ 3, %._crit_edge.i.i6.i ]
-  %194 = phi ptr [ %178, %._crit_edge.i.i.i ], [ %.pre246, %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i ], [ %190, %._crit_edge.i.i6.i ]
+  %193 = phi i64 [ 8, %._crit_edge.i.i.i ], [ %.pre249, %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i ], [ 3, %._crit_edge.i.i6.i ]
+  %194 = phi ptr [ %178, %._crit_edge.i.i.i ], [ %.pre247, %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclENS1_4DeclEEEDaPT0_.exit.i ], [ %190, %._crit_edge.i.i6.i ]
   %195 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %196 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %171, ptr noundef %194, i64 noundef %193) #18
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 24
@@ -9095,7 +9114,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit216:              ; preds = %316, %318
   %321 = load ptr, ptr %265, align 8, !tbaa !47
   %322 = load i32, ptr %266, align 8, !tbaa !48
   %323 = zext i32 %322 to i64
-  %324 = getelementptr inbounds nuw %"struct.clang::CallGraphNode::CallRecord", ptr %321, i64 %323
+  %.idx243 = shl nuw nsw i64 %323, 4
+  %324 = getelementptr inbounds nuw i8, ptr %321, i64 %.idx243
   %.not242 = icmp eq i32 %322, 0
   br i1 %.not242, label %.preheader, label %.lr.ph235
 

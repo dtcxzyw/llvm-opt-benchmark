@@ -67712,7 +67712,8 @@ _ZN6duckdb22make_unsafe_uniq_arrayINS_15ColumnScanStateEEENS_10unique_ptrIA_T_St
   br i1 %33, label %_ZNKSt14default_deleteIA_N6duckdb15ColumnScanStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i.i, label %.preheader.preheader.i.i.i.i.i.i
 
 .preheader.preheader.i.i.i.i.i.i:                 ; preds = %30
-  %34 = getelementptr inbounds %"struct.duckdb::ColumnScanState", ptr %29, i64 %32
+  %.idx.i.i.i.i.i.i = mul nsw i64 %32, 152
+  %34 = getelementptr inbounds i8, ptr %29, i64 %.idx.i.i.i.i.i.i
   br label %.preheader.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i:                           ; preds = %.preheader.i.i.i.i.i.i, %.preheader.preheader.i.i.i.i.i.i
@@ -67790,7 +67791,8 @@ define linkonce_odr void @_ZNSt10unique_ptrIA_N6duckdb15ColumnScanStateESt14defa
   br i1 %6, label %_ZNKSt14default_deleteIA_N6duckdb15ColumnScanStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %3
-  %7 = getelementptr inbounds %"struct.duckdb::ColumnScanState", ptr %2, i64 %5
+  %.idx.i = mul nsw i64 %5, 152
+  %7 = getelementptr inbounds i8, ptr %2, i64 %.idx.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
@@ -101704,7 +101706,8 @@ _ZN6duckdb15SelectionVectorD2Ev.exit:             ; preds = %1, %10, %_ZN9__gnu_
   br i1 %31, label %_ZNKSt14default_deleteIA_N6duckdb15ColumnScanStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i, label %.preheader.preheader.i.i
 
 .preheader.preheader.i.i:                         ; preds = %28
-  %32 = getelementptr inbounds %"struct.duckdb::ColumnScanState", ptr %27, i64 %30
+  %.idx.i.i = mul nsw i64 %30, 152
+  %32 = getelementptr inbounds i8, ptr %27, i64 %.idx.i.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
@@ -101869,7 +101872,8 @@ _ZN6duckdb15SelectionVectorD2Ev.exit.i:           ; preds = %56, %_ZN9__gnu_cxx2
   br i1 %62, label %_ZNKSt14default_deleteIA_N6duckdb15ColumnScanStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i, label %.preheader.preheader.i.i.i
 
 .preheader.preheader.i.i.i:                       ; preds = %59
-  %63 = getelementptr inbounds %"struct.duckdb::ColumnScanState", ptr %58, i64 %61
+  %.idx.i.i.i = mul nsw i64 %61, 152
+  %63 = getelementptr inbounds i8, ptr %58, i64 %.idx.i.i.i
   br label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i, %.preheader.preheader.i.i.i
@@ -101940,30 +101944,31 @@ _ZN6duckdb15SelectionVectorD2Ev.exit.i6:          ; preds = %90, %_ZN9__gnu_cxx2
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %92 = load ptr, ptr %91, align 8, !tbaa !1057
   %.not.i.i7 = icmp eq ptr %92, null
-  br i1 %.not.i.i7, label %_ZN6duckdb19CollectionScanStateD2Ev.exit11, label %93
+  br i1 %.not.i.i7, label %_ZN6duckdb19CollectionScanStateD2Ev.exit12, label %93
 
 93:                                               ; preds = %_ZN6duckdb15SelectionVectorD2Ev.exit.i6
   %94 = getelementptr inbounds i8, ptr %92, i64 -8
   %95 = load i64, ptr %94, align 8
   %96 = icmp eq i64 %95, 0
-  br i1 %96, label %_ZNKSt14default_deleteIA_N6duckdb15ColumnScanStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i10, label %.preheader.preheader.i.i.i8
+  br i1 %96, label %_ZNKSt14default_deleteIA_N6duckdb15ColumnScanStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i11, label %.preheader.preheader.i.i.i8
 
 .preheader.preheader.i.i.i8:                      ; preds = %93
-  %97 = getelementptr inbounds %"struct.duckdb::ColumnScanState", ptr %92, i64 %95
-  br label %.preheader.i.i.i9
+  %.idx.i.i.i9 = mul nsw i64 %95, 152
+  %97 = getelementptr inbounds i8, ptr %92, i64 %.idx.i.i.i9
+  br label %.preheader.i.i.i10
 
-.preheader.i.i.i9:                                ; preds = %.preheader.i.i.i9, %.preheader.preheader.i.i.i8
-  %98 = phi ptr [ %99, %.preheader.i.i.i9 ], [ %97, %.preheader.preheader.i.i.i8 ]
+.preheader.i.i.i10:                               ; preds = %.preheader.i.i.i10, %.preheader.preheader.i.i.i8
+  %98 = phi ptr [ %99, %.preheader.i.i.i10 ], [ %97, %.preheader.preheader.i.i.i8 ]
   %99 = getelementptr inbounds i8, ptr %98, i64 -152
   tail call void @_ZN6duckdb15ColumnScanStateD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %99) #44
   %100 = icmp eq ptr %99, %92
-  br i1 %100, label %_ZNKSt14default_deleteIA_N6duckdb15ColumnScanStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i10, label %.preheader.i.i.i9
+  br i1 %100, label %_ZNKSt14default_deleteIA_N6duckdb15ColumnScanStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i11, label %.preheader.i.i.i10
 
-_ZNKSt14default_deleteIA_N6duckdb15ColumnScanStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i10: ; preds = %.preheader.i.i.i9, %93
+_ZNKSt14default_deleteIA_N6duckdb15ColumnScanStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i11: ; preds = %.preheader.i.i.i10, %93
   tail call void @_ZdaPv(ptr noundef nonnull %94) #46
-  br label %_ZN6duckdb19CollectionScanStateD2Ev.exit11
+  br label %_ZN6duckdb19CollectionScanStateD2Ev.exit12
 
-_ZN6duckdb19CollectionScanStateD2Ev.exit11:       ; preds = %_ZN6duckdb15SelectionVectorD2Ev.exit.i6, %_ZNKSt14default_deleteIA_N6duckdb15ColumnScanStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i10
+_ZN6duckdb19CollectionScanStateD2Ev.exit12:       ; preds = %_ZN6duckdb15SelectionVectorD2Ev.exit.i6, %_ZNKSt14default_deleteIA_N6duckdb15ColumnScanStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i11
   store ptr null, ptr %91, align 8, !tbaa !1057
   ret void
 }
@@ -110803,7 +110808,8 @@ _ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb13ClientContextEESaIS3_EE15_M_a
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb13ClientContextEESaIS3_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb13ClientContextEESaIS3_EE16_M_allocate_nodeEv.exit.i
@@ -110923,7 +110929,8 @@ _ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb16DatabaseInstanceEESaIS3_EE15_
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb16DatabaseInstanceEESaIS3_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb16DatabaseInstanceEESaIS3_EE16_M_allocate_nodeEv.exit.i
@@ -111043,7 +111050,8 @@ _ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb7CatalogEESaIS3_EE15_M_allocate
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb7CatalogEESaIS3_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseISt17reference_wrapperIN6duckdb7CatalogEESaIS3_EE16_M_allocate_nodeEv.exit.i
@@ -111163,7 +111171,8 @@ _ZNSt11_Deque_baseImSaImEE15_M_allocate_mapEm.exit:
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseImSaImEE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseImSaImEE16_M_allocate_nodeEv.exit.i
@@ -111283,7 +111292,8 @@ _ZNSt11_Deque_baseISt17reference_wrapperISt13unordered_mapINSt7__cxx1112basic_st
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseISt17reference_wrapperISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb10shared_ptrINS8_18BoundParameterDataELb1EEENS8_33CaseInsensitiveStringHashFunctionENS8_29CaseInsensitiveStringEqualityESaISt4pairIKS7_SB_EEEESaISJ_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseISt17reference_wrapperISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb10shared_ptrINS8_18BoundParameterDataELb1EEENS8_33CaseInsensitiveStringHashFunctionENS8_29CaseInsensitiveStringEqualityESaISt4pairIKS7_SB_EEEESaISJ_EE16_M_allocate_nodeEv.exit.i
@@ -111403,7 +111413,8 @@ _ZNSt11_Deque_baseISt17reference_wrapperIKN6duckdb11LogicalTypeEESaIS4_EE15_M_al
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseISt17reference_wrapperIKN6duckdb11LogicalTypeEESaIS4_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseISt17reference_wrapperIKN6duckdb11LogicalTypeEESaIS4_EE16_M_allocate_nodeEv.exit.i
@@ -111523,7 +111534,8 @@ _ZNSt11_Deque_baseISt17reference_wrapperIKN6duckdb15CompressionInfoEESaIS4_EE15_
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseISt17reference_wrapperIKN6duckdb15CompressionInfoEESaIS4_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseISt17reference_wrapperIKN6duckdb15CompressionInfoEESaIS4_EE16_M_allocate_nodeEv.exit.i
@@ -129167,7 +129179,8 @@ define linkonce_odr void @_ZNKSt14default_deleteIA_N6duckdb17ColumnAppendStateEE
   br i1 %7, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %4
-  %8 = getelementptr inbounds %"struct.duckdb::ColumnAppendState", ptr %1, i64 %6
+  %.idx = mul nsw i64 %6, 48
+  %8 = getelementptr inbounds i8, ptr %1, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN6duckdb17ColumnAppendStateD2Ev.exit
@@ -148960,7 +148973,8 @@ _ZN6duckdb10unique_ptrIA_NS_17ColumnAppendStateESt14default_deleteIS1_ELb0EEaSEO
   br i1 %437, label %_ZNKSt14default_deleteIA_N6duckdb17ColumnAppendStateEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %_ZN6duckdb10unique_ptrIA_NS_17ColumnAppendStateESt14default_deleteIS1_ELb0EEaSEOS5_.exit._ZNSt10unique_ptrIA_N6duckdb17ColumnAppendStateESt14default_deleteIS2_EED2Ev.exit_crit_edge.i
-  %438 = getelementptr inbounds %"struct.duckdb::ColumnAppendState", ptr %434, i64 %436
+  %.idx.i = mul nsw i64 %436, 48
+  %438 = getelementptr inbounds i8, ptr %434, i64 %.idx.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN6duckdb17ColumnAppendStateD2Ev.exit.i, %.preheader.preheader.i

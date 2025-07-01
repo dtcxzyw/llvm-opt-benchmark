@@ -24245,7 +24245,8 @@ define linkonce_odr hidden void @_ZNK3ade15ExecutionEngine13getLazyPassesISt16in
   %6 = load ptr, ptr %2, align 8, !tbaa !625
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !628
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %.idx = shl nuw nsw i64 %8, 3
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %.not36 = icmp eq i64 %8, 0
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 

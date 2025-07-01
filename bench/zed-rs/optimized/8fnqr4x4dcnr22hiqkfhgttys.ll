@@ -43856,7 +43856,8 @@ common.ret:                                       ; preds = %391, %"_ZN4core3ptr
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27), !noalias !12316
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %17), !noalias !12316
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16), !noalias !12316
-  %221 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, ptr %.sroa.2.0.copyload.i, i64 %.sroa.3193.0.copyload.i
+  %.idx.i = mul nsw i64 %.sroa.3193.0.copyload.i, 104
+  %221 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 %.idx.i
   %222 = getelementptr inbounds nuw i8, ptr %1, i64 232
   call void @llvm.experimental.noalias.scope.decl(metadata !12456)
   store ptr %.sroa.2.0.copyload.i, ptr %16, align 8, !alias.scope !12459, !noalias !12461
@@ -44614,7 +44615,8 @@ _ZN3log13__private_api3log17hc5388398a63c86b4E.exit140.i: ; preds = %321
   %.val = load ptr, ptr %404, align 8, !nonnull !5, !noundef !5
   %405 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %.val28 = load i64, ptr %405, align 8, !noundef !5
-  %406 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %.val, i64 %.val28
+  %.idx = mul nsw i64 %.val28, 48
+  %406 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   call void @llvm.experimental.noalias.scope.decl(metadata !12724)
   %407 = icmp eq i64 %.val28, 0
   br i1 %407, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6ba545e85a9db0bbE.exit", label %.lr.ph.i

@@ -8,9 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.eastl::fixed_pool_base" = type { ptr, ptr, ptr, i64 }
 %"class.eastl::allocator" = type { i8 }
 %"class.eastl::fixed_node_allocator.11" = type { %"class.eastl::fixed_pool_with_overflow" }
-%struct.Align64 = type { i32, [60 x i8] }
 %"class.eastl::fixed_node_allocator.20" = type { %"class.eastl::fixed_pool_with_overflow" }
-%struct.TestObject = type <{ i32, i8, [3 x i8], i64, i32, [4 x i8] }>
 %"class.eastl::fixed_node_allocator.27" = type { %"class.eastl::fixed_pool_with_overflow.28" }
 %"class.eastl::fixed_pool_with_overflow.28" = type { %"struct.eastl::fixed_pool_base", %class.MallocAllocator, ptr }
 %class.MallocAllocator = type { i32, i32, i64 }
@@ -39,6 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::fixed_multiset.70" = type <{ %"class.eastl::multiset.71", [255 x i8], i8 }>
 %"class.eastl::multiset.71" = type { %"class.eastl::rbtree.72" }
 %"class.eastl::rbtree.72" = type { %"struct.eastl::rbtree_node_base", i64, %"class.eastl::fixed_node_allocator.11" }
+%struct.Align64 = type { i32, [60 x i8] }
 %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node" = type { ptr }
 %"class.eastl::scoped_ptr" = type { ptr }
 %"class.eastl::scoped_ptr.88" = type { ptr }
@@ -46,6 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Rb_tree<TestObject, TestObject, std::_Identity<TestObject>, std::less<TestObject>>::_Alloc_node" = type { ptr }
 %"class.eastl::scoped_ptr.95" = type { ptr }
 %"class.eastl::scoped_ptr.102" = type { ptr }
+%struct.TestObject = type <{ i32, i8, [3 x i8], i64, i32, [4 x i8] }>
 %"class.eastl::scoped_ptr.127" = type { ptr }
 %"class.eastl::scoped_ptr.128" = type { ptr }
 %"class.eastl::scoped_ptr.131" = type { ptr }
@@ -1315,7 +1315,8 @@ entry:
   %mColor.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mColor.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.i
 
@@ -1409,7 +1410,8 @@ entry:
   store i8 0, ptr %mColor.i.i, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl6rbtreeIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEELb0ELb1EE6insertIPKiEEvT_SC_.exit, label %for.body.i
 
@@ -1923,7 +1925,8 @@ entry:
   %mColor.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mColor.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds float, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.lr.ph.i
 
@@ -2083,7 +2086,8 @@ entry:
   store i8 0, ptr %mColor.i.i, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds float, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl6rbtreeIffNS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_8use_selfIfEELb0ELb0EE6insertIPKfEEvT_SC_.exit, label %for.body.lr.ph.i
 
@@ -2664,7 +2668,8 @@ entry:
   %mColor.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mColor.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 6
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.i
 
@@ -2758,7 +2763,8 @@ entry:
   store i8 0, ptr %mColor.i.i, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 6
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl6rbtreeI7Align64S1_NS_4lessIS1_EENS_20fixed_node_allocatorILm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EELb0ELb1EE6insertIPKS1_EEvT_SD_.exit, label %for.body.i
 
@@ -3272,7 +3278,8 @@ entry:
   %mColor.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mColor.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.i
 
@@ -3366,7 +3373,8 @@ entry:
   store i8 0, ptr %mColor.i.i, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl6rbtreeI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm56ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EELb0ELb0EE6insertIPKS1_EEvT_SD_.exit, label %for.body.i
 
@@ -4015,7 +4023,8 @@ entry:
   %mColor.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mColor.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.i
 
@@ -4109,7 +4118,8 @@ entry:
   store i8 0, ptr %mColor.i.i, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl6rbtreeIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEELb0ELb1EE6insertIPKiEEvT_SC_.exit, label %for.body.i
 
@@ -4769,7 +4779,8 @@ entry:
   %mColor.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mColor.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds float, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.lr.ph.i
 
@@ -4929,7 +4940,8 @@ entry:
   store i8 0, ptr %mColor.i.i, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds float, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl6rbtreeIffNS_4lessIfEENS_20fixed_node_allocatorILm40ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_8use_selfIfEELb0ELb0EE6insertIPKfEEvT_SC_.exit, label %for.body.lr.ph.i
 
@@ -5657,7 +5669,8 @@ entry:
   %mColor.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mColor.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 6
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.i
 
@@ -5751,7 +5764,8 @@ entry:
   store i8 0, ptr %mColor.i.i, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 6
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl6rbtreeI7Align64S1_NS_4lessIS1_EENS_20fixed_node_allocatorILm128ELm1ELm64ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EELb0ELb1EE6insertIPKS1_EEvT_SD_.exit, label %for.body.i
 
@@ -6411,7 +6425,8 @@ entry:
   %mColor.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mColor.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.i
 
@@ -6505,7 +6520,8 @@ entry:
   store i8 0, ptr %mColor.i.i, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl6rbtreeI10TestObjectS1_NS_4lessIS1_EENS_20fixed_node_allocatorILm56ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EELb0ELb0EE6insertIPKS1_EEvT_SD_.exit, label %for.body.i
 
@@ -61269,7 +61285,8 @@ entry:
   %mColor.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %mColor.i.i.i, align 8
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.lr.ph.i
 
@@ -61373,7 +61390,8 @@ entry:
   store i8 0, ptr %mColor.i.i, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %mnSize.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl6rbtreeIiiNS_4lessIiEENS_20fixed_node_allocatorILm40ELm1000ELm4ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEELb0ELb0EE6insertIPKiEEvT_SC_.exit, label %for.body.lr.ph.i
 

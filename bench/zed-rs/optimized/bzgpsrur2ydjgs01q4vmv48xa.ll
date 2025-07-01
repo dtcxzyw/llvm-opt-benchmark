@@ -15754,7 +15754,8 @@ common.resume:                                    ; preds = %802, %803, %75, %79
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62)
   %.sroa.0139.0.copyload = load i64, ptr %2, align 8
-  %142 = getelementptr inbounds { i64, [7 x i64] }, ptr %88, i64 %68
+  %.idx = shl nsw i64 %68, 6
+  %142 = getelementptr inbounds i8, ptr %88, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %61)
   store ptr %88, ptr %61, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 8

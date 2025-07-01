@@ -255,7 +255,7 @@ call.i.i.noexc:                                   ; preds = %for.body.i.preheade
   %n_.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %0, ptr %n_.i3.i, align 8, !tbaa !6, !alias.scope !3
   %4 = load ptr, ptr %ref.tmp, align 8, !tbaa !18, !noalias !3
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %4, i64 %0
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %2
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %call.i.i.noexc

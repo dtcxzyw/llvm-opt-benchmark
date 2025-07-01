@@ -53443,7 +53443,8 @@ define hidden void @"_ZN81_$LT$sharded_slab..shard..Array$LT$T$C$C$GT$$u20$as$u2
   unreachable
 
 .lr.ph.preheader:                                 ; preds = %8
-  %12 = getelementptr inbounds { { ptr } }, ptr %4, i64 %9
+  %.idx = shl nsw i64 %9, 3
+  %12 = getelementptr inbounds i8, ptr %4, i64 %.idx
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.backedge

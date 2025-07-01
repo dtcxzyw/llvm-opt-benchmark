@@ -2137,7 +2137,8 @@ _ZN9QListData7disposeEv.exit:                     ; preds = %21
 
 .lr.ph.i.preheader:                               ; preds = %45
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds ptr, ptr %54, i64 %56
+  %.idx = shl nsw i64 %56, 3
+  %57 = getelementptr inbounds i8, ptr %54, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %65

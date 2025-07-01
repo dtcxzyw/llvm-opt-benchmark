@@ -468,21 +468,24 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
           to label %call5.i.i.i.i2.i.i.noexc121 unwind label %lpad79.loopexit
 
 call5.i.i.i.i2.i.i.noexc121:                      ; preds = %if.then.i.i.i.i.i
-  %add.ptr.i.i.i117 = getelementptr double, ptr %call5.i.i.i.i2.i.i122, i64 %52
+  %add.ptr.i.i.i117 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i122, i64 %52
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i122, align 8, !tbaa !35
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i122, i64 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %52, 1
+  %sub.i.i.i.i.i = add nsw i64 %52, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont80, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc121
   %54 = add nsw i64 %mul.i.i.i.i.i.i116, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %54, i1 false), !tbaa !35
+  %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %invoke.cont80
 
 invoke.cont80:                                    ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc121, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %ref.tmp71.sroa.0.1 = phi ptr [ %call5.i.i.i.i2.i.i122, %call5.i.i.i.i2.i.i.noexc121 ], [ %call5.i.i.i.i2.i.i122, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %ref.tmp71.sroa.11.1 = phi ptr [ %add.ptr.i.i.i117, %call5.i.i.i.i2.i.i.noexc121 ], [ %add.ptr.i.i.i117, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc121 ], [ %add.ptr.i.i.i117, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc121 ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %55 = load ptr, ptr %locations_, align 8, !tbaa !17
   %add.ptr.i123 = getelementptr inbounds nuw %"class.std::vector.16", ptr %55, i64 %i.0180
   %56 = load ptr, ptr %add.ptr.i123, align 8, !tbaa !36

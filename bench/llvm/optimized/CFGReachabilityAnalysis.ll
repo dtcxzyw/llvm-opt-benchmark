@@ -294,11 +294,11 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm15SmallVect
   %81 = zext i32 %78 to i64
   %82 = add nuw nsw i64 %81, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %6, i64 noundef %82, i64 noundef 8) #8
-  %.pre.i29 = load i32, ptr %7, align 8, !tbaa !24
+  %.pre.i30 = load i32, ptr %7, align 8, !tbaa !24
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit: ; preds = %_ZN4llvm9BitVector6resizeEjb.exit, %80
-  %83 = phi i32 [ %78, %_ZN4llvm9BitVector6resizeEjb.exit ], [ %.pre.i29, %80 ]
+  %83 = phi i32 [ %78, %_ZN4llvm9BitVector6resizeEjb.exit ], [ %.pre.i30, %80 ]
   %84 = load ptr, ptr %3, align 8, !tbaa !21
   %85 = zext i32 %83 to i64
   %86 = getelementptr inbounds nuw ptr, ptr %84, i64 %85
@@ -307,11 +307,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit: ;
   %88 = load i32, ptr %7, align 8, !tbaa !24
   %89 = add i32 %88, 1
   store i32 %89, ptr %7, align 8, !tbaa !24
-  %.not.i47 = icmp eq i32 %89, 0
-  br i1 %.not.i47, label %._crit_edge, label %.lr.ph49
+  %.not.i48 = icmp eq i32 %89, 0
+  br i1 %.not.i48, label %._crit_edge, label %.lr.ph50
 
-.lr.ph49:                                         ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit, %.loopexit
-  %.048 = phi i1 [ %.1, %.loopexit ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit ]
+.lr.ph50:                                         ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit, %.loopexit
+  %.049 = phi i1 [ %.1, %.loopexit ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit ]
   %90 = phi i32 [ %.pr, %.loopexit ], [ %89, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit ]
   %91 = load ptr, ptr %3, align 8, !tbaa !21
   %92 = zext i32 %90 to i64
@@ -331,13 +331,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit: ;
   %105 = zext nneg i32 %103 to i64
   %106 = shl nuw i64 1, %105
   %107 = and i64 %106, %104
-  %.not43 = icmp eq i64 %107, 0
-  br i1 %.not43, label %108, label %.loopexit, !llvm.loop !50
+  %.not44 = icmp eq i64 %107, 0
+  br i1 %.not44, label %108, label %.loopexit, !llvm.loop !50
 
-108:                                              ; preds = %.lr.ph49
+108:                                              ; preds = %.lr.ph50
   %109 = or i64 %106, %104
   store i64 %109, ptr %102, align 8, !tbaa !25
-  br i1 %.048, label %115, label %110
+  br i1 %.049, label %115, label %110
 
 110:                                              ; preds = %108
   %111 = load ptr, ptr %24, align 8, !tbaa !21
@@ -352,30 +352,30 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit: ;
   %117 = load ptr, ptr %116, align 8, !tbaa !52
   %118 = getelementptr inbounds nuw i8, ptr %95, i64 64
   %119 = load ptr, ptr %118, align 8, !tbaa !53
-  %.not45 = icmp eq ptr %117, %119
-  br i1 %.not45, label %.loopexit, label %.lr.ph
+  %.not46 = icmp eq ptr %117, %119
+  br i1 %.not46, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %115, %134
   %120 = phi i32 [ %135, %134 ], [ %96, %115 ]
-  %.02346 = phi ptr [ %136, %134 ], [ %117, %115 ]
-  %121 = load ptr, ptr %.02346, align 8, !tbaa !54
+  %.02347 = phi ptr [ %136, %134 ], [ %117, %115 ]
+  %121 = load ptr, ptr %.02347, align 8, !tbaa !54
   %.not24 = icmp eq ptr %121, null
   br i1 %.not24, label %134, label %122
 
 122:                                              ; preds = %.lr.ph
   %123 = load i32, ptr %8, align 4, !tbaa !23
-  %.not.i.i.not.i34 = icmp ult i32 %120, %123
-  br i1 %.not.i.i.not.i34, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit36, label %124, !prof !48
+  %.not.i.i.not.i35 = icmp ult i32 %120, %123
+  br i1 %.not.i.i.not.i35, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit37, label %124, !prof !48
 
 124:                                              ; preds = %122
   %125 = zext i32 %120 to i64
   %126 = add nuw nsw i64 %125, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %6, i64 noundef %126, i64 noundef 8) #8
-  %.pre.i35 = load i32, ptr %7, align 8, !tbaa !24
-  br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit36
+  %.pre.i36 = load i32, ptr %7, align 8, !tbaa !24
+  br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit37
 
-_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit36: ; preds = %122, %124
-  %127 = phi i32 [ %120, %122 ], [ %.pre.i35, %124 ]
+_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit37: ; preds = %122, %124
+  %127 = phi i32 [ %120, %122 ], [ %.pre.i36, %124 ]
   %128 = load ptr, ptr %3, align 8, !tbaa !21
   %129 = zext i32 %127 to i64
   %130 = getelementptr inbounds nuw ptr, ptr %128, i64 %129
@@ -386,17 +386,17 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit36:
   store i32 %133, ptr %7, align 8, !tbaa !24
   br label %134
 
-134:                                              ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit36
-  %135 = phi i32 [ %120, %.lr.ph ], [ %133, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit36 ]
-  %136 = getelementptr inbounds nuw i8, ptr %.02346, i64 16
+134:                                              ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit37
+  %135 = phi i32 [ %120, %.lr.ph ], [ %133, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit37 ]
+  %136 = getelementptr inbounds nuw i8, ptr %.02347, i64 16
   %.not = icmp eq ptr %136, %119
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !58
 
-.loopexit:                                        ; preds = %134, %115, %.lr.ph49
-  %.pr = phi i32 [ %96, %.lr.ph49 ], [ %96, %115 ], [ %135, %134 ]
-  %.1 = phi i1 [ %.048, %.lr.ph49 ], [ false, %115 ], [ false, %134 ]
+.loopexit:                                        ; preds = %134, %115, %.lr.ph50
+  %.pr = phi i32 [ %96, %.lr.ph50 ], [ %96, %115 ], [ %135, %134 ]
+  %.1 = phi i1 [ %.049, %.lr.ph50 ], [ false, %115 ], [ false, %134 ]
   %.not.i = icmp eq i32 %.pr, 0
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph49
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph50
 
 ._crit_edge:                                      ; preds = %.loopexit, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit
   %137 = load ptr, ptr %4, align 8, !tbaa !21
@@ -757,7 +757,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_9BitVec
   store i32 0, ptr %25, align 4, !tbaa !68
   %26 = load i32, ptr %3, align 8, !tbaa !62
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %22, i64 %27
+  %.idx.i.i = mul nuw nsw i64 %27, 80
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i
   %.not5.i.i = icmp eq i32 %26, 0
   br i1 %.not5.i.i, label %_ZN4llvm8DenseMapIjNS_9BitVectorENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS1_EEE4growEj.exit, label %.lr.ph.i.i
 
@@ -790,7 +791,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_9BitVec
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !62
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
+  %.idx.i = mul nuw nsw i64 %9, 80
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not5.i = icmp eq i32 %8, 0
   br i1 %.not5.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_9BitVectorENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E9initEmptyEv.exit, label %.lr.ph.i
 

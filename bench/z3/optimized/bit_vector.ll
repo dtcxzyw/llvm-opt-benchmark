@@ -819,41 +819,42 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %1
   %6 = getelementptr inbounds i8, ptr %4, i64 -4
   %7 = load i32, ptr %6, align 4, !tbaa !12
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %4, i64 %8
+  %9 = shl nuw nsw i64 %8, 2
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
   %.not8 = icmp eq i32 %7, 0
   br i1 %.not8, label %._crit_edge.thread12, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIjLb0EjE3endEv.exit
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8
-  br label %12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8
+  br label %13
 
-12:                                               ; preds = %.lr.ph, %24
-  %.09 = phi ptr [ %4, %.lr.ph ], [ %25, %24 ]
-  %13 = load i32, ptr %.09, align 4, !tbaa !12
-  %14 = icmp ult i32 %13, %2
-  br i1 %14, label %15, label %24
+13:                                               ; preds = %.lr.ph, %25
+  %.09 = phi ptr [ %4, %.lr.ph ], [ %26, %25 ]
+  %14 = load i32, ptr %.09, align 4, !tbaa !12
+  %15 = icmp ult i32 %14, %2
+  br i1 %15, label %16, label %25
 
-15:                                               ; preds = %12
-  %16 = and i32 %13, 31
-  %17 = shl nuw i32 1, %16
-  %18 = xor i32 %17, -1
-  %19 = lshr i32 %13, 5
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %11, i64 %20
-  %22 = load i32, ptr %21, align 4, !tbaa !12
-  %23 = and i32 %22, %18
-  store i32 %23, ptr %21, align 4, !tbaa !12
-  br label %24
+16:                                               ; preds = %13
+  %17 = and i32 %14, 31
+  %18 = shl nuw i32 1, %17
+  %19 = xor i32 %18, -1
+  %20 = lshr i32 %14, 5
+  %21 = zext nneg i32 %20 to i64
+  %22 = getelementptr inbounds nuw i32, ptr %12, i64 %21
+  %23 = load i32, ptr %22, align 4, !tbaa !12
+  %24 = and i32 %23, %19
+  store i32 %24, ptr %22, align 4, !tbaa !12
+  br label %25
 
-24:                                               ; preds = %15, %12
-  %25 = getelementptr inbounds nuw i8, ptr %.09, i64 4
-  %.not = icmp eq ptr %25, %9
-  br i1 %.not, label %._crit_edge.thread12, label %12, !llvm.loop !27
+25:                                               ; preds = %16, %13
+  %26 = getelementptr inbounds nuw i8, ptr %.09, i64 4
+  %.not = icmp eq ptr %26, %10
+  br i1 %.not, label %._crit_edge.thread12, label %13, !llvm.loop !27
 
-._crit_edge.thread12:                             ; preds = %24, %_ZN6vectorIjLb0EjE3endEv.exit
-  %26 = getelementptr inbounds i8, ptr %4, i64 -4
-  store i32 0, ptr %26, align 4, !tbaa !12
+._crit_edge.thread12:                             ; preds = %25, %_ZN6vectorIjLb0EjE3endEv.exit
+  %27 = getelementptr inbounds i8, ptr %4, i64 -4
+  store i32 0, ptr %27, align 4, !tbaa !12
   br label %_ZN6vectorIjLb0EjE5resetEv.exit
 
 _ZN6vectorIjLb0EjE5resetEv.exit:                  ; preds = %1, %._crit_edge.thread12

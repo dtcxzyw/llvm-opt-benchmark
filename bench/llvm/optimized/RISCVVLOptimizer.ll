@@ -450,7 +450,8 @@ _ZN4llvm11po_iteratorIPNS_15MachineFunctionENS_11SmallPtrSetIPNS_17MachineBasicB
   br i1 %.not.i.i.i27, label %81, label %.loopexit
 
 81:                                               ; preds = %_ZN4llvm11po_iteratorIPNS_15MachineFunctionENS_11SmallPtrSetIPNS_17MachineBasicBlockELj8EEELb0ENS_11GraphTraitsIS2_EEEppEv.exit
-  %82 = getelementptr inbounds nuw %"class.std::tuple.333", ptr %.pre, i64 %80
+  %.idx.i.i.i = mul nuw nsw i64 %80, 24
+  %82 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx.i.i.i
   %.not9.i.i.i.i.i.i.i = icmp eq i32 %78, 0
   %.pre167 = load ptr, ptr %56, align 8, !tbaa !293
   br i1 %.not9.i.i.i.i.i.i.i, label %_ZNK4llvm11po_iteratorIPNS_15MachineFunctionENS_11SmallPtrSetIPNS_17MachineBasicBlockELj8EEELb0ENS_11GraphTraitsIS2_EEEneERKS9_.exit, label %.lr.ph.i.i.i.i.i.i.i
@@ -1142,7 +1143,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit: ; preds =
 366:                                              ; preds = %360
   %367 = load ptr, ptr %65, align 8, !tbaa !28
   %368 = zext i32 %362 to i64
-  %369 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %367, i64 %368
+  %.idx.i = mul nuw nsw i64 %368, 48
+  %369 = getelementptr inbounds nuw i8, ptr %367, i64 %.idx.i
   %.not6.i = icmp eq i32 %362, 0
   br i1 %.not6.i, label %._crit_edge.i, label %.lr.ph.i37
 
@@ -1588,7 +1590,7 @@ _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread: ; preds = %21, %_ZNK
 32:                                               ; preds = %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 2
   %34 = load i16, ptr %33, align 2, !tbaa !339
-  switch i16 %34, label %55 [
+  switch i16 %34, label %56 [
     i16 13255, label %35
     i16 13254, label %35
     i16 13291, label %35
@@ -1850,32 +1852,33 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit.i:    ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i32, ptr %44, align 8, !tbaa !442
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %45, i64 %47
+  %48 = shl nuw nsw i64 %47, 3
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 %48
   %.not1821.i = icmp eq i32 %46, 0
   br i1 %.not1821.i, label %_ZL16isSupportedInstrRKN4llvm12MachineInstrE.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK4llvm12MachineInstr11memoperandsEv.exit.i, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread28.i
-  %49 = phi ptr [ %42, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread28.i ], [ %48, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.i ]
+  %50 = phi ptr [ %42, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread28.i ], [ %49, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.i ]
   %.sroa.0.0.i32.i = phi ptr [ %36, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread28.i ], [ %45, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.i ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.01622.i = phi ptr [ %.sroa.0.0.i32.i, %.lr.ph.preheader.i ], [ %54, %.lr.ph.i ]
-  %50 = load ptr, ptr %.01622.i, align 8, !tbaa !444
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %52 = load i16, ptr %51, align 8, !tbaa !446
-  %53 = and i16 %52, 4
-  %.not20.i = icmp eq i16 %53, 0
-  %54 = getelementptr inbounds nuw i8, ptr %.01622.i, i64 8
-  %.not18.i = icmp ne ptr %54, %49
+  %.01622.i = phi ptr [ %.sroa.0.0.i32.i, %.lr.ph.preheader.i ], [ %55, %.lr.ph.i ]
+  %51 = load ptr, ptr %.01622.i, align 8, !tbaa !444
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  %53 = load i16, ptr %52, align 8, !tbaa !446
+  %54 = and i16 %53, 4
+  %.not20.i = icmp eq i16 %54, 0
+  %55 = getelementptr inbounds nuw i8, ptr %.01622.i, i64 8
+  %.not18.i = icmp ne ptr %55, %50
   %or.cond2.not = select i1 %.not20.i, i1 %.not18.i, i1 false
   br i1 %or.cond2.not, label %.lr.ph.i, label %_ZL16isSupportedInstrRKN4llvm12MachineInstrE.exit
 
-55:                                               ; preds = %32
+56:                                               ; preds = %32
   br label %_ZL16isSupportedInstrRKN4llvm12MachineInstrE.exit
 
-_ZL16isSupportedInstrRKN4llvm12MachineInstrE.exit: ; preds = %.lr.ph.i, %55, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.i, %39, %35, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread, %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit, %7, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %7 ], [ false, %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit ], [ false, %55 ], [ false, %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.i ], [ true, %35 ], [ true, %39 ], [ %.not20.i, %.lr.ph.i ]
+_ZL16isSupportedInstrRKN4llvm12MachineInstrE.exit: ; preds = %.lr.ph.i, %56, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.i, %39, %35, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread, %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit, %7, %1
+  %.0 = phi i1 [ false, %1 ], [ false, %7 ], [ false, %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit ], [ false, %56 ], [ false, %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.i ], [ true, %35 ], [ true, %39 ], [ %.not20.i, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -2103,7 +2106,8 @@ _ZSt4moveIPSt5tupleIJPN4llvm17MachineBasicBlockEPS3_S4_EES6_ET0_T_S8_S7_.exit: ;
   %48 = load ptr, ptr %0, align 8, !tbaa !293
   %49 = load i32, ptr %25, align 8, !tbaa !294
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw %"class.std::tuple.333", ptr %48, i64 %50
+  %.idx.i.i = mul nuw nsw i64 %50, 24
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i.i
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %49, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE19moveElementsForGrowEPS5_.exit.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -2257,7 +2261,8 @@ define linkonce_odr hidden void @_ZN4llvm11po_iteratorIPNS_15MachineFunctionENS_
   %29 = load ptr, ptr %0, align 8, !tbaa !306, !noalias !462
   %30 = load i32, ptr %17, align 4, !tbaa !425, !noalias !462
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %31
+  %.idx.i.i.i = shl nuw nsw i64 %31, 3
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i
   %.not36.i.i.i = icmp eq i32 %30, 0
   br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -2370,7 +2375,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %16 = load ptr, ptr %1, align 8, !tbaa !299
   store ptr %16, ptr %15, align 8, !tbaa !433
   %17 = load ptr, ptr %0, align 8, !tbaa !293
-  %18 = getelementptr inbounds nuw %"class.std::tuple.333", ptr %17, i64 %10
+  %.idx.i = mul nuw nsw i64 %10, 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE19moveElementsForGrowEPS5_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -2481,7 +2487,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %33 = load ptr, ptr %0, align 8, !tbaa !293
   %34 = load i32, ptr %9, align 8, !tbaa !294
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::tuple.333", ptr %33, i64 %35
+  %.idx.i.i = mul nuw nsw i64 %35, 24
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i.i
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %34, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPNS_17MachineBasicBlockEPS3_S4_EELb0EE19moveElementsForGrowEPS5_.exit.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -2679,7 +2686,8 @@ _ZN4llvm8DenseMapIPKNS_12MachineInstrESt8optionalINS_14MachineOperandEENS_12Dens
   store i32 0, ptr %24, align 4, !tbaa !370
   %25 = load i32, ptr %2, align 8, !tbaa !32
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %26
+  %.idx.i = mul nuw nsw i64 %26, 48
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i
   %.not6.i = icmp eq i32 %25, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrESt8optionalINS_14MachineOperandEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit, label %.lr.ph.i
 
@@ -2692,14 +2700,16 @@ _ZN4llvm8DenseMapIPKNS_12MachineInstrESt8optionalINS_14MachineOperandEENS_12Dens
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIPKNS_12MachineInstrESt8optionalINS_14MachineOperandEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %.idx = mul nuw nsw i64 %30, 48
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %32, align 8, !tbaa !369
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %33, align 4, !tbaa !370
   %34 = load i32, ptr %2, align 8, !tbaa !32
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %35
+  %.idx.i.i = mul nuw nsw i64 %35, 48
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i
   %.not6.i.i = icmp eq i32 %34, 0
   br i1 %.not6.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrESt8optionalINS_14MachineOperandEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit.i, label %.lr.ph.i.i
 
@@ -2785,8 +2795,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrESt8optionalINS_14Machine
   br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrESt8optionalINS_14MachineOperandEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E18moveFromOldBucketsEPSC_SF_.exit, label %.lr.ph.i7, !llvm.loop !470
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrESt8optionalINS_14MachineOperandEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E18moveFromOldBucketsEPSC_SF_.exit: ; preds = %70, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrESt8optionalINS_14MachineOperandEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit.i
-  %72 = mul nuw nsw i64 %30, 48
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %72, i64 noundef 8) #16
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %.idx, i64 noundef 8) #16
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrESt8optionalINS_14MachineOperandEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrESt8optionalINS_14MachineOperandEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit: ; preds = %.lr.ph.i, %22, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrESt8optionalINS_14MachineOperandEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E18moveFromOldBucketsEPSC_SF_.exit
@@ -3776,7 +3785,8 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapIPKNS_12MachineInstrESt8option
   store i32 0, ptr %14, align 4, !tbaa !370
   %15 = load ptr, ptr %0, align 8, !tbaa !28
   %16 = zext nneg i32 %3 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %15, i64 %16
+  %.idx.i = mul nuw nsw i64 %16, 48
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
   %.not6.i = icmp eq i32 %3, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrESt8optionalINS_14MachineOperandEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit, label %.lr.ph.i
 
@@ -3822,7 +3832,8 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapIPKNS_12MachineInstrESt8option
   store i32 0, ptr %44, align 4, !tbaa !370
   %45 = load i32, ptr %2, align 8, !tbaa !32
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %43, i64 %46
+  %.idx.i.i = mul nuw nsw i64 %46, 48
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i
   %.not6.i.i = icmp eq i32 %45, 0
   br i1 %.not6.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrESt8optionalINS_14MachineOperandEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit, label %.lr.ph.i.i
 

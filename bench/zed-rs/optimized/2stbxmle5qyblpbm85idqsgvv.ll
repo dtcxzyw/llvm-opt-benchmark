@@ -2616,7 +2616,8 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17heedaacfa7fb261d5E.exit.i: ;
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h872d2df94d8890ecE.exit.i": ; preds = %._crit_edge108.i
   %.sroa.0.0.v.i32.i = select i1 %trunc.i29.i, i64 7328, i64 120
   %.sroa.0.0.i33.i = getelementptr inbounds nuw i8, ptr %281, i64 %.sroa.0.0.v.i32.i
-  %284 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] }, ptr %.sroa.0.0.i33.i, i64 %277
+  %.idx.i = mul nuw nsw i64 %277, 104
+  %284 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i33.i, i64 %.idx.i
   %285 = icmp eq i64 %277, 0
   br i1 %285, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ae56d322860042fE.exit.thread.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ae56d322860042fE.exit.i"
 

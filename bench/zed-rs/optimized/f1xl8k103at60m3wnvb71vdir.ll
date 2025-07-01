@@ -32694,7 +32694,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hc2f25c3a3a9b2c6fE.exit.i: ; pre
   %357 = load ptr, ptr %356, align 8, !noalias !6946, !nonnull !9, !noundef !9
   %358 = getelementptr inbounds nuw i8, ptr %.sroa.037.0.copyload.i.i, i64 16
   %359 = load i64, ptr %358, align 8, !noalias !6946, !noundef !9
-  %360 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %357, i64 %359
+  %.idx.i.i.i = mul nsw i64 %359, 24
+  %360 = getelementptr inbounds i8, ptr %357, i64 %.idx.i.i.i
   %361 = icmp eq i64 %359, 0
   br i1 %361, label %..loopexit59_crit_edge.i.i, label %.lr.ph.i.i.i72
 
@@ -33153,7 +33154,8 @@ _ZN4gpui8executor5Scope5spawn17hbc0d1c809164cf52E.exit.i.i.i: ; preds = %406, %4
   %.sroa.587.0.copyload.i = load ptr, ptr %.sroa.587.0..sroa_idx.i, align 8, !noalias !6832, !nonnull !9, !noundef !9
   %.sroa.688.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 680
   %.sroa.688.0.copyload.i = load i64, ptr %.sroa.688.0..sroa_idx.i, align 8, !noalias !6832
-  %487 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.sroa.587.0.copyload.i, i64 %.sroa.688.0.copyload.i
+  %.idx.i = mul nsw i64 %.sroa.688.0.copyload.i, 24
+  %487 = getelementptr inbounds i8, ptr %.sroa.587.0.copyload.i, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21), !noalias !6832
   store ptr %.sroa.587.0.copyload.i, ptr %21, align 8, !noalias !6832
   %.sroa.583.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -33271,7 +33273,8 @@ _ZN4gpui8executor5Scope5spawn17hbc0d1c809164cf52E.exit.i.i.i: ; preds = %406, %4
   call void @llvm.assume(i1 %525)
   %526 = load i64, ptr %489, align 8, !noalias !6832, !noundef !9
   call void @llvm.experimental.noalias.scope.decl(metadata !7068)
-  %527 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %.sroa.891.sroa.0.0.copyload.i, i64 %.sroa.891.sroa.7.0.copyload.i
+  %.idx.i.i = shl nsw i64 %.sroa.891.sroa.7.0.copyload.i, 6
+  %527 = getelementptr inbounds i8, ptr %.sroa.891.sroa.0.0.copyload.i, i64 %.idx.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !7071
   store ptr %.sroa.891.sroa.0.0.copyload.i, ptr %12, align 8, !noalias !7071
   store ptr %.sroa.891.sroa.0.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i48.i, align 8, !noalias !7071

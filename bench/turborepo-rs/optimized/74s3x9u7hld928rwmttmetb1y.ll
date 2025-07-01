@@ -5612,7 +5612,8 @@ define noundef zeroext i1 @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtRINtNtCs68wO5nsWeTG_
   %9 = load i64, ptr %8, align 8, !alias.scope !1312, !noalias !1315, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1317
   call void @_ZN4core3fmt9Formatter10debug_list17h9b0f342ff6719931E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !1321
-  %10 = getelementptr inbounds { { i64, [2 x i64] }, { i8, [23 x i8] }, i64 }, ptr %7, i64 %9
+  %.idx.i.i = mul nsw i64 %9, 56
+  %10 = getelementptr inbounds i8, ptr %7, i64 %.idx.i.i
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %_RNvXsp_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryENtNtCs1LoaDTb72WA_4core3fmt5Debug3fmtBL_.exit, label %.lr.ph.i.i.i
 
@@ -8642,7 +8643,8 @@ define noundef zeroext i1 @_RNvXsp_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtNtCse
   %8 = load i64, ptr %7, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !2213
   call void @_ZN4core3fmt9Formatter10debug_list17h9b0f342ff6719931E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !2217
-  %9 = getelementptr inbounds { { i64, [2 x i64] }, { i8, [23 x i8] }, i64 }, ptr %6, i64 %8
+  %.idx.i = mul nsw i64 %8, 56
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %_RNvXso_NtCs1LoaDTb72WA_4core3fmtSNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryNtB5_5Debug3fmtBB_.exit, label %.lr.ph.i.i
 

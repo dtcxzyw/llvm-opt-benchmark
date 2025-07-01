@@ -394,19 +394,19 @@ _ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i: ; preds = %.
   %101 = fadd float %100, -1.000000e+00
   %102 = call noundef float @llvm.fabs.f32(float %101)
   %103 = fcmp olt float %102, 0x3FB99999A0000000
-  br i1 %103, label %.lr.ph.i.i.i.i7.i.i, label %_ZN5ZXing11PatternView5shiftEi.exit69
+  br i1 %103, label %.lr.ph.i.i.i.i8.i.i, label %_ZN5ZXing11PatternView5shiftEi.exit69
 
-.lr.ph.i.i.i.i7.i.i:                              ; preds = %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i, %.lr.ph.i.i.i.i7.i.i
-  %.08.i.i.i.i8.idx.i.i = phi i64 [ %.08.i.i.i.i8.add.i.i, %.lr.ph.i.i.i.i7.i.i ], [ 26, %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i ]
-  %.057.i.i.i.i9.i.i = phi i16 [ %105, %.lr.ph.i.i.i.i7.i.i ], [ 0, %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i ]
-  %.08.i.i.i.i8.ptr.i.i = getelementptr inbounds nuw i8, ptr %44, i64 %.08.i.i.i.i8.idx.i.i
-  %104 = load i16, ptr %.08.i.i.i.i8.ptr.i.i, align 2, !tbaa !10
-  %105 = add i16 %104, %.057.i.i.i.i9.i.i
-  %.08.i.i.i.i8.add.i.i = add nuw nsw i64 %.08.i.i.i.i8.idx.i.i, 2
-  %.not.i.i.i.i10.i.i = icmp eq i64 %.08.i.i.i.i8.add.i.i, 42
-  br i1 %.not.i.i.i.i10.i.i, label %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit, label %.lr.ph.i.i.i.i7.i.i, !llvm.loop !12
+.lr.ph.i.i.i.i8.i.i:                              ; preds = %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i, %.lr.ph.i.i.i.i8.i.i
+  %.08.i.i.i.i9.idx.i.i = phi i64 [ %.08.i.i.i.i9.add.i.i, %.lr.ph.i.i.i.i8.i.i ], [ 26, %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i ]
+  %.057.i.i.i.i10.i.i = phi i16 [ %105, %.lr.ph.i.i.i.i8.i.i ], [ 0, %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i ]
+  %.08.i.i.i.i9.ptr.i.i = getelementptr inbounds nuw i8, ptr %44, i64 %.08.i.i.i.i9.idx.i.i
+  %104 = load i16, ptr %.08.i.i.i.i9.ptr.i.i, align 2, !tbaa !10
+  %105 = add i16 %104, %.057.i.i.i.i10.i.i
+  %.08.i.i.i.i9.add.i.i = add nuw nsw i64 %.08.i.i.i.i9.idx.i.i, 2
+  %.not.i.i.i.i11.i.i = icmp eq i64 %.08.i.i.i.i9.add.i.i, 42
+  br i1 %.not.i.i.i.i11.i.i, label %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit, label %.lr.ph.i.i.i.i8.i.i, !llvm.loop !12
 
-_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit: ; preds = %.lr.ph.i.i.i.i7.i.i
+_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit: ; preds = %.lr.ph.i.i.i.i8.i.i
   %106 = uitofp i16 %105 to float
   %107 = fdiv float %106, 1.500000e+01
   %108 = fdiv float %107, %97
@@ -544,19 +544,19 @@ _ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i85: ; preds = 
   %177 = fadd float %176, -1.000000e+00
   %178 = call noundef float @llvm.fabs.f32(float %177)
   %179 = fcmp olt float %178, 0x3FB99999A0000000
-  br i1 %179, label %.lr.ph.i.i.i.i7.i.i86, label %_ZN5ZXing11PatternView5shiftEi.exit69.thread
+  br i1 %179, label %.lr.ph.i.i.i.i8.i.i86, label %_ZN5ZXing11PatternView5shiftEi.exit69.thread
 
-.lr.ph.i.i.i.i7.i.i86:                            ; preds = %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i85, %.lr.ph.i.i.i.i7.i.i86
-  %.08.i.i.i.i8.idx.i.i87 = phi i64 [ %.08.i.i.i.i8.add.i.i90, %.lr.ph.i.i.i.i7.i.i86 ], [ 26, %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i85 ]
-  %.057.i.i.i.i9.i.i88 = phi i16 [ %181, %.lr.ph.i.i.i.i7.i.i86 ], [ 0, %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i85 ]
-  %.08.i.i.i.i8.ptr.i.i89 = getelementptr inbounds nuw i8, ptr %119, i64 %.08.i.i.i.i8.idx.i.i87
-  %180 = load i16, ptr %.08.i.i.i.i8.ptr.i.i89, align 2, !tbaa !10
-  %181 = add i16 %180, %.057.i.i.i.i9.i.i88
-  %.08.i.i.i.i8.add.i.i90 = add nuw nsw i64 %.08.i.i.i.i8.idx.i.i87, 2
-  %.not.i.i.i.i10.i.i91 = icmp eq i64 %.08.i.i.i.i8.add.i.i90, 42
-  br i1 %.not.i.i.i.i10.i.i91, label %_ZN5ZXing4OneDL11IsRightPairERKNS_11PatternViewE.exit, label %.lr.ph.i.i.i.i7.i.i86, !llvm.loop !12
+.lr.ph.i.i.i.i8.i.i86:                            ; preds = %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i85, %.lr.ph.i.i.i.i8.i.i86
+  %.08.i.i.i.i9.idx.i.i87 = phi i64 [ %.08.i.i.i.i9.add.i.i90, %.lr.ph.i.i.i.i8.i.i86 ], [ 26, %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i85 ]
+  %.057.i.i.i.i10.i.i88 = phi i16 [ %181, %.lr.ph.i.i.i.i8.i.i86 ], [ 0, %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i85 ]
+  %.08.i.i.i.i9.ptr.i.i89 = getelementptr inbounds nuw i8, ptr %119, i64 %.08.i.i.i.i9.idx.i.i87
+  %180 = load i16, ptr %.08.i.i.i.i9.ptr.i.i89, align 2, !tbaa !10
+  %181 = add i16 %180, %.057.i.i.i.i10.i.i88
+  %.08.i.i.i.i9.add.i.i90 = add nuw nsw i64 %.08.i.i.i.i9.idx.i.i87, 2
+  %.not.i.i.i.i11.i.i91 = icmp eq i64 %.08.i.i.i.i9.add.i.i90, 42
+  br i1 %.not.i.i.i.i11.i.i91, label %_ZN5ZXing4OneDL11IsRightPairERKNS_11PatternViewE.exit, label %.lr.ph.i.i.i.i8.i.i86, !llvm.loop !12
 
-_ZN5ZXing4OneDL11IsRightPairERKNS_11PatternViewE.exit: ; preds = %.lr.ph.i.i.i.i7.i.i86
+_ZN5ZXing4OneDL11IsRightPairERKNS_11PatternViewE.exit: ; preds = %.lr.ph.i.i.i.i8.i.i86
   %182 = uitofp i16 %181 to float
   %183 = fmul float %182, 6.250000e-02
   %184 = fdiv float %183, %173

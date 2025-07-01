@@ -184,7 +184,8 @@ define hidden void @_ZN3ue27raw_dfa20stripExtraEodReportsEv(ptr noundef nonnull 
   %7 = load ptr, ptr %6, align 8, !noalias !7
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.012.019, i64 40
   %9 = load i64, ptr %8, align 8, !noalias !12
-  %10 = getelementptr inbounds nuw i32, ptr %7, i64 %9
+  %.idx = shl nuw nsw i64 %9, 2
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not1516 = icmp eq i64 %9, 0
   br i1 %.not1516, label %._crit_edge, label %.lr.ph
 

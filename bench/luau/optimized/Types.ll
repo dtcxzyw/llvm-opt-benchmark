@@ -19,14 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.145" = type { ptr, ptr }
 %"struct.std::pair.141" = type { ptr, ptr }
 %"struct.std::pair.157" = type <{ ptr, i32, [4 x i8] }>
-%"struct.Luau::AstTableProp" = type { %"struct.Luau::AstName", %"struct.Luau::Location", ptr, i32, %"class.std::optional.18" }
-%"struct.Luau::Location" = type { %"struct.Luau::Position", %"struct.Luau::Position" }
-%"struct.Luau::Position" = type { i32, i32 }
-%"class.std::optional.18" = type { %"struct.std::_Optional_base.19" }
-%"struct.std::_Optional_base.19" = type { %"struct.std::_Optional_payload.21" }
-%"struct.std::_Optional_payload.21" = type { %"struct.std::_Optional_payload_base.base.23", [3 x i8] }
-%"struct.std::_Optional_payload_base.base.23" = type <{ %"union.std::_Optional_payload_base<Luau::Location>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<Luau::Location>::_Storage" = type { %"struct.Luau::Location" }
 %"struct.std::pair.151" = type <{ ptr, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -2192,7 +2184,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14TypeMapVisitor5visit
   %48 = load ptr, ptr %47, align 8, !tbaa !98
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !101
-  %51 = getelementptr inbounds nuw %"struct.Luau::AstTableProp", ptr %48, i64 %50
+  %.idx = mul nuw nsw i64 %50, 56
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx
   %.not63113 = icmp eq i64 %50, 0
   br i1 %.not63113, label %_ZN4Luau12DenseHashMapIPNS_7AstExprEPKNS_7AstTypeENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %.lr.ph
 
@@ -2642,7 +2635,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit38.i: ; pr
 75:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit38.i, %53
   %76 = load ptr, ptr %18, align 8, !tbaa !161, !noalias !134
   %77 = load i64, ptr %19, align 8, !tbaa !162, !noalias !134
-  %78 = getelementptr inbounds nuw ptr, ptr %76, i64 %77
+  %.idx.i = shl nuw nsw i64 %77, 3
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx.i
   %.not49.i = icmp eq i64 %77, 0
   br i1 %.not49.i, label %119, label %.lr.ph.i
 
@@ -3559,7 +3553,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14TypeMapVisitor5visit
   %5 = load ptr, ptr %4, align 8, !tbaa !182
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i64, ptr %6, align 8, !tbaa !185
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %.not10 = icmp eq i64 %7, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -3639,7 +3634,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14TypeMapVisitor5visit
   %8 = load ptr, ptr %7, align 8, !tbaa !182
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %10 = load i64, ptr %9, align 8, !tbaa !185
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
+  %.idx = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not11 = icmp eq i64 %10, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -3739,7 +3735,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14TypeMapVisitor5visit
   %5 = load ptr, ptr %4, align 8, !tbaa !198
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = load i64, ptr %6, align 8, !tbaa !201
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %.not25 = icmp eq i64 %7, 0
   br i1 %.not25, label %.preheader, label %.lr.ph
 
@@ -3860,7 +3857,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14TypeMapVisitor5visit
   %4 = load ptr, ptr %3, align 8, !tbaa !198
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i64, ptr %5, align 8, !tbaa !201
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not89 = icmp eq i64 %6, 0
   br i1 %.not89, label %._crit_edge, label %.lr.ph
 
@@ -4805,7 +4803,8 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %tailr
   %.val = load ptr, ptr %.tr199.ph236, align 8, !tbaa !242
   %71 = getelementptr inbounds nuw i8, ptr %.tr199.ph236, i64 8
   %.val138 = load i64, ptr %71, align 8, !tbaa !243
-  %72 = getelementptr inbounds nuw ptr, ptr %.val, i64 %.val138
+  %.idx.i = shl nuw nsw i64 %.val138, 3
+  %72 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %.not1.not.i = icmp eq i64 %.val138, 0
   br i1 %.not1.not.i, label %.loopexit, label %.lr.ph.i
 
@@ -4958,7 +4957,8 @@ _ZNK4Luau7AstNameeqEPKc.exit16.i:                 ; preds = %_ZNK4Luau7AstNameeq
   %137 = load ptr, ptr %136, align 8, !tbaa !252
   %138 = getelementptr inbounds nuw i8, ptr %.us-phi247, i64 40
   %139 = load i64, ptr %138, align 8, !tbaa !255
-  %140 = getelementptr inbounds nuw ptr, ptr %137, i64 %139
+  %.idx = shl nuw nsw i64 %139, 3
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 %.idx
   %.not128249 = icmp eq i64 %139, 0
   br i1 %.not128249, label %_ZN4LuauL9isGenericENS_7AstNameERKNS_8AstArrayIPNS_14AstGenericTypeEEE.exit, label %.lr.ph253
 
@@ -6121,7 +6121,8 @@ define linkonce_odr dso_local noundef i64 @_ZN4Luau14TypeMapVisitor15pushTypeAli
   %8 = load ptr, ptr %7, align 8, !tbaa !182
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i64, ptr %9, align 8, !tbaa !185
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
+  %.idx = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not21 = icmp eq i64 %10, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 

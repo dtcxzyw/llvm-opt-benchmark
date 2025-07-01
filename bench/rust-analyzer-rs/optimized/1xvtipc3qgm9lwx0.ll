@@ -753,7 +753,8 @@ default.unreachable:                              ; preds = %27, %2
   %.val.i = load ptr, ptr %47, align 8, !alias.scope !275, !noalias !272, !nonnull !13, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val5.i = load i64, ptr %48, align 8, !alias.scope !275, !noalias !272, !noundef !13
-  %49 = getelementptr inbounds { i64, [8 x i64] }, ptr %.val.i, i64 %.val5.i
+  %.idx87 = mul nsw i64 %.val5.i, 72
+  %49 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx87
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !277
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !277
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17ha397aa0030344860E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %14, i64 noundef 1, i64 %.val5.i), !noalias !277
@@ -954,7 +955,8 @@ common.resume:                                    ; preds = %.body.thread, %165,
   %.val = load ptr, ptr %111, align 8, !nonnull !13, !noundef !13
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val11 = load i64, ptr %112, align 8, !noundef !13
-  %113 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %.val, i64 %.val11
+  %.idx = mul nsw i64 %.val11, 104
+  %113 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %114 = icmp eq i64 %.val11, 0
   br i1 %114, label %._crit_edge, label %.lr.ph
 
@@ -1617,7 +1619,8 @@ _ZN10serde_json3ser9Formatter10write_null17hc52fe1a7a674f903E.llvm.1528021832725
   %.val.i = load ptr, ptr %225, align 8, !alias.scope !514, !noalias !517, !nonnull !13, !noundef !13
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val6.i = load i64, ptr %226, align 8, !alias.scope !514, !noalias !517, !noundef !13
-  %227 = getelementptr inbounds { i64, [8 x i64] }, ptr %.val.i, i64 %.val6.i
+  %.idx98 = mul nsw i64 %.val6.i, 72
+  %227 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx98
   tail call void @llvm.experimental.noalias.scope.decl(metadata !519)
   %.val.i25 = load ptr, ptr %1, align 8, !alias.scope !522, !noalias !525, !nonnull !13, !align !14, !noundef !13
   %228 = getelementptr inbounds nuw i8, ptr %.val.i25, i64 16
@@ -1811,7 +1814,8 @@ _ZN10serde_json3ser9Formatter9end_array17h76e91dbf632ab0acE.exit.i: ; preds = %2
   %.val = load ptr, ptr %326, align 8, !nonnull !13, !noundef !13
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val13 = load i64, ptr %327, align 8, !noundef !13
-  %328 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %.val, i64 %.val13
+  %.idx = mul nsw i64 %.val13, 104
+  %328 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %329 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %330 = icmp eq i64 %.val13, 0
   br i1 %330, label %_ZN5serde3ser12SerializeMap15serialize_entry17hfc035cca2ce87e5dE.exit._crit_edge, label %.lr.ph

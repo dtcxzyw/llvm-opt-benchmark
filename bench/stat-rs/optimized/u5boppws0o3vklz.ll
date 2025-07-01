@@ -359,7 +359,8 @@ define void @_ZN6statrs12distribution9empirical9Empirical8from_vec17he70968d9300
   %.sroa.413.0.copyload = load ptr, ptr %.sroa.413.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.514.0.copyload = load i64, ptr %.sroa.514.0..sroa_idx, align 8
-  %7 = getelementptr inbounds double, ptr %.sroa.413.0.copyload, i64 %.sroa.514.0.copyload
+  %.idx = shl nsw i64 %.sroa.514.0.copyload, 3
+  %7 = getelementptr inbounds i8, ptr %.sroa.413.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %.sroa.413.0.copyload, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8

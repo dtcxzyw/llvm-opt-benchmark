@@ -10230,7 +10230,8 @@ declare noundef zeroext i1 @_ZN5cmsys11SystemTools6PutEnvERKNSt7__cxx1112basic_s
 define linkonce_odr dso_local void @_ZN6cmListC2ESt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZN6cmList5clearEv.exit.i.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %3 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %2
+  %.idx.i = shl nuw nsw i64 %2, 5
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %_ZN6cmList6assignESt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit, label %.lr.ph52.i.i.i.i.i

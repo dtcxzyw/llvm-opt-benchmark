@@ -24,17 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.171 = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %class.anon.175 = type { ptr, ptr, ptr, ptr }
 %"class.llvm::Error" = type { ptr }
-%"struct.clang::format::WhitespaceManager::Change" = type { ptr, i8, %"class.clang::SourceRange", i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i8, i32, i8, i8, i32, i32, i32, ptr, i32, i32 }
-%"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
-%"class.clang::SourceLocation" = type { i32 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.llvm::SmallVector.199" = type { %"class.llvm::SmallVectorImpl.200", %"struct.llvm::SmallVectorStorage.203" }
-%"class.llvm::SmallVectorImpl.200" = type { %"class.llvm::SmallVectorTemplateBase.201" }
-%"class.llvm::SmallVectorTemplateBase.201" = type { %"class.llvm::SmallVectorTemplateCommon.202" }
-%"class.llvm::SmallVectorTemplateCommon.202" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.203" = type { [1152 x i8] }
 %"struct.clang::format::UnwrappedLine" = type <{ %"class.std::__cxx11::list", i32, i32, i8, i8, i8, i8, i32, i8, i8, i8, [5 x i8], i64, i64, i32, [4 x i8] }>
 %"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
 %"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<clang::format::UnwrappedLineNode, std::allocator<clang::format::UnwrappedLineNode>>::_List_impl" }
@@ -1285,7 +1274,8 @@ _ZN4llvm5ErrorD2Ev.exit.thread:                   ; preds = %.lr.ph196
 
 .lr.ph.i.preheader.i.i:                           ; preds = %.loopexit
   %441 = zext i32 %440 to i64
-  %442 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %439, i64 %441
+  %.idx.i.i = mul nuw nsw i64 %441, 136
+  %442 = getelementptr inbounds nuw i8, ptr %439, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5clang6format17WhitespaceManager6ChangeD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -1780,7 +1770,8 @@ define linkonce_odr hidden void @_ZN5clang6format13TokenAnalyzerD2Ev(ptr noundef
 
 .lr.ph.i.preheader.i:                             ; preds = %1
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"class.llvm::SmallVector.199", ptr %3, i64 %6
+  %.idx.i = mul nuw nsw i64 %6, 1168
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm11SmallVectorIN5clang6format13UnwrappedLineELj16EED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -1850,7 +1841,8 @@ define linkonce_odr hidden void @_ZN5clang6format24DefinitionBlockSeparatorD0Ev(
 
 .lr.ph.i.preheader.i.i:                           ; preds = %1
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"class.llvm::SmallVector.199", ptr %3, i64 %6
+  %.idx.i.i = mul nuw nsw i64 %6, 1168
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm11SmallVectorIN5clang6format13UnwrappedLineELj16EED2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i

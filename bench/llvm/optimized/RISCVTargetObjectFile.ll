@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.258" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.259" = type { [192 x i8] }
-%"struct.llvm::Module::ModuleFlagEntry" = type { i32, ptr, ptr }
 
 $_ZN4llvm27TargetLoweringObjectFileELFD2Ev = comdat any
 
@@ -597,7 +596,8 @@ define dso_local void @_ZN4llvm24RISCVELFTargetObjectFile17getModuleMetadataERNS
   %7 = load ptr, ptr %3, align 8, !tbaa !208
   %8 = load i32, ptr %5, align 8, !tbaa !209
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::Module::ModuleFlagEntry", ptr %7, i64 %9
+  %.idx = mul nuw nsw i64 %9, 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not19 = icmp eq i32 %8, 0
   br i1 %.not19, label %.loopexit, label %.lr.ph
 

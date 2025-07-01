@@ -1581,7 +1581,8 @@ define hidden noundef i64 @_ZNK3ue213RoseBuildImpl13maxLiteralLenENS_12graph_det
   %5 = load ptr, ptr %4, align 8, !noalias !95
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8, !noalias !102
-  %8 = getelementptr inbounds nuw i32, ptr %5, i64 %7
+  %.idx = shl nuw nsw i64 %7, 2
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %.not15 = icmp eq i64 %7, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -1691,7 +1692,8 @@ define hidden noundef range(i64 0, 4294967296) i64 @_ZNK3ue213RoseBuildImpl13min
   %5 = load ptr, ptr %4, align 8, !noalias !112
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8, !noalias !119
-  %8 = getelementptr inbounds nuw i32, ptr %5, i64 %7
+  %.idx = shl nuw nsw i64 %7, 2
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %.not15 = icmp eq i64 %7, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -2049,7 +2051,8 @@ define hidden noundef i64 @_ZNK3ue213RoseBuildImpl17maxLiteralOverlapENS_12graph
   %7 = load ptr, ptr %6, align 8, !noalias !133
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load i64, ptr %8, align 8, !noalias !140
-  %10 = getelementptr inbounds nuw i32, ptr %7, i64 %9
+  %.idx = shl nuw nsw i64 %9, 2
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not33 = icmp eq i64 %9, 0
   br i1 %.not33, label %._crit_edge38, label %.lr.ph37
 
@@ -2078,7 +2081,8 @@ define hidden noundef i64 @_ZNK3ue213RoseBuildImpl17maxLiteralOverlapENS_12graph
   %24 = tail call fastcc noundef nonnull align 8 dereferenceable(124) ptr @_ZN3ue2L17getOverlapLiteralERKNS_13RoseBuildImplEj(ptr noundef nonnull align 8 dereferenceable(780) %0, i32 noundef %23)
   %25 = load ptr, ptr %11, align 8, !noalias !147
   %26 = load i64, ptr %12, align 8, !noalias !154
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %.idx40 = shl nuw nsw i64 %26, 2
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx40
   %.not2530 = icmp eq i64 %26, 0
   br i1 %.not2530, label %._crit_edge, label %.lr.ph
 
@@ -2445,7 +2449,8 @@ _ZN3ue217renumber_verticesINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5
   %19 = load ptr, ptr %18, align 8, !noalias !169
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.copyload, i64 32
   %21 = load i64, ptr %20, align 8, !noalias !174
-  %22 = getelementptr inbounds nuw i32, ptr %19, i64 %21
+  %.idx = shl nuw nsw i64 %21, 2
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not2324 = icmp eq i64 %21, 0
   br i1 %.not2324, label %._crit_edge, label %.lr.ph
 
@@ -3316,8 +3321,8 @@ _ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RK
 39:                                               ; preds = %.critedge.thread
   %40 = ptrtoint ptr %23 to i64
   %41 = getelementptr inbounds i8, ptr %9, i64 -4
-  %.not46.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not46.i.i.i.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i.i.i, label %42, !prof !221
+  %.not.i.i = icmp eq ptr %6, null
+  br i1 %.not.i.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i.i.i, label %42, !prof !221
 
 42:                                               ; preds = %39
   %43 = load i32, ptr %41, align 4, !noalias !248
@@ -6026,7 +6031,8 @@ define linkonce_odr dso_local void @_ZNSt3setIjSt4lessIjESaIjEEC2ESt16initialize
   store ptr %6, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 2
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE22_M_insert_range_uniqueIPKjEENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESA_SA_.exit, label %.lr.ph.i
 
@@ -6955,7 +6961,8 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit: ; preds = %45, %53
   %60 = load ptr, ptr %59, align 8, !noalias !340
   %61 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i, i64 40
   %62 = load i64, ptr %61, align 8, !noalias !347
-  %63 = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %60, i64 %62
+  %.idx = shl nuw nsw i64 %62, 4
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx
   %.not12 = icmp eq i64 %62, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -7060,7 +7067,8 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit: ; preds = %45, %53
   %60 = load ptr, ptr %59, align 8, !noalias !357
   %61 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i, i64 40
   %62 = load i64, ptr %61, align 8, !noalias !364
-  %63 = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %60, i64 %62
+  %.idx = shl nuw nsw i64 %62, 4
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx
   %.not12 = icmp eq i64 %62, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -7217,7 +7225,8 @@ _ZNSt11_Deque_baseIN3ue215rose_literal_idESaIS1_EE15_M_allocate_mapEm.exit: ; pr
   %12 = sub nsw i64 %.sroa.speculated, %9
   %13 = lshr i64 %12, 1
   %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %9
+  %.idx = shl nuw nsw i64 %9, 3
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIN3ue215rose_literal_idESaIS1_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIN3ue215rose_literal_idESaIS1_EE16_M_allocate_nodeEv.exit.i
@@ -7378,7 +7387,8 @@ _ZNSt11_Deque_baseIN3ue217rose_literal_infoESaIS1_EE15_M_allocate_mapEm.exit: ; 
   %13 = sub nsw i64 %.sroa.speculated, %10
   %14 = lshr i64 %13, 1
   %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %10
+  %.idx = shl nuw nsw i64 %10, 3
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIN3ue217rose_literal_infoESaIS1_EE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIN3ue217rose_literal_infoESaIS1_EE16_M_allocate_nodeEv.exit.i

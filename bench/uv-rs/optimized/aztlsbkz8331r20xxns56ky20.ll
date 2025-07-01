@@ -2815,7 +2815,8 @@ define hidden void @_ZN16uv_install_wheel5wheel24parse_email_message_file17h747b
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29)
   %79 = icmp ult i64 %.sroa.6148.0.copyload, 288230376151711744
   tail call void @llvm.assume(i1 %79)
-  %80 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr %.sroa.5147.0.copyload, i64 %.sroa.6148.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.6148.0.copyload, 5
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.5147.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
   store ptr %.sroa.5147.0.copyload, ptr %28, align 8
   %.sroa.484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8

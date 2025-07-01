@@ -915,7 +915,8 @@ _ZN4llvm14array_pod_sortIPSt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEEEEvT_SB_PFiPKN
   %.pre.i = load i32, ptr %60, align 8, !tbaa !26
   %318 = load ptr, ptr %58, align 8, !tbaa !3
   %319 = zext i32 %.pre.i to i64
-  %320 = getelementptr inbounds nuw %"struct.std::pair.746", ptr %318, i64 %319
+  %.idx.i = shl nuw nsw i64 %319, 4
+  %320 = getelementptr inbounds nuw i8, ptr %318, i64 %.idx.i
   %.not99.i = icmp eq i32 %.pre.i, 0
   br i1 %.not99.i, label %_ZN12_GLOBAL__N_112DeadCodeScan13scanBackwardsEPKN5clang8CFGBlockERNS1_14reachable_code8CallbackE.exit, label %.lr.ph102.i
 
@@ -1848,9 +1849,10 @@ _ZL12isDeadReturnPKN5clang8CFGBlockEPKNS_4StmtE.exit.thread: ; preds = %92, %119
 133:                                              ; preds = %_ZL12isDeadReturnPKN5clang8CFGBlockEPKNS_4StmtE.exit.thread
   %134 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %135 = load i32, ptr %2, align 8
-  %136 = lshr i32 %135, 9
-  %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw ptr, ptr %134, i64 %137
+  %136 = lshr i32 %135, 6
+  %137 = and i32 %136, 67108856
+  %.idx.i = zext nneg i32 %137 to i64
+  %138 = getelementptr inbounds nuw i8, ptr %134, i64 %.idx.i
   %.not.i61 = icmp ult i32 %135, 512
   %139 = trunc i32 %135 to i16
   br i1 %.not.i61, label %_ZN5clang15hasSpecificAttrINS_15FallThroughAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEEbRKT0_.exit, label %.lr.ph.i.i.i.i

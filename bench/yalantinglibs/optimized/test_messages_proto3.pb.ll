@@ -37225,7 +37225,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt
   br label %eh.resume
 
 for.end384:                                       ; preds = %invoke.cont371
-  %arrayidx.i3134 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem", ptr %call361, i64 %n362.0
+  %arrayidx.i3134.idx = shl nsw i64 %n362.0, 4
+  %arrayidx.i3134 = getelementptr inbounds i8, ptr %call361, i64 %arrayidx.i3134.idx
   %cmp.not.i.i3135 = icmp eq i64 %n362.0, 0
   br i1 %cmp.not.i.i3135, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt14default_deleteIS9_EED2Ev.exit3146, label %if.then.i.i3136
 
@@ -37453,7 +37454,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt
   br label %eh.resume
 
 for.end469:                                       ; preds = %invoke.cont456
-  %arrayidx.i3229 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.188", ptr %call434, i64 %n445.0
+  %arrayidx.i3229.idx = shl nsw i64 %n445.0, 4
+  %arrayidx.i3229 = getelementptr inbounds i8, ptr %call434, i64 %arrayidx.i3229.idx
   %cmp.not.i.i3230 = icmp eq i64 %n445.0, 0
   br i1 %cmp.not.i.i3230, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt14default_deleteIS9_EED2Ev.exit3245, label %if.then.i.i3231
 
@@ -37681,7 +37683,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEESt
   br label %eh.resume
 
 for.end558:                                       ; preds = %invoke.cont545
-  %arrayidx.i3329 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.199", ptr %call523, i64 %n534.0
+  %arrayidx.i3329.idx = shl nsw i64 %n534.0, 4
+  %arrayidx.i3329 = getelementptr inbounds i8, ptr %call523, i64 %arrayidx.i3329.idx
   %cmp.not.i.i3330 = icmp eq i64 %n534.0, 0
   br i1 %cmp.not.i.i3330, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEESt14default_deleteIS9_EED2Ev.exit3345, label %if.then.i.i3331
 
@@ -37909,7 +37912,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEESt
   br label %eh.resume
 
 for.end647:                                       ; preds = %invoke.cont634
-  %arrayidx.i3429 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.210", ptr %call612, i64 %n623.0
+  %arrayidx.i3429.idx = shl nsw i64 %n623.0, 4
+  %arrayidx.i3429 = getelementptr inbounds i8, ptr %call612, i64 %arrayidx.i3429.idx
   %cmp.not.i.i3430 = icmp eq i64 %n623.0, 0
   br i1 %cmp.not.i.i3430, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEESt14default_deleteIS9_EED2Ev.exit3445, label %if.then.i.i3431
 
@@ -38137,7 +38141,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt
   br label %eh.resume
 
 for.end736:                                       ; preds = %invoke.cont723
-  %arrayidx.i3534 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem", ptr %call701, i64 %n712.0
+  %arrayidx.i3534.idx = shl nsw i64 %n712.0, 4
+  %arrayidx.i3534 = getelementptr inbounds i8, ptr %call701, i64 %arrayidx.i3534.idx
   %cmp.not.i.i3535 = icmp eq i64 %n712.0, 0
   br i1 %cmp.not.i.i3535, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt14default_deleteIS9_EED2Ev.exit3551, label %if.then.i.i3536
 
@@ -38365,7 +38370,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt
   br label %eh.resume
 
 for.end825:                                       ; preds = %invoke.cont812
-  %arrayidx.i3640 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.188", ptr %call790, i64 %n801.0
+  %arrayidx.i3640.idx = shl nsw i64 %n801.0, 4
+  %arrayidx.i3640 = getelementptr inbounds i8, ptr %call790, i64 %arrayidx.i3640.idx
   %cmp.not.i.i3641 = icmp eq i64 %n801.0, 0
   br i1 %cmp.not.i.i3641, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt14default_deleteIS9_EED2Ev.exit3657, label %if.then.i.i3642
 
@@ -38593,7 +38599,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEESt
   br label %eh.resume
 
 for.end914:                                       ; preds = %invoke.cont901
-  %arrayidx.i3746 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.199", ptr %call879, i64 %n890.0
+  %arrayidx.i3746.idx = shl nsw i64 %n890.0, 4
+  %arrayidx.i3746 = getelementptr inbounds i8, ptr %call879, i64 %arrayidx.i3746.idx
   %cmp.not.i.i3747 = icmp eq i64 %n890.0, 0
   br i1 %cmp.not.i.i3747, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEESt14default_deleteIS9_EED2Ev.exit3776, label %if.then.i.i3748
 
@@ -38908,7 +38915,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEESt
   br label %eh.resume
 
 for.end1003:                                      ; preds = %invoke.cont990
-  %arrayidx.i3887 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.210", ptr %call968, i64 %n979.0
+  %arrayidx.i3887.idx = shl nsw i64 %n979.0, 4
+  %arrayidx.i3887 = getelementptr inbounds i8, ptr %call968, i64 %arrayidx.i3887.idx
   %cmp.not.i.i3888 = icmp eq i64 %n979.0, 0
   br i1 %cmp.not.i.i3888, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEESt14default_deleteIS9_EED2Ev.exit3930, label %if.then.i.i3889
 
@@ -39223,7 +39231,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt
   br label %eh.resume
 
 for.end1092:                                      ; preds = %invoke.cont1079
-  %arrayidx.i4045 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem", ptr %call1057, i64 %n1068.0
+  %arrayidx.i4045.idx = shl nsw i64 %n1068.0, 4
+  %arrayidx.i4045 = getelementptr inbounds i8, ptr %call1057, i64 %arrayidx.i4045.idx
   %cmp.not.i.i4046 = icmp eq i64 %n1068.0, 0
   br i1 %cmp.not.i.i4046, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt14default_deleteIS9_EED2Ev.exit4088, label %if.then.i.i4047
 
@@ -39538,7 +39547,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt
   br label %eh.resume
 
 for.end1181:                                      ; preds = %invoke.cont1168
-  %arrayidx.i4202 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.188", ptr %call1146, i64 %n1157.0
+  %arrayidx.i4202.idx = shl nsw i64 %n1157.0, 4
+  %arrayidx.i4202 = getelementptr inbounds i8, ptr %call1146, i64 %arrayidx.i4202.idx
   %cmp.not.i.i4203 = icmp eq i64 %n1157.0, 0
   br i1 %cmp.not.i.i4203, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt14default_deleteIS9_EED2Ev.exit4245, label %if.then.i.i4204
 
@@ -39853,7 +39863,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEESt
   br label %eh.resume
 
 for.end1270:                                      ; preds = %invoke.cont1257
-  %arrayidx.i4356 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.221", ptr %call1235, i64 %n1246.0
+  %arrayidx.i4356.idx = shl nsw i64 %n1246.0, 4
+  %arrayidx.i4356 = getelementptr inbounds i8, ptr %call1235, i64 %arrayidx.i4356.idx
   %cmp.not.i.i4357 = icmp eq i64 %n1246.0, 0
   br i1 %cmp.not.i.i4357, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEESt14default_deleteIS9_EED2Ev.exit4372, label %if.then.i.i4358
 
@@ -40081,7 +40092,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEESt
   br label %eh.resume
 
 for.end1359:                                      ; preds = %invoke.cont1346
-  %arrayidx.i4456 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.232", ptr %call1324, i64 %n1335.0
+  %arrayidx.i4456.idx = shl nsw i64 %n1335.0, 4
+  %arrayidx.i4456 = getelementptr inbounds i8, ptr %call1324, i64 %arrayidx.i4456.idx
   %cmp.not.i.i4457 = icmp eq i64 %n1335.0, 0
   br i1 %cmp.not.i.i4457, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEESt14default_deleteIS9_EED2Ev.exit4472, label %if.then.i.i4458
 
@@ -40310,7 +40322,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEESt
   br label %eh.resume
 
 for.end1448:                                      ; preds = %invoke.cont1435
-  %arrayidx.i4556 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.243", ptr %call1413, i64 %n1424.0
+  %arrayidx.i4556.idx = shl nsw i64 %n1424.0, 4
+  %arrayidx.i4556 = getelementptr inbounds i8, ptr %call1413, i64 %arrayidx.i4556.idx
   %cmp.not.i.i4557 = icmp eq i64 %n1424.0, 0
   br i1 %cmp.not.i.i4557, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEESt14default_deleteIS9_EED2Ev.exit4591, label %if.then.i.i4558
 
@@ -40626,7 +40639,8 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   br label %eh.resume
 
 for.end1525:                                      ; preds = %invoke.cont1514
-  %arrayidx.i4698 = getelementptr inbounds ptr, ptr %call1502, i64 %n1503.0
+  %arrayidx.i4698.idx = shl nsw i64 %n1503.0, 3
+  %arrayidx.i4698 = getelementptr inbounds i8, ptr %call1502, i64 %arrayidx.i4698.idx
   %cmp.not.i.i4699 = icmp eq i64 %n1503.0, 0
   br i1 %cmp.not.i.i4699, label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EESt14default_deleteISC_EED2Ev.exit4721, label %if.then.i.i4700
 
@@ -40883,7 +40897,8 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   br label %eh.resume
 
 for.end1604:                                      ; preds = %invoke.cont1593
-  %arrayidx.i4816 = getelementptr inbounds ptr, ptr %call1581, i64 %n1582.0
+  %arrayidx.i4816.idx = shl nsw i64 %n1582.0, 3
+  %arrayidx.i4816 = getelementptr inbounds i8, ptr %call1581, i64 %arrayidx.i4816.idx
   %cmp.not.i.i4817 = icmp eq i64 %n1582.0, 0
   br i1 %cmp.not.i.i4817, label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EESt14default_deleteISC_EED2Ev.exit4837, label %if.then.i.i4818
 
@@ -41125,7 +41140,8 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   br label %eh.resume
 
 for.end1683:                                      ; preds = %invoke.cont1672
-  %arrayidx.i4923 = getelementptr inbounds ptr, ptr %call1660, i64 %n1661.0
+  %arrayidx.i4923.idx = shl nsw i64 %n1661.0, 3
+  %arrayidx.i4923 = getelementptr inbounds i8, ptr %call1660, i64 %arrayidx.i4923.idx
   %cmp.not.i.i4924 = icmp eq i64 %n1661.0, 0
   br i1 %cmp.not.i.i4924, label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEEESt14default_deleteISF_EED2Ev.exit4954, label %if.then.i.i4925
 
@@ -41727,7 +41743,8 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   br label %eh.resume
 
 for.end1762:                                      ; preds = %invoke.cont1751
-  %arrayidx.i5045 = getelementptr inbounds ptr, ptr %call1739, i64 %n1740.0
+  %arrayidx.i5045.idx = shl nsw i64 %n1740.0, 3
+  %arrayidx.i5045 = getelementptr inbounds i8, ptr %call1739, i64 %arrayidx.i5045.idx
   %cmp.not.i.i5046 = icmp eq i64 %n1740.0, 0
   br i1 %cmp.not.i.i5046, label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEEESt14default_deleteISF_EED2Ev.exit5065, label %if.then.i.i5047
 
@@ -41969,7 +41986,8 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   br label %eh.resume
 
 for.end1841:                                      ; preds = %invoke.cont1830
-  %arrayidx.i5151 = getelementptr inbounds ptr, ptr %call1818, i64 %n1819.0
+  %arrayidx.i5151.idx = shl nsw i64 %n1819.0, 3
+  %arrayidx.i5151 = getelementptr inbounds i8, ptr %call1818, i64 %arrayidx.i5151.idx
   %cmp.not.i.i5152 = icmp eq i64 %n1819.0, 0
   br i1 %cmp.not.i.i5152, label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEEESt14default_deleteISF_EED2Ev.exit5171, label %if.then.i.i5153
 
@@ -42211,7 +42229,8 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   br label %eh.resume
 
 for.end1920:                                      ; preds = %invoke.cont1909
-  %arrayidx.i5257 = getelementptr inbounds ptr, ptr %call1897, i64 %n1898.0
+  %arrayidx.i5257.idx = shl nsw i64 %n1898.0, 3
+  %arrayidx.i5257 = getelementptr inbounds i8, ptr %call1897, i64 %arrayidx.i5257.idx
   %cmp.not.i.i5258 = icmp eq i64 %n1898.0, 0
   br i1 %cmp.not.i.i5258, label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEEESt14default_deleteISF_EED2Ev.exit5277, label %if.then.i.i5259
 
@@ -51971,7 +51990,8 @@ for.end197:                                       ; preds = %for.body190, %for.e
   %tobool.not.i.i = icmp eq ptr %31, null
   %elements.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %spec.select.i.i = select i1 %tobool.not.i.i, ptr null, ptr %elements.i.i
-  %add.ptr.i = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %conv199
+  %add.ptr.i.idx = shl nsw i64 %conv199, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %add.ptr.i.idx
   %cmp.i.not29553086 = icmp eq i32 %30, 0
   br i1 %cmp.i.not29553086, label %for.end213, label %for.body207
 
@@ -52076,7 +52096,8 @@ for.end213:                                       ; preds = %_ZNK22protobuf_test
   %tobool.not.i.i615 = icmp eq ptr %43, null
   %elements.i.i616 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %spec.select.i.i617 = select i1 %tobool.not.i.i615, ptr null, ptr %elements.i.i616
-  %add.ptr.i624 = getelementptr inbounds ptr, ptr %spec.select.i.i617, i64 %conv215
+  %add.ptr.i624.idx = shl nsw i64 %conv215, 3
+  %add.ptr.i624 = getelementptr inbounds i8, ptr %spec.select.i.i617, i64 %add.ptr.i624.idx
   %cmp.i625.not3090 = icmp eq i32 %42, 0
   br i1 %cmp.i625.not3090, label %for.end234, label %for.body227
 
@@ -54860,7 +54881,8 @@ for.end1017:                                      ; preds = %_ZN6google8protobuf
   %tobool.not.i.i1770 = icmp eq ptr %424, null
   %elements.i.i1771 = getelementptr inbounds nuw i8, ptr %424, i64 8
   %spec.select.i.i1772 = select i1 %tobool.not.i.i1770, ptr null, ptr %elements.i.i1771
-  %add.ptr.i1779 = getelementptr inbounds ptr, ptr %spec.select.i.i1772, i64 %conv1023
+  %add.ptr.i1779.idx = shl nsw i64 %conv1023, 3
+  %add.ptr.i1779 = getelementptr inbounds i8, ptr %spec.select.i.i1772, i64 %add.ptr.i1779.idx
   %cmp.i1780.not3175 = icmp eq i32 %423, 0
   br i1 %cmp.i1780.not3175, label %for.end1042, label %for.body1035
 
@@ -54895,7 +54917,8 @@ for.end1042:                                      ; preds = %for.body1035, %for.
   %tobool.not.i.i1793 = icmp eq ptr %428, null
   %elements.i.i1794 = getelementptr inbounds nuw i8, ptr %428, i64 8
   %spec.select.i.i1795 = select i1 %tobool.not.i.i1793, ptr null, ptr %elements.i.i1794
-  %add.ptr.i1802 = getelementptr inbounds ptr, ptr %spec.select.i.i1795, i64 %conv1044
+  %add.ptr.i1802.idx = shl nsw i64 %conv1044, 3
+  %add.ptr.i1802 = getelementptr inbounds i8, ptr %spec.select.i.i1795, i64 %add.ptr.i1802.idx
   %cmp.i1803.not3179 = icmp eq i32 %427, 0
   br i1 %cmp.i1803.not3179, label %for.end1063, label %for.body1056
 
@@ -54930,7 +54953,8 @@ for.end1063:                                      ; preds = %for.body1056, %for.
   %tobool.not.i.i1816 = icmp eq ptr %432, null
   %elements.i.i1817 = getelementptr inbounds nuw i8, ptr %432, i64 8
   %spec.select.i.i1818 = select i1 %tobool.not.i.i1816, ptr null, ptr %elements.i.i1817
-  %add.ptr.i1825 = getelementptr inbounds ptr, ptr %spec.select.i.i1818, i64 %conv1065
+  %add.ptr.i1825.idx = shl nsw i64 %conv1065, 3
+  %add.ptr.i1825 = getelementptr inbounds i8, ptr %spec.select.i.i1818, i64 %add.ptr.i1825.idx
   %cmp.i1826.not3183 = icmp eq i32 %431, 0
   br i1 %cmp.i1826.not3183, label %for.end1084, label %for.body1077
 
@@ -54965,7 +54989,8 @@ for.end1084:                                      ; preds = %for.body1077, %for.
   %tobool.not.i.i1839 = icmp eq ptr %436, null
   %elements.i.i1840 = getelementptr inbounds nuw i8, ptr %436, i64 8
   %spec.select.i.i1841 = select i1 %tobool.not.i.i1839, ptr null, ptr %elements.i.i1840
-  %add.ptr.i1848 = getelementptr inbounds ptr, ptr %spec.select.i.i1841, i64 %conv1086
+  %add.ptr.i1848.idx = shl nsw i64 %conv1086, 3
+  %add.ptr.i1848 = getelementptr inbounds i8, ptr %spec.select.i.i1841, i64 %add.ptr.i1848.idx
   %cmp.i1849.not3187 = icmp eq i32 %435, 0
   br i1 %cmp.i1849.not3187, label %for.end1105, label %for.body1098
 
@@ -55000,7 +55025,8 @@ for.end1105:                                      ; preds = %for.body1098, %for.
   %tobool.not.i.i1862 = icmp eq ptr %440, null
   %elements.i.i1863 = getelementptr inbounds nuw i8, ptr %440, i64 8
   %spec.select.i.i1864 = select i1 %tobool.not.i.i1862, ptr null, ptr %elements.i.i1863
-  %add.ptr.i1871 = getelementptr inbounds ptr, ptr %spec.select.i.i1864, i64 %conv1107
+  %add.ptr.i1871.idx = shl nsw i64 %conv1107, 3
+  %add.ptr.i1871 = getelementptr inbounds i8, ptr %spec.select.i.i1864, i64 %add.ptr.i1871.idx
   %cmp.i1872.not3191 = icmp eq i32 %439, 0
   br i1 %cmp.i1872.not3191, label %for.end1126, label %for.body1119
 
@@ -55035,7 +55061,8 @@ for.end1126:                                      ; preds = %for.body1119, %for.
   %tobool.not.i.i1885 = icmp eq ptr %444, null
   %elements.i.i1886 = getelementptr inbounds nuw i8, ptr %444, i64 8
   %spec.select.i.i1887 = select i1 %tobool.not.i.i1885, ptr null, ptr %elements.i.i1886
-  %add.ptr.i1894 = getelementptr inbounds ptr, ptr %spec.select.i.i1887, i64 %conv1128
+  %add.ptr.i1894.idx = shl nsw i64 %conv1128, 3
+  %add.ptr.i1894 = getelementptr inbounds i8, ptr %spec.select.i.i1887, i64 %add.ptr.i1894.idx
   %cmp.i1895.not3195 = icmp eq i32 %443, 0
   br i1 %cmp.i1895.not3195, label %for.end1147, label %for.body1140
 
@@ -55070,7 +55097,8 @@ for.end1147:                                      ; preds = %for.body1140, %for.
   %tobool.not.i.i1908 = icmp eq ptr %448, null
   %elements.i.i1909 = getelementptr inbounds nuw i8, ptr %448, i64 8
   %spec.select.i.i1910 = select i1 %tobool.not.i.i1908, ptr null, ptr %elements.i.i1909
-  %add.ptr.i1917 = getelementptr inbounds ptr, ptr %spec.select.i.i1910, i64 %conv1149
+  %add.ptr.i1917.idx = shl nsw i64 %conv1149, 3
+  %add.ptr.i1917 = getelementptr inbounds i8, ptr %spec.select.i.i1910, i64 %add.ptr.i1917.idx
   %cmp.i1918.not3199 = icmp eq i32 %447, 0
   br i1 %cmp.i1918.not3199, label %for.end1168, label %for.body1161
 
@@ -55105,7 +55133,8 @@ for.end1168:                                      ; preds = %for.body1161, %for.
   %tobool.not.i.i1931 = icmp eq ptr %452, null
   %elements.i.i1932 = getelementptr inbounds nuw i8, ptr %452, i64 8
   %spec.select.i.i1933 = select i1 %tobool.not.i.i1931, ptr null, ptr %elements.i.i1932
-  %add.ptr.i1940 = getelementptr inbounds ptr, ptr %spec.select.i.i1933, i64 %conv1170
+  %add.ptr.i1940.idx = shl nsw i64 %conv1170, 3
+  %add.ptr.i1940 = getelementptr inbounds i8, ptr %spec.select.i.i1933, i64 %add.ptr.i1940.idx
   %cmp.i1941.not3203 = icmp eq i32 %451, 0
   br i1 %cmp.i1941.not3203, label %for.end1189, label %for.body1182
 
@@ -55140,7 +55169,8 @@ for.end1189:                                      ; preds = %for.body1182, %for.
   %tobool.not.i.i1954 = icmp eq ptr %456, null
   %elements.i.i1955 = getelementptr inbounds nuw i8, ptr %456, i64 8
   %spec.select.i.i1956 = select i1 %tobool.not.i.i1954, ptr null, ptr %elements.i.i1955
-  %add.ptr.i1963 = getelementptr inbounds ptr, ptr %spec.select.i.i1956, i64 %conv1191
+  %add.ptr.i1963.idx = shl nsw i64 %conv1191, 3
+  %add.ptr.i1963 = getelementptr inbounds i8, ptr %spec.select.i.i1956, i64 %add.ptr.i1963.idx
   %cmp.i1964.not3207 = icmp eq i32 %455, 0
   br i1 %cmp.i1964.not3207, label %for.end1210, label %for.body1203
 
@@ -55175,7 +55205,8 @@ for.end1210:                                      ; preds = %for.body1203, %for.
   %tobool.not.i.i1977 = icmp eq ptr %460, null
   %elements.i.i1978 = getelementptr inbounds nuw i8, ptr %460, i64 8
   %spec.select.i.i1979 = select i1 %tobool.not.i.i1977, ptr null, ptr %elements.i.i1978
-  %add.ptr.i1986 = getelementptr inbounds ptr, ptr %spec.select.i.i1979, i64 %conv1212
+  %add.ptr.i1986.idx = shl nsw i64 %conv1212, 3
+  %add.ptr.i1986 = getelementptr inbounds i8, ptr %spec.select.i.i1979, i64 %add.ptr.i1986.idx
   %cmp.i1987.not3211 = icmp eq i32 %459, 0
   br i1 %cmp.i1987.not3211, label %for.end1231, label %for.body1224
 
@@ -55210,7 +55241,8 @@ for.end1231:                                      ; preds = %for.body1224, %for.
   %tobool.not.i.i2000 = icmp eq ptr %464, null
   %elements.i.i2001 = getelementptr inbounds nuw i8, ptr %464, i64 8
   %spec.select.i.i2002 = select i1 %tobool.not.i.i2000, ptr null, ptr %elements.i.i2001
-  %add.ptr.i2009 = getelementptr inbounds ptr, ptr %spec.select.i.i2002, i64 %conv1233
+  %add.ptr.i2009.idx = shl nsw i64 %conv1233, 3
+  %add.ptr.i2009 = getelementptr inbounds i8, ptr %spec.select.i.i2002, i64 %add.ptr.i2009.idx
   %cmp.i2010.not3215 = icmp eq i32 %463, 0
   br i1 %cmp.i2010.not3215, label %for.end1252, label %for.body1245
 
@@ -55245,7 +55277,8 @@ for.end1252:                                      ; preds = %for.body1245, %for.
   %tobool.not.i.i2023 = icmp eq ptr %468, null
   %elements.i.i2024 = getelementptr inbounds nuw i8, ptr %468, i64 8
   %spec.select.i.i2025 = select i1 %tobool.not.i.i2023, ptr null, ptr %elements.i.i2024
-  %add.ptr.i2032 = getelementptr inbounds ptr, ptr %spec.select.i.i2025, i64 %conv1254
+  %add.ptr.i2032.idx = shl nsw i64 %conv1254, 3
+  %add.ptr.i2032 = getelementptr inbounds i8, ptr %spec.select.i.i2025, i64 %add.ptr.i2032.idx
   %cmp.i2033.not3219 = icmp eq i32 %467, 0
   br i1 %cmp.i2033.not3219, label %for.end1273, label %for.body1266
 
@@ -55280,7 +55313,8 @@ for.end1273:                                      ; preds = %for.body1266, %for.
   %tobool.not.i.i2046 = icmp eq ptr %472, null
   %elements.i.i2047 = getelementptr inbounds nuw i8, ptr %472, i64 8
   %spec.select.i.i2048 = select i1 %tobool.not.i.i2046, ptr null, ptr %elements.i.i2047
-  %add.ptr.i2055 = getelementptr inbounds ptr, ptr %spec.select.i.i2048, i64 %conv1275
+  %add.ptr.i2055.idx = shl nsw i64 %conv1275, 3
+  %add.ptr.i2055 = getelementptr inbounds i8, ptr %spec.select.i.i2048, i64 %add.ptr.i2055.idx
   %cmp.i2056.not3223 = icmp eq i32 %471, 0
   br i1 %cmp.i2056.not3223, label %for.end1294, label %for.body1287
 
@@ -55315,7 +55349,8 @@ for.end1294:                                      ; preds = %for.body1287, %for.
   %tobool.not.i.i2069 = icmp eq ptr %476, null
   %elements.i.i2070 = getelementptr inbounds nuw i8, ptr %476, i64 8
   %spec.select.i.i2071 = select i1 %tobool.not.i.i2069, ptr null, ptr %elements.i.i2070
-  %add.ptr.i2078 = getelementptr inbounds ptr, ptr %spec.select.i.i2071, i64 %conv1296
+  %add.ptr.i2078.idx = shl nsw i64 %conv1296, 3
+  %add.ptr.i2078 = getelementptr inbounds i8, ptr %spec.select.i.i2071, i64 %add.ptr.i2078.idx
   %cmp.i2079.not3227 = icmp eq i32 %475, 0
   br i1 %cmp.i2079.not3227, label %for.end1315, label %for.body1308
 
@@ -55350,7 +55385,8 @@ for.end1315:                                      ; preds = %for.body1308, %for.
   %tobool.not.i.i2092 = icmp eq ptr %480, null
   %elements.i.i2093 = getelementptr inbounds nuw i8, ptr %480, i64 8
   %spec.select.i.i2094 = select i1 %tobool.not.i.i2092, ptr null, ptr %elements.i.i2093
-  %add.ptr.i2101 = getelementptr inbounds ptr, ptr %spec.select.i.i2094, i64 %conv1317
+  %add.ptr.i2101.idx = shl nsw i64 %conv1317, 3
+  %add.ptr.i2101 = getelementptr inbounds i8, ptr %spec.select.i.i2094, i64 %add.ptr.i2101.idx
   %cmp.i2102.not3231 = icmp eq i32 %479, 0
   br i1 %cmp.i2102.not3231, label %for.end1336, label %for.body1329
 
@@ -55385,7 +55421,8 @@ for.end1336:                                      ; preds = %for.body1329, %for.
   %tobool.not.i.i2115 = icmp eq ptr %484, null
   %elements.i.i2116 = getelementptr inbounds nuw i8, ptr %484, i64 8
   %spec.select.i.i2117 = select i1 %tobool.not.i.i2115, ptr null, ptr %elements.i.i2116
-  %add.ptr.i2124 = getelementptr inbounds ptr, ptr %spec.select.i.i2117, i64 %conv1338
+  %add.ptr.i2124.idx = shl nsw i64 %conv1338, 3
+  %add.ptr.i2124 = getelementptr inbounds i8, ptr %spec.select.i.i2117, i64 %add.ptr.i2124.idx
   %cmp.i2125.not3235 = icmp eq i32 %483, 0
   br i1 %cmp.i2125.not3235, label %for.end1357, label %for.body1350
 

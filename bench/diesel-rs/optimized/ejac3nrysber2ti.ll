@@ -2023,7 +2023,8 @@ define hidden noundef align 8 dereferenceable_or_null(96) ptr @"_ZN3syn10punctua
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hb78467b1e742f0faE.llvm.5761680391814234304.exit": ; preds = %1
-  %13 = getelementptr inbounds { { { { i64, [3 x i64] }, { {} } }, { i64, [7 x i64] } }, { [2 x i32] } }, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 104
+  %13 = getelementptr inbounds i8, ptr %4, i64 %.idx
   store ptr %4, ptr %10, align 8, !noalias !482
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %13, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !482

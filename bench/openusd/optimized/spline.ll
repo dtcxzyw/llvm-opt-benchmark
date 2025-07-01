@@ -3414,52 +3414,56 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EEC2Em
   %36 = getelementptr inbounds nuw i32, ptr %34, i64 %17
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %36, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 %33
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
-  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %34, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i ]
+  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %34, %.lr.ph.preheader.i.i.i.i.i.i.i.i.i ]
   store i32 %2, ptr %.06.i.i.i.i.i.i.i.i.i, align 4
-  %38 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %38, %36
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !57
+  %39 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %39, %38
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !57
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EEC2EmRKS2_.exit.thread.i
-  %39 = phi ptr [ null, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %34, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %40 = phi ptr [ %32, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %35, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %41 = phi ptr [ null, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %36, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  store ptr %41, ptr %40, align 8
+.loopexit.loopexit:                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
+  %40 = ptrtoint ptr %36 to i64
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EEC2EmRKS2_.exit.thread.i
+  %41 = phi i64 [ 0, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %40, %.loopexit.loopexit ]
+  %42 = phi ptr [ null, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %34, %.loopexit.loopexit ]
+  %43 = phi ptr [ %32, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %35, %.loopexit.loopexit ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %38, %.loopexit.loopexit ]
+  store ptr %.0.i.i.i.i.i.i.i, ptr %43, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8TsSpline27_BreakdownMultipleKnotTypesERKSt6vectorIdSaIdEERKS1_INS_10TsKnotTypeESaIS6_EEbdRKS1_INS_7VtValueESaISB_EEPNS_10GfIntervalEPNS_13TsKeyFrameMapE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %10, i1 noundef zeroext %3, double noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6, ptr noundef %7)
-          to label %42 unwind label %47
+          to label %44 unwind label %48
 
-42:                                               ; preds = %.loopexit
-  %.not.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EED2Ev.exit, label %43
+44:                                               ; preds = %.loopexit
+  %.not.i.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EED2Ev.exit, label %45
 
-43:                                               ; preds = %42
-  %44 = ptrtoint ptr %41 to i64
-  %45 = ptrtoint ptr %39 to i64
-  %46 = sub i64 %44, %45
-  tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %46) #21
+45:                                               ; preds = %44
+  %46 = ptrtoint ptr %42 to i64
+  %47 = sub i64 %41, %46
+  tail call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef %47) #21
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EED2Ev.exit: ; preds = %43, %42, %25
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EED2Ev.exit: ; preds = %45, %44, %25
   ret void
 
-47:                                               ; preds = %.loopexit
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %.loopexit
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i14 = icmp eq ptr %39, null
-  br i1 %.not.i.i.i14, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EED2Ev.exit15, label %49
+  %.not.i.i.i14 = icmp eq ptr %42, null
+  br i1 %.not.i.i.i14, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EED2Ev.exit15, label %50
 
-49:                                               ; preds = %47
-  %50 = ptrtoint ptr %41 to i64
-  %51 = ptrtoint ptr %39 to i64
-  %52 = sub i64 %50, %51
-  tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %52) #21
+50:                                               ; preds = %48
+  %51 = ptrtoint ptr %42 to i64
+  %52 = sub i64 %41, %51
+  tail call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef %52) #21
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EED2Ev.exit15
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EED2Ev.exit15: ; preds = %49, %47
-  resume { ptr, i32 } %48
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESaIS1_EED2Ev.exit15: ; preds = %50, %48
+  resume { ptr, i32 } %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

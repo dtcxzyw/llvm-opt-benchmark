@@ -15,13 +15,13 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FT_Vector_ = type { i64, i64 }
 %struct.AF_CJKBlueRec_ = type { %struct.AF_WidthRec_, %struct.AF_WidthRec_, i32 }
 %struct.AF_WidthRec_ = type { i64, i64, i64 }
-%struct.AF_EdgeRec_ = type { i16, i64, i64, i8, i8, i64, ptr, ptr, ptr, i32, ptr, ptr }
-%struct.AF_PointRec_ = type { i16, i8, i8, i64, i64, i16, i16, i64, i64, i64, i64, ptr, ptr }
 %struct.AF_GlyphHintsRec_ = type { ptr, i64, i64, i64, i64, i32, i32, ptr, i32, i32, ptr, [2 x %struct.AF_AxisHintsRec_], i32, i32, ptr, %struct.anon.0 }
 %struct.AF_AxisHintsRec_ = type { i32, i32, ptr, i32, i32, ptr, i32, %struct.anon }
 %struct.anon = type { [18 x %struct.AF_SegmentRec_], [12 x %struct.AF_EdgeRec_] }
 %struct.AF_SegmentRec_ = type { i8, i8, i16, i16, i16, i16, i16, ptr, ptr, ptr, ptr, i64, i64, ptr, ptr }
+%struct.AF_EdgeRec_ = type { i16, i64, i64, i8, i8, i64, ptr, ptr, ptr, i32, ptr, ptr }
 %struct.anon.0 = type { [8 x ptr], [96 x %struct.AF_PointRec_] }
+%struct.AF_PointRec_ = type { i16, i8, i8, i64, i64, i16, i16, i64, i64, i64, i64, ptr, ptr }
 %struct.AF_LatinMetricsRec_ = type { %struct.AF_StyleMetricsRec_, i32, [2 x %struct.AF_LatinAxisRec_] }
 %struct.AF_StyleMetricsRec_ = type { ptr, %struct.AF_ScalerRec_, i8, ptr }
 %struct.AF_ScalerRec_ = type { ptr, i64, i64, i64, i64, i32, i32 }
@@ -1056,9 +1056,10 @@ define internal i32 @af_cjk_hints_apply(i32 %0, ptr noundef initializes((44, 48)
 .thread.i:                                        ; preds = %.split
   %30 = load i32, ptr %24, align 8, !tbaa !90
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %29, i64 %31
-  %.not59 = icmp eq i32 %30, 0
-  br i1 %.not59, label %.sink.split, label %.lr.ph.i
+  %.idx59 = mul nuw nsw i64 %31, 88
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx59
+  %.not60 = icmp eq i32 %30, 0
+  br i1 %.not60, label %.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread.i
   %33 = load i32, ptr %22, align 4, !tbaa !84
@@ -1159,7 +1160,8 @@ define internal i32 @af_cjk_hints_apply(i32 %0, ptr noundef initializes((44, 48)
 .thread.i50:                                      ; preds = %.split33
   %73 = load i32, ptr %21, align 8, !tbaa !90
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %72, i64 %74
+  %.idx = mul nuw nsw i64 %74, 88
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx
   %.not58 = icmp eq i32 %73, 0
   br i1 %.not58, label %.sink.split, label %.lr.ph.i51
 
@@ -1249,9 +1251,9 @@ define internal i32 @af_cjk_hints_apply(i32 %0, ptr noundef initializes((44, 48)
   br i1 %112, label %.preheader.i, label %.sink.split, !llvm.loop !104
 
 .sink.split:                                      ; preds = %.loopexit57.split.i, %.loopexit.split.us67.i, %.loopexit57.split.us.us.i, %.loopexit.split.us.us.us.i, %.thread.i50, %.split33, %.thread.i, %.split
-  %.sink68 = phi i32 [ 0, %.split ], [ 0, %.thread.i ], [ 1, %.split33 ], [ 1, %.thread.i50 ], [ 0, %.loopexit.split.us.us.us.i ], [ 0, %.loopexit57.split.us.us.i ], [ 1, %.loopexit.split.us67.i ], [ 1, %.loopexit57.split.i ]
-  tail call fastcc void @af_glyph_hints_align_strong_points(ptr noundef nonnull %1, i32 noundef %.sink68)
-  tail call fastcc void @af_glyph_hints_align_weak_points(ptr noundef nonnull %1, i32 noundef %.sink68)
+  %.sink69 = phi i32 [ 0, %.split ], [ 0, %.thread.i ], [ 1, %.split33 ], [ 1, %.thread.i50 ], [ 0, %.loopexit.split.us.us.us.i ], [ 0, %.loopexit57.split.us.us.i ], [ 1, %.loopexit.split.us67.i ], [ 1, %.loopexit57.split.i ]
+  tail call fastcc void @af_glyph_hints_align_strong_points(ptr noundef nonnull %1, i32 noundef %.sink69)
+  tail call fastcc void @af_glyph_hints_align_weak_points(ptr noundef nonnull %1, i32 noundef %.sink69)
   br label %113
 
 113:                                              ; preds = %.sink.split, %27
@@ -1263,7 +1265,8 @@ define internal i32 @af_cjk_hints_apply(i32 %0, ptr noundef initializes((44, 48)
   %115 = getelementptr i8, ptr %1, i64 48
   %.val46 = load ptr, ptr %115, align 8, !tbaa !109
   %116 = sext i32 %.val to i64
-  %117 = getelementptr inbounds %struct.AF_PointRec_, ptr %.val46, i64 %116
+  %.idx.i = mul nsw i64 %116, 80
+  %117 = getelementptr inbounds i8, ptr %.val46, i64 %.idx.i
   %118 = icmp sgt i32 %.val, 0
   br i1 %118, label %.lr.ph.i56.preheader, label %af_glyph_hints_save.exit
 
@@ -1344,7 +1347,8 @@ define internal i32 @af_dummy_hints_apply(i32 %0, ptr noundef initializes((44, 4
   %8 = getelementptr i8, ptr %1, i64 48
   %.val7 = load ptr, ptr %8, align 8, !tbaa !109
   %9 = sext i32 %.val to i64
-  %10 = getelementptr inbounds %struct.AF_PointRec_, ptr %.val7, i64 %9
+  %.idx.i = mul nsw i64 %9, 80
+  %10 = getelementptr inbounds i8, ptr %.val7, i64 %.idx.i
   %11 = icmp sgt i32 %.val, 0
   br i1 %11, label %.lr.ph.i.preheader, label %af_glyph_hints_save.exit
 
@@ -1662,7 +1666,8 @@ af_shaper_get_elem.exit.i:                        ; preds = %48
 82:                                               ; preds = %79
   %83 = load i32, ptr %76, align 8, !tbaa !144
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw %struct.AF_SegmentRec_, ptr %81, i64 %84
+  %.idx.i = mul nuw nsw i64 %84, 80
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx.i
   %.not143.i = icmp eq i32 %83, 0
   br i1 %.not143.i, label %._crit_edge127.i, label %.lr.ph126.i
 
@@ -2939,7 +2944,8 @@ define internal i32 @af_latin_hints_apply(i32 noundef %0, ptr noundef initialize
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 2624
   %37 = load i32, ptr %36, align 8, !tbaa !90
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %34, i64 %38
+  %.idx.i = mul nuw nsw i64 %38, 88
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i
   %.not114.i = icmp eq i32 %37, 0
   br i1 %.not114.i, label %af_latin_hints_compute_blue_edges.exit, label %.lr.ph110.i
 
@@ -3108,7 +3114,8 @@ af_latin_hints_compute_blue_edges.exit:           ; preds = %65, %.lr.ph110.i, %
 128:                                              ; preds = %.split
   %129 = load i32, ptr %122, align 8, !tbaa !144
   %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw %struct.AF_SegmentRec_, ptr %127, i64 %130
+  %.idx.i55 = mul nuw nsw i64 %130, 80
+  %131 = getelementptr inbounds nuw i8, ptr %127, i64 %.idx.i55
   %.not52.i = icmp eq i32 %129, 0
   br i1 %.not52.i, label %.sink.split, label %.lr.ph49.i
 
@@ -3151,15 +3158,16 @@ af_latin_hints_compute_blue_edges.exit:           ; preds = %65, %.lr.ph110.i, %
 .split37:                                         ; preds = %146
   tail call fastcc void @af_latin_hint_edges(ptr noundef nonnull %1, i32 noundef 1)
   %148 = load ptr, ptr %119, align 8, !tbaa !143
-  %.not.i55 = icmp eq ptr %148, null
-  br i1 %.not.i55, label %.sink.split, label %149
+  %.not.i56 = icmp eq ptr %148, null
+  br i1 %.not.i56, label %.sink.split, label %149
 
 149:                                              ; preds = %.split37
   %150 = load i32, ptr %120, align 8, !tbaa !144
   %151 = zext i32 %150 to i64
-  %152 = getelementptr inbounds nuw %struct.AF_SegmentRec_, ptr %148, i64 %151
-  %.not52.i56 = icmp eq i32 %150, 0
-  br i1 %.not52.i56, label %.sink.split, label %.lr.ph.i
+  %.idx.i57 = mul nuw nsw i64 %151, 80
+  %152 = getelementptr inbounds nuw i8, ptr %148, i64 %.idx.i57
+  %.not52.i58 = icmp eq i32 %150, 0
+  br i1 %.not52.i58, label %.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %149, %.loopexit44.i
   %.147.i = phi ptr [ %165, %.loopexit44.i ], [ %148, %149 ]
@@ -3193,9 +3201,9 @@ af_latin_hints_compute_blue_edges.exit:           ; preds = %65, %.lr.ph110.i, %
   br i1 %166, label %.lr.ph.i, label %.sink.split, !llvm.loop !212
 
 .sink.split:                                      ; preds = %.loopexit44.i, %.loopexit.i, %149, %.split37, %128, %.split
-  %.sink61 = phi i32 [ 0, %.split ], [ 0, %128 ], [ 1, %.split37 ], [ 1, %149 ], [ 0, %.loopexit.i ], [ 1, %.loopexit44.i ]
-  tail call fastcc void @af_glyph_hints_align_strong_points(ptr noundef nonnull %1, i32 noundef %.sink61)
-  tail call fastcc void @af_glyph_hints_align_weak_points(ptr noundef nonnull %1, i32 noundef %.sink61)
+  %.sink64 = phi i32 [ 0, %.split ], [ 0, %128 ], [ 1, %.split37 ], [ 1, %149 ], [ 0, %.loopexit.i ], [ 1, %.loopexit44.i ]
+  tail call fastcc void @af_glyph_hints_align_strong_points(ptr noundef nonnull %1, i32 noundef %.sink64)
+  tail call fastcc void @af_glyph_hints_align_weak_points(ptr noundef nonnull %1, i32 noundef %.sink64)
   br label %167
 
 167:                                              ; preds = %.sink.split, %125
@@ -3207,21 +3215,22 @@ af_latin_hints_compute_blue_edges.exit:           ; preds = %65, %.lr.ph110.i, %
   %169 = getelementptr i8, ptr %1, i64 48
   %.val51 = load ptr, ptr %169, align 8, !tbaa !109
   %170 = sext i32 %.val to i64
-  %171 = getelementptr inbounds %struct.AF_PointRec_, ptr %.val51, i64 %170
+  %.idx.i60 = mul nsw i64 %170, 80
+  %171 = getelementptr inbounds i8, ptr %.val51, i64 %.idx.i60
   %172 = icmp sgt i32 %.val, 0
-  br i1 %172, label %.lr.ph.i58.preheader, label %af_glyph_hints_save.exit
+  br i1 %172, label %.lr.ph.i61.preheader, label %af_glyph_hints_save.exit
 
-.lr.ph.i58.preheader:                             ; preds = %.thread
+.lr.ph.i61.preheader:                             ; preds = %.thread
   %173 = getelementptr i8, ptr %2, i64 16
   %.val53 = load ptr, ptr %173, align 8, !tbaa !110
   %174 = getelementptr i8, ptr %2, i64 8
   %.val52 = load ptr, ptr %174, align 8, !tbaa !112
-  br label %.lr.ph.i58
+  br label %.lr.ph.i61
 
-.lr.ph.i58:                                       ; preds = %.lr.ph.i58.preheader, %.lr.ph.i58
-  %.03.i = phi ptr [ %186, %.lr.ph.i58 ], [ %.val53, %.lr.ph.i58.preheader ]
-  %.0192.i = phi ptr [ %185, %.lr.ph.i58 ], [ %.val52, %.lr.ph.i58.preheader ]
-  %.0201.i = phi ptr [ %184, %.lr.ph.i58 ], [ %.val51, %.lr.ph.i58.preheader ]
+.lr.ph.i61:                                       ; preds = %.lr.ph.i61.preheader, %.lr.ph.i61
+  %.03.i = phi ptr [ %186, %.lr.ph.i61 ], [ %.val53, %.lr.ph.i61.preheader ]
+  %.0192.i = phi ptr [ %185, %.lr.ph.i61 ], [ %.val52, %.lr.ph.i61.preheader ]
+  %.0201.i = phi ptr [ %184, %.lr.ph.i61 ], [ %.val51, %.lr.ph.i61.preheader ]
   %175 = getelementptr inbounds nuw i8, ptr %.0201.i, i64 32
   %176 = load i64, ptr %175, align 8, !tbaa !99
   store i64 %176, ptr %.0192.i, align 8, !tbaa !57
@@ -3232,20 +3241,20 @@ af_latin_hints_compute_blue_edges.exit:           ; preds = %65, %.lr.ph110.i, %
   %180 = load i16, ptr %.0201.i, align 8, !tbaa !101
   %181 = zext i16 %180 to i32
   %182 = and i32 %181, 1
-  %.not.i59 = icmp eq i32 %182, 0
+  %.not.i62 = icmp eq i32 %182, 0
   %183 = and i32 %181, 2
   %.not21.i = icmp eq i32 %183, 0
   %..i = select i1 %.not21.i, i8 1, i8 2
-  %.sink.i = select i1 %.not.i59, i8 %..i, i8 0
+  %.sink.i = select i1 %.not.i62, i8 %..i, i8 0
   store i8 %.sink.i, ptr %.03.i, align 1, !tbaa !39
   %184 = getelementptr inbounds nuw i8, ptr %.0201.i, i64 80
   %185 = getelementptr inbounds nuw i8, ptr %.0192.i, i64 16
   %186 = getelementptr inbounds nuw i8, ptr %.03.i, i64 1
   %187 = icmp ult ptr %184, %171
-  br i1 %187, label %.lr.ph.i58, label %af_glyph_hints_save.exit, !llvm.loop !113
+  br i1 %187, label %.lr.ph.i61, label %af_glyph_hints_save.exit, !llvm.loop !113
 
-af_glyph_hints_save.exit:                         ; preds = %.lr.ph.i58, %.thread, %18, %10, %4
-  %.036 = phi i32 [ %5, %4 ], [ %22, %18 ], [ %14, %10 ], [ 0, %.thread ], [ 0, %.lr.ph.i58 ]
+af_glyph_hints_save.exit:                         ; preds = %.lr.ph.i61, %.thread, %18, %10, %4
+  %.036 = phi i32 [ %5, %4 ], [ %22, %18 ], [ %14, %10 ], [ 0, %.thread ], [ 0, %.lr.ph.i61 ]
   ret i32 %.036
 }
 
@@ -4644,7 +4653,8 @@ af_shaper_get_elem.exit:                          ; preds = %32
   %70 = load ptr, ptr %69, align 8, !tbaa !143
   %71 = load i32, ptr %68, align 8, !tbaa !144
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw %struct.AF_SegmentRec_, ptr %70, i64 %72
+  %.idx = mul nuw nsw i64 %72, 80
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx
   %.not131 = icmp eq i32 %71, 0
   br i1 %.not131, label %._crit_edge126, label %.lr.ph125
 
@@ -4956,11 +4966,11 @@ define internal fastcc i32 @af_glyph_hints_reload(ptr noundef initializes((44, 4
 74:                                               ; preds = %66
   store i32 %69, ptr %49, align 8, !tbaa !325
   %.pre = load i16, ptr %46, align 2, !tbaa !324
-  %.pre383 = zext i16 %.pre to i32
+  %.pre380 = zext i16 %.pre to i32
   br label %75
 
 75:                                               ; preds = %57, %74, %52, %55
-  %.pre-phi = phi i32 [ %48, %57 ], [ %.pre383, %74 ], [ %48, %52 ], [ %48, %55 ]
+  %.pre-phi = phi i32 [ %48, %57 ], [ %.pre380, %74 ], [ %48, %52 ], [ %48, %55 ]
   store i32 %.pre-phi, ptr %13, align 4, !tbaa !108
   %76 = load i16, ptr %1, align 8, !tbaa !321
   %77 = zext i16 %76 to i32
@@ -4991,7 +5001,8 @@ define internal fastcc i32 @af_glyph_hints_reload(ptr noundef initializes((44, 4
 
 88:                                               ; preds = %83
   %89 = sext i32 %86 to i64
-  %90 = getelementptr inbounds %struct.AF_PointRec_, ptr %85, i64 %89
+  %.idx370 = mul nsw i64 %89, 80
+  %90 = getelementptr inbounds i8, ptr %85, i64 %.idx370
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 5152
   %92 = load ptr, ptr %91, align 8, !tbaa !69
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -5083,9 +5094,9 @@ define internal fastcc i32 @af_glyph_hints_reload(ptr noundef initializes((44, 4
   %153 = and i8 %152, 3
   %switch.selectcmp = icmp eq i8 %153, 2
   %switch.select = select i1 %switch.selectcmp, i16 2, i16 0
-  %switch.selectcmp391 = icmp eq i8 %153, 0
-  %switch.select392 = select i1 %switch.selectcmp391, i16 1, i16 %switch.select
-  store i16 %switch.select392, ptr %.0350, align 8, !tbaa !101
+  %switch.selectcmp388 = icmp eq i8 %153, 0
+  %switch.select389 = select i1 %switch.selectcmp388, i16 1, i16 %switch.select
+  store i16 %switch.select389, ptr %.0350, align 8, !tbaa !101
   %154 = load i16, ptr %118, align 8, !tbaa !330
   %155 = sext i16 %154 to i64
   %156 = getelementptr inbounds nuw i8, ptr %.0289345, i64 24
@@ -5149,7 +5160,8 @@ define internal fastcc i32 @af_glyph_hints_reload(ptr noundef initializes((44, 4
   %194 = load ptr, ptr %193, align 8, !tbaa !323
   %195 = load i32, ptr %14, align 4, !tbaa !320
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds ptr, ptr %194, i64 %196
+  %.idx371 = shl nsw i64 %196, 3
+  %197 = getelementptr inbounds i8, ptr %194, i64 %.idx371
   %198 = icmp sgt i32 %195, 0
   br i1 %198, label %.lr.ph355, label %.preheader343
 
@@ -5188,16 +5200,16 @@ define internal fastcc i32 @af_glyph_hints_reload(ptr noundef initializes((44, 4
   %.0301 = load ptr, ptr %.0301.in, align 8, !tbaa !334
   %.not332 = icmp eq ptr %.0301, %211
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.1, i64 24
-  %.pre376.pre = load i16, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !330
-  br i1 %.not332, label %._crit_edge380, label %213
+  %.pre373.pre = load i16, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !330
+  br i1 %.not332, label %._crit_edge377, label %213
 
-._crit_edge380:                                   ; preds = %212
-  %.phi.trans.insert377.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.1, i64 26
-  %.pre378.pre = load i16, ptr %.phi.trans.insert377.phi.trans.insert, align 2, !tbaa !331
+._crit_edge377:                                   ; preds = %212
+  %.phi.trans.insert374.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.1, i64 26
+  %.pre375.pre = load i16, ptr %.phi.trans.insert374.phi.trans.insert, align 2, !tbaa !331
   br label %split
 
 213:                                              ; preds = %212
-  %214 = sext i16 %.pre376.pre to i64
+  %214 = sext i16 %.pre373.pre to i64
   %215 = getelementptr inbounds nuw i8, ptr %.0301, i64 24
   %216 = load i16, ptr %215, align 8, !tbaa !330
   %217 = sext i16 %216 to i64
@@ -5215,8 +5227,8 @@ define internal fastcc i32 @af_glyph_hints_reload(ptr noundef initializes((44, 4
   %.not333 = icmp slt i64 %228, %208
   br i1 %.not333, label %212, label %split, !llvm.loop !338
 
-split:                                            ; preds = %213, %._crit_edge380
-  %.pre378 = phi i16 [ %.pre378.pre, %._crit_edge380 ], [ %220, %213 ]
+split:                                            ; preds = %213, %._crit_edge377
+  %.pre375 = phi i16 [ %.pre375.pre, %._crit_edge377 ], [ %220, %213 ]
   %229 = ptrtoint ptr %.1 to i64
   %230 = getelementptr inbounds nuw i8, ptr %.1, i64 48
   %231 = getelementptr inbounds nuw i8, ptr %.1, i64 56
@@ -5224,8 +5236,8 @@ split:                                            ; preds = %213, %._crit_edge38
   br label %232
 
 232:                                              ; preds = %281, %split
-  %233 = phi i16 [ %.pre378, %split ], [ %244, %281 ]
-  %234 = phi i16 [ %.pre376.pre, %split ], [ %238, %281 ]
+  %233 = phi i16 [ %.pre375, %split ], [ %244, %281 ]
+  %234 = phi i16 [ %.pre373.pre, %split ], [ %238, %281 ]
   %.0302 = phi ptr [ %.1, %split ], [ %236, %281 ]
   %.0298 = phi ptr [ %.1, %split ], [ %.1299, %281 ]
   %.0296 = phi i64 [ 0, %split ], [ %.1297, %281 ]
@@ -5275,7 +5287,7 @@ split:                                            ; preds = %213, %._crit_edge38
   %..i = call i64 @llvm.smax.i64(i64 %248, i64 %264)
   %.28.i = select i1 %.not25.i, i64 %248, i64 %242
   %266 = select i1 %.not25.i, i8 -1, i8 2
-  %.pre384 = call i64 @llvm.abs.i64(i64 %.28.i, i1 true)
+  %.pre381 = call i64 @llvm.abs.i64(i64 %.28.i, i1 true)
   br label %af_direction_compute.exit
 
 267:                                              ; preds = %256
@@ -5286,10 +5298,10 @@ split:                                            ; preds = %213, %._crit_edge38
   br label %af_direction_compute.exit
 
 af_direction_compute.exit:                        ; preds = %265, %267, %268
-  %.pre-phi385 = phi i64 [ %.pre384, %265 ], [ %250, %267 ], [ %249, %268 ]
+  %.pre-phi382 = phi i64 [ %.pre381, %265 ], [ %250, %267 ], [ %249, %268 ]
   %.020.i = phi i64 [ %..i, %265 ], [ %242, %267 ], [ %269, %268 ]
   %.0.i = phi i8 [ %266, %265 ], [ 1, %267 ], [ -2, %268 ]
-  %270 = mul nuw nsw i64 %.pre-phi385, 14
+  %270 = mul nuw nsw i64 %.pre-phi382, 14
   %.not27.i = icmp sgt i64 %.020.i, %270
   %271 = select i1 %.not27.i, i8 %.0.i, i8 4
   %272 = getelementptr inbounds nuw i8, ptr %.0298, i64 3
@@ -5425,7 +5437,7 @@ af_direction_compute.exit:                        ; preds = %265, %267, %268
   br i1 %.not324, label %346, label %343
 
 343:                                              ; preds = %387, %392, %352, %341
-  %344 = phi i16 [ %.pre379, %387 ], [ %338, %392 ], [ %338, %352 ], [ %338, %341 ]
+  %344 = phi i16 [ %.pre376, %387 ], [ %338, %392 ], [ %338, %352 ], [ %338, %341 ]
   %345 = or i16 %344, 16
   store i16 %345, ptr %.3368, align 8, !tbaa !101
   br label %.thread
@@ -5489,7 +5501,7 @@ af_direction_compute.exit:                        ; preds = %265, %267, %268
   %390 = sub nsw i64 0, %388
   %391 = getelementptr inbounds nuw i8, ptr %356, i64 56
   store i64 %390, ptr %391, align 8, !tbaa !340
-  %.pre379 = load i16, ptr %.3368, align 8, !tbaa !101
+  %.pre376 = load i16, ptr %.3368, align 8, !tbaa !101
   br label %343
 
 392:                                              ; preds = %346
@@ -5526,7 +5538,8 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %13 = load i32, ptr %12, align 4, !tbaa !320
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %11, i64 %14
+  %.idx564 = shl nsw i64 %14, 3
+  %15 = getelementptr inbounds i8, ptr %11, i64 %.idx564
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %17 = load i32, ptr %16, align 8, !tbaa !118
   %18 = udiv i32 %17, 14
@@ -5542,7 +5555,8 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %27 = load i32, ptr %26, align 4, !tbaa !108
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %struct.AF_PointRec_, ptr %25, i64 %28
+  %.idx563 = mul nsw i64 %28, 80
+  %29 = getelementptr inbounds i8, ptr %25, i64 %.idx563
   %30 = icmp sgt i32 %27, 0
   br i1 %23, label %31, label %42
 
@@ -5675,8 +5689,8 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
   %88 = load i64, ptr %87, align 8, !tbaa !340
   %89 = icmp slt i64 %88, %.0373
   %.pre.pre = load i16, ptr %.2405, align 8, !tbaa !101
-  %spec.select578 = call i64 @llvm.smin.i64(i64 %88, i64 %.0373)
-  %spec.select579 = select i1 %89, i16 %.pre.pre, i16 %.0357
+  %spec.select580 = call i64 @llvm.smin.i64(i64 %88, i64 %.0373)
+  %spec.select581 = select i1 %89, i16 %.pre.pre, i16 %.0357
   %90 = icmp sgt i64 %88, %.0365
   %.2367 = call i64 @llvm.smax.i64(i64 %88, i64 %.0365)
   %.2351 = select i1 %90, i16 %.pre.pre, i16 %.0349
@@ -5719,7 +5733,7 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
   %110 = trunc i64 %109 to i16
   %111 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   store i16 %110, ptr %111, align 4, !tbaa !349
-  %112 = or i16 %.2351, %spec.select579
+  %112 = or i16 %.2351, %spec.select581
   %113 = and i16 %112, 3
   %.not453 = icmp ne i16 %113, 0
   %114 = sub nsw i64 %.2336, %.2342
@@ -5734,7 +5748,7 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
   br label %119
 
 119:                                              ; preds = %116, %102
-  %120 = trunc i64 %spec.select578 to i16
+  %120 = trunc i64 %spec.select580 to i16
   %121 = getelementptr inbounds nuw i8, ptr %.1, i64 6
   store i16 %120, ptr %121, align 2, !tbaa !351
   %122 = trunc i64 %.2367 to i16
@@ -5756,9 +5770,9 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
 132:                                              ; preds = %126
   %spec.select463 = call i64 @llvm.smin.i64(i64 %.0321, i64 %spec.select)
   %.4385 = call i64 @llvm.smax.i64(i64 %.0316, i64 %.2383)
-  %133 = icmp slt i64 %.0312, %spec.select578
-  %.4377 = call i64 @llvm.smin.i64(i64 %.0312, i64 %spec.select578)
-  %.4361 = select i1 %133, i16 %.0304, i16 %spec.select579
+  %133 = icmp slt i64 %.0312, %spec.select580
+  %.4377 = call i64 @llvm.smin.i64(i64 %.0312, i64 %spec.select580)
+  %.4361 = select i1 %133, i16 %.0304, i16 %spec.select581
   %134 = icmp sgt i64 %.0308, %.2367
   %.4369 = call i64 @llvm.smax.i64(i64 %.0308, i64 %.2367)
   %.4353 = select i1 %134, i16 %.0300, i16 %.2351
@@ -5800,7 +5814,7 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
 155:                                              ; preds = %126
   %156 = sub nsw i64 %.0308, %.0312
   %157 = call i64 @llvm.abs.i64(i64 %156, i1 true)
-  %158 = sub nsw i64 %.2367, %spec.select578
+  %158 = sub nsw i64 %.2367, %spec.select580
   %159 = call i64 @llvm.abs.i64(i64 %158, i1 true)
   %160 = icmp samesign ugt i64 %157, %159
   %spec.select466 = call i64 @llvm.smin.i64(i64 %spec.select, i64 %.0321)
@@ -5834,7 +5848,7 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
   %178 = trunc i64 %177 to i16
   %179 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   store i16 %178, ptr %179, align 4, !tbaa !349
-  %180 = or i16 %.2351, %spec.select579
+  %180 = or i16 %.2351, %spec.select581
   %181 = and i16 %180, 3
   %.not450 = icmp ne i16 %181, 0
   %182 = sub nsw i64 %.2336, %.2342
@@ -5849,7 +5863,7 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
   br label %187
 
 187:                                              ; preds = %184, %170
-  %188 = trunc i64 %spec.select578 to i16
+  %188 = trunc i64 %spec.select580 to i16
   %189 = getelementptr inbounds nuw i8, ptr %.1, i64 6
   store i16 %188, ptr %189, align 2, !tbaa !351
   %190 = trunc i64 %.2367 to i16
@@ -5864,17 +5878,17 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
 194:                                              ; preds = %161, %187, %132
   %.5395 = phi i64 [ %spec.select463, %132 ], [ %spec.select, %161 ], [ %spec.select466, %187 ]
   %.5386 = phi i64 [ %.4385, %132 ], [ %.2383, %161 ], [ %.4320, %187 ]
-  %.5378 = phi i64 [ %.4377, %132 ], [ %spec.select578, %161 ], [ %spec.select578, %187 ]
+  %.5378 = phi i64 [ %.4377, %132 ], [ %spec.select580, %161 ], [ %spec.select580, %187 ]
   %.5370 = phi i64 [ %.4369, %132 ], [ %.2367, %161 ], [ %.2367, %187 ]
-  %.5362 = phi i16 [ %.4361, %132 ], [ %spec.select579, %161 ], [ %spec.select579, %187 ]
+  %.5362 = phi i16 [ %.4361, %132 ], [ %spec.select581, %161 ], [ %spec.select581, %187 ]
   %.5354 = phi i16 [ %.4353, %132 ], [ %.2351, %161 ], [ %.2351, %187 ]
   %.6346 = phi i64 [ %.5345, %132 ], [ %.2342, %161 ], [ %.2342, %187 ]
   %.5339 = phi i64 [ %.4338, %132 ], [ %.2336, %161 ], [ %.2336, %187 ]
   %.3324 = phi i64 [ %.0321, %132 ], [ %spec.select466, %161 ], [ %spec.select466, %187 ]
   %.3319 = phi i64 [ %.0316, %132 ], [ %.4320, %161 ], [ %.4320, %187 ]
-  %.3315 = phi i64 [ %.0312, %132 ], [ %.0312, %161 ], [ %spec.select578, %187 ]
+  %.3315 = phi i64 [ %.0312, %132 ], [ %.0312, %161 ], [ %spec.select580, %187 ]
   %.3311 = phi i64 [ %.0308, %132 ], [ %.0308, %161 ], [ %.2367, %187 ]
-  %.3307 = phi i16 [ %.0304, %132 ], [ %.0304, %161 ], [ %spec.select579, %187 ]
+  %.3307 = phi i16 [ %.0304, %132 ], [ %.0304, %161 ], [ %spec.select581, %187 ]
   %.3303 = phi i16 [ %.0300, %132 ], [ %.0300, %161 ], [ %.2351, %187 ]
   %.3299 = phi i64 [ %.0296, %132 ], [ %.0296, %161 ], [ %.2342, %187 ]
   %.3295 = phi i64 [ %.0292, %132 ], [ %.0292, %161 ], [ %.2336, %187 ]
@@ -5888,18 +5902,18 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
   %.not455 = phi i1 [ true, %83 ], [ false, %84 ], [ true, %194 ], [ true, %119 ]
   %.1391 = phi i64 [ %.0390, %83 ], [ %spec.select, %84 ], [ %.5395, %194 ], [ %spec.select, %119 ]
   %.1382 = phi i64 [ %.0381, %83 ], [ %.2383, %84 ], [ %.5386, %194 ], [ %.2383, %119 ]
-  %.1374 = phi i64 [ %.0373, %83 ], [ %spec.select578, %84 ], [ %.5378, %194 ], [ %spec.select578, %119 ]
+  %.1374 = phi i64 [ %.0373, %83 ], [ %spec.select580, %84 ], [ %.5378, %194 ], [ %spec.select580, %119 ]
   %.1366 = phi i64 [ %.0365, %83 ], [ %.2367, %84 ], [ %.5370, %194 ], [ %.2367, %119 ]
-  %.1358 = phi i16 [ %.0357, %83 ], [ %spec.select579, %84 ], [ %.5362, %194 ], [ %spec.select579, %119 ]
+  %.1358 = phi i16 [ %.0357, %83 ], [ %spec.select581, %84 ], [ %.5362, %194 ], [ %spec.select581, %119 ]
   %.1350 = phi i16 [ %.0349, %83 ], [ %.2351, %84 ], [ %.5354, %194 ], [ %.2351, %119 ]
   %.1341 = phi i64 [ %.0340, %83 ], [ %.2342, %84 ], [ %.6346, %194 ], [ %.2342, %119 ]
   %.1335 = phi i64 [ %.0334, %83 ], [ %.2336, %84 ], [ %.5339, %194 ], [ %.2336, %119 ]
   %.1327 = phi ptr [ %.0326, %83 ], [ %.0326, %84 ], [ %.0326, %194 ], [ %.1, %119 ]
   %.1322 = phi i64 [ %.0321, %83 ], [ %.0321, %84 ], [ %.3324, %194 ], [ %spec.select, %119 ]
   %.1317 = phi i64 [ %.0316, %83 ], [ %.0316, %84 ], [ %.3319, %194 ], [ %.2383, %119 ]
-  %.1313 = phi i64 [ %.0312, %83 ], [ %.0312, %84 ], [ %.3315, %194 ], [ %spec.select578, %119 ]
+  %.1313 = phi i64 [ %.0312, %83 ], [ %.0312, %84 ], [ %.3315, %194 ], [ %spec.select580, %119 ]
   %.1309 = phi i64 [ %.0308, %83 ], [ %.0308, %84 ], [ %.3311, %194 ], [ %.2367, %119 ]
-  %.1305 = phi i16 [ %.0304, %83 ], [ %.0304, %84 ], [ %.3307, %194 ], [ %spec.select579, %119 ]
+  %.1305 = phi i16 [ %.0304, %83 ], [ %.0304, %84 ], [ %.3307, %194 ], [ %spec.select581, %119 ]
   %.1301 = phi i16 [ %.0300, %83 ], [ %.0300, %84 ], [ %.3303, %194 ], [ %.2351, %119 ]
   %.1297 = phi i64 [ %.0296, %83 ], [ %.0296, %84 ], [ %.3299, %194 ], [ %.2342, %119 ]
   %.1293 = phi i64 [ %.0292, %83 ], [ %.0292, %84 ], [ %.3295, %194 ], [ %.2336, %119 ]
@@ -5956,14 +5970,14 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
 219:                                              ; preds = %214
   %220 = load i32, ptr %54, align 4, !tbaa !357
   %.not.i = icmp ult i32 %212, %220
-  %.pre570 = load ptr, ptr %55, align 8, !tbaa !143
+  %.pre572 = load ptr, ptr %55, align 8, !tbaa !143
   br i1 %.not.i, label %237, label %221
 
 221:                                              ; preds = %219
   %222 = lshr i32 %220, 2
   %223 = add nuw nsw i32 %220, 4
   %224 = add nuw nsw i32 %223, %222
-  %225 = icmp eq ptr %.pre570, %56
+  %225 = icmp eq ptr %.pre572, %56
   br i1 %225, label %226, label %231
 
 226:                                              ; preds = %221
@@ -5976,26 +5990,26 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
 
 230:                                              ; preds = %226
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1440) %228, ptr noundef nonnull align 8 dereferenceable(1440) %56, i64 1440, i1 false)
-  %.pre569.pre = load ptr, ptr %55, align 8, !tbaa !143
+  %.pre571.pre = load ptr, ptr %55, align 8, !tbaa !143
   br label %236
 
 231:                                              ; preds = %221
   %232 = zext nneg i32 %220 to i64
   %233 = zext nneg i32 %224 to i64
-  %234 = call ptr @ft_mem_realloc(ptr noundef %9, i64 noundef 80, i64 noundef %232, i64 noundef %233, ptr noundef %.pre570, ptr noundef nonnull %3) #20
+  %234 = call ptr @ft_mem_realloc(ptr noundef %9, i64 noundef 80, i64 noundef %232, i64 noundef %233, ptr noundef %.pre572, ptr noundef nonnull %3) #20
   store ptr %234, ptr %55, align 8, !tbaa !143
   %235 = load i32, ptr %3, align 4, !tbaa !43
   %.not45.i = icmp eq i32 %235, 0
   br i1 %.not45.i, label %236, label %336
 
 236:                                              ; preds = %231, %230
-  %.pre569 = phi ptr [ %234, %231 ], [ %.pre569.pre, %230 ]
+  %.pre571 = phi ptr [ %234, %231 ], [ %.pre571.pre, %230 ]
   store i32 %224, ptr %54, align 4, !tbaa !357
   %.pre.i = load i32, ptr %8, align 8, !tbaa !144
   br label %237
 
 237:                                              ; preds = %236, %219, %218, %216
-  %238 = phi ptr [ %.pre569, %236 ], [ %.pre570, %219 ], [ %217, %216 ], [ %56, %218 ]
+  %238 = phi ptr [ %.pre571, %236 ], [ %.pre572, %219 ], [ %217, %216 ], [ %56, %218 ]
   %239 = phi i32 [ %.pre.i, %236 ], [ %212, %219 ], [ %212, %216 ], [ %212, %218 ]
   %240 = add i32 %239, 1
   store i32 %240, ptr %8, align 8, !tbaa !144
@@ -6082,9 +6096,10 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
 272:                                              ; preds = %._crit_edge
   %273 = load i32, ptr %8, align 8, !tbaa !144
   %274 = zext i32 %273 to i64
-  %275 = getelementptr inbounds nuw %struct.AF_SegmentRec_, ptr %271, i64 %274
-  %.not580 = icmp eq i32 %273, 0
-  br i1 %.not580, label %.loopexit, label %.lr.ph562
+  %.idx = mul nuw nsw i64 %274, 80
+  %275 = getelementptr inbounds nuw i8, ptr %271, i64 %.idx
+  %.not582 = icmp eq i32 %273, 0
+  br i1 %.not582, label %.loopexit, label %.lr.ph562
 
 .lr.ph562:                                        ; preds = %272, %333
   %storemerge560 = phi ptr [ %334, %333 ], [ %271, %272 ]
@@ -6840,7 +6855,8 @@ define internal fastcc i32 @af_cjk_hints_detect_features(ptr noundef %0, i32 nou
 9:                                                ; preds = %2
   %10 = load i32, ptr %6, align 8, !tbaa !144
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.AF_SegmentRec_, ptr %8, i64 %11
+  %.idx.i = mul nuw nsw i64 %11, 80
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
   %13 = tail call fastcc i32 @af_latin_hints_compute_segments(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1)
   %.not35.i = icmp eq i32 %13, 0
   br i1 %.not35.i, label %.preheader.i, label %af_cjk_hints_compute_edges.exit
@@ -7215,9 +7231,9 @@ af_cjk_hints_link_segments.exit:                  ; preds = %188, %39
   %200 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %200, align 8, !tbaa !90
   %201 = load i64, ptr %.in.i, align 8, !tbaa !60
-  %.idx.i = mul nuw nsw i64 %5, 896
+  %.idx.i14 = mul nuw nsw i64 %5, 896
   %202 = getelementptr i8, ptr %192, i64 488
-  %203 = getelementptr i8, ptr %202, i64 %.idx.i
+  %203 = getelementptr i8, ptr %202, i64 %.idx.i14
   %204 = load i64, ptr %203, align 8, !tbaa !315
   %sext.i = shl i64 %204, 32
   %205 = ashr exact i64 %sext.i, 32
@@ -7249,14 +7265,14 @@ af_cjk_hints_link_segments.exit:                  ; preds = %188, %39
   %.0166265.i = phi ptr [ %193, %.preheader261.lr.ph.i ], [ %292, %.thread243.i ]
   %219 = load i32, ptr %200, align 8, !tbaa !90
   %.not272.i = icmp eq i32 %219, 0
-  br i1 %.not272.i, label %.preheader261.i.._crit_edge.thread.i_crit_edge, label %.lr.ph.i18
+  br i1 %.not272.i, label %.preheader261.i.._crit_edge.thread.i_crit_edge, label %.lr.ph.i19
 
 .preheader261.i.._crit_edge.thread.i_crit_edge:   ; preds = %.preheader261.i
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0166265.i, i64 1
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !359
   br label %._crit_edge.thread.i
 
-.lr.ph.i18:                                       ; preds = %.preheader261.i
+.lr.ph.i19:                                       ; preds = %.preheader261.i
   %220 = load ptr, ptr %218, align 8, !tbaa !85
   %221 = getelementptr inbounds nuw i8, ptr %.0166265.i, i64 1
   %222 = load i8, ptr %221, align 1, !tbaa !359
@@ -7265,10 +7281,10 @@ af_cjk_hints_link_segments.exit:                  ; preds = %188, %39
   %wide.trip.count.i = zext i32 %219 to i64
   br label %225
 
-225:                                              ; preds = %261, %.lr.ph.i18
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i18 ], [ %indvars.iv.next.i, %261 ]
-  %.0170264.i = phi ptr [ null, %.lr.ph.i18 ], [ %.1171.i, %261 ]
-  %.0178263.i = phi i64 [ 65535, %.lr.ph.i18 ], [ %.1179.i, %261 ]
+225:                                              ; preds = %261, %.lr.ph.i19
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i, %261 ]
+  %.0170264.i = phi ptr [ null, %.lr.ph.i19 ], [ %.1171.i, %261 ]
+  %.0178263.i = phi i64 [ 65535, %.lr.ph.i19 ], [ %.1179.i, %261 ]
   %226 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %220, i64 %indvars.iv.i
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 25
   %228 = load i8, ptr %227, align 1, !tbaa !204
@@ -7340,14 +7356,14 @@ select.unfold.i:                                  ; preds = %246, %243
   %.1171.i = phi ptr [ %.0170264.i, %225 ], [ %.0170264.i, %229 ], [ %226, %260 ], [ %.0170264.i, %259 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i19, label %225, !llvm.loop !395
+  br i1 %exitcond.not.i, label %._crit_edge.i20, label %225, !llvm.loop !395
 
-._crit_edge.i19:                                  ; preds = %261
+._crit_edge.i20:                                  ; preds = %261
   %.not223.i = icmp eq ptr %.1171.i, null
   br i1 %.not223.i, label %._crit_edge.thread.i, label %268
 
-._crit_edge.thread.i:                             ; preds = %.preheader261.i.._crit_edge.thread.i_crit_edge, %._crit_edge.i19
-  %262 = phi i8 [ %.pre, %.preheader261.i.._crit_edge.thread.i_crit_edge ], [ %222, %._crit_edge.i19 ]
+._crit_edge.thread.i:                             ; preds = %.preheader261.i.._crit_edge.thread.i_crit_edge, %._crit_edge.i20
+  %262 = phi i8 [ %.pre, %.preheader261.i.._crit_edge.thread.i_crit_edge ], [ %222, %._crit_edge.i20 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
   %263 = getelementptr inbounds nuw i8, ptr %.0166265.i, i64 2
   %264 = load i16, ptr %263, align 2, !tbaa !146
@@ -7357,7 +7373,7 @@ select.unfold.i:                                  ; preds = %246, %243
   %.not224.i = icmp eq i32 %267, 0
   br i1 %.not224.i, label %select.unfold241.i, label %291
 
-268:                                              ; preds = %._crit_edge.i19
+268:                                              ; preds = %._crit_edge.i20
   %269 = getelementptr inbounds nuw i8, ptr %.1171.i, i64 72
   %270 = load ptr, ptr %269, align 8, !tbaa !91
   %271 = getelementptr inbounds nuw i8, ptr %.0166265.i, i64 24
@@ -7415,7 +7431,8 @@ select.unfold241.i:                               ; preds = %._crit_edge.thread.
 296:                                              ; preds = %._crit_edge266.i
   %297 = load i32, ptr %200, align 8, !tbaa !90
   %298 = zext i32 %297 to i64
-  %299 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %295, i64 %298
+  %.idx277.i = mul nuw nsw i64 %298, 88
+  %299 = getelementptr inbounds nuw i8, ptr %295, i64 %.idx277.i
   %.not278.i = icmp eq i32 %297, 0
   br i1 %.not278.i, label %af_cjk_hints_compute_edges.exit, label %.lr.ph269.i
 
@@ -7445,17 +7462,17 @@ select.unfold241.i:                               ; preds = %._crit_edge.thread.
   %307 = getelementptr inbounds nuw i8, ptr %.1165270.i, i64 72
   %308 = load ptr, ptr %307, align 8, !tbaa !91
   %.not213.i = icmp eq ptr %308, null
-  br i1 %.not213.i, label %.loopexit.i, label %.preheader.i14
+  br i1 %.not213.i, label %.loopexit.i, label %.preheader.i15
 
-.preheader.i14:                                   ; preds = %.lr.ph271.i
+.preheader.i15:                                   ; preds = %.lr.ph271.i
   %309 = getelementptr inbounds nuw i8, ptr %.1165270.i, i64 48
   %310 = getelementptr inbounds nuw i8, ptr %.1165270.i, i64 56
   br label %311
 
-311:                                              ; preds = %357, %.preheader.i14
-  %.2168.i = phi ptr [ %359, %357 ], [ %308, %.preheader.i14 ]
-  %.1162.i = phi i32 [ %.2163.i, %357 ], [ 0, %.preheader.i14 ]
-  %.1159.i = phi i32 [ %.2160.i, %357 ], [ 0, %.preheader.i14 ]
+311:                                              ; preds = %357, %.preheader.i15
+  %.2168.i = phi ptr [ %359, %357 ], [ %308, %.preheader.i15 ]
+  %.1162.i = phi i32 [ %.2163.i, %357 ], [ 0, %.preheader.i15 ]
+  %.1159.i = phi i32 [ %.2160.i, %357 ], [ 0, %.preheader.i15 ]
   %312 = load i8, ptr %.2168.i, align 8, !tbaa !350
   %313 = and i8 %312, 1
   %314 = zext nneg i8 %313 to i32
@@ -7475,8 +7492,8 @@ select.unfold241.i:                               ; preds = %._crit_edge.thread.
   %323 = getelementptr inbounds nuw i8, ptr %.2168.i, i64 32
   %324 = load ptr, ptr %323, align 8, !tbaa !145
   %325 = icmp ne ptr %324, null
-  %or.cond.i15 = select i1 %325, i1 true, i1 %322
-  br i1 %or.cond.i15, label %328, label %357
+  %or.cond.i16 = select i1 %325, i1 true, i1 %322
+  br i1 %or.cond.i16, label %328, label %357
 
 .thread248.i:                                     ; preds = %311
   %326 = getelementptr inbounds nuw i8, ptr %.2168.i, i64 32
@@ -7496,7 +7513,7 @@ select.unfold241.i:                               ; preds = %._crit_edge.thread.
   %.0153.i = phi ptr [ %318, %329 ], [ %324, %328 ], [ %327, %.thread248.i ]
   %.0154.i = load ptr, ptr %.0154.in.i, align 8, !tbaa !355
   %.not216.i = icmp eq ptr %.0154.i, null
-  br i1 %.not216.i, label %.sink.split.i17, label %331
+  br i1 %.not216.i, label %.sink.split.i18, label %331
 
 331:                                              ; preds = %.thread250.i
   %332 = load i16, ptr %.1165270.i, align 8, !tbaa !206
@@ -7517,15 +7534,15 @@ select.unfold241.i:                               ; preds = %._crit_edge.thread.
   %346 = select i1 %343, i32 %344, i32 %345
   %347 = sext i32 %346 to i64
   %348 = icmp sgt i64 %spec.select232.i, %347
-  br i1 %348, label %.sink.split.i17, label %351
+  br i1 %348, label %.sink.split.i18, label %351
 
-.sink.split.i17:                                  ; preds = %331, %.thread250.i
+.sink.split.i18:                                  ; preds = %331, %.thread250.i
   %349 = getelementptr inbounds nuw i8, ptr %.0153.i, i64 16
   %350 = load ptr, ptr %349, align 8, !tbaa !210
   br label %351
 
-351:                                              ; preds = %.sink.split.i17, %331
-  %.2.i = phi ptr [ %.0154.i, %331 ], [ %350, %.sink.split.i17 ]
+351:                                              ; preds = %.sink.split.i18, %331
+  %.2.i = phi ptr [ %.0154.i, %331 ], [ %350, %.sink.split.i18 ]
   br i1 %330, label %352, label %356
 
 352:                                              ; preds = %351
@@ -7724,7 +7741,8 @@ define internal fastcc void @af_cjk_hint_edges(ptr noundef readonly captures(non
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !90
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %7, i64 %11
+  %.idx = mul nuw nsw i64 %11, 88
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not317 = icmp eq i32 %10, 0
   br i1 %.not317, label %._crit_edge, label %.lr.ph
 
@@ -8212,7 +8230,8 @@ define internal fastcc void @af_glyph_hints_align_strong_points(ptr noundef read
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !108
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.AF_PointRec_, ptr %4, i64 %7
+  %.idx132 = mul nsw i64 %7, 80
+  %8 = getelementptr inbounds i8, ptr %4, i64 %.idx132
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = zext nneg i32 %1 to i64
   %11 = getelementptr inbounds nuw [2 x %struct.AF_AxisHintsRec_], ptr %9, i64 0, i64 %10
@@ -8233,7 +8252,8 @@ define internal fastcc void @af_glyph_hints_align_strong_points(ptr noundef read
 
 .lr.ph:                                           ; preds = %14
   %. = select i1 %18, i32 4, i32 8
-  %20 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %13, i64 %17
+  %.idx = mul nuw nsw i64 %17, 88
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %21 = or disjoint i32 %., 16
   %.0101.in.v = select i1 %18, i64 8, i64 16
   %.092.in.in.v = select i1 %18, i64 24, i64 26
@@ -8244,7 +8264,8 @@ define internal fastcc void @af_glyph_hints_align_strong_points(ptr noundef read
   %26 = getelementptr inbounds i8, ptr %20, i64 -80
   %27 = icmp ult i32 %16, 9
   %28 = trunc nuw nsw i32 %. to i16
-  %.138 = select i1 %18, i64 32, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %13, i64 %17
+  %.139 = select i1 %18, i64 32, i64 40
   br label %29
 
 29:                                               ; preds = %.lr.ph, %103
@@ -8300,7 +8321,7 @@ define internal fastcc void @af_glyph_hints_align_strong_points(ptr noundef read
   br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !413
 
 ._crit_edge:                                      ; preds = %49
-  %.pre = load i16, ptr %20, align 8, !tbaa !206
+  %.pre = load i16, ptr %.phi.trans.insert, align 8, !tbaa !206
   br label %split, !llvm.loop !413
 
 split:                                            ; preds = %.preheader, %._crit_edge
@@ -8386,7 +8407,7 @@ split:                                            ; preds = %.preheader, %._crit
 
 99:                                               ; preds = %63, %85, %.thread116, %41, %35
   %.1 = phi i64 [ %38, %35 ], [ %45, %41 ], [ %98, %85 ], [ %65, %63 ], [ %53, %.thread116 ]
-  %100 = getelementptr inbounds nuw i8, ptr %.090130, i64 %.138
+  %100 = getelementptr inbounds nuw i8, ptr %.090130, i64 %.139
   store i64 %.1, ptr %100, align 8, !tbaa !60
   %101 = load i16, ptr %.090130, align 8, !tbaa !101
   %102 = or i16 %101, %28
@@ -8409,13 +8430,15 @@ define internal fastcc void @af_glyph_hints_align_weak_points(ptr noundef readon
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !108
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.AF_PointRec_, ptr %4, i64 %7
+  %.idx = mul nsw i64 %7, 80
+  %8 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !323
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %12 = load i32, ptr %11, align 4, !tbaa !320
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %10, i64 %13
+  %.idx166 = shl nsw i64 %13, 3
+  %14 = getelementptr inbounds i8, ptr %10, i64 %.idx166
   %15 = icmp eq i32 %1, 0
   %16 = icmp sgt i32 %6, 0
   br i1 %15, label %.preheader137, label %.preheader139
@@ -8482,8 +8505,8 @@ define internal fastcc void @af_glyph_hints_align_weak_points(ptr noundef readon
 
 .preheader135:                                    ; preds = %.lr.ph148, %.preheader135.backedge
   %.4 = phi ptr [ %.4.be, %.preheader135.backedge ], [ %.2147, %.lr.ph148 ]
-  %.not166.not.not.not = icmp uge ptr %.4, %36
-  br i1 %.not166.not.not.not, label %.critedge, label %44
+  %.not167.not.not.not = icmp uge ptr %.4, %36
+  br i1 %.not167.not.not.not, label %.critedge, label %44
 
 44:                                               ; preds = %.preheader135
   %45 = getelementptr inbounds nuw i8, ptr %.4, i64 80
@@ -8656,7 +8679,7 @@ define internal fastcc void @af_glyph_hints_align_weak_points(ptr noundef readon
   br i1 %.not.i85, label %af_iup_shift.exit, label %.lr.ph24.i, !llvm.loop !423
 
 126:                                              ; preds = %.critedge._crit_edge
-  %or.cond = or i1 %.not166.not.not.not, %49
+  %or.cond = or i1 %.not167.not.not.not, %49
   br i1 %or.cond, label %af_iup_interp.exit105, label %127
 
 127:                                              ; preds = %126
@@ -8914,7 +8937,8 @@ define internal fastcc i32 @af_axis_hints_new_edge(ptr noundef %0, i32 noundef r
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !85
   %22 = zext i32 %9 to i64
-  %23 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %21, i64 %22
+  %.idx81 = mul nuw nsw i64 %22, 88
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx81
   br label %.lr.ph
 
 24:                                               ; preds = %17
@@ -8963,7 +8987,8 @@ define internal fastcc i32 @af_axis_hints_new_edge(ptr noundef %0, i32 noundef r
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !85
   %49 = zext i32 %46 to i64
-  %50 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %48, i64 %49
+  %.idx = mul nuw nsw i64 %49, 88
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx
   %.not77 = icmp eq i32 %46, 0
   br i1 %.not77, label %._crit_edge, label %.lr.ph
 
@@ -10005,7 +10030,8 @@ select.unfold.i:                                  ; preds = %._crit_edge.i
 150:                                              ; preds = %._crit_edge281.i
   %151 = load i32, ptr %28, align 8, !tbaa !90
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %149, i64 %152
+  %.idx304.i = mul nuw nsw i64 %152, 88
+  %153 = getelementptr inbounds nuw i8, ptr %149, i64 %.idx304.i
   %.not305.i = icmp eq i32 %151, 0
   br i1 %.not305.i, label %af_latin_hints_compute_edges.exit, label %.lr.ph284.i
 

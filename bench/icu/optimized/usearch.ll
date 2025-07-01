@@ -4135,7 +4135,8 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_19CEIBufferC2EP13UStringSear
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !36
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i16, ptr %15, i64 %19
+  %.idx = shl nsw i64 %19, 1
+  %20 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %21 = icmp sgt i32 %18, 0
   br i1 %21, label %.lr.ph, label %.loopexit
 

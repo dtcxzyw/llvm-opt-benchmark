@@ -12204,7 +12204,8 @@ common.ret:                                       ; preds = %115, %29
   br i1 %32, label %128, label %34
 
 34:                                               ; preds = %"_ZN4core3ptr250drop_in_place$LT$futures_util..future..try_future..MapOk$LT$client..Client..request_envelope$LT$proto..ReconnectDevServer$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$client..Client..request$LT$proto..ReconnectDevServer$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd83ea59f1194b95aE.exit"
-  %35 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %.sroa.3.0.copyload, i64 %.sroa.5.0.copyload
+  %.idx = shl nsw i64 %.sroa.5.0.copyload, 5
+  %35 = getelementptr inbounds i8, ptr %.sroa.3.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %.sroa.3.0.copyload, ptr %9, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8

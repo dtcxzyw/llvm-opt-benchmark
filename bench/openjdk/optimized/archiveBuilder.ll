@@ -5518,18 +5518,18 @@ define linkonce_odr hidden void @_ZN14ArchiveBuilder12CDSMapLogger15log_heap_reg
   %.sroa.0.0.copyload.i = load ptr, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %4 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
+  %.idx33 = shl nsw i64 %.sroa.2.0.copyload.i, 3
+  %4 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %.idx33
   %5 = tail call noundef ptr @_ZN17ArchiveHeapWriter31buffered_addr_to_requested_addrEPh(ptr noundef %.sroa.0.0.copyload.i) #19
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit, label %7
 
 7:                                                ; preds = %1
-  %.idx = shl nsw i64 %.sroa.2.0.copyload.i, 3
-  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx33
   %9 = ptrtoint ptr %5 to i64
   %10 = ptrtoint ptr %8 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.92, i64 noundef %9, i64 noundef %10, i64 noundef %.idx)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.92, i64 noundef %9, i64 noundef %10, i64 noundef %.idx33)
   br label %_ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit
 
 _ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit: ; preds = %1, %7

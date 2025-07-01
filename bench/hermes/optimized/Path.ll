@@ -1533,7 +1533,8 @@ if.end16:                                         ; preds = %_ZN4llvh23SmallVect
   %35 = phi i32 [ %add.i69, %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit70 ], [ %26, %if.end11 ]
   %36 = load ptr, ptr %components, align 8
   %conv.i = zext i32 %35 to i64
-  %add.ptr.i60 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %36, i64 %conv.i
+  %add.ptr.i60.idx = shl nuw nsw i64 %conv.i, 4
+  %add.ptr.i60 = getelementptr inbounds nuw i8, ptr %36, i64 %add.ptr.i60.idx
   %cmp.not158 = icmp eq i32 %35, 0
   br i1 %cmp.not158, label %for.end, label %for.body.lr.ph
 
@@ -4022,7 +4023,8 @@ _ZN4llvh11SmallStringILj256EEC2ENS_9StringRefE.exit.i: ; preds = %if.then.i.i.i.
   %35 = load ptr, ptr %components.i, align 8, !noalias !52
   %36 = load i32, ptr %Size.i.i.i.i.i.i, align 8, !noalias !52
   %conv.i.i = zext i32 %36 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %35, i64 %conv.i.i
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i.i, 4
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %35, i64 %add.ptr.i.idx.i
   %cmp.not54.i = icmp eq i32 %36, 0
   br i1 %cmp.not54.i, label %nrvo.skipdtor.i, label %for.body37.lr.ph.i
 

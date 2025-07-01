@@ -9734,7 +9734,8 @@ record_in_rewritten.exit:                         ; preds = %942, %938, %rebase_
 
 .lr.ph.i244:                                      ; preds = %954
   %956 = load i64, ptr %98, align 8, !tbaa !58
-  %957 = getelementptr inbounds nuw %struct.string_list_item, ptr %955, i64 %956
+  %.idx = shl nuw nsw i64 %956, 4
+  %957 = getelementptr inbounds nuw i8, ptr %955, i64 %.idx
   %.not417 = icmp eq i64 %956, 0
   br i1 %.not417, label %do_update_ref.exit, label %.lr.ph
 

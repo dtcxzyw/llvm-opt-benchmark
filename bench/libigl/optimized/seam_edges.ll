@@ -95,7 +95,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %22 = load i64, ptr %21, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %24 = load i64, ptr %23, align 8, !tbaa !13
-  %25 = mul i64 %24, %22
+  %25 = mul nsw i64 %24, %22
   %26 = icmp slt i64 %25, 1
   br i1 %26, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE7setZeroEll.exit, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKi.exit.loopexit.i
 
@@ -124,7 +124,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %36 = load i64, ptr %35, align 8, !tbaa !4
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !13
-  %39 = mul i64 %38, %36
+  %39 = mul nsw i64 %38, %36
   %40 = icmp slt i64 %39, 1
   br i1 %40, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE7setZeroEll.exit161, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKi.exit.loopexit.i160
 
@@ -153,7 +153,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %50 = load i64, ptr %49, align 8, !tbaa !4
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %52 = load i64, ptr %51, align 8, !tbaa !13
-  %53 = mul i64 %52, %50
+  %53 = mul nsw i64 %52, %50
   %54 = icmp slt i64 %53, 1
   br i1 %54, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE7setZeroEll.exit164, label %_ZN5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantERKi.exit.loopexit.i163
 

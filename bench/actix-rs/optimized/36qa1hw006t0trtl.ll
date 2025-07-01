@@ -1140,7 +1140,8 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17h5a342dcfa2c17f8aE.exit.i": ; preds = %13, %10
   %.sink3.i.i = phi ptr [ %16, %13 ], [ %12, %10 ]
   %.sink2.i.i = phi i64 [ %18, %13 ], [ %7, %10 ]
-  %19 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %.sink3.i.i, i64 %.sink2.i.i
+  %.idx.i = mul nsw i64 %.sink2.i.i, 40
+  %19 = getelementptr inbounds i8, ptr %.sink3.i.i, i64 %.idx.i
   %20 = icmp eq i64 %.sink2.i.i, 0
   br i1 %20, label %"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17ha6ff5f2f32f11548E.exit", label %.lr.ph.i.i
 

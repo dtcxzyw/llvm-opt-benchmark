@@ -3627,7 +3627,8 @@ define noundef zeroext i1 @"_ZN76_$LT$uv_pep440..version..LocalVersionSlice$u20$
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = getelementptr inbounds { i64, [2 x i64] }, ptr %6, i64 %10
+  %.idx = mul nsw i64 %10, 24
+  %11 = getelementptr inbounds i8, ptr %6, i64 %.idx
   %12 = icmp eq i64 %10, 0
   br i1 %12, label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.9015990423147462130.exit, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h24a05cd7b5b76a30E.exit.lr.ph"
 
@@ -5896,7 +5897,8 @@ _ZN9uv_pep4407version14ReleaseNumbers3len17h5a3bab9069f8e271E.exit.thread: ; pre
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1075)
   store i64 5242880, ptr %20, align 8, !alias.scope !1073, !noalias !1077
   store i8 0, ptr %.sroa.43.0..sroa_idx, align 8, !alias.scope !1073, !noalias !1077
-  %50 = getelementptr inbounds i64, ptr %.pn3.i, i64 %.pn1.i
+  %.idx.i = shl nsw i64 %.pn1.i, 3
+  %50 = getelementptr inbounds i8, ptr %.pn3.i, i64 %.idx.i
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %98
@@ -6984,7 +6986,8 @@ _ZN9uv_pep4407version7ByteSet11starts_with17h482a18baabcdf19bE.exit.i: ; preds =
   %20 = load ptr, ptr %19, align 8, !alias.scope !1367, !noalias !1370, !nonnull !3, !align !65, !noundef !3
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %22 = load i64, ptr %21, align 8, !alias.scope !1367, !noalias !1370, !noundef !3
-  %23 = getelementptr inbounds { ptr, i64 }, ptr %20, i64 %22
+  %.idx.i = shl nsw i64 %22, 4
+  %23 = getelementptr inbounds i8, ptr %20, i64 %.idx.i
   %24 = icmp eq i64 %22, 0
   br i1 %24, label %_ZN9uv_pep4407version9StringSet11starts_with17hf99ff96c8b8dd9cdE.exit.thread, label %.lr.ph.i
 

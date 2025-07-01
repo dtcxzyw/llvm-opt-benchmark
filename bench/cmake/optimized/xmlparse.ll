@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timeval = type { i64, i64 }
 %struct.XML_Encoding = type { [256 x i32], ptr, ptr, ptr }
 %struct.CONTENT_SCAFFOLD = type { i32, i32, ptr, i32, i32, i32, i32 }
-%struct.XML_cp = type { i32, i32, ptr, i32, ptr }
 %struct.TAG_NAME = type { ptr, ptr, ptr, i32, i32, i32 }
 %struct.siphash = type { i64, i64, i64, i64, [8 x i8], ptr, i64 }
 %struct.ATTRIBUTE = type { ptr, ptr, ptr, i8 }
@@ -8806,7 +8805,8 @@ poolClear.exit1020.i:                             ; preds = %.loopexit.sink.spli
 1094:                                             ; preds = %1084
   %1095 = load i32, ptr %1085, align 8, !tbaa !239
   %1096 = zext i32 %1095 to i64
-  %1097 = getelementptr inbounds nuw %struct.XML_cp, ptr %1093, i64 %1096
+  %.idx.i.i = shl nuw nsw i64 %1096, 5
+  %1097 = getelementptr inbounds nuw i8, ptr %1093, i64 %.idx.i.i
   %1098 = getelementptr inbounds nuw i8, ptr %1093, i64 16
   store i32 0, ptr %1098, align 8, !tbaa !246
   %.not9.i.i = icmp eq i32 %1095, 0

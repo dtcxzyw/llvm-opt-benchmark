@@ -9152,7 +9152,8 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform10expression18Compile
   store ptr inttoptr (i64 8 to ptr), ptr %36, align 8, !noalias !2390
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 0, ptr %37, align 8, !noalias !2390
-  %38 = getelementptr inbounds { i64, i64 }, ptr %2, i64 %3
+  %.idx.i = shl nsw i64 %3, 4
+  %38 = getelementptr inbounds i8, ptr %2, i64 %.idx.i
   %.sroa.0.24..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 24
   %.sroa.4.sroa.0.i.sroa.5.4..sroa.0.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
   %.sroa.227.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -9327,7 +9328,8 @@ _ZN18wasmtime_cranelift5debug9transform10expression23ValueLabelRangesBuilder3new
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !2390
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !2390
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %15)
-  %72 = getelementptr inbounds { i64, [2 x i64] }, ptr %26, i64 %28
+  %.idx = mul nsw i64 %28, 24
+  %72 = getelementptr inbounds i8, ptr %26, i64 %.idx
   %73 = icmp eq i64 %28, 0
   br i1 %73, label %._crit_edge, label %.lr.ph
 
@@ -10083,7 +10085,8 @@ define internal fastcc void @_ZN18wasmtime_cranelift5debug9transform10expression
   %.0.val = load ptr, ptr %88, align 8, !nonnull !4, !noundef !4
   %89 = getelementptr i8, ptr %87, i64 -8
   %.0.val109 = load i64, ptr %89, align 8, !noundef !4
-  %90 = getelementptr inbounds { { i32, [3 x i32] }, i32, i32 }, ptr %.0.val, i64 %.0.val109
+  %.idx = mul nsw i64 %.0.val109, 24
+  %90 = getelementptr inbounds i8, ptr %.0.val, i64 %.idx
   %91 = icmp eq i64 %.0.val109, 0
   br i1 %91, label %.thread, label %.lr.ph264
 

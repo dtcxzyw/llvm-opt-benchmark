@@ -283,7 +283,8 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i: ; pr
   %55 = load ptr, ptr %54, align 8, !nonnull !21, !noundef !21
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %57 = load i64, ptr %56, align 8, !noundef !21
-  %58 = getelementptr inbounds { i64, [3 x i64] }, ptr %55, i64 %57
+  %.idx = shl nsw i64 %57, 5
+  %58 = getelementptr inbounds i8, ptr %55, i64 %.idx
   %59 = icmp eq i64 %57, 0
   br i1 %59, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i38, label %.lr.ph
 

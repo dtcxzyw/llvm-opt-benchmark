@@ -3059,7 +3059,8 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic7analyze7imports26is_os_envi
   %19 = load ptr, ptr %18, align 8, !nonnull !12, !noundef !12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8, !noundef !12
-  %22 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %19, i64 %21
+  %.idx25 = shl nuw nsw i64 %21, 6
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx25
   %.not.i = icmp eq i64 %21, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4482aef8536a1ab1E.exit", label %.lr.ph.i
 
@@ -3178,7 +3179,8 @@ common.resume:                                    ; preds = %205, %167, %134, %8
   %62 = load ptr, ptr %61, align 8, !nonnull !12, !noundef !12
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %64 = load i64, ptr %63, align 8, !noundef !12
-  %65 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %62, i64 %64
+  %.idx = shl nuw nsw i64 %64, 6
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx
   %.not.i2 = icmp eq i64 %64, 0
   br i1 %.not.i2, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4482aef8536a1ab1E.exit", label %.lr.ph.i3
 

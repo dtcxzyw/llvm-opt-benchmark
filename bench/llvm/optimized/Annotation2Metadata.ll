@@ -99,7 +99,8 @@ _ZNK4llvm4User10getOperandEj.exit.i:              ; preds = %32, %29
 _ZN4llvm4User8operandsEv.exit.i:                  ; preds = %42, %39
   %47 = phi ptr [ %41, %39 ], [ %46, %42 ]
   %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %39 ], [ %44, %42 ]
-  %48 = getelementptr inbounds nuw %"class.llvm::Use", ptr %47, i64 %.pre-phi2.i.i.i
+  %.idx.i = shl nuw nsw i64 %.pre-phi2.i.i.i, 5
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i
   %.not3778.i = icmp eq i64 %.pre-phi2.i.i.i, 0
   br i1 %.not3778.i, label %_ZL26convertAnnotation2MetadataRN4llvm6ModuleE.exit, label %.lr.ph80.i
 

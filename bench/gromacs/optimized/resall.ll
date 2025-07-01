@@ -4734,13 +4734,13 @@ _ZNSt16allocator_traitsISaIPPcEE8allocateERS2_m.exit.i.i.i.i: ; preds = %70
 
 88:                                               ; preds = %_ZN21BondedInteractionListC2ERKS_.exit.i, %83
   %89 = phi i64 [ 0, %83 ], [ %94, %_ZN21BondedInteractionListC2ERKS_.exit.i ]
-  %.idx28 = shl nuw nsw i64 %89, 5
-  %.add29 = add nuw nsw i64 %.idx28, 128
-  %.ptr32 = getelementptr inbounds nuw i8, ptr %0, i64 %.add29
+  %.idx.i = shl nsw i64 %89, 5
+  %.add28 = add nuw nsw i64 %.idx.i, 128
+  %.ptr31 = getelementptr inbounds nuw i8, ptr %0, i64 %.add28
   %90 = getelementptr inbounds nuw [6 x %struct.BondedInteractionList], ptr %87, i64 0, i64 %89
   %91 = load i32, ptr %90, align 8, !tbaa !42
-  store i32 %91, ptr %.ptr32, align 8, !tbaa !42
-  %92 = getelementptr inbounds nuw i8, ptr %.ptr32, i64 8
+  store i32 %91, ptr %.ptr31, align 8, !tbaa !42
+  %92 = getelementptr inbounds nuw i8, ptr %.ptr31, i64 8
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
   invoke void @_ZNSt6vectorI17BondedInteractionSaIS0_EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(24) %93)
           to label %_ZN21BondedInteractionListC2ERKS_.exit.i unwind label %96
@@ -4757,10 +4757,10 @@ _ZN21BondedInteractionListC2ERKS_.exit.i:         ; preds = %88
   br i1 %98, label %.body, label %.preheader.i
 
 .preheader.i:                                     ; preds = %96, %.preheader.i
-  %.idx = phi i64 [ %.add, %.preheader.i ], [ %.add29, %96 ]
+  %.idx = phi i64 [ %.add, %.preheader.i ], [ %.add28, %96 ]
   %.add = add nsw i64 %.idx, -32
-  %.ptr30 = getelementptr inbounds i8, ptr %0, i64 %.add
-  call void @_ZN21BondedInteractionListD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.ptr30) #22
+  %.ptr29 = getelementptr inbounds i8, ptr %0, i64 %.add
+  call void @_ZN21BondedInteractionListD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.ptr29) #22
   %99 = icmp eq i64 %.add, 128
   br i1 %99, label %.body, label %.preheader.i
 
@@ -5115,7 +5115,8 @@ define linkonce_odr void @_ZN17BondedInteractionC2ERKS_(ptr noundef nonnull alig
 
 5:                                                ; preds = %20, %2
   %6 = phi i64 [ 0, %2 ], [ %25, %20 ]
-  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %0, i64 %6
+  %.idx.i = shl nsw i64 %6, 5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
   %8 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr %1, i64 0, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %9, ptr %7, align 8, !tbaa !36

@@ -9006,7 +9006,8 @@ define hidden void @_ZN6brotli3enc9histogram15ClearHistograms17h6475a47848603391
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb180d8d8e6b43d77E.exit": ; preds = %3
-  %6 = getelementptr inbounds nuw { [256 x i32], i64, float, [1 x i32] }, ptr %0, i64 %2
+  %.idx = mul nuw nsw i64 %2, 1040
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %2, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -9033,7 +9034,8 @@ define hidden void @_ZN6brotli3enc9histogram15ClearHistograms17had979eb432e1976f
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha303acc48da75740E.exit": ; preds = %3
-  %6 = getelementptr inbounds nuw { [544 x i32], i64, float, [1 x i32] }, ptr %0, i64 %2
+  %.idx = mul nuw nsw i64 %2, 2192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %2, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -9060,7 +9062,8 @@ define hidden void @_ZN6brotli3enc9histogram15ClearHistograms17hfbaa9e99fb1f01ec
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h843e1cddf8afdd0aE.exit": ; preds = %3
-  %6 = getelementptr inbounds nuw { [704 x i32], i64, float, [1 x i32] }, ptr %0, i64 %2
+  %.idx = mul nuw nsw i64 %2, 2832
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %2, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -9188,7 +9191,8 @@ define hidden void @_ZN6brotli3enc9histogram18HistogramAddVector17h4e130e0db93c6
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e1d1da7814ca4afE.exit": ; preds = %4
-  %10 = getelementptr inbounds nuw i16, ptr %1, i64 %3
+  %.idx = shl nuw nsw i64 %3, 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %11 = icmp eq i64 %3, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 
@@ -9230,7 +9234,8 @@ define hidden void @_ZN6brotli3enc9histogram18HistogramAddVector17hf09367e5f509a
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e1d1da7814ca4afE.exit": ; preds = %4
-  %10 = getelementptr inbounds nuw i16, ptr %1, i64 %3
+  %.idx = shl nuw nsw i64 %3, 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %11 = icmp eq i64 %3, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 

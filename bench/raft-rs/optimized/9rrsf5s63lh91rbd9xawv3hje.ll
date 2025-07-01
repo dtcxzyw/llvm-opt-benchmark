@@ -1719,7 +1719,8 @@ define void @_ZN4raft7tracker15ProgressTracker10apply_conf17h280f2bc8656c1e49E(p
   %.sroa.510.0.copyload = load i64, ptr %.sroa.510.0..sroa_idx, align 8
   %12 = icmp ult i64 %.sroa.510.0.copyload, 576460752303423488
   tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw { i64, i8, [7 x i8] }, ptr %.sroa.49.0.copyload, i64 %.sroa.510.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.510.0.copyload, 4
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.49.0.copyload, i64 %.idx
   %14 = icmp sgt i64 %.sroa.08.0.copyload, -1
   tail call void @llvm.assume(i1 %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)

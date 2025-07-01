@@ -667,6 +667,7 @@ define internal fastcc i32 @encode_frame(ptr noundef initializes((40, 72)) %0, p
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1209
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %61 = sext i32 %31 to i64
+  %.idx.i.i = shl nsw i64 %61, 2
   %.not36 = icmp eq i32 %27, 31
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 17616
   br i1 %.not36, label %init_exp.exit.preheader.i, label %.lr.ph287.split.us.i
@@ -685,7 +686,7 @@ init_exp.exit.preheader.i:                        ; preds = %.lr.ph287.i
   %64 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 0, i64 %indvars.iv336.i
   store i8 1, ptr %64, align 1, !tbaa !45
   %65 = getelementptr inbounds nuw [2 x [2048 x float]], ptr %60, i64 0, i64 %indvars.iv336.i
-  %66 = getelementptr inbounds nuw float, ptr %65, i64 %61
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx.i.i
   br label %.lr.ph.i.us.i
 
 .lr.ph.i.us.i:                                    ; preds = %78, %.lr.ph.preheader.i.us.i
@@ -1289,7 +1290,8 @@ encode_exp_vlc.exit.i:                            ; preds = %put_bits.exit35.i.i
   %362 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 0, i64 %indvars.iv371.i
   %363 = load i32, ptr %362, align 4, !tbaa !94
   %364 = sext i32 %363 to i64
-  %365 = getelementptr inbounds float, ptr %361, i64 %364
+  %.idx.i = shl nsw i64 %364, 2
+  %365 = getelementptr inbounds i8, ptr %361, i64 %.idx.i
   %.not216312.i = icmp sgt i32 %363, 0
   br i1 %.not216312.i, label %.lr.ph316.i, label %.thread271.i
 

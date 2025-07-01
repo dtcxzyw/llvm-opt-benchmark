@@ -7311,7 +7311,8 @@ _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZN4llvm9BitVectorC
   %19 = load ptr, ptr %2, align 8, !tbaa !266
   %20 = load i32, ptr %9, align 8, !tbaa !415
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i64, ptr %19, i64 %21
+  %.idx.i = shl nuw nsw i64 %21, 3
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
   %.not10.i = icmp eq i32 %20, 0
   br i1 %.not10.i, label %_ZNK4llvm9BitVector5countEv.exit, label %.lr.ph.i
 
@@ -7422,7 +7423,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64RegisterInfo21getRegAlloc
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %51 = getelementptr inbounds nuw i16, ptr %2, i64 %.fr307
+  %.idx298 = shl nuw nsw i64 %.fr307, 1
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx298
   %.not131280 = icmp eq i64 %.fr307, 0
   %52 = select i1 %switch, ptr getelementptr (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 4342), ptr getelementptr (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 10550)
   %53 = select i1 %switch, ptr getelementptr (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 4328), ptr getelementptr (i8, ptr @_ZN4llvm24AArch64MCRegisterClassesE, i64 10536)

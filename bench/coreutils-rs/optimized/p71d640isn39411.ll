@@ -5837,7 +5837,8 @@ _ZN3std2fs12canonicalize17h4d03fe5c53559a32E.exit: ; preds = %124
   br i1 %184, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %183
-  %185 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %0, i64 %1
+  %.idx368.pn = mul nsw i64 %1, 24
+  %185 = getelementptr inbounds i8, ptr %0, i64 %.idx368.pn
   %186 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %187 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %82, i64 8

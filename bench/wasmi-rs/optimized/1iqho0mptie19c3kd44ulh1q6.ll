@@ -3307,7 +3307,8 @@ define hidden noundef align 8 ptr @"_ZN5wasmi6linker20LinkerInner$LT$T$GT$12alia
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !276, !noalias !279
   %27 = icmp ult i64 %.sroa.5.0.copyload.i, 192153584101141163
   call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds nuw { i32, [1 x i32], { i8, [39 x i8] } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nuw nsw i64 %.sroa.5.0.copyload.i, 48
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   %29 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   call void @llvm.assume(i1 %29)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)

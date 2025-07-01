@@ -20403,7 +20403,8 @@ define linkonce_odr void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIc
   store ptr %7, ptr %10, align 8, !tbaa !79
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8, !tbaa !92
-  %12 = getelementptr inbounds nuw %"struct.std::pair.722", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 88
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #39
   store ptr %0, ptr %6, align 8, !tbaa !581
   %.not6.i = icmp eq i64 %2, 0

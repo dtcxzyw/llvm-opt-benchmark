@@ -71,8 +71,8 @@ define dso_local void @_ZN4absl12log_internal10LogToSinksERKNS_8LogEntryENS_4Spa
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks) #17
   br label %_ZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEv.exit
 
-common.resume:                                    ; preds = %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit21.i, %11
-  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %42, %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit21.i ]
+common.resume:                                    ; preds = %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit22.i, %11
+  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %42, %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit22.i ]
   resume { ptr, i32 } %common.resume.op
 
 11:                                               ; preds = %9
@@ -82,7 +82,8 @@ common.resume:                                    ; preds = %_ZN4absl7CleanupINS
   br label %common.resume
 
 _ZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEv.exit: ; preds = %4, %7, %10
-  %13 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx.i.i = shl nuw nsw i64 %2, 3
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i.i
   %.not9.i.i = icmp eq i64 %2, 0
   br i1 %.not9.i.i, label %_ZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSet11SendToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEE.exit.i, label %.lr.ph.i.i
 
@@ -122,22 +123,22 @@ _ZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSet11SendToSinksERKNS_8LogEnt
   store i8 1, ptr %20, align 1, !tbaa !4
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 8), align 8, !tbaa !31
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks, i64 16), align 8, !tbaa !34
-  %.not9.i15.i = icmp eq ptr %33, %32
-  br i1 %.not9.i15.i, label %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit.i, label %.lr.ph.i16.i
+  %.not9.i16.i = icmp eq ptr %33, %32
+  br i1 %.not9.i16.i, label %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit.i, label %.lr.ph.i17.i
 
-.lr.ph.i16.i:                                     ; preds = %31, %.noexc.i
-  %.010.i17.i = phi ptr [ %38, %.noexc.i ], [ %32, %31 ]
-  %34 = load ptr, ptr %.010.i17.i, align 8, !tbaa !11
+.lr.ph.i17.i:                                     ; preds = %31, %.noexc.i
+  %.010.i18.i = phi ptr [ %38, %.noexc.i ], [ %32, %31 ]
+  %34 = load ptr, ptr %.010.i18.i, align 8, !tbaa !11
   %35 = load ptr, ptr %34, align 8, !tbaa !14
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(136) %0)
-          to label %.noexc.i unwind label %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit21.i
+          to label %.noexc.i unwind label %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit22.i
 
-.noexc.i:                                         ; preds = %.lr.ph.i16.i
-  %38 = getelementptr inbounds nuw i8, ptr %.010.i17.i, i64 8
-  %.not.i18.i = icmp eq ptr %38, %33
-  br i1 %.not.i18.i, label %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit.i, label %.lr.ph.i16.i
+.noexc.i:                                         ; preds = %.lr.ph.i17.i
+  %38 = getelementptr inbounds nuw i8, ptr %.010.i18.i, i64 8
+  %.not.i19.i = icmp eq ptr %38, %33
+  br i1 %.not.i19.i, label %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit.i, label %.lr.ph.i17.i
 
 _ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit.i: ; preds = %.noexc.i, %31
   store i8 0, ptr %20, align 1, !tbaa !4
@@ -151,14 +152,14 @@ _ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116Glo
   tail call void @__clang_call_terminate(ptr %41) #18
   unreachable
 
-_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit21.i: ; preds = %.lr.ph.i16.i
+_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit22.i: ; preds = %.lr.ph.i17.i
   %42 = landingpad { ptr, i32 }
           cleanup
   store i8 0, ptr %20, align 1, !tbaa !4
   invoke void @_ZN4absl5Mutex12ReaderUnlockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN4absl12log_internal12_GLOBAL__N_111GlobalSinksEvE12global_sinks)
           to label %common.resume unwind label %43
 
-43:                                               ; preds = %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit21.i
+43:                                               ; preds = %_ZN4absl7CleanupINS_16cleanup_internal3TagEZNS_12log_internal12_GLOBAL__N_116GlobalLogSinkSet10LogToSinksERKNS_8LogEntryENS_4SpanIPNS_7LogSinkEEEbEUlvE_ED2Ev.exit22.i
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0

@@ -1275,7 +1275,8 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_14Dssp12initAnalysisE
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %26 = load i32, ptr %25, align 8, !tbaa !176
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %24, i64 %27
+  %.idx.i = shl nuw nsw i64 %27, 2
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i
   %.not1116.i = icmp eq i32 %26, 0
   br i1 %.not1116.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -4792,7 +4793,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %1071
 .noexc134.i.i:                                    ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %1077 = shl nuw nsw i64 %1075, 2
   %1078 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %1077) #30, !noalias !229
-  %1079 = getelementptr inbounds nuw float, ptr %1078, i64 %1075
+  %1079 = getelementptr inbounds nuw i8, ptr %1078, i64 %1077
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %.noexc134.i.i
@@ -4807,7 +4808,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i135.i.i: ; preds = %.lr.ph.
           to label %.noexc143.i.i unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit149.thread.i.i, !noalias !229
 
 .noexc143.i.i:                                    ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i135.i.i
-  %1082 = getelementptr inbounds nuw float, ptr %1081, i64 %1075
+  %1082 = getelementptr inbounds nuw i8, ptr %1081, i64 %1077
   br label %.lr.ph.i.i.i.i.i.i.i.i.i137.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i137.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i137.i.i, %.noexc143.i.i

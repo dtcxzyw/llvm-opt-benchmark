@@ -1183,7 +1183,8 @@ _ZN5bytes5bytes5Bytes5clear17h6281e9edc76546e0E.exit.i.i: ; preds = %266, %.noex
   %380 = load i64, ptr %346, align 8, !noalias !35, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !98)
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
-  %381 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr %379, i64 %380
+  %.idx.i.i.i = shl nuw nsw i64 %380, 5
+  %381 = getelementptr inbounds nuw i8, ptr %379, i64 %.idx.i.i.i
   %382 = icmp eq i64 %380, 0
   br i1 %382, label %_ZN12pingora_core9protocols4http2v16common16populate_headers17he0a525167b4a9e93E.exit.i.i, label %.lr.ph.i.i.i
 
@@ -1479,7 +1480,8 @@ _ZN12pingora_core9protocols4http2v16common16populate_headers17he0a525167b4a9e93E
   %.sroa.6244.0.copyload.i.i = load i64, ptr %377, align 8, !noalias !35
   %493 = icmp ult i64 %.sroa.6244.0.copyload.i.i, 288230376151711744
   call void @llvm.assume(i1 %493)
-  %494 = getelementptr inbounds nuw { { i64, i64 }, { i64, i64 } }, ptr %.sroa.5243.0.copyload.i.i, i64 %.sroa.6244.0.copyload.i.i
+  %.idx.i.i = shl nuw nsw i64 %.sroa.6244.0.copyload.i.i, 5
+  %494 = getelementptr inbounds nuw i8, ptr %.sroa.5243.0.copyload.i.i, i64 %.idx.i.i
   %495 = icmp sgt i64 %.sroa.0242.0.copyload.i.i, -1
   call void @llvm.assume(i1 %495)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %50), !noalias !35

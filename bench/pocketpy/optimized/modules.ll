@@ -5493,7 +5493,8 @@ _ZN4pkpy7py_castIRNS_10pod_vectorIPNS_8PyObjectELi4EEEEET_PNS_2VMES3_.exit.i: ; 
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %15, align 8
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %.idx.i = shl nsw i64 %19, 3
+  %20 = getelementptr inbounds i8, ptr %17, i64 %.idx.i
   %.not3.i = icmp eq i32 %18, 0
   br i1 %.not3.i, label %"_ZZN4pkpy15add_module_mathEPNS_2VMEENK3$_3clES1_NS_8ArgsViewE.exit", label %.lr.ph.i
 
@@ -6348,7 +6349,8 @@ define linkonce_odr void @_ZN4pkpy3Py_INS_5TupleEE12_obj_gc_markEv(ptr noundef n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr %3, i64 %6
+  %.idx = shl nsw i64 %6, 3
+  %7 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %.not15 = icmp eq i32 %5, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -7343,7 +7345,8 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE5itemsEv.exit.i: ; preds = %2
   %18 = load ptr, ptr %14, align 8
   %19 = load i32, ptr %6, align 8
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %18, i64 %20
+  %.idx.i = shl nsw i64 %20, 4
+  %21 = getelementptr inbounds i8, ptr %18, i64 %.idx.i
   %.not2.i = icmp eq i32 %19, 0
   br i1 %.not2.i, label %._crit_edge.i, label %.lr.ph.i
 

@@ -554,7 +554,8 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
   %73 = load ptr, ptr %6, align 8, !tbaa !157
   %74 = load i32, ptr %18, align 8, !tbaa !158
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw ptr, ptr %73, i64 %75
+  %.idx = shl nuw nsw i64 %75, 3
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx
   %.not72 = icmp eq i32 %74, 0
   br i1 %.not72, label %._crit_edge, label %.lr.ph74
 
@@ -721,7 +722,7 @@ _ZN4llvm9StringMapINS_20DwarfStringPoolEntryERNS_20BumpPtrAllocatorImplINS_15Mal
 
 .lr.ph77:                                         ; preds = %_ZN4llvm9StringMapINS_20DwarfStringPoolEntryERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit51
   %144 = load ptr, ptr %6, align 8
-  %.pre92 = load ptr, ptr %.sroa.0.1.i50, align 8, !tbaa !140
+  %.pre93 = load ptr, ptr %.sroa.0.1.i50, align 8, !tbaa !140
   br label %157
 
 _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit56.loopexit: ; preds = %.critedge.i.i55
@@ -738,7 +739,8 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
   %150 = load ptr, ptr %6, align 8, !tbaa !157
   %151 = load i32, ptr %18, align 8, !tbaa !158
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds nuw ptr, ptr %150, i64 %152
+  %.idx82 = shl nuw nsw i64 %152, 3
+  %153 = getelementptr inbounds nuw i8, ptr %150, i64 %.idx82
   %.not4278 = icmp eq i32 %151, 0
   br i1 %.not4278, label %.loopexit, label %.lr.ph81
 
@@ -755,7 +757,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
   br i1 %.not42.us, label %.loopexit, label %.lr.ph81.split.us
 
 157:                                              ; preds = %.lr.ph77, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit56.loopexit
-  %158 = phi ptr [ %.pre92, %.lr.ph77 ], [ %164, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit56.loopexit ]
+  %158 = phi ptr [ %.pre93, %.lr.ph77 ], [ %164, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit56.loopexit ]
   %.sroa.057.076 = phi ptr [ %.sroa.0.1.i50, %.lr.ph77 ], [ %storemerge.i53, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit56.loopexit ]
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
   %160 = load i32, ptr %159, align 8, !tbaa !142

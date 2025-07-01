@@ -717,7 +717,8 @@ define noundef zeroext i1 @_ZN3vfs6loader5Entry13contains_file17hf43d5c8f153cf4f
   %31 = load ptr, ptr %30, align 8, !alias.scope !88, !noalias !91, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i64, ptr %32, align 8, !alias.scope !88, !noalias !91, !noundef !4
-  %34 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %31, i64 %33
+  %.idx.i = mul nsw i64 %33, 24
+  %34 = getelementptr inbounds i8, ptr %31, i64 %.idx.i
   %35 = icmp eq i64 %33, 0
   br i1 %35, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h2b877aeee318961aE.exit", label %.lr.ph.i.i
 
@@ -776,7 +777,8 @@ define noundef zeroext i1 @_ZN3vfs6loader11Directories13contains_file17h041c30eb
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !4
-  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %9, i64 %11
+  %.idx = mul nsw i64 %11, 24
+  %12 = getelementptr inbounds i8, ptr %9, i64 %.idx
   %13 = icmp eq i64 %11, 0
   br i1 %13, label %.loopexit, label %.lr.ph.i
 
@@ -820,7 +822,8 @@ define internal fastcc noundef zeroext i1 @_ZN3vfs6loader11Directories13includes
   %.val = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val16 = load i64, ptr %5, align 8, !noundef !4
-  %6 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } } }, ptr %.val, i64 %.val16
+  %.idx24 = mul nsw i64 %.val16, 24
+  %6 = getelementptr inbounds i8, ptr %.val, i64 %.idx24
   %7 = icmp eq i64 %.val16, 0
   br i1 %7, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h631e76882c027de9E.exit", label %.lr.ph
 
@@ -843,7 +846,8 @@ define internal fastcc noundef zeroext i1 @_ZN3vfs6loader11Directories13includes
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load i64, ptr %17, align 8, !noundef !4
-  %19 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } } }, ptr %16, i64 %18
+  %.idx = mul nsw i64 %18, 24
+  %19 = getelementptr inbounds i8, ptr %16, i64 %.idx
   %.not.i = icmp eq i64 %18, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h631e76882c027de9E.exit", label %.lr.ph.i
 

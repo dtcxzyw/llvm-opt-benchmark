@@ -3479,7 +3479,8 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   %262 = load ptr, ptr %261, align 8, !tbaa !139
   %263 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %264 = load i64, ptr %263, align 8, !tbaa !140
-  %265 = getelementptr inbounds nuw ptr, ptr %262, i64 %264
+  %.idx = shl nuw nsw i64 %264, 3
+  %265 = getelementptr inbounds nuw i8, ptr %262, i64 %.idx
   %.not91181 = icmp eq i64 %264, 0
   br i1 %.not91181, label %.loopexit, label %.lr.ph184
 

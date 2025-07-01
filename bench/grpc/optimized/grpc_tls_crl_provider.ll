@@ -1224,7 +1224,8 @@ define void @_ZN9grpc_core12experimental23CreateStaticCrlProviderEN4absl12lts_20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12lts_2024072218container_internal11kEmptyGroupE, i64 16), ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
-  %18 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 5
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not75 = icmp eq i64 %2, 0
   br i1 %.not75, label %.critedge, label %.lr.ph
 

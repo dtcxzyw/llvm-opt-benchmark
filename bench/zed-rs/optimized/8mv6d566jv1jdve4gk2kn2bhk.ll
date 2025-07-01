@@ -10097,7 +10097,8 @@ _ZN4gpui3app10AppContext6global17h057211313d2097bcE.exit.i: ; preds = %"_ZN9hash
   %62 = load ptr, ptr %61, align 8, !alias.scope !3004, !noalias !3003, !nonnull !4, !noundef !4
   %63 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %64 = load i64, ptr %63, align 8, !alias.scope !3004, !noalias !3003, !noundef !4
-  %65 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %62, i64 %64
+  %.idx.i.i = mul nsw i64 %64, 24
+  %65 = getelementptr inbounds i8, ptr %62, i64 %.idx.i.i
   %.not.i.i.i = icmp eq i64 %64, 0
   br i1 %.not.i.i.i, label %_ZN13feature_flags12FeatureFlags8has_flag17h14785a4be4eee313E.exit.i, label %.lr.ph.i.i.i
 
@@ -18882,7 +18883,8 @@ _ZN4gpui3app10AppContext10try_global17h12c3e0b661fde45eE.llvm.103216887839040567
   %109 = load ptr, ptr %108, align 8, !alias.scope !4533, !nonnull !4, !noundef !4
   %110 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %111 = load i64, ptr %110, align 8, !alias.scope !4533, !noundef !4
-  %112 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %109, i64 %111
+  %.idx.i = mul nsw i64 %111, 24
+  %112 = getelementptr inbounds i8, ptr %109, i64 %.idx.i
   %.not.i.i = icmp eq i64 %111, 0
   br i1 %.not.i.i, label %_ZN13feature_flags12FeatureFlags8has_flag17h14785a4be4eee313E.exit, label %.lr.ph.i.i
 
@@ -19105,7 +19107,8 @@ _ZN4gpui3app10AppContext10try_global17h12c3e0b661fde45eE.llvm.103216887839040567
   %50 = load ptr, ptr %49, align 8, !alias.scope !4606, !nonnull !4, !noundef !4
   %51 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %52 = load i64, ptr %51, align 8, !alias.scope !4606, !noundef !4
-  %53 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %50, i64 %52
+  %.idx.i = mul nsw i64 %52, 24
+  %53 = getelementptr inbounds i8, ptr %50, i64 %.idx.i
   %.not.i.i = icmp eq i64 %52, 0
   br i1 %.not.i.i, label %_ZN13feature_flags12FeatureFlags8has_flag17h14785a4be4eee313E.exit, label %.lr.ph.i.i
 

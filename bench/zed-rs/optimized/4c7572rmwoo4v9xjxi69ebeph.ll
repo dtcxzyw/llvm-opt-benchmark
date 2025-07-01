@@ -30446,7 +30446,8 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h5b78dd4d6aabd994E.exit.i.i:
   store i64 0, ptr %19, align 8, !alias.scope !4461, !noalias !4464
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx.i28, align 8, !alias.scope !4461, !noalias !4464
   store i64 0, ptr %.sroa.5.0..sroa_idx.i29, align 8, !alias.scope !4461, !noalias !4464
-  %187 = getelementptr inbounds { i32, [1 x i32], { i64, [4 x i64] } }, ptr %.sroa.2.0.copyload.i40, i64 %.sroa.3.0.copyload.i41
+  %.idx.i = mul nsw i64 %.sroa.3.0.copyload.i41, 48
+  %187 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i40, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !4466
   store ptr %.sroa.2.0.copyload.i40, ptr %6, align 8, !noalias !4466
   %.sroa.04.sroa.4.0..sroa_idx.i42 = getelementptr inbounds nuw i8, ptr %6, i64 8

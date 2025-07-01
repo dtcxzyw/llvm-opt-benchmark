@@ -116,7 +116,8 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   store ptr %28, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i32, ptr %14, i64 %16
+  %.idx = shl nuw nsw i64 %16, 2
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   store ptr %14, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8

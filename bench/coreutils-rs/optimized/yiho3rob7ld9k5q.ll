@@ -22852,7 +22852,8 @@ define { ptr, ptr } @_ZN5uu_ls4list17hc2064e14c7cf8ac7E(ptr noalias noundef alig
   %.sroa.0230.0.copyload = load i64, ptr %0, align 8
   %.sroa.4231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4231.0.copyload = load ptr, ptr %.sroa.4231.0..sroa_idx, align 8, !nonnull !4, !noundef !4
-  %59 = getelementptr inbounds { ptr, i64 }, ptr %.sroa.4231.0.copyload, i64 %58
+  %.idx = shl nsw i64 %58, 4
+  %59 = getelementptr inbounds i8, ptr %.sroa.4231.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34)
   store ptr %.sroa.4231.0.copyload, ptr %34, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -22950,7 +22951,8 @@ define { ptr, ptr } @_ZN5uu_ls4list17hc2064e14c7cf8ac7E(ptr noalias noundef alig
 94:                                               ; preds = %91
   %95 = load ptr, ptr %42, align 8, !nonnull !4, !noundef !4
   %96 = load i64, ptr %43, align 8, !noundef !4
-  %97 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { { i64, [21 x i64] } } }, { { { i32, [1 x i32] } } }, { ptr, [4 x i64] }, i8, i8, [6 x i8] }, ptr %95, i64 %96
+  %.idx325 = mul nsw i64 %96, 304
+  %97 = getelementptr inbounds i8, ptr %95, i64 %.idx325
   %98 = icmp eq i64 %96, 0
   br i1 %98, label %.._crit_edge324_crit_edge, label %.lr.ph323
 
@@ -24438,7 +24440,8 @@ _ZN3std4path4Path4join17he4e7059e1d106adaE.exit:  ; preds = %111
   %185 = load ptr, ptr %150, align 8, !nonnull !4, !noundef !4
   %186 = load i64, ptr %149, align 8, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !6848)
-  %187 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { { i64, [21 x i64] } } }, { { { i32, [1 x i32] } } }, { ptr, [4 x i64] }, i8, i8, [6 x i8] }, ptr %185, i64 %186
+  %.idx.i = mul nsw i64 %186, 304
+  %187 = getelementptr inbounds i8, ptr %185, i64 %.idx.i
   %188 = icmp eq i64 %186, 0
   br i1 %188, label %._crit_edge.i, label %.lr.ph.i
 
@@ -27012,7 +27015,8 @@ define internal fastcc { ptr, ptr } @_ZN5uu_ls13display_items17hafb719ff43ef969e
   %263 = alloca { i64, [2 x i64] }, align 8
   %264 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %265 = alloca { i64, i64, i64, i64, i64, i64, i64, i64, i64 }, align 8
-  %266 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { { i64, [21 x i64] } } }, { { { i32, [1 x i32] } } }, { ptr, [4 x i64] }, i8, i8, [6 x i8] }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 304
+  %266 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %267 = getelementptr inbounds nuw i8, ptr %2, i64 157
   %268 = getelementptr inbounds nuw i8, ptr %238, i64 16
   %269 = getelementptr inbounds nuw i8, ptr %238, i64 8
@@ -36245,7 +36249,8 @@ define internal fastcc void @_ZN5uu_ls28calculate_padding_collection17had7ed09ca
   store i64 1, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 1, ptr %37, align 8
-  %38 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { { i64, [21 x i64] } } }, { { { i32, [1 x i32] } } }, { ptr, [4 x i64] }, i8, i8, [6 x i8] }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 304
+  %38 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %39 = icmp eq i64 %2, 0
   br i1 %39, label %._crit_edge, label %.lr.ph
 

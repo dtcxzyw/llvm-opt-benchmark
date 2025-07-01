@@ -1653,7 +1653,8 @@ define hidden void @"_ZN3zip5write60_$LT$impl$u20$zip..write..zip_writer..ZipWri
   %28 = load ptr, ptr %27, align 8, !nonnull !13, !noundef !13
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %30 = load i64, ptr %29, align 8, !noundef !13
-  %31 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i16, i8, i8, i8, i8, i8, [1 x i8] }, i64, i64, i64, i64, { { i64 } }, { i16, [1 x i16] }, i32, i32, { [1 x i8], i8 }, i8, i8, i8, i8, i8, [5 x i8] }, ptr %28, i64 %30
+  %.idx = mul nuw nsw i64 %30, 176
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %._crit_edge, label %.lr.ph.preheader
 

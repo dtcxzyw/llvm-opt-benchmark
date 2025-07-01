@@ -3655,7 +3655,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h13303eb04352f428E.exit: ; preds =
   %.20.i = select i1 %.not.i33, ptr %116, ptr %88
   %117 = shl i64 %.sroa.0.0.sroa.speculated.i.i, 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %117, i1 false), !alias.scope !586
-  %118 = getelementptr inbounds nuw { i64, { { i64, ptr, {} }, i64 } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 %117
   br i1 %.not.i33, label %.preheader.i, label %.lr.ph.i.i
 
 .preheader.i:                                     ; preds = %115, %.preheader.i
@@ -4209,7 +4209,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h73c633a4d76619daE.exit: ; preds =
   %.20.i = select i1 %.not.i33, ptr %213, ptr %185
   %214 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 136
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %214, i1 false), !alias.scope !688
-  %215 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, { { i32, i32 }, { i32, i32 } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i
+  %215 = getelementptr inbounds nuw i8, ptr %2, i64 %214
   br i1 %.not.i33, label %.preheader96, label %.lr.ph.i.i
 
 .preheader96:                                     ; preds = %212, %238
@@ -4776,7 +4776,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h1525f63a8cc1b894E.exit: ; preds =
   %.20.i = select i1 %.not.i33, ptr %142, ptr %114
   %143 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20.i, i64 %143, i1 false), !alias.scope !772
-  %144 = getelementptr inbounds nuw { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 %143
   br i1 %.not.i33, label %.preheader.i, label %.lr.ph.i.i
 
 .preheader.i:                                     ; preds = %141, %.noexc22.i

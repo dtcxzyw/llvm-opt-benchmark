@@ -3078,7 +3078,8 @@ define hidden void @_ZN10serde_json5value2de16visit_object_ref17h32dd76576b9b4e3
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %5, i64 %7
+  %.idx = mul nsw i64 %7, 104
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h96547f171cce9e20E.exit.thread.i.thread", label %.lr.ph.i
 
@@ -34613,7 +34614,8 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h49ad7fe27a21d1b6E.exit: ; pr
   %.val2.i = load ptr, ptr %35, align 8, !alias.scope !6860, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val3.i = load i64, ptr %36, align 8, !alias.scope !6860, !noundef !4
-  %37 = getelementptr inbounds i64, ptr %.val2.i, i64 %.val3.i
+  %.idx.i.i.i.i = shl nsw i64 %.val3.i, 3
+  %37 = getelementptr inbounds i8, ptr %.val2.i, i64 %.idx.i.i.i.i
   %38 = getelementptr inbounds nuw i8, ptr %.val8, i64 16
   %39 = load i64, ptr %38, align 8, !alias.scope !6863, !noalias !6872, !noundef !4
   %40 = load i64, ptr %.val8, align 8, !alias.scope !6863, !noalias !6872, !noundef !4

@@ -2091,7 +2091,8 @@ _ZNSt10_HashtableIPKN3ue28NGHolderESt4pairIKS3_St10shared_ptrINS0_11CastleProtoE
   %749 = load ptr, ptr %748, align 8, !noalias !28
   %750 = getelementptr inbounds nuw i8, ptr %.sroa.025.0.copyload.i, i64 32
   %751 = load i64, ptr %750, align 8, !noalias !35
-  %752 = getelementptr inbounds nuw i32, ptr %749, i64 %751
+  %.idx.i.i = shl nuw nsw i64 %751, 2
+  %752 = getelementptr inbounds nuw i8, ptr %749, i64 %.idx.i.i
   %.not21.i.i = icmp eq i64 %751, 0
   br i1 %.not21.i.i, label %.sink.split, label %.lr.ph.i.i
 
@@ -4876,7 +4877,8 @@ define hidden noundef zeroext i1 @_ZN3ue222triggerKillsRoseCastleERKNS_13RoseBui
   %14 = load ptr, ptr %13, align 8, !noalias !72
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %16 = load i64, ptr %15, align 8, !noalias !79
-  %17 = getelementptr inbounds nuw i32, ptr %14, i64 %16
+  %.idx = shl nuw nsw i64 %16, 2
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %.not68 = icmp eq i64 %16, 0
   br i1 %.not68, label %.critedge, label %.lr.ph71
 

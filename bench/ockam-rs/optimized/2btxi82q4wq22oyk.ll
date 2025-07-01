@@ -12072,10 +12072,10 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit318: ; preds = %34
   br label %511
 
 511:                                              ; preds = %529, %526, %508
-  %.sink687 = phi ptr [ %530, %529 ], [ %527, %526 ], [ %509, %508 ]
-  %.pn691 = phi { ptr, i64 } [ %492, %529 ], [ %490, %526 ], [ %488, %508 ]
-  %.sink = extractvalue { ptr, i64 } %.pn691, 1
-  store ptr %.sink687, ptr %0, align 8
+  %.sink688 = phi ptr [ %530, %529 ], [ %527, %526 ], [ %509, %508 ]
+  %.pn692 = phi { ptr, i64 } [ %492, %529 ], [ %490, %526 ], [ %488, %508 ]
+  %.sink = extractvalue { ptr, i64 } %.pn692, 1
+  store ptr %.sink688, ptr %0, align 8
   %.sroa.0120.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %.sroa.0120.sroa.4.0..sroa_idx, align 8
   %.sroa.0120.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12380,12 +12380,12 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit318: ; preds = %34
   br label %613
 
 613:                                              ; preds = %617, %614, %610
-  %.sink689 = phi ptr [ %618, %617 ], [ %615, %614 ], [ %611, %610 ]
-  %.pn690 = phi { ptr, i64 } [ %597, %617 ], [ %595, %614 ], [ %593, %610 ]
-  %.sink688 = extractvalue { ptr, i64 } %.pn690, 1
-  store ptr %.sink689, ptr %0, align 8
+  %.sink690 = phi ptr [ %618, %617 ], [ %615, %614 ], [ %611, %610 ]
+  %.pn691 = phi { ptr, i64 } [ %597, %617 ], [ %595, %614 ], [ %593, %610 ]
+  %.sink689 = extractvalue { ptr, i64 } %.pn691, 1
+  store ptr %.sink690, ptr %0, align 8
   %.sroa.0135.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink688, ptr %.sroa.0135.sroa.4.0..sroa_idx, align 8
+  store i64 %.sink689, ptr %.sroa.0135.sroa.4.0..sroa_idx, align 8
   %.sroa.0135.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 24, ptr %.sroa.0135.sroa.5.0..sroa_idx, align 8
   %.sroa.4136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -12452,7 +12452,8 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit318: ; preds = %34
   %636 = phi i64 [ %576, %581 ], [ %576, %.lr.ph ], [ %608, %603 ]
   %637 = phi ptr [ %575, %581 ], [ %575, %.lr.ph ], [ %605, %603 ]
   %638 = lshr i64 %636, 1
-  %639 = getelementptr inbounds { i8, [31 x i8] }, ptr %637, i64 %636
+  %.idx = shl nsw i64 %636, 5
+  %639 = getelementptr inbounds i8, ptr %637, i64 %.idx
   %640 = sub nsw i64 0, %638
   %641 = getelementptr inbounds { i8, [31 x i8] }, ptr %639, i64 %640
   call void @llvm.experimental.noalias.scope.decl(metadata !1794)

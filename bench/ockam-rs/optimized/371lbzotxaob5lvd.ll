@@ -177609,7 +177609,8 @@ common.ret:                                       ; preds = %315, %312, %140
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %14), !noalias !23698
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !23698
   %220 = ptrtoint ptr %.sroa.6.sroa.0.0.copyload.i to i64
-  %221 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { ptr, [2 x i64] } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.6.sroa.2.0.copyload.i
+  %.idx.i = mul nsw i64 %.sroa.6.sroa.2.0.copyload.i, 168
+  %221 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx.i
   store ptr %.sroa.4.0.copyload.i, ptr %13, align 8, !alias.scope !23743, !noalias !23746
   %222 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %220, ptr %222, align 8, !alias.scope !23743, !noalias !23746

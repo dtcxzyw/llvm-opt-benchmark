@@ -2901,7 +2901,8 @@ _ZSt27__uninitialized_default_n_aIPN6Assimp3LWO4FaceEmS2_ET_S4_T0_RSaIT1_E.exit4
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
   %39 = tail call ptr @__cxa_begin_catch(ptr %38) #20
-  %40 = getelementptr inbounds nuw %"struct.Assimp::LWO::Face", ptr %30, i64 %1
+  %.idx = shl nuw nsw i64 %1, 5
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx
   br label %.lr.ph.i.i.i46
 
 .lr.ph.i.i.i46:                                   ; preds = %36, %_ZSt8_DestroyIN6Assimp3LWO4FaceEEvPT_.exit.i.i.i

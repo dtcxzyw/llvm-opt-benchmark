@@ -75,8 +75,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.2" = type { %"struct.std::_Head_base" }
 %"struct.std::_Head_base" = type { ptr }
 %"struct.std::_Head_base.3" = type { ptr }
-%"class.OpenImageIO::v3_1_0::ParamValue" = type <{ %"class.OpenImageIO::v3_1_0::ustring", %"struct.OpenImageIO::v3_1_0::TypeDesc", %union.anon.1, i32, i8, i8, i8, i8 }>
-%union.anon.1 = type { ptr, [8 x i8] }
 %struct.timespec = type { i64, i64 }
 %"class.fmt::v8::format_arg_store.118" = type { %"struct.fmt::v8::detail::arg_data.119" }
 %"struct.fmt::v8::detail::arg_data.119" = type { [1 x %"class.fmt::v8::detail::value"] }
@@ -1156,7 +1154,8 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo8demosaicERNS0_8
   %78 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i64 0, ptr %78, align 8, !tbaa !13
   store i8 0, ptr %77, align 8, !tbaa !15
-  %79 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ParamValue", ptr %2, i64 %3
+  %.idx = mul nuw nsw i64 %3, 40
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not1285 = icmp eq i64 %3, 0
   br i1 %.not1285, label %._crit_edge, label %.lr.ph
 

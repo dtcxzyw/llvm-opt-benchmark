@@ -11745,7 +11745,8 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %.not.i.i = icmp eq ptr %27, null
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %28
-  %29 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %23
+  %.idx = shl nsw i64 %23, 3
+  %29 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not121124 = icmp eq i32 %22, 0
   br i1 %.not121124, label %._crit_edge, label %.lr.ph
 
@@ -11761,7 +11762,8 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %.not.i.i109 = icmp eq ptr %36, null
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %spec.select.i.i110 = select i1 %.not.i.i109, ptr null, ptr %37
-  %38 = getelementptr inbounds ptr, ptr %spec.select.i.i110, i64 %32
+  %.idx134 = shl nsw i64 %32, 3
+  %38 = getelementptr inbounds i8, ptr %spec.select.i.i110, i64 %.idx134
   %.not122127 = icmp eq i32 %31, 0
   br i1 %.not122127, label %._crit_edge132, label %.lr.ph131
 
@@ -14848,7 +14850,8 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers23PhoneMetadataCollection12
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not15 = icmp eq i32 %3, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 

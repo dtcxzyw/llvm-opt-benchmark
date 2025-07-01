@@ -2128,7 +2128,8 @@ define dso_local void @_ZN4llvm17MCWinCOFFStreamer10finishImplEv(ptr noundef non
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 88
   %23 = load ptr, ptr %22, align 8, !tbaa !254
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw %"struct.llvm::MCObjectWriter::CGProfileEntry", ptr %23, i64 %24
+  %.idx = mul nuw nsw i64 %24, 24
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm17MCWinCOFFStreamer22finalizeCGProfileEntryERPKNS_15MCSymbolRefExprE.exit14

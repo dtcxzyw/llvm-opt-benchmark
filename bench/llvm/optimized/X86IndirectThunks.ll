@@ -38,7 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::MCRegister" = type { i32 }
 %"struct.llvm::LaneBitmask" = type { i64 }
 %"class.llvm::MCInstrDesc" = type { i16, i16, i8, i8, i16, i8, i8, i16, i16, i64, i64 }
-%"struct.std::pair.451" = type { i32, ptr }
 
 $_ZN4llvm4Pass14doFinalizationERNS_6ModuleE = comdat any
 
@@ -879,7 +878,8 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread10.i.i.i.i: ; preds = %258
   %308 = load ptr, ptr %11, align 8, !tbaa !593
   %309 = load i32, ptr %288, align 8, !tbaa !594
   %310 = zext i32 %309 to i64
-  %311 = getelementptr inbounds nuw %"struct.std::pair.451", ptr %308, i64 %310
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %310, 4
+  %311 = getelementptr inbounds nuw i8, ptr %308, i64 %.idx.i.i.i.i.i.i.i
   %.not10.i.i.i.i.i.i.i = icmp eq i32 %309, 0
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZN4llvm13IRBuilderBase13CreateRetVoidEv.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -1260,7 +1260,8 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread10:       ; preds = %_ZN4llvm11GlobalVal
   %56 = load ptr, ptr %7, align 8, !tbaa !593
   %57 = load i32, ptr %36, align 8, !tbaa !594
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw %"struct.std::pair.451", ptr %56, i64 %58
+  %.idx.i.i.i = shl nuw nsw i64 %58, 4
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx.i.i.i
   %.not10.i.i.i = icmp eq i32 %57, 0
   br i1 %.not10.i.i.i, label %_ZN4llvm13IRBuilderBase13CreateRetVoidEv.exit, label %.lr.ph.i.i.i
 

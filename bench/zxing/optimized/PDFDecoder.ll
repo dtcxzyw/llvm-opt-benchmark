@@ -3448,7 +3448,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L14TextCompactionERKSt6vecto
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load i32, ptr %.0.val, align 4, !tbaa !39
   %5 = sub nsw i32 %4, %0
-  %6 = shl i32 %5, 1
+  %6 = shl nsw i32 %5, 1
   %7 = sext i32 %6 to i64
   %8 = icmp slt i32 %5, 0
   br i1 %8, label %.noexc, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -3462,7 +3462,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, label %.noexc46
 
 .noexc46:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %9 = shl nsw i64 %7, 2
+  %9 = shl nuw nsw i64 %7, 2
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #26
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %10, i8 0, i64 %9, i1 false), !tbaa !39
   %11 = getelementptr inbounds nuw i32, ptr %10, i64 %7

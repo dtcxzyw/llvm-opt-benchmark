@@ -7911,7 +7911,8 @@ define hidden void @"_ZN5alloc11collections5btree3map27ExtractIfInner$LT$K$C$V$G
 select.unfold.i.i:                                ; preds = %.loopexit30, %._crit_edge.i.i.i.i
   %70 = icmp ne ptr %.val10, null
   tail call void @llvm.assume(i1 %70)
-  %71 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %.val10, i64 %.val11
+  %.idx.i.i = shl nsw i64 %.val11, 5
+  %71 = getelementptr inbounds i8, ptr %.val10, i64 %.idx.i.i
   %72 = icmp eq i64 %.val11, 0
   br i1 %72, label %.loopexit, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6e360f0a917c1799E.exit.lr.ph.i.i"
 

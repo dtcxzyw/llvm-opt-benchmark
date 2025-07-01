@@ -34,7 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_file_context = type { %struct._zend_declarables, ptr, i8, i8, ptr, ptr, ptr, %struct._zend_array }
 %struct._zend_declarables = type { i64 }
 %struct.smart_str = type { ptr, i64 }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct._phar_entry_info = type { i32, i32, i32, i32, i32, i32, %struct._phar_metadata_tracker, ptr, i32, i64, i64, i64, ptr, ptr, i32, ptr, ptr, ptr, i8, i32, i16, i16 }
 %struct._phar_metadata_tracker = type { %struct._zval_struct, ptr }
 %struct._phar_entry_fp = type { ptr, ptr, ptr }
@@ -1860,31 +1859,31 @@ define hidden range(i32 -1, 1) i32 @phar_detect_phar_fname_ext(ptr noundef %0, i
   %17 = sub i64 %15, %16
   %18 = add i64 %1, -1
   %19 = icmp ult i64 %17, %18
-  %or.cond274 = and i1 %14, %19
-  br i1 %or.cond274, label %20, label %._crit_edge262
+  %or.cond275 = and i1 %14, %19
+  br i1 %or.cond275, label %20, label %._crit_edge263
 
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !29
   %23 = icmp eq i8 %22, 47
-  br i1 %23, label %24, label %._crit_edge262
+  br i1 %23, label %24, label %._crit_edge263
 
 24:                                               ; preds = %20
   store i64 -2, ptr %3, align 8, !tbaa !72
   store ptr null, ptr %2, align 8, !tbaa !107
   br label %.loopexit
 
-._crit_edge262:                                   ; preds = %11, %20
+._crit_edge263:                                   ; preds = %11, %20
   %25 = tail call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phar_globals, i64 120), ptr noundef %0, i64 noundef %17) #24
   %.not235 = icmp eq ptr %25, null
   br i1 %.not235, label %27, label %26
 
-26:                                               ; preds = %._crit_edge262
+26:                                               ; preds = %._crit_edge263
   store ptr %10, ptr %2, align 8, !tbaa !107
   store i64 -1, ptr %3, align 8, !tbaa !72
   br label %.loopexit
 
-27:                                               ; preds = %._crit_edge262
+27:                                               ; preds = %._crit_edge263
   %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 193), align 1, !tbaa !62, !range !16, !noundef !28
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %33
@@ -1964,7 +1963,8 @@ define hidden range(i32 -1, 1) i32 @phar_detect_phar_fname_ext(ptr noundef %0, i
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 72), align 8, !tbaa !29
   %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 80), align 8, !tbaa !109
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw %struct._Bucket, ptr %62, i64 %64
+  %.idx = shl nuw nsw i64 %64, 5
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx
   %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 64), align 8, !tbaa !29
   %67 = and i32 %66, 4
   %.not179 = icmp eq i32 %67, 0
@@ -2017,7 +2017,8 @@ define hidden range(i32 -1, 1) i32 @phar_detect_phar_fname_ext(ptr noundef %0, i
   %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cached_phars, i64 16), align 8, !tbaa !29
   %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cached_phars, i64 24), align 8, !tbaa !109
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw %struct._Bucket, ptr %87, i64 %89
+  %.idx256 = shl nuw nsw i64 %89, 5
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 %.idx256
   %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cached_phars, i64 8), align 8, !tbaa !29
   %92 = and i32 %91, 4
   %.not182 = icmp eq i32 %92, 0
@@ -4818,7 +4819,8 @@ define hidden void @phar_request_initialize() local_unnamed_addr #0 {
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cached_phars, i64 16), align 8, !tbaa !29
   %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cached_phars, i64 24), align 8, !tbaa !109
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %struct._Bucket, ptr %16, i64 %18
+  %.idx = shl nuw nsw i64 %18, 5
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cached_phars, i64 8), align 8, !tbaa !29
   %21 = and i32 %20, 4
   %.not = icmp eq i32 %21, 0
@@ -6322,7 +6324,8 @@ smart_str_alloc.exit:                             ; preds = %141
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %167 = load i32, ptr %166, align 8, !tbaa !109
   %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds nuw %struct._Bucket, ptr %165, i64 %168
+  %.idx = shl nuw nsw i64 %168, 5
+  %169 = getelementptr inbounds nuw i8, ptr %165, i64 %.idx
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %171 = load i32, ptr %170, align 8, !tbaa !29
   %172 = and i32 %171, 4
@@ -6413,13 +6416,13 @@ smart_str_alloc.exit:                             ; preds = %141
   %209 = icmp eq i8 %208, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %178, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !122
-  br i1 %209, label %._crit_edge870, label %210
+  br i1 %209, label %._crit_edge873, label %210
 
 210:                                              ; preds = %197
   %.not609 = icmp eq ptr %.pre, null
-  br i1 %.not609, label %214, label %.thread875
+  br i1 %.not609, label %214, label %.thread878
 
-.thread875:                                       ; preds = %210
+.thread878:                                       ; preds = %210
   %211 = load ptr, ptr %199, align 8, !tbaa !92
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %213 = load i64, ptr %212, align 8, !tbaa !12
@@ -6439,9 +6442,9 @@ smart_str_alloc.exit:                             ; preds = %141
   %218 = load ptr, ptr %13, align 8, !tbaa !103
   store ptr %218, ptr %.phi.trans.insert, align 8, !tbaa !122
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #24
-  br label %._crit_edge870
+  br label %._crit_edge873
 
-._crit_edge870:                                   ; preds = %197, %214
+._crit_edge873:                                   ; preds = %197, %214
   %219 = phi ptr [ %218, %214 ], [ %.pre, %197 ]
   %220 = load ptr, ptr %199, align 8, !tbaa !92
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 16
@@ -6449,16 +6452,16 @@ smart_str_alloc.exit:                             ; preds = %141
   %.not611 = icmp eq ptr %219, null
   br i1 %.not611, label %228, label %223
 
-223:                                              ; preds = %.thread875, %._crit_edge870
-  %224 = phi i64 [ %213, %.thread875 ], [ %222, %._crit_edge870 ]
-  %225 = phi ptr [ %.pre, %.thread875 ], [ %219, %._crit_edge870 ]
+223:                                              ; preds = %.thread878, %._crit_edge873
+  %224 = phi i64 [ %213, %.thread878 ], [ %222, %._crit_edge873 ]
+  %225 = phi ptr [ %.pre, %.thread878 ], [ %219, %._crit_edge873 ]
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %227 = load i64, ptr %226, align 8, !tbaa !12
   br label %228
 
-228:                                              ; preds = %._crit_edge870, %223
-  %229 = phi i64 [ %224, %223 ], [ %222, %._crit_edge870 ]
-  %230 = phi i64 [ %227, %223 ], [ 0, %._crit_edge870 ]
+228:                                              ; preds = %._crit_edge873, %223
+  %229 = phi i64 [ %224, %223 ], [ %222, %._crit_edge873 ]
+  %230 = phi i64 [ %227, %223 ], [ 0, %._crit_edge873 ]
   %231 = load i16, ptr %184, align 2
   %232 = lshr i16 %231, 3
   %.lobit = and i16 %232, 1
@@ -6618,11 +6621,11 @@ smart_str_alloc.exit:                             ; preds = %141
   br label %315
 
 315:                                              ; preds = %313, %312
-  br i1 %.0513, label %316, label %.sink.split901
+  br i1 %.0513, label %316, label %.sink.split904
 
 316:                                              ; preds = %315
   %317 = call i32 @_php_stream_free(ptr noundef %.0526, i32 noundef 3) #24
-  br label %.sink.split901
+  br label %.sink.split904
 
 318:                                              ; preds = %.thread706, %309
   %319 = phi ptr [ %308, %.thread706 ], [ %311, %309 ]
@@ -6647,7 +6650,7 @@ smart_str_alloc.exit:                             ; preds = %141
 
 330:                                              ; preds = %328, %327
   %331 = call i32 @_php_stream_free(ptr noundef nonnull %56, i32 noundef 3) #24
-  br i1 %26, label %.thread765.sink.split, label %.sink.split901
+  br i1 %26, label %.thread765.sink.split, label %.sink.split904
 
 332:                                              ; preds = %318
   %333 = load ptr, ptr %319, align 8, !tbaa !88
@@ -6669,7 +6672,7 @@ smart_str_alloc.exit:                             ; preds = %141
 
 342:                                              ; preds = %340, %339
   %343 = call i32 @_php_stream_free(ptr noundef nonnull %56, i32 noundef 3) #24
-  br i1 %26, label %.thread765.sink.split, label %.sink.split901
+  br i1 %26, label %.thread765.sink.split, label %.sink.split904
 
 344:                                              ; preds = %332
   %345 = call i32 @_php_stream_filter_flush(ptr noundef nonnull %284, i32 noundef 1) #24
@@ -6830,7 +6833,7 @@ smart_str_alloc.exit:                             ; preds = %141
   %421 = getelementptr inbounds nuw i8, ptr %419, i64 16
   %422 = load i64, ptr %421, align 8, !tbaa !12
   %.not630 = icmp eq i64 %422, 0
-  br i1 %.not630, label %.thread877, label %423
+  br i1 %.not630, label %.thread880, label %423
 
 423:                                              ; preds = %420
   %424 = getelementptr inbounds nuw i8, ptr %419, i64 24
@@ -6889,30 +6892,30 @@ smart_str_free_ex.exit689:                        ; preds = %426, %zend_string_r
 446:                                              ; preds = %423
   %.pr.pre = load ptr, ptr %10, align 8, !tbaa !103
   %.not.i685 = icmp eq ptr %.pr.pre, null
-  br i1 %.not.i685, label %smart_str_free_ex.exit, label %.thread877
+  br i1 %.not.i685, label %smart_str_free_ex.exit, label %.thread880
 
-.thread877:                                       ; preds = %420, %446
-  %.pr880 = phi ptr [ %.pr.pre, %446 ], [ %419, %420 ]
-  %447 = getelementptr inbounds nuw i8, ptr %.pr880, i64 4
+.thread880:                                       ; preds = %420, %446
+  %.pr883 = phi ptr [ %.pr.pre, %446 ], [ %419, %420 ]
+  %447 = getelementptr inbounds nuw i8, ptr %.pr883, i64 4
   %448 = load i32, ptr %447, align 4, !tbaa !29
   %449 = and i32 %448, 64
   %.not.i.i = icmp eq i32 %449, 0
   br i1 %.not.i.i, label %450, label %zend_string_release_ex.exit.i
 
-450:                                              ; preds = %.thread877
-  %451 = load i32, ptr %.pr880, align 4, !tbaa !78
+450:                                              ; preds = %.thread880
+  %451 = load i32, ptr %.pr883, align 4, !tbaa !78
   %452 = icmp ne i32 %451, 0
   call void @llvm.assume(i1 %452)
   %453 = add i32 %451, -1
-  store i32 %453, ptr %.pr880, align 4, !tbaa !78
+  store i32 %453, ptr %.pr883, align 4, !tbaa !78
   %454 = icmp eq i32 %453, 0
   br i1 %454, label %455, label %zend_string_release_ex.exit.i
 
 455:                                              ; preds = %450
-  call void @_efree(ptr noundef nonnull %.pr880) #24
+  call void @_efree(ptr noundef nonnull %.pr883) #24
   br label %zend_string_release_ex.exit.i
 
-zend_string_release_ex.exit.i:                    ; preds = %455, %450, %.thread877
+zend_string_release_ex.exit.i:                    ; preds = %455, %450, %.thread880
   store ptr null, ptr %10, align 8, !tbaa !103
   br label %smart_str_free_ex.exit
 
@@ -6923,7 +6926,8 @@ smart_str_free_ex.exit:                           ; preds = %418, %446, %zend_st
   %458 = load ptr, ptr %164, align 8, !tbaa !29
   %459 = load i32, ptr %166, align 8, !tbaa !109
   %460 = zext i32 %459 to i64
-  %461 = getelementptr inbounds nuw %struct._Bucket, ptr %458, i64 %460
+  %.idx855 = shl nuw nsw i64 %460, 5
+  %461 = getelementptr inbounds nuw i8, ptr %458, i64 %.idx855
   %462 = load i32, ptr %170, align 8, !tbaa !29
   %463 = and i32 %462, 4
   %.not632 = icmp eq i32 %463, 0
@@ -7116,7 +7120,8 @@ smart_str_free_ex.exit:                           ; preds = %418, %446, %zend_st
   %562 = load ptr, ptr %164, align 8, !tbaa !29
   %563 = load i32, ptr %166, align 8, !tbaa !109
   %564 = zext i32 %563 to i64
-  %565 = getelementptr inbounds nuw %struct._Bucket, ptr %562, i64 %564
+  %.idx856 = shl nuw nsw i64 %564, 5
+  %565 = getelementptr inbounds nuw i8, ptr %562, i64 %.idx856
   %566 = load i32, ptr %170, align 8, !tbaa !29
   %567 = and i32 %566, 4
   %.not646 = icmp eq i32 %567, 0
@@ -7367,11 +7372,11 @@ smart_str_free_ex.exit:                           ; preds = %418, %446, %zend_st
   %684 = trunc i64 %683 to i32
   store i32 %684, ptr %14, align 4
   %685 = call i64 @_php_stream_write(ptr noundef nonnull %56, ptr noundef nonnull %14, i64 noundef 4) #24
-  %.pre873 = load i32, ptr %680, align 4, !tbaa !127
+  %.pre876 = load i32, ptr %680, align 4, !tbaa !127
   br label %686
 
 686:                                              ; preds = %675, %682
-  %687 = phi i32 [ %681, %675 ], [ %.pre873, %682 ]
+  %687 = phi i32 [ %681, %675 ], [ %.pre876, %682 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #24
   store i32 %687, ptr %14, align 4
@@ -7520,11 +7525,11 @@ smart_str_free_ex.exit:                           ; preds = %418, %446, %zend_st
 762:                                              ; preds = %746
   %763 = call i32 @_php_stream_copy_to_stream_ex(ptr noundef nonnull %56, ptr noundef nonnull %714, i64 noundef -1, ptr noundef null) #24
   %764 = call i32 @_php_stream_free(ptr noundef nonnull %56, i32 noundef 3) #24
-  %.pre874 = load ptr, ptr %46, align 8, !tbaa !69
+  %.pre877 = load ptr, ptr %46, align 8, !tbaa !69
   br label %765
 
 765:                                              ; preds = %737, %762, %748, %711
-  %766 = phi ptr [ %56, %737 ], [ %.pre874, %762 ], [ %56, %748 ], [ %56, %711 ]
+  %766 = phi ptr [ %56, %737 ], [ %.pre877, %762 ], [ %56, %748 ], [ %56, %711 ]
   %767 = load i64, ptr %705, align 8, !tbaa !113
   %768 = call i32 @_php_stream_seek(ptr noundef %766, i64 noundef %767, i32 noundef 0) #24
   %769 = icmp eq i32 %768, -1
@@ -7538,7 +7543,7 @@ smart_str_free_ex.exit:                           ; preds = %418, %446, %zend_st
 
 773:                                              ; preds = %623, %625, %603, %605, %591, %593, %542, %544, %503, %514, %512, %556, %558, %441, %443, %404, %406
   %.not666 = icmp eq ptr %.0537.lcssa, null
-  br i1 %.not666, label %780, label %.sink.split901
+  br i1 %.not666, label %780, label %.sink.split904
 
 .thread765.sink.split:                            ; preds = %342, %330
   %.str.34.sink = phi ptr [ @.str.34, %330 ], [ @.str.37, %342 ]
@@ -7547,18 +7552,19 @@ smart_str_free_ex.exit:                           ; preds = %418, %446, %zend_st
   %776 = getelementptr inbounds nuw i8, ptr %775, i64 24
   %777 = load ptr, ptr %0, align 8, !tbaa !75
   %778 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %3, i64 noundef 0, ptr noundef nonnull %.str.34.sink, ptr noundef nonnull %776, ptr noundef %777) #24
-  br label %.sink.split901
+  br label %.sink.split904
 
-.sink.split901:                                   ; preds = %773, %342, %330, %.thread765.sink.split, %316, %315
+.sink.split904:                                   ; preds = %773, %342, %330, %.thread765.sink.split, %316, %315
   %.sink = phi ptr [ %56, %315 ], [ %56, %316 ], [ %.0537.lcssa, %773 ], [ %.2539709, %342 ], [ %.2539709, %330 ], [ %.2539709, %.thread765.sink.split ]
   %779 = call i32 @_php_stream_free(ptr noundef nonnull %.sink, i32 noundef 3) #24
   br label %780
 
-780:                                              ; preds = %.sink.split901, %773
+780:                                              ; preds = %.sink.split904, %773
   %781 = load ptr, ptr %164, align 8, !tbaa !29
   %782 = load i32, ptr %166, align 8, !tbaa !109
   %783 = zext i32 %782 to i64
-  %784 = getelementptr inbounds nuw %struct._Bucket, ptr %781, i64 %783
+  %.idx857 = shl nuw nsw i64 %783, 5
+  %784 = getelementptr inbounds nuw i8, ptr %781, i64 %.idx857
   %785 = load i32, ptr %170, align 8, !tbaa !29
   %786 = and i32 %785, 4
   %.not667 = icmp eq i32 %786, 0

@@ -455,7 +455,7 @@ define range(i32 0, -2147483648) i32 @dt_film_new(ptr noundef initializes((0, 4)
   %6 = tail call i64 @g_strlcpy(ptr noundef nonnull %5, ptr noundef %1, i64 noundef 512) #11
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
   %8 = add i64 %7, -1
-  %9 = getelementptr inbounds nuw [512 x i8], ptr %5, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !6
   %11 = icmp ne i8 %10, 47
   %.not = icmp samesign eq i64 %8, 0

@@ -1367,8 +1367,8 @@ define linkonce_odr hidden void @_ZN2cv3ccm10OperationsC2ESt16initializer_listIN
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %5 = getelementptr inbounds nuw %"class.cv::ccm::Operation", ptr %1, i64 %2
-  %.idx.i = mul nuw nsw i64 %2, 144
+  %.idx7.i = mul nuw nsw i64 %2, 144
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx7.i
   %6 = icmp ugt i64 %2, 64051194700380387
   br i1 %6, label %7, label %_ZNSt6vectorIN2cv3ccm9OperationESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
 
@@ -1384,13 +1384,13 @@ _ZNSt6vectorIN2cv3ccm9OperationESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: ; p
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIN2cv3ccm9OperationEEE8allocateERS3_m.exit.i.i.i
 
 _ZNSt16allocator_traitsISaIN2cv3ccm9OperationEEE8allocateERS3_m.exit.i.i.i: ; preds = %_ZNSt6vectorIN2cv3ccm9OperationESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #34
+  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx7.i) #34
           to label %_ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i unwind label %13
 
 _ZNSt12_Vector_baseIN2cv3ccm9OperationESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIN2cv3ccm9OperationEEE8allocateERS3_m.exit.i.i.i, %_ZNSt6vectorIN2cv3ccm9OperationESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
   %9 = phi ptr [ null, %_ZNSt6vectorIN2cv3ccm9OperationESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %8, %_ZNSt16allocator_traitsISaIN2cv3ccm9OperationEEE8allocateERS3_m.exit.i.i.i ]
   store ptr %9, ptr %4, align 8, !tbaa !17
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx7.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %10, ptr %11, align 8, !tbaa !19
   %12 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN2cv3ccm9OperationEPS2_ET0_T_S7_S6_(ptr noundef %1, ptr noundef %5, ptr noundef %9)
@@ -9023,7 +9023,8 @@ define linkonce_odr hidden void @_ZNSt3mapIN2cv3ccm3CAMESt6vectorINS0_3MatESaIS4
   store ptr %7, ptr %10, align 8, !tbaa !197
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8, !tbaa !198
-  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 5
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #36
   store ptr %0, ptr %6, align 8, !tbaa !241
   %.not6.i = icmp eq i64 %2, 0
@@ -24051,7 +24052,8 @@ define linkonce_odr hidden void @_ZNSt3mapIN2cv3ccm2IOESt6vectorIdSaIdEESt4lessI
   store ptr %6, ptr %9, align 8, !tbaa !197
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !198
-  %11 = getelementptr inbounds nuw %"struct.std::pair.104", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 96
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN2cv3ccm2IOESt4pairIKS2_St6vectorIdSaIdEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE22_M_insert_range_uniqueIPKS8_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESJ_SJ_.exit, label %.lr.ph.i
 

@@ -50537,7 +50537,8 @@ default.unreachable153:                           ; preds = %559, %516, %489, %2
   %.val.i = load ptr, ptr %275, align 8, !noalias !5978, !nonnull !3, !noundef !3
   %276 = getelementptr i8, ptr %271, i64 48
   %.val90.i = load i64, ptr %276, align 8, !noalias !5978, !noundef !3
-  %277 = getelementptr inbounds nuw { { i8, [1 x i8] }, [6 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.val.i, i64 %.val90.i
+  %.idx.i = shl nuw nsw i64 %.val90.i, 5
+  %277 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i
   %278 = icmp eq i64 %.val90.i, 0
   br i1 %278, label %.loopexit.i, label %.lr.ph.i
 

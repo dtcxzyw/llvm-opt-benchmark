@@ -10735,7 +10735,8 @@ define void @_ZN5theme6styles7players12PlayerColors5merge17h00c6eba7c746c588E(pt
   br i1 %7, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 72
+  %8 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.875.4..sroa_idx76 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.978.4..sroa_idx79 = getelementptr inbounds nuw i8, ptr %6, i64 12

@@ -31603,7 +31603,7 @@ define linkonce_odr void @_ZNSt6vectorIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE1
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %.not54 = icmp ult i64 %16, %8
-  br i1 %.not54, label %150, label %17
+  br i1 %.not54, label %149, label %17
 
 17:                                               ; preds = %5
   %18 = ptrtoint ptr %1 to i64
@@ -31613,163 +31613,163 @@ define linkonce_odr void @_ZNSt6vectorIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE1
   br i1 %21, label %22, label %_ZSt7advanceIPKN11OpenImageIO6v3_1_09ImageSpecEmEvRT_T0_.exit
 
 22:                                               ; preds = %17
-  %23 = sub nsw i64 0, %9
-  %24 = getelementptr inbounds %"class.OpenImageIO::v3_1_0::ImageSpec", ptr %13, i64 %23
+  %.idx = sub i64 0, %8
+  %23 = getelementptr inbounds i8, ptr %13, i64 %.idx
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %22, %.lr.ph.i.i.i.i.i
-  %.013.i.i.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i.i ], [ %13, %22 ]
-  %.sroa.08.012.i.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i ], [ %24, %22 ]
+  %.013.i.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i ], [ %13, %22 ]
+  %.sroa.08.012.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i ], [ %23, %22 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.013.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.08.012.i.i.i.i.i, i64 72, i1 false)
-  %25 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 72
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 72
-  %27 = load ptr, ptr %26, align 8, !tbaa !224
-  store ptr %27, ptr %25, align 8, !tbaa !224
-  %28 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 80
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 80
-  %30 = load ptr, ptr %29, align 8, !tbaa !223
-  store ptr %30, ptr %28, align 8, !tbaa !223
-  %31 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 88
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 88
-  %33 = load ptr, ptr %32, align 8, !tbaa !225
-  store ptr %33, ptr %31, align 8, !tbaa !225
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
-  %34 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 96
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 96
-  %36 = load ptr, ptr %35, align 8, !tbaa !217
-  store ptr %36, ptr %34, align 8, !tbaa !217
-  %37 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 104
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 104
-  %39 = load ptr, ptr %38, align 8, !tbaa !216
-  store ptr %39, ptr %37, align 8, !tbaa !216
-  %40 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 112
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 112
-  %42 = load ptr, ptr %41, align 8, !tbaa !228
-  store ptr %42, ptr %40, align 8, !tbaa !228
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
-  %43 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 120
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 120
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %43, ptr noundef nonnull align 8 dereferenceable(9) %44, i64 9, i1 false)
-  %45 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 136
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 136
-  %47 = load ptr, ptr %46, align 8, !tbaa !237
-  store ptr %47, ptr %45, align 8, !tbaa !237
-  %48 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 144
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 144
-  %50 = load ptr, ptr %49, align 8, !tbaa !236
-  store ptr %50, ptr %48, align 8, !tbaa !236
-  %51 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 152
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 152
-  %53 = load ptr, ptr %52, align 8, !tbaa !238
-  store ptr %53, ptr %51, align 8, !tbaa !238
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 160
-  %55 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 160
-  %.not.i.i.i.i.i = icmp eq ptr %54, %13
+  %24 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 72
+  %26 = load ptr, ptr %25, align 8, !tbaa !224
+  store ptr %26, ptr %24, align 8, !tbaa !224
+  %27 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 80
+  %29 = load ptr, ptr %28, align 8, !tbaa !223
+  store ptr %29, ptr %27, align 8, !tbaa !223
+  %30 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 88
+  %32 = load ptr, ptr %31, align 8, !tbaa !225
+  store ptr %32, ptr %30, align 8, !tbaa !225
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
+  %33 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 96
+  %35 = load ptr, ptr %34, align 8, !tbaa !217
+  store ptr %35, ptr %33, align 8, !tbaa !217
+  %36 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 104
+  %38 = load ptr, ptr %37, align 8, !tbaa !216
+  store ptr %38, ptr %36, align 8, !tbaa !216
+  %39 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 112
+  %41 = load ptr, ptr %40, align 8, !tbaa !228
+  store ptr %41, ptr %39, align 8, !tbaa !228
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
+  %42 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 120
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %42, ptr noundef nonnull align 8 dereferenceable(9) %43, i64 9, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 136
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 136
+  %46 = load ptr, ptr %45, align 8, !tbaa !237
+  store ptr %46, ptr %44, align 8, !tbaa !237
+  %47 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 144
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 144
+  %49 = load ptr, ptr %48, align 8, !tbaa !236
+  store ptr %49, ptr %47, align 8, !tbaa !236
+  %50 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 152
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 152
+  %52 = load ptr, ptr %51, align 8, !tbaa !238
+  store ptr %52, ptr %50, align 8, !tbaa !238
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 160
+  %54 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 160
+  %.not.i.i.i.i.i = icmp eq ptr %53, %13
   br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !680
 
 _ZSt22__uninitialized_move_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %56 = load ptr, ptr %12, align 8, !tbaa !67
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %8
-  store ptr %57, ptr %12, align 8, !tbaa !67
-  %58 = ptrtoint ptr %24 to i64
-  %59 = sub i64 %58, %18
-  %60 = icmp sgt i64 %59, 0
-  br i1 %60, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt13move_backwardIPN11OpenImageIO6v3_1_09ImageSpecES3_ET0_T_S5_S4_.exit
+  %55 = load ptr, ptr %12, align 8, !tbaa !67
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %8
+  store ptr %56, ptr %12, align 8, !tbaa !67
+  %57 = ptrtoint ptr %23 to i64
+  %58 = sub i64 %57, %18
+  %59 = icmp sgt i64 %58, 0
+  br i1 %59, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt13move_backwardIPN11OpenImageIO6v3_1_09ImageSpecES3_ET0_T_S5_S4_.exit
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZSt22__uninitialized_move_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit
-  %61 = udiv exact i64 %59, 160
+  %60 = udiv exact i64 %58, 160
   br label %.lr.ph.i.i.i.i.i55
 
 .lr.ph.i.i.i.i.i55:                               ; preds = %.lr.ph.i.i.i.i.i55, %.lr.ph.preheader.i.i.i.i.i
-  %.010.i.i.i.i.i = phi i64 [ %65, %.lr.ph.i.i.i.i.i55 ], [ %61, %.lr.ph.preheader.i.i.i.i.i ]
-  %.069.i.i.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i.i.i55 ], [ %13, %.lr.ph.preheader.i.i.i.i.i ]
-  %.078.i.i.i.i.i = phi ptr [ %62, %.lr.ph.i.i.i.i.i55 ], [ %24, %.lr.ph.preheader.i.i.i.i.i ]
-  %62 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -160
-  %63 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -160
-  %64 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZN11OpenImageIO6v3_1_09ImageSpecaSEOS1_(ptr noundef nonnull align 8 dereferenceable(160) %63, ptr noundef nonnull align 8 dereferenceable(160) %62) #25
-  %65 = add nsw i64 %.010.i.i.i.i.i, -1
-  %66 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
-  br i1 %66, label %.lr.ph.i.i.i.i.i55, label %_ZSt13move_backwardIPN11OpenImageIO6v3_1_09ImageSpecES3_ET0_T_S5_S4_.exit, !llvm.loop !681
+  %.010.i.i.i.i.i = phi i64 [ %64, %.lr.ph.i.i.i.i.i55 ], [ %60, %.lr.ph.preheader.i.i.i.i.i ]
+  %.069.i.i.i.i.i = phi ptr [ %62, %.lr.ph.i.i.i.i.i55 ], [ %13, %.lr.ph.preheader.i.i.i.i.i ]
+  %.078.i.i.i.i.i = phi ptr [ %61, %.lr.ph.i.i.i.i.i55 ], [ %23, %.lr.ph.preheader.i.i.i.i.i ]
+  %61 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -160
+  %62 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -160
+  %63 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZN11OpenImageIO6v3_1_09ImageSpecaSEOS1_(ptr noundef nonnull align 8 dereferenceable(160) %62, ptr noundef nonnull align 8 dereferenceable(160) %61) #25
+  %64 = add nsw i64 %.010.i.i.i.i.i, -1
+  %65 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
+  br i1 %65, label %.lr.ph.i.i.i.i.i55, label %_ZSt13move_backwardIPN11OpenImageIO6v3_1_09ImageSpecES3_ET0_T_S5_S4_.exit, !llvm.loop !681
 
 _ZSt13move_backwardIPN11OpenImageIO6v3_1_09ImageSpecES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i55, %_ZSt22__uninitialized_move_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit
-  %67 = icmp sgt i64 %8, 0
-  br i1 %67, label %.lr.ph.preheader.i.i.i.i.i56, label %_ZSt4copyIPKN11OpenImageIO6v3_1_09ImageSpecEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit
+  %66 = icmp sgt i64 %8, 0
+  br i1 %66, label %.lr.ph.preheader.i.i.i.i.i56, label %_ZSt4copyIPKN11OpenImageIO6v3_1_09ImageSpecEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit
 
 .lr.ph.preheader.i.i.i.i.i56:                     ; preds = %_ZSt13move_backwardIPN11OpenImageIO6v3_1_09ImageSpecES3_ET0_T_S5_S4_.exit
-  %68 = udiv exact i64 %8, 160
+  %67 = udiv exact i64 %8, 160
   br label %.lr.ph.i.i.i.i.i57
 
 .lr.ph.i.i.i.i.i57:                               ; preds = %.lr.ph.i.i.i.i.i57, %.lr.ph.preheader.i.i.i.i.i56
-  %.012.i.i.i.i.i = phi i64 [ %82, %.lr.ph.i.i.i.i.i57 ], [ %68, %.lr.ph.preheader.i.i.i.i.i56 ]
-  %.0811.i.i.i.i.i = phi ptr [ %81, %.lr.ph.i.i.i.i.i57 ], [ %1, %.lr.ph.preheader.i.i.i.i.i56 ]
-  %.0910.i.i.i.i.i = phi ptr [ %80, %.lr.ph.i.i.i.i.i57 ], [ %2, %.lr.ph.preheader.i.i.i.i.i56 ]
+  %.012.i.i.i.i.i = phi i64 [ %81, %.lr.ph.i.i.i.i.i57 ], [ %67, %.lr.ph.preheader.i.i.i.i.i56 ]
+  %.0811.i.i.i.i.i = phi ptr [ %80, %.lr.ph.i.i.i.i.i57 ], [ %1, %.lr.ph.preheader.i.i.i.i.i56 ]
+  %.0910.i.i.i.i.i = phi ptr [ %79, %.lr.ph.i.i.i.i.i57 ], [ %2, %.lr.ph.preheader.i.i.i.i.i56 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %.0910.i.i.i.i.i, i64 72, i1 false)
-  %69 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 72
-  %70 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 72
-  %71 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN11OpenImageIO6v3_1_08TypeDescESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %69, ptr noundef nonnull align 8 dereferenceable(24) %70)
-  %72 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 96
-  %73 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 96
-  %74 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %73)
-  %75 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 120
-  %76 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 120
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %75, ptr noundef nonnull align 8 dereferenceable(9) %76, i64 9, i1 false)
-  %77 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 136
-  %78 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 136
-  %79 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %78)
-  %80 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 160
-  %81 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 160
-  %82 = add nsw i64 %.012.i.i.i.i.i, -1
-  %83 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %83, label %.lr.ph.i.i.i.i.i57, label %_ZSt4copyIPKN11OpenImageIO6v3_1_09ImageSpecEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit, !llvm.loop !682
+  %68 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 72
+  %70 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN11OpenImageIO6v3_1_08TypeDescESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %69)
+  %71 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 96
+  %72 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 96
+  %73 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %72)
+  %74 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 120
+  %75 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 120
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %74, ptr noundef nonnull align 8 dereferenceable(9) %75, i64 9, i1 false)
+  %76 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 136
+  %77 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 136
+  %78 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(24) %77)
+  %79 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 160
+  %80 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 160
+  %81 = add nsw i64 %.012.i.i.i.i.i, -1
+  %82 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
+  br i1 %82, label %.lr.ph.i.i.i.i.i57, label %_ZSt4copyIPKN11OpenImageIO6v3_1_09ImageSpecEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit, !llvm.loop !682
 
 _ZSt7advanceIPKN11OpenImageIO6v3_1_09ImageSpecEmEvRT_T0_.exit: ; preds = %17
-  %84 = getelementptr inbounds i8, ptr %2, i64 %19
-  %.not14.i.i.i.i = icmp eq ptr %84, %3
+  %83 = getelementptr inbounds i8, ptr %2, i64 %19
+  %.not14.i.i.i.i = icmp eq ptr %83, %3
   br i1 %.not14.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt7advanceIPKN11OpenImageIO6v3_1_09ImageSpecEmEvRT_T0_.exit, %_ZSt10_ConstructIN11OpenImageIO6v3_1_09ImageSpecEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %86, %_ZSt10_ConstructIN11OpenImageIO6v3_1_09ImageSpecEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN11OpenImageIO6v3_1_09ImageSpecEmEvRT_T0_.exit ]
-  %.01215.i.i.i.i = phi ptr [ %85, %_ZSt10_ConstructIN11OpenImageIO6v3_1_09ImageSpecEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %84, %_ZSt7advanceIPKN11OpenImageIO6v3_1_09ImageSpecEmEvRT_T0_.exit ]
+  %.016.i.i.i.i = phi ptr [ %85, %_ZSt10_ConstructIN11OpenImageIO6v3_1_09ImageSpecEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN11OpenImageIO6v3_1_09ImageSpecEmEvRT_T0_.exit ]
+  %.01215.i.i.i.i = phi ptr [ %84, %_ZSt10_ConstructIN11OpenImageIO6v3_1_09ImageSpecEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i ], [ %83, %_ZSt7advanceIPKN11OpenImageIO6v3_1_09ImageSpecEmEvRT_T0_.exit ]
   invoke void @_ZN11OpenImageIO6v3_1_09ImageSpecC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(160) %.016.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %.01215.i.i.i.i)
-          to label %_ZSt10_ConstructIN11OpenImageIO6v3_1_09ImageSpecEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i unwind label %87
+          to label %_ZSt10_ConstructIN11OpenImageIO6v3_1_09ImageSpecEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i unwind label %86
 
 _ZSt10_ConstructIN11OpenImageIO6v3_1_09ImageSpecEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i, i64 160
-  %86 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 160
-  %.not.i.i.i.i = icmp eq ptr %85, %3
+  %84 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i, i64 160
+  %85 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 160
+  %.not.i.i.i.i = icmp eq ptr %84, %3
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !683
 
-87:                                               ; preds = %.lr.ph.i.i.i.i
-  %88 = landingpad { ptr, i32 }
+86:                                               ; preds = %.lr.ph.i.i.i.i
+  %87 = landingpad { ptr, i32 }
           catch ptr null
-  %89 = extractvalue { ptr, i32 } %88, 0
-  %90 = tail call ptr @__cxa_begin_catch(ptr %89) #25
+  %88 = extractvalue { ptr, i32 } %87, 0
+  %89 = tail call ptr @__cxa_begin_catch(ptr %88) #25
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_09ImageSpecEEEvT_S6_(ptr noundef %13, ptr noundef nonnull %.016.i.i.i.i)
-          to label %_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecEEvT_S4_.exit.i.i.i.i unwind label %91
+          to label %_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecEEvT_S4_.exit.i.i.i.i unwind label %90
 
-_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecEEvT_S4_.exit.i.i.i.i: ; preds = %87
+_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecEEvT_S4_.exit.i.i.i.i: ; preds = %86
   invoke void @__cxa_rethrow() #30
-          to label %96 unwind label %91
+          to label %95 unwind label %90
 
-91:                                               ; preds = %_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecEEvT_S4_.exit.i.i.i.i, %87
-  %92 = landingpad { ptr, i32 }
+90:                                               ; preds = %_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecEEvT_S4_.exit.i.i.i.i, %86
+  %91 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %93
+          to label %common.resume unwind label %92
 
-common.resume:                                    ; preds = %249, %91
-  %common.resume.op = phi { ptr, i32 } [ %92, %91 ], [ %250, %249 ]
+common.resume:                                    ; preds = %248, %90
+  %common.resume.op = phi { ptr, i32 } [ %91, %90 ], [ %249, %248 ]
   resume { ptr, i32 } %common.resume.op
 
-93:                                               ; preds = %91
-  %94 = landingpad { ptr, i32 }
+92:                                               ; preds = %90
+  %93 = landingpad { ptr, i32 }
           catch ptr null
-  %95 = extractvalue { ptr, i32 } %94, 0
-  tail call void @__clang_call_terminate(ptr %95) #27
+  %94 = extractvalue { ptr, i32 } %93, 0
+  tail call void @__clang_call_terminate(ptr %94) #27
   unreachable
 
-96:                                               ; preds = %_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecEEvT_S4_.exit.i.i.i.i
+95:                                               ; preds = %_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecEEvT_S4_.exit.i.i.i.i
   unreachable
 
 _ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.loopexit: ; preds = %_ZSt10_ConstructIN11OpenImageIO6v3_1_09ImageSpecEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i
@@ -31777,62 +31777,62 @@ _ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S
   br label %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit
 
 _ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPKN11OpenImageIO6v3_1_09ImageSpecEmEvRT_T0_.exit
-  %97 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIPKN11OpenImageIO6v3_1_09ImageSpecEmEvRT_T0_.exit ]
-  %98 = sub nuw nsw i64 %9, %20
-  %99 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ImageSpec", ptr %97, i64 %98
-  store ptr %99, ptr %12, align 8, !tbaa !67
+  %96 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIPKN11OpenImageIO6v3_1_09ImageSpecEmEvRT_T0_.exit ]
+  %97 = sub nuw nsw i64 %9, %20
+  %98 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ImageSpec", ptr %96, i64 %97
+  store ptr %98, ptr %12, align 8, !tbaa !67
   %.not11.i.i.i.i.i58 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i58, label %_ZSt22__uninitialized_move_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit64, label %.lr.ph.i.i.i.i.i59
 
 .lr.ph.i.i.i.i.i59:                               ; preds = %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit, %.lr.ph.i.i.i.i.i59
-  %.013.i.i.i.i.i60 = phi ptr [ %130, %.lr.ph.i.i.i.i.i59 ], [ %99, %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit ]
-  %.sroa.08.012.i.i.i.i.i61 = phi ptr [ %129, %.lr.ph.i.i.i.i.i59 ], [ %1, %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit ]
+  %.013.i.i.i.i.i60 = phi ptr [ %129, %.lr.ph.i.i.i.i.i59 ], [ %98, %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit ]
+  %.sroa.08.012.i.i.i.i.i61 = phi ptr [ %128, %.lr.ph.i.i.i.i.i59 ], [ %1, %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.013.i.i.i.i.i60, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.08.012.i.i.i.i.i61, i64 72, i1 false)
-  %100 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 72
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 72
-  %102 = load ptr, ptr %101, align 8, !tbaa !224
-  store ptr %102, ptr %100, align 8, !tbaa !224
-  %103 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 80
-  %104 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 80
-  %105 = load ptr, ptr %104, align 8, !tbaa !223
-  store ptr %105, ptr %103, align 8, !tbaa !223
-  %106 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 88
-  %107 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 88
-  %108 = load ptr, ptr %107, align 8, !tbaa !225
-  store ptr %108, ptr %106, align 8, !tbaa !225
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, i8 0, i64 24, i1 false)
-  %109 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 96
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 96
-  %111 = load ptr, ptr %110, align 8, !tbaa !217
-  store ptr %111, ptr %109, align 8, !tbaa !217
-  %112 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 104
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 104
-  %114 = load ptr, ptr %113, align 8, !tbaa !216
-  store ptr %114, ptr %112, align 8, !tbaa !216
-  %115 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 112
-  %116 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 112
-  %117 = load ptr, ptr %116, align 8, !tbaa !228
-  store ptr %117, ptr %115, align 8, !tbaa !228
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %110, i8 0, i64 24, i1 false)
-  %118 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 120
-  %119 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 120
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %118, ptr noundef nonnull align 8 dereferenceable(9) %119, i64 9, i1 false)
-  %120 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 136
-  %121 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 136
-  %122 = load ptr, ptr %121, align 8, !tbaa !237
-  store ptr %122, ptr %120, align 8, !tbaa !237
-  %123 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 144
-  %124 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 144
-  %125 = load ptr, ptr %124, align 8, !tbaa !236
-  store ptr %125, ptr %123, align 8, !tbaa !236
-  %126 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 152
-  %127 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 152
-  %128 = load ptr, ptr %127, align 8, !tbaa !238
-  store ptr %128, ptr %126, align 8, !tbaa !238
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %121, i8 0, i64 24, i1 false)
-  %129 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 160
-  %130 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 160
-  %.not.i.i.i.i.i62 = icmp eq ptr %129, %13
+  %99 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 72
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 72
+  %101 = load ptr, ptr %100, align 8, !tbaa !224
+  store ptr %101, ptr %99, align 8, !tbaa !224
+  %102 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 80
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 80
+  %104 = load ptr, ptr %103, align 8, !tbaa !223
+  store ptr %104, ptr %102, align 8, !tbaa !223
+  %105 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 88
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 88
+  %107 = load ptr, ptr %106, align 8, !tbaa !225
+  store ptr %107, ptr %105, align 8, !tbaa !225
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, i8 0, i64 24, i1 false)
+  %108 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 96
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 96
+  %110 = load ptr, ptr %109, align 8, !tbaa !217
+  store ptr %110, ptr %108, align 8, !tbaa !217
+  %111 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 104
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 104
+  %113 = load ptr, ptr %112, align 8, !tbaa !216
+  store ptr %113, ptr %111, align 8, !tbaa !216
+  %114 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 112
+  %115 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 112
+  %116 = load ptr, ptr %115, align 8, !tbaa !228
+  store ptr %116, ptr %114, align 8, !tbaa !228
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, i8 0, i64 24, i1 false)
+  %117 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 120
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 120
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %117, ptr noundef nonnull align 8 dereferenceable(9) %118, i64 9, i1 false)
+  %119 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 136
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 136
+  %121 = load ptr, ptr %120, align 8, !tbaa !237
+  store ptr %121, ptr %119, align 8, !tbaa !237
+  %122 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 144
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 144
+  %124 = load ptr, ptr %123, align 8, !tbaa !236
+  store ptr %124, ptr %122, align 8, !tbaa !236
+  %125 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 152
+  %126 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 152
+  %127 = load ptr, ptr %126, align 8, !tbaa !238
+  store ptr %127, ptr %125, align 8, !tbaa !238
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, i8 0, i64 24, i1 false)
+  %128 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i61, i64 160
+  %129 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i60, i64 160
+  %.not.i.i.i.i.i62 = icmp eq ptr %128, %13
   br i1 %.not.i.i.i.i.i62, label %_ZSt22__uninitialized_move_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit64.loopexit, label %.lr.ph.i.i.i.i.i59, !llvm.loop !680
 
 _ZSt22__uninitialized_move_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit64.loopexit: ; preds = %.lr.ph.i.i.i.i.i59
@@ -31840,164 +31840,164 @@ _ZSt22__uninitialized_move_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6
   br label %_ZSt22__uninitialized_move_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit64
 
 _ZSt22__uninitialized_move_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit64: ; preds = %_ZSt22__uninitialized_move_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit64.loopexit, %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit
-  %131 = phi ptr [ %.pre115, %_ZSt22__uninitialized_move_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit64.loopexit ], [ %99, %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit ]
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 %19
-  store ptr %132, ptr %12, align 8, !tbaa !67
-  %133 = icmp sgt i64 %19, 0
-  br i1 %133, label %.lr.ph.preheader.i.i.i.i.i66, label %_ZSt4copyIPKN11OpenImageIO6v3_1_09ImageSpecEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit
+  %130 = phi ptr [ %.pre115, %_ZSt22__uninitialized_move_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit64.loopexit ], [ %98, %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit ]
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 %19
+  store ptr %131, ptr %12, align 8, !tbaa !67
+  %132 = icmp sgt i64 %19, 0
+  br i1 %132, label %.lr.ph.preheader.i.i.i.i.i66, label %_ZSt4copyIPKN11OpenImageIO6v3_1_09ImageSpecEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit
 
 .lr.ph.preheader.i.i.i.i.i66:                     ; preds = %_ZSt22__uninitialized_move_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit64
-  %134 = udiv exact i64 %19, 160
+  %133 = udiv exact i64 %19, 160
   br label %.lr.ph.i.i.i.i.i67
 
 .lr.ph.i.i.i.i.i67:                               ; preds = %.lr.ph.i.i.i.i.i67, %.lr.ph.preheader.i.i.i.i.i66
-  %.012.i.i.i.i.i68 = phi i64 [ %148, %.lr.ph.i.i.i.i.i67 ], [ %134, %.lr.ph.preheader.i.i.i.i.i66 ]
-  %.0811.i.i.i.i.i69 = phi ptr [ %147, %.lr.ph.i.i.i.i.i67 ], [ %1, %.lr.ph.preheader.i.i.i.i.i66 ]
-  %.0910.i.i.i.i.i70 = phi ptr [ %146, %.lr.ph.i.i.i.i.i67 ], [ %2, %.lr.ph.preheader.i.i.i.i.i66 ]
+  %.012.i.i.i.i.i68 = phi i64 [ %147, %.lr.ph.i.i.i.i.i67 ], [ %133, %.lr.ph.preheader.i.i.i.i.i66 ]
+  %.0811.i.i.i.i.i69 = phi ptr [ %146, %.lr.ph.i.i.i.i.i67 ], [ %1, %.lr.ph.preheader.i.i.i.i.i66 ]
+  %.0910.i.i.i.i.i70 = phi ptr [ %145, %.lr.ph.i.i.i.i.i67 ], [ %2, %.lr.ph.preheader.i.i.i.i.i66 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.0811.i.i.i.i.i69, ptr noundef nonnull align 8 dereferenceable(160) %.0910.i.i.i.i.i70, i64 72, i1 false)
-  %135 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i69, i64 72
-  %136 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i70, i64 72
-  %137 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN11OpenImageIO6v3_1_08TypeDescESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef nonnull align 8 dereferenceable(24) %136)
-  %138 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i69, i64 96
-  %139 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i70, i64 96
-  %140 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %138, ptr noundef nonnull align 8 dereferenceable(24) %139)
-  %141 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i69, i64 120
-  %142 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i70, i64 120
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %141, ptr noundef nonnull align 8 dereferenceable(9) %142, i64 9, i1 false)
-  %143 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i69, i64 136
-  %144 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i70, i64 136
-  %145 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %143, ptr noundef nonnull align 8 dereferenceable(24) %144)
-  %146 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i70, i64 160
-  %147 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i69, i64 160
-  %148 = add nsw i64 %.012.i.i.i.i.i68, -1
-  %149 = icmp samesign ugt i64 %.012.i.i.i.i.i68, 1
-  br i1 %149, label %.lr.ph.i.i.i.i.i67, label %_ZSt4copyIPKN11OpenImageIO6v3_1_09ImageSpecEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit, !llvm.loop !682
+  %134 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i69, i64 72
+  %135 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i70, i64 72
+  %136 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN11OpenImageIO6v3_1_08TypeDescESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %134, ptr noundef nonnull align 8 dereferenceable(24) %135)
+  %137 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i69, i64 96
+  %138 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i70, i64 96
+  %139 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %137, ptr noundef nonnull align 8 dereferenceable(24) %138)
+  %140 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i69, i64 120
+  %141 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i70, i64 120
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %140, ptr noundef nonnull align 8 dereferenceable(9) %141, i64 9, i1 false)
+  %142 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i69, i64 136
+  %143 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i70, i64 136
+  %144 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN11OpenImageIO6v3_1_010ParamValueESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %142, ptr noundef nonnull align 8 dereferenceable(24) %143)
+  %145 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i70, i64 160
+  %146 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i69, i64 160
+  %147 = add nsw i64 %.012.i.i.i.i.i68, -1
+  %148 = icmp samesign ugt i64 %.012.i.i.i.i.i68, 1
+  br i1 %148, label %.lr.ph.i.i.i.i.i67, label %_ZSt4copyIPKN11OpenImageIO6v3_1_09ImageSpecEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit, !llvm.loop !682
 
-150:                                              ; preds = %5
-  %151 = load ptr, ptr %0, align 8, !tbaa !66
-  %152 = ptrtoint ptr %151 to i64
-  %153 = sub i64 %15, %152
-  %154 = sdiv exact i64 %153, 160
-  %155 = sub nsw i64 57646075230342348, %154
-  %156 = icmp ult i64 %155, %9
-  br i1 %156, label %157, label %_ZNKSt6vectorIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE12_M_check_lenEmPKc.exit
+149:                                              ; preds = %5
+  %150 = load ptr, ptr %0, align 8, !tbaa !66
+  %151 = ptrtoint ptr %150 to i64
+  %152 = sub i64 %15, %151
+  %153 = sdiv exact i64 %152, 160
+  %154 = sub nsw i64 57646075230342348, %153
+  %155 = icmp ult i64 %154, %9
+  br i1 %155, label %156, label %_ZNKSt6vectorIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE12_M_check_lenEmPKc.exit
 
-157:                                              ; preds = %150
+156:                                              ; preds = %149
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.159) #30
   unreachable
 
-_ZNKSt6vectorIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %150
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %154, i64 %9)
-  %158 = add nsw i64 %.sroa.speculated.i, %154
-  %159 = icmp ult i64 %158, %154
-  %160 = tail call i64 @llvm.umin.i64(i64 %158, i64 57646075230342348)
-  %161 = select i1 %159, i64 57646075230342348, i64 %160
-  %.not.i = icmp eq i64 %161, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE11_M_allocateEm.exit, label %162
+_ZNKSt6vectorIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %149
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %153, i64 %9)
+  %157 = add nsw i64 %.sroa.speculated.i, %153
+  %158 = icmp ult i64 %157, %153
+  %159 = tail call i64 @llvm.umin.i64(i64 %157, i64 57646075230342348)
+  %160 = select i1 %158, i64 57646075230342348, i64 %159
+  %.not.i = icmp eq i64 %160, 0
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE11_M_allocateEm.exit, label %161
 
-162:                                              ; preds = %_ZNKSt6vectorIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE12_M_check_lenEmPKc.exit
-  %163 = mul nuw nsw i64 %161, 160
-  %164 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %163) #29
+161:                                              ; preds = %_ZNKSt6vectorIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE12_M_check_lenEmPKc.exit
+  %162 = mul nuw nsw i64 %160, 160
+  %163 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %162) #29
   br label %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE12_M_check_lenEmPKc.exit, %162
-  %165 = phi ptr [ %164, %162 ], [ null, %_ZNKSt6vectorIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %.not11.i.i.i.i.i72 = icmp eq ptr %151, %1
+_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE12_M_check_lenEmPKc.exit, %161
+  %164 = phi ptr [ %163, %161 ], [ null, %_ZNKSt6vectorIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %.not11.i.i.i.i.i72 = icmp eq ptr %150, %1
   br i1 %.not11.i.i.i.i.i72, label %_ZSt34__uninitialized_move_if_noexcept_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i.i.i.i73
 
 .lr.ph.i.i.i.i.i73:                               ; preds = %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE11_M_allocateEm.exit, %.lr.ph.i.i.i.i.i73
-  %.013.i.i.i.i.i74 = phi ptr [ %196, %.lr.ph.i.i.i.i.i73 ], [ %165, %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE11_M_allocateEm.exit ]
-  %.sroa.08.012.i.i.i.i.i75 = phi ptr [ %195, %.lr.ph.i.i.i.i.i73 ], [ %151, %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE11_M_allocateEm.exit ]
+  %.013.i.i.i.i.i74 = phi ptr [ %195, %.lr.ph.i.i.i.i.i73 ], [ %164, %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE11_M_allocateEm.exit ]
+  %.sroa.08.012.i.i.i.i.i75 = phi ptr [ %194, %.lr.ph.i.i.i.i.i73 ], [ %150, %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE11_M_allocateEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.013.i.i.i.i.i74, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.08.012.i.i.i.i.i75, i64 72, i1 false)
-  %166 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 72
-  %167 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 72
-  %168 = load ptr, ptr %167, align 8, !tbaa !224
-  store ptr %168, ptr %166, align 8, !tbaa !224
-  %169 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 80
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 80
-  %171 = load ptr, ptr %170, align 8, !tbaa !223
-  store ptr %171, ptr %169, align 8, !tbaa !223
-  %172 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 88
-  %173 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 88
-  %174 = load ptr, ptr %173, align 8, !tbaa !225
-  store ptr %174, ptr %172, align 8, !tbaa !225
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %167, i8 0, i64 24, i1 false)
-  %175 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 96
-  %176 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 96
-  %177 = load ptr, ptr %176, align 8, !tbaa !217
-  store ptr %177, ptr %175, align 8, !tbaa !217
-  %178 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 104
-  %179 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 104
-  %180 = load ptr, ptr %179, align 8, !tbaa !216
-  store ptr %180, ptr %178, align 8, !tbaa !216
-  %181 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 112
-  %182 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 112
-  %183 = load ptr, ptr %182, align 8, !tbaa !228
-  store ptr %183, ptr %181, align 8, !tbaa !228
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %176, i8 0, i64 24, i1 false)
-  %184 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 120
-  %185 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 120
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %184, ptr noundef nonnull align 8 dereferenceable(9) %185, i64 9, i1 false)
-  %186 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 136
-  %187 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 136
-  %188 = load ptr, ptr %187, align 8, !tbaa !237
-  store ptr %188, ptr %186, align 8, !tbaa !237
-  %189 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 144
-  %190 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 144
-  %191 = load ptr, ptr %190, align 8, !tbaa !236
-  store ptr %191, ptr %189, align 8, !tbaa !236
-  %192 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 152
-  %193 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 152
-  %194 = load ptr, ptr %193, align 8, !tbaa !238
-  store ptr %194, ptr %192, align 8, !tbaa !238
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %187, i8 0, i64 24, i1 false)
-  %195 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 160
-  %196 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 160
-  %.not.i.i.i.i.i76 = icmp eq ptr %195, %1
+  %165 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 72
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 72
+  %167 = load ptr, ptr %166, align 8, !tbaa !224
+  store ptr %167, ptr %165, align 8, !tbaa !224
+  %168 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 80
+  %169 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 80
+  %170 = load ptr, ptr %169, align 8, !tbaa !223
+  store ptr %170, ptr %168, align 8, !tbaa !223
+  %171 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 88
+  %172 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 88
+  %173 = load ptr, ptr %172, align 8, !tbaa !225
+  store ptr %173, ptr %171, align 8, !tbaa !225
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %166, i8 0, i64 24, i1 false)
+  %174 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 96
+  %175 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 96
+  %176 = load ptr, ptr %175, align 8, !tbaa !217
+  store ptr %176, ptr %174, align 8, !tbaa !217
+  %177 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 104
+  %178 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 104
+  %179 = load ptr, ptr %178, align 8, !tbaa !216
+  store ptr %179, ptr %177, align 8, !tbaa !216
+  %180 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 112
+  %181 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 112
+  %182 = load ptr, ptr %181, align 8, !tbaa !228
+  store ptr %182, ptr %180, align 8, !tbaa !228
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %175, i8 0, i64 24, i1 false)
+  %183 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 120
+  %184 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 120
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %183, ptr noundef nonnull align 8 dereferenceable(9) %184, i64 9, i1 false)
+  %185 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 136
+  %186 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 136
+  %187 = load ptr, ptr %186, align 8, !tbaa !237
+  store ptr %187, ptr %185, align 8, !tbaa !237
+  %188 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 144
+  %189 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 144
+  %190 = load ptr, ptr %189, align 8, !tbaa !236
+  store ptr %190, ptr %188, align 8, !tbaa !236
+  %191 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 152
+  %192 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 152
+  %193 = load ptr, ptr %192, align 8, !tbaa !238
+  store ptr %193, ptr %191, align 8, !tbaa !238
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %186, i8 0, i64 24, i1 false)
+  %194 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i75, i64 160
+  %195 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i74, i64 160
+  %.not.i.i.i.i.i76 = icmp eq ptr %194, %1
   br i1 %.not.i.i.i.i.i76, label %_ZSt34__uninitialized_move_if_noexcept_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i.i.i.i73, !llvm.loop !680
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i73, %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE11_M_allocateEm.exit
-  %.0.lcssa.i.i.i.i.i77 = phi ptr [ %165, %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE11_M_allocateEm.exit ], [ %196, %.lr.ph.i.i.i.i.i73 ]
+  %.0.lcssa.i.i.i.i.i77 = phi ptr [ %164, %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE11_M_allocateEm.exit ], [ %195, %.lr.ph.i.i.i.i.i73 ]
   br label %.lr.ph.i.i.i.i79
 
 .lr.ph.i.i.i.i79:                                 ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit, %_ZSt10_ConstructIN11OpenImageIO6v3_1_09ImageSpecEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i83
-  %.016.i.i.i.i80 = phi ptr [ %198, %_ZSt10_ConstructIN11OpenImageIO6v3_1_09ImageSpecEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i83 ], [ %.0.lcssa.i.i.i.i.i77, %_ZSt34__uninitialized_move_if_noexcept_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
-  %.01215.i.i.i.i81 = phi ptr [ %197, %_ZSt10_ConstructIN11OpenImageIO6v3_1_09ImageSpecEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i83 ], [ %2, %_ZSt34__uninitialized_move_if_noexcept_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
+  %.016.i.i.i.i80 = phi ptr [ %197, %_ZSt10_ConstructIN11OpenImageIO6v3_1_09ImageSpecEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i83 ], [ %.0.lcssa.i.i.i.i.i77, %_ZSt34__uninitialized_move_if_noexcept_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
+  %.01215.i.i.i.i81 = phi ptr [ %196, %_ZSt10_ConstructIN11OpenImageIO6v3_1_09ImageSpecEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i83 ], [ %2, %_ZSt34__uninitialized_move_if_noexcept_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
   invoke void @_ZN11OpenImageIO6v3_1_09ImageSpecC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(160) %.016.i.i.i.i80, ptr noundef nonnull align 8 dereferenceable(160) %.01215.i.i.i.i81)
-          to label %_ZSt10_ConstructIN11OpenImageIO6v3_1_09ImageSpecEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i83 unwind label %199
+          to label %_ZSt10_ConstructIN11OpenImageIO6v3_1_09ImageSpecEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i83 unwind label %198
 
 _ZSt10_ConstructIN11OpenImageIO6v3_1_09ImageSpecEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i83: ; preds = %.lr.ph.i.i.i.i79
-  %197 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i81, i64 160
-  %198 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i80, i64 160
-  %.not.i.i.i.i84 = icmp eq ptr %197, %3
+  %196 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i81, i64 160
+  %197 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i80, i64 160
+  %.not.i.i.i.i84 = icmp eq ptr %196, %3
   br i1 %.not.i.i.i.i84, label %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit86, label %.lr.ph.i.i.i.i79, !llvm.loop !683
 
-199:                                              ; preds = %.lr.ph.i.i.i.i79
-  %200 = landingpad { ptr, i32 }
+198:                                              ; preds = %.lr.ph.i.i.i.i79
+  %199 = landingpad { ptr, i32 }
           catch ptr null
-  %201 = extractvalue { ptr, i32 } %200, 0
-  %202 = tail call ptr @__cxa_begin_catch(ptr %201) #25
+  %200 = extractvalue { ptr, i32 } %199, 0
+  %201 = tail call ptr @__cxa_begin_catch(ptr %200) #25
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_09ImageSpecEEEvT_S6_(ptr noundef %.0.lcssa.i.i.i.i.i77, ptr noundef nonnull %.016.i.i.i.i80)
-          to label %_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecEEvT_S4_.exit.i.i.i.i82 unwind label %203
+          to label %_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecEEvT_S4_.exit.i.i.i.i82 unwind label %202
 
-_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecEEvT_S4_.exit.i.i.i.i82: ; preds = %199
+_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecEEvT_S4_.exit.i.i.i.i82: ; preds = %198
   invoke void @__cxa_rethrow() #30
-          to label %208 unwind label %203
+          to label %207 unwind label %202
 
-203:                                              ; preds = %_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecEEvT_S4_.exit.i.i.i.i82, %199
-  %204 = landingpad { ptr, i32 }
+202:                                              ; preds = %_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecEEvT_S4_.exit.i.i.i.i82, %198
+  %203 = landingpad { ptr, i32 }
           catch ptr null
   invoke void @__cxa_end_catch()
-          to label %.body unwind label %205
+          to label %.body unwind label %204
 
-205:                                              ; preds = %203
-  %206 = landingpad { ptr, i32 }
+204:                                              ; preds = %202
+  %205 = landingpad { ptr, i32 }
           catch ptr null
-  %207 = extractvalue { ptr, i32 } %206, 0
-  tail call void @__clang_call_terminate(ptr %207) #27
+  %206 = extractvalue { ptr, i32 } %205, 0
+  tail call void @__clang_call_terminate(ptr %206) #27
   unreachable
 
-208:                                              ; preds = %_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecEEvT_S4_.exit.i.i.i.i82
+207:                                              ; preds = %_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecEEvT_S4_.exit.i.i.i.i82
   unreachable
 
 _ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit86: ; preds = %_ZSt10_ConstructIN11OpenImageIO6v3_1_09ImageSpecEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i83
@@ -32005,112 +32005,112 @@ _ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S
   br i1 %.not11.i.i.i.i.i87, label %_ZSt34__uninitialized_move_if_noexcept_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit93, label %.lr.ph.i.i.i.i.i88
 
 .lr.ph.i.i.i.i.i88:                               ; preds = %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit86, %.lr.ph.i.i.i.i.i88
-  %.013.i.i.i.i.i89 = phi ptr [ %239, %.lr.ph.i.i.i.i.i88 ], [ %198, %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit86 ]
-  %.sroa.08.012.i.i.i.i.i90 = phi ptr [ %238, %.lr.ph.i.i.i.i.i88 ], [ %1, %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit86 ]
+  %.013.i.i.i.i.i89 = phi ptr [ %238, %.lr.ph.i.i.i.i.i88 ], [ %197, %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit86 ]
+  %.sroa.08.012.i.i.i.i.i90 = phi ptr [ %237, %.lr.ph.i.i.i.i.i88 ], [ %1, %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit86 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.013.i.i.i.i.i89, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.08.012.i.i.i.i.i90, i64 72, i1 false)
-  %209 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 72
-  %210 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 72
-  %211 = load ptr, ptr %210, align 8, !tbaa !224
-  store ptr %211, ptr %209, align 8, !tbaa !224
-  %212 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 80
-  %213 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 80
-  %214 = load ptr, ptr %213, align 8, !tbaa !223
-  store ptr %214, ptr %212, align 8, !tbaa !223
-  %215 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 88
-  %216 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 88
-  %217 = load ptr, ptr %216, align 8, !tbaa !225
-  store ptr %217, ptr %215, align 8, !tbaa !225
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %210, i8 0, i64 24, i1 false)
-  %218 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 96
-  %219 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 96
-  %220 = load ptr, ptr %219, align 8, !tbaa !217
-  store ptr %220, ptr %218, align 8, !tbaa !217
-  %221 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 104
-  %222 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 104
-  %223 = load ptr, ptr %222, align 8, !tbaa !216
-  store ptr %223, ptr %221, align 8, !tbaa !216
-  %224 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 112
-  %225 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 112
-  %226 = load ptr, ptr %225, align 8, !tbaa !228
-  store ptr %226, ptr %224, align 8, !tbaa !228
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %219, i8 0, i64 24, i1 false)
-  %227 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 120
-  %228 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 120
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %227, ptr noundef nonnull align 8 dereferenceable(9) %228, i64 9, i1 false)
-  %229 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 136
-  %230 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 136
-  %231 = load ptr, ptr %230, align 8, !tbaa !237
-  store ptr %231, ptr %229, align 8, !tbaa !237
-  %232 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 144
-  %233 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 144
-  %234 = load ptr, ptr %233, align 8, !tbaa !236
-  store ptr %234, ptr %232, align 8, !tbaa !236
-  %235 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 152
-  %236 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 152
-  %237 = load ptr, ptr %236, align 8, !tbaa !238
-  store ptr %237, ptr %235, align 8, !tbaa !238
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %230, i8 0, i64 24, i1 false)
-  %238 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 160
-  %239 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 160
-  %.not.i.i.i.i.i91 = icmp eq ptr %238, %13
+  %208 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 72
+  %209 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 72
+  %210 = load ptr, ptr %209, align 8, !tbaa !224
+  store ptr %210, ptr %208, align 8, !tbaa !224
+  %211 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 80
+  %212 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 80
+  %213 = load ptr, ptr %212, align 8, !tbaa !223
+  store ptr %213, ptr %211, align 8, !tbaa !223
+  %214 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 88
+  %215 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 88
+  %216 = load ptr, ptr %215, align 8, !tbaa !225
+  store ptr %216, ptr %214, align 8, !tbaa !225
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %209, i8 0, i64 24, i1 false)
+  %217 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 96
+  %218 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 96
+  %219 = load ptr, ptr %218, align 8, !tbaa !217
+  store ptr %219, ptr %217, align 8, !tbaa !217
+  %220 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 104
+  %221 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 104
+  %222 = load ptr, ptr %221, align 8, !tbaa !216
+  store ptr %222, ptr %220, align 8, !tbaa !216
+  %223 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 112
+  %224 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 112
+  %225 = load ptr, ptr %224, align 8, !tbaa !228
+  store ptr %225, ptr %223, align 8, !tbaa !228
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %218, i8 0, i64 24, i1 false)
+  %226 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 120
+  %227 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 120
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %226, ptr noundef nonnull align 8 dereferenceable(9) %227, i64 9, i1 false)
+  %228 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 136
+  %229 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 136
+  %230 = load ptr, ptr %229, align 8, !tbaa !237
+  store ptr %230, ptr %228, align 8, !tbaa !237
+  %231 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 144
+  %232 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 144
+  %233 = load ptr, ptr %232, align 8, !tbaa !236
+  store ptr %233, ptr %231, align 8, !tbaa !236
+  %234 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 152
+  %235 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 152
+  %236 = load ptr, ptr %235, align 8, !tbaa !238
+  store ptr %236, ptr %234, align 8, !tbaa !238
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %229, i8 0, i64 24, i1 false)
+  %237 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i90, i64 160
+  %238 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i89, i64 160
+  %.not.i.i.i.i.i91 = icmp eq ptr %237, %13
   br i1 %.not.i.i.i.i.i91, label %_ZSt34__uninitialized_move_if_noexcept_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit93, label %.lr.ph.i.i.i.i.i88, !llvm.loop !680
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit93: ; preds = %.lr.ph.i.i.i.i.i88, %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit86
-  %.0.lcssa.i.i.i.i.i92 = phi ptr [ %198, %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit86 ], [ %239, %.lr.ph.i.i.i.i.i88 ]
-  tail call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_09ImageSpecEEEvT_S6_(ptr noundef %151, ptr noundef %13)
-  %.not.i94 = icmp eq ptr %151, null
-  br i1 %.not.i94, label %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE13_M_deallocateEPS2_m.exit, label %240
+  %.0.lcssa.i.i.i.i.i92 = phi ptr [ %197, %_ZSt22__uninitialized_copy_aIPKN11OpenImageIO6v3_1_09ImageSpecEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit86 ], [ %238, %.lr.ph.i.i.i.i.i88 ]
+  tail call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_09ImageSpecEEEvT_S6_(ptr noundef %150, ptr noundef %13)
+  %.not.i94 = icmp eq ptr %150, null
+  br i1 %.not.i94, label %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE13_M_deallocateEPS2_m.exit, label %239
 
-240:                                              ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit93
-  %241 = load ptr, ptr %10, align 8, !tbaa !70
-  %242 = ptrtoint ptr %241 to i64
-  %243 = sub i64 %242, %152
-  tail call void @_ZdlPvm(ptr noundef nonnull %151, i64 noundef %243) #26
+239:                                              ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit93
+  %240 = load ptr, ptr %10, align 8, !tbaa !70
+  %241 = ptrtoint ptr %240 to i64
+  %242 = sub i64 %241, %151
+  tail call void @_ZdlPvm(ptr noundef nonnull %150, i64 noundef %242) #26
   br label %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit93, %240
-  store ptr %165, ptr %0, align 8, !tbaa !66
+_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit93, %239
+  store ptr %164, ptr %0, align 8, !tbaa !66
   store ptr %.0.lcssa.i.i.i.i.i92, ptr %12, align 8, !tbaa !67
-  %244 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ImageSpec", ptr %165, i64 %161
-  store ptr %244, ptr %10, align 8, !tbaa !70
+  %243 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ImageSpec", ptr %164, i64 %160
+  store ptr %243, ptr %10, align 8, !tbaa !70
   br label %_ZSt4copyIPKN11OpenImageIO6v3_1_09ImageSpecEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit
 
-.body:                                            ; preds = %203
-  %245 = extractvalue { ptr, i32 } %204, 0
-  %246 = tail call ptr @__cxa_begin_catch(ptr %245) #25
-  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_09ImageSpecEEEvT_S6_(ptr noundef %165, ptr noundef %.0.lcssa.i.i.i.i.i77)
-          to label %_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecES2_EvT_S4_RSaIT0_E.exit unwind label %249
+.body:                                            ; preds = %202
+  %244 = extractvalue { ptr, i32 } %203, 0
+  %245 = tail call ptr @__cxa_begin_catch(ptr %244) #25
+  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN11OpenImageIO6v3_1_09ImageSpecEEEvT_S6_(ptr noundef %164, ptr noundef %.0.lcssa.i.i.i.i.i77)
+          to label %_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecES2_EvT_S4_RSaIT0_E.exit unwind label %248
 
 _ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecES2_EvT_S4_RSaIT0_E.exit: ; preds = %.body
-  %.not.i95 = icmp eq ptr %165, null
-  br i1 %.not.i95, label %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE13_M_deallocateEPS2_m.exit96, label %247
+  %.not.i95 = icmp eq ptr %164, null
+  br i1 %.not.i95, label %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE13_M_deallocateEPS2_m.exit96, label %246
 
-247:                                              ; preds = %_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecES2_EvT_S4_RSaIT0_E.exit
-  %248 = mul nuw nsw i64 %161, 160
-  tail call void @_ZdlPvm(ptr noundef nonnull %165, i64 noundef %248) #26
+246:                                              ; preds = %_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecES2_EvT_S4_RSaIT0_E.exit
+  %247 = mul nuw nsw i64 %160, 160
+  tail call void @_ZdlPvm(ptr noundef nonnull %164, i64 noundef %247) #26
   br label %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE13_M_deallocateEPS2_m.exit96
 
-_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE13_M_deallocateEPS2_m.exit96: ; preds = %247, %_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecES2_EvT_S4_RSaIT0_E.exit
+_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE13_M_deallocateEPS2_m.exit96: ; preds = %246, %_ZSt8_DestroyIPN11OpenImageIO6v3_1_09ImageSpecES2_EvT_S4_RSaIT0_E.exit
   invoke void @__cxa_rethrow() #30
-          to label %254 unwind label %249
+          to label %253 unwind label %248
 
-249:                                              ; preds = %.body, %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE13_M_deallocateEPS2_m.exit96
-  %250 = landingpad { ptr, i32 }
+248:                                              ; preds = %.body, %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE13_M_deallocateEPS2_m.exit96
+  %249 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %251
+          to label %common.resume unwind label %250
 
 _ZSt4copyIPKN11OpenImageIO6v3_1_09ImageSpecEN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEEET0_T_SD_SC_.exit: ; preds = %.lr.ph.i.i.i.i.i67, %.lr.ph.i.i.i.i.i57, %_ZSt22__uninitialized_move_aIPN11OpenImageIO6v3_1_09ImageSpecES3_SaIS2_EET0_T_S6_S5_RT1_.exit64, %_ZSt13move_backwardIPN11OpenImageIO6v3_1_09ImageSpecES3_ET0_T_S5_S4_.exit, %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE13_M_deallocateEPS2_m.exit, %4
   ret void
 
-251:                                              ; preds = %249
-  %252 = landingpad { ptr, i32 }
+250:                                              ; preds = %248
+  %251 = landingpad { ptr, i32 }
           catch ptr null
-  %253 = extractvalue { ptr, i32 } %252, 0
-  tail call void @__clang_call_terminate(ptr %253) #27
+  %252 = extractvalue { ptr, i32 } %251, 0
+  tail call void @__clang_call_terminate(ptr %252) #27
   unreachable
 
-254:                                              ; preds = %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE13_M_deallocateEPS2_m.exit96
+253:                                              ; preds = %_ZNSt12_Vector_baseIN11OpenImageIO6v3_1_09ImageSpecESaIS2_EE13_M_deallocateEPS2_m.exit96
   unreachable
 }
 

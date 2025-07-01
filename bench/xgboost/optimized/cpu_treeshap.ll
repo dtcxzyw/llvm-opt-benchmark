@@ -1034,58 +1034,60 @@ _ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ;
 .noexc16:                                         ; preds = %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %28 = shl nuw nsw i64 %26, 4
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #31
-  %30 = getelementptr %"struct.xgboost::PathElement", ptr %29, i64 %26
+  %30 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %29, i64 %26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  %31 = and i32 %24, -2
-  %32 = icmp eq i32 %31, 2
-  br i1 %32, label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.preheader
+  %31 = add nsw i64 %26, -1
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit, label %33
 
-.lr.ph.i.i.i.i.i.i.i.i.i.preheader:               ; preds = %.noexc16
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 16
+33:                                               ; preds = %.noexc16
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %31, 4
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i.i
-  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %33, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %33
+  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %34, %33 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.06.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !68
-  %34 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %34, %30
+  %36 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %36, %35
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !69
 
 _ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc16, %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %.sroa.10.0 = phi ptr [ %30, %.noexc16 ], [ null, %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %30, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %.sroa.019.0 = phi ptr [ %29, %.noexc16 ], [ null, %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %29, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   invoke void @_ZN7xgboost8TreeShapERKNS_7RegTreeERKNS0_4FVecEPfijPNS_11PathElementEffiijf(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef %.sroa.019.0, float noundef 1.000000e+00, float noundef 1.000000e+00, i32 noundef -1, i32 noundef %4, i32 noundef %5, float noundef 1.000000e+00)
-          to label %35 unwind label %40
+          to label %37 unwind label %42
 
-35:                                               ; preds = %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit
+37:                                               ; preds = %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit
   %.not.i.i.i = icmp eq ptr %.sroa.019.0, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit, label %36
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit, label %38
 
-36:                                               ; preds = %35
-  %37 = ptrtoint ptr %.sroa.10.0 to i64
-  %38 = ptrtoint ptr %.sroa.019.0 to i64
-  %39 = sub i64 %37, %38
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.019.0, i64 noundef %39) #28
+38:                                               ; preds = %37
+  %39 = ptrtoint ptr %.sroa.10.0 to i64
+  %40 = ptrtoint ptr %.sroa.019.0 to i64
+  %41 = sub i64 %39, %40
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.019.0, i64 noundef %41) #28
   br label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit: ; preds = %35, %36
+_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit: ; preds = %37, %38
   ret void
 
-40:                                               ; preds = %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit
-  %41 = landingpad { ptr, i32 }
+42:                                               ; preds = %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit
+  %43 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i17 = icmp eq ptr %.sroa.019.0, null
-  br i1 %.not.i.i.i17, label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit18, label %42
+  br i1 %.not.i.i.i17, label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit18, label %44
 
-42:                                               ; preds = %40
-  %43 = ptrtoint ptr %.sroa.10.0 to i64
-  %44 = ptrtoint ptr %.sroa.019.0 to i64
-  %45 = sub i64 %43, %44
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.019.0, i64 noundef %45) #28
+44:                                               ; preds = %42
+  %45 = ptrtoint ptr %.sroa.10.0 to i64
+  %46 = ptrtoint ptr %.sroa.019.0 to i64
+  %47 = sub i64 %45, %46
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.019.0, i64 noundef %47) #28
   br label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit18
 
-_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit18: ; preds = %42, %40
-  resume { ptr, i32 } %41
+_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit18: ; preds = %44, %42
+  resume { ptr, i32 } %43
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1369,7 +1371,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !47
   %12 = icmp eq i64 %2, 1
   br i1 %12, label %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit, label %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i

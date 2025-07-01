@@ -51,7 +51,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.13 = type { %struct.anon.14 }
 %struct.anon.14 = type { ptr, i32, i32 }
 %struct.zend_type = type { ptr, i32 }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"rrzb\00", align 1
 @executor_globals = external local_unnamed_addr global %struct._zend_executor_globals, align 8
@@ -1184,7 +1183,8 @@ define hidden void @zif_stream_get_filters(ptr noundef readonly captures(none) %
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %18 = load i32, ptr %17, align 8, !tbaa !101
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct._Bucket, ptr %16, i64 %19
+  %.idx = shl nuw nsw i64 %19, 5
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   %.not2527 = icmp eq i32 %18, 0
   br i1 %.not2527, label %.loopexit, label %.lr.ph
 

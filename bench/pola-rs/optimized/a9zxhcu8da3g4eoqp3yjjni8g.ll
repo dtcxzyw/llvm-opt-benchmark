@@ -1748,7 +1748,8 @@ define hidden void @_ZN12polars_arrow2io3ipc4read4file22read_file_dictionaries17
   %30 = load ptr, ptr %29, align 8, !nonnull !3, !noundef !3
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %32 = load i64, ptr %31, align 8, !noundef !3
-  %33 = getelementptr inbounds nuw { i64, i64, i32, [1 x i32] }, ptr %30, i64 %32
+  %.idx = mul nuw nsw i64 %32, 24
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx
   %34 = icmp eq i64 %32, 0
   br i1 %34, label %._crit_edge, label %.lr.ph
 
@@ -16785,7 +16786,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hf64d039a426c497eE.exit: ; preds =
   %114 = mul i64 %.sroa.0.0.sroa.speculated.i.i, 56
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %114, i1 false), !alias.scope !2598
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !2598
-  %115 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, i32, [1 x i32] }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 %114
   store ptr %2, ptr %7, align 8, !noalias !2598
   store ptr %115, ptr %21, align 8, !noalias !2598
   br i1 %.not.i33, label %116, label %.lr.ph.i.preheader.i
@@ -17166,7 +17167,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h267f7ead5ce293cdE.exit: ; preds =
   %113 = shl i64 %.sroa.0.0.sroa.speculated.i.i, 5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16.i, i64 %113, i1 false), !alias.scope !2620
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !2620
-  %114 = getelementptr inbounds nuw { i32, [1 x i32], { { { i64, ptr, {} }, {} }, i64 } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i.i
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 %113
   store ptr %2, ptr %7, align 8, !noalias !2620
   store ptr %114, ptr %21, align 8, !noalias !2620
   br i1 %.not.i33, label %115, label %.lr.ph.i.preheader.i
@@ -28309,7 +28310,8 @@ define hidden void @_ZN11polars_pipe9executors5sinks8group_by7generic4eval4Eval2
   %24 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %26 = load i64, ptr %25, align 8, !noundef !3
-  %27 = getelementptr inbounds nuw { { { ptr, ptr } }, {}, {} }, ptr %24, i64 %26
+  %.idx = shl nuw nsw i64 %26, 4
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx
   %28 = icmp eq i64 %26, 0
   br i1 %28, label %._crit_edge, label %.lr.ph
 
@@ -28384,7 +28386,8 @@ define hidden void @_ZN11polars_pipe9executors5sinks8group_by7generic4eval4Eval2
   %69 = load ptr, ptr %68, align 8, !nonnull !3, !noundef !3
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %71 = load i64, ptr %70, align 8, !noundef !3
-  %72 = getelementptr inbounds nuw { { { ptr, ptr } }, {}, {} }, ptr %69, i64 %71
+  %.idx111 = shl nuw nsw i64 %71, 4
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx111
   %73 = icmp eq i64 %71, 0
   br i1 %73, label %._crit_edge110, label %.lr.ph109
 
@@ -28631,9 +28634,9 @@ _ZN4core4iter6traits8iterator8Iterator3zip17hf8cc65aff4d7eeabE.exit: ; preds = %
   unreachable
 
 174:                                              ; preds = %162, %169
-  %storemerge127 = phi ptr [ %170, %169 ], [ %163, %162 ]
+  %storemerge128 = phi ptr [ %170, %169 ], [ %163, %162 ]
   %storemerge = phi ptr [ %172, %169 ], [ %164, %162 ]
-  store ptr %storemerge127, ptr %11, align 8
+  store ptr %storemerge128, ptr %11, align 8
   store ptr %storemerge, ptr %78, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
@@ -28976,7 +28979,8 @@ define void @_ZN11polars_pipe9executors5sinks5joins10row_values9RowValues10get_v
   %52 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %53 = load ptr, ptr %52, align 8, !nonnull !3, !noundef !3
   %54 = load i64, ptr %34, align 8, !noundef !3
-  %55 = getelementptr inbounds nuw { { { ptr, ptr } }, {}, {} }, ptr %53, i64 %54
+  %.idx = shl nuw nsw i64 %54, 4
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
   %56 = icmp eq i64 %54, 0
   br i1 %56, label %._crit_edge, label %.lr.ph
 
@@ -29646,7 +29650,8 @@ define void @"_ZN118_$LT$polars_pipe..executors..sources..reproject..ReProjectSo
   %18 = load ptr, ptr %.sroa.311.0..sroa_idx, align 8, !nonnull !3, !noundef !3
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !3
-  %21 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, i32, [1 x i32] }, ptr %18, i64 %20
+  %.idx = mul nuw nsw i64 %20, 56
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %22 = icmp eq i64 %20, 0
   br i1 %22, label %._crit_edge, label %.lr.ph
 

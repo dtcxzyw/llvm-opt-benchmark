@@ -7735,7 +7735,8 @@ define noundef i64 @_ZN21uv_distribution_types24prioritized_distribution15implie
   %27 = tail call { ptr, i64 } @_ZN24uv_distribution_filename5wheel13WheelFilename13platform_tags17h2032630f9b3e8c0bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
   %28 = extractvalue { ptr, i64 } %27, 0
   %29 = extractvalue { ptr, i64 } %27, 1
-  %30 = getelementptr inbounds { i8, [15 x i8] }, ptr %28, i64 %29
+  %.idx = shl nsw i64 %29, 4
+  %30 = getelementptr inbounds i8, ptr %28, i64 %.idx
   %31 = icmp ne ptr %28, null
   tail call void @llvm.assume(i1 %31)
   %32 = icmp eq i64 %29, 0

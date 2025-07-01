@@ -44,7 +44,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_file_context = type { %struct._zend_declarables, ptr, i8, i8, ptr, ptr, ptr, %struct._zend_array }
 %struct._zend_declarables = type { i64 }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @.str = private unnamed_addr constant [6 x i8] c"break\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"show breakpoints\00", align 1
@@ -192,7 +191,8 @@ define hidden noundef i32 @phpdbg_do_info_files(ptr readnone captures(none) %0) 
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 376), align 8, !tbaa !41
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 384), align 8, !tbaa !42
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct._Bucket, ptr %17, i64 %19
+  %.idx = shl nuw nsw i64 %19, 5
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 368), align 8, !tbaa !41
   %22 = and i32 %21, 4
   %.not = icmp eq i32 %22, 0
@@ -256,7 +256,8 @@ define hidden noundef i32 @phpdbg_do_info_classes(ptr readnone captures(none) %0
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !42
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %struct._Bucket, ptr %11, i64 %14
+  %.idx = shl nuw nsw i64 %14, 5
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !41
   %18 = and i32 %17, 4
@@ -320,7 +321,8 @@ zend_hash_next_index_insert_ptr.exit:             ; preds = %24
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %46 = load i32, ptr %45, align 8, !tbaa !42
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %struct._zval_struct, ptr %44, i64 %47
+  %.idx57 = shl nuw nsw i64 %47, 4
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx57
   %49 = and i32 %39, 4
   %50 = icmp ne i32 %49, 0
   call void @llvm.assume(i1 %50)
@@ -486,7 +488,8 @@ define hidden noundef i32 @phpdbg_do_info_funcs(ptr readnone captures(none) %0) 
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !42
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %struct._Bucket, ptr %11, i64 %14
+  %.idx = shl nuw nsw i64 %14, 5
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !41
   %18 = and i32 %17, 4
@@ -550,7 +553,8 @@ zend_hash_next_index_insert_ptr.exit:             ; preds = %24
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %46 = load i32, ptr %45, align 8, !tbaa !42
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %struct._zval_struct, ptr %44, i64 %47
+  %.idx43 = shl nuw nsw i64 %47, 4
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx43
   %49 = and i32 %39, 4
   %50 = icmp ne i32 %49, 0
   call void @llvm.assume(i1 %50)
@@ -673,7 +677,8 @@ define hidden noundef i32 @phpdbg_do_info_constants(ptr readnone captures(none) 
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !42
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct._Bucket, ptr %14, i64 %17
+  %.idx = shl nuw nsw i64 %17, 5
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !41
   %21 = and i32 %20, 4
@@ -744,7 +749,8 @@ define hidden noundef i32 @phpdbg_do_info_constants(ptr readnone captures(none) 
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %53 = load i32, ptr %52, align 8, !tbaa !42
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %struct._Bucket, ptr %51, i64 %54
+  %.idx98 = shl nuw nsw i64 %54, 5
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx98
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %57 = load i32, ptr %56, align 8, !tbaa !41
   %58 = and i32 %57, 4
@@ -1265,7 +1271,8 @@ define internal fastcc void @phpdbg_print_symbols(i1 noundef zeroext %0) unnamed
   %30 = getelementptr inbounds nuw i8, ptr %.0140, i64 24
   %31 = load i32, ptr %30, align 8, !tbaa !42
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %struct._Bucket, ptr %29, i64 %32
+  %.idx = shl nuw nsw i64 %32, 5
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx
   %34 = getelementptr inbounds nuw i8, ptr %.0140, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !41
   %36 = and i32 %35, 4
@@ -1381,7 +1388,8 @@ define internal fastcc void @phpdbg_print_symbols(i1 noundef zeroext %0) unnamed
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %101 = load i32, ptr %100, align 8, !tbaa !42
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %struct._Bucket, ptr %99, i64 %102
+  %.idx215 = shl nuw nsw i64 %102, 5
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx215
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %105 = load i32, ptr %104, align 8, !tbaa !41
   %106 = and i32 %105, 4

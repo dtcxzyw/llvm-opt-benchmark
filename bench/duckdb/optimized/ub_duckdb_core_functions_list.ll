@@ -58212,7 +58212,8 @@ define linkonce_odr void @_ZNKSt14default_deleteIA_N6duckdb19UnifiedVectorFormat
   br i1 %7, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %4
-  %8 = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %1, i64 %6
+  %.idx = mul nsw i64 %6, 72
+  %8 = getelementptr inbounds i8, ptr %1, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN6duckdb19UnifiedVectorFormatD2Ev.exit

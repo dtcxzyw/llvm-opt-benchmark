@@ -5261,7 +5261,8 @@ _ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.exit.i.i: ; preds = %440, %.no
   %454 = load ptr, ptr %453, align 8, !nonnull !3, !noundef !3
   %455 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %456 = load i64, ptr %455, align 8, !noundef !3
-  %457 = getelementptr inbounds { { i64, [11 x i64] }, { i64, [5 x i64] } }, ptr %454, i64 %456
+  %.idx = mul nsw i64 %456, 144
+  %457 = getelementptr inbounds i8, ptr %454, i64 %.idx
   %458 = icmp eq i64 %456, 0
   br i1 %458, label %._crit_edge, label %.lr.ph
 
@@ -5883,7 +5884,8 @@ _ZN18reqwest_middleware6client13ClientBuilder4with17h7b6809a6ff3e367dE.exit: ; p
   %111 = load ptr, ptr %110, align 8, !nonnull !3, !noundef !3
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %113 = load i64, ptr %112, align 8, !noundef !3
-  %114 = getelementptr inbounds { { { ptr, ptr } }, {}, {} }, ptr %111, i64 %113
+  %.idx = shl nsw i64 %113, 4
+  %114 = getelementptr inbounds i8, ptr %111, i64 %.idx
   %115 = icmp eq i64 %113, 0
   br i1 %115, label %.loopexit, label %.lr.ph
 

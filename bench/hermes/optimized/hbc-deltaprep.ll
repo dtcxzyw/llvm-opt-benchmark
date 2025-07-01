@@ -67,7 +67,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::raw_ostream.base" = type <{ ptr, ptr, ptr, ptr, i32 }>
 %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo" = type { %"class.llvh::cl::generic_parser_base::GenericOptionInfo", %"struct.llvh::cl::OptionValue" }
 %"class.llvh::cl::generic_parser_base::GenericOptionInfo" = type { %"class.llvh::StringRef", %"class.llvh::StringRef" }
-%"struct.llvh::cl::OptionEnumValue" = type { %"class.llvh::StringRef", i32, %"class.llvh::StringRef" }
 %"class.llvh::cl::ValuesClass" = type { %"class.llvh::SmallVector.0" }
 %"class.llvh::SmallVector.0" = type { %"class.llvh::SmallVectorImpl.1", %"struct.llvh::SmallVectorStorage.4" }
 %"class.llvh::SmallVectorImpl.1" = type { %"class.llvh::SmallVectorTemplateBase.2" }
@@ -1135,7 +1134,8 @@ entry:
   %Size.i.i.i.i = getelementptr inbounds nuw i8, ptr %Ms, i64 8
   %1 = load i32, ptr %Size.i.i.i.i, align 8
   %conv.i.i.i.i = zext i32 %1 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::cl::OptionEnumValue", ptr %0, i64 %conv.i.i.i.i
+  %add.ptr.i.idx.i.i.i = mul nuw nsw i64 %conv.i.i.i.i, 40
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.i.idx.i.i.i
   %cmp.not5.i.i.i = icmp eq i32 %1, 0
   br i1 %cmp.not5.i.i.i, label %_ZN4llvh2cl5applyINS0_3optIN6hermes3hbc12BytecodeFormELb0ENS0_6parserIS5_EEEENS0_11ValuesClassEJNS0_18NumOccurrencesFlagENS0_4descEEEEvPT_RKT0_DpRKT1_.exit, label %for.body.lr.ph.i.i.i
 
@@ -1263,7 +1263,8 @@ _ZN4llvh11safe_mallocEm.exit:                     ; preds = %if.end, %if.then.i
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %Size.i, align 8
   %conv.i5 = zext i32 %2 to i64
-  %add.ptr.i30 = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %1, i64 %conv.i5
+  %add.ptr.i30.idx = mul nuw nsw i64 %conv.i5, 48
+  %add.ptr.i30 = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i30.idx
   %cmp.i.i.not5.i.i.i.i = icmp eq i32 %2, 0
   br i1 %cmp.i.i.not5.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_2cl6parserIN6hermes3hbc12BytecodeFormEE10OptionInfoELb0EE18uninitialized_moveIPS7_SA_EEvT_SB_T0_.exit, label %for.body.i.i.i.i
 

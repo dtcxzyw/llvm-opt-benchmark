@@ -1571,7 +1571,8 @@ define internal fastcc ptr @spl_find_registered_function(ptr noundef readonly ca
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i32, ptr %6, align 8, !tbaa !96
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %struct._Bucket, ptr %5, i64 %8
+  %.idx = shl nuw nsw i64 %8, 5
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !8
   %12 = and i32 %11, 4
@@ -2013,7 +2014,8 @@ define hidden void @zif_spl_autoload_functions(ptr noundef readonly captures(non
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !96
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct._Bucket, ptr %14, i64 %17
+  %.idx = shl nuw nsw i64 %17, 5
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !8
   %21 = and i32 %20, 4
@@ -2368,7 +2370,8 @@ define hidden void @zm_info_spl(ptr readnone captures(none) %0) #0 {
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %67 = load i32, ptr %66, align 8, !tbaa !96
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %struct._Bucket, ptr %65, i64 %68
+  %.idx = shl nuw nsw i64 %68, 5
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %71 = load i32, ptr %70, align 8, !tbaa !8
   %72 = and i32 %71, 4
@@ -2532,7 +2535,8 @@ define hidden void @zm_info_spl(ptr readnone captures(none) %0) #0 {
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 24
   %145 = load i32, ptr %144, align 8, !tbaa !96
   %146 = zext i32 %145 to i64
-  %147 = getelementptr inbounds nuw %struct._Bucket, ptr %143, i64 %146
+  %.idx50 = shl nuw nsw i64 %146, 5
+  %147 = getelementptr inbounds nuw i8, ptr %143, i64 %.idx50
   %148 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %149 = load i32, ptr %148, align 8, !tbaa !8
   %150 = and i32 %149, 4
@@ -2566,11 +2570,11 @@ define hidden void @zm_info_spl(ptr readnone captures(none) %0) #0 {
   br i1 %.not31, label %._crit_edge48.loopexit, label %.lr.ph47
 
 ._crit_edge48.loopexit:                           ; preds = %158
-  %.pre50 = load ptr, ptr %4, align 8, !tbaa !8
+  %.pre51 = load ptr, ptr %4, align 8, !tbaa !8
   br label %._crit_edge48
 
 ._crit_edge48:                                    ; preds = %._crit_edge48.loopexit, %._crit_edge
-  %160 = phi ptr [ %141, %._crit_edge ], [ %.pre50, %._crit_edge48.loopexit ]
+  %160 = phi ptr [ %141, %._crit_edge ], [ %.pre51, %._crit_edge48.loopexit ]
   %.2.lcssa = phi ptr [ %140, %._crit_edge ], [ %.3, %._crit_edge48.loopexit ]
   call void @zend_array_destroy(ptr noundef %160) #10
   %161 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 2

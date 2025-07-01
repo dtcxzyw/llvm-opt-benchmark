@@ -5477,7 +5477,8 @@ entry:
   %0 = load ptr, ptr %weights_, align 8, !tbaa !3
   %n_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load i64, ptr %n_.i, align 8, !tbaa !107
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %0, i64 %1
+  %add.ptr.i.idx = shl nuw nsw i64 %1, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not5.i = icmp eq i64 %1, 0
   br i1 %cmp.not5.i, label %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit, label %for.body.i.preheader
 

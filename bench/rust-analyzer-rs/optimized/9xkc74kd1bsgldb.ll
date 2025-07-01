@@ -1751,7 +1751,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds ptr, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 3
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hf4a9645c0ddbf543E.exit, label %.lr.ph.i
 
@@ -9769,7 +9770,8 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h7b554e740f925149E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(20) %0, ptr noalias noundef nonnull readonly align 4 captures(address) %1, i64 noundef %2) unnamed_addr #21 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { i32, [4 x i32] }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 20
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3163)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h912d5de9e98103deE.llvm.5537595614626420043.exit", label %.lr.ph.i
@@ -95766,7 +95768,8 @@ define hidden void @_ZN7hir_def3hir11format_args5parse17h9e8a53a48a3fb96aE(ptr n
   %.sroa.0534.0.copyload = load i64, ptr %51, align 8
   %.sroa.4535.0.copyload = load ptr, ptr %78, align 8, !nonnull !4, !noundef !4
   %.sroa.5536.0.copyload = load i64, ptr %79, align 8
-  %158 = getelementptr inbounds { ptr, [1 x i64] }, ptr %.sroa.4535.0.copyload, i64 %.sroa.5536.0.copyload
+  %.idx = shl nsw i64 %.sroa.5536.0.copyload, 4
+  %158 = getelementptr inbounds i8, ptr %.sroa.4535.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42)
   store ptr %.sroa.4535.0.copyload, ptr %42, align 8
   %.sroa.4531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8

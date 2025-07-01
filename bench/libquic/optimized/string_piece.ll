@@ -3308,7 +3308,8 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   %8 = load ptr, ptr %1, align 8, !tbaa !35
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !38
-  %11 = getelementptr inbounds nuw i16, ptr %8, i64 %10
+  %.idx.i = shl nuw nsw i64 %10, 1
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
   %.not26.i.i = icmp samesign eq i64 %2, %6
   %.not1624.i.i = icmp eq i64 %10, 0
   %or.cond.i.i = or i1 %.not26.i.i, %.not1624.i.i
@@ -3364,7 +3365,8 @@ define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4bas
   %8 = load ptr, ptr %1, align 8, !tbaa !35
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !38
-  %11 = getelementptr inbounds nuw i16, ptr %8, i64 %10
+  %.idx = shl nuw nsw i64 %10, 1
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not26.i = icmp samesign eq i64 %2, %6
   %.not1624.i = icmp eq i64 %10, 0
   %or.cond.i = or i1 %.not26.i, %.not1624.i

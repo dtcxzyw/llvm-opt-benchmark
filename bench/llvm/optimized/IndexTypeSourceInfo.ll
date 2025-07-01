@@ -53,9 +53,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.clang::FunctionType::FunctionTypeArmAttributes" = type { i16, [6 x i8] }
 %"struct.clang::FunctionType::FunctionTypeExtraBitfields" = type { i16, [6 x i8] }
 %"struct.clang::FunctionType::ExceptionType" = type { %"class.clang::QualType" }
-%"class.clang::BlockDecl::Capture" = type { %"class.llvm::PointerIntPair.723", ptr }
-%"class.llvm::PointerIntPair.723" = type { %"struct.llvm::detail::PunnedPointer.724" }
-%"struct.llvm::detail::PunnedPointer.724" = type { [8 x i8] }
 %"struct.clang::StmtIterator" = type { %"class.clang::StmtIteratorImpl" }
 %"class.clang::StmtIteratorImpl" = type { %"class.clang::StmtIteratorBase" }
 %"class.clang::StmtIteratorBase" = type { %union.anon.983, i64, ptr }
@@ -4137,7 +4134,8 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE20TraverseTemplateN
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !3
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %33, i64 %36
+  %.idx = mul nuw nsw i64 %36, 24
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx
   %.not.i10 = icmp eq i32 %35, 0
   br i1 %.not.i10, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit, label %.lr.ph
 
@@ -4426,7 +4424,8 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE20TraverseTemplateN
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !3
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %53, i64 %56
+  %.idx.i = mul nuw nsw i64 %56, 24
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i
   %.not14.i = icmp eq i32 %55, 0
   br i1 %.not14.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit, label %.lr.ph.i
 
@@ -6009,7 +6008,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %21 = load i32, ptr %20, align 8, !tbaa !285
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"class.clang::BlockDecl::Capture", ptr %19, i64 %22
+  %.idx = shl nuw nsw i64 %22, 4
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not4860 = icmp eq i32 %21, 0
   br i1 %.not4860, label %._crit_edge, label %.lr.ph
 
@@ -6909,7 +6909,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %13 = load i32, ptr %12, align 8, !tbaa !307
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %.idx = shl nuw nsw i64 %14, 3
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %.not4354 = icmp eq i32 %13, 0
   br i1 %.not4354, label %.critedge, label %.lr.ph
 
@@ -14505,7 +14506,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4, !tbaa !442
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %3, i64 %6
+  %.idx.i = mul nuw nsw i64 %6, 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   %.not14.i = icmp eq i32 %5, 0
   br i1 %.not14.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit, label %.lr.ph.i
 
@@ -16231,7 +16233,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE29TraverseAcquireCapabilityAttrEPNS_21AcquireCapabilityAttrE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, i32 %.36.val, ptr readonly captures(address) %.40.val) unnamed_addr #0 align 2 {
   %2 = zext i32 %.36.val to i64
-  %3 = getelementptr inbounds nuw ptr, ptr %.40.val, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %3 = getelementptr inbounds nuw i8, ptr %.40.val, i64 %.idx
   %.not1 = icmp eq i32 %.36.val, 0
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -16258,7 +16261,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE25TraverseAcquiredAfterAttrEPNS_17AcquiredAfterAttrE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, i32 %.36.val, ptr readonly captures(address) %.40.val) unnamed_addr #0 align 2 {
   %2 = zext i32 %.36.val to i64
-  %3 = getelementptr inbounds nuw ptr, ptr %.40.val, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %3 = getelementptr inbounds nuw i8, ptr %.40.val, i64 %.idx
   %.not1 = icmp eq i32 %.36.val, 0
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -16285,7 +16289,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE26TraverseAcquiredBeforeAttrEPNS_18AcquiredBeforeAttrE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, i32 %.36.val, ptr readonly captures(address) %.40.val) unnamed_addr #0 align 2 {
   %2 = zext i32 %.36.val to i64
-  %3 = getelementptr inbounds nuw ptr, ptr %.40.val, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %3 = getelementptr inbounds nuw i8, ptr %.40.val, i64 %.idx
   %.not1 = icmp eq i32 %.36.val, 0
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -16353,7 +16358,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8, !tbaa !571
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not22 = icmp eq i32 %6, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
@@ -16379,7 +16385,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %20 = load i32, ptr %19, align 8, !tbaa !574
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %21
+  %.idx29 = shl nuw nsw i64 %21, 3
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx29
   %.not2124 = icmp eq i32 %20, 0
   br i1 %.not2124, label %._crit_edge28, label %.lr.ph27
 
@@ -16410,7 +16417,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8, !tbaa !578
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not22 = icmp eq i32 %6, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
@@ -16436,7 +16444,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %20 = load i32, ptr %19, align 8, !tbaa !581
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %21
+  %.idx29 = shl nuw nsw i64 %21, 3
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx29
   %.not2124 = icmp eq i32 %20, 0
   br i1 %.not2124, label %._crit_edge28, label %.lr.ph27
 
@@ -16463,7 +16472,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE28TraverseAssertCapabilityAttrEPNS_20AssertCapabilityAttrE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, i32 %.36.val, ptr readonly captures(address) %.40.val) unnamed_addr #0 align 2 {
   %2 = zext i32 %.36.val to i64
-  %3 = getelementptr inbounds nuw ptr, ptr %.40.val, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %3 = getelementptr inbounds nuw i8, ptr %.40.val, i64 %.idx
   %.not1 = icmp eq i32 %.36.val, 0
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -16490,7 +16500,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE31TraverseAssertExclusiveLockAttrEPNS_23AssertExclusiveLockAttrE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, i32 %.36.val, ptr readonly captures(address) %.40.val) unnamed_addr #0 align 2 {
   %2 = zext i32 %.36.val to i64
-  %3 = getelementptr inbounds nuw ptr, ptr %.40.val, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %3 = getelementptr inbounds nuw i8, ptr %.40.val, i64 %.idx
   %.not1 = icmp eq i32 %.36.val, 0
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -16517,7 +16528,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE28TraverseAssertSharedLockAttrEPNS_20AssertSharedLockAttrE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, i32 %.36.val, ptr readonly captures(address) %.40.val) unnamed_addr #0 align 2 {
   %2 = zext i32 %.36.val to i64
-  %3 = getelementptr inbounds nuw ptr, ptr %.40.val, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %3 = getelementptr inbounds nuw i8, ptr %.40.val, i64 %.idx
   %.not1 = icmp eq i32 %.36.val, 0
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -16600,7 +16612,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %13 = load i32, ptr %12, align 8, !tbaa !596
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %.idx = shl nuw nsw i64 %14, 3
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %.not13 = icmp eq i32 %13, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -16622,7 +16635,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE25TraverseLocksExcludedAttrEPNS_17LocksExcludedAttrE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, i32 %.36.val, ptr readonly captures(address) %.40.val) unnamed_addr #0 align 2 {
   %2 = zext i32 %.36.val to i64
-  %3 = getelementptr inbounds nuw ptr, ptr %.40.val, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %3 = getelementptr inbounds nuw i8, ptr %.40.val, i64 %.idx
   %.not1 = icmp eq i32 %.36.val, 0
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -16680,7 +16694,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %13 = load i32, ptr %12, align 8, !tbaa !608
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %.idx = shl nuw nsw i64 %14, 3
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %.not53 = icmp eq i32 %13, 0
   br i1 %.not53, label %._crit_edge, label %.lr.ph
 
@@ -16701,7 +16716,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %24 = load i32, ptr %23, align 8, !tbaa !611
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %22, i64 %25
+  %.idx75 = shl nuw nsw i64 %25, 3
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx75
   %.not4955 = icmp eq i32 %24, 0
   br i1 %.not4955, label %._crit_edge59, label %.lr.ph58
 
@@ -16722,7 +16738,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %35 = load i32, ptr %34, align 8, !tbaa !614
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
+  %.idx76 = shl nuw nsw i64 %36, 3
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx76
   %.not5060 = icmp eq i32 %35, 0
   br i1 %.not5060, label %._crit_edge64, label %.lr.ph63
 
@@ -16743,7 +16760,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %46 = load i32, ptr %45, align 8, !tbaa !617
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %44, i64 %47
+  %.idx77 = shl nuw nsw i64 %47, 3
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx77
   %.not5165 = icmp eq i32 %46, 0
   br i1 %.not5165, label %._crit_edge69, label %.lr.ph68
 
@@ -16764,7 +16782,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %57 = load i32, ptr %56, align 8, !tbaa !620
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %58
+  %.idx78 = shl nuw nsw i64 %58, 3
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx78
   %.not5270 = icmp eq i32 %57, 0
   br i1 %.not5270, label %._crit_edge74, label %.lr.ph73
 
@@ -16798,7 +16817,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %13 = load i32, ptr %12, align 8, !tbaa !627
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %.idx = shl nuw nsw i64 %14, 3
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %.not23 = icmp eq i32 %13, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
@@ -16819,7 +16839,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %24 = load i32, ptr %23, align 8, !tbaa !630
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %22, i64 %25
+  %.idx30 = shl nuw nsw i64 %25, 3
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx30
   %.not2225 = icmp eq i32 %24, 0
   br i1 %.not2225, label %._crit_edge29, label %.lr.ph28
 
@@ -16841,7 +16862,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE29TraverseReleaseCapabilityAttrEPNS_21ReleaseCapabilityAttrE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, i32 %.36.val, ptr readonly captures(address) %.40.val) unnamed_addr #0 align 2 {
   %2 = zext i32 %.36.val to i64
-  %3 = getelementptr inbounds nuw ptr, ptr %.40.val, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %3 = getelementptr inbounds nuw i8, ptr %.40.val, i64 %.idx
   %.not1 = icmp eq i32 %.36.val, 0
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -16868,7 +16890,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE30TraverseRequiresCapabilityAttrEPNS_22RequiresCapabilityAttrE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, i32 %.36.val, ptr readonly captures(address) %.40.val) unnamed_addr #0 align 2 {
   %2 = zext i32 %.36.val to i64
-  %3 = getelementptr inbounds nuw ptr, ptr %.40.val, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %3 = getelementptr inbounds nuw i8, ptr %.40.val, i64 %.idx
   %.not1 = icmp eq i32 %.36.val, 0
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -16907,7 +16930,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %13 = load i32, ptr %12, align 8, !tbaa !637
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %.idx = shl nuw nsw i64 %14, 3
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %.not13 = icmp eq i32 %13, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -16941,7 +16965,8 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111Typ
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %13 = load i32, ptr %12, align 8, !tbaa !642
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %.idx = shl nuw nsw i64 %14, 3
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %.not13 = icmp eq i32 %13, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 

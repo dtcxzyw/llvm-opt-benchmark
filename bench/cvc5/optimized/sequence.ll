@@ -1867,9 +1867,9 @@ define hidden void @_ZNK4cvc58internal8Sequence6updateEmRKS1_(ptr dead_on_unwind
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #23
-  %16 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %9, i64 %2
-  %.idx = shl nsw i64 %2, 3
-  %17 = icmp ugt i64 %.idx, 9223372036854775800
+  %.idx46 = shl nsw i64 %2, 3
+  %16 = getelementptr inbounds i8, ptr %9, i64 %.idx46
+  %17 = icmp ugt i64 %.idx46, 9223372036854775800
   br i1 %17, label %.noexc.i, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
 
 .noexc.i:                                         ; preds = %15
@@ -1881,13 +1881,13 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRK
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i
 
 _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
-  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #20
+  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx46) #20
   br label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
   %19 = phi ptr [ null, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i ], [ %18, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i ]
   store ptr %19, ptr %5, align 8, !tbaa !16
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx46
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %20, ptr %21, align 8, !tbaa !17
   %22 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEEPS5_ET0_T_SE_SD_(ptr %9, ptr %16, ptr noundef %19)
@@ -1900,7 +1900,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   br i1 %.not.i.i7.i, label %.body, label %24
 
 24:                                               ; preds = %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %.idx) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %.idx46) #22
   br label %.body
 
 25:                                               ; preds = %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit.i.i
@@ -2365,9 +2365,9 @@ define hidden void @_ZNK4cvc58internal8Sequence6substrEmm(ptr dead_on_unwind noa
   %7 = load ptr, ptr %6, align 8, !tbaa !18
   %8 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %7, i64 %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #23
-  %9 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %8, i64 %3
-  %.idx = shl nsw i64 %3, 3
-  %10 = icmp ugt i64 %.idx, 9223372036854775800
+  %.idx11 = shl nsw i64 %3, 3
+  %9 = getelementptr inbounds i8, ptr %8, i64 %.idx11
+  %10 = icmp ugt i64 %.idx11, 9223372036854775800
   br i1 %10, label %.noexc.i, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
 
 .noexc.i:                                         ; preds = %4
@@ -2379,13 +2379,13 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRK
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i
 
 _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
-  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #20
+  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx11) #20
   br label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
   %.pr.i = phi ptr [ null, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i ], [ %11, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i ]
   store ptr %.pr.i, ptr %5, align 8, !tbaa !16
-  %12 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 %.idx
+  %12 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 %.idx11
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %12, ptr %13, align 8, !tbaa !17
   %14 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEEPS5_ET0_T_SE_SD_(ptr %8, ptr %9, ptr noundef %.pr.i)
@@ -2398,7 +2398,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   br i1 %.not.i.i7.i, label %.body, label %16
 
 16:                                               ; preds = %15
-  tail call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %.idx) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %.idx11) #22
   br label %.body
 
 17:                                               ; preds = %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit.i.i
@@ -2450,7 +2450,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i: ; 
   br i1 %.not.i.i.i7, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, label %35
 
 35:                                               ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %.idx) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %.idx11) #22
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i, %35

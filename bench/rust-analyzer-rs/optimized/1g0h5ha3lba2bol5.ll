@@ -20206,7 +20206,8 @@ _ZN4core4iter6traits8iterator8Iterator10min_by_key17h79bccab18907a4a8E.exit: ; p
   %.val.i.i = load ptr, ptr %178, align 8, !noalias !4124, !nonnull !4, !noundef !4
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %.val8.i.i = load i64, ptr %179, align 8, !noalias !4124, !noundef !4
-  %180 = getelementptr inbounds { i32, [1 x i32] }, ptr %.val.i.i, i64 %.val8.i.i
+  %.idx.i.i = shl nsw i64 %.val8.i.i, 3
+  %180 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.idx.i.i
   store ptr %.val.i.i, ptr %12, align 8, !noalias !4119
   %.sroa.02.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %180, ptr %.sroa.02.sroa.4.0..sroa_idx.i.i, align 8, !noalias !4119

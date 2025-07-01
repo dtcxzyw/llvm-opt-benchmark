@@ -556,7 +556,8 @@ _ZN4i18n12phonenumbers13LoggerHandlerD2Ev.exit:   ; preds = %33, %_ZNSt7__cxx111
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %70 = load i32, ptr %69, align 8, !tbaa !60
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %71
+  %.idx = shl nsw i64 %71, 3
+  %72 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not79 = icmp eq i32 %70, 0
   br i1 %.not79, label %._crit_edge, label %.lr.ph
 

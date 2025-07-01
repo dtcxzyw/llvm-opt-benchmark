@@ -3491,7 +3491,8 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i15: ; preds = %414
   %.val.i = load ptr, ptr %466, align 8, !nonnull !16, !noundef !16
   %467 = getelementptr i8, ptr %416, i64 56
   %.val43.i = load i64, ptr %467, align 8, !noundef !16
-  %468 = getelementptr inbounds { { i64, [5 x i64] }, { float, float, float, float } }, ptr %.val.i, i64 %.val43.i
+  %.idx.i = shl nsw i64 %.val43.i, 6
+  %468 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx.i
   %469 = icmp eq i64 %.val43.i, 0
   br i1 %469, label %.._crit_edge_crit_edge.i, label %.lr.ph.i17
 
@@ -4351,7 +4352,8 @@ define hidden void @_ZN9typst_pdf4page17write_page_labels17h8a5b0c6c306819d6E(pt
   %11 = load ptr, ptr %10, align 8, !nonnull !16, !noundef !16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %13 = load i64, ptr %12, align 8, !noundef !16
-  %14 = getelementptr inbounds { { i64, [4 x i64] }, { { i64, ptr, {} }, i64 }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { double, double }, i32, i8, [3 x i8] }, ptr %11, i64 %13
+  %.idx = mul nsw i64 %13, 144
+  %14 = getelementptr inbounds i8, ptr %11, i64 %.idx
   %15 = icmp eq i64 %13, 0
   br i1 %15, label %._crit_edge, label %.lr.ph
 
@@ -5917,7 +5919,8 @@ _ZN10pdf_writer7content7Content14set_line_width17h2dd8d2f502be0f7fE.exit..crited
   %244 = load ptr, ptr %243, align 8, !nonnull !16, !noundef !16
   %245 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %246 = load i64, ptr %245, align 8, !noundef !16
-  %247 = getelementptr inbounds double, ptr %244, i64 %246
+  %.idx = shl nsw i64 %246, 3
+  %247 = getelementptr inbounds i8, ptr %244, i64 %.idx
   %248 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %249 = load double, ptr %248, align 8, !noundef !16
   %250 = tail call noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %249)
@@ -8998,7 +9001,8 @@ common.resume:                                    ; preds = %361, %557, %327, %1
   %.0.i58 = getelementptr inbounds i8, ptr %.pn.i, i64 -24
   %106 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val56 = load ptr, ptr %106, align 8, !nonnull !16, !noundef !16
-  %107 = getelementptr inbounds { { i64, i16, [3 x i16] }, double, double, { i16, i16 }, i16, [1 x i16] }, ptr %.val56, i64 %45
+  %.idx = mul nsw i64 %45, 40
+  %107 = getelementptr inbounds i8, ptr %.val56, i64 %.idx
   %108 = icmp eq i64 %45, 0
   br i1 %108, label %._crit_edge, label %.lr.ph
 
@@ -10213,7 +10217,8 @@ define internal fastcc void @_ZN9typst_pdf4page10write_path17hb70a084e8147908aE(
   %5 = alloca { ptr, { ptr, i64 }, i8, [7 x i8] }, align 8
   %6 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds { i64, [6 x i64] }, ptr %.8.val, i64 %.16.val
+  %.idx = mul nsw i64 %.16.val, 56
+  %7 = getelementptr inbounds i8, ptr %.8.val, i64 %.idx
   %8 = icmp eq i64 %.16.val, 0
   br i1 %8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31d38aa3442116d8E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31d38aa3442116d8E.exit.lr.ph"
 
@@ -10489,7 +10494,8 @@ define hidden void @_ZN9typst_pdf4page15construct_pages17h774fe3afdaafe80cE(ptr 
   %9 = alloca { ptr, [4 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias noundef nonnull sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) %9, ptr noalias noundef nonnull readonly align 1 @anon.b76ca3962959521c709fa61f4185cda9.110, i64 noundef 15, i64 noundef 0)
-  %10 = getelementptr inbounds { { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, { [32 x i8], i8, [7 x i8] }, i64 }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 96
+  %10 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %11 = icmp eq i64 %2, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 

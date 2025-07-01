@@ -5473,7 +5473,8 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators14merge_iterator22MergeIterator
   %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %.sroa.528.0..sroa_idx, align 8
   %17 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %12
+  %.idx = shl nsw i64 %12, 3
+  %18 = getelementptr inbounds i8, ptr %17, i64 %.idx
   br label %19
 
 19:                                               ; preds = %"_ZN13mini_lsm_mvcc9iterators14merge_iterator22MergeIterator$LT$I$GT$6create28_$u7b$$u7b$closure$u7d$$u7d$17h3f6210294617b172E.exit.i", %16
@@ -5852,7 +5853,8 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators14merge_iterator22MergeIterator
   store i64 0, ptr %.sroa.528.0..sroa_idx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %9
+  %.idx = shl nsw i64 %9, 3
+  %14 = getelementptr inbounds i8, ptr %13, i64 %.idx
   br label %15
 
 15:                                               ; preds = %18, %11
@@ -6200,7 +6202,8 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators14merge_iterator22MergeIterator
   %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %.sroa.528.0..sroa_idx, align 8
   %17 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %12
+  %.idx = shl nsw i64 %12, 3
+  %18 = getelementptr inbounds i8, ptr %17, i64 %.idx
   br label %19
 
 19:                                               ; preds = %22, %16

@@ -705,7 +705,8 @@ _ZNK5clang8EnumDecl14getIntegerTypeEv.exit.i:     ; preds = %_ZNK5clang8QualType
   store i32 0, ptr %64, align 8, !tbaa !80, !noalias !54
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %63, i64 noundef %126, i64 noundef 8) #13, !noalias !54
   %155 = load ptr, ptr %3, align 8, !tbaa !77, !noalias !54
-  %156 = getelementptr inbounds nuw ptr, ptr %155, i64 %126
+  %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %126, 3
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 %.idx.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %154
@@ -720,7 +721,8 @@ _ZSt6fill_nIPPN4llvm4TypeEmS2_ET_S4_T0_RKT1_.exit.i.i.i: ; preds = %150
   br i1 %.not.i52.i, label %_ZN4llvm11SmallVectorIPNS_4TypeELj3EEC2EmRKS2_.exit.i, label %158
 
 158:                                              ; preds = %_ZSt6fill_nIPPN4llvm4TypeEmS2_ET_S4_T0_RKT1_.exit.i.i.i
-  %159 = getelementptr inbounds nuw ptr, ptr %63, i64 %126
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %126, 3
+  %159 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %158

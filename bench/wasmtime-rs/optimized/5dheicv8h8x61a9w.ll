@@ -13341,7 +13341,8 @@ common.resume:                                    ; preds = %170, %78, %410
   store i64 0, ptr %124, align 8
   %193 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %194 = load ptr, ptr %193, align 8, !nonnull !11, !noundef !11
-  %195 = getelementptr inbounds { i64, { i64, { i32, i32 } } }, ptr %194, i64 %166
+  %.idx = mul nsw i64 %166, 24
+  %195 = getelementptr inbounds i8, ptr %194, i64 %.idx
   br i1 %.not, label %._crit_edge283, label %.lr.ph282
 
 .lr.ph282:                                        ; preds = %190
@@ -14103,7 +14104,8 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h792d74cdd609f48aE.exit.thre
   store i64 0, ptr %50, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.484.0..sroa_idx, align 8
   store i64 0, ptr %.sroa.585.0..sroa_idx, align 8
-  %51 = getelementptr inbounds { { i64, [2 x i64] }, { i32, [1 x i32] }, i32, i32 }, ptr %.sroa.484.0.copyload, i64 %.sroa.585.0.copyload
+  %.idx = mul nsw i64 %.sroa.585.0.copyload, 40
+  %51 = getelementptr inbounds i8, ptr %.sroa.484.0.copyload, i64 %.idx
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %.sroa.484.0.copyload, ptr %52, align 8
   %.sroa.481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48

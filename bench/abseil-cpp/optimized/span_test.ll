@@ -6553,7 +6553,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %14, %16
   %18 = load ptr, ptr %0, align 8, !tbaa !171
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !219
-  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %20
+  %.idx = shl i64 %20, 2
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %invariant.gep = getelementptr i8, ptr %1, i64 16
   %.not44 = icmp eq i64 %20, 0
   br i1 %.not44, label %._crit_edge.thread, label %.lr.ph
@@ -16291,7 +16292,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %14, %16
   %18 = load ptr, ptr %0, align 8, !tbaa !373
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !375
-  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %20
+  %.idx = shl i64 %20, 2
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %invariant.gep = getelementptr i8, ptr %1, i64 16
   %.not44 = icmp eq i64 %20, 0
   br i1 %.not44, label %._crit_edge.thread, label %.lr.ph
@@ -61569,7 +61571,8 @@ define linkonce_odr dso_local void @_ZN4absl13hash_internal17ContainerAsVectorIS
   %3 = load ptr, ptr %1, align 8, !tbaa !1572
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !1574
-  %6 = getelementptr inbounds nuw %"class.absl::Span.146", ptr %3, i64 %5
+  %.idx = shl nuw nsw i64 %5, 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not24 = icmp eq i64 %5, 0
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 

@@ -309,7 +309,8 @@ default.unreachable79:                            ; preds = %109
 
 .lr.ph:                                           ; preds = %68
   %69 = load ptr, ptr %1, align 8, !nonnull !5, !align !27, !noundef !5
-  %70 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %69, i64 %52
+  %.idx = shl nsw i64 %52, 6
+  %70 = getelementptr inbounds i8, ptr %69, i64 %.idx
   %71 = add i64 %2, 1
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -1534,7 +1535,8 @@ define hidden void @"_ZN93_$LT$$RF$$u5b$tt..TokenTree$LT$Span$GT$$u5d$$u20$as$u2
   store ptr inttoptr (i64 8 to ptr), ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %5, i64 %7
+  %.idx = shl nsw i64 %7, 6
+  %16 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %17 = icmp eq i64 %7, 0
   br i1 %17, label %._crit_edge, label %.lr.ph
 

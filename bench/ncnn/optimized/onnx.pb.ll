@@ -4600,7 +4600,8 @@ define dso_local noundef i64 @_ZNK4onnx14AttributeProto12ByteSizeLongEv(ptr noun
   %.not.i.i = icmp eq ptr %25, null
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %26
-  %27 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %22
+  %.idx = shl nsw i64 %22, 3
+  %27 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not7176 = icmp eq i32 %21, 0
   br i1 %.not7176, label %._crit_edge81, label %.lr.ph80
 
@@ -4636,7 +4637,8 @@ define dso_local noundef i64 @_ZNK4onnx14AttributeProto12ByteSizeLongEv(ptr noun
   %.not.i.i60 = icmp eq ptr %48, null
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %spec.select.i.i61 = select i1 %.not.i.i60, ptr null, ptr %49
-  %50 = getelementptr inbounds ptr, ptr %spec.select.i.i61, i64 %45
+  %.idx90 = shl nsw i64 %45, 3
+  %50 = getelementptr inbounds i8, ptr %spec.select.i.i61, i64 %.idx90
   %.not7283 = icmp eq i32 %44, 0
   br i1 %.not7283, label %._crit_edge88, label %.lr.ph87
 
@@ -10387,7 +10389,8 @@ define dso_local noundef i64 @_ZNK4onnx9NodeProto12ByteSizeLongEv(ptr noundef no
   %.not.i.i = icmp eq ptr %37, null
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %38
-  %39 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %34
+  %.idx = shl nsw i64 %34, 3
+  %39 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not4353 = icmp eq i32 %33, 0
   br i1 %.not4353, label %._crit_edge58, label %.lr.ph57
 
@@ -13546,7 +13549,8 @@ define dso_local noundef i64 @_ZNK4onnx10ModelProto12ByteSizeLongEv(ptr noundef 
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not6164 = icmp eq i32 %3, 0
   br i1 %.not6164, label %._crit_edge, label %.lr.ph
 
@@ -13561,7 +13565,8 @@ define dso_local noundef i64 @_ZNK4onnx10ModelProto12ByteSizeLongEv(ptr noundef 
   %.not.i.i40 = icmp eq ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %spec.select.i.i41 = select i1 %.not.i.i40, ptr null, ptr %15
-  %16 = getelementptr inbounds ptr, ptr %spec.select.i.i41, i64 %11
+  %.idx74 = shl nsw i64 %11, 3
+  %16 = getelementptr inbounds i8, ptr %spec.select.i.i41, i64 %.idx74
   %.not6267 = icmp eq i32 %10, 0
   br i1 %.not6267, label %._crit_edge72, label %.lr.ph71
 
@@ -16593,7 +16598,8 @@ define dso_local noundef i64 @_ZNK4onnx16TensorAnnotation12ByteSizeLongEv(ptr no
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not1921 = icmp eq i32 %3, 0
   br i1 %.not1921, label %._crit_edge, label %.lr.ph
 
@@ -20064,7 +20070,8 @@ define dso_local noundef i64 @_ZNK4onnx10GraphProto12ByteSizeLongEv(ptr noundef 
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not8895 = icmp eq i32 %3, 0
   br i1 %.not8895, label %._crit_edge, label %.lr.ph
 
@@ -20079,7 +20086,8 @@ define dso_local noundef i64 @_ZNK4onnx10GraphProto12ByteSizeLongEv(ptr noundef 
   %.not.i.i45 = icmp eq ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %spec.select.i.i46 = select i1 %.not.i.i45, ptr null, ptr %15
-  %16 = getelementptr inbounds ptr, ptr %spec.select.i.i46, i64 %11
+  %.idx133 = shl nsw i64 %11, 3
+  %16 = getelementptr inbounds i8, ptr %spec.select.i.i46, i64 %.idx133
   %.not8998 = icmp eq i32 %10, 0
   br i1 %.not8998, label %._crit_edge103, label %.lr.ph102
 
@@ -20113,7 +20121,8 @@ define dso_local noundef i64 @_ZNK4onnx10GraphProto12ByteSizeLongEv(ptr noundef 
   %.not.i.i49 = icmp eq ptr %35, null
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %spec.select.i.i50 = select i1 %.not.i.i49, ptr null, ptr %36
-  %37 = getelementptr inbounds ptr, ptr %spec.select.i.i50, i64 %32
+  %.idx134 = shl nsw i64 %32, 3
+  %37 = getelementptr inbounds i8, ptr %spec.select.i.i50, i64 %.idx134
   %.not90105 = icmp eq i32 %31, 0
   br i1 %.not90105, label %._crit_edge110, label %.lr.ph109
 
@@ -20147,7 +20156,8 @@ define dso_local noundef i64 @_ZNK4onnx10GraphProto12ByteSizeLongEv(ptr noundef 
   %.not.i.i53 = icmp eq ptr %56, null
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %spec.select.i.i54 = select i1 %.not.i.i53, ptr null, ptr %57
-  %58 = getelementptr inbounds ptr, ptr %spec.select.i.i54, i64 %53
+  %.idx135 = shl nsw i64 %53, 3
+  %58 = getelementptr inbounds i8, ptr %spec.select.i.i54, i64 %.idx135
   %.not91112 = icmp eq i32 %52, 0
   br i1 %.not91112, label %._crit_edge117, label %.lr.ph116
 
@@ -20181,7 +20191,8 @@ define dso_local noundef i64 @_ZNK4onnx10GraphProto12ByteSizeLongEv(ptr noundef 
   %.not.i.i57 = icmp eq ptr %77, null
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %spec.select.i.i58 = select i1 %.not.i.i57, ptr null, ptr %78
-  %79 = getelementptr inbounds ptr, ptr %spec.select.i.i58, i64 %74
+  %.idx136 = shl nsw i64 %74, 3
+  %79 = getelementptr inbounds i8, ptr %spec.select.i.i58, i64 %.idx136
   %.not92119 = icmp eq i32 %73, 0
   br i1 %.not92119, label %._crit_edge124, label %.lr.ph123
 
@@ -20215,7 +20226,8 @@ define dso_local noundef i64 @_ZNK4onnx10GraphProto12ByteSizeLongEv(ptr noundef 
   %.not.i.i61 = icmp eq ptr %98, null
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %spec.select.i.i62 = select i1 %.not.i.i61, ptr null, ptr %99
-  %100 = getelementptr inbounds ptr, ptr %spec.select.i.i62, i64 %95
+  %.idx137 = shl nsw i64 %95, 3
+  %100 = getelementptr inbounds i8, ptr %spec.select.i.i62, i64 %.idx137
   %.not93126 = icmp eq i32 %94, 0
   br i1 %.not93126, label %._crit_edge131, label %.lr.ph130
 
@@ -24996,7 +25008,8 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit94: ; preds = %100,
   %.not.i.i = icmp eq ptr %119, null
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %120
-  %121 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %116
+  %.idx = shl nsw i64 %116, 3
+  %121 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not118124 = icmp eq i32 %115, 0
   br i1 %.not118124, label %._crit_edge129, label %.lr.ph128
 
@@ -27721,7 +27734,8 @@ define dso_local noundef i64 @_ZNK4onnx16TensorShapeProto12ByteSizeLongEv(ptr no
   %.not.i.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
-  %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
+  %.idx = shl nsw i64 %4, 3
+  %8 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
   %.not18 = icmp eq i32 %3, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 

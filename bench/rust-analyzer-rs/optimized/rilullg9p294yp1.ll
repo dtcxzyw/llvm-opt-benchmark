@@ -290,7 +290,8 @@ define hidden void @_ZN10hir_expand6change20ChangeWithProcMacros5apply17hf545e2c
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx72, align 8, !nonnull !4, !noundef !4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %37 = getelementptr inbounds { i64, [2 x i64] }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %.idx = mul nsw i64 %.sroa.3.0.copyload, 24
+  %37 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   store ptr %.sroa.2.0.copyload, ptr %9, align 8
   %.sroa.016.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -371,7 +372,8 @@ define hidden void @_ZN10hir_expand6change20ChangeWithProcMacros5apply17hf545e2c
   %.sroa.277.0.copyload = load ptr, ptr %.sroa.277.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.378.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.378.0.copyload = load i64, ptr %.sroa.378.0..sroa_idx, align 8
-  %61 = getelementptr inbounds { ptr, [4 x i64] }, ptr %.sroa.277.0.copyload, i64 %.sroa.378.0.copyload
+  %.idx105 = mul nsw i64 %.sroa.378.0.copyload, 40
+  %61 = getelementptr inbounds i8, ptr %.sroa.277.0.copyload, i64 %.idx105
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   store ptr %.sroa.277.0.copyload, ptr %7, align 8
   %.sroa.018.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4550,7 +4552,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %86 = load ptr, ptr %102, align 8, !alias.scope !1041, !noalias !1046, !nonnull !4, !align !64, !noundef !4
-  %87 = getelementptr inbounds ptr, ptr %86, i64 %105
+  %.idx.le = shl nsw i64 %105, 3
+  %87 = getelementptr inbounds i8, ptr %86, i64 %.idx.le
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %78
@@ -4571,7 +4574,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 "_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$triomphe..arc..Arc$LT$ide_db..symbol_index..SymbolIndex$GT$$GT$$GT$17h68555f2e12224c87E.exit.i.i.i.i._crit_edge.loopexit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$triomphe..arc..Arc$LT$ide_db..symbol_index..SymbolIndex$GT$$GT$$GT$17h68555f2e12224c87E.exit.i.i.i.i"
   %93 = load ptr, ptr %102, align 8, !alias.scope !1041, !noalias !1046, !nonnull !4, !align !64, !noundef !4
-  %94 = getelementptr inbounds ptr, ptr %93, i64 %105
+  %.idx.le94 = shl nsw i64 %105, 3
+  %94 = getelementptr inbounds i8, ptr %93, i64 %.idx.le94
   br label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$triomphe..arc..Arc$LT$ide_db..symbol_index..SymbolIndex$GT$$GT$$GT$17h68555f2e12224c87E.exit.i.i.i.i._crit_edge"
 
 "_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$triomphe..arc..Arc$LT$ide_db..symbol_index..SymbolIndex$GT$$GT$$GT$17h68555f2e12224c87E.exit.i.i.i.i._crit_edge": ; preds = %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$triomphe..arc..Arc$LT$ide_db..symbol_index..SymbolIndex$GT$$GT$$GT$17h68555f2e12224c87E.exit.i.i.i.i._crit_edge.loopexit", %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$triomphe..arc..Arc$LT$ide_db..symbol_index..SymbolIndex$GT$$GT$$GT$17h68555f2e12224c87E.exit.i.i.i.i.preheader"
@@ -28074,7 +28078,8 @@ define hidden void @"_ZN6ide_db12prime_caches14topologic_sort28TopologicalSortIt
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h2ef2a465f8f22aaaE.exit": ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h7cb277c3a599d7f9E.llvm.18263967998570167583.exit.i"
   %15 = icmp ne ptr %.sroa.6.i.sroa.0.0.copyload, null
   call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds i32, ptr %.sroa.6.i.sroa.0.0.copyload, i64 %.sroa.6.i.sroa.4.0.copyload
+  %.idx = shl nsw i64 %.sroa.6.i.sroa.4.0.copyload, 2
+  %16 = getelementptr inbounds i8, ptr %.sroa.6.i.sroa.0.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.6.i.sroa.0.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -31670,7 +31675,8 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i193.i: ; preds = %355
 614:                                              ; preds = %"_ZN6ide_db7imports10insert_use28guess_granularity_from_scope28_$u7b$$u7b$closure$u7d$$u7d$17hbe78679d5f034c0aE.exit190.thread.i"
   %615 = load ptr, ptr %162, align 8, !noalias !6685, !nonnull !4, !noundef !4
   %616 = load i64, ptr %163, align 8, !noalias !6685, !noundef !4
-  %617 = getelementptr inbounds { ptr, ptr }, ptr %615, i64 %616
+  %.idx.i = shl nsw i64 %616, 4
+  %617 = getelementptr inbounds i8, ptr %615, i64 %.idx.i
   %.not.i265.i = icmp eq i64 %616, 0
   br i1 %.not.i265.i, label %.loopexit.i, label %.lr.ph.i266.i
 

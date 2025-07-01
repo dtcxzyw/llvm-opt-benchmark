@@ -66,7 +66,8 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_body17hb8e
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %9, i64 %13
+  %.idx.i.i = mul nuw nsw i64 %13, 120
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i
   %15 = icmp eq i64 %13, 0
   br i1 %15, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_body17hb8eceac78274348eE.exit, label %.lr.ph.i.i
 
@@ -345,7 +346,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order22walk_pattern_arg
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
-  %10 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %7, i64 %9
+  %.idx = mul nuw nsw i64 %9, 88
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 
@@ -364,7 +366,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order22walk_pattern_arg
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load i64, ptr %16, align 8, !noundef !4
-  %18 = getelementptr inbounds nuw { { i64, [10 x i64] }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, { i32, i32 } }, ptr %15, i64 %17
+  %.idx8 = shl nuw nsw i64 %17, 7
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx8
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %.loopexit, label %.lr.ph7
 
@@ -400,7 +403,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order27walk_parameter_w
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41a1ba7a925056e2E(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 120
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 

@@ -1094,7 +1094,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h8220d29e8fb1589fE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17ha22e0b7710ff3deeE.exit, label %.lr.ph.i
 
@@ -1120,7 +1121,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h8220d29e8fb1589fE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h23639ad722bec317E.exit, label %.lr.ph.i
 
@@ -2834,7 +2836,8 @@ common.resume:                                    ; preds = %34, %13
   %23 = load ptr, ptr %22, align 8, !nonnull !8, !noundef !8
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %25 = load i64, ptr %24, align 8, !noundef !8
-  %26 = getelementptr inbounds { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64, i64 } }, { { { ptr, i64 }, i64, i64 } }, { { ptr, i64 }, i64 }, { i64, i32 } }, ptr %23, i64 %25
+  %.idx = mul nsw i64 %25, 168
+  %26 = getelementptr inbounds i8, ptr %23, i64 %.idx
   %27 = icmp eq i64 %25, 0
   br i1 %27, label %.thread, label %.lr.ph.i
 
@@ -3030,7 +3033,8 @@ common.resume:                                    ; preds = %.body, %26
   %36 = load ptr, ptr %35, align 8, !nonnull !8, !noundef !8
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %38 = load i64, ptr %37, align 8, !noundef !8
-  %39 = getelementptr inbounds { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64, i64 } }, { { { ptr, i64 }, i64, i64 } }, { { ptr, i64 }, i64 }, { i64, i32 } }, ptr %36, i64 %38
+  %.idx = mul nsw i64 %38, 168
+  %39 = getelementptr inbounds i8, ptr %36, i64 %.idx
   %40 = icmp eq i64 %38, 0
   br i1 %40, label %.thread, label %.lr.ph.i
 
@@ -5122,7 +5126,8 @@ default.unreachable19:                            ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !580)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !582)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !585)
-  %26 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %.val, i64 %.val10
+  %.idx.i.i = shl nsw i64 %.val10, 5
+  %26 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i.i
   %.not.i.i.i = icmp eq i64 %.val10, 0
   br i1 %.not.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8contains17h4c28611bd3c17b15E.exit", label %.lr.ph.i.i.i
 
@@ -5347,7 +5352,8 @@ default.unreachable9:                             ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !627)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !629)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !632)
-  %13 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %.val, i64 %.val6
+  %.idx.i.i = shl nsw i64 %.val6, 5
+  %13 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i.i
   %.not.i.i.i = icmp eq i64 %.val6, 0
   br i1 %.not.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8contains17h4c28611bd3c17b15E.exit", label %.lr.ph.i.i.i
 

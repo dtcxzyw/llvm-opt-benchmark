@@ -98,7 +98,8 @@ define hidden void @_ZN10ockam_core7routing5route5Route6create17h0a6ba080b024e22
   %.sroa.410.0.copyload = load i64, ptr %.sroa.410.0..sroa_idx, align 8
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.511.0.copyload = load i64, ptr %.sroa.511.0..sroa_idx, align 8
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %.sroa.09.0.copyload, i64 %.sroa.511.0.copyload
+  %.idx = shl nsw i64 %.sroa.511.0.copyload, 5
+  %9 = getelementptr inbounds i8, ptr %.sroa.09.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.09.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8

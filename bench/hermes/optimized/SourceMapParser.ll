@@ -94,14 +94,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::optional_detail::OptionalStorage.91" = type { %"struct.llvh::AlignedCharArrayUnion.92", i8, [3 x i8] }
 %"struct.llvh::AlignedCharArrayUnion.92" = type { %"struct.llvh::AlignedCharArray.93" }
 %"struct.llvh::AlignedCharArray.93" = type { [20 x i8] }
-%"class.std::unique_ptr.144" = type { %"struct.std::__uniq_ptr_data.145" }
-%"struct.std::__uniq_ptr_data.145" = type { %"class.std::__uniq_ptr_impl.146" }
-%"class.std::__uniq_ptr_impl.146" = type { %"class.std::tuple.147" }
-%"class.std::tuple.147" = type { %"struct.std::_Tuple_impl.148" }
-%"struct.std::_Tuple_impl.148" = type { %"struct.std::_Tuple_impl.149", %"struct.std::_Head_base.151" }
-%"struct.std::_Tuple_impl.149" = type { %"struct.std::_Head_base.150" }
-%"struct.std::_Head_base.150" = type { ptr }
-%"struct.std::_Head_base.151" = type { ptr }
 
 $_ZNSt7__cxx119to_stringEj = comdat any
 
@@ -2017,7 +2009,8 @@ while.body:                                       ; preds = %entry, %_ZN6hermes2
 
 while.body.i.preheader.i.i.i:                     ; preds = %while.body
   %conv.i.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.std::unique_ptr.144", ptr %3, i64 %conv.i.i.i.i
+  %add.ptr.i.idx.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 4
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %add.ptr.i.idx.i.i.i
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %_ZNSt10unique_ptrIvPDoFvPvEED2Ev.exit.i.i.i.i, %while.body.i.preheader.i.i.i

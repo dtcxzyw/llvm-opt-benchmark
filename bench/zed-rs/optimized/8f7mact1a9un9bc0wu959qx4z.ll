@@ -9484,7 +9484,8 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu12select_first1
   %5 = load ptr, ptr %4, align 8, !nonnull !7, !noundef !7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8, !noundef !7
-  %8 = getelementptr inbounds { i64, [7 x i64] }, ptr %5, i64 %7
+  %.idx = shl nsw i64 %7, 6
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hdbe5fdcc0e7cad1cE.llvm.1407927494119257398.exit", label %.lr.ph.i
 
@@ -9703,7 +9704,8 @@ define hidden void @_ZN2ui10components12context_menu11ContextMenu11select_next17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1545)
   %16 = load ptr, ptr %5, align 8, !alias.scope !1545, !noalias !1548, !nonnull !7, !noundef !7
   %17 = load i64, ptr %6, align 8, !alias.scope !1545, !noalias !1548, !noundef !7
-  %18 = getelementptr inbounds { i64, [7 x i64] }, ptr %16, i64 %17
+  %.idx.i = shl nsw i64 %17, 6
+  %18 = getelementptr inbounds i8, ptr %16, i64 %.idx.i
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %_ZN2ui10components12context_menu11ContextMenu12select_first17h3e355f4c0e5cb705E.exit, label %.lr.ph.i.i
 
@@ -9994,7 +9996,8 @@ define void @_ZN2ui10components12context_menu11ContextMenu18on_action_dispatch17
   %14 = load ptr, ptr %13, align 8, !nonnull !7, !noundef !7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i64, ptr %15, align 8, !noundef !7
-  %17 = getelementptr inbounds { i64, [7 x i64] }, ptr %14, i64 %16
+  %.idx = shl nsw i64 %16, 6
+  %17 = getelementptr inbounds i8, ptr %14, i64 %.idx
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %.loopexit, label %.lr.ph.i
 
@@ -10998,7 +11001,8 @@ _ZN2ui6styles5units2vh17hcac4415411cce0d6E.exit:  ; preds = %.noexc28
   %.val25 = load ptr, ptr %117, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1859)
   call void @llvm.experimental.noalias.scope.decl(metadata !1862)
-  %252 = getelementptr inbounds { i64, [7 x i64] }, ptr %.val, i64 %.val24
+  %.idx.i = shl nsw i64 %.val24, 6
+  %252 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i
   %253 = icmp eq i64 %.val24, 0
   br i1 %253, label %.loopexit, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0ed6f3a116c754d4E.llvm.1407927494119257398.exit.lr.ph.i"
 

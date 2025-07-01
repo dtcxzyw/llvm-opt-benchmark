@@ -761,7 +761,8 @@ _ZN20migrations_internals10file_names17hc559c331ffac8b7bE.exit: ; preds = %16
   store ptr %.sroa.7.0.copyload, ptr %.sroa.7.0..sroa_idx2, align 8
   %.sroa.10.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sroa.10.0.copyload, ptr %.sroa.10.0..sroa_idx4, align 8
-  %23 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %.sroa.7.0.copyload, i64 %.sroa.10.0.copyload
+  %.idx.i.i = mul nsw i64 %.sroa.10.0.copyload, 24
+  %23 = getelementptr inbounds i8, ptr %.sroa.7.0.copyload, i64 %.idx.i.i
   %.not.i.i.i = icmp eq i64 %.sroa.10.0.copyload, 0
   br i1 %.not.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he64917a8c0b3902cE.exit.i.i", label %.lr.ph.i.i.i
 

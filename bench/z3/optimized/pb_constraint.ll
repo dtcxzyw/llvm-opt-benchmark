@@ -129,25 +129,26 @@ _ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit.i:    ; preds = %3
   %13 = getelementptr inbounds i8, ptr %11, i64 -4
   %14 = load i32, ptr %13, align 4, !tbaa !3
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %"class.sat::watched", ptr %11, i64 %15
+  %16 = shl nuw nsw i64 %15, 4
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 %16
   %.not8.not.i = icmp eq i32 %14, 0
   br i1 %.not8.not.i, label %_ZNK6vectorIN3sat7watchedELb1EjE8containsERKS1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit.i, %.lr.ph.i
-  %.079.i = phi ptr [ %23, %.lr.ph.i ], [ %11, %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit.i ]
-  %17 = load i64, ptr %.079.i, align 8, !tbaa !21
-  %18 = icmp eq i64 %17, %10
-  %19 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp eq i32 %20, 2
-  %22 = select i1 %18, i1 %21, i1 false
-  %23 = getelementptr inbounds nuw i8, ptr %.079.i, i64 16
-  %.not.not.i = icmp eq ptr %23, %16
-  %or.cond = select i1 %22, i1 true, i1 %.not.not.i
+  %.079.i = phi ptr [ %24, %.lr.ph.i ], [ %11, %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit.i ]
+  %18 = load i64, ptr %.079.i, align 8, !tbaa !21
+  %19 = icmp eq i64 %18, %10
+  %20 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp eq i32 %21, 2
+  %23 = select i1 %19, i1 %22, i1 false
+  %24 = getelementptr inbounds nuw i8, ptr %.079.i, i64 16
+  %.not.not.i = icmp eq ptr %24, %17
+  %or.cond = select i1 %23, i1 true, i1 %.not.not.i
   br i1 %or.cond, label %_ZNK6vectorIN3sat7watchedELb1EjE8containsERKS1_.exit, label %.lr.ph.i, !llvm.loop !23
 
 _ZNK6vectorIN3sat7watchedELb1EjE8containsERKS1_.exit: ; preds = %.lr.ph.i, %3, %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit.i
-  %.not.lcssa.i = phi i1 [ false, %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit.i ], [ false, %3 ], [ %22, %.lr.ph.i ]
+  %.not.lcssa.i = phi i1 [ false, %_ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit.i ], [ false, %3 ], [ %23, %.lr.ph.i ]
   ret i1 %.not.lcssa.i
 }
 

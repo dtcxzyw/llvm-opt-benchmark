@@ -5,9 +5,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.Align64 = type { i32, [60 x i8] }
 %"struct.eastl::ListNodeBase" = type { ptr, ptr }
-%struct.TestObject = type <{ i32, i8, [3 x i8], i64, i32, [4 x i8] }>
 %"struct.eastl::DequeIterator.3" = type { ptr, ptr, ptr, ptr }
 %"struct.eastl::DequeIterator.14" = type { ptr, ptr, ptr, ptr }
+%struct.TestObject = type <{ i32, i8, [3 x i8], i64, i32, [4 x i8] }>
 %"class.eastl::basic_string" = type { %"class.eastl::compressed_pair.35" }
 %"class.eastl::compressed_pair.35" = type { %"class.eastl::compressed_pair_imp.36" }
 %"class.eastl::compressed_pair_imp.36" = type { %"struct.eastl::basic_string<char, eastl::allocator>::Layout" }
@@ -722,7 +722,8 @@ entry:
   %sub.i.i6 = sub i64 %7, %add.i.i5
   %div79.i.i = lshr i64 %sub.i.i6, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i5
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i5, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -918,7 +919,8 @@ entry:
   %mpEnd.i14.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i13.i.i.i, ptr %mpEnd.i14.i.i.i, align 8
   store ptr %2, ptr %mItEnd.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not8 = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not8, label %for.end, label %for.body
 
@@ -1488,7 +1490,8 @@ entry:
   %sub.i.i6 = sub i64 %7, %add.i.i5
   %div79.i.i = lshr i64 %sub.i.i6, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i6.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i5
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i5, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -1684,7 +1687,8 @@ entry:
   %mpEnd.i14.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i13.i.i.i, ptr %mpEnd.i14.i.i.i, align 8
   store ptr %2, ptr %mItEnd.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 6
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not8 = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not8, label %for.end, label %for.body
 
@@ -2309,7 +2313,8 @@ entry:
   store ptr %this, ptr %this, align 8
   %mpPrev.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not6 = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not6, label %for.end, label %for.body
 
@@ -7590,7 +7595,8 @@ entry:
 define weak_odr dso_local void @_ZN5eastl5stackIiNS_6vectorIiNS_9allocatorEEEEC2ESt16initializer_listIiE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) unnamed_addr #0 comdat($_ZN5eastl5stackIiNS_6vectorIiNS_9allocatorEEEEC5ESt16initializer_listIiE) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not6 = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not6, label %for.end, label %for.body.lr.ph
 
@@ -8072,7 +8078,8 @@ entry:
   store ptr %this, ptr %this, align 8
   %mpPrev.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 6
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not7 = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not7, label %for.end, label %for.body
 
@@ -8399,7 +8406,8 @@ entry:
 define weak_odr dso_local void @_ZN5eastl5stackI10TestObjectNS_6vectorIS1_NS_9allocatorEEEEC2ESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) unnamed_addr #0 comdat($_ZN5eastl5stackI10TestObjectNS_6vectorIS1_NS_9allocatorEEEEC5ESt16initializer_listIS1_E) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not5 = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not5, label %for.end, label %for.body.lr.ph
 
@@ -16595,8 +16603,8 @@ if.then4:                                         ; preds = %if.then
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.then4
-  %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i
-  %add.ptr = getelementptr inbounds %struct.TestObject, ptr %1, i64 %idx.neg
+  %add.ptr.idx = sub i64 0, %sub.ptr.sub.i.i
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then11, %for.body.i.i
@@ -16631,6 +16639,7 @@ for.body.i.i:                                     ; preds = %if.then11, %for.bod
   br i1 %cmp.i.not.i.i, label %_ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit, label %for.body.i.i, !llvm.loop !221
 
 _ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit: ; preds = %for.body.i.i
+  %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i
   %8 = load ptr, ptr %mpEnd, align 8
   %add.ptr18 = getelementptr inbounds %struct.TestObject, ptr %8, i64 %idx.neg
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr18 to i64
@@ -17891,8 +17900,10 @@ if.then4:                                         ; preds = %if.then
 
 if.then11:                                        ; preds = %if.then4
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i
-  %add.ptr = getelementptr inbounds i32, ptr %1, i64 %idx.neg
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %add.ptr, i64 %sub.ptr.sub.i.i, i1 false)
+  %add.ptr.idx = shl nsw i64 %idx.neg, 2
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
+  %gepdiff = sub nsw i64 0, %add.ptr.idx
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %add.ptr, i64 %gepdiff, i1 false)
   %2 = load ptr, ptr %mpEnd, align 8
   %add.ptr18 = getelementptr inbounds i32, ptr %2, i64 %idx.neg
   %cmp.not.i.i.i.i = icmp eq ptr %add.ptr18, %position
@@ -18695,7 +18706,8 @@ _ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i.i.i195: ; preds = %i
 if.else37:                                        ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
   %48 = load ptr, ptr %first, align 8
   %sub = sub nsw i64 %sub.ptr.div.i.i, %add11.i
-  %add.ptr.i.i203 = getelementptr inbounds nuw %struct.Align64, ptr %48, i64 %sub
+  %add.ptr.i.i203.idx = shl nuw nsw i64 %sub, 6
+  %add.ptr.i.i203 = getelementptr inbounds nuw i8, ptr %48, i64 %add.ptr.i.i203.idx
   %49 = load ptr, ptr %itNewBegin21, align 8
   %mpEnd4.i219 = getelementptr inbounds nuw i8, ptr %itNewBegin21, i64 16
   %50 = load ptr, ptr %mpEnd4.i219, align 8
@@ -19867,8 +19879,8 @@ if.then4:                                         ; preds = %if.then
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.then4
-  %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i
-  %add.ptr = getelementptr inbounds %struct.TestObject, ptr %1, i64 %idx.neg
+  %add.ptr.idx = sub i64 0, %sub.ptr.sub.i.i
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then11, %for.body.i.i
@@ -19903,6 +19915,7 @@ for.body.i.i:                                     ; preds = %if.then11, %for.bod
   br i1 %cmp.i.not.i.i, label %_ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit, label %for.body.i.i, !llvm.loop !221
 
 _ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit: ; preds = %for.body.i.i
+  %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i
   %8 = load ptr, ptr %mpEnd, align 8
   %add.ptr18 = getelementptr inbounds %struct.TestObject, ptr %8, i64 %idx.neg
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr18 to i64
@@ -20647,8 +20660,10 @@ if.then4:                                         ; preds = %if.then
 
 if.then11:                                        ; preds = %if.then4
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i
-  %add.ptr = getelementptr inbounds float, ptr %1, i64 %idx.neg
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %add.ptr, i64 %sub.ptr.sub.i.i, i1 false)
+  %add.ptr.idx = shl nsw i64 %idx.neg, 2
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
+  %gepdiff = sub nsw i64 0, %add.ptr.idx
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %add.ptr, i64 %gepdiff, i1 false)
   %2 = load ptr, ptr %mpEnd, align 8
   %add.ptr18 = getelementptr inbounds float, ptr %2, i64 %idx.neg
   %cmp.not.i.i.i.i = icmp eq ptr %add.ptr18, %position

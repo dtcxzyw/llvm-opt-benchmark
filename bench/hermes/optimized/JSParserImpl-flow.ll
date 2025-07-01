@@ -24,9 +24,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::SmallVectorStorage.98" = type { [2 x %"struct.llvh::AlignedCharArrayUnion.99"] }
 %"struct.llvh::AlignedCharArrayUnion.99" = type { %"struct.llvh::AlignedCharArray.100" }
 %"struct.llvh::AlignedCharArray.100" = type { [16 x i8] }
+%"class.hermes::parser::JSLexer::SavePoint" = type { ptr, i32, ptr, %"class.llvh::SMLoc", %"class.llvh::SMRange", %"class.llvh::SMLoc", i64, i64 }
 %"class.llvh::SMRange" = type { %"class.llvh::SMLoc", %"class.llvh::SMLoc" }
 %"class.llvh::SMLoc" = type { ptr }
-%"class.hermes::parser::JSLexer::SavePoint" = type { ptr, i32, ptr, %"class.llvh::SMLoc", %"class.llvh::SMRange", %"class.llvh::SMLoc", i64, i64 }
 %"class.hermes::parser::StoredComment" = type { i32, %"class.llvh::SMRange" }
 %"class.hermes::parser::StoredToken" = type { i32, %"class.llvh::SMRange" }
 %"class.llvh::StringRef" = type { ptr, i64 }
@@ -8265,7 +8265,8 @@ if.else:                                          ; preds = %if.end24, %_ZNK6her
   %26 = load ptr, ptr %invalids, align 8
   %27 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i = zext i32 %27 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.llvh::SMRange", ptr %26, i64 %conv.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %26, i64 %add.ptr.i.idx
   %cmp.not97 = icmp eq i32 %27, 0
   br i1 %cmp.not97, label %if.end38, label %for.body.lr.ph
 
@@ -16745,7 +16746,8 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIN
   store i32 0, ptr %NumTombstones.i.i.i, align 4
   %3 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i = zext i32 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %call.i, i64 %idx.ext.i.i
+  %add.ptr.i.idx.i = mul nuw nsw i64 %idx.ext.i.i, 24
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %add.ptr.i.idx.i
   %cmp.not3.i = icmp eq i32 %3, 0
   br i1 %cmp.not3.i, label %return, label %for.body.i
 
@@ -16760,14 +16762,16 @@ for.body.i:                                       ; preds = %if.then, %for.body.
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %1, i64 %idx.ext
+  %add.ptr.idx = mul nuw nsw i64 %idx.ext, 24
+  %add.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.idx
   %NumEntries.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i.i, align 8
   %NumTombstones.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i.i, align 4
   %4 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %call.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.idx.i.i = mul nuw nsw i64 %idx.ext.i.i.i, 24
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %add.ptr.i.idx.i.i
   %cmp.not3.i.i = icmp eq i32 %4, 0
   br i1 %cmp.not3.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E9initEmptyEv.exit.i, label %for.body.i.i
 

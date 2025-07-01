@@ -477,7 +477,8 @@ define hidden void @"_ZN333_$LT$diesel..query_builder..insert_statement..batch_i
   %15 = load ptr, ptr %14, align 8, !nonnull !14, !noundef !14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !14
-  %18 = getelementptr inbounds { ptr, ptr }, ptr %15, i64 %17
+  %.idx = shl nsw i64 %17, 4
+  %18 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9414d3fc18209b22E.exit.thread", label %20
 
@@ -732,7 +733,8 @@ define hidden void @"_ZN333_$LT$diesel..query_builder..insert_statement..batch_i
   %15 = load ptr, ptr %14, align 8, !nonnull !14, !noundef !14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !14
-  %18 = getelementptr inbounds ptr, ptr %15, i64 %17
+  %.idx = shl nsw i64 %17, 3
+  %18 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c71ed0d3eea317fE.exit.thread", label %20
 
@@ -1044,7 +1046,8 @@ define hidden void @"_ZN333_$LT$diesel..query_builder..insert_statement..batch_i
   %15 = load ptr, ptr %14, align 8, !nonnull !14, !noundef !14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !14
-  %18 = getelementptr inbounds { ptr, ptr }, ptr %15, i64 %17
+  %.idx = shl nsw i64 %17, 4
+  %18 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha459ff506611d0b8E.exit.thread", label %20
 
@@ -1299,7 +1302,8 @@ define hidden void @"_ZN333_$LT$diesel..query_builder..insert_statement..batch_i
   %15 = load ptr, ptr %14, align 8, !nonnull !14, !noundef !14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !14
-  %18 = getelementptr inbounds { ptr, ptr }, ptr %15, i64 %17
+  %.idx = shl nsw i64 %17, 4
+  %18 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbc7863e9efc46c63E.exit.thread", label %20
 
@@ -1554,7 +1558,8 @@ define hidden void @"_ZN333_$LT$diesel..query_builder..insert_statement..batch_i
   %15 = load ptr, ptr %14, align 8, !nonnull !14, !noundef !14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !14
-  %18 = getelementptr inbounds ptr, ptr %15, i64 %17
+  %.idx = shl nsw i64 %17, 3
+  %18 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h62e14e900ef533adE.exit.thread", label %20
 

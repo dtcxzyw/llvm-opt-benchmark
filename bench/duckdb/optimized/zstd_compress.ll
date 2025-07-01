@@ -4884,7 +4884,8 @@ _ZN11duckdb_zstdL22ZSTD_deriveBlockSplitsEPNS_11ZSTD_CCtx_sEPjj.exit.i.i.i: ; pr
 309:                                              ; preds = %308, %305, %301
   %310 = load ptr, ptr %137, align 8, !tbaa !201
   store ptr %310, ptr %147, align 8, !tbaa !201
-  %311 = getelementptr inbounds nuw %"struct.duckdb_zstd::seqDef_s", ptr %310, i64 %303
+  %.idx.i.i.i = shl nuw nsw i64 %303, 3
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 %.idx.i.i.i
   store ptr %311, ptr %152, align 8, !tbaa !205
   %312 = load ptr, ptr %138, align 8, !tbaa !205
   %313 = ptrtoint ptr %312 to i64

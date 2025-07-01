@@ -25045,7 +25045,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %15 = load ptr, ptr %.val2.i.i, align 8, !noalias !4352, !nonnull !10, !align !49, !noundef !10
   %16 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 8
   %17 = load i64, ptr %16, align 8, !noalias !4352, !noundef !10
-  %18 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i64 %17
+  %.idx.i.i.i = shl nuw nsw i64 %17, 4
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %"_ZN12polars_arrow7compute11concatenate18concatenate_struct28_$u7b$$u7b$closure$u7d$$u7d$17hf2ff379e4b444093E.exit.i.i", label %.lr.ph.i.i.i
 
@@ -25408,7 +25409,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %15 = load ptr, ptr %.val2.i.i, align 8, !noalias !4455, !nonnull !10, !align !49, !noundef !10
   %16 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 8
   %17 = load i64, ptr %16, align 8, !noalias !4455, !noundef !10
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
+  %.idx.i.i.i = shl nuw nsw i64 %17, 3
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %"_ZN12polars_arrow7compute11concatenate18concatenate_struct28_$u7b$$u7b$closure$u7d$$u7d$17h4e7e11b951f6ab4eE.exit.i.i", label %.lr.ph.i.i.i
 
@@ -25701,7 +25703,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %15 = load ptr, ptr %.val2.i.i, align 8, !noalias !4534, !nonnull !10, !align !49, !noundef !10
   %16 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 8
   %17 = load i64, ptr %16, align 8, !noalias !4534, !noundef !10
-  %18 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %15, i64 %17
+  %.idx.i.i.i = shl nuw nsw i64 %17, 4
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i
   %19 = icmp eq i64 %17, 0
   br i1 %19, label %"_ZN12polars_arrow7compute11concatenate18concatenate_struct28_$u7b$$u7b$closure$u7d$$u7d$17h3edf778957854c90E.exit.i.i", label %.lr.ph.i.i.i
 
@@ -29991,7 +29994,8 @@ common.resume.i.i:                                ; preds = %33, %141, %117, %.b
   %45 = load ptr, ptr %44, align 8, !noalias !5500, !nonnull !10, !noundef !10
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %47 = load i64, ptr %46, align 8, !noalias !5500, !noundef !10
-  %48 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %45, i64 %47
+  %.idx.i.i.i = shl nuw nsw i64 %47, 4
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx.i.i.i
   %49 = icmp eq i64 %47, 0
   br i1 %49, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 

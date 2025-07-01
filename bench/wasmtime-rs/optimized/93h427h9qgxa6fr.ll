@@ -128,7 +128,8 @@ define internal fastcc void @_ZN18cranelift_frontend6switch6Switch21build_search
   br i1 %14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %15 = getelementptr inbounds nuw { i128, { { i64, ptr, {} }, i64 }, [1 x i64] }, ptr %3, i64 %4
+  %.idx = mul nuw nsw i64 %4, 48
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -1027,7 +1028,8 @@ define void @_ZN18cranelift_frontend6switch6Switch4emit17h2c6ede5ca4d45c30E(ptr 
   %99 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 0, ptr %99, align 8, !noalias !289
   %.sroa.071.0.copyload.i = load i64, ptr %23, align 8, !noalias !289
-  %100 = getelementptr inbounds { i128, i32, [3 x i32] }, ptr %84, i64 %86
+  %.idx.i = shl nsw i64 %86, 5
+  %100 = getelementptr inbounds i8, ptr %84, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20), !noalias !289
   store ptr %84, ptr %20, align 8, !noalias !289
   %.sroa.4.0..sroa_idx.i13 = getelementptr inbounds nuw i8, ptr %20, i64 8

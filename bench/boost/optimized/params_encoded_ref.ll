@@ -10,13 +10,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.boost::urls::detail::any_params_iter.base" = type <{ ptr, %"class.boost::core::basic_string_view", %"class.boost::core::basic_string_view", i8 }>
 %"class.boost::core::basic_string_view" = type { ptr, i64 }
 %"struct.boost::urls::detail::params_encoded_iter.2" = type { %"struct.boost::urls::detail::any_params_iter.base", ptr, ptr, ptr }
-%"struct.boost::urls::param_pct_view" = type <{ %"class.boost::urls::pct_string_view", %"class.boost::urls::pct_string_view", i8, [7 x i8] }>
-%"class.boost::urls::pct_string_view" = type { %"class.boost::urls::grammar::string_view_base", i64 }
-%"class.boost::urls::grammar::string_view_base" = type { %"class.boost::core::basic_string_view" }
 %"class.boost::urls::params_encoded_view" = type { %"class.boost::urls::params_encoded_base" }
 %"class.boost::urls::params_encoded_base" = type { %"class.boost::urls::detail::query_ref" }
 %"struct.boost::urls::detail::param_encoded_iter" = type { %"struct.boost::urls::detail::any_params_iter.base", i8, i8, [5 x i8] }
+%"class.boost::urls::pct_string_view" = type { %"class.boost::urls::grammar::string_view_base", i64 }
+%"class.boost::urls::grammar::string_view_base" = type { %"class.boost::core::basic_string_view" }
 %"struct.boost::urls::detail::query_iter" = type <{ %"struct.boost::urls::detail::any_params_iter.base", [7 x i8], %"class.boost::core::basic_string_view", i64, ptr, i8, [7 x i8] }>
+%"struct.boost::urls::param_pct_view" = type <{ %"class.boost::urls::pct_string_view", %"class.boost::urls::pct_string_view", i8, [7 x i8] }>
 %"struct.boost::urls::detail::param_encoded_value_iter" = type <{ %"struct.boost::urls::detail::any_params_iter.base", [7 x i8], i64, i8, i8, [6 x i8] }>
 %"struct.boost::urls::param_view" = type <{ %"class.boost::core::basic_string_view", %"class.boost::core::basic_string_view", i8, [7 x i8] }>
 
@@ -218,7 +218,8 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN5boost4urls18params_e
   %5 = alloca %"class.boost::urls::params_encoded_base::iterator", align 8
   %6 = alloca %"struct.boost::urls::detail::params_encoded_iter.2", align 8
   %7 = alloca %"struct.boost::urls::detail::params_iter_impl", align 8
-  %8 = getelementptr inbounds nuw %"struct.boost::urls::param_pct_view", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 56
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #12
@@ -277,7 +278,8 @@ define void @_ZN5boost4urls18params_encoded_ref6assignESt16initializer_listINS0_
   %5 = alloca %"class.boost::urls::params_encoded_base::iterator", align 8
   %6 = alloca %"struct.boost::urls::detail::params_encoded_iter.2", align 8
   %7 = alloca %"struct.boost::urls::detail::params_iter_impl", align 8
-  %8 = getelementptr inbounds nuw %"struct.boost::urls::param_pct_view", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 56
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #12
@@ -361,7 +363,8 @@ define void @_ZN5boost4urls18params_encoded_ref6insertENS0_19params_encoded_base
   %8 = alloca %"class.boost::urls::params_encoded_base::iterator", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %8), !noalias !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 104, i1 false)
-  %9 = getelementptr inbounds nuw %"struct.boost::urls::param_pct_view", ptr %3, i64 %4
+  %.idx = mul nuw nsw i64 %4, 56
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #12, !noalias !35
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !3, !noalias !35
@@ -621,7 +624,8 @@ define void @_ZN5boost4urls18params_encoded_ref7replaceENS0_19params_encoded_bas
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 104, i1 false)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 104, i1 false)
-  %11 = getelementptr inbounds nuw %"struct.boost::urls::param_pct_view", ptr %4, i64 %5
+  %.idx = mul nuw nsw i64 %5, 56
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #12, !noalias !70
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !70

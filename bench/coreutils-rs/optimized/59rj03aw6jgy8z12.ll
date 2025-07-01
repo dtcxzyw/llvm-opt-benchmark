@@ -1658,7 +1658,8 @@ define void @_ZN9uu_expand16expand_shortcuts17h672d27761356097cE(ptr noalias nou
   %.sroa.051.0.copyload = load i64, ptr %1, align 8
   %.sroa.452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.452.0.copyload = load ptr, ptr %.sroa.452.0..sroa_idx, align 8, !nonnull !4, !noundef !4
-  %23 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } } }, ptr %.sroa.452.0.copyload, i64 %14
+  %.idx = mul nsw i64 %14, 24
+  %23 = getelementptr inbounds i8, ptr %.sroa.452.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   store ptr %.sroa.452.0.copyload, ptr %11, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -2876,7 +2877,8 @@ define { ptr, ptr } @_ZN9uu_expand6expand17h02f6ec686e6abc16E(ptr noalias nounde
   %.val = load ptr, ptr %42, align 8, !nonnull !4, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val32 = load i64, ptr %43, align 8, !noundef !4
-  %44 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.val32
+  %.idx = mul nsw i64 %.val32, 24
+  %44 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %45 = icmp eq i64 %.val32, 0
   br i1 %45, label %._crit_edge, label %.lr.ph
 

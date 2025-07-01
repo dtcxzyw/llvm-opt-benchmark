@@ -4053,7 +4053,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i249: ; preds = %1452,
   %1507 = getelementptr inbounds nuw i8, ptr %1505, i64 48
   %1508 = load i64, ptr %1507, align 8, !tbaa !282
   store i64 %1508, ptr %1313, align 8, !tbaa !279
-  %1509 = getelementptr inbounds nuw i32, ptr %55, i64 %1508
+  %.idx.i = shl nuw nsw i64 %1508, 2
+  %1509 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i
   %.not5.i.i.i.i = icmp eq i64 %1508, 0
   br i1 %.not5.i.i.i.i, label %.loopexit1090, label %.lr.ph.i.i.i.i
 
@@ -5130,7 +5131,8 @@ _ZNSt10unique_ptrIN3ade11IDataBufferESt14default_deleteIS1_EE5resetEPS1_.exit: ;
   %1926 = getelementptr inbounds nuw i8, ptr %1924, i64 48
   %1927 = load i64, ptr %1926, align 8, !tbaa !282, !noalias !312
   store i64 %1927, ptr %1925, align 8, !tbaa !279, !alias.scope !312
-  %1928 = getelementptr inbounds nuw %"struct.ade::util::Span", ptr %1924, i64 %1927
+  %.idx.i.i = shl nuw nsw i64 %1927, 3
+  %1928 = getelementptr inbounds nuw i8, ptr %1924, i64 %.idx.i.i
   %.not8.i.i.i = icmp eq i64 %1927, 0
   br i1 %.not8.i.i.i, label %.loopexit1089, label %.lr.ph.i.i.preheader.i
 
@@ -13063,7 +13065,8 @@ define internal void @_ZN12_GLOBAL__N_114HostBufferImpl9alignmentERKN3ade4util9D
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %6 = load i64, ptr %5, align 8, !tbaa !282
   store i64 %6, ptr %4, align 8, !tbaa !279
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %6
+  %.idx.i = shl nuw nsw i64 %6, 2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
   %.not5.i.i.i.i = icmp eq i64 %6, 0
   br i1 %.not5.i.i.i.i, label %_ZN3ade4util4fillIRNS0_9DynMdSizeILm6EEEiEEvOT_OT0_.exit, label %.lr.ph.i.i.i.i
 

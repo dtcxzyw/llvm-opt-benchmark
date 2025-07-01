@@ -7819,7 +7819,8 @@ _ZN4cvc58internal7Minisat8OccListsINS1_3LitENS1_3vecINS1_6Solver7WatcherEEENS5_1
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %82 = load i32, ptr %81, align 8, !tbaa !125
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::Watcher", ptr %80, i64 %83
+  %.idx = shl nsw i64 %83, 3
+  %84 = getelementptr inbounds i8, ptr %80, i64 %.idx
   %.not159 = icmp eq i32 %82, 0
   br i1 %.not159, label %._crit_edge165, label %.lr.ph164
 

@@ -221,7 +221,8 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %34, align 4, !tbaa !40
   %35 = load ptr, ptr %5, align 8, !tbaa !41
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %22
+  %.idx51 = shl nuw nsw i64 %22, 3
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx51
   %.not54 = icmp eq i64 %22, 0
   br i1 %.not54, label %._crit_edge, label %.lr.ph
 
@@ -231,7 +232,8 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   %37 = or i32 %32, 524288
   store i32 %37, ptr %0, align 8
   %38 = load ptr, ptr %7, align 8, !tbaa !42
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %26
+  %.idx53 = shl nuw nsw i64 %26, 3
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx53
   %.not3959 = icmp eq i64 %26, 0
   br i1 %.not3959, label %.critedge, label %.lr.ph64.preheader
 
@@ -352,18 +354,16 @@ _ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread: ; pred
   br i1 %.not54, label %_ZSt4copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit, label %100
 
 100:                                              ; preds = %.critedge
-  %.idx = shl nuw nsw i64 %22, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %99, ptr align 8 %35, i64 %.idx, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %99, ptr align 8 %35, i64 %.idx51, i1 false)
   br label %_ZSt4copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit: ; preds = %.critedge, %100
   br i1 %.not3959, label %_ZSt4copyIPKPN5clang8concepts11RequirementEPS3_ET0_T_S8_S7_.exit, label %101
 
 101:                                              ; preds = %_ZSt4copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit
-  %.idx52 = shl nuw nsw i64 %26, 3
   %102 = and i64 %22, 4294967295
   %103 = getelementptr inbounds nuw ptr, ptr %99, i64 %102
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %103, ptr align 8 %38, i64 %.idx52, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %103, ptr align 8 %38, i64 %.idx53, i1 false)
   br label %_ZSt4copyIPKPN5clang8concepts11RequirementEPS3_ET0_T_S8_S7_.exit
 
 _ZSt4copyIPKPN5clang8concepts11RequirementEPS3_ET0_T_S8_S7_.exit: ; preds = %_ZSt4copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit, %101

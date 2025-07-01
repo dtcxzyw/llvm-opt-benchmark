@@ -2574,7 +2574,8 @@ define noundef zeroext i1 @"_ZN13ruff_notebook4cell83_$LT$impl$u20$core..fmt..Di
   br i1 %4, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %6, i64 %8
+  %.idx = mul nuw nsw i64 %8, 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %11 = icmp eq i64 %8, 0
   br i1 %11, label %.loopexit, label %.lr.ph
 

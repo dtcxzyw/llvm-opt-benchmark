@@ -8,6 +8,8 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.llvm::raw_string_ostream" = type { %"class.llvm::raw_ostream", ptr }
 %"class.llvm::raw_ostream" = type { ptr, i32, ptr, ptr, ptr, i8, i32 }
+%"class.llvm::APInt" = type <{ %union.anon.16, i32, [4 x i8] }>
+%union.anon.16 = type { i64 }
 %"struct.llvm::remarks::Argument" = type { %"class.llvm::StringRef", %"class.llvm::StringRef", %"class.std::optional" }
 %"class.llvm::StringRef" = type { ptr, i64 }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
@@ -16,8 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<llvm::remarks::RemarkLocation>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<llvm::remarks::RemarkLocation>::_Storage" = type { %"struct.llvm::remarks::RemarkLocation" }
 %"struct.llvm::remarks::RemarkLocation" = type { %"class.llvm::StringRef", i32, i32 }
-%"class.llvm::APInt" = type <{ %union.anon.16, i32, [4 x i8] }>
-%union.anon.16 = type { i64 }
 
 $_ZSt27__throw_bad_optional_accessv = comdat any
 
@@ -75,7 +75,8 @@ define dso_local void @_ZNK4llvm7remarks6Remark12getArgsAsMsgB5cxx11Ev(ptr dead_
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %14 = load i32, ptr %13, align 8, !tbaa !27
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %12, i64 %15
+  %.idx = shl nuw nsw i64 %15, 6
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   %.not9 = icmp eq i32 %14, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -921,7 +922,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit61:               ; preds = %203, %205
   %208 = load ptr, ptr %193, align 8, !tbaa !24
   %209 = load i32, ptr %194, align 8, !tbaa !27
   %210 = zext i32 %209 to i64
-  %211 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %208, i64 %210
+  %.idx = shl nuw nsw i64 %210, 6
+  %211 = getelementptr inbounds nuw i8, ptr %208, i64 %.idx
   %.not65 = icmp eq i32 %209, 0
   br i1 %.not65, label %.loopexit, label %.lr.ph
 

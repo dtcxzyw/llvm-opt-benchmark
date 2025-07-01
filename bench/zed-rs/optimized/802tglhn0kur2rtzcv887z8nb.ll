@@ -32,7 +32,8 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %10, ptr %11, align 8, !noalias !8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %12 = getelementptr inbounds { i64, i64 }, ptr %1, i64 %2
+  %.idx.i.i = shl nsw i64 %2, 4
+  %12 = getelementptr inbounds i8, ptr %1, i64 %.idx.i.i
   %13 = icmp eq i64 %2, 0
   br i1 %13, label %"_ZN4gpui8elements4text15InteractiveText8on_click28_$u7b$$u7b$closure$u7d$$u7d$17hfba981c22ab4483cE.llvm.7869911825158495569.exit.i", label %.lr.ph.i.i
 
@@ -1404,7 +1405,8 @@ define hidden void @_ZN4gpui8elements4text15InteractiveText8on_click17h97f146c8c
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN4gpui8elements4text15InteractiveText8on_click28_$u7b$$u7b$closure$u7d$$u7d$17hfba981c22ab4483cE.llvm.7869911825158495569"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noalias noundef align 8 dereferenceable(16) %5) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %7 = getelementptr inbounds { i64, i64 }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %7 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %8 = icmp eq i64 %2, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 

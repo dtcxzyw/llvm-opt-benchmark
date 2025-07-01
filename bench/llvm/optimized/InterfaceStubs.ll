@@ -29,8 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"class.clang::driver::InputInfo" = type { %union.anon.60, i32, ptr, i32, ptr }
-%union.anon.60 = type { ptr }
 %"class.llvm::opt::OptSpecifier" = type { i32 }
 %"class.llvm::SmallString.107" = type { %"class.llvm::SmallVector.108" }
 %"class.llvm::SmallVector.108" = type { %"class.llvm::SmallVectorImpl.55", %"struct.llvm::SmallVectorStorage.109" }
@@ -315,7 +313,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit39: ; preds = %_ZN4
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %113 = load i32, ptr %112, align 8, !tbaa !15
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds nuw %"class.clang::driver::InputInfo", ptr %111, i64 %114
+  %.idx = mul nuw nsw i64 %114, 40
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 %.idx
   %.not2379 = icmp eq i32 %113, 0
   br i1 %.not2379, label %._crit_edge, label %.lr.ph
 
@@ -861,7 +860,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5cla
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !15
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"class.std::unique_ptr.99", ptr %6, i64 %9
+  %.idx.i = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6driver7CommandESt14default_deleteIS4_EELb0EE19moveElementsForGrowEPS7_.exit, label %.lr.ph.i.i.i.i.i.i
 

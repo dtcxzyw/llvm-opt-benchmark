@@ -1497,7 +1497,8 @@ _ZN8QuantLib5ArrayC2Em.exit:                      ; preds = %do.body25
   %49 = load ptr, ptr %diagonal_, align 8, !tbaa !18
   %n_.i70 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %50 = load i64, ptr %n_.i70, align 8, !tbaa !29
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %49, i64 %50
+  %add.ptr.i.idx = shl nuw nsw i64 %50, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %49, i64 %add.ptr.i.idx
   %51 = load ptr, ptr %v, align 8, !tbaa !18
   %cmp.not6.i = icmp eq i64 %50, 0
   br i1 %cmp.not6.i, label %_ZSt9transformIPKdS1_PdSt10multipliesIvEET1_T_S6_T0_S5_T2_.exit, label %for.body.i
@@ -3184,7 +3185,7 @@ call.i7.noexc:                                    ; preds = %for.body.i.i.i.preh
   store ptr %call.i716, ptr %ref.tmp1, align 8, !tbaa !18
   %n_.i8 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
   store i64 %size, ptr %n_.i8, align 8, !tbaa !29
-  %add.ptr.i.i9 = getelementptr inbounds nuw double, ptr %call.i716, i64 %size
+  %add.ptr.i.i9 = getelementptr inbounds nuw i8, ptr %call.i716, i64 %.pre-phi
   br label %for.body.i.i.i.i10
 
 for.body.i.i.i.i10:                               ; preds = %for.body.i.i.i.i10, %call.i7.noexc

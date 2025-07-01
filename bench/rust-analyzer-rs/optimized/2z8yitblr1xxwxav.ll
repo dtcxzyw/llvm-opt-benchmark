@@ -1671,7 +1671,8 @@ define internal fastcc void @"_ZN57_$LT$tt..Subtree$LT$S$GT$$u20$as$u20$core..ha
   store i64 %75, ptr %1, align 8, !alias.scope !629
   tail call void @llvm.experimental.noalias.scope.decl(metadata !634)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !637)
-  %76 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %70, i64 %72
+  %.idx.i = shl nsw i64 %72, 6
+  %76 = getelementptr inbounds i8, ptr %70, i64 %.idx.i
   %77 = icmp eq i64 %72, 0
   br i1 %77, label %_ZN4core4hash4Hash10hash_slice17h15b1c888c2c51a92E.exit, label %.lr.ph.i
 

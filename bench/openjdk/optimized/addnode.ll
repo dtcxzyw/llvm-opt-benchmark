@@ -4205,7 +4205,8 @@ define hidden noundef ptr @_ZN8XorINode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val49 = load i32, ptr %27, align 8
   %28 = zext i32 %.val49 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %.val, i64 %28
+  %.idx.i = shl nuw nsw i64 %28, 3
+  %29 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %30 = icmp eq i32 %.val49, 0
   br i1 %30, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread, label %.lr.ph.i
 
@@ -4653,7 +4654,8 @@ define hidden noundef ptr @_ZN8XorLNode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val12 = load i32, ptr %27, align 8
   %28 = zext i32 %.val12 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %.val, i64 %28
+  %.idx.i = shl nuw nsw i64 %28, 3
+  %29 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %30 = icmp eq i32 %.val12, 0
   br i1 %30, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread, label %.lr.ph.i
 

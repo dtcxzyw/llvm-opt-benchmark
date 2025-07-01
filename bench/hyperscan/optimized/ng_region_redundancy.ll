@@ -2803,6 +2803,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L25regionHasUnexpectedAcceptER
   %8 = load i64, ptr %7, align 8
   %9 = load ptr, ptr %2, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.idx.i.i.i.us = shl nuw nsw i64 %.8.val, 2
   %.not1.i.i.i.i.i.us = icmp eq i64 %.8.val, 0
   br i1 %.not.not.i.i.i, label %.lr.ph40.split.us, label %.lr.ph40.split
 
@@ -2852,7 +2853,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L25regionHasUnexpectedAcceptER
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %44, align 8, !noalias !70
-  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %.8.val
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i.i.i.us
   br i1 %.not1.i.i.i.i.i.us, label %.critedge.us, label %.lr.ph.i.i.i.i.i28.us
 
 .lr.ph.i.i.i.i.i28.us:                            ; preds = %32, %38
@@ -2981,7 +2982,7 @@ _ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_
 
 89:                                               ; preds = %86
   %90 = load ptr, ptr %78, align 8, !noalias !70
-  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %.8.val
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx.i.i.i.us
   br i1 %.not1.i.i.i.i.i.us, label %.critedge, label %.lr.ph.i.i.i.i.i28
 
 .lr.ph.i.i.i.i.i28:                               ; preds = %89, %95

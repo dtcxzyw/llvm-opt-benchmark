@@ -4649,7 +4649,8 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h0b739c0b036f851aE.llvm.17454970623020605724"(ptr noalias noundef readonly align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { { ptr, i32, i32, i8, [7 x i8] }, { { i64, i64, i8, i8, [6 x i8] }, i8, [7 x i8] } }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 56
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hf374eca4ddf80374E.llvm.17454970623020605724.exit", label %.lr.ph.i
 
@@ -4776,7 +4777,8 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h689cd8a9bc6cb3c6E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #38 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1844)
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h230f558571044fa5E.llvm.17454970623020605724.exit", label %.lr.ph.i
@@ -18235,8 +18237,9 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h1626
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b418eeb5312477aE.exit.thread": ; preds = %.thread
   %114 = getelementptr i8, ptr %16, i64 8
-  %.val126 = load ptr, ptr %114, align 8, !nonnull !4, !noundef !4
-  %115 = getelementptr inbounds nuw { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }, ptr %.val126, i64 %12
+  %.val127 = load ptr, ptr %114, align 8, !nonnull !4, !noundef !4
+  %.idx128 = mul nuw nsw i64 %12, 104
+  %115 = getelementptr inbounds nuw i8, ptr %.val127, i64 %.idx128
   br label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h21f0781af3290013E.exit"
 
 116:                                              ; preds = %.thread, %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit
@@ -18246,15 +18249,17 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h1626
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b418eeb5312477aE.exit": ; preds = %_ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h162631bf723aa0c7E.exit
   %117 = getelementptr i8, ptr %16, i64 8
   %.val = load ptr, ptr %117, align 8, !nonnull !4, !noundef !4
-  %118 = getelementptr inbounds nuw { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }, ptr %.val, i64 %12
+  %.idx = mul nuw nsw i64 %12, 104
+  %118 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx
   %119 = trunc nuw i8 %29 to i1
   br label %123
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h21f0781af3290013E.exit": ; preds = %395, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b418eeb5312477aE.exit.thread"
   %120 = phi ptr [ %115, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b418eeb5312477aE.exit.thread" ], [ %118, %395 ]
-  %.val127 = phi ptr [ %.val126, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b418eeb5312477aE.exit.thread" ], [ %.val, %395 ]
+  %.val129 = phi ptr [ %.val127, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b418eeb5312477aE.exit.thread" ], [ %.val, %395 ]
   %.promoted100 = phi i64 [ %112, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b418eeb5312477aE.exit.thread" ], [ %396, %395 ]
-  %121 = getelementptr inbounds { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }, ptr %.val127, i64 %24
+  %.idx103 = mul nsw i64 %24, 104
+  %121 = getelementptr inbounds i8, ptr %.val129, i64 %.idx103
   %122 = icmp eq i64 %24, %12
   br i1 %122, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d36ba51af05a5c5E.exit29.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d36ba51af05a5c5E.exit29"
 
@@ -18975,7 +18980,8 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h1626
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b418eeb5312477aE.exit": ; preds = %79
   %83 = getelementptr i8, ptr %36, i64 8
   %.val = load ptr, ptr %83, align 8, !nonnull !4, !noundef !4
-  %84 = getelementptr inbounds nuw { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }, ptr %.val, i64 %80
+  %.idx = mul nuw nsw i64 %80, 104
+  %84 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx
   br i1 %.not.i.i, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h21f0781af3290013E.exit", label %.lr.ph
 
 .lr.ph:                                           ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b418eeb5312477aE.exit"
@@ -18983,7 +18989,8 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h1626
   br label %88
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h21f0781af3290013E.exit": ; preds = %158, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2b418eeb5312477aE.exit"
-  %86 = getelementptr inbounds { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }, ptr %.val, i64 %40
+  %.idx38 = mul nsw i64 %40, 104
+  %86 = getelementptr inbounds i8, ptr %.val, i64 %.idx38
   %87 = icmp eq i64 %40, %80
   br i1 %87, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d36ba51af05a5c5E.exit29.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d36ba51af05a5c5E.exit29"
 
@@ -19212,7 +19219,8 @@ define hidden void @"_ZN96_$LT$tree_sitter_cli..generate..build_tables..item..Pa
   store i64 %8, ptr %1, align 8, !alias.scope !4564
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !4567, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds { { ptr, i32, i32, i8, [7 x i8] }, { i64, i64, i8, i8, [6 x i8] } }, ptr %10, i64 %4
+  %.idx = mul nsw i64 %4, 48
+  %11 = getelementptr inbounds i8, ptr %10, i64 %.idx
   %12 = icmp eq i64 %4, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -19258,7 +19266,8 @@ define hidden void @"_ZN100_$LT$tree_sitter_cli..generate..build_tables..item..P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !4581
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !4584, !nonnull !4, !noundef !4
-  %8 = getelementptr inbounds { ptr, i32, i32, i8, [7 x i8] }, ptr %7, i64 %5
+  %.idx = mul nsw i64 %5, 24
+  %8 = getelementptr inbounds i8, ptr %7, i64 %.idx
   %9 = icmp eq i64 %5, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
@@ -19282,7 +19291,8 @@ define hidden void @_ZN15tree_sitter_cli8generate12build_tables16item_set_builde
   %7 = load i64, ptr %6, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4587)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4590)
-  %8 = getelementptr inbounds { { ptr, i32, i32, i8, [7 x i8] }, { { i64, i64, i8, i8, [6 x i8] }, i8, [7 x i8] } }, ptr %5, i64 %7
+  %.idx.i = mul nsw i64 %7, 56
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx.i
   %.not.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i
 
@@ -19545,7 +19555,8 @@ define noundef range(i64 0, -1) i64 @_ZN15tree_sitter_cli8generate8grammars14Lex
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds { { { { i64, ptr }, i64 } }, i32, i32, i8, [7 x i8] }, ptr %4, i64 %6
+  %.idx = mul nsw i64 %6, 40
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %.loopexit, label %.lr.ph.i
 

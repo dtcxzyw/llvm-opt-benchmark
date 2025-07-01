@@ -3024,7 +3024,8 @@ _ZSt24__uninitialized_fill_n_aIPN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EE
   br i1 %35, label %_ZSt6fill_nIPN5draco9IndexTypeIjNS0_21VertexIndex_tag_type_EEEmS3_ET_S5_T0_RKT1_.exit, label %.lr.ph.preheader.i.i.i.i16
 
 .lr.ph.preheader.i.i.i.i16:                       ; preds = %34
-  %36 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %6, i64 %1
+  %.idx.i.i = shl nuw nsw i64 %1, 2
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
   %.pre.i.i.i.i17 = load i32, ptr %2, align 4, !tbaa !114
   br label %.lr.ph.i.i.i.i18
 

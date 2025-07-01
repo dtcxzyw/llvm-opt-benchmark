@@ -72446,7 +72446,8 @@ define hidden void @_ZN4repl7outputs13ExecutionView12push_message17h535225cc67be
   %29 = load ptr, ptr %28, align 8, !nonnull !7, !noundef !7
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load i64, ptr %30, align 8, !noundef !7
-  %32 = getelementptr inbounds { i8, [39 x i8] }, ptr %29, i64 %31
+  %.idx = mul nsw i64 %31, 40
+  %32 = getelementptr inbounds i8, ptr %29, i64 %.idx
   %33 = icmp eq i64 %31, 0
   br i1 %33, label %._crit_edge, label %.lr.ph
 
@@ -72845,7 +72846,8 @@ define hidden void @_ZN4repl7outputs13ExecutionView19update_display_data17hf4688
   %11 = load ptr, ptr %10, align 8, !nonnull !7, !noundef !7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !7
-  %14 = getelementptr inbounds { i64, [9 x i64] }, ptr %11, i64 %13
+  %.idx = mul nsw i64 %13, 80
+  %14 = getelementptr inbounds i8, ptr %11, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %8, ptr %6, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8

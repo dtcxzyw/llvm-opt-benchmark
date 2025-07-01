@@ -370,7 +370,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
 .noexc58:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %11 = shl nuw nsw i64 %9, 2
   %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #21
-  %13 = getelementptr float, ptr %12, i64 %9
+  %13 = getelementptr inbounds nuw float, ptr %12, i64 %9
   store float 0.000000e+00, ptr %12, align 4, !tbaa !39
   %14 = icmp eq i32 %8, 1
   br i1 %14, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i

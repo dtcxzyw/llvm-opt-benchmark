@@ -35,13 +35,15 @@ define i32 @Div_FindDiv(ptr noundef readonly captures(none) %0, ptr noundef read
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !10
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i32, ptr %6, i64 %9
+  %.idx = shl nsw i64 %9, 2
+  %10 = getelementptr inbounds i8, ptr %6, i64 %.idx
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !10
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %12, i64 %15
+  %.idx78 = shl nsw i64 %15, 2
+  %16 = getelementptr inbounds i8, ptr %12, i64 %.idx78
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 -1, ptr %17, align 4, !tbaa !11
   store i32 -1, ptr %3, align 4, !tbaa !11
@@ -483,119 +485,121 @@ Vec_StrStart.exit:                                ; preds = %3, %7
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 1, ptr %17, align 4, !tbaa !33
   %18 = getelementptr i8, ptr %0, i64 4
-  %.val64116 = load i32, ptr %18, align 4, !tbaa !24
-  %19 = icmp sgt i32 %.val64116, 0
-  br i1 %19, label %.lr.ph118, label %.critedge
+  %.val64117 = load i32, ptr %18, align 4, !tbaa !24
+  %19 = icmp sgt i32 %.val64117, 0
+  br i1 %19, label %.lr.ph119, label %.critedge
 
-.lr.ph118:                                        ; preds = %Vec_StrStart.exit
+.lr.ph119:                                        ; preds = %Vec_StrStart.exit
   %20 = getelementptr i8, ptr %0, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br label %24
 
 .critedge6.loopexit.loopexit:                     ; preds = %Div_FindDiv.exit.thread
-  %.pre148 = sext i32 %.val64144 to i64
+  %.pre149 = sext i32 %.val64145 to i64
   br label %.critedge6.loopexit
 
 .critedge6.loopexit:                              ; preds = %.critedge6.loopexit.loopexit, %.critedge2
-  %.pre-phi149 = phi i64 [ %.pre148, %.critedge6.loopexit.loopexit ], [ %39, %.critedge2 ]
-  %.val64 = phi i32 [ %.val64144, %.critedge6.loopexit.loopexit ], [ %.val64146, %.critedge2 ]
-  %23 = icmp slt i64 %indvars.iv.next133, %.pre-phi149
-  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
+  %.pre-phi150 = phi i64 [ %.pre149, %.critedge6.loopexit.loopexit ], [ %39, %.critedge2 ]
+  %.val64 = phi i32 [ %.val64145, %.critedge6.loopexit.loopexit ], [ %.val64147, %.critedge2 ]
+  %23 = icmp slt i64 %indvars.iv.next134, %.pre-phi150
+  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   br i1 %23, label %24, label %.critedge.loopexit, !llvm.loop !34
 
-24:                                               ; preds = %.lr.ph118, %.critedge6.loopexit
-  %.val64142 = phi i32 [ %.val64116, %.lr.ph118 ], [ %.val64, %.critedge6.loopexit ]
-  %indvars.iv132 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next133, %.critedge6.loopexit ]
-  %indvars.iv127 = phi i64 [ 1, %.lr.ph118 ], [ %indvars.iv.next128, %.critedge6.loopexit ]
+24:                                               ; preds = %.lr.ph119, %.critedge6.loopexit
+  %.val64143 = phi i32 [ %.val64117, %.lr.ph119 ], [ %.val64, %.critedge6.loopexit ]
+  %indvars.iv133 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next134, %.critedge6.loopexit ]
+  %indvars.iv128 = phi i64 [ 1, %.lr.ph119 ], [ %indvars.iv.next129, %.critedge6.loopexit ]
   %.val66 = load ptr, ptr %20, align 8, !tbaa !27
-  %25 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val66, i64 %indvars.iv132
+  %25 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val66, i64 %indvars.iv133
   store i32 32767, ptr %21, align 8, !tbaa !11
   %26 = getelementptr i8, ptr %25, i64 4
-  %.val60110 = load i32, ptr %26, align 4, !tbaa !10
-  %27 = icmp sgt i32 %.val60110, 0
-  br i1 %27, label %.lr.ph112, label %.critedge2
+  %.val60111 = load i32, ptr %26, align 4, !tbaa !10
+  %27 = icmp sgt i32 %.val60111, 0
+  br i1 %27, label %.lr.ph113, label %.critedge2
 
-.lr.ph112:                                        ; preds = %24
+.lr.ph113:                                        ; preds = %24
   %28 = getelementptr i8, ptr %25, i64 8
   br label %30
 
 .critedge4.loopexit.loopexit:                     ; preds = %.lr.ph
-  %.pre147 = sext i32 %.val to i64
+  %.pre148 = sext i32 %.val to i64
   br label %.critedge4.loopexit
 
 .critedge4.loopexit:                              ; preds = %.critedge4.loopexit.loopexit, %30
-  %.pre-phi = phi i64 [ %.pre147, %.critedge4.loopexit.loopexit ], [ %33, %30 ]
-  %.val60 = phi i32 [ %.val, %.critedge4.loopexit.loopexit ], [ %.val60137, %30 ]
-  %29 = icmp slt i64 %indvars.iv.next125, %.pre-phi
+  %.pre-phi = phi i64 [ %.pre148, %.critedge4.loopexit.loopexit ], [ %33, %30 ]
+  %.val60 = phi i32 [ %.val, %.critedge4.loopexit.loopexit ], [ %.val60138, %30 ]
+  %29 = icmp slt i64 %indvars.iv.next126, %.pre-phi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %29, label %30, label %.critedge2.loopexit, !llvm.loop !35
 
-30:                                               ; preds = %.lr.ph112, %.critedge4.loopexit
-  %.val60137 = phi i32 [ %.val60110, %.lr.ph112 ], [ %.val60, %.critedge4.loopexit ]
-  %indvars.iv124 = phi i64 [ 0, %.lr.ph112 ], [ %indvars.iv.next125, %.critedge4.loopexit ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph112 ], [ %indvars.iv.next, %.critedge4.loopexit ]
+30:                                               ; preds = %.lr.ph113, %.critedge4.loopexit
+  %.val60138 = phi i32 [ %.val60111, %.lr.ph113 ], [ %.val60, %.critedge4.loopexit ]
+  %indvars.iv125 = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next126, %.critedge4.loopexit ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph113 ], [ %indvars.iv.next, %.critedge4.loopexit ]
   %.val62 = load ptr, ptr %28, align 8, !tbaa !3
-  %31 = getelementptr inbounds nuw i32, ptr %.val62, i64 %indvars.iv124
+  %31 = getelementptr inbounds nuw i32, ptr %.val62, i64 %indvars.iv125
   %32 = load i32, ptr %31, align 4, !tbaa !11
   store i32 %32, ptr %4, align 16, !tbaa !11
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %33 = sext i32 %.val60137 to i64
-  %34 = icmp slt i64 %indvars.iv.next125, %33
+  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
+  %33 = sext i32 %.val60138 to i64
+  %34 = icmp slt i64 %indvars.iv.next126, %33
   br i1 %34, label %.lr.ph, label %.critedge4.loopexit
 
 .lr.ph:                                           ; preds = %30, %.lr.ph
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %.lr.ph ], [ %indvars.iv, %30 ]
+  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.lr.ph ], [ %indvars.iv, %30 ]
   %.val61 = load ptr, ptr %28, align 8, !tbaa !3
-  %35 = getelementptr inbounds nuw i32, ptr %.val61, i64 %indvars.iv121
+  %35 = getelementptr inbounds nuw i32, ptr %.val61, i64 %indvars.iv122
   %36 = load i32, ptr %35, align 4, !tbaa !11
   store i32 %36, ptr %22, align 4, !tbaa !11
   call fastcc void @Tab_TabHashAdd(ptr noundef nonnull %14, ptr noundef %4, i32 noundef 1, i32 noundef 1)
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
+  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %.val = load i32, ptr %26, align 4, !tbaa !10
-  %37 = trunc nuw i64 %indvars.iv.next122 to i32
+  %37 = trunc nuw i64 %indvars.iv.next123 to i32
   %38 = icmp sgt i32 %.val, %37
   br i1 %38, label %.lr.ph, label %.critedge4.loopexit.loopexit, !llvm.loop !36
 
 .critedge2.loopexit:                              ; preds = %.critedge4.loopexit
-  %.val63113.pre = load i32, ptr %18, align 4, !tbaa !24
+  %.val63114.pre = load i32, ptr %18, align 4, !tbaa !24
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %24
-  %.val64146 = phi i32 [ %.val63113.pre, %.critedge2.loopexit ], [ %.val64142, %24 ]
-  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
-  %39 = sext i32 %.val64146 to i64
-  %40 = icmp slt i64 %indvars.iv.next133, %39
-  br i1 %40, label %.lr.ph115, label %.critedge6.loopexit
+  %.val64147 = phi i32 [ %.val63114.pre, %.critedge2.loopexit ], [ %.val64143, %24 ]
+  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
+  %39 = sext i32 %.val64147 to i64
+  %40 = icmp slt i64 %indvars.iv.next134, %39
+  br i1 %40, label %.lr.ph116, label %.critedge6.loopexit
 
-.lr.ph115:                                        ; preds = %.critedge2
+.lr.ph116:                                        ; preds = %.critedge2
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 8
   br label %42
 
-42:                                               ; preds = %.lr.ph115, %Div_FindDiv.exit.thread
-  %.val64145 = phi i32 [ %.val64146, %.lr.ph115 ], [ %.val64144, %Div_FindDiv.exit.thread ]
-  %.val63140 = phi i32 [ %.val64146, %.lr.ph115 ], [ %.val63, %Div_FindDiv.exit.thread ]
-  %indvars.iv129 = phi i64 [ %indvars.iv127, %.lr.ph115 ], [ %indvars.iv.next130, %Div_FindDiv.exit.thread ]
+42:                                               ; preds = %.lr.ph116, %Div_FindDiv.exit.thread
+  %.val64146 = phi i32 [ %.val64147, %.lr.ph116 ], [ %.val64145, %Div_FindDiv.exit.thread ]
+  %.val63141 = phi i32 [ %.val64147, %.lr.ph116 ], [ %.val63, %Div_FindDiv.exit.thread ]
+  %indvars.iv130 = phi i64 [ %indvars.iv128, %.lr.ph116 ], [ %indvars.iv.next131, %Div_FindDiv.exit.thread ]
   %.val65 = load ptr, ptr %20, align 8, !tbaa !27
-  %43 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val65, i64 %indvars.iv129
+  %43 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val65, i64 %indvars.iv130
   %44 = load ptr, ptr %41, align 8, !tbaa !3
   %45 = load i32, ptr %26, align 4, !tbaa !10
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i32, ptr %44, i64 %46
+  %.idx.i = shl nsw i64 %46, 2
+  %47 = getelementptr inbounds i8, ptr %44, i64 %.idx.i
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !3
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !10
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %49, i64 %52
+  %.idx78.i = shl nsw i64 %52, 2
+  %53 = getelementptr inbounds i8, ptr %49, i64 %.idx78.i
   %54 = icmp sgt i32 %45, 0
   %55 = icmp sgt i32 %51, 0
   %56 = select i1 %54, i1 %55, i1 false
   br i1 %56, label %.lr.ph.i, label %.preheader59.i
 
 .preheader59.i:                                   ; preds = %Div_AddLit.exit.thread.i, %42
-  %.sroa.1090.0 = phi i32 [ -1, %42 ], [ %.sroa.1090.5, %Div_AddLit.exit.thread.i ]
-  %.sroa.086.0 = phi i32 [ -1, %42 ], [ %.sroa.086.5, %Div_AddLit.exit.thread.i ]
+  %.sroa.1091.0 = phi i32 [ -1, %42 ], [ %.sroa.1091.5, %Div_AddLit.exit.thread.i ]
+  %.sroa.087.0 = phi i32 [ -1, %42 ], [ %.sroa.087.5, %Div_AddLit.exit.thread.i ]
   %.sroa.10.0 = phi i32 [ -1, %42 ], [ %.sroa.10.4, %Div_AddLit.exit.thread.i ]
   %.sroa.0.0 = phi i32 [ -1, %42 ], [ %.sroa.0.4, %Div_AddLit.exit.thread.i ]
   %.037.lcssa.i = phi ptr [ %44, %42 ], [ %.138.i, %Div_AddLit.exit.thread.i ]
@@ -605,8 +609,8 @@ Vec_StrStart.exit:                                ; preds = %3, %7
   br i1 %57, label %.lr.ph71.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %42, %Div_AddLit.exit.thread.i
-  %.sroa.1090.4 = phi i32 [ %.sroa.1090.5, %Div_AddLit.exit.thread.i ], [ -1, %42 ]
-  %.sroa.086.4 = phi i32 [ %.sroa.086.5, %Div_AddLit.exit.thread.i ], [ -1, %42 ]
+  %.sroa.1091.4 = phi i32 [ %.sroa.1091.5, %Div_AddLit.exit.thread.i ], [ -1, %42 ]
+  %.sroa.087.4 = phi i32 [ %.sroa.087.5, %Div_AddLit.exit.thread.i ], [ -1, %42 ]
   %.sroa.10.3 = phi i32 [ %.sroa.10.4, %Div_AddLit.exit.thread.i ], [ -1, %42 ]
   %.sroa.0.3 = phi i32 [ %.sroa.0.4, %Div_AddLit.exit.thread.i ], [ -1, %42 ]
   %.03467.i = phi ptr [ %.1.i, %Div_AddLit.exit.thread.i ], [ %49, %42 ]
@@ -629,11 +633,11 @@ Vec_StrStart.exit:                                ; preds = %3, %7
 
 67:                                               ; preds = %65
   %68 = getelementptr inbounds nuw i8, ptr %.03765.i, i64 4
-  %69 = icmp eq i32 %.sroa.086.4, -1
+  %69 = icmp eq i32 %.sroa.087.4, -1
   br i1 %69, label %Div_AddLit.exit.thread.i, label %70
 
 70:                                               ; preds = %67
-  %71 = icmp eq i32 %.sroa.1090.4, -1
+  %71 = icmp eq i32 %.sroa.1091.4, -1
   br i1 %71, label %Div_AddLit.exit.thread.i, label %Div_FindDiv.exit.thread
 
 72:                                               ; preds = %65
@@ -646,8 +650,8 @@ Vec_StrStart.exit:                                ; preds = %3, %7
   br i1 %76, label %Div_AddLit.exit.thread.i, label %Div_FindDiv.exit.thread
 
 Div_AddLit.exit.thread.i:                         ; preds = %75, %72, %70, %67, %61
-  %.sroa.1090.5 = phi i32 [ %.sroa.1090.4, %61 ], [ %.sroa.1090.4, %67 ], [ %58, %70 ], [ %.sroa.1090.4, %72 ], [ %.sroa.1090.4, %75 ]
-  %.sroa.086.5 = phi i32 [ %.sroa.086.4, %61 ], [ %58, %67 ], [ %.sroa.086.4, %70 ], [ %.sroa.086.4, %72 ], [ %.sroa.086.4, %75 ]
+  %.sroa.1091.5 = phi i32 [ %.sroa.1091.4, %61 ], [ %.sroa.1091.4, %67 ], [ %58, %70 ], [ %.sroa.1091.4, %72 ], [ %.sroa.1091.4, %75 ]
+  %.sroa.087.5 = phi i32 [ %.sroa.087.4, %61 ], [ %58, %67 ], [ %.sroa.087.4, %70 ], [ %.sroa.087.4, %72 ], [ %.sroa.087.4, %75 ]
   %.sroa.10.4 = phi i32 [ %.sroa.10.3, %61 ], [ %.sroa.10.3, %67 ], [ %.sroa.10.3, %70 ], [ %.sroa.10.3, %72 ], [ %59, %75 ]
   %.sroa.0.4 = phi i32 [ %.sroa.0.3, %61 ], [ %.sroa.0.3, %67 ], [ %.sroa.0.3, %70 ], [ %59, %72 ], [ %.sroa.0.3, %75 ]
   %.138.i = phi ptr [ %62, %61 ], [ %68, %67 ], [ %68, %70 ], [ %.03765.i, %72 ], [ %.03765.i, %75 ]
@@ -659,15 +663,15 @@ Div_AddLit.exit.thread.i:                         ; preds = %75, %72, %70, %67, 
   br i1 %79, label %.lr.ph.i, label %.preheader59.i, !llvm.loop !12
 
 .preheader.i:                                     ; preds = %Div_AddLit.exit48.i, %.preheader59.i
-  %.sroa.1090.1 = phi i32 [ %.sroa.1090.0, %.preheader59.i ], [ %.sroa.1090.3, %Div_AddLit.exit48.i ]
-  %.sroa.086.1 = phi i32 [ %.sroa.086.0, %.preheader59.i ], [ %.sroa.086.3, %Div_AddLit.exit48.i ]
+  %.sroa.1091.1 = phi i32 [ %.sroa.1091.0, %.preheader59.i ], [ %.sroa.1091.3, %Div_AddLit.exit48.i ]
+  %.sroa.087.1 = phi i32 [ %.sroa.087.0, %.preheader59.i ], [ %.sroa.087.3, %Div_AddLit.exit48.i ]
   %80 = icmp ult ptr %.034.lcssa.i, %53
   br i1 %80, label %.lr.ph73.i, label %Div_FindDiv.exit
 
 .lr.ph71.i:                                       ; preds = %.preheader59.i, %Div_AddLit.exit48.i
-  %.sroa.1090.2 = phi i32 [ %.sroa.1090.3, %Div_AddLit.exit48.i ], [ %.sroa.1090.0, %.preheader59.i ]
-  %.sroa.086.2 = phi i32 [ %.sroa.086.3, %Div_AddLit.exit48.i ], [ %.sroa.086.0, %.preheader59.i ]
-  %81 = phi i32 [ %87, %Div_AddLit.exit48.i ], [ %.sroa.086.0, %.preheader59.i ]
+  %.sroa.1091.2 = phi i32 [ %.sroa.1091.3, %Div_AddLit.exit48.i ], [ %.sroa.1091.0, %.preheader59.i ]
+  %.sroa.087.2 = phi i32 [ %.sroa.087.3, %Div_AddLit.exit48.i ], [ %.sroa.087.0, %.preheader59.i ]
+  %81 = phi i32 [ %87, %Div_AddLit.exit48.i ], [ %.sroa.087.0, %.preheader59.i ]
   %.23970.i = phi ptr [ %82, %Div_AddLit.exit48.i ], [ %.037.lcssa.i, %.preheader59.i ]
   %82 = getelementptr inbounds nuw i8, ptr %.23970.i, i64 4
   %83 = load i32, ptr %.23970.i, align 4, !tbaa !11
@@ -675,12 +679,12 @@ Div_AddLit.exit.thread.i:                         ; preds = %75, %72, %70, %67, 
   br i1 %84, label %Div_AddLit.exit48.i, label %85
 
 85:                                               ; preds = %.lr.ph71.i
-  %86 = icmp eq i32 %.sroa.1090.2, -1
+  %86 = icmp eq i32 %.sroa.1091.2, -1
   br i1 %86, label %Div_AddLit.exit48.i, label %Div_FindDiv.exit.thread
 
 Div_AddLit.exit48.i:                              ; preds = %85, %.lr.ph71.i
-  %.sroa.1090.3 = phi i32 [ %.sroa.1090.2, %.lr.ph71.i ], [ %83, %85 ]
-  %.sroa.086.3 = phi i32 [ %83, %.lr.ph71.i ], [ %.sroa.086.2, %85 ]
+  %.sroa.1091.3 = phi i32 [ %.sroa.1091.2, %.lr.ph71.i ], [ %83, %85 ]
+  %.sroa.087.3 = phi i32 [ %83, %.lr.ph71.i ], [ %.sroa.087.2, %85 ]
   %87 = phi i32 [ %83, %.lr.ph71.i ], [ %81, %85 ]
   %88 = icmp ult ptr %82, %47
   br i1 %88, label %.lr.ph71.i, label %.preheader.i, !llvm.loop !14
@@ -716,16 +720,16 @@ Div_FindDiv.exit:                                 ; preds = %Div_AddLit.exit50.i
   store i32 32767, ptr %21, align 8, !tbaa !11
   store i32 32767, ptr %22, align 4, !tbaa !11
   store i32 32767, ptr %4, align 16, !tbaa !11
-  %99 = icmp eq i32 %.sroa.086.1, -1
-  %100 = icmp eq i32 %.sroa.1090.1, -1
+  %99 = icmp eq i32 %.sroa.087.1, -1
+  %100 = icmp eq i32 %.sroa.1091.1, -1
   %or.cond = select i1 %99, i1 %100, i1 false
   br i1 %or.cond, label %Div_FindDiv.exit.thread, label %101
 
 101:                                              ; preds = %98
   %102 = icmp eq i32 %.sroa.0.5, -1
   %103 = icmp eq i32 %.sroa.10.5, -1
-  %or.cond104 = select i1 %102, i1 %103, i1 false
-  br i1 %or.cond104, label %Div_FindDiv.exit.thread, label %104
+  %or.cond105 = select i1 %102, i1 %103, i1 false
+  br i1 %or.cond105, label %Div_FindDiv.exit.thread, label %104
 
 104:                                              ; preds = %101
   br i1 %100, label %105, label %111
@@ -734,13 +738,13 @@ Div_FindDiv.exit:                                 ; preds = %Div_AddLit.exit50.i
   br i1 %103, label %106, label %112
 
 106:                                              ; preds = %105
-  %.unshifted.i.i = xor i32 %.sroa.0.5, %.sroa.086.1
+  %.unshifted.i.i = xor i32 %.sroa.0.5, %.sroa.087.1
   %107 = icmp ult i32 %.unshifted.i.i, 2
   br i1 %107, label %Div_FindDiv.exit.thread, label %108
 
 108:                                              ; preds = %106
-  %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %.sroa.086.1, i32 %.sroa.0.5)
-  %spec.select17.i.i = tail call i32 @llvm.smin.i32(i32 %.sroa.086.1, i32 %.sroa.0.5)
+  %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %.sroa.087.1, i32 %.sroa.0.5)
+  %spec.select17.i.i = tail call i32 @llvm.smin.i32(i32 %.sroa.087.1, i32 %.sroa.0.5)
   %109 = xor i32 %spec.select17.i.i, 1
   store i32 %109, ptr %4, align 16, !tbaa !11
   %110 = xor i32 %spec.select.i.i, 1
@@ -751,22 +755,22 @@ Div_FindDiv.exit:                                 ; preds = %Div_AddLit.exit50.i
   br i1 %103, label %112, label %130
 
 112:                                              ; preds = %105, %111
-  %.sroa.1090.7 = phi i32 [ %.sroa.1090.1, %111 ], [ %.sroa.10.5, %105 ]
-  %113 = phi i32 [ %.sroa.086.1, %111 ], [ %.sroa.0.5, %105 ]
-  %114 = phi i32 [ %.sroa.0.5, %111 ], [ %.sroa.086.1, %105 ]
+  %.sroa.1091.7 = phi i32 [ %.sroa.1091.1, %111 ], [ %.sroa.10.5, %105 ]
+  %113 = phi i32 [ %.sroa.087.1, %111 ], [ %.sroa.0.5, %105 ]
+  %114 = phi i32 [ %.sroa.0.5, %111 ], [ %.sroa.087.1, %105 ]
   %115 = ashr i32 %114, 1
   %116 = ashr i32 %113, 1
   %117 = icmp eq i32 %115, %116
   br i1 %117, label %118, label %123
 
 118:                                              ; preds = %112
-  %.unshifted.i79.i = xor i32 %114, %.sroa.1090.7
+  %.unshifted.i79.i = xor i32 %114, %.sroa.1091.7
   %119 = icmp ult i32 %.unshifted.i79.i, 2
   br i1 %119, label %Div_FindDiv.exit.thread, label %120
 
 120:                                              ; preds = %118
-  %spec.select.i80.i = tail call i32 @llvm.smax.i32(i32 %114, i32 %.sroa.1090.7)
-  %spec.select17.i81.i = tail call i32 @llvm.smin.i32(i32 %114, i32 %.sroa.1090.7)
+  %spec.select.i80.i = tail call i32 @llvm.smax.i32(i32 %114, i32 %.sroa.1091.7)
+  %spec.select17.i81.i = tail call i32 @llvm.smin.i32(i32 %114, i32 %.sroa.1091.7)
   %121 = xor i32 %spec.select17.i81.i, 1
   store i32 %121, ptr %4, align 16, !tbaa !11
   %122 = xor i32 %spec.select.i80.i, 1
@@ -774,16 +778,16 @@ Div_FindDiv.exit:                                 ; preds = %Div_AddLit.exit50.i
   br label %163
 
 123:                                              ; preds = %112
-  %124 = ashr i32 %.sroa.1090.7, 1
+  %124 = ashr i32 %.sroa.1091.7, 1
   %125 = icmp ne i32 %115, %124
-  %.unshifted.i84.i = xor i32 %.sroa.0.5, %.sroa.086.1
+  %.unshifted.i84.i = xor i32 %.sroa.0.5, %.sroa.087.1
   %126 = icmp ult i32 %.unshifted.i84.i, 2
-  %or.cond105 = select i1 %125, i1 true, i1 %126
-  br i1 %or.cond105, label %Div_FindDiv.exit.thread, label %127
+  %or.cond106 = select i1 %125, i1 true, i1 %126
+  br i1 %or.cond106, label %Div_FindDiv.exit.thread, label %127
 
 127:                                              ; preds = %123
-  %spec.select.i85.i = tail call i32 @llvm.smax.i32(i32 %.sroa.0.5, i32 %.sroa.086.1)
-  %spec.select17.i86.i = tail call i32 @llvm.smin.i32(i32 %.sroa.0.5, i32 %.sroa.086.1)
+  %spec.select.i85.i = tail call i32 @llvm.smax.i32(i32 %.sroa.0.5, i32 %.sroa.087.1)
+  %spec.select17.i86.i = tail call i32 @llvm.smin.i32(i32 %.sroa.0.5, i32 %.sroa.087.1)
   %128 = xor i32 %spec.select17.i86.i, 1
   store i32 %128, ptr %4, align 16, !tbaa !11
   %129 = xor i32 %spec.select.i85.i, 1
@@ -791,32 +795,32 @@ Div_FindDiv.exit:                                 ; preds = %Div_AddLit.exit50.i
   br label %163
 
 130:                                              ; preds = %111
-  %131 = ashr i32 %.sroa.086.1, 1
+  %131 = ashr i32 %.sroa.087.1, 1
   %132 = ashr i32 %.sroa.0.5, 1
   %133 = icmp eq i32 %131, %132
   br i1 %133, label %134, label %143
 
 134:                                              ; preds = %130
-  %.unshifted.i = xor i32 %.sroa.10.5, %.sroa.1090.1
+  %.unshifted.i = xor i32 %.sroa.10.5, %.sroa.1091.1
   %135 = icmp ult i32 %.unshifted.i, 2
   br i1 %135, label %136, label %Bmc_FxDivMux.exit.i
 
 136:                                              ; preds = %134
-  %137 = and i32 %.sroa.086.1, -2
+  %137 = and i32 %.sroa.087.1, -2
   store i32 %137, ptr %4, align 16, !tbaa !11
   %138 = and i32 %.sroa.10.5, -2
   store i32 %138, ptr %22, align 4, !tbaa !11
   br label %163
 
 Bmc_FxDivMux.exit.i:                              ; preds = %134
-  %139 = and i32 %.sroa.086.1, 1
+  %139 = and i32 %.sroa.087.1, 1
   %.not.i.i68 = icmp eq i32 %139, 0
-  %.015.i.i = select i1 %.not.i.i68, i32 %.sroa.10.5, i32 %.sroa.1090.1
-  %.014.i.i = select i1 %.not.i.i68, i32 %.sroa.1090.1, i32 %.sroa.10.5
+  %.015.i.i = select i1 %.not.i.i68, i32 %.sroa.10.5, i32 %.sroa.1091.1
+  %.014.i.i = select i1 %.not.i.i68, i32 %.sroa.1091.1, i32 %.sroa.10.5
   %140 = and i32 %.014.i.i, 1
   %141 = and i32 %.014.i.i, -2
   %.116.i.i = xor i32 %140, %.015.i.i
-  %142 = and i32 %.sroa.086.1, -2
+  %142 = and i32 %.sroa.087.1, -2
   store i32 %142, ptr %4, align 16, !tbaa !11
   store i32 %141, ptr %22, align 4, !tbaa !11
   store i32 %.116.i.i, ptr %21, align 8, !tbaa !11
@@ -828,33 +832,33 @@ Bmc_FxDivMux.exit.i:                              ; preds = %134
   br i1 %145, label %Bmc_FxDivMux.exit95.i, label %150
 
 Bmc_FxDivMux.exit95.i:                            ; preds = %143
-  %146 = and i32 %.sroa.086.1, 1
+  %146 = and i32 %.sroa.087.1, 1
   %.not.i89.i = icmp eq i32 %146, 0
-  %.015.i90.i = select i1 %.not.i89.i, i32 %.sroa.0.5, i32 %.sroa.1090.1
-  %.014.i91.i = select i1 %.not.i89.i, i32 %.sroa.1090.1, i32 %.sroa.0.5
+  %.015.i90.i = select i1 %.not.i89.i, i32 %.sroa.0.5, i32 %.sroa.1091.1
+  %.014.i91.i = select i1 %.not.i89.i, i32 %.sroa.1091.1, i32 %.sroa.0.5
   %147 = and i32 %.014.i91.i, 1
   %148 = and i32 %.014.i91.i, -2
   %.116.i93.i = xor i32 %147, %.015.i90.i
-  %149 = and i32 %.sroa.086.1, -2
+  %149 = and i32 %.sroa.087.1, -2
   store i32 %149, ptr %4, align 16, !tbaa !11
   store i32 %148, ptr %22, align 4, !tbaa !11
   store i32 %.116.i93.i, ptr %21, align 8, !tbaa !11
   br label %163
 
 150:                                              ; preds = %143
-  %151 = ashr i32 %.sroa.1090.1, 1
+  %151 = ashr i32 %.sroa.1091.1, 1
   %152 = icmp eq i32 %151, %132
   br i1 %152, label %Bmc_FxDivMux.exit102.i, label %157
 
 Bmc_FxDivMux.exit102.i:                           ; preds = %150
-  %153 = and i32 %.sroa.1090.1, 1
+  %153 = and i32 %.sroa.1091.1, 1
   %.not.i96.i = icmp eq i32 %153, 0
-  %.015.i97.i = select i1 %.not.i96.i, i32 %.sroa.10.5, i32 %.sroa.086.1
-  %.014.i98.i = select i1 %.not.i96.i, i32 %.sroa.086.1, i32 %.sroa.10.5
+  %.015.i97.i = select i1 %.not.i96.i, i32 %.sroa.10.5, i32 %.sroa.087.1
+  %.014.i98.i = select i1 %.not.i96.i, i32 %.sroa.087.1, i32 %.sroa.10.5
   %154 = and i32 %.014.i98.i, 1
   %155 = and i32 %.014.i98.i, -2
   %.116.i100.i = xor i32 %154, %.015.i97.i
-  %156 = and i32 %.sroa.1090.1, -2
+  %156 = and i32 %.sroa.1091.1, -2
   store i32 %156, ptr %4, align 16, !tbaa !11
   store i32 %155, ptr %22, align 4, !tbaa !11
   store i32 %.116.i100.i, ptr %21, align 8, !tbaa !11
@@ -865,14 +869,14 @@ Bmc_FxDivMux.exit102.i:                           ; preds = %150
   br i1 %158, label %Bmc_FxDivMux.exit109.i, label %Div_FindDiv.exit.thread
 
 Bmc_FxDivMux.exit109.i:                           ; preds = %157
-  %159 = and i32 %.sroa.1090.1, 1
+  %159 = and i32 %.sroa.1091.1, 1
   %.not.i103.i = icmp eq i32 %159, 0
-  %.015.i104.i = select i1 %.not.i103.i, i32 %.sroa.0.5, i32 %.sroa.086.1
-  %.014.i105.i = select i1 %.not.i103.i, i32 %.sroa.086.1, i32 %.sroa.0.5
+  %.015.i104.i = select i1 %.not.i103.i, i32 %.sroa.0.5, i32 %.sroa.087.1
+  %.014.i105.i = select i1 %.not.i103.i, i32 %.sroa.087.1, i32 %.sroa.0.5
   %160 = and i32 %.014.i105.i, 1
   %161 = and i32 %.014.i105.i, -2
   %.116.i107.i = xor i32 %160, %.015.i104.i
-  %162 = and i32 %.sroa.1090.1, -2
+  %162 = and i32 %.sroa.1091.1, -2
   store i32 %162, ptr %4, align 16, !tbaa !11
   store i32 %161, ptr %22, align 4, !tbaa !11
   store i32 %.116.i107.i, ptr %21, align 8, !tbaa !11
@@ -885,10 +889,10 @@ Bmc_FxDivMux.exit109.i:                           ; preds = %157
   br label %Div_FindDiv.exit.thread
 
 Div_FindDiv.exit.thread:                          ; preds = %75, %70, %85, %93, %157, %123, %118, %106, %98, %101, %163, %Div_FindDiv.exit
-  %.val64144 = phi i32 [ %.val64145, %157 ], [ %.val64145, %123 ], [ %.val64145, %118 ], [ %.val64145, %106 ], [ %.val64145, %98 ], [ %.val64145, %101 ], [ %.val63.pre, %163 ], [ %.val64145, %Div_FindDiv.exit ], [ %.val64145, %93 ], [ %.val64145, %85 ], [ %.val64145, %70 ], [ %.val64145, %75 ]
-  %.val63 = phi i32 [ %.val63140, %157 ], [ %.val63140, %123 ], [ %.val63140, %118 ], [ %.val63140, %106 ], [ %.val63140, %98 ], [ %.val63140, %101 ], [ %.val63.pre, %163 ], [ %.val63140, %Div_FindDiv.exit ], [ %.val63140, %93 ], [ %.val63140, %85 ], [ %.val63140, %70 ], [ %.val63140, %75 ]
-  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %164 = trunc nuw i64 %indvars.iv.next130 to i32
+  %.val64145 = phi i32 [ %.val64146, %157 ], [ %.val64146, %123 ], [ %.val64146, %118 ], [ %.val64146, %106 ], [ %.val64146, %98 ], [ %.val64146, %101 ], [ %.val63.pre, %163 ], [ %.val64146, %Div_FindDiv.exit ], [ %.val64146, %93 ], [ %.val64146, %85 ], [ %.val64146, %70 ], [ %.val64146, %75 ]
+  %.val63 = phi i32 [ %.val63141, %157 ], [ %.val63141, %123 ], [ %.val63141, %118 ], [ %.val63141, %106 ], [ %.val63141, %98 ], [ %.val63141, %101 ], [ %.val63.pre, %163 ], [ %.val63141, %Div_FindDiv.exit ], [ %.val63141, %93 ], [ %.val63141, %85 ], [ %.val63141, %70 ], [ %.val63141, %75 ]
+  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
+  %164 = trunc nuw i64 %indvars.iv.next131 to i32
   %165 = icmp sgt i32 %.val63, %164
   br i1 %165, label %42, label %.critedge6.loopexit.loopexit, !llvm.loop !37
 
@@ -928,11 +932,12 @@ Vec_IntAlloc.exit.i:                              ; preds = %175, %.critedge
   store ptr %179, ptr %180, align 8, !tbaa !3
   %181 = load ptr, ptr %16, align 8, !tbaa !32
   %182 = sext i32 %166 to i64
-  %183 = getelementptr inbounds %struct.Tab_Obj_t_, ptr %181, i64 %182
+  %.idx.i72 = shl nsw i64 %182, 4
+  %183 = getelementptr inbounds i8, ptr %181, i64 %.idx.i72
   %184 = icmp sgt i32 %166, 0
-  br i1 %184, label %.lr.ph.i72, label %._crit_edge.i
+  br i1 %184, label %.lr.ph.i73, label %._crit_edge.i
 
-.lr.ph.i72:                                       ; preds = %Vec_IntAlloc.exit.i, %Vec_IntPush.exit.i
+.lr.ph.i73:                                       ; preds = %Vec_IntAlloc.exit.i, %Vec_IntPush.exit.i
   %185 = phi ptr [ %.pre.i48.i, %Vec_IntPush.exit.i ], [ %179, %Vec_IntAlloc.exit.i ]
   %.040.i = phi ptr [ %212, %Vec_IntPush.exit.i ], [ %181, %Vec_IntAlloc.exit.i ]
   %186 = getelementptr inbounds nuw i8, ptr %.040.i, i64 8
@@ -945,7 +950,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %175, %.critedge
   %193 = icmp eq i32 %191, %192
   br i1 %193, label %194, label %Vec_IntPush.exit.i
 
-194:                                              ; preds = %.lr.ph.i72
+194:                                              ; preds = %.lr.ph.i73
   %195 = icmp slt i32 %191, 16
   br i1 %195, label %196, label %201
 
@@ -983,8 +988,8 @@ Vec_IntPush.exit.sink.split.i:                    ; preds = %207, %205, %199, %1
   store i32 %.sink.i, ptr %172, align 8, !tbaa !38
   br label %Vec_IntPush.exit.i
 
-Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.sink.split.i, %.lr.ph.i72
-  %.pre.i48.i = phi ptr [ %185, %.lr.ph.i72 ], [ %.sink52.i, %Vec_IntPush.exit.sink.split.i ]
+Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.sink.split.i, %.lr.ph.i73
+  %.pre.i48.i = phi ptr [ %185, %.lr.ph.i73 ], [ %.sink52.i, %Vec_IntPush.exit.sink.split.i ]
   %209 = add nsw i32 %191, 1
   store i32 %209, ptr %174, align 4, !tbaa !10
   %210 = sext i32 %191 to i64
@@ -992,7 +997,7 @@ Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.si
   store i32 %190, ptr %211, align 4, !tbaa !11
   %212 = getelementptr inbounds nuw i8, ptr %.040.i, i64 16
   %213 = icmp ult ptr %212, %183
-  br i1 %213, label %.lr.ph.i72, label %._crit_edge.loopexit.i, !llvm.loop !39
+  br i1 %213, label %.lr.ph.i73, label %._crit_edge.loopexit.i, !llvm.loop !39
 
 ._crit_edge.loopexit.i:                           ; preds = %Vec_IntPush.exit.i
   %.val37.pre.i = load i32, ptr %174, align 4, !tbaa !10
@@ -1077,8 +1082,8 @@ Vec_IntFree.exit.i:                               ; preds = %253, %._crit_edge45
 
 Tab_TabFindBest.exit:                             ; preds = %Vec_IntFree.exit.i, %254
   %255 = load ptr, ptr %12, align 8, !tbaa !19
-  %.not.i73 = icmp eq ptr %255, null
-  br i1 %.not.i73, label %Vec_StrFree.exit, label %256
+  %.not.i74 = icmp eq ptr %255, null
+  br i1 %.not.i74, label %Vec_StrFree.exit, label %256
 
 256:                                              ; preds = %Tab_TabFindBest.exit
   tail call void @free(ptr noundef nonnull %255) #18
@@ -1087,8 +1092,8 @@ Tab_TabFindBest.exit:                             ; preds = %Vec_IntFree.exit.i,
 Vec_StrFree.exit:                                 ; preds = %Tab_TabFindBest.exit, %256
   tail call void @free(ptr noundef nonnull %6) #18
   %257 = load ptr, ptr %16, align 8, !tbaa !32
-  %.not.i74 = icmp eq ptr %257, null
-  br i1 %.not.i74, label %Tab_TabFree.exit, label %258
+  %.not.i75 = icmp eq ptr %257, null
+  br i1 %.not.i75, label %Tab_TabFree.exit, label %258
 
 258:                                              ; preds = %Vec_StrFree.exit
   tail call void @free(ptr noundef nonnull %257) #18
@@ -1135,7 +1140,8 @@ define internal fastcc void @Tab_TabHashAdd(ptr noundef captures(none) %0, ptr n
   %23 = phi ptr [ %20, %19 ], [ %18, %17 ]
   store ptr %23, ptr %10, align 8, !tbaa !32
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds %struct.Tab_Obj_t_, ptr %23, i64 %24
+  %.idx.i = shl nsw i64 %24, 4
+  %25 = getelementptr inbounds i8, ptr %23, i64 %.idx.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = sext i32 %.pre-phi to i64
   %28 = shl nsw i64 %27, 4

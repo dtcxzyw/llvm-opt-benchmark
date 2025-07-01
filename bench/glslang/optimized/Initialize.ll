@@ -1845,7 +1845,8 @@ define void @_ZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersio
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionEENK3$_0clERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERK4spanIKNS_12_GLOBAL__N_115BuiltInFunctionEE"(ptr readonly captures(none) %.0.val1, ptr readonly captures(none) %.8.val, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr readonly captures(address) %.0.val2, i64 %.8.val4) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds %"struct.glslang::(anonymous namespace)::BuiltInFunction", ptr %.0.val2, i64 %.8.val4
+  %.idx = mul nsw i64 %.8.val4, 48
+  %2 = getelementptr inbounds i8, ptr %.0.val2, i64 %.idx
   %.not19 = icmp eq i64 %.8.val4, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
@@ -1867,7 +1868,8 @@ define internal fastcc void @"_ZZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfi
 .lr.ph.preheader.i:                               ; preds = %6
   %11 = getelementptr i8, ptr %.020, i64 32
   %.0.val = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds %"struct.glslang::(anonymous namespace)::Versioning", ptr %.0.val, i64 %.0.val13
+  %.idx.i = mul nsw i64 %.0.val13, 24
+  %12 = getelementptr inbounds i8, ptr %.0.val, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.preheader.i

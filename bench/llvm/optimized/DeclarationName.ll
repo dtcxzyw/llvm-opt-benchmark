@@ -23,18 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"struct.clang::OMPTraitSet" = type { i32, %"class.llvm::SmallVector.398" }
-%"class.llvm::SmallVector.398" = type { %"class.llvm::SmallVectorImpl.399", %"struct.llvm::SmallVectorStorage.402" }
-%"class.llvm::SmallVectorImpl.399" = type { %"class.llvm::SmallVectorTemplateBase.400" }
-%"class.llvm::SmallVectorTemplateBase.400" = type { %"class.llvm::SmallVectorTemplateCommon.401" }
-%"class.llvm::SmallVectorTemplateCommon.401" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.402" = type { [112 x i8] }
-%"struct.clang::OMPTraitSelector" = type { ptr, i32, %"class.llvm::SmallVector.403" }
-%"class.llvm::SmallVector.403" = type { %"class.llvm::SmallVectorImpl.404", %"struct.llvm::SmallVectorStorage.407" }
-%"class.llvm::SmallVectorImpl.404" = type { %"class.llvm::SmallVectorTemplateBase.405" }
-%"class.llvm::SmallVectorTemplateBase.405" = type { %"class.llvm::SmallVectorTemplateCommon.406" }
-%"class.llvm::SmallVectorTemplateCommon.406" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.407" = type { [24 x i8] }
 %"class.clang::LangOptions" = type <{ %"class.clang::LangOptionsBase.base", [2 x i8], i32, [4 x i8], %"struct.clang::SanitizerSet", i8, [7 x i8], %"class.std::vector", %"class.std::vector", %"class.std::vector", %"class.std::vector", %"class.std::vector", %"class.clang::ObjCRuntime", i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector", %"struct.clang::CommentOptions", %"class.std::vector", %"class.std::map", %"class.std::vector.26", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::optional", i8, [3 x i8], i32, i32, [4 x i8], %"class.std::vector", %"class.std::__cxx11::basic_string", i8, i8, [6 x i8], %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 %"class.clang::LangOptionsBase.base" = type <{ i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i16 }>
 %"struct.clang::SanitizerSet" = type { %"class.clang::SanitizerMask" }
@@ -736,7 +724,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit53:               ; preds = %73, %75
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit53
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw %"struct.clang::OMPTraitSet", ptr %78, i64 %81
+  %.idx.i.i = mul nuw nsw i64 %81, 136
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5clang11OMPTraitSetD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -751,7 +740,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit53:               ; preds = %73, %75
 
 .lr.ph.i.preheader.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw %"struct.clang::OMPTraitSelector", ptr %85, i64 %88
+  %.idx.i.i.i.i.i = mul nuw nsw i64 %88, 56
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN5clang16OMPTraitSelectorD2Ev.exit.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i

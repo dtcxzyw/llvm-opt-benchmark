@@ -3454,14 +3454,14 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomXformC
 
 29:                                               ; preds = %7
   %30 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomXformCommonAPI15GetXformVectorsEPNS_7GfVec3dEPNS_7GfVec3fES4_S4_PNS0_13RotationOrderENS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, double %6)
-  br label %367
+  br label %368
 
 31:                                               ; preds = %7
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__9UsdObjectC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 4 dereferenceable(8) %33)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %34 unwind label %216
+          to label %34 unwind label %217
 
 34:                                               ; preds = %31
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16UsdGeomXformableE, i64 16), ptr %12, align 8
@@ -3529,7 +3529,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i: ; preds = %58, %45, 
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i, %64, %67
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomXformable18GetOrderedXformOpsEPb(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.89") align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull %14)
-          to label %68 unwind label %218
+          to label %68 unwind label %219
 
 68:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
   %.val = load ptr, ptr %15, align 8
@@ -3604,7 +3604,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EE1
   %.022.lcssa.i = phi i1 [ %.123.i, %._crit_edge.loopexit.i ], [ false, %68 ]
   %.0.lcssa.i = phi i1 [ %.1.i, %._crit_edge.loopexit.i ], [ false, %68 ]
   %86 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #26
-          to label %.noexc unwind label %220
+          to label %.noexc unwind label %221
 
 .noexc:                                           ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
   store i32 1, ptr %86, align 4, !noalias !20
@@ -3858,7 +3858,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EE17
   %175 = sub i64 %173, %174
   %176 = ashr exact i64 %175, 2
   %177 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalEd(ptr noundef nonnull align 8 dereferenceable(128) %16, double noundef 1.000000e+00)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2Ed.exit unwind label %222
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2Ed.exit unwind label %223
 
 _ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2Ed.exit: ; preds = %171
   %178 = icmp ugt i64 %176, 72057594037927935
@@ -3866,7 +3866,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2Ed.exit: ; preds = %171
 
 179:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2Ed.exit
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.48) #25
-          to label %.noexc95 unwind label %224
+          to label %.noexc95 unwind label %225
 
 .noexc95:                                         ; preds = %179
   unreachable
@@ -3878,10 +3878,10 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EE17_S_check_
 180:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %181 = shl nuw nsw i64 %175, 5
   %182 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %181) #26
-          to label %.noexc96 unwind label %224
+          to label %.noexc96 unwind label %225
 
 .noexc96:                                         ; preds = %180
-  %183 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %182, i64 %176
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 %181
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc96
@@ -3892,415 +3892,416 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EE17_S_check_
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EEC2EmRKS1_RKS2_.exit.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !24
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EEC2EmRKS1_RKS2_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %185 = ptrtoint ptr %183 to i64
+  %185 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %182, i64 %176
+  %186 = ptrtoint ptr %185 to i64
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EEC2EmRKS1_RKS2_.exit
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EEC2EmRKS1_RKS2_.exit.loopexit, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %.sroa.23.0 = phi i64 [ 0, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %185, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EEC2EmRKS1_RKS2_.exit.loopexit ]
+  %.sroa.23.0 = phi i64 [ 0, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %186, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EEC2EmRKS1_RKS2_.exit.loopexit ]
   %.sroa.0127.0 = phi ptr [ null, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %182, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EEC2EmRKS1_RKS2_.exit.loopexit ]
-  %186 = load ptr, ptr %69, align 8
-  %187 = load ptr, ptr %15, align 8
-  %188 = ptrtoint ptr %186 to i64
+  %187 = load ptr, ptr %69, align 8
+  %188 = load ptr, ptr %15, align 8
   %189 = ptrtoint ptr %187 to i64
-  %190 = sub i64 %188, %189
-  %191 = sdiv exact i64 %190, 136
-  %192 = trunc i64 %191 to i32
-  %193 = add i32 %192, -1
-  %194 = trunc i64 %176 to i32
-  %195 = add i32 %194, -1
-  %196 = icmp sgt i32 %193, -1
-  %197 = icmp sgt i32 %195, -1
-  %198 = select i1 %196, i1 %197, i1 false
-  br i1 %198, label %.lr.ph, label %._crit_edge
+  %190 = ptrtoint ptr %188 to i64
+  %191 = sub i64 %189, %190
+  %192 = sdiv exact i64 %191, 136
+  %193 = trunc i64 %192 to i32
+  %194 = add i32 %193, -1
+  %195 = trunc i64 %176 to i32
+  %196 = add i32 %195, -1
+  %197 = icmp sgt i32 %194, -1
+  %198 = icmp sgt i32 %196, -1
+  %199 = select i1 %197, i1 %198, i1 false
+  br i1 %199, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EEC2EmRKS1_RKS2_.exit
-  %199 = getelementptr inbounds nuw i8, ptr %17, i64 128
-  %200 = getelementptr inbounds nuw i8, ptr %17, i64 132
-  %201 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0, i64 128
-  %202 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %.sroa.0127.0, i64 %.2.i
-  %203 = getelementptr inbounds nuw i8, ptr %17, i64 120
-  br label %204
+  %200 = getelementptr inbounds nuw i8, ptr %17, i64 128
+  %201 = getelementptr inbounds nuw i8, ptr %17, i64 132
+  %202 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0, i64 128
+  %203 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %.sroa.0127.0, i64 %.2.i
+  %204 = getelementptr inbounds nuw i8, ptr %17, i64 120
+  br label %205
 
-204:                                              ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpD2Ev.exit
-  %.061189 = phi i32 [ %195, %.lr.ph ], [ %.162, %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpD2Ev.exit ]
-  %.064188 = phi i32 [ %193, %.lr.ph ], [ %.165, %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpD2Ev.exit ]
-  %205 = zext nneg i32 %.064188 to i64
-  %206 = load ptr, ptr %15, align 8
-  %207 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::UsdGeomXformOp", ptr %206, i64 %205
-  invoke void @_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS2_17UsdAttributeQueryEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(133) %17, ptr noundef nonnull align 8 dereferenceable(133) %207)
-          to label %208 unwind label %.loopexit
+205:                                              ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpD2Ev.exit
+  %.061189 = phi i32 [ %196, %.lr.ph ], [ %.162, %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpD2Ev.exit ]
+  %.064188 = phi i32 [ %194, %.lr.ph ], [ %.165, %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpD2Ev.exit ]
+  %206 = zext nneg i32 %.064188 to i64
+  %207 = load ptr, ptr %15, align 8
+  %208 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::UsdGeomXformOp", ptr %207, i64 %206
+  invoke void @_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS2_17UsdAttributeQueryEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(133) %17, ptr noundef nonnull align 8 dereferenceable(133) %208)
+          to label %209 unwind label %.loopexit
 
-208:                                              ; preds = %204
-  %209 = getelementptr inbounds nuw i8, ptr %207, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %199, ptr noundef nonnull align 8 dereferenceable(5) %209, i64 5, i1 false)
-  %210 = zext nneg i32 %.061189 to i64
-  %211 = getelementptr inbounds nuw i32, ptr %.sroa.0148.5, i64 %210
-  %212 = load i32, ptr %211, align 4
-  %213 = load i32, ptr %199, align 8
-  %.not81 = icmp eq i32 %213, %212
-  br i1 %.not81, label %228, label %214
+209:                                              ; preds = %205
+  %210 = getelementptr inbounds nuw i8, ptr %208, i64 128
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %200, ptr noundef nonnull align 8 dereferenceable(5) %210, i64 5, i1 false)
+  %211 = zext nneg i32 %.061189 to i64
+  %212 = getelementptr inbounds nuw i32, ptr %.sroa.0148.5, i64 %211
+  %213 = load i32, ptr %212, align 4
+  %214 = load i32, ptr %200, align 8
+  %.not81 = icmp eq i32 %214, %213
+  br i1 %.not81, label %229, label %215
 
-214:                                              ; preds = %208
-  %215 = add nsw i32 %.061189, -1
-  br label %250, !llvm.loop !25
+215:                                              ; preds = %209
+  %216 = add nsw i32 %.061189, -1
+  br label %251, !llvm.loop !25
 
-216:                                              ; preds = %31
-  %217 = landingpad { ptr, i32 }
+217:                                              ; preds = %31
+  %218 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #22
-  br label %368
+  br label %369
 
-218:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
-  %219 = landingpad { ptr, i32 }
+219:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
+  %220 = landingpad { ptr, i32 }
           cleanup
-  br label %366
+  br label %367
 
-220:                                              ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  %221 = landingpad { ptr, i32 }
+221:                                              ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
+  %222 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-222:                                              ; preds = %171
-  %223 = landingpad { ptr, i32 }
+223:                                              ; preds = %171
+  %224 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EED2Ev.exit110.thread
 
-224:                                              ; preds = %180, %179
-  %225 = landingpad { ptr, i32 }
+225:                                              ; preds = %180, %179
+  %226 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EED2Ev.exit110.thread
 
-.loopexit:                                        ; preds = %204
+.loopexit:                                        ; preds = %205
   %lpad.loopexit = landingpad { ptr, i32 }
-          cleanup
-  br label %360
-
-.thread:                                          ; preds = %.noexc103, %271, %267, %336, %302, %300, %277, %260
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %361
 
-226:                                              ; preds = %.noexc98, %246, %229, %228
-  %227 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %.noexc103, %272, %268, %337, %303, %301, %278, %261
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %362
+
+227:                                              ; preds = %.noexc98, %247, %230, %229
+  %228 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %17) #22
-  br label %360
+  br label %361
 
-228:                                              ; preds = %208
+229:                                              ; preds = %209
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp14GetOpTransformENS_11UsdTimeCodeE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %18, ptr noundef nonnull align 8 dereferenceable(133) %17, double %6)
-          to label %229 unwind label %226
+          to label %230 unwind label %227
 
-229:                                              ; preds = %228
-  %230 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %.sroa.0127.0, i64 %210
-  %231 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %230, ptr noundef nonnull align 8 dereferenceable(128) %18)
-          to label %232 unwind label %226
+230:                                              ; preds = %229
+  %231 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %.sroa.0127.0, i64 %211
+  %232 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %231, ptr noundef nonnull align 8 dereferenceable(128) %18)
+          to label %233 unwind label %227
 
-232:                                              ; preds = %229
-  %233 = add nsw i32 %.064188, -1
-  %234 = icmp eq i32 %212, %.0.i174
-  br i1 %234, label %235, label %237
+233:                                              ; preds = %230
+  %234 = add nsw i32 %.064188, -1
+  %235 = icmp eq i32 %213, %.0.i174
+  br i1 %235, label %236, label %238
 
-235:                                              ; preds = %232
-  %236 = add nsw i32 %.061189, -1
-  br label %250
+236:                                              ; preds = %233
+  %237 = add nsw i32 %.061189, -1
+  br label %251
 
-237:                                              ; preds = %232
-  %238 = icmp eq i32 %212, 1
-  br i1 %238, label %239, label %250
+238:                                              ; preds = %233
+  %239 = icmp eq i32 %213, 1
+  br i1 %239, label %240, label %251
 
-239:                                              ; preds = %237
-  %240 = load i8, ptr %200, align 4
-  %241 = trunc i8 %240 to i1
-  br i1 %241, label %242, label %244
+240:                                              ; preds = %238
+  %241 = load i8, ptr %201, align 4
+  %242 = trunc i8 %241 to i1
+  br i1 %242, label %243, label %245
 
-242:                                              ; preds = %239
-  %243 = add nsw i32 %.061189, -1
-  br label %250
+243:                                              ; preds = %240
+  %244 = add nsw i32 %.061189, -1
+  br label %251
 
-244:                                              ; preds = %239
-  %245 = icmp eq i32 %.061189, 1
-  br i1 %245, label %246, label %250
+245:                                              ; preds = %240
+  %246 = icmp eq i32 %.061189, 1
+  br i1 %246, label %247, label %251
 
-246:                                              ; preds = %244
+247:                                              ; preds = %245
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %11, ptr noundef nonnull readonly align 8 dereferenceable(128) %201, i64 128, i1 false)
-  %247 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %11, ptr noundef nonnull align 8 dereferenceable(128) %202)
-          to label %.noexc98 unwind label %226
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %11, ptr noundef nonnull readonly align 8 dereferenceable(128) %202, i64 128, i1 false)
+  %248 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %11, ptr noundef nonnull align 8 dereferenceable(128) %203)
+          to label %.noexc98 unwind label %227
 
-.noexc98:                                         ; preds = %246
-  %248 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_IsMatrixIdentityERKNS_10GfMatrix4dE(ptr noundef nonnull align 8 dereferenceable(128) %11)
-          to label %249 unwind label %226
+.noexc98:                                         ; preds = %247
+  %249 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_IsMatrixIdentityERKNS_10GfMatrix4dE(ptr noundef nonnull align 8 dereferenceable(128) %11)
+          to label %250 unwind label %227
 
-249:                                              ; preds = %.noexc98
+250:                                              ; preds = %.noexc98
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11)
-  %not. = xor i1 %248, true
+  %not. = xor i1 %249, true
   %spec.select = zext i1 %not. to i32
-  br label %250
+  br label %251
 
-250:                                              ; preds = %249, %235, %242, %244, %237, %214
-  %.165 = phi i32 [ %.064188, %214 ], [ %233, %237 ], [ %233, %244 ], [ %233, %249 ], [ %233, %242 ], [ %233, %235 ]
-  %.162 = phi i32 [ %215, %214 ], [ %.061189, %237 ], [ %.061189, %244 ], [ %spec.select, %249 ], [ %243, %242 ], [ %236, %235 ]
+251:                                              ; preds = %250, %236, %243, %245, %238, %215
+  %.165 = phi i32 [ %.064188, %215 ], [ %234, %238 ], [ %234, %245 ], [ %234, %250 ], [ %234, %243 ], [ %234, %236 ]
+  %.162 = phi i32 [ %216, %215 ], [ %.061189, %238 ], [ %.061189, %245 ], [ %spec.select, %250 ], [ %244, %243 ], [ %237, %236 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  %251 = load i8, ptr %203, align 8
-  %.not.i.i.i.i.i.i.i.i.i100 = icmp eq i8 %251, -1
-  br i1 %.not.i.i.i.i.i.i.i.i.i100, label %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpD2Ev.exit, label %252
+  %252 = load i8, ptr %204, align 8
+  %.not.i.i.i.i.i.i.i.i.i100 = icmp eq i8 %252, -1
+  br i1 %.not.i.i.i.i.i.i.i.i.i100, label %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpD2Ev.exit, label %253
 
-252:                                              ; preds = %250
+253:                                              ; preds = %251
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS3_17UsdAttributeQueryEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S5_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(133) %17)
-          to label %.noexc.i.i.i.i.i.i.i.i unwind label %253
+          to label %.noexc.i.i.i.i.i.i.i.i unwind label %254
 
-.noexc.i.i.i.i.i.i.i.i:                           ; preds = %252
-  store i8 -1, ptr %203, align 8
+.noexc.i.i.i.i.i.i.i.i:                           ; preds = %253
+  store i8 -1, ptr %204, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpD2Ev.exit
 
-253:                                              ; preds = %252
-  %254 = landingpad { ptr, i32 }
+254:                                              ; preds = %253
+  %255 = landingpad { ptr, i32 }
           catch ptr null
-  %255 = extractvalue { ptr, i32 } %254, 0
-  call void @__clang_call_terminate(ptr %255) #24
+  %256 = extractvalue { ptr, i32 } %255, 0
+  call void @__clang_call_terminate(ptr %256) #24
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpD2Ev.exit: ; preds = %250, %.noexc.i.i.i.i.i.i.i.i
+_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpD2Ev.exit: ; preds = %251, %.noexc.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  %256 = icmp sgt i32 %.165, -1
-  %257 = icmp sgt i32 %.162, -1
-  %258 = select i1 %256, i1 %257, i1 false
-  br i1 %258, label %204, label %._crit_edge
+  %257 = icmp sgt i32 %.165, -1
+  %258 = icmp sgt i32 %.162, -1
+  %259 = select i1 %257, i1 %258, i1 false
+  br i1 %259, label %205, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpD2Ev.exit, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EEC2EmRKS1_RKS2_.exit
-  %.064.lcssa = phi i32 [ %193, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EEC2EmRKS1_RKS2_.exit ], [ %.165, %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpD2Ev.exit ]
-  %.061.lcssa = phi i32 [ %195, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EEC2EmRKS1_RKS2_.exit ], [ %.162, %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpD2Ev.exit ]
+  %.064.lcssa = phi i32 [ %194, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EEC2EmRKS1_RKS2_.exit ], [ %.165, %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpD2Ev.exit ]
+  %.061.lcssa = phi i32 [ %196, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EEC2EmRKS1_RKS2_.exit ], [ %.162, %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpD2Ev.exit ]
   %.not = icmp slt i32 %.064.lcssa, 0
-  %259 = icmp sgt i32 %.0171, -1
-  br i1 %259, label %260, label %265
+  %260 = icmp sgt i32 %.0171, -1
+  br i1 %260, label %261, label %266
 
-260:                                              ; preds = %._crit_edge
-  %261 = zext nneg i32 %.0171 to i64
-  %262 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %.sroa.0127.0, i64 %261
-  %263 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_IsMatrixIdentityERKNS_10GfMatrix4dE(ptr noundef nonnull align 8 dereferenceable(128) %262)
-          to label %264 unwind label %.thread
+261:                                              ; preds = %._crit_edge
+  %262 = zext nneg i32 %.0171 to i64
+  %263 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %.sroa.0127.0, i64 %262
+  %264 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_IsMatrixIdentityERKNS_10GfMatrix4dE(ptr noundef nonnull align 8 dereferenceable(128) %263)
+          to label %265 unwind label %.thread
 
-264:                                              ; preds = %260
-  %spec.select87 = and i1 %.not, %263
-  br label %265
+265:                                              ; preds = %261
+  %spec.select87 = and i1 %.not, %264
+  br label %266
 
-265:                                              ; preds = %264, %._crit_edge
-  %.052.shrunk = phi i1 [ %.not, %._crit_edge ], [ %spec.select87, %264 ]
-  %266 = icmp eq i32 %.061.lcssa, %172
-  br i1 %266, label %267, label %271
+266:                                              ; preds = %265, %._crit_edge
+  %.052.shrunk = phi i1 [ %.not, %._crit_edge ], [ %spec.select87, %265 ]
+  %267 = icmp eq i32 %.061.lcssa, %172
+  br i1 %267, label %268, label %272
 
-267:                                              ; preds = %265
-  %268 = and i64 %.2.i, 4294967295
-  %269 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %.sroa.0127.0, i64 %268
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0127.0, ptr noundef nonnull align 8 dereferenceable(128) %269, i64 128, i1 false)
-  %270 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalEd(ptr noundef nonnull align 8 dereferenceable(128) %19, double noundef 1.000000e+00)
+268:                                              ; preds = %266
+  %269 = and i64 %.2.i, 4294967295
+  %270 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %.sroa.0127.0, i64 %269
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0127.0, ptr noundef nonnull align 8 dereferenceable(128) %270, i64 128, i1 false)
+  %271 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalEd(ptr noundef nonnull align 8 dereferenceable(128) %19, double noundef 1.000000e+00)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2Ed.exit102 unwind label %.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2Ed.exit102: ; preds = %267
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %269, ptr noundef nonnull align 8 dereferenceable(128) %19, i64 128, i1 false)
-  br label %271
+_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2Ed.exit102: ; preds = %268
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %270, ptr noundef nonnull align 8 dereferenceable(128) %19, i64 128, i1 false)
+  br label %272
 
-271:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2Ed.exit102, %265
-  %272 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0, i64 128
-  %273 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %.sroa.0127.0, i64 %.2.i
+272:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2Ed.exit102, %266
+  %273 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0, i64 128
+  %274 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %.sroa.0127.0, i64 %.2.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull readonly align 8 dereferenceable(128) %272, i64 128, i1 false)
-  %274 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(128) %273)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull readonly align 8 dereferenceable(128) %273, i64 128, i1 false)
+  %275 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(128) %274)
           to label %.noexc103 unwind label %.thread
 
-.noexc103:                                        ; preds = %271
-  %275 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_IsMatrixIdentityERKNS_10GfMatrix4dE(ptr noundef nonnull align 8 dereferenceable(128) %9)
-          to label %276 unwind label %.thread
+.noexc103:                                        ; preds = %272
+  %276 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_IsMatrixIdentityERKNS_10GfMatrix4dE(ptr noundef nonnull align 8 dereferenceable(128) %9)
+          to label %277 unwind label %.thread
 
-276:                                              ; preds = %.noexc103
+277:                                              ; preds = %.noexc103
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9)
-  %spec.select88 = and i1 %.052.shrunk, %275
-  br i1 %spec.select88, label %279, label %277
+  %spec.select88 = and i1 %.052.shrunk, %276
+  br i1 %spec.select88, label %280, label %278
 
-277:                                              ; preds = %276
-  %278 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomXformCommonAPI15GetXformVectorsEPNS_7GfVec3dEPNS_7GfVec3fES4_S4_PNS0_13RotationOrderENS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, double %6)
+278:                                              ; preds = %277
+  %279 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdGeomXformCommonAPI15GetXformVectorsEPNS_7GfVec3dEPNS_7GfVec3fES4_S4_PNS0_13RotationOrderENS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, double %6)
           to label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EED2Ev.exit unwind label %.thread
 
-279:                                              ; preds = %276
+280:                                              ; preds = %277
   %.not76 = icmp eq ptr %1, null
-  br i1 %.not76, label %287, label %280
+  br i1 %.not76, label %288, label %281
 
-280:                                              ; preds = %279
-  %281 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0, i64 96
-  %282 = load double, ptr %281, align 8, !noalias !26
-  %283 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0, i64 104
-  %284 = load double, ptr %283, align 8, !noalias !26
-  %285 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0, i64 112
-  %286 = load double, ptr %285, align 8, !noalias !26
-  store double %282, ptr %1, align 8
+281:                                              ; preds = %280
+  %282 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0, i64 96
+  %283 = load double, ptr %282, align 8, !noalias !26
+  %284 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0, i64 104
+  %285 = load double, ptr %284, align 8, !noalias !26
+  %286 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0, i64 112
+  %287 = load double, ptr %286, align 8, !noalias !26
+  store double %283, ptr %1, align 8
   %.sroa.2125.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double %284, ptr %.sroa.2125.0..sroa_idx, align 8
+  store double %285, ptr %.sroa.2125.0..sroa_idx, align 8
   %.sroa.3126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store double %286, ptr %.sroa.3126.0..sroa_idx, align 8
-  br label %287
+  store double %287, ptr %.sroa.3126.0..sroa_idx, align 8
+  br label %288
 
-287:                                              ; preds = %280, %279
+288:                                              ; preds = %281, %280
   %.not77 = icmp eq ptr %4, null
-  br i1 %.not77, label %298, label %288
+  br i1 %.not77, label %299, label %289
 
-288:                                              ; preds = %287
-  %289 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0, i64 224
-  %290 = load double, ptr %289, align 8, !noalias !29
-  %291 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0, i64 232
-  %292 = load double, ptr %291, align 8, !noalias !29
-  %293 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0, i64 240
-  %294 = load double, ptr %293, align 8, !noalias !29
-  %295 = fptrunc double %290 to float
-  %296 = fptrunc double %292 to float
-  %297 = fptrunc double %294 to float
-  store float %295, ptr %4, align 4
+289:                                              ; preds = %288
+  %290 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0, i64 224
+  %291 = load double, ptr %290, align 8, !noalias !29
+  %292 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0, i64 232
+  %293 = load double, ptr %292, align 8, !noalias !29
+  %294 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0, i64 240
+  %295 = load double, ptr %294, align 8, !noalias !29
+  %296 = fptrunc double %291 to float
+  %297 = fptrunc double %293 to float
+  %298 = fptrunc double %295 to float
+  store float %296, ptr %4, align 4
   %.sroa.2120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float %296, ptr %.sroa.2120.0..sroa_idx, align 4
+  store float %297, ptr %.sroa.2120.0..sroa_idx, align 4
   %.sroa.3121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store float %297, ptr %.sroa.3121.0..sroa_idx, align 4
-  br label %298
+  store float %298, ptr %.sroa.3121.0..sroa_idx, align 4
+  br label %299
 
-298:                                              ; preds = %288, %287
+299:                                              ; preds = %289, %288
   %.not78 = icmp eq ptr %2, null
-  br i1 %.not78, label %315, label %299
-
-299:                                              ; preds = %298
-  br i1 %.0.lcssa.i, label %300, label %.sink.split
+  br i1 %.not78, label %316, label %300
 
 300:                                              ; preds = %299
-  %301 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %.sroa.0127.0, i64 %.0170
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d15ExtractRotationEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfRotation") align 8 %20, ptr noundef nonnull align 8 dereferenceable(128) %301)
-          to label %302 unwind label %.thread
+  br i1 %.0.lcssa.i, label %301, label %.sink.split
 
-302:                                              ; preds = %300
-  %303 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %303, i8 0, i64 16, i1 false), !alias.scope !32
+301:                                              ; preds = %300
+  %302 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %.sroa.0127.0, i64 %.0170
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d15ExtractRotationEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfRotation") align 8 %20, ptr noundef nonnull align 8 dereferenceable(128) %302)
+          to label %303 unwind label %.thread
+
+303:                                              ; preds = %301
+  %304 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %304, i8 0, i64 16, i1 false), !alias.scope !32
   store double 1.000000e+00, ptr %22, align 8, !alias.scope !32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false), !alias.scope !35
-  %304 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store double 1.000000e+00, ptr %304, align 8, !alias.scope !35
+  %305 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store double 1.000000e+00, ptr %305, align 8, !alias.scope !35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 16, i1 false), !alias.scope !38
-  %305 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store double 1.000000e+00, ptr %305, align 8, !alias.scope !38
+  %306 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store double 1.000000e+00, ptr %306, align 8, !alias.scope !38
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation9DecomposeERKNS_7GfVec3dES3_S3_(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %21, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24)
-          to label %306 unwind label %.thread
+          to label %307 unwind label %.thread
 
-306:                                              ; preds = %302
-  %307 = load double, ptr %21, align 8
-  %308 = fptrunc double %307 to float
-  %309 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %310 = load double, ptr %309, align 8
-  %311 = fptrunc double %310 to float
-  %312 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %313 = load double, ptr %312, align 8
-  %314 = fptrunc double %313 to float
+307:                                              ; preds = %303
+  %308 = load double, ptr %21, align 8
+  %309 = fptrunc double %308 to float
+  %310 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %311 = load double, ptr %310, align 8
+  %312 = fptrunc double %311 to float
+  %313 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %314 = load double, ptr %313, align 8
+  %315 = fptrunc double %314 to float
   br label %.sink.split
 
-.sink.split:                                      ; preds = %299, %306
-  %.sink200 = phi float [ %308, %306 ], [ 0.000000e+00, %299 ]
-  %.sink199 = phi float [ %311, %306 ], [ 0.000000e+00, %299 ]
-  %.sink = phi float [ %314, %306 ], [ 0.000000e+00, %299 ]
+.sink.split:                                      ; preds = %300, %307
+  %.sink200 = phi float [ %309, %307 ], [ 0.000000e+00, %300 ]
+  %.sink199 = phi float [ %312, %307 ], [ 0.000000e+00, %300 ]
+  %.sink = phi float [ %315, %307 ], [ 0.000000e+00, %300 ]
   store float %.sink200, ptr %2, align 4
   %.sroa.2117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float %.sink199, ptr %.sroa.2117.0..sroa_idx, align 4
   %.sroa.3118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store float %.sink, ptr %.sroa.3118.0..sroa_idx, align 4
-  br label %315
+  br label %316
 
-315:                                              ; preds = %.sink.split, %298
+316:                                              ; preds = %.sink.split, %299
   %.not79 = icmp eq ptr %3, null
-  br i1 %.not79, label %332, label %316
+  br i1 %.not79, label %333, label %317
 
-316:                                              ; preds = %315
-  %317 = icmp sgt i32 %.0172, -1
-  br i1 %317, label %318, label %330
+317:                                              ; preds = %316
+  %318 = icmp sgt i32 %.0172, -1
+  br i1 %318, label %319, label %331
 
-318:                                              ; preds = %316
-  %319 = zext nneg i32 %.0172 to i64
-  %320 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %.sroa.0127.0, i64 %319
-  %321 = load double, ptr %320, align 8
-  %322 = fptrunc double %321 to float
-  store float %322, ptr %3, align 4
-  %323 = getelementptr inbounds nuw i8, ptr %320, i64 40
-  %324 = load double, ptr %323, align 8
-  %325 = fptrunc double %324 to float
-  %326 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float %325, ptr %326, align 4
-  %327 = getelementptr inbounds nuw i8, ptr %320, i64 80
-  %328 = load double, ptr %327, align 8
-  %329 = fptrunc double %328 to float
+319:                                              ; preds = %317
+  %320 = zext nneg i32 %.0172 to i64
+  %321 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %.sroa.0127.0, i64 %320
+  %322 = load double, ptr %321, align 8
+  %323 = fptrunc double %322 to float
+  store float %323, ptr %3, align 4
+  %324 = getelementptr inbounds nuw i8, ptr %321, i64 40
+  %325 = load double, ptr %324, align 8
+  %326 = fptrunc double %325 to float
+  %327 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store float %326, ptr %327, align 4
+  %328 = getelementptr inbounds nuw i8, ptr %321, i64 80
+  %329 = load double, ptr %328, align 8
+  %330 = fptrunc double %329 to float
   br label %.sink.split201
 
-330:                                              ; preds = %316
+331:                                              ; preds = %317
   store float 1.000000e+00, ptr %3, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float 1.000000e+00, ptr %.sroa.2.0..sroa_idx, align 4
   br label %.sink.split201
 
-.sink.split201:                                   ; preds = %330, %318
-  %.sink202 = phi float [ %329, %318 ], [ 1.000000e+00, %330 ]
-  %331 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store float %.sink202, ptr %331, align 4
-  br label %332
+.sink.split201:                                   ; preds = %331, %319
+  %.sink202 = phi float [ %330, %319 ], [ 1.000000e+00, %331 ]
+  %332 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store float %.sink202, ptr %332, align 4
+  br label %333
 
-332:                                              ; preds = %.sink.split201, %315
+333:                                              ; preds = %.sink.split201, %316
   %.not80 = icmp eq ptr %5, null
-  br i1 %.not80, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EED2Ev.exit, label %333
+  br i1 %.not80, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EED2Ev.exit, label %334
 
-333:                                              ; preds = %332
-  %334 = add i32 %.0.i174, -6
-  %335 = icmp ult i32 %334, 6
-  br i1 %335, label %336, label %338
+334:                                              ; preds = %333
+  %335 = add i32 %.0.i174, -6
+  %336 = icmp ult i32 %335, 6
+  br i1 %336, label %337, label %339
 
-336:                                              ; preds = %333
-  %337 = invoke noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__21UsdGeomXformCommonAPI28ConvertOpTypeToRotationOrderENS_14UsdGeomXformOp4TypeE(i32 noundef %.0.i174)
-          to label %338 unwind label %.thread
+337:                                              ; preds = %334
+  %338 = invoke noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__21UsdGeomXformCommonAPI28ConvertOpTypeToRotationOrderENS_14UsdGeomXformOp4TypeE(i32 noundef %.0.i174)
+          to label %339 unwind label %.thread
 
-338:                                              ; preds = %333, %336
-  %339 = phi i32 [ %337, %336 ], [ 0, %333 ]
-  store i32 %339, ptr %5, align 4
+339:                                              ; preds = %334, %337
+  %340 = phi i32 [ %338, %337 ], [ 0, %334 ]
+  store i32 %340, ptr %5, align 4
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EED2Ev.exit: ; preds = %332, %338, %277
-  %.1 = phi i1 [ %278, %277 ], [ true, %338 ], [ true, %332 ]
-  %340 = ptrtoint ptr %.sroa.0127.0 to i64
-  %341 = sub i64 %.sroa.23.0, %340
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0127.0, i64 noundef %341) #23
-  %342 = ptrtoint ptr %.sroa.25.5 to i64
-  %343 = sub i64 %342, %174
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0148.5, i64 noundef %343) #23
-  %344 = load ptr, ptr %15, align 8
-  %345 = load ptr, ptr %69, align 8
-  %.not4.i.i.i.i = icmp eq ptr %344, %345
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EED2Ev.exit: ; preds = %333, %339, %278
+  %.1 = phi i1 [ %279, %278 ], [ true, %339 ], [ true, %333 ]
+  %341 = ptrtoint ptr %.sroa.0127.0 to i64
+  %342 = sub i64 %.sroa.23.0, %341
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0127.0, i64 noundef %342) #23
+  %343 = ptrtoint ptr %.sroa.25.5 to i64
+  %344 = sub i64 %343, %174
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0148.5, i64 noundef %344) #23
+  %345 = load ptr, ptr %15, align 8
+  %346 = load ptr, ptr %69, align 8
+  %.not4.i.i.i.i = icmp eq ptr %345, %346
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EED2Ev.exit, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %352, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpEEvPT_.exit.i.i.i.i ], [ %344, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EED2Ev.exit ]
+  %.05.i.i.i.i = phi ptr [ %353, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpEEvPT_.exit.i.i.i.i ], [ %345, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  %346 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 120
-  %347 = load i8, ptr %346, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %347, -1
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpEEvPT_.exit.i.i.i.i, label %348
+  %347 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 120
+  %348 = load i8, ptr %347, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %348, -1
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpEEvPT_.exit.i.i.i.i, label %349
 
-348:                                              ; preds = %.lr.ph.i.i.i.i
+349:                                              ; preds = %.lr.ph.i.i.i.i
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN32pxrInternal_v0_24__pxrReserved__12UsdAttributeENS3_17UsdAttributeQueryEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S5_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(133) %.05.i.i.i.i)
-          to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %349
+          to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %350
 
-.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %348
-  store i8 -1, ptr %346, align 8
+.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %349
+  store i8 -1, ptr %347, align 8
   br label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpEEvPT_.exit.i.i.i.i
 
-349:                                              ; preds = %348
-  %350 = landingpad { ptr, i32 }
+350:                                              ; preds = %349
+  %351 = landingpad { ptr, i32 }
           catch ptr null
-  %351 = extractvalue { ptr, i32 } %350, 0
-  call void @__clang_call_terminate(ptr %351) #24
+  %352 = extractvalue { ptr, i32 } %351, 0
+  call void @__clang_call_terminate(ptr %352) #24
   unreachable
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpEEvPT_.exit.i.i.i.i: ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  %352 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 136
-  %.not.i.i.i.i107 = icmp eq ptr %352, %345
+  %353 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 136
+  %.not.i.i.i.i107 = icmp eq ptr %353, %346
   br i1 %.not.i.i.i.i107, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpEEvPT_.exit.i.i.i.i
@@ -4308,58 +4309,58 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpES1_EvT_S3_RSa
   br label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EED2Ev.exit
-  %353 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %344, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EED2Ev.exit ]
-  %.not.i.i.i108 = icmp eq ptr %353, null
-  br i1 %.not.i.i.i108, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpESaIS1_EED2Ev.exit, label %354
+  %354 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %345, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EED2Ev.exit ]
+  %.not.i.i.i108 = icmp eq ptr %354, null
+  br i1 %.not.i.i.i108, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpESaIS1_EED2Ev.exit, label %355
 
-354:                                              ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpES1_EvT_S3_RSaIT0_E.exit.i
-  %355 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %356 = load ptr, ptr %355, align 8
-  %357 = ptrtoint ptr %356 to i64
-  %358 = ptrtoint ptr %353 to i64
-  %359 = sub i64 %357, %358
-  call void @_ZdlPvm(ptr noundef nonnull %353, i64 noundef %359) #23
+355:                                              ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpES1_EvT_S3_RSaIT0_E.exit.i
+  %356 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %357 = load ptr, ptr %356, align 8
+  %358 = ptrtoint ptr %357 to i64
+  %359 = ptrtoint ptr %354 to i64
+  %360 = sub i64 %358, %359
+  call void @_ZdlPvm(ptr noundef nonnull %354, i64 noundef %360) #23
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpES1_EvT_S3_RSaIT0_E.exit.i, %354
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomXformableD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #22
-  br label %367
-
-360:                                              ; preds = %.loopexit, %226
-  %.pn = phi { ptr, i32 } [ %227, %226 ], [ %lpad.loopexit, %.loopexit ]
-  %.not.i.i.i109 = icmp eq ptr %.sroa.0127.0, null
-  br i1 %.not.i.i.i109, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EED2Ev.exit110.thread, label %361
-
-361:                                              ; preds = %.thread, %360
-  %.pn195 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.thread ], [ %.pn, %360 ]
-  %362 = ptrtoint ptr %.sroa.0127.0 to i64
-  %363 = sub i64 %.sroa.23.0, %362
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0127.0, i64 noundef %363) #23
-  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EED2Ev.exit110.thread
-
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EED2Ev.exit110.thread: ; preds = %360, %361, %222, %224
-  %.pn.pn177 = phi { ptr, i32 } [ %223, %222 ], [ %225, %224 ], [ %.pn195, %361 ], [ %.pn, %360 ]
-  %364 = ptrtoint ptr %.sroa.25.5 to i64
-  %365 = sub i64 %364, %174
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0148.5, i64 noundef %365) #23
-  br label %.body
-
-.body:                                            ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EED2Ev.exit110.thread, %220, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EED2Ev.exit.i
-  %.pn.pn.pn = phi { ptr, i32 } [ %221, %220 ], [ %lpad.phi49.i, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EED2Ev.exit.i ], [ %.pn.pn177, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EED2Ev.exit110.thread ]
-  call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #22
-  br label %366
-
-366:                                              ; preds = %.body, %218
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %.body ], [ %219, %218 ]
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpES1_EvT_S3_RSaIT0_E.exit.i, %355
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomXformableD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #22
   br label %368
 
-367:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpESaIS1_EED2Ev.exit, %29
+361:                                              ; preds = %.loopexit, %227
+  %.pn = phi { ptr, i32 } [ %228, %227 ], [ %lpad.loopexit, %.loopexit ]
+  %.not.i.i.i109 = icmp eq ptr %.sroa.0127.0, null
+  br i1 %.not.i.i.i109, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EED2Ev.exit110.thread, label %362
+
+362:                                              ; preds = %.thread, %361
+  %.pn195 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.thread ], [ %.pn, %361 ]
+  %363 = ptrtoint ptr %.sroa.0127.0 to i64
+  %364 = sub i64 %.sroa.23.0, %363
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0127.0, i64 noundef %364) #23
+  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EED2Ev.exit110.thread
+
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EED2Ev.exit110.thread: ; preds = %361, %362, %223, %225
+  %.pn.pn177 = phi { ptr, i32 } [ %224, %223 ], [ %226, %225 ], [ %.pn195, %362 ], [ %.pn, %361 ]
+  %365 = ptrtoint ptr %.sroa.25.5 to i64
+  %366 = sub i64 %365, %174
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0148.5, i64 noundef %366) #23
+  br label %.body
+
+.body:                                            ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EED2Ev.exit110.thread, %221, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EED2Ev.exit.i
+  %.pn.pn.pn = phi { ptr, i32 } [ %222, %221 ], [ %lpad.phi49.i, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EED2Ev.exit.i ], [ %.pn.pn177, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dESaIS1_EED2Ev.exit110.thread ]
+  call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #22
+  br label %367
+
+367:                                              ; preds = %.body, %219
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %.body ], [ %220, %219 ]
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomXformableD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #22
+  br label %369
+
+368:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpESaIS1_EED2Ev.exit, %29
   %.0 = phi i1 [ %30, %29 ], [ %.1, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOpESaIS1_EED2Ev.exit ]
   ret i1 %.0
 
-368:                                              ; preds = %366, %216
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %366 ], [ %217, %216 ]
+369:                                              ; preds = %367, %217
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %367 ], [ %218, %217 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
 

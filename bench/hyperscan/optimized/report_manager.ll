@@ -749,47 +749,50 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
 
 _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %13
+  br label %15
 
 .noexc7:                                          ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
   %6 = shl nuw nsw i64 %4, 2
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #23
   store ptr %7, ptr %0, align 8
-  %8 = getelementptr i32, ptr %7, i64 %4
+  %8 = getelementptr inbounds nuw i32, ptr %7, i64 %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8
   store i32 0, ptr %7, align 4
   %10 = getelementptr i8, ptr %7, i64 4
-  %11 = icmp eq i64 %4, 1
-  br i1 %11, label %13, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+  %11 = add nsw i64 %4, -1
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %15, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc7
-  %12 = add nsw i64 %6, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %10, i8 0, i64 %12, i1 false)
-  br label %13
+  %13 = add nsw i64 %6, -4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %10, i8 0, i64 %13, i1 false)
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %11, 2
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i.i.i.i.i
+  br label %15
 
-13:                                               ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc7, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i
-  %14 = phi ptr [ %7, %.noexc7 ], [ %7, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %10, %.noexc7 ], [ %8, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.i.i.i.i.i, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %.sroa.08.012 = load ptr, ptr %16, align 8
+15:                                               ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc7, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i
+  %16 = phi ptr [ %7, %.noexc7 ], [ %7, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ]
+  %.0.i.i.i.i.i = phi ptr [ %10, %.noexc7 ], [ %14, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.i.i.i.i.i, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %.sroa.08.012 = load ptr, ptr %18, align 8
   %.not13 = icmp eq ptr %.sroa.08.012, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %13
+._crit_edge:                                      ; preds = %.lr.ph, %15
   ret void
 
-.lr.ph:                                           ; preds = %13, %.lr.ph
-  %.sroa.08.014 = phi ptr [ %.sroa.08.0, %.lr.ph ], [ %.sroa.08.012, %13 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 8
-  %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 12
+.lr.ph:                                           ; preds = %15, %.lr.ph
+  %.sroa.08.014 = phi ptr [ %.sroa.08.0, %.lr.ph ], [ %.sroa.08.012, %15 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 8
   %20 = load i32, ptr %19, align 4
-  %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %14, i64 %21
-  store i32 %18, ptr %22, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 12
+  %22 = load i32, ptr %21, align 4
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr inbounds nuw i32, ptr %16, i64 %23
+  store i32 %20, ptr %24, align 4
   %.sroa.08.0 = load ptr, ptr %.sroa.08.014, align 8
   %.not = icmp eq ptr %.sroa.08.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1183,8 +1186,8 @@ _ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RK
 39:                                               ; preds = %.critedge.thread
   %40 = ptrtoint ptr %23 to i64
   %41 = getelementptr inbounds i8, ptr %9, i64 -4
-  %.not46.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not46.i.i.i.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i.i.i, label %42, !prof !46
+  %.not.i.i = icmp eq ptr %6, null
+  br i1 %.not.i.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i.i.i, label %42, !prof !46
 
 42:                                               ; preds = %39
   %43 = load i32, ptr %41, align 4, !noalias !35

@@ -211,7 +211,8 @@ define internal void @ps_table_done(ptr noundef captures(none) %0) #0 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i32, ptr %16, align 8, !tbaa !18
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %15, i64 %18
+  %.idx.i = shl nsw i64 %18, 3
+  %19 = getelementptr inbounds i8, ptr %15, i64 %.idx.i
   %20 = icmp sgt i32 %17, 0
   br i1 %20, label %.lr.ph.i, label %.loopexit.i
 
@@ -310,7 +311,8 @@ define internal i32 @ps_table_add(ptr noundef captures(none) %0, i32 noundef %1,
   %35 = load ptr, ptr %34, align 8, !tbaa !15
   %36 = load i32, ptr %8, align 8, !tbaa !18
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %35, i64 %37
+  %.idx.i = shl nsw i64 %37, 3
+  %38 = getelementptr inbounds i8, ptr %35, i64 %.idx.i
   %39 = icmp sgt i32 %36, 0
   br i1 %39, label %.lr.ph.i, label %ps_table_realloc.exit
 

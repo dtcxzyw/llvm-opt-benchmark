@@ -15834,7 +15834,7 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   %.sroa.7570 = alloca [32 x i8], align 8
   %63 = alloca [32 x i8], align 8
   %64 = alloca [32 x i8], align 8
-  %.sroa.51226 = alloca [28 x i8], align 4
+  %.sroa.51234 = alloca [28 x i8], align 4
   %65 = alloca [64 x i8], align 8
   %66 = alloca [32 x i8], align 8
   %67 = alloca [16 x i8], align 8
@@ -15896,7 +15896,8 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   %.sroa.4526.0.copyload = load ptr, ptr %.sroa.4526.0..sroa_idx, align 8, !nonnull !12, !noundef !12
   %.sroa.5527.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.sroa.5527.0.copyload = load i64, ptr %.sroa.5527.0..sroa_idx, align 8
-  %93 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, i64, i32, [1 x i32] }, ptr %.sroa.4526.0.copyload, i64 %.sroa.5527.0.copyload
+  %.idx = shl nsw i64 %.sroa.5527.0.copyload, 6
+  %93 = getelementptr inbounds i8, ptr %.sroa.4526.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %81)
   store ptr %.sroa.4526.0.copyload, ptr %81, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -16108,7 +16109,8 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
 170:                                              ; preds = %168
   %171 = load ptr, ptr %158, align 8, !nonnull !12, !noundef !12
   %172 = load i64, ptr %160, align 8, !noundef !12
-  %173 = getelementptr inbounds i64, ptr %171, i64 %172
+  %.idx1056 = shl nsw i64 %172, 3
+  %173 = getelementptr inbounds i8, ptr %171, i64 %.idx1056
   %174 = icmp eq i64 %172, 0
   br i1 %174, label %._crit_edge, label %.lr.ph
 
@@ -16119,8 +16121,8 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   %177 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %178 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %179 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %.sroa.5.0..sroa_idx1223 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %.sroa.5.0..sroa_idx1222 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  %.sroa.5.0..sroa_idx1231 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %.sroa.5.0..sroa_idx1230 = getelementptr inbounds nuw i8, ptr %68, i64 4
   br label %185
 
 ._crit_edge:                                      ; preds = %.backedge, %170
@@ -16194,7 +16196,8 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   %.sroa.0553.0.copyload = load i64, ptr %2, align 8
   %.sroa.4554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4554.0.copyload = load ptr, ptr %.sroa.4554.0..sroa_idx, align 8, !nonnull !12, !noundef !12
-  %202 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, i64, i32, [1 x i32] }, ptr %.sroa.4554.0.copyload, i64 %.sroa.5555.0.copyload
+  %.idx1058 = shl nsw i64 %.sroa.5555.0.copyload, 6
+  %202 = getelementptr inbounds i8, ptr %.sroa.4554.0.copyload, i64 %.idx1058
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %66)
   store ptr %.sroa.4554.0.copyload, ptr %66, align 8
   %.sroa.4550.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -16213,8 +16216,8 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %208 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %.sroa.51226.0..sroa_idx1227 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %.sroa.51226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 4
+  %.sroa.51234.0..sroa_idx1235 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  %.sroa.51234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 4
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb3b33fd278ba043eE.exit168"
 
 .body474:                                         ; preds = %1095, %1099, %1103, %209, %1090
@@ -16254,7 +16257,8 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   %.sroa.4566.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 152
   %.sroa.4566.0.copyload = load ptr, ptr %.sroa.4566.0..sroa_idx, align 8, !nonnull !12, !noundef !12
   %.sroa.5567.0.copyload = load i64, ptr %134, align 8
-  %218 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, i64 }, ptr %.sroa.4566.0.copyload, i64 %.sroa.5567.0.copyload
+  %.idx1059 = mul nsw i64 %.sroa.5567.0.copyload, 40
+  %218 = getelementptr inbounds i8, ptr %.sroa.4566.0.copyload, i64 %.idx1059
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %63)
   store ptr %.sroa.4566.0.copyload, ptr %63, align 8
   %.sroa.4562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -16341,7 +16345,8 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   %.sroa.4580.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 128
   %.sroa.4580.0.copyload = load ptr, ptr %.sroa.4580.0..sroa_idx, align 8, !nonnull !12, !noundef !12
   %.sroa.5581.0.copyload = load i64, ptr %130, align 8
-  %248 = getelementptr inbounds { i64, i64 }, ptr %.sroa.4580.0.copyload, i64 %.sroa.5581.0.copyload
+  %.idx1060 = shl nsw i64 %.sroa.5581.0.copyload, 4
+  %248 = getelementptr inbounds i8, ptr %.sroa.4580.0.copyload, i64 %.idx1060
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %60)
   store ptr %.sroa.4580.0.copyload, ptr %60, align 8
   %.sroa.4576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -16482,7 +16487,8 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   %.sroa.4594.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
   %.sroa.4594.0.copyload = load ptr, ptr %.sroa.4594.0..sroa_idx, align 8, !nonnull !12, !noundef !12
   %.sroa.5595.0.copyload = load i64, ptr %138, align 8
-  %295 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i64, i64, i32, [1 x i32] }, ptr %.sroa.4594.0.copyload, i64 %.sroa.5595.0.copyload
+  %.idx1061 = mul nsw i64 %.sroa.5595.0.copyload, 48
+  %295 = getelementptr inbounds i8, ptr %.sroa.4594.0.copyload, i64 %.idx1061
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59)
   store ptr %.sroa.4594.0.copyload, ptr %59, align 8
   %.sroa.4590.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -16603,7 +16609,8 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   %.sroa.4613.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 200
   %.sroa.4613.0.copyload = load ptr, ptr %.sroa.4613.0..sroa_idx, align 8, !nonnull !12, !noundef !12
   %.sroa.5614.0.copyload = load i64, ptr %141, align 8
-  %335 = getelementptr inbounds i64, ptr %.sroa.4613.0.copyload, i64 %.sroa.5614.0.copyload
+  %.idx1062 = shl nsw i64 %.sroa.5614.0.copyload, 3
+  %335 = getelementptr inbounds i8, ptr %.sroa.4613.0.copyload, i64 %.idx1062
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53)
   store ptr %.sroa.4613.0.copyload, ptr %53, align 8
   %.sroa.4609.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -16732,9 +16739,10 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   %373 = load ptr, ptr %372, align 8, !nonnull !12, !noundef !12
   %374 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %375 = load i64, ptr %374, align 8, !noundef !12
-  %376 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %373, i64 %375
-  %.not1057 = icmp eq i64 %375, 0
-  br i1 %.not1057, label %._crit_edge1054, label %.lr.ph1053
+  %.idx1063 = shl nsw i64 %375, 5
+  %376 = getelementptr inbounds i8, ptr %373, i64 %.idx1063
+  %.not1064 = icmp eq i64 %375, 0
+  br i1 %.not1064, label %._crit_edge1054, label %.lr.ph1053
 
 "_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Channel$GT$$GT$17hed785356bc81a736E.exit": ; preds = %390, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hacfa9a93d7cadc89E.llvm.17231173475946515404.exit.i", %367
   %377 = trunc nuw i8 %.sroa.070.2 to i1
@@ -16971,9 +16979,9 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
           to label %466 unwind label %453
 
 "_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17hb2ec60ee7d8223bbE.exit227.sink.split": ; preds = %1309, %565, %466
-  %.sink1146 = phi i64 [ %468, %466 ], [ %567, %565 ], [ %1311, %1309 ]
+  %.sink1154 = phi i64 [ %468, %466 ], [ %567, %565 ], [ %1311, %1309 ]
   %.pn137.pn.ph = phi { ptr, i32 } [ %.pn137, %466 ], [ %.pn125, %565 ], [ %.pn115740, %1309 ]
-  %463 = shl nuw i64 %.sink1146, 3
+  %463 = shl nuw i64 %.sink1154, 3
   %464 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %465 = load ptr, ptr %464, align 8, !noalias !12, !nonnull !12, !noundef !12
   call void @__rust_dealloc(ptr noundef nonnull %465, i64 noundef %463, i64 noundef 8) #42, !noalias !12
@@ -16992,8 +17000,8 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
 
 .loopexit949:                                     ; preds = %.loopexit, %.lr.ph1053
   %470 = phi i64 [ %488, %.lr.ph1053 ], [ %598, %.loopexit ]
-  %.not1058 = icmp eq ptr %489, %376
-  br i1 %.not1058, label %._crit_edge1054, label %.lr.ph1053
+  %.not1066 = icmp eq ptr %489, %376
+  br i1 %.not1066, label %._crit_edge1054, label %.lr.ph1053
 
 .body230.thread777.loopexit:                      ; preds = %589
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -17065,7 +17073,8 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   %491 = load ptr, ptr %490, align 8, !nonnull !12, !noundef !12
   %492 = getelementptr inbounds nuw i8, ptr %.sroa.0619.01051, i64 16
   %493 = load i64, ptr %492, align 8, !noundef !12
-  %494 = getelementptr inbounds i64, ptr %491, i64 %493
+  %.idx1065 = shl nsw i64 %493, 3
+  %494 = getelementptr inbounds i8, ptr %491, i64 %.idx1065
   %495 = icmp eq i64 %493, 0
   br i1 %495, label %.loopexit949, label %.lr.ph1050
 
@@ -17318,11 +17327,11 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
           to label %..noexc249_crit_edge unwind label %.body230.thread777.loopexit
 
 ..noexc249_crit_edge:                             ; preds = %589
-  %.pre1090 = load ptr, ptr %370, align 8, !alias.scope !3727
+  %.pre1098 = load ptr, ptr %370, align 8, !alias.scope !3727
   br label %.noexc249
 
 .noexc249:                                        ; preds = %..noexc249_crit_edge, %.loopexit948
-  %590 = phi ptr [ %.pre1090, %..noexc249_crit_edge ], [ %571, %.loopexit948 ]
+  %590 = phi ptr [ %.pre1098, %..noexc249_crit_edge ], [ %571, %.loopexit948 ]
   %591 = getelementptr inbounds i64, ptr %590, i64 %.sroa.03.0.lcssa.i
   %592 = icmp ult i64 %.sroa.03.0.lcssa.i, %569
   br i1 %592, label %593, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hd88e35a1f04b3995E.exit"
@@ -17626,7 +17635,7 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   br i1 %700, label %701, label %"._ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0f921b4bd89f5c9dE.exit_crit_edge"
 
 "._ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0f921b4bd89f5c9dE.exit_crit_edge": ; preds = %698
-  %.pre1089 = load i32, ptr %301, align 8, !range !1445
+  %.pre1097 = load i32, ptr %301, align 8, !range !1445
   br label %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0f921b4bd89f5c9dE.exit"
 
 701:                                              ; preds = %698
@@ -17666,7 +17675,7 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   br label %.body382
 
 "_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0f921b4bd89f5c9dE.exit": ; preds = %"._ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0f921b4bd89f5c9dE.exit_crit_edge", %694
-  %709 = phi i32 [ %.pre1089, %"._ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0f921b4bd89f5c9dE.exit_crit_edge" ], [ %328, %694 ]
+  %709 = phi i32 [ %.pre1097, %"._ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0f921b4bd89f5c9dE.exit_crit_edge" ], [ %328, %694 ]
   %storemerge.i283 = phi i64 [ 1, %"._ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0f921b4bd89f5c9dE.exit_crit_edge" ], [ 0, %694 ]
   store i64 %326, ptr %304, align 8
   store i64 %327, ptr %305, align 8
@@ -18569,7 +18578,7 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   br i1 %1072, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h6bba1b0d8dd52adbE.exit.thread", label %1073
 
 1073:                                             ; preds = %1068
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %.sroa.51226)
+  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %.sroa.51234)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42)
   invoke void @_ZN4gpui3app10entity_map12AnyWeakModel7upgrade17h60c5a235dd6ff1d5E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1070)
           to label %1074 unwind label %209
@@ -18584,16 +18593,16 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   br label %"_ZN4core3ptr95drop_in_place$LT$gpui..app..entity_map..Model$LT$channel..channel_buffer..ChannelBuffer$GT$$GT$17h0700f808c7fa8e23E.exit478"
 
 1077:                                             ; preds = %1074
-  %.sroa.01224.0.copyload1225 = load i32, ptr %42, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.51226, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.51226.0..sroa_idx1227, i64 28, i1 false)
+  %.sroa.01232.0.copyload1233 = load i32, ptr %42, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.51234, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.51234.0..sroa_idx1235, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42)
-  %1078 = icmp eq i32 %.sroa.01224.0.copyload1225, 0
+  %1078 = icmp eq i32 %.sroa.01232.0.copyload1233, 0
   br i1 %1078, label %"_ZN4core3ptr95drop_in_place$LT$gpui..app..entity_map..Model$LT$channel..channel_buffer..ChannelBuffer$GT$$GT$17h0700f808c7fa8e23E.exit478", label %1079
 
 1079:                                             ; preds = %1077
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %64)
-  store i32 %.sroa.01224.0.copyload1225, ptr %64, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.51226.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.51226, i64 28, i1 false)
+  store i32 %.sroa.01232.0.copyload1233, ptr %64, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.51234.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.51234, i64 28, i1 false)
   %1080 = load ptr, ptr %3, align 8, !nonnull !12, !align !13, !noundef !12
   %1081 = getelementptr inbounds nuw i8, ptr %1080, i64 1160
   %1082 = load i64, ptr %1081, align 8, !alias.scope !4084, !noalias !4087, !noundef !12
@@ -18679,7 +18688,7 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   br label %"_ZN4core3ptr95drop_in_place$LT$gpui..app..entity_map..Model$LT$channel..channel_buffer..ChannelBuffer$GT$$GT$17h0700f808c7fa8e23E.exit478"
 
 "_ZN4core3ptr95drop_in_place$LT$gpui..app..entity_map..Model$LT$channel..channel_buffer..ChannelBuffer$GT$$GT$17h0700f808c7fa8e23E.exit478": ; preds = %1077, %.thread895, %.thread896
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.51226)
+  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.51234)
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h6bba1b0d8dd52adbE.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h798c176c4dfda9d0E.exit": ; preds = %191
@@ -18692,9 +18701,9 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
 
 .noexc480:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h798c176c4dfda9d0E.exit"
   %1116 = icmp eq ptr %1115, null
-  br i1 %1116, label %.thread1104, label %1117
+  br i1 %1116, label %.thread1112, label %1117
 
-.thread1104:                                      ; preds = %.noexc480
+.thread1112:                                      ; preds = %.noexc480
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.4.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71)
   br label %"_ZN4core3ptr99drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$channel..channel_buffer..ChannelBuffer$GT$$GT$17h9a19303188a242aaE.exit493"
@@ -18719,10 +18728,10 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   store i64 1, ptr %70, align 8, !alias.scope !4108, !noalias !4123
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.4.i)
   %1121 = load i32, ptr %177, align 8
-  %.not1147.not = icmp eq i32 %1121, 0
-  br i1 %.not1147.not, label %.thread1100, label %1124
+  %.not1155.not = icmp eq i32 %1121, 0
+  br i1 %.not1155.not, label %.thread1108, label %1124
 
-.thread1100:                                      ; preds = %1120
+.thread1108:                                      ; preds = %1120
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71)
   br label %1186
 
@@ -18781,16 +18790,16 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   br label %"_ZN4core3ptr95drop_in_place$LT$gpui..app..entity_map..Model$LT$channel..channel_buffer..ChannelBuffer$GT$$GT$17h0700f808c7fa8e23E.exit492"
 
 1138:                                             ; preds = %1135
-  %.sroa.0.0.copyload1221 = load i32, ptr %43, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.0..sroa_idx1223, i64 28, i1 false)
+  %.sroa.0.0.copyload1229 = load i32, ptr %43, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.0..sroa_idx1231, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43)
-  %1139 = icmp eq i32 %.sroa.0.0.copyload1221, 0
+  %1139 = icmp eq i32 %.sroa.0.0.copyload1229, 0
   br i1 %1139, label %"_ZN4core3ptr95drop_in_place$LT$gpui..app..entity_map..Model$LT$channel..channel_buffer..ChannelBuffer$GT$$GT$17h0700f808c7fa8e23E.exit492", label %1140
 
 1140:                                             ; preds = %1138
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %68)
-  store i32 %.sroa.0.0.copyload1221, ptr %68, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.0..sroa_idx1222, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, i64 28, i1 false)
+  store i32 %.sroa.0.0.copyload1229, ptr %68, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.0..sroa_idx1230, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, i64 28, i1 false)
   %1141 = load ptr, ptr %3, align 8, !nonnull !12, !align !13, !noundef !12
   %1142 = getelementptr inbounds nuw i8, ptr %1141, i64 1160
   %1143 = load i64, ptr %1142, align 8, !alias.scope !4137, !noalias !4140, !noundef !12
@@ -18909,11 +18918,11 @@ define hidden void @_ZN7channel13channel_store12ChannelStore15update_channels17h
   invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$channel..channel_store..OpenedModelHandle$LT$channel..channel_buffer..ChannelBuffer$GT$$GT$17h389fc8b134934d71E"(ptr noalias noundef align 8 dereferenceable(32) %177) #48
           to label %162 unwind label %453
 
-"_ZN4core3ptr99drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$channel..channel_buffer..ChannelBuffer$GT$$GT$17h9a19303188a242aaE.exit493": ; preds = %.thread1104, %1122, %1186
+"_ZN4core3ptr99drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$channel..channel_buffer..ChannelBuffer$GT$$GT$17h9a19303188a242aaE.exit493": ; preds = %.thread1112, %1122, %1186
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %70)
   br label %.backedge
 
-1186:                                             ; preds = %1122, %.thread1100
+1186:                                             ; preds = %1122, %.thread1108
   invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$channel..channel_store..OpenedModelHandle$LT$channel..channel_buffer..ChannelBuffer$GT$$GT$17h389fc8b134934d71E"(ptr noalias noundef align 8 dereferenceable(32) %177)
           to label %"_ZN4core3ptr99drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$channel..channel_buffer..ChannelBuffer$GT$$GT$17h9a19303188a242aaE.exit493" unwind label %.loopexit974
 

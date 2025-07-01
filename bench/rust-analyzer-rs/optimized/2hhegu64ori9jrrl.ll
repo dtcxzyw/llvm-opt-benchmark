@@ -3702,7 +3702,8 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.
   %.sroa.5186.0.copyload = load i64, ptr %62, align 8, !noalias !428
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !430
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20)
-  %564 = getelementptr inbounds { i64, [4 x i64] }, ptr %.sroa.4185.0.copyload, i64 %.sroa.5186.0.copyload
+  %.idx = mul nsw i64 %.sroa.5186.0.copyload, 40
+  %564 = getelementptr inbounds i8, ptr %.sroa.4185.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38)
   store ptr %.sroa.4185.0.copyload, ptr %38, align 8
   store ptr %.sroa.4185.0.copyload, ptr %.sroa.4181.0..sroa_idx, align 8
@@ -4894,7 +4895,8 @@ define void @_ZN10test_utils11format_diff17hba53f851820077c7E(ptr noalias nounde
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !842, !noalias !845, !nonnull !8, !noundef !8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !842, !noalias !845
-  %16 = getelementptr inbounds { i64, [2 x i64] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nsw i64 %.sroa.5.0.copyload.i, 24
+  %16 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   store ptr %.sroa.4.0.copyload.i, ptr %14, align 8
   %.sroa.4.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %14, i64 8

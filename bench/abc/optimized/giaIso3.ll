@@ -992,8 +992,10 @@ define void @Gia_IsoCompareVecs(ptr noundef %0, ptr noundef readonly captures(no
   %.val29 = load ptr, ptr %21, align 8, !tbaa !34
   %22 = sext i32 %.val28 to i64
   tail call void @qsort(ptr noundef %.val29, i64 noundef %22, i64 noundef 4, ptr noundef nonnull @Vec_IntSortCompare1) #19
-  %23 = getelementptr inbounds i32, ptr %.val27, i64 %19
-  %24 = getelementptr inbounds i32, ptr %.val29, i64 %22
+  %.idx.i = shl nsw i64 %19, 2
+  %23 = getelementptr inbounds i8, ptr %.val27, i64 %.idx.i
+  %.idx8.i = shl nsw i64 %22, 2
+  %24 = getelementptr inbounds i8, ptr %.val29, i64 %.idx8.i
   %25 = icmp sgt i32 %.val, 0
   %26 = icmp sgt i32 %.val28, 0
   %27 = and i1 %25, %26

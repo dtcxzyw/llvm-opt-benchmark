@@ -254,8 +254,9 @@ for.cond35.preheader.lr.ph:                       ; preds = %_ZNSt6vectorIdSaIdE
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i67, i8 0, i64 %mul.i.i.i.i.i.i, i1 false), !tbaa !24
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i67, i64 %mul.i.i.i.i.i.i
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !26
+  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !26
   %23 = load ptr, ptr %mtrx, align 8, !tbaa !27
   %conv = uitofp nneg i64 %0 to double
   %sub48 = fadd double %conv, -1.000000e+00

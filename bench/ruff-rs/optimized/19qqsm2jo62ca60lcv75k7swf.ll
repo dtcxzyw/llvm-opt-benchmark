@@ -862,7 +862,8 @@ common.resume:                                    ; preds = %41, %12
   %24 = load ptr, ptr %23, align 8, !alias.scope !23, !nonnull !7, !noundef !7
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %26 = load i64, ptr %25, align 8, !alias.scope !23, !noundef !7
-  %27 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %24, i64 %26
+  %.idx.i = mul nuw nsw i64 %26, 24
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i
   %28 = icmp eq i64 %26, 0
   br i1 %28, label %._crit_edge.i, label %.lr.ph.i
 
@@ -1233,7 +1234,8 @@ _ZN4core3ops8function6FnOnce9call_once17h95fd4efa400d4993E.exit._ZN4core3ops8fun
   %.sroa.0.0.i = phi i64 [ %46, %.noexc6 ], [ %40, %39 ], [ %.val.pre.i.i, %_ZN4core3ops8function6FnOnce9call_once17h95fd4efa400d4993E.exit._ZN4core3ops8function6FnOnce9call_once17h95fd4efa400d4993E.exit.thread_crit_edge.i.i ]
   %47 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %48 = load ptr, ptr %47, align 8, !alias.scope !53, !noalias !56, !nonnull !7, !noundef !7
-  %49 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %48, i64 %36
+  %.idx.i = mul nuw nsw i64 %36, 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZN17crossbeam_channel5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17he3184ffdb589453fE.exit.i.i", %.lr.ph.i.preheader.i
@@ -4676,7 +4678,8 @@ common.resume:                                    ; preds = %.body, %15
   %26 = load ptr, ptr %25, align 8, !alias.scope !221, !nonnull !7, !noundef !7
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %28 = load i64, ptr %27, align 8, !alias.scope !221, !noundef !7
-  %29 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %26, i64 %28
+  %.idx.i = mul nuw nsw i64 %28, 24
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i
   %30 = icmp eq i64 %28, 0
   br i1 %30, label %._crit_edge.i, label %.lr.ph.i
 

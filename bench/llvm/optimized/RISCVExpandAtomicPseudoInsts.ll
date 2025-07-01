@@ -3354,7 +3354,8 @@ _ZN4llvm28skipDebugInstructionsForwardINS_26MachineInstrBundleIteratorINS_12Mach
   %214 = load ptr, ptr %27, align 8, !tbaa !516
   %215 = load i32, ptr %90, align 8, !tbaa !517
   %216 = zext i32 %215 to i64
-  %217 = getelementptr inbounds nuw ptr, ptr %214, i64 %216
+  %.idx.i = shl nuw nsw i64 %216, 3
+  %217 = getelementptr inbounds nuw i8, ptr %214, i64 %.idx.i
   %.not26137.i = icmp eq i32 %215, 0
   br i1 %.not26137.i, label %.loopexit.i, label %.lr.ph.i
 

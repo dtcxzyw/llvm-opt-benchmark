@@ -12307,7 +12307,8 @@ define noundef i32 @"_ZN85_$LT$raft_proto..protos..eraftpb..ConfState$u20$as$u20
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
-  %6 = getelementptr inbounds nuw i64, ptr %3, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %7 = icmp eq i64 %5, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -12327,7 +12328,8 @@ define noundef i32 @"_ZN85_$LT$raft_proto..protos..eraftpb..ConfState$u20$as$u20
   %13 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i64, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw i64, ptr %13, i64 %15
+  %.idx47 = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx47
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %._crit_edge33, label %.lr.ph32
 
@@ -12347,7 +12349,8 @@ define noundef i32 @"_ZN85_$LT$raft_proto..protos..eraftpb..ConfState$u20$as$u20
   %23 = load ptr, ptr %22, align 8, !nonnull !3, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load i64, ptr %24, align 8, !noundef !3
-  %26 = getelementptr inbounds nuw i64, ptr %23, i64 %25
+  %.idx48 = shl nuw nsw i64 %25, 3
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx48
   %27 = icmp eq i64 %25, 0
   br i1 %27, label %._crit_edge39, label %.lr.ph38
 
@@ -12367,7 +12370,8 @@ define noundef i32 @"_ZN85_$LT$raft_proto..protos..eraftpb..ConfState$u20$as$u20
   %33 = load ptr, ptr %32, align 8, !nonnull !3, !noundef !3
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %35 = load i64, ptr %34, align 8, !noundef !3
-  %36 = getelementptr inbounds nuw i64, ptr %33, i64 %35
+  %.idx49 = shl nuw nsw i64 %35, 3
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx49
   %37 = icmp eq i64 %35, 0
   br i1 %37, label %._crit_edge45, label %.lr.ph44
 
@@ -12408,7 +12412,8 @@ define void @"_ZN85_$LT$raft_proto..protos..eraftpb..ConfState$u20$as$u20$protob
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i64, ptr %11, i64 %13
+  %.idx = shl nuw nsw i64 %13, 3
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %15 = icmp eq i64 %13, 0
   br i1 %15, label %._crit_edge, label %.lr.ph.preheader
 
@@ -12431,7 +12436,8 @@ define void @"_ZN85_$LT$raft_proto..protos..eraftpb..ConfState$u20$as$u20$protob
   %19 = load ptr, ptr %18, align 8, !nonnull !3, !noundef !3
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load i64, ptr %20, align 8, !noundef !3
-  %22 = getelementptr inbounds nuw i64, ptr %19, i64 %21
+  %.idx145 = shl nuw nsw i64 %21, 3
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx145
   %23 = icmp eq i64 %21, 0
   br i1 %23, label %._crit_edge130, label %.lr.ph129.preheader
 
@@ -12454,7 +12460,8 @@ define void @"_ZN85_$LT$raft_proto..protos..eraftpb..ConfState$u20$as$u20$protob
   %27 = load ptr, ptr %26, align 8, !nonnull !3, !noundef !3
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %29 = load i64, ptr %28, align 8, !noundef !3
-  %30 = getelementptr inbounds nuw i64, ptr %27, i64 %29
+  %.idx146 = shl nuw nsw i64 %29, 3
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx146
   %31 = icmp eq i64 %29, 0
   br i1 %31, label %._crit_edge137, label %.lr.ph136.preheader
 
@@ -12477,7 +12484,8 @@ define void @"_ZN85_$LT$raft_proto..protos..eraftpb..ConfState$u20$as$u20$protob
   %35 = load ptr, ptr %34, align 8, !nonnull !3, !noundef !3
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %37 = load i64, ptr %36, align 8, !noundef !3
-  %38 = getelementptr inbounds nuw i64, ptr %35, i64 %37
+  %.idx147 = shl nuw nsw i64 %37, 3
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx147
   %39 = icmp eq i64 %37, 0
   br i1 %39, label %._crit_edge144, label %.lr.ph143.preheader
 

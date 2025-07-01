@@ -371,7 +371,8 @@ default.unreachable36:                            ; preds = %2
   %.val = load ptr, ptr %61, align 8, !nonnull !5, !noundef !5
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val32 = load i64, ptr %62, align 8, !noundef !5
-  %63 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.val32
+  %.idx = mul nsw i64 %.val32, 24
+  %63 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %64 = icmp eq i64 %.val32, 0
   br i1 %64, label %.loopexit, label %.lr.ph
 
@@ -652,7 +653,8 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hc027c5589cd82e3dE.exit: ; 
   store ptr inttoptr (i64 8 to ptr), ptr %83, align 8, !noalias !101
   %84 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %84, align 8, !noalias !101
-  %85 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %76, i64 %78
+  %.idx.i = mul nsw i64 %78, 24
+  %85 = getelementptr inbounds i8, ptr %76, i64 %.idx.i
   %86 = icmp eq i64 %78, 0
   br i1 %86, label %._crit_edge.thread.i, label %.lr.ph.i
 
@@ -1255,7 +1257,8 @@ define void @_ZN5uu_df17filter_mount_list17h16282f5412ac4a64E(ptr noalias nounde
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !202, !noalias !205, !nonnull !5, !noundef !5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !202, !noalias !205
-  %12 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i8, i8, [6 x i8] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nsw i64 %.sroa.5.0.copyload.i, 152
+  %12 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   store ptr %.sroa.4.0.copyload.i, ptr %8, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1433,7 +1436,8 @@ _ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread22: ; preds = %64, %_ZN5uu
   %71 = load i64, ptr %11, align 8, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !226)
   call void @llvm.experimental.noalias.scope.decl(metadata !229)
-  %72 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i8, i8, [6 x i8] }, ptr %70, i64 %71
+  %.idx.i = mul nsw i64 %71, 152
+  %72 = getelementptr inbounds i8, ptr %70, i64 %.idx.i
   %73 = icmp eq i64 %71, 0
   br i1 %73, label %_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit, label %.lr.ph.i
 

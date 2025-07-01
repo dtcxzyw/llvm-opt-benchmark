@@ -1633,7 +1633,8 @@ define void @_ZN6sparse5index14inverted_index18inverted_index_ram16InvertedIndex
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !12, !noundef !12
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %8 = getelementptr inbounds i32, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %.idx = shl nsw i64 %.sroa.5.0.copyload, 2
+  %8 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload, i64 %.idx
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.039.0.copyload = load i64, ptr %9, align 8
   %.sroa.440.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32

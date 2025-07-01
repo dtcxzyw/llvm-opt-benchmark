@@ -96,25 +96,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SmallVectorStorage.453" = type { [64 x i8] }
 %"class.llvm::MCFixup" = type { ptr, i32, i32, %"class.llvm::SMLoc" }
 %"class.llvm::SMLoc" = type { ptr }
-%"class.std::tuple.459" = type { %"struct.std::_Tuple_impl.460" }
-%"struct.std::_Tuple_impl.460" = type { %"struct.std::_Tuple_impl.461", %"struct.std::_Head_base.463" }
-%"struct.std::_Tuple_impl.461" = type { %"struct.std::_Head_base.462" }
-%"struct.std::_Head_base.462" = type { i32 }
-%"struct.std::_Head_base.463" = type { i64 }
 %"class.llvm::SmallString.376" = type { %"class.llvm::SmallVector.377" }
 %"class.llvm::SmallVector.377" = type { %"class.llvm::SmallVectorImpl.37", %"struct.llvm::SmallVectorStorage.378" }
 %"struct.llvm::SmallVectorStorage.378" = type { [32 x i8] }
 %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, llvm::MCDwarfLineTable>, std::_Select1st<std::pair<const unsigned int, llvm::MCDwarfLineTable>>, std::less<unsigned int>>::_Auto_node" = type { ptr, ptr }
-%"struct.std::pair.357" = type { ptr, %"class.std::vector.359" }
-%"class.std::vector.359" = type { %"struct.std::_Vector_base.360" }
-%"struct.std::_Vector_base.360" = type { %"struct.std::_Vector_base<llvm::MCDwarfLineEntry, std::allocator<llvm::MCDwarfLineEntry>>::_Vector_impl" }
-%"struct.std::_Vector_base<llvm::MCDwarfLineEntry, std::allocator<llvm::MCDwarfLineEntry>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::MCDwarfLineEntry, std::allocator<llvm::MCDwarfLineEntry>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<llvm::MCDwarfLineEntry, std::allocator<llvm::MCDwarfLineEntry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.llvm::MCDwarfFile" = type { %"class.std::__cxx11::basic_string", i32, %"class.std::optional.214", [3 x i8], %"class.std::optional.220" }
 %"class.llvm::SmallString.401" = type { %"class.llvm::SmallVector.402" }
 %"class.llvm::SmallVector.402" = type { %"class.llvm::SmallVectorImpl.37", %"struct.llvm::SmallVectorStorage.403" }
 %"struct.llvm::SmallVectorStorage.403" = type { [16 x i8] }
-%"struct.std::pair.404" = type { ptr, ptr }
 
 $_ZNK4llvm10MCStreamer29isIntegratedAssemblerRequiredEv = comdat any
 
@@ -5563,7 +5551,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit22:               ; preds = %65, %67
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !327
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %71, i64 %74
+  %.idx = shl nuw nsw i64 %74, 3
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx
   %.not26 = icmp eq i32 %73, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
@@ -13746,7 +13735,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29:               ; preds = %65, %67
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %74 = load i32, ptr %73, align 8, !tbaa !327
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %"class.std::tuple.459", ptr %72, i64 %75
+  %.idx = shl nuw nsw i64 %75, 4
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx
   %.not1749 = icmp eq i32 %74, 0
   br i1 %.not1749, label %._crit_edge, label %.lr.ph
 
@@ -16698,7 +16688,8 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTa
 
 .lr.ph.i.preheader.i.i.i.i.i.i.i.i.i:             ; preds = %4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.std::pair.357", ptr %6, i64 %9
+  %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %9, 5
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZNSt4pairIPN4llvm9MCSectionESt6vectorINS0_16MCDwarfLineEntryESaIS4_EEED2Ev.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i.i
@@ -16854,7 +16845,8 @@ _ZN4llvm9StringMapIjNS_15MallocAllocatorEED2Ev.exit: ; preds = %34, %_ZNSt7__cxx
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm9StringMapIjNS_15MallocAllocatorEED2Ev.exit
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::MCDwarfFile", ptr %37, i64 %40
+  %.idx.i = mul nuw nsw i64 %40, 80
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm11MCDwarfFileD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -16906,40 +16898,41 @@ _ZN4llvm11SmallVectorINS_11MCDwarfFileELj3EED2Ev.exit: ; preds = %_ZN4llvm23Smal
 
 .lr.ph.i.preheader.i2:                            ; preds = %_ZN4llvm11SmallVectorINS_11MCDwarfFileELj3EED2Ev.exit
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %56, i64 %59
-  br label %.lr.ph.i.i3
+  %.idx.i3 = shl nuw nsw i64 %59, 5
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx.i3
+  br label %.lr.ph.i.i4
 
-.lr.ph.i.i3:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %.lr.ph.i.preheader.i2
-  %.05.i.i4 = phi ptr [ %61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %60, %.lr.ph.i.preheader.i2 ]
-  %61 = getelementptr inbounds i8, ptr %.05.i.i4, i64 -32
+.lr.ph.i.i4:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %.lr.ph.i.preheader.i2
+  %.05.i.i5 = phi ptr [ %61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %60, %.lr.ph.i.preheader.i2 ]
+  %61 = getelementptr inbounds i8, ptr %.05.i.i5, i64 -32
   %62 = load ptr, ptr %61, align 8, !tbaa !307
-  %63 = getelementptr inbounds i8, ptr %.05.i.i4, i64 -16
+  %63 = getelementptr inbounds i8, ptr %.05.i.i5, i64 -16
   %64 = icmp eq ptr %62, %63
   br i1 %64, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %.lr.ph.i.i3
-  %65 = getelementptr inbounds i8, ptr %.05.i.i4, i64 -24
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %.lr.ph.i.i4
+  %65 = getelementptr inbounds i8, ptr %.05.i.i5, i64 -24
   %66 = load i64, ptr %65, align 8, !tbaa !308
   %67 = icmp ult i64 %66, 16
   tail call void @llvm.assume(i1 %67)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %.lr.ph.i.i3
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %.lr.ph.i.i4
   %68 = load i64, ptr %63, align 8, !tbaa !301
   %69 = add i64 %68, 1
   tail call void @_ZdlPvm(ptr noundef %62, i64 noundef %69) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  %.not.i.i5 = icmp eq ptr %56, %61
-  br i1 %.not.i.i5, label %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i, label %.lr.ph.i.i3, !llvm.loop !589
+  %.not.i.i6 = icmp eq ptr %56, %61
+  br i1 %.not.i.i6, label %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i, label %.lr.ph.i.i4, !llvm.loop !589
 
 _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-  %.pre.i6 = load ptr, ptr %55, align 8, !tbaa !328
+  %.pre.i7 = load ptr, ptr %55, align 8, !tbaa !328
   br label %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.i
 
 _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i, %_ZN4llvm11SmallVectorINS_11MCDwarfFileELj3EED2Ev.exit
-  %70 = phi ptr [ %.pre.i6, %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i ], [ %56, %_ZN4llvm11SmallVectorINS_11MCDwarfFileELj3EED2Ev.exit ]
+  %70 = phi ptr [ %.pre.i7, %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i ], [ %56, %_ZN4llvm11SmallVectorINS_11MCDwarfFileELj3EED2Ev.exit ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %72 = icmp eq ptr %70, %71
   br i1 %72, label %_ZN4llvm11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj3EED2Ev.exit, label %73
@@ -17477,7 +17470,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_113MCAsmStreamer21PrintCVDefRangePr
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
-  %19 = getelementptr inbounds nuw %"struct.std::pair.404", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not11 = icmp eq i64 %2, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 

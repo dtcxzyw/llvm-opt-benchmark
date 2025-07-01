@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_call_stack = type { ptr, i64 }
 %struct._zend_strtod_state = type { [8 x ptr], ptr, ptr }
 %struct._zend_utility_values = type { i8 }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.smart_str = type { ptr, i64 }
@@ -204,7 +203,8 @@ define dso_local void @zend_ini_deactivate() local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !51
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %struct._Bucket, ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 5
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !43
   %11 = and i32 %10, 4

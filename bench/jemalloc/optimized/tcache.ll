@@ -5144,63 +5144,65 @@ tcache_gc_small_heuristic_addr_get.exit.i:        ; preds = %93, %malloc_mutex_l
   %114 = ptrtoint ptr %.val61.i to i64
   %115 = trunc i64 %114 to i16
   %116 = sub i16 %.val62.i, %115
-  %117 = lshr i16 %116, 3
-  %118 = zext nneg i16 %117 to i64
-  %119 = getelementptr inbounds nuw ptr, ptr %.val61.i, i64 %118
-  %.not5.i.i = icmp ult i16 %116, 8
+  %117 = and i16 %116, -8
+  %.idx.i.i = zext i16 %117 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %.val61.i, i64 %.idx.i.i
+  %.not5.i.i = icmp eq i16 %117, 0
   br i1 %.not5.i.i, label %tcache_gc_small_nremote_get.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %103, %.lr.ph.i.i
-  %.03.i.i = phi ptr [ %132, %.lr.ph.i.i ], [ %.val61.i, %103 ]
-  %.0352.i.i = phi i16 [ %131, %.lr.ph.i.i ], [ 0, %103 ]
-  %.0361.i.i = phi i16 [ %126, %.lr.ph.i.i ], [ 0, %103 ]
-  %120 = load ptr, ptr %.03.i.i, align 8, !tbaa !37
-  %121 = ptrtoint ptr %120 to i64
-  %122 = icmp ugt ptr %.val.i68.i, %120
-  %123 = icmp ule i64 %107, %121
-  %124 = or i1 %122, %123
-  %125 = zext i1 %124 to i16
-  %126 = add i16 %.0361.i.i, %125
-  %127 = icmp ugt i64 %110, %121
-  %128 = icmp ule i64 %113, %121
-  %129 = or i1 %127, %128
-  %130 = zext i1 %129 to i16
-  %131 = add i16 %.0352.i.i, %130
-  %132 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 8
-  %133 = icmp ult ptr %132, %119
-  br i1 %133, label %.lr.ph.i.i, label %tcache_gc_small_nremote_get.exit.i, !llvm.loop !209
+  %.03.i.i = phi ptr [ %131, %.lr.ph.i.i ], [ %.val61.i, %103 ]
+  %.0352.i.i = phi i16 [ %130, %.lr.ph.i.i ], [ 0, %103 ]
+  %.0361.i.i = phi i16 [ %125, %.lr.ph.i.i ], [ 0, %103 ]
+  %119 = load ptr, ptr %.03.i.i, align 8, !tbaa !37
+  %120 = ptrtoint ptr %119 to i64
+  %121 = icmp ugt ptr %.val.i68.i, %119
+  %122 = icmp ule i64 %107, %120
+  %123 = or i1 %121, %122
+  %124 = zext i1 %123 to i16
+  %125 = add i16 %.0361.i.i, %124
+  %126 = icmp ugt i64 %110, %120
+  %127 = icmp ule i64 %113, %120
+  %128 = or i1 %126, %127
+  %129 = zext i1 %128 to i16
+  %130 = add i16 %.0352.i.i, %129
+  %131 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 8
+  %132 = icmp ult ptr %131, %118
+  br i1 %132, label %.lr.ph.i.i, label %tcache_gc_small_nremote_get.exit.i, !llvm.loop !209
 
 tcache_gc_small_nremote_get.exit.i:               ; preds = %.lr.ph.i.i, %103
-  %.036.lcssa.i.i = phi i16 [ 0, %103 ], [ %126, %.lr.ph.i.i ]
-  %.035.lcssa.i.i = phi i16 [ 0, %103 ], [ %131, %.lr.ph.i.i ]
+  %.036.lcssa.i.i = phi i16 [ 0, %103 ], [ %125, %.lr.ph.i.i ]
+  %.035.lcssa.i.i = phi i16 [ 0, %103 ], [ %130, %.lr.ph.i.i ]
   %.not.i69.i = icmp ugt i16 %53, %.035.lcssa.i.i
   %..i.i = select i1 %.not.i69.i, i64 %104, i64 %110
   %.38.i.i = select i1 %.not.i69.i, i64 %107, i64 %113
   %.036..035.i.i = select i1 %.not.i69.i, i16 %.036.lcssa.i.i, i16 %.035.lcssa.i.i
   %spec.select.i = tail call i16 @llvm.umax.i16(i16 %.036..035.i.i, i16 %53)
-  %134 = icmp eq i16 %.036..035.i.i, 0
-  %135 = icmp eq i16 %.036..035.i.i, %17
-  %or.cond.i = select i1 %134, i1 true, i1 %135
-  br i1 %or.cond.i, label %tcache_gc_small_bin_shuffle.exit.i, label %136
+  %133 = icmp eq i16 %.036..035.i.i, 0
+  %134 = icmp eq i16 %.036..035.i.i, %17
+  %or.cond.i = select i1 %133, i1 true, i1 %134
+  br i1 %or.cond.i, label %tcache_gc_small_bin_shuffle.exit.i, label %135
 
-136:                                              ; preds = %tcache_gc_small_nremote_get.exit.i
-  %137 = sub i16 %117, %.036..035.i.i
+135:                                              ; preds = %tcache_gc_small_nremote_get.exit.i
+  %136 = lshr i16 %116, 3
+  %137 = sub i16 %136, %.036..035.i.i
   %138 = zext i16 %137 to i64
-  %139 = getelementptr inbounds nuw ptr, ptr %.val61.i, i64 %138
-  %.not12.i.i = icmp eq i16 %117, %.036..035.i.i
-  br i1 %.not12.i.i, label %.preheader1.i.i, label %.lr.ph.i70.i
+  %.idx.i70.i = shl nuw nsw i64 %138, 3
+  %139 = getelementptr inbounds nuw i8, ptr %.val61.i, i64 %.idx.i70.i
+  %.not12.i.i = icmp eq i16 %136, %.036..035.i.i
+  br i1 %.not12.i.i, label %.preheader1.i.i, label %.lr.ph.i71.i
 
-.preheader1.i.i:                                  ; preds = %154, %136
-  %.047.lcssa.i.i = phi i16 [ 0, %136 ], [ %.148.i.i, %154 ]
-  %140 = icmp uge i16 %137, %117
+.preheader1.i.i:                                  ; preds = %154, %135
+  %.047.lcssa.i.i = phi i16 [ 0, %135 ], [ %.148.i.i, %154 ]
+  %140 = icmp samesign uge i64 %.idx.i70.i, %.idx.i.i
   %141 = icmp eq i16 %.047.lcssa.i.i, %137
   %or.cond7.i.i = select i1 %140, i1 true, i1 %141
   br i1 %or.cond7.i.i, label %tcache_gc_small_bin_shuffle.exit.i, label %.lr.ph10.i.i
 
-.lr.ph.i70.i:                                     ; preds = %136, %154
-  %.0455.i.i = phi ptr [ %.1.i.i, %154 ], [ null, %136 ]
-  %.0474.i.i = phi i16 [ %.148.i.i, %154 ], [ 0, %136 ]
-  %.0493.i.i = phi ptr [ %155, %154 ], [ %.val61.i, %136 ]
+.lr.ph.i71.i:                                     ; preds = %135, %154
+  %.0455.i.i = phi ptr [ %.1.i.i, %154 ], [ null, %135 ]
+  %.0474.i.i = phi i16 [ %.148.i.i, %154 ], [ 0, %135 ]
+  %.0493.i.i = phi ptr [ %155, %154 ], [ %.val61.i, %135 ]
   %142 = load ptr, ptr %.0493.i.i, align 8, !tbaa !37
   %143 = ptrtoint ptr %142 to i64
   %144 = icmp ugt i64 %..i.i, %143
@@ -5208,10 +5210,10 @@ tcache_gc_small_nremote_get.exit.i:               ; preds = %.lr.ph.i.i, %103
   %146 = or i1 %144, %145
   br i1 %146, label %152, label %147
 
-147:                                              ; preds = %.lr.ph.i70.i
+147:                                              ; preds = %.lr.ph.i71.i
   %148 = add i16 %.0474.i.i, 1
-  %.not.i71.i = icmp eq ptr %.0455.i.i, null
-  br i1 %.not.i71.i, label %154, label %149
+  %.not.i72.i = icmp eq ptr %.0455.i.i, null
+  br i1 %.not.i72.i, label %154, label %149
 
 149:                                              ; preds = %147
   %150 = load ptr, ptr %.0455.i.i, align 8, !tbaa !37
@@ -5220,17 +5222,17 @@ tcache_gc_small_nremote_get.exit.i:               ; preds = %.lr.ph.i.i, %103
   %151 = getelementptr inbounds nuw i8, ptr %.0455.i.i, i64 8
   br label %154
 
-152:                                              ; preds = %.lr.ph.i70.i
+152:                                              ; preds = %.lr.ph.i71.i
   %153 = icmp eq ptr %.0455.i.i, null
-  %spec.select.i72.i = select i1 %153, ptr %.0493.i.i, ptr %.0455.i.i
+  %spec.select.i73.i = select i1 %153, ptr %.0493.i.i, ptr %.0455.i.i
   br label %154
 
 154:                                              ; preds = %152, %149, %147
   %.148.i.i = phi i16 [ %148, %149 ], [ %148, %147 ], [ %.0474.i.i, %152 ]
-  %.1.i.i = phi ptr [ %151, %149 ], [ null, %147 ], [ %spec.select.i72.i, %152 ]
+  %.1.i.i = phi ptr [ %151, %149 ], [ null, %147 ], [ %spec.select.i73.i, %152 ]
   %155 = getelementptr inbounds nuw i8, ptr %.0493.i.i, i64 8
   %156 = icmp ult ptr %155, %139
-  br i1 %156, label %.lr.ph.i70.i, label %.preheader1.i.i, !llvm.loop !210
+  br i1 %156, label %.lr.ph.i71.i, label %.preheader1.i.i, !llvm.loop !210
 
 .lr.ph10.i.i:                                     ; preds = %.preheader1.i.i, %167
   %.0469.i.i = phi ptr [ %168, %167 ], [ %139, %.preheader1.i.i ]
@@ -5254,7 +5256,7 @@ tcache_gc_small_nremote_get.exit.i:               ; preds = %.lr.ph.i.i, %103
 167:                                              ; preds = %162, %.lr.ph10.i.i
   %.3.i.i = phi i16 [ %.28.i.i, %.lr.ph10.i.i ], [ %166, %162 ]
   %168 = getelementptr inbounds nuw i8, ptr %.0469.i.i, i64 8
-  %169 = icmp uge ptr %168, %119
+  %169 = icmp uge ptr %168, %118
   %170 = icmp eq i16 %.3.i.i, %137
   %or.cond.i.i = select i1 %169, i1 true, i1 %170
   br i1 %or.cond.i.i, label %tcache_gc_small_bin_shuffle.exit.i, label %.lr.ph10.i.i, !llvm.loop !211

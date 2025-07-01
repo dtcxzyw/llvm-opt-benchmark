@@ -101,8 +101,8 @@ define void @_ZN5Ipopt11TNLPReducerC2ERNS_4TNLPEiPKiiS4_iS4_iS4_(ptr noundef non
 
 39:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %40 = phi i64 [ %37, %._crit_edge.thread ], [ %38, %._crit_edge ]
-  %.idx198.pn = shl nsw i64 %40, 2
-  %41 = getelementptr inbounds i8, ptr %32, i64 %.idx198.pn
+  %.idx192.pn = shl nsw i64 %40, 2
+  %41 = getelementptr inbounds i8, ptr %32, i64 %.idx192.pn
   %42 = ptrtoint ptr %32 to i64
   %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %40, i1 true)
   %44 = shl nuw nsw i64 %43, 1
@@ -264,24 +264,24 @@ _ZSt4sortIPiEvT_S1_.exit:                         ; preds = %_ZSt25__unguarded_l
 105:                                              ; preds = %_ZSt4sortIPiEvT_S1_.exit
   store ptr %104, ptr %22, align 8, !tbaa !24
   %106 = icmp sgt i32 %98, 0
-  br i1 %106, label %._crit_edge178.thread, label %._crit_edge178
+  br i1 %106, label %._crit_edge172.thread, label %._crit_edge172
 
-._crit_edge178.thread:                            ; preds = %105
+._crit_edge172.thread:                            ; preds = %105
   %107 = zext nneg i32 %98 to i64
   %108 = shl nuw nsw i64 %107, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %104, ptr align 4 %5, i64 %108, i1 false), !tbaa !29
   %109 = zext nneg i32 %98 to i64
   br label %111
 
-._crit_edge178:                                   ; preds = %105
+._crit_edge172:                                   ; preds = %105
   %110 = sext i32 %98 to i64
   %.not.i.i38 = icmp eq i32 %98, 0
   br i1 %.not.i.i38, label %_ZSt4sortIPiEvT_S1_.exit77, label %111
 
-111:                                              ; preds = %._crit_edge178.thread, %._crit_edge178
-  %112 = phi i64 [ %109, %._crit_edge178.thread ], [ %110, %._crit_edge178 ]
-  %.idx160200.pn = shl nsw i64 %112, 2
-  %113 = getelementptr inbounds i8, ptr %104, i64 %.idx160200.pn
+111:                                              ; preds = %._crit_edge172.thread, %._crit_edge172
+  %112 = phi i64 [ %109, %._crit_edge172.thread ], [ %110, %._crit_edge172 ]
+  %.idx158194.pn = shl nsw i64 %112, 2
+  %113 = getelementptr inbounds i8, ptr %104, i64 %.idx158194.pn
   %114 = ptrtoint ptr %104 to i64
   %115 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %112, i1 true)
   %116 = shl nuw nsw i64 %115, 1
@@ -402,7 +402,7 @@ _ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %.not.i21.i.i.i47 = icmp eq ptr %.0.i20.i.i.i46, %113
   br i1 %.not.i21.i.i.i47, label %_ZSt4sortIPiEvT_S1_.exit77, label %.lr.ph.i15.i.i.i41, !llvm.loop !32
 
-_ZSt4sortIPiEvT_S1_.exit77:                       ; preds = %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i44, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i65, %137, %._crit_edge178
+_ZSt4sortIPiEvT_S1_.exit77:                       ; preds = %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i44, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i65, %137, %._crit_edge172
   %154 = load ptr, ptr %22, align 8, !tbaa !24
   %155 = load i32, ptr %21, align 8, !tbaa !23
   %156 = sext i32 %155 to i64
@@ -420,24 +420,24 @@ _ZSt4sortIPiEvT_S1_.exit77:                       ; preds = %_ZSt25__unguarded_l
 165:                                              ; preds = %_ZSt4sortIPiEvT_S1_.exit77
   store ptr %164, ptr %24, align 8, !tbaa !26
   %166 = icmp sgt i32 %158, 0
-  br i1 %166, label %._crit_edge183.thread, label %._crit_edge183
+  br i1 %166, label %._crit_edge177.thread, label %._crit_edge177
 
-._crit_edge183.thread:                            ; preds = %165
+._crit_edge177.thread:                            ; preds = %165
   %167 = zext nneg i32 %158 to i64
   %168 = shl nuw nsw i64 %167, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %164, ptr align 4 %7, i64 %168, i1 false), !tbaa !29
   %169 = zext nneg i32 %158 to i64
   br label %171
 
-._crit_edge183:                                   ; preds = %165
+._crit_edge177:                                   ; preds = %165
   %170 = sext i32 %158 to i64
   %.not.i.i78 = icmp eq i32 %158, 0
   br i1 %.not.i.i78, label %_ZSt4sortIPiEvT_S1_.exit117, label %171
 
-171:                                              ; preds = %._crit_edge183.thread, %._crit_edge183
-  %172 = phi i64 [ %169, %._crit_edge183.thread ], [ %170, %._crit_edge183 ]
-  %.idx163202.pn = shl nsw i64 %172, 2
-  %173 = getelementptr inbounds i8, ptr %164, i64 %.idx163202.pn
+171:                                              ; preds = %._crit_edge177.thread, %._crit_edge177
+  %172 = phi i64 [ %169, %._crit_edge177.thread ], [ %170, %._crit_edge177 ]
+  %.idx159196.pn = shl nsw i64 %172, 2
+  %173 = getelementptr inbounds i8, ptr %164, i64 %.idx159196.pn
   %174 = ptrtoint ptr %164 to i64
   %175 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %172, i1 true)
   %176 = shl nuw nsw i64 %175, 1
@@ -558,7 +558,7 @@ _ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %.not.i21.i.i.i87 = icmp eq ptr %.0.i20.i.i.i86, %173
   br i1 %.not.i21.i.i.i87, label %_ZSt4sortIPiEvT_S1_.exit117, label %.lr.ph.i15.i.i.i81, !llvm.loop !32
 
-_ZSt4sortIPiEvT_S1_.exit117:                      ; preds = %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i84, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i105, %197, %._crit_edge183
+_ZSt4sortIPiEvT_S1_.exit117:                      ; preds = %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i84, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i105, %197, %._crit_edge177
   %214 = load ptr, ptr %24, align 8, !tbaa !26
   %215 = load i32, ptr %23, align 8, !tbaa !25
   %216 = sext i32 %215 to i64
@@ -576,24 +576,24 @@ _ZSt4sortIPiEvT_S1_.exit117:                      ; preds = %_ZSt25__unguarded_l
 225:                                              ; preds = %_ZSt4sortIPiEvT_S1_.exit117
   store ptr %224, ptr %26, align 8, !tbaa !28
   %226 = icmp sgt i32 %218, 0
-  br i1 %226, label %._crit_edge188.thread, label %._crit_edge188
+  br i1 %226, label %._crit_edge182.thread, label %._crit_edge182
 
-._crit_edge188.thread:                            ; preds = %225
+._crit_edge182.thread:                            ; preds = %225
   %227 = zext nneg i32 %218 to i64
   %228 = shl nuw nsw i64 %227, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %224, ptr align 4 %9, i64 %228, i1 false), !tbaa !29
   %229 = zext nneg i32 %218 to i64
   br label %231
 
-._crit_edge188:                                   ; preds = %225
+._crit_edge182:                                   ; preds = %225
   %230 = sext i32 %218 to i64
   %.not.i.i118 = icmp eq i32 %218, 0
   br i1 %.not.i.i118, label %_ZSt4sortIPiEvT_S1_.exit157, label %231
 
-231:                                              ; preds = %._crit_edge188.thread, %._crit_edge188
-  %232 = phi i64 [ %229, %._crit_edge188.thread ], [ %230, %._crit_edge188 ]
-  %.idx166204.pn = shl nsw i64 %232, 2
-  %233 = getelementptr inbounds i8, ptr %224, i64 %.idx166204.pn
+231:                                              ; preds = %._crit_edge182.thread, %._crit_edge182
+  %232 = phi i64 [ %229, %._crit_edge182.thread ], [ %230, %._crit_edge182 ]
+  %.idx160198.pn = shl nsw i64 %232, 2
+  %233 = getelementptr inbounds i8, ptr %224, i64 %.idx160198.pn
   %234 = ptrtoint ptr %224 to i64
   %235 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %232, i1 true)
   %236 = shl nuw nsw i64 %235, 1
@@ -714,7 +714,7 @@ _ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %.not.i21.i.i.i127 = icmp eq ptr %.0.i20.i.i.i126, %233
   br i1 %.not.i21.i.i.i127, label %_ZSt4sortIPiEvT_S1_.exit157, label %.lr.ph.i15.i.i.i121, !llvm.loop !32
 
-_ZSt4sortIPiEvT_S1_.exit157:                      ; preds = %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i124, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i145, %257, %._crit_edge188
+_ZSt4sortIPiEvT_S1_.exit157:                      ; preds = %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i18.i.i.i124, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i145, %257, %._crit_edge182
   %274 = load ptr, ptr %26, align 8, !tbaa !28
   %275 = load i32, ptr %25, align 8, !tbaa !27
   %276 = sext i32 %275 to i64

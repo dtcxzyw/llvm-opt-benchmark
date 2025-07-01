@@ -106,9 +106,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.clang::comments::Comment::Argument" = type { %"class.clang::SourceRange", %"class.llvm::StringRef" }
 %"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
 %"class.clang::comments::HTMLStartTagComment::Attribute" = type { %"class.clang::SourceLocation", %"class.llvm::StringRef", %"class.clang::SourceLocation", %"class.clang::SourceRange", %"class.llvm::StringRef" }
+%"struct.std::pair.940" = type { ptr, i64 }
 %"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.926" }
 %"struct.std::pair.926" = type { %"class.llvm::json::ObjectKey", %"class.llvm::json::Value" }
-%"struct.std::pair.940" = type { ptr, i64 }
 %"class.clang::CXXBaseSpecifier" = type { %"class.clang::SourceRange", %"class.clang::SourceLocation", i8, ptr }
 
 $_ZN5clang14JSONNodeDumper21writePreviousDeclImplINS_19TranslationUnitDeclEEEvPKNS_12RedeclarableIT_EE = comdat any
@@ -19479,7 +19479,8 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit28: ; pred
   %91 = load ptr, ptr %90, align 8, !tbaa !672
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %93 = load i64, ptr %92, align 8, !tbaa !673
-  %94 = getelementptr inbounds nuw %"class.clang::QualType", ptr %91, i64 %93
+  %.idx = shl nuw nsw i64 %93, 3
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx
   %.not66 = icmp eq i64 %93, 0
   br i1 %.not66, label %._crit_edge, label %.lr.ph
 
@@ -24772,7 +24773,8 @@ define dso_local void @_ZN5clang14JSONNodeDumper21VisitObjCCategoryDeclEPKNS_16O
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %48 = load i32, ptr %47, align 8, !tbaa !782
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %49
+  %.idx = shl nuw nsw i64 %49, 3
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   %.not17 = icmp eq i32 %48, 0
   br i1 %.not17, label %_ZN4llvm4json5ArrayD2Ev.exit, label %.lr.ph
 
@@ -29094,7 +29096,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !17
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %.1.i.i.i.i.i.i, i64 %57
+  %.idx.i.i = shl nuw nsw i64 %57, 3
+  %58 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 %.idx.i.i
   %.not5.i.i = icmp eq i32 %56, 0
   br i1 %.not5.i.i, label %"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper25VisitUnresolvedLookupExprEPKNS4_20UnresolvedLookupExprEE3$_0EEvl.exit", label %.lr.ph.i.i
 
@@ -30670,18 +30673,19 @@ _ZNK5clang27CXXDependentScopeMemberExpr18template_argumentsEv.exit.i.i: ; preds 
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %69 = load i32, ptr %62, align 4, !tbaa !860
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %68, i64 %70
+  %71 = shl nuw nsw i64 %70, 5
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 %71
   %.not3.i.i = icmp eq i32 %69, 0
   br i1 %.not3.i.i, label %"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper32VisitCXXDependentScopeMemberExprEPKNS4_27CXXDependentScopeMemberExprEE3$_0EEvl.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK5clang27CXXDependentScopeMemberExpr18template_argumentsEv.exit.i.i, %.lr.ph.i.i
-  %.04.i.i = phi ptr [ %73, %.lr.ph.i.i ], [ %68, %_ZNK5clang27CXXDependentScopeMemberExpr18template_argumentsEv.exit.i.i ]
+  %.04.i.i = phi ptr [ %74, %.lr.ph.i.i ], [ %68, %_ZNK5clang27CXXDependentScopeMemberExpr18template_argumentsEv.exit.i.i ]
   call void @_ZN4llvm4json7OStream11objectBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %10) #23
-  %72 = call i64 @_ZNK5clang19TemplateArgumentLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(32) %.04.i.i) #25
-  call void @_ZN5clang14JSONNodeDumper5VisitERKNS_16TemplateArgumentENS_11SourceRangeEPKNS_4DeclEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull align 8 dereferenceable(24) %.04.i.i, i64 %72, ptr noundef null, ptr null, i64 0)
+  %73 = call i64 @_ZNK5clang19TemplateArgumentLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(32) %.04.i.i) #25
+  call void @_ZN5clang14JSONNodeDumper5VisitERKNS_16TemplateArgumentENS_11SourceRangeEPKNS_4DeclEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull align 8 dereferenceable(24) %.04.i.i, i64 %73, ptr noundef null, ptr null, i64 0)
   call void @_ZN4llvm4json7OStream9objectEndEv(ptr noundef nonnull align 8 dereferenceable(176) %10) #23
-  %73 = getelementptr inbounds nuw i8, ptr %.04.i.i, i64 32
-  %.not.i.i37 = icmp eq ptr %73, %71
+  %74 = getelementptr inbounds nuw i8, ptr %.04.i.i, i64 32
+  %.not.i.i37 = icmp eq ptr %74, %72
   br i1 %.not.i.i37, label %"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper32VisitCXXDependentScopeMemberExprEPKNS4_27CXXDependentScopeMemberExprEE3$_0EEvl.exit", label %.lr.ph.i.i
 
 "_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper32VisitCXXDependentScopeMemberExprEPKNS4_27CXXDependentScopeMemberExprEE3$_0EEvl.exit": ; preds = %.lr.ph.i.i, %64, %_ZNK5clang27CXXDependentScopeMemberExpr23hasExplicitTemplateArgsEv.exit.i2.i.i.i, %_ZNK5clang27CXXDependentScopeMemberExpr18template_argumentsEv.exit.i.i
@@ -35083,7 +35087,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9Ob
   %8 = load ptr, ptr %0, align 8, !tbaa !34
   %9 = load i32, ptr %4, align 8, !tbaa !36
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %10
+  %.idx = shl nuw nsw i64 %10, 6
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %.not51 = icmp eq i32 %9, 0
   br i1 %.not51, label %._crit_edge, label %.lr.ph
 
@@ -35961,7 +35966,8 @@ _ZN4llvm8DenseMapINS_4json9ObjectKeyENS1_5ValueENS_12DenseMapInfoINS_9StringRefE
   %26 = load ptr, ptr %0, align 8, !tbaa !34
   %27 = load i32, ptr %3, align 8, !tbaa !36
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %26, i64 %28
+  %.idx.i = shl nuw nsw i64 %28, 6
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i
   %.not5.i = icmp eq i32 %27, 0
   br i1 %.not5.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -36033,7 +36039,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9Ob
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !36
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %13
+  %.idx.i = shl nuw nsw i64 %13, 6
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
   %.not5.i = icmp eq i32 %12, 0
   br i1 %.not5.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -37529,11 +37536,12 @@ define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 -8
   %6 = load i64, ptr %5, align 8
+  %.idx.i = mul i64 %6, 24
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %8 = getelementptr inbounds %"class.llvm::APFloat", ptr %3, i64 %6
+  %8 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %9 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #28
   br label %10
 
@@ -37557,9 +37565,8 @@ _ZN4llvm7APFloatD2Ev.exit.i:                      ; preds = %15, %14
   br i1 %16, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %10
 
 _ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit: ; preds = %_ZN4llvm7APFloatD2Ev.exit.i, %4
-  %17 = mul i64 %6, 24
-  %18 = add i64 %17, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %18) #24
+  %17 = add i64 %.idx.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %17) #24
   br label %_ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit

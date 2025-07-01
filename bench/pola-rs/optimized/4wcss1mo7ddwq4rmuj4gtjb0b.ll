@@ -5205,7 +5205,8 @@ define hidden void @_ZN21polars_parquet_format14parquet_format11ColumnIndex21wri
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %131 = load ptr, ptr %130, align 8, !nonnull !3, !noundef !3
-  %132 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %131, i64 %116
+  %.idx = mul nuw nsw i64 %116, 24
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 %.idx
   %133 = icmp eq i64 %116, 0
   br i1 %133, label %._crit_edge1066, label %.lr.ph1065
 
@@ -5338,7 +5339,8 @@ define hidden void @_ZN21polars_parquet_format14parquet_format11ColumnIndex21wri
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %174 = load ptr, ptr %173, align 8, !nonnull !3, !noundef !3
-  %175 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %174, i64 %159
+  %.idx1105 = mul nuw nsw i64 %159, 24
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 %.idx1105
   %176 = icmp eq i64 %159, 0
   br i1 %176, label %._crit_edge1075, label %.lr.ph1074
 
@@ -5575,7 +5577,8 @@ define hidden void @_ZN21polars_parquet_format14parquet_format11ColumnIndex21wri
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %250 = load ptr, ptr %249, align 8, !nonnull !3, !noundef !3
-  %251 = getelementptr inbounds nuw i64, ptr %250, i64 %235
+  %.idx1106 = shl nuw nsw i64 %235, 3
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 %.idx1106
   %252 = icmp eq i64 %235, 0
   br i1 %252, label %._crit_edge1084, label %.lr.ph1083
 
@@ -5759,7 +5762,8 @@ define hidden void @_ZN21polars_parquet_format14parquet_format11ColumnIndex21wri
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   %305 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %306 = load ptr, ptr %305, align 8, !nonnull !3, !noundef !3
-  %307 = getelementptr inbounds nuw i64, ptr %306, i64 %291
+  %.idx1107 = shl nuw nsw i64 %291, 3
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 %.idx1107
   %308 = icmp eq i64 %291, 0
   br i1 %308, label %._crit_edge1093, label %.lr.ph1092
 
@@ -5936,7 +5940,8 @@ define hidden void @_ZN21polars_parquet_format14parquet_format11ColumnIndex21wri
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   %357 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %358 = load ptr, ptr %357, align 8, !nonnull !3, !noundef !3
-  %359 = getelementptr inbounds nuw i64, ptr %358, i64 %343
+  %.idx1108 = shl nuw nsw i64 %343, 3
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 %.idx1108
   %360 = icmp eq i64 %343, 0
   br i1 %360, label %._crit_edge1102, label %.lr.ph1101
 
@@ -8688,7 +8693,8 @@ define hidden void @_ZN21polars_parquet_format14parquet_format11OffsetIndex21wri
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %74 = load ptr, ptr %73, align 8, !nonnull !3, !noundef !3
-  %75 = getelementptr inbounds nuw { i64, i64, i32, [1 x i32] }, ptr %74, i64 %59
+  %.idx = mul nuw nsw i64 %59, 24
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx
   %76 = icmp eq i64 %59, 0
   br i1 %76, label %._crit_edge, label %.lr.ph
 
@@ -9177,7 +9183,8 @@ define hidden void @_ZN21polars_parquet_format14parquet_format11OffsetIndex21wri
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
   %228 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %229 = load ptr, ptr %228, align 8, !nonnull !3, !noundef !3
-  %230 = getelementptr inbounds nuw i64, ptr %229, i64 %214
+  %.idx395 = shl nuw nsw i64 %214, 3
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 %.idx395
   %231 = icmp eq i64 %214, 0
   br i1 %231, label %._crit_edge393, label %.lr.ph392
 
@@ -9706,7 +9713,8 @@ define hidden void @_ZN21polars_parquet_format14parquet_format12FileMetaData21wr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %89)
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %163 = load ptr, ptr %162, align 8, !nonnull !3, !noundef !3
-  %164 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i8, [11 x i8] }, [1 x i32] }, ptr %163, i64 %148
+  %.idx = mul nuw nsw i64 %148, 104
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 %.idx
   %165 = icmp eq i64 %148, 0
   br i1 %165, label %._crit_edge, label %.lr.ph
 
@@ -10946,7 +10954,8 @@ define hidden void @_ZN21polars_parquet_format14parquet_format12FileMetaData21wr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80)
   %581 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %582 = load ptr, ptr %581, align 8, !nonnull !3, !noundef !3
-  %583 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, i64, i64, { i16, [1 x i16] }, [2 x i16] }, ptr %582, i64 %567
+  %.idx1126 = mul nuw nsw i64 %567, 104
+  %583 = getelementptr inbounds nuw i8, ptr %582, i64 %.idx1126
   %584 = icmp eq i64 %567, 0
   br i1 %584, label %._crit_edge1108, label %.lr.ph1107
 
@@ -11088,7 +11097,8 @@ define hidden void @_ZN21polars_parquet_format14parquet_format12FileMetaData21wr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74)
   %626 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %627 = load ptr, ptr %626, align 8, !nonnull !3, !noundef !3
-  %628 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %627, i64 %612
+  %.idx1127 = mul nuw nsw i64 %612, 48
+  %628 = getelementptr inbounds nuw i8, ptr %627, i64 %.idx1127
   %629 = icmp eq i64 %612, 0
   br i1 %629, label %._crit_edge1117, label %.lr.ph1116
 
@@ -11381,9 +11391,9 @@ define hidden void @_ZN21polars_parquet_format14parquet_format12FileMetaData21wr
   br label %715
 
 715:                                              ; preds = %.lr.ph1123, %727
-  %.pn1126 = phi i64 [ %700, %.lr.ph1123 ], [ %730, %727 ]
+  %.pn1128 = phi i64 [ %700, %.lr.ph1123 ], [ %730, %727 ]
   %.sroa.0398.71120 = phi i64 [ %712, %.lr.ph1123 ], [ %728, %727 ]
-  %gep1121 = getelementptr i8, ptr inttoptr (i64 -1 to ptr), i64 %.pn1126
+  %gep1121 = getelementptr i8, ptr inttoptr (i64 -1 to ptr), i64 %.pn1128
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %63)
   invoke fastcc void @_ZN21polars_parquet_format14parquet_format11ColumnOrder21write_to_out_protocol17h3a21720b0aee1f4aE(ptr noalias noundef align 8 captures(none) dereferenceable(40) %63, ptr noalias noundef align 8 dereferenceable(72) %2)
           to label %723 unwind label %.loopexit
@@ -12896,7 +12906,8 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format14ColumnM
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74)
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %148 = load ptr, ptr %147, align 8, !nonnull !3, !noundef !3
-  %149 = getelementptr inbounds nuw i32, ptr %148, i64 %133
+  %.idx = shl nuw nsw i64 %133, 2
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 %.idx
   %150 = icmp eq i64 %133, 0
   br i1 %150, label %._crit_edge, label %.lr.ph
 
@@ -13026,7 +13037,8 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format14ColumnM
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68)
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %188 = load ptr, ptr %187, align 8, !nonnull !3, !noundef !3
-  %189 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %188, i64 %173
+  %.idx1679 = mul nuw nsw i64 %173, 24
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 %.idx1679
   %190 = icmp eq i64 %173, 0
   br i1 %190, label %._crit_edge1659, label %.lr.ph1658
 
@@ -13536,7 +13548,8 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format14ColumnM
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
   %342 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %343 = load ptr, ptr %342, align 8, !nonnull !3, !noundef !3
-  %344 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %343, i64 %328
+  %.idx1680 = mul nuw nsw i64 %328, 48
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 %.idx1680
   %345 = icmp eq i64 %328, 0
   br i1 %345, label %._crit_edge1668, label %.lr.ph1667
 
@@ -14122,7 +14135,8 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format14ColumnM
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   %522 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %523 = load ptr, ptr %522, align 8, !nonnull !3, !noundef !3
-  %524 = getelementptr inbounds nuw { i32, i32, i32 }, ptr %523, i64 %508
+  %.idx1681 = mul nuw nsw i64 %508, 12
+  %524 = getelementptr inbounds nuw i8, ptr %523, i64 %.idx1681
   %525 = icmp eq i64 %508, 0
   br i1 %525, label %._crit_edge1677, label %.lr.ph1676
 
@@ -15004,7 +15018,8 @@ define hidden void @_ZN21polars_parquet_format14parquet_format14ColumnMetaData21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74)
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %148 = load ptr, ptr %147, align 8, !nonnull !3, !noundef !3
-  %149 = getelementptr inbounds nuw i32, ptr %148, i64 %133
+  %.idx = shl nuw nsw i64 %133, 2
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 %.idx
   %150 = icmp eq i64 %133, 0
   br i1 %150, label %._crit_edge, label %.lr.ph
 
@@ -15134,7 +15149,8 @@ define hidden void @_ZN21polars_parquet_format14parquet_format14ColumnMetaData21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68)
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %188 = load ptr, ptr %187, align 8, !nonnull !3, !noundef !3
-  %189 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %188, i64 %173
+  %.idx1679 = mul nuw nsw i64 %173, 24
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 %.idx1679
   %190 = icmp eq i64 %173, 0
   br i1 %190, label %._crit_edge1659, label %.lr.ph1658
 
@@ -15644,7 +15660,8 @@ define hidden void @_ZN21polars_parquet_format14parquet_format14ColumnMetaData21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
   %342 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %343 = load ptr, ptr %342, align 8, !nonnull !3, !noundef !3
-  %344 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %343, i64 %328
+  %.idx1680 = mul nuw nsw i64 %328, 48
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 %.idx1680
   %345 = icmp eq i64 %328, 0
   br i1 %345, label %._crit_edge1668, label %.lr.ph1667
 
@@ -16230,7 +16247,8 @@ define hidden void @_ZN21polars_parquet_format14parquet_format14ColumnMetaData21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   %522 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %523 = load ptr, ptr %522, align 8, !nonnull !3, !noundef !3
-  %524 = getelementptr inbounds nuw { i32, i32, i32 }, ptr %523, i64 %508
+  %.idx1681 = mul nuw nsw i64 %508, 12
+  %524 = getelementptr inbounds nuw i8, ptr %523, i64 %.idx1681
   %525 = icmp eq i64 %508, 0
   br i1 %525, label %._crit_edge1677, label %.lr.ph1676
 
@@ -17702,7 +17720,8 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format14SizeSta
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %103 = load ptr, ptr %102, align 8, !nonnull !3, !noundef !3
-  %104 = getelementptr inbounds nuw i64, ptr %103, i64 %88
+  %.idx = shl nuw nsw i64 %88, 3
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx
   %105 = icmp eq i64 %88, 0
   br i1 %105, label %._crit_edge, label %.lr.ph
 
@@ -17879,7 +17898,8 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format14SizeSta
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %155 = load ptr, ptr %154, align 8, !nonnull !3, !noundef !3
-  %156 = getelementptr inbounds nuw i64, ptr %155, i64 %140
+  %.idx469 = shl nuw nsw i64 %140, 3
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 %.idx469
   %157 = icmp eq i64 %140, 0
   br i1 %157, label %._crit_edge467, label %.lr.ph466
 
@@ -18314,7 +18334,8 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format14SizeSta
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %103 = load ptr, ptr %102, align 8, !nonnull !3, !noundef !3
-  %104 = getelementptr inbounds nuw i64, ptr %103, i64 %88
+  %.idx = shl nuw nsw i64 %88, 3
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx
   %105 = icmp eq i64 %88, 0
   br i1 %105, label %._crit_edge, label %.lr.ph
 
@@ -18491,7 +18512,8 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format14SizeSta
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %155 = load ptr, ptr %154, align 8, !nonnull !3, !noundef !3
-  %156 = getelementptr inbounds nuw i64, ptr %155, i64 %140
+  %.idx469 = shl nuw nsw i64 %140, 3
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 %.idx469
   %157 = icmp eq i64 %140, 0
   br i1 %157, label %._crit_edge467, label %.lr.ph466
 
@@ -22096,7 +22118,8 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format20ColumnC
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13), !noalias !501
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %150 = load ptr, ptr %149, align 8, !alias.scope !498, !noalias !515, !nonnull !3, !noundef !3
-  %151 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %150, i64 %135
+  %.idx.i = mul nuw nsw i64 %135, 24
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 %.idx.i
   %152 = icmp eq i64 %135, 0
   br i1 %152, label %._crit_edge.i, label %.lr.ph.i
 
@@ -24922,7 +24945,8 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format8RowGroup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75)
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %118 = load ptr, ptr %117, align 8, !nonnull !3, !noundef !3
-  %119 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [48 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [5 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, i64 }, ptr %118, i64 %103
+  %.idx = mul nuw nsw i64 %103, 544
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 %.idx
   %120 = icmp eq i64 %103, 0
   br i1 %120, label %._crit_edge, label %.lr.ph
 
@@ -26171,7 +26195,8 @@ define internal fastcc void @_ZN21polars_parquet_format14parquet_format8RowGroup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62)
   %532 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %533 = load ptr, ptr %532, align 8, !nonnull !3, !noundef !3
-  %534 = getelementptr inbounds nuw { i32, i8, i8, [2 x i8] }, ptr %533, i64 %518
+  %.idx806 = shl nuw nsw i64 %518, 3
+  %534 = getelementptr inbounds nuw i8, ptr %533, i64 %.idx806
   %535 = icmp eq i64 %518, 0
   br i1 %535, label %._crit_edge804, label %.lr.ph803
 

@@ -119,19 +119,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::AlignedCharArrayUnion.195" = type { [8 x i8] }
 %"struct.std::__cow_string" = type { %union.anon.205 }
 %union.anon.205 = type { ptr }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.245" }
-%"struct.std::pair.245" = type { i64, %"class.llvm::SmallVector.247" }
-%"class.llvm::SmallVector.247" = type { %"class.llvm::SmallVectorImpl.248", %"struct.llvm::SmallVectorStorage.251" }
-%"class.llvm::SmallVectorImpl.248" = type { %"class.llvm::SmallVectorTemplateBase.249" }
-%"class.llvm::SmallVectorTemplateBase.249" = type { %"class.llvm::SmallVectorTemplateCommon.250" }
-%"class.llvm::SmallVectorTemplateCommon.250" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.251" = type { [48 x i8] }
-%"class.std::unique_ptr.252" = type { %"struct.std::__uniq_ptr_data.253" }
-%"struct.std::__uniq_ptr_data.253" = type { %"class.std::__uniq_ptr_impl.254" }
-%"class.std::__uniq_ptr_impl.254" = type { %"class.std::tuple.255" }
-%"class.std::tuple.255" = type { %"struct.std::_Tuple_impl.256" }
-%"struct.std::_Tuple_impl.256" = type { %"struct.std::_Head_base.259" }
-%"struct.std::_Head_base.259" = type { ptr }
 %"class.llvm::IntrusiveRefCntPtr" = type { ptr }
 %"class.llvm::Expected.303" = type { %union.anon.304, i8, [7 x i8] }
 %union.anon.304 = type { %"struct.llvm::AlignedCharArrayUnion.305" }
@@ -1945,7 +1932,8 @@ define dso_local void @_ZN4llvm6cgdata16mergeCodeGenDataENS_8ArrayRefINS_9String
   store ptr %21, ptr %7, align 8, !tbaa !167
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #21
   store i64 0, ptr %8, align 8, !tbaa !55
-  %27 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.promoted = load ptr, ptr %0, align 8
   %.not29 = icmp eq i64 %2, 0
   br i1 %.not29, label %.critedge, label %.lr.ph
@@ -2680,7 +2668,8 @@ _ZN4llvm9StringMapIjNS_15MallocAllocatorEED2Ev.exit: ; preds = %16, %1, %6
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm9StringMapIjNS_15MallocAllocatorEED2Ev.exit
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %22
+  %.idx.i = shl nuw nsw i64 %22, 5
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -2745,7 +2734,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11Small
 .lr.ph.preheader:                                 ; preds = %1
   %5 = load ptr, ptr %0, align 8, !tbaa !203
   %6 = zext i32 %3 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %6
+  %.idx = mul nuw nsw i64 %6, 72
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm11SmallVectorISt10unique_ptrINS_17StableFunctionMap19StableFunctionEntryESt14default_deleteIS3_EELj6EED2Ev.exit
@@ -2764,7 +2754,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11Small
 
 .lr.ph.i.preheader.i:                             ; preds = %9
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"class.std::unique_ptr.252", ptr %11, i64 %14
+  %.idx.i = shl nuw nsw i64 %14, 3
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt10unique_ptrIN4llvm17StableFunctionMap19StableFunctionEntryESt14default_deleteIS2_EED2Ev.exit.i.i, %.lr.ph.i.preheader.i

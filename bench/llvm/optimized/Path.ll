@@ -1683,7 +1683,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit84: ; pr
   %164 = phi i32 [ %162, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit84 ], [ %129, %128 ]
   %165 = load ptr, ptr %11, align 8, !tbaa !38
   %166 = zext i32 %164 to i64
-  %167 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %165, i64 %166
+  %.idx = shl nuw nsw i64 %166, 4
+  %167 = getelementptr inbounds nuw i8, ptr %165, i64 %.idx
   %.not111 = icmp eq i32 %164, 0
   br i1 %.not111, label %._crit_edge, label %.lr.ph
 

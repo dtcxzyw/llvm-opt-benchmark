@@ -5222,7 +5222,8 @@ if.end.i34:                                       ; preds = %_ZNK6hermes2vm10Str
   %bf.clear8.i17 = and i32 %bf.load.i, 1073741823
   %idx.ext9.i18 = zext nneg i32 %bf.clear8.i17 to i64
   %add.ptr10.i19 = getelementptr inbounds nuw i16, ptr %retval.0.i.sink.i16, i64 %idx.ext9.i18
-  %add.ptr.i.i35 = getelementptr inbounds nuw i16, ptr %add.ptr10.i19, i64 %conv.i30
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i30, 1
+  %add.ptr.i.i35 = getelementptr inbounds nuw i8, ptr %add.ptr10.i19, i64 %add.ptr.i.idx.i
   %cmp.not4.i.i.i.i.i36 = icmp eq i32 %12, 0
   br i1 %cmp.not4.i.i.i.i.i36, label %return, label %for.body.i.i.i.i.i37.preheader
 

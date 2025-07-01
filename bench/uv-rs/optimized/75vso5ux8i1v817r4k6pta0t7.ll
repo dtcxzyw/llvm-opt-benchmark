@@ -2501,7 +2501,8 @@ _ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186
   store i64 0, ptr %33, align 8
   %75 = load ptr, ptr %35, align 8, !nonnull !3, !noundef !3
   %76 = load i64, ptr %36, align 8, !noundef !3
-  %77 = getelementptr inbounds i32, ptr %75, i64 %76
+  %.idx = shl nsw i64 %76, 2
+  %77 = getelementptr inbounds i8, ptr %75, i64 %.idx
   %78 = icmp eq i64 %76, 0
   br i1 %78, label %._crit_edge104, label %.lr.ph103
 

@@ -590,7 +590,8 @@ _ZNSt16allocator_traitsISaI17BondedInteractionEE8allocateERS1_m.exit.i.i.i.i..no
 
 187:                                              ; preds = %202, %.lr.ph.i.i.i.i.i783
   %188 = phi i64 [ 0, %.lr.ph.i.i.i.i.i783 ], [ %207, %202 ]
-  %189 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.014.i.i.i.i.i, i64 %188
+  %.idx.i.i = shl nsw i64 %188, 5
+  %189 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i.i, i64 %.idx.i.i
   %190 = getelementptr inbounds nuw [6 x %"class.std::__cxx11::basic_string"], ptr %.sroa.08.013.i.i.i.i.i, i64 0, i64 %188
   %191 = getelementptr inbounds nuw i8, ptr %189, i64 16
   store ptr %191, ptr %189, align 8, !tbaa !17

@@ -398,10 +398,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %31 = load i64, ptr %27, align 8, !tbaa !67
   %.not.i = icmp eq i64 %31, %29
   %.pre.i = load ptr, ptr %30, align 8, !tbaa !49
-  br i1 %.not.i, label %._ZNSt8valarrayIfE6resizeEmf.exit_crit_edge, label %32
+  br i1 %.not.i, label %._crit_edge.i, label %32
 
-._ZNSt8valarrayIfE6resizeEmf.exit_crit_edge:      ; preds = %26
-  %.pre = shl nuw nsw i64 %29, 2
+._crit_edge.i:                                    ; preds = %26
+  %.pre5.i = shl nuw nsw i64 %29, 2
   br label %_ZNSt8valarrayIfE6resizeEmf.exit
 
 32:                                               ; preds = %26
@@ -412,10 +412,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store ptr %34, ptr %30, align 8, !tbaa !49
   br label %_ZNSt8valarrayIfE6resizeEmf.exit
 
-_ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %._ZNSt8valarrayIfE6resizeEmf.exit_crit_edge, %32
-  %.pre-phi = phi i64 [ %.pre, %._ZNSt8valarrayIfE6resizeEmf.exit_crit_edge ], [ %33, %32 ]
-  %35 = phi ptr [ %.pre.i, %._ZNSt8valarrayIfE6resizeEmf.exit_crit_edge ], [ %34, %32 ]
-  tail call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %.pre-phi, i1 false), !tbaa !68
+_ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %32, %._crit_edge.i
+  %.idx.pre-phi.i = phi i64 [ %.pre5.i, %._crit_edge.i ], [ %33, %32 ]
+  %35 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %34, %32 ]
+  tail call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %.idx.pre-phi.i, i1 false), !tbaa !68
   %36 = tail call noalias noundef nonnull dereferenceable(1224) ptr @_Znwm(i64 noundef 1224) #27
   %37 = fpext float %5 to double
   %38 = fpext float %6 to double

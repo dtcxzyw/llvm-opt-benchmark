@@ -14574,7 +14574,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 430:                                              ; preds = %425
   %431 = extractvalue { ptr, i64 } %427, 0
   %432 = extractvalue { ptr, i64 } %427, 1
-  %433 = getelementptr inbounds { { ptr, [2 x i64] }, { ptr, [2 x i64] } }, ptr %431, i64 %432
+  %.idx = mul nsw i64 %432, 48
+  %433 = getelementptr inbounds i8, ptr %431, i64 %.idx
   %434 = icmp ne ptr %431, null
   call void @llvm.assume(i1 %434)
   %435 = icmp eq i64 %432, 0

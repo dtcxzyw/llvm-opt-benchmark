@@ -11614,6 +11614,7 @@ _ZN2cv10AutoBufferIiLm264EE8allocateEm.exit:      ; preds = %.noexc78, %46, %33
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %62 = sext i32 %.069 to i64
+  %.idx = shl nsw i64 %62, 2
   %.not.i.i83 = icmp eq i32 %.069, 0
   %63 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %62, i1 true)
   %64 = shl nuw nsw i64 %63, 1
@@ -11708,7 +11709,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %74, %_ZN2cv10AutoBu
 ._crit_edge.thread:                               ; preds = %.lr.ph98, %._crit_edge
   %.063134145 = phi ptr [ %.063134, %._crit_edge ], [ %.063135, %.lr.ph98 ]
   %.062137143 = phi ptr [ %.062137, %._crit_edge ], [ %.062136, %.lr.ph98 ]
-  %93 = getelementptr inbounds i32, ptr %.062137143, i64 %62
+  %93 = getelementptr inbounds i8, ptr %.062137143, i64 %.idx
   invoke void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIhEEEEEvT_S8_T0_T1_(ptr noundef %.062137143, ptr noundef nonnull %93, i64 noundef %65, ptr %.063134145)
           to label %.noexc84 unwind label %97
 
@@ -11943,6 +11944,7 @@ _ZN2cv10AutoBufferIiLm264EE8allocateEm.exit:      ; preds = %.noexc78, %46, %33
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %62 = sext i32 %.069 to i64
+  %.idx = shl nsw i64 %62, 2
   %.not.i.i83 = icmp eq i32 %.069, 0
   %63 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %62, i1 true)
   %64 = shl nuw nsw i64 %63, 1
@@ -12037,7 +12039,7 @@ _ZN2cv10AutoBufferIaLm1032EED2Ev.exit:            ; preds = %74, %_ZN2cv10AutoBu
 ._crit_edge.thread:                               ; preds = %.lr.ph98, %._crit_edge
   %.063134145 = phi ptr [ %.063134, %._crit_edge ], [ %.063135, %.lr.ph98 ]
   %.062137143 = phi ptr [ %.062137, %._crit_edge ], [ %.062136, %.lr.ph98 ]
-  %93 = getelementptr inbounds i32, ptr %.062137143, i64 %62
+  %93 = getelementptr inbounds i8, ptr %.062137143, i64 %.idx
   invoke void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIaEEEEEvT_S8_T0_T1_(ptr noundef %.062137143, ptr noundef nonnull %93, i64 noundef %65, ptr %.063134145)
           to label %.noexc84 unwind label %97
 
@@ -12275,6 +12277,7 @@ _ZN2cv10AutoBufferIiLm264EE8allocateEm.exit:      ; preds = %.noexc78, %48, %33
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %64 = sext i32 %.069 to i64
+  %.idx = shl nsw i64 %64, 2
   %.not.i.i83 = icmp eq i32 %.069, 0
   %65 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %64, i1 true)
   %66 = shl nuw nsw i64 %65, 1
@@ -12372,7 +12375,7 @@ _ZN2cv10AutoBufferItLm520EED2Ev.exit:             ; preds = %76, %_ZN2cv10AutoBu
 ._crit_edge.thread:                               ; preds = %.lr.ph98, %._crit_edge
   %.063136147 = phi ptr [ %.063136, %._crit_edge ], [ %.063137, %.lr.ph98 ]
   %.062139145 = phi ptr [ %.062139, %._crit_edge ], [ %.062138, %.lr.ph98 ]
-  %94 = getelementptr inbounds i32, ptr %.062139145, i64 %64
+  %94 = getelementptr inbounds i8, ptr %.062139145, i64 %.idx
   invoke void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxItEEEEEvT_S8_T0_T1_(ptr noundef %.062139145, ptr noundef nonnull %94, i64 noundef %67, ptr %.063136147)
           to label %.noexc84 unwind label %98
 
@@ -12610,6 +12613,7 @@ _ZN2cv10AutoBufferIiLm264EE8allocateEm.exit:      ; preds = %.noexc78, %48, %33
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %64 = sext i32 %.069 to i64
+  %.idx = shl nsw i64 %64, 2
   %.not.i.i83 = icmp eq i32 %.069, 0
   %65 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %64, i1 true)
   %66 = shl nuw nsw i64 %65, 1
@@ -12707,7 +12711,7 @@ _ZN2cv10AutoBufferIsLm520EED2Ev.exit:             ; preds = %76, %_ZN2cv10AutoBu
 ._crit_edge.thread:                               ; preds = %.lr.ph98, %._crit_edge
   %.063136147 = phi ptr [ %.063136, %._crit_edge ], [ %.063137, %.lr.ph98 ]
   %.062139145 = phi ptr [ %.062139, %._crit_edge ], [ %.062138, %.lr.ph98 ]
-  %94 = getelementptr inbounds i32, ptr %.062139145, i64 %64
+  %94 = getelementptr inbounds i8, ptr %.062139145, i64 %.idx
   invoke void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIsEEEEEvT_S8_T0_T1_(ptr noundef %.062139145, ptr noundef nonnull %94, i64 noundef %67, ptr %.063136147)
           to label %.noexc84 unwind label %98
 
@@ -12937,6 +12941,7 @@ _ZN2cv10AutoBufferIiLm264EE8allocateEm.exit80:    ; preds = %.noexc79, %49, %33
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %64 = sext i32 %.069 to i64
+  %.idx = shl nsw i64 %64, 2
   %.not.i.i86 = icmp eq i32 %.069, 0
   %65 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %64, i1 true)
   %66 = shl nuw nsw i64 %65, 1
@@ -13034,7 +13039,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit85:           ; preds = %76, %_ZN2cv10AutoBu
 ._crit_edge.thread:                               ; preds = %.lr.ph101, %._crit_edge
   %.063139150 = phi ptr [ %.063139, %._crit_edge ], [ %.063140, %.lr.ph101 ]
   %.062142148 = phi ptr [ %.062142, %._crit_edge ], [ %.062141, %.lr.ph101 ]
-  %94 = getelementptr inbounds i32, ptr %.062142148, i64 %64
+  %94 = getelementptr inbounds i8, ptr %.062142148, i64 %.idx
   invoke void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIiEEEEEvT_S8_T0_T1_(ptr noundef %.062142148, ptr noundef nonnull %94, i64 noundef %67, ptr %.063139150)
           to label %.noexc87 unwind label %98
 
@@ -13264,6 +13269,7 @@ _ZN2cv10AutoBufferIiLm264EE8allocateEm.exit:      ; preds = %.noexc78, %49, %33
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %64 = sext i32 %.069 to i64
+  %.idx = shl nsw i64 %64, 2
   %.not.i.i83 = icmp eq i32 %.069, 0
   %65 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %64, i1 true)
   %66 = shl nuw nsw i64 %65, 1
@@ -13361,7 +13367,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %76, %_ZN2cv10AutoBu
 ._crit_edge.thread:                               ; preds = %.lr.ph98, %._crit_edge
   %.063136147 = phi ptr [ %.063136, %._crit_edge ], [ %.063137, %.lr.ph98 ]
   %.062139145 = phi ptr [ %.062139, %._crit_edge ], [ %.062138, %.lr.ph98 ]
-  %94 = getelementptr inbounds i32, ptr %.062139145, i64 %64
+  %94 = getelementptr inbounds i8, ptr %.062139145, i64 %.idx
   invoke void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIfEEEEEvT_S8_T0_T1_(ptr noundef %.062139145, ptr noundef nonnull %94, i64 noundef %67, ptr %.063136147)
           to label %.noexc84 unwind label %98
 
@@ -13596,6 +13602,7 @@ _ZN2cv10AutoBufferIiLm264EE8allocateEm.exit:      ; preds = %.noexc78, %_ZN2cv10
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %64 = sext i32 %.069 to i64
+  %.idx = shl nsw i64 %64, 2
   %.not.i.i83 = icmp eq i32 %.069, 0
   %65 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %64, i1 true)
   %66 = shl nuw nsw i64 %65, 1
@@ -13693,7 +13700,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %76, %_ZN2cv10AutoBu
 ._crit_edge.thread:                               ; preds = %.lr.ph98, %._crit_edge
   %.063136147 = phi ptr [ %.063136, %._crit_edge ], [ %.063137, %.lr.ph98 ]
   %.062139145 = phi ptr [ %.062139, %._crit_edge ], [ %.062138, %.lr.ph98 ]
-  %94 = getelementptr inbounds i32, ptr %.062139145, i64 %64
+  %94 = getelementptr inbounds i8, ptr %.062139145, i64 %.idx
   invoke void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv11LessThanIdxIdEEEEEvT_S8_T0_T1_(ptr noundef %.062139145, ptr noundef nonnull %94, i64 noundef %67, ptr %.063136147)
           to label %.noexc84 unwind label %98
 

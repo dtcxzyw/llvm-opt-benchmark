@@ -8209,7 +8209,7 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.exit: ; preds = %2
   %50 = load i64, ptr %49, align 8, !range !10, !noundef !4
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load ptr, ptr %51, align 8
-  switch i64 %50, label %default.unreachable207 [
+  switch i64 %50, label %default.unreachable208 [
     i64 0, label %62
     i64 1, label %65
     i64 2, label %67
@@ -8239,14 +8239,14 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.exit: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1315
   br label %214
 
-default.unreachable207:                           ; preds = %62, %45
+default.unreachable208:                           ; preds = %62, %45
   unreachable
 
 62:                                               ; preds = %45
   %63 = icmp ne ptr %52, null
   call void @llvm.assume(i1 %63)
   %64 = load i8, ptr %52, align 8, !range !284, !noundef !4
-  switch i8 %64, label %default.unreachable207 [
+  switch i8 %64, label %default.unreachable208 [
     i8 0, label %89
     i8 1, label %101
     i8 2, label %71
@@ -8295,7 +8295,7 @@ default.unreachable207:                           ; preds = %62, %45
 
 .noexc:                                           ; preds = %84
   %.pre.i = load i64, ptr %24, align 8, !alias.scope !1322
-  %.pre205 = load ptr, ptr %17, align 8, !alias.scope !1322
+  %.pre206 = load ptr, ptr %17, align 8, !alias.scope !1322
   br label %129
 
 85:                                               ; preds = %62
@@ -8487,7 +8487,7 @@ default.unreachable207:                           ; preds = %62, %45
   br i1 %80, label %.loopexit185, label %.loopexit
 
 129:                                              ; preds = %.noexc, %81
-  %130 = phi ptr [ %.pre205, %.noexc ], [ %48, %81 ]
+  %130 = phi ptr [ %.pre206, %.noexc ], [ %48, %81 ]
   %131 = phi i64 [ %.pre.i, %.noexc ], [ %47, %81 ]
   %132 = getelementptr inbounds { i64, ptr }, ptr %130, i64 %131
   store i64 2, ptr %132, align 8
@@ -8509,12 +8509,13 @@ default.unreachable207:                           ; preds = %62, %45
   br i1 %142, label %.loopexit, label %.lr.ph202.preheader
 
 .lr.ph202.preheader:                              ; preds = %137
-  %143 = getelementptr inbounds { i8, [31 x i8] }, ptr %141, i64 %140
-  %.pre206 = load i64, ptr %24, align 8, !alias.scope !1359
+  %.idx203 = shl nsw i64 %140, 5
+  %143 = getelementptr inbounds i8, ptr %141, i64 %.idx203
+  %.pre207 = load i64, ptr %24, align 8, !alias.scope !1359
   br label %.lr.ph202
 
 .lr.ph202:                                        ; preds = %.lr.ph202.preheader, %166
-  %144 = phi i64 [ %167, %166 ], [ %.pre206, %.lr.ph202.preheader ]
+  %144 = phi i64 [ %167, %166 ], [ %.pre207, %.lr.ph202.preheader ]
   %.090201 = phi i64 [ %168, %166 ], [ %140, %.lr.ph202.preheader ]
   %.sroa.4168.0200 = phi ptr [ %145, %166 ], [ %143, %.lr.ph202.preheader ]
   %145 = getelementptr inbounds i8, ptr %.sroa.4168.0200, i64 -32
@@ -8595,12 +8596,13 @@ default.unreachable207:                           ; preds = %62, %45
   br i1 %183, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %178
-  %184 = getelementptr inbounds { i8, [31 x i8] }, ptr %182, i64 %181
-  %.pre204 = load i64, ptr %24, align 8, !alias.scope !1365
+  %.idx = shl nsw i64 %181, 5
+  %184 = getelementptr inbounds i8, ptr %182, i64 %.idx
+  %.pre205 = load i64, ptr %24, align 8, !alias.scope !1365
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %207
-  %185 = phi i64 [ %208, %207 ], [ %.pre204, %.lr.ph.preheader ]
+  %185 = phi i64 [ %208, %207 ], [ %.pre205, %.lr.ph.preheader ]
   %.093199 = phi i64 [ %209, %207 ], [ %181, %.lr.ph.preheader ]
   %.sroa.4.0198 = phi ptr [ %186, %207 ], [ %184, %.lr.ph.preheader ]
   %186 = getelementptr inbounds i8, ptr %.sroa.4.0198, i64 -32
@@ -9911,7 +9913,8 @@ common.ret:                                       ; preds = %472, %476
   %.val.i = load ptr, ptr %358, align 8, !noalias !1374, !nonnull !4, !noundef !4
   %359 = getelementptr i8, ptr %1, i64 104
   %.val146.i = load i64, ptr %359, align 8, !noalias !1374, !noundef !4
-  %360 = getelementptr inbounds { { { { ptr, i64 }, i64 } } }, ptr %.val.i, i64 %.val146.i
+  %.idx.i = mul nsw i64 %.val146.i, 24
+  %360 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx.i
   %361 = getelementptr inbounds nuw i8, ptr %1, i64 280
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1559)
   %.not.i.i = icmp eq i64 %.val146.i, 0

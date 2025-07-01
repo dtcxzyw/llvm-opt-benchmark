@@ -561,9 +561,9 @@ define hidden void @_ZN6Assimp7Blender12destroyMVertEPNS0_8ElemBaseE(ptr noundef
 .loopexit:                                        ; preds = %3
   %6 = getelementptr inbounds i8, ptr %4, i64 -8
   %7 = load i64, ptr %6, align 8
-  %8 = mul i64 %7, 56
-  %9 = add i64 %8, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %9) #23
+  %.idx = mul i64 %7, 56
+  %8 = add i64 %.idx, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %8) #23
   br label %.thread
 
 .thread:                                          ; preds = %1, %.loopexit, %3
@@ -725,9 +725,9 @@ define hidden void @_ZN6Assimp7Blender12destroyMEdgeEPNS0_8ElemBaseE(ptr noundef
 .loopexit:                                        ; preds = %3
   %6 = getelementptr inbounds i8, ptr %4, i64 -8
   %7 = load i64, ptr %6, align 8
-  %8 = shl i64 %7, 5
-  %9 = or disjoint i64 %8, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %9) #23
+  %.idx = shl i64 %7, 5
+  %8 = or disjoint i64 %.idx, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %8) #23
   br label %.thread
 
 .thread:                                          ; preds = %1, %.loopexit, %3
@@ -893,9 +893,9 @@ define hidden void @_ZN6Assimp7Blender12destroyMFaceEPNS0_8ElemBaseE(ptr noundef
 .loopexit:                                        ; preds = %3
   %6 = getelementptr inbounds i8, ptr %4, i64 -8
   %7 = load i64, ptr %6, align 8
-  %8 = mul i64 %7, 40
-  %9 = add i64 %8, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %9) #23
+  %.idx = mul i64 %7, 40
+  %8 = add i64 %.idx, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %8) #23
   br label %.thread
 
 .thread:                                          ; preds = %1, %.loopexit, %3
@@ -1077,9 +1077,9 @@ define hidden void @_ZN6Assimp7Blender13destroyMTFaceEPNS0_8ElemBaseE(ptr nounde
 .loopexit:                                        ; preds = %3
   %6 = getelementptr inbounds i8, ptr %4, i64 -8
   %7 = load i64, ptr %6, align 8
-  %8 = mul i64 %7, 56
-  %9 = add i64 %8, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %9) #23
+  %.idx = mul i64 %7, 56
+  %8 = add i64 %.idx, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %8) #23
   br label %.thread
 
 .thread:                                          ; preds = %1, %.loopexit, %3
@@ -1241,9 +1241,9 @@ define hidden void @_ZN6Assimp7Blender15destroyMTexPolyEPNS0_8ElemBaseE(ptr noun
 .loopexit:                                        ; preds = %3
   %6 = getelementptr inbounds i8, ptr %4, i64 -8
   %7 = load i64, ptr %6, align 8
-  %8 = shl i64 %7, 5
-  %9 = or disjoint i64 %8, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %9) #23
+  %.idx = shl i64 %7, 5
+  %8 = or disjoint i64 %.idx, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %8) #23
   br label %.thread
 
 .thread:                                          ; preds = %1, %.loopexit, %3
@@ -1405,9 +1405,9 @@ define hidden void @_ZN6Assimp7Blender14destroyMLoopUVEPNS0_8ElemBaseE(ptr nound
 .loopexit:                                        ; preds = %3
   %6 = getelementptr inbounds i8, ptr %4, i64 -8
   %7 = load i64, ptr %6, align 8
-  %8 = shl i64 %7, 5
-  %9 = or disjoint i64 %8, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %9) #23
+  %.idx = shl i64 %7, 5
+  %8 = or disjoint i64 %.idx, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %8) #23
   br label %.thread
 
 .thread:                                          ; preds = %1, %.loopexit, %3
@@ -1574,9 +1574,9 @@ define hidden void @_ZN6Assimp7Blender15destroyMLoopColEPNS0_8ElemBaseE(ptr noun
 .loopexit:                                        ; preds = %3
   %6 = getelementptr inbounds i8, ptr %4, i64 -8
   %7 = load i64, ptr %6, align 8
-  %8 = mul i64 %7, 24
-  %9 = add i64 %8, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %9) #23
+  %.idx = mul i64 %7, 24
+  %8 = add i64 %.idx, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %8) #23
   br label %.thread
 
 .thread:                                          ; preds = %1, %.loopexit, %3
@@ -1738,9 +1738,9 @@ define hidden void @_ZN6Assimp7Blender12destroyMPolyEPNS0_8ElemBaseE(ptr noundef
 .loopexit:                                        ; preds = %3
   %6 = getelementptr inbounds i8, ptr %4, i64 -8
   %7 = load i64, ptr %6, align 8
-  %8 = shl i64 %7, 5
-  %9 = or disjoint i64 %8, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %9) #23
+  %.idx = shl i64 %7, 5
+  %8 = or disjoint i64 %.idx, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %8) #23
   br label %.thread
 
 .thread:                                          ; preds = %1, %.loopexit, %3
@@ -1912,9 +1912,9 @@ define hidden void @_ZN6Assimp7Blender12destroyMLoopEPNS0_8ElemBaseE(ptr noundef
 .loopexit:                                        ; preds = %3
   %6 = getelementptr inbounds i8, ptr %4, i64 -8
   %7 = load i64, ptr %6, align 8
-  %8 = mul i64 %7, 24
-  %9 = add i64 %8, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %9) #23
+  %.idx = mul i64 %7, 24
+  %8 = add i64 %.idx, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %6, i64 noundef %8) #23
   br label %.thread
 
 .thread:                                          ; preds = %1, %.loopexit, %3

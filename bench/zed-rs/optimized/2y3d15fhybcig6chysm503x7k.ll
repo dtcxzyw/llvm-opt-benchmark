@@ -2038,7 +2038,8 @@ _ZN3std7process7Command11current_dir17h81263ffab0809c46E.exit: ; preds = %7
 
 39:                                               ; preds = %_ZN3std7process7Command11current_dir17h81263ffab0809c46E.exit
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26)
-  %40 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %5, i64 %6
+  %.idx = mul nsw i64 %6, 24
+  %40 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %41 = icmp eq i64 %6, 0
   br i1 %41, label %_ZN3std7process7Command4args17h79ad28ed18b0db25E.exit, label %.lr.ph.i
 

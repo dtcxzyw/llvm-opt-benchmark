@@ -3106,29 +3106,28 @@ _ZN13hb_utf16_xe_tItE6strlenEPKt.exit.i:          ; preds = %.lr.ph.i.i, %12, %1
 19:                                               ; preds = %_ZN13hb_utf16_xe_tItE6strlenEPKt.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = load i32, ptr %20, align 8
-  %22 = zext nneg i32 %spec.select.i to i64
-  %23 = lshr i32 %spec.select.i, 1
-  %24 = add i32 %21, %23
-  %.not.i66.i = icmp eq i32 %24, 0
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp ult i32 %24, %26
-  %or.cond.i.i = select i1 %.not.i66.i, i1 true, i1 %27
+  %22 = lshr i32 %spec.select.i, 1
+  %23 = add i32 %21, %22
+  %.not.i66.i = icmp eq i32 %23, 0
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp ult i32 %23, %25
+  %or.cond.i.i = select i1 %.not.i66.i, i1 true, i1 %26
   br i1 %or.cond.i.i, label %_ZN11hb_buffer_t6ensureEj.exit.thread.i, label %_ZN11hb_buffer_t6ensureEj.exit.i
 
 _ZN11hb_buffer_t6ensureEj.exit.i:                 ; preds = %19
-  %28 = tail call noundef zeroext i1 @_ZN11hb_buffer_t7enlargeEj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %24)
-  br i1 %28, label %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i, label %_ZL17hb_buffer_add_utfI13hb_utf16_xe_tItEEvP11hb_buffer_tPKNT_11codepoint_tEiji.exit
+  %27 = tail call noundef zeroext i1 @_ZN11hb_buffer_t7enlargeEj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %23)
+  br i1 %27, label %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i, label %_ZL17hb_buffer_add_utfI13hb_utf16_xe_tItEEvP11hb_buffer_tPKNT_11codepoint_tEiji.exit
 
 _ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i: ; preds = %_ZN11hb_buffer_t6ensureEj.exit.i
   %.pre.i = load i32, ptr %20, align 8
   br label %_ZN11hb_buffer_t6ensureEj.exit.thread.i
 
 _ZN11hb_buffer_t6ensureEj.exit.thread.i:          ; preds = %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i, %19
-  %29 = phi i32 [ %.pre.i, %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i ], [ %21, %19 ]
-  %30 = icmp eq i32 %29, 0
-  %31 = icmp ne i32 %3, 0
-  %or.cond3.i = and i1 %31, %30
+  %28 = phi i32 [ %.pre.i, %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i ], [ %21, %19 ]
+  %29 = icmp eq i32 %28, 0
+  %30 = icmp ne i32 %3, 0
+  %or.cond3.i = and i1 %30, %29
   br i1 %or.cond3.i, label %.lr.ph.i, label %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge
 
 _ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge: ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread.i
@@ -3136,60 +3135,63 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge: ; preds = %_ZN11h
   br label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread.i
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i32 0, ptr %32, align 4
-  %33 = zext i32 %3 to i64
-  %34 = getelementptr inbounds nuw i16, ptr %1, i64 %33
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  br label %36
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i32 0, ptr %31, align 4
+  %32 = zext i32 %3 to i64
+  %.idx.i = shl nuw nsw i64 %32, 1
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  br label %35
 
-36:                                               ; preds = %_ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i, %.lr.ph.i
+35:                                               ; preds = %_ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i, %.lr.ph.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i ], [ 0, %.lr.ph.i ]
-  %.05877.i4 = phi ptr [ %.0.i.i, %_ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i ], [ %34, %.lr.ph.i ]
-  %37 = getelementptr inbounds i8, ptr %.05877.i4, i64 -2
-  %38 = load i16, ptr %37, align 2
-  %39 = zext i16 %38 to i32
-  %40 = and i32 %39, 63488
-  %41 = icmp eq i32 %40, 55296
-  br i1 %41, label %42, label %_ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i
+  %.05877.i4 = phi ptr [ %.0.i.i, %_ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i ], [ %33, %.lr.ph.i ]
+  %36 = getelementptr inbounds i8, ptr %.05877.i4, i64 -2
+  %37 = load i16, ptr %36, align 2
+  %38 = zext i16 %37 to i32
+  %39 = and i32 %38, 63488
+  %40 = icmp eq i32 %39, 55296
+  br i1 %40, label %41, label %_ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i
 
-42:                                               ; preds = %36
-  %43 = icmp ugt i16 %38, -9217
-  %44 = icmp ult ptr %1, %37
-  %or.cond.i67.i = and i1 %44, %43
-  br i1 %or.cond.i67.i, label %45, label %_ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i
+41:                                               ; preds = %35
+  %42 = icmp ugt i16 %37, -9217
+  %43 = icmp ult ptr %1, %36
+  %or.cond.i67.i = and i1 %43, %42
+  br i1 %or.cond.i67.i, label %44, label %_ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %.05877.i4, i64 -4
-  %47 = load i16, ptr %46, align 2
-  %48 = zext i16 %47 to i32
-  %49 = and i32 %48, 64512
-  %50 = icmp eq i32 %49, 55296
-  br i1 %50, label %51, label %_ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds i8, ptr %.05877.i4, i64 -4
+  %46 = load i16, ptr %45, align 2
+  %47 = zext i16 %46 to i32
+  %48 = and i32 %47, 64512
+  %49 = icmp eq i32 %48, 55296
+  br i1 %49, label %50, label %_ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i
 
-51:                                               ; preds = %45
-  %52 = shl nuw nsw i32 %48, 10
-  %53 = add nuw nsw i32 %39, -56613888
-  %54 = add nsw i32 %53, %52
+50:                                               ; preds = %44
+  %51 = shl nuw nsw i32 %47, 10
+  %52 = add nuw nsw i32 %38, -56613888
+  %53 = add nsw i32 %52, %51
   br label %_ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i
 
-_ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i:      ; preds = %51, %45, %42, %36
-  %.sink.i.i = phi i32 [ %54, %51 ], [ %39, %36 ], [ %7, %45 ], [ %7, %42 ]
-  %.0.i.i = phi ptr [ %46, %51 ], [ %37, %36 ], [ %37, %45 ], [ %37, %42 ]
+_ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i:      ; preds = %50, %44, %41, %35
+  %.sink.i.i = phi i32 [ %53, %50 ], [ %38, %35 ], [ %7, %44 ], [ %7, %41 ]
+  %.0.i.i = phi ptr [ %45, %50 ], [ %36, %35 ], [ %36, %44 ], [ %36, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = trunc nuw nsw i64 %indvars.iv.next to i32
-  store i32 %55, ptr %32, align 8
-  %56 = getelementptr inbounds nuw [5 x i32], ptr %35, i64 0, i64 %indvars.iv
-  store i32 %.sink.i.i, ptr %56, align 4
-  %57 = icmp ult ptr %1, %.0.i.i
-  %58 = icmp samesign ult i64 %indvars.iv, 4
-  %or.cond = select i1 %57, i1 %58, i1 false
-  br i1 %or.cond, label %36, label %.critedge.i, !llvm.loop !43
+  %54 = trunc nuw nsw i64 %indvars.iv.next to i32
+  store i32 %54, ptr %31, align 8
+  %55 = getelementptr inbounds nuw [5 x i32], ptr %34, i64 0, i64 %indvars.iv
+  store i32 %.sink.i.i, ptr %55, align 4
+  %56 = icmp ult ptr %1, %.0.i.i
+  %57 = icmp samesign ult i64 %indvars.iv, 4
+  %or.cond = select i1 %56, i1 %57, i1 false
+  br i1 %or.cond, label %35, label %.critedge.i, !llvm.loop !43
 
 .critedge.i:                                      ; preds = %_ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i, %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge ], [ %33, %_ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i ]
-  %59 = getelementptr inbounds nuw i16, ptr %1, i64 %.pre-phi
-  %60 = getelementptr inbounds nuw i16, ptr %59, i64 %22
+  %.pre-phi = phi i64 [ %.pre, %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge ], [ %32, %_ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i ]
+  %58 = getelementptr inbounds nuw i16, ptr %1, i64 %.pre-phi
+  %59 = shl nuw nsw i32 %spec.select.i, 1
+  %.idx85.i = zext nneg i32 %59 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx85.i
   %.not.i = icmp eq i32 %spec.select.i, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph80.i
 
@@ -3199,7 +3201,7 @@ _ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i:      ; preds = %51, %45, %42, %36
   br label %63
 
 63:                                               ; preds = %_ZN11hb_buffer_t3addEjj.exit.i, %.lr.ph80.i
-  %.05679.i = phi ptr [ %59, %.lr.ph80.i ], [ %.0.i68.i, %_ZN11hb_buffer_t3addEjj.exit.i ]
+  %.05679.i = phi ptr [ %58, %.lr.ph80.i ], [ %.0.i68.i, %_ZN11hb_buffer_t3addEjj.exit.i ]
   %64 = getelementptr inbounds nuw i8, ptr %.05679.i, i64 2
   %65 = load i16, ptr %.05679.i, align 2
   %66 = zext i16 %65 to i32
@@ -3237,7 +3239,7 @@ _ZN13hb_utf16_xe_tItE4nextEPKtS2_Pjj.exit.i:      ; preds = %77, %72, %69, %63
   %86 = load i32, ptr %20, align 8
   %87 = add i32 %86, 1
   %.not.i.i.i = icmp eq i32 %87, 0
-  %88 = load i32, ptr %25, align 8
+  %88 = load i32, ptr %24, align 8
   %89 = icmp ult i32 %87, %88
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 true, i1 %89
   br i1 %or.cond.i.i.i, label %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i, label %_ZN11hb_buffer_t6ensureEj.exit.i.i
@@ -3272,7 +3274,7 @@ _ZN11hb_buffer_t3addEjj.exit.i:                   ; preds = %_ZN11hb_buffer_t6en
   br i1 %100, label %63, label %._crit_edge.i, !llvm.loop !44
 
 ._crit_edge.i:                                    ; preds = %_ZN11hb_buffer_t3addEjj.exit.i, %.critedge.i
-  %.056.lcssa.i = phi ptr [ %59, %.critedge.i ], [ %.0.i68.i, %_ZN11hb_buffer_t3addEjj.exit.i ]
+  %.056.lcssa.i = phi ptr [ %58, %.critedge.i ], [ %.0.i68.i, %_ZN11hb_buffer_t3addEjj.exit.i ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i32 0, ptr %101, align 4
   %102 = sext i32 %.0.i to i64
@@ -3374,28 +3376,27 @@ _ZN13hb_utf32_xe_tIjLb1EE6strlenEPKj.exit.i:      ; preds = %.lr.ph.preheader.i.
 18:                                               ; preds = %_ZN13hb_utf32_xe_tIjLb1EE6strlenEPKj.exit.i
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %20 = load i32, ptr %19, align 8
-  %21 = zext nneg i32 %spec.select.i to i64
-  %22 = add i32 %20, %spec.select.i
-  %.not.i65.i = icmp eq i32 %22, 0
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %24 = load i32, ptr %23, align 8
-  %25 = icmp ult i32 %22, %24
-  %or.cond.i.i = select i1 %.not.i65.i, i1 true, i1 %25
+  %21 = add i32 %20, %spec.select.i
+  %.not.i65.i = icmp eq i32 %21, 0
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp ult i32 %21, %23
+  %or.cond.i.i = select i1 %.not.i65.i, i1 true, i1 %24
   br i1 %or.cond.i.i, label %_ZN11hb_buffer_t6ensureEj.exit.thread.i, label %_ZN11hb_buffer_t6ensureEj.exit.i
 
 _ZN11hb_buffer_t6ensureEj.exit.i:                 ; preds = %18
-  %26 = tail call noundef zeroext i1 @_ZN11hb_buffer_t7enlargeEj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %22)
-  br i1 %26, label %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i, label %_ZL17hb_buffer_add_utfI13hb_utf32_xe_tIjLb1EEEvP11hb_buffer_tPKNT_11codepoint_tEiji.exit
+  %25 = tail call noundef zeroext i1 @_ZN11hb_buffer_t7enlargeEj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %21)
+  br i1 %25, label %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i, label %_ZL17hb_buffer_add_utfI13hb_utf32_xe_tIjLb1EEEvP11hb_buffer_tPKNT_11codepoint_tEiji.exit
 
 _ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i: ; preds = %_ZN11hb_buffer_t6ensureEj.exit.i
   %.pre.i = load i32, ptr %19, align 8
   br label %_ZN11hb_buffer_t6ensureEj.exit.thread.i
 
 _ZN11hb_buffer_t6ensureEj.exit.thread.i:          ; preds = %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i, %18
-  %27 = phi i32 [ %.pre.i, %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i ], [ %20, %18 ]
-  %28 = icmp eq i32 %27, 0
-  %29 = icmp ne i32 %3, 0
-  %or.cond3.i = and i1 %29, %28
+  %26 = phi i32 [ %.pre.i, %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i ], [ %20, %18 ]
+  %27 = icmp eq i32 %26, 0
+  %28 = icmp ne i32 %3, 0
+  %or.cond3.i = and i1 %28, %27
   br i1 %or.cond3.i, label %.lr.ph.i, label %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge
 
 _ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge: ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread.i
@@ -3403,37 +3404,40 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge: ; preds = %_ZN11h
   br label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread.i
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i32 0, ptr %30, align 4
-  %31 = zext i32 %3 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %1, i64 %31
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  br label %34
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i32 0, ptr %29, align 4
+  %30 = zext i32 %3 to i64
+  %.idx.i = shl nuw nsw i64 %30, 2
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  br label %33
 
-34:                                               ; preds = %34, %.lr.ph.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.lr.ph.i ]
-  %.05875.i4 = phi ptr [ %35, %34 ], [ %32, %.lr.ph.i ]
-  %35 = getelementptr inbounds i8, ptr %.05875.i4, i64 -4
-  %36 = load i32, ptr %35, align 4
-  %37 = icmp ugt i32 %36, 55295
-  %38 = add i32 %36, -1114112
-  %or.cond.i66.i = icmp ult i32 %38, -1056768
-  %or.cond8.i.i = and i1 %37, %or.cond.i66.i
-  %spec.store.select.i.i = select i1 %or.cond8.i.i, i32 %7, i32 %36
+33:                                               ; preds = %33, %.lr.ph.i
+  %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.lr.ph.i ]
+  %.05875.i4 = phi ptr [ %34, %33 ], [ %31, %.lr.ph.i ]
+  %34 = getelementptr inbounds i8, ptr %.05875.i4, i64 -4
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp ugt i32 %35, 55295
+  %37 = add i32 %35, -1114112
+  %or.cond.i66.i = icmp ult i32 %37, -1056768
+  %or.cond8.i.i = and i1 %36, %or.cond.i66.i
+  %spec.store.select.i.i = select i1 %or.cond8.i.i, i32 %7, i32 %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = trunc nuw nsw i64 %indvars.iv.next to i32
-  store i32 %39, ptr %30, align 8
-  %40 = getelementptr inbounds nuw [5 x i32], ptr %33, i64 0, i64 %indvars.iv
-  store i32 %spec.store.select.i.i, ptr %40, align 4
-  %41 = icmp ult ptr %1, %35
-  %42 = icmp samesign ult i64 %indvars.iv, 4
-  %or.cond = select i1 %41, i1 %42, i1 false
-  br i1 %or.cond, label %34, label %.critedge.i, !llvm.loop !46
+  %38 = trunc nuw nsw i64 %indvars.iv.next to i32
+  store i32 %38, ptr %29, align 8
+  %39 = getelementptr inbounds nuw [5 x i32], ptr %32, i64 0, i64 %indvars.iv
+  store i32 %spec.store.select.i.i, ptr %39, align 4
+  %40 = icmp ult ptr %1, %34
+  %41 = icmp samesign ult i64 %indvars.iv, 4
+  %or.cond = select i1 %40, i1 %41, i1 false
+  br i1 %or.cond, label %33, label %.critedge.i, !llvm.loop !46
 
-.critedge.i:                                      ; preds = %34, %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge ], [ %31, %34 ]
-  %43 = getelementptr inbounds nuw i32, ptr %1, i64 %.pre-phi
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %21
+.critedge.i:                                      ; preds = %33, %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge
+  %.pre-phi = phi i64 [ %.pre, %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge ], [ %30, %33 ]
+  %42 = getelementptr inbounds nuw i32, ptr %1, i64 %.pre-phi
+  %43 = shl nuw nsw i32 %spec.select.i, 2
+  %.idx83.i = zext nneg i32 %43 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx83.i
   %.not.i = icmp eq i32 %spec.select.i, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph78.i
 
@@ -3443,7 +3447,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge: ; preds = %_ZN11h
   br label %47
 
 47:                                               ; preds = %_ZN11hb_buffer_t3addEjj.exit.i, %.lr.ph78.i
-  %.05677.i = phi ptr [ %43, %.lr.ph78.i ], [ %51, %_ZN11hb_buffer_t3addEjj.exit.i ]
+  %.05677.i = phi ptr [ %42, %.lr.ph78.i ], [ %51, %_ZN11hb_buffer_t3addEjj.exit.i ]
   %48 = load i32, ptr %.05677.i, align 4
   %49 = icmp ugt i32 %48, 55295
   %50 = add i32 %48, -1114112
@@ -3458,7 +3462,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge: ; preds = %_ZN11h
   %56 = load i32, ptr %19, align 8
   %57 = add i32 %56, 1
   %.not.i.i.i = icmp eq i32 %57, 0
-  %58 = load i32, ptr %23, align 8
+  %58 = load i32, ptr %22, align 8
   %59 = icmp ult i32 %57, %58
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 true, i1 %59
   br i1 %or.cond.i.i.i, label %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i, label %_ZN11hb_buffer_t6ensureEj.exit.i.i
@@ -3493,7 +3497,7 @@ _ZN11hb_buffer_t3addEjj.exit.i:                   ; preds = %_ZN11hb_buffer_t6en
   br i1 %70, label %47, label %._crit_edge.i, !llvm.loop !47
 
 ._crit_edge.i:                                    ; preds = %_ZN11hb_buffer_t3addEjj.exit.i, %.critedge.i
-  %.056.lcssa.i = phi ptr [ %43, %.critedge.i ], [ %51, %_ZN11hb_buffer_t3addEjj.exit.i ]
+  %.056.lcssa.i = phi ptr [ %42, %.critedge.i ], [ %51, %_ZN11hb_buffer_t3addEjj.exit.i ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i32 0, ptr %71, align 4
   %72 = sext i32 %.0.i to i64
@@ -3754,28 +3758,27 @@ _ZN13hb_utf32_xe_tIjLb0EE6strlenEPKj.exit.i:      ; preds = %.lr.ph.preheader.i.
 16:                                               ; preds = %_ZN13hb_utf32_xe_tIjLb0EE6strlenEPKj.exit.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = load i32, ptr %17, align 8
-  %19 = zext nneg i32 %spec.select.i to i64
-  %20 = add i32 %18, %spec.select.i
-  %.not.i65.i = icmp eq i32 %20, 0
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp ult i32 %20, %22
-  %or.cond.i.i = select i1 %.not.i65.i, i1 true, i1 %23
+  %19 = add i32 %18, %spec.select.i
+  %.not.i65.i = icmp eq i32 %19, 0
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp ult i32 %19, %21
+  %or.cond.i.i = select i1 %.not.i65.i, i1 true, i1 %22
   br i1 %or.cond.i.i, label %_ZN11hb_buffer_t6ensureEj.exit.thread.i, label %_ZN11hb_buffer_t6ensureEj.exit.i
 
 _ZN11hb_buffer_t6ensureEj.exit.i:                 ; preds = %16
-  %24 = tail call noundef zeroext i1 @_ZN11hb_buffer_t7enlargeEj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %20)
-  br i1 %24, label %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i, label %_ZL17hb_buffer_add_utfI13hb_utf32_xe_tIjLb0EEEvP11hb_buffer_tPKNT_11codepoint_tEiji.exit
+  %23 = tail call noundef zeroext i1 @_ZN11hb_buffer_t7enlargeEj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %19)
+  br i1 %23, label %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i, label %_ZL17hb_buffer_add_utfI13hb_utf32_xe_tIjLb0EEEvP11hb_buffer_tPKNT_11codepoint_tEiji.exit
 
 _ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i: ; preds = %_ZN11hb_buffer_t6ensureEj.exit.i
   %.pre.i = load i32, ptr %17, align 8
   br label %_ZN11hb_buffer_t6ensureEj.exit.thread.i
 
 _ZN11hb_buffer_t6ensureEj.exit.thread.i:          ; preds = %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i, %16
-  %25 = phi i32 [ %.pre.i, %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i ], [ %18, %16 ]
-  %26 = icmp eq i32 %25, 0
-  %27 = icmp ne i32 %3, 0
-  %or.cond3.i = and i1 %27, %26
+  %24 = phi i32 [ %.pre.i, %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i ], [ %18, %16 ]
+  %25 = icmp eq i32 %24, 0
+  %26 = icmp ne i32 %3, 0
+  %or.cond3.i = and i1 %26, %25
   br i1 %or.cond3.i, label %.lr.ph.i, label %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge
 
 _ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge: ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread.i
@@ -3783,32 +3786,35 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge: ; preds = %_ZN11h
   br label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread.i
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i32 0, ptr %28, align 4
-  %29 = zext i32 %3 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %1, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  br label %32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i32 0, ptr %27, align 4
+  %28 = zext i32 %3 to i64
+  %.idx.i = shl nuw nsw i64 %28, 2
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  br label %31
 
-32:                                               ; preds = %32, %.lr.ph.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.lr.ph.i ]
-  %.05868.i4 = phi ptr [ %33, %32 ], [ %30, %.lr.ph.i ]
-  %33 = getelementptr inbounds i8, ptr %.05868.i4, i64 -4
-  %34 = load i32, ptr %33, align 4
+31:                                               ; preds = %31, %.lr.ph.i
+  %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph.i ]
+  %.05868.i4 = phi ptr [ %32, %31 ], [ %29, %.lr.ph.i ]
+  %32 = getelementptr inbounds i8, ptr %.05868.i4, i64 -4
+  %33 = load i32, ptr %32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = trunc nuw nsw i64 %indvars.iv.next to i32
-  store i32 %35, ptr %28, align 8
-  %36 = getelementptr inbounds nuw [5 x i32], ptr %31, i64 0, i64 %indvars.iv
-  store i32 %34, ptr %36, align 4
-  %37 = icmp ult ptr %1, %33
-  %38 = icmp samesign ult i64 %indvars.iv, 4
-  %or.cond = select i1 %37, i1 %38, i1 false
-  br i1 %or.cond, label %32, label %.critedge.i, !llvm.loop !52
+  %34 = trunc nuw nsw i64 %indvars.iv.next to i32
+  store i32 %34, ptr %27, align 8
+  %35 = getelementptr inbounds nuw [5 x i32], ptr %30, i64 0, i64 %indvars.iv
+  store i32 %33, ptr %35, align 4
+  %36 = icmp ult ptr %1, %32
+  %37 = icmp samesign ult i64 %indvars.iv, 4
+  %or.cond = select i1 %36, i1 %37, i1 false
+  br i1 %or.cond, label %31, label %.critedge.i, !llvm.loop !52
 
-.critedge.i:                                      ; preds = %32, %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge ], [ %29, %32 ]
-  %39 = getelementptr inbounds nuw i32, ptr %1, i64 %.pre-phi
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %19
+.critedge.i:                                      ; preds = %31, %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge
+  %.pre-phi = phi i64 [ %.pre, %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge ], [ %28, %31 ]
+  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %.pre-phi
+  %39 = shl nuw nsw i32 %spec.select.i, 2
+  %.idx76.i = zext nneg i32 %39 to i64
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx76.i
   %.not.i = icmp eq i32 %spec.select.i, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph71.i
 
@@ -3818,7 +3824,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge: ; preds = %_ZN11h
   br label %43
 
 43:                                               ; preds = %_ZN11hb_buffer_t3addEjj.exit.i, %.lr.ph71.i
-  %.05670.i = phi ptr [ %39, %.lr.ph71.i ], [ %44, %_ZN11hb_buffer_t3addEjj.exit.i ]
+  %.05670.i = phi ptr [ %38, %.lr.ph71.i ], [ %44, %_ZN11hb_buffer_t3addEjj.exit.i ]
   %44 = getelementptr inbounds nuw i8, ptr %.05670.i, i64 4
   %45 = load i32, ptr %.05670.i, align 4
   %46 = ptrtoint ptr %.05670.i to i64
@@ -3828,7 +3834,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge: ; preds = %_ZN11h
   %50 = load i32, ptr %17, align 8
   %51 = add i32 %50, 1
   %.not.i.i.i = icmp eq i32 %51, 0
-  %52 = load i32, ptr %21, align 8
+  %52 = load i32, ptr %20, align 8
   %53 = icmp ult i32 %51, %52
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 true, i1 %53
   br i1 %or.cond.i.i.i, label %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i, label %_ZN11hb_buffer_t6ensureEj.exit.i.i
@@ -3863,7 +3869,7 @@ _ZN11hb_buffer_t3addEjj.exit.i:                   ; preds = %_ZN11hb_buffer_t6en
   br i1 %64, label %43, label %._crit_edge.i, !llvm.loop !53
 
 ._crit_edge.i:                                    ; preds = %_ZN11hb_buffer_t3addEjj.exit.i, %.critedge.i
-  %.056.lcssa.i = phi ptr [ %39, %.critedge.i ], [ %44, %_ZN11hb_buffer_t3addEjj.exit.i ]
+  %.056.lcssa.i = phi ptr [ %38, %.critedge.i ], [ %44, %_ZN11hb_buffer_t3addEjj.exit.i ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i32 0, ptr %65, align 4
   %66 = sext i32 %.0.i to i64

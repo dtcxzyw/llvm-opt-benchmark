@@ -3491,7 +3491,8 @@ define hidden void @_ZN11quinn_proto10connection5paths13PathResponses4push17hf28
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw { { i16, [15 x i16] }, i64, i64 }, ptr %16, i64 %18
+  %.idx = mul nuw nsw i64 %18, 48
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
   %20 = icmp eq i64 %18, 0
   br i1 %20, label %.loopexit.thread, label %.lr.ph.i

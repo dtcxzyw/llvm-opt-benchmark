@@ -37229,7 +37229,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb34f1e64931036d4E.exit": ; preds = %14
   %18 = getelementptr inbounds nuw i32, ptr %9, i64 %2
-  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %20 = icmp eq i64 %3, 0
   br i1 %20, label %._crit_edge, label %.lr.ph8
 
@@ -37307,7 +37308,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9457e0710f092898E.exit": ; preds = %14
   %18 = getelementptr inbounds nuw i64, ptr %9, i64 %2
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %20 = icmp eq i64 %3, 0
   br i1 %20, label %._crit_edge, label %.lr.ph8
 
@@ -37385,7 +37387,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb3a10929fd1d8efaE.exit": ; preds = %14
   %18 = getelementptr inbounds nuw float, ptr %9, i64 %2
-  %19 = getelementptr inbounds nuw float, ptr %18, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %20 = icmp eq i64 %3, 0
   br i1 %20, label %._crit_edge, label %.lr.ph8
 
@@ -37463,7 +37466,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17head320501ae3724dE.exit": ; preds = %14
   %18 = getelementptr inbounds nuw i32, ptr %9, i64 %2
-  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %20 = icmp eq i64 %3, 0
   br i1 %20, label %._crit_edge, label %.lr.ph8
 
@@ -37541,7 +37545,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7841d5460ec67cc8E.exit": ; preds = %14
   %18 = getelementptr inbounds nuw i16, ptr %9, i64 %2
-  %19 = getelementptr inbounds nuw i16, ptr %18, i64 %3
+  %.idx = shl nuw nsw i64 %3, 1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %20 = icmp eq i64 %3, 0
   br i1 %20, label %._crit_edge, label %.lr.ph8
 
@@ -37619,7 +37624,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he41f471d0d5dae01E.exit": ; preds = %14
   %18 = getelementptr inbounds nuw i128, ptr %9, i64 %2
-  %19 = getelementptr inbounds nuw i128, ptr %18, i64 %3
+  %.idx = shl nuw nsw i64 %3, 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %20 = icmp eq i64 %3, 0
   br i1 %20, label %._crit_edge, label %.lr.ph8
 
@@ -37775,7 +37781,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd4ee34d738a94949E.exit": ; preds = %14
   %18 = getelementptr inbounds nuw { i16 }, ptr %9, i64 %2
-  %19 = getelementptr inbounds nuw { i16 }, ptr %18, i64 %3
+  %.idx = shl nuw nsw i64 %3, 1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %20 = icmp eq i64 %3, 0
   br i1 %20, label %._crit_edge, label %.lr.ph10
 
@@ -37931,7 +37938,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h93f0ddcfac52ed44E.exit": ; preds = %14
   %18 = getelementptr inbounds nuw double, ptr %9, i64 %2
-  %19 = getelementptr inbounds nuw double, ptr %18, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %20 = icmp eq i64 %3, 0
   br i1 %20, label %._crit_edge, label %.lr.ph8
 
@@ -38009,7 +38017,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf2e5b1bc2784e989E.exit": ; preds = %14
   %18 = getelementptr inbounds nuw i16, ptr %9, i64 %2
-  %19 = getelementptr inbounds nuw i16, ptr %18, i64 %3
+  %.idx = shl nuw nsw i64 %3, 1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %20 = icmp eq i64 %3, 0
   br i1 %20, label %._crit_edge, label %.lr.ph8
 
@@ -38087,7 +38096,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fced7fa9d545fE.exit": ; preds = %14
   %18 = getelementptr inbounds nuw i64, ptr %9, i64 %2
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %20 = icmp eq i64 %3, 0
   br i1 %20, label %._crit_edge, label %.lr.ph8
 
@@ -39006,7 +39016,8 @@ _ZN12polars_arrow6bitmap7builder16OptBitmapBuilder31gather_extend_from_opt_valid
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..PrimitiveArrayBuilder$LT$T$GT$$u20$as$u20$polars_arrow..array..builder..StaticArrayBuilder$GT$17opt_gather_extend17h1759b5c3a402e4b6E"(ptr noalias noundef align 8 dereferenceable(112) %0, ptr noundef nonnull readonly align 8 captures(address_is_null) %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3e16cb8974ff5af9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9ff3c641e26d7671f2a1f687625bc108.186)
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -39063,7 +39074,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..PrimitiveArrayBuilder$LT$T$GT$$u20$as$u20$polars_arrow..array..builder..StaticArrayBuilder$GT$17opt_gather_extend17h2cb19c24953d2587E"(ptr noalias noundef align 8 dereferenceable(112) %0, ptr noundef nonnull readonly align 8 captures(address_is_null) %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he5759cdfa68b5dbcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9ff3c641e26d7671f2a1f687625bc108.186)
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -39120,7 +39132,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..PrimitiveArrayBuilder$LT$T$GT$$u20$as$u20$polars_arrow..array..builder..StaticArrayBuilder$GT$17opt_gather_extend17h61b913cb35c17defE"(ptr noalias noundef align 8 dereferenceable(112) %0, ptr noundef nonnull readonly align 8 captures(address_is_null) %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h946581c562feff31E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9ff3c641e26d7671f2a1f687625bc108.186)
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -39177,7 +39190,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..PrimitiveArrayBuilder$LT$T$GT$$u20$as$u20$polars_arrow..array..builder..StaticArrayBuilder$GT$17opt_gather_extend17h8736abab7ed6a9afE"(ptr noalias noundef align 8 dereferenceable(112) %0, ptr noundef nonnull readonly align 8 captures(address_is_null) %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h851a1df9336d1acfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9ff3c641e26d7671f2a1f687625bc108.186)
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -39234,7 +39248,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..PrimitiveArrayBuilder$LT$T$GT$$u20$as$u20$polars_arrow..array..builder..StaticArrayBuilder$GT$17opt_gather_extend17h912b15c687977885E"(ptr noalias noundef align 8 dereferenceable(112) %0, ptr noundef nonnull readonly align 8 captures(address_is_null) %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he7e4ae2cf17643d8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9ff3c641e26d7671f2a1f687625bc108.186)
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -39291,7 +39306,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..PrimitiveArrayBuilder$LT$T$GT$$u20$as$u20$polars_arrow..array..builder..StaticArrayBuilder$GT$17opt_gather_extend17h96af91fe0b2fc133E"(ptr noalias noundef align 8 dereferenceable(112) %0, ptr noundef nonnull readonly align 8 captures(address_is_null) %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h9ff1133b64350ca4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9ff3c641e26d7671f2a1f687625bc108.186)
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -39348,7 +39364,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..PrimitiveArrayBuilder$LT$T$GT$$u20$as$u20$polars_arrow..array..builder..StaticArrayBuilder$GT$17opt_gather_extend17hab7f0675a54cdd03E"(ptr noalias noundef align 8 dereferenceable(112) %0, ptr noundef nonnull readonly align 8 captures(address_is_null) %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3226023881e63284E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9ff3c641e26d7671f2a1f687625bc108.186)
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -39405,7 +39422,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..PrimitiveArrayBuilder$LT$T$GT$$u20$as$u20$polars_arrow..array..builder..StaticArrayBuilder$GT$17opt_gather_extend17hb4c7db4bad95f6b6E"(ptr noalias noundef align 8 dereferenceable(112) %0, ptr noundef nonnull readonly align 8 captures(address_is_null) %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1175656747012e2cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9ff3c641e26d7671f2a1f687625bc108.186)
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -39462,7 +39480,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..PrimitiveArrayBuilder$LT$T$GT$$u20$as$u20$polars_arrow..array..builder..StaticArrayBuilder$GT$17opt_gather_extend17hb9142c4ec424275dE"(ptr noalias noundef align 8 dereferenceable(112) %0, ptr noundef nonnull readonly align 8 captures(address_is_null) %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc5d202612d33f837E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9ff3c641e26d7671f2a1f687625bc108.186)
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -39519,7 +39538,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..PrimitiveArrayBuilder$LT$T$GT$$u20$as$u20$polars_arrow..array..builder..StaticArrayBuilder$GT$17opt_gather_extend17he905d8718d33963aE"(ptr noalias noundef align 8 dereferenceable(112) %0, ptr noundef nonnull readonly align 8 captures(address_is_null) %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h41409eb939b24748E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9ff3c641e26d7671f2a1f687625bc108.186)
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -39576,7 +39596,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..PrimitiveArrayBuilder$LT$T$GT$$u20$as$u20$polars_arrow..array..builder..StaticArrayBuilder$GT$17opt_gather_extend17hf6bf89060642e778E"(ptr noalias noundef align 8 dereferenceable(112) %0, ptr noundef nonnull readonly align 8 captures(address_is_null) %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h22845fb68ee4b5edE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9ff3c641e26d7671f2a1f687625bc108.186)
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -39633,7 +39654,8 @@ define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..Primiti
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN140_$LT$polars_arrow..array..primitive..builder..PrimitiveArrayBuilder$LT$T$GT$$u20$as$u20$polars_arrow..array..builder..StaticArrayBuilder$GT$17opt_gather_extend17hfd6dfb673223a07eE"(ptr noalias noundef align 8 dereferenceable(112) %0, ptr noundef nonnull readonly align 8 captures(address_is_null) %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdf22dc3c3b65886bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9ff3c641e26d7671f2a1f687625bc108.186)
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -45891,7 +45913,8 @@ define void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder24gather_extend_from
   br label %19
 
 19:                                               ; preds = %11, %18
-  %20 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %.idx = shl nuw nsw i64 %6, 2
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %21 = icmp eq i64 %6, 0
   br i1 %21, label %61, label %.lr.ph
 
@@ -45989,7 +46012,8 @@ define void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder28opt_gather_extend_
   br label %19
 
 19:                                               ; preds = %11, %18
-  %20 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %.idx = shl nuw nsw i64 %6, 2
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %21 = icmp eq i64 %6, 0
   br i1 %21, label %._crit_edge, label %.lr.ph
 
@@ -46117,7 +46141,8 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap8as_slice17h81250cb7ba2cc8daE.exit: ; p
   br label %33
 
 33:                                               ; preds = %32, %25
-  %34 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx.i = shl nuw nsw i64 %3, 2
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %35 = icmp eq i64 %3, 0
   br i1 %35, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder24gather_extend_from_slice17ha7e0652c95d5a67eE.exit, label %.lr.ph.i
 
@@ -46276,7 +46301,8 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap8as_slice17h81250cb7ba2cc8daE.exit: ; p
   br label %36
 
 36:                                               ; preds = %35, %28
-  %37 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx.i = shl nuw nsw i64 %3, 2
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %38 = icmp eq i64 %3, 0
   br i1 %38, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder24gather_extend_from_slice17ha7e0652c95d5a67eE.exit, label %.lr.ph.i
 
@@ -46429,7 +46455,8 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap8as_slice17h81250cb7ba2cc8daE.exit: ; p
   br label %33
 
 33:                                               ; preds = %25, %32
-  %34 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %35 = icmp eq i64 %3, 0
   br i1 %35, label %.loopexit, label %.lr.ph
 
@@ -47186,7 +47213,8 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder29opt_gather_extend_from_bitmap17
   br label %_ZN12polars_arrow6bitmap7builder16OptBitmapBuilder15extend_constant17h91d15b208bce29caE.exit
 
 26:                                               ; preds = %5
-  %27 = getelementptr inbounds nuw i32, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 2
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %28 = ptrtoint ptr %27 to i64
   %29 = icmp eq i64 %3, 0
   br i1 %29, label %.loopexit, label %.lr.ph.i

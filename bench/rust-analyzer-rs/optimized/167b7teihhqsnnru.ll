@@ -653,7 +653,8 @@ define hidden void @_ZN10vfs_notify11NotifyActor10load_entry17h7a8863b3274e3307E
   %.val = load ptr, ptr %31, align 8, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %.val50 = load i64, ptr %32, align 8, !noundef !4
-  %33 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } } }, ptr %.val, i64 %.val50
+  %.idx = mul nsw i64 %.val50, 24
+  %33 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %34 = icmp eq i64 %.val50, 0
   br i1 %34, label %._crit_edge, label %.lr.ph
 
@@ -1041,7 +1042,8 @@ common.resume:                                    ; preds = %39, %21
   %97 = load ptr, ptr %96, align 8, !nonnull !4, !noundef !4
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %99 = load i64, ptr %98, align 8, !noundef !4
-  %100 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %97, i64 %99
+  %.idx = mul nsw i64 %99, 24
+  %100 = getelementptr inbounds i8, ptr %97, i64 %.idx
   %101 = icmp eq i64 %99, 0
   br i1 %101, label %.critedge.thread, label %.lr.ph.i
 

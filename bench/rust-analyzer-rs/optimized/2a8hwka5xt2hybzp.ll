@@ -1227,7 +1227,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread99.i: ; preds = %85, %67, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i, %59, %57, %54
   %86 = icmp ne ptr %.sroa.064.0.copyload, null
   call void @llvm.assume(i1 %86)
-  %87 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %.sroa.064.0.copyload, i64 %.sroa.3.0.copyload
+  %.idx.i = shl nsw i64 %.sroa.3.0.copyload, 6
+  %87 = getelementptr inbounds i8, ptr %.sroa.064.0.copyload, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !349
   store ptr %.sroa.064.0.copyload, ptr %13, align 8, !noalias !349
   %.sroa.475.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8

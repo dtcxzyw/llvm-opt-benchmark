@@ -885,7 +885,8 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h2fb71c2b
   store i64 -9223372036854775808, ptr %18, align 8
   %78 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %.val = load ptr, ptr %78, align 8, !nonnull !12, !noundef !12
-  %79 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %55
+  %.idx = mul nsw i64 %55, 24
+  %79 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %80 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %81 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %17, i64 40

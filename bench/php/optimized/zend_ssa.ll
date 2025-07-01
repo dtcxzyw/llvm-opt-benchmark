@@ -2774,7 +2774,8 @@ define internal fastcc void @zend_ssa_rename(ptr noundef readonly captures(none)
   %64 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %65 = load i32, ptr %64, align 8, !tbaa !72
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %struct._zend_op, ptr %63, i64 %66
+  %.idx = shl nuw nsw i64 %66, 5
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx
   %.not336 = icmp eq i32 %65, 0
   br i1 %.not336, label %._crit_edge.thread, label %.lr.ph
 

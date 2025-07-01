@@ -6406,7 +6406,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h72827ca6c282abdbE(p
   %.20 = select i1 %.not, ptr %13, ptr %0
   %15 = mul i64 %.sroa.0.0.sroa.speculated.i, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20, i64 %15, i1 false)
-  %16 = getelementptr inbounds { { i64, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %16 = getelementptr inbounds i8, ptr %2, i64 %15
   br i1 %.not, label %.preheader, label %.lr.ph.i
 
 .preheader:                                       ; preds = %12, %.preheader
@@ -6489,7 +6489,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h8e4bfead523810ffE(p
   %.20 = select i1 %.not, ptr %13, ptr %0
   %15 = shl i64 %.sroa.0.0.sroa.speculated.i, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2, ptr nonnull align 4 %.20, i64 %15, i1 false)
-  %16 = getelementptr inbounds i32, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %16 = getelementptr inbounds i8, ptr %2, i64 %15
   br i1 %.not, label %.preheader, label %.lr.ph.i
 
 .preheader:                                       ; preds = %12, %.preheader
@@ -6576,7 +6576,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h9b82ec2247070bfeE(p
   %.20 = select i1 %.not, ptr %13, ptr %0
   %15 = shl i64 %.sroa.0.0.sroa.speculated.i, 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20, i64 %15, i1 false)
-  %16 = getelementptr inbounds { { i64, i64 }, { ptr, i64 } }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %16 = getelementptr inbounds i8, ptr %2, i64 %15
   br i1 %.not, label %.preheader, label %.lr.ph.i
 
 .preheader:                                       ; preds = %12, %.preheader
@@ -24146,7 +24146,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit: ; preds = %.no
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31)
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %108 = load ptr, ptr %107, align 8, !nonnull !5, !noundef !5
-  %109 = getelementptr inbounds { { i32, i32 }, { i32, i32 } }, ptr %108, i64 %76
+  %.idx = shl nsw i64 %76, 4
+  %109 = getelementptr inbounds i8, ptr %108, i64 %.idx
   store ptr %108, ptr %30, align 8
   %110 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %109, ptr %110, align 8
@@ -30757,7 +30758,8 @@ _ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit: 
   %33 = load i64, ptr %13, align 8, !noundef !5
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6211)
-  %35 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i8, i8, i8, [5 x i8] }, ptr %29, i64 %31
+  %.idx.i = mul nsw i64 %31, 56
+  %35 = getelementptr inbounds i8, ptr %29, i64 %.idx.i
   %36 = icmp eq i64 %31, 0
   br i1 %36, label %.loopexit, label %.lr.ph.i.i
 

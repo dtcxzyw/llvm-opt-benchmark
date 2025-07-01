@@ -828,7 +828,8 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$regex_syntax..error..Formatter$LT$E
   store i64 0, ptr %155, align 8
   %156 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %.val = load ptr, ptr %156, align 8, !nonnull !14, !noundef !14
-  %157 = getelementptr inbounds { { i64, i64, i64 }, { i64, i64, i64 } }, ptr %.val, i64 %152
+  %.idx = mul nsw i64 %152, 48
+  %157 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %158 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %159 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %160 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -1491,7 +1492,8 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$regex_syntax..error..Formatter$LT$E
   store i64 0, ptr %155, align 8
   %156 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %.val = load ptr, ptr %156, align 8, !nonnull !14, !noundef !14
-  %157 = getelementptr inbounds { { i64, i64, i64 }, { i64, i64, i64 } }, ptr %.val, i64 %152
+  %.idx = mul nsw i64 %152, 48
+  %157 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %158 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %159 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %160 = getelementptr inbounds nuw i8, ptr %25, i64 24

@@ -1149,16 +1149,16 @@ _ZNSolsEPFRSoS_E.exit130:                         ; preds = %.noexc325, %_ZNSols
   %.048 = phi i64 [ 2, %_ZNSolsEm.exit ], [ 1, %.noexc325 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #19
   %451 = load ptr, ptr %12, align 8, !tbaa !46
-  %452 = getelementptr inbounds nuw %"struct.cv::Ptr", ptr %451, i64 %.048
+  %.idx397 = shl nuw nsw i64 %.048, 4
+  %452 = getelementptr inbounds nuw i8, ptr %451, i64 %.idx397
   %453 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %453, align 8
-  %.idx = shl nuw nsw i64 %.048, 4
-  %454 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #23
+  %454 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx397) #23
           to label %.noexc5.i unwind label %471
 
 .noexc5.i:                                        ; preds = %_ZNSolsEPFRSoS_E.exit130
   store ptr %454, ptr %13, align 8, !tbaa !45
-  %455 = getelementptr inbounds nuw i8, ptr %454, i64 %.idx
+  %455 = getelementptr inbounds nuw i8, ptr %454, i64 %.idx397
   %456 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %455, ptr %456, align 8, !tbaa !47
   br label %.lr.ph.i.i.i.i.i.i

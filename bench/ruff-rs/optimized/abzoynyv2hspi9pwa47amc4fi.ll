@@ -15859,7 +15859,8 @@ define hidden void @_ZN5salsa5table4memo21MemoTableWithTypesMut10take_memos17h20
   %13 = tail call noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h8bea50c0b6414a2eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12)
   %14 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
   %15 = load i64, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw { { ptr } }, ptr %13, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %17 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %18 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %18)
@@ -16287,7 +16288,8 @@ define hidden void @_ZN5salsa5table4memo21MemoTableWithTypesMut10take_memos17h45
   %13 = tail call noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h8bea50c0b6414a2eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12)
   %14 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
   %15 = load i64, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw { { ptr } }, ptr %13, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %17 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %18 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %18)
@@ -16715,7 +16717,8 @@ define hidden void @_ZN5salsa5table4memo21MemoTableWithTypesMut10take_memos17h51
   %13 = tail call noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h8bea50c0b6414a2eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12)
   %14 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
   %15 = load i64, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw { { ptr } }, ptr %13, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %17 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %18 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %18)
@@ -17143,7 +17146,8 @@ define hidden void @_ZN5salsa5table4memo21MemoTableWithTypesMut10take_memos17h52
   %13 = tail call noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h8bea50c0b6414a2eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12)
   %14 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
   %15 = load i64, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw { { ptr } }, ptr %13, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %17 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %18 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %18)
@@ -17571,7 +17575,8 @@ define hidden void @_ZN5salsa5table4memo21MemoTableWithTypesMut10take_memos17h61
   %13 = tail call noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h8bea50c0b6414a2eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12)
   %14 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
   %15 = load i64, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw { { ptr } }, ptr %13, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %17 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %18 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %18)
@@ -17999,7 +18004,8 @@ define hidden void @_ZN5salsa5table4memo21MemoTableWithTypesMut10take_memos17hb7
   %13 = tail call noundef ptr @"_ZN8thin_vec16ThinVec$LT$T$GT$8data_raw17h8bea50c0b6414a2eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12)
   %14 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
   %15 = load i64, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds nuw { { ptr } }, ptr %13, i64 %15
+  %.idx = shl nuw nsw i64 %15, 3
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %17 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %18 = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %18)
@@ -30865,7 +30871,8 @@ _ZN18ty_python_semantic14semantic_index10re_exports12ExportFinder19possibly_add_
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load i64, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %11, i64 %13
+  %.idx = mul nuw nsw i64 %13, 88
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %15 = icmp eq i64 %13, 0
   br i1 %15, label %._crit_edge, label %.lr.ph
 
@@ -31015,7 +31022,8 @@ _ZN18ty_python_semantic14semantic_index10re_exports12ExportFinder19possibly_add_
   %23 = load ptr, ptr %22, align 8, !nonnull !3, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i64, ptr %24, align 8, !noundef !3
-  %26 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %23, i64 %25
+  %.idx97 = mul nuw nsw i64 %25, 72
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx97
   %27 = icmp eq i64 %25, 0
   br i1 %27, label %._crit_edge94, label %.lr.ph93
 
@@ -31038,7 +31046,8 @@ _ZN18ty_python_semantic14semantic_index10re_exports12ExportFinder19possibly_add_
   %38 = load ptr, ptr %37, align 8, !nonnull !3, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load i64, ptr %39, align 8, !noundef !3
-  %41 = getelementptr inbounds nuw { { i32, [15 x i32] }, { i32, i32 } }, ptr %38, i64 %40
+  %.idx96 = mul nuw nsw i64 %40, 72
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx96
   %42 = icmp eq i64 %40, 0
   br i1 %42, label %._crit_edge, label %.lr.ph91
 
@@ -31077,7 +31086,8 @@ _ZN18ty_python_semantic14semantic_index10re_exports12ExportFinder19possibly_add_
   %59 = load ptr, ptr %58, align 8, !nonnull !3, !noundef !3
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %61 = load i64, ptr %60, align 8, !noundef !3
-  %62 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %59, i64 %61
+  %.idx = mul nuw nsw i64 %61, 72
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx
   %63 = icmp eq i64 %61, 0
   br i1 %63, label %.loopexit75, label %.lr.ph
 
@@ -31203,7 +31213,7 @@ _ZN18ty_python_semantic14semantic_index10re_exports12ExportFinder19possibly_add_
   br i1 %.sroa.06.088, label %"_ZN114_$LT$ty_python_semantic..semantic_index..re_exports..ExportFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$11visit_alias17h34fff4a48c82f8daE.exit", label %115
 
 "_ZN114_$LT$ty_python_semantic..semantic_index..re_exports..ExportFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$11visit_alias17h34fff4a48c82f8daE.exit": ; preds = %112, %106, %113, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_resolver..module..Module$GT$$GT$17hc3edcd577f5dbe8fE.exit55"
-  %.sroa.7.1 = phi ptr [ %.sroa.7.086, %113 ], [ %.sroa.7.3117, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_resolver..module..Module$GT$$GT$17hc3edcd577f5dbe8fE.exit55" ], [ %.sroa.7.086, %106 ], [ %.sroa.7.086, %112 ]
+  %.sroa.7.1 = phi ptr [ %.sroa.7.086, %113 ], [ %.sroa.7.3119, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_resolver..module..Module$GT$$GT$17hc3edcd577f5dbe8fE.exit55" ], [ %.sroa.7.086, %106 ], [ %.sroa.7.086, %112 ]
   %.sroa.06.1 = phi i1 [ true, %113 ], [ true, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_resolver..module..Module$GT$$GT$17hc3edcd577f5dbe8fE.exit55" ], [ %.sroa.06.088, %106 ], [ %.sroa.06.088, %112 ]
   %114 = icmp eq ptr %.sroa.035.189, %62
   %.sroa.035.1.idx = select i1 %114, i64 0, i64 72
@@ -31270,19 +31280,19 @@ common.resume:                                    ; preds = %147, %144, %125
   %.sroa.17.0 = phi ptr [ %.not40, %132 ], [ %.sroa.17.1.lcssa, %.split.preheader.i.backedge ]
   %.sroa.7.2 = phi ptr [ %.sroa.7.086, %132 ], [ %.sroa.7.3.lcssa, %.split.preheader.i.backedge ]
   %.sroa.0.056 = phi ptr [ null, %132 ], [ %148, %.split.preheader.i.backedge ]
-  %.not.i.i114 = icmp eq ptr %.sroa.0.056, null
+  %.not.i.i116 = icmp eq ptr %.sroa.0.056, null
   %135 = icmp eq ptr %.sroa.0.056, %.sroa.7.2
-  %or.cond95115 = select i1 %.not.i.i114, i1 true, i1 %135
-  br i1 %or.cond95115, label %select.unfold.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8eaa43e2bfcf04aE.exit"
+  %or.cond95117 = select i1 %.not.i.i116, i1 true, i1 %135
+  br i1 %or.cond95117, label %select.unfold.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8eaa43e2bfcf04aE.exit"
 
 select.unfold.i:                                  ; preds = %.split.preheader.i, %.split.i
-  %.sroa.7.3117 = phi ptr [ %140, %.split.i ], [ %.sroa.7.2, %.split.preheader.i ]
-  %.sroa.17.1116 = phi ptr [ null, %.split.i ], [ %.sroa.17.0, %.split.preheader.i ]
-  %.not.i.i.i = icmp eq ptr %.sroa.17.1116, null
+  %.sroa.7.3119 = phi ptr [ %140, %.split.i ], [ %.sroa.7.2, %.split.preheader.i ]
+  %.sroa.17.1118 = phi ptr [ null, %.split.i ], [ %.sroa.17.0, %.split.preheader.i ]
+  %.not.i.i.i = icmp eq ptr %.sroa.17.1118, null
   br i1 %.not.i.i.i, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hfba3bf58213cdfefE.exit.thread.i", label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hfba3bf58213cdfefE.exit.i"
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hfba3bf58213cdfefE.exit.i": ; preds = %select.unfold.i
-  %136 = invoke noundef i32 @_ZN18ty_python_semantic15module_resolver6module6Module4file17hfdaba045d187de40E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.17.1116)
+  %136 = invoke noundef i32 @_ZN18ty_python_semantic15module_resolver6module6Module4file17hfdaba045d187de40E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.17.1118)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hfba3bf58213cdfefE.exit.i"
@@ -31306,7 +31316,8 @@ select.unfold.i:                                  ; preds = %.split.preheader.i,
 
 .split.i:                                         ; preds = %.noexc49
   %139 = extractvalue { ptr, i64 } %137, 1
-  %140 = getelementptr inbounds nuw { { { ptr, i64, i32, i16, i8, i8 } } }, ptr %138, i64 %139
+  %.idx122 = mul nuw nsw i64 %139, 24
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx122
   %141 = icmp eq i64 %139, 0
   br i1 %141, label %select.unfold.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8eaa43e2bfcf04aE.exit"
 
@@ -38998,7 +39009,8 @@ define hidden void @_ZN18ty_python_semantic5types10diagnostic22report_duplicate_
   %81 = load ptr, ptr %80, align 8, !nonnull !3, !noundef !3
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %83 = load i64, ptr %82, align 8, !noundef !3
-  %84 = getelementptr inbounds nuw i64, ptr %81, i64 %83
+  %.idx = shl nuw nsw i64 %83, 3
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx
   %85 = icmp eq i64 %83, 0
   br i1 %85, label %._crit_edge, label %.lr.ph
 

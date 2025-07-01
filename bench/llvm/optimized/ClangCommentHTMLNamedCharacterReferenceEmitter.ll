@@ -88,7 +88,8 @@ define dso_local void @_ZN5clang44EmitClangCommentHTMLNamedCharacterReferencesER
   %20 = call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr nonnull @.str, i64 3) #13
   %21 = extractvalue { ptr, i64 } %20, 0
   %22 = extractvalue { ptr, i64 } %20, 1
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %.idx = shl nuw nsw i64 %22, 3
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %.not62 = icmp eq i64 %22, 0
   br i1 %.not62, label %._crit_edge, label %.lr.ph
 

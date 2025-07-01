@@ -3,11 +3,6 @@ source_filename = "bench/llvm/original/MCAsmLexer.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.llvm::AsmToken" = type { i32, %"class.llvm::StringRef", %"class.llvm::APInt" }
-%"class.llvm::StringRef" = type { ptr, i64 }
-%"class.llvm::APInt" = type <{ %union.anon.0, i32, [4 x i8] }>
-%union.anon.0 = type { i64 }
-
 $_ZN4llvm11raw_ostreamlsEPKc = comdat any
 
 $_ZN4llvm11raw_ostreamlsENS_9StringRefE = comdat any
@@ -176,7 +171,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::AsmToken", ptr %12, i64 %15
+  %.idx.i = mul nuw nsw i64 %15, 40
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm8AsmTokenD2Ev.exit.i.i, %.lr.ph.i.preheader.i

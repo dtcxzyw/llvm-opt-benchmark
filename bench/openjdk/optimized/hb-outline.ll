@@ -23,7 +23,8 @@ define hidden void @_ZNK12hb_outline_t6replayEP15hb_draw_funcs_tPv(ptr noundef n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %6, i64 %9
+  %.idx = shl nuw nsw i64 %9, 2
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %.not205 = icmp eq i32 %8, 0
   br i1 %.not205, label %._crit_edge209, label %.lr.ph
 
@@ -374,7 +375,8 @@ define hidden noundef float @_ZNK12hb_outline_t12control_areaEv(ptr noundef nonn
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 2
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not32 = icmp eq i32 %5, 0
   br i1 %.not32, label %._crit_edge38, label %.lr.ph37
 
@@ -465,7 +467,8 @@ define hidden void @_ZN12hb_outline_t8emboldenEffff(ptr noundef nonnull readonly
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %18
+  %.idx.i = shl nuw nsw i64 %18, 2
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
   %.not32.i = icmp eq i32 %17, 0
   br i1 %.not32.i, label %.loopexit122, label %.lr.ph37.i
 

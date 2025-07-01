@@ -3,7 +3,6 @@ source_filename = "bench/icu/original/loclikelysubtags.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.icu_77::LSR" = type <{ ptr, ptr, ptr, ptr, i32, i32, i32, [4 x i8] }>
 %"class.icu_77::Char16Ptr" = type { ptr }
 %"class.icu_77::UnicodeString" = type { %"class.icu_77::Replaceable", %"union.icu_77::UnicodeString::StackBufferOrFields" }
 %"class.icu_77::Replaceable" = type { %"class.icu_77::UObject" }
@@ -25,6 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::LocalMemory" = type { %"class.icu_77::LocalPointerBase" }
 %"class.icu_77::LocalPointerBase" = type { ptr }
 %"class.icu_77::ResourceArray" = type <{ ptr, ptr, i32, [4 x i8] }>
+%"struct.icu_77::LSR" = type <{ ptr, ptr, ptr, ptr, i32, i32, i32, [4 x i8] }>
 %"class.icu_77::StringPiece" = type <{ ptr, i32, [4 x i8] }>
 %"class.icu_77::BytesTrie" = type <{ ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.icu_77::ConstChar16Ptr" = type { ptr }
@@ -629,7 +629,8 @@ define void @_ZN6icu_7718LocaleDistanceDataD2Ev(ptr noundef nonnull readonly ali
   br i1 %11, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %8
-  %12 = getelementptr inbounds %"struct.icu_77::LSR", ptr %6, i64 %10
+  %.idx = mul nsw i64 %10, 48
+  %12 = getelementptr inbounds i8, ptr %6, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN6icu_773LSRD2Ev.exit
@@ -2273,7 +2274,8 @@ define linkonce_odr void @_ZN6icu_7717LikelySubtagsDataD2Ev(ptr noundef nonnull 
   br i1 %10, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %7
-  %11 = getelementptr inbounds %"struct.icu_77::LSR", ptr %5, i64 %9
+  %.idx = mul nsw i64 %9, 48
+  %11 = getelementptr inbounds i8, ptr %5, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN6icu_773LSRD2Ev.exit
@@ -2595,7 +2597,8 @@ define void @_ZN6icu_7713LikelySubtagsD2Ev(ptr noundef nonnull align 8 dereferen
   br i1 %15, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %12
-  %16 = getelementptr inbounds %"struct.icu_77::LSR", ptr %10, i64 %14
+  %.idx = mul nsw i64 %14, 48
+  %16 = getelementptr inbounds i8, ptr %10, i64 %.idx
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN6icu_773LSRD2Ev.exit

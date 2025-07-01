@@ -940,7 +940,8 @@ define dso_local void @_ZN4V3Os12filenameJoinESt16initializer_listIKNSt7__cxx111
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8, !tbaa !16
   store i8 0, ptr %4, align 8, !tbaa !18
-  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 5
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not14 = icmp eq i64 %2, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 

@@ -7070,7 +7070,8 @@ define hidden void @_ZN15command_palette22CommandPaletteDelegate15matches_update
   %97 = load ptr, ptr %96, align 8, !nonnull !4, !noundef !4
   %98 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %99 = load i64, ptr %98, align 8, !noundef !4
-  %100 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %97, i64 %99
+  %.idx = shl nsw i64 %99, 6
+  %100 = getelementptr inbounds i8, ptr %97, i64 %.idx
   %101 = icmp eq i64 %99, 0
   br i1 %101, label %.thread109, label %.lr.ph.i
 
@@ -9124,7 +9125,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h44b6ed67eda2e1bbE.exit.i: ; pre
   %226 = load ptr, ptr %225, align 8, !noalias !2299, !nonnull !4, !noundef !4
   %227 = getelementptr inbounds nuw i8, ptr %.sroa.037.0.copyload.i.i, i64 16
   %228 = load i64, ptr %227, align 8, !noalias !2299, !noundef !4
-  %229 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %226, i64 %228
+  %.idx.i.i.i = mul nsw i64 %228, 24
+  %229 = getelementptr inbounds i8, ptr %226, i64 %.idx.i.i.i
   %230 = icmp eq i64 %228, 0
   br i1 %230, label %..loopexit59_crit_edge.i.i, label %.lr.ph.i.i.i47
 
@@ -9583,7 +9585,8 @@ _ZN4gpui8executor5Scope5spawn17hc79695783f927c30E.exit.i.i.i: ; preds = %275, %2
   %.sroa.574.0.copyload.i = load ptr, ptr %.sroa.574.0..sroa_idx.i, align 8, !noalias !2212, !nonnull !4, !noundef !4
   %.sroa.675.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 568
   %.sroa.675.0.copyload.i = load i64, ptr %.sroa.675.0..sroa_idx.i, align 8, !noalias !2212
-  %356 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.sroa.574.0.copyload.i, i64 %.sroa.675.0.copyload.i
+  %.idx.i = mul nsw i64 %.sroa.675.0.copyload.i, 24
+  %356 = getelementptr inbounds i8, ptr %.sroa.574.0.copyload.i, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19), !noalias !2212
   store ptr %.sroa.574.0.copyload.i, ptr %19, align 8, !noalias !2212
   %.sroa.570.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 8

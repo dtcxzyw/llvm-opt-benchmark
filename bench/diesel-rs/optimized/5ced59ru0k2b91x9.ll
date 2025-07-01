@@ -12879,7 +12879,8 @@ define void @"_ZN90_$LT$diesel..sqlite..connection..stmt..BoundStatement$u20$as$
   store i64 0, ptr %13, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.440.0..sroa_idx, align 8
   store i64 0, ptr %.sroa.541.0..sroa_idx, align 8
-  %14 = getelementptr inbounds { i32, [1 x i32], { ptr, i64 } }, ptr %.sroa.440.0.copyload, i64 %.sroa.541.0.copyload
+  %.idx = mul nsw i64 %.sroa.541.0.copyload, 24
+  %14 = getelementptr inbounds i8, ptr %.sroa.440.0.copyload, i64 %.idx
   %15 = icmp eq i64 %.sroa.541.0.copyload, 0
   br i1 %15, label %._crit_edge, label %.lr.ph
 

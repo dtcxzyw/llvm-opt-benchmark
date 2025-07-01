@@ -1588,7 +1588,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds i32, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 2
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hf369870ffd696997E.exit, label %.lr.ph.i
 
@@ -1614,7 +1615,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { i32, [3 x i32] }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h9319040b45b23007E.exit, label %.lr.ph.i
 
@@ -22239,7 +22241,8 @@ define hidden void @_ZN17cranelift_codegen3isa6unwind7systemv29create_unwind_inf
   store ptr inttoptr (i64 4 to ptr), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds { i32, { i8, [11 x i8] } }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %11 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %12 = icmp eq i64 %2, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -22774,7 +22777,8 @@ define hidden void @_ZN17cranelift_codegen3isa6unwind6winx6429create_unwind_info
   store ptr inttoptr (i64 4 to ptr), ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds { i32, { i8, [11 x i8] } }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %12 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %13 = icmp eq i64 %2, 0
   br i1 %13, label %._crit_edge, label %.lr.ph.preheader
 

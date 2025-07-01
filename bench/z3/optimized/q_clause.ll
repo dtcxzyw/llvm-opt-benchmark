@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.q::lit" = type <{ %class.obj_ref, %class.obj_ref, i8, [7 x i8] }>
-%class.obj_ref = type { ptr, ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -145,31 +143,32 @@ _ZNK6vectorIN1q3litELb1EjE3endEv.exit:            ; preds = %3
   %8 = getelementptr inbounds i8, ptr %6, i64 -4
   %9 = load i32, ptr %8, align 4, !tbaa !172
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.q::lit", ptr %6, i64 %10
+  %11 = mul nuw nsw i64 %10, 40
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
   %.not24 = icmp eq i32 %9, 0
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3, %_ZNK6vectorIN1q3litELb1EjE3endEv.exit
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !173
-  %.not22 = icmp eq ptr %13, null
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %14 = load ptr, ptr %13, align 8, !tbaa !173
+  %.not22 = icmp eq ptr %14, null
   br i1 %.not22, label %.loopexit, label %.preheader
 
 .lr.ph:                                           ; preds = %_ZNK6vectorIN1q3litELb1EjE3endEv.exit, %.lr.ph
-  %.02025 = phi ptr [ %16, %.lr.ph ], [ %6, %_ZNK6vectorIN1q3litELb1EjE3endEv.exit ]
-  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK1q3lit7displayERSo(ptr noundef nonnull align 8 dereferenceable(33) %.02025, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.6, i64 noundef 1)
-  %16 = getelementptr inbounds nuw i8, ptr %.02025, i64 40
-  %.not = icmp eq ptr %16, %11
+  %.02025 = phi ptr [ %17, %.lr.ph ], [ %6, %_ZNK6vectorIN1q3litELb1EjE3endEv.exit ]
+  %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK1q3lit7displayERSo(ptr noundef nonnull align 8 dereferenceable(33) %.02025, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.6, i64 noundef 1)
+  %17 = getelementptr inbounds nuw i8, ptr %.02025, i64 40
+  %.not = icmp eq ptr %17, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader
-  %.0 = phi ptr [ %19, %.preheader ], [ %13, %._crit_edge ]
-  %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK1q7binding7displayERN3euf6solverERSo(ptr noundef nonnull align 8 dereferenceable(48) %.0, ptr noundef nonnull align 8 dereferenceable(8456) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.6, i64 noundef 1)
-  %19 = load ptr, ptr %.0, align 8, !tbaa !177
-  %20 = load ptr, ptr %12, align 8, !tbaa !173
-  %.not23 = icmp eq ptr %19, %20
+  %.0 = phi ptr [ %20, %.preheader ], [ %14, %._crit_edge ]
+  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK1q7binding7displayERN3euf6solverERSo(ptr noundef nonnull align 8 dereferenceable(48) %.0, ptr noundef nonnull align 8 dereferenceable(8456) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.6, i64 noundef 1)
+  %20 = load ptr, ptr %.0, align 8, !tbaa !177
+  %21 = load ptr, ptr %13, align 8, !tbaa !173
+  %.not23 = icmp eq ptr %20, %21
   br i1 %.not23, label %.loopexit, label %.preheader, !llvm.loop !178
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge

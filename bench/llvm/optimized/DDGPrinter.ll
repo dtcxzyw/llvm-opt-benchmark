@@ -66,12 +66,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.59" = type { %"class.llvm::SmallVectorTemplateCommon.60" }
 %"class.llvm::SmallVectorTemplateCommon.60" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.61" = type { [8 x i8] }
-%"class.std::unique_ptr.67" = type { %"struct.std::__uniq_ptr_data.68" }
-%"struct.std::__uniq_ptr_data.68" = type { %"class.std::__uniq_ptr_impl.69" }
-%"class.std::__uniq_ptr_impl.69" = type { %"class.std::tuple.70" }
-%"class.std::tuple.70" = type { %"struct.std::_Tuple_impl.71" }
-%"struct.std::_Tuple_impl.71" = type { %"struct.std::_Head_base.74" }
-%"struct.std::_Head_base.74" = type { ptr }
 %"class.llvm::SmallVector.63" = type { %"class.llvm::SmallVectorImpl.42", %"struct.llvm::SmallVectorStorage.64" }
 %"class.llvm::SmallVectorImpl.42" = type { %"class.llvm::SmallVectorTemplateBase.43" }
 %"class.llvm::SmallVectorTemplateBase.43" = type { %"class.llvm::SmallVectorTemplateCommon.44" }
@@ -79,6 +73,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SmallVectorStorage.64" = type { [64 x i8] }
 %class.anon.65 = type { i8 }
 %"class.llvm::function_ref" = type { ptr, i64 }
+%"class.std::unique_ptr.67" = type { %"struct.std::__uniq_ptr_data.68" }
+%"struct.std::__uniq_ptr_data.68" = type { %"class.std::__uniq_ptr_impl.69" }
+%"class.std::__uniq_ptr_impl.69" = type { %"class.std::tuple.70" }
+%"class.std::tuple.70" = type { %"struct.std::_Tuple_impl.71" }
+%"struct.std::_Tuple_impl.71" = type { %"struct.std::_Head_base.74" }
+%"struct.std::_Head_base.74" = type { ptr }
 %"struct.llvm::cl::initializer" = type { ptr }
 %"struct.llvm::cl::desc" = type { %"class.llvm::StringRef" }
 
@@ -878,7 +878,8 @@ define dso_local void @_ZN4llvm14DOTGraphTraitsIPKNS_19DataDependenceGraphEE18ge
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %21 = load i32, ptr %20, align 8, !tbaa !26
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
+  %.idx = shl nuw nsw i64 %22, 3
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %.not20 = icmp eq i32 %21, 0
   br i1 %.not20, label %_ZN4llvm11raw_ostreamlsEPKc.exit12, label %.lr.ph
 
@@ -1139,7 +1140,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit23:               ; preds = %39, %41
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %50 = load i32, ptr %49, align 8, !tbaa !26
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %48, i64 %51
+  %.idx54 = shl nuw nsw i64 %51, 3
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx54
   %.not2050 = icmp eq i32 %50, 0
   br i1 %.not2050, label %_ZN4llvm11raw_ostreamlsEPKc.exit32, label %.lr.ph53
 
@@ -1198,7 +1200,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29:               ; preds = %72, %74
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %80 = load i32, ptr %79, align 8, !tbaa !26
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %78, i64 %81
+  %.idx = shl nuw nsw i64 %81, 3
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx
   %.not47 = icmp eq i32 %80, 0
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
@@ -1765,8 +1768,8 @@ define linkonce_odr void @_ZNK4llvm19DependenceGraphInfoINS_7DDGNodeEE19getDepen
   %19 = load ptr, ptr %6, align 8, !tbaa !25
   %20 = load i32, ptr %15, align 8, !tbaa !26
   %21 = zext i32 %20 to i64
-  %.idx.i = shl nuw nsw i64 %21, 3
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
+  %.idx.i4 = shl nuw nsw i64 %21, 3
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i4
   %23 = icmp eq i32 %20, 0
   br i1 %23, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE13destroy_rangeEPS5_S7_.exit.i, label %24
 
@@ -1788,16 +1791,16 @@ define linkonce_odr void @_ZNK4llvm19DependenceGraphInfoINS_7DDGNodeEE19getDepen
 
 _ZZNK4llvm19DependenceGraphInfoINS_7DDGNodeEE19getDependenceStringB5cxx11ERKS1_S4_ENKUlRKSt10unique_ptrINS_10DependenceESt14default_deleteIS6_EEE_clESB_.exit.i.i: ; preds = %32, %24
   %.not15.i.i = icmp eq i32 %20, 1
-  br i1 %.not15.i.i, label %_ZN4llvm10interleaveINS_11SmallVectorISt10unique_ptrINS_10DependenceESt14default_deleteIS3_EELj1EEEZNKS_19DependenceGraphInfoINS_7DDGNodeEE19getDependenceStringB5cxx11ERKS9_SC_EUlRKS6_E_NS_18raw_string_ostreamES6_EEvRKT_RT1_T0_RKNS_9StringRefE.exit, label %.lr.ph.i.i4
+  br i1 %.not15.i.i, label %_ZN4llvm10interleaveINS_11SmallVectorISt10unique_ptrINS_10DependenceESt14default_deleteIS3_EELj1EEEZNKS_19DependenceGraphInfoINS_7DDGNodeEE19getDependenceStringB5cxx11ERKS9_SC_EUlRKS6_E_NS_18raw_string_ostreamES6_EEvRKT_RT1_T0_RKNS_9StringRefE.exit, label %.lr.ph.i.i5
 
-.lr.ph.i.i4:                                      ; preds = %_ZZNK4llvm19DependenceGraphInfoINS_7DDGNodeEE19getDependenceStringB5cxx11ERKS1_S4_ENKUlRKSt10unique_ptrINS_10DependenceESt14default_deleteIS6_EEE_clESB_.exit.i.i
+.lr.ph.i.i5:                                      ; preds = %_ZZNK4llvm19DependenceGraphInfoINS_7DDGNodeEE19getDependenceStringB5cxx11ERKS1_S4_ENKUlRKSt10unique_ptrINS_10DependenceESt14default_deleteIS6_EEE_clESB_.exit.i.i
   %.014.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %36
 
-36:                                               ; preds = %_ZZNK4llvm19DependenceGraphInfoINS_7DDGNodeEE19getDependenceStringB5cxx11ERKS1_S4_ENKUlRKSt10unique_ptrINS_10DependenceESt14default_deleteIS6_EEE_clESB_.exit10.i.i, %.lr.ph.i.i4
-  %.016.i.i = phi ptr [ %.014.i.i, %.lr.ph.i.i4 ], [ %.0.i.i, %_ZZNK4llvm19DependenceGraphInfoINS_7DDGNodeEE19getDependenceStringB5cxx11ERKS1_S4_ENKUlRKSt10unique_ptrINS_10DependenceESt14default_deleteIS6_EEE_clESB_.exit10.i.i ]
+36:                                               ; preds = %_ZZNK4llvm19DependenceGraphInfoINS_7DDGNodeEE19getDependenceStringB5cxx11ERKS1_S4_ENKUlRKSt10unique_ptrINS_10DependenceESt14default_deleteIS6_EEE_clESB_.exit10.i.i, %.lr.ph.i.i5
+  %.016.i.i = phi ptr [ %.014.i.i, %.lr.ph.i.i5 ], [ %.0.i.i, %_ZZNK4llvm19DependenceGraphInfoINS_7DDGNodeEE19getDependenceStringB5cxx11ERKS1_S4_ENKUlRKSt10unique_ptrINS_10DependenceESt14default_deleteIS6_EEE_clESB_.exit10.i.i ]
   %37 = load ptr, ptr %34, align 8, !tbaa !79
   %38 = load ptr, ptr %35, align 8, !tbaa !83
   %39 = ptrtoint ptr %37 to i64
@@ -1835,8 +1838,8 @@ _ZZN4llvm10interleaveINS_11SmallVectorISt10unique_ptrINS_10DependenceESt14defaul
 
 _ZZNK4llvm19DependenceGraphInfoINS_7DDGNodeEE19getDependenceStringB5cxx11ERKS1_S4_ENKUlRKSt10unique_ptrINS_10DependenceESt14default_deleteIS6_EEE_clESB_.exit10.i.i: ; preds = %55, %_ZZN4llvm10interleaveINS_11SmallVectorISt10unique_ptrINS_10DependenceESt14default_deleteIS3_EELj1EEEZNKS_19DependenceGraphInfoINS_7DDGNodeEE19getDependenceStringB5cxx11ERKS9_SC_EUlRKS6_E_NS_18raw_string_ostreamES6_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
-  %.not.i.i5 = icmp eq ptr %.0.i.i, %22
-  br i1 %.not.i.i5, label %_ZN4llvm10interleaveINS_11SmallVectorISt10unique_ptrINS_10DependenceESt14default_deleteIS3_EELj1EEEZNKS_19DependenceGraphInfoINS_7DDGNodeEE19getDependenceStringB5cxx11ERKS9_SC_EUlRKS6_E_NS_18raw_string_ostreamES6_EEvRKT_RT1_T0_RKNS_9StringRefE.exit, label %36, !llvm.loop !137
+  %.not.i.i6 = icmp eq ptr %.0.i.i, %22
+  br i1 %.not.i.i6, label %_ZN4llvm10interleaveINS_11SmallVectorISt10unique_ptrINS_10DependenceESt14default_deleteIS3_EELj1EEEZNKS_19DependenceGraphInfoINS_7DDGNodeEE19getDependenceStringB5cxx11ERKS9_SC_EUlRKS6_E_NS_18raw_string_ostreamES6_EEvRKT_RT1_T0_RKNS_9StringRefE.exit, label %36, !llvm.loop !137
 
 _ZN4llvm10interleaveINS_11SmallVectorISt10unique_ptrINS_10DependenceESt14default_deleteIS3_EELj1EEEZNKS_19DependenceGraphInfoINS_7DDGNodeEE19getDependenceStringB5cxx11ERKS9_SC_EUlRKS6_E_NS_18raw_string_ostreamES6_EEvRKT_RT1_T0_RKNS_9StringRefE.exit: ; preds = %_ZZNK4llvm19DependenceGraphInfoINS_7DDGNodeEE19getDependenceStringB5cxx11ERKS1_S4_ENKUlRKSt10unique_ptrINS_10DependenceESt14default_deleteIS6_EEE_clESB_.exit10.i.i, %_ZZNK4llvm19DependenceGraphInfoINS_7DDGNodeEE19getDependenceStringB5cxx11ERKS1_S4_ENKUlRKSt10unique_ptrINS_10DependenceESt14default_deleteIS6_EEE_clESB_.exit.i.i, %4
   %.pr = load i32, ptr %15, align 8, !tbaa !26
@@ -1846,7 +1849,8 @@ _ZN4llvm10interleaveINS_11SmallVectorISt10unique_ptrINS_10DependenceESt14default
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm10interleaveINS_11SmallVectorISt10unique_ptrINS_10DependenceESt14default_deleteIS3_EELj1EEEZNKS_19DependenceGraphInfoINS_7DDGNodeEE19getDependenceStringB5cxx11ERKS9_SC_EUlRKS6_E_NS_18raw_string_ostreamES6_EEvRKT_RT1_T0_RKNS_9StringRefE.exit
   %58 = zext i32 %.pr to i64
-  %59 = getelementptr inbounds nuw %"class.std::unique_ptr.67", ptr %57, i64 %58
+  %.idx.i = shl nuw nsw i64 %58, 3
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -1969,7 +1973,8 @@ define linkonce_odr hidden void @_ZN4llvm11GraphWriterIPKNS_19DataDependenceGrap
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %9 = load i32, ptr %8, align 8, !tbaa !26
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %.idx.i = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
   %.not11.i = icmp eq i32 %9, 0
   br i1 %.not11.i, label %_ZN4llvm11GraphWriterIPKNS_19DataDependenceGraphEE10writeNodesEv.exit, label %.lr.ph.i
 
@@ -2803,7 +2808,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit61:               ; preds = %92, %94
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %103 = load i32, ptr %102, align 8, !tbaa !26
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw ptr, ptr %101, i64 %104
+  %.idx = shl nuw nsw i64 %104, 3
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx
   %.not233 = icmp eq i32 %103, 0
   br i1 %.not233, label %._crit_edge, label %.lr.ph
 
@@ -3175,7 +3181,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit183:              ; preds = %290, %292
   %295 = load ptr, ptr %239, align 8, !tbaa !25
   %296 = load i32, ptr %240, align 8, !tbaa !26
   %297 = zext i32 %296 to i64
-  %298 = getelementptr inbounds nuw ptr, ptr %295, i64 %297
+  %.idx235 = shl nuw nsw i64 %297, 3
+  %298 = getelementptr inbounds nuw i8, ptr %295, i64 %.idx235
   %.not234 = icmp eq i32 %296, 0
   br i1 %.not234, label %.preheader, label %.lr.ph227
 
@@ -3763,7 +3770,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK4llvm19DependenceGraphInfoINS_7DDGNo
   %23 = load ptr, ptr %6, align 8, !tbaa !25
   %24 = load i32, ptr %13, align 8, !tbaa !26
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %25
+  %.idx = shl nuw nsw i64 %25, 3
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   %.not28 = icmp eq i32 %24, 0
   br i1 %.not28, label %._crit_edge32, label %.lr.ph31
 
@@ -3808,7 +3816,8 @@ _ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit21: ; preds = %_ZN4llvm11S
   %42 = load ptr, ptr %7, align 8, !tbaa !25
   %43 = load i32, ptr %16, align 8, !tbaa !26
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %44
+  %.idx33 = shl nuw nsw i64 %44, 3
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx33
   %.not2026 = icmp eq i32 %43, 0
   br i1 %.not2026, label %._crit_edge, label %.lr.ph
 
@@ -3848,7 +3857,8 @@ _ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit21: ; preds = %_ZN4llvm11S
   %60 = load ptr, ptr %3, align 8, !tbaa !25
   %61 = load i32, ptr %28, align 8, !tbaa !26
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw %"class.std::unique_ptr.67", ptr %60, i64 %62
+  %.idx.i.i = shl nuw nsw i64 %62, 3
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx.i.i
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %61, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -3974,7 +3984,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !26
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"class.std::unique_ptr.67", ptr %6, i64 %9
+  %.idx.i = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_10DependenceESt14default_deleteIS2_EELb0EE19moveElementsForGrowEPS5_.exit, label %.lr.ph.i.i.i.i.i.i
 

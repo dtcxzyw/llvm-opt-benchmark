@@ -1385,7 +1385,8 @@ define void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias nounde
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   %16 = getelementptr inbounds i8, ptr %0, i64 %1
-  %17 = getelementptr inbounds i32, ptr %2, i64 %1
+  %.idx = shl nsw i64 %1, 2
+  %17 = getelementptr inbounds i8, ptr %2, i64 %.idx
   %18 = icmp eq i64 %1, 0
   br i1 %18, label %.thread, label %19
 

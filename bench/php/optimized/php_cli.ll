@@ -57,7 +57,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.php_cli_server_context = type { i32 }
 %struct._zend_syntax_highlighter_ini = type { ptr, ptr, ptr, ptr, ptr }
 %struct._zend_execute_data = type { ptr, ptr, ptr, ptr, %struct._zval_struct, ptr, ptr, ptr, ptr }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct._zend_constant = type { %struct._zval_struct, ptr, ptr }
 
 @cli_shell_callbacks = internal global %struct.cli_shell_callbacks_t zeroinitializer, align 8
@@ -621,7 +620,8 @@ define internal fastcc i32 @do_cli(i32 noundef %0, ptr noundef %1) unnamed_addr 
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %40 = load i32, ptr %39, align 8, !tbaa !92
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw %struct._Bucket, ptr %38, i64 %41
+  %.idx.i = shl nuw nsw i64 %41, 5
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !37
   %45 = and i32 %44, 4
@@ -1533,7 +1533,8 @@ zend_object_release.exit:                         ; preds = %355, %356, %361
   %403 = getelementptr inbounds nuw i8, ptr %400, i64 24
   %404 = load i32, ptr %403, align 8, !tbaa !92
   %405 = zext i32 %404 to i64
-  %406 = getelementptr inbounds nuw %struct._zval_struct, ptr %402, i64 %405
+  %.idx = shl nuw nsw i64 %405, 4
+  %406 = getelementptr inbounds nuw i8, ptr %402, i64 %.idx
   %407 = getelementptr inbounds nuw i8, ptr %400, i64 8
   %408 = load i32, ptr %407, align 8, !tbaa !37
   %409 = and i32 %408, 4

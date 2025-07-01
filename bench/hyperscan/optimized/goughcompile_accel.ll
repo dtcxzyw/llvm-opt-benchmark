@@ -897,7 +897,8 @@ _ZNSt8_Rb_treeIPKN3ue211GoughSSAVarESt4pairIKS3_mESt10_Select1stIS6_ESt4lessIS3_
   %307 = load ptr, ptr %306, align 8, !noalias !19
   %308 = getelementptr inbounds nuw i8, ptr %305, i64 24
   %309 = load i64, ptr %308, align 8, !noalias !26
-  %310 = getelementptr inbounds nuw ptr, ptr %307, i64 %309
+  %.idx.i = shl nuw nsw i64 %309, 3
+  %310 = getelementptr inbounds nuw i8, ptr %307, i64 %.idx.i
   %.not280309.i = icmp eq i64 %309, 0
   %311 = load ptr, ptr %36, align 8
   %312 = icmp eq ptr %311, null

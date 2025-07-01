@@ -3044,7 +3044,7 @@ _ZNSt6vectorIPhSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %5
 .noexc19:                                         ; preds = %_ZNSt6vectorIPhSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
   %11 = shl nuw nsw i64 %9, 3
   %12 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #33
-  %13 = getelementptr ptr, ptr %12, i64 %9
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %9
   store ptr null, ptr %12, align 8, !tbaa !118
   %14 = icmp eq i32 %8, 1
   br i1 %14, label %_ZNSt6vectorIPhSaIS0_EEC2EmRKS1_.exit, label %_ZSt6fill_nIPPhmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i

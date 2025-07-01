@@ -681,7 +681,8 @@ _ZN6google8protobuf8compiler3cpp10HasTrackerEPKNS0_10DescriptorERKNS2_7OptionsE.
   %4 = phi i1 [ false, %entry ], [ %cmp.i, %land.rhs.i ]
   %forbidden_field_listener_events = getelementptr inbounds nuw i8, ptr %opts, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %add.ptr.i = getelementptr inbounds %"struct.google::protobuf::compiler::cpp::(anonymous namespace)::Call", ptr %calls.coerce0, i64 %calls.coerce1
+  %add.ptr.i.idx = mul nsw i64 %calls.coerce1, 96
+  %add.ptr.i = getelementptr inbounds i8, ptr %calls.coerce0, i64 %add.ptr.i.idx
   %cmp.not60 = icmp eq i64 %calls.coerce1, 0
   br i1 %cmp.not60, label %nrvo.skipdtor, label %for.body.lr.ph
 

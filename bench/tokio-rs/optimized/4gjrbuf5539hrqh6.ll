@@ -1021,7 +1021,8 @@ define hidden void @_ZN10tokio_util4sync18cancellation_token9tree_node19disconne
   store i64 0, ptr %0, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.420.0..sroa_idx, align 8
   store i64 0, ptr %.sroa.521.0..sroa_idx, align 8
-  %6 = getelementptr inbounds ptr, ptr %.sroa.420.0.copyload, i64 %.sroa.521.0.copyload
+  %.idx = shl nsw i64 %.sroa.521.0.copyload, 3
+  %6 = getelementptr inbounds i8, ptr %.sroa.420.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %.sroa.420.0.copyload, ptr %5, align 8
   %.sroa.4.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1257,7 +1258,8 @@ define hidden void @_ZN10tokio_util4sync18cancellation_token9tree_node23move_chi
   store i64 0, ptr %0, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.422.0..sroa_idx, align 8
   store i64 0, ptr %8, align 8
-  %16 = getelementptr inbounds ptr, ptr %.sroa.422.0.copyload, i64 %9
+  %.idx = shl nsw i64 %9, 3
+  %16 = getelementptr inbounds i8, ptr %.sroa.422.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   store ptr %.sroa.422.0.copyload, ptr %7, align 8
   %.sroa.4.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %7, i64 8

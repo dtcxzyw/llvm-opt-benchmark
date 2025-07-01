@@ -31,7 +31,8 @@ default.unreachable4:                             ; preds = %2
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %9
+  %.idx = shl nsw i64 %9, 3
+  %12 = getelementptr inbounds i8, ptr %11, i64 %.idx
   %.not.i = icmp eq i64 %9, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h547a18ea4c78f2f7E.exit", label %.lr.ph.i
 
@@ -96,7 +97,8 @@ default.unreachable5:                             ; preds = %2
   %11 = load i64, ptr %10, align 8, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !align !5, !noundef !4
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %11
+  %.idx = shl nsw i64 %11, 3
+  %14 = getelementptr inbounds i8, ptr %13, i64 %.idx
   %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb7fdd286ee827d9dE.exit", label %.lr.ph.i
 

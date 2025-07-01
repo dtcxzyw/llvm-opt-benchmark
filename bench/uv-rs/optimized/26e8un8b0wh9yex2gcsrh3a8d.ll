@@ -42501,7 +42501,8 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$7or_else17hc959c544d6dcddf8
   %.val.i.i.i.i.i.i.i.i.i = load ptr, ptr %57, align 8, !alias.scope !15152, !noalias !15148, !nonnull !3, !noundef !3
   %58 = getelementptr i8, ptr %53, i64 -8
   %.val4.i.i.i.i.i.i.i.i.i = load i64, ptr %58, align 8, !alias.scope !15152, !noalias !15148, !noundef !3
-  %59 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %.val.i.i.i.i.i.i.i.i.i, i64 %.val4.i.i.i.i.i.i.i.i.i
+  %.idx.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %.val4.i.i.i.i.i.i.i.i.i, 376
+  %59 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i.i.i.i, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   store ptr %.val.i.i.i.i.i.i.i.i.i, ptr %13, align 8, !alias.scope !15155, !noalias !15158
   store ptr %59, ptr %50, align 8, !alias.scope !15155, !noalias !15158
   call void @llvm.experimental.noalias.scope.decl(metadata !15164)

@@ -10,10 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.base.186" = type { %"union.std::_Optional_payload_base<llvm::Function::ProfileCount>::_Storage", i8 }
 %"union.std::_Optional_payload_base<llvm::Function::ProfileCount>::_Storage" = type { %"class.llvm::Function::ProfileCount" }
 %"class.llvm::Function::ProfileCount" = type <{ i64, i32, [4 x i8] }>
-%"class.llvm::MachineOperand" = type { i32, %union.anon, ptr, %"union.llvm::MachineOperand::ContentsUnion" }
-%union.anon = type { i32 }
-%"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef" }
-%"class.llvm::ArrayRef" = type { ptr, i64 }
 %class.anon.204 = type { ptr, ptr }
 %"class.std::reference_wrapper" = type { ptr }
 
@@ -298,7 +294,8 @@ define dso_local noundef zeroext i1 @_ZN18StaticDataSplitter27splitJumpTablesWit
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.028.042, i64 40
   %16 = load i24, ptr %15, align 8
   %17 = zext i24 %16 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %14, i64 %17
+  %.idx = shl nuw nsw i64 %17, 5
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %.not36 = icmp eq i24 %16, 0
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 

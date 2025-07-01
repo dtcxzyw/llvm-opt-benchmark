@@ -1675,7 +1675,8 @@ define internal void @ConvertRGBA32ToUV_SSE41(ptr noalias noundef %0, ptr noalia
   %5 = and i32 %3, -16
   %6 = shl nsw i32 %5, 2
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds i16, ptr %0, i64 %7
+  %.idx = shl nsw i64 %7, 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %9 = icmp sgt i32 %3, 15
   br i1 %9, label %.lr.ph, label %._crit_edge
 

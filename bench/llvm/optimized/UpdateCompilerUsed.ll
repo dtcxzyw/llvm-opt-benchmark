@@ -318,7 +318,8 @@ _ZNSt6vectorIN4llvm7VecDescESaIS1_EED2Ev.exit2.i.i.i: ; preds = %117, %_ZNSt6vec
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIN4llvm7VecDescESaIS1_EED2Ev.exit2.i.i.i
   %125 = zext i32 %123 to i64
-  %126 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.180", ptr %.pre1.i.i.i.i, i64 %125
+  %.idx.i.i.i.i.i = mul nuw nsw i64 %125, 40
+  %126 = getelementptr inbounds nuw i8, ptr %.pre1.i.i.i.i, i64 %.idx.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i
@@ -383,7 +384,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsI
   %156 = load ptr, ptr %8, align 8, !tbaa !30, !noalias !67
   %157 = load i32, ptr %47, align 4, !tbaa !34, !noalias !67
   %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds nuw ptr, ptr %156, i64 %158
+  %.idx.i.i.i.i = shl nuw nsw i64 %158, 3
+  %159 = getelementptr inbounds nuw i8, ptr %156, i64 %.idx.i.i.i.i
   %.not36.i.i.i.i = icmp eq i32 %157, 0
   br i1 %.not36.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 

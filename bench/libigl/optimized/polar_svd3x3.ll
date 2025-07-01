@@ -605,7 +605,7 @@ _ZN5Eigen8internal20generic_product_implINS_5BlockINS_6MatrixIfLi12ELi3ELi0ELi12
   br label %34
 
 30:                                               ; preds = %3
-  %31 = mul i64 %15, %12
+  %31 = mul nsw i64 %15, %12
   %32 = icmp slt i64 %31, 1
   br i1 %32, label %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE7setZeroEv.exit, label %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE11setConstantERKf.exit.loopexit.i
 

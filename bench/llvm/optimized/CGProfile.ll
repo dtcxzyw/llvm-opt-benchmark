@@ -68,7 +68,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.189" = type { %"class.llvm::SmallVectorTemplateCommon.190" }
 %"class.llvm::SmallVectorTemplateCommon.190" = type { %"class.llvm::SmallVectorBase.66" }
 %"struct.llvm::SmallVectorStorage.191" = type { [64 x i8] }
-%struct.InstrProfValueData = type { i64, i64 }
 %"struct.std::pair.210" = type { i64, ptr }
 %"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.base", [4 x i8] }
 %"struct.std::pair.base" = type <{ %"struct.std::pair.192", i32 }>
@@ -82,7 +81,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::IntervalMapImpl::NodeRef" = type { %"class.llvm::PointerIntPair" }
 %"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
 %"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
-%"struct.std::pair.239" = type { ptr, i64 }
 
 $_ZN4llvm15InstrProfSymtabD2Ev = comdat any
 
@@ -244,7 +242,8 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %45, %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
   store ptr %65, ptr %7, align 8, !tbaa !160
   %66 = zext i32 %.val51.i to i64
-  %67 = getelementptr inbounds nuw %"struct.std::pair.206", ptr %.val.i, i64 %66
+  %.idx.i.i = mul nuw nsw i64 %66, 24
+  %67 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i.i
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %78
@@ -445,7 +444,8 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i: ; preds = %141,
   %146 = load ptr, ptr %14, align 8, !tbaa !14
   %147 = load i32, ptr %57, align 8, !tbaa !17
   %148 = zext i32 %147 to i64
-  %149 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %146, i64 %148
+  %.idx.i = shl nuw nsw i64 %148, 4
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 %.idx.i
   %.not50280.i = icmp eq i32 %147, 0
   br i1 %.not50280.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -2054,7 +2054,8 @@ _ZN4llvm8DenseMapISt4pairIPNS_8FunctionES3_EjNS_12DenseMapInfoIS4_vEENS_6detail1
   store i32 0, ptr %24, align 4, !tbaa !223
   %25 = load i32, ptr %2, align 8, !tbaa !215
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %26
+  %.idx.i = mul nuw nsw i64 %26, 24
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i
   %.not5.i = icmp eq i32 %25, 0
   br i1 %.not5.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_8FunctionES4_EjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E9initEmptyEv.exit, label %.lr.ph.i
 
@@ -2089,7 +2090,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !215
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
+  %.idx.i = mul nuw nsw i64 %9, 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not5.i = icmp eq i32 %8, 0
   br i1 %.not5.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_8FunctionES4_EjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E9initEmptyEv.exit, label %.lr.ph.i
 
@@ -3908,7 +3910,8 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !17
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %.idx = shl nuw nsw i64 %6, 3
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not6.i = icmp eq i32 %5, 0
   br i1 %.not6.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, label %.lr.ph.i
 
@@ -3936,7 +3939,8 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load i32, ptr %20, align 8, !tbaa !17
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.std::pair.239", ptr %19, i64 %22
+  %.idx.i = shl nuw nsw i64 %22, 4
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
   %.not10.i = icmp eq i32 %21, 0
   br i1 %.not10.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit, label %.lr.ph.i1
 

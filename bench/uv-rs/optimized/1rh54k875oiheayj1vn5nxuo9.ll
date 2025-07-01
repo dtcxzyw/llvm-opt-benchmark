@@ -907,7 +907,8 @@ define void @_ZN16uv_install_wheel9uninstall15uninstall_wheel17hd7354509305b7d29
   %139 = load ptr, ptr %138, align 8, !nonnull !4, !noundef !4
   %140 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %141 = load i64, ptr %140, align 8, !noundef !4
-  %142 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %139, i64 %141
+  %.idx = shl nsw i64 %141, 6
+  %142 = getelementptr inbounds i8, ptr %139, i64 %.idx
   %143 = icmp eq i64 %141, 0
   br i1 %143, label %._crit_edge, label %.lr.ph
 
@@ -3006,7 +3007,8 @@ _ZN3std4path4Path4join17hd71a9d74afd607e5E.exit:  ; preds = %80
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !547, !noalias !550
   %124 = icmp ult i64 %.sroa.5.0.copyload.i, 384307168202282326
   call void @llvm.assume(i1 %124)
-  %125 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nuw nsw i64 %.sroa.5.0.copyload.i, 24
+  %125 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   %126 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   call void @llvm.assume(i1 %126)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43)

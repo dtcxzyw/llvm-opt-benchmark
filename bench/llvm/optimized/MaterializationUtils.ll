@@ -84,11 +84,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 %"struct.llvm::detail::DenseMapPair.57" = type { %"struct.std::pair.base.60", [4 x i8] }
 %"struct.std::pair.base.60" = type <{ ptr, i32 }>
-%"struct.std::pair.69" = type { ptr, %"class.std::unique_ptr.71" }
 %"struct.llvm::AlignedCharArrayUnion.131" = type { [128 x i8] }
 %"struct.std::pair.58" = type <{ ptr, i32, [4 x i8] }>
 %"struct.std::pair.141" = type <{ %"class.llvm::DenseMapIterator.143", i8, [7 x i8] }>
 %"class.llvm::DenseMapIterator.143" = type { ptr, ptr }
+%"struct.std::pair.69" = type { ptr, %"class.std::unique_ptr.71" }
 %"struct.llvm::AlignedCharArrayUnion.145" = type { [128 x i8] }
 
 $_ZNK4llvm19SuspendCrossingInfo25isDefinitionAcrossSuspendERNS_11InstructionEPNS_4UserE = comdat any
@@ -261,9 +261,9 @@ _ZN4llvm12instructionsERNS_8FunctionE.exit:       ; preds = %.lr.ph.i.i.i.i, %_Z
   %.sroa.23.0.i = phi ptr [ %51, %_ZN4llvm14SmallMapVectorIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEELj8EEC2Ev.exit ], [ %51, %52 ], [ %63, %..sink.split.i.i_crit_edge.i.i ], [ %58, %.lr.ph.i.i.preheader.i.i ], [ %61, %.lr.ph.i.i.i.i ]
   %.sroa.44.0.i = phi ptr [ null, %_ZN4llvm14SmallMapVectorIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEELj8EEC2Ev.exit ], [ %54, %52 ], [ %65, %..sink.split.i.i_crit_edge.i.i ], [ %54, %.lr.ph.i.i.preheader.i.i ], [ %65, %.lr.ph.i.i.i.i ]
   %68 = icmp eq ptr %.sroa.23.0.i, %49
-  br i1 %68, label %_ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EneERKSD_.exit, label %.lr.ph256
+  br i1 %68, label %_ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EneERKSD_.exit, label %.lr.ph259
 
-.lr.ph256:                                        ; preds = %_ZN4llvm12instructionsERNS_8FunctionE.exit
+.lr.ph259:                                        ; preds = %_ZN4llvm12instructionsERNS_8FunctionE.exit
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %71 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -304,15 +304,16 @@ _ZN4llvm14SmallMapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110Remat
   %86 = load ptr, ptr %45, align 8, !tbaa !19
   %87 = load i32, ptr %47, align 8, !tbaa !21
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw %"struct.std::pair", ptr %86, i64 %88
-  %.not260 = icmp eq i32 %87, 0
-  br i1 %.not260, label %._crit_edge263.thread, label %.lr.ph262
+  %.idx = mul nuw nsw i64 %88, 40
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx
+  %.not263 = icmp eq i32 %87, 0
+  br i1 %.not263, label %._crit_edge266.thread, label %.lr.ph265
 
-._crit_edge263.thread:                            ; preds = %_ZN4llvm14SmallMapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EELj8EEC2Ev.exit
+._crit_edge266.thread:                            ; preds = %_ZN4llvm14SmallMapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EELj8EEC2Ev.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %33) #14
   br label %_ZL33rewriteMaterializableInstructionsRKN4llvm14SmallMapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EELj8EEE.exit
 
-.lr.ph262:                                        ; preds = %_ZN4llvm14SmallMapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EELj8EEC2Ev.exit
+.lr.ph265:                                        ; preds = %_ZN4llvm14SmallMapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EELj8EEC2Ev.exit
   %90 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %91 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -328,10 +329,10 @@ _ZN4llvm14SmallMapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110Remat
   %102 = ptrtoint ptr %5 to i64
   br label %1016
 
-103:                                              ; preds = %.lr.ph256, %_ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit
-  %.sroa.8.0254 = phi ptr [ %.sroa.44.0.i, %.lr.ph256 ], [ %.sroa.8.3, %_ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit ]
-  %.sroa.5180.0253 = phi ptr [ %.sroa.23.0.i, %.lr.ph256 ], [ %.sroa.5180.1, %_ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit ]
-  %104 = getelementptr inbounds i8, ptr %.sroa.8.0254, i64 -24
+103:                                              ; preds = %.lr.ph259, %_ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit
+  %.sroa.8.0257 = phi ptr [ %.sroa.44.0.i, %.lr.ph259 ], [ %.sroa.8.3, %_ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit ]
+  %.sroa.5183.0256 = phi ptr [ %.sroa.23.0.i, %.lr.ph259 ], [ %.sroa.5183.1, %_ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit ]
+  %104 = getelementptr inbounds i8, ptr %.sroa.8.0257, i64 -24
   %105 = load ptr, ptr %69, align 8, !tbaa !41
   %.not.i.i = icmp eq ptr %105, null
   br i1 %.not.i.i, label %106, label %_ZNKSt8functionIFbRN4llvm11InstructionEEEclES2_.exit
@@ -346,15 +347,15 @@ _ZNKSt8functionIFbRN4llvm11InstructionEEEclES2_.exit: ; preds = %103
   br i1 %108, label %109, label %.loopexit
 
 109:                                              ; preds = %_ZNKSt8functionIFbRN4llvm11InstructionEEEclES2_.exit
-  %110 = getelementptr inbounds i8, ptr %.sroa.8.0254, i64 -8
-  %.sroa.0172.0246 = load ptr, ptr %110, align 8, !tbaa !45
-  %.not211247 = icmp eq ptr %.sroa.0172.0246, null
-  br i1 %.not211247, label %.loopexit, label %.lr.ph
+  %110 = getelementptr inbounds i8, ptr %.sroa.8.0257, i64 -8
+  %.sroa.0175.0249 = load ptr, ptr %110, align 8, !tbaa !45
+  %.not214250 = icmp eq ptr %.sroa.0175.0249, null
+  br i1 %.not214250, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %109
-  %111 = getelementptr inbounds nuw i8, ptr %.sroa.8.0254, i64 16
-  %112 = getelementptr inbounds i8, ptr %.sroa.8.0254, i64 -56
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.8.0254, i64 56
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.8.0257, i64 16
+  %112 = getelementptr inbounds i8, ptr %.sroa.8.0257, i64 -56
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.8.0257, i64 56
   %114 = ptrtoint ptr %104 to i64
   %115 = trunc i64 %114 to i32
   %116 = lshr i32 %115, 4
@@ -363,8 +364,8 @@ _ZNKSt8functionIFbRN4llvm11InstructionEEEclES2_.exit: ; preds = %103
   br label %119
 
 119:                                              ; preds = %.lr.ph, %_ZNK4llvm19SuspendCrossingInfo25isDefinitionAcrossSuspendERNS_11InstructionEPNS_4UserE.exit.thread
-  %.sroa.0172.0248 = phi ptr [ %.sroa.0172.0246, %.lr.ph ], [ %.sroa.0172.0, %_ZNK4llvm19SuspendCrossingInfo25isDefinitionAcrossSuspendERNS_11InstructionEPNS_4UserE.exit.thread ]
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.0172.0248, i64 24
+  %.sroa.0175.0251 = phi ptr [ %.sroa.0175.0249, %.lr.ph ], [ %.sroa.0175.0, %_ZNK4llvm19SuspendCrossingInfo25isDefinitionAcrossSuspendERNS_11InstructionEPNS_4UserE.exit.thread ]
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.0175.0251, i64 24
   %121 = load ptr, ptr %120, align 8, !tbaa !46
   %122 = load ptr, ptr %111, align 8, !tbaa !50
   %123 = load i8, ptr %104, align 8, !tbaa !3
@@ -475,11 +476,11 @@ _ZNK4llvm19SuspendCrossingInfo25isDefinitionAcrossSuspendERNS_11InstructionEPNS_
 170:                                              ; preds = %_ZNK4llvm19SuspendCrossingInfo25isDefinitionAcrossSuspendERNS_11InstructionEPNS_4UserE.exit
   %171 = load i32, ptr %40, align 8, !noalias !75
   %172 = and i32 %171, 1
-  %.not.i.i.i.i.i90 = icmp eq i32 %172, 0
+  %.not.i.i.i.i.i91 = icmp eq i32 %172, 0
   %173 = load ptr, ptr %71, align 8, !noalias !75
-  %174 = select i1 %.not.i.i.i.i.i90, ptr %173, ptr %71
+  %174 = select i1 %.not.i.i.i.i.i91, ptr %173, ptr %71
   %175 = load i32, ptr %72, align 8, !noalias !75
-  %176 = select i1 %.not.i.i.i.i.i90, i32 %175, i32 8
+  %176 = select i1 %.not.i.i.i.i.i91, i32 %175, i32 8
   %177 = icmp eq i32 %176, 0
   br i1 %177, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i, label %178
 
@@ -490,9 +491,9 @@ _ZNK4llvm19SuspendCrossingInfo25isDefinitionAcrossSuspendERNS_11InstructionEPNS_
   %181 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %174, i64 %180
   %182 = load ptr, ptr %181, align 8, !tbaa !15, !noalias !75
   %183 = icmp eq ptr %104, %182
-  br i1 %183, label %._crit_edge.i, label %.lr.ph.i.i91, !prof !78
+  br i1 %183, label %._crit_edge.i, label %.lr.ph.i.i92, !prof !78
 
-.lr.ph.i.i91:                                     ; preds = %178, %189
+.lr.ph.i.i92:                                     ; preds = %178, %189
   %184 = phi ptr [ %196, %189 ], [ %182, %178 ]
   %185 = phi ptr [ %195, %189 ], [ %181, %178 ]
   %.02947.i.i = phi i32 [ %.029.i.i, %189 ], [ %.02944.i.i, %178 ]
@@ -501,12 +502,12 @@ _ZNK4llvm19SuspendCrossingInfo25isDefinitionAcrossSuspendERNS_11InstructionEPNS_
   %186 = icmp eq ptr %184, inttoptr (i64 -4096 to ptr)
   br i1 %186, label %187, label %189, !prof !79
 
-187:                                              ; preds = %.lr.ph.i.i91
-  %.not.i.i92 = icmp eq ptr %.03245.i.i, null
-  %188 = select i1 %.not.i.i92, ptr %185, ptr %.03245.i.i
+187:                                              ; preds = %.lr.ph.i.i92
+  %.not.i.i93 = icmp eq ptr %.03245.i.i, null
+  %188 = select i1 %.not.i.i93, ptr %185, ptr %.03245.i.i
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i
 
-189:                                              ; preds = %.lr.ph.i.i91
+189:                                              ; preds = %.lr.ph.i.i92
   %190 = icmp eq ptr %184, inttoptr (i64 -8192 to ptr)
   %191 = icmp eq ptr %.03245.i.i, null
   %or.cond.not.i.i = select i1 %190, i1 %191, i1 false
@@ -518,7 +519,7 @@ _ZNK4llvm19SuspendCrossingInfo25isDefinitionAcrossSuspendERNS_11InstructionEPNS_
   %195 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %174, i64 %194
   %196 = load ptr, ptr %195, align 8, !tbaa !15, !noalias !75
   %197 = icmp eq ptr %104, %196
-  br i1 %197, label %._crit_edge.i, label %.lr.ph.i.i91, !prof !80, !llvm.loop !81
+  br i1 %197, label %._crit_edge.i, label %.lr.ph.i.i92, !prof !80, !llvm.loop !81
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i: ; preds = %187, %170
   %.sink.i.i = phi ptr [ %188, %187 ], [ null, %170 ]
@@ -526,8 +527,8 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj8ENS_12DenseMapInfoIS3_v
   %199 = shl i32 %198, 2
   %200 = add i32 %199, 4
   %201 = mul i32 %176, 3
-  %.not.i.i.i93 = icmp ult i32 %200, %201
-  br i1 %.not.i.i.i93, label %204, label %202, !prof !79
+  %.not.i.i.i94 = icmp ult i32 %200, %201
+  br i1 %.not.i.i.i94, label %204, label %202, !prof !79
 
 202:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i
   %203 = shl i32 %176, 1
@@ -547,11 +548,11 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj8ENS_12DenseMapInfoIS3_v
   call void @_ZN4llvm13SmallDenseMapIPNS_5ValueEjLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(472) %40, i32 noundef %.sink.i.i.i), !noalias !75
   %208 = load i32, ptr %40, align 8, !noalias !75
   %209 = and i32 %208, 1
-  %.not.i.i.i.i152 = icmp eq i32 %209, 0
+  %.not.i.i.i.i155 = icmp eq i32 %209, 0
   %210 = load ptr, ptr %71, align 8, !noalias !75
-  %211 = select i1 %.not.i.i.i.i152, ptr %210, ptr %71
+  %211 = select i1 %.not.i.i.i.i155, ptr %210, ptr %71
   %212 = load i32, ptr %72, align 8, !noalias !75
-  %213 = select i1 %.not.i.i.i.i152, i32 %212, i32 8
+  %213 = select i1 %.not.i.i.i.i155, i32 %212, i32 8
   %214 = icmp eq i32 %213, 0
   br i1 %214, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit, label %215
 
@@ -562,9 +563,9 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj8ENS_12DenseMapInfoIS3_v
   %218 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %211, i64 %217
   %219 = load ptr, ptr %218, align 8, !tbaa !15, !noalias !75
   %220 = icmp eq ptr %104, %219
-  br i1 %220, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit, label %.lr.ph.i153, !prof !78
+  br i1 %220, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit, label %.lr.ph.i156, !prof !78
 
-.lr.ph.i153:                                      ; preds = %215, %226
+.lr.ph.i156:                                      ; preds = %215, %226
   %221 = phi ptr [ %233, %226 ], [ %219, %215 ]
   %222 = phi ptr [ %232, %226 ], [ %218, %215 ]
   %.02947.i = phi i32 [ %.029.i, %226 ], [ %.02944.i, %215 ]
@@ -573,12 +574,12 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj8ENS_12DenseMapInfoIS3_v
   %223 = icmp eq ptr %221, inttoptr (i64 -4096 to ptr)
   br i1 %223, label %224, label %226, !prof !79
 
-224:                                              ; preds = %.lr.ph.i153
-  %.not.i156 = icmp eq ptr %.03245.i, null
-  %225 = select i1 %.not.i156, ptr %222, ptr %.03245.i
+224:                                              ; preds = %.lr.ph.i156
+  %.not.i159 = icmp eq ptr %.03245.i, null
+  %225 = select i1 %.not.i159, ptr %222, ptr %.03245.i
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit
 
-226:                                              ; preds = %.lr.ph.i153
+226:                                              ; preds = %.lr.ph.i156
   %227 = icmp eq ptr %221, inttoptr (i64 -8192 to ptr)
   %228 = icmp eq ptr %.03245.i, null
   %or.cond.not.i = select i1 %227, i1 %228, i1 false
@@ -590,7 +591,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj8ENS_12DenseMapInfoIS3_v
   %232 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %211, i64 %231
   %233 = load ptr, ptr %232, align 8, !tbaa !15, !noalias !75
   %234 = icmp eq ptr %104, %233
-  br i1 %234, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit, label %.lr.ph.i153, !prof !80, !llvm.loop !81
+  br i1 %234, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit, label %.lr.ph.i156, !prof !80, !llvm.loop !81
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit: ; preds = %226, %224, %215, %.sink.split.i.i.i, %204
   %.pre-phi.i.i = phi i32 [ %172, %204 ], [ %209, %.sink.split.i.i.i ], [ %209, %215 ], [ %209, %224 ], [ %209, %226 ]
@@ -744,31 +745,31 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit: ; 
   br label %_ZNK4llvm19SuspendCrossingInfo25isDefinitionAcrossSuspendERNS_11InstructionEPNS_4UserE.exit.thread
 
 _ZNK4llvm19SuspendCrossingInfo25isDefinitionAcrossSuspendERNS_11InstructionEPNS_4UserE.exit.thread: ; preds = %142, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit, %_ZNK4llvm19SuspendCrossingInfo25isDefinitionAcrossSuspendERNS_11InstructionEPNS_4UserE.exit
-  %305 = getelementptr inbounds nuw i8, ptr %.sroa.0172.0248, i64 8
-  %.sroa.0172.0 = load ptr, ptr %305, align 8, !tbaa !45
-  %.not211 = icmp eq ptr %.sroa.0172.0, null
-  br i1 %.not211, label %.loopexit, label %119
+  %305 = getelementptr inbounds nuw i8, ptr %.sroa.0175.0251, i64 8
+  %.sroa.0175.0 = load ptr, ptr %305, align 8, !tbaa !45
+  %.not214 = icmp eq ptr %.sroa.0175.0, null
+  br i1 %.not214, label %.loopexit, label %119
 
 .loopexit:                                        ; preds = %_ZNK4llvm19SuspendCrossingInfo25isDefinitionAcrossSuspendERNS_11InstructionEPNS_4UserE.exit.thread, %109, %_ZNKSt8functionIFbRN4llvm11InstructionEEEclES2_.exit
-  %306 = getelementptr inbounds nuw i8, ptr %.sroa.8.0254, i64 8
+  %306 = getelementptr inbounds nuw i8, ptr %.sroa.8.0257, i64 8
   %307 = load ptr, ptr %306, align 8, !tbaa !31
-  %308 = getelementptr inbounds nuw i8, ptr %.sroa.5180.0253, i64 24
+  %308 = getelementptr inbounds nuw i8, ptr %.sroa.5183.0256, i64 24
   %309 = icmp eq ptr %307, %308
   br i1 %309, label %.lr.ph.i.i42.preheader, label %_ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit
 
 .lr.ph.i.i42.preheader:                           ; preds = %.loopexit
-  %310 = getelementptr inbounds nuw i8, ptr %.sroa.5180.0253, i64 8
+  %310 = getelementptr inbounds nuw i8, ptr %.sroa.5183.0256, i64 8
   %311 = load ptr, ptr %310, align 8, !tbaa !23
   %312 = icmp eq ptr %311, %49
-  br i1 %312, label %_ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit, label %.lr.ph249
+  br i1 %312, label %_ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit, label %.lr.ph252
 
-.lr.ph.i.i42:                                     ; preds = %.lr.ph249
+.lr.ph.i.i42:                                     ; preds = %.lr.ph252
   %313 = getelementptr inbounds nuw i8, ptr %316, i64 8
   %314 = load ptr, ptr %313, align 8, !tbaa !23
   %315 = icmp eq ptr %314, %49
-  br i1 %315, label %_ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit, label %.lr.ph249, !llvm.loop !34
+  br i1 %315, label %_ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit, label %.lr.ph252, !llvm.loop !34
 
-.lr.ph249:                                        ; preds = %.lr.ph.i.i42.preheader, %.lr.ph.i.i42
+.lr.ph252:                                        ; preds = %.lr.ph.i.i42.preheader, %.lr.ph.i.i42
   %316 = phi ptr [ %314, %.lr.ph.i.i42 ], [ %311, %.lr.ph.i.i42.preheader ]
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 32
   %318 = load ptr, ptr %317, align 8, !tbaa !31
@@ -776,16 +777,16 @@ _ZNK4llvm19SuspendCrossingInfo25isDefinitionAcrossSuspendERNS_11InstructionEPNS_
   %320 = icmp eq ptr %318, %319
   br i1 %320, label %.lr.ph.i.i42, label %._ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit.loopexit_crit_edge, !llvm.loop !34
 
-._ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit.loopexit_crit_edge: ; preds = %.lr.ph249
+._ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit.loopexit_crit_edge: ; preds = %.lr.ph252
   br label %_ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit, !llvm.loop !34
 
 _ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit: ; preds = %.lr.ph.i.i42, %.lr.ph.i.i42.preheader, %._ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit.loopexit_crit_edge, %.loopexit
-  %.sroa.5180.1 = phi ptr [ %.sroa.5180.0253, %.loopexit ], [ %316, %._ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit.loopexit_crit_edge ], [ %311, %.lr.ph.i.i42.preheader ], [ %314, %.lr.ph.i.i42 ]
+  %.sroa.5183.1 = phi ptr [ %.sroa.5183.0256, %.loopexit ], [ %316, %._ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit.loopexit_crit_edge ], [ %311, %.lr.ph.i.i42.preheader ], [ %314, %.lr.ph.i.i42 ]
   %.sroa.8.3 = phi ptr [ %307, %.loopexit ], [ %318, %._ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EppEv.exit.loopexit_crit_edge ], [ %307, %.lr.ph.i.i42.preheader ], [ %318, %.lr.ph.i.i42 ]
-  %321 = icmp eq ptr %.sroa.5180.1, %49
+  %321 = icmp eq ptr %.sroa.5183.1, %49
   br i1 %321, label %_ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEENS_21ilist_iterator_w_bitsINS6_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb0EEESA_EneERKSD_.exit, label %103
 
-._crit_edge263:                                   ; preds = %._crit_edge
+._crit_edge266:                                   ; preds = %._crit_edge
   %.val.pre = load ptr, ptr %82, align 8, !tbaa !19
   %.val30.pre = load i32, ptr %84, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %33) #14
@@ -796,11 +797,12 @@ _ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_itera
   %324 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 2, ptr %324, align 4, !tbaa !22
   %325 = zext i32 %.val30.pre to i64
-  %326 = getelementptr inbounds nuw %"struct.std::pair.91", ptr %.val.pre, i64 %325
+  %.idx.i = shl nuw nsw i64 %325, 4
+  %326 = getelementptr inbounds nuw i8, ptr %.val.pre, i64 %.idx.i
   %.not30.i = icmp eq i32 %.val30.pre, 0
   br i1 %.not30.i, label %_ZL33rewriteMaterializableInstructionsRKN4llvm14SmallMapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EELj8EEE.exit, label %.lr.ph34.i
 
-.lr.ph34.i:                                       ; preds = %._crit_edge263
+.lr.ph34.i:                                       ; preds = %._crit_edge266
   %327 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %328 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %329 = getelementptr inbounds nuw i8, ptr %34, i64 12
@@ -905,7 +907,8 @@ _ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_itera
   %.val83.pre.i = load ptr, ptr %33, align 8, !tbaa !19
   %.val85.pre.i = load i32, ptr %323, align 8, !tbaa !21
   %425 = zext i32 %.val85.pre.i to i64
-  %426 = getelementptr inbounds nuw %struct.ProcessNode, ptr %.val83.pre.i, i64 %425
+  %.idx43.i = mul nuw nsw i64 %425, 24
+  %426 = getelementptr inbounds nuw i8, ptr %.val83.pre.i, i64 %.idx43.i
   %.not7636.i = icmp eq i32 %.val85.pre.i, 0
   br i1 %.not7636.i, label %._crit_edge40.i, label %.lr.ph39.i
 
@@ -937,16 +940,17 @@ _ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_itera
   %431 = getelementptr i8, ptr %.val87.val.i, i64 16
   %.val2.i.i.i.i.i.i = load i32, ptr %431, align 8, !tbaa !21, !noalias !125
   %432 = zext i32 %.val2.i.i.i.i.i.i to i64
-  %433 = getelementptr inbounds nuw ptr, ptr %.val.i.i.i.i.i.i, i64 %432
+  %.idx41.i = shl nuw nsw i64 %432, 3
+  %433 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i, i64 %.idx41.i
   store ptr %433, ptr %336, align 8, !tbaa !134, !alias.scope !125
   store ptr %.val.i.i.i.i.i.i, ptr %339, align 8, !tbaa !137, !alias.scope !125
   store ptr %.val87.val.i, ptr %340, align 8, !tbaa !139, !alias.scope !125
   store i32 1, ptr %337, align 8, !tbaa !21, !alias.scope !125
   %434 = icmp eq i32 %.val2.i.i.i.i.i.i, 0
-  br i1 %434, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEE13traverseChildEv.exit128.i, label %.lr.ph.i105.i
+  br i1 %434, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEE13traverseChildEv.exit129.i, label %.lr.ph.i105.i
 
 .lr.ph.i105.i:                                    ; preds = %427, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109.i
-  %.val7.i11145.i = phi ptr [ %.val7.i111.i, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109.i ], [ %336, %427 ]
+  %.val7.i11148.i = phi ptr [ %.val7.i111.i, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109.i ], [ %336, %427 ]
   %.val818.i106.i = phi i32 [ %.val8.i110.i, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109.i ], [ 1, %427 ]
   %435 = phi ptr [ %492, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109.i ], [ %.val.i.i.i.i.i.i, %427 ]
   %436 = phi ptr [ %491, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109.i ], [ %339, %427 ]
@@ -961,33 +965,34 @@ _ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_itera
   %442 = load ptr, ptr %31, align 8, !tbaa !122, !noalias !144
   %443 = load i32, ptr %332, align 4, !tbaa !129, !noalias !144
   %444 = zext i32 %443 to i64
-  %445 = getelementptr inbounds nuw ptr, ptr %442, i64 %444
-  %.not36.i.i.i.i120.i = icmp eq i32 %443, 0
-  br i1 %.not36.i.i.i.i120.i, label %._crit_edge.i.i.i.i126.i, label %.lr.ph.i.i.i.i121.i
+  %.idx.i.i.i.i120.i = shl nuw nsw i64 %444, 3
+  %445 = getelementptr inbounds nuw i8, ptr %442, i64 %.idx.i.i.i.i120.i
+  %.not36.i.i.i.i121.i = icmp eq i32 %443, 0
+  br i1 %.not36.i.i.i.i121.i, label %._crit_edge.i.i.i.i127.i, label %.lr.ph.i.i.i.i122.i
 
-.lr.ph.i.i.i.i121.i:                              ; preds = %441, %.critedge.i.i.i.i124.i
-  %.02937.i.i.i.i122.i = phi ptr [ %447, %.critedge.i.i.i.i124.i ], [ %442, %441 ]
-  %446 = load ptr, ptr %.02937.i.i.i.i122.i, align 8, !tbaa !133, !noalias !144
-  %.not17.i.i.i.i123.i = icmp eq ptr %446, %438
-  br i1 %.not17.i.i.i.i123.i, label %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109.i, label %.critedge.i.i.i.i124.i
+.lr.ph.i.i.i.i122.i:                              ; preds = %441, %.critedge.i.i.i.i125.i
+  %.02937.i.i.i.i123.i = phi ptr [ %447, %.critedge.i.i.i.i125.i ], [ %442, %441 ]
+  %446 = load ptr, ptr %.02937.i.i.i.i123.i, align 8, !tbaa !133, !noalias !144
+  %.not17.i.i.i.i124.i = icmp eq ptr %446, %438
+  br i1 %.not17.i.i.i.i124.i, label %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109.i, label %.critedge.i.i.i.i125.i
 
-.critedge.i.i.i.i124.i:                           ; preds = %.lr.ph.i.i.i.i121.i
-  %447 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i122.i, i64 8
-  %.not.i.i.i.i125.i = icmp eq ptr %447, %445
-  br i1 %.not.i.i.i.i125.i, label %._crit_edge.i.i.i.i126.i, label %.lr.ph.i.i.i.i121.i, !llvm.loop !148
+.critedge.i.i.i.i125.i:                           ; preds = %.lr.ph.i.i.i.i122.i
+  %447 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i123.i, i64 8
+  %.not.i.i.i.i126.i = icmp eq ptr %447, %445
+  br i1 %.not.i.i.i.i126.i, label %._crit_edge.i.i.i.i127.i, label %.lr.ph.i.i.i.i122.i, !llvm.loop !148
 
-._crit_edge.i.i.i.i126.i:                         ; preds = %.critedge.i.i.i.i124.i, %441
+._crit_edge.i.i.i.i127.i:                         ; preds = %.critedge.i.i.i.i125.i, %441
   %448 = load i32, ptr %331, align 8, !tbaa !126, !noalias !144
   %449 = icmp ult i32 %443, %448
-  br i1 %449, label %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread.i127.i, label %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.i107.i
+  br i1 %449, label %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread.i128.i, label %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.i107.i
 
-_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread.i127.i: ; preds = %._crit_edge.i.i.i.i126.i
+_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread.i128.i: ; preds = %._crit_edge.i.i.i.i127.i
   %450 = add nuw i32 %443, 1
   store i32 %450, ptr %332, align 4, !tbaa !129, !noalias !144
   store ptr %438, ptr %445, align 8, !tbaa !133, !noalias !144
   br label %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit._crit_edge.i112.i
 
-_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.i107.i: ; preds = %._crit_edge.i.i.i.i126.i, %.lr.ph.i105.i
+_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.i107.i: ; preds = %._crit_edge.i.i.i.i127.i, %.lr.ph.i105.i
   %451 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(296) %31, ptr noundef %438) #14, !noalias !144
   %452 = extractvalue { ptr, i8 } %451, 1
   %453 = trunc nuw i8 %452 to i1
@@ -998,8 +1003,8 @@ _ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9Rema
   %.val7.i111.pre.i = load ptr, ptr %335, align 8, !tbaa !19
   br label %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109.i
 
-_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit._crit_edge.i112.i: ; preds = %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.i107.i, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread.i127.i
-  %454 = phi i32 [ %.val818.i106.i, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread.i127.i ], [ %.val8.pre17.i108.i, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.i107.i ]
+_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit._crit_edge.i112.i: ; preds = %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.i107.i, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread.i128.i
+  %454 = phi i32 [ %.val818.i106.i, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread.i128.i ], [ %.val8.pre17.i108.i, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.i107.i ]
   %455 = getelementptr i8, ptr %438, i64 8
   %.val.i113.i = load ptr, ptr %455, align 8, !tbaa !19
   %456 = getelementptr i8, ptr %438, i64 16
@@ -1021,41 +1026,42 @@ _ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9Rema
   store ptr %.val.i113.i, ptr %465, align 8, !tbaa !137
   %466 = getelementptr inbounds nuw i8, ptr %464, i64 16
   store ptr %438, ptr %466, align 8, !tbaa !139
-  %.val8.i137.i = load ptr, ptr %335, align 8, !tbaa !19
-  %467 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val8.i137.i, i64 %463
-  %.not7.i.i.i.i.i.i.i138.i = icmp eq i32 %462, 0
-  br i1 %.not7.i.i.i.i.i.i.i138.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i144.i, label %.lr.ph.i.i.i.i.i.i.i139.i
+  %.val8.i138.i = load ptr, ptr %335, align 8, !tbaa !19
+  %.idx.i.i139.i = mul nuw nsw i64 %463, 24
+  %467 = getelementptr inbounds nuw i8, ptr %.val8.i138.i, i64 %.idx.i.i139.i
+  %.not7.i.i.i.i.i.i.i140.i = icmp eq i32 %462, 0
+  br i1 %.not7.i.i.i.i.i.i.i140.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i146.i, label %.lr.ph.i.i.i.i.i.i.i141.i
 
-.lr.ph.i.i.i.i.i.i.i139.i:                        ; preds = %460, %.lr.ph.i.i.i.i.i.i.i139.i
-  %.09.i.i.i.i.i.i.i140.i = phi ptr [ %475, %.lr.ph.i.i.i.i.i.i.i139.i ], [ %461, %460 ]
-  %.sroa.06.08.i.i.i.i.i.i.i141.i = phi ptr [ %474, %.lr.ph.i.i.i.i.i.i.i139.i ], [ %.val8.i137.i, %460 ]
-  %.val.i.i.i.i.i.i.i.i.i.i.i142.i = load i64, ptr %.sroa.06.08.i.i.i.i.i.i.i141.i, align 8, !tbaa !141
-  store i64 %.val.i.i.i.i.i.i.i.i.i.i.i142.i, ptr %.09.i.i.i.i.i.i.i140.i, align 8, !tbaa !141
-  %468 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i140.i, i64 8
-  %469 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i141.i, i64 8
+.lr.ph.i.i.i.i.i.i.i141.i:                        ; preds = %460, %.lr.ph.i.i.i.i.i.i.i141.i
+  %.09.i.i.i.i.i.i.i142.i = phi ptr [ %475, %.lr.ph.i.i.i.i.i.i.i141.i ], [ %461, %460 ]
+  %.sroa.06.08.i.i.i.i.i.i.i143.i = phi ptr [ %474, %.lr.ph.i.i.i.i.i.i.i141.i ], [ %.val8.i138.i, %460 ]
+  %.val.i.i.i.i.i.i.i.i.i.i.i144.i = load i64, ptr %.sroa.06.08.i.i.i.i.i.i.i143.i, align 8, !tbaa !141
+  store i64 %.val.i.i.i.i.i.i.i.i.i.i.i144.i, ptr %.09.i.i.i.i.i.i.i142.i, align 8, !tbaa !141
+  %468 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i142.i, i64 8
+  %469 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i143.i, i64 8
   %470 = load i64, ptr %469, align 8, !tbaa !141
   store i64 %470, ptr %468, align 8, !tbaa !141
-  %471 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i140.i, i64 16
-  %472 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i141.i, i64 16
+  %471 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i142.i, i64 16
+  %472 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i143.i, i64 16
   %473 = load i64, ptr %472, align 8, !tbaa !142
   store i64 %473, ptr %471, align 8, !tbaa !142
-  %474 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i141.i, i64 24
-  %475 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i140.i, i64 24
-  %.not.i.i.i.i.i.i.i143.i = icmp eq ptr %474, %467
-  br i1 %.not.i.i.i.i.i.i.i143.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i144.i, label %.lr.ph.i.i.i.i.i.i.i139.i, !llvm.loop !149
+  %474 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i143.i, i64 24
+  %475 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i142.i, i64 24
+  %.not.i.i.i.i.i.i.i145.i = icmp eq ptr %474, %467
+  br i1 %.not.i.i.i.i.i.i.i145.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i146.i, label %.lr.ph.i.i.i.i.i.i.i141.i, !llvm.loop !149
 
-_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i144.i: ; preds = %.lr.ph.i.i.i.i.i.i.i139.i, %460
+_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i146.i: ; preds = %.lr.ph.i.i.i.i.i.i.i141.i, %460
   %476 = load i64, ptr %9, align 8, !tbaa !150
-  %477 = icmp eq ptr %.val8.i137.i, %336
-  br i1 %477, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE18growAndEmplaceBackIJRS5_S6_S6_EEERS7_DpOT_.exit146.i, label %478
+  %477 = icmp eq ptr %.val8.i138.i, %336
+  br i1 %477, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE18growAndEmplaceBackIJRS5_S6_S6_EEERS7_DpOT_.exit148.i, label %478
 
-478:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i144.i
-  call void @free(ptr noundef %.val8.i137.i) #14
-  %.pre.i145.i = load i32, ptr %337, align 8, !tbaa !21
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE18growAndEmplaceBackIJRS5_S6_S6_EEERS7_DpOT_.exit146.i
+478:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i146.i
+  call void @free(ptr noundef %.val8.i138.i) #14
+  %.pre.i147.i = load i32, ptr %337, align 8, !tbaa !21
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE18growAndEmplaceBackIJRS5_S6_S6_EEERS7_DpOT_.exit148.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE18growAndEmplaceBackIJRS5_S6_S6_EEERS7_DpOT_.exit146.i: ; preds = %478, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i144.i
-  %479 = phi i32 [ %462, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i144.i ], [ %.pre.i145.i, %478 ]
+_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE18growAndEmplaceBackIJRS5_S6_S6_EEERS7_DpOT_.exit148.i: ; preds = %478, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i146.i
+  %479 = phi i32 [ %462, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i146.i ], [ %.pre.i147.i, %478 ]
   store ptr %461, ptr %335, align 8, !tbaa !19
   %480 = trunc i64 %476 to i32
   store i32 %480, ptr %338, align 4, !tbaa !22
@@ -1077,9 +1083,9 @@ _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNo
   store i32 %487, ptr %337, align 8, !tbaa !21
   br label %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109.i
 
-_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109.i: ; preds = %.lr.ph.i.i.i.i121.i, %482, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE18growAndEmplaceBackIJRS5_S6_S6_EEERS7_DpOT_.exit146.i, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.i107._ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109_crit_edge.i
-  %.val7.i111.i = phi ptr [ %.val7.i111.pre.i, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.i107._ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109_crit_edge.i ], [ %461, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE18growAndEmplaceBackIJRS5_S6_S6_EEERS7_DpOT_.exit146.i ], [ %.val9.i.i119.i, %482 ], [ %.val7.i11145.i, %.lr.ph.i.i.i.i121.i ]
-  %.val8.i110.i = phi i32 [ %.val8.pre17.i108.i, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.i107._ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109_crit_edge.i ], [ %481, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE18growAndEmplaceBackIJRS5_S6_S6_EEERS7_DpOT_.exit146.i ], [ %487, %482 ], [ %.val818.i106.i, %.lr.ph.i.i.i.i121.i ]
+_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109.i: ; preds = %.lr.ph.i.i.i.i122.i, %482, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE18growAndEmplaceBackIJRS5_S6_S6_EEERS7_DpOT_.exit148.i, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.i107._ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109_crit_edge.i
+  %.val7.i111.i = phi ptr [ %.val7.i111.pre.i, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.i107._ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109_crit_edge.i ], [ %461, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE18growAndEmplaceBackIJRS5_S6_S6_EEERS7_DpOT_.exit148.i ], [ %.val9.i.i119.i, %482 ], [ %.val7.i11148.i, %.lr.ph.i.i.i.i122.i ]
+  %.val8.i110.i = phi i32 [ %.val8.pre17.i108.i, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.i107._ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109_crit_edge.i ], [ %481, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE18growAndEmplaceBackIJRS5_S6_S6_EEERS7_DpOT_.exit148.i ], [ %487, %482 ], [ %.val818.i106.i, %.lr.ph.i.i.i.i122.i ]
   %488 = zext i32 %.val8.i110.i to i64
   %489 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val7.i111.i, i64 %488
   %490 = getelementptr inbounds i8, ptr %489, i64 -24
@@ -1087,9 +1093,9 @@ _ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9Rema
   %492 = load ptr, ptr %491, align 8, !tbaa !141
   %493 = load ptr, ptr %490, align 8, !tbaa !141
   %494 = icmp eq ptr %492, %493
-  br i1 %494, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEE13traverseChildEv.exit128.i, label %.lr.ph.i105.i
+  br i1 %494, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEE13traverseChildEv.exit129.i, label %.lr.ph.i105.i
 
-_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEE13traverseChildEv.exit128.i: ; preds = %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109.i, %427
+_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEE13traverseChildEv.exit129.i: ; preds = %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i109.i, %427
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %341, i8 0, i64 280, i1 false), !alias.scope !152
   store ptr %342, ptr %32, align 8, !tbaa !122, !alias.scope !152
   store i32 8, ptr %343, align 8, !tbaa !126, !alias.scope !152
@@ -1109,7 +1115,7 @@ _ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematN
   %.not.i.i.i.i.i.i.i43 = icmp eq i32 %495, 0
   br i1 %.not.i.i.i.i.i.i.i43, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i, label %496
 
-496:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEE13traverseChildEv.exit128.i
+496:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEE13traverseChildEv.exit129.i
   %497 = zext i32 %495 to i64
   %498 = icmp ugt i32 %495, 8
   br i1 %498, label %500, label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i.i.i.i.i
@@ -1125,7 +1131,8 @@ _ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_
   %.val.i.i.i.i.i.i.i.i = load ptr, ptr %350, align 8, !tbaa !19
   %.val3.i.i.i.i.i.i.i.i = load i32, ptr %352, align 8, !tbaa !21
   %502 = zext i32 %.val3.i.i.i.i.i.i.i.i to i64
-  %503 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val.i.i.i.i.i.i.i.i, i64 %502
+  %.idx.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %502, 24
+  %503 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i.i, i64 %.idx.i.i.i.i.i.i.i.i.i
   %.not7.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val3.i.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -1187,7 +1194,7 @@ _ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_
   store i32 %495, ptr %352, align 8, !tbaa !21
   br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i
 
-_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEE13traverseChildEv.exit128.i
+_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEE13traverseChildEv.exit129.i
   call fastcc void @_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2EOSA_(ptr noundef nonnull align 8 dereferenceable(296) %27, ptr noundef nonnull align 8 dereferenceable(296) %28)
   call void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvRKS0_(ptr noundef nonnull align 8 dereferenceable(296) %30, ptr noundef nonnull %354, ptr noundef nonnull align 8 dereferenceable(296) %32) #14
   store ptr %356, ptr %355, align 8, !tbaa !19
@@ -1195,7 +1202,7 @@ _ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematN
   store i32 8, ptr %358, align 4, !tbaa !22
   %520 = load i32, ptr %359, align 8, !tbaa !21
   %.not.i.i.i3.i.i.i.i = icmp eq i32 %520, 0
-  br i1 %.not.i.i.i3.i.i.i.i, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit29.i.i.i.i, label %521
+  br i1 %.not.i.i.i3.i.i.i.i, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i, label %521
 
 521:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i
   %522 = zext i32 %520 to i64
@@ -1213,53 +1220,54 @@ _ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_
   %.val.i.i.i.i15.i.i.i.i = load ptr, ptr %355, align 8, !tbaa !19
   %.val3.i.i.i.i16.i.i.i.i = load i32, ptr %357, align 8, !tbaa !21
   %527 = zext i32 %.val3.i.i.i.i16.i.i.i.i to i64
-  %528 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val.i.i.i.i15.i.i.i.i, i64 %527
-  %.not7.i.i.i.i.i.i.i.i.i.i17.i.i.i.i = icmp eq i32 %.val3.i.i.i.i16.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i.i.i.i.i.i17.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i23.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i
+  %.idx.i.i.i.i.i17.i.i.i.i = mul nuw nsw i64 %527, 24
+  %528 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i15.i.i.i.i, i64 %.idx.i.i.i.i.i17.i.i.i.i
+  %.not7.i.i.i.i.i.i.i.i.i.i18.i.i.i.i = icmp eq i32 %.val3.i.i.i.i16.i.i.i.i, 0
+  br i1 %.not7.i.i.i.i.i.i.i.i.i.i18.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i:             ; preds = %525, %.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i
-  %.09.i.i.i.i.i.i.i.i.i.i19.i.i.i.i = phi ptr [ %536, %.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i ], [ %526, %525 ]
-  %.sroa.06.08.i.i.i.i.i.i.i.i.i.i20.i.i.i.i = phi ptr [ %535, %.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i ], [ %.val.i.i.i.i15.i.i.i.i, %525 ]
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i21.i.i.i.i = load i64, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i20.i.i.i.i, align 8, !tbaa !141
-  store i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i21.i.i.i.i, ptr %.09.i.i.i.i.i.i.i.i.i.i19.i.i.i.i, align 8, !tbaa !141
-  %529 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i19.i.i.i.i, i64 8
-  %530 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i20.i.i.i.i, i64 8
+.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i:             ; preds = %525, %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i
+  %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i = phi ptr [ %536, %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i ], [ %526, %525 ]
+  %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i = phi ptr [ %535, %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i ], [ %.val.i.i.i.i15.i.i.i.i, %525 ]
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i22.i.i.i.i = load i64, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i, align 8, !tbaa !141
+  store i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i22.i.i.i.i, ptr %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i, align 8, !tbaa !141
+  %529 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i, i64 8
+  %530 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i, i64 8
   %531 = load i64, ptr %530, align 8, !tbaa !141
   store i64 %531, ptr %529, align 8, !tbaa !141
-  %532 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i19.i.i.i.i, i64 16
-  %533 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i20.i.i.i.i, i64 16
+  %532 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i, i64 16
+  %533 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i, i64 16
   %534 = load i64, ptr %533, align 8, !tbaa !142
   store i64 %534, ptr %532, align 8, !tbaa !142
-  %535 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i20.i.i.i.i, i64 24
-  %536 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i19.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i.i.i.i.i22.i.i.i.i = icmp eq ptr %535, %528
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i22.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i23.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i, !llvm.loop !149
+  %535 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i, i64 24
+  %536 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i, i64 24
+  %.not.i.i.i.i.i.i.i.i.i.i23.i.i.i.i = icmp eq ptr %535, %528
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i23.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i, !llvm.loop !149
 
-_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i23.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i, %525
+_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i, %525
   %537 = load i64, ptr %25, align 8, !tbaa !150
   %538 = icmp eq ptr %.val.i.i.i.i15.i.i.i.i, %356
-  br i1 %538, label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i, label %539
+  br i1 %538, label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i, label %539
 
-539:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i23.i.i.i.i
+539:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i
   call void @free(ptr noundef %.val.i.i.i.i15.i.i.i.i) #14
-  br label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i
+  br label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i
 
-_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i: ; preds = %539, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i23.i.i.i.i
+_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i: ; preds = %539, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i
   store ptr %526, ptr %355, align 8, !tbaa !19
   %540 = trunc i64 %537 to i32
   store i32 %540, ptr %358, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #14
-  %.val41.pre.i.i.i25.i.i.i.i = load i32, ptr %359, align 8, !tbaa !21
-  %.pre.i.i.i26.i.i.i.i = zext i32 %.val41.pre.i.i.i25.i.i.i.i to i64
-  %.val35.i.i.i27.i.i.i.i = load ptr, ptr %346, align 8, !tbaa !19
-  %541 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val35.i.i.i27.i.i.i.i, i64 %.pre.i.i.i26.i.i.i.i
-  %.not9.i.i.i.i.i.i.i28.i.i.i.i = icmp eq i32 %.val41.pre.i.i.i25.i.i.i.i, 0
-  br i1 %.not9.i.i.i.i.i.i.i28.i.i.i.i, label %.sink.split.i.i.i14.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i.i7.i.i.i.i
+  %.val41.pre.i.i.i26.i.i.i.i = load i32, ptr %359, align 8, !tbaa !21
+  %.pre.i.i.i27.i.i.i.i = zext i32 %.val41.pre.i.i.i26.i.i.i.i to i64
+  %.val35.i.i.i28.i.i.i.i = load ptr, ptr %346, align 8, !tbaa !19
+  %541 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val35.i.i.i28.i.i.i.i, i64 %.pre.i.i.i27.i.i.i.i
+  %.not9.i.i.i.i.i.i.i29.i.i.i.i = icmp eq i32 %.val41.pre.i.i.i26.i.i.i.i, 0
+  br i1 %.not9.i.i.i.i.i.i.i29.i.i.i.i, label %.sink.split.i.i.i14.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i.i7.i.i.i.i
 
-.lr.ph.i.i.i.i.i.preheader.i.i7.i.i.i.i:          ; preds = %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i
-  %542 = phi ptr [ %524, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i ], [ %541, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i ]
-  %.val35.i9.i.i8.i.i.i.i = phi ptr [ %.val35.i6.i.i6.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i ], [ %.val35.i.i.i27.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i ]
-  %.val.i8.i.i9.i.i.i.i = phi ptr [ %356, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i ], [ %526, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i ]
+.lr.ph.i.i.i.i.i.preheader.i.i7.i.i.i.i:          ; preds = %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i
+  %542 = phi ptr [ %524, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i ], [ %541, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i ]
+  %.val35.i9.i.i8.i.i.i.i = phi ptr [ %.val35.i6.i.i6.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i ], [ %.val35.i.i.i28.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i ]
+  %.val.i8.i.i9.i.i.i.i = phi ptr [ %356, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i ], [ %526, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i ]
   br label %.lr.ph.i.i.i.i.i.i.i10.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i10.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i.i.i10.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i7.i.i.i.i
@@ -1271,11 +1279,11 @@ _ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_
   %.not.i.i.i.i.i.i.i13.i.i.i.i = icmp eq ptr %543, %542
   br i1 %.not.i.i.i.i.i.i.i13.i.i.i.i, label %.sink.split.i.i.i14.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i10.i.i.i.i, !llvm.loop !157
 
-.sink.split.i.i.i14.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i10.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i
+.sink.split.i.i.i14.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i10.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i
   store i32 %520, ptr %357, align 8, !tbaa !21
-  br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit29.i.i.i.i
+  br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i
 
-_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit29.i.i.i.i: ; preds = %.sink.split.i.i.i14.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i
+_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i: ; preds = %.sink.split.i.i.i14.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i
   call fastcc void @_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2EOSA_(ptr noundef nonnull align 8 dereferenceable(296) %29, ptr noundef nonnull align 8 dereferenceable(296) %30)
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %22)
@@ -1289,7 +1297,7 @@ _ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematN
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %545, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i, label %546
 
-546:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit29.i.i.i.i
+546:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i
   %547 = zext i32 %545 to i64
   %548 = icmp ugt i32 %545, 8
   br i1 %548, label %550, label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i.i.i.i.i.i
@@ -1305,7 +1313,8 @@ _ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_
   %.val.i.i.i.i.i.i.i.i.i = load ptr, ptr %361, align 8, !tbaa !19
   %.val3.i.i.i.i.i.i.i.i.i = load i32, ptr %364, align 8, !tbaa !21
   %552 = zext i32 %.val3.i.i.i.i.i.i.i.i.i to i64
-  %553 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val.i.i.i.i.i.i.i.i.i, i64 %552
+  %.idx.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %552, 24
+  %553 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i.i.i, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %.not7.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val3.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -1367,7 +1376,7 @@ _ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_
   store i32 %545, ptr %364, align 8, !tbaa !21
   br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i
 
-_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit29.i.i.i.i
+_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i
   call fastcc void @_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2EOSA_(ptr noundef nonnull align 8 dereferenceable(296) %21, ptr noundef nonnull align 8 dereferenceable(296) %22)
   call void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvRKS0_(ptr noundef nonnull align 8 dereferenceable(296) %24, ptr noundef nonnull %367, ptr noundef nonnull align 8 dereferenceable(296) %29) #14
   store ptr %370, ptr %368, align 8, !tbaa !19
@@ -1375,7 +1384,7 @@ _ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematN
   store i32 8, ptr %372, align 4, !tbaa !22
   %570 = load i32, ptr %373, align 8, !tbaa !21
   %.not.i.i.i4.i.i.i.i.i = icmp eq i32 %570, 0
-  br i1 %.not.i.i.i4.i.i.i.i.i, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i.i, label %571
+  br i1 %.not.i.i.i4.i.i.i.i.i, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit31.i.i.i.i.i, label %571
 
 571:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i
   %572 = zext i32 %570 to i64
@@ -1393,53 +1402,54 @@ _ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_
   %.val.i.i.i.i16.i.i.i.i.i = load ptr, ptr %368, align 8, !tbaa !19
   %.val3.i.i.i.i17.i.i.i.i.i = load i32, ptr %371, align 8, !tbaa !21
   %577 = zext i32 %.val3.i.i.i.i17.i.i.i.i.i to i64
-  %578 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val.i.i.i.i16.i.i.i.i.i, i64 %577
-  %.not7.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i = icmp eq i32 %.val3.i.i.i.i17.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i
+  %.idx.i.i.i.i.i18.i.i.i.i.i = mul nuw nsw i64 %577, 24
+  %578 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i16.i.i.i.i.i, i64 %.idx.i.i.i.i.i18.i.i.i.i.i
+  %.not7.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i = icmp eq i32 %.val3.i.i.i.i17.i.i.i.i.i, 0
+  br i1 %.not7.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i25.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i:           ; preds = %575, %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i
-  %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i = phi ptr [ %586, %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i ], [ %576, %575 ]
-  %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i = phi ptr [ %585, %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i ], [ %.val.i.i.i.i16.i.i.i.i.i, %575 ]
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i22.i.i.i.i.i = load i64, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i, align 8, !tbaa !141
-  store i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i22.i.i.i.i.i, ptr %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i, align 8, !tbaa !141
-  %579 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i, i64 8
-  %580 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i, i64 8
+.lr.ph.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i:           ; preds = %575, %.lr.ph.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i
+  %.09.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i = phi ptr [ %586, %.lr.ph.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i ], [ %576, %575 ]
+  %.sroa.06.08.i.i.i.i.i.i.i.i.i.i22.i.i.i.i.i = phi ptr [ %585, %.lr.ph.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i ], [ %.val.i.i.i.i16.i.i.i.i.i, %575 ]
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i.i = load i64, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i22.i.i.i.i.i, align 8, !tbaa !141
+  store i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i23.i.i.i.i.i, ptr %.09.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i, align 8, !tbaa !141
+  %579 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i, i64 8
+  %580 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i22.i.i.i.i.i, i64 8
   %581 = load i64, ptr %580, align 8, !tbaa !141
   store i64 %581, ptr %579, align 8, !tbaa !141
-  %582 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i, i64 16
-  %583 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i, i64 16
+  %582 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i, i64 16
+  %583 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i22.i.i.i.i.i, i64 16
   %584 = load i64, ptr %583, align 8, !tbaa !142
   store i64 %584, ptr %582, align 8, !tbaa !142
-  %585 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i, i64 24
-  %586 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i.i.i.i.i23.i.i.i.i.i = icmp eq ptr %585, %578
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i23.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i, !llvm.loop !149
+  %585 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i22.i.i.i.i.i, i64 24
+  %586 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i.i.i.i.i.i24.i.i.i.i.i = icmp eq ptr %585, %578
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i24.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i25.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i, !llvm.loop !149
 
-_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i, %575
+_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i25.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i, %575
   %587 = load i64, ptr %19, align 8, !tbaa !150
   %588 = icmp eq ptr %.val.i.i.i.i16.i.i.i.i.i, %370
-  br i1 %588, label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i, label %589
+  br i1 %588, label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i26.i.i.i.i.i, label %589
 
-589:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i.i
+589:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i25.i.i.i.i.i
   call void @free(ptr noundef %.val.i.i.i.i16.i.i.i.i.i) #14
-  br label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i
+  br label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i26.i.i.i.i.i
 
-_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i: ; preds = %589, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i.i
+_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i26.i.i.i.i.i: ; preds = %589, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i25.i.i.i.i.i
   store ptr %576, ptr %368, align 8, !tbaa !19
   %590 = trunc i64 %587 to i32
   store i32 %590, ptr %372, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
-  %.val41.pre.i.i.i26.i.i.i.i.i = load i32, ptr %373, align 8, !tbaa !21
-  %.pre.i.i.i27.i.i.i.i.i = zext i32 %.val41.pre.i.i.i26.i.i.i.i.i to i64
-  %.val35.i.i.i28.i.i.i.i.i = load ptr, ptr %369, align 8, !tbaa !19
-  %591 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val35.i.i.i28.i.i.i.i.i, i64 %.pre.i.i.i27.i.i.i.i.i
-  %.not9.i.i.i.i.i.i.i29.i.i.i.i.i = icmp eq i32 %.val41.pre.i.i.i26.i.i.i.i.i, 0
-  br i1 %.not9.i.i.i.i.i.i.i29.i.i.i.i.i, label %.sink.split.i.i.i15.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i.i8.i.i.i.i.i
+  %.val41.pre.i.i.i27.i.i.i.i.i = load i32, ptr %373, align 8, !tbaa !21
+  %.pre.i.i.i28.i.i.i.i.i = zext i32 %.val41.pre.i.i.i27.i.i.i.i.i to i64
+  %.val35.i.i.i29.i.i.i.i.i = load ptr, ptr %369, align 8, !tbaa !19
+  %591 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val35.i.i.i29.i.i.i.i.i, i64 %.pre.i.i.i28.i.i.i.i.i
+  %.not9.i.i.i.i.i.i.i30.i.i.i.i.i = icmp eq i32 %.val41.pre.i.i.i27.i.i.i.i.i, 0
+  br i1 %.not9.i.i.i.i.i.i.i30.i.i.i.i.i, label %.sink.split.i.i.i15.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i.i8.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.preheader.i.i8.i.i.i.i.i:        ; preds = %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i6.i.i.i.i.i
-  %592 = phi ptr [ %574, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i6.i.i.i.i.i ], [ %591, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i ]
-  %.val35.i9.i.i9.i.i.i.i.i = phi ptr [ %.val35.i6.i.i7.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i6.i.i.i.i.i ], [ %.val35.i.i.i28.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i ]
-  %.val.i8.i.i10.i.i.i.i.i = phi ptr [ %370, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i6.i.i.i.i.i ], [ %576, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.preheader.i.i8.i.i.i.i.i:        ; preds = %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i26.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i6.i.i.i.i.i
+  %592 = phi ptr [ %574, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i6.i.i.i.i.i ], [ %591, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i26.i.i.i.i.i ]
+  %.val35.i9.i.i9.i.i.i.i.i = phi ptr [ %.val35.i6.i.i7.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i6.i.i.i.i.i ], [ %.val35.i.i.i29.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i26.i.i.i.i.i ]
+  %.val.i8.i.i10.i.i.i.i.i = phi ptr [ %370, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i6.i.i.i.i.i ], [ %576, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i26.i.i.i.i.i ]
   br label %.lr.ph.i.i.i.i.i.i.i11.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i11.i.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i.i.i11.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i8.i.i.i.i.i
@@ -1451,11 +1461,11 @@ _ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_
   %.not.i.i.i.i.i.i.i14.i.i.i.i.i = icmp eq ptr %593, %592
   br i1 %.not.i.i.i.i.i.i.i14.i.i.i.i.i, label %.sink.split.i.i.i15.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i11.i.i.i.i.i, !llvm.loop !157
 
-.sink.split.i.i.i15.i.i.i.i.i:                    ; preds = %.lr.ph.i.i.i.i.i.i.i11.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i
+.sink.split.i.i.i15.i.i.i.i.i:                    ; preds = %.lr.ph.i.i.i.i.i.i.i11.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i26.i.i.i.i.i
   store i32 %570, ptr %371, align 8, !tbaa !21
-  br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i.i
+  br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit31.i.i.i.i.i
 
-_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i.i: ; preds = %.sink.split.i.i.i15.i.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i
+_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit31.i.i.i.i.i: ; preds = %.sink.split.i.i.i15.i.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i
   call fastcc void @_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2EOSA_(ptr noundef nonnull align 8 dereferenceable(296) %23, ptr noundef nonnull align 8 dereferenceable(296) %24)
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %18)
@@ -1467,7 +1477,7 @@ _ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematN
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %595, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i.i, label %596
 
-596:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i.i
+596:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit31.i.i.i.i.i
   %597 = zext i32 %595 to i64
   %598 = icmp ugt i32 %595, 8
   br i1 %598, label %600, label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i.i.i.i.i.i.i
@@ -1483,7 +1493,8 @@ _ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_
   %.val.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %375, align 8, !tbaa !19
   %.val3.i.i.i.i.i.i.i.i.i.i = load i32, ptr %378, align 8, !tbaa !21
   %602 = zext i32 %.val3.i.i.i.i.i.i.i.i.i.i to i64
-  %603 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val.i.i.i.i.i.i.i.i.i.i, i64 %602
+  %.idx.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %602, 24
+  %603 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i.i.i.i, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i
   %.not7.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val3.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -1545,14 +1556,14 @@ _ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_
   store i32 %595, ptr %378, align 8, !tbaa !21
   br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i.i
 
-_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i.i
+_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit31.i.i.i.i.i
   call void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvRKS0_(ptr noundef nonnull align 8 dereferenceable(296) %18, ptr noundef nonnull %381, ptr noundef nonnull align 8 dereferenceable(296) %23) #14
   store ptr %384, ptr %382, align 8, !tbaa !19
   store i32 0, ptr %385, align 8, !tbaa !21
   store i32 8, ptr %386, align 4, !tbaa !22
   %620 = load i32, ptr %387, align 8, !tbaa !21
   %.not.i.i.i3.i.i.i.i.i.i = icmp eq i32 %620, 0
-  br i1 %.not.i.i.i3.i.i.i.i.i.i, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit29.i.i.i.i.i.i, label %621
+  br i1 %.not.i.i.i3.i.i.i.i.i.i, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i.i.i, label %621
 
 621:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i.i
   %622 = zext i32 %620 to i64
@@ -1570,53 +1581,54 @@ _ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_
   %.val.i.i.i.i15.i.i.i.i.i.i = load ptr, ptr %382, align 8, !tbaa !19
   %.val3.i.i.i.i16.i.i.i.i.i.i = load i32, ptr %385, align 8, !tbaa !21
   %627 = zext i32 %.val3.i.i.i.i16.i.i.i.i.i.i to i64
-  %628 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val.i.i.i.i15.i.i.i.i.i.i, i64 %627
-  %.not7.i.i.i.i.i.i.i.i.i.i17.i.i.i.i.i.i = icmp eq i32 %.val3.i.i.i.i16.i.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i.i.i.i.i.i17.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i23.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i.i
+  %.idx.i.i.i.i.i17.i.i.i.i.i.i = mul nuw nsw i64 %627, 24
+  %628 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i15.i.i.i.i.i.i, i64 %.idx.i.i.i.i.i17.i.i.i.i.i.i
+  %.not7.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i.i = icmp eq i32 %.val3.i.i.i.i16.i.i.i.i.i.i, 0
+  br i1 %.not7.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i.i:         ; preds = %625, %.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i = phi ptr [ %636, %.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i.i ], [ %626, %625 ]
-  %.sroa.06.08.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i = phi ptr [ %635, %.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i.i ], [ %.val.i.i.i.i15.i.i.i.i.i.i, %625 ]
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i = load i64, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i, align 8, !tbaa !141
-  store i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i, ptr %.09.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i, align 8, !tbaa !141
-  %629 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i, i64 8
-  %630 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i, i64 8
+.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i:         ; preds = %625, %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i
+  %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i = phi ptr [ %636, %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i ], [ %626, %625 ]
+  %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i = phi ptr [ %635, %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i ], [ %.val.i.i.i.i15.i.i.i.i.i.i, %625 ]
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i22.i.i.i.i.i.i = load i64, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i, align 8, !tbaa !141
+  store i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i22.i.i.i.i.i.i, ptr %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i, align 8, !tbaa !141
+  %629 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i, i64 8
+  %630 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i, i64 8
   %631 = load i64, ptr %630, align 8, !tbaa !141
   store i64 %631, ptr %629, align 8, !tbaa !141
-  %632 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i, i64 16
-  %633 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i, i64 16
+  %632 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i, i64 16
+  %633 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i, i64 16
   %634 = load i64, ptr %633, align 8, !tbaa !142
   store i64 %634, ptr %632, align 8, !tbaa !142
-  %635 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i, i64 24
-  %636 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i.i.i.i.i22.i.i.i.i.i.i = icmp eq ptr %635, %628
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i22.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i23.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i.i, !llvm.loop !149
+  %635 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i, i64 24
+  %636 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i.i.i.i.i.i23.i.i.i.i.i.i = icmp eq ptr %635, %628
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i23.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i, !llvm.loop !149
 
-_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i23.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i.i, %625
+_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i, %625
   %637 = load i64, ptr %15, align 8, !tbaa !150
   %638 = icmp eq ptr %.val.i.i.i.i15.i.i.i.i.i.i, %384
-  br i1 %638, label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i.i.i, label %639
+  br i1 %638, label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i.i, label %639
 
-639:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i23.i.i.i.i.i.i
+639:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i.i.i
   call void @free(ptr noundef %.val.i.i.i.i15.i.i.i.i.i.i) #14
-  br label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i.i.i
+  br label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i.i
 
-_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i.i.i: ; preds = %639, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i23.i.i.i.i.i.i
+_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i.i: ; preds = %639, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i.i.i
   store ptr %626, ptr %382, align 8, !tbaa !19
   %640 = trunc i64 %637 to i32
   store i32 %640, ptr %386, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
-  %.val41.pre.i.i.i25.i.i.i.i.i.i = load i32, ptr %387, align 8, !tbaa !21
-  %.pre.i.i.i26.i.i.i.i.i.i = zext i32 %.val41.pre.i.i.i25.i.i.i.i.i.i to i64
-  %.val35.i.i.i27.i.i.i.i.i.i = load ptr, ptr %383, align 8, !tbaa !19
-  %641 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val35.i.i.i27.i.i.i.i.i.i, i64 %.pre.i.i.i26.i.i.i.i.i.i
-  %.not9.i.i.i.i.i.i.i28.i.i.i.i.i.i = icmp eq i32 %.val41.pre.i.i.i25.i.i.i.i.i.i, 0
-  br i1 %.not9.i.i.i.i.i.i.i28.i.i.i.i.i.i, label %.sink.split.i.i.i14.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i.i7.i.i.i.i.i.i
+  %.val41.pre.i.i.i26.i.i.i.i.i.i = load i32, ptr %387, align 8, !tbaa !21
+  %.pre.i.i.i27.i.i.i.i.i.i = zext i32 %.val41.pre.i.i.i26.i.i.i.i.i.i to i64
+  %.val35.i.i.i28.i.i.i.i.i.i = load ptr, ptr %383, align 8, !tbaa !19
+  %641 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val35.i.i.i28.i.i.i.i.i.i, i64 %.pre.i.i.i27.i.i.i.i.i.i
+  %.not9.i.i.i.i.i.i.i29.i.i.i.i.i.i = icmp eq i32 %.val41.pre.i.i.i26.i.i.i.i.i.i, 0
+  br i1 %.not9.i.i.i.i.i.i.i29.i.i.i.i.i.i, label %.sink.split.i.i.i14.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i.i7.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.preheader.i.i7.i.i.i.i.i.i:      ; preds = %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i.i.i
-  %642 = phi ptr [ %624, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i.i.i ], [ %641, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i.i.i ]
-  %.val35.i9.i.i8.i.i.i.i.i.i = phi ptr [ %.val35.i6.i.i6.i.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i.i.i ], [ %.val35.i.i.i27.i.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i.i.i ]
-  %.val.i8.i.i9.i.i.i.i.i.i = phi ptr [ %384, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i.i.i ], [ %626, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.preheader.i.i7.i.i.i.i.i.i:      ; preds = %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i.i.i
+  %642 = phi ptr [ %624, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i.i.i ], [ %641, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i.i ]
+  %.val35.i9.i.i8.i.i.i.i.i.i = phi ptr [ %.val35.i6.i.i6.i.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i.i.i ], [ %.val35.i.i.i28.i.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i.i ]
+  %.val.i8.i.i9.i.i.i.i.i.i = phi ptr [ %384, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i.i.i ], [ %626, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i.i ]
   br label %.lr.ph.i.i.i.i.i.i.i10.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i10.i.i.i.i.i.i:               ; preds = %.lr.ph.i.i.i.i.i.i.i10.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i7.i.i.i.i.i.i
@@ -1628,11 +1640,11 @@ _ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_
   %.not.i.i.i.i.i.i.i13.i.i.i.i.i.i = icmp eq ptr %643, %642
   br i1 %.not.i.i.i.i.i.i.i13.i.i.i.i.i.i, label %.sink.split.i.i.i14.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i10.i.i.i.i.i.i, !llvm.loop !157
 
-.sink.split.i.i.i14.i.i.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i.i10.i.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i.i.i
+.sink.split.i.i.i14.i.i.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i.i10.i.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i.i
   store i32 %620, ptr %385, align 8, !tbaa !21
-  br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit29.i.i.i.i.i.i
+  br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i.i.i
 
-_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit29.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i14.i.i.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i.i
+_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i14.i.i.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %14)
   call void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvRKS0_(ptr noundef nonnull align 8 dereferenceable(296) %13, ptr noundef nonnull %388, ptr noundef nonnull align 8 dereferenceable(296) %17) #14
@@ -1643,7 +1655,7 @@ _ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematN
   %.not.i.i.i.i.i.i.i.i.i.i44 = icmp eq i32 %645, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i44, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i.i.i, label %646
 
-646:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit29.i.i.i.i.i.i
+646:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i.i.i
   %647 = zext i32 %645 to i64
   %648 = icmp ugt i32 %645, 8
   br i1 %648, label %650, label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i.i.i.i.i.i.i.i
@@ -1659,7 +1671,8 @@ _ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_
   %.val.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %389, align 8, !tbaa !19
   %.val3.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %391, align 8, !tbaa !21
   %652 = zext i32 %.val3.i.i.i.i.i.i.i.i.i.i.i to i64
-  %653 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val.i.i.i.i.i.i.i.i.i.i.i, i64 %652
+  %.idx.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %652, 24
+  %653 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i.i.i.i.i, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
   %.not7.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val3.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -1706,29 +1719,29 @@ _ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_
   %667 = phi ptr [ %649, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i.i.i.i.i.i.i.i ], [ %666, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i.i.i.i.i.i.i.i ]
   %.val35.i9.i.i.i.i.i.i.i.i.i = phi ptr [ %.val35.i6.i.i.i.i.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i.i.i.i.i.i.i.i ], [ %.val35.i.i.i.i.i.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i.i.i.i.i.i.i.i ]
   %.val.i8.i.i.i.i.i.i.i.i.i = phi ptr [ %390, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i.i.i.i.i.i.i.i ], [ %651, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i.i.i.i.i.i.i.i ]
-  br label %.lr.ph.i.i.i.i.i.i.i.i.i.i30.i.i.i.i
+  br label %.lr.ph.i.i.i.i.i.i.i.i.i.i31.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i30.i.i.i.i:             ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i30.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i
-  %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %669, %.lr.ph.i.i.i.i.i.i.i.i.i.i30.i.i.i.i ], [ %.val.i8.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %668, %.lr.ph.i.i.i.i.i.i.i.i.i.i30.i.i.i.i ], [ %.val35.i9.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i.i.i.i31.i.i.i.i:             ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i31.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i
+  %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %669, %.lr.ph.i.i.i.i.i.i.i.i.i.i31.i.i.i.i ], [ %.val.i8.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i ]
+  %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %668, %.lr.ph.i.i.i.i.i.i.i.i.i.i31.i.i.i.i ], [ %.val35.i9.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i.i.i.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 24, i1 false)
   %668 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %669 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i.i.i.i.i31.i.i.i.i = icmp eq ptr %668, %667
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i31.i.i.i.i, label %.sink.split.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i30.i.i.i.i, !llvm.loop !157
+  %.not.i.i.i.i.i.i.i.i.i.i32.i.i.i.i = icmp eq ptr %668, %667
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i32.i.i.i.i, label %.sink.split.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i31.i.i.i.i, !llvm.loop !157
 
-.sink.split.i.i.i.i.i.i.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i30.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i.i.i.i.i.i.i.i
+.sink.split.i.i.i.i.i.i.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i31.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i.i.i.i.i.i.i.i
   store i32 %645, ptr %391, align 8, !tbaa !21
   br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i.i.i
 
-_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit29.i.i.i.i.i.i
+_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i.i.i
   call void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvRKS0_(ptr noundef nonnull align 8 dereferenceable(296) %14, ptr noundef nonnull %393, ptr noundef nonnull align 8 dereferenceable(296) %18) #14
   store ptr %395, ptr %394, align 8, !tbaa !19
   store i32 0, ptr %396, align 8, !tbaa !21
   store i32 8, ptr %397, align 4, !tbaa !22
   %670 = load i32, ptr %385, align 8, !tbaa !21
   %.not.i.i.i3.i.i.i.i.i.i.i = icmp eq i32 %670, 0
-  br i1 %.not.i.i.i3.i.i.i.i.i.i.i, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit29.i.i.i.i.i.i.i, label %671
+  br i1 %.not.i.i.i3.i.i.i.i.i.i.i, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i.i.i.i, label %671
 
 671:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i.i.i
   %672 = zext i32 %670 to i64
@@ -1746,53 +1759,54 @@ _ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_
   %.val.i.i.i.i15.i.i.i.i.i.i.i = load ptr, ptr %394, align 8, !tbaa !19
   %.val3.i.i.i.i16.i.i.i.i.i.i.i = load i32, ptr %396, align 8, !tbaa !21
   %677 = zext i32 %.val3.i.i.i.i16.i.i.i.i.i.i.i to i64
-  %678 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val.i.i.i.i15.i.i.i.i.i.i.i, i64 %677
-  %.not7.i.i.i.i.i.i.i.i.i.i17.i.i.i.i.i.i.i = icmp eq i32 %.val3.i.i.i.i16.i.i.i.i.i.i.i, 0
-  br i1 %.not7.i.i.i.i.i.i.i.i.i.i17.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i23.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i.i.i
+  %.idx.i.i.i.i.i17.i.i.i.i.i.i.i = mul nuw nsw i64 %677, 24
+  %678 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i15.i.i.i.i.i.i.i, i64 %.idx.i.i.i.i.i17.i.i.i.i.i.i.i
+  %.not7.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i.i.i = icmp eq i32 %.val3.i.i.i.i16.i.i.i.i.i.i.i, 0
+  br i1 %.not7.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i.i.i:       ; preds = %675, %.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i = phi ptr [ %686, %.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i.i.i ], [ %676, %675 ]
-  %.sroa.06.08.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i = phi ptr [ %685, %.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i.i.i ], [ %.val.i.i.i.i15.i.i.i.i.i.i.i, %675 ]
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i = load i64, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i, align 8, !tbaa !141
-  store i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i, ptr %.09.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i, align 8, !tbaa !141
-  %679 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i, i64 8
-  %680 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i, i64 8
+.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i:       ; preds = %675, %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i
+  %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i = phi ptr [ %686, %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i ], [ %676, %675 ]
+  %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i = phi ptr [ %685, %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i ], [ %.val.i.i.i.i15.i.i.i.i.i.i.i, %675 ]
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i22.i.i.i.i.i.i.i = load i64, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i, align 8, !tbaa !141
+  store i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i22.i.i.i.i.i.i.i, ptr %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i, align 8, !tbaa !141
+  %679 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i, i64 8
+  %680 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i, i64 8
   %681 = load i64, ptr %680, align 8, !tbaa !141
   store i64 %681, ptr %679, align 8, !tbaa !141
-  %682 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i, i64 16
-  %683 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i, i64 16
+  %682 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i, i64 16
+  %683 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i, i64 16
   %684 = load i64, ptr %683, align 8, !tbaa !142
   store i64 %684, ptr %682, align 8, !tbaa !142
-  %685 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i, i64 24
-  %686 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i.i.i.i.i22.i.i.i.i.i.i.i = icmp eq ptr %685, %678
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i22.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i23.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i.i.i, !llvm.loop !149
+  %685 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i, i64 24
+  %686 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i.i.i.i.i.i23.i.i.i.i.i.i.i = icmp eq ptr %685, %678
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i23.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i, !llvm.loop !149
 
-_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i23.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i18.i.i.i.i.i.i.i, %675
+_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i, %675
   %687 = load i64, ptr %11, align 8, !tbaa !150
   %688 = icmp eq ptr %.val.i.i.i.i15.i.i.i.i.i.i.i, %395
-  br i1 %688, label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i.i.i.i, label %689
+  br i1 %688, label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i.i.i, label %689
 
-689:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i23.i.i.i.i.i.i.i
+689:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i.i.i.i
   call void @free(ptr noundef %.val.i.i.i.i15.i.i.i.i.i.i.i) #14
-  br label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i.i.i.i
+  br label %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i.i.i
 
-_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i.i.i.i: ; preds = %689, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i23.i.i.i.i.i.i.i
+_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i.i.i: ; preds = %689, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i.i24.i.i.i.i.i.i.i
   store ptr %676, ptr %394, align 8, !tbaa !19
   %690 = trunc i64 %687 to i32
   store i32 %690, ptr %397, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  %.val41.pre.i.i.i25.i.i.i.i.i.i.i = load i32, ptr %385, align 8, !tbaa !21
-  %.pre.i.i.i26.i.i.i.i.i.i.i = zext i32 %.val41.pre.i.i.i25.i.i.i.i.i.i.i to i64
-  %.val35.i.i.i27.i.i.i.i.i.i.i = load ptr, ptr %382, align 8, !tbaa !19
-  %691 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val35.i.i.i27.i.i.i.i.i.i.i, i64 %.pre.i.i.i26.i.i.i.i.i.i.i
-  %.not9.i.i.i.i.i.i.i28.i.i.i.i.i.i.i = icmp eq i32 %.val41.pre.i.i.i25.i.i.i.i.i.i.i, 0
-  br i1 %.not9.i.i.i.i.i.i.i28.i.i.i.i.i.i.i, label %.sink.split.i.i.i14.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i.i7.i.i.i.i.i.i.i
+  %.val41.pre.i.i.i26.i.i.i.i.i.i.i = load i32, ptr %385, align 8, !tbaa !21
+  %.pre.i.i.i27.i.i.i.i.i.i.i = zext i32 %.val41.pre.i.i.i26.i.i.i.i.i.i.i to i64
+  %.val35.i.i.i28.i.i.i.i.i.i.i = load ptr, ptr %382, align 8, !tbaa !19
+  %691 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val35.i.i.i28.i.i.i.i.i.i.i, i64 %.pre.i.i.i27.i.i.i.i.i.i.i
+  %.not9.i.i.i.i.i.i.i29.i.i.i.i.i.i.i = icmp eq i32 %.val41.pre.i.i.i26.i.i.i.i.i.i.i, 0
+  br i1 %.not9.i.i.i.i.i.i.i29.i.i.i.i.i.i.i, label %.sink.split.i.i.i14.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i.i7.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.preheader.i.i7.i.i.i.i.i.i.i:    ; preds = %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i.i.i.i
-  %692 = phi ptr [ %674, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i.i.i.i ], [ %691, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i.i.i.i ]
-  %.val35.i9.i.i8.i.i.i.i.i.i.i = phi ptr [ %.val35.i6.i.i6.i.i.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i.i.i.i ], [ %.val35.i.i.i27.i.i.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i.i.i.i ]
-  %.val.i8.i.i9.i.i.i.i.i.i.i = phi ptr [ %395, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i.i.i.i ], [ %676, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.preheader.i.i7.i.i.i.i.i.i.i:    ; preds = %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i.i.i.i
+  %692 = phi ptr [ %674, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i.i.i.i ], [ %691, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i.i.i ]
+  %.val35.i9.i.i8.i.i.i.i.i.i.i = phi ptr [ %.val35.i6.i.i6.i.i.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i.i.i.i ], [ %.val35.i.i.i28.i.i.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i.i.i ]
+  %.val.i8.i.i9.i.i.i.i.i.i.i = phi ptr [ %395, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.thread.i.i5.i.i.i.i.i.i.i ], [ %676, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i.i.i ]
   br label %.lr.ph.i.i.i.i.i.i.i10.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i10.i.i.i.i.i.i.i:             ; preds = %.lr.ph.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i7.i.i.i.i.i.i.i
@@ -1804,31 +1818,32 @@ _ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_
   %.not.i.i.i.i.i.i.i13.i.i.i.i.i.i.i = icmp eq ptr %693, %692
   br i1 %.not.i.i.i.i.i.i.i13.i.i.i.i.i.i.i, label %.sink.split.i.i.i14.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, !llvm.loop !157
 
-.sink.split.i.i.i14.i.i.i.i.i.i.i:                ; preds = %.lr.ph.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i24.i.i.i.i.i.i.i
+.sink.split.i.i.i14.i.i.i.i.i.i.i:                ; preds = %.lr.ph.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit49.i.i.i25.i.i.i.i.i.i.i
   store i32 %670, ptr %396, align 8, !tbaa !21
-  br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit29.i.i.i.i.i.i.i
+  br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i.i.i.i
 
-_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit29.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i14.i.i.i.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i.i.i
+_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i.i.i.i: ; preds = %.sink.split.i.i.i14.i.i.i.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit.i.i.i.i.i.i.i
   %.val1.i.i.i.i.i.i.i.pre.i = load i32, ptr %391, align 8, !tbaa !21
   br label %695
 
-695:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEppEv.exit.i.i.i.i.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit29.i.i.i.i.i.i.i
-  %.val1.i.i.i.i.i.i.i.i = phi i32 [ %.val1.i.i.i.i.i.i.i48.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEppEv.exit.i.i.i.i.i.i.i.i ], [ %.val1.i.i.i.i.i.i.i.pre.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit29.i.i.i.i.i.i.i ]
-  %.val3.i.i.i.i32.i.i.i.i = phi i32 [ %.val3.i.pre.i.i.i.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEppEv.exit.i.i.i.i.i.i.i.i ], [ %670, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit29.i.i.i.i.i.i.i ]
-  %.val.i.i.i.i33.i.i.i.i = load ptr, ptr %389, align 8
-  %.not.i.i.i.i.i.i.i34.i.i.i.i = icmp eq i32 %.val1.i.i.i.i.i.i.i.i, %.val3.i.i.i.i32.i.i.i.i
+695:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEppEv.exit.i.i.i.i.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i.i.i.i
+  %.val1.i.i.i.i.i.i.i.i = phi i32 [ %.val1.i.i.i.i.i.i.i51.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEppEv.exit.i.i.i.i.i.i.i.i ], [ %.val1.i.i.i.i.i.i.i.pre.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i.i.i.i ]
+  %.val3.i.i.i.i33.i.i.i.i = phi i32 [ %.val3.i.pre.i.i.i.i.i.i.i, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEppEv.exit.i.i.i.i.i.i.i.i ], [ %670, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEC2ERKSA_.exit30.i.i.i.i.i.i.i ]
+  %.val.i.i.i.i34.i.i.i.i = load ptr, ptr %389, align 8
+  %.not.i.i.i.i.i.i.i35.i.i.i.i = icmp eq i32 %.val1.i.i.i.i.i.i.i.i, %.val3.i.i.i.i33.i.i.i.i
   %696 = zext i32 %.val1.i.i.i.i.i.i.i.i to i64
-  br i1 %.not.i.i.i.i.i.i.i34.i.i.i.i, label %697, label %.loopexit.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i35.i.i.i.i, label %697, label %.loopexit.i.i.i.i.i.i.i.i
 
 697:                                              ; preds = %695
-  %698 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val.i.i.i.i33.i.i.i.i, i64 %696
+  %.idx.i.i.i.i.i32.i.i.i.i.i.i = mul nuw nsw i64 %696, 24
+  %698 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i34.i.i.i.i, i64 %.idx.i.i.i.i.i32.i.i.i.i.i.i
   %.not9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val1.i.i.i.i.i.i.i.i, 0
   %.val1.i.i.pre.i.i.i.i.i.i.i = load ptr, ptr %394, align 8
-  br i1 %.not9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS3_11SmallPtrSetIPNS6_9RematNodeELj8EEELb0ENS3_11GraphTraitsIS7_EEEESt20back_insert_iteratorINS3_11SmallVectorISA_Lj8EEEEEET0_T_SK_SJ_.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i31.i.i.i.i.i
+  br i1 %.not9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS3_11SmallPtrSetIPNS6_9RematNodeELj8EEELb0ENS3_11GraphTraitsIS7_EEEESt20back_insert_iteratorINS3_11SmallVectorISA_Lj8EEEEEET0_T_SK_SJ_.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i32.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i31.i.i.i.i.i:           ; preds = %697, %708
+.lr.ph.i.i.i.i.i.i.i.i.i.i32.i.i.i.i.i:           ; preds = %697, %708
   %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %710, %708 ], [ %.val1.i.i.pre.i.i.i.i.i.i.i, %697 ]
-  %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %709, %708 ], [ %.val.i.i.i.i33.i.i.i.i, %697 ]
+  %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %709, %708 ], [ %.val.i.i.i.i34.i.i.i.i, %697 ]
   %699 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %700 = load ptr, ptr %699, align 8, !tbaa !142
   %701 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
@@ -1836,7 +1851,7 @@ _ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematN
   %703 = icmp eq ptr %700, %702
   br i1 %703, label %_ZSteqIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS3_S4_EJS3_S4_S4_EEbRKSt5tupleIJDpT_EERKS5_IJDpT0_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i.i.i
 
-_ZSteqIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS3_S4_EJS3_S4_S4_EEbRKSt5tupleIJDpT_EERKS5_IJDpT0_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i31.i.i.i.i.i
+_ZSteqIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS3_S4_EJS3_S4_S4_EEbRKSt5tupleIJDpT_EERKS5_IJDpT0_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i32.i.i.i.i.i
   %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %704 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %.val4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %704, align 8, !tbaa !141
@@ -1851,11 +1866,11 @@ _ZSteqIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS3_S4_EJS3_S4_S4_EEbRKSt5tupleIJ
 708:                                              ; preds = %_ZSteqIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS3_S4_EJS3_S4_S4_EEbRKSt5tupleIJDpT_EERKS5_IJDpT0_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %709 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %710 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i.i.i.i.i32.i.i.i.i.i = icmp eq ptr %709, %698
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i32.i.i.i.i.i, label %_ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS3_11SmallPtrSetIPNS6_9RematNodeELj8EEELb0ENS3_11GraphTraitsIS7_EEEESt20back_insert_iteratorINS3_11SmallVectorISA_Lj8EEEEEET0_T_SK_SJ_.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i31.i.i.i.i.i, !llvm.loop !158
+  %.not.i.i.i.i.i.i.i.i.i.i33.i.i.i.i.i = icmp eq ptr %709, %698
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i33.i.i.i.i.i, label %_ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS3_11SmallPtrSetIPNS6_9RematNodeELj8EEELb0ENS3_11GraphTraitsIS7_EEEESt20back_insert_iteratorINS3_11SmallVectorISA_Lj8EEEEEET0_T_SK_SJ_.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i32.i.i.i.i.i, !llvm.loop !158
 
-.loopexit.i.i.i.i.i.i.i.i:                        ; preds = %_ZSteqIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS3_S4_EJS3_S4_S4_EEbRKSt5tupleIJDpT_EERKS5_IJDpT0_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i31.i.i.i.i.i, %695
-  %711 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val.i.i.i.i33.i.i.i.i, i64 %696
+.loopexit.i.i.i.i.i.i.i.i:                        ; preds = %_ZSteqIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS3_S4_EJS3_S4_S4_EEbRKSt5tupleIJDpT_EERKS5_IJDpT0_EE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i32.i.i.i.i.i, %695
+  %711 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val.i.i.i.i34.i.i.i.i, i64 %696
   %712 = getelementptr inbounds i8, ptr %711, i64 -8
   %.val6.i.i.i.i.i.i.i.i = load ptr, ptr %712, align 8, !tbaa !142
   %713 = load i32, ptr %328, align 8, !tbaa !21
@@ -1872,9 +1887,9 @@ _ZSteqIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS3_S4_EJS3_S4_S4_EEbRKSt5tupleIJ
 
 _ZNSt20back_insert_iteratorIN4llvm11SmallVectorIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEEEaSERKS5_.exit.i.i.i.i.i.i.i.i: ; preds = %715, %.loopexit.i.i.i.i.i.i.i.i
   %.val2.i.i.i.i.i.i.i.i.i.i = phi i32 [ %713, %.loopexit.i.i.i.i.i.i.i.i ], [ %.val2.pre.i.i.i.i.i.i.i.i.i.i, %715 ]
-  %.val.i.i.i.i30.i.i.i.i.i.i = load ptr, ptr %34, align 8, !tbaa !19
+  %.val.i.i.i.i31.i.i.i.i.i.i = load ptr, ptr %34, align 8, !tbaa !19
   %718 = zext i32 %.val2.i.i.i.i.i.i.i.i.i.i to i64
-  %719 = getelementptr inbounds nuw ptr, ptr %.val.i.i.i.i30.i.i.i.i.i.i, i64 %718
+  %719 = getelementptr inbounds nuw ptr, ptr %.val.i.i.i.i31.i.i.i.i.i.i, i64 %718
   %720 = ptrtoint ptr %.val6.i.i.i.i.i.i.i.i to i64
   store i64 %720, ptr %719, align 1
   %721 = load i32, ptr %328, align 8, !tbaa !21
@@ -1883,8 +1898,8 @@ _ZNSt20back_insert_iteratorIN4llvm11SmallVectorIPN12_GLOBAL__N_110RematGraph9Rem
   %723 = load i32, ptr %391, align 8, !tbaa !21
   %724 = add i32 %723, -1
   store i32 %724, ptr %391, align 8, !tbaa !21
-  %.not.i.i.i30.i.i.i.i.i.i.i = icmp eq i32 %724, 0
-  br i1 %.not.i.i.i30.i.i.i.i.i.i.i, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEppEv.exit.i.i.i.i.i.i.i.i, label %725
+  %.not.i.i.i31.i.i.i.i.i.i.i = icmp eq i32 %724, 0
+  br i1 %.not.i.i.i31.i.i.i.i.i.i.i, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEppEv.exit.i.i.i.i.i.i.i.i, label %725
 
 725:                                              ; preds = %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEEEaSERKS5_.exit.i.i.i.i.i.i.i.i
   %.val715.i.i = load ptr, ptr %389, align 8, !tbaa !19
@@ -1912,7 +1927,8 @@ _ZNSt20back_insert_iteratorIN4llvm11SmallVectorIPN12_GLOBAL__N_110RematGraph9Rem
   %740 = load ptr, ptr %13, align 8, !tbaa !122, !noalias !159
   %741 = load i32, ptr %399, align 4, !tbaa !129, !noalias !159
   %742 = zext i32 %741 to i64
-  %743 = getelementptr inbounds nuw ptr, ptr %740, i64 %742
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %742, 3
+  %743 = getelementptr inbounds nuw i8, ptr %740, i64 %.idx.i.i.i.i.i
   %.not36.i.i.i.i.i = icmp eq i32 %741, 0
   br i1 %.not36.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i46
 
@@ -1968,14 +1984,15 @@ _ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9Rema
   store ptr %.val.i101.i, ptr %763, align 8, !tbaa !137
   %764 = getelementptr inbounds nuw i8, ptr %762, i64 16
   store ptr %736, ptr %764, align 8, !tbaa !139
-  %.val8.i131.i = load ptr, ptr %389, align 8, !tbaa !19
-  %765 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val8.i131.i, i64 %761
+  %.val8.i132.i = load ptr, ptr %389, align 8, !tbaa !19
+  %.idx.i.i.i = mul nuw nsw i64 %761, 24
+  %765 = getelementptr inbounds nuw i8, ptr %.val8.i132.i, i64 %.idx.i.i.i
   %.not7.i.i.i.i.i.i.i.i = icmp eq i32 %760, 0
   br i1 %.not7.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %758, %.lr.ph.i.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i.i = phi ptr [ %773, %.lr.ph.i.i.i.i.i.i.i.i ], [ %759, %758 ]
-  %.sroa.06.08.i.i.i.i.i.i.i.i = phi ptr [ %772, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.val8.i131.i, %758 ]
+  %.sroa.06.08.i.i.i.i.i.i.i.i = phi ptr [ %772, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.val8.i132.i, %758 ]
   %.val.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.06.08.i.i.i.i.i.i.i.i, align 8, !tbaa !141
   store i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i, ptr %.09.i.i.i.i.i.i.i.i, align 8, !tbaa !141
   %766 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i, i64 8
@@ -1988,21 +2005,21 @@ _ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9Rema
   store i64 %771, ptr %769, align 8, !tbaa !142
   %772 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i, i64 24
   %773 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i.i132.i = icmp eq ptr %772, %765
-  br i1 %.not.i.i.i.i.i.i.i132.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !149
+  %.not.i.i.i.i.i.i.i133.i = icmp eq ptr %772, %765
+  br i1 %.not.i.i.i.i.i.i.i133.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !149
 
 _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %758
   %774 = load i64, ptr %10, align 8, !tbaa !150
-  %775 = icmp eq ptr %.val8.i131.i, %390
+  %775 = icmp eq ptr %.val8.i132.i, %390
   br i1 %775, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE18growAndEmplaceBackIJRS5_S6_S6_EEERS7_DpOT_.exit.i, label %776
 
 776:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i
-  call void @free(ptr noundef %.val8.i131.i) #14
-  %.pre.i133.i = load i32, ptr %391, align 8, !tbaa !21
+  call void @free(ptr noundef %.val8.i132.i) #14
+  %.pre.i134.i = load i32, ptr %391, align 8, !tbaa !21
   br label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE18growAndEmplaceBackIJRS5_S6_S6_EEERS7_DpOT_.exit.i
 
 _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE18growAndEmplaceBackIJRS5_S6_S6_EEERS7_DpOT_.exit.i: ; preds = %776, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i
-  %777 = phi i32 [ %760, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i ], [ %.pre.i133.i, %776 ]
+  %777 = phi i32 [ %760, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i ], [ %.pre.i134.i, %776 ]
   store ptr %759, ptr %389, align 8, !tbaa !19
   %778 = trunc i64 %774 to i32
   store i32 %778, ptr %392, align 4, !tbaa !22
@@ -2037,7 +2054,7 @@ _ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9Rema
   br i1 %792, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEppEv.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i45
 
 _ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEEppEv.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i.i, %725, %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEEEaSERKS5_.exit.i.i.i.i.i.i.i.i
-  %.val1.i.i.i.i.i.i.i48.i = phi i32 [ %724, %725 ], [ 0, %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEEEaSERKS5_.exit.i.i.i.i.i.i.i.i ], [ %.val8.i.i, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i.i ]
+  %.val1.i.i.i.i.i.i.i51.i = phi i32 [ %724, %725 ], [ 0, %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEEEaSERKS5_.exit.i.i.i.i.i.i.i.i ], [ %.val8.i.i, %_ZN4llvm19po_iterator_storageINS_11SmallPtrSetIPN12_GLOBAL__N_110RematGraph9RematNodeELj8EEELb0EE10insertEdgeIS5_EEbSt8optionalIT_ESA_.exit.thread11.i.i ]
   %.val3.i.pre.i.i.i.i.i.i.i = load i32, ptr %396, align 8, !tbaa !21
   br label %695, !llvm.loop !162
 
@@ -2050,43 +2067,43 @@ _ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN4llvm11po_iterato
   br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i.i.i.i.i.i.i.i
 
 _ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %794, %_ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS3_11SmallPtrSetIPNS6_9RematNodeELj8EEELb0ENS3_11GraphTraitsIS7_EEEESt20back_insert_iteratorINS3_11SmallVectorISA_Lj8EEEEEET0_T_SK_SJ_.exit.i.i.i.i.i.i.i
-  %.val1.i31.i.i.i.i.i.i.i = load i8, ptr %401, align 4, !tbaa !128, !range !143, !noundef !147
-  %795 = trunc nuw i8 %.val1.i31.i.i.i.i.i.i.i to i1
+  %.val1.i32.i.i.i.i.i.i.i = load i8, ptr %401, align 4, !tbaa !128, !range !143, !noundef !147
+  %795 = trunc nuw i8 %.val1.i32.i.i.i.i.i.i.i to i1
   br i1 %795, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i.i.i.i, label %796
 
 796:                                              ; preds = %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i.i.i.i.i.i.i.i
-  %.val.i32.i.i.i.i.i.i.i = load ptr, ptr %14, align 8
-  call void @free(ptr noundef %.val.i32.i.i.i.i.i.i.i) #14
+  %.val.i33.i.i.i.i.i.i.i = load ptr, ptr %14, align 8
+  call void @free(ptr noundef %.val.i33.i.i.i.i.i.i.i) #14
   br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i.i.i.i
 
 _ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %796, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i.i.i.i.i.i.i.i
-  %.val1.i.i33.i.i.i.i.i.i.i = load ptr, ptr %389, align 8, !tbaa !19
-  %797 = icmp eq ptr %.val1.i.i33.i.i.i.i.i.i.i, %390
-  br i1 %797, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i34.i.i.i.i.i.i.i, label %798
+  %.val1.i.i34.i.i.i.i.i.i.i = load ptr, ptr %389, align 8, !tbaa !19
+  %797 = icmp eq ptr %.val1.i.i34.i.i.i.i.i.i.i, %390
+  br i1 %797, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i35.i.i.i.i.i.i.i, label %798
 
 798:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i.i.i.i
-  call void @free(ptr noundef %.val1.i.i33.i.i.i.i.i.i.i) #14
-  br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i34.i.i.i.i.i.i.i
+  call void @free(ptr noundef %.val1.i.i34.i.i.i.i.i.i.i) #14
+  br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i35.i.i.i.i.i.i.i
 
-_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i34.i.i.i.i.i.i.i: ; preds = %798, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i.i.i.i
-  %.val1.i35.i.i.i.i.i.i.i = load i8, ptr %398, align 4, !tbaa !128, !range !143, !noundef !147
-  %799 = trunc nuw i8 %.val1.i35.i.i.i.i.i.i.i to i1
+_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i35.i.i.i.i.i.i.i: ; preds = %798, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i.i.i.i
+  %.val1.i36.i.i.i.i.i.i.i = load i8, ptr %398, align 4, !tbaa !128, !range !143, !noundef !147
+  %799 = trunc nuw i8 %.val1.i36.i.i.i.i.i.i.i to i1
   br i1 %799, label %_ZSt14__copy_move_a2ILb0EN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET1_T0_SH_SG_.exit.i.i.i.i.i.i, label %800
 
-800:                                              ; preds = %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i34.i.i.i.i.i.i.i
-  %.val.i36.i.i.i.i.i.i.i = load ptr, ptr %13, align 8
-  call void @free(ptr noundef %.val.i36.i.i.i.i.i.i.i) #14
+800:                                              ; preds = %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i35.i.i.i.i.i.i.i
+  %.val.i37.i.i.i.i.i.i.i = load ptr, ptr %13, align 8
+  call void @free(ptr noundef %.val.i37.i.i.i.i.i.i.i) #14
   br label %_ZSt14__copy_move_a2ILb0EN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET1_T0_SH_SG_.exit.i.i.i.i.i.i
 
-_ZSt14__copy_move_a2ILb0EN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET1_T0_SH_SG_.exit.i.i.i.i.i.i: ; preds = %800, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i34.i.i.i.i.i.i.i
+_ZSt14__copy_move_a2ILb0EN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET1_T0_SH_SG_.exit.i.i.i.i.i.i: ; preds = %800, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i35.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %14)
-  %.val1.i.i31.i.i.i.i.i.i = load ptr, ptr %382, align 8, !tbaa !19
-  %801 = icmp eq ptr %.val1.i.i31.i.i.i.i.i.i, %384
+  %.val1.i.i33.i.i.i.i.i.i = load ptr, ptr %382, align 8, !tbaa !19
+  %801 = icmp eq ptr %.val1.i.i33.i.i.i.i.i.i, %384
   br i1 %801, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i.i.i.i.i.i.i, label %802
 
 802:                                              ; preds = %_ZSt14__copy_move_a2ILb0EN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET1_T0_SH_SG_.exit.i.i.i.i.i.i
-  call void @free(ptr noundef %.val1.i.i31.i.i.i.i.i.i) #14
+  call void @free(ptr noundef %.val1.i.i33.i.i.i.i.i.i) #14
   br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i.i.i.i.i.i.i
 
 _ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i.i.i.i.i.i.i: ; preds = %802, %_ZSt14__copy_move_a2ILb0EN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET1_T0_SH_SG_.exit.i.i.i.i.i.i
@@ -2100,33 +2117,33 @@ _ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EE
   br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i.i.i
 
 _ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i.i.i: ; preds = %804, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i.i.i.i.i.i.i
-  %.val1.i.i32.i.i.i.i.i.i = load ptr, ptr %375, align 8, !tbaa !19
-  %805 = icmp eq ptr %.val1.i.i32.i.i.i.i.i.i, %377
-  br i1 %805, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i33.i.i.i.i.i.i, label %806
+  %.val1.i.i34.i.i.i.i.i.i = load ptr, ptr %375, align 8, !tbaa !19
+  %805 = icmp eq ptr %.val1.i.i34.i.i.i.i.i.i, %377
+  br i1 %805, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i35.i.i.i.i.i.i, label %806
 
 806:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i.i.i
-  call void @free(ptr noundef %.val1.i.i32.i.i.i.i.i.i) #14
-  br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i33.i.i.i.i.i.i
+  call void @free(ptr noundef %.val1.i.i34.i.i.i.i.i.i) #14
+  br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i35.i.i.i.i.i.i
 
-_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i33.i.i.i.i.i.i: ; preds = %806, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i.i.i
-  %.val1.i34.i.i.i.i.i.i = load i8, ptr %403, align 4, !tbaa !128, !range !143, !noundef !147
-  %807 = trunc nuw i8 %.val1.i34.i.i.i.i.i.i to i1
+_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i35.i.i.i.i.i.i: ; preds = %806, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i.i.i
+  %.val1.i36.i.i.i.i.i.i = load i8, ptr %403, align 4, !tbaa !128, !range !143, !noundef !147
+  %807 = trunc nuw i8 %.val1.i36.i.i.i.i.i.i to i1
   br i1 %807, label %_ZSt14__copy_move_a1ILb0EN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET1_T0_SH_SG_.exit.i.i.i.i.i, label %808
 
-808:                                              ; preds = %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i33.i.i.i.i.i.i
-  %.val.i35.i.i.i.i.i.i = load ptr, ptr %17, align 8
-  call void @free(ptr noundef %.val.i35.i.i.i.i.i.i) #14
+808:                                              ; preds = %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i35.i.i.i.i.i.i
+  %.val.i37.i.i.i.i.i.i = load ptr, ptr %17, align 8
+  call void @free(ptr noundef %.val.i37.i.i.i.i.i.i) #14
   br label %_ZSt14__copy_move_a1ILb0EN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET1_T0_SH_SG_.exit.i.i.i.i.i
 
-_ZSt14__copy_move_a1ILb0EN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET1_T0_SH_SG_.exit.i.i.i.i.i: ; preds = %808, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i33.i.i.i.i.i.i
+_ZSt14__copy_move_a1ILb0EN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET1_T0_SH_SG_.exit.i.i.i.i.i: ; preds = %808, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i35.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %18)
-  %.val1.i.i33.i.i.i.i.i = load ptr, ptr %383, align 8, !tbaa !19
-  %809 = icmp eq ptr %.val1.i.i33.i.i.i.i.i, %404
+  %.val1.i.i34.i.i.i.i.i = load ptr, ptr %383, align 8, !tbaa !19
+  %809 = icmp eq ptr %.val1.i.i34.i.i.i.i.i, %404
   br i1 %809, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i.i.i.i.i.i, label %810
 
 810:                                              ; preds = %_ZSt14__copy_move_a1ILb0EN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET1_T0_SH_SG_.exit.i.i.i.i.i
-  call void @free(ptr noundef %.val1.i.i33.i.i.i.i.i) #14
+  call void @free(ptr noundef %.val1.i.i34.i.i.i.i.i) #14
   br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i.i.i.i.i.i
 
 _ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i.i.i.i.i.i: ; preds = %810, %_ZSt14__copy_move_a1ILb0EN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET1_T0_SH_SG_.exit.i.i.i.i.i
@@ -2140,73 +2157,73 @@ _ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EE
   br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i.i
 
 _ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i.i: ; preds = %812, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i.i.i.i.i.i
-  %.val1.i.i34.i.i.i.i.i = load ptr, ptr %368, align 8, !tbaa !19
-  %813 = icmp eq ptr %.val1.i.i34.i.i.i.i.i, %370
-  br i1 %813, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i35.i.i.i.i.i, label %814
+  %.val1.i.i35.i.i.i.i.i = load ptr, ptr %368, align 8, !tbaa !19
+  %813 = icmp eq ptr %.val1.i.i35.i.i.i.i.i, %370
+  br i1 %813, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i36.i.i.i.i.i, label %814
 
 814:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i.i
-  call void @free(ptr noundef %.val1.i.i34.i.i.i.i.i) #14
-  br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i35.i.i.i.i.i
+  call void @free(ptr noundef %.val1.i.i35.i.i.i.i.i) #14
+  br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i36.i.i.i.i.i
 
-_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i35.i.i.i.i.i: ; preds = %814, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i.i
-  %.val1.i36.i.i.i.i.i = load i8, ptr %406, align 4, !tbaa !128, !range !143, !noundef !147
-  %815 = trunc nuw i8 %.val1.i36.i.i.i.i.i to i1
-  br i1 %815, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit38.i.i.i.i.i, label %816
+_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i36.i.i.i.i.i: ; preds = %814, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i.i
+  %.val1.i37.i.i.i.i.i = load i8, ptr %406, align 4, !tbaa !128, !range !143, !noundef !147
+  %815 = trunc nuw i8 %.val1.i37.i.i.i.i.i to i1
+  br i1 %815, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit39.i.i.i.i.i, label %816
 
-816:                                              ; preds = %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i35.i.i.i.i.i
-  %.val.i37.i.i.i.i.i = load ptr, ptr %24, align 8
-  call void @free(ptr noundef %.val.i37.i.i.i.i.i) #14
-  br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit38.i.i.i.i.i
+816:                                              ; preds = %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i36.i.i.i.i.i
+  %.val.i38.i.i.i.i.i = load ptr, ptr %24, align 8
+  call void @free(ptr noundef %.val.i38.i.i.i.i.i) #14
+  br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit39.i.i.i.i.i
 
-_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit38.i.i.i.i.i: ; preds = %816, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i35.i.i.i.i.i
-  %.val1.i.i39.i.i.i.i.i = load ptr, ptr %376, align 8, !tbaa !19
-  %817 = icmp eq ptr %.val1.i.i39.i.i.i.i.i, %407
-  br i1 %817, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i40.i.i.i.i.i, label %818
+_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit39.i.i.i.i.i: ; preds = %816, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i36.i.i.i.i.i
+  %.val1.i.i40.i.i.i.i.i = load ptr, ptr %376, align 8, !tbaa !19
+  %817 = icmp eq ptr %.val1.i.i40.i.i.i.i.i, %407
+  br i1 %817, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i41.i.i.i.i.i, label %818
 
-818:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit38.i.i.i.i.i
-  call void @free(ptr noundef %.val1.i.i39.i.i.i.i.i) #14
-  br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i40.i.i.i.i.i
+818:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit39.i.i.i.i.i
+  call void @free(ptr noundef %.val1.i.i40.i.i.i.i.i) #14
+  br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i41.i.i.i.i.i
 
-_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i40.i.i.i.i.i: ; preds = %818, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit38.i.i.i.i.i
-  %.val1.i41.i.i.i.i.i = load i8, ptr %408, align 4, !tbaa !128, !range !143, !noundef !147
-  %819 = trunc nuw i8 %.val1.i41.i.i.i.i.i to i1
-  br i1 %819, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit43.i.i.i.i.i, label %820
+_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i41.i.i.i.i.i: ; preds = %818, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit39.i.i.i.i.i
+  %.val1.i42.i.i.i.i.i = load i8, ptr %408, align 4, !tbaa !128, !range !143, !noundef !147
+  %819 = trunc nuw i8 %.val1.i42.i.i.i.i.i to i1
+  br i1 %819, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit44.i.i.i.i.i, label %820
 
-820:                                              ; preds = %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i40.i.i.i.i.i
-  %.val.i42.i.i.i.i.i = load ptr, ptr %21, align 8
-  call void @free(ptr noundef %.val.i42.i.i.i.i.i) #14
-  br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit43.i.i.i.i.i
+820:                                              ; preds = %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i41.i.i.i.i.i
+  %.val.i43.i.i.i.i.i = load ptr, ptr %21, align 8
+  call void @free(ptr noundef %.val.i43.i.i.i.i.i) #14
+  br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit44.i.i.i.i.i
 
-_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit43.i.i.i.i.i: ; preds = %820, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i40.i.i.i.i.i
-  %.val1.i.i44.i.i.i.i.i = load ptr, ptr %361, align 8, !tbaa !19
-  %821 = icmp eq ptr %.val1.i.i44.i.i.i.i.i, %363
-  br i1 %821, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i45.i.i.i.i.i, label %822
+_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit44.i.i.i.i.i: ; preds = %820, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i41.i.i.i.i.i
+  %.val1.i.i45.i.i.i.i.i = load ptr, ptr %361, align 8, !tbaa !19
+  %821 = icmp eq ptr %.val1.i.i45.i.i.i.i.i, %363
+  br i1 %821, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i46.i.i.i.i.i, label %822
 
-822:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit43.i.i.i.i.i
-  call void @free(ptr noundef %.val1.i.i44.i.i.i.i.i) #14
-  br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i45.i.i.i.i.i
+822:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit44.i.i.i.i.i
+  call void @free(ptr noundef %.val1.i.i45.i.i.i.i.i) #14
+  br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i46.i.i.i.i.i
 
-_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i45.i.i.i.i.i: ; preds = %822, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit43.i.i.i.i.i
-  %.val1.i46.i.i.i.i.i = load i8, ptr %409, align 4, !tbaa !128, !range !143, !noundef !147
-  %823 = trunc nuw i8 %.val1.i46.i.i.i.i.i to i1
+_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i46.i.i.i.i.i: ; preds = %822, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit44.i.i.i.i.i
+  %.val1.i47.i.i.i.i.i = load i8, ptr %409, align 4, !tbaa !128, !range !143, !noundef !147
+  %823 = trunc nuw i8 %.val1.i47.i.i.i.i.i to i1
   br i1 %823, label %_ZSt13__copy_move_aILb0EN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET1_T0_SH_SG_.exit.i.i.i.i, label %824
 
-824:                                              ; preds = %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i45.i.i.i.i.i
-  %.val.i47.i.i.i.i.i = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %.val.i47.i.i.i.i.i) #14
+824:                                              ; preds = %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i46.i.i.i.i.i
+  %.val.i48.i.i.i.i.i = load ptr, ptr %22, align 8
+  call void @free(ptr noundef %.val.i48.i.i.i.i.i) #14
   br label %_ZSt13__copy_move_aILb0EN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET1_T0_SH_SG_.exit.i.i.i.i
 
-_ZSt13__copy_move_aILb0EN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET1_T0_SH_SG_.exit.i.i.i.i: ; preds = %824, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i45.i.i.i.i.i
+_ZSt13__copy_move_aILb0EN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET1_T0_SH_SG_.exit.i.i.i.i: ; preds = %824, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i46.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %24)
-  %.val1.i.i35.i.i.i.i = load ptr, ptr %369, align 8, !tbaa !19
-  %825 = icmp eq ptr %.val1.i.i35.i.i.i.i, %410
+  %.val1.i.i36.i.i.i.i = load ptr, ptr %369, align 8, !tbaa !19
+  %825 = icmp eq ptr %.val1.i.i36.i.i.i.i, %410
   br i1 %825, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i.i.i.i.i, label %826
 
 826:                                              ; preds = %_ZSt13__copy_move_aILb0EN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET1_T0_SH_SG_.exit.i.i.i.i
-  call void @free(ptr noundef %.val1.i.i35.i.i.i.i) #14
+  call void @free(ptr noundef %.val1.i.i36.i.i.i.i) #14
   br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i.i.i.i.i
 
 _ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i.i.i.i.i: ; preds = %826, %_ZSt13__copy_move_aILb0EN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET1_T0_SH_SG_.exit.i.i.i.i
@@ -2220,63 +2237,63 @@ _ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EE
   br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i
 
 _ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i: ; preds = %828, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i.i.i.i.i
-  %.val1.i.i36.i.i.i.i = load ptr, ptr %355, align 8, !tbaa !19
-  %829 = icmp eq ptr %.val1.i.i36.i.i.i.i, %356
-  br i1 %829, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i37.i.i.i.i, label %830
+  %.val1.i.i37.i.i.i.i = load ptr, ptr %355, align 8, !tbaa !19
+  %829 = icmp eq ptr %.val1.i.i37.i.i.i.i, %356
+  br i1 %829, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i38.i.i.i.i, label %830
 
 830:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i
-  call void @free(ptr noundef %.val1.i.i36.i.i.i.i) #14
-  br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i37.i.i.i.i
+  call void @free(ptr noundef %.val1.i.i37.i.i.i.i) #14
+  br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i38.i.i.i.i
 
-_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i37.i.i.i.i: ; preds = %830, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i
-  %.val1.i38.i.i.i.i = load i8, ptr %412, align 4, !tbaa !128, !range !143, !noundef !147
-  %831 = trunc nuw i8 %.val1.i38.i.i.i.i to i1
-  br i1 %831, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit40.i.i.i.i, label %832
+_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i38.i.i.i.i: ; preds = %830, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit.i.i.i.i
+  %.val1.i39.i.i.i.i = load i8, ptr %412, align 4, !tbaa !128, !range !143, !noundef !147
+  %831 = trunc nuw i8 %.val1.i39.i.i.i.i to i1
+  br i1 %831, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit41.i.i.i.i, label %832
 
-832:                                              ; preds = %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i37.i.i.i.i
-  %.val.i39.i.i.i.i = load ptr, ptr %30, align 8
-  call void @free(ptr noundef %.val.i39.i.i.i.i) #14
-  br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit40.i.i.i.i
+832:                                              ; preds = %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i38.i.i.i.i
+  %.val.i40.i.i.i.i = load ptr, ptr %30, align 8
+  call void @free(ptr noundef %.val.i40.i.i.i.i) #14
+  br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit41.i.i.i.i
 
-_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit40.i.i.i.i: ; preds = %832, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i37.i.i.i.i
-  %.val1.i.i41.i.i.i.i = load ptr, ptr %362, align 8, !tbaa !19
-  %833 = icmp eq ptr %.val1.i.i41.i.i.i.i, %413
-  br i1 %833, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i42.i.i.i.i, label %834
+_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit41.i.i.i.i: ; preds = %832, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i38.i.i.i.i
+  %.val1.i.i42.i.i.i.i = load ptr, ptr %362, align 8, !tbaa !19
+  %833 = icmp eq ptr %.val1.i.i42.i.i.i.i, %413
+  br i1 %833, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i43.i.i.i.i, label %834
 
-834:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit40.i.i.i.i
-  call void @free(ptr noundef %.val1.i.i41.i.i.i.i) #14
-  br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i42.i.i.i.i
+834:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit41.i.i.i.i
+  call void @free(ptr noundef %.val1.i.i42.i.i.i.i) #14
+  br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i43.i.i.i.i
 
-_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i42.i.i.i.i: ; preds = %834, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit40.i.i.i.i
-  %.val1.i43.i.i.i.i = load i8, ptr %414, align 4, !tbaa !128, !range !143, !noundef !147
-  %835 = trunc nuw i8 %.val1.i43.i.i.i.i to i1
-  br i1 %835, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit45.i.i.i.i, label %836
+_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i43.i.i.i.i: ; preds = %834, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit41.i.i.i.i
+  %.val1.i44.i.i.i.i = load i8, ptr %414, align 4, !tbaa !128, !range !143, !noundef !147
+  %835 = trunc nuw i8 %.val1.i44.i.i.i.i to i1
+  br i1 %835, label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit46.i.i.i.i, label %836
 
-836:                                              ; preds = %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i42.i.i.i.i
-  %.val.i44.i.i.i.i = load ptr, ptr %27, align 8
-  call void @free(ptr noundef %.val.i44.i.i.i.i) #14
-  br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit45.i.i.i.i
+836:                                              ; preds = %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i43.i.i.i.i
+  %.val.i45.i.i.i.i = load ptr, ptr %27, align 8
+  call void @free(ptr noundef %.val.i45.i.i.i.i) #14
+  br label %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit46.i.i.i.i
 
-_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit45.i.i.i.i: ; preds = %836, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i42.i.i.i.i
-  %.val1.i.i46.i.i.i.i = load ptr, ptr %350, align 8, !tbaa !19
-  %837 = icmp eq ptr %.val1.i.i46.i.i.i.i, %351
-  br i1 %837, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i47.i.i.i.i, label %838
+_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit46.i.i.i.i: ; preds = %836, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i43.i.i.i.i
+  %.val1.i.i47.i.i.i.i = load ptr, ptr %350, align 8, !tbaa !19
+  %837 = icmp eq ptr %.val1.i.i47.i.i.i.i, %351
+  br i1 %837, label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i48.i.i.i.i, label %838
 
-838:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit45.i.i.i.i
-  call void @free(ptr noundef %.val1.i.i46.i.i.i.i) #14
-  br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i47.i.i.i.i
+838:                                              ; preds = %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit46.i.i.i.i
+  call void @free(ptr noundef %.val1.i.i47.i.i.i.i) #14
+  br label %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i48.i.i.i.i
 
-_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i47.i.i.i.i: ; preds = %838, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit45.i.i.i.i
-  %.val1.i48.i.i.i.i = load i8, ptr %415, align 4, !tbaa !128, !range !143, !noundef !147
-  %839 = trunc nuw i8 %.val1.i48.i.i.i.i to i1
+_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i48.i.i.i.i: ; preds = %838, %_ZN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS_11SmallPtrSetIPNS2_9RematNodeELj8EEELb0ENS_11GraphTraitsIS3_EEED2Ev.exit46.i.i.i.i
+  %.val1.i49.i.i.i.i = load i8, ptr %415, align 4, !tbaa !128, !range !143, !noundef !147
+  %839 = trunc nuw i8 %.val1.i49.i.i.i.i to i1
   br i1 %839, label %_ZSt4copyIN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET0_T_SH_SG_.exit.i.i.i, label %840
 
-840:                                              ; preds = %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i47.i.i.i.i
-  %.val.i49.i.i.i.i = load ptr, ptr %28, align 8
-  call void @free(ptr noundef %.val.i49.i.i.i.i) #14
+840:                                              ; preds = %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i48.i.i.i.i
+  %.val.i50.i.i.i.i = load ptr, ptr %28, align 8
+  call void @free(ptr noundef %.val.i50.i.i.i.i) #14
   br label %_ZSt4copyIN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET0_T_SH_SG_.exit.i.i.i
 
-_ZSt4copyIN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET0_T_SH_SG_.exit.i.i.i: ; preds = %840, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i47.i.i.i.i
+_ZSt4copyIN4llvm11po_iteratorIPN12_GLOBAL__N_110RematGraphENS0_11SmallPtrSetIPNS3_9RematNodeELj8EEELb0ENS0_11GraphTraitsIS4_EEEESt20back_insert_iteratorINS0_11SmallVectorIS7_Lj8EEEEET0_T_SH_SG_.exit.i.i.i: ; preds = %840, %_ZN4llvm11SmallVectorISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELj8EED2Ev.exit.i48.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %29)
@@ -2434,7 +2451,8 @@ _ZN4llvm3isaINS_18AnyCoroSuspendInstEPNS_11InstructionEEEbRKT0_.exit.thread.i: ;
   %898 = load ptr, ptr %35, align 8, !tbaa !19
   %899 = load i32, ptr %417, align 8, !tbaa !21
   %900 = zext i32 %899 to i64
-  %901 = getelementptr inbounds nuw ptr, ptr %898, i64 %900
+  %.idx42.i = shl nuw nsw i64 %900, 3
+  %901 = getelementptr inbounds nuw i8, ptr %898, i64 %.idx42.i
   %.not7916.i = icmp eq i32 %899, 0
   br i1 %.not7916.i, label %._crit_edge.i49, label %.lr.ph.i
 
@@ -2588,11 +2606,11 @@ _ZN4llvm25ReversePostOrderTraversalIPN12_GLOBAL__N_110RematGraphENS_11GraphTrait
   br i1 %.not.i, label %._crit_edge35.i, label %427
 
 ._crit_edge40.loopexit.i:                         ; preds = %974
-  %.pre51.i = load ptr, ptr %33, align 8, !tbaa !19
+  %.pre54.i = load ptr, ptr %33, align 8, !tbaa !19
   br label %._crit_edge40.i
 
 ._crit_edge40.i:                                  ; preds = %._crit_edge40.loopexit.i, %._crit_edge35.i
-  %960 = phi ptr [ %.pre51.i, %._crit_edge40.loopexit.i ], [ %.val83.pre.i, %._crit_edge35.i ]
+  %960 = phi ptr [ %.pre54.i, %._crit_edge40.loopexit.i ], [ %.val83.pre.i, %._crit_edge35.i ]
   %961 = icmp eq ptr %960, %322
   br i1 %961, label %_ZL33rewriteMaterializableInstructionsRKN4llvm14SmallMapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EELj8EEE.exit, label %962
 
@@ -2627,7 +2645,7 @@ _ZN4llvm25ReversePostOrderTraversalIPN12_GLOBAL__N_110RematGraphENS_11GraphTrait
   %.not76.i = icmp eq ptr %975, %426
   br i1 %.not76.i, label %._crit_edge40.loopexit.i, label %.lr.ph39.i
 
-_ZL33rewriteMaterializableInstructionsRKN4llvm14SmallMapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EELj8EEE.exit: ; preds = %._crit_edge263.thread, %._crit_edge263, %._crit_edge40.i, %962
+_ZL33rewriteMaterializableInstructionsRKN4llvm14SmallMapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EELj8EEE.exit: ; preds = %._crit_edge266.thread, %._crit_edge266, %._crit_edge40.i, %962
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %33) #14
   %.val.i.i55 = load ptr, ptr %82, align 8, !tbaa !19
   %.val2.i.i = load i32, ptr %84, align 8, !tbaa !21
@@ -2636,7 +2654,8 @@ _ZL33rewriteMaterializableInstructionsRKN4llvm14SmallMapVectorIPNS_11Instruction
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZL33rewriteMaterializableInstructionsRKN4llvm14SmallMapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EELj8EEE.exit
   %976 = zext i32 %.val2.i.i to i64
-  %977 = getelementptr inbounds nuw %"struct.std::pair.91", ptr %.val.i.i55, i64 %976
+  %.idx.i.i = shl nuw nsw i64 %976, 4
+  %977 = getelementptr inbounds nuw i8, ptr %.val.i.i55, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EEED2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -2694,32 +2713,33 @@ _ZN4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphE
 
 .lr.ph.i.preheader.i.i60:                         ; preds = %_ZN4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S8_ELj8EEEED2Ev.exit
   %996 = zext i32 %995 to i64
-  %997 = getelementptr inbounds nuw %"struct.std::pair", ptr %994, i64 %996
-  br label %.lr.ph.i.i.i61
+  %.idx.i.i61 = mul nuw nsw i64 %996, 40
+  %997 = getelementptr inbounds nuw i8, ptr %994, i64 %.idx.i.i61
+  br label %.lr.ph.i.i.i62
 
-.lr.ph.i.i.i61:                                   ; preds = %_ZNSt4pairIPN4llvm5ValueENS0_11SmallVectorIPNS0_11InstructionELj2EEEED2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i60
-  %.05.i.i.i62 = phi ptr [ %998, %_ZNSt4pairIPN4llvm5ValueENS0_11SmallVectorIPNS0_11InstructionELj2EEEED2Ev.exit.i.i.i ], [ %997, %.lr.ph.i.preheader.i.i60 ]
-  %998 = getelementptr inbounds i8, ptr %.05.i.i.i62, i64 -40
-  %999 = getelementptr inbounds i8, ptr %.05.i.i.i62, i64 -32
+.lr.ph.i.i.i62:                                   ; preds = %_ZNSt4pairIPN4llvm5ValueENS0_11SmallVectorIPNS0_11InstructionELj2EEEED2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i60
+  %.05.i.i.i63 = phi ptr [ %998, %_ZNSt4pairIPN4llvm5ValueENS0_11SmallVectorIPNS0_11InstructionELj2EEEED2Ev.exit.i.i.i ], [ %997, %.lr.ph.i.preheader.i.i60 ]
+  %998 = getelementptr inbounds i8, ptr %.05.i.i.i63, i64 -40
+  %999 = getelementptr inbounds i8, ptr %.05.i.i.i63, i64 -32
   %1000 = load ptr, ptr %999, align 8, !tbaa !19
-  %1001 = getelementptr inbounds i8, ptr %.05.i.i.i62, i64 -16
+  %1001 = getelementptr inbounds i8, ptr %.05.i.i.i63, i64 -16
   %1002 = icmp eq ptr %1000, %1001
   br i1 %1002, label %_ZNSt4pairIPN4llvm5ValueENS0_11SmallVectorIPNS0_11InstructionELj2EEEED2Ev.exit.i.i.i, label %1003
 
-1003:                                             ; preds = %.lr.ph.i.i.i61
+1003:                                             ; preds = %.lr.ph.i.i.i62
   call void @free(ptr noundef %1000) #14
   br label %_ZNSt4pairIPN4llvm5ValueENS0_11SmallVectorIPNS0_11InstructionELj2EEEED2Ev.exit.i.i.i
 
-_ZNSt4pairIPN4llvm5ValueENS0_11SmallVectorIPNS0_11InstructionELj2EEEED2Ev.exit.i.i.i: ; preds = %1003, %.lr.ph.i.i.i61
-  %.not.i.i.i63 = icmp eq ptr %994, %998
-  br i1 %.not.i.i.i63, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEEELb0EE13destroy_rangeEPS8_SA_.exit.loopexit.i.i, label %.lr.ph.i.i.i61, !llvm.loop !187
+_ZNSt4pairIPN4llvm5ValueENS0_11SmallVectorIPNS0_11InstructionELj2EEEED2Ev.exit.i.i.i: ; preds = %1003, %.lr.ph.i.i.i62
+  %.not.i.i.i64 = icmp eq ptr %994, %998
+  br i1 %.not.i.i.i64, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEEELb0EE13destroy_rangeEPS8_SA_.exit.loopexit.i.i, label %.lr.ph.i.i.i62, !llvm.loop !187
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEEELb0EE13destroy_rangeEPS8_SA_.exit.loopexit.i.i: ; preds = %_ZNSt4pairIPN4llvm5ValueENS0_11SmallVectorIPNS0_11InstructionELj2EEEED2Ev.exit.i.i.i
-  %.pre.i.i64 = load ptr, ptr %45, align 8, !tbaa !19
+  %.pre.i.i65 = load ptr, ptr %45, align 8, !tbaa !19
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEEELb0EE13destroy_rangeEPS8_SA_.exit.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEEELb0EE13destroy_rangeEPS8_SA_.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEEELb0EE13destroy_rangeEPS8_SA_.exit.loopexit.i.i, %_ZN4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S8_ELj8EEEED2Ev.exit
-  %1004 = phi ptr [ %.pre.i.i64, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEEELb0EE13destroy_rangeEPS8_SA_.exit.loopexit.i.i ], [ %994, %_ZN4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S8_ELj8EEEED2Ev.exit ]
+  %1004 = phi ptr [ %.pre.i.i65, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEEELb0EE13destroy_rangeEPS8_SA_.exit.loopexit.i.i ], [ %994, %_ZN4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S8_ELj8EEEED2Ev.exit ]
   %1005 = icmp eq ptr %1004, %46
   br i1 %1005, label %_ZN4llvm11SmallVectorISt4pairIPNS_5ValueENS0_IPNS_11InstructionELj2EEEELj8EED2Ev.exit.i, label %1006
 
@@ -2730,8 +2750,8 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_11SmallVectorIPNS_11Inst
 _ZN4llvm11SmallVectorISt4pairIPNS_5ValueENS0_IPNS_11InstructionELj2EEEELj8EED2Ev.exit.i: ; preds = %1006, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEEELb0EE13destroy_rangeEPS8_SA_.exit.i.i
   %1007 = load i32, ptr %40, align 8
   %1008 = and i32 %1007, 1
-  %.not.i.i1.i65 = icmp eq i32 %1008, 0
-  br i1 %.not.i.i1.i65, label %1009, label %_ZN4llvm9MapVectorIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS3_ISt4pairIS2_S6_ELj8EEEED2Ev.exit
+  %.not.i.i1.i66 = icmp eq i32 %1008, 0
+  br i1 %.not.i.i1.i66, label %1009, label %_ZN4llvm9MapVectorIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS3_ISt4pairIS2_S6_ELj8EEEED2Ev.exit
 
 1009:                                             ; preds = %_ZN4llvm11SmallVectorISt4pairIPNS_5ValueENS0_IPNS_11InstructionELj2EEEELj8EED2Ev.exit.i
   %1010 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -2747,36 +2767,37 @@ _ZN4llvm9MapVectorIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEENS_13Smal
   call void @llvm.lifetime.end.p0(i64 472, ptr nonnull %40) #14
   br label %1326
 
-1016:                                             ; preds = %.lr.ph262, %._crit_edge
-  %.027261 = phi ptr [ %86, %.lr.ph262 ], [ %1023, %._crit_edge ]
-  %1017 = getelementptr inbounds nuw i8, ptr %.027261, i64 8
+1016:                                             ; preds = %.lr.ph265, %._crit_edge
+  %.027264 = phi ptr [ %86, %.lr.ph265 ], [ %1023, %._crit_edge ]
+  %1017 = getelementptr inbounds nuw i8, ptr %.027264, i64 8
   %1018 = load ptr, ptr %1017, align 8, !tbaa !19
-  %1019 = getelementptr inbounds nuw i8, ptr %.027261, i64 16
+  %1019 = getelementptr inbounds nuw i8, ptr %.027264, i64 16
   %1020 = load i32, ptr %1019, align 8, !tbaa !21
   %1021 = zext i32 %1020 to i64
-  %1022 = getelementptr inbounds nuw ptr, ptr %1018, i64 %1021
-  %.not28257 = icmp eq i32 %1020, 0
-  br i1 %.not28257, label %._crit_edge, label %.lr.ph259
+  %.idx267 = shl nuw nsw i64 %1021, 3
+  %1022 = getelementptr inbounds nuw i8, ptr %1018, i64 %.idx267
+  %.not28260 = icmp eq i32 %1020, 0
+  br i1 %.not28260, label %._crit_edge, label %.lr.ph262
 
 ._crit_edge:                                      ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit, %1016
-  %1023 = getelementptr inbounds nuw i8, ptr %.027261, i64 40
+  %1023 = getelementptr inbounds nuw i8, ptr %.027264, i64 40
   %.not = icmp eq ptr %1023, %89
-  br i1 %.not, label %._crit_edge263, label %1016
+  br i1 %.not, label %._crit_edge266, label %1016
 
-.lr.ph259:                                        ; preds = %1016, %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit
-  %.0258 = phi ptr [ %1325, %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit ], [ %1018, %1016 ]
-  %1024 = load ptr, ptr %.0258, align 8, !tbaa !38
+.lr.ph262:                                        ; preds = %1016, %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit
+  %.0261 = phi ptr [ %1325, %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit ], [ %1018, %1016 ]
+  %1024 = load ptr, ptr %.0261, align 8, !tbaa !38
   %1025 = load i32, ptr %41, align 8
   %1026 = and i32 %1025, 1
-  %.not.i.i.i.i.i.i.i.i66 = icmp eq i32 %1026, 0
+  %.not.i.i.i.i.i.i.i.i67 = icmp eq i32 %1026, 0
   %1027 = load ptr, ptr %90, align 8
-  %1028 = select i1 %.not.i.i.i.i.i.i.i.i66, ptr %1027, ptr %90
+  %1028 = select i1 %.not.i.i.i.i.i.i.i.i67, ptr %1027, ptr %90
   %1029 = load i32, ptr %91, align 8
-  %1030 = select i1 %.not.i.i.i.i.i.i.i.i66, i32 %1029, i32 8
+  %1030 = select i1 %.not.i.i.i.i.i.i.i.i67, i32 %1029, i32 8
   %1031 = icmp eq i32 %1030, 0
   br i1 %1031, label %.loopexit.i.i.i, label %1032
 
-1032:                                             ; preds = %.lr.ph259
+1032:                                             ; preds = %.lr.ph262
   %1033 = ptrtoint ptr %1024 to i64
   %1034 = trunc i64 %1033 to i32
   %1035 = lshr i32 %1034, 4
@@ -2788,16 +2809,16 @@ _ZN4llvm9MapVectorIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEENS_13Smal
   %1040 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.57", ptr %1028, i64 %1039
   %1041 = load ptr, ptr %1040, align 8, !tbaa !38
   %1042 = icmp eq ptr %1024, %1041
-  br i1 %1042, label %_ZNK4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S8_ELj8EEEE5countERKS2_.exit, label %.lr.ph.i.i.i.i.i67, !prof !78
+  br i1 %1042, label %_ZNK4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S8_ELj8EEEE5countERKS2_.exit, label %.lr.ph.i.i.i.i.i68, !prof !78
 
-.lr.ph.i.i.i.i.i67:                               ; preds = %1032, %1045
+.lr.ph.i.i.i.i.i68:                               ; preds = %1032, %1045
   %1043 = phi ptr [ %1050, %1045 ], [ %1041, %1032 ]
   %.01828.i.i.i.i.i = phi i32 [ %.018.i.i.i.i.i, %1045 ], [ %.01826.i.i.i.i.i, %1032 ]
   %.01627.i.i.i.i.i = phi i32 [ %1046, %1045 ], [ 1, %1032 ]
   %1044 = icmp eq ptr %1043, inttoptr (i64 -4096 to ptr)
   br i1 %1044, label %.loopexit.i.i.i, label %1045, !prof !79
 
-1045:                                             ; preds = %.lr.ph.i.i.i.i.i67
+1045:                                             ; preds = %.lr.ph.i.i.i.i.i68
   %1046 = add i32 %.01627.i.i.i.i.i, 1
   %1047 = add i32 %.01627.i.i.i.i.i, %.01828.i.i.i.i.i
   %.018.i.i.i.i.i = and i32 %1047, %1038
@@ -2805,9 +2826,9 @@ _ZN4llvm9MapVectorIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEENS_13Smal
   %1049 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.57", ptr %1028, i64 %1048
   %1050 = load ptr, ptr %1049, align 8, !tbaa !38
   %1051 = icmp eq ptr %1024, %1050
-  br i1 %1051, label %_ZNK4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S8_ELj8EEEE5countERKS2_.exit, label %.lr.ph.i.i.i.i.i67, !prof !80, !llvm.loop !192
+  br i1 %1051, label %_ZNK4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S8_ELj8EEEE5countERKS2_.exit, label %.lr.ph.i.i.i.i.i68, !prof !80, !llvm.loop !192
 
-.loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i67, %.lr.ph259
+.loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i68, %.lr.ph262
   %1052 = zext i32 %1030 to i64
   %1053 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.57", ptr %1028, i64 %1052
   br label %_ZNK4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S8_ELj8EEEE5countERKS2_.exit
@@ -2816,8 +2837,8 @@ _ZNK4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph
   %.sroa.0.1.i.i.i = phi ptr [ %1053, %.loopexit.i.i.i ], [ %1040, %1032 ], [ %1049, %1045 ]
   %1054 = zext i32 %1030 to i64
   %1055 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.57", ptr %1028, i64 %1054
-  %.not212 = icmp eq ptr %.sroa.0.1.i.i.i, %1055
-  br i1 %.not212, label %1056, label %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit
+  %.not215 = icmp eq ptr %.sroa.0.1.i.i.i, %1055
+  br i1 %.not215, label %1056, label %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit
 
 1056:                                             ; preds = %_ZNK4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S8_ELj8EEEE5countERKS2_.exit
   %1057 = call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #16, !noalias !193
@@ -2834,8 +2855,8 @@ _ZNK4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph
   %.07.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %1058, i64 %.07.i.i.i.idx.i.i.i.i
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i.i.ptr.i.i.i.i, align 8, !tbaa !38, !noalias !193
   %.07.i.i.i.add.i.i.i.i = add nuw nsw i64 %.07.i.i.i.idx.i.i.i.i, 16
-  %.not.i.i.i.i.i.i.i68 = icmp eq i64 %.07.i.i.i.add.i.i.i.i, 136
-  br i1 %.not.i.i.i.i.i.i.i68, label %_ZN4llvm14SmallMapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS6_EELj8EEC2Ev.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !40
+  %.not.i.i.i.i.i.i.i69 = icmp eq i64 %.07.i.i.i.add.i.i.i.i, 136
+  br i1 %.not.i.i.i.i.i.i.i69, label %_ZN4llvm14SmallMapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS6_EELj8EEC2Ev.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !40
 
 _ZN4llvm14SmallMapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS6_EELj8EEC2Ev.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
   %1060 = getelementptr inbounds nuw i8, ptr %1057, i64 144
@@ -2879,8 +2900,8 @@ _ZN4llvm14SmallMapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110Remat
   store i64 %1074, ptr %7, align 8, !tbaa !142, !noalias !193
   call fastcc void @_ZN12_GLOBAL__N_110RematGraph7addNodeESt10unique_ptrINS0_9RematNodeESt14default_deleteIS2_EERSt5dequeIS5_SaIS5_EEPN4llvm4UserE(ptr noundef nonnull align 8 dereferenceable(304) %1057, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef %1024), !noalias !193
   %1075 = load ptr, ptr %7, align 8, !tbaa !142, !noalias !193
-  %.not.i.i.i69 = icmp eq ptr %1075, null
-  br i1 %.not.i.i.i69, label %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS2_EED2Ev.exit.i.i.preheader, label %1076
+  %.not.i.i.i70 = icmp eq ptr %1075, null
+  br i1 %.not.i.i.i70, label %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS2_EED2Ev.exit.i.i.preheader, label %1076
 
 1076:                                             ; preds = %_ZN4llvm14SmallMapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS6_EELj8EEC2Ev.exit.i.i
   %1077 = getelementptr inbounds nuw i8, ptr %1075, i64 8
@@ -2925,8 +2946,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS2_EE
   %1102 = sub i64 %1100, %1101
   %1103 = ashr exact i64 %1102, 3
   %1104 = sub nsw i64 0, %1103
-  %.not.i.i70 = icmp eq i64 %1097, %1104
-  br i1 %.not.i.i70, label %1119, label %1105
+  %.not.i.i71 = icmp eq i64 %1097, %1104
+  br i1 %.not.i.i71, label %1119, label %1105
 
 1105:                                             ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS2_EED2Ev.exit.i.i
   %.val.i.i.i4.i.i = load i64, ptr %1099, align 8, !tbaa !142, !noalias !193
@@ -2981,25 +3002,25 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS2_EE
 1119:                                             ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS2_EED2Ev.exit.i.i
   %.02.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1083, i64 8
   %1120 = icmp ult ptr %.02.i.i.i.i.i, %1082
-  br i1 %1120, label %.lr.ph.i.i.i.i.i73, label %._crit_edge.i.i.i.i.i71
+  br i1 %1120, label %.lr.ph.i.i.i.i.i74, label %._crit_edge.i.i.i.i.i72
 
-._crit_edge.i.i.i.i.i71:                          ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i, %1119
-  %.not.i.i.i.i.i72 = icmp eq ptr %1083, %1082
-  br i1 %.not.i.i.i.i.i72, label %1147, label %1130
+._crit_edge.i.i.i.i.i72:                          ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i, %1119
+  %.not.i.i.i.i.i73 = icmp eq ptr %1083, %1082
+  br i1 %.not.i.i.i.i.i73, label %1147, label %1130
 
-.lr.ph.i.i.i.i.i73:                               ; preds = %1119, %_ZSt8_DestroyIPSt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i
+.lr.ph.i.i.i.i.i74:                               ; preds = %1119, %_ZSt8_DestroyIPSt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i
   %.03.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i, %_ZSt8_DestroyIPSt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i ], [ %.02.i.i.i.i.i, %1119 ]
   %1121 = load ptr, ptr %.03.i.i.i.i.i, align 8, !tbaa !207, !noalias !193
-  br label %.lr.ph.i.i.i.i.i.i.i.i74
+  br label %.lr.ph.i.i.i.i.i.i.i.i75
 
-.lr.ph.i.i.i.i.i.i.i.i74:                         ; preds = %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i73
-  %.05.i.i.i.idx.i.i.i.i.i = phi i64 [ %.05.i.i.i.add.i.i.i.i.i, %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i73 ]
+.lr.ph.i.i.i.i.i.i.i.i75:                         ; preds = %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i74
+  %.05.i.i.i.idx.i.i.i.i.i = phi i64 [ %.05.i.i.i.add.i.i.i.i.i, %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i74 ]
   %.05.i.i.i.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1121, i64 %.05.i.i.i.idx.i.i.i.i.i
   %1122 = load ptr, ptr %.05.i.i.i.ptr.i.i.i.i.i, align 8, !tbaa !142, !noalias !193
-  %.not.i.i.i.i.i.i.i.i.i.i75 = icmp eq ptr %1122, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i75, label %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i.i, label %1123
+  %.not.i.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %1122, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i76, label %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i.i, label %1123
 
-1123:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i.i74
+1123:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i.i75
   %1124 = getelementptr inbounds nuw i8, ptr %1122, i64 8
   %1125 = load ptr, ptr %1124, align 8, !tbaa !19, !noalias !193
   %1126 = getelementptr inbounds nuw i8, ptr %1122, i64 24
@@ -3014,18 +3035,18 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_110RematGraph9RematNodeEEclEPS2_.exit.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %1122, i64 noundef 72) #17, !noalias !193
   br label %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i.i
 
-_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_110RematGraph9RematNodeEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i74
+_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_110RematGraph9RematNodeEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i75
   store ptr null, ptr %.05.i.i.i.ptr.i.i.i.i.i, align 8, !tbaa !142, !noalias !193
   %.05.i.i.i.add.i.i.i.i.i = add nuw nsw i64 %.05.i.i.i.idx.i.i.i.i.i, 8
-  %.not.i.i.i.i.i.i.i.i76 = icmp eq i64 %.05.i.i.i.add.i.i.i.i.i, 512
-  br i1 %.not.i.i.i.i.i.i.i.i76, label %_ZSt8_DestroyIPSt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i74, !llvm.loop !216
+  %.not.i.i.i.i.i.i.i.i77 = icmp eq i64 %.05.i.i.i.add.i.i.i.i.i, 512
+  br i1 %.not.i.i.i.i.i.i.i.i77, label %_ZSt8_DestroyIPSt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i75, !llvm.loop !216
 
 _ZSt8_DestroyIPSt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i.i
   %.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i, i64 8
   %1129 = icmp ult ptr %.0.i.i.i.i.i, %1082
-  br i1 %1129, label %.lr.ph.i.i.i.i.i73, label %._crit_edge.i.i.i.i.i71, !llvm.loop !217
+  br i1 %1129, label %.lr.ph.i.i.i.i.i74, label %._crit_edge.i.i.i.i.i72, !llvm.loop !217
 
-1130:                                             ; preds = %._crit_edge.i.i.i.i.i71
+1130:                                             ; preds = %._crit_edge.i.i.i.i.i72
   %.not4.i.i.i.i.i.i.i.i = icmp eq ptr %1099, %1098
   br i1 %.not4.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit12.i.i.i.i.i, label %.lr.ph.i.i.i6.i.i.i.i.i
 
@@ -3087,7 +3108,7 @@ _ZSt8_DestroyISt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_d
   %.not.i.i.i19.i.i.i.i.i = icmp eq ptr %1146, %1091
   br i1 %.not.i.i.i19.i.i.i.i.i, label %_ZNSt5dequeISt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EESaIS6_EE15_M_destroy_dataESt15_Deque_iteratorIS6_RS6_PS6_ESC_RKS7_.exit.i.i.i, label %.lr.ph.i.i.i14.i.i.i.i.i, !llvm.loop !216
 
-1147:                                             ; preds = %._crit_edge.i.i.i.i.i71
+1147:                                             ; preds = %._crit_edge.i.i.i.i.i72
   %.not4.i.i.i21.i.i.i.i.i = icmp eq ptr %1099, %1091
   br i1 %.not4.i.i.i21.i.i.i.i.i, label %_ZNSt5dequeISt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS3_EESaIS6_EE15_M_destroy_dataESt15_Deque_iteratorIS6_RS6_PS6_ESC_RKS7_.exit.i.i.i, label %.lr.ph.i.i.i22.i.i.i.i.i
 
@@ -3148,11 +3169,11 @@ _ZSt11make_uniqueIN12_GLOBAL__N_110RematGraphEJRSt8functionIFbRN4llvm11Instructi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !193
   %1165 = load i32, ptr %41, align 8, !noalias !219
   %1166 = and i32 %1165, 1
-  %.not.i.i.i.i.i104 = icmp eq i32 %1166, 0
+  %.not.i.i.i.i.i106 = icmp eq i32 %1166, 0
   %1167 = load ptr, ptr %90, align 8, !noalias !219
-  %1168 = select i1 %.not.i.i.i.i.i104, ptr %1167, ptr %90
+  %1168 = select i1 %.not.i.i.i.i.i106, ptr %1167, ptr %90
   %1169 = load i32, ptr %91, align 8, !noalias !219
-  %1170 = select i1 %.not.i.i.i.i.i104, i32 %1169, i32 8
+  %1170 = select i1 %.not.i.i.i.i.i106, i32 %1169, i32 8
   %1171 = icmp eq i32 %1170, 0
   br i1 %1171, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i, label %1172
 
@@ -3163,125 +3184,125 @@ _ZSt11make_uniqueIN12_GLOBAL__N_110RematGraphEJRSt8functionIFbRN4llvm11Instructi
   %1176 = lshr i32 %1174, 9
   %1177 = xor i32 %1175, %1176
   %1178 = add i32 %1170, -1
-  %.02944.i.i105 = and i32 %1178, %1177
-  %1179 = zext nneg i32 %.02944.i.i105 to i64
+  %.02944.i.i107 = and i32 %1178, %1177
+  %1179 = zext nneg i32 %.02944.i.i107 to i64
   %1180 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.57", ptr %1168, i64 %1179
   %1181 = load ptr, ptr %1180, align 8, !tbaa !38, !noalias !219
   %1182 = icmp eq ptr %1024, %1181
-  br i1 %1182, label %._crit_edge.i77, label %.lr.ph.i.i106, !prof !78
+  br i1 %1182, label %._crit_edge.i78, label %.lr.ph.i.i108, !prof !78
 
-.lr.ph.i.i106:                                    ; preds = %1172, %1188
+.lr.ph.i.i108:                                    ; preds = %1172, %1188
   %1183 = phi ptr [ %1195, %1188 ], [ %1181, %1172 ]
   %1184 = phi ptr [ %1194, %1188 ], [ %1180, %1172 ]
-  %.02947.i.i107 = phi i32 [ %.029.i.i112, %1188 ], [ %.02944.i.i105, %1172 ]
-  %.02746.i.i108 = phi i32 [ %1191, %1188 ], [ 1, %1172 ]
-  %.03245.i.i109 = phi ptr [ %spec.select.i.i111, %1188 ], [ null, %1172 ]
+  %.02947.i.i109 = phi i32 [ %.029.i.i114, %1188 ], [ %.02944.i.i107, %1172 ]
+  %.02746.i.i110 = phi i32 [ %1191, %1188 ], [ 1, %1172 ]
+  %.03245.i.i111 = phi ptr [ %spec.select.i.i113, %1188 ], [ null, %1172 ]
   %1185 = icmp eq ptr %1183, inttoptr (i64 -4096 to ptr)
   br i1 %1185, label %1186, label %1188, !prof !79
 
-1186:                                             ; preds = %.lr.ph.i.i106
-  %.not.i.i118 = icmp eq ptr %.03245.i.i109, null
-  %1187 = select i1 %.not.i.i118, ptr %1184, ptr %.03245.i.i109
+1186:                                             ; preds = %.lr.ph.i.i108
+  %.not.i.i120 = icmp eq ptr %.03245.i.i111, null
+  %1187 = select i1 %.not.i.i120, ptr %1184, ptr %.03245.i.i111
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i
 
-1188:                                             ; preds = %.lr.ph.i.i106
+1188:                                             ; preds = %.lr.ph.i.i108
   %1189 = icmp eq ptr %1183, inttoptr (i64 -8192 to ptr)
-  %1190 = icmp eq ptr %.03245.i.i109, null
-  %or.cond.not.i.i110 = select i1 %1189, i1 %1190, i1 false
-  %spec.select.i.i111 = select i1 %or.cond.not.i.i110, ptr %1184, ptr %.03245.i.i109
-  %1191 = add i32 %.02746.i.i108, 1
-  %1192 = add i32 %.02746.i.i108, %.02947.i.i107
-  %.029.i.i112 = and i32 %1192, %1178
-  %1193 = zext i32 %.029.i.i112 to i64
+  %1190 = icmp eq ptr %.03245.i.i111, null
+  %or.cond.not.i.i112 = select i1 %1189, i1 %1190, i1 false
+  %spec.select.i.i113 = select i1 %or.cond.not.i.i112, ptr %1184, ptr %.03245.i.i111
+  %1191 = add i32 %.02746.i.i110, 1
+  %1192 = add i32 %.02746.i.i110, %.02947.i.i109
+  %.029.i.i114 = and i32 %1192, %1178
+  %1193 = zext i32 %.029.i.i114 to i64
   %1194 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.57", ptr %1168, i64 %1193
   %1195 = load ptr, ptr %1194, align 8, !tbaa !38, !noalias !219
   %1196 = icmp eq ptr %1024, %1195
-  br i1 %1196, label %._crit_edge.i77, label %.lr.ph.i.i106, !prof !80, !llvm.loop !222
+  br i1 %1196, label %._crit_edge.i78, label %.lr.ph.i.i108, !prof !80, !llvm.loop !222
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i: ; preds = %1186, %_ZSt11make_uniqueIN12_GLOBAL__N_110RematGraphEJRSt8functionIFbRN4llvm11InstructionEEERPS4_RNS3_19SuspendCrossingInfoEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %.sink.i.i119 = phi ptr [ %1187, %1186 ], [ null, %_ZSt11make_uniqueIN12_GLOBAL__N_110RematGraphEJRSt8functionIFbRN4llvm11InstructionEEERPS4_RNS3_19SuspendCrossingInfoEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
+  %.sink.i.i121 = phi ptr [ %1187, %1186 ], [ null, %_ZSt11make_uniqueIN12_GLOBAL__N_110RematGraphEJRSt8functionIFbRN4llvm11InstructionEEERPS4_RNS3_19SuspendCrossingInfoEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
   %1197 = lshr i32 %1165, 1
   %1198 = shl i32 %1197, 2
   %1199 = add i32 %1198, 4
   %1200 = mul i32 %1170, 3
-  %.not.i.i.i120 = icmp ult i32 %1199, %1200
-  br i1 %.not.i.i.i120, label %1203, label %1201, !prof !79
+  %.not.i.i.i122 = icmp ult i32 %1199, %1200
+  br i1 %.not.i.i.i122, label %1203, label %1201, !prof !79
 
 1201:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i
   %1202 = shl i32 %1170, 1
-  br label %.sink.split.i.i.i121
+  br label %.sink.split.i.i.i123
 
 1203:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i
   %1204 = load i32, ptr %81, align 4, !tbaa !35, !noalias !219
-  %.neg.i.i.i128 = xor i32 %1197, -1
-  %.neg13.i.i.i129 = add i32 %1170, %.neg.i.i.i128
-  %1205 = sub i32 %.neg13.i.i.i129, %1204
+  %.neg.i.i.i130 = xor i32 %1197, -1
+  %.neg13.i.i.i131 = add i32 %1170, %.neg.i.i.i130
+  %1205 = sub i32 %.neg13.i.i.i131, %1204
   %1206 = lshr i32 %1170, 3
-  %.not10.i.i.i130 = icmp ugt i32 %1205, %1206
-  br i1 %.not10.i.i.i130, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit, label %.sink.split.i.i.i121, !prof !79
+  %.not10.i.i.i132 = icmp ugt i32 %1205, %1206
+  br i1 %.not10.i.i.i132, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit, label %.sink.split.i.i.i123, !prof !79
 
-.sink.split.i.i.i121:                             ; preds = %1203, %1201
-  %.sink.i.i.i122 = phi i32 [ %1202, %1201 ], [ %1170, %1203 ]
-  call void @_ZN4llvm13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(280) %41, i32 noundef %.sink.i.i.i122), !noalias !219
+.sink.split.i.i.i123:                             ; preds = %1203, %1201
+  %.sink.i.i.i124 = phi i32 [ %1202, %1201 ], [ %1170, %1203 ]
+  call void @_ZN4llvm13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(280) %41, i32 noundef %.sink.i.i.i124), !noalias !219
   %1207 = load i32, ptr %41, align 8, !noalias !219
   %1208 = and i32 %1207, 1
-  %.not.i.i.i.i157 = icmp eq i32 %1208, 0
+  %.not.i.i.i.i160 = icmp eq i32 %1208, 0
   %1209 = load ptr, ptr %90, align 8, !noalias !219
-  %1210 = select i1 %.not.i.i.i.i157, ptr %1209, ptr %90
+  %1210 = select i1 %.not.i.i.i.i160, ptr %1209, ptr %90
   %1211 = load i32, ptr %91, align 8, !noalias !219
-  %1212 = select i1 %.not.i.i.i.i157, i32 %1211, i32 8
+  %1212 = select i1 %.not.i.i.i.i160, i32 %1211, i32 8
   %1213 = icmp eq i32 %1212, 0
   br i1 %1213, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit, label %1214
 
-1214:                                             ; preds = %.sink.split.i.i.i121
+1214:                                             ; preds = %.sink.split.i.i.i123
   %1215 = ptrtoint ptr %1024 to i64
   %1216 = trunc i64 %1215 to i32
   %1217 = lshr i32 %1216, 4
   %1218 = lshr i32 %1216, 9
   %1219 = xor i32 %1217, %1218
   %1220 = add i32 %1212, -1
-  %.02944.i158 = and i32 %1220, %1219
-  %1221 = zext nneg i32 %.02944.i158 to i64
+  %.02944.i161 = and i32 %1220, %1219
+  %1221 = zext nneg i32 %.02944.i161 to i64
   %1222 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.57", ptr %1210, i64 %1221
   %1223 = load ptr, ptr %1222, align 8, !tbaa !38, !noalias !219
   %1224 = icmp eq ptr %1024, %1223
-  br i1 %1224, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit, label %.lr.ph.i159, !prof !78
+  br i1 %1224, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit, label %.lr.ph.i162, !prof !78
 
-.lr.ph.i159:                                      ; preds = %1214, %1230
+.lr.ph.i162:                                      ; preds = %1214, %1230
   %1225 = phi ptr [ %1237, %1230 ], [ %1223, %1214 ]
   %1226 = phi ptr [ %1236, %1230 ], [ %1222, %1214 ]
-  %.02947.i160 = phi i32 [ %.029.i165, %1230 ], [ %.02944.i158, %1214 ]
-  %.02746.i161 = phi i32 [ %1233, %1230 ], [ 1, %1214 ]
-  %.03245.i162 = phi ptr [ %spec.select.i164, %1230 ], [ null, %1214 ]
+  %.02947.i163 = phi i32 [ %.029.i168, %1230 ], [ %.02944.i161, %1214 ]
+  %.02746.i164 = phi i32 [ %1233, %1230 ], [ 1, %1214 ]
+  %.03245.i165 = phi ptr [ %spec.select.i167, %1230 ], [ null, %1214 ]
   %1227 = icmp eq ptr %1225, inttoptr (i64 -4096 to ptr)
   br i1 %1227, label %1228, label %1230, !prof !79
 
-1228:                                             ; preds = %.lr.ph.i159
-  %.not.i168 = icmp eq ptr %.03245.i162, null
-  %1229 = select i1 %.not.i168, ptr %1226, ptr %.03245.i162
+1228:                                             ; preds = %.lr.ph.i162
+  %.not.i171 = icmp eq ptr %.03245.i165, null
+  %1229 = select i1 %.not.i171, ptr %1226, ptr %.03245.i165
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit
 
-1230:                                             ; preds = %.lr.ph.i159
+1230:                                             ; preds = %.lr.ph.i162
   %1231 = icmp eq ptr %1225, inttoptr (i64 -8192 to ptr)
-  %1232 = icmp eq ptr %.03245.i162, null
-  %or.cond.not.i163 = select i1 %1231, i1 %1232, i1 false
-  %spec.select.i164 = select i1 %or.cond.not.i163, ptr %1226, ptr %.03245.i162
-  %1233 = add i32 %.02746.i161, 1
-  %1234 = add i32 %.02746.i161, %.02947.i160
-  %.029.i165 = and i32 %1234, %1220
-  %1235 = zext i32 %.029.i165 to i64
+  %1232 = icmp eq ptr %.03245.i165, null
+  %or.cond.not.i166 = select i1 %1231, i1 %1232, i1 false
+  %spec.select.i167 = select i1 %or.cond.not.i166, ptr %1226, ptr %.03245.i165
+  %1233 = add i32 %.02746.i164, 1
+  %1234 = add i32 %.02746.i164, %.02947.i163
+  %.029.i168 = and i32 %1234, %1220
+  %1235 = zext i32 %.029.i168 to i64
   %1236 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.57", ptr %1210, i64 %1235
   %1237 = load ptr, ptr %1236, align 8, !tbaa !38, !noalias !219
   %1238 = icmp eq ptr %1024, %1237
-  br i1 %1238, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit, label %.lr.ph.i159, !prof !80, !llvm.loop !222
+  br i1 %1238, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit, label %.lr.ph.i162, !prof !80, !llvm.loop !222
 
-_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit: ; preds = %1230, %1228, %1214, %.sink.split.i.i.i121, %1203
-  %.pre-phi.i.i126 = phi i32 [ %1166, %1203 ], [ %1208, %.sink.split.i.i.i121 ], [ %1208, %1214 ], [ %1208, %1228 ], [ %1208, %1230 ]
-  %1239 = phi ptr [ %.sink.i.i119, %1203 ], [ null, %.sink.split.i.i.i121 ], [ %1222, %1214 ], [ %1229, %1228 ], [ %1236, %1230 ]
-  %1240 = phi i32 [ %1165, %1203 ], [ %1207, %.sink.split.i.i.i121 ], [ %1207, %1214 ], [ %1207, %1228 ], [ %1207, %1230 ]
+_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit: ; preds = %1230, %1228, %1214, %.sink.split.i.i.i123, %1203
+  %.pre-phi.i.i128 = phi i32 [ %1166, %1203 ], [ %1208, %.sink.split.i.i.i123 ], [ %1208, %1214 ], [ %1208, %1228 ], [ %1208, %1230 ]
+  %1239 = phi ptr [ %.sink.i.i121, %1203 ], [ null, %.sink.split.i.i.i123 ], [ %1222, %1214 ], [ %1229, %1228 ], [ %1236, %1230 ]
+  %1240 = phi i32 [ %1165, %1203 ], [ %1207, %.sink.split.i.i.i123 ], [ %1207, %1214 ], [ %1207, %1228 ], [ %1207, %1230 ]
   %1241 = and i32 %1240, -2
   %1242 = add i32 %1241, 2
-  %1243 = or disjoint i32 %1242, %.pre-phi.i.i126
+  %1243 = or disjoint i32 %1242, %.pre-phi.i.i128
   store i32 %1243, ptr %41, align 8, !noalias !219
   %1244 = load ptr, ptr %1239, align 8, !tbaa !38, !noalias !219
   %1245 = icmp eq ptr %1244, inttoptr (i64 -4096 to ptr)
@@ -3293,7 +3314,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapIn
   store i32 %1248, ptr %81, align 4, !tbaa !35, !noalias !219
   br label %1251
 
-._crit_edge.i77:                                  ; preds = %1188, %1172
+._crit_edge.i78:                                  ; preds = %1188, %1172
   %1249 = phi i64 [ %1179, %1172 ], [ %1193, %1188 ]
   %1250 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.57", ptr %1168, i64 %1249, i32 0, i32 1
   %.pre4.i = load i32, ptr %1250, align 4, !tbaa !82
@@ -3310,16 +3331,16 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapIn
   %1254 = zext i32 %1253 to i64
   %1255 = add nuw nsw i64 %1254, 1
   %1256 = load i32, ptr %85, align 4, !tbaa !22
-  %.not.not.i.i.i.i78 = icmp ult i32 %1253, %1256
-  %.val.pre4.i.i79 = load ptr, ptr %82, align 8, !tbaa !19
-  br i1 %.not.not.i.i.i.i78, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE9push_backEOSA_.exit.i, label %1257, !prof !79
+  %.not.not.i.i.i.i79 = icmp ult i32 %1253, %1256
+  %.val.pre4.i.i80 = load ptr, ptr %82, align 8, !tbaa !19
+  br i1 %.not.not.i.i.i.i79, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE9push_backEOSA_.exit.i, label %1257, !prof !79
 
 1257:                                             ; preds = %1251
-  %1258 = getelementptr inbounds nuw %"struct.std::pair.91", ptr %.val.pre4.i.i79, i64 %1254
-  %1259 = icmp uge ptr %5, %.val.pre4.i.i79
+  %1258 = getelementptr inbounds nuw %"struct.std::pair.91", ptr %.val.pre4.i.i80, i64 %1254
+  %1259 = icmp uge ptr %5, %.val.pre4.i.i80
   %1260 = icmp ult ptr %5, %1258
-  %spec.select.i.i.i.i.i.i80 = and i1 %1259, %1260
-  br i1 %spec.select.i.i.i.i.i.i80, label %1279, label %1261, !prof !93
+  %spec.select.i.i.i.i.i.i81 = and i1 %1259, %1260
+  br i1 %spec.select.i.i.i.i.i.i81, label %1279, label %1261, !prof !93
 
 1261:                                             ; preds = %1257
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
@@ -3327,48 +3348,49 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapIn
   %.val.i = load ptr, ptr %82, align 8, !tbaa !19
   %.val3.i = load i32, ptr %84, align 8, !tbaa !21
   %1263 = zext i32 %.val3.i to i64
-  %1264 = getelementptr inbounds nuw %"struct.std::pair.91", ptr %.val.i, i64 %1263
+  %.idx.i.i96 = shl nuw nsw i64 %1263, 4
+  %1264 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i.i96
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %.val3.i, 0
-  br i1 %.not7.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE19moveElementsForGrowEPSA_.exit.i, label %.lr.ph.i.i.i.i.i.i.i95
+  br i1 %.not7.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE19moveElementsForGrowEPSA_.exit.i, label %.lr.ph.i.i.i.i.i.i.i97
 
-.lr.ph.i.i.i.i.i.i.i95:                           ; preds = %1261, %.lr.ph.i.i.i.i.i.i.i95
-  %.09.i.i.i.i.i.i.i = phi ptr [ %1269, %.lr.ph.i.i.i.i.i.i.i95 ], [ %1262, %1261 ]
-  %.sroa.06.08.i.i.i.i.i.i.i = phi ptr [ %1268, %.lr.ph.i.i.i.i.i.i.i95 ], [ %.val.i, %1261 ]
+.lr.ph.i.i.i.i.i.i.i97:                           ; preds = %1261, %.lr.ph.i.i.i.i.i.i.i97
+  %.09.i.i.i.i.i.i.i = phi ptr [ %1269, %.lr.ph.i.i.i.i.i.i.i97 ], [ %1262, %1261 ]
+  %.sroa.06.08.i.i.i.i.i.i.i = phi ptr [ %1268, %.lr.ph.i.i.i.i.i.i.i97 ], [ %.val.i, %1261 ]
   %1265 = load ptr, ptr %.sroa.06.08.i.i.i.i.i.i.i, align 8, !tbaa !94
   store ptr %1265, ptr %.09.i.i.i.i.i.i.i, align 8, !tbaa !94
   %1266 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 8
   %1267 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i96 = load i64, ptr %1267, align 8, !tbaa !103
-  store i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i96, ptr %1266, align 8, !tbaa !103
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i98 = load i64, ptr %1267, align 8, !tbaa !103
+  store i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i98, ptr %1266, align 8, !tbaa !103
   store ptr null, ptr %1267, align 8, !tbaa !103
   %1268 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i, i64 16
   %1269 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i.i97 = icmp eq ptr %1268, %1264
-  br i1 %.not.i.i.i.i.i.i.i97, label %.lr.ph.i.i.i98, label %.lr.ph.i.i.i.i.i.i.i95, !llvm.loop !226
+  %.not.i.i.i.i.i.i.i99 = icmp eq ptr %1268, %1264
+  br i1 %.not.i.i.i.i.i.i.i99, label %.lr.ph.i.i.i100, label %.lr.ph.i.i.i.i.i.i.i97, !llvm.loop !226
 
-.lr.ph.i.i.i98:                                   ; preds = %.lr.ph.i.i.i.i.i.i.i95, %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EEED2Ev.exit.i.i.i101
-  %.05.i.i.i99 = phi ptr [ %1270, %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EEED2Ev.exit.i.i.i101 ], [ %1264, %.lr.ph.i.i.i.i.i.i.i95 ]
-  %1270 = getelementptr inbounds i8, ptr %.05.i.i.i99, i64 -16
-  %1271 = getelementptr inbounds i8, ptr %.05.i.i.i99, i64 -8
+.lr.ph.i.i.i100:                                  ; preds = %.lr.ph.i.i.i.i.i.i.i97, %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EEED2Ev.exit.i.i.i103
+  %.05.i.i.i101 = phi ptr [ %1270, %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EEED2Ev.exit.i.i.i103 ], [ %1264, %.lr.ph.i.i.i.i.i.i.i97 ]
+  %1270 = getelementptr inbounds i8, ptr %.05.i.i.i101, i64 -16
+  %1271 = getelementptr inbounds i8, ptr %.05.i.i.i101, i64 -8
   %1272 = load ptr, ptr %1271, align 8, !tbaa !103
-  %.not.i.i.i.i.i100 = icmp eq ptr %1272, null
-  br i1 %.not.i.i.i.i.i100, label %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EEED2Ev.exit.i.i.i101, label %1273
+  %.not.i.i.i.i.i102 = icmp eq ptr %1272, null
+  br i1 %.not.i.i.i.i.i102, label %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EEED2Ev.exit.i.i.i103, label %1273
 
-1273:                                             ; preds = %.lr.ph.i.i.i98
+1273:                                             ; preds = %.lr.ph.i.i.i100
   call fastcc void @_ZNKSt14default_deleteIN12_GLOBAL__N_110RematGraphEEclEPS1_(ptr noundef nonnull %1272)
-  br label %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EEED2Ev.exit.i.i.i101
+  br label %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EEED2Ev.exit.i.i.i103
 
-_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EEED2Ev.exit.i.i.i101: ; preds = %1273, %.lr.ph.i.i.i98
+_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EEED2Ev.exit.i.i.i103: ; preds = %1273, %.lr.ph.i.i.i100
   store ptr null, ptr %1271, align 8, !tbaa !103
-  %.not.i.i.i102 = icmp eq ptr %.val.i, %1270
-  br i1 %.not.i.i.i102, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE19moveElementsForGrowEPSA_.exit.loopexit.i, label %.lr.ph.i.i.i98, !llvm.loop !182
+  %.not.i.i.i104 = icmp eq ptr %.val.i, %1270
+  br i1 %.not.i.i.i104, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE19moveElementsForGrowEPSA_.exit.loopexit.i, label %.lr.ph.i.i.i100, !llvm.loop !182
 
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE19moveElementsForGrowEPSA_.exit.loopexit.i: ; preds = %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EEED2Ev.exit.i.i.i101
-  %.pre.i103 = load ptr, ptr %82, align 8, !tbaa !19
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE19moveElementsForGrowEPSA_.exit.loopexit.i: ; preds = %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EEED2Ev.exit.i.i.i103
+  %.pre.i105 = load ptr, ptr %82, align 8, !tbaa !19
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE19moveElementsForGrowEPSA_.exit.i
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE19moveElementsForGrowEPSA_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE19moveElementsForGrowEPSA_.exit.loopexit.i, %1261
-  %1274 = phi ptr [ %.pre.i103, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE19moveElementsForGrowEPSA_.exit.loopexit.i ], [ %.val.i, %1261 ]
+  %1274 = phi ptr [ %.pre.i105, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE19moveElementsForGrowEPSA_.exit.loopexit.i ], [ %.val.i, %1261 ]
   %1275 = load i64, ptr %4, align 8, !tbaa !150
   %1276 = icmp eq ptr %1274, %83
   br i1 %1276, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE4growEm.exit, label %1277
@@ -3385,34 +3407,34 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_G
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE9push_backEOSA_.exit.i
 
 1279:                                             ; preds = %1257
-  %1280 = ptrtoint ptr %.val.pre4.i.i79 to i64
+  %1280 = ptrtoint ptr %.val.pre4.i.i80 to i64
   %1281 = sub i64 %102, %1280
   call fastcc void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %82, i64 noundef %1255)
-  %.val.i.i.i.i86 = load ptr, ptr %82, align 8, !tbaa !19
-  %1282 = getelementptr inbounds i8, ptr %.val.i.i.i.i86, i64 %1281
-  %.pre.i87 = load ptr, ptr %1282, align 8, !tbaa !94
+  %.val.i.i.i.i87 = load ptr, ptr %82, align 8, !tbaa !19
+  %1282 = getelementptr inbounds i8, ptr %.val.i.i.i.i87, i64 %1281
+  %.pre.i88 = load ptr, ptr %1282, align 8, !tbaa !94
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1282, i64 8
   %.val.i.i.i.i.i6.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !103
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE9push_backEOSA_.exit.i
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE9push_backEOSA_.exit.i: ; preds = %1279, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE4growEm.exit, %1251
   %.val.i.i.i.i.i6.i = phi i64 [ 0, %1251 ], [ %.val.i.i.i.i.i6.pre.i, %1279 ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE4growEm.exit ]
-  %1283 = phi ptr [ %1024, %1251 ], [ %.pre.i87, %1279 ], [ %1024, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE4growEm.exit ]
-  %.val.i.i82 = phi ptr [ %.val.pre4.i.i79, %1251 ], [ %.val.i.i.i.i86, %1279 ], [ %1262, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE4growEm.exit ]
-  %.016.i.i.i.i83 = phi ptr [ %5, %1251 ], [ %1282, %1279 ], [ %5, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE4growEm.exit ]
-  %.val3.i.i84 = load i32, ptr %84, align 8, !tbaa !21
-  %1284 = zext i32 %.val3.i.i84 to i64
-  %1285 = getelementptr inbounds nuw %"struct.std::pair.91", ptr %.val.i.i82, i64 %1284
+  %1283 = phi ptr [ %1024, %1251 ], [ %.pre.i88, %1279 ], [ %1024, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE4growEm.exit ]
+  %.val.i.i83 = phi ptr [ %.val.pre4.i.i80, %1251 ], [ %.val.i.i.i.i87, %1279 ], [ %1262, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE4growEm.exit ]
+  %.016.i.i.i.i84 = phi ptr [ %5, %1251 ], [ %1282, %1279 ], [ %5, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE4growEm.exit ]
+  %.val3.i.i85 = load i32, ptr %84, align 8, !tbaa !21
+  %1284 = zext i32 %.val3.i.i85 to i64
+  %1285 = getelementptr inbounds nuw %"struct.std::pair.91", ptr %.val.i.i83, i64 %1284
   store ptr %1283, ptr %1285, align 8, !tbaa !94
   %1286 = getelementptr inbounds nuw i8, ptr %1285, i64 8
-  %1287 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i83, i64 8
+  %1287 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i84, i64 8
   store i64 %.val.i.i.i.i.i6.i, ptr %1286, align 8, !tbaa !103
   store ptr null, ptr %1287, align 8, !tbaa !103
-  %1288 = add i32 %.val3.i.i84, 1
+  %1288 = add i32 %.val3.i.i85, 1
   store i32 %1288, ptr %84, align 8, !tbaa !21
   %1289 = load ptr, ptr %101, align 8, !tbaa !103
-  %.not.i.i.i85 = icmp eq ptr %1289, null
-  br i1 %.not.i.i.i85, label %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit.i, label %1290
+  %.not.i.i.i86 = icmp eq ptr %1289, null
+  br i1 %.not.i.i.i86, label %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit.i, label %1290
 
 1290:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE9push_backEOSA_.exit.i
   call fastcc void @_ZNKSt14default_deleteIN12_GLOBAL__N_110RematGraphEEclEPS1_(ptr noundef nonnull %1289)
@@ -3421,25 +3443,25 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_G
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %1290, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE9push_backEOSA_.exit.i
-  %1292 = phi i32 [ %1291, %1290 ], [ %.val3.i.i84, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE9push_backEOSA_.exit.i ]
+  %1292 = phi i32 [ %1291, %1290 ], [ %.val3.i.i85, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE9push_backEOSA_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   store i32 %1292, ptr %1252, align 4, !tbaa !82
   br label %_ZN4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S8_ELj8EEEEixERKS2_.exit
 
-_ZN4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S8_ELj8EEEEixERKS2_.exit: ; preds = %._crit_edge.i77, %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit.i
-  %1293 = phi i32 [ %.pre4.i, %._crit_edge.i77 ], [ %1292, %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit.i ]
+_ZN4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S8_ELj8EEEEixERKS2_.exit: ; preds = %._crit_edge.i78, %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit.i
+  %1293 = phi i32 [ %.pre4.i, %._crit_edge.i78 ], [ %1292, %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit.i ]
   %1294 = zext i32 %1293 to i64
   %.val5.i = load ptr, ptr %82, align 8, !tbaa !19
   %1295 = getelementptr inbounds nuw %"struct.std::pair.91", ptr %.val5.i, i64 %1294, i32 1
   %1296 = load ptr, ptr %1295, align 8, !tbaa !103
   store ptr %1057, ptr %1295, align 8, !tbaa !103
-  %.not.i.i.i.i88 = icmp eq ptr %1296, null
-  br i1 %.not.i.i.i.i88, label %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit, label %1297
+  %.not.i.i.i.i89 = icmp eq ptr %1296, null
+  br i1 %.not.i.i.i.i89, label %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit, label %1297
 
 1297:                                             ; preds = %_ZN4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S8_ELj8EEEEixERKS2_.exit
   %1298 = getelementptr inbounds nuw i8, ptr %1296, i64 8
   %1299 = getelementptr inbounds nuw i8, ptr %1296, i64 144
-  %.val.i.i.i.i131 = load ptr, ptr %1299, align 8, !tbaa !19
+  %.val.i.i.i.i133 = load ptr, ptr %1299, align 8, !tbaa !19
   %1300 = getelementptr inbounds nuw i8, ptr %1296, i64 152
   %.val2.i.i.i.i = load i32, ptr %1300, align 8, !tbaa !21
   %.not4.i.i.i.i.i = icmp eq i32 %.val2.i.i.i.i, 0
@@ -3447,18 +3469,19 @@ _ZN4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphE
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %1297
   %1301 = zext i32 %.val2.i.i.i.i to i64
-  %1302 = getelementptr inbounds nuw %"struct.std::pair.69", ptr %.val.i.i.i.i131, i64 %1301
-  br label %.lr.ph.i.i.i.i.i132
+  %.idx.i.i.i.i = shl nuw nsw i64 %1301, 4
+  %1302 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i133, i64 %.idx.i.i.i.i
+  br label %.lr.ph.i.i.i.i.i134
 
-.lr.ph.i.i.i.i.i132:                              ; preds = %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS6_EEED2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
+.lr.ph.i.i.i.i.i134:                              ; preds = %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS6_EEED2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %1303, %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS6_EEED2Ev.exit.i.i.i.i.i ], [ %1302, %.lr.ph.i.preheader.i.i.i.i ]
   %1303 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -16
   %1304 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -8
   %1305 = load ptr, ptr %1304, align 8, !tbaa !142
-  %.not.i.i.i.i.i.i.i133 = icmp eq ptr %1305, null
-  br i1 %.not.i.i.i.i.i.i.i133, label %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS6_EEED2Ev.exit.i.i.i.i.i, label %1306
+  %.not.i.i.i.i.i.i.i135 = icmp eq ptr %1305, null
+  br i1 %.not.i.i.i.i.i.i.i135, label %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS6_EEED2Ev.exit.i.i.i.i.i, label %1306
 
-1306:                                             ; preds = %.lr.ph.i.i.i.i.i132
+1306:                                             ; preds = %.lr.ph.i.i.i.i.i134
   %1307 = getelementptr inbounds nuw i8, ptr %1305, i64 8
   %1308 = load ptr, ptr %1307, align 8, !tbaa !19
   %1309 = getelementptr inbounds nuw i8, ptr %1305, i64 24
@@ -3473,17 +3496,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_110RematGraph9RematNodeEEclEPS2_.exit.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %1305, i64 noundef 72) #17
   br label %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS6_EEED2Ev.exit.i.i.i.i.i
 
-_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS6_EEED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_110RematGraph9RematNodeEEclEPS2_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i132
+_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS6_EEED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_110RematGraph9RematNodeEEclEPS2_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i134
   store ptr null, ptr %1304, align 8, !tbaa !142
-  %.not.i.i.i.i.i134 = icmp eq ptr %.val.i.i.i.i131, %1303
-  br i1 %.not.i.i.i.i.i134, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS7_EEELb0EE13destroy_rangeEPSB_SD_.exit.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i132, !llvm.loop !227
+  %.not.i.i.i.i.i136 = icmp eq ptr %.val.i.i.i.i133, %1303
+  br i1 %.not.i.i.i.i.i136, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS7_EEELb0EE13destroy_rangeEPSB_SD_.exit.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i134, !llvm.loop !227
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS7_EEELb0EE13destroy_rangeEPSB_SD_.exit.loopexit.i.i.i.i: ; preds = %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS6_EEED2Ev.exit.i.i.i.i.i
   %.pre.i.i.i.i = load ptr, ptr %1299, align 8, !tbaa !19
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS7_EEELb0EE13destroy_rangeEPSB_SD_.exit.i.i.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS7_EEELb0EE13destroy_rangeEPSB_SD_.exit.i.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS7_EEELb0EE13destroy_rangeEPSB_SD_.exit.loopexit.i.i.i.i, %1297
-  %1312 = phi ptr [ %.pre.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS7_EEELb0EE13destroy_rangeEPSB_SD_.exit.loopexit.i.i.i.i ], [ %.val.i.i.i.i131, %1297 ]
+  %1312 = phi ptr [ %.pre.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS7_EEELb0EE13destroy_rangeEPSB_SD_.exit.loopexit.i.i.i.i ], [ %.val.i.i.i.i133, %1297 ]
   %1313 = getelementptr inbounds nuw i8, ptr %1296, i64 160
   %1314 = icmp eq ptr %1312, %1313
   br i1 %1314, label %_ZN4llvm11SmallVectorISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS7_EEELj8EED2Ev.exit.i.i.i, label %1315
@@ -3513,9 +3536,9 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_110RematGraphEEclEPS1_.exit: ; preds = %_ZN
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S8_ELj8EEEEixERKS2_.exit, %_ZNKSt14default_deleteIN12_GLOBAL__N_110RematGraphEEclEPS1_.exit, %_ZNK4llvm9MapVectorIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS5_EENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S8_ELj8EEEE5countERKS2_.exit
-  %1325 = getelementptr inbounds nuw i8, ptr %.0258, i64 8
+  %1325 = getelementptr inbounds nuw i8, ptr %.0261, i64 8
   %.not28 = icmp eq ptr %1325, %1022
-  br i1 %.not28, label %._crit_edge, label %.lr.ph259
+  br i1 %.not28, label %._crit_edge, label %.lr.ph262
 
 1326:                                             ; preds = %3, %_ZN4llvm9MapVectorIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS3_ISt4pairIS2_S6_ELj8EEEED2Ev.exit
   ret void
@@ -3674,7 +3697,8 @@ define internal fastcc void @_ZNKSt14default_deleteIN12_GLOBAL__N_110RematGraphE
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %3
   %7 = zext i32 %.val2.i.i.i to i64
-  %8 = getelementptr inbounds nuw %"struct.std::pair.69", ptr %.val.i.i.i, i64 %7
+  %.idx.i.i.i = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt4pairIPN4llvm11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS6_EEED2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -3823,7 +3847,8 @@ _ZSt4moveIPSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EES7_ET0_T_S9
   %.val.i.i.i = load ptr, ptr %6, align 8, !tbaa !19
   %.val3.i.i.i = load i32, ptr %9, align 8, !tbaa !21
   %26 = zext i32 %.val3.i.i.i to i64
-  %27 = getelementptr inbounds nuw %"class.std::tuple.103", ptr %.val.i.i.i, i64 %26
+  %.idx.i.i.i.i = mul nuw nsw i64 %26, 24
+  %27 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.idx.i.i.i.i
   %.not7.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val3.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS5_S6_EELb0EE19moveElementsForGrowEPS7_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
@@ -4042,7 +4067,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i, i32 %11, i32 8
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %9, i64 %13
+  %.idx.i = shl nuw nsw i64 %13, 4
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
   %.not6.i = icmp eq i32 %12, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit, label %.lr.ph.i
 
@@ -4150,7 +4176,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueEN
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !21
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %9
+  %.idx.i = mul nuw nsw i64 %9, 40
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEEELb0EE19moveElementsForGrowEPS8_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -4184,13 +4211,14 @@ _ZSt10_ConstructISt4pairIPN4llvm5ValueENS1_11SmallVectorIPNS1_11InstructionELj2E
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEEELb0EE18uninitialized_moveIPS8_SB_EEvT_SC_T0_.exit.i: ; preds = %_ZSt10_ConstructISt4pairIPN4llvm5ValueENS1_11SmallVectorIPNS1_11InstructionELj2EEEEJS8_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !19
-  %.pre2.i = load i32, ptr %7, align 8, !tbaa !21
-  %.not4.i.i = icmp eq i32 %.pre2.i, 0
+  %.pre3.i = load i32, ptr %7, align 8, !tbaa !21
+  %.not4.i.i = icmp eq i32 %.pre3.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEEELb0EE19moveElementsForGrowEPS8_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEEELb0EE18uninitialized_moveIPS8_SB_EEvT_SC_T0_.exit.i
-  %23 = zext i32 %.pre2.i to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre.i, i64 %23
+  %23 = zext i32 %.pre3.i to i64
+  %.idx2.i = mul nuw nsw i64 %23, 40
+  %24 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt4pairIPN4llvm5ValueENS0_11SmallVectorIPNS0_11InstructionELj2EEEED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -4570,7 +4598,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS2_EE
 _ZN4llvm4User8operandsEv.exit:                    ; preds = %99, %102
   %107 = phi ptr [ %101, %99 ], [ %106, %102 ]
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %99 ], [ %104, %102 ]
-  %108 = getelementptr inbounds nuw %"class.llvm::Use", ptr %107, i64 %.pre-phi2.i.i
+  %.idx = shl nuw nsw i64 %.pre-phi2.i.i, 5
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx
   %.not3481 = icmp eq i64 %.pre-phi2.i.i, 0
   br i1 %.not3481, label %.loopexit, label %.lr.ph83
 
@@ -5318,7 +5347,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_1
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i, i32 %11, i32 8
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.57", ptr %9, i64 %13
+  %.idx.i = shl nuw nsw i64 %13, 4
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
   %.not6.i = icmp eq i32 %12, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEjLj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit, label %.lr.ph.i
 
@@ -5426,7 +5456,8 @@ define internal fastcc void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11Ins
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3 = load i32, ptr %6, align 8, !tbaa !21
   %7 = zext i32 %.val3 to i64
-  %8 = getelementptr inbounds nuw %"struct.std::pair.69", ptr %.val, i64 %7
+  %.idx.i = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %.val3, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraph9RematNodeESt14default_deleteIS7_EEELb0EE19moveElementsForGrowEPSB_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -5509,7 +5540,8 @@ define internal fastcc void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11Ins
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3 = load i32, ptr %6, align 8, !tbaa !21
   %7 = zext i32 %.val3 to i64
-  %8 = getelementptr inbounds nuw %"struct.std::pair.91", ptr %.val, i64 %7
+  %.idx.i = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %.val3, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt10unique_ptrIN12_GLOBAL__N_110RematGraphESt14default_deleteIS6_EEELb0EE19moveElementsForGrowEPSA_.exit, label %.lr.ph.i.i.i.i.i.i
 

@@ -7224,7 +7224,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17hc0
   %15 = load ptr, ptr %14, align 8, !nonnull !6, !noundef !6
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !6
-  %18 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %15, i64 %17
+  %.idx.i.i = mul nsw i64 %17, 24
+  %18 = getelementptr inbounds i8, ptr %15, i64 %.idx.i.i
   %.not.i.i.i = icmp eq i64 %17, 0
   %19 = ptrtoint ptr %3 to i64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -3573,7 +3573,8 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$gpui
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4core4hash4Hash10hash_slice17hec15e207b599d25bE(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #5 {
-  %4 = getelementptr inbounds { i64, [3 x i64] }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 5
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -5498,7 +5499,8 @@ define hidden void @"_ZN4gpui6window20ViewContext$LT$V$GT$14observe_global28_$u7
   %11 = load ptr, ptr %10, align 8, !alias.scope !845, !noalias !842, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !845, !noalias !842, !noundef !4
-  %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %11, i64 %13
+  %.idx.i.i = mul nsw i64 %13, 24
+  %14 = getelementptr inbounds i8, ptr %11, i64 %.idx.i.i
   %.not.i.i.i = icmp eq i64 %13, 0
   br i1 %.not.i.i.i, label %.loopexit3.i, label %.lr.ph.i.i.i
 
@@ -8614,7 +8616,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h6e08510e179e6f82E.exit: ; preds = %3
   %47 = load ptr, ptr %46, align 8, !alias.scope !1233, !noalias !1236, !nonnull !4, !noundef !4
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %49 = load i64, ptr %48, align 8, !alias.scope !1233, !noalias !1236, !noundef !4
-  %50 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %47, i64 %49
+  %.idx.i.i.i = mul nsw i64 %49, 24
+  %50 = getelementptr inbounds i8, ptr %47, i64 %.idx.i.i.i
   %.not.i.i.i.i = icmp eq i64 %49, 0
   br i1 %.not.i.i.i.i, label %.loopexit3.i.i, label %.lr.ph.i.i.i.i
 
@@ -12188,7 +12191,8 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %.sroa.4.0.copyload.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !1830, !noalias !1833, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !1830, !noalias !1833
-  %98 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %.sroa.4.0.copyload.i.i.i, i64 %.sroa.5.0.copyload.i.i.i
+  %.idx.i.i = mul nsw i64 %.sroa.5.0.copyload.i.i.i, 24
+  %98 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i.i, i64 %.idx.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1819
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !1819
   store ptr %.sroa.4.0.copyload.i.i.i, ptr %8, align 8, !noalias !1819
@@ -12768,7 +12772,8 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %.sroa.4.0.copyload.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !1929, !noalias !1932, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !1929, !noalias !1932
-  %96 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %.sroa.4.0.copyload.i.i.i, i64 %.sroa.5.0.copyload.i.i.i
+  %.idx.i.i = mul nsw i64 %.sroa.5.0.copyload.i.i.i, 24
+  %96 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i.i, i64 %.idx.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1918
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !1918
   store ptr %.sroa.4.0.copyload.i.i.i, ptr %8, align 8, !noalias !1918
@@ -14704,7 +14709,8 @@ define hidden void @"_ZN97_$LT$gpui..window..ViewContext$LT$V$GT$$u20$as$u20$fea
   %11 = load ptr, ptr %10, align 8, !alias.scope !2159, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !2159, !noundef !4
-  %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %11, i64 %13
+  %.idx.i = mul nsw i64 %13, 24
+  %14 = getelementptr inbounds i8, ptr %11, i64 %.idx.i
   %.not.i.i = icmp eq i64 %13, 0
   br i1 %.not.i.i, label %.loopexit3, label %.lr.ph.i.i
 

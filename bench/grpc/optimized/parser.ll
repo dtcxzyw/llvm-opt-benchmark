@@ -38244,7 +38244,8 @@ define linkonce_odr hidden void @_ZN6google8protobuf13json_internal10Proto3Type1
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %41 = load i32, ptr %40, align 8, !tbaa !1725
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr %39, i64 %42
+  %.idx = shl nsw i64 %42, 3
+  %43 = getelementptr inbounds i8, ptr %39, i64 %.idx
   %.not63 = icmp eq i32 %41, 0
   br i1 %.not63, label %._crit_edge, label %.lr.ph
 

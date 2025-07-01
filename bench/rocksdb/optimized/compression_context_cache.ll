@@ -238,7 +238,7 @@ define void @_ZN7rocksdb23CompressionContextCache30ReturnCachedZSTDUncompressDat
 define void @_ZN7rocksdb23CompressionContextCacheD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !4
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %25, label %4
+  br i1 %3, label %24, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %2, align 8, !tbaa !24
@@ -248,11 +248,12 @@ define void @_ZN7rocksdb23CompressionContextCacheD2Ev(ptr noundef nonnull readon
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %5, i64 -8
   %8 = load i64, ptr %7, align 8
+  %.idx.i.i.i.i = shl i64 %8, 6
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i, label %.preheader.preheader.i.i.i.i
 
 .preheader.preheader.i.i.i.i:                     ; preds = %6
-  %10 = getelementptr inbounds %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %5, i64 %8
+  %10 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i.i.i
   br label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i.i, %.preheader.preheader.i.i.i.i
@@ -282,16 +283,15 @@ _ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i.i: ; preds = %17, 
   br i1 %22, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i, label %.preheader.i.i.i.i
 
 _ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i: ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i.i, %6
-  %23 = shl i64 %8, 6
-  %24 = or disjoint i64 %23, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %7, i64 noundef %24) #14
+  %23 = or disjoint i64 %.idx.i.i.i.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %7, i64 noundef %23) #14
   br label %_ZN7rocksdb23CompressionContextCache3RepD2Ev.exit
 
 _ZN7rocksdb23CompressionContextCache3RepD2Ev.exit: ; preds = %4, %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef %2, i64 noundef 16) #14
-  br label %25
+  br label %24
 
-25:                                               ; preds = %_ZN7rocksdb23CompressionContextCache3RepD2Ev.exit, %1
+24:                                               ; preds = %_ZN7rocksdb23CompressionContextCache3RepD2Ev.exit, %1
   ret void
 }
 
@@ -317,7 +317,7 @@ define linkonce_odr void @_ZN7rocksdb14CoreLocalArrayINS_17compression_cache14ZS
   %12 = or disjoint i64 %11, 8
   %13 = select i1 %10, i64 -1, i64 %12
   %14 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %13) #13
-          to label %15 unwind label %43
+          to label %15 unwind label %42
 
 15:                                               ; preds = %7
   %16 = shl nuw i64 1, %9
@@ -348,11 +348,12 @@ define linkonce_odr void @_ZN7rocksdb14CoreLocalArrayINS_17compression_cache14ZS
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %23, i64 -8
   %26 = load i64, ptr %25, align 8
+  %.idx.i.i.i = shl i64 %26, 6
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %.preheader.preheader.i.i.i
 
 .preheader.preheader.i.i.i:                       ; preds = %24
-  %28 = getelementptr inbounds %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %23, i64 %26
+  %28 = getelementptr inbounds i8, ptr %23, i64 %.idx.i.i.i
   br label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i, %.preheader.preheader.i.i.i
@@ -382,19 +383,18 @@ _ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i: ; preds = %35, %.
   br i1 %40, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i, label %.preheader.i.i.i
 
 _ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i: ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i.i.i, %24
-  %41 = shl i64 %26, 6
-  %42 = or disjoint i64 %41, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %25, i64 noundef %42) #14
+  %41 = or disjoint i64 %.idx.i.i.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %25, i64 noundef %41) #14
   br label %_ZNSt10unique_ptrIA_N7rocksdb17compression_cache14ZSTDCachedDataESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit
 
 _ZNSt10unique_ptrIA_N7rocksdb17compression_cache14ZSTDCachedDataESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit: ; preds = %22, %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
   ret void
 
-43:                                               ; preds = %7
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %7
+  %43 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt10unique_ptrIA_N7rocksdb17compression_cache14ZSTDCachedDataESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
-  resume { ptr, i32 } %44
+  resume { ptr, i32 } %43
 }
 
 ; Function Attrs: nounwind
@@ -410,16 +410,17 @@ declare void @_ZdaPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 define linkonce_odr void @_ZNSt10unique_ptrIA_N7rocksdb17compression_cache14ZSTDCachedDataESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !24
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %22, label %3
+  br i1 %.not, label %21, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %2, i64 -8
   %5 = load i64, ptr %4, align 8
+  %.idx.i = shl i64 %5, 6
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %3
-  %7 = getelementptr inbounds %"struct.rocksdb::compression_cache::ZSTDCachedData", ptr %2, i64 %5
+  %7 = getelementptr inbounds i8, ptr %2, i64 %.idx.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i, %.preheader.preheader.i
@@ -449,12 +450,11 @@ _ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i: ; preds = %14, %.preh
   br i1 %19, label %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit, label %.preheader.i
 
 _ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit: ; preds = %_ZN7rocksdb17compression_cache14ZSTDCachedDataD2Ev.exit.i, %3
-  %20 = shl i64 %5, 6
-  %21 = or disjoint i64 %20, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %4, i64 noundef %21) #14
-  br label %22
+  %20 = or disjoint i64 %.idx.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %4, i64 noundef %20) #14
+  br label %21
 
-22:                                               ; preds = %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit, %1
+21:                                               ; preds = %_ZNKSt14default_deleteIA_N7rocksdb17compression_cache14ZSTDCachedDataEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit, %1
   store ptr null, ptr %0, align 8, !tbaa !24
   ret void
 }

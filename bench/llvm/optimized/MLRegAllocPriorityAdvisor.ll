@@ -1064,7 +1064,7 @@ _ZNSt12_Vector_baseIPvSaIS0_EEC2EmRKS1_.exit.thread.i.i: ; preds = %_ZNSt6vector
   %26 = shl nuw nsw i64 %19, 3
   %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #20
   store ptr %27, ptr %22, align 8, !tbaa !94
-  %28 = getelementptr ptr, ptr %27, i64 %19
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %19
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %28, ptr %29, align 8, !tbaa !283
   store ptr null, ptr %27, align 8, !tbaa !96
@@ -1075,41 +1075,43 @@ _ZNSt12_Vector_baseIPvSaIS0_EEC2EmRKS1_.exit.thread.i.i: ; preds = %_ZNSt6vector
 _ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %25
   %32 = add nsw i64 %26, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %30, i8 0, i64 %32, i1 false), !tbaa !96
+  %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %18, 3
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i.i.i.i.i.i.i
   br label %_ZN4llvm13MLModelRunnerC2ERNS_11LLVMContextENS0_4KindEm.exit
 
 _ZN4llvm13MLModelRunnerC2ERNS_11LLVMContextENS0_4KindEm.exit: ; preds = %_ZNSt12_Vector_baseIPvSaIS0_EEC2EmRKS1_.exit.thread.i.i, %25, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i = phi ptr [ %30, %25 ], [ %28, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIPvSaIS0_EEC2EmRKS1_.exit.thread.i.i ]
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.0.i.i.i.i.i.i, ptr %33, align 8, !tbaa !284
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
+  %.0.i.i.i.i.i.i = phi ptr [ %30, %25 ], [ %33, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIPvSaIS0_EEC2EmRKS1_.exit.thread.i.i ]
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %.0.i.i.i.i.i.i, ptr %34, align 8, !tbaa !284
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm22ReleaseModeModelRunnerINS_18NoopSavedModelImplEEE, i64 16), ptr %0, align 8, !tbaa !3
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 -1, ptr %35, align 8, !tbaa !285
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 -1, ptr %36, align 8, !tbaa !285
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.experimental.noalias.scope.decl(metadata !294)
-  %37 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #20, !noalias !294
-  store ptr %37, ptr %36, align 8, !tbaa !297, !alias.scope !294
+  %38 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #20, !noalias !294
+  store ptr %38, ptr %37, align 8, !tbaa !297, !alias.scope !294
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #18
-  %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %38, ptr %10, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %38, ptr noundef nonnull align 1 dereferenceable(14) @.str.14, i64 14, i1 false)
-  %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 14, ptr %39, align 8, !tbaa !36
-  %40 = getelementptr inbounds nuw i8, ptr %10, i64 30
-  store i8 0, ptr %40, align 2, !tbaa !38
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %39, ptr %10, align 8, !tbaa !34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %39, ptr noundef nonnull align 1 dereferenceable(14) @.str.14, i64 14, i1 false)
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 14, ptr %40, align 8, !tbaa !36
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 30
+  store i8 0, ptr %41, align 2, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #18
-  %41 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
-  store ptr %41, ptr %11, align 8, !tbaa !53
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %42, ptr %43, align 8, !tbaa !56
-  store i64 2, ptr %41, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %42, ptr %44, align 8, !tbaa !298
-  %45 = call noundef i32 @_ZN4llvm10TensorSpec11getDataTypeImEENS_10TensorTypeEv() #18, !noalias !299
-  call void @_ZN4llvm10TensorSpecC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10TensorTypeEmRKSt6vectorIlSaIlEE(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 0, i32 noundef %45, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(24) %11) #18
+  %42 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
+  store ptr %42, ptr %11, align 8, !tbaa !53
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %43, ptr %44, align 8, !tbaa !56
+  store i64 2, ptr %42, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %43, ptr %45, align 8, !tbaa !298
+  %46 = call noundef i32 @_ZN4llvm10TensorSpec11getDataTypeImEENS_10TensorTypeEv() #18, !noalias !299
+  call void @_ZN4llvm10TensorSpecC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10TensorTypeEmRKSt6vectorIlSaIlEE(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 0, i32 noundef %46, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(24) %11) #18
   %.sroa.011.0.copyload = load ptr, ptr %5, align 8, !tbaa !48
   %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.212.0.copyload = load i64, ptr %.sroa.212.0..sroa_idx, align 8, !tbaa !49
@@ -1118,12 +1120,12 @@ _ZN4llvm13MLModelRunnerC2ERNS_11LLVMContextENS0_4KindEm.exit: ; preds = %_ZNSt12
   store ptr %.sroa.011.0.copyload, ptr %8, align 8, !alias.scope !302
   %.sroa.23.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %.sroa.212.0.copyload, ptr %.sroa.23.0..sroa_idx.i.i.i.i, align 8, !tbaa !38, !alias.scope !302
-  %46 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %9, ptr %46, align 8, !alias.scope !302
-  %47 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 5, ptr %47, align 8, !tbaa !307, !alias.scope !302
-  %48 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 4, ptr %48, align 1, !tbaa !310, !alias.scope !302
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %9, ptr %47, align 8, !alias.scope !302
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i8 5, ptr %48, align 8, !tbaa !307, !alias.scope !302
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 33
+  store i8 4, ptr %49, align 1, !tbaa !310, !alias.scope !302
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(34) %8) #18
   unreachable
 }

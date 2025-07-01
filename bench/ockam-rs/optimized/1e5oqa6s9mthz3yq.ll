@@ -26696,7 +26696,8 @@ default.unreachable831:                           ; preds = %1547, %1453, %1064,
   br label %829
 
 829:                                              ; preds = %"_ZN19ockam_transport_tcp9transport6common20create_tls_connector28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17heb9657d7a2a84a70E.exit.i.i.i", %761, %734, %.thread115.i.i.i
-  %830 = getelementptr inbounds { { { ptr, [2 x i64] } } }, ptr %697, i64 %.sroa.109.0.copyload.i.i.i
+  %.idx.i.i.i = mul nsw i64 %.sroa.109.0.copyload.i.i.i, 24
+  %830 = getelementptr inbounds i8, ptr %697, i64 %.idx.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %66), !noalias !3060
   store ptr %697, ptr %66, align 8, !noalias !3060
   %.sroa.540.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %66, i64 8

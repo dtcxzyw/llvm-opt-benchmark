@@ -2228,7 +2228,8 @@ invoke.cont20:                                    ; preds = %_ZN5folly13checkedM
   br i1 %tobool.not.i19, label %if.end.i21, label %if.then.i20
 
 if.then.i20:                                      ; preds = %invoke.cont20
-  %add.ptr4.i = getelementptr inbounds nuw %"struct.std::pair.11", ptr %cond.i.i, i64 %idx.ext.i
+  %add.ptr4.idx.i = mul nuw nsw i64 %idx.ext.i, 24
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %add.ptr4.idx.i
   %cmp.not3.i.i = icmp eq i64 %idx.ext.i, 0
   br i1 %cmp.not3.i.i, label %if.end.i21, label %for.body.i.i
 
@@ -2268,7 +2269,8 @@ if.else:                                          ; preds = %_ZN5folly13checkedM
 invoke.cont28:                                    ; preds = %if.else
   %17 = and i16 %10, 16383
   %conv2.i.i.i30 = zext nneg i16 %17 to i64
-  %add.ptr.i31 = getelementptr inbounds nuw %"struct.std::pair.11", ptr %cond.i.i, i64 %conv2.i.i.i30
+  %add.ptr.i31.idx = mul nuw nsw i64 %conv2.i.i.i30, 24
+  %add.ptr.i31 = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %add.ptr.i31.idx
   %cmp.not3.i = icmp eq i16 %17, 0
   br i1 %cmp.not3.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt4pairINS_5RangeIPKcEEdELm8ENS_19small_vector_policy16policy_size_typeItEEE16makeSizeInternalIZNSC_12emplace_backIJRKS7_RdEEERS8_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, label %for.body.i
 

@@ -21,6 +21,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
 %"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
 %"struct.std::_Head_base.9" = type { ptr }
+%"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
+%"union.llvm::Twine::Child" = type { %struct.anon }
+%struct.anon = type { ptr, i64 }
+%"class.llvm::MCFixup" = type { ptr, i32, i32, %"class.llvm::SMLoc" }
+%"class.llvm::SMLoc" = type { ptr }
 %"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
 %"struct.std::pair" = type { ptr, %"class.llvm::SmallVector.215" }
 %"class.llvm::SmallVector.215" = type { %"class.llvm::SmallVectorImpl.216", %"struct.llvm::SmallVectorStorage.219" }
@@ -29,15 +34,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.218" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.219" = type { [16 x i8] }
-%"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
-%"union.llvm::Twine::Child" = type { %struct.anon }
-%struct.anon = type { ptr, i64 }
-%"struct.llvm::MCObjectStreamer::PendingMCFixup" = type { ptr, %"class.llvm::MCFixup", ptr }
-%"class.llvm::MCFixup" = type { ptr, i32, i32, %"class.llvm::SMLoc" }
-%"class.llvm::SMLoc" = type { ptr }
-%"struct.llvm::MCObjectStreamer::PendingAssignment" = type { ptr, ptr }
 %"struct.std::pair.228" = type { i32, %"struct.llvm::MCSection::FragList" }
 %"struct.llvm::MCSection::FragList" = type { ptr, ptr }
+%"struct.llvm::MCObjectStreamer::PendingAssignment" = type { ptr, ptr }
 %"class.llvm::MCInst" = type { i32, i32, %"class.llvm::SMLoc", %"class.llvm::SmallVector.230" }
 %"class.llvm::SmallVector.230" = type { %"class.llvm::SmallVectorImpl.231", %"struct.llvm::SmallVectorStorage.234" }
 %"class.llvm::SmallVectorImpl.231" = type { %"class.llvm::SmallVectorTemplateBase.232" }
@@ -57,6 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.llvm::MCValue" = type <{ ptr, ptr, i64, i32, [4 x i8] }>
 %"class.std::allocator.49" = type { i8 }
+%"struct.llvm::MCObjectStreamer::PendingMCFixup" = type { ptr, %"class.llvm::MCFixup", ptr }
 %"class.llvm::ArrayRef.287" = type { ptr, i64 }
 %"class.llvm::VersionTuple" = type { i64, i64 }
 %"class.llvm::Expected" = type { %union.anon.304, i8, [7 x i8] }
@@ -284,7 +284,8 @@ define dso_local void @_ZN4llvm16MCObjectStreamerD2Ev(ptr noundef nonnull align 
 
 .lr.ph.preheader.i.i:                             ; preds = %1
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.pre1.i, i64 %6
+  %.idx.i.i = mul nuw nsw i64 %6, 40
+  %7 = getelementptr inbounds nuw i8, ptr %.pre1.i, i64 %.idx.i.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm11SmallVectorINS_16MCObjectStreamer17PendingAssignmentELj1EED2Ev.exit.i.i, %.lr.ph.preheader.i.i
@@ -380,7 +381,8 @@ define dso_local void @_ZN4llvm16MCObjectStreamer20resolvePendingFixupsEv(ptr no
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %6 = load i32, ptr %5, align 8, !tbaa !73
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"struct.llvm::MCObjectStreamer::PendingMCFixup", ptr %4, i64 %7
+  %.idx = mul nuw nsw i64 %7, 40
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not38 = icmp eq i32 %6, 0
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
@@ -1440,7 +1442,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolENS_11SmallVectorINS_16MCObjec
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 16
   %36 = load i32, ptr %35, align 8, !tbaa !73
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::MCObjectStreamer::PendingAssignment", ptr %34, i64 %37
+  %.idx = shl nuw nsw i64 %37, 4
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
   %.not13 = icmp eq i32 %36, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -5790,7 +5793,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSym
   store i32 0, ptr %25, align 4, !tbaa !348
   %26 = load i32, ptr %3, align 8, !tbaa !259
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %22, i64 %27
+  %.idx.i.i = mul nuw nsw i64 %27, 40
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i
   %.not6.i.i = icmp eq i32 %26, 0
   br i1 %.not6.i.i, label %_ZN4llvm8DenseMapIPKNS_8MCSymbolENS_11SmallVectorINS_16MCObjectStreamer17PendingAssignmentELj1EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEE4growEj.exit, label %.lr.ph.i.i
 
@@ -5823,7 +5827,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSym
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !259
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
+  %.idx.i = mul nuw nsw i64 %9, 40
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not6.i = icmp eq i32 %8, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolENS_11SmallVectorINS_16MCObjectStreamer17PendingAssignmentELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E9initEmptyEv.exit, label %.lr.ph.i
 

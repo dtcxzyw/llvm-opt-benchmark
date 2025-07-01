@@ -3647,7 +3647,8 @@ _ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i93: ; preds = %
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE12emplace_backIJiiEEEvDpOT_.exit107: ; preds = %.lr.ph.i.i.i.i.i.i97, %.noexc106
   %.0.lcssa.i.i.i.i.i.i102 = phi ptr [ %58, %.noexc106 ], [ %63, %.lr.ph.i.i.i.i.i.i97 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #33
-  %64 = getelementptr inbounds nuw %"class.cv::Point_.8", ptr %58, i64 %56
+  %.idx244 = shl nuw nsw i64 %56, 3
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx244
   %.pre237 = load i32, ptr %44, align 4, !tbaa !192
   %.pre239 = add nsw i32 %.pre237, -1
   %.sroa.21.5 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i102, i64 8
@@ -20557,7 +20558,7 @@ define linkonce_odr hidden void @_ZNSt6vectorI5GraphSaIS0_EE14_M_fill_insertEN9_
   %5 = alloca %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, Graph::Vertex>, std::_Select1st<std::pair<const unsigned long, Graph::Vertex>>, std::less<unsigned long>>::_Alloc_node", align 8
   %6 = alloca %"struct.std::vector<Graph>::_Temporary_value", align 8
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %218, label %7
+  br i1 %.not, label %220, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -20569,7 +20570,7 @@ define linkonce_odr hidden void @_ZNSt6vectorI5GraphSaIS0_EE14_M_fill_insertEN9_
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 48
   %.not65 = icmp ult i64 %15, %2
-  br i1 %.not65, label %132, label %16
+  br i1 %.not65, label %134, label %16
 
 16:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #30
@@ -20623,158 +20624,161 @@ _ZNSt8_Rb_treeImSt4pairIKmN5Graph6VertexEESt10_Select1stIS4_ESt4lessImESaIS4_EE1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #30
   store ptr %26, ptr %19, align 8, !tbaa !235
   %.pre = load ptr, ptr %10, align 8, !tbaa !633
-  %.pre134 = ptrtoint ptr %.pre to i64
+  %.pre132 = ptrtoint ptr %.pre to i64
   br label %_ZNSt6vectorI5GraphSaIS0_EE16_Temporary_valueC2IJRKS0_EEEPS2_DpOT_.exit
 
 _ZNSt6vectorI5GraphSaIS0_EE16_Temporary_valueC2IJRKS0_EEEPS2_DpOT_.exit: ; preds = %16, %32
-  %.pre-phi = phi i64 [ %13, %16 ], [ %.pre134, %32 ]
+  %.pre-phi = phi i64 [ %13, %16 ], [ %.pre132, %32 ]
   %35 = phi ptr [ %11, %16 ], [ %.pre, %32 ]
   %36 = ptrtoint ptr %1 to i64
   %37 = sub i64 %.pre-phi, %36
   %38 = sdiv exact i64 %37, 48
   %39 = icmp ugt i64 %38, %2
-  br i1 %39, label %40, label %97
+  br i1 %39, label %40, label %99
 
 40:                                               ; preds = %_ZNSt6vectorI5GraphSaIS0_EE16_Temporary_valueC2IJRKS0_EEEPS2_DpOT_.exit
-  %41 = sub i64 0, %2
-  %42 = getelementptr inbounds %class.Graph, ptr %35, i64 %41
   %.idx = mul i64 %2, -48
+  %41 = getelementptr inbounds i8, ptr %35, i64 %.idx
   %.not11.i.i.i.i.i = icmp eq i64 %.idx, 0
   br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %40, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %.013.i.i.i.i.i = phi ptr [ %63, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %35, %40 ]
-  %.sroa.08.012.i.i.i.i.i = phi ptr [ %62, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %42, %40 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !230
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %57, label %46
+  %.013.i.i.i.i.i = phi ptr [ %65, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %35, %40 ]
+  %.sroa.08.012.i.i.i.i.i = phi ptr [ %64, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %41, %40 ]
+  %42 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 16
+  %44 = load ptr, ptr %43, align 8, !tbaa !230
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %44, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %59, label %45
 
-46:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 8
-  %48 = load i32, ptr %47, align 8, !tbaa !225
-  %49 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
-  store ptr %45, ptr %49, align 8, !tbaa !230
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !231
+45:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 8
+  %47 = load i32, ptr %46, align 8, !tbaa !225
+  %48 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
+  store ptr %44, ptr %48, align 8, !tbaa !230
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 24
+  %50 = load ptr, ptr %49, align 8, !tbaa !231
+  %51 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 24
+  store ptr %50, ptr %51, align 8, !tbaa !231
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 32
   %53 = load ptr, ptr %52, align 8, !tbaa !232
-  %54 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store ptr %43, ptr %54, align 8, !tbaa !299
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 40
-  %56 = load i64, ptr %55, align 8, !tbaa !233
-  store ptr null, ptr %44, align 8, !tbaa !230
-  store ptr %47, ptr %50, align 8, !tbaa !231
-  store ptr %47, ptr %52, align 8, !tbaa !232
-  store i64 0, ptr %55, align 8, !tbaa !233
+  %54 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
+  store ptr %53, ptr %54, align 8, !tbaa !232
+  %55 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store ptr %42, ptr %55, align 8, !tbaa !299
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 40
+  %57 = load i64, ptr %56, align 8, !tbaa !233
+  %58 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 40
+  store i64 %57, ptr %58, align 8, !tbaa !233
+  store ptr null, ptr %43, align 8, !tbaa !230
+  store ptr %46, ptr %49, align 8, !tbaa !231
+  store ptr %46, ptr %52, align 8, !tbaa !232
+  store i64 0, ptr %56, align 8, !tbaa !233
   br label %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-57:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %58 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
-  store ptr null, ptr %58, align 8, !tbaa !230
+59:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %60 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
+  store ptr null, ptr %60, align 8, !tbaa !230
+  %61 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 24
+  store ptr %42, ptr %61, align 8, !tbaa !231
+  %62 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
+  store ptr %42, ptr %62, align 8, !tbaa !232
+  %63 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 40
+  store i64 0, ptr %63, align 8, !tbaa !233
   br label %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %57, %46
-  %.sink133 = phi ptr [ %43, %57 ], [ %51, %46 ]
-  %.sink132 = phi ptr [ %43, %57 ], [ %53, %46 ]
-  %.sink = phi i64 [ 0, %57 ], [ %56, %46 ]
-  %.sink.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ 0, %57 ], [ %48, %46 ]
-  %59 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 24
-  store ptr %.sink133, ptr %59, align 8, !tbaa !231
-  %60 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
-  store ptr %.sink132, ptr %60, align 8, !tbaa !232
-  %61 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 40
-  store i64 %.sink, ptr %61, align 8, !tbaa !233
-  store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i, ptr %43, align 8, !tbaa !225
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 48
-  %63 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 48
-  %.not.i.i.i.i.i = icmp eq ptr %62, %35
+_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %59, %45
+  %.sink.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ 0, %59 ], [ %47, %45 ]
+  store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i, ptr %42, align 8, !tbaa !225
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 48
+  %.not.i.i.i.i.i = icmp eq ptr %64, %35
   br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !634
 
 _ZSt22__uninitialized_move_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit: ; preds = %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i, %40
-  %64 = getelementptr inbounds nuw %class.Graph, ptr %35, i64 %2
-  store ptr %64, ptr %10, align 8, !tbaa !297
-  %65 = ptrtoint ptr %42 to i64
-  %66 = sub i64 %65, %36
-  %67 = icmp sgt i64 %66, 0
-  br i1 %67, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt13move_backwardIP5GraphS1_ET0_T_S3_S2_.exit
+  %66 = getelementptr inbounds nuw %class.Graph, ptr %35, i64 %2
+  store ptr %66, ptr %10, align 8, !tbaa !297
+  %67 = ptrtoint ptr %41 to i64
+  %68 = sub i64 %67, %36
+  %69 = icmp sgt i64 %68, 0
+  br i1 %69, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt13move_backwardIP5GraphS1_ET0_T_S3_S2_.exit
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZSt22__uninitialized_move_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit
-  %68 = udiv exact i64 %66, 48
+  %70 = udiv exact i64 %68, 48
   br label %.lr.ph.i.i.i.i.i68
 
 .lr.ph.i.i.i.i.i68:                               ; preds = %_ZN5GraphaSEOS_.exit.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i
-  %.011.i.i.i.i.i = phi i64 [ %92, %_ZN5GraphaSEOS_.exit.i.i.i.i.i ], [ %68, %.lr.ph.preheader.i.i.i.i.i ]
-  %.0610.i.i.i.i.i = phi ptr [ %70, %_ZN5GraphaSEOS_.exit.i.i.i.i.i ], [ %35, %.lr.ph.preheader.i.i.i.i.i ]
-  %.079.i.i.i.i.i = phi ptr [ %69, %_ZN5GraphaSEOS_.exit.i.i.i.i.i ], [ %42, %.lr.ph.preheader.i.i.i.i.i ]
-  %69 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -48
-  %70 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -48
-  %71 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -32
-  %72 = load ptr, ptr %71, align 8, !tbaa !230
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmN5Graph6VertexEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %70, ptr noundef %72)
-          to label %_ZNSt8_Rb_treeImSt4pairIKmN5Graph6VertexEESt10_Select1stIS4_ESt4lessImESaIS4_EE5clearEv.exit.i.i.i.i.i.i.i.i.i unwind label %73
+  %.011.i.i.i.i.i = phi i64 [ %94, %_ZN5GraphaSEOS_.exit.i.i.i.i.i ], [ %70, %.lr.ph.preheader.i.i.i.i.i ]
+  %.0610.i.i.i.i.i = phi ptr [ %72, %_ZN5GraphaSEOS_.exit.i.i.i.i.i ], [ %35, %.lr.ph.preheader.i.i.i.i.i ]
+  %.079.i.i.i.i.i = phi ptr [ %71, %_ZN5GraphaSEOS_.exit.i.i.i.i.i ], [ %41, %.lr.ph.preheader.i.i.i.i.i ]
+  %71 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -48
+  %72 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -48
+  %73 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -32
+  %74 = load ptr, ptr %73, align 8, !tbaa !230
+  invoke void @_ZNSt8_Rb_treeImSt4pairIKmN5Graph6VertexEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %72, ptr noundef %74)
+          to label %_ZNSt8_Rb_treeImSt4pairIKmN5Graph6VertexEESt10_Select1stIS4_ESt4lessImESaIS4_EE5clearEv.exit.i.i.i.i.i.i.i.i.i unwind label %75
 
-73:                                               ; preds = %.lr.ph.i.i.i.i.i68
-  %74 = landingpad { ptr, i32 }
+75:                                               ; preds = %.lr.ph.i.i.i.i.i68
+  %76 = landingpad { ptr, i32 }
           catch ptr null
-  %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #34
+  %77 = extractvalue { ptr, i32 } %76, 0
+  call void @__clang_call_terminate(ptr %77) #34
   unreachable
 
 _ZNSt8_Rb_treeImSt4pairIKmN5Graph6VertexEESt10_Select1stIS4_ESt4lessImESaIS4_EE5clearEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i68
-  %76 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -40
-  store ptr null, ptr %71, align 8, !tbaa !230
-  %77 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -24
-  store ptr %76, ptr %77, align 8, !tbaa !231
-  %78 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -16
-  store ptr %76, ptr %78, align 8, !tbaa !232
-  %79 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -8
-  store i64 0, ptr %79, align 8, !tbaa !233
-  %80 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -32
-  %81 = load ptr, ptr %80, align 8, !tbaa !235
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %81, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5GraphaSEOS_.exit.i.i.i.i.i, label %82
+  %78 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -40
+  store ptr null, ptr %73, align 8, !tbaa !230
+  %79 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -24
+  store ptr %78, ptr %79, align 8, !tbaa !231
+  %80 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -16
+  store ptr %78, ptr %80, align 8, !tbaa !232
+  %81 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -8
+  store i64 0, ptr %81, align 8, !tbaa !233
+  %82 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -32
+  %83 = load ptr, ptr %82, align 8, !tbaa !235
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5GraphaSEOS_.exit.i.i.i.i.i, label %84
 
-82:                                               ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN5Graph6VertexEESt10_Select1stIS4_ESt4lessImESaIS4_EE5clearEv.exit.i.i.i.i.i.i.i.i.i
-  %83 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -40
-  %84 = load i32, ptr %83, align 8, !tbaa !225
-  store i32 %84, ptr %76, align 8, !tbaa !225
-  store ptr %81, ptr %71, align 8, !tbaa !230
-  %85 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -24
-  %86 = load ptr, ptr %85, align 8, !tbaa !231
-  store ptr %86, ptr %77, align 8, !tbaa !231
-  %87 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -16
-  %88 = load ptr, ptr %87, align 8, !tbaa !232
-  store ptr %88, ptr %78, align 8, !tbaa !232
-  %89 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store ptr %76, ptr %89, align 8, !tbaa !299
-  %90 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -8
-  %91 = load i64, ptr %90, align 8, !tbaa !233
-  store i64 %91, ptr %79, align 8, !tbaa !233
-  store ptr null, ptr %80, align 8, !tbaa !230
-  store ptr %83, ptr %85, align 8, !tbaa !231
-  store ptr %83, ptr %87, align 8, !tbaa !232
-  store i64 0, ptr %90, align 8, !tbaa !233
+84:                                               ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN5Graph6VertexEESt10_Select1stIS4_ESt4lessImESaIS4_EE5clearEv.exit.i.i.i.i.i.i.i.i.i
+  %85 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -40
+  %86 = load i32, ptr %85, align 8, !tbaa !225
+  store i32 %86, ptr %78, align 8, !tbaa !225
+  store ptr %83, ptr %73, align 8, !tbaa !230
+  %87 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -24
+  %88 = load ptr, ptr %87, align 8, !tbaa !231
+  store ptr %88, ptr %79, align 8, !tbaa !231
+  %89 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -16
+  %90 = load ptr, ptr %89, align 8, !tbaa !232
+  store ptr %90, ptr %80, align 8, !tbaa !232
+  %91 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  store ptr %78, ptr %91, align 8, !tbaa !299
+  %92 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -8
+  %93 = load i64, ptr %92, align 8, !tbaa !233
+  store i64 %93, ptr %81, align 8, !tbaa !233
+  store ptr null, ptr %82, align 8, !tbaa !230
+  store ptr %85, ptr %87, align 8, !tbaa !231
+  store ptr %85, ptr %89, align 8, !tbaa !232
+  store i64 0, ptr %92, align 8, !tbaa !233
   br label %_ZN5GraphaSEOS_.exit.i.i.i.i.i
 
-_ZN5GraphaSEOS_.exit.i.i.i.i.i:                   ; preds = %82, %_ZNSt8_Rb_treeImSt4pairIKmN5Graph6VertexEESt10_Select1stIS4_ESt4lessImESaIS4_EE5clearEv.exit.i.i.i.i.i.i.i.i.i
-  %92 = add nsw i64 %.011.i.i.i.i.i, -1
-  %93 = icmp sgt i64 %.011.i.i.i.i.i, 1
-  br i1 %93, label %.lr.ph.i.i.i.i.i68, label %_ZSt13move_backwardIP5GraphS1_ET0_T_S3_S2_.exit, !llvm.loop !635
+_ZN5GraphaSEOS_.exit.i.i.i.i.i:                   ; preds = %84, %_ZNSt8_Rb_treeImSt4pairIKmN5Graph6VertexEESt10_Select1stIS4_ESt4lessImESaIS4_EE5clearEv.exit.i.i.i.i.i.i.i.i.i
+  %94 = add nsw i64 %.011.i.i.i.i.i, -1
+  %95 = icmp sgt i64 %.011.i.i.i.i.i, 1
+  br i1 %95, label %.lr.ph.i.i.i.i.i68, label %_ZSt13move_backwardIP5GraphS1_ET0_T_S3_S2_.exit, !llvm.loop !635
 
 _ZSt13move_backwardIP5GraphS1_ET0_T_S3_S2_.exit:  ; preds = %_ZN5GraphaSEOS_.exit.i.i.i.i.i, %_ZSt22__uninitialized_move_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit
-  %94 = getelementptr inbounds nuw %class.Graph, ptr %1, i64 %2
+  %.idx124 = mul nuw nsw i64 %2, 48
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx124
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt13move_backwardIP5GraphS1_ET0_T_S3_S2_.exit, %.noexc
-  %.06.i.i.i = phi ptr [ %96, %.noexc ], [ %1, %_ZSt13move_backwardIP5GraphS1_ET0_T_S3_S2_.exit ]
-  %95 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeImSt4pairIKmN5Graph6VertexEESt10_Select1stIS4_ESt4lessImESaIS4_EEaSERKSA_(ptr noundef nonnull align 8 dereferenceable(48) %.06.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %17)
+  %.06.i.i.i = phi ptr [ %98, %.noexc ], [ %1, %_ZSt13move_backwardIP5GraphS1_ET0_T_S3_S2_.exit ]
+  %97 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeImSt4pairIKmN5Graph6VertexEESt10_Select1stIS4_ESt4lessImESaIS4_EEaSERKSA_(ptr noundef nonnull align 8 dereferenceable(48) %.06.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %17)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i.i.i
-  %96 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 48
-  %.not.i.i.i = icmp eq ptr %96, %94
+  %98 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 48
+  %.not.i.i.i = icmp eq ptr %98, %96
   br i1 %.not.i.i.i, label %_ZSt4fillIP5GraphS0_EvT_S2_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !636
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i
@@ -20787,7 +20791,7 @@ _ZSt13move_backwardIP5GraphS1_ET0_T_S3_S2_.exit:  ; preds = %_ZN5GraphaSEOS_.exi
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %97
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %99
   %lpad.loopexit.split-lp126 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -20796,339 +20800,339 @@ _ZSt13move_backwardIP5GraphS1_ET0_T_S3_S2_.exit:  ; preds = %_ZN5GraphaSEOS_.exi
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit125, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp126, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorI5GraphSaIS0_EE16_Temporary_valueD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #30
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #30
-  br label %219
+  br label %221
 
-97:                                               ; preds = %_ZNSt6vectorI5GraphSaIS0_EE16_Temporary_valueC2IJRKS0_EEEPS2_DpOT_.exit
-  %98 = sub nuw i64 %2, %38
-  %99 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIP5GraphmS0_ET_S2_T0_RKT1_(ptr noundef %35, i64 noundef %98, ptr noundef nonnull align 8 dereferenceable(48) %17)
+99:                                               ; preds = %_ZNSt6vectorI5GraphSaIS0_EE16_Temporary_valueC2IJRKS0_EEEPS2_DpOT_.exit
+  %100 = sub nuw i64 %2, %38
+  %101 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIP5GraphmS0_ET_S2_T0_RKT1_(ptr noundef %35, i64 noundef %100, ptr noundef nonnull align 8 dereferenceable(48) %17)
           to label %_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
-_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit: ; preds = %97
-  store ptr %99, ptr %10, align 8, !tbaa !297
+_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit: ; preds = %99
+  store ptr %101, ptr %10, align 8, !tbaa !297
   %.not11.i.i.i.i.i70 = icmp eq ptr %1, %35
   br i1 %.not11.i.i.i.i.i70, label %_ZSt22__uninitialized_move_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit79.thread, label %.lr.ph.i.i.i.i.i71
 
 _ZSt22__uninitialized_move_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit79.thread: ; preds = %_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 %37
-  store ptr %100, ptr %10, align 8, !tbaa !297
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 %37
+  store ptr %102, ptr %10, align 8, !tbaa !297
   br label %_ZSt4fillIP5GraphS0_EvT_S2_RKT0_.exit
 
 .lr.ph.i.i.i.i.i71:                               ; preds = %_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i75
-  %.013.i.i.i.i.i72 = phi ptr [ %124, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i75 ], [ %99, %_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit ]
-  %.sroa.08.012.i.i.i.i.i73 = phi ptr [ %123, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i75 ], [ %1, %_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit ]
-  %101 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 8
-  %102 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 16
-  %103 = load ptr, ptr %102, align 8, !tbaa !230
-  %.not.i.i.i.i.i.i.i.i.i.i.i74 = icmp eq ptr %103, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i74, label %118, label %104
+  %.013.i.i.i.i.i72 = phi ptr [ %126, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i75 ], [ %101, %_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit ]
+  %.sroa.08.012.i.i.i.i.i73 = phi ptr [ %125, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i75 ], [ %1, %_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit ]
+  %103 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 16
+  %105 = load ptr, ptr %104, align 8, !tbaa !230
+  %.not.i.i.i.i.i.i.i.i.i.i.i74 = icmp eq ptr %105, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i74, label %120, label %106
 
-104:                                              ; preds = %.lr.ph.i.i.i.i.i71
-  %105 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 8
-  %106 = load i32, ptr %105, align 8, !tbaa !225
-  %107 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 16
-  store ptr %103, ptr %107, align 8, !tbaa !230
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 24
-  %109 = load ptr, ptr %108, align 8, !tbaa !231
-  %110 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 24
-  store ptr %109, ptr %110, align 8, !tbaa !231
-  %111 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 32
-  %112 = load ptr, ptr %111, align 8, !tbaa !232
-  %113 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 32
-  store ptr %112, ptr %113, align 8, !tbaa !232
-  %114 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  store ptr %101, ptr %114, align 8, !tbaa !299
-  %115 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 40
-  %116 = load i64, ptr %115, align 8, !tbaa !233
-  %117 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 40
-  store i64 %116, ptr %117, align 8, !tbaa !233
-  store ptr null, ptr %102, align 8, !tbaa !230
-  store ptr %105, ptr %108, align 8, !tbaa !231
-  store ptr %105, ptr %111, align 8, !tbaa !232
-  store i64 0, ptr %115, align 8, !tbaa !233
+106:                                              ; preds = %.lr.ph.i.i.i.i.i71
+  %107 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 8
+  %108 = load i32, ptr %107, align 8, !tbaa !225
+  %109 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 16
+  store ptr %105, ptr %109, align 8, !tbaa !230
+  %110 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 24
+  %111 = load ptr, ptr %110, align 8, !tbaa !231
+  %112 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 24
+  store ptr %111, ptr %112, align 8, !tbaa !231
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 32
+  %114 = load ptr, ptr %113, align 8, !tbaa !232
+  %115 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 32
+  store ptr %114, ptr %115, align 8, !tbaa !232
+  %116 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  store ptr %103, ptr %116, align 8, !tbaa !299
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 40
+  %118 = load i64, ptr %117, align 8, !tbaa !233
+  %119 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 40
+  store i64 %118, ptr %119, align 8, !tbaa !233
+  store ptr null, ptr %104, align 8, !tbaa !230
+  store ptr %107, ptr %110, align 8, !tbaa !231
+  store ptr %107, ptr %113, align 8, !tbaa !232
+  store i64 0, ptr %117, align 8, !tbaa !233
   br label %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i75
 
-118:                                              ; preds = %.lr.ph.i.i.i.i.i71
-  %119 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 16
-  store ptr null, ptr %119, align 8, !tbaa !230
-  %120 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 24
-  store ptr %101, ptr %120, align 8, !tbaa !231
-  %121 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 32
-  store ptr %101, ptr %121, align 8, !tbaa !232
-  %122 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 40
-  store i64 0, ptr %122, align 8, !tbaa !233
+120:                                              ; preds = %.lr.ph.i.i.i.i.i71
+  %121 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 16
+  store ptr null, ptr %121, align 8, !tbaa !230
+  %122 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 24
+  store ptr %103, ptr %122, align 8, !tbaa !231
+  %123 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 32
+  store ptr %103, ptr %123, align 8, !tbaa !232
+  %124 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 40
+  store i64 0, ptr %124, align 8, !tbaa !233
   br label %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i75
 
-_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i75: ; preds = %118, %104
-  %.sink.i.i.i.i.i.i.i.i.i.i.i76 = phi i32 [ 0, %118 ], [ %106, %104 ]
-  store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i76, ptr %101, align 8, !tbaa !225
-  %123 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 48
-  %124 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 48
-  %.not.i.i.i.i.i77 = icmp eq ptr %123, %35
+_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i75: ; preds = %120, %106
+  %.sink.i.i.i.i.i.i.i.i.i.i.i76 = phi i32 [ 0, %120 ], [ %108, %106 ]
+  store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i76, ptr %103, align 8, !tbaa !225
+  %125 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 48
+  %126 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 48
+  %.not.i.i.i.i.i77 = icmp eq ptr %125, %35
   br i1 %.not.i.i.i.i.i77, label %_ZSt22__uninitialized_move_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit79, label %.lr.ph.i.i.i.i.i71, !llvm.loop !634
 
 _ZSt22__uninitialized_move_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit79: ; preds = %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i75
-  %125 = getelementptr inbounds nuw i8, ptr %99, i64 %37
-  store ptr %125, ptr %10, align 8, !tbaa !297
+  %127 = getelementptr inbounds nuw i8, ptr %101, i64 %37
+  store ptr %127, ptr %10, align 8, !tbaa !297
   br label %.lr.ph.i.i.i81
 
 .lr.ph.i.i.i81:                                   ; preds = %_ZSt22__uninitialized_move_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit79, %.noexc84
-  %.06.i.i.i82 = phi ptr [ %127, %.noexc84 ], [ %1, %_ZSt22__uninitialized_move_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit79 ]
-  %126 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeImSt4pairIKmN5Graph6VertexEESt10_Select1stIS4_ESt4lessImESaIS4_EEaSERKSA_(ptr noundef nonnull align 8 dereferenceable(48) %.06.i.i.i82, ptr noundef nonnull align 8 dereferenceable(48) %17)
+  %.06.i.i.i82 = phi ptr [ %129, %.noexc84 ], [ %1, %_ZSt22__uninitialized_move_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit79 ]
+  %128 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeImSt4pairIKmN5Graph6VertexEESt10_Select1stIS4_ESt4lessImESaIS4_EEaSERKSA_(ptr noundef nonnull align 8 dereferenceable(48) %.06.i.i.i82, ptr noundef nonnull align 8 dereferenceable(48) %17)
           to label %.noexc84 unwind label %.loopexit.split-lp.loopexit
 
 .noexc84:                                         ; preds = %.lr.ph.i.i.i81
-  %127 = getelementptr inbounds nuw i8, ptr %.06.i.i.i82, i64 48
-  %.not.i.i.i83 = icmp eq ptr %127, %35
+  %129 = getelementptr inbounds nuw i8, ptr %.06.i.i.i82, i64 48
+  %.not.i.i.i83 = icmp eq ptr %129, %35
   br i1 %.not.i.i.i83, label %_ZSt4fillIP5GraphS0_EvT_S2_RKT0_.exit, label %.lr.ph.i.i.i81, !llvm.loop !636
 
 _ZSt4fillIP5GraphS0_EvT_S2_RKT0_.exit:            ; preds = %.noexc84, %.noexc, %_ZSt22__uninitialized_move_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit79.thread
-  %128 = load ptr, ptr %19, align 8, !tbaa !230
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmN5Graph6VertexEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef %128)
-          to label %_ZNSt6vectorI5GraphSaIS0_EE16_Temporary_valueD2Ev.exit unwind label %129
+  %130 = load ptr, ptr %19, align 8, !tbaa !230
+  invoke void @_ZNSt8_Rb_treeImSt4pairIKmN5Graph6VertexEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef %130)
+          to label %_ZNSt6vectorI5GraphSaIS0_EE16_Temporary_valueD2Ev.exit unwind label %131
 
-129:                                              ; preds = %_ZSt4fillIP5GraphS0_EvT_S2_RKT0_.exit
-  %130 = landingpad { ptr, i32 }
+131:                                              ; preds = %_ZSt4fillIP5GraphS0_EvT_S2_RKT0_.exit
+  %132 = landingpad { ptr, i32 }
           catch ptr null
-  %131 = extractvalue { ptr, i32 } %130, 0
-  call void @__clang_call_terminate(ptr %131) #34
+  %133 = extractvalue { ptr, i32 } %132, 0
+  call void @__clang_call_terminate(ptr %133) #34
   unreachable
 
 _ZNSt6vectorI5GraphSaIS0_EE16_Temporary_valueD2Ev.exit: ; preds = %_ZSt4fillIP5GraphS0_EvT_S2_RKT0_.exit
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #30
-  br label %218
+  br label %220
 
-132:                                              ; preds = %7
-  %133 = load ptr, ptr %0, align 8, !tbaa !294
-  %134 = ptrtoint ptr %133 to i64
-  %135 = sub i64 %13, %134
-  %136 = sdiv exact i64 %135, 48
-  %137 = sub nsw i64 192153584101141162, %136
-  %138 = icmp ult i64 %137, %2
-  br i1 %138, label %139, label %_ZNKSt6vectorI5GraphSaIS0_EE12_M_check_lenEmPKc.exit
+134:                                              ; preds = %7
+  %135 = load ptr, ptr %0, align 8, !tbaa !294
+  %136 = ptrtoint ptr %135 to i64
+  %137 = sub i64 %13, %136
+  %138 = sdiv exact i64 %137, 48
+  %139 = sub nsw i64 192153584101141162, %138
+  %140 = icmp ult i64 %139, %2
+  br i1 %140, label %141, label %_ZNKSt6vectorI5GraphSaIS0_EE12_M_check_lenEmPKc.exit
 
-139:                                              ; preds = %132
+141:                                              ; preds = %134
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.37) #31
   unreachable
 
-_ZNKSt6vectorI5GraphSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %132
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %136, i64 %2)
-  %140 = add nsw i64 %.sroa.speculated.i, %136
-  %141 = icmp ult i64 %140, %136
-  %142 = tail call i64 @llvm.umin.i64(i64 %140, i64 192153584101141162)
-  %143 = select i1 %141, i64 192153584101141162, i64 %142
-  %144 = ptrtoint ptr %1 to i64
-  %145 = sub i64 %144, %134
-  %.not.i = icmp eq i64 %143, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseI5GraphSaIS0_EE11_M_allocateEm.exit, label %146
+_ZNKSt6vectorI5GraphSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %134
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %138, i64 %2)
+  %142 = add nsw i64 %.sroa.speculated.i, %138
+  %143 = icmp ult i64 %142, %138
+  %144 = tail call i64 @llvm.umin.i64(i64 %142, i64 192153584101141162)
+  %145 = select i1 %143, i64 192153584101141162, i64 %144
+  %146 = ptrtoint ptr %1 to i64
+  %147 = sub i64 %146, %136
+  %.not.i = icmp eq i64 %145, 0
+  br i1 %.not.i, label %_ZNSt12_Vector_baseI5GraphSaIS0_EE11_M_allocateEm.exit, label %148
 
-146:                                              ; preds = %_ZNKSt6vectorI5GraphSaIS0_EE12_M_check_lenEmPKc.exit
-  %147 = mul nuw nsw i64 %143, 48
-  %148 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %147) #32
+148:                                              ; preds = %_ZNKSt6vectorI5GraphSaIS0_EE12_M_check_lenEmPKc.exit
+  %149 = mul nuw nsw i64 %145, 48
+  %150 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %149) #32
   br label %_ZNSt12_Vector_baseI5GraphSaIS0_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseI5GraphSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5GraphSaIS0_EE12_M_check_lenEmPKc.exit, %146
-  %149 = phi ptr [ %148, %146 ], [ null, %_ZNKSt6vectorI5GraphSaIS0_EE12_M_check_lenEmPKc.exit ]
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 %145
-  %151 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIP5GraphmS0_ET_S2_T0_RKT1_(ptr noundef %150, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit87 unwind label %209
+_ZNSt12_Vector_baseI5GraphSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorI5GraphSaIS0_EE12_M_check_lenEmPKc.exit, %148
+  %151 = phi ptr [ %150, %148 ], [ null, %_ZNKSt6vectorI5GraphSaIS0_EE12_M_check_lenEmPKc.exit ]
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 %147
+  %153 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIP5GraphmS0_ET_S2_T0_RKT1_(ptr noundef %152, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
+          to label %_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit87 unwind label %211
 
 _ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit87: ; preds = %_ZNSt12_Vector_baseI5GraphSaIS0_EE11_M_allocateEm.exit
-  %.not11.i.i.i.i.i88 = icmp eq ptr %133, %1
+  %.not11.i.i.i.i.i88 = icmp eq ptr %135, %1
   br i1 %.not11.i.i.i.i.i88, label %_ZSt34__uninitialized_move_if_noexcept_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit, label %.lr.ph.i.i.i.i.i89
 
 .lr.ph.i.i.i.i.i89:                               ; preds = %_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit87, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i93
-  %.013.i.i.i.i.i90 = phi ptr [ %175, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i93 ], [ %149, %_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit87 ]
-  %.sroa.08.012.i.i.i.i.i91 = phi ptr [ %174, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i93 ], [ %133, %_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit87 ]
-  %152 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 8
-  %153 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i91, i64 16
-  %154 = load ptr, ptr %153, align 8, !tbaa !230
-  %.not.i.i.i.i.i.i.i.i.i.i.i92 = icmp eq ptr %154, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i92, label %169, label %155
+  %.013.i.i.i.i.i90 = phi ptr [ %177, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i93 ], [ %151, %_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit87 ]
+  %.sroa.08.012.i.i.i.i.i91 = phi ptr [ %176, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i93 ], [ %135, %_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit87 ]
+  %154 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i91, i64 16
+  %156 = load ptr, ptr %155, align 8, !tbaa !230
+  %.not.i.i.i.i.i.i.i.i.i.i.i92 = icmp eq ptr %156, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i92, label %171, label %157
 
-155:                                              ; preds = %.lr.ph.i.i.i.i.i89
-  %156 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i91, i64 8
-  %157 = load i32, ptr %156, align 8, !tbaa !225
-  %158 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 16
-  store ptr %154, ptr %158, align 8, !tbaa !230
-  %159 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i91, i64 24
-  %160 = load ptr, ptr %159, align 8, !tbaa !231
-  %161 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 24
-  store ptr %160, ptr %161, align 8, !tbaa !231
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i91, i64 32
-  %163 = load ptr, ptr %162, align 8, !tbaa !232
-  %164 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 32
-  store ptr %163, ptr %164, align 8, !tbaa !232
-  %165 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  store ptr %152, ptr %165, align 8, !tbaa !299
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i91, i64 40
-  %167 = load i64, ptr %166, align 8, !tbaa !233
-  %168 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 40
-  store i64 %167, ptr %168, align 8, !tbaa !233
-  store ptr null, ptr %153, align 8, !tbaa !230
-  store ptr %156, ptr %159, align 8, !tbaa !231
-  store ptr %156, ptr %162, align 8, !tbaa !232
-  store i64 0, ptr %166, align 8, !tbaa !233
+157:                                              ; preds = %.lr.ph.i.i.i.i.i89
+  %158 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i91, i64 8
+  %159 = load i32, ptr %158, align 8, !tbaa !225
+  %160 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 16
+  store ptr %156, ptr %160, align 8, !tbaa !230
+  %161 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i91, i64 24
+  %162 = load ptr, ptr %161, align 8, !tbaa !231
+  %163 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 24
+  store ptr %162, ptr %163, align 8, !tbaa !231
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i91, i64 32
+  %165 = load ptr, ptr %164, align 8, !tbaa !232
+  %166 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 32
+  store ptr %165, ptr %166, align 8, !tbaa !232
+  %167 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  store ptr %154, ptr %167, align 8, !tbaa !299
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i91, i64 40
+  %169 = load i64, ptr %168, align 8, !tbaa !233
+  %170 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 40
+  store i64 %169, ptr %170, align 8, !tbaa !233
+  store ptr null, ptr %155, align 8, !tbaa !230
+  store ptr %158, ptr %161, align 8, !tbaa !231
+  store ptr %158, ptr %164, align 8, !tbaa !232
+  store i64 0, ptr %168, align 8, !tbaa !233
   br label %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i93
 
-169:                                              ; preds = %.lr.ph.i.i.i.i.i89
-  %170 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 16
-  store ptr null, ptr %170, align 8, !tbaa !230
-  %171 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 24
-  store ptr %152, ptr %171, align 8, !tbaa !231
-  %172 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 32
-  store ptr %152, ptr %172, align 8, !tbaa !232
-  %173 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 40
-  store i64 0, ptr %173, align 8, !tbaa !233
+171:                                              ; preds = %.lr.ph.i.i.i.i.i89
+  %172 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 16
+  store ptr null, ptr %172, align 8, !tbaa !230
+  %173 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 24
+  store ptr %154, ptr %173, align 8, !tbaa !231
+  %174 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 32
+  store ptr %154, ptr %174, align 8, !tbaa !232
+  %175 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 40
+  store i64 0, ptr %175, align 8, !tbaa !233
   br label %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i93
 
-_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i93: ; preds = %169, %155
-  %.sink.i.i.i.i.i.i.i.i.i.i.i94 = phi i32 [ 0, %169 ], [ %157, %155 ]
-  store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i94, ptr %152, align 8, !tbaa !225
-  %174 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i91, i64 48
-  %175 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 48
-  %.not.i.i.i.i.i95 = icmp eq ptr %174, %1
+_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i93: ; preds = %171, %157
+  %.sink.i.i.i.i.i.i.i.i.i.i.i94 = phi i32 [ 0, %171 ], [ %159, %157 ]
+  store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i94, ptr %154, align 8, !tbaa !225
+  %176 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i91, i64 48
+  %177 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 48
+  %.not.i.i.i.i.i95 = icmp eq ptr %176, %1
   br i1 %.not.i.i.i.i.i95, label %_ZSt34__uninitialized_move_if_noexcept_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit, label %.lr.ph.i.i.i.i.i89, !llvm.loop !634
 
 _ZSt34__uninitialized_move_if_noexcept_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit: ; preds = %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i93, %_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit87
-  %.0.lcssa.i.i.i.i.i96 = phi ptr [ %149, %_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit87 ], [ %175, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i93 ]
-  %176 = getelementptr inbounds nuw %class.Graph, ptr %.0.lcssa.i.i.i.i.i96, i64 %2
+  %.0.lcssa.i.i.i.i.i96 = phi ptr [ %151, %_ZSt24__uninitialized_fill_n_aIP5GraphmS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit87 ], [ %177, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i93 ]
+  %178 = getelementptr inbounds nuw %class.Graph, ptr %.0.lcssa.i.i.i.i.i96, i64 %2
   %.not11.i.i.i.i.i97 = icmp eq ptr %1, %11
   br i1 %.not11.i.i.i.i.i97, label %_ZSt34__uninitialized_move_if_noexcept_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit106, label %.lr.ph.i.i.i.i.i98
 
 .lr.ph.i.i.i.i.i98:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i102
-  %.013.i.i.i.i.i99 = phi ptr [ %200, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i102 ], [ %176, %_ZSt34__uninitialized_move_if_noexcept_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit ]
-  %.sroa.08.012.i.i.i.i.i100 = phi ptr [ %199, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i102 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit ]
-  %177 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 8
-  %178 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i100, i64 16
-  %179 = load ptr, ptr %178, align 8, !tbaa !230
-  %.not.i.i.i.i.i.i.i.i.i.i.i101 = icmp eq ptr %179, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i101, label %194, label %180
+  %.013.i.i.i.i.i99 = phi ptr [ %202, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i102 ], [ %178, %_ZSt34__uninitialized_move_if_noexcept_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit ]
+  %.sroa.08.012.i.i.i.i.i100 = phi ptr [ %201, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i102 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit ]
+  %179 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i100, i64 16
+  %181 = load ptr, ptr %180, align 8, !tbaa !230
+  %.not.i.i.i.i.i.i.i.i.i.i.i101 = icmp eq ptr %181, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i101, label %196, label %182
 
-180:                                              ; preds = %.lr.ph.i.i.i.i.i98
-  %181 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i100, i64 8
-  %182 = load i32, ptr %181, align 8, !tbaa !225
-  %183 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 16
-  store ptr %179, ptr %183, align 8, !tbaa !230
-  %184 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i100, i64 24
-  %185 = load ptr, ptr %184, align 8, !tbaa !231
-  %186 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 24
-  store ptr %185, ptr %186, align 8, !tbaa !231
-  %187 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i100, i64 32
-  %188 = load ptr, ptr %187, align 8, !tbaa !232
-  %189 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 32
-  store ptr %188, ptr %189, align 8, !tbaa !232
-  %190 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  store ptr %177, ptr %190, align 8, !tbaa !299
-  %191 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i100, i64 40
-  %192 = load i64, ptr %191, align 8, !tbaa !233
-  %193 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 40
-  store i64 %192, ptr %193, align 8, !tbaa !233
-  store ptr null, ptr %178, align 8, !tbaa !230
-  store ptr %181, ptr %184, align 8, !tbaa !231
-  store ptr %181, ptr %187, align 8, !tbaa !232
-  store i64 0, ptr %191, align 8, !tbaa !233
+182:                                              ; preds = %.lr.ph.i.i.i.i.i98
+  %183 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i100, i64 8
+  %184 = load i32, ptr %183, align 8, !tbaa !225
+  %185 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 16
+  store ptr %181, ptr %185, align 8, !tbaa !230
+  %186 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i100, i64 24
+  %187 = load ptr, ptr %186, align 8, !tbaa !231
+  %188 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 24
+  store ptr %187, ptr %188, align 8, !tbaa !231
+  %189 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i100, i64 32
+  %190 = load ptr, ptr %189, align 8, !tbaa !232
+  %191 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 32
+  store ptr %190, ptr %191, align 8, !tbaa !232
+  %192 = getelementptr inbounds nuw i8, ptr %181, i64 8
+  store ptr %179, ptr %192, align 8, !tbaa !299
+  %193 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i100, i64 40
+  %194 = load i64, ptr %193, align 8, !tbaa !233
+  %195 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 40
+  store i64 %194, ptr %195, align 8, !tbaa !233
+  store ptr null, ptr %180, align 8, !tbaa !230
+  store ptr %183, ptr %186, align 8, !tbaa !231
+  store ptr %183, ptr %189, align 8, !tbaa !232
+  store i64 0, ptr %193, align 8, !tbaa !233
   br label %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i102
 
-194:                                              ; preds = %.lr.ph.i.i.i.i.i98
-  %195 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 16
-  store ptr null, ptr %195, align 8, !tbaa !230
-  %196 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 24
-  store ptr %177, ptr %196, align 8, !tbaa !231
-  %197 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 32
-  store ptr %177, ptr %197, align 8, !tbaa !232
-  %198 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 40
-  store i64 0, ptr %198, align 8, !tbaa !233
+196:                                              ; preds = %.lr.ph.i.i.i.i.i98
+  %197 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 16
+  store ptr null, ptr %197, align 8, !tbaa !230
+  %198 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 24
+  store ptr %179, ptr %198, align 8, !tbaa !231
+  %199 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 32
+  store ptr %179, ptr %199, align 8, !tbaa !232
+  %200 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 40
+  store i64 0, ptr %200, align 8, !tbaa !233
   br label %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i102
 
-_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i102: ; preds = %194, %180
-  %.sink.i.i.i.i.i.i.i.i.i.i.i103 = phi i32 [ 0, %194 ], [ %182, %180 ]
-  store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i103, ptr %177, align 8, !tbaa !225
-  %199 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i100, i64 48
-  %200 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 48
-  %.not.i.i.i.i.i104 = icmp eq ptr %199, %11
+_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i102: ; preds = %196, %182
+  %.sink.i.i.i.i.i.i.i.i.i.i.i103 = phi i32 [ 0, %196 ], [ %184, %182 ]
+  store i32 %.sink.i.i.i.i.i.i.i.i.i.i.i103, ptr %179, align 8, !tbaa !225
+  %201 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i100, i64 48
+  %202 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i99, i64 48
+  %.not.i.i.i.i.i104 = icmp eq ptr %201, %11
   br i1 %.not.i.i.i.i.i104, label %_ZSt34__uninitialized_move_if_noexcept_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit106, label %.lr.ph.i.i.i.i.i98, !llvm.loop !634
 
 _ZSt34__uninitialized_move_if_noexcept_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit106: ; preds = %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i102, %_ZSt34__uninitialized_move_if_noexcept_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit
-  %.0.lcssa.i.i.i.i.i105 = phi ptr [ %176, %_ZSt34__uninitialized_move_if_noexcept_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit ], [ %200, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i102 ]
-  %.not4.i.i.i = icmp eq ptr %133, %11
+  %.0.lcssa.i.i.i.i.i105 = phi ptr [ %178, %_ZSt34__uninitialized_move_if_noexcept_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit ], [ %202, %_ZSt10_ConstructI5GraphJS0_EEvPT_DpOT0_.exit.i.i.i.i.i102 ]
+  %.not4.i.i.i = icmp eq ptr %135, %11
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIP5GraphS0_EvT_S2_RSaIT0_E.exit, label %.lr.ph.i.i.i107
 
 .lr.ph.i.i.i107:                                  ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit106, %_ZSt8_DestroyI5GraphEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %206, %_ZSt8_DestroyI5GraphEvPT_.exit.i.i.i ], [ %133, %_ZSt34__uninitialized_move_if_noexcept_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit106 ]
-  %201 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
-  %202 = load ptr, ptr %201, align 8, !tbaa !230
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmN5Graph6VertexEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %.05.i.i.i, ptr noundef %202)
-          to label %_ZSt8_DestroyI5GraphEvPT_.exit.i.i.i unwind label %203
+  %.05.i.i.i = phi ptr [ %208, %_ZSt8_DestroyI5GraphEvPT_.exit.i.i.i ], [ %135, %_ZSt34__uninitialized_move_if_noexcept_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit106 ]
+  %203 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
+  %204 = load ptr, ptr %203, align 8, !tbaa !230
+  invoke void @_ZNSt8_Rb_treeImSt4pairIKmN5Graph6VertexEESt10_Select1stIS4_ESt4lessImESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %.05.i.i.i, ptr noundef %204)
+          to label %_ZSt8_DestroyI5GraphEvPT_.exit.i.i.i unwind label %205
 
-203:                                              ; preds = %.lr.ph.i.i.i107
-  %204 = landingpad { ptr, i32 }
+205:                                              ; preds = %.lr.ph.i.i.i107
+  %206 = landingpad { ptr, i32 }
           catch ptr null
-  %205 = extractvalue { ptr, i32 } %204, 0
-  tail call void @__clang_call_terminate(ptr %205) #34
+  %207 = extractvalue { ptr, i32 } %206, 0
+  tail call void @__clang_call_terminate(ptr %207) #34
   unreachable
 
 _ZSt8_DestroyI5GraphEvPT_.exit.i.i.i:             ; preds = %.lr.ph.i.i.i107
-  %206 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 48
-  %.not.i.i.i108 = icmp eq ptr %206, %11
+  %208 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 48
+  %.not.i.i.i108 = icmp eq ptr %208, %11
   br i1 %.not.i.i.i108, label %_ZSt8_DestroyIP5GraphS0_EvT_S2_RSaIT0_E.exit, label %.lr.ph.i.i.i107, !llvm.loop !298
 
 _ZSt8_DestroyIP5GraphS0_EvT_S2_RSaIT0_E.exit:     ; preds = %_ZSt8_DestroyI5GraphEvPT_.exit.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIP5GraphS1_SaIS0_EET0_T_S4_S3_RT1_.exit106
-  %.not.i109 = icmp eq ptr %133, null
-  br i1 %.not.i109, label %_ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit, label %207
+  %.not.i109 = icmp eq ptr %135, null
+  br i1 %.not.i109, label %_ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit, label %209
 
-207:                                              ; preds = %_ZSt8_DestroyIP5GraphS0_EvT_S2_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %133) #33
+209:                                              ; preds = %_ZSt8_DestroyIP5GraphS0_EvT_S2_RSaIT0_E.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %135) #33
   br label %_ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit
 
-_ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZSt8_DestroyIP5GraphS0_EvT_S2_RSaIT0_E.exit, %207
-  store ptr %149, ptr %0, align 8, !tbaa !294
+_ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZSt8_DestroyIP5GraphS0_EvT_S2_RSaIT0_E.exit, %209
+  store ptr %151, ptr %0, align 8, !tbaa !294
   store ptr %.0.lcssa.i.i.i.i.i105, ptr %10, align 8, !tbaa !297
-  %208 = getelementptr inbounds nuw %class.Graph, ptr %149, i64 %143
-  store ptr %208, ptr %8, align 8, !tbaa !629
-  br label %218
+  %210 = getelementptr inbounds nuw %class.Graph, ptr %151, i64 %145
+  store ptr %210, ptr %8, align 8, !tbaa !629
+  br label %220
 
-209:                                              ; preds = %_ZNSt12_Vector_baseI5GraphSaIS0_EE11_M_allocateEm.exit
-  %210 = landingpad { ptr, i32 }
+211:                                              ; preds = %_ZNSt12_Vector_baseI5GraphSaIS0_EE11_M_allocateEm.exit
+  %212 = landingpad { ptr, i32 }
           catch ptr null
-  %211 = extractvalue { ptr, i32 } %210, 0
-  %212 = tail call ptr @__cxa_begin_catch(ptr %211) #30
-  %.not66 = icmp eq ptr %149, null
-  br i1 %.not66, label %213, label %217
+  %213 = extractvalue { ptr, i32 } %212, 0
+  %214 = tail call ptr @__cxa_begin_catch(ptr %213) #30
+  %.not66 = icmp eq ptr %151, null
+  br i1 %.not66, label %215, label %219
 
-213:                                              ; preds = %209
-  %214 = getelementptr inbounds nuw %class.Graph, ptr %150, i64 %2
-  invoke void @_ZSt8_DestroyIP5GraphS0_EvT_S2_RSaIT0_E(ptr noundef nonnull %150, ptr noundef nonnull %214, ptr noundef nonnull align 1 dereferenceable(1) %0)
-          to label %_ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit116 unwind label %215
+215:                                              ; preds = %211
+  %216 = getelementptr inbounds nuw %class.Graph, ptr %152, i64 %2
+  invoke void @_ZSt8_DestroyIP5GraphS0_EvT_S2_RSaIT0_E(ptr noundef nonnull %152, ptr noundef nonnull %216, ptr noundef nonnull align 1 dereferenceable(1) %0)
+          to label %_ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit116 unwind label %217
 
-215:                                              ; preds = %_ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit116, %213
-  %216 = landingpad { ptr, i32 }
+217:                                              ; preds = %_ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit116, %215
+  %218 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %219 unwind label %220
+          to label %221 unwind label %222
 
-217:                                              ; preds = %209
-  tail call void @_ZdlPv(ptr noundef nonnull %149) #33
+219:                                              ; preds = %211
+  tail call void @_ZdlPv(ptr noundef nonnull %151) #33
   br label %_ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit116
 
-_ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit116: ; preds = %213, %217
+_ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit116: ; preds = %215, %219
   invoke void @__cxa_rethrow() #31
-          to label %223 unwind label %215
+          to label %225 unwind label %217
 
-218:                                              ; preds = %_ZNSt6vectorI5GraphSaIS0_EE16_Temporary_valueD2Ev.exit, %_ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit, %4
+220:                                              ; preds = %_ZNSt6vectorI5GraphSaIS0_EE16_Temporary_valueD2Ev.exit, %_ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit, %4
   ret void
 
-219:                                              ; preds = %215, %.loopexit.split-lp
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %216, %215 ]
+221:                                              ; preds = %217, %.loopexit.split-lp
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %218, %217 ]
   resume { ptr, i32 } %.pn
 
-220:                                              ; preds = %215
-  %221 = landingpad { ptr, i32 }
+222:                                              ; preds = %217
+  %223 = landingpad { ptr, i32 }
           catch ptr null
-  %222 = extractvalue { ptr, i32 } %221, 0
-  tail call void @__clang_call_terminate(ptr %222) #34
+  %224 = extractvalue { ptr, i32 } %223, 0
+  tail call void @__clang_call_terminate(ptr %224) #34
   unreachable
 
-223:                                              ; preds = %_ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit116
+225:                                              ; preds = %_ZNSt12_Vector_baseI5GraphSaIS0_EE13_M_deallocateEPS0_m.exit116
   unreachable
 }
 

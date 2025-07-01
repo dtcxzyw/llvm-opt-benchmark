@@ -1450,26 +1450,26 @@ land.lhs.true:                                    ; preds = %if.end33
 if.end38:                                         ; preds = %land.lhs.true, %if.end33
   %precision.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %precision.i.i.i, align 4
-  %tobool.not.i.i.i.i = icmp ugt i32 %7, -65
+  %sub.i.i = add i32 %7, 64
+  %8 = lshr i32 %sub.i.i, 3
+  %9 = and i32 %8, 536870904
+  %tobool.not.i.i.i.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i.i.i, label %return, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end38
-  %sub.i.i = add nuw i32 %7, 64
-  %8 = add i32 %7, -64
-  %cmp.i.i7 = icmp ult i32 %8, -128
+  %add.ptr.idx = zext nneg i32 %9 to i64
+  %10 = add i32 %7, -64
+  %cmp.i.i7 = icmp ult i32 %10, -128
   %significand.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %9 = load ptr, ptr %significand.i.i, align 8
-  %retval.0.i.i = select i1 %cmp.i.i7, ptr %9, ptr %significand.i.i
+  %11 = load ptr, ptr %significand.i.i, align 8
+  %retval.0.i.i = select i1 %cmp.i.i7, ptr %11, ptr %significand.i.i
   %precision.i.i.i12 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %10 = load i32, ptr %precision.i.i.i12, align 4
-  %11 = add i32 %10, -64
-  %cmp.i.i13 = icmp ult i32 %11, -128
+  %12 = load i32, ptr %precision.i.i.i12, align 4
+  %13 = add i32 %12, -64
+  %cmp.i.i13 = icmp ult i32 %13, -128
   %significand.i.i14 = getelementptr inbounds nuw i8, ptr %rhs, i64 8
-  %12 = load ptr, ptr %significand.i.i14, align 8
-  %retval.0.i.i15 = select i1 %cmp.i.i13, ptr %12, ptr %significand.i.i14
-  %13 = lshr i32 %sub.i.i, 3
-  %14 = and i32 %13, 536870904
-  %add.ptr.idx = zext nneg i32 %14 to i64
+  %14 = load ptr, ptr %significand.i.i14, align 8
+  %retval.0.i.i15 = select i1 %cmp.i.i13, ptr %14, ptr %significand.i.i14
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %retval.0.i.i, ptr %retval.0.i.i15, i64 %add.ptr.idx)
   %tobool1.not.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %return
@@ -12936,7 +12936,8 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N4llvh7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %arraydestroy.body.i.preheader
 
 arraydestroy.body.i.preheader:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.llvh::APFloat", ptr %0, i64 %2
+  %delete.end.idx.i = shl nsw i64 %2, 5
+  %delete.end.i = getelementptr inbounds i8, ptr %0, i64 %delete.end.idx.i
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %arraydestroy.body.i.preheader, %_ZN4llvh7APFloatD2Ev.exit.i
@@ -17024,26 +17025,26 @@ land.lhs.true.i:                                  ; preds = %if.end33.i
 if.end38.i:                                       ; preds = %land.lhs.true.i, %if.end33.i
   %precision.i.i.i.i = getelementptr inbounds nuw i8, ptr %.lcssa, i64 4
   %7 = load i32, ptr %precision.i.i.i.i, align 4
-  %tobool.not.i.i.i.i.i = icmp ugt i32 %7, -65
+  %sub.i.i.i = add i32 %7, 64
+  %8 = lshr i32 %sub.i.i.i, 3
+  %9 = and i32 %8, 536870904
+  %tobool.not.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i.i.i.i.i, label %return, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end38.i
-  %sub.i.i.i = add nuw i32 %7, 64
-  %8 = add i32 %7, -64
-  %cmp.i.i7.i = icmp ult i32 %8, -128
+  %add.ptr.idx.i = zext nneg i32 %9 to i64
+  %10 = add i32 %7, -64
+  %cmp.i.i7.i = icmp ult i32 %10, -128
   %significand.i.i.i = getelementptr inbounds nuw i8, ptr %this.tr16.lcssa, i64 16
-  %9 = load ptr, ptr %significand.i.i.i, align 8
-  %retval.0.i.i.i = select i1 %cmp.i.i7.i, ptr %9, ptr %significand.i.i.i
+  %11 = load ptr, ptr %significand.i.i.i, align 8
+  %retval.0.i.i.i = select i1 %cmp.i.i7.i, ptr %11, ptr %significand.i.i.i
   %precision.i.i.i12.i = getelementptr inbounds nuw i8, ptr %.lcssa31, i64 4
-  %10 = load i32, ptr %precision.i.i.i12.i, align 4
-  %11 = add i32 %10, -64
-  %cmp.i.i13.i = icmp ult i32 %11, -128
+  %12 = load i32, ptr %precision.i.i.i12.i, align 4
+  %13 = add i32 %12, -64
+  %cmp.i.i13.i = icmp ult i32 %13, -128
   %significand.i.i14.i = getelementptr inbounds nuw i8, ptr %RHS.tr17.lcssa, i64 16
-  %12 = load ptr, ptr %significand.i.i14.i, align 8
-  %retval.0.i.i15.i = select i1 %cmp.i.i13.i, ptr %12, ptr %significand.i.i14.i
-  %13 = lshr i32 %sub.i.i.i, 3
-  %14 = and i32 %13, 536870904
-  %add.ptr.idx.i = zext nneg i32 %14 to i64
+  %14 = load ptr, ptr %significand.i.i14.i, align 8
+  %retval.0.i.i15.i = select i1 %cmp.i.i13.i, ptr %14, ptr %significand.i.i14.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %retval.0.i.i.i, ptr %retval.0.i.i15.i, i64 %add.ptr.idx.i)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br label %return

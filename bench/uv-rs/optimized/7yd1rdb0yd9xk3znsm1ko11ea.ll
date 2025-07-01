@@ -4410,7 +4410,8 @@ default.unreachable:                              ; preds = %"_ZN4core3ops5range
   %222 = load i64, ptr %221, align 8, !alias.scope !514, !noalias !517
   %.sink12.i45 = select i1 %219, ptr %220, ptr %136
   %.sink11.i46 = select i1 %219, i64 %222, i64 %218
-  %223 = getelementptr inbounds { { { { [6 x i64] }, i64 } }, i64 }, ptr %.sink12.i45, i64 %.sink11.i46
+  %.idx = shl nsw i64 %.sink11.i46, 6
+  %223 = getelementptr inbounds i8, ptr %.sink12.i45, i64 %.idx
   %224 = icmp eq i64 %.sink11.i46, 0
   br i1 %224, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd282fe2c8343c16fE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd282fe2c8343c16fE.exit.lr.ph"
 
@@ -6166,7 +6167,8 @@ define internal fastcc noundef i64 @_ZN9uv_pep5086marker7algebra13InternerGuard1
   %.sroa.462.0.copyload = load ptr, ptr %114, align 8, !nonnull !3, !noundef !3
   %142 = icmp ult i64 %.sroa.563.0.copyload, 576460752303423488
   call void @llvm.assume(i1 %142)
-  %143 = getelementptr inbounds nuw { i64, i64 }, ptr %.sroa.462.0.copyload, i64 %.sroa.563.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.563.0.copyload, 4
+  %143 = getelementptr inbounds nuw i8, ptr %.sroa.462.0.copyload, i64 %.idx
   %144 = icmp sgt i64 %.sroa.061.0.copyload, -1
   call void @llvm.assume(i1 %144)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
@@ -7205,7 +7207,8 @@ define hidden void @_ZN9uv_pep5086marker7algebra19normalize_specifier17hffdee052
   call void @llvm.experimental.noalias.scope.decl(metadata !753)
   store i64 5242880, ptr %10, align 8, !alias.scope !751, !noalias !755
   store i8 0, ptr %.sroa.410.0..sroa_idx, align 8, !alias.scope !751, !noalias !755
-  %87 = getelementptr inbounds i64, ptr %71, i64 %.sroa.54.0
+  %.idx.i = shl nsw i64 %.sroa.54.0, 3
+  %87 = getelementptr inbounds i8, ptr %71, i64 %.idx.i
   %88 = icmp eq i64 %.sroa.54.0, 0
   br i1 %88, label %._crit_edge.i.thread, label %.lr.ph.i
 

@@ -489,7 +489,8 @@ define internal i32 @ps_unicodes_char_index(ptr noundef readonly captures(none) 
   %7 = zext i32 %4 to i64
   %8 = lshr i64 %7, 1
   %9 = getelementptr inbounds nuw %struct.PS_UniMap_, ptr %6, i64 %8
-  %10 = getelementptr inbounds nuw %struct.PS_UniMap_, ptr %6, i64 %7
+  %.idx = shl nuw nsw i64 %7, 3
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13

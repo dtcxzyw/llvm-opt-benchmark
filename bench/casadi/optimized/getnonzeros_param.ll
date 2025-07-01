@@ -2757,7 +2757,8 @@ _ZNK6casadi6MXNode3depEx.exit34:                  ; preds = %_ZNK6casadi6MXNode3
   br i1 %32, label %.preheader.lr.ph, label %._crit_edge44
 
 .preheader.lr.ph:                                 ; preds = %._crit_edge
-  %33 = getelementptr inbounds i64, ptr %3, i64 %21
+  %.idx = shl nsw i64 %21, 3
+  %33 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %.not37 = icmp eq i64 %21, 0
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %35 = load i64, ptr %34, align 8, !tbaa !63
@@ -2990,7 +2991,8 @@ _ZNK6casadi6MXNode3depEx.exit40:                  ; preds = %_ZNK6casadi6MXNode3
   br i1 %40, label %.lr.ph50, label %._crit_edge51
 
 .lr.ph50:                                         ; preds = %.preheader
-  %41 = getelementptr inbounds i64, ptr %3, i64 %23
+  %.idx = shl nsw i64 %23, 3
+  %41 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %.not43 = icmp eq i64 %23, 0
   br i1 %.not43, label %._crit_edge51, label %.lr.ph46
 
@@ -3071,7 +3073,8 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %5
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr %18(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef 0)
   %20 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %19)
-  %21 = getelementptr inbounds i64, ptr %15, i64 %20
+  %.idx = shl nsw i64 %20, 3
+  %21 = getelementptr inbounds i8, ptr %15, i64 %.idx
   %.not5.i.i.i = icmp eq i64 %20, 0
   br i1 %.not5.i.i.i, label %_ZSt4fillIPyyEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i
 

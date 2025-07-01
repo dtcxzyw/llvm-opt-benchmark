@@ -235,7 +235,8 @@ _ZN4llvm4sortIRSt6vectorIPKNS_6RecordESaIS4_EEPFbS4_S4_EEEvOT_T0_.exit: ; preds 
   %72 = tail call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr nonnull @.str.3, i64 11) #14
   %73 = extractvalue { ptr, i64 } %72, 0
   %74 = extractvalue { ptr, i64 } %72, 1
-  %75 = getelementptr inbounds nuw ptr, ptr %73, i64 %74
+  %.idx215 = shl nuw nsw i64 %74, 3
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx215
   %.not203 = icmp eq i64 %74, 0
   br i1 %.not203, label %.preheader, label %.lr.ph
 

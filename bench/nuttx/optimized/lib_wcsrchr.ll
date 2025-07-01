@@ -10,7 +10,8 @@ define noundef ptr @wcsrchr(ptr noundef readonly captures(address, ret: address,
   br i1 %.not10, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %3
+  %.idx = shl nsw i64 %3, 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %6

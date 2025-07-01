@@ -4805,8 +4805,8 @@ define linkonce_odr void @_ZNSt8seed_seqC2IivEESt16initializer_listIT_E(ptr noun
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not13 = icmp eq i64 %2, 0
-  br i1 %.not13, label %._crit_edge, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
+  %.not14 = icmp eq i64 %2, 0
+  br i1 %.not14, label %._crit_edge, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %6
   %8 = shl nuw nsw i64 %2, 2
@@ -4819,7 +4819,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %6
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i32, ptr %9, i64 %2
   store ptr %11, ptr %7, align 8
-  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %14
 

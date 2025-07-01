@@ -7168,7 +7168,8 @@ _ZSt8_DestroyIPN2cv4Mat_IhEEEvT_S4_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.
 .body:                                            ; preds = %42
   %48 = extractvalue { ptr, i32 } %43, 0
   %49 = tail call ptr @__cxa_begin_catch(ptr %48) #22
-  %50 = getelementptr inbounds nuw %"class.cv::Mat_.16", ptr %30, i64 %1
+  %.idx = mul nuw nsw i64 %1, 96
+  %50 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx
   br label %.lr.ph.i.i.i46
 
 .lr.ph.i.i.i46:                                   ; preds = %.body, %.lr.ph.i.i.i46
@@ -7362,7 +7363,8 @@ _ZSt8_DestroyIPN2cv4Mat_IsEEEvT_S4_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.
 .body:                                            ; preds = %44
   %50 = extractvalue { ptr, i32 } %45, 0
   %51 = tail call ptr @__cxa_begin_catch(ptr %50) #22
-  %52 = getelementptr inbounds nuw %"class.cv::Mat_.17", ptr %31, i64 %1
+  %.idx = mul nuw nsw i64 %1, 96
+  %52 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx
   br label %.lr.ph.i.i.i46
 
 .lr.ph.i.i.i46:                                   ; preds = %.body, %.lr.ph.i.i.i46
@@ -7550,7 +7552,8 @@ _ZSt8_DestroyIPN2cv4Mat_IfEEEvT_S4_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.
 .body:                                            ; preds = %44
   %50 = extractvalue { ptr, i32 } %45, 0
   %51 = tail call ptr @__cxa_begin_catch(ptr %50) #22
-  %52 = getelementptr inbounds nuw %"class.cv::Mat_.10", ptr %31, i64 %1
+  %.idx = mul nuw nsw i64 %1, 96
+  %52 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx
   br label %.lr.ph.i.i.i46
 
 .lr.ph.i.i.i46:                                   ; preds = %.body, %.lr.ph.i.i.i46

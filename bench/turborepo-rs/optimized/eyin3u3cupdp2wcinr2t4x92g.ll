@@ -794,7 +794,8 @@ _RNCNvXsm_NtCseG2FYMysgNb_3wax5tokenRINtB7_11AlternativeTjjEEINtNtB7_8variance12
   %17 = load ptr, ptr %16, align 8, !alias.scope !218, !noalias !221, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %19 = load i64, ptr %18, align 8, !alias.scope !218, !noalias !221, !noundef !5
-  %20 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %17, i64 %19
+  %.idx.us = shl nsw i64 %19, 6
+  %20 = getelementptr inbounds i8, ptr %17, i64 %.idx.us
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !225
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %.sroa.7.i)
@@ -846,7 +847,8 @@ _RNCNvXsm_NtCseG2FYMysgNb_3wax5tokenRINtB7_11AlternativeTjjEEINtNtB7_8variance12
   %29 = load ptr, ptr %28, align 8, !alias.scope !218, !noalias !221, !nonnull !5, !noundef !5
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %31 = load i64, ptr %30, align 8, !alias.scope !218, !noalias !221, !noundef !5
-  %32 = getelementptr inbounds { { i64, [5 x i64] }, { i64, i64 } }, ptr %29, i64 %31
+  %.idx = shl nsw i64 %31, 6
+  %32 = getelementptr inbounds i8, ptr %29, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !225
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %.sroa.7.i)
@@ -8326,7 +8328,8 @@ define hidden void @_RNCINvNtNtCseG2FYMysgNb_3wax5token8variance21invariant_text
   %16 = load ptr, ptr %15, align 8, !nonnull !5, !noundef !5
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = load i64, ptr %17, align 8, !noundef !5
-  %19 = getelementptr inbounds ptr, ptr %16, i64 %18
+  %.idx = shl nsw i64 %18, 3
+  %19 = getelementptr inbounds i8, ptr %16, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2559)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !2559
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !2559

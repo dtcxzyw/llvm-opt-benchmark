@@ -5604,10 +5604,10 @@ _ZNK5boost10shared_ptrIN8QuantLib13IrregularSwapEEptEv.exit: ; preds = %entry, %
 
 cond.end.thread.i:                                ; preds = %_ZNK5boost10shared_ptrIN8QuantLib13IrregularSwapEEptEv.exit
   store ptr null, ptr %arr, align 8, !tbaa !3
-  %rows_6.i = getelementptr inbounds nuw i8, ptr %arr, i64 8
-  store i64 %sub.ptr.div.i, ptr %rows_6.i, align 8, !tbaa !184
-  %columns_7.i = getelementptr inbounds nuw i8, ptr %arr, i64 16
-  store i64 %sub.ptr.div.i, ptr %columns_7.i, align 8, !tbaa !192
+  %rows_7.i = getelementptr inbounds nuw i8, ptr %arr, i64 8
+  store i64 %sub.ptr.div.i, ptr %rows_7.i, align 8, !tbaa !184
+  %columns_8.i = getelementptr inbounds nuw i8, ptr %arr, i64 16
+  store i64 %sub.ptr.div.i, ptr %columns_8.i, align 8, !tbaa !192
   br label %_ZN8QuantLib6MatrixC2Emmd.exit
 
 for.body.i.i.i.preheader.i:                       ; preds = %_ZNK5boost10shared_ptrIN8QuantLib13IrregularSwapEEptEv.exit

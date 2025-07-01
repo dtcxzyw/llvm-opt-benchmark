@@ -64,8 +64,10 @@ declare noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN4llvm20StrCmpOptionPrefixesENS_8ArrayRefINS_9StringRefEEES2_(ptr readonly captures(address) %0, i64 %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 {
   %5 = alloca %"class.llvm::StringRef", align 8
-  %6 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %0, i64 %1
-  %7 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %1, 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %.idx42 = shl nuw nsw i64 %3, 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx42
   %8 = icmp eq i64 %1, 0
   %9 = icmp eq i64 %3, 0
   %.not3.i.not39 = select i1 %8, i1 true, i1 %9

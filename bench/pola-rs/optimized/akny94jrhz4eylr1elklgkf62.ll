@@ -35101,7 +35101,8 @@ default.unreachable153:                           ; preds = %550, %507, %480, %2
   %.val.i = load ptr, ptr %274, align 8, !noalias !4938, !nonnull !3, !noundef !3
   %275 = getelementptr i8, ptr %270, i64 48
   %.val90.i = load i64, ptr %275, align 8, !noalias !4938, !noundef !3
-  %276 = getelementptr inbounds nuw { { i8, [1 x i8] }, [6 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %.val.i, i64 %.val90.i
+  %.idx.i = shl nuw nsw i64 %.val90.i, 5
+  %276 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i
   %277 = icmp eq i64 %.val90.i, 0
   br i1 %277, label %.loopexit.i, label %.lr.ph.i
 
@@ -50373,7 +50374,8 @@ _ZN9polars_io3csv4read6parser15is_comment_line17hdae6b36d99c2d9a4E.exit.us: ; pr
   %220 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %221 = load ptr, ptr %220, align 8, !nonnull !3, !noundef !3
   %222 = load i64, ptr %194, align 8, !noundef !3
-  %223 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %221, i64 %222
+  %.idx = mul nuw nsw i64 %222, 24
+  %223 = getelementptr inbounds nuw i8, ptr %221, i64 %.idx
   %224 = icmp eq i64 %222, 0
   br i1 %224, label %._crit_edge, label %.lr.ph
 

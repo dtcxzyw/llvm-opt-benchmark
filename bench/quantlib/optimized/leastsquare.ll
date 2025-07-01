@@ -489,8 +489,8 @@ do.end:                                           ; preds = %entry
 
 _ZN8QuantLib5ArrayC2Em.exit.thread:               ; preds = %do.end
   store ptr null, ptr %agg.result, align 8, !tbaa !11
-  %n_.i3961 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %0, ptr %n_.i3961, align 8, !tbaa !12
+  %n_.i3962 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i64 %0, ptr %n_.i3962, align 8, !tbaa !12
   br label %_ZSt9transformIPKdS1_PdSt5minusIvEET1_T_S6_T0_S5_T2_.exit
 
 for.body.i.preheader:                             ; preds = %do.end
@@ -502,7 +502,7 @@ for.body.i.preheader:                             ; preds = %do.end
   %n_.i39 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %0, ptr %n_.i39, align 8, !tbaa !12
   %28 = load ptr, ptr %v1, align 8, !tbaa !11
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %28, i64 %0
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %28, i64 %26
   %29 = load ptr, ptr %v2, align 8, !tbaa !11
   br label %for.body.i
 
@@ -719,7 +719,8 @@ ehcleanup36:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 do.end:                                           ; preds = %entry
   %25 = load ptr, ptr %v1, align 8, !tbaa !11
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %25, i64 %0
+  %add.ptr.i.idx = shl nuw nsw i64 %0, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %25, i64 %add.ptr.i.idx
   %cmp.not5.i = icmp eq i64 %0, 0
   br i1 %cmp.not5.i, label %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit, label %for.body.i.preheader
 
@@ -1108,8 +1109,8 @@ do.end:                                           ; preds = %entry
 
 _ZN8QuantLib5ArrayC2Em.exit.thread:               ; preds = %do.end
   store ptr null, ptr %agg.result, align 8, !tbaa !11
-  %n_.i3961 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %0, ptr %n_.i3961, align 8, !tbaa !12
+  %n_.i3962 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i64 %0, ptr %n_.i3962, align 8, !tbaa !12
   br label %_ZSt9transformIPKdS1_PdSt10multipliesIvEET1_T_S6_T0_S5_T2_.exit
 
 for.body.i.preheader:                             ; preds = %do.end
@@ -1121,7 +1122,7 @@ for.body.i.preheader:                             ; preds = %do.end
   %n_.i39 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %0, ptr %n_.i39, align 8, !tbaa !12
   %28 = load ptr, ptr %v1, align 8, !tbaa !11
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %28, i64 %0
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %28, i64 %26
   %29 = load ptr, ptr %v2, align 8, !tbaa !11
   br label %for.body.i
 
@@ -1309,7 +1310,8 @@ invoke.cont28:                                    ; preds = %invoke.cont26
   %n_3.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 8
   %26 = load i64, ptr %n_3.i.i.i, align 8, !tbaa !43, !noalias !40
   store i64 0, ptr %n_3.i.i.i, align 8, !tbaa !43, !noalias !40
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %25, i64 %26
+  %add.ptr.i.idx.i = shl nuw nsw i64 %26, 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %25, i64 %add.ptr.i.idx.i
   %cmp.not5.i.i = icmp eq i64 %26, 0
   br i1 %cmp.not5.i.i, label %invoke.cont30, label %for.body.i.i
 
@@ -1709,7 +1711,8 @@ for.body.lr.ph:                                   ; preds = %do.end
   %n_.i47 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %26, ptr %n_.i47, align 8, !tbaa !12
   %30 = load ptr, ptr %v, align 8, !tbaa !11
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %30, i64 %0
+  %add.ptr.i.idx = shl nuw nsw i64 %0, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %30, i64 %add.ptr.i.idx
   %31 = load ptr, ptr %m, align 8, !tbaa !11
   %cmp.not5.i = icmp eq i64 %0, 0
   br i1 %cmp.not5.i, label %for.body.us.preheader, label %for.body
@@ -1914,7 +1917,8 @@ invoke.cont28:                                    ; preds = %invoke.cont26
   %n_3.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 8
   %26 = load i64, ptr %n_3.i.i.i, align 8, !tbaa !43, !noalias !49
   store i64 0, ptr %n_3.i.i.i, align 8, !tbaa !43, !noalias !49
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %25, i64 %26
+  %add.ptr.i.idx.i = shl nuw nsw i64 %26, 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %25, i64 %add.ptr.i.idx.i
   %cmp.not5.i.i = icmp eq i64 %26, 0
   br i1 %cmp.not5.i.i, label %invoke.cont30, label %for.body.i.i
 

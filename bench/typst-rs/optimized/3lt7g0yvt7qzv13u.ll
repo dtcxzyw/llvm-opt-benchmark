@@ -1431,9 +1431,10 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   br label %.noexc52
 
 325:                                              ; preds = %313
+  %.idx.i = shl nsw i64 %316, 4
   %326 = getelementptr inbounds i8, ptr %314, i64 -24
   %327 = load ptr, ptr %326, align 8, !noalias !262, !nonnull !8, !noundef !8
-  %328 = getelementptr inbounds { ptr, { i64 }, { {}, {}, {} } }, ptr %327, i64 %316
+  %328 = getelementptr inbounds i8, ptr %327, i64 %.idx.i
   %329 = getelementptr inbounds i8, ptr %328, i64 -16
   %330 = getelementptr inbounds i8, ptr %328, i64 -8
   store atomic i64 0, ptr %330 seq_cst, align 8, !noalias !326
@@ -3800,9 +3801,10 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   br label %1182
 
 1169:                                             ; preds = %1157
+  %.idx.i = shl nsw i64 %1160, 4
   %1170 = getelementptr inbounds i8, ptr %1158, i64 -24
   %1171 = load ptr, ptr %1170, align 8, !noalias !752, !nonnull !8, !noundef !8
-  %1172 = getelementptr inbounds { ptr, { i64 }, { {}, {}, {}, {} } }, ptr %1171, i64 %1160
+  %1172 = getelementptr inbounds i8, ptr %1171, i64 %.idx.i
   %1173 = getelementptr inbounds i8, ptr %1172, i64 -16
   %1174 = getelementptr inbounds i8, ptr %1172, i64 -8
   store atomic i64 0, ptr %1174 seq_cst, align 8, !noalias !816
@@ -4707,9 +4709,10 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   br label %.noexc53
 
 230:                                              ; preds = %218
+  %.idx.i = shl nsw i64 %221, 4
   %231 = getelementptr inbounds i8, ptr %219, i64 -24
   %232 = load ptr, ptr %231, align 8, !noalias !949, !nonnull !8, !noundef !8
-  %233 = getelementptr inbounds { ptr, { i64 }, { {}, {}, {}, {}, {} } }, ptr %232, i64 %221
+  %233 = getelementptr inbounds i8, ptr %232, i64 %.idx.i
   %234 = getelementptr inbounds i8, ptr %233, i64 -16
   %235 = getelementptr inbounds i8, ptr %233, i64 -8
   store atomic i64 0, ptr %235 seq_cst, align 8, !noalias !1013

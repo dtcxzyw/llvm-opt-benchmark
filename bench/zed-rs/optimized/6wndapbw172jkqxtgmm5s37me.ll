@@ -13373,7 +13373,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17heed4fcb1a6525754E.exit: ; preds = %.no
   %69 = load ptr, ptr %68, align 8, !nonnull !4, !noundef !4
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %71 = load i64, ptr %70, align 8, !noundef !4
-  %72 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %69, i64 %71
+  %.idx317 = shl nsw i64 %71, 5
+  %72 = getelementptr inbounds i8, ptr %69, i64 %.idx317
   %73 = icmp eq i64 %71, 0
   br i1 %73, label %._crit_edge, label %.lr.ph316
 
@@ -13774,7 +13775,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17heed4fcb1a6525754E.exit: ; preds = %.no
   %220 = load ptr, ptr %219, align 8, !nonnull !4, !noundef !4
   %221 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %222 = load i64, ptr %221, align 8, !noundef !4
-  %223 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %220, i64 %222
+  %.idx = shl nsw i64 %222, 5
+  %223 = getelementptr inbounds i8, ptr %220, i64 %.idx
   %224 = icmp eq i64 %222, 0
   br i1 %224, label %.loopexit298.backedge, label %.lr.ph
 
@@ -14017,7 +14019,8 @@ define noalias noundef ptr @_ZN4call4room4Room17apply_room_update17hf382e9078637
   %18 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !4
-  %21 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, i64, { i32, [2 x i32] }, i32, i32, [1 x i32] }, ptr %18, i64 %20
+  %.idx = mul nsw i64 %20, 72
+  %21 = getelementptr inbounds i8, ptr %18, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2831)
   %22 = icmp eq i64 %20, 0
   br i1 %22, label %.loopexit60, label %.lr.ph.i
@@ -19032,7 +19035,8 @@ define internal fastcc void @_ZN4call4room4Room12set_deafened17h065f2ce48a705972
   %.sroa.0.0.copyload.i = load i64, ptr %14, align 8, !alias.scope !3518, !noalias !3521
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i53, align 8, !alias.scope !3518, !noalias !3521, !nonnull !4, !noundef !4
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i54, align 8, !alias.scope !3518, !noalias !3521
-  %83 = getelementptr inbounds ptr, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = shl nsw i64 %.sroa.5.0.copyload.i, 3
+  %83 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   store ptr %.sroa.4.0.copyload.i, ptr %12, align 8

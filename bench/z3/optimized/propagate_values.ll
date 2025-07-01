@@ -993,7 +993,8 @@ _ZNK25dependent_expr_simplifier5qtailEv.exit.i:   ; preds = %7
   %15 = load ptr, ptr %1, align 8, !tbaa !183
   %16 = load i32, ptr %3, align 8, !tbaa !186
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
+  %.idx.i.i.i = shl nuw nsw i64 %17, 3
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i
   %.not8.i.i.i = icmp eq i32 %16, 0
   br i1 %.not8.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
@@ -1749,7 +1750,8 @@ define linkonce_odr hidden void @_ZN16shared_occs_markD2Ev(ptr noundef nonnull a
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !186
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 3
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %.not8.i = icmp eq i32 %4, 0
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
 

@@ -461,7 +461,8 @@ _ZNSolsEPFRSoS_E.exit237:                         ; preds = %.noexc320, %._crit_
   %187 = mul nsw i32 %186, %182
   %188 = sext i32 %187 to i64
   %189 = load ptr, ptr %176, align 8, !tbaa !44
-  %190 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %189, i64 %188
+  %.idx = shl nuw nsw i64 %188, 3
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 %.idx
   %.not570 = icmp eq i32 %187, 0
   br i1 %.not570, label %._crit_edge502, label %.lr.ph501
 

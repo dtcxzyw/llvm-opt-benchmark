@@ -2478,7 +2478,8 @@ _ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit:     ; preds = %"_ZN4core3str6trait
   %113 = sub i64 %.0.i, %96
   %114 = icmp ne ptr %.sroa.6.0.copyload.i.i, null
   call void @llvm.assume(i1 %114)
-  %115 = getelementptr inbounds { { { i64, [1 x i64] }, { i64, [3 x i64] }, { i8, [31 x i8] }, i64 }, i16, [3 x i16] }, ptr %.sroa.6.0.copyload.i.i, i64 %.sroa.8.0.copyload.i.i
+  %.idx = mul nsw i64 %.sroa.8.0.copyload.i.i, 96
+  %115 = getelementptr inbounds i8, ptr %.sroa.6.0.copyload.i.i, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   store ptr %.sroa.6.0.copyload.i.i, ptr %8, align 8
   %.sroa.010.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2878,7 +2879,8 @@ define void @_ZN9actix_web4http6header6accept6Accept10preference17he1cea04e60a71
   %.val = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val15 = load i64, ptr %7, align 8, !noundef !4
-  %8 = getelementptr inbounds { { { i64, [1 x i64] }, { i64, [3 x i64] }, { i8, [31 x i8] }, i64 }, i16, [3 x i16] }, ptr %.val, i64 %.val15
+  %.idx = mul nsw i64 %.val15, 96
+  %8 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %9 = icmp eq i64 %.val15, 0
   br i1 %9, label %._crit_edge.thread, label %.lr.ph
 
@@ -3769,7 +3771,8 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @_ZN9actix_web7requ
   br i1 %19, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17heac8de2aa48146c7E.llvm.8925420951046425970.exit"
-  %20 = getelementptr inbounds ptr, ptr %.sink3.i, i64 %.sink2.i
+  %.idx = shl nsw i64 %.sink2.i, 3
+  %20 = getelementptr inbounds i8, ptr %.sink3.i, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN10actix_http10extensions10Extensions3get17h2d73a8347827925fE.exit
@@ -3856,7 +3859,8 @@ define hidden noundef align 8 dereferenceable_or_null(96) ptr @_ZN9actix_web7req
   br i1 %19, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17heac8de2aa48146c7E.llvm.8925420951046425970.exit"
-  %20 = getelementptr inbounds ptr, ptr %.sink3.i, i64 %.sink2.i
+  %.idx = shl nsw i64 %.sink2.i, 3
+  %20 = getelementptr inbounds i8, ptr %.sink3.i, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN10actix_http10extensions10Extensions3get17h70bea70332a3f751E.exit
@@ -3943,7 +3947,8 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @_ZN9actix_web7requ
   br i1 %19, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17heac8de2aa48146c7E.llvm.8925420951046425970.exit"
-  %20 = getelementptr inbounds ptr, ptr %.sink3.i, i64 %.sink2.i
+  %.idx = shl nsw i64 %.sink2.i, 3
+  %20 = getelementptr inbounds i8, ptr %.sink3.i, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN10actix_http10extensions10Extensions3get17hd1a4cecd47032198E.exit
@@ -4030,7 +4035,8 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @_ZN9actix_web7requ
   br i1 %19, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17heac8de2aa48146c7E.llvm.8925420951046425970.exit"
-  %20 = getelementptr inbounds ptr, ptr %.sink3.i, i64 %.sink2.i
+  %.idx = shl nsw i64 %.sink2.i, 3
+  %20 = getelementptr inbounds i8, ptr %.sink3.i, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN10actix_http10extensions10Extensions3get17h4234b53d1885bcbeE.exit
@@ -4117,7 +4123,8 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN9actix_web7req
   br i1 %19, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17heac8de2aa48146c7E.llvm.8925420951046425970.exit"
-  %20 = getelementptr inbounds ptr, ptr %.sink3.i, i64 %.sink2.i
+  %.idx = shl nsw i64 %.sink2.i, 3
+  %20 = getelementptr inbounds i8, ptr %.sink3.i, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN10actix_http10extensions10Extensions3get17h45428eb1b6a80b84E.exit
@@ -4204,7 +4211,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN9actix_web7req
   br i1 %19, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17heac8de2aa48146c7E.llvm.8925420951046425970.exit"
-  %20 = getelementptr inbounds ptr, ptr %.sink3.i, i64 %.sink2.i
+  %.idx = shl nsw i64 %.sink2.i, 3
+  %20 = getelementptr inbounds i8, ptr %.sink3.i, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN10actix_http10extensions10Extensions3get17hb01ebb475aabe781E.exit
@@ -4529,7 +4537,8 @@ common.resume:                                    ; preds = %.thread76, %41, %10
   %.sink5.i.i = phi ptr [ %72, %69 ], [ %66, %.noexc56 ]
   %.sink3.in.i.i = phi ptr [ %73, %69 ], [ %59, %.noexc56 ]
   %.sink3.i.i = load i64, ptr %.sink3.in.i.i, align 8, !noalias !759, !noundef !4
-  %110 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %.sink5.i.i, i64 %.sink3.i.i
+  %.idx = mul nsw i64 %.sink3.i.i, 40
+  %110 = getelementptr inbounds i8, ptr %.sink5.i.i, i64 %.idx
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %111 = icmp eq i64 %.sink3.i.i, 0
   br i1 %111, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f4083d3cf214087E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f4083d3cf214087E.exit.lr.ph"
@@ -4826,7 +4835,8 @@ define void @_ZN9actix_web7request11HttpRequest6cookie17h63fb182646ff74b1E(ptr n
   %17 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %19 = load i64, ptr %18, align 8, !noundef !4
-  %20 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { [3 x i32], i32 }, { [11 x i8], i8, [4 x i8] }, i8, i8, i8, [5 x i8] }, ptr %17, i64 %19
+  %.idx = mul nsw i64 %19, 160
+  %20 = getelementptr inbounds i8, ptr %17, i64 %.idx
   %21 = icmp eq i64 %19, 0
   br i1 %21, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit._crit_edge", label %.lr.ph
 

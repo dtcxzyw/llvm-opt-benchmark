@@ -15,9 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.std::allocator" = type { i8 }
-%"struct.std::pair" = type { %"struct.proxygen::HTTPHeaders::HTTPHeaderName", %"class.folly::Range" }
-%"struct.proxygen::HTTPHeaders::HTTPHeaderName" = type <{ %union.anon.2, i32, [4 x i8] }>
-%union.anon.2 = type { %"class.folly::Range" }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
 %"class.std::basic_string_view" = type { i64, ptr }
 %struct._Guard = type { ptr }
@@ -235,7 +232,8 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 define void @_ZN8proxygen11HTTPHeaders3addESt16initializer_listISt4pairINS0_14HTTPHeaderNameEN5folly5RangeIPKcEEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr readonly captures(address) %l.coerce0, i64 %l.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"class.folly::Range", align 8
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %l.coerce0, i64 %l.coerce1
+  %add.ptr.i.idx = mul nsw i64 %l.coerce1, 40
+  %add.ptr.i = getelementptr inbounds i8, ptr %l.coerce0, i64 %add.ptr.i.idx
   %cmp.not19 = icmp eq i64 %l.coerce1, 0
   br i1 %cmp.not19, label %for.end, label %for.body.lr.ph
 

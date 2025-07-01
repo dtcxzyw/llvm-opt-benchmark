@@ -3528,7 +3528,8 @@ define hidden void @_ZN10ockam_core7routing5route5Route6create17h6977a9896f56d72
   %.sroa.414.0.copyload = load i64, ptr %.sroa.414.0..sroa_idx, align 8
   %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.515.0.copyload = load i64, ptr %.sroa.515.0..sroa_idx, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %.sroa.013.0.copyload, i64 %.sroa.515.0.copyload
+  %.idx = shl nsw i64 %.sroa.515.0.copyload, 4
+  %11 = getelementptr inbounds i8, ptr %.sroa.013.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   store ptr %.sroa.013.0.copyload, ptr %8, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3711,7 +3712,8 @@ define hidden void @_ZN10ockam_core7routing5route5Route6create17h8c76406603d9538
   %.sroa.410.0.copyload = load i64, ptr %.sroa.410.0..sroa_idx, align 8
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.511.0.copyload = load i64, ptr %.sroa.511.0..sroa_idx, align 8
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %.sroa.09.0.copyload, i64 %.sroa.511.0.copyload
+  %.idx = shl nsw i64 %.sroa.511.0.copyload, 5
+  %9 = getelementptr inbounds i8, ptr %.sroa.09.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.09.0.copyload, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3869,7 +3871,8 @@ define hidden void @_ZN10ockam_core7routing5route5Route6create17hc06211b16fbf5fe
   %.sroa.410.0.copyload = load i64, ptr %.sroa.410.0..sroa_idx, align 8
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.511.0.copyload = load i64, ptr %.sroa.511.0..sroa_idx, align 8
-  %11 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %.sroa.09.0.copyload, i64 %.sroa.511.0.copyload
+  %.idx = mul nsw i64 %.sroa.511.0.copyload, 24
+  %11 = getelementptr inbounds i8, ptr %.sroa.09.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   store ptr %.sroa.09.0.copyload, ptr %8, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -4036,7 +4039,8 @@ define hidden void @_ZN10ockam_core7routing5route5Route6create17hc4d0332f1d67c8f
   %.sroa.410.0.copyload = load i64, ptr %.sroa.410.0..sroa_idx, align 8
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.511.0.copyload = load i64, ptr %.sroa.511.0..sroa_idx, align 8
-  %11 = getelementptr inbounds { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { { ptr, i64 }, i64 } } } }, ptr %.sroa.09.0.copyload, i64 %.sroa.511.0.copyload
+  %.idx = mul nsw i64 %.sroa.511.0.copyload, 88
+  %11 = getelementptr inbounds i8, ptr %.sroa.09.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   store ptr %.sroa.09.0.copyload, ptr %8, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -73394,7 +73398,8 @@ common.resume:                                    ; preds = %.body, %25
   br i1 %55, label %"_ZN4core3ptr253drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h17f27a95889da866E.exit.i.i", label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %.noexc22
-  %56 = getelementptr inbounds { i64, i8 }, ptr %48, i64 %50
+  %.idx.i = shl nsw i64 %50, 4
+  %56 = getelementptr inbounds i8, ptr %48, i64 %.idx.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %61
@@ -73654,7 +73659,8 @@ common.resume:                                    ; preds = %.body, %25
   br i1 %55, label %"_ZN4core3ptr490drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_error..layer..ErrorLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$$GT$17h1d231598f6e0c845E.exit.i.i", label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %.noexc22
-  %56 = getelementptr inbounds { i64, i8 }, ptr %48, i64 %50
+  %.idx.i = shl nsw i64 %50, 4
+  %56 = getelementptr inbounds i8, ptr %48, i64 %.idx.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %61
@@ -73914,7 +73920,8 @@ common.resume:                                    ; preds = %.body, %25
   br i1 %55, label %"_ZN4core3ptr1249drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$opentelemetry_appender_tracing..layer..OpenTelemetryTracingBridge$LT$opentelemetry_sdk..logs..log_emitter..LoggerProvider$C$opentelemetry_sdk..logs..log_emitter..Logger$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_opentelemetry..layer..OpenTelemetryLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_error..layer..ErrorLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$C$opentelemetry_sdk..trace..tracer..Tracer$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_error..layer..ErrorLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..e", label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %.noexc22
-  %56 = getelementptr inbounds { i64, i8 }, ptr %48, i64 %50
+  %.idx.i = shl nsw i64 %50, 4
+  %56 = getelementptr inbounds i8, ptr %48, i64 %.idx.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %61
@@ -76425,7 +76432,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h8220d29e8fb1589fE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { [32 x i8] }, ptr %0, i64 %1
+  %.idx = shl nsw i64 %1, 5
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h55cc4ec26ada23b3E.exit, label %.lr.ph.i
 
@@ -76451,7 +76459,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h8220d29e8fb1589fE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { { { ptr, i64 }, i64 } } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 24
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h47a7bc61beefc3bcE.exit, label %.lr.ph.i
 
@@ -155666,7 +155675,8 @@ common.ret:                                       ; preds = %572, %.thread710, %
   br i1 %573, label %common.ret, label %574
 
 574:                                              ; preds = %572
-  %575 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %.sroa.0570.0.copyload571, i64 %.sroa.8572.sroa.6.0.copyload
+  %.idx = shl nsw i64 %.sroa.8572.sroa.6.0.copyload, 5
+  %575 = getelementptr inbounds i8, ptr %.sroa.0570.0.copyload571, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %133)
   store ptr %.sroa.0570.0.copyload571, ptr %133, align 8
   %.sroa.6559.0..sroa_idx = getelementptr inbounds nuw i8, ptr %133, i64 8
@@ -161158,7 +161168,8 @@ default.unreachable714:                           ; preds = %967, %618, %603, %5
   %.val.i.i.i = load ptr, ptr %460, align 8, !noalias !24616, !nonnull !4, !noundef !4
   %462 = getelementptr i8, ptr %459, i64 64
   %.val28.i.i.i = load i64, ptr %462, align 8, !noalias !24616, !noundef !4
-  %463 = getelementptr inbounds { { { { ptr, i64 }, i64, i64 } }, { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { { ptr, i64 }, i64 } } } }, { ptr, [2 x i64] } }, ptr %.val.i.i.i, i64 %.val28.i.i.i
+  %.idx.i.i.i = mul nsw i64 %.val28.i.i.i, 144
+  %463 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.idx.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !24644)
   %464 = icmp eq i64 %.val28.i.i.i, 0
   br i1 %464, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb654da1f1d70aab7E.exit.i.i.i", label %.lr.ph.i.i.i.i

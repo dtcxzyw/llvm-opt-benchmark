@@ -2677,7 +2677,8 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !166)
   %304 = load ptr, ptr %271, align 8, !alias.scope !169, !noalias !170, !nonnull !3, !noundef !3
   %305 = load i64, ptr %272, align 8, !alias.scope !169, !noalias !170, !noundef !3
-  %306 = getelementptr inbounds nuw { i32, { i8, i8 }, i8, i8 }, ptr %304, i64 %305
+  %.idx.i.i.i = shl nuw nsw i64 %305, 3
+  %306 = getelementptr inbounds nuw i8, ptr %304, i64 %.idx.i.i.i
   %307 = icmp eq i64 %305, 0
   %.pre.i.i.pre.i.i = load ptr, ptr %.sroa.366.0..sroa_idx, align 8, !alias.scope !169, !noalias !170
   %.pre124.i.i.pre.i.i = load i64, ptr %.sroa.567.0..sroa_idx, align 8, !alias.scope !169, !noalias !170
@@ -4309,7 +4310,8 @@ _ZN5alloc6string6String9from_utf817he498c382b5462433E.exit: ; preds = %59
   %88 = load ptr, ptr %87, align 8, !nonnull !3, !noundef !3
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %90 = load i64, ptr %89, align 8, !noundef !3
-  %91 = getelementptr inbounds nuw { i32, { i8, i8 }, i8, i8 }, ptr %88, i64 %90
+  %.idx = shl nuw nsw i64 %90, 3
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx
   %92 = icmp eq i64 %90, 0
   br i1 %92, label %._crit_edge, label %.lr.ph
 

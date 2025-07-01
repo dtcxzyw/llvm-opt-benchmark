@@ -278,7 +278,8 @@ _ZNK5clang6interp7Pointer9getRecordEv.exit72:     ; preds = %115, %.thread4.i.i6
   %142 = getelementptr inbounds nuw i8, ptr %64, i64 64
   %143 = load i32, ptr %142, align 8, !tbaa !100
   %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds nuw ptr, ptr %141, i64 %144
+  %.idx = shl nuw nsw i64 %144, 3
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 %.idx
   %.not5391 = icmp eq i32 %143, 0
   br i1 %.not5391, label %.thread80, label %.lr.ph
 

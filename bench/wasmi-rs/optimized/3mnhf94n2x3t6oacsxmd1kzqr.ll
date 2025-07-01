@@ -31193,7 +31193,8 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator14FuncTranslator2
   %28 = load ptr, ptr %27, align 8, !alias.scope !1381, !noalias !1380, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %30 = load i64, ptr %29, align 8, !alias.scope !1381, !noalias !1380, !noundef !4
-  %31 = getelementptr inbounds nuw i32, ptr %28, i64 %30
+  %.idx.i.i = shl nuw nsw i64 %30, 2
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i
   %32 = icmp eq i64 %30, 0
   br i1 %32, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -31496,7 +31497,8 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator14FuncTranslator2
   %29 = load ptr, ptr %28, align 8, !alias.scope !1404, !noalias !1403, !nonnull !4, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %31 = load i64, ptr %30, align 8, !alias.scope !1404, !noalias !1403, !noundef !4
-  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %31
+  %.idx.i.i = shl nuw nsw i64 %31, 2
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i
   %33 = icmp eq i64 %31, 0
   br i1 %33, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -31791,7 +31793,8 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator14FuncTranslator2
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %24 = load i64, ptr %23, align 8, !noundef !4
-  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %24
+  %.idx = shl nuw nsw i64 %24, 2
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %._crit_edge, label %.lr.ph
 

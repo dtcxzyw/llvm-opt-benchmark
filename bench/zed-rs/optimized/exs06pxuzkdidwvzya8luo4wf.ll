@@ -14535,7 +14535,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hd6657c9b4ac76e70E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { i64, [5 x i64] }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 48
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h9d6a97a0df9c6514E.exit, label %.lr.ph.i
 
@@ -14561,7 +14562,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hd6657c9b4ac76e70E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { i64, [5 x i64] }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 48
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h9f33f1e4c21a711cE.exit, label %.lr.ph.i
 
@@ -14587,7 +14589,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17hd6657c9b4ac76e70E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 48
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h441243557ba0197fE.exit, label %.lr.ph.i
 
@@ -31863,7 +31866,8 @@ _ZN8wasmtime7runtime2vm9component17ComponentInstance14instance_flags17h582d133f4
   %119 = load ptr, ptr %118, align 8, !noalias !7986, !nonnull !5, !noundef !5
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %121 = load i64, ptr %120, align 8, !noalias !7986, !noundef !5
-  %122 = getelementptr inbounds { { i32, [1 x i32] }, i32 }, ptr %119, i64 %121
+  %.idx.i = mul nsw i64 %121, 12
+  %122 = getelementptr inbounds i8, ptr %119, i64 %.idx.i
   %123 = icmp eq i64 %121, 0
   br i1 %123, label %._crit_edge.i, label %.lr.ph.i
 
@@ -61941,7 +61945,8 @@ switch.lookup:
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef ptr @_ZN8wasmtime7runtime9component4func5typed5Lower10store_list17hde7cc2d5afc79811E(ptr noalias noundef align 8 dereferenceable(32) %0, i32 noundef %1, i32 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 captures(address) %4, i64 noundef %5) unnamed_addr #1 {
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %4, i64 %5
+  %.idx = mul nsw i64 %5, 48
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = icmp eq i64 %5, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 

@@ -2199,9 +2199,10 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
           to label %141 unwind label %"_ZN4core3ptr217drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$RP$$C$typst..util..deferred..Deferred$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h656cec8c05299d88E.exit67.thread"
 
 116:                                              ; preds = %104
+  %.idx.i = shl nsw i64 %107, 4
   %117 = getelementptr inbounds i8, ptr %105, i64 -24
   %118 = load ptr, ptr %117, align 8, !noalias !273, !nonnull !26, !noundef !26
-  %119 = getelementptr inbounds { ptr, { i64 }, { {} } }, ptr %118, i64 %107
+  %119 = getelementptr inbounds i8, ptr %118, i64 %.idx.i
   %120 = getelementptr inbounds i8, ptr %119, i64 -16
   %121 = getelementptr inbounds i8, ptr %119, i64 -8
   store atomic i64 0, ptr %121 seq_cst, align 8, !noalias !337
@@ -3931,9 +3932,10 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   br label %949
 
 936:                                              ; preds = %928
+  %.idx.i = shl nsw i64 %930, 4
   %937 = getelementptr inbounds nuw i8, ptr %922, i64 8
   %938 = load ptr, ptr %937, align 8, !noalias !680, !nonnull !26, !noundef !26
-  %939 = getelementptr inbounds { ptr, { i64 }, { {}, {} } }, ptr %938, i64 %930
+  %939 = getelementptr inbounds i8, ptr %938, i64 %.idx.i
   %940 = getelementptr inbounds i8, ptr %939, i64 -16
   %941 = getelementptr inbounds i8, ptr %939, i64 -8
   store atomic i64 0, ptr %941 seq_cst, align 8, !noalias !683
@@ -5439,9 +5441,10 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
           to label %266 unwind label %"_ZN4core3ptr222drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$comemo..cache..CacheData$LT$$LP$$LP$$RP$$C$$RP$$C$typst..util..deferred..Deferred$LT$typst_pdf..image..EncodedImage$GT$$GT$$GT$$GT$17h1b77b81a8ca29ed1E.exit81.thread"
 
 246:                                              ; preds = %234
+  %.idx.i = shl nsw i64 %237, 4
   %247 = getelementptr inbounds i8, ptr %235, i64 -24
   %248 = load ptr, ptr %247, align 8, !noalias !889, !nonnull !26, !noundef !26
-  %249 = getelementptr inbounds { ptr, { i64 }, { {} } }, ptr %248, i64 %237
+  %249 = getelementptr inbounds i8, ptr %248, i64 %.idx.i
   %250 = getelementptr inbounds i8, ptr %249, i64 -16
   %251 = getelementptr inbounds i8, ptr %249, i64 -8
   store atomic i64 0, ptr %251 seq_cst, align 8, !noalias !953
@@ -5896,9 +5899,10 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   br label %.noexc48
 
 102:                                              ; preds = %94
+  %.idx.i = shl nsw i64 %96, 4
   %103 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %104 = load ptr, ptr %103, align 8, !noalias !1053, !nonnull !26, !noundef !26
-  %105 = getelementptr inbounds { ptr, { i64 }, { {}, {} } }, ptr %104, i64 %96
+  %105 = getelementptr inbounds i8, ptr %104, i64 %.idx.i
   %106 = getelementptr inbounds i8, ptr %105, i64 -16
   %107 = getelementptr inbounds i8, ptr %105, i64 -8
   store atomic i64 0, ptr %107 seq_cst, align 8, !noalias !1056

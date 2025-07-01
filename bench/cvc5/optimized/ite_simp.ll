@@ -248,13 +248,14 @@ _ZN4cvc58internal11NodeManager6mkNodeILb1EEENS0_12NodeTemplateILb1EEENS0_4kind6K
   %64 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.idx = shl nuw nsw i64 %62, 3
   %.not167189 = icmp eq i32 %45, 0
   br label %67
 
 67:                                               ; preds = %.lr.ph196, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %.041194 = phi i32 [ %53, %.lr.ph196 ], [ %.142.lcssa, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   %.sroa.0154.0193 = phi ptr [ %48, %.lr.ph196 ], [ %.sroa.0154.1.lcssa, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
-  %68 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %.sroa.0154.0193, i64 %62
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0154.0193, i64 %.idx
   br i1 %.not167189, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit, %67

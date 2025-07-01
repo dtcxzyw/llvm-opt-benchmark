@@ -3319,7 +3319,8 @@ define internal fastcc void @"_ZN6uu_cut29cut_fields_explicit_out_delim28_$u7b$$
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !align !155, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i64, ptr %23, align 8, !noundef !4
-  %25 = getelementptr inbounds { i64, i64 }, ptr %22, i64 %24
+  %.idx = shl nsw i64 %24, 4
+  %25 = getelementptr inbounds i8, ptr %22, i64 %.idx
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce4427cc554ed2bfE.exit.thread_crit_edge", label %.lr.ph
 
@@ -3779,7 +3780,8 @@ define internal fastcc void @"_ZN6uu_cut29cut_fields_explicit_out_delim28_$u7b$$
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !align !155, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i64, ptr %23, align 8, !noundef !4
-  %25 = getelementptr inbounds { i64, i64 }, ptr %22, i64 %24
+  %.idx = shl nsw i64 %24, 4
+  %25 = getelementptr inbounds i8, ptr %22, i64 %.idx
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce4427cc554ed2bfE.exit.thread_crit_edge", label %.lr.ph
 
@@ -4239,7 +4241,8 @@ define internal fastcc void @"_ZN6uu_cut29cut_fields_explicit_out_delim28_$u7b$$
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !align !155, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i64, ptr %23, align 8, !noundef !4
-  %25 = getelementptr inbounds { i64, i64 }, ptr %22, i64 %24
+  %.idx = shl nsw i64 %24, 4
+  %25 = getelementptr inbounds i8, ptr %22, i64 %.idx
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce4427cc554ed2bfE.exit.thread_crit_edge", label %.lr.ph
 
@@ -4699,7 +4702,8 @@ define internal fastcc void @"_ZN6uu_cut29cut_fields_explicit_out_delim28_$u7b$$
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !align !155, !noundef !4
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i64, ptr %23, align 8, !noundef !4
-  %25 = getelementptr inbounds { i64, i64 }, ptr %22, i64 %24
+  %.idx = shl nsw i64 %24, 4
+  %25 = getelementptr inbounds i8, ptr %22, i64 %.idx
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce4427cc554ed2bfE.exit.thread_crit_edge", label %.lr.ph
 
@@ -5162,7 +5166,8 @@ define internal fastcc void @"_ZN6uu_cut29cut_fields_implicit_out_delim28_$u7b$$
   %25 = load ptr, ptr %24, align 8, !nonnull !4, !align !155, !noundef !4
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i64, ptr %26, align 8, !noundef !4
-  %28 = getelementptr inbounds { i64, i64 }, ptr %25, i64 %27
+  %.idx = shl nsw i64 %27, 4
+  %28 = getelementptr inbounds i8, ptr %25, i64 %.idx
   %29 = icmp eq i64 %27, 0
   br i1 %29, label %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce4427cc554ed2bfE.exit.thread_crit_edge", label %.lr.ph
 
@@ -5731,7 +5736,8 @@ define internal fastcc void @"_ZN6uu_cut29cut_fields_implicit_out_delim28_$u7b$$
   %25 = load ptr, ptr %24, align 8, !nonnull !4, !align !155, !noundef !4
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i64, ptr %26, align 8, !noundef !4
-  %28 = getelementptr inbounds { i64, i64 }, ptr %25, i64 %27
+  %.idx = shl nsw i64 %27, 4
+  %28 = getelementptr inbounds i8, ptr %25, i64 %.idx
   %29 = icmp eq i64 %27, 0
   br i1 %29, label %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce4427cc554ed2bfE.exit.thread_crit_edge", label %.lr.ph
 

@@ -4603,7 +4603,8 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE11_M_all
   %154 = icmp ult i32 %153, 2
   %155 = load ptr, ptr %9, align 8
   %spec.select.i.i = select i1 %154, ptr %9, ptr %155
-  %156 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", ptr %spec.select.i.i, i64 %149
+  %.idx = shl nuw nsw i64 %149, 5
+  %156 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1_.exit
@@ -7902,7 +7903,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIN
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", ptr %spec.select.i.i, i64 %8
+  %.idx = shl nuw nsw i64 %8, 5
+  %9 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 %.idx
   %.not7 = icmp eq i32 %7, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 

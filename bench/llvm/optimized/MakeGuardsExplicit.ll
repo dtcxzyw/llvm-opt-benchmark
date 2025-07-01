@@ -182,7 +182,8 @@ _ZN4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_itera
   %85 = load ptr, ptr %5, align 8, !tbaa !17
   %86 = load i32, ptr %16, align 8, !tbaa !19
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %85, i64 %87
+  %.idx.i = shl nuw nsw i64 %87, 3
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx.i
   %.not2345.i = icmp eq i32 %86, 0
   br i1 %.not2345.i, label %.loopexit.i, label %.lr.ph47.i
 

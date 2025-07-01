@@ -15446,7 +15446,8 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h41423a1e94a5d63eE.exit: ; pr
   %.val9 = load i64, ptr %19, align 8, !alias.scope !2716, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2719)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2722)
-  %20 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [4 x i32] }, [1 x i32] }, ptr %.val8, i64 %.val9
+  %.idx.i.i = mul nsw i64 %.val9, 56
+  %20 = getelementptr inbounds i8, ptr %.val8, i64 %.idx.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2725)
   %.val.i.i.i = load ptr, ptr %6, align 8, !alias.scope !2728, !noalias !2731, !nonnull !4, !align !11, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 16
@@ -15993,7 +15994,8 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h41423a1e94a5d63eE.exit: ; pr
   %.val9 = load i64, ptr %19, align 8, !alias.scope !3055, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3058)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3061)
-  %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val8, i64 %.val9
+  %.idx.i.i = mul nsw i64 %.val9, 24
+  %20 = getelementptr inbounds i8, ptr %.val8, i64 %.idx.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3064)
   %.val.i.i.i = load ptr, ptr %6, align 8, !alias.scope !3067, !noalias !3070, !nonnull !4, !align !11, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 16
@@ -18462,7 +18464,8 @@ define hidden void @_ZN7copilot27copilot_completion_provider25CopilotCompletionP
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %6, i64 %8
+  %.idx = mul nsw i64 %8, 112
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 

@@ -555,7 +555,8 @@ define void @_ZN4ring4test8TestCase22consume_optional_bytes17h2ea43aed47f4091eE(
   %.val.i = load ptr, ptr %32, align 8, !alias.scope !125, !noalias !131, !nonnull !8, !noundef !8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val13.i = load i64, ptr %33, align 8, !alias.scope !125, !noalias !131, !noundef !8
-  %34 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 } }, i8, [7 x i8] }, ptr %.val.i, i64 %.val13.i
+  %.idx.i = mul nsw i64 %.val13.i, 56
+  %34 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx.i
   %35 = icmp eq i64 %.val13.i, 0
   %.sink206.sroa.gep = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sink206.sroa.gep229 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -1286,7 +1287,8 @@ define void @_ZN4ring4test8TestCase14consume_string17h042a5329397bdf11E(ptr noal
   %.val.i = load ptr, ptr %14, align 8, !alias.scope !247, !noalias !253, !nonnull !8, !noundef !8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val13.i = load i64, ptr %15, align 8, !alias.scope !247, !noalias !253, !noundef !8
-  %16 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 } }, i8, [7 x i8] }, ptr %.val.i, i64 %.val13.i
+  %.idx.i = mul nsw i64 %.val13.i, 56
+  %16 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx.i
   %17 = icmp eq i64 %.val13.i, 0
   br i1 %17, label %_ZN4ring4test8TestCase23consume_optional_string17h52d559269975975aE.exit.thread, label %.lr.ph.i
 
@@ -1389,7 +1391,8 @@ define void @_ZN4ring4test8TestCase23consume_optional_string17h52d559269975975aE
   %.val = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val13 = load i64, ptr %11, align 8, !noundef !8
-  %12 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 } }, i8, [7 x i8] }, ptr %.val, i64 %.val13
+  %.idx = mul nsw i64 %.val13, 56
+  %12 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %13 = icmp eq i64 %.val13, 0
   br i1 %13, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit._crit_edge", label %.lr.ph
 

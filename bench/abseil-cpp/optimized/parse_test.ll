@@ -28642,7 +28642,8 @@ _ZN12_GLOBAL__N_114GetTestTempDirB5cxx11Ev.exit:  ; preds = %23, %26, %30
   %39 = load ptr, ptr %38, align 8, !tbaa !380
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.047.056, i64 24
   %41 = load i64, ptr %40, align 8, !tbaa !382
-  %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %41
+  %.idx = shl nuw nsw i64 %41, 3
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
   %.not53 = icmp eq i64 %41, 0
   br i1 %.not53, label %._crit_edge, label %.lr.ph
 

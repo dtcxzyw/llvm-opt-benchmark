@@ -314,7 +314,8 @@ define internal void @"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Contex
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal void @"_ZN102_$LT$ruff_formatter..formatter..Formatter$LT$Context$GT$$u20$as$u20$ruff_formatter..buffer..Buffer$GT$9write_fmt17h052d4651cdd4fe5cE"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 captures(address) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca [24 x i8], align 8
-  %6 = getelementptr inbounds nuw { { ptr, ptr } }, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -358,7 +359,8 @@ define internal void @"_ZN109_$LT$ruff_formatter..arguments..Arguments$LT$Contex
   %7 = load i64, ptr %6, align 8, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %8 = getelementptr inbounds nuw { { ptr, ptr } }, ptr %5, i64 %7
+  %.idx.i = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %._crit_edge.i, label %.lr.ph.i
 
@@ -2197,7 +2199,8 @@ define hidden void @"_ZN87_$LT$core..option..Option$LT$T$GT$$u20$as$u20$ruff_for
   %8 = load i64, ptr %7, align 8, !alias.scope !213, !noalias !215, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
-  %9 = getelementptr inbounds nuw { { ptr, ptr } }, ptr %5, i64 %8
+  %.idx.i.i = shl nuw nsw i64 %8, 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -4122,7 +4125,8 @@ define void @"_ZN176_$LT$ruff_python_formatter..other..f_string_element..FormatF
   %66 = extractvalue { ptr, i64 } %65, 0
   %67 = extractvalue { ptr, i64 } %65, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %68 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %66, i64 %67
+  %.idx = mul nuw nsw i64 %67, 12
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx
   %69 = icmp ne ptr %66, null
   call void @llvm.assume(i1 %69)
   %70 = icmp eq i64 %67, 0
@@ -9908,7 +9912,8 @@ define internal fastcc noundef zeroext i1 @_ZN21ruff_python_formatter6string9nor
   %5 = tail call { ptr, i64 } @"_ZN83_$LT$ruff_python_ast..nodes..FStringElements$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2afddcfba8d26589E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %6 = extractvalue { ptr, i64 } %5, 0
   %7 = extractvalue { ptr, i64 } %5, 1
-  %8 = getelementptr inbounds nuw { i64, [9 x i64] }, ptr %6, i64 %7
+  %.idx = mul nuw nsw i64 %7, 80
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %9 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %9)
   %.not = icmp eq i64 %7, 0
@@ -10388,7 +10393,8 @@ define hidden noundef zeroext i1 @"_ZN111_$LT$ruff_python_ast..expression..Strin
   %4 = tail call { ptr, i64 } @"_ZN83_$LT$ruff_python_ast..nodes..FStringElements$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2afddcfba8d26589E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
-  %7 = getelementptr inbounds nuw { i64, [9 x i64] }, ptr %5, i64 %6
+  %.idx = mul nuw nsw i64 %6, 80
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %8 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %8)
   %.not = icmp eq i64 %6, 0

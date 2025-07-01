@@ -971,7 +971,8 @@ _ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit: ; preds = %32, %2
   br i1 %138, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hfa40bdf030fedaefE.exit._crit_edge", label %.lr.ph
 
 .lr.ph:                                           ; preds = %133
-  %139 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i8, [20 x i8] }, [3 x i8] }, ptr %135, i64 %137
+  %.idx = mul nsw i64 %137, 48
+  %139 = getelementptr inbounds i8, ptr %135, i64 %.idx
   %140 = load i64, ptr %.sroa.5.0..sroa_idx10.i, align 8, !noundef !4
   %141 = load ptr, ptr %.sroa.4.0..sroa_idx.i29, align 8, !nonnull !4
   br label %148
@@ -1402,7 +1403,8 @@ _ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit: ; preds = %32, %2
   br i1 %138, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hfa40bdf030fedaefE.exit._crit_edge", label %.lr.ph
 
 .lr.ph:                                           ; preds = %133
-  %139 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i8, [20 x i8] }, [3 x i8] }, ptr %135, i64 %137
+  %.idx = mul nsw i64 %137, 48
+  %139 = getelementptr inbounds i8, ptr %135, i64 %.idx
   %140 = load i64, ptr %.sroa.5.0..sroa_idx10.i, align 8, !noundef !4
   %141 = load ptr, ptr %.sroa.4.0..sroa_idx.i29, align 8, !nonnull !4
   br label %148

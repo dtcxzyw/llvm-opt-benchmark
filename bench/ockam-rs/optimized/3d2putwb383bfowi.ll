@@ -856,7 +856,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %14 = load i64, ptr %13, align 8, !alias.scope !228, !noalias !231, !noundef !21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !233
   call void @_ZN4core3fmt9Formatter10debug_list17h8220d29e8fb1589fE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !237
-  %15 = getelementptr inbounds { ptr, i64 }, ptr %12, i64 %14
+  %.idx.i.i = shl nsw i64 %14, 4
+  %15 = getelementptr inbounds i8, ptr %12, i64 %.idx.i.i
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h1d2dda9c636bf509E.exit.i", label %.lr.ph.i.i.i
 
@@ -881,7 +882,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %23 = load i64, ptr %22, align 8, !alias.scope !244, !noalias !245, !noundef !21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !247
   call void @_ZN4core3fmt9Formatter10debug_list17h8220d29e8fb1589fE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !251
-  %24 = getelementptr inbounds { ptr, i64 }, ptr %8, i64 %23
+  %.idx.i.i.i = shl nsw i64 %23, 4
+  %24 = getelementptr inbounds i8, ptr %8, i64 %.idx.i.i.i
   %25 = icmp eq i64 %23, 0
   br i1 %25, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hbc00a80137062036E.exit.i", label %.lr.ph.i.i.i.i
 
@@ -3379,7 +3381,8 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   %.val17 = load ptr, ptr %.sink.i.i.i, align 8, !nonnull !21, !noundef !21
   %34 = getelementptr i8, ptr %.val, i64 48
   %.val18 = load i64, ptr %34, align 8, !noundef !21
-  %35 = getelementptr inbounds { { i64, [3 x i64] }, { i8, [65 x i8] }, [6 x i8] }, ptr %.val17, i64 %.val18
+  %.idx = mul nsw i64 %.val18, 104
+  %35 = getelementptr inbounds i8, ptr %.val17, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !760)
   %36 = icmp eq i64 %.val18, 0
   br i1 %36, label %.loopexit, label %.lr.ph.i
@@ -3662,7 +3665,8 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   %.val18 = load ptr, ptr %.sink.i.i.i, align 8, !nonnull !21, !noundef !21
   %35 = getelementptr i8, ptr %.val, i64 48
   %.val19 = load i64, ptr %35, align 8, !noundef !21
-  %36 = getelementptr inbounds { { i64, [3 x i64] }, { i8, [65 x i8] }, [6 x i8] }, ptr %.val18, i64 %.val19
+  %.idx = mul nsw i64 %.val19, 104
+  %36 = getelementptr inbounds i8, ptr %.val18, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !814)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !817)
   %37 = icmp eq i64 %.val19, 0

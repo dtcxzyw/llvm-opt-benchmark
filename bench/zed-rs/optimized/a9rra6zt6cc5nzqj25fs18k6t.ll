@@ -9336,7 +9336,8 @@ common.ret:                                       ; preds = %246, %60
   %.sroa.5140.0.copyload = load ptr, ptr %.sroa.5140.0..sroa_idx, align 8, !nonnull !16, !noundef !16
   %.sroa.6141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.6141.0.copyload = load i64, ptr %.sroa.6141.0..sroa_idx, align 8
-  %153 = getelementptr inbounds i64, ptr %.sroa.5140.0.copyload, i64 %.sroa.6141.0.copyload
+  %.idx = shl nsw i64 %.sroa.6141.0.copyload, 3
+  %153 = getelementptr inbounds i8, ptr %.sroa.5140.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
   store ptr %.sroa.5140.0.copyload, ptr %18, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -9758,7 +9759,8 @@ common.ret:                                       ; preds = %246, %60
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !16, !noundef !16
   %.sroa.5177.0.copyload = load i64, ptr %.sroa.5177.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  %284 = getelementptr inbounds i64, ptr %.sroa.4.0.copyload, i64 %.sroa.5177.0.copyload
+  %.idx334 = shl nsw i64 %.sroa.5177.0.copyload, 3
+  %284 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload, i64 %.idx334
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6183.0..sroa_idx, i8 0, i64 24, i1 false)
   store ptr %.sroa.4.0.copyload, ptr %11, align 8

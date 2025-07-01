@@ -3075,7 +3075,8 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17ha406887dbb2cef1
   %.sink11.i.i.i.i.i = select i1 %6, i64 %9, i64 %5
   %10 = mul i64 %.sink11.i.i.i.i.i, 5871781006564002453
   store i64 %10, ptr %3, align 8, !alias.scope !876, !noalias !881
-  %11 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sink12.i.i.i.i.i, i64 %.sink11.i.i.i.i.i
+  %.idx.i.i.i.i.i = shl nsw i64 %.sink11.i.i.i.i.i, 5
+  %11 = getelementptr inbounds i8, ptr %.sink12.i.i.i.i.i, i64 %.idx.i.i.i.i.i
   %12 = icmp eq i64 %.sink11.i.i.i.i.i, 0
   br i1 %12, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17h7bc74a7d53ab155eE.llvm.17983010331538428002.exit", label %.lr.ph.i.i.i.i.i
 
@@ -3405,7 +3406,8 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %12 = xor i64 %11, %.sink11.i.i.i.i
   %13 = mul i64 %12, 5871781006564002453
   store i64 %13, ptr %1, align 8, !alias.scope !1010, !noalias !1015
-  %14 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sink12.i.i.i.i, i64 %.sink11.i.i.i.i
+  %.idx.i.i.i.i = shl nsw i64 %.sink11.i.i.i.i, 5
+  %14 = getelementptr inbounds i8, ptr %.sink12.i.i.i.i, i64 %.idx.i.i.i.i
   %15 = icmp eq i64 %.sink11.i.i.i.i, 0
   br i1 %15, label %"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for$u20$$LP$T$C$B$RP$$GT$4hash17h766f870c3a66e068E.llvm.17983010331538428002.exit", label %.lr.ph.i.i.i.i
 
@@ -3484,7 +3486,8 @@ define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for
   %11 = xor i64 %10, %.sink11.i.i.i
   %12 = mul i64 %11, 5871781006564002453
   store i64 %12, ptr %1, align 8, !alias.scope !1054, !noalias !1059
-  %13 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sink12.i.i.i, i64 %.sink11.i.i.i
+  %.idx.i.i.i = shl nsw i64 %.sink11.i.i.i, 5
+  %13 = getelementptr inbounds i8, ptr %.sink12.i.i.i, i64 %.idx.i.i.i
   %14 = icmp eq i64 %.sink11.i.i.i, 0
   br i1 %14, label %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17h25acb32376c62426E.llvm.17983010331538428002.exit", label %.lr.ph.i.i.i
 
@@ -7817,7 +7820,8 @@ define hidden void @"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash
   %11 = xor i64 %10, %.sink11.i
   %12 = mul i64 %11, 5871781006564002453
   store i64 %12, ptr %1, align 8, !alias.scope !1757
-  %13 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sink12.i, i64 %.sink11.i
+  %.idx.i = shl nsw i64 %.sink11.i, 5
+  %13 = getelementptr inbounds i8, ptr %.sink12.i, i64 %.idx.i
   %14 = icmp eq i64 %.sink11.i, 0
   br i1 %14, label %_ZN4core4hash4Hash10hash_slice17hc30dc9bb9c73b6b1E.exit, label %.lr.ph.i
 
@@ -7872,7 +7876,8 @@ define hidden void @"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..h
   %11 = xor i64 %10, %.sink11.i.i
   %12 = mul i64 %11, 5871781006564002453
   store i64 %12, ptr %1, align 8, !alias.scope !1772, !noalias !1762
-  %13 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sink12.i.i, i64 %.sink11.i.i
+  %.idx.i.i = shl nsw i64 %.sink11.i.i, 5
+  %13 = getelementptr inbounds i8, ptr %.sink12.i.i, i64 %.idx.i.i
   %14 = icmp eq i64 %.sink11.i.i, 0
   br i1 %14, label %"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hf323a73c8e84412aE.llvm.17983010331538428002.exit", label %.lr.ph.i.i
 
@@ -12335,7 +12340,8 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17hae91c98c4eae693aE.exit: ; p
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he015563db7a39117E.exit": ; preds = %._crit_edge161
   %.sroa.0.0.v.i32 = select i1 %trunc.i29, i64 7328, i64 120
   %.sroa.0.0.i33 = getelementptr inbounds nuw i8, ptr %79, i64 %.sroa.0.0.v.i32
-  %84 = getelementptr inbounds { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] }, ptr %.sroa.0.0.i33, i64 %75
+  %.idx = mul nuw nsw i64 %75, 104
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i33, i64 %.idx
   %85 = icmp eq i64 %75, 0
   br i1 %85, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hef4c7d609cd8600dE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hef4c7d609cd8600dE.exit"
 

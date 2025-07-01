@@ -1333,7 +1333,8 @@ entry:
 define weak_odr dso_local void @_ZN5eastl10vector_mapIiiNS_4lessIiEENS_9allocatorENS_6vectorINS_4pairIiiEES3_EEEC2ESt16initializer_listIS6_ERKS2_RKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %ilist.coerce0, i64 %ilist.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %compare, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat($_ZN5eastl10vector_mapIiiNS_4lessIiEENS_9allocatorENS_6vectorINS_4pairIiiEES3_EEEC5ESt16initializer_listIS6_ERKS2_RKS3_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.0", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.lr.ph.i
 
@@ -1530,7 +1531,8 @@ entry:
   %mpEnd.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %this, align 8
   store ptr %0, ptr %mpEnd.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.0", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl10vector_mapIiiNS_4lessIiEENS_9allocatorENS_6vectorINS_4pairIiiEES3_EEE6insertIPKS6_EEvT_SC_.exit, label %for.body.lr.ph.i
 
@@ -2201,7 +2203,8 @@ return:                                           ; preds = %_ZN5eastl10vector_m
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl10vector_mapIiiNS_4lessIiEENS_9allocatorENS_6vectorINS_4pairIiiEES3_EEE6insertESt16initializer_listIS6_E(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.0", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl10vector_mapIiiNS_4lessIiEENS_9allocatorENS_6vectorINS_4pairIiiEES3_EEE6insertIPKS6_EEvT_SC_.exit, label %for.body.lr.ph.i
 
@@ -3146,7 +3149,8 @@ entry:
 define weak_odr dso_local void @_ZN5eastl15vector_multimapIfiNS_4lessIfEENS_9allocatorENS_6vectorINS_4pairIfiEES3_EEEC2ESt16initializer_listIS6_ERKS2_RKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %ilist.coerce0, i64 %ilist.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %compare, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat($_ZN5eastl15vector_multimapIfiNS_4lessIfEENS_9allocatorENS_6vectorINS_4pairIfiEES3_EEEC5ESt16initializer_listIS6_ERKS2_RKS3_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.10", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not4.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not4.i, label %invoke.cont, label %for.body.lr.ph.i
 
@@ -3335,7 +3339,8 @@ entry:
   %mpEnd.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %this, align 8
   store ptr %0, ptr %mpEnd.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.10", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not4.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not4.i, label %_ZN5eastl15vector_multimapIfiNS_4lessIfEENS_9allocatorENS_6vectorINS_4pairIfiEES3_EEE6insertIPKS6_EEvT_SC_.exit, label %for.body.lr.ph.i
 
@@ -3936,7 +3941,8 @@ return:                                           ; preds = %_ZN5eastl15vector_m
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl15vector_multimapIfiNS_4lessIfEENS_9allocatorENS_6vectorINS_4pairIfiEES3_EEE6insertESt16initializer_listIS6_E(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.10", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not4.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not4.i, label %_ZN5eastl15vector_multimapIfiNS_4lessIfEENS_9allocatorENS_6vectorINS_4pairIfiEES3_EEE6insertIPKS6_EEvT_SC_.exit, label %for.body.lr.ph.i
 
@@ -5136,7 +5142,8 @@ entry:
 define weak_odr dso_local void @_ZN5eastl10vector_mapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorENS_6vectorINS_4pairIS1_S1_EES4_EEEC2ESt16initializer_listIS7_ERKS3_RKS4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %ilist.coerce0, i64 %ilist.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %compare, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat($_ZN5eastl10vector_mapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorENS_6vectorINS_4pairIS1_S1_EES4_EEEC5ESt16initializer_listIS7_ERKS3_RKS4_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.25", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 48
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.i
 
@@ -5238,7 +5245,8 @@ for.cond.for.end_crit_edge.i.i.i:                 ; preds = %_ZN5eastl4pairI10Te
 _ZN5eastl6vectorINS_4pairI10TestObjectS2_EENS_9allocatorEE5clearEv.exit: ; preds = %entry, %for.cond.for.end_crit_edge.i.i.i
   %4 = phi ptr [ %.pre.i, %for.cond.for.end_crit_edge.i.i.i ], [ %0, %entry ]
   store ptr %4, ptr %mpEnd.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.25", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 48
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl10vector_mapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorENS_6vectorINS_4pairIS1_S1_EES4_EEE6insertIPKS7_EEvT_SD_.exit, label %for.body.i
 
@@ -6308,7 +6316,8 @@ _ZN5eastl4pairI10TestObjectS1_ED2Ev.exit:         ; preds = %_ZN10TestObjectD2Ev
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl10vector_mapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorENS_6vectorINS_4pairIS1_S1_EES4_EEE6insertESt16initializer_listIS7_E(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.25", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 48
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl10vector_mapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorENS_6vectorINS_4pairIS1_S1_EES4_EEE6insertIPKS7_EEvT_SD_.exit, label %for.body.i
 
@@ -142832,7 +142841,8 @@ entry:
   %sub.i.i6 = sub i64 %7, %add.i.i5
   %div79.i.i = lshr i64 %sub.i.i6, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i5
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i5, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -150066,7 +150076,8 @@ entry:
   %sub.i.i6 = sub i64 %7, %add.i.i5
   %div79.i.i = lshr i64 %sub.i.i6, 1
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i, i64 %div79.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i, i64 %add.i.i5
+  %add.ptr8.idx.i.i = shl nuw nsw i64 %add.i.i5, 3
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %add.ptr8.idx.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
@@ -160147,7 +160158,8 @@ entry:
   %mpEnd.i14.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i13.i.i.i, ptr %mpEnd.i14.i.i.i, align 8
   store ptr %2, ptr %mItEnd.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.0", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = shl nsw i64 %ilist.coerce1, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.i
@@ -162475,7 +162487,8 @@ entry:
   %mpEnd.i14.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i13.i.i.i, ptr %mpEnd.i14.i.i.i, align 8
   store ptr %2, ptr %mItEnd.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.eastl::pair.25", ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 48
+  %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %invoke.cont, label %for.body.i

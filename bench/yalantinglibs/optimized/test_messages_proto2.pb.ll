@@ -33361,7 +33361,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt
   br label %eh.resume
 
 for.end447:                                       ; preds = %invoke.cont434
-  %arrayidx.i2641 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem", ptr %call424, i64 %n425.0
+  %arrayidx.i2641.idx = shl nsw i64 %n425.0, 4
+  %arrayidx.i2641 = getelementptr inbounds i8, ptr %call424, i64 %arrayidx.i2641.idx
   %cmp.not.i.i2642 = icmp eq i64 %n425.0, 0
   br i1 %cmp.not.i.i2642, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt14default_deleteIS9_EED2Ev.exit2652, label %if.then.i.i2643
 
@@ -33589,7 +33590,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt
   br label %eh.resume
 
 for.end532:                                       ; preds = %invoke.cont519
-  %arrayidx.i2735 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.179", ptr %call497, i64 %n508.0
+  %arrayidx.i2735.idx = shl nsw i64 %n508.0, 4
+  %arrayidx.i2735 = getelementptr inbounds i8, ptr %call497, i64 %arrayidx.i2735.idx
   %cmp.not.i.i2736 = icmp eq i64 %n508.0, 0
   br i1 %cmp.not.i.i2736, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt14default_deleteIS9_EED2Ev.exit2751, label %if.then.i.i2737
 
@@ -33817,7 +33819,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEESt
   br label %eh.resume
 
 for.end621:                                       ; preds = %invoke.cont608
-  %arrayidx.i2835 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.190", ptr %call586, i64 %n597.0
+  %arrayidx.i2835.idx = shl nsw i64 %n597.0, 4
+  %arrayidx.i2835 = getelementptr inbounds i8, ptr %call586, i64 %arrayidx.i2835.idx
   %cmp.not.i.i2836 = icmp eq i64 %n597.0, 0
   br i1 %cmp.not.i.i2836, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEESt14default_deleteIS9_EED2Ev.exit2851, label %if.then.i.i2837
 
@@ -34045,7 +34048,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEESt
   br label %eh.resume
 
 for.end710:                                       ; preds = %invoke.cont697
-  %arrayidx.i2935 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.201", ptr %call675, i64 %n686.0
+  %arrayidx.i2935.idx = shl nsw i64 %n686.0, 4
+  %arrayidx.i2935 = getelementptr inbounds i8, ptr %call675, i64 %arrayidx.i2935.idx
   %cmp.not.i.i2936 = icmp eq i64 %n686.0, 0
   br i1 %cmp.not.i.i2936, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEESt14default_deleteIS9_EED2Ev.exit2951, label %if.then.i.i2937
 
@@ -34273,7 +34277,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt
   br label %eh.resume
 
 for.end799:                                       ; preds = %invoke.cont786
-  %arrayidx.i3040 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem", ptr %call764, i64 %n775.0
+  %arrayidx.i3040.idx = shl nsw i64 %n775.0, 4
+  %arrayidx.i3040 = getelementptr inbounds i8, ptr %call764, i64 %arrayidx.i3040.idx
   %cmp.not.i.i3041 = icmp eq i64 %n775.0, 0
   br i1 %cmp.not.i.i3041, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt14default_deleteIS9_EED2Ev.exit3057, label %if.then.i.i3042
 
@@ -34501,7 +34506,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt
   br label %eh.resume
 
 for.end888:                                       ; preds = %invoke.cont875
-  %arrayidx.i3146 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.179", ptr %call853, i64 %n864.0
+  %arrayidx.i3146.idx = shl nsw i64 %n864.0, 4
+  %arrayidx.i3146 = getelementptr inbounds i8, ptr %call853, i64 %arrayidx.i3146.idx
   %cmp.not.i.i3147 = icmp eq i64 %n864.0, 0
   br i1 %cmp.not.i.i3147, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt14default_deleteIS9_EED2Ev.exit3163, label %if.then.i.i3148
 
@@ -34729,7 +34735,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEESt
   br label %eh.resume
 
 for.end977:                                       ; preds = %invoke.cont964
-  %arrayidx.i3252 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.190", ptr %call942, i64 %n953.0
+  %arrayidx.i3252.idx = shl nsw i64 %n953.0, 4
+  %arrayidx.i3252 = getelementptr inbounds i8, ptr %call942, i64 %arrayidx.i3252.idx
   %cmp.not.i.i3253 = icmp eq i64 %n953.0, 0
   br i1 %cmp.not.i.i3253, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIjPKNS1_7MapPairIjjEEEESt14default_deleteIS9_EED2Ev.exit3282, label %if.then.i.i3254
 
@@ -35044,7 +35051,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEESt
   br label %eh.resume
 
 for.end1066:                                      ; preds = %invoke.cont1053
-  %arrayidx.i3393 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.201", ptr %call1031, i64 %n1042.0
+  %arrayidx.i3393.idx = shl nsw i64 %n1042.0, 4
+  %arrayidx.i3393 = getelementptr inbounds i8, ptr %call1031, i64 %arrayidx.i3393.idx
   %cmp.not.i.i3394 = icmp eq i64 %n1042.0, 0
   br i1 %cmp.not.i.i3394, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemImPKNS1_7MapPairImmEEEESt14default_deleteIS9_EED2Ev.exit3436, label %if.then.i.i3395
 
@@ -35359,7 +35367,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt
   br label %eh.resume
 
 for.end1155:                                      ; preds = %invoke.cont1142
-  %arrayidx.i3550 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem", ptr %call1120, i64 %n1131.0
+  %arrayidx.i3550.idx = shl nsw i64 %n1131.0, 4
+  %arrayidx.i3550 = getelementptr inbounds i8, ptr %call1120, i64 %arrayidx.i3550.idx
   %cmp.not.i.i3551 = icmp eq i64 %n1131.0, 0
   br i1 %cmp.not.i.i3551, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIiiEEEESt14default_deleteIS9_EED2Ev.exit3593, label %if.then.i.i3552
 
@@ -35674,7 +35683,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt
   br label %eh.resume
 
 for.end1244:                                      ; preds = %invoke.cont1231
-  %arrayidx.i3707 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.179", ptr %call1209, i64 %n1220.0
+  %arrayidx.i3707.idx = shl nsw i64 %n1220.0, 4
+  %arrayidx.i3707 = getelementptr inbounds i8, ptr %call1209, i64 %arrayidx.i3707.idx
   %cmp.not.i.i3708 = icmp eq i64 %n1220.0, 0
   br i1 %cmp.not.i.i3708, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIlPKNS1_7MapPairIllEEEESt14default_deleteIS9_EED2Ev.exit3750, label %if.then.i.i3709
 
@@ -35989,7 +35999,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEESt
   br label %eh.resume
 
 for.end1333:                                      ; preds = %invoke.cont1320
-  %arrayidx.i3860 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.212", ptr %call1298, i64 %n1309.0
+  %arrayidx.i3860.idx = shl nsw i64 %n1309.0, 4
+  %arrayidx.i3860 = getelementptr inbounds i8, ptr %call1298, i64 %arrayidx.i3860.idx
   %cmp.not.i.i3861 = icmp eq i64 %n1309.0, 0
   br i1 %cmp.not.i.i3861, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIifEEEESt14default_deleteIS9_EED2Ev.exit3876, label %if.then.i.i3862
 
@@ -36217,7 +36228,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEESt
   br label %eh.resume
 
 for.end1422:                                      ; preds = %invoke.cont1409
-  %arrayidx.i3960 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.223", ptr %call1387, i64 %n1398.0
+  %arrayidx.i3960.idx = shl nsw i64 %n1398.0, 4
+  %arrayidx.i3960 = getelementptr inbounds i8, ptr %call1387, i64 %arrayidx.i3960.idx
   %cmp.not.i.i3961 = icmp eq i64 %n1398.0, 0
   br i1 %cmp.not.i.i3961, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIiPKNS1_7MapPairIidEEEESt14default_deleteIS9_EED2Ev.exit3976, label %if.then.i.i3962
 
@@ -36446,7 +36458,8 @@ _ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEESt
   br label %eh.resume
 
 for.end1511:                                      ; preds = %invoke.cont1498
-  %arrayidx.i4060 = getelementptr inbounds %"struct.google::protobuf::internal::SortItem.234", ptr %call1476, i64 %n1487.0
+  %arrayidx.i4060.idx = shl nsw i64 %n1487.0, 4
+  %arrayidx.i4060 = getelementptr inbounds i8, ptr %call1476, i64 %arrayidx.i4060.idx
   %cmp.not.i.i4061 = icmp eq i64 %n1487.0, 0
   br i1 %cmp.not.i.i4061, label %_ZNSt10unique_ptrIA_N6google8protobuf8internal8SortItemIbPKNS1_7MapPairIbbEEEESt14default_deleteIS9_EED2Ev.exit4095, label %if.then.i.i4062
 
@@ -36762,7 +36775,8 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   br label %eh.resume
 
 for.end1588:                                      ; preds = %invoke.cont1577
-  %arrayidx.i4202 = getelementptr inbounds ptr, ptr %call1565, i64 %n1566.0
+  %arrayidx.i4202.idx = shl nsw i64 %n1566.0, 3
+  %arrayidx.i4202 = getelementptr inbounds i8, ptr %call1565, i64 %arrayidx.i4202.idx
   %cmp.not.i.i4203 = icmp eq i64 %n1566.0, 0
   br i1 %cmp.not.i.i4203, label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EESt14default_deleteISC_EED2Ev.exit4219, label %if.then.i.i4204
 
@@ -36987,7 +37001,8 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   br label %eh.resume
 
 for.end1667:                                      ; preds = %invoke.cont1656
-  %arrayidx.i4309 = getelementptr inbounds ptr, ptr %call1644, i64 %n1645.0
+  %arrayidx.i4309.idx = shl nsw i64 %n1645.0, 3
+  %arrayidx.i4309 = getelementptr inbounds i8, ptr %call1644, i64 %arrayidx.i4309.idx
   %cmp.not.i.i4310 = icmp eq i64 %n1645.0, 0
   br i1 %cmp.not.i.i4310, label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EESt14default_deleteISC_EED2Ev.exit4327, label %if.then.i.i4311
 
@@ -37212,7 +37227,8 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   br label %eh.resume
 
 for.end1746:                                      ; preds = %invoke.cont1735
-  %arrayidx.i4411 = getelementptr inbounds ptr, ptr %call1723, i64 %n1724.0
+  %arrayidx.i4411.idx = shl nsw i64 %n1724.0, 3
+  %arrayidx.i4411 = getelementptr inbounds i8, ptr %call1723, i64 %arrayidx.i4411.idx
   %cmp.not.i.i4412 = icmp eq i64 %n1724.0, 0
   br i1 %cmp.not.i.i4412, label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessageEEESt14default_deleteISF_EED2Ev.exit4438, label %if.then.i.i4413
 
@@ -37797,7 +37813,8 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   br label %eh.resume
 
 for.end1825:                                      ; preds = %invoke.cont1814
-  %arrayidx.i4527 = getelementptr inbounds ptr, ptr %call1802, i64 %n1803.0
+  %arrayidx.i4527.idx = shl nsw i64 %n1803.0, 3
+  %arrayidx.i4527 = getelementptr inbounds i8, ptr %call1802, i64 %arrayidx.i4527.idx
   %cmp.not.i.i4528 = icmp eq i64 %n1803.0, 0
   br i1 %cmp.not.i.i4528, label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto220ForeignMessageProto2EEESt14default_deleteISF_EED2Ev.exit4544, label %if.then.i.i4529
 
@@ -38022,7 +38039,8 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   br label %eh.resume
 
 for.end1904:                                      ; preds = %invoke.cont1893
-  %arrayidx.i4628 = getelementptr inbounds ptr, ptr %call1881, i64 %n1882.0
+  %arrayidx.i4628.idx = shl nsw i64 %n1882.0, 3
+  %arrayidx.i4628 = getelementptr inbounds i8, ptr %call1881, i64 %arrayidx.i4628.idx
   %cmp.not.i.i4629 = icmp eq i64 %n1882.0, 0
   br i1 %cmp.not.i.i4629, label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto229TestAllTypesProto2_NestedEnumEEESt14default_deleteISF_EED2Ev.exit4645, label %if.then.i.i4630
 
@@ -38247,7 +38265,8 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   br label %eh.resume
 
 for.end1983:                                      ; preds = %invoke.cont1972
-  %arrayidx.i4729 = getelementptr inbounds ptr, ptr %call1960, i64 %n1961.0
+  %arrayidx.i4729.idx = shl nsw i64 %n1961.0, 3
+  %arrayidx.i4729 = getelementptr inbounds i8, ptr %call1960, i64 %arrayidx.i4729.idx
   %cmp.not.i.i4730 = icmp eq i64 %n1961.0, 0
   br i1 %cmp.not.i.i4730, label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto217ForeignEnumProto2EEESt14default_deleteISF_EED2Ev.exit4746, label %if.then.i.i4731
 
@@ -45631,7 +45650,8 @@ for.end137:                                       ; preds = %for.body130, %for.e
   %tobool.not.i.i = icmp eq ptr %5, null
   %elements.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %spec.select.i.i = select i1 %tobool.not.i.i, ptr null, ptr %elements.i.i
-  %add.ptr.i = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %conv139
+  %add.ptr.i.idx = shl nsw i64 %conv139, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %add.ptr.i.idx
   %cmp.i.not21862335 = icmp eq i32 %4, 0
   br i1 %cmp.i.not21862335, label %for.end153, label %for.body147
 
@@ -45743,7 +45763,8 @@ for.end153:                                       ; preds = %_ZNK22protobuf_test
   %tobool.not.i.i434 = icmp eq ptr %17, null
   %elements.i.i435 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %spec.select.i.i436 = select i1 %tobool.not.i.i434, ptr null, ptr %elements.i.i435
-  %add.ptr.i443 = getelementptr inbounds ptr, ptr %spec.select.i.i436, i64 %conv155
+  %add.ptr.i443.idx = shl nsw i64 %conv155, 3
+  %add.ptr.i443 = getelementptr inbounds i8, ptr %spec.select.i.i436, i64 %add.ptr.i443.idx
   %cmp.i444.not2339 = icmp eq i32 %16, 0
   br i1 %cmp.i444.not2339, label %for.end174, label %for.body167
 

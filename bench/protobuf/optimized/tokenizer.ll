@@ -5665,9 +5665,10 @@ if.then4:                                         ; preds = %if.then
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.then4
-  %idx.neg = sub i64 0, %__n
-  %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %2, i64 %idx.neg
-  br label %for.body.i.i.i.i.i
+  %.neg = mul i64 %__n, -32
+  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %.neg
+  %cmp.i.i.not7.i.i.i.i.i = icmp eq i64 %.neg, 0
+  br i1 %cmp.i.i.not7.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.then11, %for.body.i.i.i.i.i
   %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %2, %if.then11 ]
@@ -5676,10 +5677,14 @@ for.body.i.i.i.i.i:                               ; preds = %if.then11, %for.bod
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 32
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i.i, i64 32
   %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %2
-  br i1 %cmp.i.i.not.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i, !llvm.loop !28
+  br i1 %cmp.i.i.not.i.i.i.i.i, label %invoke.cont.loopexit, label %for.body.i.i.i.i.i, !llvm.loop !28
 
-invoke.cont:                                      ; preds = %for.body.i.i.i.i.i
-  %3 = load ptr, ptr %_M_finish, align 8
+invoke.cont.loopexit:                             ; preds = %for.body.i.i.i.i.i
+  %.pre = load ptr, ptr %_M_finish, align 8
+  br label %invoke.cont
+
+invoke.cont:                                      ; preds = %invoke.cont.loopexit, %if.then11
+  %3 = phi ptr [ %.pre, %invoke.cont.loopexit ], [ %2, %if.then11 ]
   %add.ptr16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %3, i64 %__n
   store ptr %add.ptr16, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
@@ -5700,7 +5705,8 @@ for.body.i.i.i.i.i49:                             ; preds = %invoke.cont, %for.b
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i49, label %invoke.cont20, !llvm.loop !29
 
 invoke.cont20:                                    ; preds = %for.body.i.i.i.i.i49, %invoke.cont
-  %add.ptr24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__position.coerce, i64 %__n
+  %add.ptr24.idx = shl nsw i64 %__n, 5
+  %add.ptr24 = getelementptr inbounds i8, ptr %__position.coerce, i64 %add.ptr24.idx
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %invoke.cont20, %call.i.i.i.noexc
@@ -5963,7 +5969,8 @@ lpad56.body:                                      ; preds = %lpad1.i.i.i.i83
   br i1 %cond, label %if.then66, label %if.then.i130
 
 if.then66:                                        ; preds = %lpad56.body
-  %add.ptr69 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr54, i64 %__n
+  %add.ptr69.idx = shl nsw i64 %__n, 5
+  %add.ptr69 = getelementptr inbounds i8, ptr %add.ptr54, i64 %add.ptr69.idx
   br label %for.body.i.i.i118
 
 for.body.i.i.i118:                                ; preds = %if.then66, %for.body.i.i.i118

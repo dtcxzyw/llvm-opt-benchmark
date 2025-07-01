@@ -80211,7 +80211,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit259: ; preds = %211
   %.sroa.4468.0.copyload = load ptr, ptr %.sroa.4468.0..sroa_idx, align 8, !nonnull !14, !noundef !14
   %.sroa.5469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 16
   %.sroa.5469.0.copyload = load i64, ptr %.sroa.5469.0..sroa_idx, align 8
-  %432 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, ptr %.sroa.4468.0.copyload, i64 %.sroa.5469.0.copyload
+  %.idx = mul nsw i64 %.sroa.5469.0.copyload, 48
+  %432 = getelementptr inbounds i8, ptr %.sroa.4468.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %71)
   store ptr %.sroa.4468.0.copyload, ptr %71, align 8
   %.sroa.074.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -84015,7 +84016,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit436: ; preds = %388
   %.sroa.4738.0.copyload = load ptr, ptr %.sroa.4738.0..sroa_idx, align 8, !nonnull !14, !noundef !14
   %.sroa.5739.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 16
   %.sroa.5739.0.copyload = load i64, ptr %.sroa.5739.0..sroa_idx, align 8
-  %844 = getelementptr inbounds { { { i8, [23 x i8] } }, { i32, { i32, i32 }, { i32, i32 } }, [1 x i32] }, ptr %.sroa.4738.0.copyload, i64 %.sroa.5739.0.copyload
+  %.idx = mul nsw i64 %.sroa.5739.0.copyload, 48
+  %844 = getelementptr inbounds i8, ptr %.sroa.4738.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %84)
   store ptr %.sroa.4738.0.copyload, ptr %84, align 8
   %.sroa.0155.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 8

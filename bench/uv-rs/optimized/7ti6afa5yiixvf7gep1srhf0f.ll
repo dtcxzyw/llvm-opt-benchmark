@@ -1083,7 +1083,8 @@ select.unfold.i.i:                                ; preds = %.sink.split.i.i.i, 
   %23 = tail call { ptr, i64 } @_ZN24uv_distribution_filename5wheel13WheelFilename11python_tags17hb1c4c9d7575c6621E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %22), !noalias !283
   %24 = extractvalue { ptr, i64 } %23, 0
   %25 = extractvalue { ptr, i64 } %23, 1
-  %26 = getelementptr inbounds { i8, [2 x i8] }, ptr %24, i64 %25
+  %.idx.i.i.i.i.i.i = mul nsw i64 %25, 3
+  %26 = getelementptr inbounds i8, ptr %24, i64 %.idx.i.i.i.i.i.i
   tail call void @llvm.assume(i1 %9)
   %27 = icmp ne ptr %24, null
   tail call void @llvm.assume(i1 %27)
@@ -7143,7 +7144,8 @@ select.unfold.i:                                  ; preds = %.sink.split.i.i, %8
   %21 = tail call { ptr, i64 } @_ZN24uv_distribution_filename5wheel13WheelFilename11python_tags17hb1c4c9d7575c6621E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %20), !noalias !1364
   %22 = extractvalue { ptr, i64 } %21, 0
   %23 = extractvalue { ptr, i64 } %21, 1
-  %24 = getelementptr inbounds { i8, [2 x i8] }, ptr %22, i64 %23
+  %.idx.i.i.i.i.i = mul nsw i64 %23, 3
+  %24 = getelementptr inbounds i8, ptr %22, i64 %.idx.i.i.i.i.i
   tail call void @llvm.assume(i1 %7)
   %25 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %25)
@@ -7735,7 +7737,8 @@ select.unfold:                                    ; preds = %.sink.split.i, %8
   %21 = tail call { ptr, i64 } @_ZN24uv_distribution_filename5wheel13WheelFilename11python_tags17hb1c4c9d7575c6621E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %20), !noalias !1477
   %22 = extractvalue { ptr, i64 } %21, 0
   %23 = extractvalue { ptr, i64 } %21, 1
-  %24 = getelementptr inbounds { i8, [2 x i8] }, ptr %22, i64 %23
+  %.idx.i.i.i.i = mul nsw i64 %23, 3
+  %24 = getelementptr inbounds i8, ptr %22, i64 %.idx.i.i.i.i
   tail call void @llvm.assume(i1 %7)
   %25 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %25)
@@ -54385,7 +54388,8 @@ define hidden void @_ZN11uv_resolver6marker15requires_python17h3ea1d6a84034efecE
   %37 = load i64, ptr %36, align 8, !alias.scope !8695, !noalias !8698
   %.sink12.i = select i1 %33, ptr %35, ptr %34
   %.sink11.i = select i1 %33, i64 %37, i64 %32
-  %38 = getelementptr inbounds { { { [6 x i64] }, i64 } }, ptr %.sink12.i, i64 %.sink11.i
+  %.idx = mul nsw i64 %.sink11.i, 56
+  %38 = getelementptr inbounds i8, ptr %.sink12.i, i64 %.idx
   %39 = icmp eq i64 %.sink11.i, 0
   br i1 %39, label %.loopexit, label %.lr.ph.i
 
@@ -55471,7 +55475,8 @@ define void @_ZN11uv_resolver10resolution6output14ResolverOutput10from_state17h3
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %138)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %137)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(32) @anon.fb28629bf56ebf90cdd132cd362331b8.3.llvm.908770108122041493, i64 32, i1 false)
-  %171 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, [4 x i64] } } }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 7
+  %171 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %.sroa.5261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %136, i64 8
   %.sroa.6262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %136, i64 16
   %.sroa.7263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %136, i64 24
@@ -56011,8 +56016,8 @@ default.unreachable:                              ; preds = %"_ZN66_$LT$uv_pep44
   %370 = load i64, ptr %369, align 8, !noundef !6
   %371 = icmp ult i64 %370, 42700796466920259
   call void @llvm.assume(i1 %371)
-  %.not900 = icmp eq i64 %370, 0
-  br i1 %.not900, label %._crit_edge895, label %.lr.ph894
+  %.not901 = icmp eq i64 %370, 0
+  br i1 %.not901, label %._crit_edge895, label %.lr.ph894
 
 .lr.ph894:                                        ; preds = %368
   %372 = getelementptr inbounds nuw i8, ptr %141, i64 8
@@ -56025,7 +56030,8 @@ default.unreachable:                              ; preds = %"_ZN66_$LT$uv_pep44
   %374 = load ptr, ptr %373, align 8, !nonnull !6, !noundef !6
   %375 = getelementptr inbounds nuw i8, ptr %141, i64 40
   %376 = load i64, ptr %375, align 8, !noundef !6
-  %377 = getelementptr inbounds { { i64, i64 }, [2 x i32], [2 x i32] }, ptr %374, i64 %376
+  %.idx902 = shl nsw i64 %376, 5
+  %377 = getelementptr inbounds i8, ptr %374, i64 %.idx902
   %378 = icmp eq i64 %376, 0
   br i1 %378, label %._crit_edge899, label %.lr.ph898
 
@@ -57188,7 +57194,8 @@ _ZN11uv_resolver10resolution6output27report_missing_lower_bounds17h0e8c9d0b90883
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.913.8..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.913.i, i64 16, i1 false), !noalias !9162
   %767 = load ptr, ptr %.sroa.913.8..sroa_idx.i, align 8, !noalias !9162, !nonnull !6, !noundef !6
   %768 = load i64, ptr %726, align 8, !noalias !9162, !noundef !6
-  %769 = getelementptr inbounds { ptr, ptr }, ptr %767, i64 %768
+  %.idx.i = shl nsw i64 %768, 4
+  %769 = getelementptr inbounds i8, ptr %767, i64 %.idx.i
   %770 = icmp eq i64 %768, 0
   br i1 %770, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7879fa23f9b572eE.exit.thread._crit_edge.i", label %.lr.ph.i154
 
@@ -57484,7 +57491,7 @@ _ZN11uv_resolver16universal_marker15UniversalMarker11is_disjoint17h489378266a1c5
   unreachable
 
 .loopexit.split-lp52.loopexit.split-lp.i.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %743, %912, %775, %.body71.i, %738, %.body59.i
-  %lpad.loopexit.split-lp2106 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp2108 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   br label %.body.i
 
@@ -57856,7 +57863,8 @@ _ZN11uv_resolver16universal_marker15UniversalMarker6imbibe17h90d06b1c9f56ec36E.e
   %995 = load ptr, ptr %994, align 8, !nonnull !6, !noundef !6
   %996 = getelementptr inbounds nuw i8, ptr %.sroa.0245.0888, i64 16
   %997 = load i64, ptr %996, align 8, !noundef !6
-  %998 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [35 x i64] }, { i64, [35 x i64] }, ptr, ptr, { { [9 x i8], i8, [6 x i8] } }, ptr, ptr, { { [9 x i8], i8, [6 x i8] } }, ptr, ptr, i64 }, ptr %995, i64 %997
+  %.idx900 = mul nsw i64 %997, 696
+  %998 = getelementptr inbounds i8, ptr %995, i64 %.idx900
   %999 = icmp eq i64 %997, 0
   br i1 %999, label %.loopexit369, label %.lr.ph887
 
@@ -65307,8 +65315,10 @@ _ZN11uv_resolver5yanks12AllowedYanks8contains17h74e1768574cdf741E.exit.thread: ;
   br label %73
 
 .lr.ph.i.i.i.lr.ph.i:                             ; preds = %74
-  %77 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %4, i64 %5
-  %78 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %26, i64 %27
+  %.idx = shl nsw i64 %5, 4
+  %77 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %.idx.i.i.i = shl nsw i64 %27, 4
+  %78 = getelementptr inbounds i8, ptr %26, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i.i
 
 "_ZN11uv_resolver11version_map14VersionMapLazy25source_dist_compatibility28_$u7b$$u7b$closure$u7d$$u7d$17he640690ae34c4867E.exit.loopexit.i": ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h9365d91c4bab8bc8E.llvm.18087163056066412648.exit.backedge.i.i.i.i"
@@ -65569,8 +65579,10 @@ _ZN11uv_resolver15requires_python14RequiresPython17matches_wheel_tag17h9531d3a79
   br i1 %106, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.llvm.10029935473915784774.exit39", label %121
 
 .lr.ph.i.i.i.lr.ph.i:                             ; preds = %103
-  %107 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %5, i64 %6
-  %108 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %98, i64 %99
+  %.idx = shl nsw i64 %6, 4
+  %107 = getelementptr inbounds i8, ptr %5, i64 %.idx
+  %.idx.i.i.i = shl nsw i64 %99, 4
+  %108 = getelementptr inbounds i8, ptr %98, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i.i
 
 "_ZN11uv_resolver11version_map14VersionMapLazy19wheel_compatibility28_$u7b$$u7b$closure$u7d$$u7d$17h73521536e69f1357E.exit.loopexit.i": ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17h9365d91c4bab8bc8E.llvm.18087163056066412648.exit.backedge.i.i.i.i"

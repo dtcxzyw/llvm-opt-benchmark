@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::MCWriteProcResEntry" = type { i16, i16, i16 }
 %"struct.llvm::MCProcResourceDesc" = type { ptr, i32, i32, i32, ptr }
 %"struct.llvm::InstrStage" = type { i32, i64, i32, i32 }
-%"struct.llvm::MCReadAdvanceEntry" = type { i32, i32, i32 }
 
 $_ZNK4llvm12MCSchedModel19computeInstrLatencyINS_15MCSubtargetInfoENS_11MCInstrInfoENS_18InstrItineraryDataENS_6MCInstEEEiRKT_RKT0_RKT2_NS_12function_refIFPKNS_16MCSchedClassDescESI_EEE = comdat any
 
@@ -287,7 +286,8 @@ define dso_local noundef double @_ZN4llvm12MCSchedModel23getReciprocalThroughput
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i16, ptr %11, align 2, !tbaa !84
   %13 = zext i16 %12 to i64
-  %14 = getelementptr inbounds nuw %"struct.llvm::MCWriteProcResEntry", ptr %10, i64 %13
+  %.idx = mul nuw nsw i64 %13, 6
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %.not21 = icmp eq i16 %12, 0
   br i1 %.not21, label %._crit_edge.thread, label %.lr.ph
 
@@ -409,7 +409,8 @@ define dso_local noundef double @_ZNK4llvm12MCSchedModel23getReciprocalThroughpu
   %45 = getelementptr inbounds nuw i8, ptr %.015.lcssa, i64 4
   %46 = load i16, ptr %45, align 2, !tbaa !84
   %47 = zext i16 %46 to i64
-  %48 = getelementptr inbounds nuw %"struct.llvm::MCWriteProcResEntry", ptr %44, i64 %47
+  %.idx.i = mul nuw nsw i64 %47, 6
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i
   %.not21.i = icmp eq i16 %46, 0
   br i1 %.not21.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
@@ -537,7 +538,8 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZN4llvm12MCSchedModel24
   br i1 %4, label %14, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
-  %5 = getelementptr inbounds nuw %"struct.llvm::MCReadAdvanceEntry", ptr %0, i64 %1
+  %.idx = mul nuw nsw i64 %1, 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %12

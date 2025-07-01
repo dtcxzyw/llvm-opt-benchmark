@@ -1011,7 +1011,8 @@ define noundef zeroext i1 @_ZN4base11StringToIntERKNS_16BasicStringPieceINSt7__c
   %.val = load ptr, ptr %0, align 8, !tbaa !70
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load i64, ptr %3, align 8, !tbaa !72
-  %4 = getelementptr inbounds nuw i16, ptr %.val, i64 %.val2
+  %.idx.i = shl nuw nsw i64 %.val2, 1
+  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %.not41.i.i = icmp eq i64 %.val2, 0
   br i1 %.not41.i.i, label %.critedge21.i.i, label %.lr.ph.i.preheader.i
 
@@ -1255,7 +1256,8 @@ define noundef zeroext i1 @_ZN4base12StringToUintERKNS_16BasicStringPieceINSt7__
   %.val = load ptr, ptr %0, align 8, !tbaa !70
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load i64, ptr %3, align 8, !tbaa !72
-  %4 = getelementptr inbounds nuw i16, ptr %.val, i64 %.val2
+  %.idx.i = shl nuw nsw i64 %.val2, 1
+  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %.not24.i.i = icmp eq i64 %.val2, 0
   br i1 %.not24.i.i, label %.critedge18.i.i, label %.lr.ph.i.preheader.i
 
@@ -1497,7 +1499,8 @@ define noundef zeroext i1 @_ZN4base13StringToInt64ERKNS_16BasicStringPieceINSt7_
   %.val = load ptr, ptr %0, align 8, !tbaa !70
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load i64, ptr %3, align 8, !tbaa !72
-  %4 = getelementptr inbounds nuw i16, ptr %.val, i64 %.val2
+  %.idx.i = shl nuw nsw i64 %.val2, 1
+  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %.not41.i.i = icmp eq i64 %.val2, 0
   br i1 %.not41.i.i, label %.critedge21.i.i, label %.lr.ph.i.preheader.i
 
@@ -1741,7 +1744,8 @@ define noundef zeroext i1 @_ZN4base14StringToUint64ERKNS_16BasicStringPieceINSt7
   %.val = load ptr, ptr %0, align 8, !tbaa !70
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load i64, ptr %3, align 8, !tbaa !72
-  %4 = getelementptr inbounds nuw i16, ptr %.val, i64 %.val2
+  %.idx.i = shl nuw nsw i64 %.val2, 1
+  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %.not24.i.i = icmp eq i64 %.val2, 0
   br i1 %.not24.i.i, label %.critedge18.i.i, label %.lr.ph.i.preheader.i
 
@@ -1951,7 +1955,8 @@ define noundef zeroext i1 @_ZN4base13StringToSizeTERKNS_16BasicStringPieceINSt7_
   %.val = load ptr, ptr %0, align 8, !tbaa !70
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load i64, ptr %3, align 8, !tbaa !72
-  %4 = getelementptr inbounds nuw i16, ptr %.val, i64 %.val2
+  %.idx.i = shl nuw nsw i64 %.val2, 1
+  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %.not24.i.i = icmp eq i64 %.val2, 0
   br i1 %.not24.i.i, label %.critedge18.i.i, label %.lr.ph.i.preheader.i
 

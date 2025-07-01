@@ -611,8 +611,8 @@ _ZN17QArrayDataPointerIN10LabelStack10_StackItemEE5derefEv.exit.i: ; preds = %1
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr %"struct.LabelStack::_StackItem", ptr %6, i64 %8
   %.idx.i.i = mul i64 %8, 56
+  %9 = getelementptr i8, ptr %6, i64 %.idx.i.i
   %.not4.i.i.i.i.i = icmp eq i64 %.idx.i.i, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -1355,8 +1355,8 @@ _ZN17QArrayDataPointerIN10LabelStack10_StackItemEE5derefEv.exit: ; preds = %1
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr %"struct.LabelStack::_StackItem", ptr %6, i64 %8
   %.idx.i = mul i64 %8, 56
+  %9 = getelementptr i8, ptr %6, i64 %.idx.i
   %.not4.i.i.i.i = icmp eq i64 %.idx.i, 0
   br i1 %.not4.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10destroyAllEv.exit, label %.lr.ph.i.i.i.i
 
@@ -1545,8 +1545,8 @@ _ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE11needsDetachEv.exit: ; preds
 _ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE11needsDetachEv.exit.thread: ; preds = %16, %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE11needsDetachEv.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr %"struct.LabelStack::_StackItem", ptr %23, i64 %spec.select
   %.idx27 = mul i64 %spec.select, 56
+  %24 = getelementptr i8, ptr %23, i64 %.idx27
   %25 = icmp ne i64 %.idx27, 0
   %26 = icmp ult ptr %23, %24
   %or.cond31 = select i1 %25, i1 %26, i1 false
@@ -1613,8 +1613,8 @@ _ZN10LabelStack10_StackItemC2ERKS0_.exit.i:       ; preds = %49, %_ZN7QStringC2E
 58:                                               ; preds = %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE11needsDetachEv.exit
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr %"struct.LabelStack::_StackItem", ptr %60, i64 %spec.select
   %.idx = mul i64 %spec.select, 56
+  %61 = getelementptr i8, ptr %60, i64 %.idx
   %62 = icmp ne i64 %.idx, 0
   %63 = icmp ult ptr %60, %61
   %or.cond32 = select i1 %62, i1 %63, i1 false
@@ -1719,8 +1719,8 @@ _ZN17QArrayDataPointerIN10LabelStack10_StackItemEE5derefEv.exit.i: ; preds = %10
 112:                                              ; preds = %_ZN17QArrayDataPointerIN10LabelStack10_StackItemEE5derefEv.exit.i
   %113 = load ptr, ptr %7, align 8
   %114 = load i64, ptr %100, align 8
-  %115 = getelementptr %"struct.LabelStack::_StackItem", ptr %113, i64 %114
   %.idx.i.i = mul i64 %114, 56
+  %115 = getelementptr i8, ptr %113, i64 %.idx.i.i
   %.not4.i.i.i.i.i = icmp eq i64 %.idx.i.i, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -2589,7 +2589,8 @@ _ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE14freeSpaceAtEndEv.exit: ; pr
   %44 = sub i64 %.0, %.0.i24
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr %"struct.LabelStack::_StackItem", ptr %46, i64 %44
+  %.idx.i = mul i64 %44, 56
+  %47 = getelementptr i8, ptr %46, i64 %.idx.i
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -2597,7 +2598,6 @@ _ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE14freeSpaceAtEndEv.exit: ; pr
   br i1 %49, label %_ZN9QtPrivate20q_relocate_overlap_nIN10LabelStack10_StackItemExEEvPT_T0_S4_.exit.i, label %50
 
 50:                                               ; preds = %42
-  %.idx.i = mul i64 %44, 56
   %51 = icmp eq i64 %.idx.i, 0
   %52 = icmp eq ptr %46, null
   %or.cond.i.i = or i1 %52, %51

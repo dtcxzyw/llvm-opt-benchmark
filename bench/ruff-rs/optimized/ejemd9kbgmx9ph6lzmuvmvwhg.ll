@@ -689,7 +689,8 @@ define void @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$23lookup_cu
   br i1 %21, label %"_ZN4core3ptr574drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$$GT$17h0befdb39f3e7c4d9E.exit", label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %12
-  %22 = getelementptr inbounds nuw { i64, i8, [7 x i8] }, ptr %18, i64 %20
+  %.idx = shl nuw nsw i64 %20, 4
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load i64, ptr %23, align 8
   br label %.lr.ph.i
@@ -3511,7 +3512,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h16450c8597db0f33E.exit: ; preds
   call void @llvm.assume(i1 %24)
   %25 = icmp ult i64 %.sroa.9.0.copyload, 29562089861714026
   call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds nuw { { i64, [23 x i64] }, { i64, [5 x i64] }, { [2 x i32], i32, [5 x i32] }, { ptr, [3 x i64] }, i8, [7 x i8] }, ptr %.sroa.6.0.copyload, i64 %.sroa.9.0.copyload
+  %.idx = mul nuw nsw i64 %.sroa.9.0.copyload, 312
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.copyload, i64 %.idx
   %27 = icmp sgt i64 %.sroa.0.0.copyload, -1
   call void @llvm.assume(i1 %27)
   store ptr %.sroa.6.0.copyload, ptr %9, align 8, !alias.scope !413, !noalias !416

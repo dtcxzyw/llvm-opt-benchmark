@@ -280,7 +280,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117X86FixupSetCCPass20runOnM
   %.pre = load ptr, ptr %6, align 8, !tbaa !153
   %.pre158 = load i32, ptr %22, align 8, !tbaa !154
   %37 = zext i32 %.pre158 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %37
+  %.idx = shl nuw nsw i64 %37, 3
+  %38 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
   %.not150 = icmp eq i32 %.pre158, 0
   br i1 %.not150, label %._crit_edge154, label %.lr.ph153
 
@@ -517,8 +518,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit76:                 ; preds = %128
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit78.sink.split
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit78.sink.split: ; preds = %128, %132
-  %.sink175 = phi ptr [ %10, %132 ], [ %9, %128 ]
-  store ptr null, ptr %.sink175, align 8, !tbaa !318
+  %.sink176 = phi ptr [ %10, %132 ], [ %9, %128 ]
+  store ptr null, ptr %.sink176, align 8, !tbaa !318
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit78
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit78: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit78.sink.split, %_ZN4llvm8DebugLocC2ERKS0_.exit76
@@ -585,8 +586,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit87:                 ; preds = %149
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit89.sink.split
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit89.sink.split: ; preds = %149, %155
-  %.sink176 = phi ptr [ %12, %155 ], [ %11, %149 ]
-  store ptr null, ptr %.sink176, align 8, !tbaa !318
+  %.sink177 = phi ptr [ %12, %155 ], [ %11, %149 ]
+  store ptr null, ptr %.sink177, align 8, !tbaa !318
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit89
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit89: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit89.sink.split, %_ZN4llvm8DebugLocC2ERKS0_.exit87
@@ -724,9 +725,9 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   br label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit: ; preds = %2, %._crit_edge154, %201
-  %.0.lcssa162172 = phi i1 [ %.1.lcssa, %._crit_edge154 ], [ %.1.lcssa, %201 ], [ false, %2 ]
+  %.0.lcssa163173 = phi i1 [ %.1.lcssa, %._crit_edge154 ], [ %.1.lcssa, %201 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #12
-  ret i1 %.0.lcssa162172
+  ret i1 %.0.lcssa163173
 
 .lr.ph153:                                        ; preds = %._crit_edge148, %.lr.ph153
   %.059151 = phi ptr [ %203, %.lr.ph153 ], [ %.pre, %._crit_edge148 ]

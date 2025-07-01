@@ -5158,7 +5158,8 @@ decode_coeffs.exit.i:                             ; preds = %1540, %1526, %.crit
   %1570 = getelementptr inbounds nuw i8, ptr %1560, i64 2
   %1571 = getelementptr inbounds nuw i8, ptr %1560, i64 296
   %1572 = getelementptr inbounds nuw i8, ptr %1560, i64 32
-  %1573 = getelementptr inbounds nuw float, ptr %4, i64 %1565
+  %.idx120.i.i = shl nuw nsw i64 %1565, 2
+  %1573 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx120.i.i
   %.not118.i.i = icmp eq i8 %.fr.i, 0
   br i1 %.not118.i.i, label %.lr.ph.i375.split.us.i, label %.lr.ph.i375.split.i
 

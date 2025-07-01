@@ -12857,13 +12857,13 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   store ptr %371, ptr %27, align 8, !tbaa !191
   %372 = getelementptr inbounds nuw i32, ptr %371, i64 %366
   store ptr %372, ptr %330, align 8, !tbaa !193
-  %373 = ashr exact i64 %365, 3
-  %374 = and i64 %373, -4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %371, i8 0, i64 %374, i1 false), !tbaa !194
+  %373 = and i64 %370, -4
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %371, i8 0, i64 %373, i1 false), !tbaa !194
+  %374 = getelementptr inbounds nuw i8, ptr %371, i64 %370
   br label %.loopexit612
 
 .loopexit612:                                     ; preds = %.noexc263, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ], [ %372, %.noexc263 ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ], [ %374, %.noexc263 ]
   store ptr %.0.i.i.i.i.i.i.i, ptr %331, align 8, !tbaa !192
   %375 = getelementptr inbounds nuw i8, ptr %360, i64 288
   %376 = invoke noundef zeroext i1 @_ZN22cmCTestMemCheckHandler21ProcessMemCheckOutputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_RSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(4736) %0, ptr noundef nonnull align 8 dereferenceable(32) %375, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(24) %27)

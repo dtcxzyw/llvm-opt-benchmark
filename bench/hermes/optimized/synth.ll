@@ -165,7 +165,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::cl::parser<hermes::vm::ReleaseUnused>::OptionInfo" = type { %"class.llvh::cl::generic_parser_base::GenericOptionInfo", %"struct.llvh::cl::OptionValue.98" }
 %struct._Guard = type { ptr }
 %struct._Guard.152 = type { ptr }
-%"struct.llvh::cl::OptionEnumValue" = type { %"class.llvh::StringRef", i32, %"class.llvh::StringRef" }
 %"class.std::unique_ptr.154" = type { %"struct.std::__uniq_ptr_data.155" }
 %"struct.std::__uniq_ptr_data.155" = type { %"class.std::__uniq_ptr_impl.156" }
 %"class.std::__uniq_ptr_impl.156" = type { %"class.std::tuple.157" }
@@ -203,6 +202,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::cl::initializer.44" = type { ptr }
 %"struct.llvh::cl::initializer.22" = type { ptr }
 %"struct.llvh::cl::initializer" = type { ptr }
+%"struct.llvh::cl::OptionEnumValue" = type { %"class.llvh::StringRef", i32, %"class.llvh::StringRef" }
 
 $_ZN4llvh2cl3optIdLb0ENS0_6parserIdEEEC2IJA20_cNS0_4descENS0_3catENS0_11initializerIdEENS0_12OptionHiddenEEEEDpRKT_ = comdat any
 
@@ -7491,7 +7491,8 @@ entry:
   %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %Ms3, i64 8
   %4 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i.i.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::cl::OptionEnumValue", ptr %3, i64 %conv.i.i.i.i.i.i
+  %add.ptr.i.idx.i.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i.i.i, 40
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %add.ptr.i.idx.i.i.i.i.i
   %cmp.not5.i.i.i.i.i = icmp eq i32 %4, 0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZN4llvh2cl5applyINS0_3optIN8facebook6hermes7tracing16TraceInterpreter14ExecuteOptions12MarkerActionELb0ENS0_6parserIS8_EEEENS0_4descEJNS0_11initializerIS8_EENS0_11ValuesClassEEEEvPT_RKT0_DpRKT1_.exit, label %for.body.lr.ph.i.i.i.i.i
 
@@ -7602,7 +7603,8 @@ _ZN4llvh11safe_mallocEm.exit:                     ; preds = %if.end, %if.then.i
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %Size.i, align 8
   %conv.i5 = zext i32 %2 to i64
-  %add.ptr.i30 = getelementptr inbounds nuw %"class.llvh::cl::parser<facebook::hermes::tracing::TraceInterpreter::ExecuteOptions::MarkerAction>::OptionInfo", ptr %1, i64 %conv.i5
+  %add.ptr.i30.idx = mul nuw nsw i64 %conv.i5, 48
+  %add.ptr.i30 = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i30.idx
   %cmp.i.i.not7.i.i.i.i = icmp eq i32 %2, 0
   br i1 %cmp.i.i.not7.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_2cl6parserIN8facebook6hermes7tracing16TraceInterpreter14ExecuteOptions12MarkerActionEE10OptionInfoELb0EE18uninitialized_moveIPSA_SD_EEvT_SE_T0_.exit, label %for.body.i.i.i.i
 
@@ -7760,7 +7762,8 @@ entry:
   %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %Ms3, i64 8
   %4 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i.i.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::cl::OptionEnumValue", ptr %3, i64 %conv.i.i.i.i.i.i
+  %add.ptr.i.idx.i.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i.i.i, 40
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %add.ptr.i.idx.i.i.i.i.i
   %cmp.not5.i.i.i.i.i = icmp eq i32 %4, 0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZN4llvh2cl5applyINS0_3optIN6hermes2vm13ReleaseUnusedELb0ENS0_6parserIS5_EEEENS0_4descEJNS0_11initializerIS5_EENS0_11ValuesClassEEEEvPT_RKT0_DpRKT1_.exit, label %for.body.lr.ph.i.i.i.i.i
 
@@ -7869,7 +7872,8 @@ _ZN4llvh11safe_mallocEm.exit:                     ; preds = %if.end, %if.then.i
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %Size.i, align 8
   %conv.i5 = zext i32 %2 to i64
-  %add.ptr.i30 = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::vm::ReleaseUnused>::OptionInfo", ptr %1, i64 %conv.i5
+  %add.ptr.i30.idx = mul nuw nsw i64 %conv.i5, 48
+  %add.ptr.i30 = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i30.idx
   %cmp.i.i.not7.i.i.i.i = icmp eq i32 %2, 0
   br i1 %cmp.i.i.not7.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_2cl6parserIN6hermes2vm13ReleaseUnusedEE10OptionInfoELb0EE18uninitialized_moveIPS7_SA_EEvT_SB_T0_.exit, label %for.body.i.i.i.i
 

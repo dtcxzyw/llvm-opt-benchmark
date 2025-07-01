@@ -2344,7 +2344,8 @@ _ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit.i: ; preds = %.
   store i64 %550, ptr %71, align 8, !noalias !99
   %.sroa.0498.0.copyload.i = load i64, ptr %92, align 8, !noalias !99
   %.sroa.4499.0.copyload.i = load ptr, ptr %.sroa.627.0..sroa_idx28.i, align 8, !noalias !99, !nonnull !3, !noundef !3
-  %574 = getelementptr inbounds nuw ptr, ptr %.sroa.4499.0.copyload.i, i64 %550
+  %.idx.i = shl nuw nsw i64 %550, 3
+  %574 = getelementptr inbounds nuw i8, ptr %.sroa.4499.0.copyload.i, i64 %.idx.i
   %575 = icmp sgt i64 %.sroa.0498.0.copyload.i, -1
   call void @llvm.assume(i1 %575)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %70), !noalias !99
@@ -4854,7 +4855,8 @@ _ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit.i: ; preds = %.
   store i64 %549, ptr %71, align 8, !noalias !151
   %.sroa.0496.0.copyload.i = load i64, ptr %92, align 8, !noalias !151
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.627.0..sroa_idx28.i, align 8, !noalias !151, !nonnull !3, !noundef !3
-  %573 = getelementptr inbounds nuw ptr, ptr %.sroa.4.0.copyload.i, i64 %549
+  %.idx.i = shl nuw nsw i64 %549, 3
+  %573 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx.i
   %574 = icmp sgt i64 %.sroa.0496.0.copyload.i, -1
   call void @llvm.assume(i1 %574)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %70), !noalias !151

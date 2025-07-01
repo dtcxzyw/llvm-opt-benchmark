@@ -1830,7 +1830,8 @@ common.resume:                                    ; preds = %269, %206, %210, %2
   %229 = load ptr, ptr %228, align 8, !nonnull !18, !noundef !18
   %230 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %231 = load i64, ptr %230, align 8, !noundef !18
-  %232 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i16, i8, i8, i8, i8, i8, [1 x i8] }, i64, i64, i64, i64, { { i64 } }, { i16, [1 x i16] }, i32, i32, { [1 x i8], i8 }, i8, i8, i8, i8, i8, [5 x i8] }, ptr %229, i64 %231
+  %.idx = mul nuw nsw i64 %231, 176
+  %232 = getelementptr inbounds nuw i8, ptr %229, i64 %.idx
   %233 = icmp eq i64 %231, 0
   br i1 %233, label %._crit_edge, label %.lr.ph.preheader
 
@@ -2568,7 +2569,8 @@ common.resume:                                    ; preds = %266, %204, %205, %2
   %226 = load ptr, ptr %225, align 8, !nonnull !18, !noundef !18
   %227 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %228 = load i64, ptr %227, align 8, !noundef !18
-  %229 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i16, i8, i8, i8, i8, i8, [1 x i8] }, i64, i64, i64, i64, { { i64 } }, { i16, [1 x i16] }, i32, i32, { [1 x i8], i8 }, i8, i8, i8, i8, i8, [5 x i8] }, ptr %226, i64 %228
+  %.idx = mul nuw nsw i64 %228, 176
+  %229 = getelementptr inbounds nuw i8, ptr %226, i64 %.idx
   %230 = icmp eq i64 %228, 0
   br i1 %230, label %._crit_edge, label %.lr.ph.preheader
 

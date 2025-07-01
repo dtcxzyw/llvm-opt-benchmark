@@ -117,7 +117,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.315" = type { %"struct.std::_Head_base.316" }
 %"struct.std::_Head_base.316" = type { i16 }
 %"class.llvm::DataExtractor::Cursor" = type { i64, %"class.llvm::Error" }
-%"struct.(anonymous namespace)::ContentDescriptor" = type { i32, i16 }
 %"class.llvm::DataExtractor" = type <{ %"class.llvm::StringRef", i8, i8, [6 x i8] }>
 %"class.llvm::format_object.55" = type { %"class.llvm::format_object_base", %"class.std::tuple.56" }
 %"class.std::tuple.56" = type { %"struct.std::_Tuple_impl.57" }
@@ -225,6 +224,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.240" = type { %"class.llvm::SmallVectorBase.241" }
 %"class.llvm::SmallVectorBase.241" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.242" = type { [32 x i8] }
+%"struct.(anonymous namespace)::ContentDescriptor" = type { i32, i16 }
 
 $_ZN4llvm17createStringErrorIJmPKcmhEEENS_5ErrorESt10error_codeS2_DpRKT_ = comdat any
 
@@ -2632,7 +2632,7 @@ _ZN4llvm5ErrorD2Ev.exit45:                        ; preds = %_ZNSt7__cxx1112basi
   %359 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %.val97.i = load i8, ptr %359, align 8, !noalias !260
   %360 = trunc i8 %.val97.i to i1
-  br i1 %360, label %.thread232.i, label %361
+  br i1 %360, label %.thread233.i, label %361
 
 361:                                              ; preds = %358
   %362 = call noundef i64 @_ZNK4llvm13DataExtractor10getULEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull %3, ptr noundef null) #26, !noalias !260
@@ -2658,7 +2658,8 @@ _ZN4llvm5ErrorD2Ev.exit45:                        ; preds = %_ZNSt7__cxx1112basi
   %.069202.i = phi i64 [ %427, %.lr.ph203.i.splitthread-pre-split ], [ 0, %.lr.ph203.i ]
   %.val.i = load ptr, ptr %43, align 8, !tbaa !265, !noalias !260
   %370 = zext i32 %.val94.i to i64
-  %371 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ContentDescriptor", ptr %.val.i, i64 %370
+  %.idx.i = shl nuw nsw i64 %370, 3
+  %371 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i
   %.not73199.i = icmp eq i32 %.val94.i, 0
   br i1 %.not73199.i, label %.critedge80.i, label %.lr.ph.i
 
@@ -2885,7 +2886,8 @@ _ZNSt6vectorIN4llvm14DWARFFormValueESaIS1_EE9push_backERKS1_.exit.i: ; preds = %
   %.val92.i = load ptr, ptr %45, align 8, !tbaa !265, !noalias !260
   %.val96.i = load i32, ptr %433, align 8, !tbaa !263, !noalias !260
   %441 = zext i32 %.val96.i to i64
-  %442 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ContentDescriptor", ptr %.val92.i, i64 %441
+  %.idx223.i = shl nuw nsw i64 %441, 3
+  %442 = getelementptr inbounds nuw i8, ptr %.val92.i, i64 %.idx223.i
   %.not75204.i = icmp eq i32 %.val96.i, 0
   br i1 %.not75204.i, label %.critedge91.i, label %.lr.ph213.i
 
@@ -3224,9 +3226,9 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZNSt6vectorIN4llvm
 520:                                              ; preds = %515
   %521 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %522 = icmp eq ptr %.pr.i, %521
-  br i1 %522, label %_ZN4llvm8ExpectedINS_11SmallVectorIN12_GLOBAL__N_117ContentDescriptorELj4EEEED2Ev.exit.i, label %.thread235.i
+  br i1 %522, label %_ZN4llvm8ExpectedINS_11SmallVectorIN12_GLOBAL__N_117ContentDescriptorELj4EEEED2Ev.exit.i, label %.thread236.i
 
-.thread235.i:                                     ; preds = %520
+.thread236.i:                                     ; preds = %520
   call void @free(ptr noundef %.pr.i) #26
   br label %_ZN4llvm8ExpectedINS_11SmallVectorIN12_GLOBAL__N_117ContentDescriptorELj4EEEED2Ev.exit.i
 
@@ -3241,17 +3243,17 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i: ; preds = %523
   call void %526(ptr noundef nonnull align 8 dereferenceable(8) %.pr.i) #26
   br label %_ZN4llvm8ExpectedINS_11SmallVectorIN12_GLOBAL__N_117ContentDescriptorELj4EEEED2Ev.exit.i
 
-_ZN4llvm8ExpectedINS_11SmallVectorIN12_GLOBAL__N_117ContentDescriptorELj4EEEED2Ev.exit.i: ; preds = %.thread.i, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i, %523, %.thread235.i, %520
+_ZN4llvm8ExpectedINS_11SmallVectorIN12_GLOBAL__N_117ContentDescriptorELj4EEEED2Ev.exit.i: ; preds = %.thread.i, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i, %523, %.thread236.i, %520
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %45) #26, !noalias !260
   br label %527
 
 527:                                              ; preds = %_ZN4llvm8ExpectedINS_11SmallVectorIN12_GLOBAL__N_117ContentDescriptorELj4EEEED2Ev.exit.i, %428
-  %.pr231.i = load ptr, ptr %43, align 8, !tbaa !313, !noalias !260
+  %.pr232.i = load ptr, ptr %43, align 8, !tbaa !313, !noalias !260
   %528 = load i8, ptr %359, align 8, !noalias !260
   %529 = trunc i8 %528 to i1
   br i1 %529, label %535, label %532
 
-.thread232.i:                                     ; preds = %358
+.thread233.i:                                     ; preds = %358
   call void @llvm.experimental.noalias.scope.decl(metadata !318)
   %530 = load i64, ptr %43, align 8, !tbaa !157, !noalias !321
   %531 = inttoptr i64 %530 to ptr
@@ -3260,25 +3262,25 @@ _ZN4llvm8ExpectedINS_11SmallVectorIN12_GLOBAL__N_117ContentDescriptorELj4EEEED2E
 
 532:                                              ; preds = %527
   %533 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %534 = icmp eq ptr %.pr231.i, %533
-  br i1 %534, label %_ZL20parseV5DirFileTablesRKN4llvm18DWARFDataExtractorEPmRKNS_5dwarf10FormParamsERKNS_12DWARFContextEPKNS_9DWARFUnitERNS_14DWARFDebugLine18ContentTypeTrackerERSt6vectorINS_14DWARFFormValueESaISI_EERSH_INSE_13FileNameEntryESaISM_EE.exit, label %.thread236.i
+  %534 = icmp eq ptr %.pr232.i, %533
+  br i1 %534, label %_ZL20parseV5DirFileTablesRKN4llvm18DWARFDataExtractorEPmRKNS_5dwarf10FormParamsERKNS_12DWARFContextEPKNS_9DWARFUnitERNS_14DWARFDebugLine18ContentTypeTrackerERSt6vectorINS_14DWARFFormValueESaISI_EERSH_INSE_13FileNameEntryESaISM_EE.exit, label %.thread237.i
 
-.thread236.i:                                     ; preds = %532
-  call void @free(ptr noundef %.pr231.i) #26
+.thread237.i:                                     ; preds = %532
+  call void @free(ptr noundef %.pr232.i) #26
   br label %_ZL20parseV5DirFileTablesRKN4llvm18DWARFDataExtractorEPmRKNS_5dwarf10FormParamsERKNS_12DWARFContextEPKNS_9DWARFUnitERNS_14DWARFDebugLine18ContentTypeTrackerERSt6vectorINS_14DWARFFormValueESaISI_EERSH_INSE_13FileNameEntryESaISM_EE.exit
 
 535:                                              ; preds = %527
-  %.not.i.i131.i = icmp eq ptr %.pr231.i, null
+  %.not.i.i131.i = icmp eq ptr %.pr232.i, null
   br i1 %.not.i.i131.i, label %_ZL20parseV5DirFileTablesRKN4llvm18DWARFDataExtractorEPmRKNS_5dwarf10FormParamsERKNS_12DWARFContextEPKNS_9DWARFUnitERNS_14DWARFDebugLine18ContentTypeTrackerERSt6vectorINS_14DWARFFormValueESaISI_EERSH_INSE_13FileNameEntryESaISM_EE.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i132.i
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i132.i: ; preds = %535
-  %536 = load ptr, ptr %.pr231.i, align 8, !tbaa !52
+  %536 = load ptr, ptr %.pr232.i, align 8, !tbaa !52
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 8
   %538 = load ptr, ptr %537, align 8
-  call void %538(ptr noundef nonnull align 8 dereferenceable(8) %.pr231.i) #26
+  call void %538(ptr noundef nonnull align 8 dereferenceable(8) %.pr232.i) #26
   br label %_ZL20parseV5DirFileTablesRKN4llvm18DWARFDataExtractorEPmRKNS_5dwarf10FormParamsERKNS_12DWARFContextEPKNS_9DWARFUnitERNS_14DWARFDebugLine18ContentTypeTrackerERSt6vectorINS_14DWARFFormValueESaISI_EERSH_INSE_13FileNameEntryESaISM_EE.exit
 
-_ZL20parseV5DirFileTablesRKN4llvm18DWARFDataExtractorEPmRKNS_5dwarf10FormParamsERKNS_12DWARFContextEPKNS_9DWARFUnitERNS_14DWARFDebugLine18ContentTypeTrackerERSt6vectorINS_14DWARFFormValueESaISI_EERSH_INSE_13FileNameEntryESaISM_EE.exit: ; preds = %.thread232.i, %532, %.thread236.i, %535, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i132.i
+_ZL20parseV5DirFileTablesRKN4llvm18DWARFDataExtractorEPmRKNS_5dwarf10FormParamsERKNS_12DWARFContextEPKNS_9DWARFUnitERNS_14DWARFDebugLine18ContentTypeTrackerERSt6vectorINS_14DWARFFormValueESaISI_EERSH_INSE_13FileNameEntryESaISM_EE.exit: ; preds = %.thread233.i, %532, %.thread237.i, %535, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i132.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %43) #26, !noalias !260
   br label %_ZL20parseV2DirFileTablesRKN4llvm18DWARFDataExtractorEPmRNS_14DWARFDebugLine18ContentTypeTrackerERSt6vectorINS_14DWARFFormValueESaIS8_EERS7_INS4_13FileNameEntryESaISC_EE.exit
 

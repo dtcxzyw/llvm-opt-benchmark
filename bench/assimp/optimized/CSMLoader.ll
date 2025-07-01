@@ -41,7 +41,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%struct.aiMeshMorphKey = type <{ double, ptr, ptr, i32, [4 x i8] }>
 
 $_ZN17DeadlyImportErrorC2IJRA25_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA2_S1_EEEDpOT_ = comdat any
 
@@ -3162,27 +3161,27 @@ _ZN10aiMeshAnimD2Ev.exit:                         ; preds = %45, %49
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %57 = load i32, ptr %56, align 8
   %.not20 = icmp eq i32 %57, 0
-  br i1 %.not20, label %98, label %58
+  br i1 %.not20, label %97, label %58
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %60 = load ptr, ptr %59, align 8
   %.not21 = icmp eq ptr %60, null
-  br i1 %.not21, label %98, label %.lr.ph29
+  br i1 %.not21, label %97, label %.lr.ph29
 
-._crit_edge30:                                    ; preds = %93
+._crit_edge30:                                    ; preds = %92
   %.pre45 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %.pre45, null
-  br i1 %61, label %98, label %97
+  br i1 %61, label %97, label %96
 
-.lr.ph29:                                         ; preds = %58, %93
-  %62 = phi i32 [ %94, %93 ], [ %57, %58 ]
-  %indvars.iv38 = phi i64 [ %indvars.iv.next39, %93 ], [ 0, %58 ]
+.lr.ph29:                                         ; preds = %58, %92
+  %62 = phi i32 [ %93, %92 ], [ %57, %58 ]
+  %indvars.iv38 = phi i64 [ %indvars.iv.next39, %92 ], [ 0, %58 ]
   %63 = load ptr, ptr %59, align 8
   %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv38
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %93, label %67
+  br i1 %66, label %92, label %67
 
 67:                                               ; preds = %.lr.ph29
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 1032
@@ -3193,11 +3192,12 @@ _ZN10aiMeshAnimD2Ev.exit:                         ; preds = %45, %49
 71:                                               ; preds = %67
   %72 = getelementptr inbounds i8, ptr %69, i64 -8
   %73 = load i64, ptr %72, align 8
+  %.idx.i = shl i64 %73, 5
   %74 = icmp eq i64 %73, 0
   br i1 %74, label %.loopexit.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %71
-  %75 = getelementptr inbounds %struct.aiMeshMorphKey, ptr %69, i64 %73
+  %75 = getelementptr inbounds i8, ptr %69, i64 %.idx.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN14aiMeshMorphKeyD2Ev.exit.i, %.preheader.preheader.i
@@ -3235,28 +3235,27 @@ _ZN14aiMeshMorphKeyD2Ev.exit.i:                   ; preds = %89, %86, %83, %80, 
   br i1 %90, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %_ZN14aiMeshMorphKeyD2Ev.exit.i, %71
-  %91 = shl i64 %73, 5
-  %92 = or disjoint i64 %91, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %72, i64 noundef %92) #22
+  %91 = or disjoint i64 %.idx.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %72, i64 noundef %91) #22
   br label %_ZN15aiMeshMorphAnimD2Ev.exit
 
 _ZN15aiMeshMorphAnimD2Ev.exit:                    ; preds = %67, %.loopexit.i
   tail call void @_ZdlPvm(ptr noundef %65, i64 noundef 1040) #22
   %.pre44 = load i32, ptr %56, align 8
-  br label %93
+  br label %92
 
-93:                                               ; preds = %.lr.ph29, %_ZN15aiMeshMorphAnimD2Ev.exit
-  %94 = phi i32 [ %62, %.lr.ph29 ], [ %.pre44, %_ZN15aiMeshMorphAnimD2Ev.exit ]
+92:                                               ; preds = %.lr.ph29, %_ZN15aiMeshMorphAnimD2Ev.exit
+  %93 = phi i32 [ %62, %.lr.ph29 ], [ %.pre44, %_ZN15aiMeshMorphAnimD2Ev.exit ]
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %95 = zext i32 %94 to i64
-  %96 = icmp samesign ult i64 %indvars.iv.next39, %95
-  br i1 %96, label %.lr.ph29, label %._crit_edge30, !llvm.loop !44
+  %94 = zext i32 %93 to i64
+  %95 = icmp samesign ult i64 %indvars.iv.next39, %94
+  br i1 %95, label %.lr.ph29, label %._crit_edge30, !llvm.loop !44
 
-97:                                               ; preds = %._crit_edge30
+96:                                               ; preds = %._crit_edge30
   tail call void @_ZdaPv(ptr noundef nonnull %.pre45) #22
-  br label %98
+  br label %97
 
-98:                                               ; preds = %._crit_edge30, %97, %58, %55
+97:                                               ; preds = %._crit_edge30, %96, %58, %55
   ret void
 }
 

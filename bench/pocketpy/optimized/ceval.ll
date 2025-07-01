@@ -467,7 +467,8 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit:    ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = zext nneg i32 %20 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %.idx = shl nuw nsw i64 %26, 3
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx
   %.not3545 = icmp eq i32 %20, 0
   br i1 %.not3545, label %.loopexit44, label %.lr.ph
 
@@ -1355,7 +1356,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
           catch ptr @_ZTIN4pkpy19ToBeRaisedExceptionE
   br label %.body
 
-.loopexit.split-lp4961.loopexit.split-lp.loopexit: ; preds = %.invoke5658, %.invoke5657, %.loopexit4965.invoke, %.invoke5656, %.invoke, %232, %241, %252, %264, %282, %288, %307, %320, %330, %340, %350, %361, %371, %380, %654, %663, %670, %682, %683, %689, %700, %701, %712, %764, %817, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4144.thread, %824, %825, %836, %888, %941, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4164.thread, %948, %1000, %1053, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4184.thread, %1060, %1061, %1074, %1099, %1110, %1162, %1215, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4204.thread, %1222, %1223, %1239, %1255, %1276, %1283, %1300, %1321, %1337, %1358, %1371, %1377, %1390, %1401, %1402, %1415, %1416, %1430, %1448, %1467, %1474, %1493, %1512, %1519, %1531, %1534, %1544, %1550, %1562, %1563, %1569, %1577, %1578, %1588, %1604, %1621, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4234.thread, %1684, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4245.thread, %1749, %1764, %1788, %1794, %1811, %1814, %1833, %1841, %1852, %1855, %1884, %1889, %1919, %1942, %1971, %2002, %2037, %2067, %2111, %2133, %2137, %2159, %2166, %2182, %2186, %2208, %2215, %2249, %2257, %2261, %2283, %2297, %2304, %2311, %2345, %2353, %2357, %2379, %2393, %2400, %2407, %2441, %2449, %2453, %2475, %2489, %2496, %2503, %2543, %2551, %2555, %2577, %2584, %2624, %2632, %2636, %2658, %2665, %2690, %2691, %2703, %2727, %2728, %2740, %2741, %2758, %2776, %2801, %2802, %2814, %2838, %2839, %2851, %2885, %2893, %2897, %2919, %2926, %2960, %2968, %2972, %2994, %3001, %3032, %3040, %3044, %3066, %3073, %3104, %3112, %3116, %3138, %3145, %3177, %3185, %3189, %3211, %3218, %3234, %3238, %3260, %3267, %3283, %3297, %3327, %3334, %3352, %3353, %3369, %3370, %3386, %3387, %3404, %3405, %3422, %3423, %3445, %3452, %3453, %3461, %_ZNK4pkpy12NameDictImplIiE20try_get_likely_foundENS_7StrNameE.exit.thread, %3506, %3514, %3790, %3792, %3807, %3813, %3814, %3832, %3836, %3920, %3971, %3972, %3990, %4012, %4013, %4026, %4038, %4051, %4067, %4081, %4099, %4100, %4113, %4114, %4143, %4144, %4174, %4175, %4196, %4205, %4206, %4236, %4250, %4267, %4290, %4306, %4318, %4570, %4571, %4578, %4652, %_ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit, %4683, %4708, %4725, %4732, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread, %4778, %4788, %4798, %4862, %4882, %4902, %_ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit4625, %4931, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit4628.thread, %4952, %4957, %4967, %4969, %4986, %4987, %4994, %5004, %5023, %5035, %5071, %5093, %5100, %5122, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit, %5188, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4672, %5254, %1257, %.noexc, %1302, %.noexc4207, %1339, %.noexc4211, %1449, %.noexc4215, %1494, %.noexc4218, %1605, %.noexc4222, %1666, %1729, %1761, %1865, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4273, %_ZNK4pkpy8PyObject4attrENS_7StrNameE.exit, %1924, %2141, %2190, %2238, %2265, %2286, %2334, %2361, %2382, %2430, %2457, %2478, %2519, %.noexc4347, %2532, %2559, %2600, %.noexc4356, %2613, %2640, %2759, %2874, %2901, %2949, %2976, %3021, %3048, %3093, %3120, %3166, %3193, %3242, %3301, %.noexc4430, %3313, %3527, %3991, %.noexc4501, %4052, %4083, %.noexc4508, %4122, %4152, %4183, %4214, %4272, %.noexc4522, %4303, %4365, %4671, %_ZNKSt6vectorIN4pkpy7StrNameESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %4863, %.noexc4616, %4883, %.noexc4619, %4913, %4942, %4979, %.noexc4634, %5020, %5075, %5084, %5104, %5113, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit.thread, %5179, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4672.thread, %5245
+.loopexit.split-lp4961.loopexit.split-lp.loopexit: ; preds = %.invoke5662, %.invoke5661, %.loopexit4965.invoke, %.invoke5660, %.invoke, %232, %241, %252, %264, %282, %288, %307, %320, %330, %340, %350, %361, %371, %380, %654, %663, %670, %682, %683, %689, %700, %701, %712, %764, %817, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4144.thread, %824, %825, %836, %888, %941, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4164.thread, %948, %1000, %1053, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4184.thread, %1060, %1061, %1074, %1099, %1110, %1162, %1215, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4204.thread, %1222, %1223, %1239, %1255, %1276, %1283, %1300, %1321, %1337, %1358, %1371, %1377, %1390, %1401, %1402, %1415, %1416, %1430, %1448, %1467, %1474, %1493, %1512, %1519, %1531, %1534, %1544, %1550, %1562, %1563, %1569, %1577, %1578, %1588, %1604, %1621, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4234.thread, %1684, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4245.thread, %1749, %1764, %1788, %1794, %1811, %1814, %1833, %1841, %1852, %1855, %1884, %1889, %1919, %1942, %1971, %2002, %2037, %2067, %2111, %2133, %2137, %2159, %2166, %2182, %2186, %2208, %2215, %2249, %2257, %2261, %2283, %2297, %2304, %2311, %2345, %2353, %2357, %2379, %2393, %2400, %2407, %2441, %2449, %2453, %2475, %2489, %2496, %2503, %2543, %2551, %2555, %2577, %2584, %2624, %2632, %2636, %2658, %2665, %2690, %2691, %2703, %2727, %2728, %2740, %2741, %2758, %2776, %2801, %2802, %2814, %2838, %2839, %2851, %2885, %2893, %2897, %2919, %2926, %2960, %2968, %2972, %2994, %3001, %3032, %3040, %3044, %3066, %3073, %3104, %3112, %3116, %3138, %3145, %3177, %3185, %3189, %3211, %3218, %3234, %3238, %3260, %3267, %3283, %3297, %3327, %3334, %3352, %3353, %3369, %3370, %3386, %3387, %3404, %3405, %3422, %3423, %3445, %3452, %3453, %3461, %_ZNK4pkpy12NameDictImplIiE20try_get_likely_foundENS_7StrNameE.exit.thread, %3506, %3514, %3790, %3792, %3807, %3813, %3814, %3832, %3836, %3920, %3971, %3972, %3990, %4012, %4013, %4026, %4038, %4051, %4067, %4081, %4099, %4100, %4113, %4114, %4143, %4144, %4174, %4175, %4196, %4205, %4206, %4236, %4250, %4267, %4290, %4306, %4318, %4570, %4571, %4578, %4652, %_ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit, %4683, %4708, %4725, %4732, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread, %4778, %4788, %4798, %4862, %4882, %4902, %_ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit4625, %4931, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit4628.thread, %4952, %4957, %4967, %4969, %4986, %4987, %4994, %5004, %5023, %5035, %5071, %5093, %5100, %5122, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit, %5188, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4672, %5254, %1257, %.noexc, %1302, %.noexc4207, %1339, %.noexc4211, %1449, %.noexc4215, %1494, %.noexc4218, %1605, %.noexc4222, %1666, %1729, %1761, %1865, %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit4273, %_ZNK4pkpy8PyObject4attrENS_7StrNameE.exit, %1924, %2141, %2190, %2238, %2265, %2286, %2334, %2361, %2382, %2430, %2457, %2478, %2519, %.noexc4347, %2532, %2559, %2600, %.noexc4356, %2613, %2640, %2759, %2874, %2901, %2949, %2976, %3021, %3048, %3093, %3120, %3166, %3193, %3242, %3301, %.noexc4430, %3313, %3527, %3991, %.noexc4501, %4052, %4083, %.noexc4508, %4122, %4152, %4183, %4214, %4272, %.noexc4522, %4303, %4365, %4671, %_ZNKSt6vectorIN4pkpy7StrNameESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %4863, %.noexc4616, %4883, %.noexc4619, %4913, %4942, %4979, %.noexc4634, %5020, %5075, %5084, %5104, %5113, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit.thread, %5179, %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE22try_get_2_likely_foundENS_7StrNameE.exit4672.thread, %5245
   %lpad.loopexit4982 = landingpad { ptr, i32 }
           catch ptr @_ZTIN4pkpy16HandledExceptionE
           catch ptr @_ZTIN4pkpy18UnhandledExceptionE
@@ -1741,7 +1742,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
 293:                                              ; preds = %290
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #23
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #23
-  %.pre5461 = load ptr, ptr %131, align 8
+  %.pre5465 = load ptr, ptr %131, align 8
   br label %299
 
 294:                                              ; preds = %289
@@ -1767,7 +1768,7 @@ define noundef ptr @_ZN4pkpy2VM15__run_top_frameEv(ptr noundef nonnull align 8 d
   br label %.body
 
 299:                                              ; preds = %293, %283
-  %300 = phi ptr [ %.pre5461, %293 ], [ %284, %283 ]
+  %300 = phi ptr [ %.pre5465, %293 ], [ %284, %283 ]
   %301 = getelementptr inbounds i8, ptr %300, i64 -8
   store ptr %301, ptr %131, align 8
   %302 = load i32, ptr %206, align 4
@@ -2389,15 +2390,15 @@ _ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit4113.thread: ; preds = %540
 
 551:                                              ; preds = %545
   %552 = atomicrmw volatile add ptr %546, i32 1 acq_rel, align 4
-  %.pre5459.pre = load ptr, ptr %42, align 8
+  %.pre5463.pre = load ptr, ptr %42, align 8
   br label %_ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit4113
 
 _ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit4113: ; preds = %548, %551
-  %.pre5459 = phi ptr [ %.pre5459.pre, %551 ], [ %376, %548 ]
+  %.pre5463 = phi ptr [ %.pre5463.pre, %551 ], [ %376, %548 ]
   %.pr = load ptr, ptr %183, align 8
   %553 = load ptr, ptr %214, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
-  store ptr %.pre5459, ptr %41, align 8
+  store ptr %.pre5463, ptr %41, align 8
   store ptr %.pr, ptr %184, align 8
   %.not.i.i.i.i4114 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i4114, label %_ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit.i4116, label %554
@@ -2416,12 +2417,12 @@ _ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit4113: ; preds = %548, %551
 
 560:                                              ; preds = %554
   %561 = atomicrmw volatile add ptr %555, i32 1 acq_rel, align 4
-  %.pre5460 = load ptr, ptr %43, align 8
+  %.pre5464 = load ptr, ptr %43, align 8
   br label %_ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit.i4116
 
 _ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit.i4116: ; preds = %_ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit4113.thread, %560, %557, %_ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit4113
   %562 = phi ptr [ %553, %560 ], [ %553, %557 ], [ %553, %_ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit4113 ], [ %544, %_ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit4113.thread ]
-  %563 = phi ptr [ %.pre5460, %560 ], [ null, %557 ], [ null, %_ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit4113 ], [ null, %_ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit4113.thread ]
+  %563 = phi ptr [ %.pre5464, %560 ], [ null, %557 ], [ null, %_ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit4113 ], [ null, %_ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit4113.thread ]
   store ptr %562, ptr %185, align 8
   store ptr null, ptr %186, align 8
   store ptr %563, ptr %187, align 8
@@ -2597,23 +2598,23 @@ _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4127: ; preds 
   br label %.body
 
 _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110.sink.split.sink.split: ; preds = %513, %616
-  %.sink5729 = phi ptr [ %610, %616 ], [ %507, %513 ]
+  %.sink5733 = phi ptr [ %610, %616 ], [ %507, %513 ]
   %.03593.ph.ph = phi ptr [ %574, %616 ], [ %426, %513 ]
-  %640 = getelementptr inbounds nuw i8, ptr %.sink5729, i64 12
+  %640 = getelementptr inbounds nuw i8, ptr %.sink5733, i64 12
   store i32 0, ptr %640, align 4
-  %641 = load ptr, ptr %.sink5729, align 8
+  %641 = load ptr, ptr %.sink5733, align 8
   %642 = getelementptr inbounds nuw i8, ptr %641, i64 16
   %643 = load ptr, ptr %642, align 8
-  call void %643(ptr noundef nonnull align 8 dereferenceable(16) %.sink5729) #23
+  call void %643(ptr noundef nonnull align 8 dereferenceable(16) %.sink5733) #23
   br label %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110.sink.split
 
 _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110.sink.split: ; preds = %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110.sink.split.sink.split, %636, %533
-  %.sink5662 = phi ptr [ %507, %533 ], [ %610, %636 ], [ %.sink5729, %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110.sink.split.sink.split ]
+  %.sink5666 = phi ptr [ %507, %533 ], [ %610, %636 ], [ %.sink5733, %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110.sink.split.sink.split ]
   %.03593.ph = phi ptr [ %426, %533 ], [ %574, %636 ], [ %.03593.ph.ph, %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110.sink.split.sink.split ]
-  %644 = load ptr, ptr %.sink5662, align 8
+  %644 = load ptr, ptr %.sink5666, align 8
   %645 = getelementptr inbounds nuw i8, ptr %644, i64 24
   %646 = load ptr, ptr %645, align 8
-  call void %646(ptr noundef nonnull align 8 dereferenceable(16) %.sink5662) #23
+  call void %646(ptr noundef nonnull align 8 dereferenceable(16) %.sink5666) #23
   br label %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110
 
 _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110: ; preds = %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110.sink.split, %636, %623, %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4127, %533, %520, %506
@@ -2742,14 +2743,14 @@ _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit4110: ; preds 
 689:                                              ; preds = %686
   %690 = load ptr, ptr %129, align 8
   invoke void @_ZN4pkpy2VM17UnboundLocalErrorENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(264913) %690, i16 %.sroa.2932074.0)
-          to label %._crit_edge5457 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
+          to label %._crit_edge5461 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
-._crit_edge5457:                                  ; preds = %689
-  %.pre5458 = load ptr, ptr %684, align 8
+._crit_edge5461:                                  ; preds = %689
+  %.pre5462 = load ptr, ptr %684, align 8
   br label %691
 
-691:                                              ; preds = %._crit_edge5457, %686
-  %692 = phi ptr [ %.pre5458, %._crit_edge5457 ], [ %687, %686 ]
+691:                                              ; preds = %._crit_edge5461, %686
+  %692 = phi ptr [ %.pre5462, %._crit_edge5461 ], [ %687, %686 ]
   %693 = load ptr, ptr %131, align 8
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 8
   store ptr %694, ptr %131, align 8
@@ -4143,10 +4144,10 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   br label %1268
 
 1268:                                             ; preds = %1255, %1267
-  %.sink5663 = phi ptr [ %1266, %1267 ], [ %1256, %1255 ]
+  %.sink5667 = phi ptr [ %1266, %1267 ], [ %1256, %1255 ]
   %1269 = load ptr, ptr %131, align 8
   %1270 = getelementptr inbounds i8, ptr %1269, i64 -8
-  store ptr %.sink5663, ptr %1270, align 8
+  store ptr %.sink5667, ptr %1270, align 8
   %1271 = load i32, ptr %206, align 4
   %1272 = add nsw i32 %1271, 1
   store i32 %1272, ptr %206, align 4
@@ -4239,10 +4240,10 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   br label %1313
 
 1313:                                             ; preds = %1300, %1312
-  %.sink5666 = phi ptr [ %1311, %1312 ], [ %1301, %1300 ]
+  %.sink5670 = phi ptr [ %1311, %1312 ], [ %1301, %1300 ]
   %1314 = load ptr, ptr %131, align 8
   %1315 = getelementptr inbounds i8, ptr %1314, i64 -8
-  store ptr %.sink5666, ptr %1315, align 8
+  store ptr %.sink5670, ptr %1315, align 8
   %1316 = load i32, ptr %206, align 4
   %1317 = add nsw i32 %1316, 1
   store i32 %1317, ptr %206, align 4
@@ -4321,10 +4322,10 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   br label %1350
 
 1350:                                             ; preds = %1337, %1349
-  %.sink5669 = phi ptr [ %1348, %1349 ], [ %1338, %1337 ]
+  %.sink5673 = phi ptr [ %1348, %1349 ], [ %1338, %1337 ]
   %1351 = load ptr, ptr %131, align 8
   %1352 = getelementptr inbounds i8, ptr %1351, i64 -8
-  store ptr %.sink5669, ptr %1352, align 8
+  store ptr %.sink5673, ptr %1352, align 8
   %1353 = load i32, ptr %206, align 4
   %1354 = add nsw i32 %1353, 1
   store i32 %1354, ptr %206, align 4
@@ -4420,8 +4421,8 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit4
   br label %.invoke
 
 .invoke:                                          ; preds = %1392, %1387
-  %.in5730 = phi ptr [ %1388, %1387 ], [ %1394, %1392 ]
-  %1389 = load ptr, ptr %.in5730, align 8
+  %.in5734 = phi ptr [ %1388, %1387 ], [ %1394, %1392 ]
+  %1389 = load ptr, ptr %.in5734, align 8
   invoke void @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrNameES2_(ptr noundef nonnull align 8 dereferenceable(88) %1389, i16 %.sroa.2932074.0, ptr noundef %1375)
           to label %1395 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
@@ -4740,14 +4741,14 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4220:
   %1522 = getelementptr inbounds nuw %"struct.pkpy::StrName", ptr %1521, i64 %1515
   %.sroa.0480.0.copyload = load i16, ptr %1522, align 2
   invoke void @_ZN4pkpy2VM17UnboundLocalErrorENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(264913) %1520, i16 %.sroa.0480.0.copyload)
-          to label %._crit_edge5455 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
+          to label %._crit_edge5459 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
-._crit_edge5455:                                  ; preds = %1519
-  %.pre5456 = load ptr, ptr %215, align 8
+._crit_edge5459:                                  ; preds = %1519
+  %.pre5460 = load ptr, ptr %215, align 8
   br label %1523
 
-1523:                                             ; preds = %._crit_edge5455, %1513
-  %1524 = phi ptr [ %.pre5456, %._crit_edge5455 ], [ %1514, %1513 ]
+1523:                                             ; preds = %._crit_edge5459, %1513
+  %1524 = phi ptr [ %.pre5460, %._crit_edge5459 ], [ %1514, %1513 ]
   %1525 = getelementptr inbounds nuw ptr, ptr %1524, i64 %1515
   store ptr %130, ptr %1525, align 8
   %1526 = load i32, ptr %206, align 4
@@ -4799,7 +4800,7 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4220:
   %1541 = load ptr, ptr %1540, align 8
   %1542 = load ptr, ptr %182, align 8
   %1543 = icmp eq ptr %1541, %1542
-  br i1 %1543, label %1544, label %.invoke5656
+  br i1 %1543, label %1544, label %.invoke5660
 
 1544:                                             ; preds = %1538
   %1545 = getelementptr inbounds nuw i8, ptr %1539, i64 56
@@ -4808,9 +4809,9 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4220:
           to label %1548 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
 1548:                                             ; preds = %1544
-  br i1 %1547, label %1556, label %.invoke5656
+  br i1 %1547, label %1556, label %.invoke5660
 
-.invoke5656:                                      ; preds = %1548, %1555, %1538
+.invoke5660:                                      ; preds = %1548, %1555, %1538
   %1549 = load ptr, ptr %129, align 8
   invoke void @_ZN4pkpy2VM9NameErrorENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(264913) %1549, i16 %.sroa.2932074.0)
           to label %1556 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
@@ -4823,9 +4824,9 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectES4_EEES3_S3_NS_7StrNameEDpOT_.exit4220:
           to label %1555 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
 1555:                                             ; preds = %1550
-  br i1 %1554, label %1556, label %.invoke5656
+  br i1 %1554, label %1556, label %.invoke5660
 
-1556:                                             ; preds = %.invoke5656, %1555, %1537, %1548
+1556:                                             ; preds = %.invoke5660, %1555, %1537, %1548
   %1557 = load i32, ptr %206, align 4
   %1558 = add nsw i32 %1557, 1
   store i32 %1558, ptr %206, align 4
@@ -5808,7 +5809,8 @@ _ZN4pkpy6py_varINS_5SliceEEEPNS_8PyObjectEPNS_2VMEOT_.exit: ; preds = %1924
   br i1 %.not39965223, label %._crit_edge5227, label %.lr.ph5226.preheader
 
 .lr.ph5226.preheader:                             ; preds = %1943
-  %1948 = getelementptr inbounds ptr, ptr %1945, i64 %1947
+  %.idx5236 = shl nsw i64 %1947, 3
+  %1948 = getelementptr inbounds i8, ptr %1945, i64 %.idx5236
   br label %.lr.ph5226
 
 .lr.ph5226:                                       ; preds = %.lr.ph5226.preheader, %1952
@@ -5853,11 +5855,11 @@ _ZN4pkpy6py_varINS_5SliceEEEPNS_8PyObjectEPNS_2VMEOT_.exit: ; preds = %1924
   br label %1974
 
 ._crit_edge5227.loopexit:                         ; preds = %1952
-  %.pre5454 = load ptr, ptr %131, align 8
+  %.pre5458 = load ptr, ptr %131, align 8
   br label %._crit_edge5227
 
 ._crit_edge5227:                                  ; preds = %._crit_edge5227.loopexit, %1943
-  %1956 = phi ptr [ %.pre5454, %._crit_edge5227.loopexit ], [ %1945, %1943 ]
+  %1956 = phi ptr [ %.pre5458, %._crit_edge5227.loopexit ], [ %1945, %1943 ]
   %1957 = getelementptr inbounds ptr, ptr %1956, i64 %1947
   store ptr %1957, ptr %131, align 8
   %1958 = load ptr, ptr %129, align 8
@@ -6375,10 +6377,10 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit: ; preds = %2141
   br label %2152
 
 2152:                                             ; preds = %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit, %2150, %2135
-  %.sink5674 = phi ptr [ %2149, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit ], [ %2140, %2150 ], [ %2136, %2135 ]
-  %.sink5672 = phi ptr [ %2148, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit ], [ %2151, %2150 ], [ %2134, %2135 ]
-  %2153 = getelementptr inbounds i8, ptr %.sink5674, i64 -8
-  store ptr %.sink5672, ptr %2153, align 8
+  %.sink5678 = phi ptr [ %2149, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit ], [ %2140, %2150 ], [ %2136, %2135 ]
+  %.sink5676 = phi ptr [ %2148, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit ], [ %2151, %2150 ], [ %2134, %2135 ]
+  %2153 = getelementptr inbounds i8, ptr %.sink5678, i64 -8
+  store ptr %.sink5676, ptr %2153, align 8
   %2154 = load ptr, ptr %131, align 8
   %2155 = getelementptr inbounds i8, ptr %2154, i64 -8
   %2156 = load ptr, ptr %2155, align 8
@@ -6480,10 +6482,10 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4321: ; preds = %
   br label %2201
 
 2201:                                             ; preds = %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4321, %2199, %2184
-  %.sink5677 = phi ptr [ %2198, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4321 ], [ %2189, %2199 ], [ %2185, %2184 ]
-  %.sink5675 = phi ptr [ %2197, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4321 ], [ %2200, %2199 ], [ %2183, %2184 ]
-  %2202 = getelementptr inbounds i8, ptr %.sink5677, i64 -8
-  store ptr %.sink5675, ptr %2202, align 8
+  %.sink5681 = phi ptr [ %2198, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4321 ], [ %2189, %2199 ], [ %2185, %2184 ]
+  %.sink5679 = phi ptr [ %2197, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4321 ], [ %2200, %2199 ], [ %2183, %2184 ]
+  %2202 = getelementptr inbounds i8, ptr %.sink5681, i64 -8
+  store ptr %.sink5679, ptr %2202, align 8
   %2203 = load ptr, ptr %131, align 8
   %2204 = getelementptr inbounds i8, ptr %2203, i64 -8
   %2205 = load ptr, ptr %2204, align 8
@@ -6559,15 +6561,15 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4321: ; preds = %
 2238:                                             ; preds = %2229
   %2239 = getelementptr inbounds nuw i8, ptr %2230, i64 16
   %2240 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %2239, i16 2, ptr noundef nonnull align 8 dereferenceable(8) %28)
-          to label %._crit_edge5452 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
+          to label %._crit_edge5456 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
-._crit_edge5452:                                  ; preds = %2238
-  %.pre5453 = load ptr, ptr %131, align 8
+._crit_edge5456:                                  ; preds = %2238
+  %.pre5457 = load ptr, ptr %131, align 8
   br label %2241
 
-2241:                                             ; preds = %._crit_edge5452, %2234
-  %2242 = phi ptr [ %2218, %2234 ], [ %.pre5453, %._crit_edge5452 ]
-  %.0.i4322 = phi ptr [ %2237, %2234 ], [ %2240, %._crit_edge5452 ]
+2241:                                             ; preds = %._crit_edge5456, %2234
+  %2242 = phi ptr [ %2218, %2234 ], [ %.pre5457, %._crit_edge5456 ]
+  %.0.i4322 = phi ptr [ %2237, %2234 ], [ %2240, %._crit_edge5456 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
   %2243 = getelementptr inbounds i8, ptr %2242, i64 -8
   store ptr %.0.i4322, ptr %2243, align 8
@@ -6651,10 +6653,10 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4326: ; preds = %
   br label %2276
 
 2276:                                             ; preds = %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4326, %2274, %2259
-  %.sink5680 = phi ptr [ %2273, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4326 ], [ %2264, %2274 ], [ %2260, %2259 ]
-  %.sink5678 = phi ptr [ %2272, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4326 ], [ %2275, %2274 ], [ %2258, %2259 ]
-  %2277 = getelementptr inbounds i8, ptr %.sink5680, i64 -8
-  store ptr %.sink5678, ptr %2277, align 8
+  %.sink5684 = phi ptr [ %2273, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4326 ], [ %2264, %2274 ], [ %2260, %2259 ]
+  %.sink5682 = phi ptr [ %2272, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4326 ], [ %2275, %2274 ], [ %2258, %2259 ]
+  %2277 = getelementptr inbounds i8, ptr %.sink5684, i64 -8
+  store ptr %.sink5682, ptr %2277, align 8
   %2278 = load ptr, ptr %131, align 8
   %2279 = getelementptr inbounds i8, ptr %2278, i64 -8
   %2280 = load ptr, ptr %2279, align 8
@@ -6774,15 +6776,15 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4328: ; preds = %
 2334:                                             ; preds = %2325
   %2335 = getelementptr inbounds nuw i8, ptr %2326, i64 16
   %2336 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %2335, i16 2, ptr noundef nonnull align 8 dereferenceable(8) %27)
-          to label %._crit_edge5450 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
+          to label %._crit_edge5454 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
-._crit_edge5450:                                  ; preds = %2334
-  %.pre5451 = load ptr, ptr %131, align 8
+._crit_edge5454:                                  ; preds = %2334
+  %.pre5455 = load ptr, ptr %131, align 8
   br label %2337
 
-2337:                                             ; preds = %._crit_edge5450, %2330
-  %2338 = phi ptr [ %2314, %2330 ], [ %.pre5451, %._crit_edge5450 ]
-  %.0.i4330 = phi ptr [ %2333, %2330 ], [ %2336, %._crit_edge5450 ]
+2337:                                             ; preds = %._crit_edge5454, %2330
+  %2338 = phi ptr [ %2314, %2330 ], [ %.pre5455, %._crit_edge5454 ]
+  %.0.i4330 = phi ptr [ %2333, %2330 ], [ %2336, %._crit_edge5454 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
   %2339 = getelementptr inbounds i8, ptr %2338, i64 -8
   store ptr %.0.i4330, ptr %2339, align 8
@@ -6866,10 +6868,10 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4335: ; preds = %
   br label %2372
 
 2372:                                             ; preds = %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4335, %2370, %2355
-  %.sink5683 = phi ptr [ %2369, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4335 ], [ %2360, %2370 ], [ %2356, %2355 ]
-  %.sink5681 = phi ptr [ %2368, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4335 ], [ %2371, %2370 ], [ %2354, %2355 ]
-  %2373 = getelementptr inbounds i8, ptr %.sink5683, i64 -8
-  store ptr %.sink5681, ptr %2373, align 8
+  %.sink5687 = phi ptr [ %2369, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4335 ], [ %2360, %2370 ], [ %2356, %2355 ]
+  %.sink5685 = phi ptr [ %2368, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4335 ], [ %2371, %2370 ], [ %2354, %2355 ]
+  %2373 = getelementptr inbounds i8, ptr %.sink5687, i64 -8
+  store ptr %.sink5685, ptr %2373, align 8
   %2374 = load ptr, ptr %131, align 8
   %2375 = getelementptr inbounds i8, ptr %2374, i64 -8
   %2376 = load ptr, ptr %2375, align 8
@@ -6989,15 +6991,15 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4337: ; preds = %
 2430:                                             ; preds = %2421
   %2431 = getelementptr inbounds nuw i8, ptr %2422, i64 16
   %2432 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %2431, i16 2, ptr noundef nonnull align 8 dereferenceable(8) %26)
-          to label %._crit_edge5448 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
+          to label %._crit_edge5452 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
-._crit_edge5448:                                  ; preds = %2430
-  %.pre5449 = load ptr, ptr %131, align 8
+._crit_edge5452:                                  ; preds = %2430
+  %.pre5453 = load ptr, ptr %131, align 8
   br label %2433
 
-2433:                                             ; preds = %._crit_edge5448, %2426
-  %2434 = phi ptr [ %2410, %2426 ], [ %.pre5449, %._crit_edge5448 ]
-  %.0.i4339 = phi ptr [ %2429, %2426 ], [ %2432, %._crit_edge5448 ]
+2433:                                             ; preds = %._crit_edge5452, %2426
+  %2434 = phi ptr [ %2410, %2426 ], [ %.pre5453, %._crit_edge5452 ]
+  %.0.i4339 = phi ptr [ %2429, %2426 ], [ %2432, %._crit_edge5452 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
   %2435 = getelementptr inbounds i8, ptr %2434, i64 -8
   store ptr %.0.i4339, ptr %2435, align 8
@@ -7081,10 +7083,10 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4344: ; preds = %
   br label %2468
 
 2468:                                             ; preds = %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4344, %2466, %2451
-  %.sink5686 = phi ptr [ %2465, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4344 ], [ %2456, %2466 ], [ %2452, %2451 ]
-  %.sink5684 = phi ptr [ %2464, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4344 ], [ %2467, %2466 ], [ %2450, %2451 ]
-  %2469 = getelementptr inbounds i8, ptr %.sink5686, i64 -8
-  store ptr %.sink5684, ptr %2469, align 8
+  %.sink5690 = phi ptr [ %2465, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4344 ], [ %2456, %2466 ], [ %2452, %2451 ]
+  %.sink5688 = phi ptr [ %2464, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4344 ], [ %2467, %2466 ], [ %2450, %2451 ]
+  %2469 = getelementptr inbounds i8, ptr %.sink5690, i64 -8
+  store ptr %.sink5688, ptr %2469, align 8
   %2470 = load ptr, ptr %131, align 8
   %2471 = getelementptr inbounds i8, ptr %2470, i64 -8
   %2472 = load ptr, ptr %2471, align 8
@@ -7323,10 +7325,10 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4355: ; preds = %
   br label %2570
 
 2570:                                             ; preds = %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4355, %2568, %2553
-  %.sink5689 = phi ptr [ %2567, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4355 ], [ %2558, %2568 ], [ %2554, %2553 ]
-  %.sink5687 = phi ptr [ %2566, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4355 ], [ %2569, %2568 ], [ %2552, %2553 ]
-  %2571 = getelementptr inbounds i8, ptr %.sink5689, i64 -8
-  store ptr %.sink5687, ptr %2571, align 8
+  %.sink5693 = phi ptr [ %2567, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4355 ], [ %2558, %2568 ], [ %2554, %2553 ]
+  %.sink5691 = phi ptr [ %2566, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4355 ], [ %2569, %2568 ], [ %2552, %2553 ]
+  %2571 = getelementptr inbounds i8, ptr %.sink5693, i64 -8
+  store ptr %.sink5691, ptr %2571, align 8
   %2572 = load ptr, ptr %131, align 8
   %2573 = getelementptr inbounds i8, ptr %2572, i64 -8
   %2574 = load ptr, ptr %2573, align 8
@@ -7521,10 +7523,10 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4369: ; preds = %
   br label %2651
 
 2651:                                             ; preds = %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4369, %2649, %2634
-  %.sink5692 = phi ptr [ %2648, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4369 ], [ %2639, %2649 ], [ %2635, %2634 ]
-  %.sink5690 = phi ptr [ %2647, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4369 ], [ %2650, %2649 ], [ %2633, %2634 ]
-  %2652 = getelementptr inbounds i8, ptr %.sink5692, i64 -8
-  store ptr %.sink5690, ptr %2652, align 8
+  %.sink5696 = phi ptr [ %2648, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4369 ], [ %2639, %2649 ], [ %2635, %2634 ]
+  %.sink5694 = phi ptr [ %2647, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4369 ], [ %2650, %2649 ], [ %2633, %2634 ]
+  %2652 = getelementptr inbounds i8, ptr %.sink5696, i64 -8
+  store ptr %.sink5694, ptr %2652, align 8
   %2653 = load ptr, ptr %131, align 8
   %2654 = getelementptr inbounds i8, ptr %2653, i64 -8
   %2655 = load ptr, ptr %2654, align 8
@@ -8052,15 +8054,15 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4369: ; preds = %
 2874:                                             ; preds = %2865
   %2875 = getelementptr inbounds nuw i8, ptr %2866, i64 16
   %2876 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %2875, i16 2, ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %._crit_edge5446 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
+          to label %._crit_edge5450 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
-._crit_edge5446:                                  ; preds = %2874
-  %.pre5447 = load ptr, ptr %131, align 8
+._crit_edge5450:                                  ; preds = %2874
+  %.pre5451 = load ptr, ptr %131, align 8
   br label %2877
 
-2877:                                             ; preds = %._crit_edge5446, %2870
-  %2878 = phi ptr [ %2854, %2870 ], [ %.pre5447, %._crit_edge5446 ]
-  %.0.i4390 = phi ptr [ %2873, %2870 ], [ %2876, %._crit_edge5446 ]
+2877:                                             ; preds = %._crit_edge5450, %2870
+  %2878 = phi ptr [ %2854, %2870 ], [ %.pre5451, %._crit_edge5450 ]
+  %.0.i4390 = phi ptr [ %2873, %2870 ], [ %2876, %._crit_edge5450 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   %2879 = getelementptr inbounds i8, ptr %2878, i64 -8
   store ptr %.0.i4390, ptr %2879, align 8
@@ -8144,10 +8146,10 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4395: ; preds = %
   br label %2912
 
 2912:                                             ; preds = %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4395, %2910, %2895
-  %.sink5695 = phi ptr [ %2909, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4395 ], [ %2900, %2910 ], [ %2896, %2895 ]
-  %.sink5693 = phi ptr [ %2908, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4395 ], [ %2911, %2910 ], [ %2894, %2895 ]
-  %2913 = getelementptr inbounds i8, ptr %.sink5695, i64 -8
-  store ptr %.sink5693, ptr %2913, align 8
+  %.sink5699 = phi ptr [ %2909, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4395 ], [ %2900, %2910 ], [ %2896, %2895 ]
+  %.sink5697 = phi ptr [ %2908, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4395 ], [ %2911, %2910 ], [ %2894, %2895 ]
+  %2913 = getelementptr inbounds i8, ptr %.sink5699, i64 -8
+  store ptr %.sink5697, ptr %2913, align 8
   %2914 = load ptr, ptr %131, align 8
   %2915 = getelementptr inbounds i8, ptr %2914, i64 -8
   %2916 = load ptr, ptr %2915, align 8
@@ -8223,15 +8225,15 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4395: ; preds = %
 2949:                                             ; preds = %2940
   %2950 = getelementptr inbounds nuw i8, ptr %2941, i64 16
   %2951 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %2950, i16 2, ptr noundef nonnull align 8 dereferenceable(8) %20)
-          to label %._crit_edge5444 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
+          to label %._crit_edge5448 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
-._crit_edge5444:                                  ; preds = %2949
-  %.pre5445 = load ptr, ptr %131, align 8
+._crit_edge5448:                                  ; preds = %2949
+  %.pre5449 = load ptr, ptr %131, align 8
   br label %2952
 
-2952:                                             ; preds = %._crit_edge5444, %2945
-  %2953 = phi ptr [ %2929, %2945 ], [ %.pre5445, %._crit_edge5444 ]
-  %.0.i4397 = phi ptr [ %2948, %2945 ], [ %2951, %._crit_edge5444 ]
+2952:                                             ; preds = %._crit_edge5448, %2945
+  %2953 = phi ptr [ %2929, %2945 ], [ %.pre5449, %._crit_edge5448 ]
+  %.0.i4397 = phi ptr [ %2948, %2945 ], [ %2951, %._crit_edge5448 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   %2954 = getelementptr inbounds i8, ptr %2953, i64 -8
   store ptr %.0.i4397, ptr %2954, align 8
@@ -8315,10 +8317,10 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4402: ; preds = %
   br label %2987
 
 2987:                                             ; preds = %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4402, %2985, %2970
-  %.sink5698 = phi ptr [ %2984, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4402 ], [ %2975, %2985 ], [ %2971, %2970 ]
-  %.sink5696 = phi ptr [ %2983, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4402 ], [ %2986, %2985 ], [ %2969, %2970 ]
-  %2988 = getelementptr inbounds i8, ptr %.sink5698, i64 -8
-  store ptr %.sink5696, ptr %2988, align 8
+  %.sink5702 = phi ptr [ %2984, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4402 ], [ %2975, %2985 ], [ %2971, %2970 ]
+  %.sink5700 = phi ptr [ %2983, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4402 ], [ %2986, %2985 ], [ %2969, %2970 ]
+  %2988 = getelementptr inbounds i8, ptr %.sink5702, i64 -8
+  store ptr %.sink5700, ptr %2988, align 8
   %2989 = load ptr, ptr %131, align 8
   %2990 = getelementptr inbounds i8, ptr %2989, i64 -8
   %2991 = load ptr, ptr %2990, align 8
@@ -8391,15 +8393,15 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4402: ; preds = %
 3021:                                             ; preds = %3015
   %3022 = getelementptr inbounds nuw i8, ptr %3016, i64 16
   %3023 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %3022, i16 2, ptr noundef nonnull align 8 dereferenceable(8) %19)
-          to label %._crit_edge5442 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
+          to label %._crit_edge5446 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
-._crit_edge5442:                                  ; preds = %3021
-  %.pre5443 = load ptr, ptr %131, align 8
+._crit_edge5446:                                  ; preds = %3021
+  %.pre5447 = load ptr, ptr %131, align 8
   br label %3024
 
-3024:                                             ; preds = %._crit_edge5442, %3019
-  %3025 = phi ptr [ %3004, %3019 ], [ %.pre5443, %._crit_edge5442 ]
-  %.0.i4404 = phi ptr [ %3020, %3019 ], [ %3023, %._crit_edge5442 ]
+3024:                                             ; preds = %._crit_edge5446, %3019
+  %3025 = phi ptr [ %3004, %3019 ], [ %.pre5447, %._crit_edge5446 ]
+  %.0.i4404 = phi ptr [ %3020, %3019 ], [ %3023, %._crit_edge5446 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   %3026 = getelementptr inbounds i8, ptr %3025, i64 -8
   store ptr %.0.i4404, ptr %3026, align 8
@@ -8483,10 +8485,10 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4409: ; preds = %
   br label %3059
 
 3059:                                             ; preds = %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4409, %3057, %3042
-  %.sink5701 = phi ptr [ %3056, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4409 ], [ %3047, %3057 ], [ %3043, %3042 ]
-  %.sink5699 = phi ptr [ %3055, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4409 ], [ %3058, %3057 ], [ %3041, %3042 ]
-  %3060 = getelementptr inbounds i8, ptr %.sink5701, i64 -8
-  store ptr %.sink5699, ptr %3060, align 8
+  %.sink5705 = phi ptr [ %3056, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4409 ], [ %3047, %3057 ], [ %3043, %3042 ]
+  %.sink5703 = phi ptr [ %3055, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4409 ], [ %3058, %3057 ], [ %3041, %3042 ]
+  %3060 = getelementptr inbounds i8, ptr %.sink5705, i64 -8
+  store ptr %.sink5703, ptr %3060, align 8
   %3061 = load ptr, ptr %131, align 8
   %3062 = getelementptr inbounds i8, ptr %3061, i64 -8
   %3063 = load ptr, ptr %3062, align 8
@@ -8559,15 +8561,15 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4409: ; preds = %
 3093:                                             ; preds = %3087
   %3094 = getelementptr inbounds nuw i8, ptr %3088, i64 16
   %3095 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %3094, i16 2, ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %._crit_edge5440 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
+          to label %._crit_edge5444 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
-._crit_edge5440:                                  ; preds = %3093
-  %.pre5441 = load ptr, ptr %131, align 8
+._crit_edge5444:                                  ; preds = %3093
+  %.pre5445 = load ptr, ptr %131, align 8
   br label %3096
 
-3096:                                             ; preds = %._crit_edge5440, %3091
-  %3097 = phi ptr [ %3076, %3091 ], [ %.pre5441, %._crit_edge5440 ]
-  %.0.i4411 = phi ptr [ %3092, %3091 ], [ %3095, %._crit_edge5440 ]
+3096:                                             ; preds = %._crit_edge5444, %3091
+  %3097 = phi ptr [ %3076, %3091 ], [ %.pre5445, %._crit_edge5444 ]
+  %.0.i4411 = phi ptr [ %3092, %3091 ], [ %3095, %._crit_edge5444 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   %3098 = getelementptr inbounds i8, ptr %3097, i64 -8
   store ptr %.0.i4411, ptr %3098, align 8
@@ -8651,10 +8653,10 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4416: ; preds = %
   br label %3131
 
 3131:                                             ; preds = %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4416, %3129, %3114
-  %.sink5704 = phi ptr [ %3128, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4416 ], [ %3119, %3129 ], [ %3115, %3114 ]
-  %.sink5702 = phi ptr [ %3127, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4416 ], [ %3130, %3129 ], [ %3113, %3114 ]
-  %3132 = getelementptr inbounds i8, ptr %.sink5704, i64 -8
-  store ptr %.sink5702, ptr %3132, align 8
+  %.sink5708 = phi ptr [ %3128, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4416 ], [ %3119, %3129 ], [ %3115, %3114 ]
+  %.sink5706 = phi ptr [ %3127, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4416 ], [ %3130, %3129 ], [ %3113, %3114 ]
+  %3132 = getelementptr inbounds i8, ptr %.sink5708, i64 -8
+  store ptr %.sink5706, ptr %3132, align 8
   %3133 = load ptr, ptr %131, align 8
   %3134 = getelementptr inbounds i8, ptr %3133, i64 -8
   %3135 = load ptr, ptr %3134, align 8
@@ -8728,15 +8730,15 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4416: ; preds = %
 3166:                                             ; preds = %3159
   %3167 = getelementptr inbounds nuw i8, ptr %3160, i64 16
   %3168 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %3167, i16 2, ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %._crit_edge5438 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
+          to label %._crit_edge5442 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
-._crit_edge5438:                                  ; preds = %3166
-  %.pre5439 = load ptr, ptr %131, align 8
+._crit_edge5442:                                  ; preds = %3166
+  %.pre5443 = load ptr, ptr %131, align 8
   br label %3169
 
-3169:                                             ; preds = %._crit_edge5438, %3163
-  %3170 = phi ptr [ %3148, %3163 ], [ %.pre5439, %._crit_edge5438 ]
-  %.0.i4418 = phi ptr [ %3165, %3163 ], [ %3168, %._crit_edge5438 ]
+3169:                                             ; preds = %._crit_edge5442, %3163
+  %3170 = phi ptr [ %3148, %3163 ], [ %.pre5443, %._crit_edge5442 ]
+  %.0.i4418 = phi ptr [ %3165, %3163 ], [ %3168, %._crit_edge5442 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   %3171 = getelementptr inbounds i8, ptr %3170, i64 -8
   store ptr %.0.i4418, ptr %3171, align 8
@@ -8820,10 +8822,10 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4423: ; preds = %
   br label %3204
 
 3204:                                             ; preds = %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4423, %3202, %3187
-  %.sink5707 = phi ptr [ %3201, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4423 ], [ %3192, %3202 ], [ %3188, %3187 ]
-  %.sink5705 = phi ptr [ %3200, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4423 ], [ %3203, %3202 ], [ %3186, %3187 ]
-  %3205 = getelementptr inbounds i8, ptr %.sink5707, i64 -8
-  store ptr %.sink5705, ptr %3205, align 8
+  %.sink5711 = phi ptr [ %3201, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4423 ], [ %3192, %3202 ], [ %3188, %3187 ]
+  %.sink5709 = phi ptr [ %3200, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4423 ], [ %3203, %3202 ], [ %3186, %3187 ]
+  %3205 = getelementptr inbounds i8, ptr %.sink5711, i64 -8
+  store ptr %.sink5709, ptr %3205, align 8
   %3206 = load ptr, ptr %131, align 8
   %3207 = getelementptr inbounds i8, ptr %3206, i64 -8
   %3208 = load ptr, ptr %3207, align 8
@@ -8925,10 +8927,10 @@ _ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4426: ; preds = %
   br label %3253
 
 3253:                                             ; preds = %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4426, %3251, %3236
-  %.sink5710 = phi ptr [ %3250, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4426 ], [ %3241, %3251 ], [ %3237, %3236 ]
-  %.sink5708 = phi ptr [ %3249, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4426 ], [ %3252, %3251 ], [ %3235, %3236 ]
-  %3254 = getelementptr inbounds i8, ptr %.sink5710, i64 -8
-  store ptr %.sink5708, ptr %3254, align 8
+  %.sink5714 = phi ptr [ %3250, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4426 ], [ %3241, %3251 ], [ %3237, %3236 ]
+  %.sink5712 = phi ptr [ %3249, %_ZN4pkpy2VM11call_methodIJRPNS_8PyObjectEEEES3_S3_S3_DpOT_.exit4426 ], [ %3252, %3251 ], [ %3235, %3236 ]
+  %3254 = getelementptr inbounds i8, ptr %.sink5714, i64 -8
+  store ptr %.sink5712, ptr %3254, align 8
   %3255 = load ptr, ptr %131, align 8
   %3256 = getelementptr inbounds i8, ptr %3255, i64 -8
   %3257 = load ptr, ptr %3256, align 8
@@ -9289,11 +9291,11 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3313
   %3396 = load ptr, ptr %131, align 8
   %3397 = getelementptr inbounds i8, ptr %3396, i64 -8
   store ptr %3397, ptr %131, align 8
-  %.pre5437 = load i32, ptr %206, align 4
+  %.pre5441 = load i32, ptr %206, align 4
   br label %3398
 
 3398:                                             ; preds = %3395, %3393
-  %3399 = phi i32 [ %.pre5437, %3395 ], [ %3394, %3393 ]
+  %3399 = phi i32 [ %.pre5441, %3395 ], [ %3394, %3393 ]
   %3400 = add nsw i32 %3399, 1
   store i32 %3400, ptr %206, align 4
   store i32 %3399, ptr %.3, align 8
@@ -9338,11 +9340,11 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3313
   %3414 = load ptr, ptr %131, align 8
   %3415 = getelementptr inbounds i8, ptr %3414, i64 -8
   store ptr %3415, ptr %131, align 8
-  %.pre5436 = load i32, ptr %206, align 4
+  %.pre5440 = load i32, ptr %206, align 4
   br label %3416
 
 3416:                                             ; preds = %3413, %3411
-  %3417 = phi i32 [ %.pre5436, %3413 ], [ %3412, %3411 ]
+  %3417 = phi i32 [ %.pre5440, %3413 ], [ %3412, %3411 ]
   %3418 = add nsw i32 %3417, 1
   store i32 %3418, ptr %206, align 4
   store i32 %3417, ptr %.3, align 8
@@ -9395,11 +9397,11 @@ _ZN4pkpy7py_castIbEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %3313
 3437:                                             ; preds = %3428
   %3438 = getelementptr inbounds i8, ptr %3429, i64 -8
   store ptr %3438, ptr %131, align 8
-  %.pre5435 = load i32, ptr %206, align 4
+  %.pre5439 = load i32, ptr %206, align 4
   br label %3439
 
 3439:                                             ; preds = %3437, %3430
-  %3440 = phi i32 [ %.pre5435, %3437 ], [ %3436, %3430 ]
+  %3440 = phi i32 [ %.pre5439, %3437 ], [ %3436, %3430 ]
   %3441 = add nsw i32 %3440, 1
   store i32 %3441, ptr %206, align 4
   store i32 %3440, ptr %.3, align 8
@@ -10414,7 +10416,8 @@ _ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit4495: ; preds = %3797
   %3846 = getelementptr inbounds nuw i8, ptr %3843, i64 56
   %3847 = load i32, ptr %3846, align 8
   %3848 = sext i32 %3847 to i64
-  %3849 = getelementptr inbounds ptr, ptr %3845, i64 %3848
+  %.idx5234 = shl nsw i64 %3848, 3
+  %3849 = getelementptr inbounds i8, ptr %3845, i64 %.idx5234
   %.not39045213 = icmp eq i32 %3847, 0
   br i1 %.not39045213, label %._crit_edge5217, label %.lr.ph5216
 
@@ -10502,7 +10505,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3857
   br label %.loopexit4965.invoke
 
 .loopexit4965.invoke:                             ; preds = %3896, %._crit_edge5222.loopexit, %.loopexit4965
-  %3893 = phi i32 [ %3890, %.loopexit4965 ], [ %.pre5434, %._crit_edge5222.loopexit ], [ 0, %3896 ]
+  %3893 = phi i32 [ %3890, %.loopexit4965 ], [ %.pre5438, %._crit_edge5222.loopexit ], [ 0, %3896 ]
   %3894 = phi i32 [ %3892, %.loopexit4965 ], [ 0, %._crit_edge5222.loopexit ], [ 0, %3896 ]
   %3895 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef %3893, i32 noundef %3894, i1 noundef zeroext true)
           to label %3907 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
@@ -10513,7 +10516,8 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3857
   %3899 = getelementptr inbounds nuw i8, ptr %3840, i64 56
   %3900 = load i32, ptr %3899, align 8
   %3901 = sext i32 %3900 to i64
-  %3902 = getelementptr inbounds ptr, ptr %3898, i64 %3901
+  %.idx5235 = shl nsw i64 %3901, 3
+  %3902 = getelementptr inbounds i8, ptr %3898, i64 %.idx5235
   %.not39035218 = icmp eq i32 %3900, 0
   br i1 %.not39035218, label %.loopexit4965.invoke, label %.lr.ph5221
 
@@ -10529,7 +10533,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i.i.i: ; preds = %3857
   br i1 %.not3903, label %._crit_edge5222.loopexit, label %.lr.ph5221
 
 ._crit_edge5222.loopexit:                         ; preds = %.lr.ph5221
-  %.pre5434 = load i32, ptr %3899, align 8
+  %.pre5438 = load i32, ptr %3899, align 8
   br label %.loopexit4965.invoke
 
 3907:                                             ; preds = %.loopexit4965.invoke
@@ -11306,11 +11310,11 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4516: ; preds
 
 4252:                                             ; preds = %4250
   switch i32 %4251, label %4265 [
-    i32 0, label %.invoke5658
-    i32 1, label %.invoke5657
+    i32 0, label %.invoke5662
+    i32 1, label %.invoke5661
   ]
 
-.invoke5658:                                      ; preds = %4252, %4280
+.invoke5662:                                      ; preds = %4252, %4280
   %4253 = load ptr, ptr %202, align 8
   %4254 = load i32, ptr %.3, align 8
   %4255 = getelementptr inbounds nuw i8, ptr %4253, i64 304
@@ -11326,7 +11330,7 @@ _ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4516: ; preds
   invoke void @_ZN4pkpy5Frame14jump_abs_breakEPNS_10ValueStackEi(ptr noundef nonnull align 8 dereferenceable(56) %.3, ptr noundef nonnull %147, i32 noundef %4264)
           to label %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4519 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
-.invoke5657:                                      ; preds = %4252, %4282
+.invoke5661:                                      ; preds = %4252, %4282
   invoke void @_ZN4pkpy2VM20__op_unpack_sequenceEt(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 noundef zeroext %.sroa.2932074.0)
           to label %_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4519 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
@@ -11386,16 +11390,16 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit:          ; preds = %.noexc4520
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   %4281 = load ptr, ptr %137, align 8
   %.not3886 = icmp eq ptr %4279, %4281
-  br i1 %.not3886, label %.invoke5658, label %4282
+  br i1 %.not3886, label %.invoke5662, label %4282
 
 4282:                                             ; preds = %4280
   %4283 = load ptr, ptr %131, align 8
   %4284 = getelementptr inbounds nuw i8, ptr %4283, i64 8
   store ptr %4284, ptr %131, align 8
   store ptr %4279, ptr %4283, align 8
-  br label %.invoke5657
+  br label %.invoke5661
 
-_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4519: ; preds = %.invoke5658, %.invoke5657, %4265, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit
+_ZN4pkpy5Frame10loop_breakEPNS_10ValueStackEPKNS_10CodeObjectE.exit4519: ; preds = %.invoke5662, %.invoke5661, %4265, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit
   %4285 = load i32, ptr %206, align 4
   %4286 = add nsw i32 %4285, 1
   store i32 %4286, ptr %206, align 4
@@ -11596,7 +11600,8 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i4537: ; preds = %4357
   %4371 = load ptr, ptr %4370, align 8
   %4372 = load i32, ptr %4369, align 8
   %4373 = sext i32 %4372 to i64
-  %4374 = getelementptr inbounds ptr, ptr %4371, i64 %4373
+  %.idx = shl nsw i64 %4373, 3
+  %4374 = getelementptr inbounds i8, ptr %4371, i64 %.idx
   %.not38805205 = icmp eq i32 %4372, 0
   br i1 %.not38805205, label %_ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit, label %.lr.ph5208
 
@@ -11938,16 +11943,17 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE5itemsEv.exit: ; preds = %_ZNK4pkpy12Name
   %4502 = load ptr, ptr %145, align 8
   %4503 = load i32, ptr %101, align 8
   %4504 = sext i32 %4503 to i64
-  %4505 = getelementptr inbounds %"struct.pkpy::NameDictItem", ptr %4502, i64 %4504
+  %.idx5233 = shl nsw i64 %4504, 4
+  %4505 = getelementptr inbounds i8, ptr %4502, i64 %.idx5233
   %.not38795209 = icmp eq i32 %4503, 0
   br i1 %.not38795209, label %._crit_edge5212, label %.lr.ph5211
 
 ._crit_edge5212.loopexit:                         ; preds = %4563
-  %.pre5433 = load ptr, ptr %145, align 8
+  %.pre5437 = load ptr, ptr %145, align 8
   br label %._crit_edge5212
 
 ._crit_edge5212:                                  ; preds = %._crit_edge5212.loopexit, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE5itemsEv.exit
-  %4506 = phi ptr [ %.pre5433, %._crit_edge5212.loopexit ], [ %4502, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE5itemsEv.exit ]
+  %4506 = phi ptr [ %.pre5437, %._crit_edge5212.loopexit ], [ %4502, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE5itemsEv.exit ]
   %.not.i4574 = icmp eq ptr %4506, null
   br i1 %.not.i4574, label %_ZN4pkpy10pod_vectorINS_12NameDictItemIPNS_8PyObjectEEELi2EED2Ev.exit, label %4507
 
@@ -12736,11 +12742,11 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit:    ; preds = %4757
 4767:                                             ; preds = %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit
   %4768 = getelementptr inbounds nuw i8, ptr %4760, i64 48
   store ptr %4734, ptr %4768, align 8
-  %.pre5432 = load ptr, ptr %133, align 8
+  %.pre5436 = load ptr, ptr %133, align 8
   br label %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread
 
 _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread: ; preds = %4757, %4767, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit
-  %4769 = phi ptr [ %4734, %4757 ], [ %.pre5432, %4767 ], [ %4734, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit ]
+  %4769 = phi ptr [ %4734, %4757 ], [ %.pre5436, %4767 ], [ %4734, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit ]
   %4770 = getelementptr inbounds nuw i8, ptr %4769, i64 16
   %4771 = load ptr, ptr %4770, align 8
   invoke void @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3setENS_7StrNameES2_(ptr noundef nonnull align 8 dereferenceable(88) %4771, i16 %.sroa.2932074.0, ptr noundef %4760)
@@ -13182,11 +13188,11 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i4622: ; preds = %4903
           to label %._ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit4625_crit_edge unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
 ._ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit4625_crit_edge: ; preds = %4913
-  %.pre5431 = load ptr, ptr %131, align 8
+  %.pre5435 = load ptr, ptr %131, align 8
   br label %_ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit4625
 
 _ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit4625: ; preds = %._ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit4625_crit_edge, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i4622
-  %4916 = phi ptr [ %.pre5431, %._ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit4625_crit_edge ], [ %4905, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i4622 ]
+  %4916 = phi ptr [ %.pre5435, %._ZN4pkpy2VM10check_typeEPNS_8PyObjectENS_4TypeE.exit4625_crit_edge ], [ %4905, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i4622 ]
   %4917 = getelementptr inbounds i8, ptr %4916, i64 -8
   %4918 = load ptr, ptr %4917, align 8
   %4919 = getelementptr inbounds nuw i8, ptr %4906, i64 24
@@ -13259,13 +13265,13 @@ _ZN4pkpy2VM4callIJEEEPNS_8PyObjectES3_DpOT_.exit: ; preds = %4942
   %4947 = load ptr, ptr %131, align 8
   %4948 = getelementptr inbounds i8, ptr %4947, i64 -8
   store ptr %4946, ptr %4948, align 8
-  %.pre5429 = load ptr, ptr %131, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre5429, i64 -8
-  %.pre5430 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre5433 = load ptr, ptr %131, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre5433, i64 -8
+  %.pre5434 = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit4628.thread
 
 _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit4628.thread: ; preds = %4932, %_ZN4pkpy2VM4callIJEEEPNS_8PyObjectES3_DpOT_.exit, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit4628
-  %4949 = phi ptr [ %4935, %4932 ], [ %.pre5430, %_ZN4pkpy2VM4callIJEEEPNS_8PyObjectES3_DpOT_.exit ], [ %4935, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit4628 ]
+  %4949 = phi ptr [ %4935, %4932 ], [ %.pre5434, %_ZN4pkpy2VM4callIJEEEPNS_8PyObjectES3_DpOT_.exit ], [ %4935, %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit4628 ]
   %4950 = invoke noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %4949, i16 15)
           to label %4951 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
@@ -13585,16 +13591,16 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i4636: ; preds = %5005
   %5055 = getelementptr inbounds nuw i8, ptr %5049, i64 24
   %5056 = call ptr @__cxa_allocate_exception(i64 88) #23
   invoke void @_ZN4pkpy9ExceptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %5056, ptr noundef nonnull align 8 dereferenceable(88) %5055)
-          to label %.invoke5723 unwind label %5256
+          to label %.invoke5727 unwind label %5256
 
-.invoke5723:                                      ; preds = %5054, %5262
+.invoke5727:                                      ; preds = %5054, %5262
   %5057 = phi ptr [ %5263, %5262 ], [ %5056, %5054 ]
   %5058 = phi ptr [ @_ZTIN4pkpy19ToBeRaisedExceptionE, %5262 ], [ @_ZTIN4pkpy9ExceptionE, %5054 ]
   %5059 = phi ptr [ null, %5262 ], [ @_ZN4pkpy9ExceptionD2Ev, %5054 ]
   invoke void @__cxa_throw(ptr %5057, ptr nonnull %5058, ptr %5059) #24
           to label %.cont unwind label %.loopexit.split-lp4993
 
-.cont:                                            ; preds = %.invoke5723
+.cont:                                            ; preds = %.invoke5727
   unreachable
 
 5060:                                             ; preds = %5042
@@ -13620,14 +13626,14 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.i.i.i4636: ; preds = %5005
   %5074 = getelementptr inbounds nuw %"struct.pkpy::StrName", ptr %5073, i64 %5067
   %.sroa.020.0.copyload = load i16, ptr %5074, align 2
   invoke void @_ZN4pkpy2VM9NameErrorENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(264913) %5072, i16 %.sroa.020.0.copyload)
-          to label %._crit_edge5427 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
+          to label %._crit_edge5431 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
-._crit_edge5427:                                  ; preds = %5071
-  %.pre5428 = load ptr, ptr %5068, align 8
+._crit_edge5431:                                  ; preds = %5071
+  %.pre5432 = load ptr, ptr %5068, align 8
   br label %5075
 
-5075:                                             ; preds = %._crit_edge5427, %5065
-  %5076 = phi ptr [ %.pre5428, %._crit_edge5427 ], [ %5069, %5065 ]
+5075:                                             ; preds = %._crit_edge5431, %5065
+  %5076 = phi ptr [ %.pre5432, %._crit_edge5431 ], [ %5069, %5065 ]
   %5077 = load ptr, ptr %129, align 8
   %5078 = invoke noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %5077, ptr noundef %5076)
           to label %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
@@ -13694,14 +13700,14 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %5075
   %5103 = getelementptr inbounds nuw %"struct.pkpy::StrName", ptr %5102, i64 %5096
   %.sroa.015.0.copyload = load i16, ptr %5103, align 2
   invoke void @_ZN4pkpy2VM9NameErrorENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(264913) %5101, i16 %.sroa.015.0.copyload)
-          to label %._crit_edge5426 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
+          to label %._crit_edge5430 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
 
-._crit_edge5426:                                  ; preds = %5100
+._crit_edge5430:                                  ; preds = %5100
   %.pre = load ptr, ptr %5097, align 8
   br label %5104
 
-5104:                                             ; preds = %._crit_edge5426, %5094
-  %5105 = phi ptr [ %.pre, %._crit_edge5426 ], [ %5098, %5094 ]
+5104:                                             ; preds = %._crit_edge5430, %5094
+  %5105 = phi ptr [ %.pre, %._crit_edge5430 ], [ %5098, %5094 ]
   %5106 = load ptr, ptr %129, align 8
   %5107 = invoke noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %5106, ptr noundef %5105)
           to label %_ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4646 unwind label %.loopexit.split-lp4961.loopexit.split-lp.loopexit
@@ -14047,7 +14053,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4674: ; preds = %_ZN4pkpy12Name
           cleanup
   br label %5266
 
-.loopexit.split-lp4993:                           ; preds = %.invoke5723
+.loopexit.split-lp4993:                           ; preds = %.invoke5727
   %lpad.loopexit.split-lp4995 = landingpad { ptr, i32 }
           cleanup
   br label %5266
@@ -14068,7 +14074,7 @@ _ZN4pkpy7py_castIlEET_PNS_2VMEPNS_8PyObjectE.exit4674: ; preds = %_ZN4pkpy12Name
 
 5262:                                             ; preds = %5258
   %5263 = call ptr @__cxa_allocate_exception(i64 1) #23
-  br label %.invoke5723
+  br label %.invoke5727
 
 5264:                                             ; preds = %5258
   %5265 = getelementptr inbounds nuw i8, ptr %5259, i64 8
@@ -17560,7 +17566,8 @@ define linkonce_odr void @_ZN4pkpy3Py_INS_5TupleEE12_obj_gc_markEv(ptr noundef n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr %3, i64 %6
+  %.idx = shl nsw i64 %6, 3
+  %7 = getelementptr inbounds i8, ptr %3, i64 %.idx
   %.not15 = icmp eq i32 %5, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -17720,7 +17727,8 @@ define linkonce_odr void @_ZN4pkpy3Py_INS_10pod_vectorIPNS_8PyObjectELi4EEEE12_o
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %2, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 3
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %.not15 = icmp eq i32 %5, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 

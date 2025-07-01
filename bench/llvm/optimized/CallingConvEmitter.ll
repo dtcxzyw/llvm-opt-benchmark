@@ -319,7 +319,8 @@ define internal void @_ZN4llvm8TableGen7Emitter8OptClassIN12_GLOBAL__N_118Callin
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %66, %64
-  %69 = getelementptr inbounds nuw ptr, ptr %51, i64 %52
+  %.idx.i = shl nuw nsw i64 %52, 3
+  %69 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i
   %.not103.i = icmp eq i64 %52, 0
   br i1 %.not103.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
@@ -5684,7 +5685,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load i32, ptr %7, align 8, !tbaa !143
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.std::pair.96", ptr %6, i64 %9
+  %.idx = mul nuw nsw i64 %9, 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %.not36.not = icmp eq i32 %8, 0
   br i1 %.not36.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph
 
@@ -5922,7 +5924,8 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
   %17 = sub nsw i64 %.sroa.speculated.i, %14
   %18 = lshr i64 %17, 1
   %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %14
+  %.idx.i = shl nuw nsw i64 %14, 3
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
   br label %.lr.ph.i.i13
 
 .lr.ph.i.i13:                                     ; preds = %.lr.ph.i.i13, %_ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS6_St4lessIS6_ESaIS6_EEESaISC_EE15_M_allocate_mapEm.exit.i

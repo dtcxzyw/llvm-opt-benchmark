@@ -202,7 +202,8 @@ define weak_odr dso_local void @_ZN3igl8copyleft4cgal10outer_hullIN5Eigen6Matrix
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %27 = load i64, ptr %26, align 8, !tbaa !17
   %28 = mul nsw i64 %27, %25
-  %29 = getelementptr inbounds i32, ptr %23, i64 %28
+  %.idx = shl nsw i64 %28, 2
+  %29 = getelementptr inbounds i8, ptr %23, i64 %.idx
   %.not4.i = icmp eq i64 %28, 0
   br i1 %.not4.i, label %.loopexit137, label %.lr.ph.i
 

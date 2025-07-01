@@ -63,7 +63,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.7" = type { %"class.llvm::SmallVectorTemplateCommon.8" }
 %"class.llvm::SmallVectorTemplateCommon.8" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.9" = type { [160 x i8] }
-%"struct.llvm::cl::OptionEnumValue" = type { %"class.llvm::StringRef", i32, %"class.llvm::StringRef" }
 
 $_ZN4llvm2cl3optINS0_13boolOrDefaultELb0ENS0_6parserIS2_EEEC2IJA22_cNS0_12OptionHiddenENS0_4descENS0_11initializerIS2_EEEEEDpRKT_ = comdat any
 
@@ -1464,7 +1463,8 @@ define internal fastcc void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12
   %.val2.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16DwarfExtendedLoc, i64 160), align 8, !tbaa !10
   %.val6.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16DwarfExtendedLoc, i64 168), align 8, !tbaa !32
   %4 = zext i32 %.val6.i to i64
-  %5 = getelementptr inbounds nuw %"class.llvm::cl::parser<(anonymous namespace)::DefaultOnOff>::OptionInfo", ptr %.val2.i, i64 %4
+  %.idx.i = mul nuw nsw i64 %4, 48
+  %5 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %.val6.i, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -1481,14 +1481,14 @@ define internal fastcc void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i = icmp eq ptr %9, %5
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.exitthread-pre-split, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !216
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.exit.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !216
 
-_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.exitthread-pre-split: ; preds = %.lr.ph.i.i.i.i.i.i
-  %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16DwarfExtendedLoc, i64 160), align 8, !tbaa !10
+_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16DwarfExtendedLoc, i64 160), align 8, !tbaa !10
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.exitthread-pre-split, %1
-  %11 = phi ptr [ %.pr, %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.exitthread-pre-split ], [ %.val2.i, %1 ]
+_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.exit.loopexit, %1
+  %11 = phi ptr [ %.pre, %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE10OptionInfoELb0EE19moveElementsForGrowEPS6_.exit.loopexit ], [ %.val2.i, %1 ]
   %12 = load i64, ptr %2, align 8, !tbaa !49
   %13 = icmp eq ptr %11, getelementptr inbounds nuw (i8, ptr @_ZL16DwarfExtendedLoc, i64 176)
   br i1 %13, label %_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserIN12_GLOBAL__N_112DefaultOnOffEE10OptionInfoELb0EE21takeAllocationForGrowEPS6_m.exit, label %14
@@ -1929,7 +1929,8 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit.i.i: ; pr
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL16DwarfExtendedLoc, i64 32), align 8, !tbaa !48
   store i64 58, ptr getelementptr inbounds nuw (i8, ptr @_ZL16DwarfExtendedLoc, i64 40), align 8, !tbaa !49
   %28 = zext i32 %.val8.i.i.i.i to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::cl::OptionEnumValue", ptr %.val7.i.i.i.i, i64 %28
+  %.idx.i.i.i.i.i.i.i.i = mul nuw nsw i64 %28, 40
+  %29 = getelementptr inbounds nuw i8, ptr %.val7.i.i.i.i, i64 %.idx.i.i.i.i.i.i.i.i
   %.not1.i.i.i.i.i.i.i.i = icmp eq i32 %.val8.i.i.i.i, 0
   br i1 %.not1.i.i.i.i.i.i.i.i, label %_ZN4llvm2cl3optIN12_GLOBAL__N_112DefaultOnOffELb0ENS0_6parserIS3_EEEC2IJA19_cNS0_12OptionHiddenENS0_4descENS0_11ValuesClassENS0_11initializerIS3_EEEEEDpRKT_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i
 

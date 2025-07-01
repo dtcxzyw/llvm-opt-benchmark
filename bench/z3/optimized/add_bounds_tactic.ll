@@ -740,7 +740,8 @@ _Z19quick_for_each_exprI17is_unbounded_procEvRT_R13ast_fast_markILj1EEP4expr.exi
   %66 = load ptr, ptr %3, align 8, !tbaa !42
   %67 = load i32, ptr %5, align 8, !tbaa !46
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %66, i64 %68
+  %.idx.i.i = shl nuw nsw i64 %68, 3
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i.i
   %.not8.i.i = icmp eq i32 %67, 0
   br i1 %.not8.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -4502,7 +4503,8 @@ _ZNK4goal4sizeEv.exit:                            ; preds = %33, %37, %41
   %44 = load ptr, ptr %6, align 8, !tbaa !42
   %45 = load i32, ptr %12, align 8, !tbaa !46
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %46
+  %.idx.i = shl nuw nsw i64 %46, 3
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i
   %.not8.i = icmp eq i32 %45, 0
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
 
@@ -4734,7 +4736,8 @@ _ZN4goal9updt_precENS_9precisionE.exit:           ; preds = %129
   %142 = load ptr, ptr %6, align 8, !tbaa !42
   %143 = load i32, ptr %12, align 8, !tbaa !46
   %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds nuw ptr, ptr %142, i64 %144
+  %.idx.i.i = shl nuw nsw i64 %144, 3
+  %145 = getelementptr inbounds nuw i8, ptr %142, i64 %.idx.i.i
   %.not8.i.i = icmp eq i32 %143, 0
   br i1 %.not8.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -4806,7 +4809,8 @@ define linkonce_odr hidden void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnul
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !46
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 3
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %.not8.i = icmp eq i32 %4, 0
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
 
@@ -5749,7 +5753,8 @@ define linkonce_odr hidden noundef ptr @_ZNK7obj_mapI4exprSt4pairI8rationalbEE9f
   %13 = and i32 %12, %9
   %14 = load ptr, ptr %0, align 8, !tbaa !195
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw %"class.obj_map<expr, std::pair<rational, bool>>::obj_map_entry", ptr %14, i64 %15
+  %.idx.i = mul nuw nsw i64 %15, 48
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i
   %17 = zext i32 %11 to i64
   %18 = getelementptr inbounds nuw %"class.obj_map<expr, std::pair<rational, bool>>::obj_map_entry", ptr %14, i64 %17
   %.not35.i = icmp eq i32 %13, %11

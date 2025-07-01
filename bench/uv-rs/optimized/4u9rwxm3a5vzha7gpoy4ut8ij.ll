@@ -2471,7 +2471,8 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   %.sroa.5963.0.copyload = load i64, ptr %708, align 8
   %714 = icmp ult i64 %.sroa.5963.0.copyload, 144115188075855872
   call void @llvm.assume(i1 %714)
-  %715 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %.sroa.4962.0.copyload, i64 %.sroa.5963.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.5963.0.copyload, 6
+  %715 = getelementptr inbounds nuw i8, ptr %.sroa.4962.0.copyload, i64 %.idx
   %716 = icmp sgt i64 %.sroa.0961.0.copyload, -1
   call void @llvm.assume(i1 %716)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41)

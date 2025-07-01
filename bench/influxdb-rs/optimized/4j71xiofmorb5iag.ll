@@ -120,7 +120,8 @@ define hidden void @"_ZN3csv6writer15Writer$LT$W$GT$10into_inner17h82b58a735b7cf
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$12write_record17h1ec09ab00e4a2724E"(ptr noalias noundef align 8 dereferenceable(376) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i64, i8, [7 x i8], i64 }, align 8
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 24
+  %5 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %._crit_edge40, label %.lr.ph
 

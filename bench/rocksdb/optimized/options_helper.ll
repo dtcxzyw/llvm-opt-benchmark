@@ -120,10 +120,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr.78" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.80" = type { %"class.std::__shared_ptr.81" }
 %"class.std::__shared_ptr.81" = type { ptr, %"class.std::__shared_count" }
-%"struct.std::pair" = type { i8, %"class.std::__cxx11::basic_string" }
-%"struct.std::pair.109" = type { i8, %"class.std::__cxx11::basic_string" }
-%"struct.std::pair.123" = type { i32, %"class.std::__cxx11::basic_string" }
-%"struct.std::pair.137" = type { i8, %"class.std::__cxx11::basic_string" }
 %"class.std::set" = type { %"class.std::_Rb_tree.378" }
 %"class.std::_Rb_tree.378" = type { %"struct.std::_Rb_tree<rocksdb::CompressionType, rocksdb::CompressionType, std::_Identity<rocksdb::CompressionType>, std::less<rocksdb::CompressionType>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<rocksdb::CompressionType, rocksdb::CompressionType, std::_Identity<rocksdb::CompressionType>, std::less<rocksdb::CompressionType>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
@@ -177,12 +173,16 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::allocator.174" = type { i8 }
 %"struct.std::pair.151" = type <{ %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 %"class.std::allocator.153" = type { i8 }
+%"struct.std::pair.137" = type { i8, %"class.std::__cxx11::basic_string" }
 %"struct.std::less.139" = type { i8 }
 %"class.std::allocator.141" = type { i8 }
+%"struct.std::pair.123" = type { i32, %"class.std::__cxx11::basic_string" }
 %"struct.std::less.125" = type { i8 }
 %"class.std::allocator.127" = type { i8 }
+%"struct.std::pair.109" = type { i8, %"class.std::__cxx11::basic_string" }
 %"struct.std::less.111" = type { i8 }
 %"class.std::allocator.113" = type { i8 }
+%"struct.std::pair" = type { i8, %"class.std::__cxx11::basic_string" }
 %"struct.std::less" = type { i8 }
 %"class.std::allocator.99" = type { i8 }
 
@@ -5990,7 +5990,8 @@ define linkonce_odr void @_ZNSt3mapIN7rocksdb15CompactionStyleENSt7__cxx1112basi
   store ptr %6, ptr %9, align 8, !tbaa !555
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !556
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN7rocksdb15CompactionStyleESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE22_M_insert_range_uniqueIPKSA_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESL_SL_.exit, label %.lr.ph.i
 
@@ -6128,7 +6129,8 @@ define linkonce_odr void @_ZNSt3mapIN7rocksdb13CompactionPriENSt7__cxx1112basic_
   store ptr %6, ptr %9, align 8, !tbaa !555
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !556
-  %11 = getelementptr inbounds nuw %"struct.std::pair.109", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN7rocksdb13CompactionPriESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE22_M_insert_range_uniqueIPKSA_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESL_SL_.exit, label %.lr.ph.i
 
@@ -6263,7 +6265,8 @@ define linkonce_odr void @_ZNSt3mapIN7rocksdb19CompactionStopStyleENSt7__cxx1112
   store ptr %6, ptr %9, align 8, !tbaa !555
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !556
-  %11 = getelementptr inbounds nuw %"struct.std::pair.123", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN7rocksdb19CompactionStopStyleESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE22_M_insert_range_uniqueIPKSA_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESL_SL_.exit, label %.lr.ph.i
 
@@ -6398,7 +6401,8 @@ define linkonce_odr void @_ZNSt3mapIN7rocksdb11TemperatureENSt7__cxx1112basic_st
   store ptr %6, ptr %9, align 8, !tbaa !555
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !556
-  %11 = getelementptr inbounds nuw %"struct.std::pair.137", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeIN7rocksdb11TemperatureESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE22_M_insert_range_uniqueIPKSA_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESL_SL_.exit, label %.lr.ph.i
 

@@ -26236,21 +26236,21 @@ declare void @_ZN5osgeo4proj9operation25createOpParamNameEPSGCodeEi(ptr dead_on_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj9operation18VectorOfParametersC2ESt16initializer_listIN7dropbox6oxygen2nnISt10shared_ptrINS1_18OperationParameterEEEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %4 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.181", ptr %1, i64 %2
-  %.idx.i = shl nuw nsw i64 %2, 4
+  %.idx6.i = shl nuw nsw i64 %2, 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx6.i
   %.not.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_M_allocateEm.exit.thread.i.i, label %.lr.ph.i.i.i.i.preheader.i.i
 
 _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_M_allocateEm.exit.thread.i.i: ; preds = %3
-  %5 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i
+  %5 = getelementptr inbounds nuw i8, ptr null, i64 %.idx6.i
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %6, align 8, !tbaa !421
   br label %.loopexit
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %3
-  %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #48
+  %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx6.i) #48
   store ptr %7, ptr %0, align 8, !tbaa !239
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx6.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8, !tbaa !421
   br label %.lr.ph.i.i.i.i.i.i
@@ -26361,21 +26361,21 @@ _ZNSt12__shared_ptrIN5osgeo4proj9operation14ParameterValueELN9__gnu_cxx12_Lock_p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj9operation14VectorOfValuesC2ESt16initializer_listIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %4 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.246", ptr %1, i64 %2
-  %.idx.i = shl nuw nsw i64 %2, 4
+  %.idx6.i = shl nuw nsw i64 %2, 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx6.i
   %.not.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EE11_M_allocateEm.exit.thread.i.i, label %.lr.ph.i.i.i.i.preheader.i.i
 
 _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EE11_M_allocateEm.exit.thread.i.i: ; preds = %3
-  %5 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i
+  %5 = getelementptr inbounds nuw i8, ptr null, i64 %.idx6.i
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %6, align 8, !tbaa !425
   br label %.loopexit
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %3
-  %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #48
+  %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx6.i) #48
   store ptr %7, ptr %0, align 8, !tbaa !422
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx6.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8, !tbaa !425
   br label %.lr.ph.i.i.i.i.i.i

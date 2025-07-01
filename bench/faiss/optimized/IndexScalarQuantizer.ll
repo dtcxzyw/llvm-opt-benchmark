@@ -1046,7 +1046,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %14
 .noexc17:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %19 = shl nuw nsw i64 %17, 2
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #25
-  %21 = getelementptr float, ptr %20, i64 %17
+  %21 = getelementptr inbounds nuw float, ptr %20, i64 %17
   store float 0.000000e+00, ptr %20, align 4, !tbaa !76
   %22 = icmp eq i32 %16, 1
   br i1 %22, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
@@ -1908,7 +1908,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %9
           to label %.noexc30 unwind label %.loopexit.split-lp
 
 .noexc30:                                         ; preds = %19
-  %22 = getelementptr float, ptr %21, i64 %16
+  %22 = getelementptr inbounds nuw float, ptr %21, i64 %16
   store float 0.000000e+00, ptr %21, align 4, !tbaa !76
   %23 = icmp eq i32 %15, 1
   br i1 %23, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
@@ -2107,7 +2107,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %8
           to label %.noexc28 unwind label %.loopexit.split-lp
 
 .noexc28:                                         ; preds = %18
-  %21 = getelementptr float, ptr %20, i64 %15
+  %21 = getelementptr inbounds nuw float, ptr %20, i64 %15
   store float 0.000000e+00, ptr %20, align 4, !tbaa !76
   %22 = icmp eq i32 %14, 1
   br i1 %22, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
@@ -2282,7 +2282,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %10
           to label %.noexc32 unwind label %.loopexit.split-lp
 
 .noexc32:                                         ; preds = %15
-  %18 = getelementptr float, ptr %17, i64 %13
+  %18 = getelementptr inbounds nuw float, ptr %17, i64 %13
   store float 0.000000e+00, ptr %17, align 4, !tbaa !76
   %19 = icmp eq i32 %12, 1
   br i1 %19, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i

@@ -99,7 +99,7 @@ for.body.i.preheader.i:                           ; preds = %entry
   %n_.i3.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 %0, ptr %n_.i3.i, align 8, !tbaa !13, !alias.scope !10
   %4 = load ptr, ptr %direction, align 8, !tbaa !22, !noalias !10
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %4, i64 %0
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %2
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
@@ -377,7 +377,7 @@ call.i.i47.noexc:                                 ; preds = %for.body.i.preheade
   store ptr %call.i.i4759, ptr %ref.tmp34, align 8, !tbaa !22, !alias.scope !35
   store i64 %35, ptr %n_.i3.i48, align 8, !tbaa !13, !alias.scope !35
   %39 = load ptr, ptr %direction, align 8, !tbaa !22, !noalias !35
-  %add.ptr.i.i49 = getelementptr inbounds nuw double, ptr %39, i64 %35
+  %add.ptr.i.i49 = getelementptr inbounds nuw i8, ptr %39, i64 %37
   br label %for.body.i.i50
 
 for.body.i.i50:                                   ; preds = %for.body.i.i50, %call.i.i47.noexc
@@ -494,7 +494,7 @@ call.i.i83.noexc:                                 ; preds = %for.body.i.preheade
   %n_.i3.i84 = getelementptr inbounds nuw i8, ptr %ref.tmp47, i64 8
   store i64 %53, ptr %n_.i3.i84, align 8, !tbaa !13, !alias.scope !39
   %57 = load ptr, ptr %direction, align 8, !tbaa !22, !noalias !39
-  %add.ptr.i.i85 = getelementptr inbounds nuw double, ptr %57, i64 %53
+  %add.ptr.i.i85 = getelementptr inbounds nuw i8, ptr %57, i64 %55
   br label %for.body.i.i86
 
 for.body.i.i86:                                   ; preds = %for.body.i.i86, %call.i.i83.noexc
@@ -777,7 +777,8 @@ do.end:                                           ; preds = %entry
   store i64 0, ptr %n_.i10, align 8, !tbaa !38
   %26 = load ptr, ptr %v1, align 8, !tbaa !22
   %27 = load i64, ptr %n_.i, align 8, !tbaa !13
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %26, i64 %27
+  %add.ptr.i.idx = shl nuw nsw i64 %27, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %26, i64 %add.ptr.i.idx
   %cmp.not6.i = icmp eq i64 %27, 0
   br i1 %cmp.not6.i, label %_ZSt9transformIPKdPdS2_St4plusIvEET1_T_S6_T0_S5_T2_.exit, label %for.body.i
 
@@ -1116,7 +1117,8 @@ ehcleanup34:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 do.end:                                           ; preds = %entry
   %25 = load ptr, ptr %this, align 8, !tbaa !22
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %25, i64 %0
+  %add.ptr.i.idx = shl nuw nsw i64 %0, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %25, i64 %add.ptr.i.idx
   %cmp.not6.i = icmp eq i64 %0, 0
   br i1 %cmp.not6.i, label %_ZSt9transformIPdPKdS0_St4plusIvEET1_T_S6_T0_S5_T2_.exit, label %for.body.i.preheader
 

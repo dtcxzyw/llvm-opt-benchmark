@@ -72,7 +72,8 @@ define weak_odr dso_local noundef i32 @_ZN3igl24extract_manifold_patchesIN5Eigen
 
 15:                                               ; preds = %5
   %16 = load ptr, ptr %4, align 8, !tbaa !13
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %13
+  %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %13, 2
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %15
@@ -728,7 +729,8 @@ define linkonce_odr dso_local noundef i32 @_ZN3igl24extract_manifold_patchesIN5E
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %3, align 8, !tbaa !13
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %12
+  %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %12, 2
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %14
@@ -1270,7 +1272,8 @@ define weak_odr dso_local noundef i32 @_ZN3igl24extract_manifold_patchesIN5Eigen
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %3, align 8, !tbaa !13
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %12
+  %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %12, 2
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %14
@@ -1762,7 +1765,8 @@ define weak_odr dso_local noundef i32 @_ZN3igl24extract_manifold_patchesIN5Eigen
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %3, align 8, !tbaa !13
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %12
+  %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %12, 2
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %14
@@ -2284,7 +2288,8 @@ _ZNSt11_Deque_baseIiSaIiEE15_M_allocate_mapEm.exit:
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt11_Deque_baseIiSaIiEE15_M_allocate_mapEm.exit, %_ZNSt11_Deque_baseIiSaIiEE16_M_allocate_nodeEv.exit.i

@@ -25,19 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::map.35" = type { %"class.std::_Rb_tree.36" }
 %"class.std::_Rb_tree.36" = type { %"struct.std::_Rb_tree<std::tuple<rocksdb::BackgroundErrorReason, bool>, std::pair<const std::tuple<rocksdb::BackgroundErrorReason, bool>, rocksdb::Status::Severity>, std::_Select1st<std::pair<const std::tuple<rocksdb::BackgroundErrorReason, bool>, rocksdb::Status::Severity>>, std::less<std::tuple<rocksdb::BackgroundErrorReason, bool>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::tuple<rocksdb::BackgroundErrorReason, bool>, std::pair<const std::tuple<rocksdb::BackgroundErrorReason, bool>, rocksdb::Status::Severity>, std::_Select1st<std::pair<const std::tuple<rocksdb::BackgroundErrorReason, bool>, rocksdb::Status::Severity>>, std::less<std::tuple<rocksdb::BackgroundErrorReason, bool>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"struct.std::pair.22" = type <{ %"class.std::tuple.24", i8, [3 x i8] }>
-%"class.std::tuple.24" = type { %"struct.std::_Tuple_impl.25" }
-%"struct.std::_Tuple_impl.25" = type { %"struct.std::_Tuple_impl.26", %"struct.std::_Head_base.11" }
-%"struct.std::_Tuple_impl.26" = type { %"struct.std::_Tuple_impl.27", %"struct.std::_Head_base.10" }
-%"struct.std::_Tuple_impl.27" = type { %"struct.std::_Head_base.28" }
-%"struct.std::_Head_base.28" = type { i8 }
-%"struct.std::_Head_base.10" = type { i8 }
-%"struct.std::_Head_base.11" = type { i32 }
-%"struct.std::pair.42" = type <{ %"class.std::tuple.44", i8, [3 x i8] }>
-%"class.std::tuple.44" = type { %"struct.std::_Tuple_impl.45" }
-%"struct.std::_Tuple_impl.45" = type { %"struct.std::_Tuple_impl.46", %"struct.std::_Head_base.11" }
-%"struct.std::_Tuple_impl.46" = type { %"struct.std::_Head_base.47" }
-%"struct.std::_Head_base.47" = type { i8 }
 %"class.std::unique_ptr.59" = type { %"struct.std::__uniq_ptr_data.60" }
 %"struct.std::__uniq_ptr_data.60" = type { %"class.std::__uniq_ptr_impl.61" }
 %"class.std::__uniq_ptr_impl.61" = type { %"class.std::tuple.62" }
@@ -67,8 +54,21 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.rocksdb::Slice" = type { ptr, i64 }
+%"struct.std::pair.42" = type <{ %"class.std::tuple.44", i8, [3 x i8] }>
+%"class.std::tuple.44" = type { %"struct.std::_Tuple_impl.45" }
+%"struct.std::_Tuple_impl.45" = type { %"struct.std::_Tuple_impl.46", %"struct.std::_Head_base.11" }
+%"struct.std::_Tuple_impl.46" = type { %"struct.std::_Head_base.47" }
+%"struct.std::_Head_base.47" = type { i8 }
+%"struct.std::_Head_base.11" = type { i32 }
 %"struct.std::less.49" = type { i8 }
 %"class.std::allocator.51" = type { i8 }
+%"struct.std::pair.22" = type <{ %"class.std::tuple.24", i8, [3 x i8] }>
+%"class.std::tuple.24" = type { %"struct.std::_Tuple_impl.25" }
+%"struct.std::_Tuple_impl.25" = type { %"struct.std::_Tuple_impl.26", %"struct.std::_Head_base.11" }
+%"struct.std::_Tuple_impl.26" = type { %"struct.std::_Tuple_impl.27", %"struct.std::_Head_base.10" }
+%"struct.std::_Tuple_impl.27" = type { %"struct.std::_Head_base.28" }
+%"struct.std::_Head_base.28" = type { i8 }
+%"struct.std::_Head_base.10" = type { i8 }
 %"struct.std::less.30" = type { i8 }
 %"class.std::allocator.32" = type { i8 }
 %"struct.std::pair" = type <{ %"class.std::tuple", i8, [3 x i8] }>
@@ -415,7 +415,8 @@ define linkonce_odr void @_ZNSt3mapISt5tupleIJN7rocksdb21BackgroundErrorReasonEN
   store ptr %6, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !26
-  %11 = getelementptr inbounds nuw %"struct.std::pair.22", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 12
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonENS1_6Status4CodeEbEESt4pairIKS5_NS3_8SeverityEESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE22_M_insert_range_uniqueIPKS9_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESK_SK_.exit, label %.lr.ph.i
 
@@ -526,7 +527,8 @@ define linkonce_odr void @_ZNSt3mapISt5tupleIJN7rocksdb21BackgroundErrorReasonEb
   store ptr %6, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !26
-  %11 = getelementptr inbounds nuw %"struct.std::pair.42", ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 12
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not7.i = icmp eq i64 %2, 0
   br i1 %.not7.i, label %_ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEESt4pairIKS3_NS1_6Status8SeverityEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE22_M_insert_range_uniqueIPKS8_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESJ_SJ_.exit, label %.lr.ph.i
 

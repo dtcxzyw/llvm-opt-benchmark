@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union._zend_value = type { i64 }
 %union.anon = type { i32 }
 %union.anon.2 = type { i32 }
-%struct._zend_op = type { ptr, %union._znode_op, %union._znode_op, %union._znode_op, i32, i32, i8, i8, i8, i8 }
-%union._znode_op = type { i32 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
@@ -34,7 +32,8 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr noundef readnone ca
   %16 = load ptr, ptr %15, align 8, !tbaa !24
   %17 = load i32, ptr %4, align 8, !tbaa !4
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %struct._zend_op, ptr %16, i64 %18
+  %.idx = shl nuw nsw i64 %18, 5
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   %.not345 = icmp eq i32 %17, 0
   br i1 %.not345, label %._crit_edge, label %.lr.ph344
 

@@ -29991,7 +29991,8 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h483463cbf3944261E.exit: ; preds = %
 165:                                              ; preds = %155
   call void @llvm.lifetime.start.p0(i64 1016, ptr nonnull %28)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1016) %28, i8 0, i64 1016, i1 false)
-  %166 = getelementptr inbounds nuw i32, ptr %.sroa.01.0.i, i64 %.sroa.52.0.i
+  %.idx = shl nuw nsw i64 %.sroa.52.0.i, 2
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 %.idx
   %167 = icmp eq i64 %.sroa.52.0.i, 0
   br i1 %167, label %._crit_edge, label %.lr.ph
 
@@ -36662,7 +36663,8 @@ define hidden void @_ZN12polars_arrow3ffi5array15c_release_array17h81c65f3231123
   %7 = load ptr, ptr %6, align 8, !nonnull !28, !align !75, !noundef !28
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %9 = load i64, ptr %8, align 8, !noundef !28
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %.idx = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 

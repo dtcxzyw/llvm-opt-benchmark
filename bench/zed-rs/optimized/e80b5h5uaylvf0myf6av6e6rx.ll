@@ -1950,7 +1950,8 @@ define hidden noundef zeroext i1 @"_ZN16html_to_markdown12html_element11HtmlElem
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %57 = getelementptr inbounds { ptr, i64 }, ptr %51, i64 %53
+  %.idx.i.i.i.i = shl nsw i64 %53, 4
+  %57 = getelementptr inbounds i8, ptr %51, i64 %.idx.i.i.i.i
   %.not.i.i.i.i9.i = icmp eq i64 %53, 0
   br label %58
 

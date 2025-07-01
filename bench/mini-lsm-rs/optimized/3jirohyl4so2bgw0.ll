@@ -4123,7 +4123,8 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN4core3fmt9Formatter10debug_list17h1616b9a56f5bf339E(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 24
+  %6 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h49649c9a24b7390cE.exit, label %.lr.ph.i
 
@@ -5464,7 +5465,8 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
   %.val.i = load ptr, ptr %41, align 8, !alias.scope !627, !noalias !635, !nonnull !5, !noundef !5
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val13.i = load i64, ptr %42, align 8, !alias.scope !627, !noalias !635, !noundef !5
-  %43 = getelementptr inbounds { ptr, i64, i64 }, ptr %.val.i, i64 %.val13.i
+  %.idx.i = mul nsw i64 %.val13.i, 24
+  %43 = getelementptr inbounds i8, ptr %.val.i, i64 %.idx.i
   %44 = icmp eq i64 %.val13.i, 0
   br i1 %44, label %._crit_edge.i, label %.lr.ph.i
 
@@ -5597,7 +5599,8 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
   br label %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17h5211193dda37dfe6E.exit.thread.i"
 
 96:                                               ; preds = %90
-  %97 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 }, ptr %64, i64 %65
+  %.idx.i.i = mul nsw i64 %65, 48
+  %97 = getelementptr inbounds i8, ptr %64, i64 %.idx.i.i
   %98 = load ptr, ptr %.sroa.0.062.i, align 8, !alias.scope !651, !noalias !666, !nonnull !5, !noundef !5
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -6589,7 +6592,8 @@ define internal fastcc void @"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$
   br label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h38b0d02595a7b126E.exit"
 
 "_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h38b0d02595a7b126E.exit": ; preds = %3, %8
-  %10 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 48
+  %10 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %11 = icmp eq i64 %2, 0
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hb70f7e17310a03e1E.exit", label %.lr.ph.i
 
@@ -7118,7 +7122,8 @@ define hidden void @"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$G
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i9, align 8, !alias.scope !935, !noalias !938, !nonnull !5, !noundef !5
   %.sroa.5.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i10, align 8, !alias.scope !935, !noalias !938
-  %35 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %.idx = mul nsw i64 %.sroa.5.0.copyload.i, 24
+  %35 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %.sroa.4.0.copyload.i, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -7835,7 +7840,8 @@ define void @_ZN8mini_lsm5block5Block6encode17hea0aaa1ac6fe05e0E(ptr noalias nou
   %14 = load i64, ptr %13, align 8, !noundef !5
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load ptr, ptr %15, align 8, !alias.scope !1044, !nonnull !5, !noundef !5
-  %17 = getelementptr inbounds i16, ptr %16, i64 %14
+  %.idx = shl nsw i64 %14, 1
+  %17 = getelementptr inbounds i8, ptr %16, i64 %.idx
   %18 = icmp eq i64 %14, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 
@@ -10264,7 +10270,8 @@ define hidden noundef ptr @_ZN8mini_lsm11lsm_storage15LsmStorageInner11write_bat
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %7 = getelementptr inbounds { [2 x i64], ptr, [1 x i64] }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 5
+  %7 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %8 = icmp eq i64 %2, 0
   br i1 %8, label %"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..sync..Arc$LT$mini_lsm..lsm_storage..LsmStorageState$GT$$GT$$GT$17h38891bde6a0b5bccE.exit68", label %.lr.ph
 

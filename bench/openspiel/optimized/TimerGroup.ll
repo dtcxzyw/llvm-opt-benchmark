@@ -1640,7 +1640,8 @@ _ZSt8_DestroyIP5TimerEvT_S2_.exit.i.i.i.i.i:      ; preds = %.lr.ph.i.i.i.i.i.i.
 .body:                                            ; preds = %65
   %71 = extractvalue { ptr, i32 } %66, 0
   %72 = tail call ptr @__cxa_begin_catch(ptr %71) #15
-  %73 = getelementptr inbounds %class.Timer, ptr %39, i64 %1
+  %.idx = mul nsw i64 %1, 72
+  %73 = getelementptr inbounds i8, ptr %39, i64 %.idx
   br label %.lr.ph.i.i.i56
 
 .lr.ph.i.i.i56:                                   ; preds = %.body, %.lr.ph.i.i.i56

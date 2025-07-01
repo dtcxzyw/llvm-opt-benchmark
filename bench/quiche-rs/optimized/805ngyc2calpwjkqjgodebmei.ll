@@ -3721,7 +3721,8 @@ define void @_ZN6quiche2h35frame5Frame8to_bytes17h66693563852c3f01E(ptr dead_on_
   %177 = load ptr, ptr %176, align 8, !nonnull !7, !noundef !7
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %179 = load i64, ptr %178, align 8, !noundef !7
-  %180 = getelementptr inbounds nuw { i64, i64 }, ptr %177, i64 %179
+  %.idx = shl nuw nsw i64 %179, 4
+  %180 = getelementptr inbounds nuw i8, ptr %177, i64 %.idx
   %181 = icmp eq i64 %179, 0
   br i1 %181, label %.loopexit242, label %.lr.ph
 
@@ -4622,7 +4623,8 @@ define void @_ZN6quiche2h35frame5Frame7to_qlog17hb94d2a9253e3796bE(ptr dead_on_u
   %276 = load ptr, ptr %275, align 8, !nonnull !7, !noundef !7
   %277 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %278 = load i64, ptr %277, align 8, !noundef !7
-  %279 = getelementptr inbounds nuw { i64, i64 }, ptr %276, i64 %278
+  %.idx = shl nuw nsw i64 %278, 4
+  %279 = getelementptr inbounds nuw i8, ptr %276, i64 %.idx
   %280 = icmp eq i64 %278, 0
   br i1 %280, label %.loopexit, label %.lr.ph
 

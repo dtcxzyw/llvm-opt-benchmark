@@ -22,13 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.149" = type { [64 x i8] }
 %"class.llvm::DenseMap.150" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"struct.llvm::detail::DenseMapPair.207" = type { %"struct.std::pair.208" }
-%"struct.std::pair.208" = type { %"class.llvm::Register", %"class.std::vector.210" }
-%"class.llvm::Register" = type { i32 }
-%"class.std::vector.210" = type { %"struct.std::_Vector_base.211" }
-%"struct.std::_Vector_base.211" = type { %"struct.std::_Vector_base<std::pair<llvm::MachineBasicBlock *, llvm::Register>, std::allocator<std::pair<llvm::MachineBasicBlock *, llvm::Register>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<llvm::MachineBasicBlock *, llvm::Register>, std::allocator<std::pair<llvm::MachineBasicBlock *, llvm::Register>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<llvm::MachineBasicBlock *, llvm::Register>, std::allocator<std::pair<llvm::MachineBasicBlock *, llvm::Register>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<llvm::MachineBasicBlock *, llvm::Register>, std::allocator<std::pair<llvm::MachineBasicBlock *, llvm::Register>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.llvm::SmallDenseMap.252" = type { i32, i32, %"struct.llvm::AlignedCharArrayUnion.254" }
 %"struct.llvm::AlignedCharArrayUnion.254" = type { [128 x i8] }
 %"struct.llvm::detail::DenseMapPair.239" = type { %"struct.std::pair.240" }
@@ -296,7 +289,8 @@ _ZNSt10unique_ptrIN4llvm11MBFIWrapperESt14default_deleteIS1_EED2Ev.exit: ; preds
 
 .lr.ph.preheader.i.i.i:                           ; preds = %50
   %55 = zext i32 %53 to i64
-  %56 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.207", ptr %.pre1.i.i, i64 %55
+  %.idx.i.i.i = shl nuw nsw i64 %55, 5
+  %56 = getelementptr inbounds nuw i8, ptr %.pre1.i.i, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockENS1_8RegisterEESaIS5_EED2Ev.exit.i.i.i, %.lr.ph.preheader.i.i.i
@@ -625,7 +619,8 @@ _ZNSt10unique_ptrIN4llvm11MBFIWrapperESt14default_deleteIS1_EED2Ev.exit: ; preds
 
 .lr.ph.preheader.i.i.i:                           ; preds = %53
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.207", ptr %.pre1.i.i, i64 %58
+  %.idx.i.i.i = shl nuw nsw i64 %58, 5
+  %59 = getelementptr inbounds nuw i8, ptr %.pre1.i.i, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockENS1_8RegisterEESaIS5_EED2Ev.exit.i.i.i, %.lr.ph.preheader.i.i.i
@@ -1074,7 +1069,8 @@ _ZNSt10unique_ptrIN4llvm11MBFIWrapperESt14default_deleteIS1_EED2Ev.exit: ; preds
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZNSt10unique_ptrIN4llvm11MBFIWrapperESt14default_deleteIS1_EED2Ev.exit
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.207", ptr %.pre1.i.i, i64 %14
+  %.idx.i.i.i = shl nuw nsw i64 %14, 5
+  %15 = getelementptr inbounds nuw i8, ptr %.pre1.i.i, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockENS1_8RegisterEESaIS5_EED2Ev.exit.i.i.i, %.lr.ph.preheader.i.i.i

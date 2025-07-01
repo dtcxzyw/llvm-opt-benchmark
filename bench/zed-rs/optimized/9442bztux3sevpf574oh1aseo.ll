@@ -21261,7 +21261,8 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %44 = getelementptr i8, ptr %28, i64 16
   %.val5 = load i64, ptr %44, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %45 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %.val, i64 %.val5
+  %.idx.i = shl nsw i64 %.val5, 5
+  %45 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i
   %46 = icmp eq i64 %.val5, 0
   br i1 %46, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d6205ad2874627cE.exit.thread.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d6205ad2874627cE.exit.lr.ph.i"
 
@@ -22533,7 +22534,8 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %.sroa.435.0.copyload.i = load ptr, ptr %.sroa.435.0..sroa_idx.i, align 8, !alias.scope !5951, !noalias !5956, !nonnull !4, !noundef !4
   %.sroa.536.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 40
   %.sroa.536.0.copyload.i = load i64, ptr %.sroa.536.0..sroa_idx.i, align 8, !alias.scope !5951, !noalias !5956
-  %47 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, i64 }, ptr %.sroa.435.0.copyload.i, i64 %.sroa.536.0.copyload.i
+  %.idx.i = mul nsw i64 %.sroa.536.0.copyload.i, 40
+  %47 = getelementptr inbounds i8, ptr %.sroa.435.0.copyload.i, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !5958
   store ptr %.sroa.435.0.copyload.i, ptr %13, align 8, !noalias !5958
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -22657,7 +22659,8 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %.sroa.455.0.copyload.i = load ptr, ptr %.sroa.455.0..sroa_idx.i, align 8, !alias.scope !5951, !noalias !5956, !nonnull !4, !noundef !4
   %.sroa.556.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 64
   %.sroa.556.0.copyload.i = load i64, ptr %.sroa.556.0..sroa_idx.i, align 8, !alias.scope !5951, !noalias !5956
-  %84 = getelementptr inbounds { i64, i32, [1 x i32] }, ptr %.sroa.455.0.copyload.i, i64 %.sroa.556.0.copyload.i
+  %.idx137.i = shl nsw i64 %.sroa.556.0.copyload.i, 4
+  %84 = getelementptr inbounds i8, ptr %.sroa.455.0.copyload.i, i64 %.idx137.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !5958
   store ptr %.sroa.455.0.copyload.i, ptr %9, align 8, !noalias !5958
   %.sroa.451.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8

@@ -39,7 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_ssa_range = type { i64, i64, i8, i8 }
 %struct._zend_send_arg_info = type { ptr }
 %struct._zend_basic_block = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [2 x i32] }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct._zend_execute_data = type { ptr, ptr, ptr, ptr, %struct._zval_struct, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"SCCP\00", align 1
@@ -7965,7 +7964,8 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %31 = load i32, ptr %30, align 8, !tbaa !158
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %struct._Bucket, ptr %29, i64 %32
+  %.idx = shl nuw nsw i64 %32, 5
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !41
   %36 = and i32 %35, 4

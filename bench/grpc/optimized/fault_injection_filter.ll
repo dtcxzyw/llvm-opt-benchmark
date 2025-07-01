@@ -122,11 +122,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::lts_20240722::log_internal::LogMessageFatal" = type { %"class.absl::lts_20240722::log_internal::LogMessage" }
 %"class.grpc_core::CompressionAlgorithmSet" = type { %"class.grpc_core::BitSet.215" }
 %"class.grpc_core::BitSet.215" = type { [1 x i8] }
-%"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
 %"class.grpc_core::Waker" = type { %"struct.grpc_core::Waker::WakeableAndArg" }
 %"struct.grpc_core::Waker::WakeableAndArg" = type { ptr, i16 }
 %"class.grpc_core::Poll.261" = type { i8, %union.anon.262 }
 %union.anon.262 = type { %"class.std::unique_ptr.103" }
+%"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
 
 $_ZN4absl12lts_2024072212log_internal10LogMessagelsIPN9grpc_core20FaultInjectionFilter4CallETnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS9_ = comdat any
 
@@ -6423,7 +6423,8 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail20GetStringValueHelperI1
   %16 = load ptr, ptr %15, align 8
   %17 = select i1 %.not.i.i, ptr %15, ptr %16
   %18 = lshr i64 %13, 1
-  %19 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %17, i64 %18
+  %.idx = mul nuw nsw i64 %18, 40
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %.not14 = icmp ult i64 %13, 2
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 

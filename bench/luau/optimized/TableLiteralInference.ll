@@ -49,7 +49,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [7 x i8] }
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<const Luau::Type *>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<const Luau::Type *>::_Storage" = type { ptr }
-%"struct.Luau::AstExprTable::Item" = type { i32, ptr, ptr }
 %"struct.std::pair.115" = type { %"class.std::optional.37", i8, [7 x i8] }
 %"struct.Luau::Type" = type { %"class.Luau::Variant", i8, [7 x i8], %"class.std::optional.37", ptr }
 %"class.Luau::Variant" = type { i32, [4 x i8], [336 x i8] }
@@ -1754,8 +1753,8 @@ _ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit373.thread: ; preds = %_ZN4Luau3
 
 128:                                              ; preds = %.critedge350.thread
   %129 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprTableEE5valueE, align 4, !tbaa !4
-  %.not579 = icmp eq i32 %107, %129
-  br i1 %.not579, label %130, label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit
+  %.not580 = icmp eq i32 %107, %129
+  br i1 %.not580, label %130, label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit
 
 130:                                              ; preds = %128
   %131 = tail call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %36)
@@ -1944,7 +1943,8 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %138
   %203 = load ptr, ptr %202, align 8, !tbaa !40
   %204 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %205 = load i64, ptr %204, align 8, !tbaa !44
-  %206 = getelementptr inbounds nuw %"struct.Luau::AstExprTable::Item", ptr %203, i64 %205
+  %.idx = mul nuw nsw i64 %205, 24
+  %206 = getelementptr inbounds nuw i8, ptr %203, i64 %.idx
   %.not313559 = icmp eq i64 %205, 0
   br i1 %.not313559, label %._crit_edge, label %.lr.ph
 
@@ -2544,7 +2544,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
 ._crit_edge568:                                   ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit406, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit
   %474 = load ptr, ptr %202, align 8, !tbaa !40
   %475 = load i64, ptr %204, align 8, !tbaa !44
-  %476 = getelementptr inbounds nuw %"struct.Luau::AstExprTable::Item", ptr %474, i64 %475
+  %.idx574 = mul nuw nsw i64 %475, 24
+  %476 = getelementptr inbounds nuw i8, ptr %474, i64 %.idx574
   %.not314569 = icmp eq i64 %475, 0
   br i1 %.not314569, label %._crit_edge573, label %.lr.ph572
 
@@ -2782,11 +2783,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %561, ptr %27, align 8, !tbaa !69
   %567 = load i64, ptr %478, align 8, !tbaa !73
   store i64 %567, ptr %477, align 8, !tbaa !73
-  %.pre574 = load i64, ptr %479, align 8, !tbaa !72
+  %.pre575 = load i64, ptr %479, align 8, !tbaa !72
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IS5_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISA_ISt10in_place_tSH_EESt16is_constructibleIS5_JSD_EESt14is_convertibleISD_S5_EEEbE4typeELb1EEEOSD_.exit
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IS5_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISA_ISt10in_place_tSH_EESt16is_constructibleIS5_JSD_EESt14is_convertibleISD_S5_EEEbE4typeELb1EEEOSD_.exit: ; preds = %563, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
-  %568 = phi i64 [ %564, %563 ], [ %.pre574, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i ]
+  %568 = phi i64 [ %564, %563 ], [ %.pre575, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i ]
   store i64 %568, ptr %480, align 8, !tbaa !72
   store ptr %478, ptr %28, align 8, !tbaa !69
   store i64 0, ptr %479, align 8, !tbaa !72
@@ -5725,7 +5726,8 @@ _ZNSt15__new_allocatorISt4pairIPKN4Luau9UnionTypeEmEE8allocateEmPKv.exit.i: ; pr
 20:                                               ; preds = %_ZNSt15__new_allocatorISt4pairIPKN4Luau9UnionTypeEmEE8allocateEmPKv.exit.i
   %21 = load ptr, ptr %1, align 8, !tbaa !133
   %22 = getelementptr inbounds nuw %"struct.std::pair.112", ptr %21, i64 %13
-  %23 = getelementptr inbounds nuw %"struct.std::pair.112", ptr %22, i64 %.sroa.speculated.i
+  %.idx.i = shl nuw nsw i64 %.sroa.speculated.i, 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i
   %24 = getelementptr inbounds nuw %"struct.std::pair.112", ptr %9, i64 %13
   br label %.lr.ph.i.i.i.i
 
@@ -5744,7 +5746,8 @@ _ZSt18uninitialized_copyIPSt4pairIPKN4Luau9UnionTypeEmES6_ET0_T_S8_S7_.exit.i: ;
 
 27:                                               ; preds = %_ZSt18uninitialized_copyIPSt4pairIPKN4Luau9UnionTypeEmES6_ET0_T_S8_S7_.exit.i
   %28 = load ptr, ptr %1, align 8, !tbaa !133
-  %29 = getelementptr inbounds nuw %"struct.std::pair.112", ptr %28, i64 %19
+  %.idx36.i = shl nuw nsw i64 %19, 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx36.i
   br label %.lr.ph.i.i.i29.i
 
 .lr.ph.i.i.i29.i:                                 ; preds = %.lr.ph.i.i.i29.i, %27
@@ -6245,7 +6248,8 @@ _ZNSt15__new_allocatorISt4pairIPKN4Luau9UnionTypeEmEE8allocateEmPKv.exit: ; pred
 
 22:                                               ; preds = %_ZNSt15__new_allocatorISt4pairIPKN4Luau9UnionTypeEmEE8allocateEmPKv.exit
   %23 = getelementptr inbounds nuw %"struct.std::pair.112", ptr %.pre.pre, i64 %18
-  %24 = getelementptr inbounds nuw %"struct.std::pair.112", ptr %23, i64 %.sroa.speculated
+  %.idx = shl nuw nsw i64 %.sroa.speculated, 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %22, %.lr.ph.i.i.i.i
@@ -6262,7 +6266,8 @@ _ZSt18uninitialized_moveIPSt4pairIPKN4Luau9UnionTypeEmES6_ET0_T_S8_S7_.exit: ; p
   br i1 %.not20.not, label %27, label %_ZSt18uninitialized_moveIPSt4pairIPKN4Luau9UnionTypeEmES6_ET0_T_S8_S7_.exit27
 
 27:                                               ; preds = %_ZSt18uninitialized_moveIPSt4pairIPKN4Luau9UnionTypeEmES6_ET0_T_S8_S7_.exit
-  %28 = getelementptr inbounds nuw %"struct.std::pair.112", ptr %.pre.pre, i64 %21
+  %.idx29 = shl nuw nsw i64 %21, 4
+  %28 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 %.idx29
   %29 = getelementptr inbounds nuw %"struct.std::pair.112", ptr %15, i64 %.sroa.speculated
   br label %.lr.ph.i.i.i.i22
 

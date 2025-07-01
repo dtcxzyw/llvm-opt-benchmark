@@ -956,7 +956,7 @@ _ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit.thread: ; 
   %Capacity2.i.i.i.i.i88 = getelementptr inbounds nuw i8, ptr %lrefs, i64 12
   store i32 1, ptr %Capacity2.i.i.i.i.i88, align 4
   %5 = load ptr, ptr %list, align 8
-  %add.ptr.i97 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %add.ptr.i98 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %for.body.preheader
 
 if.then.i2.i:                                     ; preds = %if.then, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree24AssignmentExpressionNodeELb1EE9push_backERKS4_.exit14.i
@@ -1018,20 +1018,21 @@ _ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit: ; preds =
   %16 = phi i32 [ %15, %_ZN6hermes6ESTreeL14linearizeRightINS0_24AssignmentExpressionNodeEEEN4llvh11SmallVectorIPT_Lj1EEES6_NS3_8ArrayRefINS3_9StringRefEEE.exit ], [ %.pre80, %if.then.i ]
   %17 = load ptr, ptr %list, align 8
   %conv.i43 = zext i32 %16 to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %17, i64 %conv.i43
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i43, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %17, i64 %add.ptr.i.idx
   %cmp.not74 = icmp eq i32 %16, 0
   br i1 %cmp.not74, label %for.end.thread, label %for.body.preheader
 
 for.end.thread:                                   ; preds = %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit
-  %.pre84108 = load ptr, ptr %lrefs, align 8
+  %.pre84109 = load ptr, ptr %lrefs, align 8
   br label %for.end37
 
 for.body.preheader:                               ; preds = %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit.thread, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit
-  %add.ptr.i104 = phi ptr [ %add.ptr.i97, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit.thread ], [ %add.ptr.i, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit ]
+  %add.ptr.i105 = phi ptr [ %add.ptr.i98, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit.thread ], [ %add.ptr.i, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit ]
   %18 = phi ptr [ %5, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit.thread ], [ %17, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit ]
-  %add.ptr.i.i.i.i.i90102 = phi ptr [ %add.ptr.i.i.i.i.i86, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit.thread ], [ %add.ptr.i.i.i.i.i, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit ]
-  %Size.i.i.i.i.i91100 = phi ptr [ %Size.i.i.i.i.i87, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit.thread ], [ %Size.i.i.i.i.i, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit ]
-  %Capacity2.i.i.i.i.i9299 = phi ptr [ %Capacity2.i.i.i.i.i88, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit.thread ], [ %Capacity2.i.i.i.i.i, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit ]
+  %add.ptr.i.i.i.i.i90103 = phi ptr [ %add.ptr.i.i.i.i.i86, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit.thread ], [ %add.ptr.i.i.i.i.i, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit ]
+  %Size.i.i.i.i.i91101 = phi ptr [ %Size.i.i.i.i.i87, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit.thread ], [ %Size.i.i.i.i.i, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit ]
+  %Capacity2.i.i.i.i.i92100 = phi ptr [ %Capacity2.i.i.i.i.i88, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit.thread ], [ %Capacity2.i.i.i.i.i, %_ZN4llvh15SmallVectorImplIN6hermes5irgen10LReferenceEE7reserveEm.exit ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5irgen10LReferenceELb1EE9push_backERKS3_.exit
@@ -1040,14 +1041,14 @@ for.body:                                         ; preds = %for.body.preheader,
   %_left = getelementptr inbounds nuw i8, ptr %19, i64 56
   %20 = load ptr, ptr %_left, align 8
   call void @_ZN6hermes5irgen11ESTreeIRGen10createLRefEPNS_6ESTree4NodeEb(ptr nonnull sret(%"class.hermes::irgen::LReference") align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %20, i1 noundef zeroext false) #16
-  %21 = load i32, ptr %Size.i.i.i.i.i91100, align 8
-  %22 = load i32, ptr %Capacity2.i.i.i.i.i9299, align 4
+  %21 = load i32, ptr %Size.i.i.i.i.i91101, align 8
+  %22 = load i32, ptr %Capacity2.i.i.i.i.i92100, align 4
   %cmp.not.i = icmp ult i32 %21, %22
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5irgen10LReferenceELb1EE9push_backERKS3_.exit, label %if.then.i45
 
 if.then.i45:                                      ; preds = %for.body
-  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %lrefs, ptr noundef nonnull %add.ptr.i.i.i.i.i90102, i64 noundef 0, i64 noundef 48) #16
-  %.pre.i = load i32, ptr %Size.i.i.i.i.i91100, align 8
+  call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %lrefs, ptr noundef nonnull %add.ptr.i.i.i.i.i90103, i64 noundef 0, i64 noundef 48) #16
+  %.pre.i = load i32, ptr %Size.i.i.i.i.i91101, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5irgen10LReferenceELb1EE9push_backERKS3_.exit
 
 _ZN4llvh23SmallVectorTemplateBaseIN6hermes5irgen10LReferenceELb1EE9push_backERKS3_.exit: ; preds = %for.body, %if.then.i45
@@ -1056,11 +1057,11 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes5irgen10LReferenceELb1EE9push_backERKS
   %conv.i3.i = zext i32 %23 to i64
   %add.ptr.i.i = getelementptr inbounds nuw %"class.hermes::irgen::LReference", ptr %24, i64 %conv.i3.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9, i64 48, i1 false)
-  %25 = load i32, ptr %Size.i.i.i.i.i91100, align 8
+  %25 = load i32, ptr %Size.i.i.i.i.i91101, align 8
   %add.i = add i32 %25, 1
-  store i32 %add.i, ptr %Size.i.i.i.i.i91100, align 8
+  store i32 %add.i, ptr %Size.i.i.i.i.i91101, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.075, i64 8
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i104
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i105
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5irgen10LReferenceELb1EE9push_backERKS3_.exit
@@ -1072,8 +1073,9 @@ for.end:                                          ; preds = %_ZN4llvh23SmallVect
 
 for.body19.lr.ph:                                 ; preds = %for.end
   %conv.i.i51 = zext i32 %.pre82 to i64
-  %add.ptr.i.i52 = getelementptr inbounds nuw ptr, ptr %.pre81, i64 %conv.i.i51
-  %26 = load i32, ptr %Size.i.i.i.i.i91100, align 8
+  %add.ptr.i.i52.idx = shl nuw nsw i64 %conv.i.i51, 3
+  %add.ptr.i.i52 = getelementptr inbounds nuw i8, ptr %.pre81, i64 %add.ptr.i.i52.idx
+  %26 = load i32, ptr %Size.i.i.i.i.i91101, align 8
   %conv.i49 = zext i32 %26 to i64
   %add.ptr.i86 = getelementptr inbounds nuw %"class.hermes::irgen::LReference", ptr %.pre84, i64 %conv.i49
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -1131,10 +1133,10 @@ for.end37.loopexit:                               ; preds = %if.end
   br label %for.end37
 
 for.end37:                                        ; preds = %for.end.thread, %for.end37.loopexit, %for.end
-  %add.ptr.i.i.i.i.i90103109 = phi ptr [ %add.ptr.i.i.i.i.i90102, %for.end ], [ %add.ptr.i.i.i.i.i90102, %for.end37.loopexit ], [ %add.ptr.i.i.i.i.i, %for.end.thread ]
-  %30 = phi ptr [ %.pre84, %for.end ], [ %.pre83, %for.end37.loopexit ], [ %.pre84108, %for.end.thread ]
+  %add.ptr.i.i.i.i.i90104110 = phi ptr [ %add.ptr.i.i.i.i.i90103, %for.end ], [ %add.ptr.i.i.i.i.i90103, %for.end37.loopexit ], [ %add.ptr.i.i.i.i.i, %for.end.thread ]
+  %30 = phi ptr [ %.pre84, %for.end ], [ %.pre83, %for.end37.loopexit ], [ %.pre84109, %for.end.thread ]
   %RHS.0.lcssa = phi ptr [ null, %for.end ], [ %RHS.1, %for.end37.loopexit ], [ null, %for.end.thread ]
-  %cmp.i.i.i = icmp eq ptr %30, %add.ptr.i.i.i.i.i90103109
+  %cmp.i.i.i = icmp eq ptr %30, %add.ptr.i.i.i.i.i90104110
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIN6hermes5irgen10LReferenceELj1EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end37
@@ -2951,7 +2953,8 @@ while.end.i:                                      ; preds = %while.end.loopexit.
   %13 = phi i32 [ %.pre23.i, %while.end.loopexit.i ], [ 1, %if.then ]
   %14 = phi ptr [ %.pre.i, %while.end.loopexit.i ], [ %add.ptr.i.i.i.i.i.i, %if.then ]
   %conv.i.i = zext i32 %13 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %14, i64 %conv.i.i
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i.i, 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %14, i64 %add.ptr.i.idx.i
   %cmp.i.i.i = icmp ne i32 %13, 0
   %__last.addr.08.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -8
   %cmp19.i.i.i = icmp ult ptr %14, %__last.addr.08.i.i.i
@@ -2983,7 +2986,8 @@ _ZN6hermes6ESTreeL13linearizeLeftINS0_20BinaryExpressionNodeEEEN4llvh11SmallVect
   %20 = load ptr, ptr %list, align 8
   %21 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i = zext i32 %21 to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %20, i64 %conv.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %20, i64 %add.ptr.i.idx
   %cmp.not41 = icmp eq i32 %21, 0
   br i1 %cmp.not41, label %for.end, label %for.body.lr.ph
 

@@ -1120,7 +1120,8 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h95524a7d07786cb
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !302
   %8 = mul i64 %7, 5871781006564002453
   store i64 %8, ptr %4, align 8, !alias.scope !307, !noalias !312
-  %9 = getelementptr inbounds { i64, [3 x i64] }, ptr %5, i64 %7
+  %.idx.i.i.i.i.i = shl nsw i64 %7, 5
+  %9 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i.i.i.i
   %10 = icmp eq i64 %7, 0
   br i1 %10, label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hec4f59fbba4f0ce4E.llvm.12501931995097931548.exit", label %.lr.ph.i.i.i.i.i
 
@@ -1337,7 +1338,8 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %10 = xor i64 %9, %7
   %11 = mul i64 %10, 5871781006564002453
   store i64 %11, ptr %1, align 8, !alias.scope !399, !noalias !404
-  %12 = getelementptr inbounds { i64, [3 x i64] }, ptr %5, i64 %7
+  %.idx.i.i.i.i = shl nsw i64 %7, 5
+  %12 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i.i.i
   %13 = icmp eq i64 %7, 0
   br i1 %13, label %"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for$u20$$LP$T$C$B$RP$$GT$4hash17h910287e752d8a26aE.llvm.12501931995097931548.exit", label %.lr.ph.i.i.i.i
 
@@ -1381,7 +1383,8 @@ define hidden void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for
   %9 = xor i64 %8, %6
   %10 = mul i64 %9, 5871781006564002453
   store i64 %10, ptr %1, align 8, !alias.scope !425, !noalias !430
-  %11 = getelementptr inbounds { i64, [3 x i64] }, ptr %4, i64 %6
+  %.idx.i.i.i = shl nsw i64 %6, 5
+  %11 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i.i
   %12 = icmp eq i64 %6, 0
   br i1 %12, label %"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..hash..Hash$GT$4hash17h7c63dc76b41b816bE.llvm.12501931995097931548.exit", label %.lr.ph.i.i.i
 
@@ -2517,7 +2520,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17hdee7edc5d9d904beE(p
   %.20 = select i1 %.not, ptr %13, ptr %0
   %15 = shl i64 %.sroa.0.0.sroa.speculated.i, 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.20, i64 %15, i1 false)
-  %16 = getelementptr inbounds { { ptr, i64 }, ptr, i64 }, ptr %2, i64 %.sroa.0.0.sroa.speculated.i
+  %16 = getelementptr inbounds i8, ptr %2, i64 %15
   br i1 %.not, label %.preheader, label %.lr.ph.i
 
 .preheader:                                       ; preds = %12, %.preheader
@@ -3474,7 +3477,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %15 = load i64, ptr %14, align 8, !alias.scope !1256, !noalias !1259
   %.sink12.i.i.i = select i1 %11, ptr %13, ptr %12
   %.sink11.i.i.i = select i1 %11, i64 %15, i64 %10
-  %16 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %.sink12.i.i.i, i64 %.sink11.i.i.i
+  %.idx.i.i.i = mul nsw i64 %.sink11.i.i.i, 24
+  %16 = getelementptr inbounds i8, ptr %.sink12.i.i.i, i64 %.idx.i.i.i
   %.not.i.i.i.i = icmp eq i64 %.sink11.i.i.i, 0
   br i1 %.not.i.i.i.i, label %.lr.ph.split.us.preheader, label %.lr.ph.i.i.i.i
 
@@ -3624,7 +3628,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %.sink11.i.i.i = select i1 %16, i64 %20, i64 %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1335)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1338)
-  %21 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %.sink12.i.i.i, i64 %.sink11.i.i.i
+  %.idx.i.i.i = mul nsw i64 %.sink11.i.i.i, 24
+  %21 = getelementptr inbounds i8, ptr %.sink12.i.i.i, i64 %.idx.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1340)
   %.not.i.i.i.i = icmp eq i64 %.sink11.i.i.i, 0
   br i1 %.not.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
@@ -3756,7 +3761,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %15 = load i64, ptr %14, align 8, !alias.scope !1402, !noalias !1405
   %.sink12.i.i.i = select i1 %11, ptr %13, ptr %12
   %.sink11.i.i.i = select i1 %11, i64 %15, i64 %10
-  %16 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %.sink12.i.i.i, i64 %.sink11.i.i.i
+  %.idx.i.i.i = mul nsw i64 %.sink11.i.i.i, 24
+  %16 = getelementptr inbounds i8, ptr %.sink12.i.i.i, i64 %.idx.i.i.i
   %.not.i.i.i.i = icmp eq i64 %.sink11.i.i.i, 0
   br i1 %.not.i.i.i.i, label %.lr.ph.split.us.preheader, label %.lr.ph.i.i.i.i
 
@@ -4115,7 +4121,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %.sink11.i.i.i = select i1 %16, i64 %20, i64 %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1559)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1562)
-  %21 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %.sink12.i.i.i, i64 %.sink11.i.i.i
+  %.idx.i.i.i = mul nsw i64 %.sink11.i.i.i, 24
+  %21 = getelementptr inbounds i8, ptr %.sink12.i.i.i, i64 %.idx.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1564)
   %.not.i.i.i.i = icmp eq i64 %.sink11.i.i.i, 0
   br i1 %.not.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
@@ -5290,7 +5297,8 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b
   %.sink11.i.i = select i1 %6, i64 %10, i64 %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1860)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1863)
-  %11 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %.sink12.i.i, i64 %.sink11.i.i
+  %.idx.i.i = mul nsw i64 %.sink11.i.i, 24
+  %11 = getelementptr inbounds i8, ptr %.sink12.i.i, i64 %.idx.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1865)
   %.not.i.i.i = icmp eq i64 %.sink11.i.i, 0
   br i1 %.not.i.i.i, label %"_ZN18activity_indicator17ActivityIndicator17content_to_render28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h67d58cd63360ddccE.llvm.12501931995097931548.exit", label %.lr.ph.i.i.i
@@ -5395,7 +5403,8 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b
   %.sink11.i.i = select i1 %6, i64 %10, i64 %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1928)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1931)
-  %11 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %.sink12.i.i, i64 %.sink11.i.i
+  %.idx.i.i = mul nsw i64 %.sink11.i.i, 24
+  %11 = getelementptr inbounds i8, ptr %.sink12.i.i, i64 %.idx.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1933)
   %.not.i.i.i = icmp eq i64 %.sink11.i.i, 0
   br i1 %.not.i.i.i, label %"_ZN18activity_indicator17ActivityIndicator17content_to_render28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf69f282bbacbae23E.llvm.12501931995097931548.exit", label %.lr.ph.i.i.i
@@ -5679,7 +5688,8 @@ define hidden void @"_ZN67_$LT$gpui..element..GlobalElementId$u20$as$u20$core..h
   %9 = xor i64 %8, %6
   %10 = mul i64 %9, 5871781006564002453
   store i64 %10, ptr %1, align 8, !alias.scope !1999, !noalias !2004
-  %11 = getelementptr inbounds { i64, [3 x i64] }, ptr %4, i64 %6
+  %.idx.i.i = shl nsw i64 %6, 5
+  %11 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i
   %12 = icmp eq i64 %6, 0
   br i1 %12, label %"_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hbe8e447b3528e56eE.exit", label %.lr.ph.i.i
 
@@ -6621,7 +6631,8 @@ define hidden noundef zeroext i1 @"_ZN18activity_indicator17ActivityIndicator17c
   %.sink11.i = select i1 %5, i64 %9, i64 %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2179)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2182)
-  %10 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %.sink12.i, i64 %.sink11.i
+  %.idx.i = mul nsw i64 %.sink11.i, 24
+  %10 = getelementptr inbounds i8, ptr %.sink12.i, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2184)
   %.not.i.i = icmp eq i64 %.sink11.i, 0
   br i1 %.not.i.i, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h10c53f7adb0ff9ebE.exit", label %.lr.ph.i.i
@@ -6681,7 +6692,8 @@ define hidden noundef zeroext i1 @"_ZN18activity_indicator17ActivityIndicator17c
   %.sink11.i = select i1 %5, i64 %9, i64 %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2221)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2224)
-  %10 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %.sink12.i, i64 %.sink11.i
+  %.idx.i = mul nsw i64 %.sink11.i, 24
+  %10 = getelementptr inbounds i8, ptr %.sink12.i, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2226)
   %.not.i.i = icmp eq i64 %.sink11.i, 0
   br i1 %.not.i.i, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h10c53f7adb0ff9ebE.exit", label %.lr.ph.i.i

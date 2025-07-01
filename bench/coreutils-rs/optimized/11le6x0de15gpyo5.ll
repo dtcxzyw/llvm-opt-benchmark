@@ -302,7 +302,8 @@ define hidden noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_buil
   %5 = load ptr, ptr %4, align 8, !nonnull !11, !noundef !11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !11
-  %8 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %5, i64 %7
+  %.idx = shl nsw i64 %7, 4
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %.loopexit, label %.lr.ph
 
@@ -355,7 +356,8 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches11t
   %6 = load ptr, ptr %5, align 8, !alias.scope !124, !noalias !125, !nonnull !11, !noundef !11
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !124, !noalias !125, !noundef !11
-  %9 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %6, i64 %8
+  %.idx.i.i = shl nsw i64 %8, 4
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %.thread15, label %.lr.ph.i.i
 
@@ -461,7 +463,8 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches12t
   %6 = load ptr, ptr %5, align 8, !alias.scope !156, !noalias !157, !nonnull !11, !noundef !11
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !156, !noalias !157, !noundef !11
-  %9 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %6, i64 %8
+  %.idx.i.i = shl nsw i64 %8, 4
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %.loopexit, label %.lr.ph.i.i
 
@@ -575,7 +578,8 @@ define hidden void @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches13t
   %6 = load ptr, ptr %5, align 8, !alias.scope !173, !noalias !176, !nonnull !11, !noundef !11
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !173, !noalias !176, !noundef !11
-  %9 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %6, i64 %8
+  %.idx.i = shl nsw i64 %8, 4
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %.loopexit, label %.lr.ph.i
 
@@ -685,7 +689,8 @@ define hidden void @_ZN3std7process7Command3new17hc28c7be57a8df14cE(ptr noalias 
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7Command4args17h5cd0c0eeb33e80a3E(ptr noalias noundef returned align 8 dereferenceable(208) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 4
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 

@@ -4906,9 +4906,9 @@ define internal fastcc void @Tas_ManDeriveReason(ptr noundef captures(none) %0, 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %10 = load i32, ptr %9, align 4, !tbaa !80
   %11 = icmp slt i32 %8, %10
-  br i1 %11, label %.lr.ph114, label %._crit_edge
+  br i1 %11, label %.lr.ph115, label %._crit_edge
 
-.lr.ph114:                                        ; preds = %2
+.lr.ph115:                                        ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = getelementptr i8, ptr %0, i64 144
   %14 = getelementptr i8, ptr %0, i64 176
@@ -4918,11 +4918,11 @@ define internal fastcc void @Tas_ManDeriveReason(ptr noundef captures(none) %0, 
   %18 = add nsw i64 %17, 1
   br label %19
 
-19:                                               ; preds = %.lr.ph114, %.loopexit
-  %indvars.iv120 = phi i64 [ %18, %.lr.ph114 ], [ %indvars.iv.next121, %.loopexit ]
-  %.064112 = phi i32 [ %8, %.lr.ph114 ], [ %.165, %.loopexit ]
+19:                                               ; preds = %.lr.ph115, %.loopexit
+  %indvars.iv121 = phi i64 [ %18, %.lr.ph115 ], [ %indvars.iv.next122, %.loopexit ]
+  %.064113 = phi i32 [ %8, %.lr.ph115 ], [ %.165, %.loopexit ]
   %20 = load ptr, ptr %12, align 8, !tbaa !82
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv120
+  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv121
   %22 = load ptr, ptr %21, align 8, !tbaa !72
   %23 = load i64, ptr %22, align 4
   %.not = icmp sgt i64 %23, -1
@@ -5012,8 +5012,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 65:                                               ; preds = %Vec_PtrPush.exit
   %66 = load ptr, ptr %12, align 8, !tbaa !82
-  %67 = add nsw i32 %.064112, 1
-  %68 = sext i32 %.064112 to i64
+  %67 = add nsw i32 %.064113, 1
+  %68 = sext i32 %.064113 to i64
   %69 = getelementptr inbounds ptr, ptr %66, i64 %68
   store ptr %22, ptr %69, align 8, !tbaa !72
   br label %.loopexit
@@ -5049,7 +5049,7 @@ Tas_VarHasReasonCls.exit:                         ; preds = %70
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Tas_QuePush.exit
-  %.pre126131 = phi i32 [ %85, %.lr.ph.preheader ], [ %.pre126132, %Tas_QuePush.exit ]
+  %.pre127132 = phi i32 [ %85, %.lr.ph.preheader ], [ %.pre127133, %Tas_QuePush.exit ]
   %87 = phi i32 [ %85, %.lr.ph.preheader ], [ %109, %Tas_QuePush.exit ]
   %88 = phi i32 [ %.pre, %.lr.ph.preheader ], [ %112, %Tas_QuePush.exit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %Tas_QuePush.exit ]
@@ -5081,7 +5081,7 @@ Tas_VarHasReasonCls.exit:                         ; preds = %70
 103:                                              ; preds = %98
   %104 = tail call ptr @realloc(ptr noundef nonnull %100, i64 noundef %102) #26
   %.pre12.pre.i = load i32, ptr %9, align 4, !tbaa !80
-  %.pre126.pre = load i32, ptr %84, align 4, !tbaa !77
+  %.pre127.pre = load i32, ptr %84, align 4, !tbaa !77
   br label %107
 
 105:                                              ; preds = %98
@@ -5089,15 +5089,15 @@ Tas_VarHasReasonCls.exit:                         ; preds = %70
   br label %107
 
 107:                                              ; preds = %105, %103
-  %.pre126 = phi i32 [ %.pre126.pre, %103 ], [ %.pre126131, %105 ]
+  %.pre127 = phi i32 [ %.pre127.pre, %103 ], [ %.pre127132, %105 ]
   %.pre12.i = phi i32 [ %.pre12.pre.i, %103 ], [ %88, %105 ]
   %108 = phi ptr [ %104, %103 ], [ %106, %105 ]
   store ptr %108, ptr %12, align 8, !tbaa !82
   br label %Tas_QuePush.exit
 
 Tas_QuePush.exit:                                 ; preds = %._crit_edge.i, %107
-  %.pre126132 = phi i32 [ %.pre126131, %._crit_edge.i ], [ %.pre126, %107 ]
-  %109 = phi i32 [ %87, %._crit_edge.i ], [ %.pre126, %107 ]
+  %.pre127133 = phi i32 [ %.pre127132, %._crit_edge.i ], [ %.pre127, %107 ]
+  %109 = phi i32 [ %87, %._crit_edge.i ], [ %.pre127, %107 ]
   %110 = phi i32 [ %88, %._crit_edge.i ], [ %.pre12.i, %107 ]
   %111 = phi ptr [ %.pre.i87, %._crit_edge.i ], [ %108, %107 ]
   %112 = add nsw i32 %110, 1
@@ -5151,7 +5151,8 @@ Tas_QuePush.exit94:                               ; preds = %125, %129
 
 139:                                              ; preds = %70
   %140 = sext i32 %74 to i64
-  %141 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %22, i64 %140
+  %.idx = mul nsw i64 %140, 12
+  %141 = getelementptr inbounds i8, ptr %22, i64 %.idx
   %142 = load i32, ptr %9, align 4, !tbaa !80
   %143 = load i32, ptr %16, align 8, !tbaa !81
   %144 = icmp eq i32 %142, %143
@@ -5176,8 +5177,8 @@ Tas_QuePush.exit94:                               ; preds = %125, %129
   %.val83.pre.pre = load ptr, ptr %13, align 8, !tbaa !43
   %.phi.trans.insert.phi.trans.insert = getelementptr i8, ptr %.val83.pre.pre, i64 8
   %.val83.val.pre.pre = load ptr, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !41
-  %.pre129.pre = load i32, ptr %58, align 4, !tbaa !106
-  %.pre138 = mul i32 %.pre129.pre, 3
+  %.pre130.pre = load i32, ptr %58, align 4, !tbaa !106
+  %.pre139 = mul i32 %.pre130.pre, 3
   br label %154
 
 152:                                              ; preds = %145
@@ -5185,7 +5186,7 @@ Tas_QuePush.exit94:                               ; preds = %125, %129
   br label %154
 
 154:                                              ; preds = %152, %150
-  %.pre137.pre-phi = phi i32 [ %60, %152 ], [ %.pre138, %150 ]
+  %.pre138.pre-phi = phi i32 [ %60, %152 ], [ %.pre139, %150 ]
   %.val83.val.pre = phi ptr [ %.val73.val, %152 ], [ %.val83.val.pre.pre, %150 ]
   %.pre12.i100 = phi i32 [ %142, %152 ], [ %.pre12.pre.i99, %150 ]
   %155 = phi ptr [ %153, %152 ], [ %151, %150 ]
@@ -5193,7 +5194,7 @@ Tas_QuePush.exit94:                               ; preds = %125, %129
   br label %Tas_QuePush.exit101
 
 Tas_QuePush.exit101:                              ; preds = %._crit_edge.i95, %154
-  %.pre-phi = phi i32 [ %60, %._crit_edge.i95 ], [ %.pre137.pre-phi, %154 ]
+  %.pre-phi = phi i32 [ %60, %._crit_edge.i95 ], [ %.pre138.pre-phi, %154 ]
   %.val83.val = phi ptr [ %.val73.val, %._crit_edge.i95 ], [ %.val83.val.pre, %154 ]
   %156 = phi i32 [ %142, %._crit_edge.i95 ], [ %.pre12.i100, %154 ]
   %157 = phi ptr [ %.pre.i97, %._crit_edge.i95 ], [ %155, %154 ]
@@ -5207,7 +5208,8 @@ Tas_QuePush.exit101:                              ; preds = %._crit_edge.i95, %1
   %163 = getelementptr inbounds i32, ptr %.val83.val, i64 %162
   %164 = load i32, ptr %163, align 4, !tbaa !75
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %22, i64 %165
+  %.idx111 = mul nsw i64 %165, 12
+  %166 = getelementptr inbounds i8, ptr %22, i64 %.idx111
   %.not71 = icmp eq i32 %164, 0
   br i1 %.not71, label %.loopexit, label %167
 
@@ -5237,19 +5239,19 @@ Tas_QuePush.exit108:                              ; preds = %167, %170
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Tas_QuePush.exit, %80, %Tas_QuePush.exit108, %Tas_QuePush.exit101, %124, %Tas_QuePush.exit94, %19, %65
-  %.165 = phi i32 [ %.064112, %19 ], [ %67, %65 ], [ %.064112, %124 ], [ %.064112, %Tas_QuePush.exit94 ], [ %.064112, %Tas_QuePush.exit108 ], [ %.064112, %Tas_QuePush.exit101 ], [ %.064112, %80 ], [ %.064112, %Tas_QuePush.exit ]
-  %indvars.iv.next121 = add nsw i64 %indvars.iv120, 1
+  %.165 = phi i32 [ %.064113, %19 ], [ %67, %65 ], [ %.064113, %124 ], [ %.064113, %Tas_QuePush.exit94 ], [ %.064113, %Tas_QuePush.exit108 ], [ %.064113, %Tas_QuePush.exit101 ], [ %.064113, %80 ], [ %.064113, %Tas_QuePush.exit ]
+  %indvars.iv.next122 = add nsw i64 %indvars.iv121, 1
   %180 = load i32, ptr %9, align 4, !tbaa !80
   %181 = sext i32 %180 to i64
-  %182 = icmp slt i64 %indvars.iv.next121, %181
+  %182 = icmp slt i64 %indvars.iv.next122, %181
   br i1 %182, label %19, label %._crit_edge.loopexit, !llvm.loop !160
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
-  %.pre130 = load i32, ptr %3, align 8, !tbaa !84
+  %.pre131 = load i32, ptr %3, align 8, !tbaa !84
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %183 = phi i32 [ %7, %2 ], [ %.pre130, %._crit_edge.loopexit ]
+  %183 = phi i32 [ %7, %2 ], [ %.pre131, %._crit_edge.loopexit ]
   %.064.lcssa = phi i32 [ %8, %2 ], [ %.165, %._crit_edge.loopexit ]
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %185 = load ptr, ptr %184, align 8, !tbaa !82
@@ -5267,29 +5269,29 @@ Tas_QuePush.exit108:                              ; preds = %167, %170
   store i32 %.064.lcssa, ptr %9, align 4, !tbaa !80
   %192 = load ptr, ptr %4, align 8, !tbaa !48
   %193 = getelementptr i8, ptr %192, i64 4
-  %.val84115 = load i32, ptr %193, align 4, !tbaa !44
-  %194 = icmp sgt i32 %.val84115, 0
-  br i1 %194, label %.lr.ph118, label %.critedge
+  %.val84116 = load i32, ptr %193, align 4, !tbaa !44
+  %194 = icmp sgt i32 %.val84116, 0
+  br i1 %194, label %.lr.ph119, label %.critedge
 
-.lr.ph118:                                        ; preds = %191, %.lr.ph118
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.lr.ph118 ], [ 0, %191 ]
-  %195 = phi ptr [ %201, %.lr.ph118 ], [ %192, %191 ]
+.lr.ph119:                                        ; preds = %191, %.lr.ph119
+  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %.lr.ph119 ], [ 0, %191 ]
+  %195 = phi ptr [ %201, %.lr.ph119 ], [ %192, %191 ]
   %196 = getelementptr i8, ptr %195, i64 8
   %.val85 = load ptr, ptr %196, align 8, !tbaa !47
-  %197 = getelementptr inbounds nuw ptr, ptr %.val85, i64 %indvars.iv123
+  %197 = getelementptr inbounds nuw ptr, ptr %.val85, i64 %indvars.iv124
   %198 = load ptr, ptr %197, align 8, !tbaa !119
   %199 = load i64, ptr %198, align 4
   %200 = and i64 %199, 9223372036854775807
   store i64 %200, ptr %198, align 4
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %201 = load ptr, ptr %4, align 8, !tbaa !48
   %202 = getelementptr i8, ptr %201, i64 4
   %.val84 = load i32, ptr %202, align 4, !tbaa !44
   %203 = sext i32 %.val84 to i64
-  %204 = icmp slt i64 %indvars.iv.next124, %203
-  br i1 %204, label %.lr.ph118, label %.critedge, !llvm.loop !161
+  %204 = icmp slt i64 %indvars.iv.next125, %203
+  br i1 %204, label %.lr.ph119, label %.critedge, !llvm.loop !161
 
-.critedge:                                        ; preds = %.lr.ph118, %191
+.critedge:                                        ; preds = %.lr.ph119, %191
   ret void
 }
 

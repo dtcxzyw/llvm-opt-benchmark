@@ -39,7 +39,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::SmallVectorTemplateBase.7" = type { %"class.llvh::SmallVectorTemplateCommon.8" }
 %"class.llvh::SmallVectorTemplateCommon.8" = type { %"class.llvh::SmallVectorBase" }
 %"class.llvh::MallocAllocator" = type { i8 }
-%"struct.std::pair" = type { ptr, i64 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 
@@ -288,11 +287,12 @@ if.then.i.i98:                                    ; preds = %cond.end
   unreachable
 
 _ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %cond.end
-  %call34135 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %MainExecutableName) #15
+  %call34136 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %MainExecutableName) #15
   %7 = load ptr, ptr %Slabs.i, align 8
   %8 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i = zext i32 %8 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %7, i64 %conv.i.i
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i.i, 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %add.ptr.i.idx.i
   %cmp.not4.i.i = icmp eq i32 %8, 0
   br i1 %cmp.not4.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i, label %for.body.i.i
 
@@ -308,7 +308,8 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateS
   %10 = load ptr, ptr %CustomSizedSlabs.i, align 8
   %11 = load i32, ptr %Size.i.i.i.i.i2.i, align 8
   %conv.i.i.i = zext i32 %11 to i64
-  %add.ptr.i.i.i119 = getelementptr inbounds nuw %"struct.std::pair", ptr %10, i64 %conv.i.i.i
+  %add.ptr.i.idx.i.i = shl nuw nsw i64 %conv.i.i.i, 4
+  %add.ptr.i.i.i120 = getelementptr inbounds nuw i8, ptr %10, i64 %add.ptr.i.idx.i.i
   %cmp.not5.i.i = icmp eq i32 %11, 0
   br i1 %cmp.not5.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i, label %for.body.i1.i
 
@@ -317,7 +318,7 @@ for.body.i1.i:                                    ; preds = %_ZN4llvh20BumpPtrAl
   %12 = load ptr, ptr %__begin2.06.i.i, align 8
   call void @free(ptr noundef %12) #15
   %incdec.ptr.i2.i = getelementptr inbounds nuw i8, ptr %__begin2.06.i.i, i64 16
-  %cmp.not.i3.i = icmp eq ptr %incdec.ptr.i2.i, %add.ptr.i.i.i119
+  %cmp.not.i3.i = icmp eq ptr %incdec.ptr.i2.i, %add.ptr.i.i.i120
   br i1 %cmp.not.i3.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i, label %for.body.i1.i
 
 _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i: ; preds = %for.body.i1.i
@@ -327,13 +328,13 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateC
 _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i: ; preds = %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i
   %13 = phi ptr [ %.pre.i, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i ], [ %10, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i ]
   %cmp.i.i.i.i = icmp eq ptr %13, %add.ptr.i.i.i.i.i1.i
-  br i1 %cmp.i.i.i.i, label %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i, label %if.then.i.i.i120
+  br i1 %cmp.i.i.i.i, label %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i, label %if.then.i.i.i121
 
-if.then.i.i.i120:                                 ; preds = %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i
+if.then.i.i.i121:                                 ; preds = %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i
   call void @free(ptr noundef %13) #15
   br label %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i
 
-_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i: ; preds = %if.then.i.i.i120, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i
+_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i: ; preds = %if.then.i.i.i121, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i
   %14 = load ptr, ptr %Slabs.i, align 8
   %cmp.i.i.i5.i = icmp eq ptr %14, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i5.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EED2Ev.exit, label %if.then.i.i6.i
@@ -344,19 +345,19 @@ if.then.i.i6.i:                                   ; preds = %_ZN4llvh11SmallVect
 
 _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EED2Ev.exit: ; preds = %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i, %if.then.i.i6.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %MainExecutableName) #15
-  %bf.load.i122.pre = load i8, ptr %HasError.i, align 8
+  %bf.load.i123.pre = load i8, ptr %HasError.i, align 8
   br label %cleanup165
 
 cleanup165:                                       ; preds = %if.end21, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EED2Ev.exit
-  %bf.load.i122 = phi i8 [ %bf.load.i95, %if.end21 ], [ %bf.load.i122.pre, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EED2Ev.exit ]
-  %bf.cast.i123 = trunc i8 %bf.load.i122 to i1
-  br i1 %bf.cast.i123, label %return, label %if.then.i124
+  %bf.load.i123 = phi i8 [ %bf.load.i95, %if.end21 ], [ %bf.load.i123.pre, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EED2Ev.exit ]
+  %bf.cast.i124 = trunc i8 %bf.load.i123 to i1
+  br i1 %bf.cast.i124, label %return, label %if.then.i125
 
-if.then.i124:                                     ; preds = %cleanup165
+if.then.i125:                                     ; preds = %cleanup165
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %LLVMSymbolizerPathOrErr) #15
   br label %return
 
-return:                                           ; preds = %if.then.i124, %cleanup165, %entry
+return:                                           ; preds = %if.then.i125, %cleanup165, %entry
   ret i1 false
 }
 

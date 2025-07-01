@@ -978,52 +978,53 @@ define weak_odr void @_ZN7mitsuba10VolumeGridIfN5drjit6MatrixINS_8SpectrumIfLm4E
 15:                                               ; preds = %3
   %16 = shl nuw nsw i64 %11, 2
   %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #24
-          to label %.lr.ph.preheader.i.i unwind label %19
+          to label %.lr.ph.preheader.i.i unwind label %20
 
 .lr.ph.preheader.i.i:                             ; preds = %15
   store ptr %17, ptr %10, align 8
   %18 = getelementptr inbounds nuw float, ptr %17, i64 %11
   store ptr %18, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %17, i8 0, i64 %16, i1 false)
-  store ptr %18, ptr %12, align 16
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %16
+  store ptr %19, ptr %12, align 16
   br label %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2EmRKf.exit
 
-19:                                               ; preds = %15
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %15
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
 _ZNSt3__16vectorIfNS_9allocatorIfEEEC2EmRKf.exit: ; preds = %.lr.ph.preheader.i.i, %3
-  %21 = phi ptr [ %17, %.lr.ph.preheader.i.i ], [ null, %3 ]
-  %22 = shufflevector <4 x i32> %14, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %23 = mul <4 x i32> %22, %14
-  %24 = shufflevector <4 x i32> %14, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %25 = mul <4 x i32> %23, %24
-  %26 = extractelement <4 x i32> %25, i64 0
-  %27 = mul i32 %26, %2
-  %28 = zext i32 %27 to i64
-  %29 = shl nuw nsw i64 %28, 2
-  %30 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %29) #24
-          to label %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit unwind label %31
+  %22 = phi ptr [ %17, %.lr.ph.preheader.i.i ], [ null, %3 ]
+  %23 = shufflevector <4 x i32> %14, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %24 = mul <4 x i32> %23, %14
+  %25 = shufflevector <4 x i32> %14, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %26 = mul <4 x i32> %24, %25
+  %27 = extractelement <4 x i32> %26, i64 0
+  %28 = mul i32 %27, %2
+  %29 = zext i32 %28 to i64
+  %30 = shl nuw nsw i64 %29, 2
+  %31 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %30) #24
+          to label %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit unwind label %32
 
 _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds = %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2EmRKf.exit
-  store ptr %30, ptr %5, align 16
+  store ptr %31, ptr %5, align 16
   ret void
 
-31:                                               ; preds = %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2EmRKf.exit
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2EmRKf.exit
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i23 = icmp eq ptr %21, null
+  %.not.i.i23 = icmp eq ptr %22, null
   br i1 %.not.i.i23, label %.body.thread, label %.body
 
-.body.thread:                                     ; preds = %19, %31
-  %.pn.ph = phi { ptr, i32 } [ %32, %31 ], [ %20, %19 ]
+.body.thread:                                     ; preds = %20, %32
+  %.pn.ph = phi { ptr, i32 } [ %33, %32 ], [ %21, %20 ]
   store ptr null, ptr %5, align 16
   br label %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit26
 
-.body:                                            ; preds = %31
-  store ptr %21, ptr %12, align 16
-  tail call void @_ZdlPv(ptr noundef nonnull %21) #26
+.body:                                            ; preds = %32
+  store ptr %22, ptr %12, align 16
+  tail call void @_ZdlPv(ptr noundef nonnull %22) #26
   %.pre = load ptr, ptr %5, align 16
   store ptr null, ptr %5, align 16
   %.not.i.i24 = icmp eq ptr %.pre, null
@@ -1034,7 +1035,7 @@ _ZNKSt3__114default_deleteIA_fEclB8ne190000IfEENS2_20_EnableIfConvertibleIT_E4ty
   br label %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit26
 
 _ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit26: ; preds = %.body.thread, %.body, %_ZNKSt3__114default_deleteIA_fEclB8ne190000IfEENS2_20_EnableIfConvertibleIT_E4typeEPS5_.exit.i.i25
-  %.pn32 = phi { ptr, i32 } [ %.pn.ph, %.body.thread ], [ %32, %.body ], [ %32, %_ZNKSt3__114default_deleteIA_fEclB8ne190000IfEENS2_20_EnableIfConvertibleIT_E4typeEPS5_.exit.i.i25 ]
+  %.pn32 = phi { ptr, i32 } [ %.pn.ph, %.body.thread ], [ %33, %.body ], [ %33, %_ZNKSt3__114default_deleteIA_fEclB8ne190000IfEENS2_20_EnableIfConvertibleIT_E4typeEPS5_.exit.i.i25 ]
   tail call void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #25
   resume { ptr, i32 } %.pn32
 }
@@ -4731,7 +4732,8 @@ define linkonce_odr hidden void @_ZNSt3__16vectorIfNS_9allocatorIfEEE8__appendEm
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds float, ptr %7, i64 %1
+  %.idx.i = shl nsw i64 %1, 2
+  %13 = getelementptr inbounds i8, ptr %7, i64 %.idx.i
   %.not11.i = icmp eq i64 %1, 0
   br i1 %.not11.i, label %_ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endEmRKf.exit, label %.lr.ph.preheader.i
 
@@ -4771,7 +4773,7 @@ _ZNKSt3__16vectorIfNS_9allocatorIfEEE11__recommendB8ne190000Em.exit: ; preds = %
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %24, i64 %20)
   %.0.i = select i1 %.not.i9, i64 %.sroa.speculated.i, i64 4611686018427387903
   %25 = icmp eq i64 %.0.i, 0
-  br i1 %25, label %.lr.ph.preheader.i10, label %26
+  br i1 %25, label %.lr.ph.preheader.i11, label %26
 
 26:                                               ; preds = %_ZNKSt3__16vectorIfNS_9allocatorIfEEE11__recommendB8ne190000Em.exit
   %27 = icmp ugt i64 %.0.i, 4611686018427387903
@@ -4784,23 +4786,24 @@ _ZNKSt3__16vectorIfNS_9allocatorIfEEE11__recommendB8ne190000Em.exit: ; preds = %
 _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i: ; preds = %26
   %29 = shl nuw i64 %.0.i, 2
   %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #24
-  br label %.lr.ph.preheader.i10
+  br label %.lr.ph.preheader.i11
 
-.lr.ph.preheader.i10:                             ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i, %_ZNKSt3__16vectorIfNS_9allocatorIfEEE11__recommendB8ne190000Em.exit
+.lr.ph.preheader.i11:                             ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i, %_ZNKSt3__16vectorIfNS_9allocatorIfEEE11__recommendB8ne190000Em.exit
   %storemerge.i = phi ptr [ %30, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i ], [ null, %_ZNKSt3__16vectorIfNS_9allocatorIfEEE11__recommendB8ne190000Em.exit ]
   %31 = getelementptr inbounds i8, ptr %storemerge.i, i64 %18
-  %32 = getelementptr inbounds float, ptr %31, i64 %1
-  %.pre.i11 = load float, ptr %2, align 4
-  br label %.lr.ph.i12
+  %.idx.i10 = shl nsw i64 %1, 2
+  %32 = getelementptr inbounds i8, ptr %31, i64 %.idx.i10
+  %.pre.i12 = load float, ptr %2, align 4
+  br label %.lr.ph.i13
 
-.lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i10
-  %.sroa.0.010.i = phi ptr [ %33, %.lr.ph.i12 ], [ %31, %.lr.ph.preheader.i10 ]
-  store float %.pre.i11, ptr %.sroa.0.010.i, align 4
+.lr.ph.i13:                                       ; preds = %.lr.ph.i13, %.lr.ph.preheader.i11
+  %.sroa.0.010.i = phi ptr [ %33, %.lr.ph.i13 ], [ %31, %.lr.ph.preheader.i11 ]
+  store float %.pre.i12, ptr %.sroa.0.010.i, align 4
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 4
-  %.not.i13 = icmp eq ptr %33, %32
-  br i1 %.not.i13, label %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i12, !llvm.loop !98
+  %.not.i14 = icmp eq ptr %33, %32
+  br i1 %.not.i14, label %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i13, !llvm.loop !98
 
-_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i: ; preds = %.lr.ph.i12
+_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i: ; preds = %.lr.ph.i13
   %34 = getelementptr inbounds float, ptr %storemerge.i, i64 %.0.i
   %35 = load ptr, ptr %0, align 8
   %36 = ptrtoint ptr %35 to i64
@@ -4812,8 +4815,8 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i: ; preds
   store ptr %40, ptr %0, align 8
   store ptr %32, ptr %6, align 8
   store ptr %34, ptr %4, align 8
-  %.not.i14 = icmp eq ptr %35, null
-  br i1 %.not.i14, label %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEED2Ev.exit, label %41
+  %.not.i15 = icmp eq ptr %35, null
+  br i1 %.not.i15, label %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEED2Ev.exit, label %41
 
 41:                                               ; preds = %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %35) #26

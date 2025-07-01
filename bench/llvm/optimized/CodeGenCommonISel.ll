@@ -368,7 +368,8 @@ define dso_local void @_ZN4llvm27salvageDebugInfoForDbgValueERKNS_19MachineRegis
   %6 = alloca %"class.llvm::TypeSize", align 8
   %7 = alloca %"class.llvm::TypeSize", align 8
   %8 = alloca %"class.llvm::SmallVector.121", align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %3
+  %.idx = shl nuw nsw i64 %3, 3
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not35 = icmp eq i64 %3, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 

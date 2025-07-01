@@ -181,7 +181,8 @@ define noundef ptr @_ZN4pkpy9Generator4nextEPNS_2VME(ptr noundef nonnull align 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %14, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %16, i64 %18
+  %.idx = shl nsw i64 %18, 3
+  %19 = getelementptr inbounds i8, ptr %16, i64 %.idx
   %.not35 = icmp eq i32 %17, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
@@ -1686,7 +1687,8 @@ _ZNK4pkpy5Frame8_gc_markEv.exit:                  ; preds = %18, %26, %30, %37
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %38, align 8
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr %40, i64 %42
+  %.idx = shl nsw i64 %42, 3
+  %43 = getelementptr inbounds i8, ptr %40, i64 %.idx
   %.not15 = icmp eq i32 %41, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 

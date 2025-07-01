@@ -16230,7 +16230,8 @@ _ZN5tokio7runtime7context7runtime13enter_runtime17h28c7aadd952b4d50E.exit.i: ; p
   %.sroa.5.0.copyload.i62 = load i64, ptr %.sroa.5.0..sroa_idx.i61, align 8, !alias.scope !1037, !noalias !1040
   %762 = icmp ult i64 %.sroa.5.0.copyload.i62, 384307168202282326
   call void @llvm.assume(i1 %762)
-  %763 = getelementptr inbounds nuw { { ptr, ptr, i64 } }, ptr %.sroa.4.0.copyload.i60, i64 %.sroa.5.0.copyload.i62
+  %.idx = mul nuw nsw i64 %.sroa.5.0.copyload.i62, 24
+  %763 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i60, i64 %.idx
   %764 = icmp sgt i64 %.sroa.0.0.copyload.i58, -1
   call void @llvm.assume(i1 %764)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %65)

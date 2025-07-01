@@ -32,7 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cv::Point_" = type { i32, i32 }
 %"class.cv::Point_.8" = type { float, float }
-%"class.cv::Point3_" = type { float, float, float }
 
 $_ZNK2cv3MatcvNS_4MatxIT_XT0_EXT1_EEEIfLi3ELi3EEEv = comdat any
 
@@ -1885,7 +1884,8 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %._crit_edge248, %22
   %269 = phi ptr [ %251, %248 ], [ %.pre, %241 ], [ %251, %.lr.ph ]
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 %.pre-phi
   %271 = sext i32 %268 to i64
-  %272 = getelementptr inbounds %"class.cv::Point3_", ptr %270, i64 %271
+  %.idx = mul nsw i64 %271, 12
+  %272 = getelementptr inbounds i8, ptr %270, i64 %.idx
   %273 = icmp sgt i32 %268, 0
   br i1 %273, label %.lr.ph244, label %._crit_edge
 
@@ -2762,7 +2762,8 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %._crit_edge249, %22
   %269 = phi ptr [ %251, %248 ], [ %.pre, %241 ], [ %251, %.lr.ph ]
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 %.pre-phi
   %271 = sext i32 %268 to i64
-  %272 = getelementptr inbounds %"class.cv::Point3_", ptr %270, i64 %271
+  %.idx = mul nsw i64 %271, 12
+  %272 = getelementptr inbounds i8, ptr %270, i64 %.idx
   %273 = icmp sgt i32 %268, 0
   br i1 %273, label %.lr.ph245, label %._crit_edge
 
@@ -3635,7 +3636,8 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %._crit_edge253, %22
   %270 = phi ptr [ %252, %249 ], [ %.pre, %242 ], [ %252, %.lr.ph ]
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 %.pre-phi
   %272 = sext i32 %269 to i64
-  %273 = getelementptr inbounds %"class.cv::Point3_", ptr %271, i64 %272
+  %.idx = mul nsw i64 %272, 12
+  %273 = getelementptr inbounds i8, ptr %271, i64 %.idx
   %274 = icmp sgt i32 %269, 0
   br i1 %274, label %.lr.ph249, label %._crit_edge
 

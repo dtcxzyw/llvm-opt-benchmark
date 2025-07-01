@@ -2856,7 +2856,8 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit40: ; preds = %89, %83
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
   %144 = load ptr, ptr %108, align 8, !nonnull !4, !noundef !4
   %145 = load i64, ptr %110, align 8, !noundef !4
-  %146 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [4 x i64] }, { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } } }, ptr %144, i64 %145
+  %.idx = mul nsw i64 %145, 168
+  %146 = getelementptr inbounds i8, ptr %144, i64 %.idx
   %147 = icmp eq i64 %145, 0
   br i1 %147, label %._crit_edge, label %.lr.ph
 
@@ -2868,7 +2869,8 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit40: ; preds = %89, %83
 ._crit_edge:                                      ; preds = %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17ha581c6abef46e533E.exit58", %139
   %150 = load ptr, ptr %119, align 8, !nonnull !4, !noundef !4
   %151 = load i64, ptr %121, align 8, !noundef !4
-  %152 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { ptr, ptr } }, ptr %150, i64 %151
+  %.idx103 = mul nsw i64 %151, 40
+  %152 = getelementptr inbounds i8, ptr %150, i64 %.idx103
   %153 = icmp eq i64 %151, 0
   br i1 %153, label %._crit_edge102, label %.lr.ph101
 
@@ -3934,7 +3936,8 @@ select.unfold:                                    ; preds = %317, %310
   store i64 %331, ptr %122, align 8, !alias.scope !724
   %332 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %333 = load ptr, ptr %332, align 8, !nonnull !4, !noundef !4
-  %334 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] } }, ptr %333, i64 %319
+  %.idx = mul nuw nsw i64 %319, 48
+  %334 = getelementptr inbounds nuw i8, ptr %333, i64 %.idx
   %.sroa.4172.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.sroa.4364.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.5365.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16

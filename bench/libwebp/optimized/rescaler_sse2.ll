@@ -223,7 +223,8 @@ define internal void @RescalerImportRowShrink_SSE2(ptr noalias noundef %0, ptr n
   %16 = load i32, ptr %15, align 4, !tbaa !12
   %17 = shl nsw i32 %16, 2
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %14, i64 %18
+  %.idx = shl nsw i64 %18, 2
+  %19 = getelementptr inbounds i8, ptr %14, i64 %.idx
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !13
   %.not = icmp eq i32 %21, 4

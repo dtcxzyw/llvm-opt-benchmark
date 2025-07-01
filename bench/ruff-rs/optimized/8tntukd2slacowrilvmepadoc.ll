@@ -55,7 +55,8 @@ define void @_ZN19ruff_python_codegen7stylist7Stylist11from_tokens17hf12661774bb
   %17 = extractvalue { ptr, i64 } %15, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %18 = getelementptr inbounds nuw { { i32, i32 }, i8, i8, [2 x i8] }, ptr %16, i64 %17
+  %.idx.i = mul nuw nsw i64 %17, 12
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
   br label %"_ZN19ruff_python_codegen7stylist18detect_indentation28_$u7b$$u7b$closure$u7d$$u7d$17h4348c1081e045070E.exit.i.i"
 
 "_ZN19ruff_python_codegen7stylist18detect_indentation28_$u7b$$u7b$closure$u7d$$u7d$17h4348c1081e045070E.exit.i.i": ; preds = %22, %4
@@ -492,11 +493,12 @@ _ZN19ruff_python_codegen7stylist18detect_indentation17h0cf0de2c3f236687E.exit: ;
   %219 = extractvalue { ptr, i64 } %216, 0
   %220 = extractvalue { ptr, i64 } %216, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
-  %221 = getelementptr inbounds nuw { { i32, i32 }, i8, i8, [2 x i8] }, ptr %219, i64 %220
+  %.idx.i1 = mul nuw nsw i64 %220, 12
+  %221 = getelementptr inbounds nuw i8, ptr %219, i64 %.idx.i1
   %222 = icmp eq i64 %220, 0
-  br i1 %222, label %_ZN19ruff_python_codegen7stylist12detect_quote17h898321d58da3966bE.exit, label %.lr.ph.i1
+  br i1 %222, label %_ZN19ruff_python_codegen7stylist12detect_quote17h898321d58da3966bE.exit, label %.lr.ph.i2
 
-.lr.ph.i1:                                        ; preds = %218, %226
+.lr.ph.i2:                                        ; preds = %218, %226
   %.sroa.02.05.i = phi ptr [ %223, %226 ], [ %219, %218 ]
   %223 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i, i64 12
   %224 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i, i64 9
@@ -506,11 +508,11 @@ _ZN19ruff_python_codegen7stylist18detect_indentation17h0cf0de2c3f236687E.exit: ;
     i8 5, label %230
   ]
 
-226:                                              ; preds = %.noexc, %.lr.ph.i1
+226:                                              ; preds = %.noexc, %.lr.ph.i2
   %227 = icmp eq ptr %223, %221
-  br i1 %227, label %_ZN19ruff_python_codegen7stylist12detect_quote17h898321d58da3966bE.exit, label %.lr.ph.i1
+  br i1 %227, label %_ZN19ruff_python_codegen7stylist12detect_quote17h898321d58da3966bE.exit, label %.lr.ph.i2
 
-228:                                              ; preds = %.lr.ph.i1
+228:                                              ; preds = %.lr.ph.i2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7), !noalias !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.02.05.i, i64 12, i1 false)
   %229 = invoke noundef zeroext i1 @_ZN18ruff_python_parser5token5Token23is_triple_quoted_string17h24c3bbe17676060dE(ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %7)
@@ -520,13 +522,13 @@ _ZN19ruff_python_codegen7stylist18detect_indentation17h0cf0de2c3f236687E.exit: ;
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !92
   br i1 %229, label %226, label %232
 
-230:                                              ; preds = %.lr.ph.i1
+230:                                              ; preds = %.lr.ph.i2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5), !noalias !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.02.05.i, i64 12, i1 false)
   %231 = invoke noundef zeroext i1 @_ZN18ruff_python_parser5token5Token18string_quote_style17h9e7de42af69fa51aE(ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %5)
-          to label %.noexc3 unwind label %.loopexit.split-lp
+          to label %.noexc4 unwind label %.loopexit.split-lp
 
-.noexc3:                                          ; preds = %230
+.noexc4:                                          ; preds = %230
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !92
   br label %_ZN19ruff_python_codegen7stylist12detect_quote17h898321d58da3966bE.exit
 
@@ -534,21 +536,21 @@ _ZN19ruff_python_codegen7stylist18detect_indentation17h0cf0de2c3f236687E.exit: ;
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6), !noalias !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.02.05.i, i64 12, i1 false)
   %233 = invoke noundef zeroext i1 @_ZN18ruff_python_parser5token5Token18string_quote_style17h9e7de42af69fa51aE(ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %6)
-          to label %.noexc4 unwind label %.loopexit.split-lp
+          to label %.noexc5 unwind label %.loopexit.split-lp
 
-.noexc4:                                          ; preds = %232
+.noexc5:                                          ; preds = %232
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !92
   br label %_ZN19ruff_python_codegen7stylist12detect_quote17h898321d58da3966bE.exit
 
-_ZN19ruff_python_codegen7stylist12detect_quote17h898321d58da3966bE.exit: ; preds = %226, %.noexc4, %.noexc3, %218
-  %.sroa.0.0.i2 = phi i1 [ %233, %.noexc4 ], [ %231, %.noexc3 ], [ true, %218 ], [ true, %226 ]
+_ZN19ruff_python_codegen7stylist12detect_quote17h898321d58da3966bE.exit: ; preds = %226, %.noexc5, %.noexc4, %218
+  %.sroa.0.0.i3 = phi i1 [ %233, %.noexc5 ], [ %231, %.noexc4 ], [ true, %218 ], [ true, %226 ]
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %2, ptr %234, align 8
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %3, ptr %235, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %237 = zext i1 %.sroa.0.0.i2 to i8
+  %237 = zext i1 %.sroa.0.0.i3 to i8
   store i8 %237, ptr %236, align 8
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 41
   store i8 3, ptr %238, align 1

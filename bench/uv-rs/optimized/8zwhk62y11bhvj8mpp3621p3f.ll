@@ -8558,7 +8558,8 @@ define hidden void @_ZN13uv_pypi_types8metadata10metadata2310Metadata2320core_me
   %6 = load ptr, ptr %5, align 8, !alias.scope !1673, !nonnull !8, !noundef !8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !1673, !noundef !8
-  %9 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %6, i64 %8
+  %.idx = mul nsw i64 %8, 24
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %._crit_edge, label %.lr.ph
 
@@ -8790,7 +8791,8 @@ define void @_ZN13uv_pypi_types8metadata13requires_dist12RequiresDist20parse_pyp
   %.sroa.6198.0 = select i1 %31, i64 0, i64 %.sroa.524.sroa.4.0.copyload
   %32 = icmp ult i64 %.sroa.6198.0, 384307168202282326
   call void @llvm.assume(i1 %32)
-  %33 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.sroa.3197.0, i64 %.sroa.6198.0
+  %.idx = mul nuw nsw i64 %.sroa.6198.0, 24
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.3197.0, i64 %.idx
   %34 = icmp sgt i64 %.sroa.0196.0, -1
   call void @llvm.assume(i1 %34)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)

@@ -9790,7 +9790,8 @@ _ZSt27__uninitialized_default_n_aIP6aiFacemS0_ET_S2_T0_RSaIT1_E.exit45: ; preds 
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
   %37 = tail call ptr @__cxa_begin_catch(ptr %36) #25
-  %38 = getelementptr inbounds nuw %struct.aiFace, ptr %29, i64 %1
+  %.idx = shl nuw nsw i64 %1, 4
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx
   br label %.lr.ph.i.i.i46
 
 .lr.ph.i.i.i46:                                   ; preds = %34, %_ZSt8_DestroyI6aiFaceEvPT_.exit.i.i.i

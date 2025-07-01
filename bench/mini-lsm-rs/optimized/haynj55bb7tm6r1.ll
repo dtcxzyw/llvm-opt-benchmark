@@ -5981,7 +5981,8 @@ define void @_ZN13mini_lsm_mvcc5block5Block6encode17h90de297636e52c41E(ptr noali
   %14 = load i64, ptr %13, align 8, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load ptr, ptr %15, align 8, !alias.scope !1347, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds i16, ptr %16, i64 %14
+  %.idx = shl nsw i64 %14, 1
+  %17 = getelementptr inbounds i8, ptr %16, i64 %.idx
   %18 = icmp eq i64 %14, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 
@@ -7517,7 +7518,8 @@ define void @_ZN13mini_lsm_mvcc5table5bloom5Bloom21build_from_key_hashes17hc643a
           to label %33 unwind label %97
 
 33:                                               ; preds = %4
-  %34 = getelementptr inbounds i32, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 2
+  %34 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %35 = icmp eq i64 %2, 0
   br i1 %35, label %._crit_edge, label %.lr.ph
 

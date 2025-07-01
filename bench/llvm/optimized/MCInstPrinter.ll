@@ -423,7 +423,8 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
   %31 = zext i16 %30 to i64
   %32 = load ptr, ptr %25, align 8, !tbaa !66
   %33 = getelementptr inbounds nuw %"struct.llvm::AliasPattern", ptr %32, i64 %28
-  %34 = getelementptr inbounds nuw %"struct.llvm::AliasPattern", ptr %33, i64 %31
+  %.idx = mul nuw nsw i64 %31, 12
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx
   %.not3767 = icmp eq i16 %30, 0
   br i1 %.not3767, label %.thread59, label %.lr.ph
 

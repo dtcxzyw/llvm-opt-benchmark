@@ -455,7 +455,7 @@ _ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.exit: ; pred
   %234 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %235 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %.pre = load ptr, ptr %141, align 8
-  %.pre1077 = load i64, ptr %142, align 8
+  %.pre1078 = load i64, ptr %142, align 8
   %236 = select i1 %140, i64 %144, i64 0
   %spec.select = add i64 %3, %236
   br label %.backedge
@@ -480,9 +480,10 @@ _ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.exit: ; pred
   br label %483
 
 .backedge:                                        ; preds = %.backedge.backedge, %_ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.exit
-  %250 = phi i64 [ %.pre1077, %_ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.exit ], [ %.be, %.backedge.backedge ]
-  %251 = phi ptr [ %.pre, %_ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.exit ], [ %.be1457, %.backedge.backedge ]
-  %252 = getelementptr inbounds { { { [4 x i64] }, i64 } }, ptr %251, i64 %250
+  %250 = phi i64 [ %.pre1078, %_ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.exit ], [ %.be, %.backedge.backedge ]
+  %251 = phi ptr [ %.pre, %_ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.exit ], [ %.be1459, %.backedge.backedge ]
+  %.idx = mul nsw i64 %250, 40
+  %252 = getelementptr inbounds i8, ptr %251, i64 %.idx
   %253 = icmp eq i64 %250, 0
   br i1 %253, label %._crit_edge890, label %.lr.ph
 
@@ -507,10 +508,11 @@ _ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.exit: ; pred
   br label %"_ZN4core3ptr53drop_in_place$LT$num_bigint_dig..biguint..BigUint$GT$17haab70f3df1dd011aE.exit82"
 
 ._crit_edge:                                      ; preds = %_ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit76
-  %.pre1078 = load ptr, ptr %141, align 8
-  %.pre1079 = load i64, ptr %142, align 8
-  %254 = getelementptr inbounds { { { [4 x i64] }, i64 } }, ptr %.pre1078, i64 %.pre1079
-  %255 = icmp eq i64 %.pre1079, 0
+  %.pre1079 = load ptr, ptr %141, align 8
+  %.pre1080 = load i64, ptr %142, align 8
+  %.idx891 = mul nsw i64 %.pre1080, 40
+  %254 = getelementptr inbounds i8, ptr %.pre1079, i64 %.idx891
+  %255 = icmp eq i64 %.pre1080, 0
   br i1 %255, label %._crit_edge890, label %.lr.ph889
 
 .lr.ph:                                           ; preds = %.backedge, %_ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit76
@@ -525,14 +527,14 @@ _ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.exit: ; pred
 
 ._crit_edge890:                                   ; preds = %509, %.backedge, %._crit_edge
   %259 = phi ptr [ %254, %._crit_edge ], [ %251, %.backedge ], [ %254, %509 ]
-  %260 = phi ptr [ %.pre1078, %._crit_edge ], [ %251, %.backedge ], [ %.pre1078, %509 ]
-  %261 = phi i64 [ 0, %._crit_edge ], [ 0, %.backedge ], [ %.pre1079, %509 ]
+  %260 = phi ptr [ %.pre1079, %._crit_edge ], [ %251, %.backedge ], [ %.pre1079, %509 ]
+  %261 = phi i64 [ 0, %._crit_edge ], [ 0, %.backedge ], [ %.pre1080, %509 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %101)
   invoke void @_ZN3rsa10algorithms3rsa15compute_modulus17h0b9a24b37cccbb3eE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %101, ptr noalias noundef nonnull readonly align 8 %260, i64 noundef %261)
           to label %264 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .lr.ph889:                                        ; preds = %._crit_edge, %509
-  %.sroa.0126.0887 = phi ptr [ %262, %509 ], [ %.pre1078, %._crit_edge ]
+  %.sroa.0126.0887 = phi ptr [ %262, %509 ], [ %.pre1079, %._crit_edge ]
   %.sroa.8.0886 = phi i64 [ %263, %509 ], [ 0, %._crit_edge ]
   %262 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0887, i64 40
   %263 = add nuw nsw i64 %.sroa.8.0886, 1
@@ -1400,12 +1402,12 @@ _ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.exit.i.i: ; 
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %520, %"_ZN4core3ptr53drop_in_place$LT$num_bigint_dig..biguint..BigUint$GT$17haab70f3df1dd011aE.exit", %"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$num_bigint_dig..biguint..BigUint$C$rsa..errors..Error$GT$$GT$17h7080e5268132e153E.exit"
-  %.be = phi i64 [ %261, %"_ZN4core3ptr53drop_in_place$LT$num_bigint_dig..biguint..BigUint$GT$17haab70f3df1dd011aE.exit" ], [ %261, %"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$num_bigint_dig..biguint..BigUint$C$rsa..errors..Error$GT$$GT$17h7080e5268132e153E.exit" ], [ %.pre1079, %520 ]
-  %.be1457 = phi ptr [ %260, %"_ZN4core3ptr53drop_in_place$LT$num_bigint_dig..biguint..BigUint$GT$17haab70f3df1dd011aE.exit" ], [ %260, %"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$num_bigint_dig..biguint..BigUint$C$rsa..errors..Error$GT$$GT$17h7080e5268132e153E.exit" ], [ %.pre1078, %520 ]
+  %.be = phi i64 [ %261, %"_ZN4core3ptr53drop_in_place$LT$num_bigint_dig..biguint..BigUint$GT$17haab70f3df1dd011aE.exit" ], [ %261, %"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$num_bigint_dig..biguint..BigUint$C$rsa..errors..Error$GT$$GT$17h7080e5268132e153E.exit" ], [ %.pre1080, %520 ]
+  %.be1459 = phi ptr [ %260, %"_ZN4core3ptr53drop_in_place$LT$num_bigint_dig..biguint..BigUint$GT$17haab70f3df1dd011aE.exit" ], [ %260, %"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$num_bigint_dig..biguint..BigUint$C$rsa..errors..Error$GT$$GT$17h7080e5268132e153E.exit" ], [ %.pre1079, %520 ]
   br label %.backedge
 
 504:                                              ; preds = %520, %.lr.ph889
-  %.sroa.0127.0 = phi ptr [ %.pre1078, %.lr.ph889 ], [ %512, %520 ]
+  %.sroa.0127.0 = phi ptr [ %.pre1079, %.lr.ph889 ], [ %512, %520 ]
   %.sroa.8129.0 = phi i64 [ %.sroa.8.0886, %.lr.ph889 ], [ %507, %520 ]
   %505 = icmp eq i64 %.sroa.8129.0, 0
   br i1 %505, label %509, label %506

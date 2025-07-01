@@ -7133,7 +7133,8 @@ define void @_ZN8mini_lsm5table5bloom5Bloom21build_from_key_hashes17h5e017453245
           to label %33 unwind label %97
 
 33:                                               ; preds = %4
-  %34 = getelementptr inbounds i32, ptr %1, i64 %2
+  %.idx = shl nsw i64 %2, 2
+  %34 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %35 = icmp eq i64 %2, 0
   br i1 %35, label %._crit_edge, label %.lr.ph
 
@@ -7787,7 +7788,8 @@ define void @_ZN8mini_lsm5table9BlockMeta17encode_block_meta17h3111b8dae9e03be0E
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %7 = getelementptr inbounds { { { ptr, ptr, i64, { ptr } } }, { { ptr, ptr, i64, { ptr } } }, i64 }, ptr %0, i64 %1
+  %.idx = mul nsw i64 %1, 72
+  %7 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %8 = icmp eq i64 %1, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 

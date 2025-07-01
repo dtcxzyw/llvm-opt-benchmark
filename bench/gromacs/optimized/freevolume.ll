@@ -1174,7 +1174,8 @@ _ZNSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EED2E
   %150 = load i32, ptr %149, align 8, !tbaa !168
   %151 = sext i32 %150 to i64
   %.not.i.i54 = icmp eq ptr %148, null
-  %152 = getelementptr inbounds nuw i32, ptr %148, i64 %151
+  %.idx = shl nuw nsw i64 %151, 2
+  %152 = getelementptr inbounds nuw i8, ptr %148, i64 %.idx
   %.not150156 = icmp eq i32 %150, 0
   %.not150 = select i1 %.not.i.i54, i1 true, i1 %.not150156
   br i1 %.not150, label %._crit_edge155.thread, label %.lr.ph154

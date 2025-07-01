@@ -4966,7 +4966,8 @@ define hidden void @_ZN10polars_row5fixed10packed_u3211encode_iter17h0baf809153a
   unreachable
 
 26:                                               ; preds = %11
-  %27 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx415 = shl nuw nsw i64 %5, 3
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx415
   %28 = icmp eq i64 %5, 0
   br i1 %28, label %.loopexit, label %.lr.ph411
 
@@ -4986,7 +4987,8 @@ define hidden void @_ZN10polars_row5fixed10packed_u3211encode_iter17h0baf809153a
   br label %41
 
 29:                                               ; preds = %11
-  %30 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx414 = shl nuw nsw i64 %5, 3
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx414
   %31 = icmp eq i64 %5, 0
   br i1 %31, label %.loopexit, label %.lr.ph401
 
@@ -5008,7 +5010,8 @@ define hidden void @_ZN10polars_row5fixed10packed_u3211encode_iter17h0baf809153a
   br label %80
 
 33:                                               ; preds = %11
-  %34 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx413 = shl nuw nsw i64 %5, 3
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx413
   %35 = icmp eq i64 %5, 0
   br i1 %35, label %.loopexit, label %.lr.ph391
 
@@ -5030,7 +5033,8 @@ define hidden void @_ZN10polars_row5fixed10packed_u3211encode_iter17h0baf809153a
   br label %120
 
 37:                                               ; preds = %11
-  %38 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %.idx = shl nuw nsw i64 %5, 3
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %39 = icmp eq i64 %5, 0
   br i1 %39, label %.loopexit, label %.lr.ph
 

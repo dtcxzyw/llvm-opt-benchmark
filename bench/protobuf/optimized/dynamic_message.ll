@@ -2420,8 +2420,8 @@ _ZNKSt14default_deleteIKN6google8protobuf10ReflectionEEclEPS3_.exit.i: ; preds =
 _ZNSt10unique_ptrIKN6google8protobuf10ReflectionESt14default_deleteIS3_EED2Ev.exit: ; preds = %if.end15, %_ZNKSt14default_deleteIKN6google8protobuf10ReflectionEEclEPS3_.exit.i
   store ptr null, ptr %reflection, align 8
   %10 = load ptr, ptr %has_bits_indices, align 8
-  %cmp.not.i14 = icmp eq ptr %10, null
-  br i1 %cmp.not.i14, label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
+  %cmp.not.i15 = icmp eq ptr %10, null
+  br i1 %cmp.not.i15, label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt10unique_ptrIKN6google8protobuf10ReflectionESt14default_deleteIS3_EED2Ev.exit
   tail call void @_ZdaPv(ptr noundef nonnull %10) #23
@@ -2430,14 +2430,14 @@ _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 _ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIKN6google8protobuf10ReflectionESt14default_deleteIS3_EED2Ev.exit, %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
   store ptr null, ptr %has_bits_indices, align 8
   %11 = load ptr, ptr %offsets, align 8
-  %cmp.not.i15 = icmp eq ptr %11, null
-  br i1 %cmp.not.i15, label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit17, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i16
+  %cmp.not.i16 = icmp eq ptr %11, null
+  br i1 %cmp.not.i16, label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit18, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i17
 
-_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i16: ; preds = %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit
+_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i17: ; preds = %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit
   tail call void @_ZdaPv(ptr noundef nonnull %11) #23
-  br label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit17
+  br label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit18
 
-_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit17: ; preds = %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i16
+_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit18: ; preds = %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit, %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i17
   store ptr null, ptr %offsets, align 8
   ret void
 }

@@ -7990,9 +7990,9 @@ define linkonce_odr void @_ZN9grpc_core19XdsListenerResource14FilterChainMap13De
 
 4:                                                ; preds = %33, %2
   %5 = phi i64 [ 0, %2 ], [ %34, %33 ]
-  %.idx4 = mul nuw nsw i64 %5, 24
-  %.add5 = add nuw nsw i64 %.idx4, 144
-  %.ptr8 = getelementptr inbounds nuw i8, ptr %0, i64 %.add5
+  %.idx.i = mul nuw nsw i64 %5, 24
+  %.add4 = add nuw nsw i64 %.idx.i, 144
+  %.ptr7 = getelementptr inbounds nuw i8, ptr %0, i64 %.add4
   %6 = getelementptr inbounds nuw [3 x %"class.std::vector.345"], ptr %3, i64 0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !199
@@ -8000,7 +8000,7 @@ define linkonce_odr void @_ZN9grpc_core19XdsListenerResource14FilterChainMap13De
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr8, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr7, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %8, %9
   br i1 %.not.i.i.i.i.i, label %.noexc4.i, label %13
 
@@ -8022,11 +8022,11 @@ _ZNSt16allocator_traitsISaIN9grpc_core19XdsListenerResource14FilterChainMap8Sour
 
 .noexc4.i:                                        ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core19XdsListenerResource14FilterChainMap8SourceIpEEE8allocateERS4_m.exit.i.i.i.i.i, %4
   %17 = phi ptr [ null, %4 ], [ %16, %_ZNSt16allocator_traitsISaIN9grpc_core19XdsListenerResource14FilterChainMap8SourceIpEEE8allocateERS4_m.exit.i.i.i.i.i ]
-  store ptr %17, ptr %.ptr8, align 8, !tbaa !196
-  %18 = getelementptr inbounds nuw i8, ptr %.ptr8, i64 8
+  store ptr %17, ptr %.ptr7, align 8, !tbaa !196
+  %18 = getelementptr inbounds nuw i8, ptr %.ptr7, i64 8
   store ptr %17, ptr %18, align 8, !tbaa !199
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %12
-  %20 = getelementptr inbounds nuw i8, ptr %.ptr8, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.ptr7, i64 16
   store ptr %19, ptr %20, align 8, !tbaa !201
   %21 = load ptr, ptr %6, align 8, !tbaa !211
   %22 = load ptr, ptr %7, align 8, !tbaa !211
@@ -8036,12 +8036,12 @@ _ZNSt16allocator_traitsISaIN9grpc_core19XdsListenerResource14FilterChainMap8Sour
 24:                                               ; preds = %.noexc4.i
   %25 = landingpad { ptr, i32 }
           cleanup
-  %26 = load ptr, ptr %.ptr8, align 8, !tbaa !196
+  %26 = load ptr, ptr %.ptr7, align 8, !tbaa !196
   %.not.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i, label %.body.i, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %.ptr8, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.ptr7, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !201
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %26 to i64
@@ -8071,11 +8071,11 @@ _ZNSt16allocator_traitsISaIN9grpc_core19XdsListenerResource14FilterChainMap8Sour
   br i1 %36, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.body.i, %_ZNSt6vectorIN9grpc_core19XdsListenerResource14FilterChainMap8SourceIpESaIS3_EED2Ev.exit
-  %.idx = phi i64 [ %.add, %_ZNSt6vectorIN9grpc_core19XdsListenerResource14FilterChainMap8SourceIpESaIS3_EED2Ev.exit ], [ %.add5, %.body.i ]
+  %.idx = phi i64 [ %.add, %_ZNSt6vectorIN9grpc_core19XdsListenerResource14FilterChainMap8SourceIpESaIS3_EED2Ev.exit ], [ %.add4, %.body.i ]
   %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx
   %.add = add nsw i64 %.idx, -24
-  %.ptr6 = getelementptr inbounds i8, ptr %0, i64 %.add
-  %37 = load ptr, ptr %.ptr6, align 8, !tbaa !196
+  %.ptr5 = getelementptr inbounds i8, ptr %0, i64 %.add
+  %37 = load ptr, ptr %.ptr5, align 8, !tbaa !196
   %38 = getelementptr inbounds i8, ptr %.ptr, i64 -16
   %39 = load ptr, ptr %38, align 8, !tbaa !199
   %.not4.i.i.i.i = icmp eq ptr %37, %39
@@ -8102,7 +8102,7 @@ _ZSt8_DestroyIN9grpc_core19XdsListenerResource14FilterChainMap8SourceIpEEvPT_.ex
   br i1 %.not.i.i.i.i3, label %_ZSt8_DestroyIPN9grpc_core19XdsListenerResource14FilterChainMap8SourceIpES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !200
 
 _ZSt8_DestroyIPN9grpc_core19XdsListenerResource14FilterChainMap8SourceIpES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN9grpc_core19XdsListenerResource14FilterChainMap8SourceIpEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %.ptr6, align 8, !tbaa !196
+  %.pr.i = load ptr, ptr %.ptr5, align 8, !tbaa !196
   br label %_ZSt8_DestroyIPN9grpc_core19XdsListenerResource14FilterChainMap8SourceIpES3_EvT_S5_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN9grpc_core19XdsListenerResource14FilterChainMap8SourceIpES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN9grpc_core19XdsListenerResource14FilterChainMap8SourceIpES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, %.preheader.i

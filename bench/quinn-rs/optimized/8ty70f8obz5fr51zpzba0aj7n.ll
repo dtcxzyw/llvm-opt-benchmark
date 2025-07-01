@@ -4346,7 +4346,8 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$tracing_subscriber..registry
   unreachable
 
 .lr.ph.preheader.i.i.i:                           ; preds = %8
-  %12 = getelementptr inbounds nuw { { ptr } }, ptr %4, i64 %9
+  %.idx.i.i.i = shl nuw nsw i64 %9, 3
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.backedge.i.i.i, %.lr.ph.preheader.i.i.i

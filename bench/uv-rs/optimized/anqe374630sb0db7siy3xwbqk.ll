@@ -2598,7 +2598,8 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h7764e98cf7667742E(p
   %8 = load ptr, ptr %7, align 8, !alias.scope !486, !nonnull !8, !noundef !8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !486, !noundef !8
-  %11 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %8, i64 %10
+  %.idx = mul nsw i64 %10, 24
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h12a5e399cf33ac23E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef 1, i64 %10)
@@ -7672,7 +7673,8 @@ _ZN3std4path4Path4join17he34af52a8cd49474E.exit534: ; preds = %201
   %489 = load ptr, ptr %488, align 8, !nonnull !8, !noundef !8
   %490 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %491 = load i64, ptr %490, align 8, !noundef !8
-  %492 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %489, i64 %491
+  %.idx1031 = mul nsw i64 %491, 24
+  %492 = getelementptr inbounds i8, ptr %489, i64 %.idx1031
   %493 = icmp eq i64 %491, 0
   br i1 %493, label %._crit_edge, label %.lr.ph
 

@@ -3544,7 +3544,8 @@ common.resume:                                    ; preds = %41, %173, %176, %18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16)
   call void @llvm.experimental.noalias.scope.decl(metadata !635)
-  %256 = getelementptr inbounds { { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { i32, i16, [1 x i16] }, i8, [7 x i8] }, ptr %145, i64 %142
+  %.idx.i = mul nsw i64 %142, 80
+  %256 = getelementptr inbounds i8, ptr %145, i64 %.idx.i
   %.sroa.5.018.i = getelementptr inbounds i8, ptr %256, i64 -80
   %257 = icmp eq ptr %145, %.sroa.5.018.i
   br i1 %257, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hcc13bbf1fa99fa83E.exit.thread.i", label %.lr.ph.i22
@@ -3933,7 +3934,8 @@ _ZN12multi_buffer7History6forget17h2d35d59d5ab33e06E.exit: ; preds = %"_ZN12mult
   %.sroa.7.0..sroa_idx164 = getelementptr inbounds nuw i8, ptr %14, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %.sroa.7.0..sroa_idx164, ptr noundef nonnull align 4 dereferenceable(68) %.sroa.7, i64 68, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !685)
-  %99 = getelementptr inbounds { { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { i32, i16, [1 x i16] }, i8, [7 x i8] }, ptr %38, i64 %96
+  %.idx.i = mul nsw i64 %96, 80
+  %99 = getelementptr inbounds i8, ptr %38, i64 %.idx.i
   %100 = icmp eq i64 %96, 0
   br i1 %100, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -3960,7 +3962,8 @@ _ZN12multi_buffer7History6forget17h2d35d59d5ab33e06E.exit: ; preds = %"_ZN12mult
   %.val8.i = load ptr, ptr %111, align 8, !alias.scope !685, !nonnull !4, !noundef !4
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val19.i = load i64, ptr %112, align 8, !alias.scope !685
-  %113 = getelementptr inbounds { { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { i32, i16, [1 x i16] }, i8, [7 x i8] }, ptr %.val8.i, i64 %.val19.i
+  %.idx.i.i.i = mul nsw i64 %.val19.i, 80
+  %113 = getelementptr inbounds i8, ptr %.val8.i, i64 %.idx.i.i.i
   %114 = icmp eq i64 %.val19.i, 0
   br i1 %114, label %.critedge, label %.lr.ph.i.i.i.i
 
@@ -4549,7 +4552,8 @@ define void @_ZN12multi_buffer11MultiBuffer23group_until_transaction17hfcd39dc4b
   br i1 %28, label %_ZN12multi_buffer7History11group_until17hb6f4c6ccf41d3c30E.exit.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %23
-  %29 = getelementptr inbounds { { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { i32, i16, [1 x i16] }, i8, [7 x i8] }, ptr %25, i64 %27
+  %.idx.i = mul nsw i64 %27, 80
+  %29 = getelementptr inbounds i8, ptr %25, i64 %.idx.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %38, %.lr.ph.preheader.i
@@ -4753,7 +4757,8 @@ define void @_ZN12multi_buffer11MultiBuffer21set_active_selections17h02bce8000a6
   store i8 0, ptr %49, align 8, !alias.scope !877, !noalias !880
   %50 = getelementptr inbounds nuw i8, ptr %20, i64 409
   store i8 %.sroa.0.0.i, ptr %50, align 1, !alias.scope !877, !noalias !880
-  %51 = getelementptr inbounds { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %1, i64 %2
+  %.idx = mul nsw i64 %2, 120
+  %51 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %52 = icmp eq i64 %2, 0
   br i1 %52, label %._crit_edge, label %.lr.ph
 
@@ -7691,7 +7696,8 @@ define void @_ZN12multi_buffer11MultiBuffer41push_multiple_excerpts_with_context
   %.sroa.038.0.copyload = load i64, ptr %2, align 8
   %.sroa.439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.439.0.copyload = load ptr, ptr %.sroa.439.0..sroa_idx, align 8, !nonnull !4, !noundef !4
-  %43 = getelementptr inbounds { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.439.0.copyload, i64 %27
+  %.idx = mul nsw i64 %27, 56
+  %43 = getelementptr inbounds i8, ptr %.sroa.439.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
   store ptr %.sroa.439.0.copyload, ptr %17, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -9067,7 +9073,8 @@ select.unfold.us.i:                               ; preds = %.split.us.preheader
 ".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7189945cfe7d57dE.exit_crit_edge": ; preds = %.split.us.i
   %125 = getelementptr inbounds nuw i8, ptr %.sroa.453.2103, i64 8
   %126 = load ptr, ptr %125, align 8, !alias.scope !1880, !noalias !1883, !nonnull !4, !noundef !4
-  %127 = getelementptr inbounds { { { [4 x i64] }, i64 } }, ptr %126, i64 %119
+  %.idx = mul nsw i64 %119, 40
+  %127 = getelementptr inbounds i8, ptr %126, i64 %.idx
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7189945cfe7d57dE.exit"
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7189945cfe7d57dE.exit": ; preds = %".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7189945cfe7d57dE.exit_crit_edge", %.split.us.preheader.i
@@ -12086,7 +12093,8 @@ select.unfold:                                    ; preds = %select.unfold.loope
   %.sroa.093.0.copyload = load i64, ptr %33, align 8
   %.sroa.494.0.copyload = load ptr, ptr %38, align 8, !nonnull !4, !noundef !4
   %.sroa.595.0.copyload = load i64, ptr %39, align 8
-  %131 = getelementptr inbounds { ptr, { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, i8, [7 x i8] }, ptr %.sroa.494.0.copyload, i64 %.sroa.595.0.copyload
+  %.idx = mul nsw i64 %.sroa.595.0.copyload, 48
+  %131 = getelementptr inbounds i8, ptr %.sroa.494.0.copyload, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
   store ptr %.sroa.494.0.copyload, ptr %24, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -16830,7 +16838,8 @@ define noundef align 8 dereferenceable_or_null(80) ptr @_ZN12multi_buffer7Histor
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = getelementptr inbounds { { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { i32, i16, [1 x i16] }, i8, [7 x i8] }, ptr %5, i64 %7
+  %.idx = mul nsw i64 %7, 80
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %.loopexit, label %.lr.ph.i
 
@@ -16857,7 +16866,8 @@ define noundef align 8 dereferenceable_or_null(80) ptr @_ZN12multi_buffer7Histor
   %.val8 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val19 = load i64, ptr %21, align 8
-  %22 = getelementptr inbounds { { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { i32, i16, [1 x i16] }, i8, [7 x i8] }, ptr %.val8, i64 %.val19
+  %.idx.i.i = mul nsw i64 %.val19, 80
+  %22 = getelementptr inbounds i8, ptr %.val8, i64 %.idx.i.i
   %23 = icmp eq i64 %.val19, 0
   br i1 %23, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h49ad60f9773ca75fE.exit", label %.lr.ph.i.i.i
 

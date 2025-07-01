@@ -1733,7 +1733,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4a02232e5b
   %18 = load ptr, ptr %17, align 8, !noalias !910, !nonnull !47, !noundef !47
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load i64, ptr %19, align 8, !noalias !910, !noundef !47
-  %21 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 }, ptr, i64 }, ptr %18, i64 %20
+  %.idx.i = mul nsw i64 %20, 40
+  %21 = getelementptr inbounds i8, ptr %18, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !911)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !912)
   store i64 1, ptr %14, align 8, !alias.scope !915, !noalias !917
@@ -2062,7 +2063,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf36db6ecc9
   %18 = load ptr, ptr %17, align 8, !noalias !1160, !nonnull !47, !noundef !47
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load i64, ptr %19, align 8, !noalias !1160, !noundef !47
-  %21 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 }, ptr, i64 }, ptr %18, i64 %20
+  %.idx.i = mul nsw i64 %20, 40
+  %21 = getelementptr inbounds i8, ptr %18, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1161)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1162)
   store i64 1, ptr %14, align 8, !alias.scope !1165, !noalias !1167
@@ -2248,7 +2250,8 @@ define hidden void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closur
   %9 = load ptr, ptr %8, align 8, !noalias !1322, !nonnull !47, !noundef !47
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load i64, ptr %10, align 8, !noalias !1322, !noundef !47
-  %12 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 }, ptr, i64 }, ptr %9, i64 %11
+  %.idx = mul nsw i64 %11, 40
+  %12 = getelementptr inbounds i8, ptr %9, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1323)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1326)
   %13 = load ptr, ptr %1, align 8, !alias.scope !1326, !noalias !1328, !nonnull !47, !align !630, !noundef !47
@@ -2365,7 +2368,8 @@ define hidden void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closur
   %9 = load ptr, ptr %8, align 8, !noalias !1432, !nonnull !47, !noundef !47
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load i64, ptr %10, align 8, !noalias !1432, !noundef !47
-  %12 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 }, ptr, i64 }, ptr %9, i64 %11
+  %.idx = mul nsw i64 %11, 40
+  %12 = getelementptr inbounds i8, ptr %9, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1433)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1436)
   %13 = load ptr, ptr %1, align 8, !alias.scope !1436, !noalias !1438, !nonnull !47, !align !630, !noundef !47

@@ -601,7 +601,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit79: ; preds = %9
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %108 = load i32, ptr %107, align 8, !tbaa !29
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds %"struct.std::pair", ptr %106, i64 %109
+  %.idx = mul nsw i64 %109, 24
+  %110 = getelementptr inbounds i8, ptr %106, i64 %.idx
   %.not128148 = icmp eq i32 %108, 0
   br i1 %.not128148, label %.critedge72._crit_edge, label %.lr.ph
 
@@ -2447,7 +2448,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %129 = load i32, ptr %128, align 8, !tbaa !29
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds %"struct.std::pair", ptr %127, i64 %130
+  %.idx = mul nsw i64 %130, 24
+  %131 = getelementptr inbounds i8, ptr %127, i64 %.idx
   %.not132134 = icmp eq i32 %129, 0
   br i1 %.not132134, label %.critedge95, label %.lr.ph137
 

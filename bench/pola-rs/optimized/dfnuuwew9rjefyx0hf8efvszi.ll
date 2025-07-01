@@ -2536,7 +2536,8 @@ define hidden void @_ZN12polars_arrow5array13specification13check_indexes17h8408
   %9 = alloca [64 x i8], align 8
   %10 = alloca [8 x i8], align 8
   store i64 %3, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 2
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !452)
   %12 = icmp eq i64 %2, 0
   br i1 %12, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc644d41bfd8b74dcE.exit, label %.lr.ph.i
@@ -2605,7 +2606,8 @@ define hidden void @_ZN12polars_arrow5array13specification23check_indexes_unchec
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8
   store i64 %3, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %11 = icmp eq i64 %2, 0
   br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h6b01148a9d2dd289E.exit.thread", label %.lr.ph.i
 
@@ -2780,7 +2782,8 @@ define hidden void @_ZN12polars_arrow6offset17try_check_offsets17h525a66798fd8f6
   br i1 %17, label %19, label %.lr.ph.preheader, !prof !290
 
 .lr.ph.preheader:                                 ; preds = %15
-  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 2
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br label %.lr.ph
 
 19:                                               ; preds = %15
@@ -2871,7 +2874,8 @@ define hidden void @_ZN12polars_arrow6offset17try_check_offsets17hfc52f494183c1d
   br i1 %17, label %19, label %.lr.ph.preheader, !prof !290
 
 .lr.ph.preheader:                                 ; preds = %15
-  %18 = getelementptr inbounds nuw i64, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br label %.lr.ph
 
 19:                                               ; preds = %15

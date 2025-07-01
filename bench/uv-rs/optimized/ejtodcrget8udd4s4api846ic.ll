@@ -2189,7 +2189,8 @@ define noundef zeroext i1 @_ZN8uv_cache5Cache20must_revalidate_path17h477521f764
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds { { { { ptr, i64 } }, {} }, {} }, ptr %14, i64 %16
+  %.idx = shl nsw i64 %16, 4
+  %17 = getelementptr inbounds i8, ptr %14, i64 %.idx
   %.not.i = icmp eq i64 %16, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h1415a460480ca623E.exit", label %.lr.ph.i
 
@@ -2310,7 +2311,8 @@ define void @_ZN8uv_cache5Cache9freshness17h4a43ada8faa3e852E(ptr dead_on_unwind
   %40 = load ptr, ptr %39, align 8, !nonnull !4, !noundef !4
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %42 = load i64, ptr %41, align 8, !noundef !4
-  %43 = getelementptr inbounds { { { { ptr, i64 } }, {} }, {} }, ptr %40, i64 %42
+  %.idx = shl nsw i64 %42, 4
+  %43 = getelementptr inbounds i8, ptr %40, i64 %.idx
   %.not.i = icmp eq i64 %42, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h11c527a3a1628c88E.exit.thread", label %.lr.ph.i
 

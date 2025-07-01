@@ -7962,7 +7962,8 @@ define dso_local void @_ZN5clang5RISCV12RVVTypeCache12computeTypesENS0_9BasicTyp
   %7 = load ptr, ptr %5, align 8, !tbaa !205
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !208
-  %10 = getelementptr inbounds nuw %"struct.clang::RISCV::PrototypeDescriptor", ptr %7, i64 %9
+  %.idx = mul nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
   %.not42 = icmp eq i64 %9, 0
   br i1 %.not42, label %.thread, label %.lr.ph
 
@@ -9996,7 +9997,8 @@ define dso_local void @_ZN5clang5RISCV12RVVIntrinsic12getSuffixStrB5cxx11ERNS0_1
   store i32 0, ptr %9, align 8, !tbaa !298
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %10, align 4, !tbaa !299
-  %11 = getelementptr inbounds nuw %"struct.clang::RISCV::PrototypeDescriptor", ptr %4, i64 %5
+  %.idx = mul nuw nsw i64 %5, 3
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %.not13 = icmp eq i64 %5, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -10018,7 +10020,8 @@ define dso_local void @_ZN5clang5RISCV12RVVIntrinsic12getSuffixStrB5cxx11ERNS0_1
 
 .lr.ph.i.preheader.i:                             ; preds = %._crit_edge
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %16, i64 %18
+  %.idx.i = shl nuw nsw i64 %18, 5
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -10490,8 +10493,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE28rese
 35:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE28reserveForParamAndGetAddressERS3_m.exit
   %.idx52 = mul i64 %2, -3
   %36 = getelementptr inbounds i8, ptr %33, i64 %.idx52
-  %.idx49.neg = mul i64 %2, 3
-  %37 = sdiv exact i64 %.idx49.neg, 3
+  %.idx50.neg = mul i64 %2, 3
+  %37 = sdiv exact i64 %.idx50.neg, 3
   %38 = add i64 %30, %37
   %39 = load i64, ptr %14, align 8, !tbaa !308
   %40 = icmp ult i64 %39, %38
@@ -10545,7 +10548,7 @@ _ZSt13move_backwardIPN5clang5RISCV19PrototypeDescriptorES3_ET0_T_S5_S4_.exit: ; 
   br i1 %.not7.i.i.i.i.i, label %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit, label %53
 
 53:                                               ; preds = %_ZSt13move_backwardIPN5clang5RISCV19PrototypeDescriptorES3_ET0_T_S5_S4_.exit
-  %54 = getelementptr inbounds nuw %"struct.clang::RISCV::PrototypeDescriptor", ptr %32, i64 %2
+  %54 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx50.neg
   br label %.lr.ph.i.i.i.i36
 
 .lr.ph.i.i.i.i36:                                 ; preds = %.lr.ph.i.i.i.i36, %53
@@ -10559,38 +10562,38 @@ _ZSt13move_backwardIPN5clang5RISCV19PrototypeDescriptorES3_ET0_T_S5_S4_.exit: ; 
   %57 = add i64 %30, %2
   store i64 %57, ptr %9, align 8, !tbaa !307
   %.not.i.i38 = icmp samesign eq i64 %8, %.idx
-  br i1 %.not.i.i38, label %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit43, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
+  br i1 %.not.i.i38, label %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit44, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit: ; preds = %56
   %58 = getelementptr inbounds nuw %"struct.clang::RISCV::PrototypeDescriptor", ptr %31, i64 %57
   %59 = sub nsw i64 0, %34
   %60 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %58, i64 %59
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr align 1 %32, i64 %gepdiff, i1 false)
-  br label %.lr.ph.i.i.i.i39
+  br label %.lr.ph.i.i.i.i40
 
-.lr.ph.i.i.i.i39:                                 ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit, %.lr.ph.i.i.i.i39
-  %.06.i.i.i.i40 = phi ptr [ %61, %.lr.ph.i.i.i.i39 ], [ %32, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit ]
-  store i24 %3, ptr %.06.i.i.i.i40, align 1
-  %61 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i40, i64 3
-  %.not.i.i.i.i41 = icmp eq ptr %61, %33
-  br i1 %.not.i.i.i.i41, label %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit43, label %.lr.ph.i.i.i.i39, !llvm.loop !312
+.lr.ph.i.i.i.i40:                                 ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit, %.lr.ph.i.i.i.i40
+  %.06.i.i.i.i41 = phi ptr [ %61, %.lr.ph.i.i.i.i40 ], [ %32, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5RISCV19PrototypeDescriptorELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit ]
+  store i24 %3, ptr %.06.i.i.i.i41, align 1
+  %61 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i41, i64 3
+  %.not.i.i.i.i42 = icmp eq ptr %61, %33
+  br i1 %.not.i.i.i.i42, label %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit44, label %.lr.ph.i.i.i.i40, !llvm.loop !312
 
-_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit43: ; preds = %.lr.ph.i.i.i.i39, %56
+_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit44: ; preds = %.lr.ph.i.i.i.i40, %56
   %62 = sub i64 %2, %34
   %.not7.i.i.i = icmp eq i64 %62, 0
   br i1 %.not7.i.i.i, label %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit43, %.lr.ph.i.i.i
-  %.09.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i ], [ %33, %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit43 ]
-  %.068.i.i.i = phi i64 [ %63, %.lr.ph.i.i.i ], [ %62, %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit43 ]
+.lr.ph.i.i.i:                                     ; preds = %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit44, %.lr.ph.i.i.i
+  %.09.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i ], [ %33, %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit44 ]
+  %.068.i.i.i = phi i64 [ %63, %.lr.ph.i.i.i ], [ %62, %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit44 ]
   store i24 %3, ptr %.09.i.i.i, align 1
   %63 = add i64 %.068.i.i.i, -1
   %64 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 3
-  %.not.i.i.i44 = icmp eq i64 %63, 0
-  br i1 %.not.i.i.i44, label %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit, label %.lr.ph.i.i.i, !llvm.loop !309
+  %.not.i.i.i45 = icmp eq i64 %63, 0
+  br i1 %.not.i.i.i45, label %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit, label %.lr.ph.i.i.i, !llvm.loop !309
 
-_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit: ; preds = %.lr.ph.i.i.i.i36, %.lr.ph.i.i.i, %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit43, %_ZSt13move_backwardIPN5clang5RISCV19PrototypeDescriptorES3_ET0_T_S5_S4_.exit, %_ZN4llvm15SmallVectorImplIN5clang5RISCV19PrototypeDescriptorEE6appendEmS3_.exit
-  %.0 = phi ptr [ %26, %_ZN4llvm15SmallVectorImplIN5clang5RISCV19PrototypeDescriptorEE6appendEmS3_.exit ], [ %32, %_ZSt13move_backwardIPN5clang5RISCV19PrototypeDescriptorES3_ET0_T_S5_S4_.exit ], [ %32, %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit43 ], [ %32, %.lr.ph.i.i.i ], [ %32, %.lr.ph.i.i.i.i36 ]
+_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit: ; preds = %.lr.ph.i.i.i.i36, %.lr.ph.i.i.i, %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit44, %_ZSt13move_backwardIPN5clang5RISCV19PrototypeDescriptorES3_ET0_T_S5_S4_.exit, %_ZN4llvm15SmallVectorImplIN5clang5RISCV19PrototypeDescriptorEE6appendEmS3_.exit
+  %.0 = phi ptr [ %26, %_ZN4llvm15SmallVectorImplIN5clang5RISCV19PrototypeDescriptorEE6appendEmS3_.exit ], [ %32, %_ZSt13move_backwardIPN5clang5RISCV19PrototypeDescriptorES3_ET0_T_S5_S4_.exit ], [ %32, %_ZSt6fill_nIPN5clang5RISCV19PrototypeDescriptorEmS2_ET_S4_T0_RKT1_.exit44 ], [ %32, %.lr.ph.i.i.i ], [ %32, %.lr.ph.i.i.i.i36 ]
   ret ptr %.0
 }
 
@@ -12243,7 +12246,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_s
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !298
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %9
+  %.idx.i = shl nuw nsw i64 %9, 5
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE19moveElementsForGrowEPS6_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -12287,13 +12291,14 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
 
 _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.i: ; preds = %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !296
-  %.pre2.i = load i32, ptr %7, align 8, !tbaa !298
-  %.not4.i.i = icmp eq i32 %.pre2.i, 0
+  %.pre3.i = load i32, ptr %7, align 8, !tbaa !298
+  %.not4.i.i = icmp eq i32 %.pre3.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE19moveElementsForGrowEPS6_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.i
-  %26 = zext i32 %.pre2.i to i64
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre.i, i64 %26
+  %26 = zext i32 %.pre3.i to i64
+  %.idx2.i = shl nuw nsw i64 %26, 5
+  %27 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %.lr.ph.i.preheader.i

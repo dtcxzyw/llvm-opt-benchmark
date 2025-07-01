@@ -63,7 +63,8 @@ define hidden void @"_ZN101_$LT$diesel..connection..statement_cache..StatementCa
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h37327ab06c39287bE.llvm.15230849155374873684"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
-  %27 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %24, i64 %26
+  %.idx.i = shl nsw i64 %26, 4
+  %27 = getelementptr inbounds i8, ptr %24, i64 %.idx.i
   %28 = icmp eq i64 %26, 0
   br i1 %28, label %_ZN4core4hash4Hash10hash_slice17hc38ae6f11c7fe8d7E.exit, label %.lr.ph.i
 

@@ -1281,8 +1281,9 @@ _ZN6icu_7713UnicodeString10setToBogusEv.exit:     ; preds = %8
   br i1 %15, label %16, label %27
 
 16:                                               ; preds = %14
-  %17 = zext nneg i32 %3 to i64
-  %18 = getelementptr inbounds nuw i16, ptr %1, i64 %17
+  %17 = shl nuw i32 %3, 1
+  %.idx = zext i32 %17 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not27 = icmp eq i32 %3, 0
   br i1 %.not27, label %.critedge, label %.lr.ph
 
@@ -2074,7 +2075,8 @@ _ZN6icu_7713UnicodeString9getBufferEi.exit:       ; preds = %_ZN6icu_7713Unicode
   %42 = load ptr, ptr %41, align 8
   %43 = select i1 %.not.i.i8, ptr %42, ptr %40
   %44 = sext i32 %37 to i64
-  %45 = getelementptr inbounds i16, ptr %43, i64 %44
+  %.idx.i = shl nsw i64 %44, 1
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %46 = icmp sgt i32 %37, 0
   br i1 %46, label %.lr.ph.i, label %.critedge.i
 
@@ -2858,7 +2860,8 @@ _ZN6icu_7713UnicodeString9getBufferEi.exit:       ; preds = %17, %.noexc, %selec
   %40 = load ptr, ptr %10, align 8
   %41 = select i1 %.not.i.i17, ptr %40, ptr %9
   %42 = sext i32 %37 to i64
-  %43 = getelementptr inbounds i16, ptr %41, i64 %42
+  %.idx.i = shl nsw i64 %42, 1
+  %43 = getelementptr inbounds i8, ptr %41, i64 %.idx.i
   %44 = icmp sgt i32 %37, 0
   br i1 %44, label %.lr.ph.i, label %.critedge.i
 
@@ -3037,7 +3040,8 @@ define void @_ZN6icu_7713UnicodeString13releaseBufferEi(ptr noundef nonnull alig
   %17 = load ptr, ptr %16, align 8
   %18 = select i1 %.not.i, ptr %17, ptr %15
   %19 = sext i32 %12 to i64
-  %20 = getelementptr inbounds i16, ptr %18, i64 %19
+  %.idx = shl nsw i64 %19, 1
+  %20 = getelementptr inbounds i8, ptr %18, i64 %.idx
   %21 = icmp sgt i32 %12, 0
   br i1 %21, label %.lr.ph, label %.critedge
 
@@ -5540,8 +5544,9 @@ _ZN6icu_7713UnicodeString10setToBogusEv.exit:     ; preds = %25, %27, %33
   br i1 %39, label %40, label %51
 
 40:                                               ; preds = %38
-  %41 = zext nneg i32 %3 to i64
-  %42 = getelementptr inbounds nuw i16, ptr %1, i64 %41
+  %41 = shl nuw i32 %3, 1
+  %.idx = zext i32 %41 to i64
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not2429 = icmp eq i32 %3, 0
   br i1 %.not2429, label %.critedge, label %.lr.ph
 

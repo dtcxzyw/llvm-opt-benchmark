@@ -245,7 +245,8 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_se
   %5 = load ptr, ptr %4, align 8, !alias.scope !8, !nonnull !7, !noundef !7
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !8, !noundef !7
-  %8 = getelementptr inbounds i64, ptr %5, i64 %7
+  %.idx = shl nsw i64 %7, 3
+  %8 = getelementptr inbounds i8, ptr %5, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !11, !noalias !14, !nonnull !7, !align !16, !noundef !7
   %9 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16

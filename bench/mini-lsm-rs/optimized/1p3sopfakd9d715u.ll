@@ -1452,7 +1452,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   %505 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %506 = load i8, ptr %505, align 8, !range !31, !noalias !233, !noundef !9
   %507 = trunc nuw i8 %506 to i1
-  %508 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.2.0.copyload.i, i64 %.sroa.3.0.copyload.i
+  %.idx.i = shl nsw i64 %.sroa.3.0.copyload.i, 4
+  %508 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 %.idx.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %66), !noalias !233
   store ptr %.sroa.2.0.copyload.i, ptr %66, align 8, !noalias !233
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %66, i64 8

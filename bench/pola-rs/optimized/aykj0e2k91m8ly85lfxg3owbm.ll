@@ -39350,7 +39350,8 @@ define hidden void @_ZN10polars_sql9functions18SQLFunctionVisitor14visit_variadi
   store i64 0, ptr %20, align 8, !noalias !3479
   %21 = icmp ult i64 %.sroa.645.0.copyload.i, 1152921504606846976
   tail call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds nuw ptr, ptr %.sroa.544.0.copyload.i, i64 %.sroa.645.0.copyload.i
+  %.idx.i = shl nuw nsw i64 %.sroa.645.0.copyload.i, 3
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.544.0.copyload.i, i64 %.idx.i
   %23 = icmp sgt i64 %.sroa.043.0.copyload.i, -1
   tail call void @llvm.assume(i1 %23)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !3479
@@ -39594,7 +39595,8 @@ define hidden void @_ZN10polars_sql9functions18SQLFunctionVisitor14visit_variadi
   store i64 0, ptr %19, align 8, !noalias !3509
   %20 = icmp ult i64 %.sroa.643.0.copyload.i, 1152921504606846976
   tail call void @llvm.assume(i1 %20)
-  %21 = getelementptr inbounds nuw ptr, ptr %.sroa.542.0.copyload.i, i64 %.sroa.643.0.copyload.i
+  %.idx.i = shl nuw nsw i64 %.sroa.643.0.copyload.i, 3
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.542.0.copyload.i, i64 %.idx.i
   %22 = icmp sgt i64 %.sroa.041.0.copyload.i, -1
   tail call void @llvm.assume(i1 %22)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !3509
@@ -39809,7 +39811,8 @@ define hidden void @_ZN10polars_sql9functions18SQLFunctionVisitor14visit_variadi
   store i64 0, ptr %20, align 8, !noalias !3526
   %21 = icmp ult i64 %.sroa.645.0.copyload.i, 1152921504606846976
   tail call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds nuw ptr, ptr %.sroa.544.0.copyload.i, i64 %.sroa.645.0.copyload.i
+  %.idx.i = shl nuw nsw i64 %.sroa.645.0.copyload.i, 3
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.544.0.copyload.i, i64 %.idx.i
   %23 = icmp sgt i64 %.sroa.043.0.copyload.i, -1
   tail call void @llvm.assume(i1 %23)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !3526
@@ -40053,7 +40056,8 @@ define hidden void @_ZN10polars_sql9functions18SQLFunctionVisitor14visit_variadi
   store i64 0, ptr %19, align 8, !noalias !3556
   %20 = icmp ult i64 %.sroa.643.0.copyload.i, 1152921504606846976
   tail call void @llvm.assume(i1 %20)
-  %21 = getelementptr inbounds nuw ptr, ptr %.sroa.542.0.copyload.i, i64 %.sroa.643.0.copyload.i
+  %.idx.i = shl nuw nsw i64 %.sroa.643.0.copyload.i, 3
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.542.0.copyload.i, i64 %.idx.i
   %22 = icmp sgt i64 %.sroa.041.0.copyload.i, -1
   tail call void @llvm.assume(i1 %22)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !3556
@@ -40266,7 +40270,8 @@ define hidden void @_ZN10polars_sql9functions18SQLFunctionVisitor18try_visit_var
   store i64 0, ptr %22, align 8
   %23 = icmp ult i64 %.sroa.648.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds nuw ptr, ptr %.sroa.547.0.copyload, i64 %.sroa.648.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.648.0.copyload, 3
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.547.0.copyload, i64 %.idx
   %25 = icmp sgt i64 %.sroa.046.0.copyload, -1
   tail call void @llvm.assume(i1 %25)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)

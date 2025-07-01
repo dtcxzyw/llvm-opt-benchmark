@@ -412,7 +412,8 @@ _ZNK5Eigen9DenseBaseINS_5BlockIKNS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELin1ELi1EL
   %166 = load ptr, ptr %8, align 8, !tbaa !24
   %167 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %168 = load i64, ptr %167, align 8, !tbaa !22
-  %169 = getelementptr inbounds i32, ptr %166, i64 %168
+  %.idx = shl nsw i64 %168, 2
+  %169 = getelementptr inbounds i8, ptr %166, i64 %.idx
   %.not4.i = icmp eq i64 %168, 0
   br i1 %.not4.i, label %.loopexit, label %.lr.ph.i
 

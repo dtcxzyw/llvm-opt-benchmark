@@ -1072,7 +1072,8 @@ _ZNK2cv11_InputArray6getMatEi.exit83:             ; preds = %126, %128
   br i1 %145, label %.loopexit.i.i, label %.preheader.preheader.i.i
 
 .preheader.preheader.i.i:                         ; preds = %142
-  %146 = getelementptr inbounds %"class.cv::Mat", ptr %139, i64 %144
+  %.idx.i.i = mul nsw i64 %144, 96
+  %146 = getelementptr inbounds i8, ptr %139, i64 %.idx.i.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
@@ -1171,7 +1172,8 @@ define linkonce_odr hidden void @_ZN2cv10AutoBufferINS_3MatELm18EED2Ev(ptr nound
   br i1 %9, label %.loopexit.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %6
-  %10 = getelementptr inbounds %"class.cv::Mat", ptr %2, i64 %8
+  %.idx.i = mul nsw i64 %8, 96
+  %10 = getelementptr inbounds i8, ptr %2, i64 %.idx.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
@@ -1595,7 +1597,8 @@ _ZNK2cv11_InputArray6getMatEi.exit81:             ; preds = %134, %136
   br i1 %160, label %.loopexit.i.i, label %.preheader.preheader.i.i
 
 .preheader.preheader.i.i:                         ; preds = %157
-  %161 = getelementptr inbounds %"class.cv::Mat", ptr %154, i64 %159
+  %.idx.i.i = mul nsw i64 %159, 96
+  %161 = getelementptr inbounds i8, ptr %154, i64 %.idx.i.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i

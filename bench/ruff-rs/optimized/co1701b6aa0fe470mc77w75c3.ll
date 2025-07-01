@@ -96,7 +96,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10ruff_cache9cache_key8CacheKey15cache_key_slice17h534405c2faa9e968E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw { ptr, i64 }, ptr %0, i64 %1
+  %.idx = shl nuw nsw i64 %1, 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
@@ -1148,7 +1149,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %9 = load i64, ptr %8, align 8, !alias.scope !84, !noalias !87, !noundef !3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !89
   call void @_ZN4core3fmt9Formatter10debug_list17h707f9a0a1c7e66ccE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !93
-  %10 = getelementptr inbounds nuw { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %7, i64 %9
+  %.idx.i.i = mul nuw nsw i64 %9, 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i.i
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb6c4eeadedf2b43fE.exit", label %.lr.ph.i.i.i
 
@@ -6029,7 +6031,8 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as
   %8 = load i64, ptr %7, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !681
   call void @_ZN4core3fmt9Formatter10debug_list17h707f9a0a1c7e66ccE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !685
-  %9 = getelementptr inbounds nuw { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr %6, i64 %8
+  %.idx.i = mul nuw nsw i64 %8, 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %10 = icmp eq i64 %8, 0
   br i1 %10, label %"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17hac2b992e526a18c0E.exit", label %.lr.ph.i.i
 
@@ -7582,7 +7585,8 @@ define hidden void @"_ZN7ruff_db6system4path36DeduplicatedNestedPathsIter$LT$P$G
   %.sroa.4.0 = phi ptr [ %8, %18 ], [ %22, %21 ]
   %.sroa.3.0.i = phi i64 [ undef, %18 ], [ %25, %21 ]
   %.sroa.0.0.i = phi ptr [ null, %18 ], [ %23, %21 ]
-  %27 = getelementptr inbounds nuw { ptr, i64 }, ptr %8, i64 %10
+  %.idx = shl nuw nsw i64 %10, 4
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   store ptr %8, ptr %0, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.4.0, ptr %.sroa.411.0..sroa_idx, align 8
@@ -7832,7 +7836,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h5dc4fa6e4b451500E.exit: ; preds
   %.sroa.4.0 = phi ptr [ %65, %75 ], [ %79, %78 ]
   %.sroa.3.0.i = phi i64 [ undef, %75 ], [ %82, %78 ]
   %.sroa.0.0.i = phi ptr [ null, %75 ], [ %80, %78 ]
-  %84 = getelementptr inbounds nuw { ptr, i64 }, ptr %65, i64 %67
+  %.idx = shl nuw nsw i64 %67, 4
+  %84 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx
   store ptr %65, ptr %0, align 8
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.4.0, ptr %.sroa.424.0..sroa_idx, align 8

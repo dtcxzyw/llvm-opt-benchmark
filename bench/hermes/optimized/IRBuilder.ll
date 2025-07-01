@@ -2411,7 +2411,8 @@ entry:
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %callee) #15
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef nonnull %literalUndefined.i.i) #15
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %thisValue) #15
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %args.coerce0, i64 %args.coerce1
+  %add.ptr.i.idx.i.i = shl nsw i64 %args.coerce1, 3
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %args.coerce0, i64 %add.ptr.i.idx.i.i
   %cmp.not4.i.i = icmp eq i64 %args.coerce1, 0
   br i1 %cmp.not4.i.i, label %_ZN6hermes8CallInstC2EPNS_13LiteralStringEPNS_5ValueEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIS4_EE.exit, label %for.body.i.i
 
@@ -2511,7 +2512,8 @@ entry:
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %callee) #15
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef nonnull %literalUndefined.i.i) #15
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %thisValue) #15
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %args.coerce0, i64 %args.coerce1
+  %add.ptr.i.idx.i.i = shl nsw i64 %args.coerce1, 3
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %args.coerce0, i64 %add.ptr.i.idx.i.i
   %cmp.not4.i.i = icmp eq i64 %args.coerce1, 0
   br i1 %cmp.not4.i.i, label %_ZN6hermes12HBCCallNInstC2EPNS_13LiteralStringEPNS_5ValueEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIS4_EE.exit, label %for.body.i.i
 
@@ -2611,7 +2613,8 @@ entry:
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %constructor) #15
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %newTarget) #15
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef nonnull %literalUndefined.i.i) #15
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %args.coerce0, i64 %args.coerce1
+  %add.ptr.i.idx.i.i = shl nsw i64 %args.coerce1, 3
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %args.coerce0, i64 %add.ptr.i.idx.i.i
   %cmp.not4.i.i = icmp eq i64 %args.coerce1, 0
   br i1 %cmp.not4.i.i, label %_ZN6hermes13ConstructInstC2EPNS_5ValueES2_PNS_16LiteralUndefinedEN4llvh8ArrayRefIS2_EE.exit, label %for.body.i.i
 
@@ -3877,7 +3880,8 @@ entry:
   %Size.i.i = getelementptr inbounds nuw i8, ptr %val_list, i64 8
   %2 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %2 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %conv.i.i
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i.i, 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.i.idx.i
   %cmp.not4.i = icmp eq i32 %2, 0
   br i1 %cmp.not4.i, label %_ZN6hermes14AllocArrayInstC2ERN4llvh11SmallVectorIPNS_5ValueELj4EEEPNS_13LiteralNumberE.exit, label %for.body.i
 
@@ -6734,7 +6738,8 @@ entry:
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call, ptr noundef %closure) #15
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call, ptr noundef %newTarget) #15
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call, ptr noundef %thisValue) #15
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %arguments.coerce0, i64 %arguments.coerce1
+  %add.ptr.i.idx.i.i = shl nsw i64 %arguments.coerce1, 3
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %arguments.coerce0, i64 %add.ptr.i.idx.i.i
   %cmp.not4.i.i = icmp eq i64 %arguments.coerce1, 0
   br i1 %cmp.not4.i.i, label %_ZN6hermes16HBCConstructInstC2EPNS_5ValueES2_S2_N4llvh8ArrayRefIS2_EE.exit, label %for.body.i.i
 
@@ -7006,7 +7011,8 @@ entry:
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %call.i) #15
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef nonnull %literalUndefined.i.i) #15
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef nonnull %literalUndefined.i.i) #15
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %arguments.coerce0, i64 %arguments.coerce1
+  %add.ptr.i.idx.i.i = shl nsw i64 %arguments.coerce1, 3
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %arguments.coerce0, i64 %add.ptr.i.idx.i.i
   %cmp.not4.i.i = icmp eq i64 %arguments.coerce1, 0
   br i1 %cmp.not4.i.i, label %_ZN6hermes15CallBuiltinInstC2EPNS_13LiteralNumberEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIPNS_5ValueEEE.exit, label %for.body.i.i
 
@@ -7194,7 +7200,8 @@ entry:
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %spec.select.i) #15
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef nonnull %literalUndefined.i.i) #15
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %call2, ptr noundef %thisValue) #15
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %arguments.coerce0, i64 %arguments.coerce1
+  %add.ptr.i.idx.i.i = shl nsw i64 %arguments.coerce1, 3
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %arguments.coerce0, i64 %add.ptr.i.idx.i.i
   %cmp.not4.i.i = icmp eq i64 %arguments.coerce1, 0
   br i1 %cmp.not4.i.i, label %_ZN6hermes17HBCCallDirectInstC2EPNS_13LiteralStringEPNS_8FunctionEPNS_16LiteralUndefinedEPNS_5ValueEN4llvh8ArrayRefIS8_EE.exit, label %for.body.i.i
 
@@ -8137,7 +8144,8 @@ if.end:                                           ; preds = %lor.lhs.false
   %Size.i = getelementptr inbounds nuw i8, ptr %call8, i64 8
   %8 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %8 to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %7, i64 %conv.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %7, i64 %add.ptr.i.idx
   %cmp11.not20 = icmp eq i32 %8, 0
   br i1 %cmp11.not20, label %for.end30, label %for.body
 
@@ -9315,7 +9323,8 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIN
   store i32 0, ptr %NumTombstones.i.i.i, align 4
   %3 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i = zext i32 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %call.i, i64 %idx.ext.i.i
+  %add.ptr.i.idx.i = mul nuw nsw i64 %idx.ext.i.i, 24
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %add.ptr.i.idx.i
   %cmp.not3.i = icmp eq i32 %3, 0
   br i1 %cmp.not3.i, label %return, label %for.body.i
 
@@ -9330,14 +9339,16 @@ for.body.i:                                       ; preds = %if.then, %for.body.
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %1, i64 %idx.ext
+  %add.ptr.idx = mul nuw nsw i64 %idx.ext, 24
+  %add.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %add.ptr.idx
   %NumEntries.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i.i, align 8
   %NumTombstones.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i.i, align 4
   %4 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %call.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.idx.i.i = mul nuw nsw i64 %idx.ext.i.i.i, 24
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %add.ptr.i.idx.i.i
   %cmp.not3.i.i = icmp eq i32 %4, 0
   br i1 %cmp.not3.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E9initEmptyEv.exit.i, label %for.body.i.i
 

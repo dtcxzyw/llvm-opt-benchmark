@@ -175,7 +175,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang6interp13BitcastBuffer14allInitia
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !19
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.clang::interp::BitRange", ptr %6, i64 %9
+  %.idx.i = shl nuw nsw i64 %9, 4
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not56.i = icmp eq i32 %8, 0
   br i1 %.not56.i, label %.loopexit.i, label %.lr.ph.i
 
@@ -239,7 +240,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang6interp13BitcastBuffer16rangeInit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !19
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %"struct.clang::interp::BitRange", ptr %9, i64 %12
+  %.idx = shl nuw nsw i64 %12, 4
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   %.not56 = icmp eq i32 %11, 0
   br i1 %.not56, label %.loopexit, label %.lr.ph
 

@@ -4529,7 +4529,8 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127X86FixupVectorCo
 22:                                               ; preds = %15, %16
   %23 = phi i32 [ %21, %16 ], [ %3, %15 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17
-  %24 = getelementptr inbounds nuw %struct.FixupEntry, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 48
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not3953 = icmp eq i64 %2, 0
   br i1 %.not3953, label %.critedge45, label %.lr.ph
 
@@ -4920,7 +4921,8 @@ _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit61.i: ; preds = %44, %41, %
   store i32 0, ptr %56, align 8, !tbaa !403, !noalias !397
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull %55, i64 noundef %54, i64 noundef 8) #17, !noalias !397
   %60 = load ptr, ptr %7, align 8, !tbaa !401, !noalias !397
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %54
+  %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %54, 3
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %59
@@ -4935,7 +4937,8 @@ _ZSt6fill_nIPPN4llvm8ConstantEmS2_ET_S4_T0_RKT1_.exit.i.i.i: ; preds = %53
   br i1 %.not.i.i, label %_ZN4llvm11SmallVectorIPNS_8ConstantELj16EEC2EmRKS2_.exit.i, label %63
 
 63:                                               ; preds = %_ZSt6fill_nIPPN4llvm8ConstantEmS2_ET_S4_T0_RKT1_.exit.i.i.i
-  %64 = getelementptr inbounds nuw ptr, ptr %55, i64 %54
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %54, 3
+  %64 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %63
@@ -5721,7 +5724,8 @@ _ZN4llvm5APIntD2Ev.exit91:                        ; preds = %46, %45
 _ZNK4llvm4User8operandsEv.exit.i:                 ; preds = %59, %56
   %64 = phi ptr [ %58, %56 ], [ %63, %59 ]
   %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %56 ], [ %61, %59 ]
-  %65 = getelementptr inbounds nuw %"class.llvm::Use", ptr %64, i64 %.pre-phi2.i.i.i
+  %.idx.i = shl nuw nsw i64 %.pre-phi2.i.i.i, 5
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx.i
   %.not30.i = icmp eq i64 %.pre-phi2.i.i.i, 0
   br i1 %.not30.i, label %.critedge81, label %.lr.ph.i
 
@@ -6117,11 +6121,12 @@ define linkonce_odr hidden void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 -8
   %6 = load i64, ptr %5, align 8
+  %.idx.i = mul i64 %6, 24
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %8 = getelementptr inbounds %"class.llvm::APFloat", ptr %3, i64 %6
+  %8 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %9 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #22
   br label %10
 
@@ -6145,9 +6150,8 @@ _ZN4llvm7APFloatD2Ev.exit.i:                      ; preds = %15, %14
   br i1 %16, label %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %10
 
 _ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit: ; preds = %_ZN4llvm7APFloatD2Ev.exit.i, %4
-  %17 = mul i64 %6, 24
-  %18 = add i64 %17, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %18) #20
+  %17 = add i64 %.idx.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %5, i64 noundef %17) #20
   br label %_ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N4llvm7APFloatESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit

@@ -1765,7 +1765,8 @@ define dso_local void @zend_cfg_build_predecessors(ptr noundef captures(none) %0
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = load i32, ptr %1, align 8, !tbaa !12
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct._zend_basic_block, ptr %4, i64 %6
+  %.idx = shl nsw i64 %6, 6
+  %7 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %8 = icmp sgt i32 %5, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 

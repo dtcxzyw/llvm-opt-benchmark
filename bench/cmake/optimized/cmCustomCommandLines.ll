@@ -44,7 +44,8 @@ define dso_local void @_Z17cmMakeCommandLineSt16initializer_listISt17basic_strin
           to label %5 unwind label %7
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not13 = icmp eq i64 %2, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -360,7 +361,8 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %11, ptr %12, align 8, !tbaa !16
   %13 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %11, i64 %2
   store ptr %13, ptr %9, align 8, !tbaa !12
-  %14 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %1, i64 %2
+  %.idx.i = shl nuw nsw i64 %2, 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
   br label %.lr.ph.i
 
 15:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i, %7

@@ -597,7 +597,8 @@ invoke.cont9:                                     ; preds = %if.then
   %items_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %5 = load ptr, ptr %items_.i, align 8
   %6 = load i64, ptr %ref.tmp, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %5, i64 %6
+  %add.ptr.i.idx = shl nsw i64 %6, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %add.ptr.i.idx
   %cmp.i.i.not45 = icmp eq i64 %6, 0
   br i1 %cmp.i.i.not45, label %for.cond.cleanup, label %invoke.cont16
 
@@ -905,7 +906,7 @@ _ZNSt10unique_ptrIA_PKvSt14default_deleteIS2_EED2Ev.exit: ; preds = %lpad, %_ZNK
   resume { ptr, i32 } %21
 
 for.end:                                          ; preds = %if.then.i.i, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE14const_iteratorppEv.exit, %for.inc.i.i.i, %if.end
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %call4, i64 %conv.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call4, i64 %1
   %23 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv.i, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %23, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
@@ -2583,7 +2584,8 @@ sw.bb18:                                          ; preds = %entry
   %19 = inttoptr i64 %sub.i.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %16, ptr %elements.i.i.i.i
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i.i.i.i, i64 %conv.i27
+  %add.ptr.i.i.idx = shl nsw i64 %conv.i27, 3
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %add.ptr.i.i.idx
   %cmp.i.i.not38 = icmp eq i32 %15, 0
   br i1 %cmp.i.i.not38, label %_ZNK6google8protobuf9ListValue12ByteSizeLongEv.exit, label %for.body.i
 
@@ -2957,7 +2959,8 @@ entry:
   %4 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %cond.i.i.i = select i1 %cmp.i.i.i.i, ptr %1, ptr %elements.i.i.i
-  %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i.i.i, i64 %conv
+  %add.ptr.i.idx = shl nsw i64 %conv, 3
+  %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %add.ptr.i.idx
   %cmp.i.not12 = icmp eq i32 %0, 0
   br i1 %cmp.i.not12, label %for.end, label %for.body
 

@@ -626,7 +626,8 @@ _ZN3std4sync4mpmc5waker17current_thread_id5DUMMY7__getit17had567bd67086969cE.exi
   %125 = ptrtoint ptr %.0.i.i2.i.i.i.i to i64
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %127 = load ptr, ptr %126, align 16, !alias.scope !18, !noalias !21, !nonnull !4, !noundef !4
-  %128 = getelementptr inbounds { ptr, i64, ptr }, ptr %127, i64 %118
+  %.idx.i.i.i = mul nsw i64 %118, 24
+  %128 = getelementptr inbounds i8, ptr %127, i64 %.idx.i.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZN3std4sync4mpmc5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17hd4723399caec4874E.exit.i.i.i.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb1320079b44b90a5E.exit.i.i.i"
@@ -1586,7 +1587,8 @@ common.resume:                                    ; preds = %44, %17
   %25 = load ptr, ptr %24, align 8, !alias.scope !185, !nonnull !4, !noundef !4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load i64, ptr %26, align 8, !alias.scope !185, !noundef !4
-  %28 = getelementptr inbounds { ptr, i64, ptr }, ptr %25, i64 %27
+  %.idx.i = mul nsw i64 %27, 24
+  %28 = getelementptr inbounds i8, ptr %25, i64 %.idx.i
   %29 = icmp eq i64 %27, 0
   br i1 %29, label %._crit_edge.i, label %.lr.ph.i
 

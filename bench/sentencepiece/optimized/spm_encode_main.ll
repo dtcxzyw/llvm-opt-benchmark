@@ -4680,7 +4680,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %36 = load i32, ptr %35, align 8, !tbaa !178
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %spec.select.i.i.i.i.i, i64 %37
+  %.idx.i.i.i = shl nsw i64 %37, 3
+  %38 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i, i64 %.idx.i.i.i
   %.not41.i.i.i = icmp eq i32 %36, 0
   br i1 %.not41.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE3$_0JSt17basic_string_viewIcSt11char_traitsIcEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %.lr.ph.i.i.i
 

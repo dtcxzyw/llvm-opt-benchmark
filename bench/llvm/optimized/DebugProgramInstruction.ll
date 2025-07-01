@@ -1158,7 +1158,7 @@ _ZN4llvm8DebugLocD2Ev.exit33:                     ; preds = %_ZNK4llvm6MDNode10g
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = load i8, ptr %45, align 8, !tbaa !39
   %47 = icmp ult i8 %46, 3
-  br i1 %47, label %switch.lookup, label %_ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit48
+  br i1 %47, label %switch.lookup, label %_ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit49
 
 switch.lookup:                                    ; preds = %_ZN4llvm8DebugLocD2Ev.exit33
   %48 = zext nneg i8 %46 to i64
@@ -1167,7 +1167,7 @@ switch.lookup:                                    ; preds = %_ZN4llvm8DebugLocD2
   %49 = call noundef ptr @_ZN4llvm9Intrinsic22getOrInsertDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef %1, i32 noundef %switch.load, ptr null, i64 0) #18
   %.pr = load i8, ptr %45, align 8, !tbaa !39
   %50 = icmp eq i8 %.pr, 2
-  br i1 %50, label %_ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit, label %_ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit48
+  br i1 %50, label %_ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit, label %_ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit49
 
 _ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit: ; preds = %switch.lookup
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #18
@@ -1223,8 +1223,8 @@ _ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #18
   br label %102
 
-_ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit48: ; preds = %_ZN4llvm8DebugLocD2Ev.exit33, %switch.lookup
-  %.081 = phi ptr [ %49, %switch.lookup ], [ undef, %_ZN4llvm8DebugLocD2Ev.exit33 ]
+_ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit49: ; preds = %_ZN4llvm8DebugLocD2Ev.exit33, %switch.lookup
+  %.082 = phi ptr [ %49, %switch.lookup ], [ undef, %_ZN4llvm8DebugLocD2Ev.exit33 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #18
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %84 = load ptr, ptr %83, align 8, !tbaa !46
@@ -1240,7 +1240,7 @@ _ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS
   %92 = load ptr, ptr %91, align 8, !tbaa !3
   %93 = call noundef ptr @_ZN4llvm15MetadataAsValue3getERNS_11LLVMContextEPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i, ptr noundef %92) #18
   store ptr %93, ptr %90, align 16, !tbaa !74
-  %94 = getelementptr inbounds nuw i8, ptr %.081, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %.082, i64 24
   %95 = load ptr, ptr %94, align 8, !tbaa !75
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #18
   %96 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1254,14 +1254,14 @@ _ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS
   call void @_ZN4llvm11InstructionC2EPNS_4TypeEjNS_4User9AllocInfoENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(88) %97, ptr noundef %100, i32 noundef 56, i32 4, ptr null, i64 0) #18
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 72
   store ptr null, ptr %101, align 8, !tbaa !81
-  call void @_ZN4llvm8CallInst4initEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(88) %97, ptr noundef nonnull %95, ptr noundef nonnull %.081, ptr nonnull %10, i64 3, ptr noundef nonnull byval(%"class.llvm::ArrayRef.29") align 8 %4, ptr noundef nonnull align 8 dereferenceable(34) %11) #18
+  call void @_ZN4llvm8CallInst4initEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(88) %97, ptr noundef nonnull %95, ptr noundef nonnull %.082, ptr nonnull %10, i64 3, ptr noundef nonnull byval(%"class.llvm::ArrayRef.29") align 8 %4, ptr noundef nonnull align 8 dereferenceable(34) %11) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #18
   br label %102
 
-102:                                              ; preds = %_ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit48, %_ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit
-  %.025 = phi ptr [ %78, %_ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit ], [ %97, %_ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit48 ]
+102:                                              ; preds = %_ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit49, %_ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit
+  %.025 = phi ptr [ %78, %_ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit ], [ %97, %_ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit49 ]
   %103 = getelementptr inbounds nuw i8, ptr %.025, i64 2
   %104 = load i16, ptr %103, align 2, !tbaa !84
   %105 = and i16 %104, -4
@@ -1270,22 +1270,22 @@ _ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_INS
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %107 = load ptr, ptr %13, align 8, !tbaa !3, !noalias !85
   store ptr %107, ptr %12, align 8, !tbaa !3, !alias.scope !85
-  %.not.i.i.i.i.i49 = icmp eq ptr %107, null
-  br i1 %.not.i.i.i.i.i49, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit50, label %108
+  %.not.i.i.i.i.i50 = icmp eq ptr %107, null
+  br i1 %.not.i.i.i.i.i50, label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit51, label %108
 
 108:                                              ; preds = %102
   %109 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %107, i64 1) #18
-  br label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit50
+  br label %_ZNK4llvm9DbgRecord11getDebugLocEv.exit51
 
-_ZNK4llvm9DbgRecord11getDebugLocEv.exit50:        ; preds = %102, %108
+_ZNK4llvm9DbgRecord11getDebugLocEv.exit51:        ; preds = %102, %108
   %110 = getelementptr inbounds nuw i8, ptr %.025, i64 48
   %111 = icmp eq ptr %12, %110
   br i1 %111, label %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit, label %112
 
-112:                                              ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit50
+112:                                              ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit51
   %113 = load ptr, ptr %110, align 8, !tbaa !3
-  %.not.i.i.i.i.i51 = icmp eq ptr %113, null
-  br i1 %.not.i.i.i.i.i51, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i, label %114
+  %.not.i.i.i.i.i52 = icmp eq ptr %113, null
+  br i1 %.not.i.i.i.i.i52, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i, label %114
 
 114:                                              ; preds = %112
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull align 4 dereferenceable(8) %113) #18
@@ -1295,32 +1295,32 @@ _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i:   ; preds = %114, %112
   %115 = load ptr, ptr %12, align 8, !tbaa !3
   store ptr %115, ptr %110, align 8, !tbaa !3
   %.not.i6.i.i.i.i = icmp eq ptr %115, null
-  br i1 %.not.i6.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit53, label %116
+  br i1 %.not.i6.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit54, label %116
 
 116:                                              ; preds = %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i
   %117 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking7retrackEPvRNS_8MetadataES1_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %115, ptr noundef nonnull align 8 dereferenceable(8) %110) #18
   store ptr null, ptr %12, align 8, !tbaa !3
-  br label %_ZN4llvm8DebugLocD2Ev.exit53
+  br label %_ZN4llvm8DebugLocD2Ev.exit54
 
-_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit: ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit50
-  %.pr82 = load ptr, ptr %12, align 8, !tbaa !3
-  %.not.i.i.i.i52 = icmp eq ptr %.pr82, null
-  br i1 %.not.i.i.i.i52, label %_ZN4llvm8DebugLocD2Ev.exit53, label %118
+_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit: ; preds = %_ZNK4llvm9DbgRecord11getDebugLocEv.exit51
+  %.pr83 = load ptr, ptr %12, align 8, !tbaa !3
+  %.not.i.i.i.i53 = icmp eq ptr %.pr83, null
+  br i1 %.not.i.i.i.i53, label %_ZN4llvm8DebugLocD2Ev.exit54, label %118
 
 118:                                              ; preds = %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %.pr82) #18
-  br label %_ZN4llvm8DebugLocD2Ev.exit53
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %.pr83) #18
+  br label %_ZN4llvm8DebugLocD2Ev.exit54
 
-_ZN4llvm8DebugLocD2Ev.exit53:                     ; preds = %116, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i, %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit, %118
+_ZN4llvm8DebugLocD2Ev.exit54:                     ; preds = %116, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i, %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit, %118
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %121, label %119
 
-119:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit53
+119:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit54
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @_ZN4llvm11Instruction12insertBeforeENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsIS0_Lb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(72) %.025, ptr nonnull %120, i64 0) #18
   br label %121
 
-121:                                              ; preds = %119, %_ZN4llvm8DebugLocD2Ev.exit53
+121:                                              ; preds = %119, %_ZN4llvm8DebugLocD2Ev.exit54
   ret ptr %.025
 }
 
@@ -2511,7 +2511,8 @@ _ZNK4llvm17DbgVariableRecord12location_opsEv.exit: ; preds = %24, %30
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit, %.critedge.i, %_ZN4llvm17DbgVariableRecord13setExpressionEPNS_12DIExpressionE.exit, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit
   %41 = phi i32 [ 0, %_ZNK4llvm17DbgVariableRecord12location_opsEv.exit ], [ 0, %_ZN4llvm17DbgVariableRecord13setExpressionEPNS_12DIExpressionE.exit ], [ 0, %.critedge.i ], [ %74, %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit ]
-  %42 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %.idx = shl nuw nsw i64 %2, 3
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not34 = icmp eq i64 %2, 0
   br i1 %.not34, label %._crit_edge38, label %.lr.ph37
 
@@ -2773,7 +2774,8 @@ _ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit: ; preds = %.lr.ph, %
   %45 = load ptr, ptr %2, align 8, !tbaa !127, !noalias !138
   %46 = load i32, ptr %5, align 4, !tbaa !131, !noalias !138
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %45, i64 %47
+  %.idx.i.i = shl nuw nsw i64 %47, 3
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx.i.i
   %.not36.i.i = icmp eq i32 %46, 0
   br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 

@@ -10084,7 +10084,8 @@ define internal fastcc void @"_ZN10actix_http2h17encoder11MessageType14encode_he
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17h4c28e121514a28f9E.llvm.222537792231950641.exit": ; preds = %17, %20
   %.sink3.i = phi ptr [ %23, %20 ], [ %19, %17 ]
   %.sink2.i = phi i64 [ %25, %20 ], [ %14, %17 ]
-  %26 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %.sink3.i, i64 %.sink2.i
+  %.idx = mul nsw i64 %.sink2.i, 40
+  %26 = getelementptr inbounds i8, ptr %.sink3.i, i64 %.idx
   %27 = icmp eq i64 %.sink2.i, 0
   br i1 %27, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heaad3dca1d8ddd53E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heaad3dca1d8ddd53E.exit.lr.ph"
 
@@ -10272,7 +10273,8 @@ define internal fastcc void @"_ZN10actix_http2h17encoder11MessageType14encode_he
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17h4c28e121514a28f9E.llvm.222537792231950641.exit": ; preds = %17, %20
   %.sink3.i = phi ptr [ %23, %20 ], [ %19, %17 ]
   %.sink2.i = phi i64 [ %25, %20 ], [ %14, %17 ]
-  %26 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %.sink3.i, i64 %.sink2.i
+  %.idx = mul nsw i64 %.sink2.i, 40
+  %26 = getelementptr inbounds i8, ptr %.sink3.i, i64 %.idx
   %27 = icmp eq i64 %.sink2.i, 0
   br i1 %27, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heaad3dca1d8ddd53E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heaad3dca1d8ddd53E.exit.lr.ph"
 
@@ -11645,7 +11647,8 @@ define void @"_ZN110_$LT$actix_http..header..map..HeaderMap$u20$as$u20$core..con
   %29 = load ptr, ptr %28, align 8, !alias.scope !2550, !noalias !2547, !nonnull !4, !align !2552, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %31 = load i64, ptr %30, align 8, !alias.scope !2550, !noalias !2547, !noundef !4
-  %32 = getelementptr inbounds { i16, i16 }, ptr %29, i64 %31
+  %.idx.i = shl nsw i64 %31, 2
+  %32 = getelementptr inbounds i8, ptr %29, i64 %.idx.i
   %33 = icmp eq i64 %31, 0
   br i1 %33, label %.loopexit, label %.lr.ph.i
 

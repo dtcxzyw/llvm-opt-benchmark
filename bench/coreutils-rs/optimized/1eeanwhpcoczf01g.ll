@@ -51,7 +51,8 @@ define hidden { i8, i8 } @_ZN7uu_expr11syntax_tree6Parser6accept17hbb9559ff35d63
   %17 = load ptr, ptr %16, align 8, !noalias !7, !nonnull !4, !align !5, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8, !noalias !7, !noundef !4
-  %20 = getelementptr inbounds { { ptr, i64 }, { i8, [1 x i8] }, [6 x i8] }, ptr %17, i64 %19
+  %.idx.i = mul nsw i64 %19, 24
+  %20 = getelementptr inbounds i8, ptr %17, i64 %.idx.i
   %21 = icmp eq i64 %19, 0
   br i1 %21, label %"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.exit.thread", label %.lr.ph.i
 

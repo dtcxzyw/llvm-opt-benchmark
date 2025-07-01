@@ -4678,7 +4678,8 @@ _Z19quick_for_each_exprIN12_GLOBAL__N_121is_non_qflira_functorEEvRT_R13ast_fast_
   %307 = load ptr, ptr %4, align 8, !tbaa !161
   %308 = load i32, ptr %6, align 8, !tbaa !164
   %309 = zext i32 %308 to i64
-  %310 = getelementptr inbounds nuw ptr, ptr %307, i64 %309
+  %.idx.i.i = shl nuw nsw i64 %309, 3
+  %310 = getelementptr inbounds nuw i8, ptr %307, i64 %.idx.i.i
   %.not8.i.i = icmp eq i32 %308, 0
   br i1 %.not8.i.i, label %.loopexit.i, label %.lr.ph.i.i20
 
@@ -4738,7 +4739,8 @@ define linkonce_odr hidden void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnul
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !164
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
+  %.idx.i = shl nuw nsw i64 %5, 3
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %.not8.i = icmp eq i32 %4, 0
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i
 
@@ -5881,7 +5883,8 @@ _Z19quick_for_each_exprIN12_GLOBAL__N_124is_non_qfauflira_functorEEvRT_R13ast_fa
   %313 = load ptr, ptr %4, align 8, !tbaa !161
   %314 = load i32, ptr %12, align 8, !tbaa !164
   %315 = zext i32 %314 to i64
-  %316 = getelementptr inbounds nuw ptr, ptr %313, i64 %315
+  %.idx.i.i.i.i = shl nuw nsw i64 %315, 3
+  %316 = getelementptr inbounds nuw i8, ptr %313, i64 %.idx.i.i.i.i
   %.not8.i.i.i.i = icmp eq i32 %314, 0
   br i1 %.not8.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i20.i.i
 
@@ -7586,7 +7589,8 @@ _Z19quick_for_each_exprIN12_GLOBAL__N_119is_non_nira_functorEEvRT_R13ast_fast_ma
   %369 = load ptr, ptr %4, align 8, !tbaa !161
   %370 = load i32, ptr %6, align 8, !tbaa !164
   %371 = zext i32 %370 to i64
-  %372 = getelementptr inbounds nuw ptr, ptr %369, i64 %371
+  %.idx.i.i = shl nuw nsw i64 %371, 3
+  %372 = getelementptr inbounds nuw i8, ptr %369, i64 %.idx.i.i
   %.not8.i.i = icmp eq i32 %370, 0
   br i1 %.not8.i.i, label %.loopexit.i, label %.lr.ph.i.i20
 
@@ -8627,7 +8631,8 @@ _Z19quick_for_each_exprIN12_GLOBAL__N_19has_nlmulEEvRT_R13ast_fast_markILj1EEP4e
   %371 = load ptr, ptr %3, align 8, !tbaa !161
   %372 = load i32, ptr %8, align 8, !tbaa !164
   %373 = zext i32 %372 to i64
-  %374 = getelementptr inbounds nuw ptr, ptr %371, i64 %373
+  %.idx.i.i.i = shl nuw nsw i64 %373, 3
+  %374 = getelementptr inbounds nuw i8, ptr %371, i64 %.idx.i.i.i
   %.not8.i.i.i = icmp eq i32 %372, 0
   br i1 %.not8.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i20.i
 
@@ -10226,7 +10231,8 @@ _Z19quick_for_each_exprIN12_GLOBAL__N_122is_non_qfufnra_functorEEvRT_R13ast_fast
   %311 = load ptr, ptr %4, align 8, !tbaa !161
   %312 = load i32, ptr %14, align 8, !tbaa !164
   %313 = zext i32 %312 to i64
-  %314 = getelementptr inbounds nuw ptr, ptr %311, i64 %313
+  %.idx.i.i.i.i = shl nuw nsw i64 %313, 3
+  %314 = getelementptr inbounds nuw i8, ptr %311, i64 %.idx.i.i.i.i
   %.not8.i.i.i.i = icmp eq i32 %312, 0
   br i1 %.not8.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i20.i.i
 

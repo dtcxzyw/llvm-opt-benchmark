@@ -346,7 +346,8 @@ define internal fastcc void @_ZN9uv_pep4407version7Version12with_release17h367c8
   %.sroa.515.0.copyload = load i64, ptr %.sroa.515.0..sroa_idx, align 8
   %23 = icmp ult i64 %.sroa.515.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds nuw i64, ptr %.sroa.414.0.copyload, i64 %.sroa.515.0.copyload
+  %.idx = shl nuw nsw i64 %.sroa.515.0.copyload, 3
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.414.0.copyload, i64 %.idx
   %25 = icmp sgt i64 %.sroa.013.0.copyload, -1
   tail call void @llvm.assume(i1 %25)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
@@ -946,7 +947,8 @@ define void @"_ZN9uv_pep44014version_ranges162_$LT$impl$u20$core..convert..From$
 13:                                               ; preds = %3
   %14 = icmp ult i64 %2, 384307168202282326
   tail call void @llvm.assume(i1 %14)
-  %15 = getelementptr inbounds nuw { { { [9 x i8], i8, [6 x i8] } }, i8, [7 x i8] }, ptr %1, i64 %2
+  %.idx = mul nuw nsw i64 %2, 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   store ptr %1, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8

@@ -10,12 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage" = type { [48 x i8] }
 %"class.llvm::StringRef" = type { ptr, i64 }
-%"struct.clang::format::CommaSeparatedList::ColumnFormat" = type { i32, i32, i32, %"class.llvm::SmallVector.67" }
-%"class.llvm::SmallVector.67" = type { %"class.llvm::SmallVectorImpl.68", %"struct.llvm::SmallVectorStorage.71" }
-%"class.llvm::SmallVectorImpl.68" = type { %"class.llvm::SmallVectorTemplateBase.69" }
-%"class.llvm::SmallVectorTemplateBase.69" = type { %"class.llvm::SmallVectorTemplateCommon.70" }
-%"class.llvm::SmallVectorTemplateCommon.70" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.71" = type { [32 x i8] }
 %"struct.clang::format::ParenState" = type <{ ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i16, i8, i8 }>
 %"class.llvm::SmallVector.77" = type { %"class.llvm::SmallVectorImpl.78", %"struct.llvm::SmallVectorStorage.82" }
 %"class.llvm::SmallVectorImpl.78" = type { %"class.llvm::SmallVectorTemplateBase.79" }
@@ -23,8 +17,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.80" = type { %"class.llvm::SmallVectorBase.81" }
 %"class.llvm::SmallVectorBase.81" = type { ptr, i64, i64 }
 %"struct.llvm::SmallVectorStorage.82" = type { [8 x i8] }
+%"class.llvm::SmallVector.67" = type { %"class.llvm::SmallVectorImpl.68", %"struct.llvm::SmallVectorStorage.71" }
+%"class.llvm::SmallVectorImpl.68" = type { %"class.llvm::SmallVectorTemplateBase.69" }
+%"class.llvm::SmallVectorTemplateBase.69" = type { %"class.llvm::SmallVectorTemplateCommon.70" }
+%"class.llvm::SmallVectorTemplateCommon.70" = type { %"class.llvm::SmallVectorBase" }
+%"struct.llvm::SmallVectorStorage.71" = type { [32 x i8] }
 %"class.llvm::SmallVector.83" = type { %"class.llvm::SmallVectorImpl.68", %"struct.llvm::SmallVectorStorage.84" }
 %"struct.llvm::SmallVectorStorage.84" = type { [48 x i8] }
+%"struct.clang::format::CommaSeparatedList::ColumnFormat" = type { i32, i32, i32, %"class.llvm::SmallVector.67" }
 
 $_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev = comdat any
 
@@ -789,7 +789,8 @@ define dso_local noundef ptr @_ZNK5clang6format18CommaSeparatedList15getColumnFo
 
 .lr.ph.preheader:                                 ; preds = %2
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"struct.clang::format::CommaSeparatedList::ColumnFormat", ptr %4, i64 %7
+  %.idx = shl nuw nsw i64 %7, 6
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
@@ -1456,7 +1457,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i:            ; preds = %_ZSt6fill_nIPjmjET_
   br i1 %275, label %_ZN4llvm15SmallVectorImplIjE6assignEmj.exit.loopexit209, label %_ZN4llvm15SmallVectorImplIjE6assignEmj.exit
 
 _ZN4llvm15SmallVectorImplIjE6assignEmj.exit.loopexit209: ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i
-  %276 = getelementptr i32, ptr %270, i64 %.pre-phi.i
+  %276 = getelementptr inbounds nuw i32, ptr %270, i64 %.pre-phi.i
   %277 = sub nsw i64 %indvar, %.pre-phi.i
   %278 = shl i64 %277, 2
   %279 = add i64 %278, 4
@@ -1825,7 +1826,8 @@ define linkonce_odr hidden void @_ZN5clang6format18CommaSeparatedListD2Ev(ptr no
 
 .lr.ph.i.preheader.i:                             ; preds = %1
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.clang::format::CommaSeparatedList::ColumnFormat", ptr %3, i64 %6
+  %.idx.i = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang6format18CommaSeparatedList12ColumnFormatD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -1897,7 +1899,8 @@ define linkonce_odr hidden void @_ZN5clang6format18CommaSeparatedListD0Ev(ptr no
 
 .lr.ph.i.preheader.i.i:                           ; preds = %1
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.clang::format::CommaSeparatedList::ColumnFormat", ptr %3, i64 %6
+  %.idx.i.i = shl nuw nsw i64 %6, 6
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5clang6format18CommaSeparatedList12ColumnFormatD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -2030,7 +2033,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format18Comm
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !44
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.clang::format::CommaSeparatedList::ColumnFormat", ptr %6, i64 %9
+  %.idx.i = shl nuw nsw i64 %9, 6
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %.not7.i.i.i.i.i.i = icmp eq i32 %8, 0
   br i1 %.not7.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format18CommaSeparatedList12ColumnFormatELb0EE19moveElementsForGrowEPS4_.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -2063,13 +2067,14 @@ _ZSt10_ConstructIN5clang6format18CommaSeparatedList12ColumnFormatEJS3_EEvPT_DpOT
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang6format18CommaSeparatedList12ColumnFormatELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i: ; preds = %_ZSt10_ConstructIN5clang6format18CommaSeparatedList12ColumnFormatEJS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !8
-  %.pre2.i = load i32, ptr %7, align 8, !tbaa !44
-  %.not4.i.i = icmp eq i32 %.pre2.i, 0
+  %.pre3.i = load i32, ptr %7, align 8, !tbaa !44
+  %.not4.i.i = icmp eq i32 %.pre3.i, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format18CommaSeparatedList12ColumnFormatELb0EE19moveElementsForGrowEPS4_.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format18CommaSeparatedList12ColumnFormatELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i
-  %22 = zext i32 %.pre2.i to i64
-  %23 = getelementptr inbounds nuw %"struct.clang::format::CommaSeparatedList::ColumnFormat", ptr %.pre.i, i64 %22
+  %22 = zext i32 %.pre3.i to i64
+  %.idx2.i = shl nuw nsw i64 %22, 6
+  %23 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 %.idx2.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang6format18CommaSeparatedList12ColumnFormatD2Ev.exit.i.i, %.lr.ph.i.preheader.i

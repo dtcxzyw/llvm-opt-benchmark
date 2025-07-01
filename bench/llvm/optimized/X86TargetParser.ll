@@ -1591,7 +1591,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8630validateCPUSpecificCPUDispatc
 define dso_local { i64, i64 } @_ZN4llvm3X8618getCpuSupportsMaskENS_8ArrayRefINS_9StringRefEEE(ptr readonly captures(address) %0, i64 %1) local_unnamed_addr #0 {
   %3 = alloca %"struct.std::array.3", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %4 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %0, i64 %1
+  %.idx = shl nuw nsw i64 %1, 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.not15352 = icmp eq i64 %1, 0
   br i1 %.not15352, label %._crit_edge, label %.lr.ph
 
